@@ -3,7 +3,7 @@
    description="Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI"
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/11/2016"
-   ms.author="jonatul"/>
+   ms.date="03/17/2016"
+   ms.author="cherylmc"/>
 
 # Import and export a DNS zone file
 

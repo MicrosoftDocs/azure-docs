@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="larryfr"/>
 
 #Run Pig jobs using PowerShell
@@ -30,7 +30,9 @@ This document provides an example of using Azure PowerShell to submit Pig jobs t
 To complete the steps in this article, you will need the following.
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **A workstation with Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a id="powershell"></a>Run Pig jobs using PowerShell

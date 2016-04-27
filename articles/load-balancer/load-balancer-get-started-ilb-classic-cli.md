@@ -42,7 +42,7 @@ To create an internal load balancer set and the servers that will send their tra
 
 This guide shows how to create an internal load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 

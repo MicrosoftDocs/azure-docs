@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Overview of Azure Data Lake Store

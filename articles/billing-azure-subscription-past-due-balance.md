@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="04/17/2016"
 	ms.author="genli"/>
 
 # Why have you received a notification that your Azure subscription has a past due balance?
-If you are the Account Administrator for your Azure subscription, and have not made your payment on time, you will receive an email notification about your past due balance or you will see an alert either on http://accounts.windowsazure.com or http://portal.azure.com.  
+If you are the Account Administrator for your Azure subscription, and have not made your payment on time, you will receive an email notification about your past due balance or you will see an alert either on [https://account.windowsazure.com](https://account.windowsazure.com) or [https://portal.azure.com](https://portal.azure.com).  
 
-### What will happen if you forget to pay
+## What will happen if you forget to pay
 The service will be canceled and your resources will no longer be available. Any data will be deleted 90 days after the service is terminated.
 
-### What can you do to resolve the issue
+## What can you do to resolve the issue
 
 Pay your outstanding balance in full.
 

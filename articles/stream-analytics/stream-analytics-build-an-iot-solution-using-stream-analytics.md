@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/18/2016" 
+	ms.date="03/21/2016" 
 	ms.author="jeffstok"
 />
 
@@ -319,7 +319,7 @@ Click OK at the bottom of the dialog to finish the wizard.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image30.jpg)
 
-You will need to follow the same sequence of steps to create the second Event Hub input for the stream with Exit events. Make sure on the 3^rd^ page you enter values as on the screenshot bellow.
+You will need to follow the same sequence of steps to create the second Event Hub input for the stream with Exit events. Make sure on the 3rd page you enter values as on the screenshot bellow.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
 

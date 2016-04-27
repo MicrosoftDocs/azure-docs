@@ -4,7 +4,7 @@
 	services="sql-database, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags

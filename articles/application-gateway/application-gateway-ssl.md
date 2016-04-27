@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma"/>
 
 # Configure an application gateway for SSL offload by using the classic deployment model
@@ -104,6 +104,7 @@ This sample shows the cmdlet on the first line, followed by the output.
 	ThumbprintAlgo : sha1RSA
 	State..........: Provisioned
 
+>[AZURE.NOTE] The certificate password has to be in between 4 to 12 characters, letters or numbers. Special characters are not accepted.
 
 ## Configure the gateway
 

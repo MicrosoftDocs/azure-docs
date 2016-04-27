@@ -39,7 +39,7 @@ The device data that a given IoT solution stores depends on the specific require
 *Device provisioning* is the process of adding the initial device data to the stores in your solution. To enable a new device to connect to your hub, you must add a new device ID and keys to the
 [IoT Hub identity registry][lnk-devguide-identityregistry]. As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
 
-The article [IoT Hub device management guidance][lnk-device-management] describes some common strategies for device provisioning. The [IoT Hub identity registry APIs][lnk-devguide-identityregistry] enable you to integrate IoT Hub into your provisioning process.
+The [IoT Hub identity registry APIs][lnk-devguide-identityregistry] enable you to integrate IoT Hub into your provisioning process.
 
 ## Field gateways
 
@@ -117,7 +117,6 @@ Follow these links to learn more about Azure IoT Hub:
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-device-management]: iot-hub-device-management.md
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use CDN | Microsoft Azure"
+	pageTitle="Using Azure CDN"
 	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content."
 	services="cdn"
 	documentationCenter=".net"
@@ -12,14 +12,14 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.topic="article"
+	ms.date="04/15/2016"
 	ms.author="casoper"/>
 
 
-# Using CDN for Azure
+# Using Azure CDN
 
-The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP application in Azure. It offers Azure customers a global solution by caching and delivering content close to end users. As a result, instead of hitting origin every single time, user requests get intelligently routed to the best performed CDN edge POP. This significantly increases the performance and user experience. For a current list of
+The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP/HTTPS application in Azure. It offers Azure customers a global solution by caching and delivering content close to end users. As a result, instead of hitting the origin every single time, user requests are intelligently routed to the CDN edge node (POP, or Point of Presence) that provides them with the best response times. This significantly increases the performance and user experience. For a current list of
 CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
 
 The benefits of using CDN to cache Azure data include:
@@ -129,7 +129,6 @@ Accessing CDN content using HTTPS has the following constraints:
 - You must use the certificate provided by the CDN. Third party certificates are not supported.
 - You must use the CDN domain to access content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
 
-For more information on enabling HTTPS for CDN content, see [How to Enable the Content Delivery Network (CDN) for Azure](cdn-create-new-endpoint.md).
 
 
 ## Accessing cached content with custom domains

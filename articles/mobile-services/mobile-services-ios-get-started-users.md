@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/05/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # Add Authentication to Existing App
@@ -23,7 +23,7 @@
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> For the equivalent Mobile Apps version of this topic, see [Add authentication to your iOS app](../app-service-mobile/app-service-mobile-ios-get-started-users.md). 
+> For the equivalent Mobile Apps version of this topic, see [Add authentication to your iOS app](../app-service-mobile/app-service-mobile-ios-get-started-users.md).
 
 In this tutorial, you add authentication to the [Mobile Services Quick Start tutorial] using a supported identity provider.
 

@@ -3,9 +3,9 @@
 	description="A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use Git deployment to Azure."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -13,15 +13,15 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
-	ms.date="02/09/2016"
-	ms.author="tomfitz"/>
+	ms.topic="get-started-article"
+	ms.date="04/08/2016"
+	ms.author="robmcm"/>
 
 #Create a PHP-MySQL web app in Azure App Service and deploy using Git
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -33,6 +33,7 @@ You will learn:
 
 * How to create a web app and a MySQL database using the [Azure Portal](https://portal.azure.com). Because PHP is enabled in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
+* How to enable the Composer extension to automate Composer tasks at every `git push`.
 
 By following this tutorial, you will build a simple registration web app in PHP. The application will be hosted in Web Apps. A screenshot of the completed application is below:
 
@@ -263,6 +264,30 @@ To publish changes to your app, follow these steps:
 	![Azure PHP web site][running-app]
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+<a name="composer">
+## Enable Composer automation with the Composer extension
+
+By default, the git deployment process in App Service doesn't do anything with composer.json, if you have one in your PHP
+project. You can enable composer.json processing during `git push` by enabling the Composer extension.
+
+1. In your PHP web app's blade in the [Azure portal](https://portal.azure.com), click **Tools** > **Extensions**.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+
+2. Click **Add**, then click **Composer**.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    
+3. Click **OK** to accept legal terms. Click **OK** again to add the extension.
+
+    The **Installed extensions** blade will now show the Composer extension.  
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    
+4. Now, perform `git add`, `git commit`, and `git push` like in the previous section. You'll now see that Composer
+is installing dependencies defined in composer.json.
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
 
 ## Next steps
 

@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Demand Forecast in Energy Technical Guide | Microsoft Azure"
-	description="A technical guide to the Solution Template with Microsoft Cortana Analytics for demand forecast in energy."
+	description="A technical guide to the Solution Template with Microsoft Cortana Intelligence for demand forecast in energy."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
-	manager="ireiter"
+	manager="ilanr9"
 	editor="yijichen"/>
 
 <tags
@@ -14,19 +14,17 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen"/>
+	ms.author="inqiu;yijichen;ilanr9"/>
 
-# Technical Guide to the Cortana Analytics Solution Template for Demand Forecast in Energy
+# Technical Guide to the Cortana Intelligence Solution Template for Demand Forecast in Energy
 
 ## **Overview**
 
-Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Analytics Suite. A deployed template will provision your subscription with necessary Cortana Analytics component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the Power BI dashboard.
+Solution Templates are designed to accelerate the process of building an E2E demo on top of Cortana Intelligence Suite. A deployed template will provision your subscription with necessary Cortana Intelligence component and build the relationships between. It also seeds the data pipeline with sample data getting generated from a data simulation application. Download the data simulator from the link provided and install it on your local machine, refer to the readme.txt file for instruction on using the simulator. Data generated from the simulator will hydrate the data pipeline and start generating machine learning prediction which can then be visualized on the Power BI dashboard.
 
 The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.
 
 The goal of this document is to explain the reference architecture and different components provisioned in your subscription as part of this Solution Template. The document also talks about how to replace the sample data, with real data of your own to be able to see insights/predictions from you won data. Additionally, the document talks about the parts of the Solution Template that would need to be modified if you want to customize the solution with your own data. Instructions on how to build the Power BI dashboard for this Solution Template are provided at the end.
-
->[AZURE.TIP] You can download and print a [PDF version of this document](http://github.com/yijichen/document-public/raw/master/Demand%20Forecasting%20for%20Engery%20Solution%20Template.pdf).
 
 ## **Big Picture**
 
@@ -396,7 +394,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
 data up-to-date".
 
 	-   Schedule the refresh based on your needs. To find more information, see
-[Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+[Data refresh in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
 
 ## **Cost Estimation Tools**

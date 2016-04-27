@@ -1,8 +1,9 @@
 <properties
-	pageTitle="Get started with Azure Notification Hubs for iOS apps | Microsoft Azure"
-	description="In this tutorial, you learn how to use Azure Notification Hubs to push notifications to an iOS application."
+	pageTitle="Sending push notifications to iOS with Azure Notification Hubs | Microsoft Azure"
+	description="In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to an iOS application."
 	services="notification-hubs"
 	documentationCenter="ios"
+    keywords="push notification,push notifications,ios push notifications"
 	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
@@ -13,44 +14,43 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="12/15/2015"
+	ms.date="03/14/2016"
 	ms.author="wesmc"/>
 
-# Get started with Notification Hubs for iOS apps
+# Sending push notifications to iOS with Azure Notification Hubs
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ##Overview
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application. You'll create a blank iOS app that receives push notifications by using the Apple Push Notification service (APNs). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
+> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
-This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application. You'll create a blank iOS app that receives push notifications by using the [Apple Push Notification service (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). 
 
+When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
 
 ## Before you begin
 
 [AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
+The completed code for this tutorial can be found [on GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
 
 ##Prerequisites
 
 This tutorial requires the following:
 
 + [Mobile Services iOS SDK version 1.2.4]
-+ [Xcode 7][Install Xcode]
-+ An iOS 8 (or later version) capable device
-+ iOS Developer Program membership
++ Latest version of [Xcode]
++ An iOS 8 (or later version)-capable device
++ [Apple Developer Program](https://developer.apple.com/programs/) membership.
 
-   > [AZURE.NOTE] Because of configuration requirements for push notifications, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of the iOS Simulator.
+   > [AZURE.NOTE] Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad) instead of the iOS Simulator.
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for iOS apps.
 
-> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
-
 [AZURE.INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-##Configure your notification hub
+##Configure your Notification Hub for iOS push notifications
 
 This section walks you through creating a new notification hub and configuring authentication with APNS using the **.p12** push certificate that you created. If you want to use a notification hub that you have already created, you can skip to step 5.
 
@@ -58,41 +58,41 @@ This section walks you through creating a new notification hub and configuring a
 
 <ol start="6">
 <li>
-<p>Click the <b>Configure</b> tab at the top, and then click the <b>Upload</b> button in the Apple notification settings to upload the certificate thumbprint. Then select the <b>.p12</b> certificate that you exported earlier, and the password for the certificate.</p>
+<p>Click the <b>Notification Services</b> button in the <b>Settings</b> blade, then select <b>Apple (APNS)</b>. Click on <b>Upload Certificate</b> and select the <b>.p12</b> file that you exported earlier. Make sure you also specify the correct password.</p>
 <p>Make sure to select <b>Sandbox</b> mode since this is for development. Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</p>
 </li>
 </ol>
-&emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-upload-cert.png)
+&emsp;&emsp;![Configure APNS in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
+&emsp;&emsp;![Configure APNS certification in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 
 
-Your notification hub is now configured to work with APNS, and you have the connection strings to register your app and send notifications.
+Your notification hub is now configured to work with APNS, and you have the connection strings to register your app and send push notifications.
 
-##Connect your app to the notification hub
+##Connect your iOS app to Notification Hubs
 
 1. In Xcode, create a new iOS project and select the **Single View Application** template.
 
-   	![][8]
+   	![Xcode - Single View Application][8]
 
 2. When setting the options for your new project, make sure to use the same **Product Name** and **Organization Identifier** that you used when you previously set the bundle ID on the Apple Developer portal.
 
-	![][11]
+	![Xcode - project options][11]
 
 3. Under **Targets**, click your project name, click the **Build Settings** tab and expand **Code Signing Identity**, and then under **Debug**, set your code-signing identity. Toggle **Levels** from **Basic** to **All**, and set **Provisioning Profile** to the provisioning profile that you created previously.
 
 	If you don't see the new provisioning profile that you created in Xcode, try refreshing the profiles for your signing identity. Click **Xcode** on the menu bar, click **Preferences**, click the **Account** tab, click the **View Details** button, click your signing identity, and then click the refresh button in the bottom-right corner.
 
-   	![][9]
+   	![Xcode - provisioning profile][9]
 
 4. Download the [Mobile Services iOS SDK version 1.2.4] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Copy items if needed**, and then click **Add**.
 
 	>[AZURE.NOTE] The notification hubs SDK does not currently support bitcode on Xcode 7.  You must set **Enable Bitcode** to **No** in the **Build Options** for your project.
 
-   	![][10]
+   	![Unzip Azure SDK][10]
 
-5. Add a new header file to your project named **HubInfo.h**. This file will hold the constants for your notification hub.  Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.
+5. Add a new header file to your project named `HubInfo.h`. This file will hold the constants for your notification hub.  Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.
 
 		#ifndef HubInfo_h
 		#define HubInfo_h
@@ -102,12 +102,12 @@ Your notification hub is now configured to work with APNS, and you have the conn
 		
 		#endif /* HubInfo_h */
 
-6. Open your AppDelegate.h file add the following import directives:
+6. Open your `AppDelegate.h` file add the following import directives:
 
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
 		 #import "HubInfo.h"
 		
-7. In your AppDelegate.m file, add the following code in the `didFinishLaunchingWithOptions` method based on your version of iOS. This code registers your device handle with APNs:
+7. In your `AppDelegate.m file`, add the following code in the `didFinishLaunchingWithOptions` method based on your version of iOS. This code registers your device handle with APNs:
 
 	For iOS 8:
 
@@ -156,22 +156,21 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 10. Build and run the app on your device to verify that there are no failures.
 
-## Send notifications
+## Send test push notifications
 
 
-You can test receiving notifications in your app by sending notifications in the [Azure Classic Portal] via the debug tab on the notification hub, as shown in the screen below.
+You can test receiving notifications in your app by sending push notifications in the [Azure Portal] via the **Troubleshooting** section in the hub blade (use the *Test Send* option).
 
-![][30]
+![Azure Portal - Test Send][30]
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 
+## (Optional) Send push notifications from the app
 
-## (Optional) Send notifications from the app
+If you want to send push notifications from within an app, this section provides an example of how to do this using the REST interface.
 
-If you want to send notifications within an app. This section provides an example of how to do this using the REST interface.
-
-1. In Xcode, open Main.storyboard and add the following UI components from the object library to allow the user to send push notifications in the app:
+1. In Xcode, open `Main.storyboard` and add the following UI components from the object library to allow the user to send push notifications in the app:
 
 	- A label with no label text. It will be used to report errors in sending notifications. The **Lines** property should be set to **0** so that it will automatically size constrained to the right and left margins and the top of the view.
 	- A text field with **Placeholder** text set to **Enter Notification Message**. Constrain the field just below the label as shown below. Set the View Controller as the outlet delegate.
@@ -179,7 +178,7 @@ If you want to send notifications within an app. This section provides an exampl
 
 	The view should look as follows:
 
-	![][32]
+	![Xcode designer][32]
 
 
 2. [Add outlets](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) for the label and text field connected your view, and update your `interface` definition to support `UITextFieldDelegate` and `NSXMLParserDelegate`. Add the three property declarations shown below to help support calling the REST API and parsing the response.
@@ -202,17 +201,17 @@ If you want to send notifications within an app. This section provides an exampl
 
 		@end
 
-3. Open HubInfo.h and add the following constants which will be used for sending notifications to your hub. Replace the placeholder string literal with your actual *DefaultFullSharedAccessSignature* connection string.
+3. Open `HubInfo.h` and add the following constants which will be used for sending notifications to your hub. Replace the placeholder string literal with your actual *DefaultFullSharedAccessSignature* connection string.
 
 		#define API_VERSION @"?api-version=2015-01"
 		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
 
-4. Add the following `#import` statements to your ViewController.h file.
+4. Add the following `#import` statements to your `ViewController.h` file.
 
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. In ViewController.m add the following code to the interface implementation. This code will parse your *DefaultFullSharedAccessSignature* connection string. As mentioned in the [REST API reference](http://msdn.microsoft.com/library/azure/dn495627.aspx), this parsed information will be used to generate a SaS token for the **Authorization** request header.
+5. In `ViewController.m` add the following code to the interface implementation. This code will parse your *DefaultFullSharedAccessSignature* connection string. As mentioned in the [REST API reference](http://msdn.microsoft.com/library/azure/dn495627.aspx), this parsed information will be used to generate a SaS token for the **Authorization** request header.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -248,7 +247,7 @@ If you want to send notifications within an app. This section provides an exampl
 			}
 		}
 
-6. In ViewController.m, update the `viewDidLoad` method to parse the connection string when the view loads. Also add the utility methods, shown below, to the interface implementation.  
+6. In `ViewController.m`, update the `viewDidLoad` method to parse the connection string when the view loads. Also add the utility methods, shown below, to the interface implementation.  
 
 
 		- (void)viewDidLoad
@@ -275,7 +274,7 @@ If you want to send notifications within an app. This section provides an exampl
 
 
 
-7. In ViewController.m, add the following code to the interface implementation to generate the SaS authorization token that will be provided in the **Authorization** header, as mentioned in the [REST API Reference](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+7. In `ViewController.m`, add the following code to the interface implementation to generate the SaS authorization token that will be provided in the **Authorization** header, as mentioned in the [REST API Reference](http://msdn.microsoft.com/library/azure/dn495627.aspx).
 
 		-(NSString*) generateSasToken:(NSString*)uri
 		{
@@ -324,7 +323,7 @@ If you want to send notifications within an app. This section provides an exampl
 		}
 
 
-8. Ctrl+drag from the **Send Notification** button to ViewController.m to add an action named **SendNotificationMessage** for the **Touch Down** event. Update method with the following code to send the notification using the REST API.
+8. Ctrl+drag from the **Send Notification** button to `ViewController.m` to add an action named **SendNotificationMessage** for the **Touch Down** event. Update method with the following code to send the notification using the REST API.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -383,7 +382,7 @@ If you want to send notifications within an app. This section provides an exampl
 		}
 
 
-9. In ViewController.m, add the following delegate method to support closing the keyboard for the text field. Ctrl+drag from the text field to the View Controller icon in the interface designer to set the view controller as the outlet delegate.
+9. In `ViewController.m`, add the following delegate method to support closing the keyboard for the text field. Ctrl+drag from the text field to the View Controller icon in the interface designer to set the view controller as the outlet delegate.
 
 		//===[ Implement UITextFieldDelegate methods ]===
 
@@ -394,7 +393,7 @@ If you want to send notifications within an app. This section provides an exampl
 		}
 
 
-10. In ViewController.m, add the following delegate methods to support parsing the response by using `NSXMLParser`.
+10. In `ViewController.m`, add the following delegate methods to support parsing the response by using `NSXMLParser`.
 
 		//===[ Implement NSXMLParserDelegate methods ]===
 
@@ -436,37 +435,35 @@ If you want to send notifications within an app. This section provides an exampl
 11. Build the project and verify that there are no errors.
 
 
-> [AZURE.NOTE] If you encounter a build error in Xcode7 about bitcode support, you should change the "Build Settings" -> "Enable Bitcode"(ENABLE_BITCODE) to 'NO' in Xcode. The Notification Hubs SDK does not currently support bitcode. 
+> [AZURE.NOTE] If you encounter a build error in Xcode7 about bitcode support, you should change the **Build Settings** > **Enable Bitcode (ENABLE_BITCODE)** to **NO** in Xcode. The Notification Hubs SDK does not currently support bitcode. 
 
 You can find all the possible notification payloads in the Apple [Local and Push Notification Programming Guide].
 
 
-##Test your app
+##Checking if your app can receive push notifications
 
-To test push notifications on iOS, you must deploy the app to a device. You cannot send Apple push notifications by using the iOS Simulator.
+To test push notifications on iOS, you must deploy the app to a physical iOS device. You cannot send Apple push notifications by using the iOS Simulator.
 
 1. Run the app and verify that registration succeeds, and then press **OK**.
 
-	![][33]
+	![iOS App Push Notification Registration Test][33]
 
-2. You can send a test notification from the [Azure Classic Portal]. If you added code for sending the notification in the app, touch inside the text field to enter a notification message. Then press the **Send** button on the keyboard or the **Send Notification** button in the view to send the notification message.
+2. You can send a test push notification from the [Azure Portal], as described above. If you added code for sending push notifications in the app, touch inside the text field to enter a notification message. Then press the **Send** button on the keyboard or the **Send Notification** button in the view to send the notification message.
 
-	![][34]
+	![iOS App Push Notification Send Test][34]
 
-3. The notification is sent to all devices that are registered to receive the notification.
+3. The push notification is sent to all devices that are registered to receive the notifications from the particular Notification Hub.
 
-	![][35]
-
-If you have any problems or recommendations for improving this tutorial for all readers, please leave us a comment in the Disqus section below.
+	![iOS App Push Notification Receive Test][35]
 
 
 ##Next steps
 
-In this simple example, you broadcasted notifications to all your iOS devices. We suggest as a next step in your learning that you proceed the the [Use Notification Hubs to push notifications to users] tutorial. That tutorial will walk you through creating a backend to send your notifications using tags. 
+In this simple example, you broadcasted push notifications to all your registered iOS devices. We suggest as a next step in your learning that you proceed to the [Azure Notification Hubs Notify Users for iOS with .NET backend] tutorial, which will walk you through creating a backend to send push notifications using tags. 
 
-If you want to segment your users by interest groups, you can additionally move on to [Use Notification Hubs to send breaking news]. 
+If you want to segment your users by interest groups, you can additionally move on to the [Use Notification Hubs to send breaking news] tutorial. 
 
-For more general information about Notification Hubs, see [Notification Hubs Guidance].
+For general information about Notification Hubs, see [Notification Hubs Guidance].
 
 
 
@@ -478,7 +475,7 @@ For more general information about Notification Hubs, see [Notification Hubs Gui
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
 [11]: ./media/notification-hubs-ios-get-started/notification-hubs-xcode-product-name.png
 
-[30]: ./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png
+[30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 
 [31]: ./media/notification-hubs-ios-get-started/notification-hubs-ios-ui.png
 [32]: ./media/notification-hubs-ios-get-started/notification-hubs-storyboard-view.png
@@ -498,11 +495,12 @@ For more general information about Notification Hubs, see [Notification Hubs Gui
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-send-breaking-news.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Azure Portal]: https://portal.azure.com

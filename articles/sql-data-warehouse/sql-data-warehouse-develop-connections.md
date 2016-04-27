@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Connect to SQL Data Warehouse
@@ -56,25 +56,25 @@ You can connect to SQL Data Warehouse using any of the following protocols:
 
 ### Sample ADO.NET connection string
 
-```
+```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### Sample ODBC connection string
 
-```
+```C#
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
 ### Sample PHP connection string
 
-```
+```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### Sample JDBC connection string
 
-```
+```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
@@ -95,7 +95,7 @@ Once a connection has been made and a session has been established you are ready
 
 Each query will be represented by one or more request identifiers. All queries submitted on that connection are part of a single session and will therefore be represented by a single session id.
 
-However, as SQL Data Warehouse is a distributed MPP system both session and request identifiers are exposed a little differently when compared to SQL Server.
+However, as SQL Data Warehouse is a distributed MPP (Massively Parallel Processing) system both session and request identifiers are exposed a little differently when compared to SQL Server.
 
 Sessions and requests are logically represented by their respective identifiers.
 
@@ -110,14 +110,14 @@ You will need this information to help you identify your query when monitoring y
 
 To identify which session you are currently using the following function:
 
-```
+```sql
 SELECT SESSION_ID()
 ;
 ```
 
 To view all the queries that are either running or have recently run against your data warehouse you can use a query like the one below:
 
-```
+```sql
 CREATE VIEW dbo.vSessionRequests
 AS
 SELECT 	 s.[session_id]									AS Session_ID

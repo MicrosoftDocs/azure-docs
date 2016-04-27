@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
+   ms.date="03/30/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a virtual network using PowerShell
@@ -22,11 +22,22 @@
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
-A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. Point-to-Site is an excellent solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. Point-to-Site connections do not require a VPN device or a public-facing IP address to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).
+A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. Point-to-Site is an excellent solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
 
-This article applies to VNets and VPN Gateways created using the **Azure Resource Manager** deployment model. If you want to configure a Point-to-Site connection for a VNet that was created using Service Management (also known as the classic deployment model), see [Configure a Point-to-Site VPN connection to a VNet](vpn-gateway-point-to-site-create.md). 
+Point-to-Site connections do not require a VPN device or a public-facing IP address to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).
 
-[AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **Resource Manager deployment model** (Service Management).
+
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+**Deployment models and tools for Point-to-Site connections**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/point2site.png "point-to-site")
+
 
 ## About this configuration
 
@@ -50,7 +61,7 @@ We'll use the following values for this configuration:
 
 ## Before beginning
 
-- Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+- Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 	
 - You'll need to install the Azure Resource Manager PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
@@ -227,6 +238,6 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 
 ## Next steps
 
-You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md) for steps.
+You can add a virtual machine to your virtual network. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md) for steps.
 
 

@@ -52,5 +52,7 @@ Queries that include Stretch\-enabled tables are expected to perform more slowly
 -   Your network conditions may have degraded. Contact your network administrator for info about recent issues or outages.
 
 ## See also
+
 [Monitor Stretch Database](sql-server-stretch-database-monitor.md)
+
 [Backup and restore Stretch-enabled databases](sql-server-stretch-database-backup.md)

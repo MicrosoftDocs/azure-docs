@@ -19,6 +19,8 @@ To make sure that no message is resubmitted outside of the deduplication window,
 ### Provision an Azure Storage account and a Service Bus queue
 In order to use the [EventProcessorHost] class, you must have an Azure Storage account to enable the **EventProcessorHost** to record checkpoint information. You can use an existing storage account, or follow the instructions in [About Azure Storage] to create a new one. Make a note of the storage account connection string.
 
+> [AZURE.NOTE] When you copy and paste the storage account connection string, make sure there are no spaces included in the connection string.
+
 You also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically with a 1 hour deduplication window, as explained in [How to use Service Bus Queues][Service Bus Queue], or use the [Azure classic portal], following these steps:
 
 1. Click **NEW** in the bottom left corner, then **App Services**, then **Service Bus**, then **Queue**, then **Custom Create**, enter the name **d2ctutorial**, select a  region, use an existing namespace or create a new one, then on the next page select **Enable duplicate detection** and set the **Duplicate detection history time window** to one hour. Then click the check mark to save your queue configuration.
@@ -35,7 +37,7 @@ You also need a Service Bus queue to enable reliable processing of interactive m
 
 ### Create the event processor
 
-1. In the current Visual Studio solution, click **File**, then **Add**, and then **New Project** to create a new Visual C# Windows project using the **Console Application** project template. Name the project **ProcessDeviceToCloudMessages**.
+1. In the current Visual Studio solution, click **File**, then **Add**, and then **New Project** to create a new Visual C# Windows project using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or higher. Name the project **ProcessDeviceToCloudMessages**.
 
     ![][10]
 
@@ -284,21 +286,21 @@ In this section, you'll write a Windows console app that receives the interactiv
     ```
 
 <!-- Links -->
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[About Azure Storage]: ../articles/storage/storage-create-storage-account.md#create-a-storage-account
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
-[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
+[Get Started with Event Hubs]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[IoT Hub Developer Guide - Identity Registry]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[Azure Storage scalability Guidelines]: ../articles/storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
-[Event Hubs]: ../event-hubs/event-hubs-overview.md
+[Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
+[Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://manage.windowsazure.com/
-[Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
-[Build multi-tier applications with Service Bus]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Service Bus Queue]: ../articles/service-bus/service-bus-dotnet-how-to-use-queues.md
+[Build multi-tier applications with Service Bus]: ../articles/service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 [Service Bus documentation]: https://azure.microsoft.com/documentation/services/service-bus/
 
 <!-- Images -->

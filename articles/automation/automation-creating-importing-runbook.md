@@ -72,7 +72,7 @@ You can use the following procedure to import a script file into Azure Automatio
 
 
 ### To import a runbook from a file with the Azure portal
-You can use the following procedure to import a script file into Azure Automation.  Note that you can only import a .ps1 file into a PowerShell Workflow runbook using this portal.
+You can use the following procedure to import a script file into Azure Automation.  Note that you can import a .ps1 file into a PowerShell runbook or a PowerShell Workflow runbook using this portal.
 
 1. In the Azure portal, open your Automation account.
 2. Click on the **Runbooks** tile to open the list of runbooks.

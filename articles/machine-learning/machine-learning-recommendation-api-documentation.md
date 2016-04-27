@@ -1049,6 +1049,7 @@ OData XML
 
 ###8.2.	Get Catalog
 Retrieves all catalog items.
+The catalog will be retrieved one page at a time. If you want to get items at a particular index, you can use the $skip odata parameter. For instance if you want to get items starting at position 100, add the parameter $skip=100 to the request.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1372,6 +1373,7 @@ HTTP Status code: 200
 
 ###9.2.	List Model Usage Files
 Retrieves metadata of all model usage files.
+The usage files will be retrieved one page at a time. Each page containes 100 items. If you want to get items at a particular index, you can use the $skip odata parameter. For instance if you want to get items starting at position 100, add the parameter $skip=100 to the request.
 
 | HTTP Method | URI |
 |:--------|:--------|

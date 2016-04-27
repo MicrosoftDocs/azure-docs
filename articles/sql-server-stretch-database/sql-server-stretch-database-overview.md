@@ -12,7 +12,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
@@ -26,7 +26,7 @@ If you just want to get started with Stretch Database right away, see [Get start
 Stretch Database provides the following benefits:
 
 **Provides cost\-effective availability for cold data**
-Stretch warm and cold transactional data dynamically from SQL Server to Microsoft Azure with SQL Server Stretch Database. Unlike typical cold data storage, your data is always online and available to query. You can provide longer data retention timelines without breaking the bank for large tables like Customer Order History. Benefit from the low cost of Azure rather than scaling expensive, on\-premises storage. You choose the pricing tier and configure settings in the Azure Portal to maintain control over price and data access speeds. Scale up or down as needed. Visit the [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/) page for details.
+Stretch warm and cold transactional data dynamically from SQL Server to Microsoft Azure with SQL Server Stretch Database. Unlike typical cold data storage, your data is always online and available to query. You can provide longer data retention timelines without breaking the bank for large tables like Customer Order History. Benefit from the low cost of Azure rather than scaling expensive, on\-premises storage. You choose the pricing tier and configure settings in the Azure Portal to maintain control over costs. Scale up or down as needed. Visit the [SQL Server Stretch Database Pricing](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) page for details.
 
 **Doesn’t require changes to queries or applications**
 Access your SQL Server data seamlessly regardless of whether it’s on\-premises or stretched to the cloud.  You set the policy that determines where data is stored, and SQL Server handles the data movement in the background. The entire table is always online and queryable. And, Stretch Database doesn’t require any changes to existing queries or applications – the location of the data is completely transparent to the application.

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/29/2016"
+   ms.date="04/20/2016"
    ms.author="larryfr"/>
 
 
@@ -66,11 +66,11 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 ###Location-based Virtual networks
 
-Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group. 
+Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
 
 ###Subnets
 
-It is highly recommended that you create a single subnet for each HDInsight cluster. 
+It is highly recommended that you create a single subnet for each HDInsight cluster.
 
 ###Classic or v2 Virtual Network
 
@@ -80,29 +80,92 @@ If you have resources on a Virtual Network that is not usable by the cluster you
 
 ###Secured Virtual Networks
 
-HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks.
+HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. 
 
-If you want to use HDInsight on a Virtual Network that blocks Internet traffic, you can use the following steps:
+The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks. The following IP addresses must be allowed inbound access to the subnet that you want to install HDInsight into:
 
-1. Create a new subnet within the Virtual Network. By default, the new subnet will be able to communicate with the Internet. This allows HDInsight to be installed on this subnet. Since the new subnet is in the same virtual network as the secured subnet(s), it can also communicate with resources installed there.
+* 168.61.49.99
+* 23.99.5.239
+* 168.61.48.131
+* 138.91.141.162
 
-2. Create the HDInsight cluster. When configuring the Virtual Network settings for the cluster, select the subnet created in step 1.
+Allowing inbound access from these addresses will allow you to successfully install HDInsight into a secured virtual network.
 
-> [AZURE.NOTE] The above steps assume that you have not restricted communications to IP addresses _within the Virtual Network IP address range_. If you have, you may need to modify these restrictions to allow communication with the new subnet.
+The following is an example script that will create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
 
-If you are unsure whether you have applied restrictions to the subnet that you want to install HDInsight into, or want to remove restrictions from the subnet, use the following steps:
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-1. Open the [Azure portal](https://portal.azure.com).
+    $vnetName = "Replace with your virtual network name"
+    $resourceGroupName = "Replace with the resource group the virtual network is in"
+    $subnetName = "Replace with the name of the subnet that HDInsight will be installed into"
+    # Get the Virtual Network object
+    $vnet = Get-AzureRmVirtualNetwork `
+        -Name $vnetName `
+        -ResourceGroupName $resourceGroupName
+    # Get the region the Virtual network is in.
+    $location = $vnet.Location
+    # Get the subnet object
+    $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
+    # Create a new Network Security Group.
+    # And add exemptions for the HDInsight health and management services.
+    $nsg = New-AzureRmNetworkSecurityGroup `
+        -Name "hdisecure" `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -name "hdirule1" `
+            -Description "HDI health and management address 16.61.49.99" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "168.61.49.99" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 300 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule2" `
+            -Description "HDI health and management 23.99.5.239" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "23.99.5.239" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 301 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule3" `
+            -Description "HDI health and management 168.61.48.131" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "168.61.48.131" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 302 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule4" `
+            -Description "HDI health and management 138.91.141.162" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "138.91.141.162" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 303 `
+            -Direction Inbound
+    # Set the changes to the security group
+    Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    # Apply the NSG to the subnet
+    Set-AzureRmVirtualNetworkSubnetConfig `
+        -VirtualNetwork $vnet `
+        -Name $subnetName `
+        -AddressPrefix $subnet.AddressPrefix `
+        -NetworkSecurityGroupId $nsg
 
-2. Selecting the Virtual Network.
-
-3. Select __Properties__.
-
-4. Select __Subnets__, and then select the specific subnet. On the blade for this subnet, the __Network security group__ and __Route table__ entries will be set to a value of __None__ if no restrictions have been applied.
-
-    If restrictions have been applied, you can remove the restriction by selecting the __Network security group__ or __Route table__ entry, and then selecting __None__. Finally, select __Save__ from the Subnet blade to save the changes.
-    
-    ![Image of the subnet blade and Network Security Group selection](./media/hdinsight-extend-hadoop-virtual-network/subnetnsg.png)
+> [AZURE.IMPORTANT] Using the above script only opens access to the HDInsight health and management service on the Azure cloud. This allows you to successfully install an HDInsight cluster into the subnet, however access to the HDInsight cluster from outside the Virtual Network is blocked by default. You will have to add additional Network Security Group rules if you wish to enable access from outside the Virtual Network.
 
 For more information on Network Security Groups, see [Network Security Groups overview](../virtual-network/virtual-networks-nsg.md). For information on controlling routing in an Azure Virtual Network, see [User Defined Routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 

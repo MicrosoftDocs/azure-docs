@@ -25,7 +25,7 @@ The data gateway provides the following capabilities:
 
 1.	Model on-premises data sources and cloud data sources within the same data factory and move data.
 2.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud dashboard.
-3.	Manage access to on-premises data sources securely.
+3.	Manage access to on-premises data sources securely.Troubl
 	1. No changes required to corporate firewall. Gateway only makes outbound HTTP based connections to open internet.
 	2. Encrypt credentials for your on-premises data stores with your certificate.
 4.	Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
@@ -120,7 +120,7 @@ In case of using a third party firewall, you can manually open the port 8050. If
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-If you choose not to open the port 8050 on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#setting-credentials-and-security) section on how data store credentials can be set.
+If you choose not to open the port 8050 on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#set-credentials-and-securityy) section on how data store credentials can be set.
 
 **To copy data from a source data store to a sink data store:**
 
@@ -160,7 +160,7 @@ If you encounter errors such as the following ones, it is likely because of the 
 1.	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2.	When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
 
-## Gateway troubleshooting
+## Troubleshooting gateway issues
 
 
 - You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
@@ -255,7 +255,7 @@ In this step, you use the Azure Portal to create an Azure Data Factory instance 
 	
 
 ### Step 3: Create linked services 
-In this step, you will create two linked services: **StorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links an on-premises SQL Server database and the **StorageLinkedService** linked service links an Azure blob store to the data factory. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
+In this step, you will create two linked services: **AzureStorageLinkedService** and **SqlServerLinkedService**. The **SqlServerLinkedService** links an on-premises SQL Server database and the **AzureStorageLinkedService** linked service links an Azure blob store to the data factory. You will create a pipeline later in this walkthrough that copies data from the on-premises SQL Server database to the Azure blob store. 
 
 #### Add a linked service to an on-premises SQL Server database
 1.	In the **Data Factory Editor**, click **New data store** on the toolbar and select **SQL Server**. 
@@ -286,7 +286,9 @@ In this step, you will create two linked services: **StorageLinkedService** and 
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
-	   
+	
+		the credentials will be **encrypted** by using a certificate that the Data Factory service owns. If you want to use the certificate that is associated with the Data Management Gateway instead, see [Set credentials securly](#set-credentials-and-security). 
+    
 2.	Click **Deploy** on the command bar to deploy the SQL Server linked service. 
 
 #### Add a linked service for an Azure storage account
@@ -294,7 +296,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 1. In the **Data Factory Editor**, click **New data store** on the command bar and click **Azure storage**.
 2. Enter the name of your Azure storage account for the **Account name**.
 3. Enter the key for your Azure storage account for the **Account key**.
-4. Click **Deploy** to deploy the **StorageLinkedService**.
+4. Click **Deploy** to deploy the **AzureStorageLinkedService**.
    
  
 ### Step 4: Create input and output datasets
@@ -375,7 +377,7 @@ In this step, you will create input and output datasets that represent input and
 		  "name": "OutputBlobTable",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/outfromonpremdf",
 		      "format": {
@@ -393,7 +395,7 @@ In this step, you will create input and output datasets that represent input and
 	Note the following: 
 	
 	- **type** is set to **AzureBlob**.
-	- **linkedServiceName** is set to **StorageLinkedService** (you had created this linked service in Step 2).
+	- **linkedServiceName** is set to **AzureStorageLinkedService** (you had created this linked service in Step 2).
 	- **folderPath** is set to **adftutorial/outfromonpremdf** where outfromonpremdf is the folder in the adftutorial container. You just need to create the **adftutorial** container.
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service will generate an output data slice every hour in the **emp** table in the Azure SQL Database. 
 
@@ -586,46 +588,40 @@ This section provides steps for moving gateway client from one machine to anothe
 10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager. 
 
 ## Set credentials and security
+To encrypt credentials in the Data Factory Editor, do the following: 
 
-You can also create a SQL Server linked service using the Linked Services blade instead of using the Data Factory Editor. 
- 
-3.	On the Data Factory home page, click **Linked Services** tile. 
-4.	In the **Linked services** blade, click **New data store** on the command bar. 
-4.	Enter **SqlServerLinkedService** for the **name**. 
-2.	Click arrow next to the **Type**, and select **SQL Server**.
-
-	![Create new data store](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	You should more settings below the **Type** setting.
-4.	For the **Data gateway** setting, select the gateway you just created. 
-
-	![SQL Server settings](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	Enter the name of your database server for the **Server** setting.
-5.	Enter the name of the database for the **Database** setting.
-6.	Click arrow next to **Credentials**.
-
-	![Credentials blade](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	In the **Credentials** blade, click **Click here to set credentials**.
-8.	In the **Setting Credentials** dialog box, do the following:
-
+1. Click an existing **linked service** in the tree view to see its JSON definition or create a new linked service that requires a Data Management Gateway (for example: SQL Server or Oracle). 
+2. In the JSON editor, for the **gatewayName** property, enter the name of the gateway. 
+3. Enter server name for the **Data Source** property in the **connectionString**.
+4. Enter database name for the **Initial Catalog** property in the **connectionString**.    
+5. Click **Encrypt** button on the command bar. You should see the **Setting Credentials** dialog box. 
 	![Setting credentials dialog](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+6. In the **Setting Credentials** dialog box, do the following:  
 	1.	Select **authentication** that you want the Data Factory service to use to connect to the database. 
 	2.	Enter name of the user who has access to the database for the **USERNAME** setting. 
 	3.	Enter password for the user for the **PASSWORD** setting.  
-	4.	Click **OK** to close the dialog box. 
-4. Click **OK** to close the **Credentials** blade. 
-5. Click **OK** on the **New data store** blade. 	
-6. Confirm that the status for **SqlServerLinkedService** is set to Online in the Linked Services blade.
-	![SQL Server linked service status](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+	4.	Click **OK** to encrypt credentials and close the dialog box. 
+5.	You should see a **encryptedCredential** property in the **connectionString** now.		
+		
+			{
+	    		"name": "SqlServerLinkedService",
+		    	"properties": {
+		        	"type": "OnPremisesSqlServer",
+			        "description": "",
+		    	    "typeProperties": {
+		    	        "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+		            	"gatewayName": "adftutorialgateway"
+		        	}
+		    	}
+			}
 
 If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source. 
 
-When you use the “Setting Credentials” application launched from Azure Portal to set credentials for an on-premises data source, the portal encrypts the credentials with the certificate you specified in the Certificate tab of the Data Management Gateway Configuration Manager on the gateway machine. 
+When you use the **Setting Credentials** application launched from Azure Portal to set credentials for an on-premises data source, the portal encrypts the credentials with the certificate you specified in the **Certificate** tab of the **Data Management Gateway Configuration Manager** on the gateway machine. 
 
-If you are looking for an API based approach for encrypting the credentials you can  use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You can the encrypted credentials returned by this cmdlet and add it to EncryptedCredential element of the connectionString in the JSON file that you will use with the [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet or in the JSON snippet in the Data Factory Editor in the portal. 
+If you are looking for an API based approach for encrypting the credentials you can  use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You can the encrypted credentials returned by this cmdlet and add it to **EncryptedCredential** element of the **connectionString** in the JSON file that you will use with the [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet or in the JSON snippet in the Data Factory Editor in the portal. 
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**Note:** If you use the “Setting Credentials” application it automatically sets the encrypted credentials in the linked service as shown above.
 
 There is one more approach for setting credentials using Data Factory Editor. If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted using a certificate that the Data Factory service owns, NOT the certificate that gateway is configured to use. While this approach might be a little faster in some cases it is less secure. Therefore, we recommend that you follow this approach only for development/testing purposes. 
 

@@ -34,7 +34,7 @@ All App types rely on the scalable and flexible Web App platform which allows de
 * Quick App Creation - start from scratch or pick an OSS package from the Azure Marketplace. 
 * Continuous Deployment - automatically deploy new code from popular source control solutions such as TFS, GitHub and BitBucket and sync content from online storage services such as OneDrive and DropBox.
 * Test in Production - smoothly create pre-production environments and manage the portion of traffic going to them. Debug in the cloud when needed and roll back if issues are found.
-* Run asynchronous tasks and batch jobs - execute code in a background process or activate your code based on events (such as massages landing in an Azure Storage Queue) and scheduled times (CRON).
+* Run asynchronous tasks and batch jobs - execute code in a background process or activate your code based on events (such as messages landing in an Azure Storage Queue) and scheduled times (CRON).
 * Scale the app - use one of many options to scale your service horizontally and vertically automatically based on traffic and resource utilization. Configure private environments dedicated to your Apps   
 * Maintain the app - leverage many of the debugging and diagnostics features to stay ahead of problems and to efficiently resolve them either in real time (with features such as auto-healing and live debugging) or after the fact by analyzing logs and memory dumps
  

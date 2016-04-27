@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="larryfr"/>
 
 #Run Pig jobs using the .NET SDK for Hadoop in HDInsight
@@ -126,7 +126,6 @@ Save the subscription ID, as it will be used later.
 		            // Define the Pig job
 		            var parameters = new PigJobSubmissionParameters()
 		            {
-		                UserName = ExistingClusterUsername,
 		                Query = queryString,
 		            };
 		

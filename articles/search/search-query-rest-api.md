@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Query Your Azure Search Index using the REST API | Microsoft Azure | Hosted cloud search service"
+    pageTitle="Query your Azure Search Index using the REST API | Microsoft Azure | Hosted cloud search service"
     description="Build a search query in Azure search and use search parameters to filter and sort search results."
     services="search"
     documentationCenter=""
@@ -12,18 +12,19 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
 # Query your Azure Search index using the REST API
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
-- [Fiddler](search-fiddler.md)
+- [Portal](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-This article will show you how to query an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). Before beginning this walkthrough, you should already have [created an Azure Search index](search-create-index-rest-api.md) and [populated it with data](search-import-data-rest-api.md).
+This article will show you how to query an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
 ## I. Identify your Azure Search service's query api-key
 A key component of every search operation against the Azure Search REST API is the *api-key* that was generated for the service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
@@ -48,15 +49,7 @@ For both POST and GET, you need to provide your *service name*, *index name*, an
 
 The format for POST is the same, but with only api-version in the query string parameters.
 
-#### Types of queries
 
-Azure Search offers many options to create extremely powerful queries. The two main types of query you will use are `search` and `filter`. A `search` query searches for one or more terms in all _searchable_ fields in your index, and works the way you would expect a search engine like Google or Bing to work. A `filter` query evaluates a boolean expression over all _filterable_ fields in an index. Unlike `search` queries, `filter` queries match the exact contents of a field, which means they are case-sensitive for string fields.
-
-You can use searches and filters together or separately. If you use them together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
-
-The syntax for filter expressions is a subset of the [OData filter language](https://msdn.microsoft.com/library/azure/dn798921.aspx). For search queries you can use either the [simplified syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx).
-
-To learn more about all the different parameters of a query, please visit [Search Documents](https://msdn.microsoft.com/library/azure/dn798927.aspx). There are also a few example queries below.
 
 #### Example Queries
 

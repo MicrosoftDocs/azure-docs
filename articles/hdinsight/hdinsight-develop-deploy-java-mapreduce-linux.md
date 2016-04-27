@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/22/2016"
 	ms.author="larryfr"/>
 
 # Develop Java MapReduce programs for Hadoop on HDInsight
@@ -33,7 +33,9 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**
 
-- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli-install.md)
+- **Azure CLI**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Configure environment variables
 
@@ -279,10 +281,6 @@ For more information, see also the [Java Developer Center](https://azure.microso
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
-
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
-
-
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md

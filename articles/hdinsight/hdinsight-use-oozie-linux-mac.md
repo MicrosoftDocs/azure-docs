@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/07/2016"
 	ms.author="larryfr"/>
 
 
@@ -35,6 +35,8 @@ Before you begin this tutorial, you must have the following:
 - **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Azure CLI**: See [Install and Configure the Azure CLI](../xplat-cli-install.md)
+	
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 - **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -679,7 +681,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 
 
-[azure-data-factory-pig-hive]: data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
@@ -695,7 +697,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: sql-database-create-configure.md

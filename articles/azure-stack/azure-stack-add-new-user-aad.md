@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/26/2016"
 	ms.author="erikje"/>
 
 # Add a new Azure Stack tenant account in Azure Active Directory

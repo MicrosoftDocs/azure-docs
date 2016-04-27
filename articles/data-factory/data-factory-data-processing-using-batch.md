@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/26/2016"
     ms.author="spelluru"/>
 # HPC and data orchestration using Azure Batch and Data Factory
 
-High performance computing (HPC) has in the past been the domain of on-premises datacenters: a supercomputer working on data, but limited by the number of physical machines available. The Azure Batch service revolutionizes this by providing HPC as a service. You can configure as many machines as needed. Batch also handles the work of scheduling and coordinating the work, letting you concentrate on the algorithms to run. Azure Data Factory is a perfect complement to Batch; it simplifies the orchestration of data movement. Using Data Factory, you can specify regular movements of data for ETL, process the data, and then move the results to permanent storage. For example, data gathered from sensors are moved (by Data Factory) to a temporary location where Batch (under Data Factory’s control) processes the data and produces a new set of results. Then Data Factory moves the results to a final repository. With these two services working in tandem, you can efficiently use HPC to process large amounts of data on a regular schedule.
+This is an example solution that moves and processes large-scale datasets automatically. The solution is end-to-end and includes the architecture and code. It is based on two Azure services. Azure Batch provides HPC as a service to configure as many computers as you need, and to schedule and coordinate the work. Azure Data Factory complements Batch by simplifying the orchestration of data movement. You can specify regular movements of data for ETL, process the data, and then move the results to permanent storage.
 
-Here we provide an end-to-end solution example that moves and processes large-scale datasets automatically. The architecture is relevant to many scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis. Architects and IT decision makers will get an overview from the diagram and basic steps. Developers can use the code as a starting point for their own implementation. This article contains the entire solution.
+The architecture is relevant to many scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis. 
 
 See the [Azure Batch](../batch/batch-api-basics.md) and [Data Factory](data-factory-introduction.md) documentation if you are not familiar with these services before following the example solution.
 
@@ -901,13 +901,13 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 After you process data you can consume it with online tools like **Microsoft Power BI**. Here are links to help you understand Power BI and how to use it in Azure:
 
--   [Explore a dataset in Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Explore a dataset in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
 
--   [Getting started with the Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Getting started with the Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
 
--   [Refresh data in Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Refresh data in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
 
--   [Azure and Power BI - basic overview](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure and Power BI - basic overview](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
 
 ## References
 

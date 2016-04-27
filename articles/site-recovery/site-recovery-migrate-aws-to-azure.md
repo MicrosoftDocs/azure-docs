@@ -13,25 +13,27 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="02/22/2016"
+	ms.date="03/16/2016"
 	ms.author="raynew"/>
 
 #  Migrate Windows virtual machines in Amazon Web Services (AWS) to Azure with Azure Site Recovery
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
-
-
 ## Overview
 
-This article describes how to use Site Recovery to migrate or fail over Windows instances running in AWS to Azure. It summarizes the steps that are described in full in [Replicate VMware virtual machines or physical servers to Azure](site-recovery-vmware-to-azure-classic.md). The linked article is the latest enhanced version of scenario that replicates VMware VMs or Windows/Linux physical servers to Azure. We suggest you follow the linked article for detailed instructions on each step in the deployment.
+This article describes how to use Site Recovery to migrate Windows instances running in AWS to Azure.Before you start, note that:
 
->[AZURE.NOTE] For migration of Windows VMs in AWS  you should **no longer use** the instructions in this [legacy article](site-recovery-vmware-to-azure-classic-legacy.md).
+- You can migrate only at this time. That means you can fail over from AWS to Azure but you can't fail them back again.
+- This article summarizes and uses many of the steps that are described in full in [Replicate VMware virtual machines or physical servers to Azure](site-recovery-vmware-to-azure-classic.md), which provides the latest enhanced instructions for setting up replication. We suggest you follow this article for detailed instructions as you migrate.
+- **You should no longer use** the instructions in this [legacy article](site-recovery-vmware-to-azure-classic-legacy.md).
 
-## Get started
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+
+
+## Prerequisites
 
 Here's what you need before you start:
 
-- **Management server**: An on-premises VM running Windows Server 2012 R2 that acts as the management server. You install the Site Recovery components (including the configuration server and process server) on this server. Read more in [management server considerations](site-recovery-vmware-to-azure-classic.md#management-server-considerations) and [on-premises prerequisites](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
+- **Management server**: A VM running Windows Server 2012 R2 that acts as the management server. You install the Site Recovery components (including the configuration server and process server) on this server. Read more in [management server considerations](site-recovery-vmware-to-azure-classic.md#management-server-considerations) and [source prerequisites](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
 - **EC2 VM instances**: The instances you want to migrate and then protect.
 
 ## Deployment steps
@@ -58,6 +60,7 @@ Here's what you need before you start:
 		
 ## Next steps
 
-Post any comments or questions in the [Site Recovery forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+Learn more about other replication scenarios in [What is Azure Site Recovery?](site-recovery-overview.md)
+
 
 

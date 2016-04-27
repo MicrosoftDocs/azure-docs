@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
@@ -68,9 +68,9 @@ Security policies can be configured for each subscription or resource group. To 
 | System Updates | Retrieves a list of available updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, every 12 hours and recommends missing security and critical updates be installed on your Windows virtual machines. |
 | Baseline Rules | Analyzes all supported virtual machines to identify any OS configurations that could make the virtual machine more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. |
 | Antimalware | Recommends antimalware be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software. |
-| Access Control List on endpoints | Recommends that an [Access Controls List](virtual-machines-set-up-endpoints.md) (ACL) be configured to limit access to a Classic virtual machine endpoints. This would typically be used to ensure that only users who are connected to the corporate network can access the virtual machines. |
-| Network Security Groups | Recommends that [Network Security Groups](virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to subnets and network interfaces for Resource Manager virtual machines. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, this option assesses inbound security rules to identify if there are any that allow incoming traffic. |
-| Web Application Firewall | Recommends a Web Application Firewall be provisioned on virtual machines when: [Instance Level Public IP](virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the associated NSG Inbound Security Rules are configured to allow access to port 80/443. Load Balanced IP (VIP) is used and the associated load balancing and inbound NAT rules are configured to allow access to port 80/443 (for more information, see [Azure Resource Manager Support for Load Balancer](load-balancer-arm.md)) |
+| Access Control List on endpoints | Recommends that an [Access Controls List](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) (ACL) be configured to limit access to a Classic virtual machine endpoints. This would typically be used to ensure that only users who are connected to the corporate network can access the virtual machines. |
+| Network Security Groups | Recommends that [Network Security Groups](../virtual-network/virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to subnets and network interfaces for Resource Manager virtual machines. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, this option assesses inbound security rules to identify if there are any that allow incoming traffic. |
+| Web Application Firewall | Recommends a Web Application Firewall be provisioned on virtual machines when: [Instance Level Public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the associated NSG Inbound Security Rules are configured to allow access to port 80/443. Load Balanced IP (VIP) is used and the associated load balancing and inbound NAT rules are configured to allow access to port 80/443 (for more information, see [Azure Resource Manager Support for Load Balancer](../load-balancer/load-balancer-arm.md)) |
 | SQL Auditing | Recommends that auditing of access to Azure SQL Servers and Databases be enabled for compliance, advanced detection and investigation purposes. |
 | SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
 
@@ -82,10 +82,10 @@ If you prefer to configure your security policies per resource group, the steps 
 
 ![Resource group selection](./media/security-center-policies/security-center-policies-fig4.png)
 
-After you select the resource group, the **Security policy** blade will open. By default, the option **Inheritance** is enabled, which means all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy per resource group. If that's the case, you need to select **Unique** and make the changes under **Show recommendations for** option. 
+After you select the resource group, the **Security policy** blade will open. By default, the option **Inheritance** is enabled, which means all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy per resource group. If that's the case, you need to select **Unique** and make the changes under **Show recommendations for** option.
 
 
-![Security policy per resource group](./media/security-center-policies/security-center-policies-fig5.png) 
+![Security policy per resource group](./media/security-center-policies/security-center-policies-fig5.png)
 
 > [AZURE.NOTE] In case of a conflict between subscription level policy and resource group level policy, the resource level policy takes precedence.
 
@@ -96,5 +96,6 @@ In this document, you learned how to configure security policies in Azure Securi
 
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md) – Learn how to monitor the health of your Azure resources
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance

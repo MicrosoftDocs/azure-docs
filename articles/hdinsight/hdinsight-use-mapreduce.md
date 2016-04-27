@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Use MapReduce in Hadoop on HDInsight
@@ -53,8 +53,6 @@ Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT 
 For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 For examples of using Hadoop streaming with HDInsight, see the following:
-
-* [Develop C# Hadoop streaming programs](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 * [Develop Python MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 
@@ -168,8 +166,6 @@ Although MapReduce provides powerful diagnostic abilities, it can be a bit chall
 * [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 
 * [Develop Python streaming MapReduce programs for HDInsight](hdinsight-hadoop-streaming-python.md)
-
-* [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
 
 * [Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 

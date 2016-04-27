@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # Deploy and Manage Notification Hubs using PowerShell
@@ -167,7 +167,7 @@ Some ready-made scripts are also available for download:
 [Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
 [Member Offers]: http://azure.microsoft.com/pricing/member-offers/
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell]: ../install-configure-powershell.md
+[Install and configure Azure PowerShell]: ../powershell-install-configure.md
 [.NET API for Notification Hubs]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx

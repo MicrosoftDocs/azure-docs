@@ -5,7 +5,7 @@
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/02/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 # Target Stream Analytics data transformation outputs to analysis tools and data storage options
@@ -23,10 +23,60 @@ When authoring a Stream Analytics job, consider how the data transformation outp
 
 In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
+## Azure Data Lake Store
 
-## SQL Database ##
+Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. At this time, creation and configuration of Data Lake Store outputs is supported only in the Azure Classic Portal. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store Preview (if needed) are discussed in the [Data Lake output article](stream-analytics-data-lake-output.md).
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. The table below lists the property names and their description for creating a SQL Database output.
+The table below lists the property names and their description needed for creating a Data Lake Store output.
+
+<table>
+<tbody>
+<tr>
+<td><B>PROPERTY NAME</B></td>
+<td><B>DESCRIPTION</B></td>
+</tr>
+<tr>
+<td>Output Alias</td>
+<td>This is a friendly name used in queries to direct the query output to this Data Lake Store.</td>
+</tr>
+<tr>
+<td>Data Lake Store Account</td>
+<td>The name of the storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
+</tr>
+<tr>
+<td>Path Prefix Pattern [<I>optional</I>]</td>
+<td>The file path used to write your files within the specified Data Lake Store Account. <BR>{date}, {time}<BR>Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}</td>
+</tr>
+<tr>
+<td>Date Format [<I>optional</I>]</td>
+<td>If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
+</tr>
+<tr>
+<td>Time Format [<I>optional</I>]</td>
+<td>If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
+</tr>
+<tr>
+<td>Event Serialization Format</td>
+<td>Serialization format for output data. JSON, CSV, and Avro are supported.</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td>If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.</td>
+</tr>
+<tr>
+<td>Delimiter</td>
+<td>Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and vertical bar.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects.</td>
+</tr>
+</tbody>
+</table>
+
+## SQL Database
+
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well (this is a preview feature). The table below lists the property names and their description for creating a SQL Database output.
 
 | Property Name | Description |
 |---------------|-------------|
@@ -37,7 +87,7 @@ In order to enable a variety of application patterns, Azure Stream Analytics has
 | Password | The password to connect to the database |
 | Table | The table name where the output will be written. The table name is case sensitive and the schema of this table should match exactly to the number of fields and their types being generated by your job output. |
 
-## Blob storage ##
+## Blob storage
 
 Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud.  For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](../storage/storage-dotnet-how-to-use-blobs.md).
 
@@ -114,11 +164,10 @@ There are a few parameters that are needed to configure Event Hub data streams a
 | Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time |
 | Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 | Format | Only applicable for JSON type. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
+
 ## Power BI
 
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation and metric driven reporting.
-
-> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is supported only in the Azure Classic Portal.
 
 ### Authorize a Power BI account
 
@@ -149,7 +198,7 @@ For a walk-through of configuring a Power BI output and dashboard, please see th
 
 ### Renew Power BI Authorization
 
-There is a temporary limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Power BI output.  You will also need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated.  A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
+You will need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
 
   ![Power BI refresh token error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
@@ -35,9 +35,10 @@ Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
 
 ##Release notes
 
-##4.1.5 (02/01/2016)
+##4.2.0 (03/11/2016)
 
-- Stability improvements.
+- The SDK is now licensed under MIT.
+- Allow specifying a custom device identifier at SDK initialization time.
 
 ##4.1.0 (08/25/2015)
 
@@ -46,7 +47,7 @@ Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
 - Fix a permission bug: if you use `ACCESS_FINE_LOCATION`, then `ACCESS_COARSE_LOCATION` is not needed anymore.
 - Stability improvements.
 
-For earlier versions, please see the [complete release notes](mobile-engagement-android-release-notes.md).
+For all versions, please see the [complete release notes](mobile-engagement-android-release-notes.md).
 
 ##Upgrade procedures
 

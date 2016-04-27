@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from On-premises file system using Azure Data Factory
@@ -443,7 +443,7 @@ password | Specify the password for the user (userid) | No (if you choose encryp
 encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet<br/><br/>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureRmDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService | No (if you choose to specify userid and password in plain text)
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises File System data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises File System data source.
 
 **Example: Using username and password in plain text**
 	
@@ -600,7 +600,8 @@ false | mergeFiles | For a source folder Folder1 with the following structure:<b
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
 
 

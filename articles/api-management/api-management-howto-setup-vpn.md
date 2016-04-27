@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/14/2016"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
@@ -48,11 +48,25 @@ After your API Management service is connected to the VPN, accessing web service
 
 ![Add API from VPN][api-management-setup-vpn-add-api]
 
+## Required ports for API Management VPN support
+
+When an API Management service instance is hosted in a VNET, the ports in the following table are used. If these ports are blocked, the service may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using API Management with a VNET.
+
+| Port(s)                      | Direction        | Transport Protocol | Purpose                                                          | Source / Destination              |
+|------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
+| 80, 443                      | Inbound          | TCP                | Client communication to API Management                           | INTERNET / VIRTUAL_NETWORK        |
+| 80,443                       | Outbound         | TCP                | API Management Dependency on Azure Storage and Azure Service Bus | VIRTUAL_NETWORK / INTERNET        |
+| 1433                         | Outbound         | TCP                | API Management dependencies on SQL                               | VIRTUAL_NETWORK / INTERNET        |
+| 9350, 9351, 9352, 9353, 9354 | Outbound         | TCP                | API Management dependencies on Service Bus                       | VIRTUAL_NETWORK / INTERNET        |
+| 5671                         | Outbound         | AMQP               | API Management dependency for Log to event Hub policy            | VIRTUAL_NETWORK / INTERNET        |
+| 6381, 6382, 6383             | Inbound/Outbound | UDP                | API Management dependencies on Redis Cache                       | VIRTUAL_NETWORK / VIRTUAL_NETWORK |
+| 445                          | Outbound         | TCP                | API Management Dependency on Azure File Share for GIT            | VIRTUAL_NETWORK / INTERNET        |
+
 
 ## <a name="related-content"> </a>Related content
 
 
-* [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity][]
+* [Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal][]
 * [How to use the API Inspector to trace calls in Azure API Management][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -65,5 +79,5 @@ After your API Management service is connected to the VPN, accessing web service
 
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
-[Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
+[Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md

@@ -35,10 +35,10 @@ Installing the Azure Mobile Apps JavaScript SDK can be done via the `npm` comman
 npm install azure-mobile-apps-client --save
 ```
 
-Once installed, the library is located in `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`.  Copy this file to your web area.
+Once installed, the library is located in `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`.  Copy this file to your web area.
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 The library can also be used as an ES2015 module, within CommonJS environments such as Browserify and

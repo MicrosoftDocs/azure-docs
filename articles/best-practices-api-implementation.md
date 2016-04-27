@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # API implementation guidance
@@ -155,7 +155,7 @@ Once a request from a client application has been successfully routed to a metho
 
 - **GET, PUT, DELETE, HEAD, and PATCH actions should be idempotent**.
 
-	The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages may be different (the first DELETE request might return status code 204 (No Content) while a subsequent DELETE request might return statis code 404 (Not Found)).
+	The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages may be different (the first DELETE request might return status code 204 (No Content) while a subsequent DELETE request might return status code 404 (Not Found)).
 
 > [AZURE.NOTE] The article [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog provides an overview of idempotency and how it relates to data management operations.
 
@@ -937,7 +937,7 @@ The same web API might be utilized by many client applications running anywhere 
 
 	A request that might take a long time to process should be performed without blocking the client that submitted the request. The web API can perform some initial checking to validate the request, initiate a separate task to perform the work, and then return a response message with HTTP code 202 (Accepted). The task could run asynchronously as part of the web API processing, or it could be offloaded to an Azure WebJob (if the web API is hosted by an Azure Website) or a worker role (if the web API is implemented as an Azure cloud service).
 
-	> [AZURE.NOTE] For more information about using WebJobs with Azure Website, visit the page [Use WebJobs to run background tasks in Microsoft Azure Websites](web-sites-create-web-jobs.md) on the Microsoft website.
+	> [AZURE.NOTE] For more information about using WebJobs with Azure Website, visit the page [Use WebJobs to run background tasks in Microsoft Azure Websites](../articles/app-service-web/web-sites-create-web-jobs.md) on the Microsoft website.
 
 	The web API should also provide a mechanism to return the results of the processing to the client application. You can achieve this by providing a polling mechanism for client applications to periodically query whether the processing has finished and obtain the result, or enabling the web API to send a notification when the operation has completed.
 
@@ -955,7 +955,7 @@ The same web API might be utilized by many client applications running anywhere 
 
 	6. While the task is running, the client can continue performing its own processing. It can periodically send a request to the URI _/polling/{guid}_ where _{guid}_ is the GUID returned in the 202 response message by the web API.
 
-	7. The web API at the _/polling{guid}_ URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (_Running_, _Complete_, or _Failed_). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
+	7. The web API at the _/polling/{guid}_ URI queries the state of the corresponding task in the table and returns a response message with HTTP status code 200 (OK) containing this state (_Running_, _Complete_, or _Failed_). If the task has completed or failed, the response message can also include the results of the processing or any information available about the reason for the failure.
 
 	If you prefer to implement notifications, the options available include:
 
@@ -1061,7 +1061,7 @@ Azure provides the [API Management Service](https://azure.microsoft.com/document
 
 You can find full details describing how to perform these tasks on the [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website. The Azure API Management Service also provides its own REST interface, enabling you to build a custom interface for simplifying the process of configuring a web API. For more information, visit the [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website.
 
-> [AZURE.TIP] Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, visit the [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md) page on the Microsoft website.
+> [AZURE.TIP] Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, visit the [Traffic Manager routing Methods](../articles/traffic-manager/traffic-manager-routing-methods.md) page on the Microsoft website.
 
 > In this structure, if you are using custom DNS names for your web sites, you should configure the appropriate CNAME record for each web site to point to the DNS name of the Azure Traffic Manager web site.
 
@@ -1111,7 +1111,7 @@ If you have implemented your web API by using the ASP.NET Web API template (eith
 
 You can view this data in real time from the Azure Management portal. You can also create webtests that monitor the health of the web API. A webtest sends a periodic request to a specified URI in the web API and captures the response. You can specify the definition of a successful response (such as HTTP status code 200), and if the request does not return this response you can arrange for an alert to be sent to an administrator. If necessary, the administrator can restart the server hosting the web API if it has failed.
 
-The [Application Insights - Start monitoring your app's health and usage](app-insights-start-monitoring-app-health-usage/) page on the Microsoft website provides more information.
+The [Application Insights - Start monitoring your app's health and usage](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides more information.
 
 ### Monitoring a web API through the API Management Service
 
@@ -1143,11 +1143,11 @@ You can use this information to determine whether a particular web API or operat
 - The [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website contains a full list of HTTP status codes and their descriptions.
 - For detailed information on handling HTTP exceptions with the ASP.NET Web API, visit the [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling) page on the Microsoft website.
 - The article [Web API Global Error Handling](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) on the Microsoft website describes how to implement a global error handling and logging strategy for a web API.
-- The page [Use WebJobs to run background tasks in Microsoft Azure Websites](web-sites-create-web-jobs.md) on the Microsoft website provides information and examples on using WebJobs to perform background operations on an Azure Website.
+- The page [Run background tasks with WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md) on the Microsoft website provides information and examples on using WebJobs to perform background operations on an Azure Website.
 - The page [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) on the Microsoft website shows how you can use an Azure Notification Hub to push asynchronous responses to client applications.
 - The [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website describes how to publish a product that provides controlled and secure access to a web API.
 - The [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website describes how to use the API Management REST API to build custom management applications.
-- The [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
-- The [Application Insights - Start monitoring your app's health and usage](app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
+- The [Traffic Manager Routing Methods](../articles/traffic-manager/traffic-manager-routing-methods.md) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
+- The [Application Insights - Start monitoring your app's health and usage](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
 - The page [Verifying Code by Using Unit Tests](https://msdn.microsoft.com/library/dd264975.aspx) on the Microsoft website provides detailed information on creating and managing unit tests by using Visual Studio.
 - The page [Run performance tests on an application before a release](https://msdn.microsoft.com/library/dn250793.aspx) on the Microsoft website describes how to use Visual Studio Ultimate to create a web performance and load test project.

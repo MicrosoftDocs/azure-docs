@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure Redis Cache FAQ" 
+	pageTitle="Azure Redis Cache FAQ | Microsoft Azure" 
 	description="Learn the answers to common questions, patterns and best practices for Azure Redis Cache" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/20/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -50,19 +50,19 @@ From this table we can draw the following conclusions.
 
 | Pricing tier         | Size   | Available bandwidth        | 1 KB Key size                  |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Standard cache sizes** | &nbsp;       |**Megabits per second (Mbps)** | **Requests per second (RPS)**            |
-| C0                   | 250 MB | 5                          | 600                            |
-| C1                   | 1 GB   | 100                        | 12200                          |
-| C2                   | 2.5 GB | 200                        | 24000                          |
-| C3                   | 6 GB   | 400                        | 49000                          |
-| C4                   | 13 GB  | 500                        | 61000                          |
-| C5                   | 26 GB  | 1000                       | 115000                         |
-| C6                   | 53 GB  | 2000                       | 150000                         |
+| **Standard cache sizes** | &nbsp;       |**Megabits per sec (Mb/s) / Megabytes per sec (MB/s)** | **Requests per second (RPS)**            |
+| C0                   | 250 MB | 5 / 0.625                          | 600                            |
+| C1                   | 1 GB   | 100 / 12.5                        | 12200                          |
+| C2                   | 2.5 GB | 200 / 25                        | 24000                          |
+| C3                   | 6 GB   | 400 / 50                        | 49000                          |
+| C4                   | 13 GB  | 500 / 62.5                        | 61000                          |
+| C5                   | 26 GB  | 1000 / 125                       | 115000                         |
+| C6                   | 53 GB  | 2000 / 250                       | 150000                         |
 | **Premium cache sizes**  |  &nbsp;      |    &nbsp;                        | **Requests per second (RPS), per shard** |
-| P1                   | 6 GB   | 1000                       | 140000                         |
-| P2                   | 13 GB  | 2000                       | 220000                         |
-| P3                   | 26 GB  | 2000                       | 220000                         |
-| P4                   | 53 GB  | 4000                       | 250000                         |
+| P1                   | 6 GB   | 1000 / 125                       | 140000                         |
+| P2                   | 13 GB  | 2000 / 250                       | 220000                         |
+| P3                   | 26 GB  | 2000 / 250                       | 220000                         |
+| P4                   | 53 GB  | 4000 / 500                       | 250000                         |
 
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
@@ -221,10 +221,31 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 
 -	If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the Azure Portal.
 -	You can also use the Redis command line tools. To use them, perform the following steps.
-	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/).
 	-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
 		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
 	-	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+
+<a name="cache-emulator"></a>
+## Is there a local emulator for Azure Redis Cache?
+
+There is no local emulator for Azure Redis Cache, but you can run the MSOpenTech version of redis-server.exe from the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/) on your local machine and connect to it to get a similar experience to a local cache emulator, as shown in the following example.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+	    return ConnectionMultiplexer.Connect("127.0.0.1:6379");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
+You can optionally configure a [redis.conf](http://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Redis Cache if desired.
 
 <a name="cache-common-patterns"></a>
 ## What are some common cache patterns and considerations?
@@ -244,25 +265,7 @@ Because each client is different, there is not one centralized class reference o
 
 ## Which Azure Cache offering is right for me?
 
->[AZURE.IMPORTANT] Microsoft recommends all new developments use Azure Redis Cache.
-
-Azure Cache currently has three offerings:
-
--	Azure Redis Cache
--	Azure Managed Cache service
--	Azure In-Role Cache
-
->[AZURE.IMPORTANT]We’re announcing the November 30, 2016, retirement for Azure Managed Cache Service and Azure In-Role Cache. We recommend that you migrate to Azure Redis Cache in preparation for this retirement. 
->
->Azure Redis Cache has been the recommended caching solution in Azure since the service became generally available, and it’s is now available in all Azure regions, including China and US Government. Because of this availability, we’re announcing the upcoming retirement for Managed Cache Service and In-Role Cache service. 
->
->Managed Cache Service and In-Role Cache service will remain available for existing customers for a maximum of 12 months from the date of this announcement on November 30, 2015—the end of service date for both will end on November 30, 2016. After this date, Managed Cache Service will be shut down, and In-Role Cache service will no longer be supported. 
->
->We’ll remove support for creating new in-role caches in the first Azure SDK release that happens after February 1, 2016. Customers will be able to open existing projects that have in-role caches. 
->
->During this period, we encourage all existing Managed Cache Service and In-Role Cache service customers to migrate to Azure Redis Cache. Azure Redis Cache provides more features and a better value overall. For more information on migrating, please visit the [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md) documentation webpage. 
->
->If you have any questions, please [contact us](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933). 
+>[AZURE.IMPORTANT]As per last year's [announcement](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/), Azure Managed Cache Service and Azure In-Role Cache service will be retired on November 30, 2016. Our recommendation is to use [Azure Redis Cache](https://azure.microsoft.com/services/cache/). For information on migrating, please see [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md).
 
 ### Azure Redis Cache
 Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
@@ -276,9 +279,9 @@ Another key aspect to Redis success is the healthy, vibrant open source ecosyste
 For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Managed Cache service
-Managed Cache service is set to be retired November 30, 2016.
+[Managed Cache service is set to be retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ### In-Role Cache
-In-Role Cache is set to be retired November 30, 2016.
+[In-Role Cache is set to be retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

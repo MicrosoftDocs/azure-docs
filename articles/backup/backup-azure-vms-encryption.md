@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="11/27/2015"
+   ms.date="03/14/2016"
    ms.author="markgal; jimpark"/>
 
 # Dealing with encrypted disks during VM backup

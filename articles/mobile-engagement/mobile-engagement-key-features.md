@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/01/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - Key features
@@ -22,130 +22,130 @@ This article gives a high level overview about the key features of the Mobile En
 
 ## **General**
 
-1. **Find SDKs for all major platforms** 
+- **Find SDKs for all major platforms** 
 SDKs available for all major platforms - iOS, Android, Universal Windows, Windows Phone Silverlight, Kindle, Cordova. 
 We provide easy to integrate SDKs and helpful documentation to get you started on any platform of your choice. 
 
-2. **Separate SaaS portal**
+- **Separate SaaS portal**
 Allows easy access to the marketing team without the need to go through the Azure management portal. 
 
-3. **Availability of open REST APIs** 
-To integrate and automate with CRM/CMS/IT systems using open-platform APIs, we provide open REST APIs and .NET SDK to consume these APIs that can allow you to easily integrate and automate with Mobile Engagement. See [this] for details(mobile-engagement-api-authentication.md)
+- **Availability of open REST APIs** 
+To integrate and automate with CRM/CMS/IT systems using open-platform APIs, we provide open REST APIs and .NET SDK to consume these APIs that can allow you to easily integrate and automate with Mobile Engagement. See [this](mobile-engagement-api-authentication.md) for details. 
 
-4. **Power BI connector available** 
+- **Power BI connector available** 
 You can also pull out the key analytics charts into a Power BI dashboard. See this [guide](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-mobile/)
 
-5. **Assurance of Security & Privacy** 
+- **Assurance of Security & Privacy** 
 Azure Mobile Engagement being part of the Azure family follows all the standard best practices around security & privacy expected for a cloud service.
 
-## **Actionable Analytics:**
+## **Actionable Analytics**
 
-1. **Monitor data in real time**
+- **Monitor data in real time**
 You can track real time analytics using our Monitor module which shows details like sessions, events, errors & crashes all in real-time. Take a look at this [article](mobile-engagement-concepts.md) to get an understanding of the basic concepts. 
 
 	![][1]
 
 	![][2]		
 
-2. **View aggregated data**
+- **View aggregated data**
 You also get a richer view of your aggregated analytics data using our Analytics module which allows you to easily filter your data based on your app version and time periods.
 
 	![][3]		
 
-3. **Get insights into your users and retention pattern**
+- **Get insights into your users and retention pattern**
 
 	![][4]		
 
-4. **Get insights into where your users are coming from and how much time are they spending in the screen**
+- **Get insights into where your users are coming from and how much time are they spending in the screen**
 
 	![][5]		
 	
 	![][6]		
 
-5. **Find out which screens are your app users visiting and how can you optimize the user path** 
+- **Find out which screens are your app users visiting and how can you optimize the user path** 
 This helps them to discover screens and features that you want them to.
 
 	![][7]		
 	
 	![][8]		
 
-6. **Get insights into which are the most frequent events in your app and get an understanding of your business process based on these events** 
+- **Get insights into which are the most frequent events in your app and get an understanding of your business process based on these events** 
 
 	![][9]	
 
-7. **Track common errors and crashes and get insights for your developer team**
+- **Track common errors and crashes and get insights for your developer team**
 
 	![][10]		
 	
 	![][11]	
 
-8. **Understand which devices and networks are your app users accessing your app from, to optimize the app** 
+- **Understand which devices and networks are your app users accessing your app from, to optimize the app** 
 
 	![][12]	
 	
 ## **Targeted & Personalized Push Notifications**
 
-1. **Create a segment based on any of the collected data** 
+- **Create a segment based on any of the collected data** 
 You can use any of the Event/Session/Activity/Job/Crash/Error/Tags data for this.
 
 	![][13]
 
 	![][14]		
 
-2. **Track the history of your created segments day over day**
+- **Track the history of your created segments day over day**
 
 	![][15]	
 
-3. **Send targeted notifications**
+- **Send targeted notifications**
 targeting commonly used like old/new users etc. or to your custom created segment
 
 	![][16]	
 
-4. **Send both out-of-app/system & rich HTML based in-app push notifications as appropriate for your scenario**
+- **Send both out-of-app/system & rich HTML based in-app push notifications as appropriate for your scenario**
 
 	![][17]	
 
 	![][18]	
 
-5. **Target in-app notifications to show up on a specific screen/activity in the app**
+- **Target in-app notifications to show up on a specific screen/activity in the app**
 
 	![][19]	
 
-6. **Specify an "action" when the user clicks on a notification**
+- **Specify an "action" when the user clicks on a notification**
 It could be as simple as opening up a webpage or navigating within the app to a specific screen at the click of the notification. 
 
 	![][20]
 	
-7. **Send localized notifications**
+- **Send localized notifications**
 so that it appeals to the app users in the language they are most comfortable in. 
 
 	![][21]	
 
-8. **Specify a start and end time for your campaigns** 
+- **Specify a start and end time for your campaigns** 
 
 	![][22]	
 
-9. **Easily test your notifications** 
+- **Easily test your notifications** 
 by registering a test device and sending the test notification to only this device.
 
 	![][23]	
 
-10. **Easily set up an in-app notification to show up as a quick poll/survey**  
+- **Easily set up an in-app notification to show up as a quick poll/survey**  
 
 	![][24]
 	
-11. **Get push campaign statistics** 
+- **Get push campaign statistics** 
 for your notifications to give you an idea about how successful were your notifications.
 
 	![][25]	
 
-12. **Easily personalize and give character to your notifications using app-info/tags and emojis** 
+- **Easily personalize and give character to your notifications using app-info/tags and emojis** 
 
 	![][26]	
 
 	![][27]	
 
-13. **Set Push Limits to prevent spamming users**
+- **Set Push Limits to prevent spamming users**
 You don’t want to send a lot of pushes to your app users and come across as spamming them. This is where our Push limits feature is useful which allows you to configure push limits at the granularity of a segment. 
 
 	![][28]			

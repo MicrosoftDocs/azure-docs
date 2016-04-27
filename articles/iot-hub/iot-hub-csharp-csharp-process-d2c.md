@@ -28,16 +28,18 @@ This tutorial builds on the code shown in the [Get started with IoT Hub] tutoria
 
 - The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application back end, as compared to *data point* messages that feed into an analytics engine. For instance, an alarm coming from a device that must trigger inserting a ticket into a CRM system is an interactive device-to-cloud message, as compared to telemetry such as temperature samples which is a data point device-to-cloud message.
 
-Because IoT Hub exposes an Event Hubs-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance, which:
+Because IoT Hub exposes an [Event Hubs][lnk-event-hubs]-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance, which:
 
 * Reliably stores *data point* messages in Azure Blobs.
 * Forwards *interactive* device-to-cloud messages to a [Service Bus queue] for immediate processing.
 
 Service Bus is a great way to ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based deduplication.
 
+> [AZURE.NOTE] An **EventProcessorHost** instance is only one way to process interactive messages, other options include [Azure Service Fabric][lnk-service-fabric] and [Azure Stream Analytics][lnk-stream-analytics].
+
 At the end of this tutorial you will run three Windows console applications:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, which sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, which sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQPS protocol to communicate with IoT Hub.
 * **ProcessDeviceToCloudMessages**, which uses the [EventProcessorHost] class to retrieve messages from the Event Hub-compatible endpoint and then reliably store data point messages in an Azure blob and forward interactive messages to a Service Bus queue.
 * **ProcessD2CInteractiveMessages**, which dequeues the interactive messages from the Service Bus queue.
 
@@ -115,3 +117,6 @@ Additional information on IoT Hub:
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: iot-hub-tested-configurations.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
+[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
+[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/

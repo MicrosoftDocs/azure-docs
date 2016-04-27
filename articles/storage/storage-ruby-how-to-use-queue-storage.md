@@ -3,9 +3,9 @@
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/23/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # How to use Queue storage from Ruby
@@ -36,7 +36,7 @@ queues**.
 ## Create a Ruby Application
 
 Create a Ruby application. For instructions, 
-see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+see [Ruby on Rails Web application on an Azure VM](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configure Your Application to Access Storage
 

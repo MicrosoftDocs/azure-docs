@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/10/2016" 
+	ms.date="04/26/2016" 
 	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
@@ -227,6 +227,8 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 ###PowerShell
 
 These steps use Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](../powershell-install-configure.md) before using the following steps.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 1. Using the Python examples [streaming.py](#streamingpy) and [jython.py](#jythonpy), create local copies of the files on your development machine.
 

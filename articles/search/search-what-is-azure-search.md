@@ -30,7 +30,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 **Faceted navigation** is easily added to your search results page with Azure Search. Using [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search will return all the necessary information to construct a faceted search experience in your app's UI to allow your users to drill-down and filter search results  (e.g. filter catalog items by price-range or brand).
 
-**Geo-spatial** [support](search-create-geospatial.md) allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region.
+**Geo-spatial** support allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
 **Filters** can be used to easily incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 

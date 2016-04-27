@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Create Table As Select (CTAS) in SQL Data Warehouse
-Create table as select or CTAS is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create a copy of a table. You can consider it to be a supercharged version of SELECT..INTO if you would like. This document provide both examples and best practices for CTAS.
+Create table as select or `CTAS` is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. `CTAS` is the simplest and fastest way to create a copy of a table. You can consider it to be a supercharged version of `SELECT..INTO` if you would like. This document provide both examples and best practices for `CTAS`.
 
 ## Using CTAS to copy a table
 
-Perhaps one of the most common uses of CTAS is creating a copy of a table so that you can change the DDL. If for example you originally created your table as ROUND_ROBIN and now want change it to a table distributed on a column, CTAS is how you would change the distribution column. CTAS can also be used to changed partitioning, indexing, or column types.
+Perhaps one of the most common uses of `CTAS` is creating a copy of a table so that you can change the DDL. If for example you originally created your table as `ROUND_ROBIN` and now want change it to a table distributed on a column, `CTAS` is how you would change the distribution column. `CTAS` can also be used to change partitioning, indexing, or column types.
 
-Let's say you created this table using the default distribution type of ROUND_ROBIN distributed since no distribution column was specified in the CREATE TABLE.
+Let's say you created this table using the default distribution type of `ROUND_ROBIN` distributed since no distribution column was specified in the `CREATE TABLE`.
 
-```
+```sql
 CREATE TABLE FactInternetSales
 (
 	ProductKey int NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE FactInternetSales
 
 Now you want to create a new copy of this table with a Clustered Columnstore Index so that you can take advantage of the performance of Clustered Columnstore tables. You also want to distribute this table on ProductKey since you are anticipating joins on this column and want to avoid data movement during joins on ProductKey. Lastly you also want to add partitioning on OrderDateKey so that you can quickly delete old data by dropping old partitions. Here is the CTAS statement which would copy your old table into a new table.
 
-```
+```sql
 CREATE TABLE FactInternetSales_new
 WITH
 (
@@ -77,7 +77,7 @@ AS SELECT * FROM FactInternetSales;
 
 Finally you can rename your tables to swap in your new table and then drop your old table.
 
-```
+```sql
 RENAME OBJECT FactInternetSales TO FactInternetSales_old;
 RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 
@@ -88,30 +88,30 @@ DROP TABLE FactInternetSales_old;
 
 ## Using CTAS to work around unsupported features
 
-CTAS can also be used to work around a number of the unsupported features listed below. This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse. This is as a result of its fully parallelized design. Scenarios that can be worked around with CTAS include:
+`CTAS` can also be used to work around a number of the unsupported features listed below. This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse. This is as a result of its fully parallelized design. Scenarios that can be worked around with CTAS include:
 
 - SELECT..INTO
 - ANSI JOINS on UPDATEs
 - ANSI JOINs on DELETEs
 - MERGE statement
 
-> [AZURE.NOTE] Try to think "CTAS first". If you think you can solve a problem using CTAS then that is generally the best way to approach it - even if you are writing more data as a result.
+> [AZURE.NOTE] Try to think "CTAS first". If you think you can solve a problem using `CTAS` then that is generally the best way to approach it - even if you are writing more data as a result.
 >
 
 ## SELECT..INTO
-You may find SELECT..INTO appears in a number of places in your solution.
+You may find `SELECT..INTO` appears in a number of places in your solution.
 
-Below is an example of a SELECT..INTO statement:
+Below is an example of a `SELECT..INTO` statement:
 
-```
+```sql
 SELECT *
 INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-To convert the above to CTAS is quite straight-forward:
+To convert the above to `CTAS` is quite straight-forward:
 
-```
+```sql
 CREATE TABLE #tmp_fct
 WITH
 (
@@ -123,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-> [AZURE.NOTE] CTAS currently requires a distribution column be specified.  If you are not intentionally trying to change the distribution column, your CTAS will perform the fastest if you select a distribution column that is the same as the underlying table as this strategy avoids data movement.  If you are creating a small table where performance is not a factor, then you can specify ROUND_ROBIN to avoid having to decide on a distribution column.
+> [AZURE.NOTE] CTAS currently requires a distribution column be specified.  If you are not intentionally trying to change the distribution column, your `CTAS` will perform the fastest if you select a distribution column that is the same as the underlying table as this strategy avoids data movement.  If you are creating a small table where performance is not a factor, then you can specify `ROUND_ROBIN` to avoid having to decide on a distribution column.
 
 ## ANSI join replacement for update statements
 
@@ -131,7 +131,7 @@ You may find you have a complex update that joins more than two tables together 
 
 Imagine you had to update this table:
 
-```
+```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
 (	[EnglishProductCategoryName]	NVARCHAR(50)	NOT NULL
 ,	[CalendarYear]					SMALLINT		NOT NULL
@@ -146,7 +146,7 @@ WITH
 
 The original query might have looked something like this:
 
-```
+```sql
 UPDATE	acs
 SET		[TotalSalesAmount] = [fis].[TotalSalesAmount]
 FROM	[dbo].[AnnualCategorySales] 	AS acs
@@ -169,11 +169,11 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-Since SQL Data Warehouse does not support ANSI joins in the FROM clause of an UPDATE statement, you cannot copy this code over without changing it slightly.
+Since SQL Data Warehouse does not support ANSI joins in the `FROM` clause of an `UPDATE` statement, you cannot copy this code over without changing it slightly.
 
-You can use a combination of a CTAS and an implicit join to replace this code:
+You can use a combination of a `CTAS` and an implicit join to replace this code:
 
-```
+```sql
 -- Create an interim table
 CREATE TABLE CTAS_acs
 WITH (DISTRIBUTION = ROUND_ROBIN)
@@ -206,11 +206,11 @@ DROP TABLE CTAS_acs
 ```
 
 ## ANSI join replacement for delete statements
-Sometimes the best approach for deleting data is to use CTAS. Rather than deleting the data simply select the data you want to keep. This especially true for DELETE statements that use ansi joining syntax since SQL Data Warehouse does not support ANSI joins in the FROM clause of a DELETE statement.
+Sometimes the best approach for deleting data is to use `CTAS`. Rather than deleting the data simply select the data you want to keep. This especially true for `DELETE` statements that use ansi joining syntax since SQL Data Warehouse does not support ANSI joins in the `FROM` clause of a `DELETE` statement.
 
 An example of a converted DELETE statement is available below:
 
-```
+```sql
 CREATE TABLE dbo.DimProduct_upsert
 WITH
 (   Distribution=HASH(ProductKey)
@@ -230,11 +230,11 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## Replace merge statements
-Merge statements can be replaced, at least in part, by using CTAS. You can consolidate the `INSERT` and the `UPDATE` into a single statement. Any deleted records would need to be closed off in a second statement.
+Merge statements can be replaced, at least in part, by using `CTAS`. You can consolidate the `INSERT` and the `UPDATE` into a single statement. Any deleted records would need to be closed off in a second statement.
 
 An example of an `UPSERT` is available below:
 
-```
+```sql
 CREATE TABLE dbo.[DimProduct_upsert]
 WITH
 (   DISTRIBUTION = HASH([ProductKey])
@@ -268,7 +268,7 @@ RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
 
 When migrating code you might find you run across this type of coding pattern:
 
-```
+```sql
 DECLARE @d decimal(7,2) = 85.455
 ,       @f float(24)    = 85.455
 
@@ -282,11 +282,11 @@ SELECT @d*@f
 ;
 ```
 
-Instinctively you might think you should migrate this code to a CTAS and you would be correct. However, their is a hidden issue here.
+Instinctively you might think you should migrate this code to a CTAS and you would be correct. However, there is a hidden issue here.
 
 The following code does NOT yield the same result:
 
-```
+```sql
 DECLARE @d decimal(7,2) = 85.455
 ,       @f float(24)    = 85.455
 ;
@@ -302,7 +302,7 @@ Notice that the column "result" carries forward the data type and nullability va
 
 Try the following as an example:
 
-```
+```sql
 SELECT result,result*@d
 from result
 ;
@@ -320,11 +320,11 @@ This is particularly important for data migrations. Even though the second query
 
 The reason we see this disparity between the two results is down to implicit type casting. In the first example the table defines the column definition. When the row is inserted an implicit type conversion occurs. In the second example there is no implicit type conversion as the expression defines data type of the column. Notice also that the column in the second example has been defined as a NULLable column whereas in the first example it has not. When the table was created in the first example column nullability was explicitly defined. In the second example it was just left to the expression and by default this would result in a NULL definition.  
 
-To resolve these issues you must explicitly set the type conversion and nullability in the SELECT portion of the CTAS statement. You cannot set these properties in the create table part.
+To resolve these issues you must explicitly set the type conversion and nullability in the `SELECT` portion of the `CTAS` statement. You cannot set these properties in the create table part.
 
 The example below demonstrates how to fix the code:
 
-```
+```sql
 DECLARE @d decimal(7,2) = 85.455
 ,       @f float(24)    = 85.455
 
@@ -340,11 +340,11 @@ Note the following:
 - ISNULL is the outermost function
 - The second part of the ISNULL is a constant i.e. 0
 
-> [AZURE.NOTE] For the nullability to be correctly set it is vital to use ISNULL and not COALESCE. COALESCE is not a deterministic function and so the result of the expression will always be NULLable. ISNULL is different. It is deterministic. Therefore when the second part of the ISNULL function is a constant or a literal then the resulting value will be NOT NULL.
+> [AZURE.NOTE] For the nullability to be correctly set it is vital to use `ISNULL` and not `COALESCE`. `COALESCE` is not a deterministic function and so the result of the expression will always be NULLable. `ISNULL` is different. It is deterministic. Therefore when the second part of the `ISNULL` function is a constant or a literal then the resulting value will be NOT NULL.
 
 This tip is not just useful for ensuring the integrity of your calculations. It is also important for table partition switching. Imagine you have this table defined as your fact:
 
-```
+```sql
 CREATE TABLE [dbo].[Sales]
 (
     [date]      INT     NOT NULL
@@ -369,7 +369,7 @@ However, the value field is a calculated expression it is not part of the source
 
 To create your partitioned dataset you might want to do this:
 
-```
+```sql
 CREATE TABLE [dbo].[Sales_in]
 WITH    
 (   DISTRIBUTION = HASH([product])
@@ -393,7 +393,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 
 The query would run perfectly fine. The problem comes when you try to perform the partition switch. The table definitions do not match. To make the table definitions match the CTAS needs to be modified.
 
-```
+```sql
 CREATE TABLE [dbo].[Sales_in]
 WITH    
 (   DISTRIBUTION = HASH([product])

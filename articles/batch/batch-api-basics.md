@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="02/25/2016"
+	ms.date="03/11/2016"
 	ms.author="yidingz;marsma"/>
 
 # Overview of Azure Batch features
@@ -44,18 +44,20 @@ In the sections below, you'll learn about each of the resources mentioned in the
 
 ## <a name="resource"></a> Resources of the Batch service
 
-When you use the Azure Batch service, you will use the following resources:
+When you use Batch, you will use many of the following resources. Some of these resources, such as accounts, compute nodes, pools, jobs, and tasks, are used in all Batch solutions. Others, such as job schedules and application packages, are helpful but optional features.
 
 - [Account](#account)
 - [Compute node](#computenode)
 - [Pool](#pool)
 - [Job](#job)
 - [Task](#task)
-	- [Start Task](#starttask)
-	- [Job ManagerTask](#jobmanagertask)
+	- [Start task](#starttask)
+	- [Job manager task](#jobmanagertask)
 	- [Job preparation and release tasks](#jobpreprelease)
 	- [Multi-instance tasks](#multiinstance)
-- [JobSchedule](#jobschedule)
+    - [Task dependencies](#taskdep)
+- [Job schedules](#jobschedule)
+- [Application packages](#appkg)
 
 ### <a name="account"></a>Account
 
@@ -122,7 +124,6 @@ A job is a collection of tasks, and specifies how computation is performed on co
 	- Azure Batch can detect tasks that fail and retry the tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is always or never retried. Retrying a task means that the task is re-queued to be run again.
 - Tasks can be added to the job by your client application, or a [Job Manager task](#jobmanagertask) may be specified. A job manager task uses the Batch API and contains the information necessary to create the required tasks for a job, with the task being run on one of the compute nodes within the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is required for jobs created by a job schedule as it is the only way to define the tasks before the job is instantiated. More information on job manager tasks appears below.
 
-
 ### <a name="task"></a>Task
 
 A task is a unit of computation that is associated with a job and runs on a node. Tasks are assigned to a node for execution, or are queued until a node becomes free. A task uses the following resources:
@@ -141,6 +142,7 @@ In addition to tasks that you define to perform computation on a node, the follo
 - [Job manager task](#jobmanagertask)
 - [Job preparation and release tasks](#jobmanagertask)
 - [Multi-instance tasks](#multiinstance)
+- [Task dependencies](#taskdep)
 
 #### <a name="starttask"></a>Start task
 
@@ -187,9 +189,29 @@ A [multi-instance task](batch-mpi.md) is a task that is configured to run on mor
 
 For a detailed discussion on running MPI jobs in Batch using the Batch .NET library, check out [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](batch-mpi.md).
 
+#### <a name="taskdep"></a>Task dependencies
+
+Task dependencies, as the name implies, allow you to specify that a task depends on the completion of other tasks before its execution. This feature provides support for situations in which a "downstream" task consumes the output of an "upstream" task, or when an upstream task performs some initialization that is required by a downstream task. To use this feature, you must first enable task dependencies on your Batch job. Then, for each task that depends on another (or many others), you specify the tasks which that task depends on.
+
+With task dependencies, you can configure scenarios such as the following:
+
+* *taskB* depends on *taskA* (*taskB* will not begin execution until *taskA* has completed)
+* *taskC* depends on both *taskA* and *taskB*
+* *taskD* depends on a range of tasks, such as tasks *1* through *10*, before it executes
+
+Check out the [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub repository. In it, you will see how to configure tasks that depend on other tasks using the [Batch .NET][batch_net_api] library.
+
 ### <a name="jobschedule"></a>Scheduled jobs
 
 Job schedules enable you to create recurring jobs within the Batch service. A job schedule specifies when to run jobs and includes the specifications for the jobs to be run. A job schedule allows for the specification of the duration of the schedule - how long and when the schedule is in effect - and how often during that time period jobs should be created.
+
+### <a name="appkg"></a>Application packages
+
+The [application packages](batch-application-packages.md) feature provides easy management and deployment of applications to the compute nodes in your pools. With application packages, you can easily upload and manage multiple versions of the applications run by your tasks, including binaries and support files, then automatically deploy one or more of these applications to the compute nodes in your pool.
+
+Batch handles the details of working with Azure Storage in the background to securely store and deploy your application packages to compute nodes, so both your code and your management overhead can be simplified.
+
+To find out more about the application package feature, check out [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
 ## <a name="files"></a>Files and directories
 
@@ -203,7 +225,7 @@ The root directory contains the following directory structure:
 
 - **Shared** – This location is a shared directory for all tasks that run on a node, regardless of job. On the node, the shared directory is accessed via  `%AZ_BATCH_NODE_SHARED_DIR%`. This directory provides read/write access to all tasks that execute on the node. Tasks can create, read, update, and delete files in this directory.
 
-- **Startup** – This location is used by a start task as its working directory. All of the files that are downloaded by the Batch service to launch the start task are also stored under this directory. On the node, the start directory is available via the `%AZ_BATCH_NODE_START_DIR%` environment variable. The start task can create, read, update, and delete files under this directory, and this directory can be used by start tasks to configure the operating system.
+- **Startup** – This location is used by a start task as its working directory. All of the files that are downloaded by the Batch service to launch the start task are also stored under this directory. On the node, the start directory is available via the `%AZ_BATCH_NODE_STARTUP_DIR%` environment variable. The start task can create, read, update, and delete files under this directory, and this directory can be used by start tasks to configure the operating system.
 
 - **Tasks** - A directory is created for each task that runs on the node, accessed via `%AZ_BATCH_TASK_DIR%`. Within each task directory, the Batch service creates a working directory (`wd`) whose unique path is specified by the `%AZ_BATCH_TASK_WORKING_DIR%` environment variable. This directory provides read/write access to the task. The task can create, read, update, and delete files under this directory, and this directory is retained based on the *RetentionTime* constraint specified for the task.
   - `stdout.txt` and `stderr.txt` - These files are written to the task folder during the execution of the task.
@@ -346,11 +368,13 @@ In situations where some of your tasks are failing, your Batch client applicatio
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
-[about_cloud_services]: https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#tell-me-about-cloud-services
+[about_cloud_services]: ../cloud-services/cloud-services-choose-me.md
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -377,7 +401,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/en-us/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx

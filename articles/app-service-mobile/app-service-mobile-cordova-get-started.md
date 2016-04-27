@@ -66,6 +66,7 @@ Learn more about key concepts with Azure App Service.
 
 Learn how to use the SDKs.
 
+* [Apache Cordova SDK]
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
 
@@ -79,6 +80,7 @@ Learn how to use the SDKs.
 [Add Push Notifications]: app-service-mobile-cordova-get-started-push.md
 [Authentication]: app-service-mobile-auth.md
 [Push Notifications]: ../notification-hubs/notification-hubs-overview.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 

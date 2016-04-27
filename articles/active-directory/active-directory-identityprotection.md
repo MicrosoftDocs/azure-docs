@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -36,7 +36,7 @@ The preview of Azure Active Directory Identity Protection has the following limi
 
 - Security policies do not work for federated domains
 
-- Risk events are not detected for federated domains
+- Risk events are are only detected for apps federating with Azure Active Directory
 
 ##Getting Started
 
@@ -85,7 +85,7 @@ But Azure Active Directory Identity Protection more than a monitoring and report
 
 ### Risk events
 
-Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types). 
+Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md). 
 
 Some of these risk events have been available through the Azure AD Anomalous Activity reports in the Azure Management Portal. 
 The table below lists the various risk event types and the corresponding **Azure AD Anomalous Activity** report. Microsoft is continuing to invest in this space, and plans to continuously improve the detection accuracy of existing risk events and add new risk event types on an ongoing basis. 
@@ -137,8 +137,8 @@ Your journey through Identity Protection typically starts with the Identity Prot
 
 The dashboard gives you access to:
  
-- reports such as **Users flagged for risk**, **Risk events** and **Vulnerabilities**
-- settings such as the configuration of your **Security Policies**, **Notifications** and **multi-factor authentication registration**
+- Reports such as **Users flagged for risk**, **Risk events** and **Vulnerabilities**
+- Settings such as the configuration of your **Security Policies**, **Notifications** and **multi-factor authentication registration**
  
 
 It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
@@ -175,8 +175,8 @@ You can use the user risk levels to create conditional access policies to block 
 In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible. <br> 
 This is, for example, the case, when:
 
-- a user with Active risk events has been deleted
-- an investigation reveals that a reported risk event has been perform by the legitimate user
+- A user with Active risk events has been deleted
+- An investigation reveals that a reported risk event has been perform by the legitimate user
 
 Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level by closing risk events manually. <br>
 During the course of investigation, you can choose to take any of these actions to change the status of a risk event:
@@ -211,11 +211,11 @@ A remediation is an action to secure an identity or a device that was previously
 
 To remediate user risk events, you can:
 
-- perform a secure password reset to remediate user risk events manually 
+- Perform a secure password reset to remediate user risk events manually 
 
-- configure a user risk security policy to mitigate or remediate user risk events automatically
+- Configure a user risk security policy to mitigate or remediate user risk events automatically
 
-- re-image the infected device  
+- Re-image the infected device  
 
 
 ### Manual secure password reset
@@ -262,27 +262,27 @@ A user risk security policy is a conditional access policy that evaluates the ri
 
 Azure AD Identity Protection helps you manage the mitigation and remediation of users flagged for risk by enabling you to:
 
-- set the users and groups the policy applies to 
+- Set the users and groups the policy applies to: 
 <br><br>
 ![User ridk policy](./media/active-directory-identityprotection/501.png "User ridk policy")
 <br>
 
-- set the user risk level threshold (low, medium, or high) that triggers a password change 
+- Set the user risk level threshold (low, medium, or high) that triggers a password change: 
 <br><br>
 ![User ridk policy](./media/active-directory-identityprotection/502.png "User ridk policy")
 <br>
 
-- set the user risk level threshold (low, medium, or high) that triggers blocking a user
+- Set the user risk level threshold (low, medium, or high) that triggers blocking a user:
 <br><br>
 ![User ridk policy](./media/active-directory-identityprotection/503.png "User ridk policy")
 <br>
 
-- switch the state of your policy
+- Switch the state of your policy:
 <br><br>
 ![MFA Registration](./media/active-directory-identityprotection/403.png "MFA Registration")
 <br>
 
-- review and evaluate the impact of a change before activating it
+- Review and evaluate the impact of a change before activating it:
 <br><br>
 ![User ridk policy](./media/active-directory-identityprotection/504.png "User ridk policy")
 <br>
@@ -293,13 +293,13 @@ However, it excludes **Low** and **Medium** users flagged for risk from the poli
 
 When setting the policy,
 
-- exclude users who are likely to generate a lot of false-positives (developers, security analysts)
+- Exclude users who are likely to generate a lot of false-positives (developers, security analysts)
 
-- exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+- Exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
 
-- use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
+- Use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
 
-- use a **Low** threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
+- Use a **Low** threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
 
 The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
 
@@ -307,7 +307,7 @@ For an overview of the related user experience, see:
 
 - [Compromised account recovery flow](active-directory-identityprotection-flows.md#compromised-account-recovery).  
 
-- [Compromised account blocked flow](active-directory-identityprotection-flows.md#Compromised-account-blocked).  
+- [Compromised account blocked flow](active-directory-identityprotection-flows.md#compromised-account-blocked).  
 
 
 **To open the related configuration dialog**:
@@ -332,9 +332,9 @@ Administrators can set a user risk security policy to block users upon sign-in d
 
 Blocking a sign-in:
  
-- prevents the generation of new user risk events for the affected user
+- Prevents the generation of new user risk events for the affected user
 
-- enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
+- Enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
 
 
 
@@ -357,27 +357,27 @@ A sign-in risk policy is a conditional access policy that evaluates the risk to 
 
 Azure AD Identity Protection helps you manage the mitigation of risky sign-ins by enabling you to:
 
-- set the users and groups the policy applies to 
+- Set the users and groups the policy applies to: 
 <br><br>
 ![Sign-in risk policy](./media/active-directory-identityprotection/701.png "Sign-in risk policy")
 <br>
 
-- set the sign-in risk level threshold (low, medium, or high) that triggers a multi-factor authentication challenge for the affected sign-ins 
+- Set the sign-in risk level threshold (low, medium, or high) that triggers a multi-factor authentication challenge for the affected sign-ins: 
 <br><br>
 ![Sign-in risk policy](./media/active-directory-identityprotection/702.png "Sign-in risk policy")
 <br>
 
-- set the sign-in risk level threshold (low, medium, or high) that blocks the affected sign-ins.  
+- Set the sign-in risk level threshold (low, medium, or high) that blocks the affected sign-ins:  
 <br><br>
 ![Sign-in risk policy](./media/active-directory-identityprotection/703.png "Sign-in risk policy")
 <br>
 
-- switch the state of your policy
+- Switch the state of your policy:
 <br><br>
 ![MFA Registration](./media/active-directory-identityprotection/403.png "MFA Registration")
 <br>
 
-- review and evaluate the impact of a change before activating it 
+- Review and evaluate the impact of a change before activating it: 
 <br><br>
 ![Sign-in risk policy](./media/active-directory-identityprotection/704.png "Sign-in risk policy")
 <br>
@@ -388,36 +388,36 @@ However, it excludes **Low** and **Medium** sign-ins flagged for risk from the p
 
 When setting the policy, 
 
-- exclude users who do not/cannot have multi-factor authentication
+- Exclude users who do not/cannot have multi-factor authentication
 
-- exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+- Exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
 
-- exclude users who are likely to generate a lot of false-positives (developers, security analysts)
+- Exclude users who are likely to generate a lot of false-positives (developers, security analysts)
 
-- use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
+- Use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
 
-- use a **Low**  threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
+- Use a **Low**  threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
 
 The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
 
  
 The sign-in risk policy is:
 
-- applied to all browser traffic and sign-ins using modern authentication.
-- not applied to applications using older security protocols by disabling the WS-Trust endpoint at the federated IDP, such as ADFS.
+- Applied to all browser traffic and sign-ins using modern authentication.
+- Not applied to applications using older security protocols by disabling the WS-Trust endpoint at the federated IDP, such as ADFS.
 
 The **Risk Events** page in the Identity Protection console lists all events:
 
-- this policy was applied to
-- you can review the activity and determine whether the action was appropriate or not 
+- This policy was applied to
+- You can review the activity and determine whether the action was appropriate or not 
 
 For an overview of the related user experience, see:
 
-- [Risky sign-in recovery](active-directory-identityprotection-flows.md#risky-sign-in-recovery).  
+- [Risky sign-in recovery](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
 
-- [Risky sign-in blocked](active-directory-identityprotection-flows.md#risky-sign-in-blocked).  
+- [Risky sign-in blocked](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
 
-- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).  
+- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)  
 
 
 
@@ -443,31 +443,31 @@ For an overview of the related user experience, see:
 Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions. <br>
 We recommend that you require Azure Multi-Factor Authentication for user sign-ins because it:
 
-- delivers strong authentication with a range of easy verification options
+- Delivers strong authentication with a range of easy verification options
 
-- plays a key role in preparing your organization to protect and recover from account compromises
+- Plays a key role in preparing your organization to protect and recover from account compromises
 
 For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
 Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by configuring a policy that enables you to: 
 
-- view the current registration status 
+- View the current registration status: 
 <br><br>
 ![MFA Registration](./media/active-directory-identityprotection/603.png "MFA Registration")
 <br>
 
-- set the users and groups the policy applies to
+- Set the users and groups the policy applies to:
 <br><br>
 ![MFA Registration](./media/active-directory-identityprotection/601.png "MFA Registration")
 <br>
 
-- define how long they are allowed to skip registration
+- Define how long they are allowed to skip registration:
 <br><br>
 ![MFA Registration](./media/active-directory-identityprotection/602.png "MFA Registration")
 <br>
 
-- switch the state of your policy
+- Switch the state of your policy:
 <br><br>
 ![MFA Registration](./media/active-directory-identityprotection/403.png "MFA Registration")
 <br>

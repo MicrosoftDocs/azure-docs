@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/25/2016" 
 ms.author="adegeo"/>
 
 # Common Cloud Service startup tasks
@@ -60,7 +60,7 @@ If you need environment variables defined for a specific task, that isn't shared
 </ServiceDefinition>
 ```
 
-Variables can also use a [valid Azure XPath value](https://msdn.microsoft.com/library/azure/hh404006.aspx) to reference something about the deployment. Instead of using the `value` attribute, define a [RoleInstanceValue] child element.
+Variables can also use a [valid Azure XPath value](cloud-services-role-config-xpath.md) to reference something about the deployment. Instead of using the `value` attribute, define a [RoleInstanceValue] child element.
 
 ```xml
 <Variable name="PathToStartupStorage">

@@ -74,6 +74,7 @@ The blob indexer can extract text from the following document formats:
 - ZIP
 - EML
 - Plain text files  
+- JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details)
 
 ## Document extraction process
 
@@ -191,7 +192,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extract text, including attachments
 ZIP (application/zip) | `metadata_content_type` | Extract text from all documents in the archive
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Strip XML markup and extract text
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details
 EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extract text, including attachments
 Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -208,15 +209,15 @@ AzureSearch_SkipContent | "true" | Instructs the blob indexer to only index the 
 <a name="IndexerParametersConfigurationControl"></a>
 ## Using indexer parameters to control document extraction
 
-If you want to skip content extraction for all blobs, you can do this using indexer configuration object, instead of having to add custom metadata to each blob individually. To do this, set `SkipContent` configuration property to `true` in the `parameters` object: 
+If you need to extract metadata but skip content extraction for all blobs, you can request this behavior using the indexer configuration, instead of having to add `AzureSearch_SkipContent` metadata to each blob individually. To do this, set the `skipContent` configuration property to `true` in the `parameters` object: 
 
- 	PUT https://[service name].search.windows.net/indexers/<your indexer name>?api-version=2015-02-28-Preview
+ 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
 	api-key: [admin key]
 
 	{
 	  ... other parts of indexer definition
-	  "parameters" : { "configuration" : { "SkipContent" : true } }
+	  "parameters" : { "configuration" : { "skipContent" : true } }
 	}
 
 ## Help us make Azure Search better

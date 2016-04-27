@@ -33,7 +33,6 @@ A set of samples are provided to help you get started running MapReduce jobs on 
 Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting. For more information about these resources, see:
 
 - [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Develop C# Hadoop streaming programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Introduction to Azure HDInsight][hdinsight-introduction]
 
@@ -46,7 +45,9 @@ Nowadays, a lot of people choose Hive and Pig over MapReduce.  For more informat
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
-- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **A workstation with Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="hdinsight-sample-wordcount"></a>Word count - Java 
 
@@ -137,11 +138,11 @@ For more information about the Hadoop Streaming interface, see [Hadoop Streaming
 - Follow the procdure in [Word count - Java](#word-count-java), and replace the job definition with the following:
 
 		$mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
-									-File "/example/apps/" `
-									-Mapper "cat.exe" `
-									-Reducer "wc.exe" `
-									-InputPath "/example/data/gutenberg/davinci.txt" `
-									-OutputPath "/example/data/StreamingOutput/wc.txt"
+    							-Files "/example/apps/cat.exe","/example/apps/wc.exe" `
+    							-Mapper "cat.exe" `
+    							-Reducer "wc.exe" `
+    							-InputPath "/example/data/gutenberg/davinci.txt" `
+    							-OutputPath "/example/data/StreamingOutput/wc.txt"  
 
 
 	The output file shall be:
@@ -988,7 +989,7 @@ The code for the TeraSort MapReduce program is presented for inspection in this 
 [hdinsight-introduction]: hdinsight-hadoop-introduction.md
 
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: ../powershell-install-configure.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 

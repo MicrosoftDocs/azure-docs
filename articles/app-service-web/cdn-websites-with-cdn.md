@@ -569,10 +569,9 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 - [Serve Content from Azure CDN in Your Web Application](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Integrate a cloud service with Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](../cdn/cdn-how-to-use-cdn.md)
+- [Using Azure CDN](../cdn/cdn-create-new-endpoint.md)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 

@@ -84,7 +84,7 @@ will use this value in your code later in this tutorial.
 
 ## Create a Ruby application
 
-For instructions, see [Create a Ruby Application on Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+For instructions, see [Create a Ruby Application on Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configure Your application to Use Service Bus
 

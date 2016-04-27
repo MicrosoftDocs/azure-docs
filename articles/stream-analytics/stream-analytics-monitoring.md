@@ -14,26 +14,26 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Understand Stream Analytics job monitoring and how to monitor queries
 
 ## Introduction: The monitor page
 
-The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your query and job performance. 
+The Azure Management portal and Azure Portal both surface key performance metrics that can be used to monitor and troubleshoot your query and job performance. 
 
 In the Azure Management portal, click on the **Monitor** tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page.  
 
   ![Monitoring job Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
-In the Azure preview portal, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section.  
+In the Azure Portal, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section.  
 
-  ![Azure preview portal Monitoring job Dashboard](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)  
+  ![Azure Portal Monitoring job Dashboard](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)  
 
 The first time a Stream Analytics job is created in a region, you will need to configure Diagnostics for that region. To do this, click anywhere in the **Monitoring** section and the **Diagnostics** blade will appear. Here you can enable diagnostics and specify a storage account for monitoring data.  
 
-  ![Azure preview portal Configure query Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
+  ![Azure Portal Configure query Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
 
 ## Metrics available for Stream Analytics
 
@@ -65,15 +65,15 @@ To change the time range the metrics chart displays, select 1 hour, 24 hours, or
 
 You can set rules that can notify you by email in case the job crosses a defined threshold. 
 
-## Customizing Monitoring in the Azure Preview portal ##
+## Customizing Monitoring in the Azure Portal ##
 
-You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](./azure-portal/insights-how-to-customize-monitoring.md).
+You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../azure-portal/insights-how-to-customize-monitoring.md).
 
-  ![Azure preview portal Query Monitor Time Scale](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Azure Portal Query Monitor Time Scale](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 ## Job status
 
-The status of Stream Analytics jobs can be viewed in the Azure portal where you see a list of jobs. You can see the list of jobs by clicking the Stream Analytics icon in the Azure Portal.
+The status of Stream Analytics jobs can be viewed in the Azure Classic Portal where you see a list of jobs. You can see the list of jobs by clicking the Stream Analytics icon in the Azure Classic Portal.
 
 | Status | Definition |
 |--------|------------|
