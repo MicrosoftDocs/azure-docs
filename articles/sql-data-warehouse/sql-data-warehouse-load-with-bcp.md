@@ -3,7 +3,7 @@
    description="Learn what bcp is and how to use it for data warehousing scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/20/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -27,7 +27,7 @@
 
 **[bcp][]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL.
 
-bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center.  Generally, dimension tables can be loaded and extracted but fairly large fact tables may take a significant amount of time to load or extract from.
+bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center.  Generally, dimension tables can be loaded and extracted readily with bcp, however, bcp is not recommended for loading or extracting large volumes of data.  Polybase is the recommended tool for loading and extracting large volumes of data as it does a better job leveraging the massively parallel processing architecture of SQL Data Warehouse.
 
 With bcp you can:
 
@@ -189,10 +189,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [Table Design]: ./sql-data-warehouse-develop-table-design.md
 [Statistics]: ./sql-data-warehouse-develop-statistics.md
 
-
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433

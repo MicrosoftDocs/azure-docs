@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="02/25/2016"
+	ms.date="03/13/2016"
 	ms.author="awills"/>
 
 # Dashboards and navigation in the Application Insights portal
@@ -30,7 +30,7 @@ The dashboard is particularly useful for monitoring a solution made up of multip
 1. Click the top corner anytime to get back to the dashboard.
 2. **+ New** creates a new resource. An [Application Insights resource](app-insights-create-new-resource.md) is a place to store and analyze telemetry from your app.
 3. The navigation bar opens your existing resources.
-4. Edit and create dashboards using the dashboard toolbar.
+4. Edit and create dashboards using the dashboard toolbar. You can [create different dashboards](#dashboards) for different applications.
 
 ## Find your telemetry
 
@@ -43,38 +43,6 @@ The contents depend on the type of your app, and can be customized.
 
 
 
-## Time range
-
-You can change the Time range covered by the charts or grids on any blade.
-
-![Open the overview blade of your application in the Azure portal](./media/app-insights-dashboards/03-range.png)
-
-
-If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
-
-To zoom into part of a chart, drag over it and then click the magnifier symbol:
-
-![Drag across part of a chart.](./media/app-insights-dashboards/12-drag.png)
-
-
-
-## Granularity and point values
-
-Hover your mouse over the chart to display the values of the metrics at that point.
-
-![Hover the mouse over a chart](./media/app-insights-dashboards/02-focus.png)
-
-The value of the metric at a particular point is aggregated over the preceding sampling interval. 
-
-The sampling interval or "granularity" is shown at the top of the blade. 
-
-![The header of a blade.](./media/app-insights-dashboards/11-grain.png)
-
-You can adjust the granularity in the Time range blade:
-
-![The header of a blade.](./media/app-insights-dashboards/grain.png)
-
-The granularities available depend on the time range you select. The explicit granularities are alternatives to the "automatic" granularity for the time range. 
 
 ## The app overview blade
 
@@ -100,6 +68,10 @@ Choose what you want to see on the overview. In Customize, you can insert sectio
 ## Dashboards
 
 The Azure portal dashboard is the home page you see when you first sign in to [the portal](https://portal.azure.com). On it, you can bring together charts and tiles (groups of charts) from multiple resources. 
+
+If you have a system made up of several components - for example, a web app, a backend server, and perhaps some Azure services - you can show the key performance indicators of all the components on one screen. 
+
+If you have more than one application, you can create and switch between several dashboards.
 
 ![Click Edit. Drag tiles and charts. Add tiles from the gallery. Then click Done.](./media/app-insights-dashboards/30.png)
 
@@ -183,6 +155,40 @@ If you edit a blade but then you'd like to get back to the original saved set, j
 
 ![In the buttons at the top of Metric Explorer](./media/app-insights-dashboards/17-reset.png)
 
+
+## Time range
+
+You can change the Time range covered by the charts or grids on any blade.
+
+![Open the overview blade of your application in the Azure portal](./media/app-insights-dashboards/03-range.png)
+
+
+If you're expecting some data that hasn't appeared yet, click Refresh. Charts refresh themselves at intervals, but the intervals are longer for larger time ranges. In release mode, it can take a while for data to come through the analysis pipeline onto a chart.
+
+To zoom into part of a chart, drag over it and then click the magnifier symbol:
+
+![Drag across part of a chart.](./media/app-insights-dashboards/12-drag.png)
+
+
+
+## Granularity and point values
+
+Hover your mouse over the chart to display the values of the metrics at that point.
+
+![Hover the mouse over a chart](./media/app-insights-dashboards/02-focus.png)
+
+The value of the metric at a particular point is aggregated over the preceding sampling interval. 
+
+The sampling interval or "granularity" is shown at the top of the blade. 
+
+![The header of a blade.](./media/app-insights-dashboards/11-grain.png)
+
+You can adjust the granularity in the Time range blade:
+
+![The header of a blade.](./media/app-insights-dashboards/grain.png)
+
+The granularities available depend on the time range you select. The explicit granularities are alternatives to the "automatic" granularity for the time range. 
+
 ## Search
 
 Search displays individual events such as page views, requests, exceptions, log traces, and custom events.  It doesn't show aggregated metrics or instances of the TrackMetric() call.
@@ -233,4 +239,10 @@ To see the search again, **go to the overview blade** and open Favorites:
 
 If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time.
 
+## Analytics
 
+[Analytics](app-insights-analytics.md) is the advanced search feature with which you can diagnose and understand performance questions about your app.
+
+![Analytics example](./media/app-insights-dashboards/025.png)
+
+Click the Analytics tile to see it.

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/04/2016"
+   ms.date="04/14/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -27,9 +27,13 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - [Add and verify the domain](active-directory-add-domain.md) you plan to use in Azure AD. For example if you plan to use contoso.com for your users then make sure this domain has been verified and you are not only using the contoso.onmicrosoft.com default domain.
 - An Azure AD directory will by default allow 50k objects. When you verify your domain the limit will be increased to 300k objects. If you need even more objects in Azure AD you need to open a support case to have the limit increased even further. If you need more than 500k objects, you will need a license such as Office 365, Azure AD Basic, Azure AD Premium, or Enterprise Mobility Suite.
 
+### Prepare your on-premises data
+- Review [optional sync features you can enable in Azure AD](active-directory-aadconnectsyncservice-features.md) and evaluate which features you should enable.
+
 ### On-premises servers and environment
 - The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
 - If you plan to use the feature **password writeback** the Domain Controllers must be on Windows Server 2008 (with latest SP) or later. If your DCs are on 2008 (pre-R2) then you must also apply [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
+- The domain controller used by Azure AD must be writable. It is not supported to use a RODC (read-only domain controller) and Azure AD Connect will not follow any write redirects.
 - Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials. The server must be using Windows Server standard or better.
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server if using express settings. If you use custom settings, the server can also be stand-alone and does not have to be joined to a domain.
 - If you install Azure AD Connect on Windows Server 2008, make sure to apply the latest hotfixes from Windows Update. The installation will not be able to start with an unpatched server.

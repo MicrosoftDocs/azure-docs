@@ -159,7 +159,6 @@ You need to open some outgoing ports in your server's firewall to allow Status M
  -	`login.live.com:443`
 + Installation:
  +	`packages.nuget.org:443`
- +	`appinsightsstatusmonitor.blob.core.windows.net:80`
 
 This list may change from time to time.
 

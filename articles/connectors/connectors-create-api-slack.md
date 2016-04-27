@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Slack is a team communication tool, that brings together all of your team communications in one place, instantly searchable and available wherever you go.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Slack](../app-service-logic/app-service-logic-connector-Slack.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With the Slack connector, you can:
 

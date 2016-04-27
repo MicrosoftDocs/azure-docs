@@ -410,7 +410,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 - Review the support policy for Microsoft server software used in the Azure Virtual Machine environment. The following topic summarizes support for features such as BitLocker, Failover Clustering, and Network Load Balancing. [Microsoft server software support for Azure Virtual Machines](http://support.microsoft.com/kb/2721672).
 
-- [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-classic-sql-overview.md)
+- [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md)
 
 - [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -418,7 +418,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 - [How to Attach a Data Disk to a Virtual Machine](virtual-machines-windows-classic-attach-disk.md)
 
-- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-classic-migrate-sql.md)
+- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
 
 - [Determine the Server Mode of an Analysis Services Instance](https://msdn.microsoft.com/library/gg471594.aspx)
 

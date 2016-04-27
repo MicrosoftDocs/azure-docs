@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Kernels available for Jupyter notebooks with Spark clusters on HDInsight (Linux)
+# Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight (Preview)
 
-Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. By default Jupyter notebook comes with a **Python2** kernel. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
+Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook. These are:
 
 1. **PySpark** (for applications written in Python)
 2. **Spark** (for applications written in Scala)
@@ -50,11 +50,11 @@ You must have the following:
 
 3. This should open a new notebook with the kernel you selected.
 
-## Why should I use the new kernels?
+## Why should I use the PySpark or Spark kernels?
 
 Here are a few benefits of using the new kernels.
 
-1. **Preset contexts**. With the default **Python2** kernel that is available with Jupyter notebooks, you need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing. If you use the new kernels (**PySpark** or **Spark**), these contexts are available for you by default. These contexts are:
+1. **Preset contexts**. With the **PySpark** or **Spark** kernels that are provided with Jupyter notebooks, you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
 
 	* **sc** - for Spark context
 	* **sqlContext** - for Hive context
@@ -114,9 +114,7 @@ The statement above does the following:
 
 ## Considerations while using the new kernels
 
-Whichever kernel you use (Python2, PySpark, or Spark), leaving the notebooks running will consume your cluster resources. With the Python2 notebook, because you create the contexts explicitly, you can also kill those contexts when you exit the application.
-
-However, with PySpark and Spark kernels, because the contexts are preset, you cannot explicitly kill the context as well. So, if you just exit the notebook, the context might still be running, using your cluster resources. A good practice with the PySpark and Spark kernels would be to use the **Close and Halt** option from the notebook's **File** menu. This kills the context and then exits the notebook. 	
+Whichever kernel you use (PySpark or Spark), leaving the notebooks running will consume your cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the the cluster resources will continue to be in use. A good practice with the PySpark and Spark kernels would be to use the **Close and Halt** option from the notebook's **File** menu. This kills the context and then exits the notebook. 	
 
 
 ## Show me some examples

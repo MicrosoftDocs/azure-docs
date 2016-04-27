@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Protect ARM VMs with Azure Backup | Microsoft Azure"
-	description="Protect ARM VMs with Azure Backup service. Use backups of ARM VMs to protect your data. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
+	description="Protect ARM VMs with Azure Backup service. Use backups of ARM VMs and Premium Storage VMs to protect your data. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
@@ -24,7 +24,14 @@
 - [Back up ARM VMs](backup-azure-vms-first-look-arm.md)
 - [Back up Classic mode VMs](backup-azure-vms-first-look.md)
 
-This tutorial takes you through the set of steps for creating a Recovery Services vault and backing up an Azure virtual machine (VM). This tutorial is for use with Recovery Services vaults which can be used to protect IaaS v.2 or Azure Resource Manager (ARM)-based VMs.
+This tutorial takes you through the steps for creating a Recovery Services vault and backing up an Azure virtual machine (VM). Recovery Services vaults protect:
+
+- Azure Resource Manager (ARM) VMs
+- Classic VMs
+- Standard storage VMs
+- Premium storage VMs
+
+For additional information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
 >[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM. Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and ARM-based VMs.
 
@@ -223,8 +230,6 @@ The following table provides additional information about the VM Agent for Windo
 Once the VM Agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
 
 The backup extension is installed by the Backup service whether or not the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service will continue to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
-
-
 
 ## Troubleshooting information
 If you have issues accomplishing some of the tasks in this article, please consult the

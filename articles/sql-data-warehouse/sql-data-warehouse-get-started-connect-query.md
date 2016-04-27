@@ -3,7 +3,7 @@
    description="Get started with connecting to SQL Data Warehouse and running some queries."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/23/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="sonyama;barbkess"/>
 
 # Connect and query with Visual Studio
 

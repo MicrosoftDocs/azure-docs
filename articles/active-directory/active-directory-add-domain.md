@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Using custom domain names to simplify the sign-in experience for your users | Microsoft Azure"
-	description="Explains how to add your own domain name to Azure Active Directory, and other related information."
+	pageTitle="Add your custom domain name to simplify sign-in using Azure Active Directory | Microsoft Azure"
+	description="How to add your company's domain names to Azure Active Directory, and how to verify the domain name."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
@@ -13,68 +13,99 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/08/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
-# Using custom domain names to simplify the sign-in experience for your users
+# Add your custom domain name to simplify sign-in using Azure Active Directory
 
-You can use your own custom domain names to improve and simplify sign-in and other user experiences in Azure Active Directory. For example, if your organization owns the domain name ‘contoso.com,’ your users can sign in with user names they're familiar with, such as ‘joe@contoso.com.'
+When you first get your directory in Azure Active Directory (Azure AD), one of the important first tasks is to verify a custom domain name that your organization uses, such as ‘contoso.com’. Completing this task lets you assign user names that are familiar to your users, such as ‘alice@contoso.com.’ Until you verify your custom domain name, your users must sign in with user names like ‘alice@contoso.onmicrosoft.com’ which use the initial domain name for your directory.
 
-Every directory in Azure Active Directory comes with a built-in domain name in the form ‘contoso.onmicrosoft.com’ that lets you get started using Azure or other Microsoft services. [Learn about built-in domains](#built-in-domain-names-for-azure-active-directory).
+## Add a custom domain name to your directory
 
-## Use your custom domain name with Azure AD
+To add a custom domain name to your directory:
 
-If your organization owns a custom domain name that is familiar to your users, it is a best practice to use that custom domain name with Azure Active Directory. To use a custom domain name with Azure Active Directory, you:
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with a user account that is a global administrator of your Azure AD directory.
 
--   [Add and verify your custom domain name](active-directory-add-domain-add-verify-general.md)
+2. Select **Active Directory** on the left navigation bar, and open your directory.
 
--   [Assign users to the custom domain](active-directory-add-domain-add-users.md)
+4. Select the **Domains** tab.
 
-## Use your custom domain name with Office 365 and other services
+5. On the command bar, select **Add.**
 
-Like other resources in your Azure AD, custom domain names that you have added and verified can be used with Office 365, Intune, and other applications that use Azure AD. For example, using a custom domain name with Exchange Online lets users send and receive email at familiar email addresses like joe@contoso.com. To enable these other applications to use custom domains, you will need to add additional DNS entries at the DNS registrar, as documented by the application.
+6. Enter the name of your custom domain, such as 'contoso.com'. Be sure to include the .com, .net, or other top-level extension.
 
--   [Using custom domains with Office 365](https://support.office.com/article/Add-your-users-and-domain-to-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611?ui=en-US&rs=en-US&ad=US)
+7. If you plan to configure this domain for [federated sign-in](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) with your on-premises Active Directory, select the check box.
 
--   [Using custom domains with Intune](https://technet.microsoft.com/library/dn646966.aspx#BKMK_DomainNames)
+8. Select **Add**.
 
-## Manage domain names in Azure AD
+Before you can assign user names that include your custom domain name, Azure AD must verify that your organization owns the domain name. To do perform this verification, you must add a DNS entry in the DNS zone file for the domain name. This task can be completed at the website for domain name registrar for the domain name.
 
-Domain names generally require no ongoing management or administration in Azure Active Directory.
+## Get the DNS entries for the domain name
 
--   [See the list of domain names in your Azure Active Directory](active-directory-add-domain-add-users.md)
+If you opted to configure the domain for federation, you'll be directed to download the Azure AD Connect tool. Run the Azure AD Connect tool to [get the DNS entries you need to add at your domain name registrar](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
--   [What to do if you change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
+If you didn't opt to configure the domain for federation, the DNS entries are on the second page of the **Add domain** wizard.
 
-## Delete a custom domain name
+## Add the DNS entry to the DNS zone file
 
-You can delete a custom domain name from your Azure AD if your organization no longer uses that domain name, or if you need to use that domain name with another Azure AD.
+To add the DNS entry required by Azure AD:
 
--   [Delete a custom domain name](#_Deleting_a_custom)
+1.  Sign in to the domain name registrar for the domain. If you don't have sufficient permissions to update the DNS entry, ask the person or team who has this access to add the DNS entry.
 
-## Built-in domain names for Azure Active Directory
+2.  Update the DNS zone file for the domain by adding the DNS entry provided to you by Azure AD. This DNS entry enables Azure AD to verify your ownership of the domain. The DNS entry doesn't change any behaviors such as mail routing or web hosting.
 
-Tell the difference between the built-in domains in Azure Active Directory (Azure AD) and the custom domains you add.
+[Instructions for adding a DNS entry at popular DNS registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
--   Built in: the domain that comes with your Azure AD directory, in the form of contoso.onmicrosoft.com
+## Verify the domain name with Azure AD
 
--   Custom: a domain name that your organization already owns, such as contoso.com
+Once you have added the DNS entry, you can verify the domain name with Azure AD.
 
-## Use PowerShell or Graph API to manage domain names
+If you opted to federate your custom domain name, the Azure AD Connect tool performs verification automatically. Run the tool once you have completed the prerequisites. Otherwise, verify the domain in the Azure classic portal. If you still have the **Add domain** wizard open, you can click **Verify** on the third page of the wizard. It can take up to an hour for the DNS records to propagate.
 
-Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Graph API.
+If the **Add domain** wizard isn't still open, you can verify the domain in the [Azure classic portal](https://manage.windowsazure.com/):
 
--   [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+1.  Sign in with a user account that is a global administrator of your Azure AD directory.
 
--   [Using Graph API to manage domain names in Azure AD (preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+2.  Select **Active Directory** on the left navigation bar.
+
+3.  Open your directory.
+
+4.  Select the **Domains** tab.
+
+5.  In the list of domains, select the domain you want to verify.
+
+6.  Select **Verify** on the command bar.
+
+7.  Select **Verify** in the dialog box.
+
+Now you can [assign user names that include your custom domain name](active-directory-add-domain-add-users.md).
+
+## Add more custom domain names
+
+If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them to your Azure AD directory. The maximum is 900 domain names. Use the same steps to add each subsequent domain name.
+
+## Troubleshooting
+If you can't verify a custom domain name, there are a few potential causes. We'll start with the most common and work down to the least common.
+
+- You tried to verify the domain name before the DNS entry could propagate. Wait for a while and try again.
+
+- The DNS record wasn't entered at all. Verify the DNS entry and wait for it to propagate, and then try again.
+
+- The domain name was already verified in another directory. Locate the domain name and delete it from the other directory, and try again.
+
+- The DNS record contains an error. Correct the error and try again.
+
+- You don't have sufficient permission to update DNS records. Share the DNS entries with the person or team at your organization who has this access and ask them to add the DNS entry.
 
 
 ## Next steps
 
-If you need additional resources to understand domain name usage in Azure Active Directory, try:
+-   [Assign user names that include your custom domain name](active-directory-add-domain-add-users.md)
 
-- [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
-- [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
-- [Assign users to a custom domain](active-directory-add-domain-add-users.md)
-- [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
-- [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)
+-   [Manage custom domain names](active-directory-add-manage-domain-names.md)
+
+-   [Show your company's branding when your users sign in](active-directory-add-company-branding.md)
+
+-   [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+
+-   [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2016" 
+	ms.date="04/11/2016" 
 	ms.author="sdanie"/>
 
 
@@ -53,7 +53,7 @@ The template editing pane contains the markup that controls the appearance and b
 
 ![Template markup][api-management-template]
 
-The **Template data** pane provides a guide to the data model for the entities that are available for use in a particular template. It provides this guide by displaying the live data that are currently displayed in the developer portal. 
+The **Template data** pane provides a guide to the data model for the entities that are available for use in a particular template. It provides this guide by displaying the live data that are currently displayed in the developer portal. You can expand the template panes by clicking the rectangle in the upper-right corner of the **Template data** pane.
 
 ![Template data model][api-management-template-data]
 
@@ -180,6 +180,12 @@ The restored templates must then be published individually or all at once by fol
 ## Developer portal templates reference
 
 For reference information for developer portal templates, string resources, icons, and page controls, see [API Management developer portal templates reference](https://msdn.microsoft.com/library/azure/mt697540.aspx).
+
+## Watch a video overview
+
+Watch the following video to see how to add a discussion board and ratings to the API and operation pages in the developer portal using templates.
+
+> [AZURE.VIDEO adding-developer-portal-functionality-using-templates-in-azure-api-management]
 
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png

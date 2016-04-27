@@ -612,7 +612,7 @@ Return information about a resource provider and its supported resource types. I
 | providerNamespace                  |   Yes    | Namespace of the provider
 | resourceType                       |   No     | The type of resource within the specified namespace.
 
-Each supported type is returned in the following format:
+Each supported type is returned in the following format; array ordering is not guaranteed:
 
     {
         "resourceType": "",

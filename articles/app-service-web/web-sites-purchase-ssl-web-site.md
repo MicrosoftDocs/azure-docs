@@ -203,7 +203,7 @@ At this point, you should be able to visit your app using HTTPS:// instead of HT
     ![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 3. Rekeying your certificate will roll the certificate with a new certificate issued from the certificate authority.
-4. You will not be charged for the Rekeing for the lifetime of the certificate. 
+4. You will not be charged for the Rekeying for the lifetime of the certificate. 
 5. Rekeying your certificate will go through Pending Issuance state. 
 6. Once the certificate is ready make sure you sync your resources using this certificate to prevent disruption to the service.
 7. Sync option is not available for Certificates that are not yet assigned to the Web App. 

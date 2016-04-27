@@ -22,7 +22,7 @@ Connect to Facebook and post to a timeline, get a page feed, and more. The Faceb
 
 - Logic apps 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Facebook connector](../app-service-logic/app-service-logic-connector-facebook.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 
 With Facebook, you can:

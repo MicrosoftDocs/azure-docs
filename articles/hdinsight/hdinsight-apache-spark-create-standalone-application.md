@@ -14,20 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Create a standalone Scala application and to run on HDInsight Spark cluster (Linux)
+# Create a standalone Scala application to run on HDInsight Spark Linux clusters (Preview)
 
-This article provides step-by-step guidance on developing standalone Spark applications written in Scala using IntelliJ IDEA. The article uses Apache Maven as the build system and start with an existing Maven archetype for Scala provided by IntelliJ IDEA.  At a high-level, creating a Scala application in IntelliJ IDEA will involve the following steps:
+This article provides step-by-step guidance on developing standalone Spark applications written in Scala using Maven with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  At a high-level, creating a Scala application in IntelliJ IDEA will involve the following steps:
 
 
 * Use Maven as the build system.
-* Update Project Object Model (POM) file to resolve Spark module dependencies
+* Update Project Object Model (POM) file to resolve Spark module dependencies.
 * Write your application in Scala.
 * Generate a jar file that can be submitted to HDInsight Spark clusters.
-* Run the application on Spark cluster using spark-submit.
+* Run the application on Spark cluster using Livy.
+
+>[AZURE.NOTE] HDInsight also provides an IntelliJ IDEA plugin tool to ease the process of creating and submitting applications to an HDInsight Spark cluster on Linux. For more information, see [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md).
+
 
 **Prerequisites**
 

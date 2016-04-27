@@ -21,8 +21,6 @@
 Assess whether using an elastic database pool is cost efficient based on database usage patterns and pricing differences between an elastic database pool and single databases. Additional guidance is also provided to assist in determining the current pool size required for an existing set of SQL databases.  
 
 - For an overview of pools, see [SQL Database elastic database pools](sql-database-elastic-pool.md).
-- For detailed information about elastic database pools, see [SQL Database elastic database pool reference](sql-database-elastic-pool-reference.md).
-
 
 > [AZURE.NOTE] Elastic database pools are in preview and only available with SQL Database V12 servers.
 
@@ -70,7 +68,7 @@ The following rules of thumb related to database count and database utilization 
 
 ### Minimum number of databases
 
-If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ***Example***<br>
 At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
@@ -98,7 +96,7 @@ The best size for a pool depends on the aggregate eDTUs and storage resources ne
 * Maximum DTUs utilized by all databases in the pool.
 * Maximum storage bytes utilized by all databases in the pool.
 
-For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom croup of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md).
 
@@ -120,7 +118,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
     MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
     <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
 
-2.	Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool.  Then determine the eDTU pool size that provides this amount of storage.  For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+2.	Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool.  Then determine the eDTU pool size that provides this amount of storage.  For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 3.	Take the larger of the eDTU estimates from Step 1 and Step 2.
 4.	See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
 5.	Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
@@ -134,6 +132,5 @@ Not all single databases are optimum candidates for pools. Databases with usage 
 
 - [Create an elastic database pool](sql-database-elastic-pool-create-portal.md)
 - [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
-- [Elastic database pool reference](sql-database-elastic-pool-reference.md)
 - [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
 - [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md)

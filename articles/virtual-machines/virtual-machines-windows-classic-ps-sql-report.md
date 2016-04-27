@@ -703,4 +703,4 @@ The following table summarizes some of the options available to publish existing
 
 ### Links to other resources for SQL Server in Azure VMs
 
-[SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md)

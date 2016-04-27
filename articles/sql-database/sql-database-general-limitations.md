@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
+   ms.date="04/11/2016"
    ms.author="carlrab" />
 
 # Azure SQL Database General Limitations and Guidelines
@@ -59,6 +59,6 @@ Additionally, login and user names cannot contain the \ character (Windows Authe
 
 - For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 
-- Another related area surrounds the compatibility that Azure SQL Database has with on-premises versions of SQL Server, such as SQL Server 2014. The latest V12 version of Azure SQL Database has made many improvements in this area. For more details, see [What's new in SQL Database V12](sql-database-v12-whats-new.md).
+- Another related area surrounds the compatibility that Azure SQL Database has with on-premises versions of SQL Server, such as SQL Server 2014 and SQL Server 2016. The latest V12 version of Azure SQL Database has made many improvements in this area. For more details, see [What's new in SQL Database V12](sql-database-v12-whats-new.md).
 
 - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).

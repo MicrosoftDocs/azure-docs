@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/11/2016"
 	ms.author="wesmc"/>
 
 # Registration management
@@ -77,9 +77,9 @@ An installation can contain the the following properties. For a complete listing
 
  
 
-It is important to note that registrations and installations, along with the PNS handles that they contain, do expire. You can set the time to live on the Notification Hub, up to a maximum of 90 days. This limit means that they must be periodically refreshed, and also that they should not be the only store for important information. This automatic expiration also simplifies cleanup when your mobile application is uninstalled.
+It is important to note that registrations and installations by default no longer expire.
 
-Registrations and installations must contain the most recent PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end. 
+Registrations and installations must contain a valid PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end. 
 
 #### Templates
 
@@ -245,7 +245,6 @@ These methods create or update a registration for the device on which they are c
 	}
 	catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 	{
-		// regId likely expired, delete from local storage and try again
 		settings.Remove("__NHRegistrationId");
 	}
 

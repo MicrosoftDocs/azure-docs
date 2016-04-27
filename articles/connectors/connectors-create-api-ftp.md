@@ -22,7 +22,7 @@ Connect to an FTP server to manage your files, including upload files, delete fi
 
 - Logic apps
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [FTP connector](../app-service-logic/app-service-logic-connector-ftp.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With FTP, you can: 
 

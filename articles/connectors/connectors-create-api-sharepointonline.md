@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 The SharePoint Connection Provider provides an API to work with Lists on SharePoint.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SharePoint](../app-service-logic/app-service-logic-connector-SharePoint.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With SharePoint, you can:
 

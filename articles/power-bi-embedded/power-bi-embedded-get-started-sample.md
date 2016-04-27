@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with sample"
-   description=""
+   description="Power BI Embedded, use SDK to add interactive Power BI reports into your business intelligence application"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

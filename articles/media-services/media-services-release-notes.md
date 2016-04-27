@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"
+ 	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [April 2016 Release](#apr_changes16)
 - [February 2016 Release](#feb_changes16)
 - [January 2016 Release](#jan_changes_16)
 - [December 2015 Release](#dec_changes_15)
@@ -79,6 +80,10 @@ Media Services objects in the SDK cannot be serialized and as a result do not wo
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="apr_changes16"></a>April 2016 Release
+
+In this release, Azure Media Servces introduced Azure Media Analytics for powerful video intelligence. For detailed information, see (Azure Media Services Analytics Overview)[media-services-analytics-overview.md].
 
 ##<a id="feb_changes16"></a>February 2016 Release
 

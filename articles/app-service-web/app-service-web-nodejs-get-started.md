@@ -3,7 +3,7 @@
 	description="Learn how to deploy a Node.js application to a web app in Azure App Service."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
+	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
@@ -29,8 +29,6 @@
 This tutorial shows how to create a simple [Node.js](http://nodejs.org) application and deploy it to a [web app](app-service-web-overview.md) in 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md) from a command line such as cmd.exe or bash. The instructions in this tutorial can 
 be followed on any operating system that is capable of running Node.js.
-
-[Azure App Service Web Apps](/services/app-service/web/)
 
 <a name="prereq"/>
 ## Prerequisites

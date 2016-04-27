@@ -27,7 +27,7 @@ These requirements apply to the Azure Stack POC only and might change for future
 | Component | Minimum  | Recommended |
 |---|---|---|
 | Disk drives: Operating System | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). | 4 disks. Each disk provides a minimum of 250 GB of capacity. |
+| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. | 4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used.|
 | Compute: CPU | Dual-Socket: 12 Physical Cores (total)  | Dual-Socket: 16 Physical Cores (total) |
 | Compute: Memory | 96 GB RAM  | 128 GB RAM |
 | Compute: BIOS | Hyper-V Enabled (with SLAT support)  | Hyper-V Enabled (with SLAT support) |
@@ -69,8 +69,8 @@ Sample OEM configurations are available.
 
 | | **Requirements**  |
 |---|---|
-| **OS Version** | [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including [KB 3124262](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=3124262).|
-| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system, updates, and KB 3124262.|
+| **OS Version** | [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest important updates installed.|
+| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system and all important updates.|
 | **Domain joined?** | No. |
 
 

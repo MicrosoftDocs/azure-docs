@@ -70,6 +70,8 @@ In this section, you'll create a Node.js console app that creates a new device i
 
 In this section, you'll create a Node.js console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-processd2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.
 
+> [AZURE.NOTE] The Event Hubs-compatible endpoint for reading device-to-cloud messages always uses the AMQPS protocol.
+
 1. Create a new empty folder called **readdevicetocloudmessages**. In the **readdevicetocloudmessages** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
     ```
@@ -177,8 +179,8 @@ In this section, you'll create a Node.js console app that reads device-to-cloud 
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 

@@ -3,7 +3,7 @@
    description="Introduction to the performance and scale features of SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/03/2016"
-   ms.author="mausher;barbkess;jrj;nicw;sonyama"/>
+   ms.author="barbkess;sonyama"/>
 
 # Performance and scale overview
 By putting your Data Warehouse in the cloud, you no longer have to deal with low-level hardware issues. Gone are the days where you need to research what type of processors, how much memory or what type of storage you need to have great performance in your data warehouse. Instead, SQL Data Warehouse asks you this question: how fast do you want to analyze your data?

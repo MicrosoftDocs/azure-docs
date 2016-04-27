@@ -58,15 +58,13 @@ In addition to changing the preconfigured Azure Stream Analytics jobs, you can u
 
 One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the [IoT Device SDK][] to connect your physical device to the solution.
 
-For a step-by-step guide to adding devices to the remote monitoring preconfigured solution, see [Iot Suite Connecting Devices](iot-suite-connecting-devices.md).
+For a step-by-step guide to adding devices to the remote monitoring preconfigured solution, see [Iot Suite Connecting Devices](iot-suite-connecting-devices.md) and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
 
 ### Creating your own simulated device
 
 Included in the remote monitoring solution source code (referenced above), is a .NET simulator. This simulator is the one provisioned as part of the solution and can be altered to send different metadata, telemetry or respond to different commands.
 
 The preconfigured simulator in the remote monitoring preconfigured solution is a cooler device that emits temperature and humidity telemetry, you can modify the simulator in the [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob ) project when you've forked the GitHub repository.
-
-Additionally, Azure IoT provides a [C SDK Sample](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) that is designed to work with the remote monitoring preconfigured solution.
 
 ### Building and using your own (physical) device
 
@@ -133,7 +131,7 @@ Members of the **ReadOnly** role can see the dashboard and the device list, but 
 
 ## Feedback
 
-Have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article below. 
+Do you have a customization you'd like to see covered in this document? Please add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article below. 
 
 ## Next steps
 
