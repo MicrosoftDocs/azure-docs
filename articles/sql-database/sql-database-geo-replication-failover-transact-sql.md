@@ -28,10 +28,6 @@
 This article shows you how to initiate failover to a secondary SQL Database using Transact-SQL. To configure geo-replication, see [Configure geo-replication for Azure SQL Database](sql-database-geo-replication-transact-sql.md).
 
 
-[Geo-replication](sql-database-geo-replication-overview.md) enables creating up to 4 replica (secondary) databases in different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
-
-Databases can have up to four readable secondaries in any of the available regions.
-
 
 To initiate failover, you need the following:
 
