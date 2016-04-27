@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="4/27/2016"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # Public IP address space in a Virtual Network (VNet)
