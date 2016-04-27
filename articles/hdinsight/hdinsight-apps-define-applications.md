@@ -19,7 +19,7 @@
 
 # Define custom HDInsight applications
 
-An HDInsight application is an application that users can install to a Linux-based HDInsight cluster. HDInsight Application deployment first creates a virtual machine referred to as *edgenode* in the same virtual network as the cluster, and then utilizes HDInsight [Script Action](hdinsight-hadoop-customize-cluster-linux.md) to deploy HDInsight applications to the edgenode. The centerpiece for deploying an HDInsight application is configuring an ARM template.  In this article, you will learn how to develop ARM templates for deploying HDInsight applications, and use the ARM templates to deploy the applications.
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. HDInsight Application deployment first creates a virtual machine referred to as *edgenode* in the same virtual network as the cluster, and then utilizes HDInsight [Script Action](hdinsight-hadoop-customize-cluster-linux.md) to deploy HDInsight applications to the edgenode. The centerpiece for deploying an HDInsight application is configuring an ARM template.  In this article, you will learn how to define ARM templates, and use the ARM templates to deploy the applications.
 
 HDInsight applications use the “Bring Your Own License” (BYOL) model, where application provider is responsible for licensing the application to end-users, and end-users are only charged by Azure for the resources they create, such as the HDInsight cluster and its VMs/nodes. At this time, billing for the application itself is not done through Azure.
 
@@ -112,7 +112,7 @@ HTTP endpoints for HDInsight applications allow you to define HTTP routes that w
 |destinationPort|Required. The port to forward HTTP traffic to on the edgenode hosting your application.|
 |accessModes|Optional. Metadata about the endpoint. If the endpoint hosts a webpage specify webpage as an access mode. This will enable our UX to display direct links to your application.|
 
-Using ARM templates, you can create an ARM template which creates a cluster and installs an application on that cluster in a single deployment. Because application installation is dependent on the cluster coming up first, ARM allows you to define a depends on attribute that will orchestrate the deployment:
+Using ARM templates, you can create an HDInsight cluster and install an application on that cluster in a single deployment. Because application installation is dependent on the cluster coming up first, ARM allows you to define a depends on attribute that will orchestrate the deployment:
 
     {
       "name": "[concat(parameters('clusterName'),'/hue')]",

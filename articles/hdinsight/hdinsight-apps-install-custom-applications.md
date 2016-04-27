@@ -19,7 +19,7 @@
 
 # Install custom HDInsight applications
 
-An HDInsight application is an application that users can install to a Linux-based HDInsight cluster.  These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install an HDInsight application that has not been published to the Azure portal on HDInsight. The application you will install is [Hue](http://gethue.com/). 
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster.  These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install an HDInsight application that has not been published to the Azure portal on HDInsight. The application you will install is [Hue](http://gethue.com/). 
 
 Other related articles:
 
