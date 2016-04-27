@@ -295,12 +295,16 @@ In this step of the tutorial, we'll configure the sample application to store an
 	-	Before: `<appSettings>`
 	-	After: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
 
-    The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you use the **Deploy to Azure** button in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+    The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you [provision the Azure resources](#provision-the-azure-resources) in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 
 ### Update the TeamsController class to return results from the cache or the database
 
 In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample we'll query the sorted set for the top 5 teams ranked by number of wins.
+
+>[AZURE.NOTE] Note that it is not required to store the team statistics in multiple formats in the cache in order to use Azure Redis Cache. This tutorial uses multiple formats in order to demonstrate some of the different ways and different data types you can use to cache data.
+
+
 
 1. Add the following using statements to the `TeamsController.cs` file at the top with the other using statements.
 
@@ -363,7 +367,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 
 3. Add the following three methods to the `TeamsController` class to implement the `playGames`, `clearCache`, and `rebuildDB` action types from the switch statement added in the previous code snippet.
 
-    The `PlayGames` method updates the team statistics by simulating a season of games.
+    The `PlayGames` method updates the team statistics by simulating a season of games, saves the results to the database, and clears the now outdated data from the cache.
 
 
 	    void PlayGames()
@@ -382,7 +386,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 	    }
 
 
-    The `RebuildDB` method reinitializes the database with the default set of teams and generates statistics for them.
+    The `RebuildDB` method reinitializes the database with the default set of teams, generates statistics for them, and clears the now outdated data from the cache.
 	
         void RebuildDB()
         {
@@ -390,6 +394,9 @@ In this sample, team statistics can be retrieved from the database or from the c
             // Delete and re-initialize the database with sample data.
             db.Database.Delete();
             db.Database.Initialize(true);
+
+	        // Clear any cached results
+	        ClearCachedTeams();
         }
 
 
@@ -405,7 +412,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 	    } 
 
 
-4. Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the team statistics from the cache and the database.
+4. Add the following four methods to the `TeamsController` class to implement the various ways of retrieving the team statistics from the cache and the database. Each of these methods returns a `List<Team>` which is then displayed by the view.
 
     The `GetFromDB` method reads the team statistics from the database.
 
@@ -420,7 +427,7 @@ In this sample, team statistics can be retrieved from the database or from the c
 	    }
 
 
-    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database and then stored in the cache for next time. In this sample we're using JSON.NET serialization.
+    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database and then stored in the cache for next time. In this sample we're using JSON.NET serialization to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
         List<Team> GetFromList()
         {
@@ -593,7 +600,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
     ![Action table][cache-teams-index-table]
 
-    This is the link to create a new team. Replace the paragraph element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and reloading the database with fresh sample data.
+    This is the link to create a new team. Replace the paragraph element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and rebuilding the database with fresh sample data.
 
 
 		<table class="table">
