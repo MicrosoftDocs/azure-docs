@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-selectors](../../includes/troubleshoot-deployment-new-vm-selectors-include.md)]
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../articles/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
 
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-opening](../../includes/troubleshoot-deployment-new-vm-opening-include.md)]
 
