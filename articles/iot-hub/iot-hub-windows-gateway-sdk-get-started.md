@@ -62,7 +62,7 @@ Before you get started, you must [set up your development environment][lnk-setup
     }
     ```
 
-3. At the command prompt, navigate to the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
+3. At a command prompt, navigate to the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
 4. Run the following command:
   
   ```
