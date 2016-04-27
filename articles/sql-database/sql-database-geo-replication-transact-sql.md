@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="04/25/2016"
+    ms.date="04/27/2016"
     ms.author="carlrab"/>
 
 # Configure geo-replication for Azure SQL Database with Transact-SQL
@@ -137,61 +137,6 @@ Use the following steps to remove geo-replicated secondary from a geo-replicatio
 
 4. Click **Execute** to run the query.
 
-
-## Initiate a planned failover promoting a secondary database to become the new primary
-
-You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in a planned fashion, demoting the existing primary to become a secondary. This statement is executed on the master database on the Azure SQL Database logical server in which the geo-replicated secondary database that is being promoted resides. This functionality is designed for planned failover, such as during the DR drills, and requires that the primary database be available.
-
-The command performs the following workflow:
-
-1. Temporarily switches replication to synchronous mode, causing all outstanding transactions to be flushed to the secondary and blocking all new transactions;
-
-2. Switches the roles of the two databases in the geo-replication partnership.  
-
-This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
-
-
-> [AZURE.NOTE] If the primary database is unavailable when the command is issued, the command will fail with the error message indicating that the primary server is not available. In rare cases, it is possible that the operation cannot complete and may appear stuck. In this case, the user can execute the force failover command and accept data loss.
-
-Use the following steps to initiate a planned failover.
-
-1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
-
-2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-
-3. Use the following **ALTER DATABASE** statement to make the geo-replicated database  into a geo-replication primary with a readable secondary database on <MySecondaryServer4> in <ElasticPool2>.
-
-        ALTER DATABASE <MyDB> FAILOVER;
-
-4. Click **Execute** to run the query.
-
-
-
-## Initiate an unplanned failover from the primary database to the secondary database
-
-You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in an unplanned fashion, forcing the demotion of the existing primary to become a secondary at a time when the primary databse is no longer available. This statement is executed on the master database on the Azure SQL Database logical server in which the geo-replicated secondary database that is being promoted resides.
-
-This functionality is designed for disaster recovery when restoring availability of the database is critical and some data loss is acceptable. When forced failover is invoked, the specified secondary database immediately becomes the primary database and begins accepting write transactions. As soon as the original primary database is able to reconnect with this new primary database, an incremental backup is taken on the original primary database and the old primary database is made into a secondary database for the new primary database; subsequently, it is merely a synchronizing replica of the new primary.
-
-However, because Point In Time Restore is not supported on the secondary databases, if the user wishes to recover data committed to the old primary database that had not been replicated to the new primary database before the forced failover occurred, the user will need to engage support to recover this lost data.
-
-> [AZURE.NOTE] If the command is issued when the both primary and secondary are online the old primary will become the new secondary but data synchronization will not be attempted. So some data loss may occur.
-
-
-If the primary database has multiple secondary databases, the command will succeed only on the secondary server on which the command was executed. However, the other secondaries will not know that the forced failover occurred. The user will have to manually repair this configuration using a “remove secondary” API and then reconfigure geo-replication on these additional secondaries.
-
-Use the following steps to forcibly remove geo-replicated secondary from a geo-replication partnership.
-
-1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
-
-2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-
-3. Use the following **ALTER DATABASE** statement to make <MyLocalDB> into a geo-replication primary with a readable secondary database on <MySecondaryServer4> in <ElasticPool2>.
-
-        ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
-
-4. Click **Execute** to run the query.
-
 ## Monitor geo-replication configuration and health
 
 Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  You can use the **sys.dm_geo_replication_links** dynamic management view in the master database to return information about all exiting replication links for each database on the Azure SQL Database logical server. This view contains a row for each of the replication link between primary and secondary databases. You can use the **sys.dm_replication_status** dynamic management view to return a row for each Azure SQL Database that is currently engaged in a replication replication link. This includes both primary and secondary databases. If more than one continuous replication link exists for a given primary database, this table contains a row for each of the relationships. The view is created in all databases, including the logical master. However, querying this view in the logical master returns an empty set. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx), and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
@@ -221,8 +166,10 @@ Use the following steps to monitor a geo-replication partnership.
 9. Click **Execute** to run the query.
 
 
+
 ## Next steps
 
+- [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-transact-sql.md)
 - [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
 
 

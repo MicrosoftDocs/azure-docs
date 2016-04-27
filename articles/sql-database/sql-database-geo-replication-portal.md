@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/25/2016"
+    ms.date="04/27/2016"
     ms.author="sstein"/>
 
 # Configure geo-replication for Azure SQL Database with the Azure portal
@@ -103,30 +103,11 @@ The operation permanently terminates the replication to the secondary database a
 
 
 
-## Initiate a failover
-
-The secondary database can be switched to become the primary.  
-
-1. In the [Azure portal](http://portal.azure.com) browse to the primary database in the geo-replication partnership.
-2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
-3. In the **SECONDARIES** list, select the database you want to become the new primary.
-4. Click **Failover**.
-
-    ![failover][10]
-
-The command performs the following workflow: 
-
-1. Temporarily switch replication to synchronous mode. This will cause all outstanding transactions to be flushed to the secondary. 
-
-2. Switch the primary and secondary roles of the two databases in the geo-replication partnership.  
-
-For planned failover, this sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. 
-
    
 
 ## Next steps
 
-- [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-portal.md)
+- [Initiate a planned or unplanned failover for Azure SQL Database](sql-database-geo-replication-failover-portal.md)
 - [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
 
