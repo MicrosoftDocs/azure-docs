@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
+    ms.date="04/27/2016"
     ms.author="torsteng" />
 
 # Azure SQL Database elastic database query overview (preview)
