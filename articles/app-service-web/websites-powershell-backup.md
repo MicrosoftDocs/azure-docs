@@ -169,9 +169,9 @@ Below is an example of how to use this cmdlet.
 		  -StorageAccountUrl "<your SAS URL>" -FrequencyInterval 6 -FrequencyUnit Hour -Databases $dbSetting1,$dbSetting2 `
 		  -KeepAtLeastOneBackup -StartTime (Get-Date).AddHours(1)
 
-To get the current backup schedule, use the Get-AzureRmWebAppbackupConfiguration cmdlet. This can be useful for modifying a schedule that has already been configured.
+To get the current backup schedule, use the Get-AzureRmWebAppBackupConfiguration cmdlet. This can be useful for modifying a schedule that has already been configured.
 
-		$configuration = Get-AzureRmWebAppbackupConfiguration -Name $appName -ResourceGroupName $resourceGroupName
+		$configuration = Get-AzureRmWebAppBackupConfiguration -Name $appName -ResourceGroupName $resourceGroupName
 
 		# Modify the configuration slightly
 		$configuration.FrequencyInterval = 2
