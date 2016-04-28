@@ -167,7 +167,7 @@ The **allowed values** for the cloudDataMovementUnits property are: 1 (default),
 
 When copying multiple large files with **cloudDataMovementUnits** configured as 2, 4, and 8, the performance can reach 2x (2 times), 4x, and 7x of the reference numbers mentioned in the Performance Reference section. 
 
-Refer to [sample use cases](#case-study-parallel-copy) here to better leverage the above 2 properties to enhance your data movement throughout.   
+Refer to [sample use cases](#case-study---parallel-copy) here to better leverage the above 2 properties to enhance your data movement throughout.   
  
 It is **important** to remember that you will be charged based on the total time of the copy operation. Hence, if a copy job used to take 1 hour with 1 cloud unit and now it takes 15 minutes with 4 cloud units then the overall bill would be almost the same. Here is another scenario: suppose, you are using 4 cloud units and the 1st cloud unit spends 10 minutes, 2nd one spends 10 minutes, 3rd one spends 5 minutes, and 4th one spends 5 minutes with in a copy activity run, you will be charged for the total copy (data movement) time, which is 10 + 10 + 5 + 5 = 30 minutes. Usage of **parallelCopies**  has no impact on billing. 
 
