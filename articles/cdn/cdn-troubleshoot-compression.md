@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="casoper"/>
     
 # Troubleshooting CDN file compression
@@ -36,12 +36,14 @@ There are several possible causes, including:
 
 ## Troubleshooting steps
 
+> [AZURE.TIP] As with deploying new endpoints, CDN configuration changes take some time to propagate through the network.  In most cases, you will see your changes apply within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
+
 ### Verify the request
 
 First, we should do a quick sanity check on the request.  You can use your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) to view the requests being made.
 
 - Verify the request is being sent to your endpoint URL, `<endpointname>.azureedge.net`, and not your origin.
-- Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **defalte**, or **bzip2**.
+- Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, or **bzip2**.
 
 ![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
@@ -67,7 +69,6 @@ Navigate to your endpoint in the [Azure Portal](https://portal.azure.com) and cl
 - Verify the MIME type for the content to be compressed is included in the list of compressed formats.
 
 ![CDN premium compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
-
 
 ### Verify the content is cached
 
