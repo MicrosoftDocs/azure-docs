@@ -269,7 +269,7 @@ In this article, you learned how to connect to HDInsight clusters from Visual St
 
 <!--Link references-->
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight.introduction]: hdinsight-hadoop-introduction.md
 [hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight.hive]: hdinsight-use-hive.md
 [hdinsight.submit.jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
