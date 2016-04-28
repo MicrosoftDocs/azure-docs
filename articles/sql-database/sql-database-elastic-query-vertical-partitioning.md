@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/11/2016"
+    ms.date="04/28/2016"
     ms.author="torsteng;sidneyh" />
 
 # Query across cloud databases with different schemas (preview)
@@ -27,8 +27,6 @@ Vertically-partitioned databases use different sets of tables on different datab
 * ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
 
 ## Overview
-
-These statements create the metadata representation of your sharded data tier in the elastic query database. 
 
 **NOTE**:  Unlike with horizontal partitioning, these DDL statements do not depend on defining a data tier with a shard map through the elastic database client library.
 
