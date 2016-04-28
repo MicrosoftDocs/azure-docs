@@ -1,4 +1,4 @@
- ## Typical output
+## Typical output
 
 Below is an example of the output written to the log file by the Hello World sample. Newline and Tab characters have been added for legibility:
 
