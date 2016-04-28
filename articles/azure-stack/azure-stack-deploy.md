@@ -16,7 +16,7 @@
 	ms.date="04/21/2016"
 	ms.author="erikje"/>
 
-# Before you deploy Azure Stack POC
+# Azure Stack deployment prerequisites
 
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
 These requirements apply to the Azure Stack POC only and might change for future releases.
