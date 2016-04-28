@@ -37,7 +37,7 @@ See [Using Azure PowerShell with Azure Resource Manager](../powershell-install-c
 
 To get information about your web app backups, use either Get-AzureRmWebAppBackup or Get-AzureRmWebAppBackupList.
 
-To get a list of all backups for a web app, use Get-AzureRmWebAppBackupList. You must supply the name of the web app and its resource group.
+To get a list of all backups for a web app, use the Get-AzureRmWebAppBackupList cmdlet. You must supply the name of the web app and its resource group.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -81,7 +81,7 @@ Log                :
 CorrelationId      : 1511111a-d8e7-4bcb-8568-c1131b176150
  ```
 
-To get a specific backup, use the Get-AzureRmWebAppBackup command.
+To get a specific backup, use the Get-AzureRmWebAppBackup cmdlet.
 
 		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
 
@@ -93,11 +93,11 @@ You can pipe a web app object into any of the backup management cmdlets for conv
 
 ## Create a backup
 
-Use the New-AzureRmWebAppBackup command to create a backup of a web app.
+Use the New-AzureRmWebAppBackup cmdlet to create a backup of a web app.
 
 		$sasUrl = "<your SAS URL>"
-		$resourceGroupName = "<name of the resource group containing your app>"
-		$appName = "<name of your app>"
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl
 
@@ -105,10 +105,77 @@ This will create a backup with an automatically generated name. If you would lik
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl -BackupName MyBackup
 
-If you would like to include a database as part of your backup, first create a database backup setting using the New-AzureRmWebAppDatabaseBackupSetting command, then supply that setting in the Databases parameter of the New-AzureRmWebAppBackup command. The Databases parameter accepts an array of database settings, allowing you to back up more than one database.
+If you would like to include a database as part of your backup, first create a database backup setting using the New-AzureRmWebAppDatabaseBackupSetting cmdlet, then supply that setting in the Databases parameter of the New-AzureRmWebAppBackup cmdlet. The Databases parameter accepts an array of database settings, allowing you to back up more than one database.
 
 		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbBackup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupName MyBackup -StorageAccountUrl $sasUrl -Databases $dbSetting1,$dbSetting2
 
-The New-AzureRmWebAppBackup command will return an object to you containing information about the backup that has been created.
+## Restore a web app from a backup
+
+To restore a web app from a backup, use the Restore-AzureRmWebAppBackup cmdlet. The easiest way to use this cmdlet is to pipe in a backup object retrieved from a cmdlet such as Get-AzureRmWebAppBackup. You must specify the Overwrite switch parameter to indicate that you intent to overwrite the contents of your web app with the contents of the backup. If the backup contains databases, those databases will be restored as well.
+
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
+		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
+		$backup | Restore-AzureRmWebAppBackup -Overwrite
+
+Below is an example of how to use the Restore-AzureRmWebAppBackup by specifying all of the parameters.
+
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
+		$slotName = "StagingSlot"
+		$blobName = "ContosoBackup.zip"
+		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
+		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
+		Restore-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -Slot $slotName -StorageAccountUrl "<your SAS URL>" -BlobName $blobName -Databases $dbSetting1,$dbSetting2 -Overwrite
+
+## Delete a backup
+
+To delete a backup, use the Remove-AzureRmWebAppBackup cmdlet. This will remove the backup from your storage account. You must specify your app name, its resouce group, and the ID of the backup you want to delete.
+
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
+		Remove-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupId 10102
+
+You can also pipe a backup object into the Remove-AzureRmWebAppBackup cmdlet to delete it.
+
+		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
+		$backup | Remove-AzureRmWebAppBackup -Overwrite
+
+## Schedule automatic backups
+
+You can schedule backups to happen automatically at a specified interval. To configure a backup schedule, use the Edit-AzureRmWebAppBackupConfiguration cmdlet. This cmdlet takes several parameters:
+
+- **Name** - The name of the web app.
+- **ResourceGroupName** - The name of the resource group containing the web app.
+- **Slot** - Optional. The name of the web app slot.
+- **StorageAccountUrl** - The SAS URL for the Azure Storage container used to store the backups.
+- **FrequencyInterval** - Numeric value for how often the backups should be made. Must be a positive integer.
+- **FrequencyUnit** - Unit of time for how often the backups should be made. Options are Hour and Day.
+- **RetentionPeriodInDays** - How many days the automatic backups should be saved before being automatically deleted.
+- **StartTime** - Optional. The time when the automatic backups should begin. Backups will begin immediately if this is null. Must be a DateTime.
+- **Databases** - Optional. An array of DatabaseBackupSettings for the databases to backup.
+- **KeepAtLeastOneBackup** - Optional switched parameter. Supply this if one backup should always be kept in the storage account, regardless of how old it is.
+
+Below is an example of how to use this cmdlet.
+
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
+		$slotName = "StagingSlot"
+		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
+		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
+		Edit-AzureRmWebAppBackupConfiguration -Name $appName -ResourceGroupName $resourceGroupName -Slot $slotName `
+		  -StorageAccountUrl "<your SAS URL>" -FrequencyInterval 6 -FrequencyUnit Hour -Databases $dbSetting1,$dbSetting2 `
+		  -KeepAtLeastOneBackup -StartTime (Get-Date).AddHours(1)
+
+To get the current backup schedule, use the Get-AzureRmWebAppbackupConfiguration cmdlet. This can be useful for modifying a schedule that has already been configured.
+
+		$configuration = Get-AzureRmWebAppbackupConfiguration -Name $appName -ResourceGroupName $resourceGroupName
+
+		# Modify the configuration slightly
+		$configuration.FrequencyInterval = 2
+		$configuration.FrequencyUnit = "Day"
+
+		# Apply the new configuration by piping it into the Edit-AzureRmWebAppBackupConfiguration cmdlet
+		$configuration | Edit-AzureRmWebAppBackupConfiguration
