@@ -36,7 +36,7 @@ The device twin is the representation of a physical device in Azure IoT. The **M
 
 The device twin has the following components:
 
-1.  **Device Fields:** Device fields are predefined properties used for both IoT Hub messaging and device management. These properties help IoT Hub identify and connect with physical devices. Device fields are not synchronized to the device and are stored exclusively in the device twin. Device fields include the device id and authentication information.
+1.  **Device Fields:** Device fields are predefined properties used for both IoT Hub messaging and device management. These help IoT Hub identify and connect with physical devices. Device fields are not synchronized to the device and are stored exclusively in the device twin. Device fields include the device id and authentication information.
 
 2.  **Device Properties:** Device properties are a predefined dictionary of properties that describes the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An eventually consistent representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described in [Tutorial: how to use the device twin][lnk-tutorial-twin]. Some examples of device properties include firmware version, battery level, and manufacturer name.
 
@@ -75,7 +75,7 @@ You can query using tags and properties:
 
 The next concept in device management is device jobs, which enable coordination of multi-step orchestrations on multiple devices.
 
-There are six types of device jobs that are provided by Azure IoT Hub device management:
+There are six types of device jobs that are provided by Azure IoT Hub device management at present (we will add additional jobs as customers need them):
 
 - **Firmware update**: Updates the firmware (or OS image) on the physical device.
 - **Reboot**: Reboots the physical device.

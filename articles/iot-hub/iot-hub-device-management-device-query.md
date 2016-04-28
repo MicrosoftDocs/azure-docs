@@ -22,7 +22,7 @@ Azure IoT device management enables you to find device twins, the service repres
 
 -   To query for device twins using tags, you pass an array of strings and the query returns the set of devices which are tagged with all of those strings.
 
--   To query for device twins using service properties or device properties, you user a JSON query expression.
+-   To query for device twins using service properties or device properties, you use a JSON query expression.
 
 For more information on the device twin and queries, please refer to [Overview of Azure IoT Hub device management][lnk-dm-overview].
 
@@ -48,9 +48,9 @@ You should see output in the command line window showing the result of queries f
 
 ## Query structure (JSON)
 
-Queries on device and service properties are executed with a JSON string to represent the query itself. The JSON string is composed 4 parts. Below is an explanation of each part and the C\# object which can  serialized into the correct JSON string.
+Queries on device properties and service properties are executed with a JSON string to represent the query itself. The JSON string is composed 4 parts. Below is an explanation of each part and the C\# object which can  serialized into the correct JSON string.
 
-- **Project**: The expression that designates the fields from the device object to include in the ery result set (equivalent to SELECT in SQL):
+- **Project**: The expression that designates the fields from the device object to include in the query result set (equivalent to SELECT in SQL):
 
   ```
   var query = JsonConvert.SerializeObject(
@@ -176,7 +176,7 @@ More details on the syntax and available fields for the JSON are [available][lnk
 
 ### Query by device and service properties
 
-Once you have the JSON query expression, you can query for the device objects. Call **QueryDeviceJsonAsync** and check the **AggregateResult** field for aggregate queries and the **Result** field for all other queries. **Result** contains a list of device objects, which represent the device objects that match the query. **AggregateResult** contains an array of dictionaries, each containing the resulting row.
+Once you have the JSON query expression, you can query for the device twins. Call **QueryDeviceJsonAsync** and check the **AggregateResult** field for aggregate queries and the **Result** field for all other queries. **Result** contains a list of device objects, which represent the device twins that match the query. **AggregateResult** contains an array of dictionaries, each containing the resulting row.
 
 These queries are used in **Program.cs** of the **Query** project.
 

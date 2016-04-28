@@ -24,7 +24,7 @@ Azure IoT Hub device management introduces the device twin, a service side repre
 
 In this tutorial, we focus on the device properties. To learn more about the other components, see [Overview of Azure IoT Hub device management][lnk-dm-overview].
 
-Device properties are a predefined dictionary of properties that describes the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An eventually consistent representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described below. Some examples of device properties include firmware version, battery level, and manufacturer name.
+Device properties are a predefined dictionary of properties that describe the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An 'eventually consistent' representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described below. Some examples of device properties include firmware version, battery level, and manufacturer name.
 
 ## Device properties synchronization
 
