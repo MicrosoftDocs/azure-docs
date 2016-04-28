@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="04/28/2016"
 	ms.author="cjiang"/>
 
 # Azure spending limit – How it works and how to enable or remove it
 
 ## Use Azure with peace of mind
-To protect you from accidentally incurring charges for usage beyond the included offer amount, we have introduced the spending limit feature. All new customers who sign up for the trial offer or offers that includes credits over multiple months will now, by default, have the spending limit turned on with a value of $0. The value can’t be changed. It’s always 0. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans.
+To protect you from accidentally incurring charges for usage beyond the included offer amount, we have introduced the spending limit feature. All new customers who sign up for the trial offer or offers that includes credits over multiple months will now, by default, have the spending limit turned on with a value of $0. The value can’t be changed. It’s always 0. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
 **Note**: Offers that includes credits over multiple months are Monthly Credit for Visual Studio subscribers, the MSDN benefit, the Microsoft Partner Network Cloud Essentials program, and so on.
 
@@ -34,7 +34,7 @@ If you are on our free trial, you have the ability at any time within 90 days af
 You will receive notifications as soon as you hit the spending limit for your offer. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions/), click **ACCOUNT**, and then click **subscriptions**. You will see notifications about subscriptions that have reached the spending limit.
 
 ## Things you will be charged for even if you have a spending limit enabled
-Be aware that some Azure services and Marketplace purchases can incur charges under the payment method (CC) even if a spending limit is set. Examples are Visual studio licenses, Azure Active Directory premium, support plans and most third party branded services sold through the Marketplace.
+Be aware that some Azure services and [Marketplace purchases](https://azure.microsoft.com/marketplace/) can incur charges under the payment method (CC) even if a spending limit is set. Examples are Visual studio licenses, Azure Active Directory premium, support plans and most third party branded services sold through the Marketplace.
 
 ## When not to use the spending limit
 The spending limit could prevent you from deploying or using certain marketplace and Microsoft services. Here are the scenarios where you should remove the spending limit on your subscription.
