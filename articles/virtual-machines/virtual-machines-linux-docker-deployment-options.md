@@ -139,4 +139,4 @@ More detailed walkthrough on using Docker Swarm on Azure Container Services - [D
 Read more detailed steps for the different deployment options:
   1. [Use Docker Machine with the Azure driver](./virtual-machines-linux-docker-machine.md)
   2. [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](./virtual-machines-linux-classic-cli-use-docker.md)
-  3. [Deploy an Azure Container Service cluster](../container-service-deployment.md)
+  3. [Deploy an Azure Container Service cluster](./container-service/container-service-deployment.md)
