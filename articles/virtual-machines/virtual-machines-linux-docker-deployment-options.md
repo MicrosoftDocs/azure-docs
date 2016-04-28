@@ -11,7 +11,8 @@
    ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"
-   ms.workload="vm-linux"
+   ms.tgt_pltfrm="vm-linux"
+   ms.workload="infrastructure"
    ms.date="04/27/2016"
    ms.author="iainfou"/>
 
