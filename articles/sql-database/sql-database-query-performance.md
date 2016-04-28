@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/27/2016"
+   ms.date="04/28/2016"
    ms.author="sstein"/>
 
 # Azure SQL Database Query Performance Insight
@@ -49,7 +49,7 @@ Query Performance Insight is easy to use:
 - Select an individual query to view its details.
 - Open [Performance Advisor](sql-database-index-advisor.md) and check if any recommendations are available.
 
-
+    ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insight. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
 
@@ -59,7 +59,7 @@ Query Performance Insight is easy to use:
 
 In the [portal](http://portal.azure.com) do the following:
 
-1. Browse to a SQL database and click **All settings** > **Queries**. 
+1. Browse to a SQL database and click **All settings** > **Performance** > **Queries**. 
 
     ![Query Performance Insight][1]
 
