@@ -115,7 +115,6 @@ V12 offers significantly improved recovery point objectives (RPOs) and estimated
 | Business continuity feature | Earlier version | V12 |
 | :-- | :-- | :-- |
 | Geo-restore | • RPO < 24 hours.<br/>• ERT <  12 hours. | • RPO < 1 hour.<br/>• ERT < 12 hours. |
-| Standard geo-replication | • RPO < 30 minutes.<br/>• ERT < 2 hours. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 | Active geo-replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 

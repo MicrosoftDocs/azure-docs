@@ -49,7 +49,7 @@ Aggregate data from a collection of Azure SQL Databases into a single destinatio
 
 Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. A job handles the task of logging in to each database in the target group. You also define, maintain and persist Transact-SQL scripts to be executed across a group of Azure SQL Databases.
 
-**Accounting and retry** 
+**Accounting**
 
 Jobs run the script and log the status of execution for each database. You also get automatic retry when failures occur.
 
@@ -60,7 +60,6 @@ Define custom groups of Azure SQL Databases, and define schedules for running a 
 **Deployment**
 
 Deploy data-tier applications (DACPACs).
-
 
 > [AZURE.NOTE] In the Azure portal, only a reduced set of functions limited to SQL Azure elastic pools is available. Use the PowerShell APIs to access the full set of current functionality.
 
@@ -103,7 +102,7 @@ There are two kinds of groups:
 1. Shard sets
 2. Custom groups
 
-Shard set groups are created using the [Elastic Database tools](sql-database-elastic-scale-introduction.md). When you create a shard set group, databases are added or removed from the group automatically. For example, a new shard will be automatically in the group. A jobs will run against the group with no adjustment.
+Shard set groups are created using the [Elastic Database tools](sql-database-elastic-scale-introduction.md). When you create a shard set group, databases are added or removed from the group automatically. For example, a new shard will be automatically in the group when you add it to the shard map. A job can then be run against the group.
 
 Custom groups, on the other hand, are rigidly defined. You must explicitly add or remove databases from custom groups. If a database in the group is dropped, the job will attempt to run the script against the database resulting in an eventual failure. Groups created using the Azure portal currently are custom groups. 
 
