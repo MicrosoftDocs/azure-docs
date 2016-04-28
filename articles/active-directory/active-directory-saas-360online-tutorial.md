@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="04/28/2016"
 	ms.author="jeedes"/>
 
 
@@ -214,7 +214,9 @@ In the Users list, select **Britta Simon**.
 
 ### Creating a 360° Online test user
 
-The objective of this section is to create a user called Britta Simon in 360° Online. You need to provision all the users in the 360° Online. Creating new users in 360 Online is a manual process. Please work with 360° Online team for Microsoft Azure team to add the users in the 360° Online for Microsoft Azure account. 
+The objective of this section is to create a user called Britta Simon in 360° Online. 
+
+To get a user in 360° Online created, you need to contact your 360° Online support team via [support.community@software-innovation.com](mailto:support.community@software-innovation.com).
 
 
 ### Assigning the Azure AD test user
