@@ -24,7 +24,7 @@ Azure IoT Hub device management introduces the device twin, a service side repre
 
 In this tutorial, we focus on the device properties. To learn more about the other components, see [Overview of Azure IoT Hub device management][lnk-dm-overview].
 
-[Device properties][lnk-dm-library] are a predefined dictionary of properties that describes the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An eventually consistent representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described below. Some examples of device properties include firmware version, battery level, and manufacturer name.
+Device properties are a predefined dictionary of properties that describes the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An eventually consistent representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described below. Some examples of device properties include firmware version, battery level, and manufacturer name.
 
 ## Device properties synchronization
 
@@ -42,11 +42,11 @@ The complete list of device properties that are automatically observed is listed
 
 The following sample extends the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial functionality. Starting from having the different simulated devices running, it uses the device twin to read and change properties on a simulated device.
 
-### Prerequisites  
+### Prerequisites 
 
 Before running this sample, you must have completed the steps in [Get started with Azure IoT Hub device management][lnk-get-started]. That means your simulated devices must be running. If you completed the process before, please restart your simulated devices now.
 
-### Starting the sample 
+### Starting the sample
 
 To start the sample, you need to run the **DeviceTwin.exe** process. This reads the device properties from the device twin and from the physical device. It also changes a device property on the physical device. Follow the steps below to start the sample:
 
@@ -62,7 +62,7 @@ You should see output in the command line window showing the use of the device t
 
 3.  Deep write: write the **Timezone** device property on the physical device.
 
-4.  Deep read: read the '**Timezone** device property from the physical device to see it has changed.
+4.  Deep read: read the **Timezone** device property from the physical device to see it has changed.
 
 ### Shallow Read
 
@@ -107,9 +107,8 @@ Let’s investigate what you need to do on the device side to implement the obse
 Because the synchronization of the device properties is handled completely through the library, all you need to do is call the API to set the device property (battery level in this example) at a regular interval. When the service does a deep read, the last value you set is returned. When the service does a deep write, this set method is called. In **iotdm\_simple\_sample.c** you can see an example of this:
 
 ```
-int level = get\_batterylevel();  // call to platform specific code 
-
-set\_device\_batterylevel(0, level);
+int level = get_batterylevel();  // call to platform specific code 
+set_device_batterylevel(0, level);
 ```
 
 Instead of using the set method, you could implement a callback. For additional information on this option, see [Introducing the Azure IoT Hub device management library for C][lnk-dm-library].
@@ -118,12 +117,11 @@ Instead of using the set method, you could implement a callback. For additional 
 
 To learn more about the Azure IoT Hub device management features you can go through the tutorials:
 
-- [Device sample using Intel Edison][lnk-edison]: the device management client libraries provides an end to end sample using an Intel Edison device.
-
 - [How to find device twins using queries][lnk-tutorial-queries]
 
 - [How to use device jobs to update device firmware][lnk-dm-jobs]
 
+- The device management client libraries provides an end to end sample using an [Intel Edison device][lnk-edison].
 
 <!-- images and links -->
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
