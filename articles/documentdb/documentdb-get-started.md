@@ -77,15 +77,15 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
-  using System;
-  using System.Linq;
-  using System.Threading.Tasks;
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
 
-  // ADD THIS PART TO YOUR CODE
-  using System.Net;
-  using Microsoft.Azure.Documents;
-  using Microsoft.Azure.Documents.Client;
-  using Newtonsoft.Json;
+    // ADD THIS PART TO YOUR CODE
+    using System.Net;
+    using Microsoft.Azure.Documents;
+    using Microsoft.Azure.Documents.Client;
+    using Newtonsoft.Json;
 
 > [AZURE.IMPORTANT] In order to complete this NoSQL tutorial, make sure you add the dependencies above.
 
