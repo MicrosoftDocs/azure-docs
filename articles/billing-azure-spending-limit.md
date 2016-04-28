@@ -55,10 +55,10 @@ To remove your spending limit, follow these steps:
 2. Select a subscription.
 3. If the subscription is disabled due to the Spending Limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click **Remove spending limit** in the **SUBSCRIPTION STATUS** area.
 
-	![azure-account-subscriptions-remove-spending-limit](..\..\articles\media\billing-azure-spending-limit\azure-account-subscriptions-remove-spending-limit.png)
+	![azure-account-subscriptions-remove-spending-limit](media/billing-azure-spending-limit/azure-account-subscriptions-remove-spending-limit.png)
 4. Select an option that is appropriate for you.
 
-	![azure-account-subscriptions-remove-spending-limit-options](..\..\articles\media\billing-azure-spending-limit\azure-account-subscriptions-remove-spending-limit-options.png)
+	![azure-account-subscriptions-remove-spending-limit-options](media/billing-azure-spending-limit/azure-account-subscriptions-remove-spending-limit-options.png)
 
 	| Option                                               | Effect                                                                                                     |
 	|------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
