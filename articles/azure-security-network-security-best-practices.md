@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
-   editor="TomSh"/>
+   editor="TomShinder"/>
 
 <tags
    ms.service="azure-security"

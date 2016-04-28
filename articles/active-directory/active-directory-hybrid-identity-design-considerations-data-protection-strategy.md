@@ -93,12 +93,12 @@ Azure Active Directory provides single sign-on to thousands of SaaS applications
 - Certificates
 
 
->[AZURE.NOTE]
-Read [Azure Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) to know more details about each protocol and its capabilities in Azure.
+>[AZURE.NOTE] read [Azure Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) to know more details about each protocol and its capabilities in Azure.
+
 Using the Azure AD support, mobile business applications can use the same easy Mobile Services authentication experience to allow employees to sign into their mobile applications with their corporate Active Directory credentials. With this feature, Azure AD is supported as an identity provider in Mobile Services alongside with the other identity providers we already support (which include Microsoft Accounts, Facebook ID, Google ID, and Twitter ID). If the on-premises apps uses the user’s credential located at the company’s AD DS, the access from partners and users coming from the cloud should be transparent. You can manage user’s conditional access control to (cloud-based) web applications, web API, Microsoft cloud services, 3rd party SaaS applications, and native (mobile) client applications, and have the benefits of security, auditing, reporting all in one place. However, it is recommended to validate this in a non-production environment or with a limited amount of users.
 
->[AZURE.TIP]
-It is important to mention that Azure AD does not have Group Policy as AD DS has. In order to enforce policy for devices you will need a mobile device management solution such as [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
+
+>[AZURE.TIP] it is important to mention that Azure AD does not have Group Policy as AD DS has. In order to enforce policy for devices you will need a mobile device management solution such as [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
 
 Once the user is authenticated using Azure AD, it is important to evaluate the level of access that the user will have it. The level of access that the user will have over a resource can vary, while Azure AD can add an additional security layer by controlling access to some resources, you must also keep in mind that the resource itself can also have its own access control list separately, such as the access control for files located in a File Server. The figure below summarizes the levels of access control that you can have in a hybrid scenario:
 
