@@ -21,8 +21,8 @@
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
 These requirements apply to the Azure Stack POC only and might change for future releases.
 
-You can also watch the [Azure Stack TP1 POC Deployment Tutorial video](https://channel9.msdn.com/Blogs/azurestack/Microsoft-Azure-Stack-TP1-POC-Deployment-Tutorial).
 
+[AZURE.VIDEO microsoft-azure-stack-tp1-poc-deployment-tutorial]
 
 ## Hardware
 
