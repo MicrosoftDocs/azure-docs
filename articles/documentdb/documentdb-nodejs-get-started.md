@@ -174,7 +174,7 @@ Finally, export your ```config``` object, so that you can reference it within th
 
 Open your empty ```app.js``` file in the text editor. Copy and paste the code below to import the ```documentdb``` module and your newly created ```config``` module.
 
-  // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART TO YOUR CODE
     "use strict";
 
     var documentClient = require("documentdb").DocumentClient;
@@ -183,10 +183,10 @@ Open your empty ```app.js``` file in the text editor. Copy and paste the code be
 
 Copy and paste the code to use the previously saved ```config.endpoint``` and ```config.authKey``` to create a new DocumentClient.
 
-  var config = require("./config");
-  var url = require('url');
+    var config = require("./config");
+    var url = require('url');
 
-  // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.authKey });
 
 Now that you have the code to initialize the documentdb client, let's take a look at working with DocumentDB resources.
@@ -194,9 +194,9 @@ Now that you have the code to initialize the documentdb client, let's take a loo
 ## Step 5: Create a Node database
 Copy and paste the code below to set the HTTP status for Not Found, the database url, and the collection url. These urls are how the DocumentDB client will find the right database and collection.
 
-  var client = new documentClient(config.endpoint, { "masterKey": config.authKey });
+    var client = new documentClient(config.endpoint, { "masterKey": config.authKey });
 
-  // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART TO YOUR CODE
     var HttpStatusCodes = { NOTFOUND: 404 };
     var databaseUrl = `dbs/${config.database.id}`;
     var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
@@ -207,7 +207,7 @@ Copy and paste the **getDatabase** function for creating your new database in th
 
     var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
 
-  // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART TO YOUR CODE
     function getDatabase() {
         console.log(`Getting database:\n${config.database.id}\n`);
 
@@ -231,25 +231,25 @@ Copy and paste the **getDatabase** function for creating your new database in th
 
 Copy and paste the code below where you set the **getDatabase** function to add the helper function **exit** that will print the exit message and the call to **getDatabase** function.
 
-      } else {
-          resolve(result);
-        }
-      });
-    });
-  }
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+    }
 
-  // ADD THIS PART TO YOUR CODE
-  function exit(message) {
-    console.log(message);
-    console.log('Press any key to exit');
-    process.stdin.setRawMode(true);
-    process.stdin.resume();
-    process.stdin.on('data', process.exit.bind(process, 0));
-  }
+    // ADD THIS PART TO YOUR CODE
+    function exit(message) {
+        console.log(message);
+        console.log('Press any key to exit');
+        process.stdin.setRawMode(true);
+        process.stdin.resume();
+        process.stdin.on('data', process.exit.bind(process, 0));
+    }
 
-  getDatabase()
-  .then(() => { exit(`Completed successfully`); })
-  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+    getDatabase()
+    .then(() => { exit(`Completed successfully`); })
+    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
