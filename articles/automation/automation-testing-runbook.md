@@ -3,7 +3,7 @@
 	description="Before you publish a runbook in Azure Automation, you can test it to ensure that works as expected.  This article describes how to test a runbook and view its output."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
 <tags 
@@ -12,20 +12,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="bwren" />
+	ms.date="02/23/2016"
+	ms.author="magoedte;bwren" />
 
 # Testing a runbook in Azure Automation
 When you test a runbook, the [Draft version](automation-creating-importing-runbook.md#publishing-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output Pane. Messages to the [Verbose Stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output Pane only if the [$VerbosePreference variable](automation-runbook-output-and-messages.md#preference-variables) is set to Continue.
 
 Even though the draft version is being run, the runbook still executes the workflow normally and performs any actions against resources in the environment. For this reason, you should only test runbooks at non-production resources.
 
-The procedure to test each [type of runbook](automation-runbook-types.md) is the same, and there is no difference in testing between the textual editor and the graphical editor in the Azure preview portal.  
+The procedure to test each [type of runbook](automation-runbook-types.md) is the same, and there is no difference in testing between the textual editor and the graphical editor in the Azure portal.  
 
 
-## To test a runbook in the Azure preview portal
+## To test a runbook in the Azure portal
 
-You can work with any [runbook type](automation-runbook-types.md) in the Azure preview portal.
+You can work with any [runbook type](automation-runbook-types.md) in the Azure portal.
 
 1. Open the Draft version of the runbook in either the [textual editor](automation-editing-a-runbook#Portal) or [graphical editor](automation-graphical-authoring-intro.md).
 2. Click the **Test** button to open the Test blade.

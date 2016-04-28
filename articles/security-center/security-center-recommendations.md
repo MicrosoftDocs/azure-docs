@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/22/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -38,7 +38,7 @@ In [Setting security policies in Azure Security Center](security-center-policies
 - Turn on data collection.
 - Choose which recommendations to see as part of your security policy.
 
-Current policy recommendations center around system updates, baseline rules, antimalware programs, [ACLs for endpoints](../virtual-machines/virtual-machines-set-up-endpoints.md), [network security groups](../virtual-networks/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, antimalware programs, [ACLs for endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), [network security groups](../virtual-network/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
 
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile on the **Security Center** blade lets you know the total number of recommendations identified by Security Center.
@@ -62,17 +62,19 @@ The recommendations are shown in a table format where each line represents one p
     - **Medium**: A vulnerability exists and non-critical or additional steps are required to eliminate it or to complete a process.
     - **Low**: A vulnerability exists that should be addressed but does not require immediate attention. (By default, low recommendations aren't presented, but you can filter on low recommendations if you want to see them.)
 
-Use the table below as a reference to help you understand the available recommendations and what each one will do if you apply it:
+Use the table below as a reference to help you understand the available recommendations and what each one will do if you apply it.
+
+> [AZURE.NOTE] You will want to understand the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 
 |Recommendation|Description|
 |-----|-----|
 |Enable Data Collection for subscriptions/virtual machines|Recommends that you turn on data collection in the security policy for each of your subscriptions or for select VMs.|
 |Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
 |Apply system updates|Recommends that you deploy missing system security and critical updates to VMs (Windows VMs only).|
-|Configure ACLs for endpoints|Recommends that you configure access control lists to restrict inbound access to VMs (classic VMs only).|
-|Add a web application firewall|Recommends that you deploy a web application firewall (WAF) for web endpoints (Resource Manager VMs only).|
+|Configure ACLs for endpoints|Recommends that you configure access control lists to restrict inbound access to VMs (classic only).|
+|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future.|
 |Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
-|Enable Antimalware|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
+|[Enable Antimalware](security-center-enable-antimalware.md)|Recommends that you provision antimalware programs to VMs (Windows VMs only).|
 |Enable Network Security Groups on subnets/network interfaces|Recommends that you enable network security groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).|
 |Restrict access through public external endpoints|Recommends that you configure inbound traffic rules for NSGs.|
 |Enable server SQL Auditing|Recommends that you turn on auditing for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines).|
@@ -92,7 +94,7 @@ You can filter and dismiss recommendations.
     ![][4]
 
 ### Apply recommendations
-After reviewing all recommendations, decide which one you should apply first. We recommended that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
+After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 Using the **Enable Antimalware** recommendation, let’s walk through an example of how to apply a recommendation.
 
 1. In the **Recommendations** blade, select **Enable Antimalware**.
@@ -104,37 +106,16 @@ Using the **Enable Antimalware** recommendation, let’s walk through an example
 5. Enter the required configuration settings on the **Add Extension** blade, and then select **OK**.
 ![][6]
 
-[Microsoft Antimalware](../azure-security/azure-security-antimalware.md) is now active on the selected virtual machine.
+[Microsoft Antimalware](../azure-security-antimalware.md) is now active on the selected virtual machine.
 
-### Deploy recommended partner solutions
-
-Another recommendation you might get is to deploy an integrated security solution from a Microsoft partner. Let’s walk through an example of how to do this.
-
-1. Return to the **Recommendations** blade.
-2.	Select recommendation **Secure web application using web application firewall**. This opens the **Unprotected Web Applications** blade.
-![][7]
-3. Select a web application, the **Add a Web Application Firewall** blade opens.
-4. Select **Barracuda Web Application Firewall**. A blade opens that provides you information about the **Barracuda Web Application Firewall**.
-5. Click **Create** in the information blade. The **New Web Application Firewall** blade opens, where you can perform **VM Configuration** steps and provide **WAF Information**.
-6. Select **VM Configuration**. In the **VM Configuration** blade you enter information required to spin up the virtual machine that will run the WAF.
-![][8]
-7. Return to the **New Web Application Firewall** blade and select **WAF Information**. In the **WAF Information** blade you configure the WAF itself. Step 6 allows you to configure the virtual machine on which the WAF will run and step 7 enables you to provision the WAF itself.
-
-8. Return to the **Recommendations** blade. A new entry was generated after you created the WAF, called **Finalize web application firewall setup**. This entry lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
-![][9]
-
-9. Select **Finalize web application firewall setup**. A new blade opens. You can see that there is a web application that needs to have its traffic rerouted.
-10. Select the web application. A blade opens that gives you steps for finalizing the web application firewall setup. Complete the steps, and then click **Restrict traffic**. Security Center will then do the wiring-up for you.
-![][10]
-
-The logs from that WAF are now fully integrated. Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
 
 ## Next steps
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
@@ -144,7 +125,3 @@ In this document, you were introduced to security recommendations in Security Ce
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
-[7]: ./media/security-center-recommendations/secure-web-application.png
-[8]: ./media/security-center-recommendations/vm-configuration.png
-[9]: ./media/security-center-recommendations/finalize-waf.png
-[10]: ./media/security-center-recommendations/restrict-traffic.png

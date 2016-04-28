@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -28,6 +28,7 @@ You can learn more about these capabilities in this [blog post](https://azure.mi
 Azure SQL Database always restores to a new database. These restore capabilities are offered to all Basic, Standard, and Premium databases.
 
 ##Point In Time Restore
+
 In the event of a user error or unintended data modification, Point In Time Restore can be used to restore your database to any point in time within your databases retention period. 
 
 Basic databases have 7 days of retention, Standard databases have 14 days of retention, and Premium databases have 35 days of retention. To learn more about database retention, please see [Business continuity overview](sql-database-business-continuity.md).
@@ -35,6 +36,8 @@ Basic databases have 7 days of retention, Standard databases have 14 days of ret
 > [AZURE.NOTE] Restoring a database creates a new database. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Azure Portal
+> [AZURE.NOTE] For databases in elastic database pools, the Azure Portal only supports point in time restore into the same pool. If you would like to point in time restore a database as a stand alone database, please use the REST API.
+
 To use Point In Time Restore in the Azure Portal, use the following steps.
 
 1. Log in to the [Azure Portal](https://portal.Azure.com)
@@ -55,13 +58,7 @@ Use PowerShell to programmatically perform a Point In Time Restore with the [Sta
 		 
 
 ###REST API 
-Use REST to programmatically perform database restore.
-
-1. Get the database you want to restore using the [Get Database](http://msdn.microsoft.com/library/azure/dn505708.aspx) operation.
-
-2.	Create the restore request using the [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) operation.
-	
-3.	Track the restore request using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
+Use REST to programmatically perform database restore. To do this create the restore request using the [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) operation, and specify the **create mode** to be **PointInTimeRestore**.
 
 ##Restore a deleted database
 In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion. Azure SQL Database stores the deleted database backup for the retention period of the database.

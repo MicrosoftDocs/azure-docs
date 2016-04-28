@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
@@ -59,7 +59,7 @@ SQL Data Warehouse supports the common business data types:
 
 You can identify columns in your data warehouse that contain incompatible types using the following query:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -123,7 +123,7 @@ Partial support:
 
 There are two choices for distributing data in SQL Data Warehouse:
 
-1. Distribute data evenly but randomly 
+1. Distribute data evenly but randomly
 2. Distribute data based on hashing values from a single column
 
 Data distribution is decided at the table level. All tables are distributed. You will assign distribution for each table in your SQL Data Warehouse database.
@@ -138,7 +138,7 @@ Round-Robin distribution is a method of spreading data as evenly as possible acr
 
 Below is an example of round robin distributed table:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 This is also an example of a round robin distributed table:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -179,7 +179,7 @@ WITH
 
 This table type is commonly used when there is no obvious key column to hash the data by. It can also be used by smaller or less significant tables where the movement cost may not be so great.
 
-Loading data into a round robin distributed table tends to be faster than loading into a hash distributed table. With a round-robin distributed table there is no need to understand the data or perform the hash prior to loading. For this reason Round-Robin tables often make good good loading targets.
+Loading data into a round robin distributed table tends to be faster than loading into a hash distributed table. With a round-robin distributed table there is no need to understand the data or perform the hash prior to loading. For this reason Round-Robin tables often make good loading targets.
 
 > [AZURE.NOTE] When data is round robin distributed the data is allocated to the distribution at the *buffer* level.
 
@@ -205,7 +205,7 @@ As you will see below, hash distribution can be very effective for query optimiz
 
 Below is a table that has been hash distributed by ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -230,7 +230,7 @@ Table partitions are supported and easy to define.
 
 Example SQL Data Warehouse partitioned `CREATE TABLE` command:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL

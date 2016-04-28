@@ -45,3 +45,4 @@ To learn more about throttling, see [Scaling API Endpoints](machine-learning-sca
 
 Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets. In addition to adding endpoints through this UI, you can also use the Endpoint Management APIs to programmatically add endpoints. For more information about using Machine Learning web services, see [How to consume a published Azure Machine Learning web service](machine-learning-consume-web-services.md).
  
+ Note that you CANNOT delete the default endpoint, from the Studio or here, if you have added endpoints to it. It will throw an error.

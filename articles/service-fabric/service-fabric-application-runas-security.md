@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/24/2015"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # RunAs: Run a Service Fabric application with different security permissions
 Azure Service Fabric provides the ability to secure applications running in the cluster under different user accounts, known as **RunAs**. Service Fabric also secures the resources used by the applications with the user account such as files, directories, and certificates.
 
-By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account, specified within the application’s manifest. Supported account types for RunAs are **LocalUser**, **NetworkService**, **LocalService** and **LocalSystem**.
+By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account or local system account, specified within the application’s manifest. Supported local system account types for RunAs are **LocalUser**, **NetworkService**, **LocalService** and **LocalSystem**.
 
 > [AZURE.NOTE] Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.
 
@@ -27,7 +27,7 @@ User groups can be defined and created so that one or more users can be added to
 
 ## Set the RunAs policy for SetupEntryPoint
 
-As described in the [application model](service-fabric-application-model.md) the **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *network* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host, so having a separate setup entry point avoids having to run the service host executable with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
+As described in the [application model](service-fabric-application-model.md) the **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host, so having a separate setup entry point avoids having to run the service host executable with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
 
 Below is a simple service manifest example that shows SetupEntryPoint and the main EntryPoint for the service.
 
@@ -42,6 +42,7 @@ Below is a simple service manifest example that shows SetupEntryPoint and the ma
     <SetupEntryPoint>
       <ExeHost>
         <Program>MySetup.bat</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>
       </ExeHost>
     </SetupEntryPoint>
     <EntryPoint>
@@ -54,9 +55,9 @@ Below is a simple service manifest example that shows SetupEntryPoint and the ma
 </ServiceManifest>
 ~~~
 
-### Configure the RunAs policy
+### Configure the RunAs policy using a local account
 
-After you configure the service to have a setup entry point, you can change the security permissions that it runs under in the application manifest. The example below shows how to configure the service to run under administrator account privileges.
+After you configure the service to have a setup entry point, you can change the security permissions that it runs under in the application manifest. The example below shows how to configure the service to run under user administrator account privileges.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -95,8 +96,8 @@ Now open the MySetup.bat file and add the following commands:
 ~~~
 REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > test.txt
-echo %TestVariable% >> test.txt
+echo System TestVariable set to > out.txt
+echo %TestVariable% >> out.txt
 
 REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
@@ -109,14 +110,36 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Then, note the name of the node where the service was deployed and started in the Service Fabric Explorer, for example, Node 1. Next, navigate to the application instance work folder to find the out.txt file that shows the value of **TestVariable**. For example if this was deployed to Node 2, then you can go to this path for the **MyApplicationType**:
+Then, note the name of the node where the service was deployed and started in the Service Fabric Explorer, for example, Node 2. Next, navigate to the application instance work folder to find the out.txt file that shows the value of **TestVariable**. For example if this was deployed to Node 2, then you can go to this path for the **MyApplicationType**:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
+###  Configure the RunAs policy using local system accounts
+Often it is preferrable to run the start up script using a local system account rather than an admistrators account as shown above. Running the RunAs policy as Administrators typically doesn’t work well since machines have User Access Control (UAC) enabled by default. In such cases **the recommendation is to run the SetupEntryPoint as LocalSystem instead of a local user added to administrators group**. The example below shows setting the SetupEntryPoint to run as LocalSystem.
+
+~~~
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="SetupLocalSystem" EntryPointType="Setup" />
+      </Policies>
+   </ServiceManifestImport>
+   <Principals>
+      <Users>
+         <User Name="SetupLocalSystem" AccountType="LocalSystem" />
+      </Users>
+   </Principals>
+</ApplicationManifest>
+~~~
+
 ##  Launch PowerShell commands from SetupEntryPoint
 To run PowerShell from the **SetupEntryPoint** point, you can run **PowerShell.exe** in a batch file that points to a PowerShell file. First, add a PowerShell file to the service project, such as **MySetup.ps1**. Remember to set the *Copy if newer* property so that the file is also included in the service package. The example below shows a sample batch file to launch a PowerShell file called MySetup.ps1, which sets a system environment variable called **TestVariable**.
+
 
 MySetup.bat to launch PowerShell file.
 
@@ -126,10 +149,46 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 In the PowerShell file, add the following to set a system environment variable:
 
-```
+~~~
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-```
+~~~
+
+**Note:** By default when the batch file runs it looks at the application folder called **work** for files. In this case when MySetup.bat runs we want this to find the MySetup.ps1 in the same folder, which is the application **code package** folder. To change this folder, set the working folder as shown below.
+    
+~~~
+<SetupEntryPoint>
+    <ExeHost>
+    <Program>MySetup.bat</Program>
+    <WorkingFolder>CodePackage</WorkingFolder>
+    </ExeHost>
+</SetupEntryPoint> 
+~~~
+
+## Using console redirection policy for local debugging of entry points
+Occassional it is useful to see the console output from running a script for debugging purposes. In order to do this you can set a console redirection policy which writes the output to a file. The file output is written to the application folder called **log** on the node where the applicaiton is deployed and run (see where to find this in the example above).
+
+**Note: Never** use the console redirection policy in an application deployed in production since this can impact the application failover. **ONLY** use this for local development and debugging purposes.  
+
+The example below shows setting the console redirection with a FileRetentionCount value. 
+
+~~~
+<SetupEntryPoint>
+    <ExeHost>
+    <Program>MySetup.bat</Program>
+    <WorkingFolder>CodePackage</WorkingFolder>
+    <ConsoleRedirection FileRetentionCount="10"/>
+    </ExeHost>
+</SetupEntryPoint> 
+~~~
+
+If you now change the the MySetup.ps1 file to write an **Echo** command, this will write to the output file for debugging purposes. 
+
+~~~
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+~~~
+
+**Once you have debugged your script, immediately remove this console redirection policy**
 
 ## Apply RunAsPolicy to services
 In the steps above, you saw how to apply RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.

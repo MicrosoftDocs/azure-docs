@@ -3,9 +3,9 @@
 	description="Learn how to use the Azure blob service to upload, list, download, and delete blobs. Code samples are written in PHP."
 	documentationCenter="php"
 	services="storage"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="tomfitz"/>
+	ms.date="04/08/2016"
+	ms.author="robmcm"/>
 
 # How to use blob storage from PHP
 
@@ -42,7 +42,7 @@ In this guide, you use service features, which can be called within a PHP applic
 
 To use the Azure blob service APIs, you need to:
 
-1. Reference the autoloader file using the [require_once][require_once] statement, and
+1. Reference the autoloader file using the [require_once] statement, and
 2. Reference any classes you might use.
 
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
@@ -291,9 +291,9 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 Now that you've learned the basics of the Azure blob service, follow these links to learn about more complex storage tasks.
 
 - Visit the [Azure Storage team blog](http://blogs.msdn.com/b/windowsazurestorage/)
-- See the PHP block blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
-- See the PHP page blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- See the [PHP block blob example](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
+- See the [PHP page blob example](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
+- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
  
 For more information, see also the [PHP Developer Center](/develop/php/).
 

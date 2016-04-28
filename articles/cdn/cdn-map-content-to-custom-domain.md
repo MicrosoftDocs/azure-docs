@@ -1,31 +1,31 @@
-<properties 
-	 pageTitle="How to Map Content Delivery Network (CDN) Content to a Custom Domain" 
-	 description="This topic demonstrate how to map a CDN content to a Custom Domain." 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="camsoper" 
-	 manager="dwrede" 
+<properties
+	 pageTitle="How to Map Content Delivery Network (CDN) Content to a Custom Domain"
+	 description="This topic demonstrate how to map a CDN content to a Custom Domain."
+	 services="cdn"
+	 documentationCenter=""
+	 authors="camsoper"
+	 manager="erikre"
 	 editor=""/>
-<tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="01/22/2016" 
+<tags
+	 ms.service="cdn"
+	 ms.workload="media"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="02/25/2016" 
 	 ms.author="casoper"/>
 
 # How to map Custom Domain to Content Delivery Network (CDN) endpoint
-You can map a custom domain to a CDN endpoint in order to use your own domain name in URLs to cached content rather than using a subdomain of azureedge.net. 
+You can map a custom domain to a CDN endpoint in order to use your own domain name in URLs to cached content rather than using a subdomain of azureedge.net.
 
-There are two ways to map your custom domain to a CDN endpoint: 
+There are two ways to map your custom domain to a CDN endpoint:
 
-1. [Create a CNAME record with your domain registrar and map your custom domain and subdomain to the CDN endpoint](#register-a-custom-domain-for-an-azure-cdn-endpoint) 
-	
+1. [Create a CNAME record with your domain registrar and map your custom domain and subdomain to the CDN endpoint](#register-a-custom-domain-for-an-azure-cdn-endpoint)
+
 	A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain (subdomain is always required). The destination domain is your CDN endpoint.  
 
 	The process of mapping your custom domain to your CDN endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure  Portal.
-	 
+
 2. [Add an intermediate registration step with **cdnverify**](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure **cdnverify** subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.  
@@ -36,7 +36,7 @@ After you register your custom domain using one of the above procedures, you wil
 >    
 > A subdomain can only be associated with one CDN endpoint. The CNAME record that you create will route all traffic addressed to the subdomain to the specified endpoint.  For example, if you associate **www.mydomain.com** with your CDN endpoint, then you cannot associate it with other Azure endpoints, such as a storage account endpoint or a cloud service endpoint. However, you can use different subdomains from the same domain for different service endpoints. You can also map different subdomains to the same CDN endpoint.
 >
-> Note that it takes up to **90 minutes** for custom domain changes to propagate to CDN edge nodes. 
+> Note that it takes up to **90 minutes** for custom domain changes to propagate to CDN edge nodes.
 
 ## Register a custom domain for an Azure CDN endpoint
 
@@ -66,7 +66,7 @@ After you register your custom domain using one of the above procedures, you wil
 8. Return to the **Add a custom domain** blade, and enter your custom domain, including the subdomain, in the dialog box. For example, enter the domain name in the format **www.mydomain.com** or **cdn.mydomain.com**. Note that in this step, you do not need to preface the subdomain with **cdnverify**.  
 
 	Azure will verify that the CNAME record exists for the cdnverify domain name you have entered.
-9. At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your CDN endpoint. After waiting 90 minutes to allow the custom domain settings to propagate to the CDN edge nodes, return to your DNS registrar's web site and create another CNAME record that maps your subdomain to your CDN endpoint. For example, specify the subdomain as **www** or **cdn**, and the hostname as **&lt;EndpointName>.azureedge.net**. With this step, the registration of your custom domain is complete. 
+9. At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your CDN endpoint. After waiting 90 minutes to allow the custom domain settings to propagate to the CDN edge nodes, return to your DNS registrar's web site and create another CNAME record that maps your subdomain to your CDN endpoint. For example, specify the subdomain as **www** or **cdn**, and the hostname as **&lt;EndpointName>.azureedge.net**. With this step, the registration of your custom domain is complete.
 10.	Finally, you can delete the CNAME record you created using **cdnverify**, as it was necessary only as an intermediary step.  
 
 
@@ -83,5 +83,3 @@ First, ensure that you have public content that is cached at the endpoint. For e
 ## See Also
 
 [How to Enable the Content Delivery Network (CDN)  for Azure](./cdn-create-new-endpoint.md)  
-
- 

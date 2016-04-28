@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Fail back VMware virtual machines and physical servers from Azure to VMware | Microsoft Azure" 
+   pageTitle="Fail back VMware virtual machines and physical servers from Azure to VMware (legacy) | Microsoft Azure" 
    description="This article describes how to fail back a VMware virtual machine that's been replicated to Azure with Azure Site Recovery." 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="12/14/2015"
+   ms.date="03/06/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery (legacy)
@@ -22,26 +22,40 @@
 - [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
 - [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
 ## Overview
 
-This document describes how to fail back VMware virtual machines and Windows/Linux physical servers from Azure to your on-premises site. 
+This article describes how to fail back VMware virtual machines and Windows/Linux physical servers from Azure to your on-premises site after you've replicated from your on-premises site to Azure.
 
-To set up replication and failover for this scenario follow the instructions in [this article](site-recovery-vmware-to-azure.md). After a successful failover of VMware virtual machines or physical servers to Azure with Site Recovery, the machines will be available in the Azure virtual machines tab. 
+>[AZURE.NOTE] This article describes a legacy scenario. You should only use the instructions in this article if you replicated to Azure using [these legacy instructions](site-recovery-vmware-to-azure-classic-legacy.md). If you set up replication using the [enhanced deployment](site-recovery-vmware-to-azure-classic-legacy.md) then follow the instructions in [this article](site-recovery-failback-azure-to-vmware-classic.md) to fail back. 
 
->[AZURE.NOTE] You can only fail back VMware virtual machines and Windows/Linux physical servers from Azure to VMware virtual machines in the on-premises primary site.  If you're failing back a physical machine, failover to Azure will convert it to an Azure VM, and failback to VMware will convert it to a VMware VM. 
+
+## Architecture
 
 This diagram represents the failover and failback scenario. The blue lines are the connections used during failover. The red lines are the connections used during failback. The lines with arrows go over the internet.
 
 ![](./media/site-recovery-failback-azure-to-vmware/vconports.png)
+
+## Before you start 
+
+- You should have failed over your VMware VMs or physical servers and they should be running in Azure.
+- You should note that you can only fail back VMware virtual machines and Windows/Linux physical servers from Azure to VMware virtual machines in the on-premises primary site.  If you're failing back a physical machine, failover to Azure will convert it to an Azure VM, and failback to VMware will convert it to a VMware VM.
+
+Here's how you set up failback:
+
+1. **Set up failback components**: You'll need to set up a vContinuum server on-premises, and point it to the configuration server VM in Azure. You'll also set up a process server as an Azure VM to send data back to the on-premises master target server. You register the process server with the configuration server that  handled the failover. You install an on-premises master target server. If you need a Windows master target server it's set up automatically when you install vContinuum. If you need Linux you'll need to set it up manually on a separate server.
+2. **Enable protection and failback**: After you've set up the components, in vContinuum you'll need to enable protection for failed over Azure VMs. You'll run a readiness check on the VMs and run a failover from Azure to your on-premises site. After failback finishes you reprotect on-premises machines so that they start replicating to Azure.
+
+
 
 ## Step 1: Install vContinuum on-premises
 
 You'll need to install a vContinuum server on premises and point it to the configuration server.
 
 1.  [Download vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
-2.  After you've downloaded then download the updated [vContinuum update](http://go.microsoft.com/fwlink/?LinkID=533813) verison.
-3.  Run setup for the latest version to install vContinuum. On the **Welcome** page click **Next**.
+2.  Then download the [vContinuum update](http://go.microsoft.com/fwlink/?LinkID=533813) version.
+3. Install the latest version of vContinuum. On the **Welcome** page click **Next**.
 	![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 4.  On the first page of the wizard specify the CX server IP address and the CX server port. Select **Use HTTPS**.
 
@@ -450,6 +464,8 @@ machines again. Do this as follows:
  
 ## Next steps
 
-[Read about](site-recovery-vmware-to-azure-classic-legacy.md) replicating VMware virtual machines to Azure
+
+
+- [Read about](site-recovery-vmware-to-azure-classic.md) replicating VMware virtual machines and physical servers to Azure using the enhanced deployment.
 
  

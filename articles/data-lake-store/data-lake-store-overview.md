@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Overview of Azure Data Lake Store | Azure" 
-   description="Understand what is Azure Data Lake Store and the value it provides over other data stores" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Overview of Azure Data Lake Store | Azure"
+   description="Understand what is Azure Data Lake Store and the value it provides over other data stores"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="01/22/2016"
+   ms.workload="big-data"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Overview of Azure Data Lake Store
@@ -31,9 +31,9 @@ Some of the key capabilities of the Azure Data Lake include the following.
 
 ### Built for Hadoop
 
-The Azure Data Lake store is an Apache Hadoop file system compatible with Hadoop Distributed File System (HDFS) and works with the Hadoop ecosystem.  Your existing HDInsight applications or services that use the WebHDFS API can easily integrate with Data Lake Store. Data Lake Store also exposes a WebHDFS-compatible REST interface for applications 
+The Azure Data Lake store is an Apache Hadoop file system compatible with Hadoop Distributed File System (HDFS) and works with the Hadoop ecosystem.  Your existing HDInsight applications or services that use the WebHDFS API can easily integrate with Data Lake Store. Data Lake Store also exposes a WebHDFS-compatible REST interface for applications
 
-Data stored in Data Lake Store can be easily analyzed using Hadoop analytic frameworks such as MapReduce or Hive. Microsoft Azure HDInsight clusters can be provisioned and configured to directly access data stored in Data Lake Store. 
+Data stored in Data Lake Store can be easily analyzed using Hadoop analytic frameworks such as MapReduce or Hive. Microsoft Azure HDInsight clusters can be provisioned and configured to directly access data stored in Data Lake Store.
 
 ### Unlimited storage, petabyte files
 
@@ -46,7 +46,7 @@ Azure Data Lake Store is built for running large scale analytic systems that req
 
 ### Enterprise-ready: Highly-available and secure
 
-Azure Data Lake Store provides industry-standard availability and reliability. Your data assets are stored durably by making redundant copies to guard against any unexpected failures. Enterprises can use Azure Data Lake in their solutions as an important part of their existing data platform. 
+Azure Data Lake Store provides industry-standard availability and reliability. Your data assets are stored durably by making redundant copies to guard against any unexpected failures. Enterprises can use Azure Data Lake in their solutions as an important part of their existing data platform.
 
 Data Lake Store also provides enterprise-grade security for the stored data. For more information, see [Securing data in Azure Data Lake Store](#DataLakeStoreSecurity).
 
@@ -71,7 +71,7 @@ For instructions on how to secure data in Data Lake Store, see [Securing data in
 
 ## Applications compatible with Azure Data Lake Store
 
-See [Applications and services compatible with Azure Data Lake](data-lake-store-compatible-oss-other-applications.md) for a list of open source applications interoperable with Azure Data Lake Store. See [Integrating with other Azure services](data-lake-store-integrate-with-other-services.md) to understand how Data Lake Store can be used with other Azure services to enable a wider range of scenarios. 
+See [Applications and services compatible with Azure Data Lake](data-lake-store-compatible-oss-other-applications.md) for a list of open source applications interoperable with Azure Data Lake Store. See [Integrating with other Azure services](data-lake-store-integrate-with-other-services.md) to understand how Data Lake Store can be used with other Azure services to enable a wider range of scenarios.
 
 ## What is Azure Data Lake Store file system (adl://)?
 
@@ -83,7 +83,6 @@ You can access your data in the Data Lake Store using `adl://<data_lake_store_na
 
 See [Get Started with Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md), on how to provision a Data Lake Store using the Azure Portal. Once you have provisioned Azure Data Lake, you can learn how to use big data offerings such as Azure Data Lake Analytics or Azure HDInsight with Data Lake Store. You can also create a .NET application to create an Azure Data Lake Store account and perform operations such as upload data, download data, etc.
 
-- [Get Started with Azure Data Lake Analytics](data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Get Started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
-  

@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK Release Notes
+
+
+##3.3.0 (04/19/2016)
+Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.4.0**
+
+-   Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
 
 ##3.2.0 (01/22/2016)
 Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.3.0**

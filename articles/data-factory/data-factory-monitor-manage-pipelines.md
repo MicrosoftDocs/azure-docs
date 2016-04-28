@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitor and manage Azure Data Factory pipelines" 
-	description="Learn how to use Azure Classic Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
+	description="Learn how to use Azure Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/28/2016" 
 	ms.author="spelluru"/>
 
 
@@ -188,12 +188,12 @@ For example:
 
 
 ## Debug pipelines
-Azure Data Factory provides rich capabilities via Azure Classic Portal and Azure PowerShell to debug and troubleshoot pipelines.
+Azure Data Factory provides rich capabilities via Azure Portal and Azure PowerShell to debug and troubleshoot pipelines.
 
 ### Find errors in a pipeline
 If the activity run fails in a pipeline, the dataset produced by the pipeline is in an error state due to the failure. You can debug and troubleshoot errors in Azure Data Factory using the following mechanisms.
 
-#### Use Azure Classic Portal to debug an error:
+#### Use Azure Portal to debug an error:
 
 1.	Click **With errors** on **Datasets** tile on the data factory home page.
 	
@@ -266,7 +266,7 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 
 ## Re-run failures in a pipeline
 
-### Using Azure Classic Portal
+### Using Azure Portal
 
 Once you troubleshoot and debug failures in a pipeline, you can re-run failures by navigating to the error slice and clicking the **Run** button on the command bar.
 
@@ -298,6 +298,8 @@ Azure events provide useful insights into what is happening in your Azure resour
 - When an on-demand HDInsight cluster is created and removed.
 
 You can create alerts on these user events and configure them to send email notifications to the administrator and co-administrators of the subscription. In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met. This is very useful when you want to get notified on failures and don’t want to continuously monitor your data factory.
+
+> [AZURE.NOTE] The portal does not show alerts on events at this time. Please use the [Monitoring and Management App](data-factory-monitor-manage-app.md) to see all alerts.
 
 #### Specifying an alert definition:
 To specify an alert definition, you create a JSON file describing the operations that you want to be alerted on. In the example below, the alert will send an email notification for the RunFinished operation. To be specific, an email notification is sent when a run in the data factory has completed and the run has failed (Status = FailedExecution).
@@ -350,7 +352,7 @@ The following table provides the list of available operations and statuses (and 
 Operation name | Status | Sub status
 -------------- | ------ | ----------
 RunStarted | Started | Starting
-RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
@@ -378,6 +380,8 @@ Once the resource group deployment has completed successfully, you will see the 
 	TemplateLink      :
 	Parameters        :
 	Outputs           :
+
+> [AZURE.NOTE] You can use the [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API to create an alert rule. The JSON payload is similar to the JSON example given above.  
 
 #### Retrieving the list of Azure Resource Group Deployments
 To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: **Get-AzureRmResourceGroupDeployment**, as shown in the following example:
@@ -575,3 +579,12 @@ You should see following message after successful deployment:
 
 
 You can also the **Add-AlertRule** cmdlet to deploy an alert rule. See [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) topic for details and examples.  
+
+## Move data factory to a different resource group or subscription
+You can move a data factory to a different resource group or a different subscription by using the **Move** command bar button on the home page of your data factory. 
+
+![Move data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+
+You can also move any related resources (such as alerts associated with the data factory) along with the data factory.
+
+![Move Resources dialog box](./media/data-factory-monitor-manage-pipelines/MoveResources.png)

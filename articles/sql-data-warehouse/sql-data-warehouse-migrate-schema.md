@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/19/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrate your schema to SQL Data Warehouse#
@@ -65,7 +65,7 @@ SQL Data Warehouse supports the common business data types:
 
 You can use this query to identify columns in your data warehouse that contain incompatible types:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]

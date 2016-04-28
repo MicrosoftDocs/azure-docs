@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="04/08/2016"
 	ms.author="rmcmurray"/>
 
 # On-premises application with blob storage
@@ -31,13 +31,12 @@ HTML file that displays the image in your browser.
 - The Azure SDK is installed.
 - The JAR for the Azure Libraries for Java, and any applicable
     dependency JARs, are installed and are in the build path used by
-    your Java compiler. For information about installing the Azure Libraries for Java, see [Download the
-    Azure SDK for Java][].
+    your Java compiler. For information about installing the Azure Libraries for Java, see [Download the Azure SDK for Java](java-download-azure-sdk.md).
 - An Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
-    in this article. See [How to Create a Storage Account] for information about creating a storage account,
-    and [How to Manage Storage Accounts][] for information about retrieving the
-    account key.
+    in this article. See [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account) for information about creating a storage account,
+    and [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys) for information about retrieving the account key.
+
 - You have created a local image file named stored at the path
     c:\\myimages\\image1.jpg. Alternatively, modify the
     **FileInputStream** constructor in the example to use a different
@@ -417,22 +416,13 @@ deletes the container named **gettingstarted**.
         }
     }
 
-For an overview of other blob storage classes and methods, see [How to
-use the blob storage service from Java].
+For an overview of other blob storage classes and methods, see [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md).
 
 ## Next steps
 
 Follow these links to learn more about more complex storage tasks.
 
-- [Azure Storage SDK for Java][]
-- [Azure Storage Client SDK Reference][]
-- [Azure Storage REST API][]
-- [Azure Storage Team Blog][]
-
-  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
-  [How to Create a Storage Account]: storage-create-storage-account.md#create-a-storage-account
-  [How to Manage Storage Accounts]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
-  [How to Use the Blob Storage Service from Java]: storage-java-how-to-use-blob-storage.md
-  [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
-  [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+- [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
+- [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
+- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)

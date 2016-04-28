@@ -1,21 +1,21 @@
-<properties 
- pageTitle="How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="How to manage expiration of cloud service content in Azure CDN | Microsoft Azure"
+ description="Describes how to manage the expiration of cloud service content in Azure CDN"
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016"
  ms.author="casoper"/>
 
-#How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)
+# How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)
 
 Objects that benefit the most from Azure CDN caching are those that are accessed frequently during their time-to-live (TTL) period. An object stays in the cache for the TTL period and then is refreshed from the cloud service after that time is elapsed. Then the process repeats.  
 
@@ -25,12 +25,12 @@ For static content such as images and style sheets you can control the update fr
 
 The following XML shows and example of setting **clientCache** to specify a maximum age of 3 days:  
 
-	<configuration> 
-	  <system.webServer> 
-	        <staticContent> 
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" /> 
-	        </staticContent> 
-	  </system.webServer> 
+	<configuration>
+	  <system.webServer>
+	        <staticContent>
+	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+	        </staticContent>
+	  </system.webServer>
 	</configuration>
 
 Specifying **UseMaxAge** adds a Cache-Control: max-age=<nnn> header to the response based on the value specified in the **CacheControlMaxAge** attribute. The format of the timespan is for the **cacheControlMaxAge** attribute is <days>.<hours>:<min>:<sec>. For more information on the **clientCache** node, see [Client Cache <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
@@ -49,4 +49,4 @@ For example, to cache content for one hour, add the following:
 ##See Also
 
 [How to Manage Expiration of Blob Content in the Azure Content Delivery Network (CDN)](./cdn-manage-expiration-of-blob-content.md
-) 
+)

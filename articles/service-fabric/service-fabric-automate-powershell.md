@@ -13,50 +13,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="04/15/2016"
 	ms.author="ryanwi"/>
 
-# Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell
+# Automate the application lifecycle using PowerShell
 
-This article shows how to use PowerShell to automate common tasks for deploying, upgrading, removing, and testing Azure Service Fabric applications.  
+Many aspects of the [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) can be automated.  This article shows how to use PowerShell to automate common tasks for deploying, upgrading, removing, and testing Azure Service Fabric applications.  Managed and HTTP APIs for app management are also available, see [app lifecycle](service-fabric-application-lifecycle.md) for more information.  
 
 ## Prerequisites
+Before you move on to the tasks in the article, be sure to:
 
-Before you move on to the tasks in the article, be sure to [install the runtime, SDK, and tools](service-fabric-get-started.md), which also installs the **ServiceFabric** and **ServiceFabricTestability** PowerShell modules. [Enable PowerShell script execution](service-fabric-get-started.md#enable-powershell-script-execution) and [install and start a local cluster](service-fabric-get-started.md#install-and-start-a-local-cluster) so you can run the examples in the article.
-
-The examples in this article use the [**WordCount** sample application](http://aka.ms/servicefabricsamples) (located in the Getting Started samples). Download and build the sample application.
-
-Before you run any PowerShell commands in this article, first connect to the local Service Fabric cluster by using [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx):
-
-```powershell
-Connect-ServiceFabricCluster localhost:19000
-```
++ Get familiar with the Service Fabric concepts described in [Technical overview of Service Fabric](service-fabric-technical-overview.md).
++ [Install the runtime, SDK, and tools](service-fabric-get-started.md), which also installs the **ServiceFabric** PowerShell module.
++ [Enable PowerShell script execution](service-fabric-get-started.md#enable-powershell-script-execution).
++ Start a local cluster.  Launch a new PowerShell window as an administrator and then run the cluster setup script from the SDK folder: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
++ Before you run any PowerShell commands in this article, first connect to the local Service Fabric cluster by using [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx): `Connect-ServiceFabricCluster localhost:19000`
++ The following tasks require a v1 application package to deploy and a v2 application package for upgrade. Download the [**WordCount** sample application](http://aka.ms/servicefabricsamples) (located in the Getting Started samples). Build and package the application in Visual Studio (right-click on **WordCount** in Solution Explorer and select **Package**). Copy the v1 package in `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` to `C:\Temp\WordCount`. Copy `C:\Temp\WordCount` to `C:\Temp\WordCountV2`, creating the v2 application package for upgrade. Open `C:\Temp\WordCountV2\ApplicationManifest.xml` in a text editor. In the **ApplicationManifest** element, change the **ApplicationTypeVersion** attribute from "1.0.0" to "2.0.0". This updates the version number of the application. Save the changed ApplicationManifest.xml file.
 
 ## Task: Deploy a Service Fabric application
 
-After you've built the application and the application type has been packaged, you can deploy the application into a local Service Fabric cluster. First, package the WordCount application in Visual Studio by right-clicking on **WordCount** in Solution Explorer and selecting **Package**.  See [Model an application in Service Fabric](service-fabric-application-model.md) for information on the service, application manifests, and package layout.  Deployment involves uploading the application package, registering the application type, and creating the application instance. Use the instructions in this section to deploy a new application to a cluster.
+After you've built and packaged the application (or downloaded the application package), you can deploy the application into a local Service Fabric cluster. Deployment involves uploading the application package, registering the application type, and creating the application instance. Use the instructions in this section to deploy a new application to a cluster.
 
 ### Step 1: Upload the application package
-Uploading the application package to the image store puts it in a location accessible to internal Service Fabric components.  The application package contains the necessary application manifest, service manifest(s), and code/config/data package(s) to create the application and service instances.  The [**Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx) command will upload the package. For example:
+Uploading the application package to the image store puts it in a location accessible to internal Service Fabric components.  The application package contains the necessary application manifest, service manifest(s), and code, configuration, and data package(s) to create the application and service instances.  The [**Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx) command will upload the package. For example:
 
 ```powershell
-Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCount
+Copy-ServiceFabricApplicationPackage C:\Temp\WordCount\ -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCount
 ```
 
 ### Step 2: Register the application type
-Registering the application package makes the application type and version declared in the application manifest available for use. The system will read the package uploaded in the previous step, verify the package (equivalent to running [**Test-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125950.aspx) locally), process the package contents, and copy the processed package to an internal system location.  Run the [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet:
+Registering the application package makes the application type and version declared in the application manifest available for use. The system will read the package uploaded in the step 1, verify the package (equivalent to running [**Test-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125950.aspx) locally), process the package contents, and copy the processed package to an internal system location.  Run the [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet:
 
 ```powershell
 Register-ServiceFabricApplicationType WordCount
 ```
-To see the application types registered in the cluster, run the cmdlet:
+To see all the application types registered in the cluster, run the [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125871.aspx) cmdlet:
 
 ```powershell
 Get-ServiceFabricApplicationType
 ```
 
 ### Step 3: Create the application instance
-An application can be instantiated by using any application type version that has been registered successfully by using the [**New-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125913.aspx) command. The name of each application must start with the **fabric:** scheme and be unique for each application instance. The application type name and application type version are declared in the **ApplicationManifest.xml** file. If any default services were defined in the application manifest of the target application type, then those will also be created at this time.
+An application can be instantiated by using any application type version that has been registered successfully by using the [**New-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125913.aspx) command. The name of each application is declared at deploy time and must start with the **fabric:** scheme and be unique for each application instance. The application type name and application type version are declared in the **ApplicationManifest.xml** file of the application package. If any default services were defined in the application manifest of the target application type, then those will also be created at this time.
 
 ```powershell
 New-ServiceFabricApplication fabric:/WordCount WordCount 1.0.0
@@ -71,54 +69,28 @@ Get-ServiceFabricApplication | Get-ServiceFabricService
 ```
 
 ## Task: Upgrade a Service Fabric application
+You can upgrade a previously deployed Service Fabric application with an updated application package. This task upgrades the WordCount application that was deployed in "Task: Deploy a Service Fabric application." Read through [Service Fabric application upgrade](service-fabric-application-upgrade.md) for more information.
 
-You can upgrade a previously deployed Service Fabric application. This task upgrades the WordCount application that was deployed in "Task: Deploy a Service Fabric application." Read through [Service Fabric application upgrade](service-fabric-application-upgrade.md) for more information.
+To keep things simple for this example, only the application version number was updated in the WordCountV2 application package created in the prerequisites. A more realistic scenario would involve updating your service code, configuration, or data files and then rebuilding and packaging the application with updated version numbers.  
 
-### Step 1: Update the application
-
-Make changes to the code in the WordCount service.
-
-After updating the service code, you'll need to increment the service version number in the **ServiceManifest.xml** file (located in the **PackageRoot** directory of the WordCount project). Find the **CodePackage** element of the manifest and change the service version to 2.0.0.  The corresponding lines in the ServiceManifest.xml file should look like the following:
-
-```xml
-<ServiceManifest Name="WordCountServicePkg" Version="2.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ServiceTypes>
-    <StatefulServiceType ServiceTypeName="WordCountServiceType" HasPersistedState="true" />
-  </ServiceTypes>
-  <CodePackage Name="Code" Version="2.0.0">
-	  ...
-```
-
-Now you'll need to update the ApplicationManifest.xml file (found in the WordCount application project under the WordCount solution).  Update the **ServiceManifestRef** element to use version 2.0.0.0 of the **WordCountServicePkg** project. Also update the **ApplicationTypeVersion** to 2.0.0.0 from 1.0.0.0. The corresponding lines in ApplicationManifest.xml should read:
-
-```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="WordCount" ApplicationTypeVersion="2.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-...
-<ServiceManifestRef ServiceManifestName="WordCountServicePkg" ServiceManifestVersion="2.0.0" />
-```
-
-After you have made these changes, save the files and rebuild the WordCount project. Now package the updated application by right-clicking on the WordCount project and choosing **Package**. This should create an application package that can be deployed. Your updated application is ready to be deployed now.
-
-### Step 2: Copy and register the updated application package
-
-The application is now built, packaged, and ready to be upgraded. If you open up a PowerShell window as administrator and type [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx), you should see that version 1.0.0 of the WordCount application type is deployed.  For the WordCount sample, the application package is found in: *C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug*.
+### Step 1: Upload the updated application package
+The WordCount v1 application is ready to be upgraded. If you open up a PowerShell window as administrator and type [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx), you will see that version 1.0.0 of the WordCount application type is deployed.  
 
 Now copy the updated application package to the Service Fabric image store (where the application packages are stored by Service Fabric). The parameter **ApplicationPackagePathInImageStore** informs Service Fabric where it can find the application package. The following command will copy the application package to **WordCountV2** in the image store:  
 
 ```powershell
-Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCountV2
-```
+Copy-ServiceFabricApplicationPackage C:\Temp\WordCountV2\ -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStoreShare -ApplicationPackagePathInImageStore WordCountV2
 
+```
+### Step 2: Register the updated application type
 The next step is to register the new version of the application with Service Fabric, which can be performed by using the [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx) cmdlet:
 
 ```powershell
 Register-ServiceFabricApplicationType WordCountV2
 ```
 
-If this command doesn't succeed, you may need to rebuild the service, as mentioned in Step 1.
-
 ### Step 3: Start the upgrade
-Various upgrade parameters, timeouts, and health criteria can be applied to application upgrades. Read through the [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and [upgrade process](service-fabric-application-upgrade.md) documents to learn more. For this walkthrough, leave the service health evaluation criterion set to the default (and recommended values). All services and instances should be _healthy_ after the upgrade.  However, you should increase the **HealthCheckStableDuration** to 60 seconds (so that the services will be healthy for at least 20 seconds before the upgrade proceeds to the next upgrade domain).  Also set the **UpgradeDomainTimeout** to 1200 seconds and the **UpgradeTimeout** to 3000 seconds. Finally, set the **UpgradeFailureAction** to **rollback**, which requests that Service Fabric rolls back the application to the previous version if failures are encountered during upgrade.
+Various upgrade parameters, timeouts, and health criteria can be applied to application upgrades. Read through the [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and [upgrade process](service-fabric-application-upgrade.md) documents to learn more. All services and instances should be _healthy_ after the upgrade.  Set the **HealthCheckStableDuration** to 60 seconds (so that the services will be healthy for at least 20 seconds before the upgrade proceeds to the next upgrade domain).  Also set the **UpgradeDomainTimeout** to 1200 seconds and the **UpgradeTimeout** to 3000 seconds. Finally, set the **UpgradeFailureAction** to **rollback**, which requests that Service Fabric rolls back the application to the previous version if failures are encountered during upgrade.
 
 You can now start the application upgrade by using the [**Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx) cmdlet:
 
@@ -126,15 +98,16 @@ You can now start the application upgrade by using the [**Start-ServiceFabricApp
 Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/WordCount -ApplicationTypeVersion 2.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000  -FailureAction Rollback -Monitored
 ```
 
-Note that the application name is the same as the previously deployed v1.0.0 application name (fabric:/WordCount). Service Fabric uses this name to identify which application is getting upgraded. If you set the time-outs to be too short, you may encounter a time-out failure message that states the problem. Refer to [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md), or increase the time-outs.
+Note that the application name is the same as the previously deployed v1.0.0 application name (fabric:/WordCount). Service Fabric uses this name to identify which application is getting upgraded. If you set the time-outs to be too short, you might encounter a time-out failure message that states the problem. Refer to [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md), or increase the time-outs.
 
-You can monitor application upgrade progress by by using [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), or by using the [**Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet:
+### Step 4: Check upgrade progress
+You can monitor application upgrade progress by using [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), or by using the [**Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet:
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 ```
 
-In a few minutes, the [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet should show that all upgrade domains were upgraded (completed).
+In a few minutes, the [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) cmdlet will show that all upgrade domains were upgraded (completed).
 
 ## Task: Test a Service Fabric application
 
@@ -149,8 +122,6 @@ $maxStabilizationTimeSecs = 180
 $concurrentFaults = 3
 $waitTimeBetweenIterationsSec = 60
 
-Connect-ServiceFabricCluster
-
 Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterStabilizationTimeoutSec $maxStabilizationTimeSecs -MaxConcurrentFaults $concurrentFaults -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec
 ```
 
@@ -162,8 +133,6 @@ $timeToRun = 60
 $maxStabilizationTimeSecs = 180
 $waitTimeBetweenFaultsSec = 10
 $serviceName = "fabric:/WordCount/WordCountService"
-
-Connect-ServiceFabricCluster
 
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindUniformInt64 -PartitionKey 1
 ```

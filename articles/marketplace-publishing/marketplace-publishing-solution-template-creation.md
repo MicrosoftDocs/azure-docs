@@ -37,8 +37,8 @@ A solution template is a "parent" to all of its topologies. You can define multi
   Azure Marketplace:
 http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure preview portal:
-https://ms.portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
+  Azure Portal:
+https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 
 - Add a new version.
 
@@ -48,16 +48,6 @@ Upload a zip file that contains all required files to provision that particular 
 - Any linked templates and all required scripts.
 
 After uploading the zip file, click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
-
-You can also validate the create experience without the actual deployment for the customer by using the following steps:
-
-1. Save the *createUiDefinition.json* and generate the absolute URL. The URL must be publicly accessible.
-2. Encode the URL by using the tool at [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/).
-3. Replace the bold text with the location (encoded URL) of the *createUiDefinition.json* that needs validation.
-
-  > https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-
-4. Copy and paste the URL in any browser and view the customer experience of your createUiDefinition.json file.
 
   > [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
 
@@ -72,7 +62,7 @@ You might also be interested in these related articles:
 
 - Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates/) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
 
-- Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-when-using-premium-storage)
+- Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png

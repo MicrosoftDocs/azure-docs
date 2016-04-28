@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure Search | Microsoft Azure | Cloud search service | DocumentDB" 
+	pageTitle="Get started with Azure Search | Microsoft Azure | Get started Azure Search | DocumentDB | Cloud search service" 
 	description="Create your first Azure Search solution using this tutorial walkthrough. Learn how to create an Azure Search index using DocumentDB data. This is a portal-based, code-free exercise using the Import Data wizard." 
 	services="search" 
 	documentationCenter="" 
@@ -14,16 +14,16 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/10/2016" 
+	ms.date="04/22/2016" 
 	ms.author="heidist"/>
 
-# Get started with Azure Search in the Azure Portal
+# Get started with Azure Search in the portal
 
-Microsoft Azure Search is a cloud  service that you can use to add search functionality to custom applications. It provides the search engine and storage for your data, which you access and manage using the Azure Portal, a .NET SDK, or a REST API. 
+This code-free introduction gets you started with Microsoft Azure Search using capabilities built right into the portal. 
 
-This article is a code-free introduction to Azure Search, using capabilities built right into the portal. This tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that you can quickly create using our sample data and instructions, but you can also apply this workflow to your existing data in either DocumentDB or SQL Database.
+The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
 
-> [AZURE.NOTE] This tutorial requires an [Azure subscription](../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
+> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](../../includes/free-trial-note.md) and an [Azure Search service](search-create-service-portal.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](search-tryappservice.md) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
  
 ## Find your service
 
@@ -35,24 +35,26 @@ This article is a code-free introduction to Azure Search, using capabilities bui
 
 ## Check for space
 
-Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before starting this walkthrough. This walkthrough will create one of each object.
+Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This walkthrough will create one of each object.
 
 ## Create an index and load data
 
-Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors. As a first step, you will need to define and populate an index.
+Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors. As a first step, you'll define and populate an index.
 
-There are several ways to create an index. Approaches vary in how much automation or integration is offered. If you have usable data in a data store that Azure Search can crawl - such as Azure SQL Database, SQL Server on an Azure VM, or DocumentDB - you can create and populate an index very easily using an indexer.
+There are several ways to create an index. If your data is in a store that Azure Search can crawl - such as Azure SQL Database, SQL Server on an Azure VM, or DocumentDB - you can create and populate an index very easily using an *indexer*.
 
-To keep this task simple, we'll assume a data source that Azure Search can crawl using one of its *indexers* and the **Import data** wizard. 
+To keep this task portal-based, we'll assume data from DocumentDB that can be crawled using an indexer via the **Import data** wizard. 
 
-As a prerequisite, you can quickly create [a sample DocumentDB database](#apdx-sampledata) to use with this tutorial, or try these steps using your own data.
+Before you continue, create a [sample DocumentDB database](#apdx-sampledata) to use with this tutorial, and then return to this section to complete the steps below.
 
 <a id="defineDS"></a>
 #### Step 1: Define the data source
 
 1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
 
-2. Click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
+  ![][7]
+
+2. In the wizard, click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
 
 3. Choose your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition will look like this:
 
@@ -64,21 +66,21 @@ Click **OK** to complete this step of the wizard.
 
 #### Step 2: Define the index
 
-Still in the wizard, click **Index** and take a look at the design surface used to create an Azure Search index. Minimally, an index requires a name and a fields collection, with one field marked as the document key. Because we're using a DocumentDB data set, fields are detected by the wizard automatically and the index is preloaded with fields and data type assignments. 
+Still in the wizard, click **Index** and take a look at the design surface used to create an Azure Search index. Minimally, an index requires a name, and a fields collection, with one field marked as the document key. Because we're using a DocumentDB data set, fields are detected by the wizard automatically and the index is preloaded with fields and data type assignments. 
 
   ![][3]
 
 Although the fields and data types are configured, you still need to assign attributes. The check boxes across the top of the field list are *index attributes* that control how the field is used. 
 
-- **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results, for example when fields used only in filter expressions. 
+- **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example when fields used only in filter expressions. 
 - **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
-- **Searchable** means that a field is included in full text search. Numeric fields and Boolean fields are often marked as not searchable. 
+- **Searchable** means that a field is included in full text search. Strings are usually searchable. Numeric fields and Boolean fields are often marked as not searchable. 
 
 Before you leave this page, mark the fields in your index to use the following options (Retrievable, Searchable, and so on). Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
 	
 Field | Type | Options |
 ------|------|---------|
-key | Edm.String | |
+id | Edm.String | |
 albumTitle | Edm.String | Retrievable, Searchable |
 albumUrl | Edm.String | Retrievable, Searchable |
 genre | Edm.String | Retrievable, Searchable, Filterable, Sortable, Facetable |
@@ -110,7 +112,7 @@ To run the wizard, click **OK** to start the import and close the wizard.
 
 ## Check progress
 
-To check progress, go back to the service dashboard and double-click the **Indexers** tile to open the indexers list. You should see the indexer you just created in the list, and you should see status indicating "in progress" or success, along with the number of documents indexed into Azure Search.
+To check progress, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the indexer you just created in the list, and you should see status indicating "in progress" or success, along with the number of documents indexed into Azure Search.
 
   ![][6]
 
@@ -143,7 +145,7 @@ You can try this same workflow, using the Import data wizard for other data sour
 <a id="apdx-sampledata"></a>
 
 
-## Appendix: Get sample data from this DocumentDB database
+## Appendix: Create sample data in DocumentDB
 
 This section creates a small database in DocumentDB that can be used to complete the tasks in this tutorial.
 
@@ -151,24 +153,26 @@ The following instructions give you general guidance, but are not exhaustive. If
 
   ![][1]
 
-We provide 246 JSON documents for this dataset. You need to upload these documents in several batches (smaller than 100) to meet the upload requirements of Document Explorer. 
+### Create musicstoredb for this tutorial
 
-[Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download the music store JSON data files. 
-
-1. Add DocumentDB to your subscription and then open the service dashboard.
-2. Click **Add Database** to create a new database with an id of `musicstoredb`. It will show up in a database list further down the page after it's created.
+1. [Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download a ZIP file containing the music store JSON data files. We provide 246 JSON documents for this dataset.
+2. Add DocumentDB to your subscription and then open the service dashboard.
+2. Click **Add Database** to create a new database with an id of `musicstoredb`. It will show up in the database tile further down the page after it's created.
 2. Click on the database name to open the database blade.
 3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
 3. Click **Document Explorer**.
-4. Click **Add Documents**.
-5. In **Add Document**, upload JSON files.
+4. Click **Upload**.
+5. In **Upload Document**, navigate to the local folder that contains the JSON files you downloaded previously. Select JSON files in batches of 100 or fewer.
 	- 386.json
 	- 387.json
 	- . . .
-6. Click **Query Explorer** to verify the data is uploaded.
-7. An easy way to do this is to modify the default query so that it selects the top 300 (there are less than 300 items in total), or you can write `select * from musicstorecoll`, and then click **Run Query**.
+	- 486.json
+6. Repeat to get the next batch of files until you've uploaded the last one, 669.json.
+7. Click **Query Explorer** to verify the data is uploaded to meet the upload requirements of Document Explorer.
 
-You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [use it to begin this walkthrough](#defineDS) using the Azure Search **Import wizard**.
+An easy way to do this is to use the default query, but you can alos modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset).
+
+You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [return to the steps in this walkthrough](#defineDS) to build an index using the  **Import data wizard**.
 
 
 <!--Image references-->
@@ -178,3 +182,4 @@ You should get back JSON output, starting with document number 386, and ending w
 [4]: ./media/search-get-started-portal/AzureSearch-GetStart-FinishedIndex.png
 [5]: ./media/search-get-started-portal/AzureSearch-GetStart-ImportReady.png
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
+[7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png

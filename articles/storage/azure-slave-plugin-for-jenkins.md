@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="04/08/2016"
     ms.author="robmcm"/>
 
 # How to use the Azure slave plug-in with Jenkins Continuous Integration
@@ -41,17 +41,25 @@ A subscription profile, also referred to as publish settings, is an XML file tha
 * your subscription id
 * a management certificate for your subscription
 
-These can be found in your subscription profile. If you don't have a copy of your subscription profile, you can download it from [the subscription site](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Below is an example of a subscription profile.
+These can be found in your [subscription profile](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0). Below is an example of a subscription profile.
 
-	<?xml version="1.0" encoding="utf-8"?>
-		<PublishData>
-  		<PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
-    	<Subscription
-      		ServiceManagementUrl="https://management.core.windows.net"
-      		Id="<Subscription ID value>"
+	<?xml version="1.0" encoding="utf-8"?>
+
+		<PublishData>
+
+  		<PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
+
+    	<Subscription
+
+      		ServiceManagementUrl="https://management.core.windows.net"
+
+      		Id="<Subscription ID value>"
+
       		Name="Pay-As-You-Go"
-			ManagementCertificate="<Management certificate value>" />
-  		</PublishProfile>
+			ManagementCertificate="<Management certificate value>" />
+
+  		</PublishProfile>
+
 	</PublishData>
 
 After you have your subscription profile, follow these steps to configure the Azure slave plug-in:
@@ -80,7 +88,8 @@ A virtual machine template defines the parameters that the plug-in will use to c
 
 1. In the Jenkins dashboard, click **Manage Jenkins**.
 2. Click **Configure System**.
-3. Scroll down the page to find the **Cloud** section.
+3. Scroll down the page to find the **Cloud** section.
+
 4. In the **Cloud** section, find **Add Azure Virtual Machine Template**, and then click **Add**.
 
 	![add vm template](./media/azure-slave-plugin-for-jenkins/jenkins-add-vm-template.png)
@@ -89,7 +98,8 @@ A virtual machine template defines the parameters that the plug-in will use to c
 
 	![blank general configuration](./media/azure-slave-plugin-for-jenkins/jenkins-slave-template-general-configuration-blank.png)
 
-5. In the **Name** box, enter an Azure cloud service name. If the name you entered refers to an existing cloud service, the virtual machine will be provisioned in that service. Otherwise, Azure will create a new one.
+5. In the **Name** box, enter an Azure cloud service name. If the name you entered refers to an existing cloud service, the virtual machine will be provisioned in that service. Otherwise, Azure will create a new one.
+
 6. In the **Description** box, enter text that describes the template you are creating. This is only for your records and is not used in provisioning a virtual machine.
 7. The **Labels** box is used to identify the template you are creating and is subsequently used to reference the template when creating a Jenkins job. For our purpose, enter **linux** in this box.
 8. In the **Region** list, click the region where the virtual machine will be created.
@@ -118,17 +128,28 @@ A virtual machine template defines the parameters that the plug-in will use to c
 15. Copy the script below and paste it in the **Init Script** box.
 
 		# Install Java
-		sudo apt-get -y update
-		sudo apt-get install -y openjdk-7-jdk
-		sudo apt-get -y update --fix-missing
-		sudo apt-get install -y openjdk-7-jdk
-
-		# Install git
-		sudo apt-get install -y git
-
-		#Install ant
-		sudo apt-get install -y ant
-		sudo apt-get -y update --fix-missing
+		sudo apt-get -y update
+
+		sudo apt-get install -y openjdk-7-jdk
+
+		sudo apt-get -y update --fix-missing
+
+		sudo apt-get install -y openjdk-7-jdk
+
+
+
+		# Install git
+
+		sudo apt-get install -y git
+
+
+
+		#Install ant
+
+		sudo apt-get install -y ant
+
+		sudo apt-get -y update --fix-missing
+
 		sudo apt-get install -y ant
 
 	The init script will be executed after the virtual machine is created. In this example, the script installs Java, Git, and ant.
@@ -151,19 +172,30 @@ In this section, you'll be creating a Jenkins task that will run on a slave node
 7. In the **Build** section, click **Add build step** and select **Execute shell**.
 8. Edit the following script, replacing **(your GitHub account name)**, **(your project name)**, and **(your project directory)** with appropriate values, and paste the edited script in the text area that appears.
 
-		# Clone from git repo
-		currentDir="$PWD"
-		if [ -e (your project directory) ]; then
-  			cd (your project directory)
-  			git pull origin master
-		else
-  			git clone https://github.com/(your GitHub account name)/(your project name).git
+		# Clone from git repo
+
+		currentDir="$PWD"
+
+		if [ -e (your project directory) ]; then
+
+  			cd (your project directory)
+
+  			git pull origin master
+
+		else
+
+  			git clone https://github.com/(your GitHub account name)/(your project name).git
+
 		fi
 
-		# change directory to project
-		cd $currentDir/(your project directory)
-
-		#Execute build task
+		# change directory to project
+
+		cd $currentDir/(your project directory)
+
+
+
+		#Execute build task
+
 		ant
 
 9. Click **Save**.

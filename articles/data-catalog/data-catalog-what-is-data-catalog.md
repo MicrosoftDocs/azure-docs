@@ -1,6 +1,6 @@
 ﻿<properties
-   pageTitle="Azure Data Catalog - What is Data Catalog"
-   description="Overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
+   pageTitle="What is Azure Data Catalog? | Microsoft Azure"
+   description="This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # What is Azure Data Catalog?
@@ -62,9 +62,8 @@ The registration process involves three basic steps:
 2.	Select objects to register - the user selects the objects in the specified location that should be registered with **Azure Data Catalog**. This may be the full set of tables in all databases on the server, or a specifically selected subset of tables and views.
 3.	Complete registration - the user completes the process, and the data source registration tool extracts the structural metadata from the data source, and sends that metadata to the **Azure Data Catalog** cloud service.
 
-> [AZURE.NOTE] The **Azure Data Catalog** preview currently supports the following data source and asset types: [Azure Data Catalog supported data sources](data-catalog-dsr.md)
+> [AZURE.NOTE] To view a list of the data source and asset types supported by **Azure Data Catalog**, see: [Azure Data Catalog supported data sources](data-catalog-dsr.md)
 
-Additional data sources and asset types will be added during the **Azure Data Catalog** preview.
 
 > [AZURE.IMPORTANT]Registering a data source in **Azure Data Catalog** does not copy the data from the data source, unless you select “Include Preview” in the data source registration tool. Registration copies data source metadata, not data. Examples of metadata include the names of tables and other data source objects, along with the names and data types of columns and other data source attributes. The metadata also includes the data source location, so that users who discover the data source using **Azure Data Catalog** can then connect to the data source. If you select “Include Preview” then the data source registration tool will also copy to **Azure Data Catalog** a small set of records that will be displayed to users who discover the data source in the **Azure Data Catalog** portal.
 

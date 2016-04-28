@@ -3,8 +3,8 @@
    description="Describes the StorSimple Manager service Jobs page and how to use it to track recent and current jobs for the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/16/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array (preview)
+# Use the StorSimple Manager service to view jobs for the StorSimple Virtual Array
 
 ## Overview
 
@@ -59,6 +59,14 @@ Perform the following steps to view the details of any job.
 4. In the **Details** dialog box, you can view status, details,  and time statistics. The following illustration shows an example of the **Backup Job Details** dialog box.
  
     ![Job details page](./media/storsimple-ova-manage-jobs/ovajobs2.png)
+
+#### Job failures when the virtual machine is paused in the hypervisor
+
+When a job is in progress on your StorSimple Virtual Array and the device (virtual machine provisioned in hypervisor) is paused for greater than 15 minutes, the job will fail. This is due to your StorSimple Virtual Array time being out of sync with the Microsoft Azure time. An example for a restore job failure is shown in the following screenshot.
+
+![Restore job failure](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+
+These failures will apply to backup, restore, update, and failover jobs. If your virtual machine is provisioned in Hyper-V, the machine will eventually synchronize time with your hypervisor. Once that happens, you can restart your job. 
 
 ## Next steps
 

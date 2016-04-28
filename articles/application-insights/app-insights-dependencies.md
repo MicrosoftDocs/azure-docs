@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
  
 # Diagnosing issues with dependencies in Application Insights
@@ -50,10 +50,11 @@ Install the appropriate agent for the host server.
 
 Platform | Install
 ---|---
-IIS Server | [Status Monitor](app-insights-monitor-performance-live-website-now.md)
+IIS Server | Either [install Status Monitor on your server](app-insights-monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](http://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](app-insights-asp-net.md)  in your app.
 Azure Web App | [Application Insights Extension](../azure-portal/insights-perf-analytics.md)
 Java web server | [Java web apps](app-insights-java-agent.md)
 Web pages | [JavaScript monitor](app-insights-javascript.md) (No additional setup beyond web page monitoring)
+Azure Cloud Service |  [Use startup task](app-insights-cloudservices.md#dependencies) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 The Status Monitor for IIS Servers doesn't need you to rebuild your source project with the Application Insights SDK. 
 

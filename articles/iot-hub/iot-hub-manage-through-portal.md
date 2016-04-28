@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="10/19/2015"
+	 ms.date="03/14/2016"
 	 ms.author="nasing"/>
 
 # Manage IoT hubs through the Azure portal
@@ -44,11 +44,11 @@ In order to create an IoT hub, you must name the hub. Note that this name must b
 
 ### Choose the pricing tier
 
-You can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The free tier allows only 10 devices to be connected to the IoT hub.
+You can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
 
-**S1 (Low Frequency)**: IoT Hubs S1 (Low Frequency) edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 (Low Frequency) edition allows connectivity of up to 500 devices or up to 50,000 messages per day across all connected devices.
+**S1 (Low Frequency)**: IoT Hubs S1 (Low Frequency) edition is designed for IoT solutions that have a large number of devices generating relatively small amounts of data per device. Each unit of the S1 (Low Frequency) edition allows up to 400,000 messages per day across all connected devices.
 
-**S2 (High Frequency)**: IoT Hub S2 (High Frequency) edition is designed for IoT solutions in which devices generate large amounts of data. Each unit of the S2 (High Frequency) edition allows connectivity of up to 500 devices or up to 1.5 million messages per day between all connected devices.  
+**S2 (High Frequency)**: IoT Hub S2 (High Frequency) edition is designed for IoT solutions in which devices generate large amounts of data. Each unit of the S2 (High Frequency) edition allows up to 6 million messages per day between all connected devices.  
 
 ![][4]
 
@@ -56,7 +56,7 @@ You can choose from 3 tiers: **Free**, **Standard 1** and **Standard 2**. The fr
 
 ### IoT hub units
 
-An IoT hub unit includes 500 devices, so choosing the number of IoT units means that the total number of devices supported for this hub is the number of units multiplied by 500. For example, if you want the IoT hub to support 1000 devices, you choose 2 units.
+An IoT hub unit includes a certain number of messages per day, so choosing the number of IoT units means that the total number of messages supported for this hub is the number of units multiplied by the number of messages per day for that tier. For example, if you want the IoT hub to support ingress of 700,000 messages, you choose 2 units of the S1 tier.
 
 ### Device to cloud partitions and resource group
 
@@ -129,7 +129,7 @@ The pricing of an existing IoT hub can be changed through the **Pricing** settin
 
 ![][12]
 
-Moving from a high tier (S2) to low tier (S1) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 50,000, then the tier for the IoT hub cannot be changed from S2 to S1.
+Moving from a high tier (S2) to low tier (S1) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub cannot be changed from S2 to S1.
 
 ## Delete the IoT hub
 

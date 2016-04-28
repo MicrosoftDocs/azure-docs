@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 # Using Azure AD Connect Health for sync
@@ -28,6 +28,17 @@ The Azure AD Connect Health Alerts for sync section provides you the list of act
 By selecting an alert you will be provided with additional information as well as steps you can take to resolve the alert and links to additional documentation.
 
 ![Azure AD Connect sync error](./media/active-directory-aadconnect-health-sync/alert.png)
+
+### Limited Evaluation of Alerts
+If Azure AD Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Azure AD Connect Health agent will not upload the error events related to Azure AD Connect. 
+
+This limits the evaluation of alerts by the service. You'd will see a banner that indicates this condition in the Azure Portal under your service.
+
+![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/banner.png)
+
+You can change this by clicking "Settings" and allowing Azure AD Connect Health agent to upload all error logs.
+
+![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/banner2.png)
 
 ## Sync Insight
 With the latest release of Azure AD Connect Health for sync the following new capabilities have been added:
@@ -54,3 +65,5 @@ This feature provides a graphical trend of the number of changes that are being 
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+

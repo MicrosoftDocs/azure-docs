@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Configure Forced Tunneling for VPN Gateways using Resource Manager | Microsoft Azure"
-   description="If you have a virtual network with a cross-premises VPN Gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. This article applies to the Resource Manager deployment model. "
+   description="If you have a virtual network with a cross-premises VPN Gateway, you can redirect or 'force' all Internet-bound traffic back to your on-premises location. This article applies to the Resource Manager deployment model. "
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 <tags 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/17/2015"
+   ms.date="04/12/2016"
    ms.author="cherylmc" />
 
 # Configure forced tunneling using PowerShell and Azure Resource Manager
@@ -22,9 +22,16 @@
 - [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
 - [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 
-This article applies to VNets and VPN Gateways created using the Azure Resource Manager deployment model. If you want to configure forced tunneling for VNets that were created using Service Management (also known as the classic deployment model), see [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
+This article applies to VNets and VPN Gateways created using the Azure Resource Manager deployment model. 
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]  
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+**Deployment models and tools for forced tunneling**
+
+[AZURE.INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)] 
+
 
 ## About forced tunneling
 
@@ -60,16 +67,17 @@ Forced tunneling in Azure is configured via virtual network user defined routes.
 
 The procedure below will help you create a resource group and a VNet. You will then create a VPN Gateway and configure forced tunneling.
 
-In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, *Midtier*, and *Backend* subnets, with 4 cross premises connections: *DefaultSiteHQ*, and 3 *Branches*. The procedure steps will set the *DefaultSiteHQ* as the default site connection for forced tunneling, and configure the *Midtier* and *Backend* subnets to use forced tunneling.
+In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, *Midtier*, and *Backend* subnets, with 4 cross-premises connections: *DefaultSiteHQ*, and 3 *Branches*. The procedure steps will set the *DefaultSiteHQ* as the default site connection for forced tunneling, and configure the *Midtier* and *Backend* subnets to use forced tunneling.
 
 	
 ### Before beginning
 
 Verify that you have the following items below before beginning your configuration.
 
-- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell cmdlets (1.0 or later). The necessary cmdlets for this configuration are not present in versions earlier than 1.0. You can download and install this version from the Windows PowerShell section of the [Download page](https://azure.microsoft.com/downloads/). If you aren't familiar with installing and configuring PowerShell, please see [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information. 
+- You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+
 
 ### Configuration steps
 
@@ -83,7 +91,7 @@ Verify that you have the following items below before beginning your configurati
 
 2. Specify the subscription that you want to use. 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 		
 3. Create a resource group.
 

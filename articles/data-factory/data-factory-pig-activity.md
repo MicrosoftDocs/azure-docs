@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Pig Activity
@@ -68,7 +68,7 @@ inputs | Input(s) consumed by the Pig activity | No
 outputs | Output(s) produced by the Pig activity | Yes
 linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes
 script | Specify the Pig script inline | No
-script path | Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together | No
+script path | Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. Note that the file name is case-sensitive. | No
 defines | Specify parameters as key/value pairs for referencing within the Pig script | No
 
 ## Example
@@ -185,5 +185,13 @@ To use parameterize Pig script, do the following:
 		GroupProfile = Group PigSampleIn all;		
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
+
+
+## See Also
+- [Hive Activity](data-factory-hive-activity.md)
+- [MapReduce Activity](data-factory-map-reduce.md)
+- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+- [Invoke Spark programs](data-factory-spark.md)
+- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
 

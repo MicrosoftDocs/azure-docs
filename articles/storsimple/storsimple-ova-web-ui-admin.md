@@ -12,21 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
-# Use the Web UI to administer your StorSimple Virtual Array (preview)
+# Use the Web UI to administer your StorSimple Virtual Array
 
 ![setup process flow](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## Overview
 
-The tutorials in this article apply to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) running v.1.1.1.0 (preview). This article describes some of the complex workflows and management tasks that can be performed on the StorSimple Virtual Array. There are two UIs that can be used to manage the StorSimple Virtual Array: the StorSimple Manager service UI (referred to as the portal UI) and the local web UI for the device. This article focuses on the tasks that you can perform using the web UI.
-
->[AZURE.IMPORTANT] 
->
->- The StorSimple Virtual Array is in preview and is intended for evaluation and deployment planning purposes. Installing this preview in a production environment is not supported. 
->- If you experience any issues with the StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple).
+The tutorials in this article apply to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) running March 2016 general availability (GA) release. This article describes some of the complex workflows and management tasks that can be performed on the StorSimple Virtual Array. You can manage the StorSimple Virtual Array using the StorSimple Manager service UI (referred to as the portal UI) and the local web UI for the device. This article focuses on the tasks that you can perform using the web UI.
 
 This article includes the following tutorials:
 
@@ -44,12 +39,12 @@ If you have misplaced your service data encryption key and need to retrieve it, 
 #### To get the service data encryption key
 
 1. Connect to the local web UI. Go to **Configuration** > **Cloud Settings**.
-
-    ![get service data encryption key 1](./media/storsimple-ova-web-ui-admin/image27.png)
+  
 
 2. At the bottom of the page, click **Get service data encryption key**. A key will appear. Copy and save this key.
-
-    ![get service data encryption key 2](./media/storsimple-ova-web-ui-admin/image28.png)
+  	
+	![get service data encryption key 1](./media/storsimple-ova-web-ui-admin/image27.png)
+   
 
 
 ## Troubleshoot web UI setup errors
@@ -94,7 +89,7 @@ A log package is comprised of all the relevant logs that can assist Microsoft Su
 
 ## Shut down and restart your device
 
-You can shut down or restart your virtual device using the local web UI.
+You can shut down or restart your virtual device using the local web UI. We recommend that before you restart, take the volumes or shares offline on the host and then the device. This will minimize any possibility of data corruption. 
 
 #### To shut down your virtual device
 
@@ -104,7 +99,7 @@ You can shut down or restart your virtual device using the local web UI.
 
     ![device shutdown 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. A warning will appear stating that a shutdown of the device will interrupt any IOs that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
+3. A warning will appear stating that a shutdown of the device will interrupt any IO that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
 
     ![device shutdown warning](./media/storsimple-ova-web-ui-admin/image37.png)
 

@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure"
 	description="Learn how to create import and export jobs in the Azure Classic Portal to transfer data to blob storage."
-	authors="robinsh"
-	manager="carmonm"
+	authors="renashahmsft"
+	manager="aungoo"
 	editor="tysonn"
 	services="storage"
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/21/2016"
 	ms.author="renash"/>
 
 
@@ -27,10 +27,10 @@ To transfer a large set of file data into Blob storage, you can send one or more
 
 You can create and manage import and export jobs in one of two ways:
 
-- By using the Azure Classic Portal.
+- By using the Azure [Classic Portal](https://manage.windowsazure.com).
 - By using a REST interface to the service.
 
-This article provides an overview of the Import/Export service and describes how to use the Classic Portal to work with the Import/Export service. For information on the REST API, see the [Azure Import/Export Service REST API Reference](http://go.microsoft.com/fwlink/?LinkID=329099).
+This article provides an overview of the Import/Export service and describes how to use the Classic Portal to work with the Import/Export service. For information on the REST API, see the [Storage Import/Export Service REST API Reference](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ## Introduction to the Import/Export Service ##
 
@@ -49,17 +49,20 @@ When you create an import job or an export job, you'll also need the *drive ID*,
 
 ### Requirements and Scope
 
-1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md).
-2.	**Hard drives:** Only 3.5 inch SATA II/III internal hard drives are supported for use with the Import/Export service. Hard drives up to 6TB are supported. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II/III disk externally to most computers using an external SATA II/III USB Adapter.
+1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more classic storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one classic storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account). 
+
+  > [AZURE.NOTE] Storage accounts using the ARM model are not supported yet.
+
+2.	**Hard drives:** Only 3.5 inch SATA II/III internal hard drives are supported for use with the Import/Export service. Hard drives up to 8TB are supported. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II/III disk externally to most computers using an external SATA II/III USB Adapter.
 3.	**BitLocker encryption:** All data stored on hard drives must be encrypted using BitLocker with encryption keys protected with numerical passwords.
 4.	**Blob storage targets:** Data may be uploaded to or downloaded from block blobs and page blobs.
 5.	**Number of jobs:** A customer may have up to 20 jobs active per storage account.
 6.	**Maximum size of a job:** The size of a job is determined by the capacity of the hard drives used and the maximum amount of data that can be stored in a storage account. Each job may contain no more than 10 hard drives.
-7.  **Supported Operating System:** Customer can use one of the following Operating Systems to prepare the hard drive using Azure Import/Export Tool before shipping to Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.  
+7.  **Supported Operating System:** Customer can use one of the following 64-bit Operating Systems to prepare the hard drive using Azure Import/Export Tool before shipping to Azure - Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. All of these operating systems support BitLocker Drive Encryption.  
 
   > [AZURE.IMPORTANT]
   >  
-  >  - See the [FAQ section](#frequently-asked-questions) for special instructions if you are using a Windows 10 machine to prepare your hard drive.
+  >  - If you are using a Windows 10 machine to prepare your hard drive, please download the latest version of the Azure Import/Export Tool.
   >  
   >  - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The  disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
 
@@ -69,19 +72,19 @@ Create an import job to notify the Import/Export service that you'll be shipping
 
 ### Prepare Your Drives
 
-Before you create an import job, prepare your drives with the Microsoft Azure Import/Export Tool. For more details about using the Microsoft Azure Import/Export Tool, see the [Microsoft Azure Import/Export Tool Reference](http://go.microsoft.com/fwlink/?LinkId=329032). You can download the [Microsoft Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) as a standalone package.
+Before you create an import job, prepare your drives with the Azure Import/Export Tool. For more details about using the Azure Import/Export Tool, see the [Azure Import/Export Tool Reference](http://go.microsoft.com/fwlink/?LinkId=329032). You can download the [Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) as a standalone package.
 
 To prepare your drives, follow these three steps:
 
 1.	Determine the data to be imported, and the number of drives you'll need.
 2.	Identify the destination blobs for your data in Blob storage.
-3.	Use the Microsoft Azure Import/Export Tool to copy your data to one or more hard drives.
+3.	Use the Azure Import/Export Tool to copy your data to one or more hard drives.
 
-The Microsoft Azure Import/Export Tool generates a *drive journal* file for each drive as it is prepared. The drive journal file is stored on your local computer, not on the drive itself. You'll upload the journal file when you create the import job. A drive journal file includes the drive ID and the BitLocker key, as well as other information about the drive.  
+The Azure Import/Export Tool generates a *drive journal* file for each drive as it is prepared. The drive journal file is stored on your local computer, not on the drive itself. You'll upload the journal file when you create the import job. A drive journal file includes the drive ID and the BitLocker key, as well as other information about the drive.  
 
 ### Create the Import Job
 
-1.	Once you have prepared your drive, navigate to your storage account in the Classic Portal, and view the 	Dashboard. Under **Quick Glance**, click **Create an Import Job**.
+1.	Once you have prepared your drive, navigate to your storage account in the [Classic Portal](https://manage.windowsazure.com), and view the 	Dashboard. Under **Quick Glance**, click **Create an Import Job**.
 
 2.	In Step 1 of the wizard, indicate that you have prepared your drive and that you have the drive journal file 	available.
 
@@ -111,7 +114,7 @@ The Microsoft Azure Import/Export Tool generates a *drive journal* file for each
 
 Create an export job to notify the Import/Export service that you'll be shipping one or more empty drives to the data center, so that data can be exported from your storage account to the drives, and the drives then shipped to you.
 
-1. 	To create an export job, navigate to your storage account in the Classic Portal, and view the Dashboard. Under **Quick Glance**, click **Create an Export Job**, and proceed through the 	wizard.
+1. 	To create an export job, navigate to your storage account in the [Classic Portal](https://manage.windowsazure.com), and view the Dashboard. Under **Quick Glance**, click **Create an Export Job**, and proceed through the 	wizard.
 
 2. 	In Step 2, provide contact information for the person responsible for this export job. If you wish to save 	verbose log data for the export job, check the option to **Save the verbose log in my 'waimportexport' 	blob container**.
 
@@ -178,20 +181,9 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 
 ### General
 
-**How do I prepare the HDD on Windows 10?**  
-  
-Follow the instructions below when using Windows 10 to prepare your HDD: 
- 
-- Manually enable BitLocker Encryption on the HDD which you are preparing for Azure Import/Export Service. Right click on the HDD drive letter in file explorer and select "Turn on BitLocker" and follow the wizard.  
-- Make sure to note the Recovery Key.  
-- When asked to choose the encryption mode, choose the **Compatible Mode (best for drives that can be moved from this device)**  
-- After the encryption is complete, run the Azure Import/Export tool to copy data to this HDD.   
-- Use */bk* parameter and specify the recovery key in this parameter value.   
-- Do NOT use */format* and */encrypt* parameters.  
-
 **What is the pricing for the Import/Export service?**
 
-- See the [pricing page](http://go.microsoft.com/fwlink/?LinkId=329033) for pricing information.
+- See [Import/Export Pricing](http://go.microsoft.com/fwlink/?LinkId=329033) for pricing information.
 
 **How long will it take to import or export my data?**
 
@@ -204,7 +196,7 @@ Follow the instructions below when using Windows 10 to prepare your HDD:
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE
 
-> [AZURE.NOTE] If you have a converter which is not listed above, you can try running the Microsoft Azure Import/Export Tool using your converter to prepare the drive and see if it works before purchasing a supported converter.
+> [AZURE.NOTE] If you have a converter which is not listed above, you can try running the Azure Import/Export Tool using your converter to prepare the drive and see if it works before purchasing a supported converter.
 
 - External HDD with an inbuilt USB adaptor is not supported.
 
@@ -239,7 +231,7 @@ Follow the instructions below when using Windows 10 to prepare your HDD:
 - No. All drives must be BitLocker-prepared.
 
 **Do I need to perform any disk preparation when creating an export job?**
-- No, but some pre-checks are recommended. Check the number of disks required using Azure Import/Export tool's [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) command. It helps you preview drive usage for the blobs you selected, based on the size of the drives you are going to use. Also check that you can read/write to the hard drive that will be shipped for the export job.
+- No, but some pre-checks are recommended. Check the number of disks required using Azure Import/Export tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx). It helps you preview drive usage for the blobs you selected, based on the size of the drives you are going to use. Also check that you can read/write to the hard drive that will be shipped for the export job.
 
 ### Shipping
 
@@ -247,13 +239,13 @@ Follow the instructions below when using Windows 10 to prepare your HDD:
 
 - For regions in the US and Europe, only [Federal Express](http://www.fedex.com/us/oadr/) (FedEx) is supported. All packages will be returned via FedEx Ground or FedEx International Economy.
 
-- For regions in Asia, only [DHL](http://www.dhl-welcome.com/Tutorial/) is supported. All packages will be returned via DHL Express Worldwide.
+- For APAC East, APAC Southeast, Australia East, Australia Southeast and Japan East, only [DHL](http://www.dhl.com/) is supported. All packages will be returned via DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] You must provide your tracking number to the Azure Import/Export service; otherwise your job cannot be processed.
 
 **Is there any cost associated with return shipping?**
 
-- Microsoft will use the carrier account number you provide at the time of job creation to ship drives to your return address from the data center. Please make sure to provide a carrier account number for the data center region’s supported carrier. You can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl-welcome.com/Tutorial/) (Asia) carrier account if you do not have one.
+- Microsoft will use the carrier account number you provide at the time of job creation to ship drives to your return address from the data center. Please make sure to provide a carrier account number for the data center region’s supported carrier. You can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account if you do not have one.
 
 - The return shipping fee is charged to your carrier account, and depends on the carrier.
 
@@ -262,12 +254,17 @@ Follow the instructions below when using Windows 10 to prepare your HDD:
 - The Import/Export service supports importing data to and exporting data from storage accounts in the following regions:
 	- East US
 	- West US
+	- East US 2
+	- Central US
 	- North Central US
 	- South Central US
 	- North Europe
 	- West Europe
 	- East Asia
 	- Southeast Asia
+	- Australia East
+	- Australia Southeast
+	- Japan West
 
 - You will be provided a shipping address in the region where your storage account resides. For example, if you live in the US, and your storage account is in the West Europe data center, you will be provided with a shipping address in Europe to send the drives.
 
@@ -283,11 +280,15 @@ Follow the instructions below when using Windows 10 to prepare your HDD:
 
 - Please ship only your hard drives. Do not include items like power supply cables or USB cables.
 
+**Why does my job status on Classic Portal show *Shipping* when the Carrier website shows my package is delivered?**
+
+- The Portal status changes from *Shipping* to *Transferring* when the drive processing starts. If your drive has reached the facility, but has not started processing, your job status will show as *Shipping*.
+
 ## See also
 
-[Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+[Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 
 
-[import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
-[export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
-[export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
+[import-job-03]: ./media/storage-import-export-service/import-job-03.png
+[export-job-03]: ./media/storage-import-export-service/export-job-03.png
+[export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png

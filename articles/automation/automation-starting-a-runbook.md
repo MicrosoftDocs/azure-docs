@@ -1,110 +1,32 @@
-<properties 
+<properties
    pageTitle="Starting a runbook in Azure Automation | Microsoft Azure"
    description="Summarizes the different methods that can be used to start a runbook in Azure Automation and provides details on using both the Azure portal and Windows PowerShell."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
-   editor="tysonn" />
-<tags 
+   editor="tysonn" /><tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="bwren;sngun"/>
+   ms.date="02/23/2016"
+   ms.author="magoedte;bwren"/>
 
 # Starting a runbook in Azure Automation
 
-The following table will help you determine the method to start a runbook in Azure Automation that is most suitable to your particular scenario.    This article includes details on starting a runbook with the Azure portal and with Windows PowerShell.  Details on the other methods are provided in other documentation that you can access from the links below.
+The following table will help you determine the method to start a runbook in Azure Automation that is most suitable to your particular scenario. This article includes details on starting a runbook with the Azure portal and with Windows PowerShell. Details on the other methods are provided in other documentation that you can access from the links below.
 
-<table>
- <tr>
-  <td>METHOD</td>
-  <td>CHARACTERISTICS</td>
- </tr>
- <tr>           
-  <td><a href="#starting-a-runbook-with-the-azure-portal">Azure portal</a></td>
-  <td>
-   <ul>
-    <li>Simplest method with interactive user interface.</li>
-    <li>Form to provide simple parameter values.</li>
-    <li>Easily track job state.</li>
-    <li>Access authenticated with Azure logon.</li>
-   </ul>
-  </td>
- </tr>
- <tr>
-  <td><a href="https://msdn.microsoft.com/library/dn690259.aspx">Windows PowerShell</a></td>
-  <td>
-   <ul>
-     <li>Call from command line with Windows PowerShell cmdlets.</li>
-     <li>Can be included in automated solution with multiple steps.</li>
-     <li>Request is authenticated with certificate or OAuth user principal / service  principal.</li>
-     <li>Provide simple and complex parameter values.</li>
-     <li>Track job state.</li>
-     <li>Client required to support PowerShell cmdlets.</li>
-   </ul>
-  </td>
- </tr>
- <tr>
-  <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">Azure Automation API</a></td>
-  <td>
-   <ul>
-    <li>Most flexible method but also most complex.</li>
-    <li>Call from any custom code that can make HTTP requests.</li>
-    <li>Request authenticated with certificate, or Oauth user principal / service principal.</li>
-    <li>Provide simple and complex parameter values.</li>
-    <li>Track job state.</li>
-   </ul>
-  </td>
- </tr>
- <tr>
-  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
-  <td>
-   <ul>
-    <li>Start runbook from single HTTP request.</li>
-    <li>Authenticated with security token in URL.</li>
-    <li>Client cannot override parameter values specified when webhook created.  Runbook can define single parameter that is populated with the HTTP request details.</li>
-    <li>No ability to track job state through webhook URL.</li>
-   </ul>
-  </td>
- </tr>
- <tr>
-  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Respond to Azure Alert</a></td>
-  <td>
-   <ul>
-    <li>Start a runbook in response to Azure alert.</li>
-    <li>Configure webhook for runbook and link to alert.</li>
-    <li>Authenticated with security token in URL.</li>
-    <li>Currently supports alert on Metrics only.</li>
-   </ul>
-  </td>
- </tr>
- <tr>
-  <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Schedule</a></td>
-  <td>
-   <ul>
-    <li>Automatically start runbook on hourly, daily, or weekly schedule.</li>
-    <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.</li>
-    <li>Provide parameter values to be used with schedule.</li>
-   </ul>
-  </td>
- </tr>
- <tr>
-  <td><a href="http://azure.microsoft.com/documentation/articles/automation-child-runbooks/">From another runbook</a></td>
-  <td>
-   <ul>
-    <li>Use a runbook as an activity in another runbook</li>
-    <li>Useful for functionality used by multiple runbooks.</li>
-    <li>Provide parameter values to child runbook and use output in parent runbook.</li>
-   </ul>
-  </td>
- </tr>
-</table>
-<br>
-
+| **METHOD**                                                                    | **CHARACTERISTICS**                                                                                                                                                                                                                                                                                                                                                |
+|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure Portal](#starting-a-runbook-with-the-azure-portal)                     | <li>Simplest method with interactive user interface.<br> <li>Form to provide simple parameter values.<br> <li>Easily track job state.<br> <li>Access authenticated with Azure logon.                                                                                                                                                                               |
+| [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx)        | <li>Call from command line with Windows PowerShell cmdlets.<br> <li>Can be included in automated solution with multiple steps.<br> <li>Request is authenticated with certificate or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.<br> <li>Client required to support PowerShell cmdlets. |
+| [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163849.aspx) | <li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.                                                                          |
+| [Webhooks](automation-webhooks.md)                                            | <li>Start runbook from single HTTP request.<br> <li>Authenticated with security token in URL.<br> <li>Client cannot override parameter values specified when webhook created. Runbook can define single parameter that is populated with the HTTP request details.<br> <li>No ability to track job state through webhook URL.                                      |
+| [Respond to Azure Alert](automation-webhooks.md)                              | <li>Start a runbook in response to Azure alert.<br> <li>Configure webhook for runbook and link to alert.<br> <li>Authenticated with security token in URL.<br> <li>Currently supports alert on Metrics only.                                                                                                                                                       |
+| [Schedule](automation-scheduling-a-runbook.md)                                | <li>Automatically start runbook on hourly, daily, or weekly schedule.<br> <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule.                                                                                                                                               |
+| [From Another Runbook](automation-child-runbooks.md)                          | <li>Use a runbook as an activity in another runbook.<br> <li>Useful for functionality used by multiple runbooks.<br> <li>Provide parameter values to child runbook and use output in parent runbook.                                                                                                                                                               |
 
 The following image illustrates detailed step-by-step process in the life cycle of a runbook It includes different ways a runbook is started in Azure Automation, components required for an on-premises machine to execute Azure Automation runbooks and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
 
@@ -112,44 +34,49 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 ## Starting a runbook with the Azure portal
 
-1. In the Azure portal, select **Automation** and then then click the name of an automation account.
-1. Select the **Runbooks** tab.
-1. Select a runbook, and then click **Start**.
-1. If the runbook has parameters, you will be prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
-1. Either select **View Job** next to the **Starting** runbook message or select the **Jobs** tab for the runbook to view the runbook job’s status.
+1.	In the Azure portal, select **Automation** and then then click the name of an automation account.
+2.	Select the **Runbooks** tab.
+3.	Select a runbook, and then click **Start**.
+4.	If the runbook has parameters, you will be prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
+5.	Either select **View Job** next to the **Starting** runbook message or select the **Jobs** tab for the runbook to view the runbook job’s status.
 
-## Starting a runbook with the Azure preview portal
+## Starting a runbook with the Azure portal
 
-1. From your automation account, click the **Runbooks** part to open the **Runbooks** blade.
-1. Click a runbook to open its **Runbook** blade.
-2. Click **Start**.
-1. If the runbook has no parameters, you will be prompted to confirm whether you want to start it.  If the runbook has parameters, the **Start Runbook** blade will be opened so you can provide parameter values. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
-3. The **Job** blade is opened so that you can track the job's status.
-
+1.	From your automation account, click the **Runbooks** part to open the **Runbooks** blade.
+2.	Click a runbook to open its **Runbook** blade.
+3.	Click **Start**.
+4.	If the runbook has no parameters, you will be prompted to confirm whether you want to start it. If the runbook has parameters, the **Start Runbook** blade will be opened so you can provide parameter values. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
+5.	The **Job** blade is opened so that you can track the job's status.
 
 ## Starting a runbook with Windows PowerShell
 
 You can use the [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx) to start a runbook with Windows PowerShell. The following sample code starts a runbook called Test-Runbook.
 
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+```
+Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+```
 
 Start-AzureAutomationRunbook returns a job object that you can use to track its status once the runbook is started. You can then use this job object with [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx) to determine the status of the job and [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/azure/dn690268.aspx) to get its output. The following sample code starts a runbook called Test-Runbook, waits until it has completed, and then displays its output.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
-	
-	$doLoop = $true
-	While ($doLoop) {
-	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
-	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
-	}
-	
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+```
+$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
+$doLoop = $true
+While ($doLoop) {
+   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+   $status = $job.Status
+   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+}
+
+Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+```
 
 If the runbook requires parameters, then you must provide them as a [hashtable](http://technet.microsoft.com/library/hh847780.aspx) where the key of the hashtable matches the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For additional information on parameters, see [Runbook Parameters](#Runbook-parameters) below.
 
-	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
+```
+$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
+Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
+```
 
 ## Runbook parameters
 
@@ -163,29 +90,35 @@ If the parameter is data type [object], then you can use the following JSON form
 
 Consider the following test runbook that accepts a parameter called user.
 
-	Workflow Test-Parameters
-	{
-	   param ( 
-	      [Parameter(Mandatory=$true)][object]$user
-	   )
-	    if ($user.Show) {
-	        foreach ($i in 1..$user.RepeatCount) {
-	            $user.FirstName
-	            $user.LastName
-	        }
-	    } 
-	}
+```
+Workflow Test-Parameters
+{
+   param (
+      [Parameter(Mandatory=$true)][object]$user
+   )
+    if ($user.Show) {
+        foreach ($i in 1..$user.RepeatCount) {
+            $user.FirstName
+            $user.LastName
+        }
+    }
+}
+```
 
 The following text could be used for the user parameter.
 
-	{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+```
+{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+```
 
 This results in the following output.
 
-	Joe
-	Smith
-	Joe
-	Smith
+```
+Joe
+Smith
+Joe
+Smith
+```
 
 ### Arrays
 
@@ -193,29 +126,35 @@ If the parameter is an array such as [array] or [string[]], then you can use the
 
 Consider the following test runbook that accepts a parameter called *user*.
 
-	Workflow Test-Parameters
-	{
-	   param ( 
-	      [Parameter(Mandatory=$true)][array]$user
-	   )
-	    if ($user[3]) {
-	        foreach ($i in 1..$user[2]) {
-	            $ user[0]
-	            $ user[1]
-	        }
-	    } 
-	}
+```
+Workflow Test-Parameters
+{
+   param (
+      [Parameter(Mandatory=$true)][array]$user
+   )
+    if ($user[3]) {
+        foreach ($i in 1..$user[2]) {
+            $ user[0]
+            $ user[1]
+        }
+    }
+}
+```
 
 The following text could be used for the user parameter.
 
-	["Joe","Smith",2,true]
+```
+["Joe","Smith",2,true]
+```
 
 This results in the following output.
 
-	Joe
-	Smith
-	Joe
-	Smith
+```
+Joe
+Smith
+Joe
+Smith
+```
 
 ### Credentials
 
@@ -223,22 +162,28 @@ If the parameter is data type **PSCredential**, then you can provide the name of
 
 Consider the following test runbook that accepts a parameter called credential.
 
-	Workflow Test-Parameters
-	{
-	   param ( 
-	      [Parameter(Mandatory=$true)][PSCredential]$credential
-	   )
-	   $credential.UserName
-	}
+```
+Workflow Test-Parameters
+{
+   param (
+      [Parameter(Mandatory=$true)][PSCredential]$credential
+   )
+   $credential.UserName
+}
+```
 
 The following text could be used for the user parameter assuming that there was a credential asset called *My Credential*.
 
-	My Credential
+```
+My Credential
+```
 
 Assuming the username in the credential was *jsmith*, this results in the following output.
 
-	jsmith
+```
+jsmith
+```
 
 ## Next Steps
 
-- The runbook architecture in current article provides a high-level description about the hybrid runbooks, to know more details, see [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+-	The runbook architecture in current article provides a high-level description about the hybrid runbooks, to know more details, see [Child runbooks in Azure Automation](automation-child-runbooks.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="02/19/2016" 
 	ms.author="tamram"/>
 
 # Manage anonymous read access to containers and blobs
@@ -40,7 +40,7 @@ You can set container permissions in the following ways:
 
 - From the [Azure Portal](https://portal.azure.com).
 - Programmatically, by using the storage client library or the REST API.
-- By using PowerShell. To learn about setting container permissions from Azure PowerShell, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full#how-to-manage-azure-blobs).
+- By using PowerShell. To learn about setting container permissions from Azure PowerShell, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
 
 ### Setting container permissions from the Azure Portal
 

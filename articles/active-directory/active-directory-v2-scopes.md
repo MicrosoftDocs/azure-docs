@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App Model v2.0 Scopes, permissions, & consent | Microsoft Azure"
-	description="A description of authorization in the Azure AD v2.0 app model, including scopes, permissions, and consent."
+	pageTitle="Azure AD v2.0 Scopes, permissions, & consent | Microsoft Azure"
+	description="A description of authorization in the Azure AD v2.0 endpoint, including scopes, permissions, and consent."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,39 +13,41 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# App model v2.0 preview: Scopes, permissions, & consent
+# Scopes, permissions, & consent in the v2.0 endpoint
 
-Apps that integrate with Azure AD follow a particular authorization model that allows users to control how an app can access their data.  In app model v2.0, the implementation of this authorization model has been updated, changing how an app must interact with Azure AD.  This topic covers the basic concepts of this authorization model, including scopes, permissions, and consent.
+Apps that integrate with Azure AD follow a particular authorization model that allows users to control how an app can access their data.  The v2.0 implementation of this authorization model has been updated, changing how an app must interact with Azure AD.  This topic covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-## Scopes & Permissions
+## Scopes & permissions
 
-App model v2.0 implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol, which is a method for allowing a 3rd party app to access web-hosted resources on behalf of a user.  Any web-hosted resource that integrates with Azure AD will have a resource identifier, or **App ID URI**.  For example, some of Microsoft's web-hosted resources include:
+Azure AD implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol, which is a method for allowing a 3rd party app to access web-hosted resources on behalf of a user.  Any web-hosted resource that integrates with Azure AD will have a resource identifier, or **App ID URI**.  For example, some of Microsoft's web-hosted resources include:
 
 - The Office 365 Unified Mail API: `https://outlook.office.com`
-- The Azure Resource Manager API: `https://management.azure.com`
 - The Azure AD Graph API: `https://graph.windows.net`
+- The Microsoft Graph: `https://graph.microsoft.com`
 
-The same is true for any 3rd party resources that has integrated with Azure AD.  Any of these resources can also define a set of permissions that can be used to divide up the functionality of that resource into smaller chunks.  As an example, the Office 365 Unified Mail API has defined these basic permissions:
+The same is true for any 3rd party resources that has integrated with Azure AD.  Any of these resources can also define a set of permissions that can be used to divide up the functionality of that resource into smaller chunks.  As an example, the Microsoft Graph has defined a few permissions:
 
-- Read a user's mailbox
-- Write to a user's mailbox
+- Read a user's calendar
+- Write to a user's calendar
 - Send mail as a user
+- [+ more](https://graph.microsoft.io)
 
-By defining these permissions, the resource can have fine-grained control over its data and how it is exposed to the outside world.  A 3rd party app can then request these permissions from an end user - and the end-user must approve the permissions before the app can act on their behalf.  By chunking the resource's functionality into smaller permission sets, 3rd party apps can be built to request only the specific permissions that they need in order to perform their duty.  It also enables end users to know exactly how an app will use their data, so that they are more confident that the app is not behaving with malicious intent.
+By defining these permissions, the resource can have fine-grained control over its data and how it is exposed to the outside world.  A 3rd party app can then request these permissions from an end-user - and the end-user must approve the permissions before the app can act on their behalf.  By chunking the resource's functionality into smaller permission sets, 3rd party apps can be built to request only the specific permissions that they need in order to perform their duty.  It also enables end users to know exactly how an app will use their data, so that they are more confident that the app is not behaving with malicious intent.
 
-In Azure AD and OAuth, these permissions are known as **scopes**.  You may also see them referred to as **oAuth2Permissions**.  A scope is represented in Azure AD as a string value.  Sticking with the Office 365 Unified Mail API example, the scope value for each permission is:
+In Azure AD and OAuth, these permissions are known as **scopes**.  You may also see them referred to as **oAuth2Permissions**.  A scope is represented in Azure AD as a string value.  Sticking with the Microsoft Graph example, the scope value for each permission is:
 
-- Read a user's mailbox: `Mail.Read`
-- Write to a user's mailbox: `Mail.ReadWrite`
+- Read a user's calendar: `Calendar.Read`
+- Write to a user's calendar: `Mail.ReadWrite`
 - Send mail as a user: `Mail.Send`
 
 An app can request these permissions by specifying the scopes in requests to the v2.0 endpoint, as described below.
+
 
 ## Consent
 
@@ -53,17 +55,17 @@ In an [OpenID Connect or OAuth 2.0](active-directory-v2-protocols.md) authorizat
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Foutlook.office.com%2Fmail.read%20
-https%3A%2F%2Foutlook.office.com%2Fmail.send
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-The `scope` parameter is a space-separated list of scopes that the app is requesting.  Each individual scope is indicated by appending the scope value to the resource's identifier (App ID URI).  The above request indicates that the app needs permission to read the user's mailbox and send mail as the user.
+The `scope` parameter is a space-separated list of scopes that the app is requesting.  Each individual scope is indicated by appending the scope value to the resource's identifier (App ID URI).  The above request indicates that the app needs permission to read the user's calendar and send mail as the user.
 
 After the user enters their credentials, the v2.0 endpoint will check for a matching record of **user consent**.  If the user has not consented to any of the requested permissions in the past, the v2.0 endpoint will ask the user to grant the requested permissions.  
 
@@ -71,36 +73,28 @@ After the user enters their credentials, the v2.0 endpoint will check for a matc
 
 When the user approves the permission, the consent will be recorded so that the user does not have to re-consent on subsequent sign-ins.
 
-## Incremental Consent
-
-Your app does not have to ask for every permission it needs upon initial user sign-in or sign-up. Because you can specify scopes on a per-request basis, your app can perform "incremental consent", and choose when the best time to ask the user for consent will be.  There are a few common reasons that an app might not ask for all permissions at once:
-
-- Apps that need many permissions.  If your app accesses many different resources and performs rich functionality at each one, the list of permissions your app needs can become long very quickly.  Historically, long lists of permissions have discouraged users from signing up for an app and decreased user adoption.  Instead of asking for these permissions all at once, your app can ask for a subset upon initial sign-in, and then incrementally ask for additional permissions as the user attempts to use advanced features.
-- Apps that grow over time.  Almost every app begins with a smaller set of functionality and grow over time to incorporate new features.  With incremental consent, you can easily make changes to your app and smoothly request new permissions from the user.  You simply update your code to send additional scopes in authorization requests.
-- Admin-Only permissions.  Some resources will define permissions that **only** an organization's administrator can consent to, or approve.  For example, the Azure AD Graph API defines the `Directory.Write` permission, which allows an app to create, update, and delete users & groups, amognst other things.  You can imagine why that permission might require approval from a highly privileged admin.  By using incremental consent, your app can expose a basic set of functionality that any user can sign up for without an admin's approval.  However, once they attempt to perform a highly-privileged action, you can request the admin-only permission and require that an admin signs up before accessing that portion of your app.
-
-## Using Permissions
+## Using permissions
 
 After the user consents to permissions for your app, your app can acquire access tokens that represent your app's permission to access a resource in some capacity.  A given access token can only be used for a single resorce, but encoded inside it will be every permission that your app has been granted for that resource.  To acquire an access token, your app can make a request to the v2.0 token endpoint:
 
 ```
-POST common/v2.0/oauth2/token HTTP/1.1
+POST common/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/json
 
 {
 	"grant_type": "authorization_code",
-	"client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
+	"client_id": "6731de76-14a6-49ae-97bc-6eba6914391e",
 	"scope": "https://outlook.office.com/mail.read https://outlook.office.com/mail.send",
 	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
+	"redirect_uri": "https://localhost/myapp",
 	"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
 }
 ```
 
 The resulting access token can then be used in HTTP requests to the resource - it will reliably indicate to the resource that your app has the proper permission to perform a given task.  
 
-For more detail on the OAuth 2.0 protocol and how to acquire access tokens, see the [app model v2.0 protocol reference](active-directory-v2-protocols.md).
-
+For more detail on the OAuth 2.0 protocol and how to acquire access tokens, see the [v2.0 endpoint protocol reference](active-directory-v2-protocols.md).
 
 ## OpenId Connect scopes
 

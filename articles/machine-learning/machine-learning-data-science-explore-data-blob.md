@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #Explore data in Azure blob storage with Pandas
@@ -38,7 +38,7 @@ In order to do explore and manipulate a dataset, it must be downloaded from the 
 
 1. Download the data from Azure blob with the following Python code sample using blob service. Replace the variable in the code below with your specific values: 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>

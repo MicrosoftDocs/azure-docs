@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="04/26/2016"
 	ms.author="curtand"/>
 
 # Assigning administrator roles in Azure Active Directory (Azure AD)
@@ -94,7 +94,7 @@ The global administrator has access to all administrative features. By default, 
 
 - To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 
-- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated directory.md)
+- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 - [Manage users](active-directory-create-users.md)
 

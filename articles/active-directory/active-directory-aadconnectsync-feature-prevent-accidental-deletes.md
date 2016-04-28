@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/07/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Prevent accidental deletes
@@ -27,7 +27,7 @@ Common scenarios when you see this include:
 - All objects in an OU are deleted.
 - An OU is renamed so all objects in it are considered to be out of scope for synchronization.
 
-The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`. You should configure this value to fit your organization’s size. Since the sync scheduler will run every 3 hours, the value is the number of deletes seen within 3 hours.
+The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`. You should configure this value to fit your organization’s size. Since the sync scheduler will run every 30 minutes, the value is the number of deletes seen within 30 minutes.
 
 With this feature enabled, if there are too many deletes staged to be exported to Azure AD, the export will not continue and you will receive an email like this:
 

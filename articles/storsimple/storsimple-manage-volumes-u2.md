@@ -3,17 +3,17 @@
    description="Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
-   ms.author="v-sharos" />
+   ms.workload="NA"
+   ms.date="02/29/2016"
+   ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage volumes (Update 2)
 
@@ -40,7 +40,7 @@ If necessary, you can change the volume type from local to tiered or from tiered
 
 Locally pinned volumes are fully provisioned volumes that do not tier data to the cloud, thereby ensuring local guarantees for primary data, independent of cloud connectivity. Data on locally pinned volumes is not deduplicated and compressed; however, snapshots of locally pinned volumes are deduplicated. 
 
-Locally pinned volumes are fully provisioned; therefore, you must have sufficient space on your device when you create them. You can provision locally pinned volumes up to a maximum size of 9 TB on the StorSimple 8100 device and 24 TB on the 8600 device. StorSimple reserves the remaining local space on the device for snapshots, metadata, and data processing. You can increase the size of a locally pinned volume to the maximum space available, but you cannot decrease the size of a volume once created.
+Locally pinned volumes are fully provisioned; therefore, you must have sufficient space on your device when you create them. You can provision locally pinned volumes up to a maximum size of 8 TB on the StorSimple 8100 device and 20 TB on the 8600 device. StorSimple reserves the remaining local space on the device for snapshots, metadata, and data processing. You can increase the size of a locally pinned volume to the maximum space available, but you cannot decrease the size of a volume once created.
 
 When you create a locally pinned volume, the available space for creation of tiered volumes is reduced. The reverse is also true: if you have existing tiered volumes, the space available for creating locally pinned volumes will be lower than the maximum limits stated above.
 
@@ -48,7 +48,7 @@ When you create a locally pinned volume, the available space for creation of tie
 
 Tiered volumes are thinly provisioned volumes in which the frequently accessed data stays local on the device and less frequently used data is automatically tiered to the cloud. Thin provisioning is a virtualization technology in which available storage appears to exceed physical resources. Instead of reserving sufficient storage in advance, StorSimple uses thin provisioning to allocate just enough space to meet current requirements. The elastic nature of cloud storage facilitates this approach because StorSimple can increase or decrease cloud storage to meet changing demands.
 
-You can designate a tiered volume as an archival volume by checking the **Use this volume for less frequently accessed archival data** check box. Archival volumes use a 512 KB deduplication chunk size, whereas non-archival volumes use a 64 KB chunk size. The larger deduplication chunk size allows the device to transfer larger chunks of data to the cloud.
+If you are using the tiered volume for archival data, selecting the **Use this volume for less frequently accessed archival data** check box changes the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
 
 >[AZURE.NOTE] Archival volumes created with a pre-Update 2 version of StorSimple will be imported as tiered with the archival check box selected.
 
@@ -59,11 +59,11 @@ Refer to the following table for maximum provisioned capacity for each device an
 |             | Maximum tiered volume size | Maximum locally pinned volume size |
 |-------------|----------------------------|------------------------------------|
 | **Physical devices** |       |       |
-| 8100                 | 64 TB | 9 TB |
-| 8600                 | 64 TB | 24 TB |
+| 8100                 | 64 TB | 8 TB |
+| 8600                 | 64 TB | 20 TB |
 | **Virtual devices**  |       |       |
 | 8010                | 30 TB | N/A   |
-| 8020               | 64 TB | N/A   | 
+| 8020               | 64 TB | N/A   |
 
 ## The Volumes page
 
@@ -182,18 +182,32 @@ To watch a video that demonstrates how to expand a volume, click [here](https://
 
 ## Change the volume type
 
-You can change the volume type from tiered to locally pinned or from locally pinned to tiered. Typically, these are small existing volumes that you want to access frequently. However, this conversion should not be a frequent occurrence. Some reasons for converting a volume from tiered to locally pinned are:
+You can change the volume type from tiered to locally pinned or from locally pinned to tiered. However, this conversion should not be a frequent occurrence. Some reasons for converting a volume from tiered to locally pinned are:
 
 - Local guarantees regarding data availability and performance
 - Elimination of cloud latencies and cloud connectivity issues.
 
-A locally pinned volume is fully provisioned when it is created. If you are converting a tiered volume to a locally pinned volume, StorSimple verifies that you have sufficient space on your device before it starts the conversion. If you have insufficient space, you will receive an error and the operation will be canceled. 
+Typically, these are small existing volumes that you want to access frequently. A locally pinned volume is fully provisioned when it is created. If you are converting a tiered volume to a locally pinned volume, StorSimple verifies that you have sufficient space on your device before it starts the conversion. If you have insufficient space, you will receive an error and the operation will be canceled. 
 
 > [AZURE.NOTE] Before you begin a conversion from tiered to locally pinned, make sure that you consider the space requirements of your other workloads. 
 
 You might want to change a locally pinned volume to a tiered volume if you need additional space to provision other volumes. When you convert the locally pinned volume to tiered, the available capacity on the device increases by the size of the released capacity. If connectivity issues prevent the conversion of a volume from the local type to the tiered type, the local volume will exhibit properties of a tiered volume until the conversion is completed. This is because some data might have spilled to the cloud. This spilled data will continue to occupy local space on the device that cannot be freed until the operation is restarted and completed.
 
 >[AZURE.NOTE] Converting a volume can take some time and you cannot cancel a conversion after it starts. The volume remains online during the conversion, and you can take backups, but you cannot expand or restore the volume while the conversion is taking place.  
+
+Conversion from a tiered to a locally pinned volume can adversely affect device performance. Additionally, the following factors might increase the time it takes to complete the conversion:
+
+- There is insufficient bandwidth.
+
+- There is no current backup.
+
+To minimize the effects that these factors may have:
+
+- Review your bandwidth throttling policies and make sure that a dedicated 40 Mbps bandwidth is available.
+- Schedule the conversion for off-peak hours.
+- Take a cloud snapshot before you start the conversion.
+
+If you are converting multiple volumes (supporting different workloads), then you should prioritize the volume conversion so that higher priority volumes are converted first. For example, you should convert volumes that host virtual machines (VMs) or volumes with SQL workloads before you convert volumes with file share workloads.
 
 #### To change the volume type
 

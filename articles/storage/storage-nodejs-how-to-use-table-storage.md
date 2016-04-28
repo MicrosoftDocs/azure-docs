@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="04/08/2016"
 	ms.author="micurd"/>
 
 
@@ -28,9 +28,9 @@ This topic shows how to perform common scenarios using the Azure Table service i
 
 The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
-- [Build and deploy a Node.js website to Azure](Create and deploy a Node.js application to an Azure website)
-- [Build and deploy a Node.js website to Azure using WebMatrix](Create and deploy a Node.js application with WebMatrix)
-- [Build and deploy a Node.js application to an Azure Cloud Service](Node.js Cloud Service) (using Windows PowerShell)
+- [Create a Node.js web app in Azure App Service](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+- [Build and deploy a Node.js web app to Azure using WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+- [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -66,39 +66,39 @@ communicate with the storage REST services.
 
 Add the following code to the top of the **server.js** file in your application:
 
-    var azure = require('azure-storage');
+	var azure = require('azure-storage');
 
 ## Set up an Azure Storage connection
 
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web application with Storage]
+For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service].
 
 ## Create a table
 
 The following code creates a **TableService** object and uses it to create a new table. Add the following near the top of **server.js**.
 
-    var tableSvc = azure.createTableService();
+	var tableSvc = azure.createTableService();
 
 The call to **createTableIfNotExists** will create a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
 
-    tableSvc.createTableIfNotExists('mytable', function(error, result, response){
-		if(!error){
-			// Table exists or created
-		}
+	tableSvc.createTableIfNotExists('mytable', function(error, result, response){
+	  if(!error){
+	    // Table exists or created
+	  }
 	});
 
-The `result` will be `true` if a new table is created, and `false` if the table already exists. The `response` will contain information about the request.
+The `result.created` will be `true` if a new table is created, and `false` if the table already exists. The `response` will contain information about the request.
 
 ### Filters
 
 Optional filtering operations can be applied to operations performed using **TableService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 After doing its preprocessing on the request options, the method needs to call "next", passing a callback with the following signature:
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end the service invocation.
 
@@ -115,7 +115,7 @@ To add an entity, first create an object that defines your entity properties. Al
 
 * **RowKey** - uniquely identifies the entity within the partition
 
-Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table service data model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types will be inferred if not specified.
 
@@ -131,19 +131,19 @@ The following is an example of defining an entity. Note that **dueDate** is defi
 You can also use the **entityGenerator** to create entities. The following example creates the same task entity using the **entityGenerator**.
 
 	var entGen = azure.TableUtilities.entityGenerator;
-    var task = {
+	var task = {
 	  PartitionKey: entGen.String('hometasks'),
-      RowKey: entGen.String('1'),
-      description: entGen.String('take out the trash'),
-      dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
-    };
+	  RowKey: entGen.String('1'),
+	  description: entGen.String('take out the trash'),
+	  dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+	};
 
 To add an entity to your table, pass the entity object to the **insertEntity** method.
 
 	tableSvc.insertEntity('mytable',task, function (error, result, response) {
-		if(!error){
-			// Entity inserted
-		}
+	  if(!error){
+	    // Entity inserted
+	  }
 	});
 
 If the operation is successful, `result` will contain the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` will contain information about the operation.
@@ -160,7 +160,7 @@ Example response:
 
 There are multiple methods available to update an existing entity:
 
-* **updateEntity** - updates an existing entity by replacing it
+* **replaceEntity** - updates an existing entity by replacing it
 
 * **mergeEntity** - updates an existing entity by merging new property values into the existing entity
 
@@ -168,13 +168,13 @@ There are multiple methods available to update an existing entity:
 
 * **insertOrMergeEntity** - updates an existing entity by merging new property values into the existing. If no entity exists, a new one will be inserted
 
-The following example demonstrates updating an entity using **updateEntity**:
+The following example demonstrates updating an entity using **replaceEntity**:
 
-	tableSvc.updateEntity('mytable', updatedTask, function(error, result, response){
-      if(!error) {
-        // Entity updated
-      }
-    });
+	tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
+	  if(!error) {
+	    // Entity updated
+	  }
+	});
 
 > [AZURE.NOTE] By default, updating an entity does not check to see if the data being updated has previously been modified by another process. To support concurrent updates:
 >
@@ -183,10 +183,10 @@ The following example demonstrates updating an entity using **updateEntity**:
 > 2. When performing an update operation on an entity, add the ETag information previously retrieved to the new entity. For example:
 >
 >     `entity2['.metadata'].etag = currentEtag;`
->    
+>
 > 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
 
-With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn't exist, then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
+With **replaceEntity** and **mergeEntity**, if the entity that is being updated doesn't exist, then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
 
 The `result` for successful update operations will contain the **Etag** of the updated entity.
 
@@ -196,7 +196,7 @@ Sometimes it makes sense to submit multiple operations together in a batch to en
 
  The following example demonstrates submitting two entities in a batch:
 
-    var task1 = {
+	var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
@@ -240,11 +240,11 @@ Operations added to a batch can be inspected by viewing the `operations` propert
 
 To return a specific entity based on the **PartitionKey** and **RowKey**, use the **retrieveEntity** method.
 
-    tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
+	tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
 	  if(!error){
 	    // result contains the entity
 	  }
-    });
+	});
 
 Once this operation is complete, `result` will contain the entity.
 
@@ -298,9 +298,9 @@ You can delete an entity using its partition and row keys. In this example, the 
 	  RowKey: {'_': '1'}
 	};
 
-    tableSvc.deleteEntity('mytable', task, function(error, response){
+	tableSvc.deleteEntity('mytable', task, function(error, response){
 	  if(!error) {
-		// Entity deleted
+	    // Entity deleted
 	  }
 	});
 
@@ -310,7 +310,7 @@ You can delete an entity using its partition and row keys. In this example, the 
 
 The following code deletes a table from a storage account.
 
-    tableSvc.deleteTable('mytable', function(error, response){
+	tableSvc.deleteTable('mytable', function(error, response){
 		if(!error){
 			// Table deleted
 		}
@@ -382,7 +382,7 @@ The client application then uses the SAS with **TableServiceWithSAS** to perform
 
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
-		// result contains the entities
+	    // result contains the entities
 	  }
 	});
 
@@ -394,36 +394,30 @@ You can also use an Access Control List (ACL) to set the access policy for a SAS
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The following example defines two policies, one for 'user1' and one for 'user2':
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.TableUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 The following example gets the current ACL for the **hometasks** table, and then adds the new policies using **setTableAcl**. This approach allows:
 
+	var extend = require('extend');
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		tableSvc.setTableAcl('hometasks', result, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+    if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    tableSvc.setTableAcl('hometasks', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -448,5 +442,5 @@ For more information, see the following resources.
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Node.js web application with Storage]: ../storage-nodejs-use-table-storage-web-site.md
+  [Node.js web app using the Azure Table Service]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md

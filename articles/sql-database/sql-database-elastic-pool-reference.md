@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Elastic database pool reference for SQL Database | Microsoft Azure" 
+	pageTitle="Elastic database pool reference for SQL Database | Microsoft Azure"
 	description="This reference provides links and details to elastic database pool articles and programmability information."
 	keywords="eDTU"
 	services="sql-database"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/12/2016"
+	ms.date="04/07/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -25,7 +25,7 @@ For SaaS developers who have tens, hundreds, or even thousands of databases, an 
 ## Prerequisites for creating and managing elastic database pools
 
 - Elastic database pools are only available in Azure SQL Database V12 servers. To upgrade to V12 and migrate your databases directly into a pool, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-powershell.md).
-- Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-powershell.md), and a .NET Client Library (Azure Resource Manager only); the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
+- Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-create-powershell.md), and a .NET Client Library (Azure Resource Manager only); the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
 - Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using [Transact-SQL](#transact-sql).
 
 
@@ -37,7 +37,7 @@ The following articles will help you get started using elastic databases and ela
 | :-- | :-- |
 | [SQL Database elastic database pools](sql-database-elastic-pool.md) | Overview of elastic  database pools |
 | [Price and performance considerations](sql-database-elastic-pool-guidance.md) | How to assess if using an elastic database pool is cost efficient |
-| [Create and manage a SQL Database elastic database pool with the Azure portal](sql-database-elastic-pool-portal.md) | How to create and manage an elastic database pool using the Azure portal |
+| [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-create-portal.md) | How to create and manage an elastic database pool using the Azure portal |
 | [Create and manage a SQL Database elastic database pool with PowerShell](sql-database-elastic-pool-powershell.md) | How to create and manage an elastic database pool using PowerShell cmdlets |
 | [Create and manage a SQL Database with the Azure SQL Database Library for .NET](sql-database-elastic-pool-csharp.md) | How to create and manage an elastic database pool using C# |
 | [Elastic database jobs overview](sql-database-elastic-jobs-overview.md) | An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool |
@@ -64,10 +64,6 @@ An elastic database pool is an Azure Resource Manager resource of type “Elasti
 | databaseDtuMin | Minimum number of eDTUs that a single database in the pool is guaranteed. The database eDTU min may be set to 0. The eDTU min applies to all databases in the pool. Note that the product of the number of databases in the pool and the database eDTU min cannot exceed the eDTUs of the pool itself. |
 | Dtu | Number of eDTUs shared by all databases in the pool. |
 | edition | Service tier of the pool.  Every database within the pool has this edition. |
-| elasticPoolId | GUID of the instance of the pool. |
-| elasticPoolName | Name of the pool.  The name is unique relative to its parent server. |
-| location | Data center location where the pool was created. |
-| state | State is “Disabled” if payment of the bill for subscription is delinquent, and “Ready” otherwise. |
 | storageMB | Storage limit in MB for the pool. The total of storage used by all databases in the pool cannot exceed this pool limit.  |
 
 
@@ -75,15 +71,6 @@ An elastic database pool is an Azure Resource Manager resource of type “Elasti
 
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
-
-
-
-## Azure Resource Manager limitations
-
-Azure SQL Database V12 servers are located in resource groups.
-
-- Each resource group can have a maximum 800 servers.
-- Each server can have a maximum 800 elastic pools.
 
 
 ## Latency of elastic pool operations
@@ -95,8 +82,14 @@ Azure SQL Database V12 servers are located in resource groups.
 
 ## PowerShell, REST API, and the .NET Client Library
 
-Several PowerShell cmdlets and REST API commands are available for creating and managing elastic pools. For details and code examples, see [Create and manage a SQL Database elastic database pool using PowerShell](sql-database-elastic-pool-powershell.md), and [Create and manage SQL Database with C#](sql-database-client-library.md).
+For details and code examples the demonstrate working with pools using PowerShell and C#:
 
+- [Create an elastic pool with PowerShell](sql-database-elastic-pool-create-powershell.md)
+- [Create an elastic pool with C#](sql-database-elastic-pool-create-csharp.md)
+- [Manage an elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [Manage an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md)
+
+Here's a quick reference of cmdlets and equivalent REST API operations related to elastic pools:
 
 | [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) | [REST API commands](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
@@ -106,7 +99,8 @@ Several PowerShell cmdlets and REST API commands are available for creating and 
 | [Get-AzureRMSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603517.aspx) | [Gets elastic  database pools and their property values](https://msdn.microsoft.com/library/mt163646.aspx) |
 | [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) | [Get Status of Elastic Database Pool Operations](https://msdn.microsoft.com/library/mt163669.aspx) |
 | [Get-AzureRmSqlElasticPoolDatabase](https://msdn.microsoft.com/library/azure/mt619484.aspx) | [Get Databases in an Elastic Database Pool](https://msdn.microsoft.com/library/mt163646.aspx) |
-| [Get-AzureRmSqlElasticPoolDatabaseActivity]() | [Gets the status of moving databases in and out of a pool](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureRmSqlDatabaseActivity]() | [Gets the status of moving databases in and out of a pool](https://msdn.microsoft.com/library/mt603687.aspx) |
+
 
 ## Transact-SQL
 
@@ -115,7 +109,7 @@ You can use Transact-SQL to do the following elastic database management tasks:
 | Task | Details |
 | :-- | :-- |
 | Create a new elastic database (directly in a pool) | [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) |
-| Move existing databases in and out of a pool | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
+| Move existing databases in and out of a pool | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) |
 | Get a pool's resource usage statistics | [sys.elastic_pool_resource_stats (Azure SQL Database)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 

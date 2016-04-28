@@ -40,11 +40,9 @@ Some examples of workloads that are commonly processed using this technique are:
 * Engineering stress analysis
 * Software testing
 
-Batch can also perform parallel calculations with a reduce step at the end, as well as execute more complex HPC workloads such as Message Passing Interface (MPI) applications.
+Batch can also perform parallel calculations with a reduce step at the end, as well as execute more complex HPC workloads such as [Message Passing Interface (MPI)](batch-mpi.md) applications.
 
 For a comparison between Batch and other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
-
->[AZURE.NOTE] At this time, Batch supports workloads that run on Windows Server-based virtual machines only.
 
 ## Developing with Batch
 
@@ -56,7 +54,7 @@ When you build solutions that use Azure Batch for parallel workload processing, 
 
 When you develop Batch solutions, you'll use the following accounts in Microsoft Azure.
 
-- **Azure account and subscription** - If you don't already have an Azure account, you can activate your [MSDN subscriber benefit][msdn_benefits], or sign up for a [free trial][free_trial]. When you create an account, a default subscription will be created for you.
+- **Azure account and subscription** - If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefit][msdn_benefits], or sign up for a [free Azure account][free_account]. When you create an account, a default subscription will be created for you.
 
 - **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All of your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. You can [create and manage a Batch account](batch-account-create-portal.md) in the Azure portal.
 
@@ -127,7 +125,7 @@ Now that you've seen an example Batch scenario, it's time to dig deeper into the
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[free_trial]: https://azure.microsoft.com/pricing/free-trial/
+[free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/

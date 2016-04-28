@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -34,14 +34,14 @@ The [Azure portal](https://portal.azure.com/) allows you to create, monitor and 
 
 The Azure portal provides a set of common database actions accessible at the top of a database blade. You can restore a database to a previous point in time, open a database in Visual Studio, copy a database to a new server, and export the database to an Azure storage account.
 
-- [Restoring a SQL database](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Restoring a SQL database](sql-database-user-error-recovery.md)
 - [Open a SQL database in Visual Studio](sql-database-connect-query.md)
 - [Export a SQL database](sql-database-export.md)
 
 ## 2. Database monitoring
 ![Database monitoring](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
 
-Azure SQL databases by default feature monitoring charts for Database Throughput Unit (DTU), database size, and connection health. These monitoring charts can be customized and extended to additionally chart CPU percentage, Data IO percentage, Deadlocks, Log IO percentage or even the percentage of requests blocked by firewall. More information on how to customize monitoring charts can be found [here][Azure part monitoring].
+Azure SQL databases by default feature monitoring charts for Database Transaction Unit (DTU), database size, and connection health. These monitoring charts can be customized and extended to additionally chart CPU percentage, Data IO percentage, Deadlocks, Log IO percentage or even the percentage of requests blocked by firewall. More information on how to customize monitoring charts can be found [here][Azure part monitoring].
 
 Additionally, alert rules can be setup to monitor a specified metric and alert a designated administrator and co-administrator when pre-set thresholds are reached. More information on how to setup alert rules in the Azure Classic Portal can be found [here][Azure part monitoring].
 

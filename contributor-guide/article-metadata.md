@@ -251,7 +251,7 @@ In articles that specify both a services value and a documentationCenter value, 
 
  - **dev-center-home-page**: Azure.com only.  A dev center home page, e.g. /develop/net/
 
- - **get-started-article**: assign to articles that are featured in the Get Started section of the left navigation for a service.
+ - **get-started-article**: assign to articles that are featured in the Get Started or Overview section of the left navigation for a service.
 
  - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations. Assign this value ONLY to articles that are featured at the top of the documentation landing page for your service.
 

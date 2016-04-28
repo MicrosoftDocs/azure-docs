@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="03/02/2016" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -1049,6 +1049,7 @@ OData XML
 
 ###8.2.	Get Catalog
 Retrieves all catalog items.
+The catalog will be retrieved one page at a time. If you want to get items at a particular index, you can use the $skip odata parameter. For instance if you want to get items starting at position 100, add the parameter $skip=100 to the request.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1170,12 +1171,12 @@ HTTP Status code: 200
 
 The response includes one entry per catalog item. Each entry has the following data:
 
-- `feed/entry/content/properties/ExternalId` – Catalog item external ID, the one provided by the customer.
 - `feed/entry/content/properties/InternalId` – Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
 - `feed/entry/content/properties/Name` – Catalog item name.
-- `feed/entry/content/properties/Category` – Catalog item category.
-- `feed/entry/content/properties/Description` – Catalog item description.
-- `feed/entry/content/properties/Metadata` – Catalog item metadata.
+- `feed/entry/content/properties/Rating` –  (for future use)
+- `feed/entry/content/properties/Reasoning` –  (for future use)
+- `feed/entry/content/properties/Metadata` –  (for future use)
+- `feed/entry/content/properties/FormattedRating` – (for future use)
 
 OData XML
 
@@ -1372,6 +1373,7 @@ HTTP Status code: 200
 
 ###9.2.	List Model Usage Files
 Retrieves metadata of all model usage files.
+The usage files will be retrieved one page at a time. Each page containes 100 items. If you want to get items at a particular index, you can use the $skip odata parameter. For instance if you want to get items starting at position 100, add the parameter $skip=100 to the request.
 
 | HTTP Method | URI |
 |:--------|:--------|

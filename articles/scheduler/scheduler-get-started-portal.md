@@ -1,6 +1,6 @@
 <properties
  pageTitle="Get started with Azure Scheduler in Azure portal | Microsoft Azure"
- description=""
+ description="Get started with Azure Scheduler in Azure portal"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -12,18 +12,18 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="02/12/2016"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # Get started with Azure Scheduler in Azure portal
 
-It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll learn how to create a job. You'll also learn Scheduler's monitoring and management capabilities. 
+It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll learn how to create a job. You'll also learn Scheduler's monitoring and management capabilities.
 
 ## Create a job
 
 1.  Sign in to [Azure portal](https://portal.azure.com/).  
 
-2.  Click **+New** > type _Scheduler_ in the search box >  select **Scheduler** in results > click **Create**. 
+2.  Click **+New** > type _Scheduler_ in the search box >  select **Scheduler** in results > click **Create**.
 
    ![][marketplace-create]
 
@@ -48,10 +48,10 @@ It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll 
 5.  Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
 
     1. **Recurrence**: `Recurring`
-    
+
     2. **Start**: Today's date
-    
-    3. **Recur every**: `12 Hours` 
+
+    3. **Recur every**: `12 Hours`
 
     4. **End by**: Two days from today's date  
 
@@ -84,23 +84,23 @@ These read-only properties describe the management metadata for the Scheduler jo
 
 ### Action settings
 
-Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard. 
+Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard.
 
-For all action types, you may change the retry policy and the error action. 
+For all action types, you may change the retry policy and the error action.
 
 For HTTP and HTTPS job action types, you may change the method to any allowed HTTP verb. You may also add, delete, or change the headers and basic authentication information.
 
-For storage queue action types, you may change the storage account, queue name, SAS token, and body. 
+For storage queue action types, you may change the storage account, queue name, SAS token, and body.
 
 For service bus action types, you may change the namespace, topic/queue path, authentication settings, transport type, message properties, and message body.
 
    ![][job-action-settings]
 
-### Schedule 
+### Schedule
 
 This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
 
-This is an opoprtunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md) 
+This is an opoprtunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
 
 You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
 
@@ -124,14 +124,14 @@ The **History** tab displays selected metrics for every job execution in the sys
 6.  End time of execution
 
    ![][job-history]
-   
+
 You can click on a run to view its **History Details**, including the whole response for every execution. This dialog box also allows you to copy the response to the clipboard.
 
    ![][job-history-details]
-   
+
 ### Users
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) 
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 
 
 ## See also
@@ -155,7 +155,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
  [Scheduler outbound authentication](scheduler-outbound-authentication.md)
 
 
-[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png 
+[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
 [recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
 [job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
@@ -163,7 +163,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 [job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
 [job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
 [job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
-[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png 
+[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
 
 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png

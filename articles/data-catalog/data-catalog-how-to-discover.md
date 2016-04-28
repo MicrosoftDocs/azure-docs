@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="How to discover data sources"
+   pageTitle="How to discover data sources | Microsoft Azure"
    description="How-to article highlighting how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal."
    services="data-catalog"
    documentationCenter=""
@@ -10,12 +10,11 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
-
 
 # How to discover data sources
 
@@ -59,3 +58,6 @@ In the default tile view, each tile displayed in the search results will include
 
 ## Summary
 Registering a data source with **Azure Data Catalog** makes that data source easier to discover and understand, by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, users can discover it using filtering and search from within the **Azure Data Catalog** portal.
+
+## See also
+- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to discover data sources.

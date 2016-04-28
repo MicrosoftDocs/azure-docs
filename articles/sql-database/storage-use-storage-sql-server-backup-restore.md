@@ -4,7 +4,7 @@
 	services="sql-database, virtual-machines"
 	documentationCenter=""
 	authors="carlrabeler"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="vm-windows-sql-server"
 	ms.topic="article"
-	ms.date="02/05/2015"
+	ms.date="02/16/2016"
 	ms.author="carlrab"/>
 
 

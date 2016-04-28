@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Virtual Network (VNet) Overview"
-   description="Learn about virtual networks (VNets) in Azure"
+   description="Learn about virtual networks (VNets) in Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,15 +9,15 @@
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Virtual Network Overview
 
-An Azure virtual network (VNet) is a representation of your own network in the cloud.  It is a logical isolation of the Azure cloud dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can also further segment your VNet into subnets and launch Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](cloud-services-choose-me.md). Additonally you can connect the virtual network to your on-premises network using one of the [connectivity options](vpn-gateway-cross-premises-options.md) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
+An Azure virtual network (VNet) is a representation of your own network in the cloud.  It is a logical isolation of the Azure cloud dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can also further segment your VNet into subnets and launch Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](../cloud-services/cloud-services-choose-me.md). Additonally you can connect the virtual network to your on-premises network using one of the [connectivity options](../vpn-gateway/vpn-gateway-cross-premises-options.md) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
 
 To better understand VNets, take a look at the figure below, which shows a simplified on-premises network.
 
@@ -31,7 +31,7 @@ The same network can be hosted in Azure as shown in the figure below.
 
 Notice how the Azure infrastructure takes on the role of the router, allowing access from your VNet to the public Internet without the need of any configuration. Firewalls can be substituted by Network Security Groups (NSGs) applied to each individual subnet. And physical load balancers are substituted by internet facing and internal load balancers in Azure.
 
->[AZURE.NOTE] There are two deployment modes in Azure: classic (also known as Service Management) and Azure Resource Manager (ARM). Classic VNets could be added to an affinity group, or created as a regional VNet. If you have a VNet in an affinity group, it is recommended to [migrate it to a regional VNet](./virtual-networks-migrate-to-regional-vnet.md).
+>[AZURE.NOTE] There are two deployment modes in Azure: classic (also known as Service Management) and Azure Resource Manager (ARM). Classic VNets could be added to an affinity group, or created as a regional VNet. If you have a VNet in an affinity group, it is recommended to [migrate it to a regional VNet](virtual-networks-migrate-to-regional-vnet.md).
 
 ## Virtual Network Benefits
 
@@ -45,7 +45,7 @@ Notice how the Azure infrastructure takes on the role of the router, allowing ac
 
 - **Security**. Traffic entering and exiting the virtual machines and PaaS role instances in a VNet can be controlled using Network Security groups.
 
-- **Connectivity**. VNets can be connected to each other, and even to your on-premises datacenter, by using a site-to-site VPN connection, or ExpressRoute connection. To learn more about VPN gateways, visit [About VPN gateways](./vpn-gateway-about-vpngateways.md). To learn more about ExpressRoute, visit [ExpressRoute technical overview](./expressroute-introduction.md).
+- **Connectivity**. VNets can be connected to each other, and even to your on-premises datacenter, by using a site-to-site VPN connection, or ExpressRoute connection. To learn more about VPN gateways, visit [About VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md). To learn more about ExpressRoute, visit [ExpressRoute technical overview](../expressroute/expressroute-introduction.md).
 
     >[AZURE.NOTE] Make sure you create a VNet before deploying any IaaS VMs or PaaS role instances to your Azure environment. ARM based VMs require a VNet, and if you do not specify an existing VNet, Azure creates a default VNet that might have a CIDR address block clash with your on-premises network. Making it impossible for you to connect your VNet to your on-premises network.
 
@@ -68,11 +68,11 @@ Virtual machines and cloud services in a Virtual network can be exposed to Inter
 
 - **Internal load balancer**. You can use an internal load balancer to provide high availability for IaaS VMs and PaaS role instances accessed from other services in your VNet.
 
-To learn more about load balancing in Azure, visit [Load balancer overview](../load-balancer-overview.md).
+To learn more about load balancing in Azure, visit [Load balancer overview](../load-balancer/load-balancer-overview.md).
 
 ## Network Security Group (NSG)
 
-You can create NSGs to control inbound and outbound access to network interfaces (NICs), VMs, and subnets. Each NSG contains one or more rules specifying whether or not traffic is approved or denied based on source IP address, source port, destination IP address, and destination port. To learn more about NSGs, visit [What is a Network Security Group](../virtual-networks-nsg.md).
+You can create NSGs to control inbound and outbound access to network interfaces (NICs), VMs, and subnets. Each NSG contains one or more rules specifying whether or not traffic is approved or denied based on source IP address, source port, destination IP address, and destination port. To learn more about NSGs, visit [What is a Network Security Group](virtual-networks-nsg.md).
 
 ## Virtual appliances
 
@@ -80,20 +80,17 @@ A virtual appliance is just another VM in your VNet that runs a software based a
 
 For instance, NSGs can be used to provide security on your VNet. However, NSGs provide layer 4 Access Control List (ACL) to incoming and outgoing packets. If you want to use a layer 7 security model, you need to use a firewall appliance.
 
-Virtual appliances depend on [user defined routes and IP forwarding](../virtual-networks-udr-overview.md).
+Virtual appliances depend on [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
 
 ## Limits
-There are limits on the number of Virtual Networks allowed in a subscription, please refer to [Azure Networking limits](azure-subscription-service-limits.md#networking-limits) for more information.
+There are limits on the number of Virtual Networks allowed in a subscription, please refer to [Azure Networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
 
 ## Pricing
 There is no extra cost for using Virtual Networks in Azure. The compute instances launched within the Vnet will be charged the standard rates as described in [Azure VM Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/). The [VPN Gateways](https://azure.microsoft.com/pricing/details/vpn-gateway/) and [Public IP Addresses] (https://azure.microsoft.com/pricing/details/ip-addresses/) used in the VNet will also be charged standard rates.
 
 ## Next steps
 
-- [Create a VNet](../virtual-networks-create-vnet-arm-pportal.md) and subnets.
-- [Create a VM in a VNet](../virtual-machines-windows-tutorial.md).
-- Learn about [NSGs](../virtual-networks-nsg.md).
-- Learn about [load balancers](../load-balancer-overview.md).
-- [Reserve an internal IP address](../virtual-networks-reserved-private-ip.md)
-- [Reserve a public IP address](../virtual-networks-reserved-public-ip.md).
+- [Create a VNet](virtual-networks-create-vnet-arm-pportal.md) and subnets.
+- [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Learn about [NSGs](virtual-networks-nsg.md).
 - Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).

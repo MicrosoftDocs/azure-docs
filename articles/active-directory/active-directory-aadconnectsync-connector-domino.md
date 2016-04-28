@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -22,7 +22,7 @@ This article describes the Lotus Domino Connector. The article applies to the fo
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Must use hotfix 4.1.3461.0 or later [KB2870703](https://support.microsoft.com/kb/2870703).
+    -   Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2 the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -112,7 +112,7 @@ On the features page install only the required Lotus Notes features and **Client
 
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**Note:** You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account.
+**Note:** You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account. Also make sure to close the Lotus Notes client on the server. It cannot be running at the same time the Connector tries to connect to the Domino server.
 
 ### Create Connector
 

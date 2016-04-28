@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/20/2016" 
 	ms.author="anwestg"/>
 
 # Azure App Service Web Apps Offerings for Enterprise Whitepaper #
@@ -45,11 +45,11 @@ Web platforms and frameworks are increasingly being used to develop, test and ho
 
 App Service Web Apps is a good option for hosting such applications, offering scalable and reliable infrastructure which is managed and patched with near zero manual intervention and downtime. The Microsoft Azure platform provides many data storage options to support web applications hosted on Web Apps from Microsoft Azure SQL Database, a managed scalable relational database-as-a-service, to popular services from our partners such as ClearDB MySQL Database and MongoDB.
 
-An alternative approach is to make use of your existing investment on premise. In the example scenario, an employee expense system, you may wish to maintain your data store within your own internal infrastructure. This could be for integration with internal systems (reporting, payroll, billing etc.) or to satisfy an IT governance requirement.  Web Apps provides a number of methods of enabling you to connect to your on premises infrastructure:
+An alternative approach is to make use of your existing investment on premises. In the example scenario, an employee expense system, you may wish to maintain your data store within your own internal infrastructure. This could be for integration with internal systems (reporting, payroll, billing etc.) or to satisfy an IT governance requirement.  Web Apps provides a number of methods of enabling you to connect to your on premises infrastructure:
 
 - [App Service Environments](app-service-app-service-environment-intro.md) - App Service Environments (ASE) are a new Premium feature which was recently add to the Microsoft Azure App Service offering.  ASEs provide a fully isolated and dedicated environment for securely running Azure App Service apps at high scale while also offering isolation and secure network access   
 - [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) – Hybrid Connections are a feature of Microsoft Azure BizTalk Services and enable Web Apps to connect to on premises resources securely, for example SQL Server, MySQL, Web APIs and custom web services. 
-- [Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Web Apps integrtaion with Azure Virtual Network allows you to connect your web app to an Azure Virtual Network which in turn can be connected to your on premises infrastructure through a site-to-site VPN. 
+- [Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Web Apps integration with Azure Virtual Network allows you to connect your web app to an Azure Virtual Network which in turn can be connected to your on premises infrastructure through a site-to-site VPN. 
 
 The following diagrams depict an example high-level solution with connectivity options for on premises resources.  The first example shows how this can be achieved using standard features of Azure App Service and the second shows how this can be achieved using the premium offering, App Service Environments.
 
@@ -85,9 +85,9 @@ App Service Web Apps provides a stable, reliable platform which has been proven 
 
 Microsoft Azure platform allows Role Based Authorization Controls enabling enterprise levels of control to resources within Web Apps. RBAC gives enterprises the power to implement their own access management policies for all of their assets in the Azure Environment, by assigning users to groups and in turn assigning the required permissions to those groups against the asset such as a web app. For more information on RBAC in Azure, see [http://aka.ms/azurerbac](../role-based-access-control-configure/). By utilizing Web Apps, you can be sure your web applications are deployed in a safe and secure environment and you have full control into which territory your assets are deployed. 
 
-Azure App Service Environments [http://aka.ms/aseintro] are a new premium service plan option for enterprise customers wishing to make use of Azure App Service and these provide a fully isolated and dedicated environment.  This enables enterprise customers to deploy applications that can take advantage of very high scale whilst also having full control over inbound and outbound network traffic, and ASEs enable applications to have high speed secure connections over virtual networks to on-premises resources.
+Azure App Service Environments [http://aka.ms/aseintro](http://aka.ms/aseintro) are a new premium service plan option for enterprise customers wishing to make use of Azure App Service and these provide a fully isolated and dedicated environment.  This enables enterprise customers to deploy applications that can take advantage of very high scale whilst also having full control over inbound and outbound network traffic, and ASEs enable applications to have high speed secure connections over virtual networks to on-premises resources.
 
-App Service Web Apps are also able to make full use of your on premises investments by offering the ability to connect back to your internal resources, such as your data warehouse or SharePoint environment. As discussed in [High Level solution] you can make use of Hybrid Connections and Virtual Network Connectivity to establish connections to on premises infrastructure and services.
+App Service Web Apps are also able to make full use of your on premises investments by offering the ability to connect back to your internal resources, such as your data warehouse or SharePoint environment. As discussed in [High Level solution](#highlevel) you can make use of Hybrid Connections and Virtual Network Connectivity to establish connections to on premises infrastructure and services.
 
 ### Global Scale ###
 
@@ -137,7 +137,7 @@ The Azure platform offers a number of alternatives to using Azure SQL Database a
 #### Connectivity to On Premises Resources ####
 App Service Web Apps offers multiple options for connecting to on premises resources, such as databases, enabling reuse of existing high value infrastructure. The options are as listed below:
 
-- App Service Environments are isolated and created within a subnet of a virtual network, therefore enabling the environment to communicate with private endpoints located within the same virtual network -  [http://aka.ms/appserviceasenetworking]
+- App Service Environments are isolated and created within a subnet of a virtual network, therefore enabling the environment to communicate with private endpoints located within the same virtual network -  [http://aka.ms/appserviceasenetworking](http://aka.ms/appserviceasenetworking)
 - Web Apps Virtual Network Integration supports integration between Web Apps and an Azure Virtual Network, allowing you access to resources running in your Virtual Network which, if connected to your on premises network with site-to-site VPN, allows connectivity direct to your on premises systems.
 - Hybrid Connections are a feature of Azure BizTalk Services and provide an easy way to connect to individual on-premises resources such as SQL Server, MySQL, HTTP Web APIs and most custom Web Services.
 

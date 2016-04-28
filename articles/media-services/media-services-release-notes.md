@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/11/2016"
+ 	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,8 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [April 2016 Release](#apr_changes16)
+- [February 2016 Release](#feb_changes16)
 - [January 2016 Release](#jan_changes_16)
 - [December 2015 Release](#dec_changes_15)
 - [November 2015 Release](#nov_changes_15)
@@ -79,6 +81,20 @@ Media Services objects in the SDK cannot be serialized and as a result do not wo
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
 
+##<a id="apr_changes16"></a>April 2016 Release
+
+In this release, Azure Media Servces introduced Azure Media Analytics for powerful video intelligence. For detailed information, see (Azure Media Services Analytics Overview)[media-services-analytics-overview.md].
+
+##<a id="feb_changes16"></a>February 2016 Release
+
+The latest version of Azure Media Services SDK for .NET (3.5.3) contains a Widevine related bug fix. The problem was:  AssetDeliveryPolicy couldn't be reused for multiple assets encrypted with Widevine. As part of this bug fix the following property was added to the SDK: **WidevineBaseLicenseAcquisitionUrl**.
+	
+	Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+	    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+	{
+	    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+	    
+	};
 
 ##<a id="jan_changes_16"></a>January 2016 Release
 

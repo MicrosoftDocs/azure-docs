@@ -3,9 +3,9 @@
 	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table."
 	services="storage"
 	documentationCenter="php"
-	authors="tfitzmac"
-	manager="carmonm"
-	editor="tysonn"/>
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="tomfitz"/>
+	ms.date="04/08/2016"
+	ms.author="robmcm"/>
 
 
 # How to use table storage from PHP
@@ -23,7 +23,7 @@
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Azure Table service. The samples are written in PHP and use the [Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#NextSteps) section.
+This guide shows you how to perform common scenarios using the Azure Table service. The samples are written in PHP and use the [Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -87,7 +87,7 @@ For the examples outlined here, the connection string will be passed directly.
 
 ## Create a table
 
-A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table service timeout. (For more information about the Table service timeout, see [Setting timeouts for Table service operations][table-service-timeouts].)
+A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table service timeout. (For more information about the Table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].)
 
 	require_once 'vendor\autoload.php';
 
@@ -109,7 +109,7 @@ A **TableRestProxy** object lets you create a table with the **createTable** met
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
-For information about restrictions on table names, see [Understanding the Table service data model][table-data-model].
+For information about restrictions on table names, see [Understanding the Table Service Data Model][table-data-model].
 
 ## Add an entity to a table
 
@@ -145,7 +145,7 @@ To add an entity to a table, create a new **Entity** object and pass it to **Tab
 		$error_message = $e->getMessage();
 	}
 
-For information about Table properties and types, see [Understanding the Table service data model][table-data-model].
+For information about Table properties and types, see [Understanding the Table Service Data Model][table-data-model].
 
 The **TableRestProxy** class offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** updates property values if the properties already exist and adds new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated, and the `Status` property will be added. The `Description` and `Location` properties are also updated, but with values that effectively leave them unchanged. If these latter two properties were not added as shown in the example, but existed on the target entity, their existing values would remain unchanged.
 
@@ -250,7 +250,7 @@ Entity queries are constructed using filters (for more information, see [Queryin
 
 ## Retrieve a subset of entities in a partition
 
-The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve are determined by the filter you use (for more information, see [Querying tables and entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
+The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve are determined by the filter you use (for more information, see [Querying Tables and Entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
 
 	require_once 'vendor\autoload.php';
 
@@ -435,7 +435,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 		echo $code.": ".$error_message."<br />";
 	}
 
-For more information about batching Table operations, see [Performing entity group transactions][entity-group-transactions].
+For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions].
 
 ## Delete a table
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Get started with Azure Blob storage and Visual Studio connected services (ASP.NET 5)
@@ -24,9 +24,7 @@ This article describes how to get started using Azure Blob storage in Visual Stu
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. This article describes how to get started with blob storage after you create an Azure storage account by using the Visual Studio **Add Connected Services** dialog in an ASP.NET 5 project.
 
-Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called “Scrapbook,” you can create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them. See [How to use blob storage from .NET](storage-dotnet-how-to-use-blobs.md "How to use blob storage from .NET") for more information on programmatically manipulating blobs.
-
-
+Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called “Scrapbook,” you can create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them. See [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) for more information on programmatically manipulating blobs.
 
 ##Access blob containers in code
 
@@ -34,11 +32,11 @@ To programmatically access blobs in ASP.NET 5 projects, you need to add the foll
 
 1. Add the following code namespace declarations to the top of any C# file in which you want to programmatically access Azure storage.
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Extensions.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
+		using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
@@ -99,36 +97,36 @@ To upload a blob file into a container, get a container reference and use it to 
 To list the blobs in a container, first get a container reference. You can then call the container's **ListBlobsSegmentedAsync** method to retrieve the blobs and/or directories within it. To access the rich set of properties and methods for a returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**, **CloudPageBlob**, or **CloudBlobDirectory** object. If you don’t know the blob type, you can use a type check to determine which to cast it to. The following code demonstrates how to retrieve and output the URI of each item in a container.
 
 	BlobContinuationToken token = null;
-        do
+    do
+    {
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
+        token = resultSegment.ContinuationToken;
+
+        foreach (IListBlobItem item in resultSegment.Results)
         {
-            BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
-            token = resultSegment.ContinuationToken;
-
-            foreach (IListBlobItem item in resultSegment.Results)
+            if (item.GetType() == typeof(CloudBlockBlob))
             {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-                    Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudPageBlob))
-                {
-                    CloudPageBlob pageBlob = (CloudPageBlob)item;
-
-                    Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory directory = (CloudBlobDirectory)item;
-
-                    Console.WriteLine("Directory: {0}", directory.Uri);
-                }
+                CloudBlockBlob blob = (CloudBlockBlob)item;
+                Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
             }
-        } while (token != null);
 
-There are others ways to list the contents of a blob container. See [How to use blob storage from .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) for more information.
+            else if (item.GetType() == typeof(CloudPageBlob))
+            {
+                CloudPageBlob pageBlob = (CloudPageBlob)item;
+
+                Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+            }
+
+            else if (item.GetType() == typeof(CloudBlobDirectory))
+            {
+                CloudBlobDirectory directory = (CloudBlobDirectory)item;
+
+                Console.WriteLine("Directory: {0}", directory.Uri);
+            }
+        }
+    } while (token != null);
+
+There are others ways to list the contents of a blob container. See [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) for more information.
 
 ##Download a blob
 To download a blob, first get a reference to the blob, and then call the **DownloadToStreamAsync** method. The following example uses the **DownloadToStreamAsync** method to transfer the blob contents to a stream object that you can then save as a local file.
@@ -142,7 +140,7 @@ To download a blob, first get a reference to the blob, and then call the **Downl
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-There are other ways to save blobs as files. See [How to use blob storage from .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs) for more information.
+There are other ways to save blobs as files. See [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md#download-blobs) for more information.
 
 ##Delete a blob
 To delete a blob, first get a reference to the blob, and then call the **DeleteAsync** method on it.

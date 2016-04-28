@@ -14,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="kbaroni;garye" />
 
 # Using linear regression in Azure Machine Learning
 
-> *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft’s Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning.
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+> *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft’s Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning.  
+ 
+&nbsp; 
+  
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
+ 
 ## Goal
 
 Our project started with two goals in mind:  
@@ -50,7 +52,7 @@ We followed these steps to create our experiment in Azure ML:
 
 1.	Uploaded the dataset as a csv file to Azure ML (very small file)
 2.	Created a new experiment and used the [Project Columns][project-columns] module to select the same data features used in Excel   
-3.	Used the [Split][split] module (with *Relative Expression* mode) to divide the data into exact same train sets as had been done in Excel  
+3.	Used the [Split Data][split] module (with *Relative Expression* mode) to divide the data into exact same train sets as had been done in Excel  
 4.	Experimented with the [Linear Regression][linear-regression] module (default options only), documented, and compared the results to our Excel regression model
 
 ### Review initial results

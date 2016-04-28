@@ -13,25 +13,29 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="03/14/2016" 
 	ms.author="raynew"/>
 
 # Failover in Site Recovery
 
-The [Azure Site Recovery service](site-recovery-overview.md) contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter. This article provides information and instructions for recovering (failing over and failing back) virtual machines and physical servers that are protected with Site Recovery. 
-
-If you have any questions after reading this article post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
 ## Overview
 
-After you've set up protection for virtual machines and physical servers they begin replicating to the secondary location. After replication is in place you can run failovers as the need arises. Site Recovery supports a number of types of failover.
+This article provides information and instructions for recovering (failing over and failing back) virtual machines and physical servers that are protected with Site Recovery. 
+
+Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
+
+## Types of failover
+
+After protection is enabled for virtual machines and physical servers and they're replicating you can run failovers as the need arises. Site Recovery supports a number of types of failover.
 
 **Failover** | **When to run** | **Details** | **Process**
 ---|---|---|---
-**Test failover** | Run to validate your replication strategy or perform a disaster recovery drill | <p>No data loss or downtime</p><p>No impact on replication</p><p>No impact on your production environment</p> | <p>Start the failover</p><p>Specify how test machines will be connected to networks after failover</p><p>Track progress on the **Jobs** tab. Test machines are created and start in the secondary location</p><p>Azure - connect to the machine in the Azure portal</p><p>Secondary site - access the machine on the same host and cloud</p><p>Complete testing and automatically clean up test failover settings.</p>
-**Planned failover** | <p>Run to meet compliance requirements</p><p>Run for planned maintenance</p><p>Run to fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports</p> <p>Run to failback after failover from primary to secondary | <p>No data loss</p><p>Downtime is incurred during the time it takes to shut down the virtual machine on the primary and bring it up on the secondary location.</p><p>Virtual machines are impact as  target machines becomes source machines after failover.</p> | <p>Start the failover</p><p>Track progress on the **Jobs** tab. Source machines are shut down</p><p>Replica machines start in the secondary location</p><p>Azure - connect to the replica machine in the Azure portal</p><p>Secondary site - access the machine on the same host and in the same cloud</p><p>Commit the failover</p>
-**Unplanned failover** | <p>Run this type of failover reactive manner when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack</p><p>You can run an unplanned failover can be done even if primary site isn't available.<p> | <p>Data loss dependent on replication frequency settings</p> <p>Data will be up-to-date in accordance with the last time it was synchronized</p> | <p>Start the failover</p><p>Track progress on the **Jobs** tab. Optionally try to shut down virtual machines and synchronize latest data</p><p>Replica machines start in the secondary location</p><p>Azure - connect to the replica machine in the Azure portal</p><p>Secondary site access the machine on the same host and in the same cloud</p><p>Commit the failover</p>
+**Test failover** | Run to validate your replication strategy or perform a disaster recovery drill | No data loss or downtime.<br/><br/>No impact on replication<br/><br/>No impact on your production environment | Start the failover<br/><br/>Specify how test machines will be connected to networks after failover<br/><br/>Track progress on the **Jobs** tab. Test machines are created and start in the secondary location<br/><br/>Azure - connect to the machine in the Azure portal<br/><br/>Secondary site - access the machine on the same host and cloud<br/><br/>Complete testing and automatically clean up test failover settings.
+**Planned failover** | Run to meet compliance requirements<br/><br/>Run for planned maintenance<br/><br/>Run to fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports<br/><br/>Run to failback after failover from primary to secondary | No data loss<br/><br/>Downtime is incurred during the time it takes to shut down the virtual machine on the primary and bring it up on the secondary location.<br/><br/>Virtual machines are impact as  target machines becomes source machines after failover. | Start the failover<br/><br/>Track progress on the **Jobs** tab. Source machines are shut down<br/><br/>Replica machines start in the secondary location<br/><br/>Azure - connect to the replica machine in the Azure portal<br/><br/>Secondary site - access the machine on the same host and in the same cloud<br/><br/>Commit the failover
+**Unplanned failover** | Run this type of failover in a reactive manner when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack <br/><br/> You can run an unplanned failover can be done even if primary site isn't available. | Data loss dependent on replication frequency settings<br/><br/>Data will be up-to-date in accordance with the last time it was synchronized | Start the failover<br/><br/>Track progress on the **Jobs** tab. Optionally try to shut down virtual machines and synchronize latest data<br/><br/>Replica machines start in the secondary location<br/><br/>Azure - connect to the replica machine in the Azure portal<br/><br/>Secondary site access the machine on the same host and in the same cloud<br/><br/>Commit the failover
 
 
 The types of failovers that are supported depend on your deployment scenario.
@@ -45,7 +49,7 @@ VMM site to Azure | Supported | Supported | Supported
 Azure to VMM site | Unsupported | Supported | Unsupported 
 Hyper-V site to Azure | Supported | Supported | Supported
 Azure to Hyper-V site | Unsupported | Supported | Unsupported
-VMware site to Azure | Unsupported |This scenario uses continuous replication so there's no distinction between planned and unplanned failover. You select **Failover** | NA
+VMware site to Azure | Supported (enhanced scenario)<br/><br/> Unsupported (legacy scenario) |This scenario uses continuous replication so there's no distinction between planned and unplanned failover. You select **Failover** | NA
 Physical server to Azure | Not supported | This scenario uses continuous replication so there's no distinction between planned and unplanned failover. You select **Failover** | NA
 
 ## Failover and failback
@@ -88,13 +92,13 @@ When you run a test failover you'll be asked to select network settings for test
 
 **Test failover option** | **Description** | **Failover check** | **Details**
 ---|---|---|---
-**Fail over to Azure—without network** | Don't select a target Azure network | Failover checks that test virtual machine starts as expected in Azure | <p>All test virtual machines in a recover plan are added in a single cloud service and can connect to each other</p><p>Machines aren't connected to an Azure network after failover.</p><p>Users can connect to the test machines with a public IP address</p>
-**Fail over to Azure—with network** | Select a target Azure network | Failover checks that test machines are connected to the network | <p>Create an Azure network that’s isolated from your Azure production network and set up the infrastructure for the replicated virtual machine to work as expected.</p><p>The subnet of the test virtual machine is based on subnet on which the failed over virtual machine is expected to connect to if a planned or unplanned failover occurs.</p>
-**Fail over to a secondary VMM site—without network** | Don't select a VM network | Failover checks that test machines are created <p>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.</p></p>| <p>The failed over machine won’t be connected to any network.</p><p>The machine can be connected to a VM network after it has been created</p>
-**Fail over to a secondary VMM site—with network** | Select an existing VM network a | Failover checks that virtual machines are created | <p>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.</p><p>Create a VM network that's isolated from your production network</p><p>If you're using a VLAN-based network we recommend you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for the purpose of test failover.</p><p>The logical network should be associated with at least one of the network adapters of all the Hyper-V servers hosting virtual machines.</p><p>For VLAN logical networks, the network sites you add to the logical network should be isolated.</p><p>If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks.</p>
-**Fail over to a secondary VMM site—create a network** | A temporary test network will be created automatically based on the setting you specify in **Logical Network** and its related network sites | Failover checks that virtual machines are created | <p>Use this option if the recovery plan uses more than one VM network. If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.</p><p>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.</p>
+**Fail over to Azure—without network** | Don't select a target Azure network | Failover checks that test virtual machine starts as expected in Azure | All test virtual machines in a recover plan are added in a single cloud service and can connect to each other<br/><br/>Machines aren't connected to an Azure network after failover.<br/><br/>Users can connect to the test machines with a public IP address
+**Fail over to Azure—with network** | Select a target Azure network | Failover checks that test machines are connected to the network | Create an Azure network that’s isolated from your Azure production network and set up the infrastructure for the replicated virtual machine to work as expected.<br/><br/>The subnet of the test virtual machine is based on subnet on which the failed over virtual machine is expected to connect to if a planned or unplanned failover occurs.
+**Fail over to a secondary VMM site—without network** | Don't select a VM network | Failover checks that test machines are created.<br/><br/>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located. | <p>The failed over machine won’t be connected to any network.<br/><br/>The machine can be connected to a VM network after it has been created
+**Fail over to a secondary VMM site—with network** | Select an existing VM network a | Failover checks that virtual machines are created | The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.<br/><br/>Create a VM network that's isolated from your production network<br/><br/>If you're using a VLAN-based network we recommend you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for the purpose of test failover.<br/><br/>The logical network should be associated with at least one of the network adapters of all the Hyper-V servers hosting virtual machines.<br/><br/>For VLAN logical networks, the network sites you add to the logical network should be isolated.<br/><br/>If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks.
+**Fail over to a secondary VMM site—create a network** | A temporary test network will be created automatically based on the setting you specify in **Logical Network** and its related network sites | Failover checks that virtual machines are created | Use this option if the recovery plan uses more than one VM network. If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.</p><p>The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.
 
->[AZURE.NOTE] The IP given to a virtual machine on a Test Failover is same as the IP it would get on doing a planned or unplanned failover given that this IP is available in the Test Failover network. If the same IP is not available in the test failover network, virutal machine will get some other IP available in the test failover network.
+>[AZURE.NOTE] The IP address given to a virtual machine during test failover is same as the IP address it would receive when doing a planned or unplanned failover (presuming that the IP address is available in the test failover network. If the same IP address isn't available in the test failover network then virtual machine will receive another IP address available in the test failover network.
 
 
 
@@ -148,7 +152,7 @@ If the virtual machines involved in test failover use DHCP, a test DHCP server s
 
 
 ### Prepare Active Directory
-To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](site-recovery-active-directory.md#considerations-for-test-failover]) section for more details. 
+To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](site-recovery-active-directory.md#considerations-for-test-failover) section for more details. 
 
 
 ### Prepare DNS
@@ -211,14 +215,15 @@ This procedure describes how to run an unplanned failover for a recovery plan. A
 2. On the **Confirm Planned Failover **page, choose the source and target locations. Note the failover direction. If the failover from primary worked as expect and all virtual machines are in the secondary location this is for information only.
 3. If you're failing back from Azure select settings in **Data Synchronization**:
 
-	- **Synchronize the data before the failover**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
+	- **Synchronize data before failover(Synchonize delta changes only)**—This option minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
 		- Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
 		- Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.
 	
-	> [AZURE.NOTE] We recommend you use this option if you've been running Azure for a while (a month or more) This option performs synchronization without shutting down virtual machines. It doesn't do a resynchronization, but performs a full failback. This option doesn't perform any checksum calculations.
 
-	- **Synchronize the data during failover only**—Use this option if you've only been running on Azure for a short amount of time. this option is faster because it resynchronizes instead of doing a full failback. It performs a fast checksum calculation and only downloads changed blocks.
-
+	- **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we dont want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
+	
+	> [AZURE.NOTE] We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem VM has been deleted.This option doesn't perform any checksum calculations.
+	
 5. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server. 
 5. By default the last recovery point is used, but in **Change Recovery Point** you can specify a different recovery point. 
 6. Click the checkmark to start the failback.  You can follow the failover progress on the **Jobs** tab. 
@@ -248,4 +253,5 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 9. You can log onto the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover.
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
 
+	>[AZURE.NOTE] If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a currupted state. This is because Data Synchonization copies the latest data from Azure VM disks to the on-prem data disks, and untill the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchonization is cancelled, it may not boot. Re-trigger failover to complete the Data Synchonization.
  

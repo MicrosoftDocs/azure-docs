@@ -55,7 +55,7 @@ HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows S
 * [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 
 * [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -88,11 +88,12 @@ Use these Azure templates to deploy Linux HPC clusters.
 
 ## Compute intensive instances
 
-Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md), including compute intensive [A8 and A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads.
+Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-sizes.md), including compute intensive [A8 and A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads.
 
-* [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
+
+* [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
 ## Architecture blueprints
 
@@ -118,19 +119,28 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 ## Customer stories
 
-* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
-
-* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
 
 * [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
 
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
-
 * [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
 
 * [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+
+
+
+
+
 
 ## Next steps
 

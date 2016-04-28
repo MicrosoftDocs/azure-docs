@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 
@@ -31,17 +31,17 @@ You **must** perform the walkthrough in the [Tutorial: Move and process log file
 
 In this walkthrough, you will perform the following steps: 
 
-1. [Step 1: Create a data management gateway](#OnPremStep1). The Data Management Gateway  is a client agent that provides access to on-premises data sources in your organization from the cloud. The gateway enables transfer of data between an on premise SQL Server and Azure data stores.	
+1. [Create a data management gateway](#create-data-management-gateway). The Data Management Gateway  is a client agent that provides access to on-premises data sources in your organization from the cloud. The gateway enables transfer of data between an on premise SQL Server and Azure data stores.	
 
 	You must have at least one gateway installed in your corporate environment as well as register it with the Azure Data Factory before adding on-premises SQL Server database as a linked service to an Azure data factory.
 
-2. [Step 2: Create a linked service for the on-premises SQL Server](#OnPremStep2). In this step, you first create a database and a table on your on-premises SQL Server computer and then create the linked service: **OnPremSqlLinkedService**.  
-3. [Step 3: Create table and pipeline](#OnPremStep3). In this step, you will create a table **MarketingCampaignEffectivenessOnPremSQLTable** and pipeline **EgressDataToOnPremPipeline**. 
+2. [Create SQL Server linked service](#create-sql-server-linked-service). In this step, you first create a database and a table on your on-premises SQL Server computer and then create the linked service: **OnPremSqlLinkedService**.  
+3. [Create datset and pipeline](#create-dataset-and-pipeline). In this step, you will create a table **MarketingCampaignEffectivenessOnPremSQLTable** and pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Step 4: Monitor pipeline and view the result](#OnPremStep4). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
+4. [Monitor pipeline](#monitor-pipeline). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Portal.
 
 
-## <a name="OnPremStep1"></a> Step 1: Create a Data Management Gateway
+## Create Data Management Gateway
 
 The Data Management Gateway is a client agent that provides access to on-premises data sources in your organization from the cloud. The gateway enables transfer of data between an on premise SQL Server and Azure data stores.
   
@@ -62,7 +62,7 @@ If you have an existing data gateway that you can use, skip this step.
 
 9. Click **OK** to close the **Configure** blade and **OK** to close the **Create** blade. Wait until the status of **MyGateway** in the **Linked Services** blade changes to **GOOD**. You can also launch **Data Management Gateway Configuration Manager (Preview)** tool to confirm that the name of the gateway matches the name in the portal and the **status** is **Registered**. You may have to close and reopen the Linked Services blade to see the latest status. It may take a few minutes before the screen is refreshed with the latest status.	
 
-## <a name="OnPremStep2"></a> Step 2: Create a linked service for the on-premises SQL Server
+## Create SQL Server linked service
 
 In this step, you first create the required database and table on your on-premises SQL Server computer and then create the linked service.
 
@@ -109,7 +109,7 @@ To start with, you need to create the SQL Server database, table, user defined t
 12.	Click **OK** in the **New data store** blade. 
 13.	In the **Linked Services** blade, confirm that **OnPremSqlLinkedService** shows up in the list and the **status** of the linked service is **Good**.
 
-## <a name="OnPremStep3"></a> Step 3: Create table and pipeline
+## Create dataset and pipeline
 
 ### Create the on-premises logical Table
 
@@ -133,9 +133,9 @@ To start with, you need to create the SQL Server database, table, user defined t
 
 	Press **‘Y’** to continue.
 	
-## <a name="OnPremStep4"></a> Step 4: Monitor pipeline and view the result
+## Monitor pipeline
 
-You can now use the same steps introduced in [Step 6: Monitoring tables and pipelines](#MainStep6)  to monitor the new pipeline and the data slices for the new on-premises ADF table.
+You can now use the same steps introduced in [Monitoring pipelines](data-factory-tutorial-using-powershell.md#monitor-pipelines)  to monitor the new pipeline and the data slices for the new on-premises ADF table.
  
 When you see the status of a slice of the table **MarketingCampaignEffectivenessOnPremSQLTable** turns into Ready, it means that the pipeline have completed the execution for the slice. To view the results, query the **MarketingCampaignEffectiveness** table in **MarketingCampaigns** database in your SQL Server.
  

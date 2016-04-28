@@ -15,13 +15,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/21/2016" 
 	ms.author="jeffstok"
 />
 
-# Build an IOT solution using Stream Analytics #
+# Build an IOT solution using Stream Analytics
 
-## Introduction ##
+## Introduction
 
 In this tutorial you will learn how to get real-time insights from your data using Azure Stream Analytics. Azure's stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
 
@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 -   Develop streaming solutions for your customers using Azure Streaming Analytics with confidence.
 -   Use the monitoring and logging experience to troubleshoot issues.
 
-## Prerequisites ##
+## Prerequisites
 
 You will need the following pre-requisites to successfully complete this tutorial.
 
@@ -41,20 +41,21 @@ You will need the following pre-requisites to successfully complete this tutoria
 -   Visual Studio 2015 or the free [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Azure Subscription](https://azure.microsoft.com/pricing/free-trial/)
 -   Administrative Privileges on the computer
--   Download the latest release TollApp.zip from [GitHub](https://github.com/streamanalytics/samples/releases)
+-   Download [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) from the Microsoft Download Center
+-   Optional: Source code for TollApp event generator in [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
 
-## Scenario Introduction - “Hello, Toll!” ##
+## Scenario Introduction - “Hello, Toll!”
 
 
 A tolling station is a common phenomenon – we encounter them in many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths, which may be manual – meaning that you stop to pay the toll to an attendant, or automated – where a sensor placed on top of the booth scans an RFID card affixed to the windshield of your vehicle as you pass the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
-## Incoming data ##
+## Incoming data
 
 We will work with two streams of data which are produced by sensors installed in the entrance and exit of the toll stations and a static look up dataset with vehicle registration data.
 
-### Entry Data Stream ###
+### Entry Data Stream
 
 Entry data stream contains information about cars entering toll stations.
   
@@ -108,7 +109,7 @@ Here is a short description of the columns:
 | ExitTime     | The date and time of exit of the vehicle from Toll Booth in UTC |
 | LicensePlate | License Plate number of the vehicle                             |
 
-###Commercial Vehicle Registration Data
+### Commercial Vehicle Registration Data
 
 We will use a static snapshot of commercial vehicle registration database.
   
@@ -148,7 +149,7 @@ This tutorial will require 2 Azure Event Hubs to receive “Entry” and “Exit
 
 The Setup.ps1 script in the TollApp folder on GitHub can be used to create all required resources. In the interest of time, we recommend that you run it. If you would like to learn more about configuring these resources in Azure portal, please refer to the appendix “Configuring Tutorial resources in Azure Portal”
 
-Download and save the supporting [TollApp](https://github.com/streamanalytics/samples/releases) folder and files. Make sure you download the latest release.
+Download and save the supporting [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) folder and files.
 
 Open a “Microsoft Azure PowerShell” window **AS AN ADMINISTRATOR**. If you do not yet have Azure PowerShell, follow the instructions here to install it: [Install and configure Azure PowerShell](../powershell-install-configure.md)
 
@@ -224,7 +225,7 @@ Click on “TollDataDB”
 
 Copy the server name without the port number (*servername*.database.windows.net for example)
 
-##Connect to Database from Visual Studio
+## Connect to Database from Visual Studio
 
 We will use Visual Studio to access query results in the output database.
 
@@ -236,7 +237,7 @@ Connect to the Azure database (the destination) from Visual Studio:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)  
 
-3)  In the Server Name field paste the name of the SQL Server copied inthe previous section from Azure Portal (i.e. *servername*.database.windows.net)
+3)  In the Server Name field paste the name of the SQL Server copied in the previous section from Azure Portal (i.e. *servername*.database.windows.net)
 
 4)  In the Authentication field choose SQL Server Authentication
 
@@ -256,7 +257,7 @@ Connect to the Azure database (the destination) from Visual Studio:
   
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)  
   
-##Event Generator - TollApp Sample Project
+## Event Generator - TollApp Sample Project
 
 The PowerShell script automatically starts sending events using the TollApp sample application program. You don’t need to perform any additional steps.
 
@@ -278,7 +279,7 @@ Click “Create Stream Analytics Job” at the bottom of the page.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
-##Define input sources
+## Define input sources
 
 Click on the created analytics job in the portal.
 
@@ -318,7 +319,7 @@ Click OK at the bottom of the dialog to finish the wizard.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image30.jpg)
 
-You will need to follow the same sequence of steps to create the second Event Hub input for the stream with Exit events. Make sure on the 3^rd^ page you enter values as on the screenshot bellow.
+You will need to follow the same sequence of steps to create the second Event Hub input for the stream with Exit events. Make sure on the 3rd page you enter values as on the screenshot bellow.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
 
@@ -344,7 +345,7 @@ Now all inputs are defined.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image36.jpg)
 
-##Define output
+## Define output
 
 Go to “Output” tab and click “Add an output”.
 
@@ -354,11 +355,11 @@ Choose “Sql Database”.
 
 Select the server name that was used in “Connect to Database from Visual Studio”. The database name should be TollDataDB.
 
-Enter “tolladmin” as the user name and “123toll!” as the password. The table name should be set to “TollDataRefJoin”
+Enter “tolladmin” as the user name and “123toll!” as the password. The table name should be set to “TollDataRefJoin”.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
 
-##Azure Stream analytics query
+## Azure Stream analytics query
 
 The Query tab contains a SQL query that performs the transformation over the incoming data.
 
@@ -368,7 +369,7 @@ Through this tutorial we will attempt to answer several business questions relat
 
 Before we start our first Azure Stream Analytics job, let’s explore few scenarios and query syntax.
 
-##Introduction to Azure Stream Analtyics Query language
+## Introduction to Azure Stream Analtyics Query language
 -----------------------------------------------------
 
 Let’s say, we need to count the number of vehicles that enter a toll booth. Since this is a continuous stream of events, it is essential we define a “period of time”. So we need to modify our question to be “Number of vehicles entering a toll booth every 3 minutes”. This is commonly referred to as the Tumbling Count.
@@ -384,7 +385,7 @@ As you can see, Azure Stream Analytics is using a SQL-like query language with a
 For more detail, you may read about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx)
 constructs used in the query from MSDN.
 
-##Testing Azure Stream Analytics queries
+## Testing Azure Stream Analytics queries
 
 Now that we have written our first Azure Stream Analytics query, it is time to test it out using sample data files located in your TollApp folder in the path below:
 
@@ -412,7 +413,7 @@ Validate that the output of the query is as expected:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)
 
-##Question 2 - Report Total time for each car to pass through the toll booth
+## Question 2 - Report Total time for each car to pass through the toll booth
 
 We want to find average time required for the car to pass the toll to assess efficiency and customer experience.
 
@@ -436,7 +437,7 @@ Click the checkbox to test the query and view output:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
-##Question 3 – Report all commercial vehicles with expired registration
+## Question 3 – Report all commercial vehicles with expired registration
 
 Azure Stream Analytics can use static snapshots of data to join with temporal data streams. To demonstrate this capability we will use the following sample question.
 
@@ -458,7 +459,7 @@ View the output of the query:
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)
 
-##Start the Stream Analytics Job
+## Start the Stream Analytics Job
 
 
 Now as we have written our first Azure Stream Analytics query, it is time to finish the configuration and start the job. Save the query from Question 3, which will produce output that matches the schema of our output table **TollDataRefJoin**.
@@ -475,13 +476,13 @@ Starting the job can take a few minutes. You will be able to see the status on t
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
 
-##Check results in Visual Studio
+## Check results in Visual Studio
 
 Open Visual Studio Server Explorer and right click TollDataRefJoin table. Select “Show Table Data” to see the output of your job.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
-##Scaling out Azure Stream Analytics Jobs
+## Scaling out Azure Stream Analytics Jobs
 
 Azure Stream Analytics is designed to elastically scale and be able to handle high load of data. The Azure Stream Analytics query can use a **PARTITION BY** clause to tell the system that this step will scale out. PartitionId is a special column added by the system that matches the partition id of the input (Event Hub)
 
@@ -501,7 +502,7 @@ Please go to the output tab and change SQL table name to “TollDataTumblingCoun
 
 Now, if you start the job, Azure Stream Analytics will be able to distribute work across more compute resources and achieve better throughput. Please note that TollApp application is also sending events partitioned by TollId.
 
-##Monitoring
+## Monitoring
 
 Monitoring tab contains statistics about the running job.
 
@@ -517,14 +518,14 @@ To see additional information about a particular event, select the event and cli
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
-##Conclusion
+## Conclusion
 
 In this tutorial we provided introduction to the Azure Stream Analytics service. We demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, we explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. We described SQL extension constructs for working with temporal data. We showed how to join data streams, how to enrich the data stream with static reference data. We explained how to scale out a query to achieve higher throughput.
 
 While this tutorial provides good introductory coverage, it is not complete by any means. You can find more Query Patterns using the SAQL language [here](stream-analytics-stream-analytics-query-patterns.md).
 Please refer to the [online documentation](https://azure.microsoft.com/documentation/services/stream-analytics/) to learn more about Azure Stream Analytics.
 
-##Cleanup your Azure account
+## Cleanup your Azure account
 
 Please stop the Stream Analytics Job from the Azure Portal.
 

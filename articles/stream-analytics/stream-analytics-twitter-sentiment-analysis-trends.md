@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="02/18/2016"
 	ms.author="jeffstok"/>
 
 
@@ -29,8 +29,9 @@ Social media analytics tools help organizations understand trending topics, mean
 A news media website is interested in getting an edge over its competitors by featuring site content that is immediately relevant to its readers. They use social media analysis on topics relevant to their readers by doing real time sentiment analysis on Twitter data. Specifically, to identify what topics are trending in real time on Twitter, they need real-time analytics about the tweet volume and sentiment for key topics. So in essence they need a sentiment analysis analytics engine based on this social media feed.
 
 ## Prerequisites
-1.	A Twitter account is required for this tutorial.  
-2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) and follow the steps below to set up your solution.
+1.	Twitter account and [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) 
+2.	[TwitterClient.zip](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip) from the Microsoft Download Center
+3.	Optional: Source code for twitter client from [Github](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) 
 
 ## Create an Event Hub input and a Consumer Group
 
@@ -55,16 +56,15 @@ We have provided a client application that will tap into Twitter data via [Twitt
 
 Follow these steps to set up the application:
 
-1.	[Download the TwitterClient solution](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
-2.	Open App.config and replace oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret with Twitter tokens with your values.  
+1.	[Download the TwitterClient solution](http://download.microsoft.com/download/1/7/4/1744EE47-63D0-4B9D-9ECF-E379D15F4586/TwitterClient.zip)
+2.	Open TwitterClient.exe.config and replace oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret with Twitter tokens with your values.  
 
 	[Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
 	Note that you will need to make an empty application to generate a token.  
-3.	Replace the EventHubConnectionString and EventHubName values in App.config with your Event Hub connection string and name.
-4.	*Optional:* Adjust the keywords to search for.  As a default, this application looks for "Azure,Skype,XBox,Microsoft,Seattle".  You can adjust the values for twitter_keywords in App.config, if desired.
-5.	Build the solution
-6.	Start the application.  You will see Tweet events with the CreatedAt, Topic, and SentimentScore values being sent to your Event Hub:
+3.	Replace the EventHubConnectionString and EventHubName values in TwitterClient.exe.config with your Event Hub connection string and name. The connection string you copied earlier gives you both the Event hub connection string and the name, so be aware to separate them and put each in the correct field.
+4.	*Optional:* Adjust the keywords to search for.  As a default, this application looks for "Azure,Skype,XBox,Microsoft,Seattle".  You can adjust the values for twitter_keywords in TwitterClient.exe.config, if desired.
+5.	Run **TwitterClient.exe** to start your application. You will see Tweet events with the CreatedAt, Topic, and SentimentScore values being sent to your Event Hub:
 
 	![Sentiment analysis: SentimentScore values sent to an event hub.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
@@ -81,7 +81,7 @@ Now that we have Tweet events streaming in real-time from Twitter, we can set up
 	* **REGION**: Select the region where you want to run the job. Consider placing the job and the event hub in the same region to ensure better performance and to ensure that you will not be paying to transfer data between regions.
 	* **STORAGE ACCOUNT**: Choose the Storage account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region. You have the option to choose an existing Storage account or to create a new one.
 
-3.	Click **STREAM ANALYTICS** in the left pane to list the Stream Analytics jobs.
+3.	Click **STREAM ANALYTICS** in the left pane to list the Stream Analytics jobs.  
 	![Stream Analytics service icon](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	The new job will be shown with a status of **CREATED**. Notice that the **START** button on the bottom of the page is disabled. You must configure the job input, output, and query before you can start the job.

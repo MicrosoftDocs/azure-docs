@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/09/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 
@@ -95,7 +95,7 @@ In this task you will define the tools that will be used to synchronize the orga
 Over the years, several synchronization tools have existed and used for various scenarios.  Currently Azure AD Connect is the go to tool of choice for all supported scenarios.  AAD Sync and DirSync are also still around and may even be present in your environment now. 
 
 >[AZURE.NOTE]
-For the latest information regarding the supported capabilities of each tool, read [Directory integration tools comparison](active-directory-aadconnect-get-started-tools-comparison.md) article.  
+For the latest information regarding the supported capabilities of each tool, read [Directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md) article.  
 
 ### Supported topologies
 When defining a synchronization strategy, the topology that is used must be determined. Depending on the information that was determined in step 2 you can determine which topology is the proper one to use. 

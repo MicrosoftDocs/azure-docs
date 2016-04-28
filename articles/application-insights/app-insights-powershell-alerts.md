@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # Use PowerShell to set alerts in Application Insights
 
 You can automate the configuration of [alerts](app-insights-alerts.md) in [Visual Studio Application Insights](app-insights-overview.md). 
+
+In addition, you can [set webhooks to automate your response to an alert](../azure-portal/insights-webhooks-alerts.md).
 
 ## One-time setup
 
@@ -31,7 +33,7 @@ Install the Azure Powershell module on the machine where you want to run the scr
 
 ## Connect to Azure
 
-Start Azure PowerShell and [connect to your subscription](powershell-install-configure.md):
+Start Azure PowerShell and [connect to your subscription](../powershell-install-configure.md):
 
 ```PowerShell
 
@@ -131,6 +133,9 @@ performanceCounter | [Performance](app-insights-configuration-with-applicationin
 remoteDependencyFailed| [Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
 request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
+## Webhooks
+
+You can [automate your response to an alert](../azure-portal/insights-webhooks-alerts.md). Azure will call a web address of your choice when an alert is raised. 
 
 ## See also
 
@@ -138,6 +143,7 @@ request,<br/>requestFailed|[Server request](app-insights-configuration-with-appl
 * [Script to configure Application Insights](app-insights-powershell-script-create-resource.md)
 * [Create Application Insights and web test resources from templates](app-insights-powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Automate your response to an alert](../azure-portal/insights-webhooks-alerts.md)
 
 
  

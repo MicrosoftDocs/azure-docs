@@ -3,7 +3,7 @@
     description="Learn how to use Google Apps with Azure Active Directory to enable single sign-on, automated provisioning, and more!"
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/13/2016"
-    ms.author="liviodlc"/>
+    ms.date="02/17/2016"
+    ms.author="asmalser-msft"/>
 
 #Tutorial: How to integrate Google Apps with Azure Active Directory
 
@@ -38,7 +38,7 @@ How to Enable Single Sign-On to Google Apps in 2 Minutes:
 
 	A: Yes, users will be able to sign into their Chromebook devices using their Azure AD credentials. See this [Google Apps support article](https://support.google.com/chrome/a/answer/6060880) for information on why users may get prompted for credentials twice.
 
-2. **Q: If I enable single sign-on, will users be able to their Azure AD credentials to sign into any Google product, such as Google Classroom, GMail, Google Drive, YouTube, etc?**
+2. **Q: If I enable single sign-on, will users be able to use their Azure AD credentials to sign into any Google product, such as Google Classroom, GMail, Google Drive, YouTube, etc?**
 
 	A: Yes, depending on [which Google apps](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) you choose to enable or disable for your organization.
 

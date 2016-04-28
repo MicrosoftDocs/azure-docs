@@ -5,4 +5,4 @@ Some of the cases where virtual appliances can be used include:
 - Monitoring traffic with an intrusion detection system (IDS)
 - Controlling traffic with a firewall
 
-For more information about UDR and IP forwarding, visit [User Defined Routes and IP Forwarding](./virtual-networks-udr-overview.md).
+For more information about UDR and IP forwarding, visit [User Defined Routes and IP Forwarding](../articles/virtual-network/virtual-networks-udr-overview.md).

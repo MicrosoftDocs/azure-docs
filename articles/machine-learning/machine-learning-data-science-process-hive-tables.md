@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"  />
 
 <tags
@@ -16,7 +16,7 @@
 	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process and Technology 
+#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process and Technology
 
 This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. This task is part of the Cortana Analytics Process (CAP). Several data wrangling tasks are discussed: data exploration and feature generation. Generic Hive queries that show how to explore data or generate features using Hive in an Azure HDInsight Hadoop cluster are presented. These Hive queries use embedded Hive User Defined Functions (UDFs) which are provided.
 
@@ -172,7 +172,7 @@ Here are a few sample Hive scripts that can be used to explore data in Hive tabl
 
 In this section, we describe ways of generating features using Hive queries.
 
-> [AZURE.NOTE] The sample Hive queries in this section assumes that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
+> [AZURE.NOTE] The sample Hive queries in this section assumes that the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
 
 Once you have generated additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, which can then be joined with the original table.  
 
@@ -314,7 +314,3 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 		set mapreduce.reduce.java.opts=-Xmx8192m;
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
-
-
-
- 

@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="How to use CDN | Microsoft Azure" 
-	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Using Azure CDN"
+	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/15/2016"
 	ms.author="casoper"/>
 
 
-# Using CDN for Azure
+# Using Azure CDN
 
-The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP application in Azure. It offers Azure customers a global solution by caching and delivering content close to end users. As a result, instead of hitting origin every single time, user requests get intelligently routed to the best performed CDN edge POP. This significantly increases the performance and user experience. For a current list of
+The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP/HTTPS application in Azure. It offers Azure customers a global solution by caching and delivering content close to end users. As a result, instead of hitting the origin every single time, user requests are intelligently routed to the CDN edge node (POP, or Point of Presence) that provides them with the best response times. This significantly increases the performance and user experience. For a current list of
 CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
 
 The benefits of using CDN to cache Azure data include:
@@ -35,14 +35,14 @@ The benefits of using CDN to cache Azure data include:
 1. Create a CDN profile with endpoint(s) pointing to your origin
 
 	A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  Once you have created a CDN profile, you can create a new CDN endpoint using the origin you have chosen.
-	
+
 	>[AZURE.NOTE] By default, a single Azure subscription is limited to four CDN profiles.  Each CDN profile is limited to ten CDN endpoints.
 	>
 	> CDN pricing is applied at the CDN profile level.  If you wish to use a mix of Standard and Premium CDN features, you will need multiple CDN profiles.
-	
+
 	For a detailed tutorial on creating CDN profiles and endpoints, see [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md).   
-	
-2. Set up your CDN configuration 
+
+2. Set up your CDN configuration
 
 	You can enable a number of features for your CDN endpoint, such as [caching policy](cdn-caching-policy.md), [query string caching](cdn-query-string.md), [rules engine](cdn-rules-engine.md), and more.  For details, see the **Manage** menu on the left.  
 
@@ -56,10 +56,12 @@ Once the CDN is enabled on a Azure storage account, any blobs that are in public
 
 For best performance, use CDN edge caching for delivering blobs less than 10 GB in size.
 
-When you enable CDN access for a storage account, the Management Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to access blobs in a public container. For example, given a public container named music in a storage account named myaccount, users can access the blobs in that container using either of the following two URLs:
+When you enable CDN access for a storage account, the Management Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to access blobs in a public container. For example, given a public container, users can access the blobs in that container using either of the following two URLs:
 
-- **Azure Blob service URL**: `http://myAccount.blob.core.windows.net/music/` 
-- **Azure CDN URL**: `http://<identifier>.azureedge.net/music/` 
+- **Azure Blob service URL**: `http://<account>.blob.core.windows.net/<container>/`
+- **Azure CDN URL**: `http://<identifier>.azureedge.net/<container>/`
+
+> [AZURE.TIP] In the above example, we've pointed the CDN endpoint at the *entire* storage account. Accordingly, the CDN URL will need to include the container in the URL.  You can point the root CDN URL to a specific container using the **Origin Path** parameter.
 
 ## Caching content from Azure websites
 
@@ -67,14 +69,14 @@ You can enable CDN from your websites to cache your web contents, such as images
 
 When you enable CDN access for a website, the Management Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to retrieve objects from a website. For example, given a public container named cdn and an image file called music.png, users can access the object using either of the following two URLs:
 
-- **Azure Website URL**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
+- **Azure Website URL**: `http://mySiteName.azurewebsites.net/cdn/music.png`
 - **Azure CDN URL**: `http://<identifier>.azureedge.net/cdn/music.png`
- 
+
 ## Caching content from Azure cloud services
 
-You can cache objects to the CDN that are provided by a Azure cloud service. 
+You can cache objects to the CDN that are provided by a Azure cloud service.
 
-Caching for cloud services has the following constraints: 
+Caching for cloud services has the following constraints:
 
 
 - The CDN should be used to cache static content only.
@@ -87,14 +89,14 @@ Caching for cloud services has the following constraints:
 When you enable CDN access for on a cloud service, the Management Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to retrieve objects from a cloud service. For example, given a cloud service named myHostedService and an ASP.NET web page called music.aspx that delivers content, users can access the object using either of the following two URLs:
 
 
-- **Azure cloud service URL**: `http://myHostedService.cloudapp.net/music.aspx` 
-- **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx` 
+- **Azure cloud service URL**: `http://myHostedService.cloudapp.net/music.aspx`
+- **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## Caching content from custom origins
 
-You can cache objects to the CDN that are provided by any publicly accessible web application. 
+You can cache objects to the CDN that are provided by any publicly accessible web application.
 
-Caching for custom origins has the following constraints: 
+Caching for custom origins has the following constraints:
 
 - The CDN should be used to cache static content only.
 
@@ -104,12 +106,12 @@ Caching for custom origins has the following constraints:
 When you enable CDN access for on a custom origin, the Azure Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to retrieve objects from the custom origin. For example, given a site located at www.contoso.com and an ASP.NET web page called music.aspx that delivers content, users can access the object using either of the following two URLs:
 
 
-- **Custom origin URL**: `http://www.contoso.com/music.aspx` 
-- **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx` 
+- **Custom origin URL**: `http://www.contoso.com/music.aspx`
+- **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## Caching specific content with query strings
 
-You can use query strings to differentiate objects retrieved from an origin. For example, if the origin displays a chart that can vary you can pass a query string to retrieve the specific chart required. For example: 
+You can use query strings to differentiate objects retrieved from an origin. For example, if the origin displays a chart that can vary you can pass a query string to retrieve the specific chart required. For example:
 
 `http://<identifier>.azureedge.net/chart.aspx?item=1`
 
@@ -127,7 +129,6 @@ Accessing CDN content using HTTPS has the following constraints:
 - You must use the certificate provided by the CDN. Third party certificates are not supported.
 - You must use the CDN domain to access content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
 
-For more information on enabling HTTPS for CDN content, see [How to Enable the Content Delivery Network (CDN) for Azure](cdn-create-new-endpoint.md).
 
 
 ## Accessing cached content with custom domains
@@ -138,7 +139,7 @@ For more information on mapping a custom domain, see [How to Map Content Deliver
 
 ## Managing CDN programmatically
 
-Microsoft Azure CDN can be managed programmatically using the [CDN Resource Provider REST API](https://msdn.microsoft.com/library/mt634456.aspx). 
+Microsoft Azure CDN can be managed programmatically using the [CDN Resource Provider REST API](https://msdn.microsoft.com/library/mt634456.aspx).
 
 
 ## See also
@@ -147,4 +148,3 @@ Microsoft Azure CDN can be managed programmatically using the [CDN Resource Prov
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
 - [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
 - [CDN Resource Provider REST API](https://msdn.microsoft.com/library/mt634456.aspx)
-

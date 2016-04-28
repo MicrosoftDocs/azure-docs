@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # Get started with blob storage and Visual Studio connected services (ASP.NET)
@@ -21,9 +21,9 @@
 ## Overview
 
 This article describes how to get started using Azure Blob storage after you have created or referenced an Azure storage account in an ASP.NET app by using the  Visual Studio **Add Connected Services** dialog box. The article shows you how to create blob containers and perform other common tasks such as uploading, listing, downloading, and deleting blobs. The samples are written in C\# and
-use the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+use the [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
- - For more general information about using Azure Blob storage, see [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md).
+ - For more general information about using Azure Blob storage, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md).
  - For more information about ASP.NET projects, see [ASP.NET](http://www.asp.net).
 
 
@@ -80,8 +80,6 @@ a block blob reference. Once you have a blob reference, you can upload any
 stream of data to it by calling the **UploadFromStream** method. This operation will create the blob if it didn't previously exist,
 or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.
 
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
-
     // Create or overwrite the "myblob" blob with contents from a local file.
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
@@ -97,8 +95,6 @@ returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**,
 type check to determine which to cast it to.  The following code
 demonstrates how to retrieve and output the URI of each item in
 the **photos** container.
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
 
 	// Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -176,8 +172,6 @@ To download blobs, use the **DownloadToStream** method. The following
 example uses the **DownloadToStream** method to transfer the blob
 contents to a stream object that you can then persist to a local file.
 
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
-
     // Retrieve a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
@@ -188,8 +182,6 @@ contents to a stream object that you can then persist to a local file.
     }
 
 You can also use the **DownloadToStream** method to download the contents of a blob as a text string.
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
 	// Retrieve a reference to a blob named "myblob.txt"
 	CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
@@ -204,8 +196,6 @@ You can also use the **DownloadToStream** method to download the contents of a b
 ## Delete blobs
 
 To delete a blob, use the **Delete** method.
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
     // Retrieve reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");

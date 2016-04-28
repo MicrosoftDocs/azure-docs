@@ -3,7 +3,7 @@
    description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain using PowerShell."
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -13,25 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
-   ms.author="joaoma"/>
+   ms.date="03/03/2016"
+   ms.author="cherylmc"/>
 
 # Get started with Azure DNS using Powershell
 
-
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).  A DNS zone is used to host the DNS records for a particular domain.<BR><BR>
-To start hosting your domain we need to first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.<BR><BR>
-These instructions use Microsoft Azure PowerShell.  Be sure to update to the latest Azure PowerShell to use the Azure DNS cmdlets. The same steps can also be executed using the Microsoft Azure Command Line Interface, REST API or SDK.<BR><BR>
+The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).  A DNS zone is used to host the DNS records for a particular domain.
+
+To start hosting your domain we need to first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
+
+These instructions use Microsoft Azure PowerShell.  Be sure to update to the latest Azure PowerShell to use the Azure DNS cmdlets. The same steps can also be executed using the Azure Portal or cross-platform CLI.
 
 The following steps need to be completed before you can manage Azure DNS using Azure PowerShell.
 
-
-Azure DNS uses Azure Resource Manager (ARM). Follow this instructions for Azure PowerShell 1.0.0 and above. More info is available at [Using Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).<BR><BR>
-
+Azure DNS uses Azure Resource Manager (ARM). Follow this instructions for Azure PowerShell 1.0.0 and above. More info is available at [Using Azure Powershell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Step 1
 Log in to your Azure account (you will be prompted to Authenticate with your credentials)
@@ -57,15 +57,15 @@ The Azure DNS service is managed by the Microsoft.Network resource provider. You
 
 	PS c:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
-
-
 ## Etags and Tags
 
 ### Etags
-Suppose two people or two processes try to modify a DNS record at the same time.  Which one wins?  And does the winner know that they’ve just overwritten changes created by someone else?<BR><BR>
+Suppose two people or two processes try to modify a DNS record at the same time.  Which one wins?  And does the winner know that they’ve just overwritten changes created by someone else?
+
 Azure DNS uses Etags to handle concurrent changes to the same resource safely. Each DNS resource (zone or record set) has an Etag associated with it.  Whenever a resource is retrieved, its Etag is also retrieved.  When updating a resource, you have the option to pass back the Etag so Azure DNS can verify that the Etag on the server matches.  Since each update to a resource results in the Etag being re-generated, an Etag mismatch indicates a concurrent change has occurred.  Etags are also used when creating a new resource to ensure that the resource does not already exist.
 
-By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets.  The optional ‘-Overwrite’ switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred will be overwritten.<BR><BR>
+By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets.  The optional ‘-Overwrite’ switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred will be overwritten.
+
 At the level of the Azure DNS REST API, Etags are specified using HTTP headers.  Their behavior is given in the following table:
 
 |Header|Behavior|
@@ -92,8 +92,6 @@ A DNS zone is created using the New-AzureRmDnsZone cmdlet. In the example below 
 
 
 Your DNS zone has now been created in Azure DNS.  Creating a DNS zone also creates the following DNS records:<BR>
-
-
 
 - The ‘Start of Authority’ (SOA) record.  This is present at the root of every DNS zone.
 - The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.<BR>

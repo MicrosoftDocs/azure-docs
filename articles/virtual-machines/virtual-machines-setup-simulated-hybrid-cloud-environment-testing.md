@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Simulated hybrid cloud test environment | Microsoft Azure" 
 	description="Create a simulated hybrid cloud environment for IT pro or development testing, using two Azure virtual networks and a VNet-to-VNet connection." 
-	services="virtual-network" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,22 +9,22 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # Set up a simulated hybrid cloud environment for testing
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 This article steps you through creating a simulated hybrid cloud environment with Microsoft Azure for testing using two separate Azure virtual networks. Use this configuration as an alternative to 
-[Set up a hybrid cloud environment for testing](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md) when you do not have a direct Internet connection and an available public IP address. Here is the resulting configuration.
+[Set up a hybrid cloud environment for testing](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) when you do not have a direct Internet connection and an available public IP address. Here is the resulting configuration.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
 
 This simulates a hybrid cloud production environment. It consists of:
 
@@ -51,11 +51,11 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 
 ## Phase 1: Configure the TestLab virtual network
 
-Use the instructions in the [Base Configuration Test Environment](virtual-machines-base-configuration-test-environment-resource-manager.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
+Use the instructions in the [Base Configuration Test Environment](virtual-machines-windows-test-config-env.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
 
 Next, start an Azure PowerShell prompt.
 
-> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see Azure PowerShell 1.0.
+> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Login to your account.
 
@@ -100,7 +100,7 @@ From the Azure portal on your local computer, connect to DC1 with the CORP\User1
 
 This is your current configuration.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_1.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph1.png)
  
 ## Phase 2: Create the TestVNET virtual network
 
@@ -128,7 +128,7 @@ Next, request a public IP address to be allocated to the gateway for the TestVNE
 
 This is your current configuration.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_2.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph2.png)
  
 ##Phase 3: Create the VNet-to-VNet connection
 
@@ -146,7 +146,7 @@ After a few minutes, the connection should be established. Note that at this tim
 
 This is your current configuration.
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_3.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph3.png)
  
 ## Phase 4: Configure DC2
 
@@ -191,7 +191,7 @@ Next, add the extra data disk as a new volume with the drive letter F:.
 8.	On the Select file system settings page, click **Next**.
 9.	On the Confirm selections page, click **Create**.
 10.	When complete, click **Close**.
-
+ 
 Next, configure DC2 as a replica domain controller for the corp.contoso.com domain. Run these commands from the Windows PowerShell command prompt on DC2.
 
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
@@ -208,10 +208,10 @@ Now that the TestVNET virtual network has its own DNS server (DC2), you must con
 
 This is your current configuration. 
 
-![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/CreateSimHybridCloud_4.png)
+![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
  
 Your simulated hybrid cloud environment is now ready for testing.
 
 ## Next Steps
 
-- [Add a new virtual machine](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) to the TestVNET subnet, such as one running Microsoft SQL Server.
+- [Add a new virtual machine](virtual-machines-windows-create-powershell.md) to the TestVNET subnet, such as one running Microsoft SQL Server.

@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/08/2015"
+   ms.date="02/08/2016"
    ms.author="sstein"/>
 
 # SQL Database pricing tier recommendations
@@ -26,8 +26,8 @@
 Get pricing tier recommendations during the following tasks:
 
 - [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md)
-- [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md)
-- Browse to your V12 server - if your databases can [benefit in an elastic database pool](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), the server blade will display a message indicating a recommended pool. Click the message to create the recommended pool.
+- [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md)
+- Browse to your V12 server. See [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md).
 - [Create an elastic database pool](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -56,7 +56,7 @@ Based on your database's usage, there are currently 2 categories of recommendati
 
 ## Getting pricing tier recommendations
 
-Get pricing tier recommendations by selecting an existing Web or Business database, click **All settings**, then click **Pricing tier (scale DTUs)**. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md).)
+Get pricing tier recommendations by selecting an existing Web or Business database, click **All settings**, then click **Pricing tier (scale DTUs)**. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md).)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **BROWSE** > **SQL databases**.

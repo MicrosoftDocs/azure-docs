@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # Configuring Azure Multi-Factor Authentication
@@ -35,8 +35,8 @@ Feature| Description| What is covered
 [Caching](#caching)|Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |How to setup and configure authentication caching.
 [Trusted IPs](#trusted-ips)|Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet.|Configure and setup IP addresses that are exempt for multi-factor authentication	
 [App Passwords](#app-passwords)|App passwords allows an application that is not mfa aware to bypass multi-factor authentication and continue working.|Information about app passwords.
-[Suspend Multi-Factor Authentication for remembered devices and browsers (Public Preview)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|Allows you to suspend MFA for a set number of days after a user has successfully signed in using MFA.|Information about enabling this feature and setting up the number of days.
-[Selectable Verification Methods (Public Preview)](#selectable-verification-methods-public-preview)|Allows you to choose the authentication methods that are available for users to use.|Information about enabling or disabling specific authentication methods such as call or text messages.
+[Rememeber Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust)|Allows you to remember devices for a set number of days after a user has successfully signed in using MFA.|Information about enabling this feature and setting up the number of days.
+[Selectable Verification Methods](#selectable-verification-methods)|Allows you to choose the authentication methods that are available for users to use.|Information about enabling or disabling specific authentication methods such as call or text messages.
 
 
 
@@ -202,7 +202,7 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 6. On the Service Settings page, under Trusted IPs, select either:
 
 	- For requests from federated users originating from my intranet – All federated users who are signing in from the corporate network will bypass multi-factor authentication using a claim issued by AD FS. 
-	- For requests from a specific range of public IPs – enter the IP addresses in the boxes provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 12 IP address ranges.
+	- For requests from a specific range of public IPs – enter the IP addresses in the boxes provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges.
 
 7. Click save.
 8. Once the updates have been applied, click close.
@@ -338,32 +338,32 @@ Additionally users can also create app passwords later on by changing their sett
 
 ![App passwords](./media/multi-factor-authentication-whats-next/myapp.png)
 
-## Suspend Multi-Factor Authentication for remembered devices and browsers (Public Preview)
+## Remember Multi-Factor Authentication for devices users trust
 
-Suspending Multi-Factor Authentication for remembered devices and browsers is a feature that allows you to give users the option to suspend MFA for a set number of days after performing a successful sign-in using MFA. It is a free feature for all MFA users and enhances the usability for the users. However, since the users are allowed to suspend MFA, this feature may reduce account security. 
+Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users.  It allows you to give users the option to by-pass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance the usability for your users. 
 
-To ensure that the user accounts are secured, you should restore Multi-Factor Authentication for their devices for either of the following scenarios: 
+However, since the users are allowed to remember MFA for trusted devices, this feature may reduce account security. To ensure account security, you should restore Multi-Factor Authentication for their devices for either of the following scenarios: 
 
 - If their corporate account has become compromised
 - If a remembered device is lost or stolen
 
 > [AZURE.NOTE] This feature is implemented as a browser cookie cache. It will not work if your browser cookies are not enabled.
 
-### How to enable/disable Suspend MFA for remembered devices and set
+### How to enable/disable Remember multi-factor authentication
 
 1. Sign-in to the Azure classic portal.
 2. On the left, click Active Directory.
-3. Under Active Directory, click on the directory you wish to setup Suspend Multi-Factor Authentication for remembered devices on.
+3. Under Active Directory, click on the directory you wish to setup Remember Multi-Factor Authentication for devices.
 4. On the Directory you have selected, click Configure.
 5. In the multi-factor authentication section, click Manage service settings.
-6. On the Service Settings page, under manage user device settings, select/unselect the **Allow users to suspend multi-factor authentication by causing a device to be remembered**.
-![Suspend devices](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
+6. On the Service Settings page, under manage user device settings, select/unselect the **Allow users to remember multi-factor authentication on devices they trust**.
+![Remember devices](./media/multi-factor-authentication-whats-next/remember.png)
 8. Set the number of days that you want to allow the suspension. The default is 14 days.
 9. Click save.
 10. Click close.
 
 
-## Selectable Verification Methods (Public Preview)
+## Selectable Verification Methods
 It is now possible to choose the authentication methods that are available to your users when using Azure Multi-Factor Authentication.  This feature, was previously only available in the on-premises server version.  The table below provides a brief overview of the various authentication methods that can be enabled or disabled for your users.
 
 Method|Description
@@ -381,6 +381,6 @@ Method|Description
 4. On the Directory you have selected, click Configure.
 5. In the multi-factor authentication section, click Manage service settings.
 6. On the Service Settings page, under verification options, select/unselect the options you wish to use.</br></br>
-![Suspend devices](./media/multi-factor-authentication-whats-next/authmethods.png)
+![Verification options](./media/multi-factor-authentication-whats-next/authmethods.png)
 9. Click save.
 10. Click close.

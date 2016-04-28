@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD AngularJS Getting Started | Microsoft Azure"
+	pageTitle="Azure AD v2.0 AngularJS Getting Started | Microsoft Azure"
 	description="How to build an Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 
-# App model v2.0 preview: Add sign-in to an AngularJS single page app - .NET
+# Add sign-in to an AngularJS single page app - .NET
 
-In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using Azure Active Directory's app model v2.0.  App model v2.0 enables you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
+In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using the Azure Active Directory v2.0 endpoint.  The v2.0 endpoint enables you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
 
-This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written using the .NET 4.5 MVC framework and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source JavaScript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.microsoft.com) or the Azure Resource Manager APIs.
+This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written using the .NET 4.5 MVC framework and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source JavaScript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.microsoft.com).
+
+> [AZURE.NOTE]
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Download
 
 To get started, you'll need to download & install Visual Studio.  Then you can clone or [download](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) a skeleton app:
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarst/AppModelv2-SinglePageApp-AngularJS-DotNet.git
+git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet.git
 ```
 
 The skeleton app includes all the boilerplate code for a simple AngularJS app, but is missing all of the identity-related pieces.  If you don't want to follow along, you can instead clone or [download](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/complete.zip) the completed sample.
@@ -86,7 +89,7 @@ While we're setting things up, let's get the backend REST API working.  In the r
 
 That's all the time we're going to spend discussing how the REST API works.  Feel free to poke around in the code, but if you want to learn more about securing web APIs with Azure AD, check out [this article](active-directory-v2-devquickstarts-dotnet-api.md). 
 
-## Sign Users In
+## Sign users in
 Time to write some identity code.  You might have already noticed that adal.js contains an AngularJS provider, which plays nicely with Angular routing mechanisms.  Start by adding the adal module to the app:
 
 ```js
@@ -162,7 +165,7 @@ angular.module('todoApp')
 ...
 ```
 
-## Display User Info
+## Display user info
 Now that the user is signed in, you'll probably need to access the signed-in user's authentication data in your application.  Adal.js exposes this information for you in the `userInfo` object.  To access this object in a view, first add adal.js to the root scope of the corresponding controller:
 
 ```js
@@ -220,7 +223,7 @@ return $http.get('/api/tasks');
 
 Congratulations!  Your Azure AD integrated single page app is now complete.  Go ahead, take a bow.  It can authenticate users, securely call its backend REST API using OpenID Connect, and get basic information about the user.  Out of the box, it supports any user with a personal Microsoft Account or a work/school account from Azure AD.  Run the app, and in a browser navigate to `https://localhost:44326/`.  Sign in using either a personal Microsoft account or a work/school account.  Add tasks to the user's to-do list, and sign out.  Try signing in with the other type of account. If you need an Azure AD tenant to create work/school users, [learn how to get one here](active-directory-howto-tenant.md) (it's free).
 
-To continue learning about the app model v2.0 preview, head back to our [v2.0 developer guide](active-directory-appmodel-v2-overview.md).  For additional resources, check out:
+To continue learning about the v2.0 endpoint, head back to our [v2.0 developer guide](active-directory-appmodel-v2-overview.md).  For additional resources, check out:
 
 - [Azure-Samples on GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD on Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
