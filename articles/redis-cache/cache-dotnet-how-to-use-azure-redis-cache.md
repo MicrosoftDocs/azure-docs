@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="01/21/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -57,7 +57,7 @@ To create a cache, first sign in to the [Azure Portal][], and click **New**, **D
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE] If you don't have an Azure account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
 
 In the **New Redis Cache** blade, specify the desired configuration for the cache.
 
@@ -96,7 +96,7 @@ To configure a client application in Visual Studio using the StackExchange.Redis
 
 ![Manage NuGet packages][NuGetMenu]
 
-Type **StackExchange.Redis** or **StackExchange.Redis.StrongName** into the **Search Online** text box, select the desired version from the results, and click **Install**.
+Type **StackExchange.Redis** or **StackExchange.Redis.StrongName** into the search text box, select the desired version from the results, and click **Install**.
 
 >[AZURE.NOTE] If you prefer to use a strong-named version of the **StackExchange.Redis** client library, choose **StackExchange.Redis.StrongName**; otherwise choose **StackExchange.Redis**.
 
@@ -239,7 +239,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 	-	[Azure Redis Cache ASP.NET Output Cache Provider](cache-aspnet-output-cache-provider.md)
 -	[Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 -	Check out the [StackExchange.Redis cache client documentation][].
-	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][] and [Develop in other languages for Azure Redis Cache][].
+	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][].
 	-	Azure Redis Cache can also be used with services such as Redsmin. For more information, see  [How to retrieve an Azure Redis connection string and use it with Redsmin][].
 -	See the [redis][] documentation and read about [redis data types][] and [a fifteen minute introduction to Redis data types][].
 
@@ -333,4 +333,4 @@ Now that you've learned the basics, follow these links to learn more about Azure
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
+
