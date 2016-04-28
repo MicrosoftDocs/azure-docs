@@ -84,19 +84,19 @@ After you select the image, you can use Azure's default settings for most of the
 
 4. Clicking **Connect** creates and downloads a Remote Desktop Protocol file (.rdp file). Click **Open** to use this file.
 
-	![Screenshot of the downloaded .rdp file.](./media/virtual-machines-log-on-win-server/open-rdp.png)
+	![Screenshot of the downloaded .rdp file.](./media/virtual-machines-windows-hero-tutorial/open-rdp.png)
 
 5. You will get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
 
-	![Screenshot of a warning about an unknown publisher.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
+	![Screenshot of a warning about an unknown publisher.](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
 
 6. In the Windows Security window, type the username and password for the local account that you created when you created the VM. The username is entered as *vmname*&#92;*username*, then click **OK**.
 
-	![Screenshot of entering the VM name, user name and password.](./media/virtual-machines-log-on-win-server/credentials.png)
+	![Screenshot of entering the VM name, user name and password.](./media/virtual-machines-windows-hero-tutorial/credentials.png)
  	
 7.	You will get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
-	![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-log-on-win-server/cert-warning.png)
+	![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
 
 If you run into trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
