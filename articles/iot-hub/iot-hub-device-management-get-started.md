@@ -15,14 +15,14 @@
  ms.workload="na"
  ms.date="04/29/2016"
  ms.author="elfarber"/>
- 
+
 # Get started with Azure IoT Hub device management (preview)
 
 To get started with Azure IoT Hub device management, you need to create an Azure IoT Hub, provision devices in the IoT Hub, and start multiple simulated devices. This tutorial walks you through these steps.
 
 > [AZURE.NOTE]  You need to create a new IoT Hub to enable device management capabilities even if you have an existing IoT Hub because existing IoT Hubs do not have device management capabilities.
 
-## Prerequisites 
+## Prerequisites
 
 You need the following installed to complete the steps:
 
@@ -31,7 +31,7 @@ You need the following installed to complete the steps:
 - CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. For a Windows PC, please choose the Windows Installer (.msi) option. Make sure to check the box to add CMake to your PATH variable.
 - An active Azure subscription.
 
-If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+	If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 
 ## Create a device management enabled IoT Hub
 
@@ -39,13 +39,13 @@ You need to create a device management enabled IoT Hub for your simulated device
 
 1.  Sign in to the [Azure portal].
 2.  In the Jumpbar, click **New**, then click **Internet of Things**, and then click **Azure IoT Hub**.
-  
+
   ![][img-new-hub]
 
 3.  In the **IoT Hub** blade, choose the configuration for your IoT Hub.
-  
+
   ![][img-configure-hub]
-  
+
   -   In the **Name** box, enter a name for your IoT Hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
   -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
   -   In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources].
@@ -53,37 +53,37 @@ You need to create a device management enabled IoT Hub for your simulated device
   -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia.
 
 4.  When you have chosen your IoT Hub configuration options, click **Create**. It can take a few minutes for Azure to create your IoT Hub. To check the status, you can monitor the progress on the **Startboard** or in the **Notifications** panel.
-  
+
   ![][img-monitor]
 
 5.  When the IoT Hub has been created successfully, open the blade of the new IoT Hub, make a note of the **Hostname**, and then click the **Keys** icon.
-  
+
   ![][img-keys]
 
 6.  Click the **iothubowner** policy, then copy and make note of the connection string in the **iothubowner** blade.
-  
+
   > [AZURE.NOTE] In production scenarios, make sure to use the principle of least privilege and refrain from using the **iothubowner** credentials.
-  
+
   ![][img-connection]
 
 You have now created a device management enabled IoT Hub. You will need the connection string to complete the rest of this tutorial.
 
 ## Build the samples and provision devices in your IoT Hub
 
-In this section, you will run a batch script that builds the simulated device and the samples and provisions a set of new device identities in the device registry of your IoT Hub. A device cannot connect to IoT Hub unless it has an entry in the device registry.
+In this section, you will run a script that builds the simulated device and the samples and provisions a set of new device identities in the device registry of your IoT Hub. A device cannot connect to IoT Hub unless it has an entry in the device registry.
 
 To build the samples and provision devices in you IoT Hub, follow the steps below:
 
 1.  Open the **Developer Command Prompt for VS2015**.
 
 2.  Clone the github repository
-  
+
   ```
   git clone --recursive --branch dmpreview <https://github.com/Azure/azure-iot-sdks.git>
   ```
 
-3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **\\azure-iot-sdks\\csharp\\service\\samples** folder and run:
-  
+3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **\\azure-iot-sdks\\csharp\\service\\samples** folder and run, replacing the placeholder value with your connection string from the previous section:
+
   ```
   setup.bat <IoT Hub Connection String>
   ```
@@ -103,12 +103,12 @@ This script does the following:
 Now that the devices have been added to the device registry, you can start simulated managed devices. One simulated device is started for each device identity provisioned in the Azure IoT Hub.
 
 Using the developer command prompt, in the **\\azure-iot-sdks\\csharp\\service\\samples\\bin** folder, run:
-  
+
   ```
   simulate.bat
   ```
 
-This script runs one instance of **iotdm\_simple\_sample.exe** for each device listed in the **devicecreds.txt** file.
+This script runs one instance of **iotdm\_simple\_sample.exe** for each device listed in the **devicecreds.txt** file. The simulated device will continue to run until you close the command window.
 
 The **iotdm\_simple\_sample** sample application is built using the Azure IoT Hub device management library for C, which enables the creation of IoT devices that can be managed by Azure IoT Hub. Device makers can use this library to report device properties and implement the execute actions required by device jobs. This library is a component delivered as part of the open source Azure IoT Hub SDKs.
 
