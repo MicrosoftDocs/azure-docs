@@ -40,11 +40,11 @@ You need to create a device management enabled IoT Hub for your simulated device
 1.  Sign in to the [Azure portal].
 2.  In the Jumpbar, click **New**, then click **Internet of Things**, and then click **Azure IoT Hub**.
 
-  ![][img-new-hub]
+	![][img-new-hub]
 
 3.  In the **IoT Hub** blade, choose the configuration for your IoT Hub.
 
-  ![][img-configure-hub]
+	![][img-configure-hub]
 
   -   In the **Name** box, enter a name for your IoT Hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
   -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
@@ -54,17 +54,17 @@ You need to create a device management enabled IoT Hub for your simulated device
 
 4.  When you have chosen your IoT Hub configuration options, click **Create**. It can take a few minutes for Azure to create your IoT Hub. To check the status, you can monitor the progress on the **Startboard** or in the **Notifications** panel.
 
-  ![][img-monitor]
+	![][img-monitor]
 
 5.  When the IoT Hub has been created successfully, open the blade of the new IoT Hub, make a note of the **Hostname**, and then click the **Keys** icon.
 
-  ![][img-keys]
+	![][img-keys]
 
 6.  Click the **iothubowner** policy, then copy and make note of the connection string in the **iothubowner** blade. Copy it to a location you can access later because you will need it to complete the rest of this tutorial.
 
-  > [AZURE.NOTE] In production scenarios, make sure to refrain from using the **iothubowner** credentials.
+ 	> [AZURE.NOTE] In production scenarios, make sure to refrain from using the **iothubowner** credentials.
 
-  ![][img-connection]
+	![][img-connection]
 
 You have now created a device management enabled IoT Hub. You will need the connection string to complete the rest of this tutorial.
 
@@ -76,7 +76,7 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 
 1.  Open the **Developer Command Prompt for VS2015**.
 
-2.  Clone the github repository
+2.  Clone the github repository. **Make sure to clone in a directory that does not have any spaces.**
 
   ```
   git clone --recursive --branch dmpreview <https://github.com/Azure/azure-iot-sdks.git>
