@@ -50,9 +50,9 @@ More detailed walkthrough on using Docker Machine - [Use Docker Machine with the
 
 ## Azure Docker VM Extension for template deployments
 
-Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment, such as the Docker hosts, storage, Role Based Access Controls (RBAC), diagnostics, etc. You can read more about Resource Manager and templates to better understand some of the benefits. The advantage of using Resource Manager templates over simply using Docker Machine is that you can define out additional Docker hosts, storage, access controls, etc. and be able to reproduce the deployments as needed in the future. 
-
 The Azure Docker VM Extension installs Docker in your Linux host VM and configures it for you, quickly providing a Docker host for you to access that can then re-deployed in a consistent fashion. Using the Azure Docker VM Extension is well suited for a more robust developer or production environments as you have some additional controls over simply using Docker Machine.
+
+Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment, such as the Docker hosts, storage, Role Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../resource-group-overview.md) and templates to better understand some of the benefits. The advantage of using Resource Manager templates over simply using Docker Machine is that you can define out additional Docker hosts, storage, access controls, etc. and be able to reproduce the deployments as needed in the future. 
 
 ### Quick steps for using the Docker VM Extension:
 
@@ -99,7 +99,7 @@ For reference, you can use your own existing Resource Manager templates and add 
 More detailed walkthrough on using Resource Manager templates - [Azure Resource Manager overview](../resource-group-overview.md)
 
 
-## Azure Container Services
+## Azure Container Services for production-ready, scalable deployments
 
 Docker Swarm can be used as part of an Azure Container Services (ACS) deployment which provides for a more distributed and fault tolerant Docker environment, including load balancers, scale sets, and multiple Docker agents servicing your applications. Using ACS is more suited for larger, scalable apps needing a production-ready environment.
 
@@ -130,7 +130,7 @@ docker run -d -p 80:80 nginx
 
 Open up a web browser and enter the DNS of the Swarm agents to see your container in action. You can also view the running containers on the host with `docker ps`.
 
-More detailed walkthrough on using Docker Swarm on Azure Container Services - [Deploy an Azure Container Service cluster](../container-service-deployment.md)
+More detailed walkthrough on using Docker Swarm on Azure Container Services - [Deploy an Azure Container Service cluster](../container-service/container-service-deployment.md)
 
 
 
