@@ -43,7 +43,7 @@ You can move a database into or out of a pool with the [Set-AzureRmSqlDatabase](
 
 ## Change performance settings of a pool
 
-When performance suffers, you can change the settings of the pool to accommodate growth or decline. Use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet. Set the -Dtu parameter to the eDTUs per pool. See [eDTU and storage limits](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases) for possible values.  
+When performance suffers, you can change the settings of the pool to accommodate growth. Use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) cmdlet. Set the -Dtu parameter to the eDTUs per pool. See [eDTU and storage limits](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases) for possible values.  
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
@@ -57,7 +57,7 @@ Creating a pool can take time. To track the status of pool operations including 
 
 ## Get the status of moving an elastic database into and out of a pool
 
-Track the status of a database move into or out of a pool using the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx) cmdlet.
+Moving a database can take time. Track a move status using the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx) cmdlet.
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
@@ -84,7 +84,6 @@ Metrics that can be retrieved as a percentage of the resource pool limit:
 
 * Data will be returned at 5 minute granularity.  
 * Data retention is 14 days.  
-
 
 This cmdlet and API limits the number of rows that can be retrieved in one call to 1000 rows (about 3 days of data at 5 minute granularity). But this command can be called multiple times with different start/end time intervals to retrieve more data 
 
