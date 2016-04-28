@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="04/28/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
@@ -105,14 +105,14 @@ The Azure virtual machine gallery includes several images that contain Microsoft
 
 	`![VM Final Options][4]
 
-9.  Wait while Azure prepares your virtual machine. Expect the virtual
-    machine status to proceed through:
+9.  Wait while Azure prepares your virtual machine. Expect the virtual machine status to proceed through:
 
     -   Starting (Provisioning)
     -   Stopped
     -   Starting (Provisioning)
     -   Running (Provisioning)
     -   Running
+
 
 ##<a name="RemoteDesktop"></a>Open the virtual machine using Remote Desktop and complete setup
 
@@ -137,10 +137,8 @@ The Azure virtual machine gallery includes several images that contain Microsoft
     return the correct name until SQL Server setup completes, and SQL
     Server Management Studio may not be visable on the start page.
 
-Once you are connected to the virtual machine with Windows Remote
-Desktop, the virtual machine works much like any other computer. Connect
-to the default instance of SQL Server with SQL Server Management Studio
-(running on the virtual machine) in the normal way.
+Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer. Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way.
+
 
 ##<a name="InstallIPython"></a>Install IPython Notebook and other supporting tools
 
@@ -148,7 +146,7 @@ To configure your new SQL Server VM to serve as an IPython Notebook server, and 
 supporting tools such AzCopy, Azure Storage Explorer, useful Data Science Python packages, and others,
 a special customization script is provided to you. To install:
 
-- Right-click the Windows Start icon and click **Command Prompt (Admin)**
+- Right-click the **Windows Start** icon and click **Command Prompt (Admin)**
 - Copy the following commands and paste at the command prompt.
 
     	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
@@ -220,7 +218,7 @@ directly from your SQL Server VM databases in the
 
 	To change the authentication mode using SQL Server management Studio:
 
-3.  In SQL Server Management Studio Object Explorer, right-click the
+3.  In **SQL Server Management Studio Object Explorer**, right-click the
     name of the instance of SQL Server (the virtual machine name), and
     then click **Properties**.
 
@@ -232,24 +230,25 @@ directly from your SQL Server VM databases in the
 
     ![Select Authentication Mode][8]
 
-5.  In the SQL Server Management Studio dialog box, click **OK** to
+5.  In the **SQL Server Management Studio** dialog box, click **OK** to
     acknowledge the requirement to restart SQL Server.
 
-6.  In Object Explorer, right-click your server, and then click
+6.  In **Object Explorer**, right-click your server, and then click
     **Restart**. (If SQL Server Agent is running, it must also be
     restarted.)
 
     ![Restart][9]
 
-7.  In the SQL Server Management Studio dialog box, click **Yes** to
+7.  In the **SQL Server Management Studio** dialog box, click **Yes** to
     agree that you want to restart SQL Server.
 
 ##<a name="Logins"></a>Create SQL Server authentication logins
 
-To connect to the Database Engine from another computer, you must create
-at least one SQL Server authentication login.  
+To connect to the Database Engine from another computer, you must create at least one SQL Server authentication login.  
 
-> [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).  
+
+ > [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).  
+
 
     USE master
     go
@@ -262,7 +261,7 @@ at least one SQL Server authentication login.
 
 To create new SQL Server logins using the SQL Server Management Studio:
 
-1.  In SQL Server Management Studio Object Explorer, expand the folder
+1.  In **SQL Server Management Studio Object Explorer**, expand the folder
     of the server instance in which you want to create the new login.
 
 2.  Right-click the **Security** folder, point to **New**, and select
@@ -316,11 +315,9 @@ To create new SQL Server logins using the SQL Server Management Studio:
 
 ##<a name="DNS"></a>Determine the DNS name of the virtual machine
 
-To connect to the SQL Server Database Engine from another computer, you
-must know the Domain Name System (DNS) name of the virtual machine.
-(This is the name the internet uses to identify the virtual machine. You
-can use the IP address, but the IP address might change when Azure moves
-resources for redundancy or maintenance. The DNS name will be stable
+To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine.
+
+(This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable
 because it can be redirected to a new IP address.)
 
 1.  In the Azure Classic Portal (or from the previous step), select
@@ -354,7 +351,7 @@ because it can be redirected to a new IP address.)
 
 ##<a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
 
-In later stages of the Advanced Analytics Process and Technology, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Advanced Analytics Process and Technology guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+In later stages of the Cortana Analytics Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the **Reader** module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cortana Analytics Process guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
 2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
