@@ -80,7 +80,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 3. On the blade for the virtual machine, click **Connect**.
 
-	![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-connect-logon/connect.png)
+	![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-hero-tutorial/connect.png)
 
 4. Clicking **Connect** creates and downloads a Remote Desktop Protocol file (.rdp file). Click **Open** to use this file.
 
