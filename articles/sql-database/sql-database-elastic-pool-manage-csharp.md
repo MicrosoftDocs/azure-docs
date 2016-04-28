@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Manage an elastic database pool (C#) | Microsoft Azure"
+    pageTitle="Monitor and manage an elastic database pool with C# | Microsoft Azure"
     description="Use C# database development techniques to manage an Azure SQL Database elastic database pool."
     services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/11/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
-# Monitor and manage an elastic database pool with C&#x23;
+# Monitor and manage an elastic database pool with C&#x23; 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
@@ -36,29 +36,9 @@ The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
 
-## Create a new database in an elastic pool
-
-Create a [SqlManagementClient](https://msdn.microsoft.com/library/microsoft.azure.management.sql.sqlmanagementclient) instance using values from [Azure Active Directory](sql-database-client-id-keys.md). Create a [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreateorupdateproperties) instance, and call the [CreateOrUpdate](https://msdn.microsoft.com/library/microsoft.azure.management.sql.databaseoperationsextensions.createorupdate) method. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
-
-    DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentServer.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = 268435456000, // 250 GB,
-            Collation = "SQL_Latin1_General_CP1_CI_AS"
-        }
-    };
-
-    var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
-
-
 ## Move a database into an elastic pool
 
-Change the elastic pool name to the target pool before calling CreateOrUpdate.
+You can move a stand-alone database in or out of a pool.  
 
     // Retrieve current database properties.
 
@@ -119,7 +99,7 @@ Retrieve existing the pool properties. Modify the values and execute the CreateO
 ## Latency of elastic pool operations
 
 - Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
-- Changing the eDTUs per pool of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
+- Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 
 ## Manage a pool C&#x23; example
@@ -444,12 +424,10 @@ Create a console app and replace the contents of Program.cs with the following. 
     }
     }
 
-
-
 ## Additional Resources
-
 
 - [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Elastic database pool reference](sql-database-elastic-pool-reference.md)
+- See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic database tools to scale-out, move data, query, or create transactions.
 

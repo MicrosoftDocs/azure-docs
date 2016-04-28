@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Elastic database pool for SQL databases | Microsoft Azure"
+	pageTitle="What is an Azure elastic database pool? | Microsoft Azure"
 	description="Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will."
 	keywords="elastic database,sql databases"
 	services="sql-database"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/04/2016"
+	ms.date="04/28/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -60,9 +60,9 @@ Databases that are great candidates for elastic database pools typically have pe
 | Property | Description |
 | :-- | :-- |
 | Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
-| eDtus per pool | Maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. For every eDTU that you allocate to the pool, you get a fixed amount of database storage, and vice versa. |
-| Max storage per pool (GB) | Maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
-| Max number of databases per pool | Maximum number of databases per pool. |
+| eDtus per pool | The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. For every eDTU that you allocate to the pool, you get a fixed amount of database storage, and vice versa. |
+| Max storage per pool (GB) | The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
+| Max number of databases per pool | The maximum number of databases per pool. |
 | Max concurrent workers per pool | The maximum number of concurrent worker threads available for SQL processes in the pool. |
 | Max concurrent logins per pool | The maximum number of concurrent logins for all databases in the pool. |
 | Max concurrent sessions per pool | The maximum number of sessions available for all databases in the pool. |
@@ -72,8 +72,8 @@ Databases that are great candidates for elastic database pools typically have pe
 
 | Property | Description |
 | :-- | :-- |
-| Max eDTUs per database | Maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The **max eDTUs** is not a resource guarantee for a database, it is an eDTU ceiling that can be hit if available. This is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle spikes to the database's peak utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 50 eDTUs and only 20% of the 100 databases in the group simultaneously spike to the peak. If the eDTU cap per database is set to 50 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the **eDTUs per pool** to 1,000. |
-| Min eDTUs per database | Minimum number of eDTUs that any database in the pool is guaranteed; this applies to all databases in the pool. The min eDTUs may be set to 0.  This property is usually set to anywhere between 0 and the average historical eDTU utilization per database. Note that the product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool. |
+| Max eDTUs per database | The maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The **max eDTUs** is not a resource guarantee for a database, it is an eDTU ceiling that can be hit if available. This is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle spikes to the database's peak utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 50 eDTUs and only 20% of the 100 databases in the group simultaneously spike to the peak. If the eDTU cap per database is set to 50 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the **eDTUs per pool** to 1,000. |
+| Min eDTUs per database | The minimum number of eDTUs that any database in the pool is guaranteed; this applies to all databases in the pool. The min eDTUs may be set to 0.  This property is usually set to anywhere between 0 and the average historical eDTU utilization per database. Note that the product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool. |
 | Max storage per database (GB) | The maximum storage for a database in a pool. |
 
 

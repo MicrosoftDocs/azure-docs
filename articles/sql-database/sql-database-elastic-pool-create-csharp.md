@@ -3,7 +3,7 @@
     description="Use C# database development techniques to create a scalable elastic database pool in Azure SQL Database so you can share resources across many databases."
     services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/26/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
-# Create a new elastic pool with C&#x23;
+# Create a new elastic database pool with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -74,14 +74,18 @@ Create a [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/m
 
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
+To move an existing database into a pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
-## Create a pool C&#x23; example
+## Example: Create a pool using C&#x23
+
+This example creates a new Azure resource group, a new Azure SQL Server instance, and a new elastic pool. 
+ 
 
 The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-    PM> Install-Package Microsoft.Azure.Management.Resources –Pre
-    PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md). Use the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) cmdlet to retrieve the value for the subscriptionId.
 
@@ -239,8 +243,8 @@ Create a console app and replace the contents of Program.cs with the following. 
 ## Next steps
 
 - [Manage your pool](sql-database-elastic-pool-manage-csharp.md)
-- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you T-SQL scripts against any number of databases in the pool.
-
+- [Create elastic jobs](sql-database-elastic-jobs-overview.md): Elastic jobs let you T-SQL scripts against any number of databases in the pool.
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): Use elastic database tools to scale-out.
 
 ## Additional Resources
 

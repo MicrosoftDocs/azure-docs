@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Monitor, manage, and size an elastic database pool"
+	pageTitle="Monitor and manage an elastic database pool with the Azure portal | Microsoft Azure"
 	description="Learn how to use the Azure portal and SQL Database's built-in intelligence to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost."
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="ninarn"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/14/2016"
-	ms.author="sidneyh"
+	ms.date="04/28/2016"
+	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -38,15 +38,6 @@ To work through the steps in this article, you'll need a few databases and a poo
 1. In the [Azure portal](https://portal.azure.com) click **Browse**
 2. Click **SQL elastic pools**
 3. From the list, click the pool you want to work with.
-
-## Create a new database in an elastic pool
-
-This procedure creates a new database, then adds it to the pool. 
-
-1. In the blade for the pool, click **Create database**. 
-2. In the **SQL database** blade, type a name and set the new database's properties. Then click **OK**.
-
-   ![create elastic database](./media/sql-database-elastic-pool-manage-portal/create-database.png)
 
 ## Move a database into an elastic pool
 
@@ -122,11 +113,11 @@ You can add rules to resources that send email to people or alert strings to URL
 4. Choose a **Condition** (greater than, less than, etc.) and a **Threshold**.
 5. Click **OK**.
 
-## Change eDTU per pool and database eDTU
+## Change performance settings of a pool
 
-When you see the resource utilization of a pool, you may discover that the pool needs a different eDTU setting, or individual databases in the pool need different eDTU settings. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md) for more information.
+As you monitor the resource utilization of a pool, you may discover that the pool needs a more eDTUs. Or individual databases in the pool need different eDTU settings. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md) for more information.
 
-**To change the pool eDTU and eDTU per database:**
+**To change the eDTUs per pool, and eDTUs per database:**
 
 1. Open the **Configure pool** blade.
 
@@ -134,7 +125,7 @@ When you see the resource utilization of a pool, you may discover that the pool 
 
     ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-2. When the setting changes, display shows the estimated monthly cost of the change.
+2. When the setting changes, the display shows the estimated monthly cost of the change.
 
     ![Updating a pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
@@ -148,6 +139,9 @@ You can preview the addition and removal of databases before committing the acti
 ## Create and manage elastic jobs
 
 Elastic jobs let you run Transact-SQL scripts against any number of databases in the pool. Before you use jobs, install elastic jobs components and provide your credentials. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
+
+See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic database tools to scale-out, move data, query, or create transactions.
+
 
 ## Additional resources
 

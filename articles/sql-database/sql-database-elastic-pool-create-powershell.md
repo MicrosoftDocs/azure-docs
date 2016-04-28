@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Create an elastic database pool (PowerShell) | Microsoft Azure"
+    pageTitle="Create an new elastic database pool with PowerShell | Microsoft Azure"
     description="Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic database pool to manage multiple databases."
 	services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="04/13/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
-# Create a new elastic pool with PowerShell
+# Create a new elastic database pool with PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -47,11 +47,11 @@ Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt6193
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Create a pool and populate it with new databases 
+## Create a pool and populate it with multiple new databases 
 
 Creation of a large number of databases in a pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into a new pool, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
 
-## Create a pool PowerShell example
+## Example: create a pool using PowerShell 
 
 This script creates a new server so when it prompts you for a username and password, enter an admin login and admin password for your new server (not your Azure credentials).
 
@@ -79,4 +79,5 @@ This script creates a new server so when it prompts you for a username and passw
 
 - [Manage your pool](sql-database-elastic-pool-manage-powershell.md)
 - [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
+- [Scale out with Azure SQL Database](sql-database-elastic-scale-introduction.md): Use elastic database tools to scale-out.
 

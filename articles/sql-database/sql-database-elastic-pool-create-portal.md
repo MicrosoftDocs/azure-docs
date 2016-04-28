@@ -1,24 +1,24 @@
 <properties
-	pageTitle="Create scalable elastic database pools | Microsoft Azure"
+	pageTitle="Create a new elastic pool with the Azure portal | Microsoft Azure"
 	description="How to add a scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
 	keywords="scalable database,database configuration"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="ninarn"
 	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/13/2016"
-	ms.author="sidneyh"
+	ms.date="04/28/2016"
+	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a new elastic pool with the Azure portal
+# Create a new elastic database pool with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -85,3 +85,5 @@ The service evaluates resource needs and cost effectiveness of moving the single
 - [Manage a SQL Database elastic pool with the portal](sql-database-elastic-pool-manage-portal.md)
 - [Manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [Manage a SQL Database elastic pool with C#](sql-database-elastic-pool-manage-csharp.md)
+- [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md) 
+

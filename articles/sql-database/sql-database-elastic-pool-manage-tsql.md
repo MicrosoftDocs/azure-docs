@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/11/2016"
+    ms.date="04/28/2016"
     ms.author="sidneyh"/>
 
 # Monitor and manage an elastic database pool with Transact-SQL  
@@ -83,4 +83,6 @@ Use the [sys.dm \_resource\_stats view](https://msdn.microsoft.com/library/dn800
 
 ## Next steps
 
-After creating an elastic database pool, you can manage elastic databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
+After creating an elastic database pool, you can manage elastic databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md). 
+
+See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic database tools to scale-out, move data, query, or create transactions.
