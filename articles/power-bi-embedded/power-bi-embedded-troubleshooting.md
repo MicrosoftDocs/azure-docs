@@ -21,7 +21,7 @@ This article provides answers for how  to troubleshoot **Power BI Embedded**.
 
 <a name="connection-string"/>
 ## Setting SQL Server connection strings
-To set a SQL Serve connecting string, you need to follow a specific format. Below is an example connection string for SQL Server.
+To set a SQL Server connecting string, you need to follow a specific format. Below is an example connection string for SQL Server.
 
 ```
 "Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)"
