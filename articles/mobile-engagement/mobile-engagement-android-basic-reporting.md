@@ -3,7 +3,7 @@
 	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="RickSaling"
+	authors="piyushjo"
 	manager="erikre"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/19/2016"
-	ms.author="ricksal" />
+	ms.date="04/28/2016"
+	ms.author="piyushjo;ricksal" />
 
 # Reporting Options with Engagement on Android
 
@@ -23,10 +23,7 @@
 
 This topic describes additional reporting scenarios in your Android application. These are options that you can choose to apply to the app created in the [Getting Started](mobile-engagement-android-get-started.md) tutorial.
 
-## Prerequisites
-Before starting this tutorial, you must first complete the [Getting Started](mobile-engagement-android-get-started.md) tutorial.
-
-> [AZURE.IMPORTANT] Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
+[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 The tutorial you completed was deliberately direct and simple, but there are a number of options you can choose from.
 
@@ -99,76 +96,3 @@ Here is an example:
 			}
 
 This example is very similiar to the `EngagementActivity` class and its variants, whose source code is provided in the `src` folder.
-
-## Advanced configuration (in AndroidManifest.xml)
-
-### Wake locks
-
-If you want to be sure that statistics are sent in real time when using Wifi or when the screen is off, add the following optional permission:
-
-			<uses-permission android:name="android.permission.WAKE_LOCK"/>
-
-### Crash report
-
-If you want to disable crash reports, add this (between the `<application>` and `</application>` tags):
-
-			<meta-data android:name="engagement:reportCrash" android:value="false"/>
-
-### Burst threshold
-
-By default, the Engagement service reports logs in real time. If your application reports logs very frequently, it is better to buffer the logs and to report them all at once on a regular time base (this is called the "burst mode"). To do so, add this code between the `<application>` and `</application>` tags:
-
-			<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
-
-The burst mode slightly increase the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration will be rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). It is recommended to use a burst threshold no longer than 30000 (30s).
-
-### Session timeout
-
-By default, a session is ended 10s after the end of its last activity (which usually occurs by pressing the Home or Back key, by setting the phone idle or by jumping into another application). This is to avoid a session split each time the user exit and return to the application very quickly (which can happen when he pick up a image, check a notification, etc.). You may want to modify this parameter. To do so, add this (between the `<application>` and `</application>` tags):
-
-			<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
-
-## Disable log reporting
-
-### Using a method call
-
-If you want Engagement to stop sending logs, you can call:
-
-			EngagementAgent.getInstance(context).setEnabled(false);
-
-This call is persistent: it uses a shared preferences file.
-
-If Engagement is active when you call this function, it may take 1 minute for the service to stop. However it won't launch the service at all the next time you launch the application.
-
-You can enable log reporting again by calling the same function with `true`.
-
-### Integration in your own `PreferenceActivity`
-
-Instead of calling this function, you can also integrate this setting directly in your existing `PreferenceActivity`.
-
-You can configure Engagement to use your preferences file (with the desired mode) in the `AndroidManifest.xml` file with `application meta-data`:
-
--   The `engagement:agent:settings:name` key is used to define the name of the shared preferences file.
--   The `engagement:agent:settings:mode` key is used to define the mode of the shared preferences file, you should use the same mode as in your `PreferenceActivity`. The mode must be passed as a number: if you are using a combination of constant flags in your code, check the total value.
-
-Engagement always use the `engagement:key` boolean key within the preferences file for managing this setting.
-
-The following example of `AndroidManifest.xml` shows the default values:
-
-			<application>
-			    [...]
-			    <meta-data
-			      android:name="engagement:agent:settings:name"
-			      android:value="engagement.agent" />
-			    <meta-data
-			      android:name="engagement:agent:settings:mode"
-			      android:value="0" />
-
-Then you can add a `CheckBoxPreference` in your preference layout like the following one:
-
-			<CheckBoxPreference
-			  android:key="engagement:enabled"
-			  android:defaultValue="true"
-			  android:title="Use Engagement"
-			  android:summaryOn="Engagement is enabled."
-			  android:summaryOff="Engagement is disabled." />

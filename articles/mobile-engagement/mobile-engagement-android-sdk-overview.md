@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="04/28/2016"
 	ms.author="piyushjo;ricksal" />
 
 
@@ -36,6 +36,7 @@ AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 You can add these features:
 1. [Advanced reporting options](mobile-engagement-android-basic-reporting.md)
 2. [Location Reporting](mobile-engagement-android-location-reporting.md)
+3. [Advanced Configuration](mobile-engagement-android-advanced-configuration.md)
 
 ### Notifications:
 [How to integrate Reach (Notifications) in your Android app](mobile-engagement-android-integrate-engagement-reach.md)

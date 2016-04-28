@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure Mobile Engagement Android SDK Integration"
-	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+	pageTitle="Advanced Configuration for Android Mobile Engagement"
+	description="Advanced configuration procedures for Android for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="RickSaling"
+	authors="piyushjo"
 	manager="erikre"
 	editor="" />
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/20/2016"
-	ms.author="ricksal" />
+	ms.date="04/28/2016"
+	ms.author="piyushjo;ricksal" />
 
-# Logging Engagement on Android
+# Advanced Configuration for Android Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-logging.md)

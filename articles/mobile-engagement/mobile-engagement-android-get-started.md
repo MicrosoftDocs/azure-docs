@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="04/08/2016"
+	ms.date="04/28/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Get started with Azure Mobile Engagement for Android apps
@@ -132,6 +132,10 @@ In order to start sending data and ensuring that the users are active, you must 
 Go to **MainActivity.java** and add the following to replace the base class of **MainActivity** to **EngagementActivity**:
 
 	public class MainActivity extends EngagementActivity {
+
+[AZURE.NOTE] If your base class is not *Activity*, consult
+[Advanced Android Reporting](mobile-engagement-android-integrate-engagement.md) for how to inherit from different classes.
+
 
 You should comment out (exclude) the following line for this simple sample scenario:
 
