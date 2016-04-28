@@ -49,7 +49,7 @@ There are many parts to this solution that need to be configured and managed cor
 |  | Backup Vault | Recovery Services Vault  
 | -------- | ------------- | ------- |
 | Azure IaaS V1 VMs | Yes | No |
-| Azure IaaS V2 VMs | No | No |
+| Azure IaaS V2 VMs | N/A | No |
 
 
 ## CloudLink SecureVM
