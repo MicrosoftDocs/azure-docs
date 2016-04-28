@@ -93,7 +93,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
     ![CDN endpoint][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] The endpoint will not immediately be available for use, as it takes time for the registration to propagate through the CDN network.  It will usually be available within 90 minutes, but in some cases can take longer.
+    > [AZURE.IMPORTANT] The endpoint will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  It will usually be available within 90 minutes, but in some cases can take longer.
 	>	 
 	> Users who try to use the CDN domain name before the endpoint configuration has propagated to the POPs will receive HTTP 404 response codes. 
 
