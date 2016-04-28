@@ -462,7 +462,7 @@ azure network public-ip show TestRG TestPIP --json | jq '.'
 }
 ```
 
-## Create you load balancer and IP pools
+## Create your load balancer and IP pools
 Creating a load balancer allows you to distribute traffic across multiple VMs, such as when running web applications. It also provides redundancy to your application by running multiple VMs that respond to users requests in the event of maintenance or heavy load.
 
 We create our load balancer with:
