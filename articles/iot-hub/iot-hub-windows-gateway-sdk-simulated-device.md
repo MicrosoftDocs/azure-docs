@@ -17,7 +17,7 @@
      ms.author="cstreet"/>
 
 
-# IoT Gateway SDK – send device-to-cloud messages with a simulated device using Windows
+# IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Windows
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 

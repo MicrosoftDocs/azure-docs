@@ -17,7 +17,7 @@
      ms.author="cstreet"/>
 
 
-# IoT Gateway SDK - Get started using Linux
+# IoT Gateway SDK (beta) - Get started using Linux
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 

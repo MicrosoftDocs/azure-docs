@@ -17,7 +17,7 @@
      ms.author="cstreet"/>
 
 
-# IoT Gateway SDK - Get started using Windows
+# IoT Gateway SDK (beta) - Get started using Windows
 
 [AZURE.INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
