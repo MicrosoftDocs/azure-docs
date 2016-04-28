@@ -80,9 +80,7 @@ If you have resources on a Virtual Network that is not usable by the cluster you
 
 ###Secured Virtual Networks
 
-HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. 
-
-The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks. The following IP addresses must be allowed inbound access to the subnet that you want to install HDInsight into:
+The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks. If you need to install HDInsight into a secured Virtual Network, the following IP addresses must be allowed inbound access to the subnet that you want to install HDInsight into:
 
 * 168.61.49.99
 * 23.99.5.239
@@ -166,6 +164,20 @@ The following is an example script that will create a new Network Security Group
         -NetworkSecurityGroupId $nsg
 
 > [AZURE.IMPORTANT] Using the above script only opens access to the HDInsight health and management service on the Azure cloud. This allows you to successfully install an HDInsight cluster into the subnet, however access to the HDInsight cluster from outside the Virtual Network is blocked by default. You will have to add additional Network Security Group rules if you wish to enable access from outside the Virtual Network.
+>
+> For example, to allow SSH access from the internet, you will need to add a rule similar to the following:
+> ```
+Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "SSSH" `
+        -Description "SSH" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "22" `
+        -SourceAddressPrefix "*" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 304 `
+        -Direction Inbound```
 
 For more information on Network Security Groups, see [Network Security Groups overview](../virtual-network/virtual-networks-nsg.md). For information on controlling routing in an Azure Virtual Network, see [User Defined Routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
