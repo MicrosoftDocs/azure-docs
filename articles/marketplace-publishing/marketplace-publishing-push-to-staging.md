@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="04/26/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -165,11 +165,11 @@ Below is a detailed view of how the offer marketing information is used on the [
 *Offer description pricing details on the Azure Marketplace website*
 
 ### Azure Portal
-![drawing](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
+![drawing](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
 *Listing of offers in the Azure Portal*
 
-![drawing](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+![drawing](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
 *Offer description details in the Azure portal*
 
