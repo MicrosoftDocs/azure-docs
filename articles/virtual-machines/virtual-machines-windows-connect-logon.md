@@ -32,7 +32,7 @@ You'll use the **Connect** button in the Azure portal to start a Remote Desktop 
 
 4. On the blade for the virtual machine, click **Connect**.
 
-	![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-connect-logon/preview-portal-connect.png)
+	![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-connect-logon/connect.png)
 
 ## Log on to the virtual machine
 
