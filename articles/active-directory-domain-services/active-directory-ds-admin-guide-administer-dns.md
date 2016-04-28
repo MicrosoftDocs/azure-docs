@@ -33,15 +33,16 @@ To perform the tasks listed in this article, you will need:
 
 5. You will need the credentials of a user account belonging to the 'AAD DC Administrators' group in your directory, in order to administer DNS for your managed domain.
 
+<br>
 
 ## Provision a domain-joined virtual machine to remotely administer DNS for the managed domain
 Azure AD Domain Services managed domains can be managed remotely using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Similarly, DNS for the managed domain can be administered remotely using the DNS Server administration tools. Administrators in your Azure AD directory do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. Therefore, members of the 'AAD DC Administrators' group can administer DNS for managed domains remotely using DNS Server tools from a Windows Server/client computer that is joined to the managed domain. DNS Server tools can be installed as part of the Remote Server Administration Tools (RSAT) optional feature on Windows Server and client machines joined to the managed domain.
 
-The first step is to provision a Windows Server virtual machine that is joined to the managed domain. For instructions to do this, refer to the article titled [join a Window Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md). Note that these instructions use a Windows Server virtual machine in order to administer the AAD-DS managed domain. You can also chose to use a Windows client (eg. Windows 10) virtual machine to do so. In this case, you can install the Remote Server Administration Tools optional feature on the virtual machine.
+The first step is to provision a Windows Server virtual machine that is joined to the managed domain. For instructions to do this, refer to the article titled [join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md). Note that these instructions use a Windows Server virtual machine in order to administer the AAD-DS managed domain. You can also chose to use a Windows client (eg. Windows 10) virtual machine to do so. In this case, you can install the Remote Server Administration Tools optional feature on the virtual machine.
 
 
 ## Install DNS Server tools on the virtual machine
-Perform the following steps in order to install the DNS Administration tools on the domain joined virtual machine. For more [details on installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), refer to TechNet.
+Perform the following steps in order to install the DNS Administration tools on the domain joined virtual machine. For more details on [installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), refer to TechNet.
 
 1. Navigate to **Virtual Machines** node in the Azure classic portal. Select the virtual machine you just created and click **Connect** on the command bar at the bottom of the window.
 
@@ -111,6 +112,6 @@ For more information about managing DNS see the [DNS tools article on Technet](h
 
 - [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 
-- [Join a Window Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
+- [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 
 - [DNS administration tools](https://technet.microsoft.com/library/cc753579.aspx)
