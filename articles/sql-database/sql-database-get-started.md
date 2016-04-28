@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/13/2016"
+	ms.date="04/14/2016"
 	ms.author="carlrab"/>
 
 # SQL Database tutorial: Create a SQL database in minutes using the Azure portal
@@ -27,7 +27,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-In this tutorial, you'll learn how to use the Aure portal to:
+In this tutorial, you'll learn how to use the Azure portal to:
 
 - Create a SQL Database logical server to host SQL databases
 - Create a SQL database with no data, with sanple data or with data fron a SQL database backup.
@@ -50,7 +50,7 @@ Now that you've completed this SQL Database tutorial and created a database with
 
 - If you know Excel, learn how to [Connect to SQL database with Excel](sql-database-connect-excel.md).
 
-- If you're ready to start coding, see [Connect and query your SQL database with C#](sql-database-connect-query.md) and [Using SQL database from .NET (C#)](sql-database-develop-dotnet-simple.md). See the [Quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md) for Node.js, Python, Ruby, Java, PHP and C++ samples and how-to's in addition to C#.
+- If you're ready to start coding, choose your programming language at [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 - If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) to learn more.
 

@@ -1,6 +1,6 @@
 <properties
  pageTitle="Add burst nodes to an HPC Pack cluster | Microsoft Azure"
- description="Learn how to add worker role instances running in a cloud service on-demand as compute resources to an HPC Pack head node in Azure."
+ description="Learn how to expand the HPC Pack cluster capacity on-demand by adding worker role instances running in a cloud service"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -13,17 +13,18 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/08/2016"
+ ms.date="04/13/2016"
  ms.author="danlep"/>
 
 # Add on-demand "burst" nodes (worker role instances) as compute resources to an HPC Pack cluster in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
 This article shows you how to add Azure "burst" nodes (worker role instances
 running in a cloud service) on-demand as compute resources to an
 existing HPC Pack head node in Azure. This lets you scale up the compute capacity of the HPC cluster in Azure on-demand, without maintaining a set of preconfigured compute node VMs.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 ![Burst nodes][burst]
 
@@ -46,7 +47,7 @@ If you want to use the A8 or A9 compute intensive instance size, see
 
 * **HPC Pack head node deployed in an Azure VM** - See [Deploy an HPC
 Pack Head Node in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md) for
-steps to create a cluster head node in the classic (Service Management) deployment model.
+steps to create a cluster head node in the classic deployment model.
 
 * **Azure subscription** - To add Azure nodes, you can choose the same
 subscription used to deploy the head node VM, or a different
@@ -62,16 +63,13 @@ your Azure nodes:
 * A new Azure cloud service
 * A new Azure storage account
 
->[AZURE.NOTE] Don't reuse an existing cloud service in your subscription. Also don't
-deploy a separate, custom cloud service package to this cloud service.
-HPC Pack automatically deploys a cloud service package when you
-start (provision) the Azure nodes.
+>[AZURE.NOTE] Don't reuse an existing cloud service in your subscription. 
 
 **Considerations**
 
 * Configure a separate cloud service for each Azure node template that you plan to create. However, you can use the same storage account for multiple node templates.
 
-* You should generally locate the cloud service and the storage account for the deployment in the same region.
+* You should generally locate the cloud service and the storage account for the deployment in the same Azure region.
 
 
 
@@ -82,7 +80,7 @@ To add Azure nodes as compute resources, you'll need to have a management
 certificate on the head node and upload a corresponding certificate
  to the Azure subscription used for the deployment.
 
-For this scenario,  you can choose the **Default HPC Azure Management
+For this scenario, you can choose the **Default HPC Azure Management
 Certificate** that HPC Pack installs and configures automatically on the
 head node. This certificate is useful for testing purposes and
 proof-of-concept deployments. To use this certificate, simply upload the
@@ -112,11 +110,11 @@ After you add and start the nodes, they are ready for you to use to run cluster 
 
 If you encounter problems when deploying Azure nodes, see [Troubleshoot
 Deployments of Azure Nodes with Microsoft HPC
-Pack](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
+Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
 
-* If you want a way to
+* If you want to
 automatically grow or shrink the Azure computing resources according to
 the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 

@@ -13,67 +13,72 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/04/2016"
+   ms.date="04/27/2016"
    ms.author="v-livech"/>
 
 
 # Create a Linux VM on Azure using the CLI
 
-This article shows how to quickly create a Linux VM in Azure using the Azure CLI's `azure vm quick-create` command, which creates a VM with a basic infrastructure that you can use to prototype or test a concept very rapidly. The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)] and [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
+This article shows how to quickly deploy a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM with a basic infrastructure surrounding it that you can use to prototype or test a concept very rapidly. Think of it as the quickest way to a Linux bash shell.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)), and [the Azure CLI](../xplat-cli-install.md) logged in (`azure login`) and in resource manager mode (`azure config mode arm`).  You can also quickly deploy a Linux VM using the [Azure Portal](virtual-machines-linux-quick-create-portal.md).
 
 ## Quick Command Summary
 
 ```
-# One command to quickly the VM that prompts for arguments
-chrisL@fedora$ azure vm quick-create
+# One command to deploy the VM and attach your SSH key
+ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
-## Detailed Walk Through
+## Deploy the Linux VM
 
-### Create the Linux VM
+Using the same command from above we will show each prompt along with the output you should expect to see.  
 
-In the following command, you can use any image you want, but this example uses `canonical:ubuntuserver:14.04.2-LTS:latest` to create a VM quickly. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).) It will look something like the following.
+For the ImageURN we will use `canonical:ubuntuserver:14.04.2-LTS:latest` to deploy a Ubuntu 14.04 VM. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md)).
 
-In the following command examples, please replace values between &lt; and &gt; with values from your own environment.
+In the following command walk through, please replace the prompts with values from your own environment, we are using "example" values.  The output should look like the following output block.  
 
 ```bash
-# Create the Linux VM using prompts
-username@macbook$ azure vm quick-create
+# Follow the prompts and enter your own names
+ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
-Resource group name: exampleResourceGroup
+Resource group name: exampleRGname
 Virtual machine name: exampleVMname
 Location name: westus
-Operating system Type [Windows, Linux]: linux
+Operating system Type [Windows, Linux]: Linux
 ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
-User name: ops
-Password: *********
-Confirm password: *********
+User name: ahmet
+Password: ************************************************
+Confirm password: ************************************************
+```
+
+```bash
+########### expected output ###########
 + Looking up the VM "exampleVMname"
+info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
 info:    The [OS, Data] Disk or image configuration requires storage account
-+ Looking up the storage account cli133501687
-info:    Could not find the storage account "cli1301687", trying to create new one
-+ Creating storage account "cli133501687" in "westus"
-+ Looking up the storage account cli133501687
-+ Looking up the NIC "quick-westu-1363648838-nic"
-info:    An nic with given name "quick-westu-1363648838-nic" not found, creating a new one
-+ Looking up the virtual network "quick-westu-1363648838-vnet"
++ Looking up the storage account cli38948918364134011018
+info:    Could not find the storage account "cli38948918364134011018", trying to create new one
++ Creating storage account "cli38948918364134011018" in "westus"
++ Looking up the storage account cli38948918364134011018
++ Looking up the NIC "examp-westu-3894891836-nic"
+info:    An nic with given name "examp-westu-3894891836-nic" not found, creating a new one
++ Looking up the virtual network "examp-westu-3894891836-vnet"
 info:    Preparing to create new virtual network and subnet
-\ Creating a new virtual network "quick-westu-1363648838-vnet" [address prefix: "10.0.0.0/16"] with subnet "quick-westu-13636488+8-snet" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "quick-westu-1363648838-vnet"
-+ Looking up the subnet "quick-westu-1363648838-snet" under the virtual network "quick-westu-1363648838-vnet"
+| Creating a new virtual network "examp-westu-3894891836-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-westu-3894891836-snet" [address prefix: "10.+.1.0/24"]
++ Looking up the virtual network "examp-westu-3894891836-vnet"
++ Looking up the subnet "examp-westu-3894891836-snet" under the virtual network "examp-westu-3894891836-vnet"
 info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "quick-westu-1363648838-pip"
-info:    PublicIP with given name "quick-westu-1363648838-pip" not found, creating a new one
-+ Creating public ip "quick-westu-1363648838-pip"
-+ Looking up the public ip "quick-westu-1363648838-pip"
-+ Creating NIC "quick-westu-1363648838-nic"
-+ Looking up the NIC "quick-westu-1363648838-nic"
-+ Creating VM "quickcreate"
++ Looking up the public ip "examp-westu-3894891836-pip"
+info:    PublicIP with given name "examp-westu-3894891836-pip" not found, creating a new one
++ Creating public ip "examp-westu-3894891836-pip"
++ Looking up the public ip "examp-westu-3894891836-pip"
++ Creating NIC "examp-westu-3894891836-nic"
++ Looking up the NIC "examp-westu-3894891836-nic"
++ Creating VM "exampleVMname"
 + Looking up the VM "exampleVMname"
-+ Looking up the NIC "quick-westu-1363648838-nic"
-+ Looking up the public ip "quick-westu-1363648838-pip"
-data:    Id                              :/subscriptions/<guid>/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMname
++ Looking up the NIC "examp-westu-3894891836-nic"
++ Looking up the public ip "examp-westu-3894891836-pip"
+data:    Id                              :/subscriptions/<**subscriptionsID**>/resourceGroups/exampleRGname/providers/Microsoft.Compute/virtualMachines/exampleVMname
 data:    ProvisioningState               :Succeeded
 data:    Name                            :exampleVMname
 data:    Location                        :westus
@@ -84,22 +89,22 @@ data:      Size                          :Standard_D1
 data:
 data:    Storage Profile:
 data:      Image reference:
-data:        Publisher                   :canonical
-data:        Offer                       :ubuntuserver
-data:        Sku                         :14.04.2-LTS
+data:        Publisher                   :Canonical
+data:        Offer                       :UbuntuServer
+data:        Sku                         :14.04.4-LTS
 data:        Version                     :latest
 data:
 data:      OS Disk:
 data:        OSType                      :Linux
-data:        Name                        :cli350d386daac1f01c-os-1457063387485
+data:        Name                        :clife36db80ae0539d2-os-1460152163612
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://cli1361687.blob.core.windows.net/vhds/cli350d386daac1f01c-os-1457063387485.vhd
+data:          Uri                       :https://<**subscriptionsID**>.blob.core.windows.net/vhds/clife36db80ae0539d2-os-1460152163612.vhd
 data:
 data:    OS Profile:
 data:      Computer Name                 :exampleVMname
-data:      User Name                     :ops
+data:      User Name                     :ahmet
 data:      Linux Configuration:
 data:        Disable Password Auth       :false
 data:
@@ -107,41 +112,35 @@ data:    Network Profile:
 data:      Network Interfaces:
 data:        Network Interface #1:
 data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-32-E9-66
+data:          MAC Address               :00-0D-3A-33-4C-B2
 data:          Provisioning State        :Succeeded
-data:          Name                      :quick-westu-1363648838-nic
+data:          Name                      :examp-westu-3894891836-nic
 data:          Location                  :westus
-data:            Public IP address       :137.135.33.58
-data:            FQDN                    :quick-westu-1363648838-pip.westus.cloudapp.azure.com
+data:            Public IP address       :13.88.22.244
+data:            FQDN                    :examp-westu-3894891836-pip.westus.cloudapp.azure.com
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://cli13601687.blob.core.windows.net/
+data:      BootDiagnostics StorageUri    :https://<**subscriptionsID**>.blob.core.windows.net/
 data:
 data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-You can now SSH into your VM on the default SSH port 22.
+You can now SSH into your VM on the default SSH port 22 and the Public IP address (or the fully qualified domain name -- FQDN) listed in the output above.
 
-The `azure vm quick-create` quickly creates a VM so you can log in and get working. It does not have a complex environment, however, so if you want to customize your environment you can [use an Azure resource manager template to create a specific deployment quickly](virtual-machines-linux-cli-deploy-templates.md), or you can [create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
-
-The example above creates:
-
-- an Azure Resource Group to deploy the VM into
-- an Azure Storage account to hold the .vhd file that is the VM image
-- an Azure Virtual Network and subnet to provide connectivity to the VM
-- a virtual Network Interface Card (NIC) to associate the VM with the network
-- a public IP address and subdomain prefix to provide an internet address for external use and then creates the Linux VM inside that environment.
-
-This VM is exposed directly to the Internet, and is only secured by a username and password.
+```
+ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+```
 
 ## Next Steps
 
-Now you've created a Linux VM quickly to use for testing or demonstration purposes. You can create a more secure execution environment with a Linux VM in Azure by:
+The `azure vm quick-create` is the way to quickly deploy a VM so you can log in  to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment.  To deploy a Linux VM customized for your infrastructure you can follow any of the articles below.
 
-- [Create a Linux VM in Azure using Azure Templates](virtual-machines-linux-cli-deploy-templates.md)
-- [Create an SSH-Secured Linux VM in Azure using Azure Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Create a Linux VM in Azure using the Azure CLI and customizing the infrastructure](virtual-machines-linux-create-cli-complete.md)
+- [Use an Azure resource manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md)
+- [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
+- [Create a Linux VM on Azure using Templates](virtual-machines-linux-cli-deploy-templates.md)
+- [Create a SSH Secured Linux VM on Azure using Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create a Linux VM using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
 
-as well as any number of proprietary and open-source infrastructure deployment, configuration, and orchestration tools.
+Those articles will get you started in building an Azure infrastructure as well as any number of proprietary and open-source infrastructure deployment, configuration, and orchestration tools.

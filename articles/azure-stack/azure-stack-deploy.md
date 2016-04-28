@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/30/2016"
+	ms.date="04/21/2016"
 	ms.author="erikje"/>
 
 # Before you deploy Azure Stack POC
 
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
 These requirements apply to the Azure Stack POC only and might change for future releases.
+
+You can also watch the [Azure Stack TP1 POC Deployment Tutorial video](https://channel9.msdn.com/Blogs/azurestack/Microsoft-Azure-Stack-TP1-POC-Deployment-Tutorial).
 
 
 ## Hardware
@@ -69,8 +71,8 @@ Sample OEM configurations are available.
 
 | | **Requirements**  |
 |---|---|
-| **OS Version** | [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including [KB 3124262](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=3124262).|
-| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system, updates, and KB 3124262.|
+| **OS Version** | [Windows Server 2016 Datacenter Edition **Technical Preview 4**](http://aka.ms/ReqOSforAzureStack) with the latest important updates installed.|
+| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system and all important updates.|
 | **Domain joined?** | No. |
 
 

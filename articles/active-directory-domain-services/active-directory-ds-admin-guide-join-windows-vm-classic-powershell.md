@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="stevenpo
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags

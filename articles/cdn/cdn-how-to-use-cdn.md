@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using Azure CDN | Microsoft Azure"
+	pageTitle="Using Azure CDN"
 	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content."
 	services="cdn"
 	documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/15/2016"
 	ms.author="casoper"/>
 
@@ -129,7 +129,6 @@ Accessing CDN content using HTTPS has the following constraints:
 - You must use the certificate provided by the CDN. Third party certificates are not supported.
 - You must use the CDN domain to access content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
 
-For more information on enabling HTTPS for CDN content, see [How to Enable the Content Delivery Network (CDN) for Azure](cdn-create-new-endpoint.md).
 
 
 ## Accessing cached content with custom domains

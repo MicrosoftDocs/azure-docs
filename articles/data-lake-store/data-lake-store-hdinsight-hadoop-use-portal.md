@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/11/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Create an HDInsight cluster with Data Lake Store using Azure Portal
@@ -29,7 +29,9 @@ Learn how to use Azure Portal to create an HDInsight cluster (Hadoop, HBase, or 
 
 * **For Storm clusters (Windows and Linux)**, the Data Lake Store can be used to write data from a Storm topology. Data Lake Store can also be used to store reference data that can then be read by a Storm topology. For more information, see [Use Data Lake Store in a Storm topology](#use-data-lake-store-in-a-storm-topology).
 
-* **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage. Option to create HBase clusters with access to Data Lake Store is available only if you use HDI versions 3.1 or 3.2 (for Windows) or HDI version 3.2 (for Linux). For more information, see [Use Data Lake Store with HBase clusters](#use-data-lake-store-with-hbase-clusters).
+* **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage. For more information, see [Use Data Lake Store with HBase clusters](#use-data-lake-store-with-hbase-clusters).
+
+> [AZURE.NOTE] Option to create HDInsight clusters with access to Data Lake Store is available only for HDInsight version 3.2 (for Windows as well as Linux). 
 
 
 ## Prerequisites

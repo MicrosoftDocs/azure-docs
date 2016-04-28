@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/07/2016"
+   ms.date="04/15/2016"
    ms.author="derrickv"/>
 
 # Get started with Azure Data Catalog
@@ -27,6 +27,8 @@ Before you begin this tutorial you must have the following:
 - **An Azure subscription** -  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 - **Azure Active Directory** -  Azure Data Catalog uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for identity and access management.
 - **Data sources** - Azure Data Catalog has capabilities to discover data sources. This tutorial uses the Adventure Works sample database, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+
+> [AZURE.NOTE] For more information on Azure subscriptions and Azure Active Directory, please see [Azure Data Catalog prerequisites](data-catalog-prerequisites.md).
 
 Let's get started installing the Adventure Works sample database.
 

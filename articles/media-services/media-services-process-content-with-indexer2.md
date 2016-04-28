@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/22/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
 # Indexing Media Files with Azure Media Indexer 2 Preview
-
 
 ##Overview
 
@@ -57,7 +56,7 @@ Closed Caption (CC) files in these formats can be used to make audio and video f
 
 ##Task configuration (preset)
 
-When creating an indexing task with **Azure Media Indexer 2 Preview*, you must specify a configuration preset.
+When creating an indexing task with **Azure Media Indexer 2 Preview**, you must specify a configuration preset.
 
 The following JSON sets available parameters.
 
@@ -288,3 +287,4 @@ The following program shows how to:
 
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
+[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)

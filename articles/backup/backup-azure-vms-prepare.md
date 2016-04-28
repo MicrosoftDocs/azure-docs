@@ -33,9 +33,7 @@ If you know these conditions already exist in your environment then proceed to t
 
 >[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). The following list provides the limitations when deploying in the classic model.
 
-- Backing up Azure Resource Manager (ARM)-based (aka IaaS V2) virtual machines is not currently supported.
 - Backing up virtual machines with more than 16 data disks is not supported.
-- Backing up virtual machines using Premium storage is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 - Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
 - Cross-region backup and restore is not supported.
@@ -208,4 +206,3 @@ Now that you have prepared your environment for backing up your VM, your next lo
 - [Back up virtual machines](backup-azure-vms.md)
 - [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
 - [Manage virtual machine backups](backup-azure-manage-vms.md)
-

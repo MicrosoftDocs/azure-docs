@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure Forced Tunneling for VPN Gateways using Resource Manager | Microsoft Azure"
-   description="If you have a virtual network with a cross-premises VPN Gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. This article applies to the Resource Manager deployment model. "
+   description="If you have a virtual network with a cross-premises VPN Gateway, you can redirect or 'force' all Internet-bound traffic back to your on-premises location. This article applies to the Resource Manager deployment model. "
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
