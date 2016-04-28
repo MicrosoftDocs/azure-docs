@@ -572,11 +572,11 @@ Individual telemetry calls can override the default values in their property dic
 
 ## Sampling, filtering and processing telemetry 
 
-You can write code to process your telemetry before it is sent from the SDK by implementing `ITelemetryProcesor`. The processing includes data sent from the standard telemetry modules such as HTTP request collection and dependency collection.
+You can write code to process your telemetry before it is sent from the SDK. The processing includes data sent from the standard telemetry modules such as HTTP request collection and dependency collection.
 
-* [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry - for example, version numbers, or values calculated from other properties.
-* [Sampling](app-insights-api-filtering-sampling.md#sampling) reduces the volume of data sent from your app to the portal, without affecting the displayed metrics, and without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests and page views.
-* [Filtering](app-insights-api-filtering-sampling.md#filtering) also reduces volume. You control what is sent or discarded, but you have to take account of the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+* [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer` - for example, to add version numbers, or values calculated from other properties. 
+* [Filtering](app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it is sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to take account of the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+* [Sampling](app-insights-api-filtering-sampling.md#sampling) is a packaged solution to reduce the volume of data sent from your app to the portal. It does so without affecting the displayed metrics, and without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests and page views.
 
 [Learn more](app-insights-api-filtering-sampling.md)
 
