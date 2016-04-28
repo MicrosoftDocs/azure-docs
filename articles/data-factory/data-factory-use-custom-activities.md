@@ -543,7 +543,7 @@ In this step, you will create datasets to represent input and output data.
 		    }
 		}
 
- 	Output location is **adftutorial/customactivityoutput/YYYYMMDDHH/** where YYYYMMDDHH is the year, month, date, and hour of the slice being produced. See [Developer Reference][adf-developer-reference] for details.
+ 	Output location is **adftutorial/customactivityoutput/** and output file name is yyyy-MM-dd-HH.txt where yyyy-MM-dd-HH is the year, month, date, and hour of the slice being produced. See [Developer Reference][adf-developer-reference] for details.
 
 	An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder: **adftutorial\customactivityoutput**.
 
@@ -756,7 +756,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 			        "typeProperties": {
 			            "clusterSize": 4,
 			            "timeToLive": "00:05:00",
-			            "osType": "linux",
+			            "osType": "Windows",
 			            "linkedServiceName": "AzureStorageLinkedService",
 			        }
 			    }
