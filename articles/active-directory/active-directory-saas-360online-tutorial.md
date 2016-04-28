@@ -99,7 +99,7 @@ To configure and test Azure AD single sign-on with 360° Online, you need to com
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a 360° Online test user](#creating-a-360-online-test-user)** - to have a counterpart of Britta Simon in Ultipro that is linked to the Azure AD representation of her.
+4. **[Creating a 360° Online test user](#creating-a-360-online-test-user)** - to have a counterpart of Britta Simon in 360° Online that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -214,9 +214,7 @@ In the Users list, select **Britta Simon**.
 
 ### Creating a 360° Online test user
 
-The objective of this section is to create a user called Britta Simon in 360° Online. You need to provision all the users in the 360° Online. Also note that username of the user should match the value which you have configured in the Azure AD custom attribute of **username**. With the correct mapping the integration should work [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
-
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the 360° Online administrator in your organization.
+The objective of this section is to create a user called Britta Simon in 360° Online. You need to provision all the users in the 360° Online. Creating new users in 360 Online is a manual process. Please work with 360° Online team for Microsoft Azure team to add the users in the 360° Online for Microsoft Azure account. 
 
 
 ### Assigning the Azure AD test user
