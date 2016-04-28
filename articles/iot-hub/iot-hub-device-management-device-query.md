@@ -172,7 +172,7 @@ There are some limitations in the public preview implementation of queries.
 
 -   Only 100 devices will be returned when using query expressions to query by service or device properties. An example of how to implement paging is available in [our query library][lnk-query-samples].
 
-More details on the syntax and available fields for the JSON are [available][lnk-query-expression-guide]. You can also see our library of sample queries in our [query expressions library][lnk-query-samples].
+More details on the syntax and available fields for the JSON are [available][lnk-query-expression-guide]. You can also see sample queries in our [query expressions library][lnk-query-samples].
 
 ### Query by device and service properties
 
@@ -196,7 +196,7 @@ var foundDevices = await registryManager.QueryDevicesAsync(new[] { "bacon" }, 10
 
 ### Device Implementation
 
-The query is enabled by the library. As long as your device properties are synchronized (as described in [Tutorial: How to use the device twin][lnk-twin-tutorial]), you can query on them. Device properties are available only after the physical device connects to IoT Hub and provides initial values.
+The query is enabled by the Azure IoT Hub device management client library. As long as your device properties are synchronized (as described in [Tutorial: How to use the device twin][lnk-twin-tutorial]), you can query on them. Device properties are available only after the physical device connects to IoT Hub and provides initial values.
 
 ## Next steps
 

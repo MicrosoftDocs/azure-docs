@@ -94,20 +94,20 @@ You can query job history to understand the state of jobs that you have started.
 
 ## Device Implementation
 
-Now that we have covered the service-side concepts, let’s discuss how to create device with management capabilities. The client library on the device provides the necessary artifacts to implement the communication between your physical device and IoT Hub.
+Now that we have covered the service-side concepts, let’s discuss how to create device with management capabilities. The Azure IoT Hub device management client library on the device provides the necessary artifacts to implement the communication between your physical device and IoT Hub.
 
-The device management client library abstracts the [LWM2M][lnk-lwm2m] standard and the CoAP based request/response protocol. Thus, the library has a device model of *objects* and *resource definitions*:
+The Azure IoT Hub DM client library abstracts the [LWM2M][lnk-lwm2m] standard and the CoAP based request/response protocol. Thus, the library has a device model of *objects* and *resource definitions*:
 
 -   Objects describe a set of coherent functional entities in the system such as the device and firmware updates.
 -   Resources describe attributes or actions included in those objects such as battery level information and the reboot action.
 
-When you use the device management client library, you need to implement the callbacks for read, write and execute operations for each resource on the physical device. The library handles asynchronously updating the IoT Hub when properties are changed.
+When you use the Azure IoT Hub DM client library, you need to implement the callbacks for read, write and execute operations for each resource on the physical device. The library handles asynchronously updating the IoT Hub when properties are changed.
 
 The diagram below shows the different components needed in the IoT Hub client agent.
 
 ![][img-client]
 
-You can learn more about the implementation on the physical device in [Introducing the Azure IoT Hub device management library for C][lnk-library-c].
+You can learn more about the implementation on the physical device in [Introducing the Azure IoT Hub device management client library for C][lnk-library-c].
 
 ## Next steps
 

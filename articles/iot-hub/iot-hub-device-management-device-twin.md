@@ -92,7 +92,7 @@ You cannot do a deep read on service properties or tags because they are not syn
 
 ### Deep Write
 
-If you want to change a writeable device property, you can do this with a deep write which starts a device job to write the value on the physical device. Not all the device properties are writeable. For a full list, see Appendix A of [Introducing the Azure IoT Hub device management library for C][lnk-dm-library].
+If you want to change a writeable device property, you can do this with a deep write which starts a device job to write the value on the physical device. Not all the device properties are writeable. For a full list, see Appendix A of [Introducing the Azure IoT Hub device management client library][lnk-dm-library].
 
 The job sends a message to the physical device to update the specified property. The device twin is not immediately updated when the job completes. You must wait until the next notify interval. Once the synchronization occurs, you can see the change in the device twin with a shallow read.
 
@@ -104,14 +104,14 @@ JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync
 
 Let’s investigate what you need to do on the device side to implement the observe/notify pattern and deep reads/writes.
 
-Because the synchronization of the device properties is handled completely through the library, all you need to do is call the API to set the device property (battery level in this example) at a regular interval. When the service does a deep read, the last value you set is returned. When the service does a deep write, this set method is called. In **iotdm\_simple\_sample.c** you can see an example of this:
+Because the synchronization of the device properties is handled completely through the Azure IoT Hub DM client library, all you need to do is call the API to set the device property (battery level in this example) at a regular interval. When the service does a deep read, the last value you set is returned. When the service does a deep write, this set method is called. In **iotdm\_simple\_sample.c** you can see an example of this:
 
 ```
 int level = get_batterylevel();  // call to platform specific code 
 set_device_batterylevel(0, level);
 ```
 
-Instead of using the set method, you could implement a callback. For additional information on this option, see [Introducing the Azure IoT Hub device management library for C][lnk-dm-library].
+Instead of using the set method, you could implement a callback. For additional information on this option, see [Introducing the Azure IoT Hub device management library][lnk-dm-library].
 
 ## Next steps
 

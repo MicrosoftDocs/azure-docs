@@ -154,7 +154,7 @@ Azure IoT Hub device management client library handles communication between the
 
 To learn more about the Azure IoT Hub device management features you can go through the tutorials:
 
-- the device management client libraries provides an end to end sample using an [Intel Edison device][lnk-edison].
+- the Azure IoT Hub DM client library provides an end to end sample using an [Intel Edison device][lnk-edison].
 
 - [How to use the device twin][lnk-twin-tutorial]
 
