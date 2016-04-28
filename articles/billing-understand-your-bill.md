@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="04/28/2016"
    ms.author="erihur"/>
 
 
@@ -35,11 +35,11 @@ For more information about consumption and rate plans, see the [Microsoft Azure 
 
 ### View or download a bill for Microsoft Azure:
 
-In the [Azure Account Portal](https://account.windowsazure.com/subscriptions) you can view current and download past bills.
+In the [Azure Account Center](https://account.windowsazure.com/subscriptions) you can view current and download past bills.
 
 To view or download a bill:
 
-1. Sign in to the [Account Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
+1. Sign in to the [Account Center](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
 
 2. Click on the subscription in which you would like to see details and usage.
 
@@ -142,7 +142,7 @@ The additional information page gives you references to other resources to under
 ![additional information](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Detailed usage
-A link in the description under **Detailed Usage** directs you the Account Portal where you can view your detailed usage for this subscription.  There are now two versions available to download:  **.csv version 1** contains the old naming convention and usage fields and **.csv version 2** contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure. Please note that in .csv version 1 that there are no Azure Resource Manager details. Azure Resource Manager information can be found in .csv version 2.
+A link in the description under **Detailed Usage** directs you the Account Center where you can view your detailed usage for this subscription.  There are now two versions available to download:  **.csv version 1** contains the old naming convention and usage fields and **.csv version 2** contains customer friendly names for each of the categories plus additional fields that will help you understand what services you are using on Microsoft Azure. Please note that in .csv version 1 that there are no Azure Resource Manager details. Azure Resource Manager information can be found in .csv version 2.
 
 ### Additional information and useful resources
 This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.
@@ -240,15 +240,16 @@ Navigate to the section, **Manage Accounts, Subscriptions, and Admin Roles**, un
 
 - [Azure Billing and Subscription FAQ ](billing-subscription-faq.md)
 
-- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+- [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md)
 
+<!--
+OLD MSDN Articles
+- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
 - [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
-
 - [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
-
 - [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
-
-<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
+- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+-->
 
 
 
