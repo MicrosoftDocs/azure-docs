@@ -43,24 +43,24 @@ Fields mappings are added to the `fieldsMappings` array on the indexer definitio
 
 ```JSON
 
-	PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
-    Content-Type: application/json
-    api-key: [admin key]
-    {
-        "dataSourceName" : "mydatasource",
-        "targetIndexName" : "myindex",
-        "fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ] 
-    } 
+PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
+Content-Type: application/json
+api-key: [admin key]
+{
+    "dataSourceName" : "mydatasource",
+    "targetIndexName" : "myindex",
+    "fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ] 
+} 
 ```
 
 An indexer can have multiple field mappings. For example, here's how you can "fork" a field:
 
 ```JSON
 
-	"fieldMappings" : [ 
-	  { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-	  { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }, 
-	] 
+"fieldMappings" : [ 
+	{ "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
+	{ "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }, 
+] 
 ```
 
 > [AZURE.NOTE] Azure Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
@@ -87,12 +87,12 @@ Only URL-safe characters can appear in an Azure Search document key (because cus
 
 ```JSON
 
-	"fieldMappings" : [ 
-	  { 
-        "sourceFieldName" : "Path", 
-        "targetFieldName" : "UrlSafePath",
-        "mappingFunction" : { "name" : "base64Encode" } 
-      }] 
+"fieldMappings" : [ 
+  { 
+    "sourceFieldName" : "Path", 
+    "targetFieldName" : "UrlSafePath",
+    "mappingFunction" : { "name" : "base64Encode" } 
+  }] 
 ```
 
 <a name="base64DecodeFunction"></a>
@@ -108,12 +108,12 @@ Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding t
 
 ```JSON
 
-	"fieldMappings" : [ 
-	  { 
-        "sourceFieldName" : "Base64EncodedMetadata", 
-        "targetFieldName" : "SearchableMetadata",
-        "mappingFunction" : { "name" : "base64Decode" } 
-      }] 
+"fieldMappings" : [ 
+  { 
+    "sourceFieldName" : "Base64EncodedMetadata", 
+    "targetFieldName" : "SearchableMetadata",
+    "mappingFunction" : { "name" : "base64Decode" } 
+  }] 
 ```
 
 <a name="extractTokenAtPositionFunction"></a>
@@ -136,17 +136,17 @@ Your data source contains a `PersonName` field, and you want to index it as two 
 
 ```JSON 
 
-	"fieldMappings" : [ 
-	  { 
-        "sourceFieldName" : "PersonName", 
-        "targetFieldName" : "FirstName",
-        "mappingFunction" : { "name" : "extractTokenAtPosition", "parameters" : { "delimiter" : " ", "position" : 0 } } 
-      }, 
-      { 
-        "sourceFieldName" : "PersonName", 
-        "targetFieldName" : "LastName",
-        "mappingFunction" : { "name" : "extractTokenAtPosition", "parameters" : { "delimiter" : " ", "position" : 1 } } 
-      }] 
+"fieldMappings" : [ 
+  { 
+    "sourceFieldName" : "PersonName", 
+    "targetFieldName" : "FirstName",
+    "mappingFunction" : { "name" : "extractTokenAtPosition", "parameters" : { "delimiter" : " ", "position" : 0 } } 
+  }, 
+  { 
+    "sourceFieldName" : "PersonName", 
+    "targetFieldName" : "LastName",
+    "mappingFunction" : { "name" : "extractTokenAtPosition", "parameters" : { "delimiter" : " ", "position" : 1 } } 
+  }] 
 ```
 
 <a name="jsonArrayToStringCollectionFunction"></a>
@@ -164,9 +164,9 @@ Azure SQL database doesn't have a built-in data type that naturally maps to `Col
 
 ```JSON
 
-	"fieldMappings" : [ 
-	  { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } }
-	] 
+"fieldMappings" : [ 
+  { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } }
+] 
 ```
 
 ## Help us make Azure Search better
