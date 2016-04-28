@@ -367,34 +367,34 @@ DocumentDB supports [rich queries](documentdb-sql-query.md) against JSON documen
 
 Copy and paste the **queryCollection** function underneath the **getFamilyDocument** function. DocumentDB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](documentdb-sql-query.md).
 
-        } else {
-          resolve(result);
-        }
-      });
-    });
-  }
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+    }
 
-  // ADD THIS PART TO YOUR CODE
-  function queryCollection() {
-    console.log(`Querying collection through index:\n${config.collection.id}`);
+    // ADD THIS PART TO YOUR CODE
+    function queryCollection() {
+        console.log(`Querying collection through index:\n${config.collection.id}`);
 
-    return new Promise((resolve, reject) => {
-      client.queryDocuments(
-        collectionUrl,
-        'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
-      ).toArray((err, results) => {
-        if (err) reject(err)
-        else {
-          for (var queryResult of results) {
-            let resultString = JSON.stringify(queryResult);
-            console.log(`\tQuery returned ${resultString}`);
-          }
-          console.log();
-          resolve(results);
-        }
-    });
-    });
-  };
+        return new Promise((resolve, reject) => {
+            client.queryDocuments(
+                collectionUrl,
+                'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
+            ).toArray((err, results) => {
+                if (err) reject(err)
+                else {
+                    for (var queryResult of results) {
+                        let resultString = JSON.stringify(queryResult);
+                        console.log(`\tQuery returned ${resultString}`);
+                    }
+                    console.log();
+                    resolve(results);
+                }
+            });
+        });
+    };
 
 
 The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created.
@@ -405,15 +405,15 @@ The [FROM](documentdb-sql-query.md/#from-clause) keyword is optional in the quer
 
 Copy and paste the code below the call to **getFamilyDocument** to execute the **queryCollection** function.
 
-  .then(() => getFamilyDocument(config.documents.Andersen))
-  .then(() => getFamilyDocument(config.documents.Wakefield))
+    .then(() => getFamilyDocument(config.documents.Andersen))
+    .then(() => getFamilyDocument(config.documents.Wakefield))
 
-  // ADD THIS PART TO YOUR CODE
-  .then(() => queryCollection())
-  // ENDS HERE
+    // ADD THIS PART TO YOUR CODE
+    .then(() => queryCollection())
+    // ENDS HERE
 
-  .then(() => { exit(`Completed successfully`); })
-  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+    .then(() => { exit(`Completed successfully`); })
+    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -424,43 +424,43 @@ DocumentDB supports replacing JSON documents.
 
 Copy and paste the **replaceDocument** function underneath the **queryCollection** function.
 
-          }
-                console.log();
-          resolve(result);
-        }
-      });
-    });
-  }
-
-  // ADD THIS PART TO YOUR CODE
-  function replaceFamilyDocument(document) {
-    let documentUrl = `${collectionUrl}/docs/${document.id}`;
-    console.log(`Replacing document:\n${document.id}\n`);
-    document.children[0].grade = 6;
-
-    return new Promise((resolve, reject) => {
-        client.replaceDocument(documentUrl, document, (err, result) => {
-          if (err) reject(err);
-          else {
-            resolve(result);
-          }
+                    }
+                    console.log();
+                    resolve(result);
+                }
+            });
         });
-    });
-  };
+    }
+
+    // ADD THIS PART TO YOUR CODE
+    function replaceFamilyDocument(document) {
+        let documentUrl = `${collectionUrl}/docs/${document.id}`;
+        console.log(`Replacing document:\n${document.id}\n`);
+        document.children[0].grade = 6;
+
+        return new Promise((resolve, reject) => {
+            client.replaceDocument(documentUrl, document, (err, result) => {
+                if (err) reject(err);
+                else {
+                    resolve(result);
+                }
+            });
+        });
+    };
 
 Copy and paste the code below the call to **queryCollection** to execute the **replaceDocument** function. Also, add the code to call **queryCollection** again to verify that the document had successfully changed.
 
-  .then(() => getFamilyDocument(config.documents.Andersen))
-  .then(() => getFamilyDocument(config.documents.Wakefield))
-  .then(() => queryCollection())
+    .then(() => getFamilyDocument(config.documents.Andersen))
+    .then(() => getFamilyDocument(config.documents.Wakefield))
+    .then(() => queryCollection())
 
-  // ADD THIS PART TO YOUR CODE
-  .then(() => replaceFamilyDocument(config.documents.Andersen))
-  .then(() => queryCollection())
-  // ENDS HERE
+    // ADD THIS PART TO YOUR CODE
+    .then(() => replaceFamilyDocument(config.documents.Andersen))
+    .then(() => queryCollection())
+    // ENDS HERE
 
-  .then(() => { exit(`Completed successfully`); })
-  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+    .then(() => { exit(`Completed successfully`); })
+    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
