@@ -154,6 +154,25 @@ The following query performs a three-way join between the two local tables for o
 	ON o_id = ol_o_id and o_c_id = ol_c_id
 	WHERE c_id = 100
 
+
+## Stored procedure for remote T-SQL execution: sp\_execute_remote
+
+Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
+
+* Data source name (nvarchar): The name of the external data source of type RDBMS. 
+* Query (nvarchar): The T-SQL query to be executed on each shard. 
+* Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
+* Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql).
+
+The sp\_execute\_remote uses the external data source provided in the invocation parameters to execute the given T-SQL statement on the remote databases. It uses the credential of the external data source to connect to the shardmap manager database and the remote databases.  
+
+Example: 
+
+	EXEC sp_execute_remote
+		N'MyExtSrc',
+		N'select count(w_id) as foo from warehouse' 
+
+
   
 ## Connectivity for tools
 
