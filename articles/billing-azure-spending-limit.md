@@ -34,7 +34,7 @@ If you are on our free trial, you have the ability at any time within 90 days af
 You will receive notifications as soon as you hit the spending limit for your offer. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions/), click **ACCOUNT**, and then click **subscriptions**. You will see notifications about subscriptions that have reached the spending limit.
 
 ## Things you will be charged for even if you have a spending limit enabled
-Be aware that if you deploy third-party images and services, they will continue to incur charges under the payment instrument (CC) associated to the subscription even when the spending limit is set and your subscription has monthly credits remaining.This includes support plans, Visual Studio subscriptions, Visual Studio Team Services, third-party branded products, products sold through Marketplace, and products otherwise sold separately from Azure (for example, Microsoft Azure Active Directory Premium) are the only exceptions; you’ll be billed for any of these services used.
+Be aware that some Azure services and Marketplace purchases can incur charges under the payment method (CC) even if a spending limit is set. Examples are Visual studio licenses, Azure Active Directory premium, support plans and most third party branded services sold through the Marketplace.
 
 ## When not to use the spending limit
 The spending limit could prevent you from deploying or using certain marketplace and Microsoft services. Here are the scenarios where you should remove the spending limit on your subscription.
