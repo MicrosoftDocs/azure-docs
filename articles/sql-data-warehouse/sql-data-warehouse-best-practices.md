@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL Data Warehouse Best Practices | Microsoft Azure"
-   description="Best practices for Azure SQL Data Warehouse."
+   pageTitle="Best Practices for Azure SQL Data Warehouse | Microsoft Azure"
+   description="Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -25,7 +25,8 @@ If you are just getting started with Azure SQL Data Warehouse, do not let this a
 ## Reduce Cost with Pause and Scale
 A key feature of SQL Data Warehouse is the ability to pause when you are not using it, which stops the billing of compute resources.  Another key feature is the ability to scale resources.  Pausing and Scaling can be done via the Azure Portal or through PowerShell commands.  Become familiar with these features as these features can greatly reduce the cost of your data warehouse when it is not in use.  If you always want your data warehouse accessible, you may want to consider scaling it down to the smallest size, a DW100 rather than pausing.
 
-See also [Pausing compute resources][], [Resuming compute resources][], [Scaling compute resources][]
+See also [Pause compute resources][], [Resume compute resources][], [Scale compute resources][]
+
 
 ## Drain Transactions Before Pausing or Scaling 
 When you pause or scale your SQL Data Warehouse, behind the scenes your database instance is stopped.  This means that all in-flight queries will be canceled.  Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to  pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly.  **Transactional queries must either complete in their entirety or rollback their changes.**  Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying.  For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted.  If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
@@ -119,9 +120,9 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: data-factory-azure-sql-data-warehouse-connector.md
 [Optimizing transactions for SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
-[Pausing compute resources]: sql-data-warehouse-overview-scalability.md#pause-compute
-[Resuming compute resources]: sql-data-warehouse-overview-scalability.md#resume-compute
-[Scaling compute resources]: sql-data-warehouse-overview-scalability.md#scale-performance
+[Pause compute resources]: sql-data-warehouse-overview-scalability/#pause-compute-bk
+[Resume compute resources]: sql-data-warehouse-overview-scalability/#resume-compute-bk
+[Scale compute resources]: sql-data-warehouse-overview-scalability/#scale-performance-bk
 [Table design in SQL Data Warehouse]: sql-data-warehouse-develop-table-design.md
 [Table partitions in SQL Data Warehouse]: sql-data-warehouse-develop-table-partitions.md
 [Temporary tables in SQL Data Warehouse]: sql-data-warehouse-develop-temporary-tables.md

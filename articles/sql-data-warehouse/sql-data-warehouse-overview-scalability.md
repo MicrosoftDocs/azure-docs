@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/27/2016"
+   ms.date="04/28/2016"
    ms.author="barbkess;sonyama"/>
 
 # Performance scalability for Azure SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-scalability.md)
-- [Azure portal](sql-data-warehouse-manage-scale-out-tasks.md)
+- [Portal](sql-data-warehouse-manage-scale-out-tasks.md)
 - [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
 - [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-scale-out-tasks-tsql.md)
 
-The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale out performance while saving costs costs by only paying for performance when you need it. 
+The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale out performance while saving costs by only paying for performance when you need it. 
 
 This overview describes the following performance scale-out capabilities of SQL Data Warehouse and gives recommendations on how and when to use them. 
 
 - Scale performance by adjusting data warehouse units (DWUs)
 - Pause or resume compute resources
+
+<a name="scale-performance-bk"></a>
 
 ## Scale performance
 
@@ -73,7 +75,7 @@ Performance in SQL Data Warehouse scales linearly, and changing from one compute
 
 Recommendations for finding the best DWU for your workload:
 
-1. For a data warehouse in development, begin by selecting small number of DWUs.
+1. For a data warehouse in development, begin by selecting a small number of DWUs.
 2. Monitor your application performance, observing the number of DWUs selected compared to the performance you observe.
 3. Determine how much faster or slower performance should be for you to reach the optimum performance level for your requirements by assuming linear scale.
 4. Increase or decrease the number of DWUs in proportion to how much faster or slower you want your workload to perform. The service will respond quickly and adjust the compute resources to meet the new DWU requirements.
@@ -88,6 +90,8 @@ Recommendations for when to scale DWUs:
 1. If your application has a fluctuating workload, scale DWU levels up or down to accommodate peaks and low points. For example, if your workload typically peaks at the end of the month, plan to add more DWUs during those peak days, then scale down once the peak period is over.
 1. Before you perform a heavy data loading or transformation operation, scale up DWUs so that your data is available more quickly.
 
+<a name="pause-compute-bk"></a>
+
 ## Pause compute
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
@@ -98,6 +102,8 @@ To pause a database, use any of these individual methods.
 - [Pause compute with PowerShell][]
 - [Pause compute with REST APIs][]
 
+<a name="resume-compute-bk"></a>
+
 ## Resume compute
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
@@ -107,6 +113,8 @@ To resume a database, use any of these individual methods.
 - [Resume compute with Azure portal][]
 - [Resume compute with PowerShell][]
 - [Resume compute with REST APIs][]
+
+<a name="next-steps-bk"></a>
 
 ## Next steps
 Please refer to the following articles to help you understand some additional key performance and scale concepts:
