@@ -42,23 +42,22 @@ A function app hosts the execution of your functions in Azure. Before you can cr
 
 	![Create new GitHub webhook function](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png) 
 
-4. In the **Develop** tab, note the sample express.js function in the **Code** window. This is the function itself, which expects to receive a GitHub request from a issue comment webhook. The following is the code that logs the issue comment text and sends it back to the webhook in the response as `New GitHub comment: <Your issue comment text>`:
+4. In the **Develop** tab, note the sample express.js function in the **Code** window. This function receives a GitHub request from a issue comment webhook, logs the issue text and sends a response to the webhook as `New GitHub comment: <Your issue comment text>`.
 
-		module.exports = function (context, data) {
-		    context.log('GitHub WebHook triggered!', data.comment.body);
-		    context.res = { body: 'New GitHub comment: ' + data.comment.body };
-		    context.done();
-		};
-
-5. Copy the **Function URL** and **GitHub Secret** values. You will need these to create the webhook. 
 
 	![Create new GitHub webhook function](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png) 
 
-You can always test a new template-based function immediately in the portal by clicking the **Run** button. This sends a test request to the function endpoint with the JSON code in **Request body**, which represents an issue comment webhook request. Next, you will configure a GitHub repository to be able to test the function by submitting an issue comment.
+5. Copy the **Function URL** and **GitHub Secret** values. You will need these when you create the webhook in GitHub. 
+
+6. Scroll down to **Run**, note the predefined JSON body of an issue comment in the Request body, then click **Run**. 
+ 
+	You can always test a new template-based function right in the **Develop** tab by supplying any expected body JSON data and clicking the **Run** button. In this case, the template has a predefined body for an issue comment. 
+ 
+Next, you will create the actual webhook in your GitHub repository.
 
 ##Configure the webhook
 
-1. In GitHub, navigate to a repository that you own. This includes any repositories that you have forked.
+1. In GitHub, navigate to a repository that you own; this includes any repositories that you have forked.
  
 2. Click **Settings** > **Webhooks & services** > **Add webhook**.
 
@@ -68,7 +67,8 @@ You can always test a new template-based function immediately in the portal by c
 
 	![Create new GitHub webhook function](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook-3.png) 
 
-At this point, the GitHub webhook is configured to trigger your function when a new issue comment is added. Now, it's time to test it out.
+At this point, the GitHub webhook is configured to trigger your function when a new issue comment is added.  
+Now, it's time to test it out.
 
 ##Test the function
 
