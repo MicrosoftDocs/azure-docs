@@ -34,9 +34,10 @@ To browse all experiments:
 4. You can use the search box to further narrow your choices. For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box and select **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:
 ![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
 5. Click an experiment to learn more about it. To run and/or modify the experiment, click **Open in Studio** on the experiment's page.
+
 > [AZURE.NOTE] To open an experiment in Machine Learning Studio, you'll need to sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](https://azure.microsoft.com/pricing/details/machine-learning/)
 
-    ![](./media/machine-learning-sample-experiments/example-experiment.png) 
+![](./media/machine-learning-sample-experiments/example-experiment.png) 
 
 
 ## Use a template in Machine Learning Studio
