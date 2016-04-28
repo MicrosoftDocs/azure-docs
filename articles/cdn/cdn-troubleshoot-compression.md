@@ -65,7 +65,7 @@ Navigate to your endpoint in the [Azure Portal](https://portal.azure.com) and cl
 Navigate to your endpoint in the [Azure Portal](https://portal.azure.com) and click the **Manage** button.  The supplemental portal will open.  Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Click on **Compression**. 
 
 - Verify compression is enabled.
-- Verify the **File Types** list contains a comma-separated list of MIME types.
+- Verify the **File Types** list contains a comma-separated list (no spaces) of MIME types.
 - Verify the MIME type for the content to be compressed is included in the list of compressed formats.
 
 ![CDN premium compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)

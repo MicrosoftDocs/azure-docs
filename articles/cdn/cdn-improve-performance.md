@@ -65,7 +65,7 @@ There are two ways CDN can support compression:
 
 	![File compression](./media/cdn-file-compression/cdn-compress-files.png)
 
-3. Enable compression by clicking the **Compression Enabled** radio button.  Enter the MIME types you wish to compress as a comma-delimited list in the **File Types** textbox. 
+3. Enable compression by clicking the **Compression Enabled** radio button.  Enter the MIME types you wish to compress as a comma-delimited list (no spaces) in the **File Types** textbox. 
 
 4. After making your changes, click the **Update** button.
 
