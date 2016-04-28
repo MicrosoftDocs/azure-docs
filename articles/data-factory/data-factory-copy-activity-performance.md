@@ -66,7 +66,7 @@ Points to note:
 - Throughput is calculated using the following formula: [size of data read from source]/[copy activity run duration]
 - [TPC-H](http://www.tpc.org/tpch/) data set has been leveraged to calculate numbers above.
 - In case of Microsoft Azure data stores, source and sink are in the same Azure region.
-- **cloudUnits** set to 1, and **parallelCopies** not specified”
+- **cloudDataMovementUnits** set to 1, and **parallelCopies** not specified.
 - In case of the hybrid (on-premises to cloud or cloud to on-premises) data movement, the Data Management Gateway (single instance) was hosted on a machine different than the on-premises data store, using the following configuration. Note with a single activity run being executed on the gateway, the copy operation only consumed a small portion of this machine's CPU/memory resource and network bandwidth.
 	<table>
 	<tr>
@@ -86,7 +86,7 @@ Points to note:
 ## Parallel copy
 One of the ways to enhance the throughput of a copy operation and reduce time for moving the data is to read data from source and/or write data to destination **in parallel within a Copy Activity run**.
  
-Note that this setting is different from the **concurrency** property in the activity definition. The concurrency property determines the number of **concurrent Copy Activity runs** that can happen at runtime to process data from different activity windows (1-2 AM, 2-3 AM, 3-4 AM, etc...). This is really helpful when performing a historical back-fill. Whereas, the parallel copy capability being discussed here applies to a **single activity run**.
+Note that this setting is different from the **concurrency** property in the activity definition. The concurrency property determines the number of **concurrent Copy Activity runs** that run together at runtime to process data from different activity windows (1-2 AM, 2-3 AM, 3-4 AM, etc...). This is really helpful when performing a historical load. Whereas, the parallel copy capability being discussed here applies to a **single activity run**.
 
 Let's look at a **sample scenario**: consider the following example where there are multiple slices from the past that need to be processed. The Data Factory service runs an instance of the Copy Activity (activity run) for each slice.
 
@@ -95,20 +95,20 @@ Let's look at a **sample scenario**: consider the following example where there 
 - data slice from 2nd activity window (3 AM - 4 AM) ==> Activity run 3
 - and so on.
 
-Having **concurrency** setting **2** in this example allows **Activity run 1 **and **Activity run 2** to copy data from two activity windows **concurrently** to improve performance of the data movement. However, if there are multiple files associated with Activity run 1, one file is copied from the source to the destination at a time. 
+Having **concurrency** setting **2** in this example allows **Activity run 1** and **Activity run 2** to copy data from two activity windows **concurrently** to improve performance of the data movement. However, if there are multiple files associated with Activity run 1, one file is copied from the source to the destination at a time. 
 
 ### parallelCopies
-You can use **parallelCopies** property to indicate the parallelism that you want the Copy Activity to use. In simple terms, think of this   property as the maximum number of threads within a copy activity which are reading from your source and/or writing to your sink data stores in parallel.
+You can use **parallelCopies** property to indicate the parallelism that you want the Copy Activity to use. In simple terms, think of this property as the maximum number of threads within a copy activity that read from your source and/or write to your sink data stores in parallel.
 
 For each copy activity run, Azure Data Factory intelligently determines the number of parallel copies to use to copy data from the source data store to the destination data store. The default number of parallel copies it uses  depends on the types of source and sink:  
 
 Source & Sink |	Default parallel copy count determined by service
 ------------- | -------------------------------------------------
 Copying data between **file-based stores** (Azure Blob, Azure Data Lake, on-premises File System, on-premises HDFS) | Anywhere between **1 to 32**  based on **size of the files** and **number of cloud data movement units** (see the next section for definition) used for copying data between two cloud data stores (or) the physical configuration of the gateway machine used for hybrid copy (copying data to/from an on-premises data store)
-Copying data from a**ny source data store to Azure Table** | 4
+Copying data from **any source data store to Azure Table** | 4
 All other  source and sink pairs | 1
 
-For majority of the cases, the default behavior should give you the best throughput. However, you may override the default by specifying the value of **parallelCopies** property in order to control the load generated to your data stores or tune the copy performance  . It needs to be between 1 and 32 (both inclusive). Copy Activity during execution will choose a value that is less than or equal to the configured value to provide the best performance.
+For majority of the cases, the default behavior should give you the best throughput. However, you may override the default value by specifying a value for the **parallelCopies** property in order to control the load on machines with your data stores or tune the copy performance. It needs to be between **1 and 32 (both inclusive)**. At run time, Copy Activity will choose a value that is less than or equal to the configured value to provide the best performance.
 
 	"activities":[  
 	    {
@@ -131,13 +131,14 @@ For majority of the cases, the default behavior should give you the best through
 
 Note the following:
 
-- For copying data between file-based stores, parallelism happens at the file level; in other words, there is no chunking within a single file.  The actual number of parallel copies used for the copy operation at runtime will be no more than the number of files you have. If the copy behaviour is mergeFile then no parallelism will not be leveraged.
-- When specifying a value for the parallelCopies property, do   consider the increase in load it will bring to your source and sink data stores, as well as the gateway if it is a hybrid copy, especially when you have multiple activities or concurrent runs of the same activities running against the same data store. If you notice that the data store or the gateway is overwhelmed with the load, decrease the parallelCopies value to relieve the load.
+- For copying data between file-based stores, parallelism happens at the file level; in other words, there is no chunking within a single file.  The actual number of parallel copies used for the copy operation at runtime will be no more than the number of files you have. If the copy behavior is mergeFile then parallelism will not be leveraged.
+- When specifying a value for the parallelCopies property, do consider the increase in load it will bring to your source and sink data stores, as well as the gateway if it is a hybrid copy, especially when you have multiple activities or concurrent runs of the same activities running against the same data store. If you notice that the data store or the gateway is overwhelmed with the load, decrease the parallelCopies value to relieve the load.
+- When copying data from non-file based stores to file based stores, parallelCopies property will be ignored even if specified and no parallelism would be leveraged.
 
 > [AZURE.NOTE] To take advantage of the parallelCopies feature   when doing a hybrid copy, you must use the Data Management Gateway of version >=  1.11.
 
 ### Cloud Data Movement Units
-The **cloud data movement unit** is a measure that represents the power (combination of CPU, memory and network resource allocation) of a single unit in the Azure Data Factory service that is used to perform a cloud-to-cloud copy operation. It does not come into play when doing a hybrid copy. By default, Azure Data Factory service uses a single cloud data movement unit to perform a single copy activity run.As this time, the cloudDataMovementUnits setting is **supported only** when copying data **between two Azure blob storages** or from an **Azure blob storage to an Azure data lake store**, and it takes effect when you have multiple files  to be copied that are of size >= 16 MB. 
+The **cloud data movement unit** is a measure that represents the power (combination of CPU, memory and network resource allocation) of a single unit in the Azure Data Factory service that is used to perform a cloud-to-cloud copy operation. It does not come into play when doing a hybrid copy. By default, Azure Data Factory service uses a single cloud data movement unit to perform a single copy activity run. You can override this default by specifying a value for the **cloudDataMovementUnits** property. At this time, the cloudDataMovementUnits setting is **supported only** when copying data **between two Azure blob storages** or from an **Azure Blob storage to an Azure Data Lake store**, and it takes effect when you have multiple files to be copied that are of size >= 16 MB individually. 
 
 If you are copying a number of relatively large files, setting a high value for the **parallelCopies** property may not improve performance due to resource limitations of a single cloud data movement unit. In such cases, you may want to use more cloud data movement units to copy huge amount of data with high throughput. To specify the number of cloud data movement units you want the Copy Activity to use, set a value for the **cloudDataMovementUnits** property as shown below:
 
@@ -160,13 +161,13 @@ If you are copying a number of relatively large files, setting a high value for 
 	    }
 	]
 
-The **allowed values** for the cloudDataMovementUnits property are: 1 (default), 2, 4, and 8. If you need more cloud data movement units for a higher throughput, please contact [Azure support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The **actual number of cloud data movement units** used for the copy operation at runtime will be equal to or less than the configured value, depending on the number of files  to be copied from source meeting the size criteria. 
+The **allowed values** for the cloudDataMovementUnits property are: 1 (default), 2, 4, and 8. If you need more cloud data movement units for a higher throughput, please contact [Azure support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The **actual number of cloud data movement units** used for the copy operation at runtime will be equal to or less than the configured value, depending on the number of files to be copied from source meeting the size criteria. 
 
 > [AZURE.NOTE] parallelCopies  should be >= cloudDataMovementUnits if specified; and when cloudDataMovementUnits is greater than 1, the parallel data movement is spread across the cloudDataMovementUnits for that copy activity run and this boosts the throughout.
 
 When copying multiple large files with **cloudDataMovementUnits** configured as 2, 4, and 8, the performance can reach 2x (2 times), 4x, and 7x of the reference numbers mentioned in the Performance Reference section. 
 
-Refer to [sample use cases](#appendix) here to better leverage the above 2 properties to enhance your data movement throughout.   
+Refer to [sample use cases](#case-study-parallel-copy) here to better leverage the above 2 properties to enhance your data movement throughout.   
  
 It is **important** to remember that you will be charged based on the total time of the copy operation. Hence, if a copy job used to take 1 hour with 1 cloud unit and now it takes 15 minutes with 4 cloud units then the overall bill would be almost the same. Here is another scenario: suppose, you are using 4 cloud units and the 1st cloud unit spends 10 minutes, 2nd one spends 10 minutes, 3rd one spends 5 minutes, and 4th one spends 5 minutes with in a copy activity run, you will be charged for the total copy (data movement) time, which is 10 + 10 + 5 + 5 = 30 minutes. Usage of **parallelCopies**  has no impact on billing. 
 
@@ -302,28 +303,27 @@ One or more of the following factors could be the performance bottleneck:
 
 In this case, BZIP2 data compression could be slowing the whole pipeline. Switching to GZIP compression codec may ease this bottleneck.
 
-## Appendix 
 
-### Case study –  Parallel Copy  
+## Case study - Parallel copy  
 
 **Scenario I:** copy 1000 1MB files from on-premises File System to Azure Blob storage
 
-**Analysis and performance tuning:** Suppose that you have installed   the Data Management Gateway on a quad core machine, Data Factory will by default use 16 parallel copies to move files from File System to Azure Blob concurrently. It should offer you a good enough throughput, while you can also specify the parallel copies count explicitly as you expect. When copying a number of small files, parallel copies will dramatically help by utilizing more resource effectively and eliminating the impact of bootstrap phase of each file, thus provide better copy performance.
+**Analysis and performance tuning:** Suppose that you have installed the Data Management Gateway on a quad core machine, Data Factory will by default use 16 parallel copies to move files from File System to Azure Blob concurrently. This should result in good throughput. You may also specify the parallel copies count explicitly too if you wish. When copying a large number of small files, parallel copies will dramatically help throughput by utilizing the resources involved more effectively.
 
 ![Scenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
 
 **Scenario II:** copy 20 blobs of 500MB each from Azure Blob storage to Azure Data Lake Store
-Analysis and performance tuning: For such case, by default, Data Factory will copy the data from Azure Blob to Azure Data Lake using single copy (parallelCopies as 1) and using single cloud data movement unit. You may observe a throughput of 13MB/s.
+Analysis and tune performance.
 
-**Analysis and performance tuning:** For such case, by default, Data Factory will copy the data from Azure Blob to Azure Data Lake using single copy (parallelCopies as 1) and using single cloud data movement unit. You may observe a throughput of 13MB/s.
+**Analysis and performance tuning:** For this scenario, by default, Data Factory will copy the data from Azure Blob to Azure Data Lake using single copy (parallelCopies as 1) and using single cloud data movement unit. The throughput you will observe would be close to what is stated in the [performance reference section](#performance-reference) above.   
 
 ![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
-For such pattern that single file size is beyond dozens of MBs and total volume is large, to boost the copy performance, setting a high value for the parallelCopies property will not gain you performance improvement given the resource limitations of a single cloud data movement unit. Instead, you should specify more cloud data movement units to obtain more resource to execute the copy. Leaving the parallelCopies property as auto determined (not specified) and Data Factory will auto handle the parallelism for you. For example, specify cloudDataMovementUnits as 4, Data Factory will do the data movement like below providing a throughput of 52MB/s in return.
+When individual file size is greater than dozens of MBs and total volume is large, increasing parallelCopies will not result in better copy performance given the resource limitations of a single cloud data movement unit. Instead, you should specify more cloud data movement units to obtain more resources to perform the data movement. Do not specify a value for parallelCopies property so that Data Factory handles the parallelism for you. For this case, specifying cloudDataMovementUnits as 4 will result in a throughput of about 4 times. 
 
 ![Scenario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-### Data Store Performance Tuning Reference
+## Data Store Performance Tuning Reference
 Here are some performance monitoring and tuning references for a few of the supported data stores:
 
 - Azure Storage (including Azure Blob and Azure Table): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage Performance and Scalability Checklist](../storage//storage-performance-checklist.md)
