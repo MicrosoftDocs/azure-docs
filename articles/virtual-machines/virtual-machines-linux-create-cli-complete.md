@@ -463,9 +463,10 @@ azure network public-ip show testrg testpip --json | jq '.'
 ```
 
 ## Create you load balancer and IP pools
-Creating your load balancer allows you to distribute traffic across multiple VMs, such as developing web applications. It also provides you with redundancy to your application by providing multiple VMs that will respond to requests in the event of maintenance or heavy load.
+Creating a load balancer allows you to distribute traffic across multiple VMs, such as when running web applications. It also provides redundancy to your application by running multiple VMs that respond to users requests in the event of maintenance or heavy load.
 
 We create our load balancer with:
+
 ```
 ahmet@fedora$ azure network lb create -g TestRG -n TestLB -l westeurope
 azure network lb create -g TestRG -n TestLB -l westeurope
@@ -479,7 +480,9 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Our load balancer is pretty empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for our front-end, and one for our back-end. The front-end IP pool is what we'll have publicly visible and where we'll assign the PIP we created earlier. The back-end pool we'll then use for our VMs to connect to in order for the traffic to flow through the load balancer to them. First, let's create our front-end IP pool:
+Our load balancer is pretty empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for our front-end, and one for our back-end. The front-end IP pool is what we'll have publicly visible and where we'll assign the PIP we created earlier. The back-end pool we'll then use for our VMs to connect to in order for the traffic to flow through the load balancer to them. 
+
+First, let's create our front-end IP pool:
 
 ```
 ahmet@fedora$ azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
@@ -493,7 +496,7 @@ data:    Private IP allocation method    : Dynamic
 data:    Public IP address id            : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestLBPIP
 info:    network lb frontend-ip create command OK
 ```
-Note how we used the `--public-ip-name` switch to pass in the TestLBPIP we created earlier. This assigns that public IP address to the load balancer in order for us to reach our VMs from across the Internet.
+Note how we used the `--public-ip-name` switch to pass in the TestLBPIP we created earlier. This assigns the public IP address to the load balancer so we can reach our VMs across the Internet.
 
 Next, let's create our second IP pool, this time for our back-end traffic:
 
@@ -548,7 +551,8 @@ ahmet@fedora$ azure network lb show testrg testlb --json | jq '.'
 ```
 
 ## Create your load balancer NAT rules
-To actually get traffic flowing through our load balancer, we need to create NAT rules that specify either inbound or outbound actions. You be granular as to the protocol in use, along with mapping external ports to internal ports as desired. For our environment, let's create rules that will allow SSH through our load balancer to our VMs. We'll set up TCP ports 4222 and 4223 to direct to TCP port 22 on our VMs (which we'll create later):
+To actually get traffic flowing through our load balancer, we need to create NAT rules that specify either inbound or outbound actions. You can specify the protocol in use, then map external ports to internal ports as desired. For our environment, let's create some rules that allow SSH through our load balancer to our VMs. We'll set up TCP ports 4222 and 4223 to direct to TCP port 22 on our VMs (which we'll create later):
+
 ```
 ahmet@fedora$ azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 info:    Executing command network lb inbound-nat-rule create
@@ -567,12 +571,14 @@ data:    Idle timeout in minutes         : 4
 data:    Frontend IP configuration id    : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool
 info:    network lb inbound-nat-rule create command OK
 ```
+
 Repeat the procedure for your second NAT rule for SSH:
+
 ```
 ahmet@fedora$ azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. Rather than hooking up the rule to our VMs individually, we can simply add or remove VMs from the IP pool and had the load balancer automatically adjust the flow of traffic:
+Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. Rather than hooking up the rule to our VMs individually means we can simply add or remove VMs from the IP pool and have the load balancer automatically adjust the flow of traffic:
 
 ```
 ahmet@fedora$ azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
@@ -598,7 +604,8 @@ info:    network lb rule create command OK
 ```
 
 ## Create your load balancer health probe
-A health probe will periodically check on the VMs are add behind our load balancer to make sure they're operating and responding to requests as defined. If not, they will be removed from operation in the load balancer to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information on health probes, you can look at [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
+A health probe will periodically check on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they will be removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information on health probes, you can look read [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
+
 ```
 ahmet@fedora$ azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
 info:    Executing command network lb probe create
@@ -613,12 +620,14 @@ data:    Interval in seconds             : 15
 data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
+
 Here, we specified an interval of 15 seconds for our health checks, and we can miss a maximum of 4 probes (1 minute) before the load balancer is going to consider that host to no longer be functioning.
 
 ## Verify your load balancer
 That's all of the load balancer configuration done. You created a load balancer, created a front-end IP pool and assigned a public IP to it, then created a back-end IP pool that VMs will be connected to. Next, you created NAT rules that will allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app. Finally, to make sure that our users don't try to access a VM that is no longer functioning and serving content, you added a health probe to periodically check the VMs.
 
 Let's review what your load balancer now looks like:
+
 ```
 ahmet@fedora$ azure network lb show -g TestRG -n TestLB --json | jq '.'
 {
@@ -827,7 +836,8 @@ ahmet@fedora$ azure network nsg create testrg testnsg westeurope
 Let's add the inbound rule for the NSG to allow inbound connections on port 22 (to support SSH):
 
 ```
-ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1000  --destination-port-range 22 --access allow testrg testnsg testnsgrule
+ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
+    --destination-port-range 22 --access allow testrg testnsg testnsgrule
 ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1001 \
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
@@ -844,13 +854,13 @@ ahmet@fedora$ azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 ```
 
 ## Create an availability set
-Availability sets help spread your VMs across what are known as fault domains and upgrade domains. Let's create an availability for your VMs:
+Availability sets help spread your VMs across what are known as fault domains and upgrade domains. Let's create an availability set for your VMs:
 
 ```
 ahmet@fedora$ azure availset create -g TestRG -n TestAvailSet -l westeurope
 ```
 
-Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across up to three fault domains for resource manager deployments. The idea is that a hardware issue in one of these fault domains will not affect every VM that is running your app. Azure will automatically distribute VMs across the fault domains when placing them in to an availability set.
+Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains will not affect every VM that is running your app. Azure will automatically distribute VMs across the fault domains when placing them in to an availability set.
 
 Upgrade domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. The order of upgrade domains being rebooted may not proceed sequentially during planned maintenance, but only one upgrade will be rebooted at a time. Again, Azure will automatically distribute your VMs across upgrade domains when they are placed within an availability site.
 
@@ -858,7 +868,7 @@ You can read more about [managing the availability of VMs](./virtual-machines-li
 
 ## Create your Linux VMs
 
-You've created the storage and network resources to support an internet accessible VMs. Now let's create that VMs, and secure it with an ssh key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md). We selected an image using the command `azure vm image list westeurope canonical | grep LTS`, and in this case we'll use `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`, but for the last field we'll pass `latest` so that in the future we always get the most recent build (the string we use will be `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
+You've created the storage and network resources to support an internet accessible VMs. Now let's create that VMs, and secure them with an SSH key with no password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We'll locate that image information using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md). We selected an image using the command `azure vm image list westeurope canonical | grep LTS`, and in this case we'll use `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`, but for the last field we'll pass `latest` so that in the future we always get the most recent build (the string we use will be `canonical:UbuntuServer:14.04.4-LTS:14.04.201604060`).
 
 > [AZURE.NOTE] This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can either create them:
 <br />
@@ -938,6 +948,7 @@ ops@TestVM1:~$
 ```
 
 Go ahead and create your second VM in the same manner:
+
 ```
 azure vm create \            
     --resource-group TestRG \
@@ -954,7 +965,7 @@ azure vm create \
     --admin-username ops
  ```
 
-And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you have your running Ubuntu VMs behind a load balancer in Azure that you can only log into with the ssh key pair that you have; passwords are disabled. You can install nginx or httpd and deploy a web app and see the traffic flow through the load balancer to both of the VMs.
+And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you have your running Ubuntu VMs behind a load balancer in Azure that you can only log into with the SSH key pair that you have; passwords are disabled. You can install nginx or httpd and deploy a web app and see the traffic flow through the load balancer to both of the VMs.
 
 ```
 ahmet@fedora$ azure vm show TestRG TestVM1
