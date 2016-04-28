@@ -13,7 +13,7 @@ pageTitle="Performance scalability tasks for Azure SQL Data Warehouse | Microsof
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/26/2016"
+   ms.date="04/27/2016"
    ms.author="barbkess;sonyama"/>
 
 # Performance scalability tasks for Azure SQL Data Warehouse
