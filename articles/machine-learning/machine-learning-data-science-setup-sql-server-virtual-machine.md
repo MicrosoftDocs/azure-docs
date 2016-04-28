@@ -246,8 +246,7 @@ directly from your SQL Server VM databases in the
 
 To connect to the Database Engine from another computer, you must create at least one SQL Server authentication login.  
 
-
- > [AZURE.TIP] You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of user name and password. Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).  
+You may create new SQL Server logins programmatically or using the SQL Server Management Studio. To create a new sysadmin user with SQL authentication programmatically, start a **New Query** and execute the following script. Replace <new user name\> and <new password\> with your choice of *user name* and *password*. 
 
 
     USE master
@@ -258,6 +257,9 @@ To connect to the Database Engine from another computer, you must create at leas
     	CHECK_EXPIRATION = OFF;
 
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
+
+
+Adjust the password policy as needed (the sample code turns off policy checking and password expiration). For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).  
 
 To create new SQL Server logins using the SQL Server Management Studio:
 
