@@ -263,45 +263,45 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
 
 Copy and paste the **getCollection** function underneath the **getDatabase** function for creating your new collection with the ```id``` specified in the ```config``` object. Again, we'll check to make sure a collection with the same ```FamilyCollection``` id does not already exist. If it does exist, we'll return that collection instead of creating a new one.
 
-      } else {
-          resolve(result);
-        }
-      });
-    });
-  }
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+    }
 
-  // ADD THIS PART TO YOUR CODE
-  function getCollection() {
-    console.log(`Getting collection:\n${config.collection.id}\n`);
+    // ADD THIS PART TO YOUR CODE
+    function getCollection() {
+        console.log(`Getting collection:\n${config.collection.id}\n`);
 
-    return new Promise((resolve, reject) => {
-      client.readCollection(collectionUrl, (err, result) => {
-        if (err) {
-          if (err.code == HttpStatusCodes.NOTFOUND) {
-            client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
-              if (err) reject(err)
-                else resolve(created);
-              });
-          } else {
-            reject(err);
-          }
-        } else {
-          resolve(result);
-        }
-      });
-    });
-  }
+        return new Promise((resolve, reject) => {
+            client.readCollection(collectionUrl, (err, result) => {
+                if (err) {
+                    if (err.code == HttpStatusCodes.NOTFOUND) {
+                        client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
+                            if (err) reject(err)
+                            else resolve(created);
+                        });
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+    }
 
 Copy and paste the code below the call to **getDatabase** to execute the **getCollection** function.
 
-  getDatabase()
+    getDatabase()
 
-  // ADD THIS PART TO YOUR CODE
-  .then(() => getCollection())
-  // ENDS HERE
+    // ADD THIS PART TO YOUR CODE
+    .then(() => getCollection())
+    // ENDS HERE
 
-  .then(() => { exit(`Completed successfully`); })
-  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+    .then(() => { exit(`Completed successfully`); })
+    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -312,14 +312,14 @@ A [document](documentdb-resources.md#documents) can be created by using the [cre
 
 Copy and paste the **getFamilyDocument** function underneath the **getCollection** function for creating the documents containing the JSON data saved in the ```config``` object. Again, we'll check to make sure a document with the same id does not already exist.
 
-        } else {
-          resolve(result);
-        }
-      });
-    });
-  }
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+    }
 
-  // ADD THIS PART TO YOUR CODE
+    // ADD THIS PART TO YOUR CODE
     function getFamilyDocument(document) {
         let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Getting document:\n${document.id}\n`);
@@ -344,16 +344,16 @@ Copy and paste the **getFamilyDocument** function underneath the **getCollection
 
 Copy and paste the code below the call to **getCollection** to execute the **getFamilyDocument** function.
 
-  getDatabase()
-  .then(() => getCollection())
+    getDatabase()
+    .then(() => getCollection())
 
-  // ADD THIS PART TO YOUR CODE
-  .then(() => getFamilyDocument(config.documents.Andersen))
-  .then(() => getFamilyDocument(config.documents.Wakefield))
-  // ENDS HERE
+    // ADD THIS PART TO YOUR CODE
+    .then(() => getFamilyDocument(config.documents.Andersen))
+    .then(() => getFamilyDocument(config.documents.Wakefield))
+    // ENDS HERE
 
-  .then(() => { exit(`Completed successfully`); })
-  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+    .then(() => { exit(`Completed successfully`); })
+    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
