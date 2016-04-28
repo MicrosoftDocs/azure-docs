@@ -13,22 +13,39 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="maheshu"/>
 
 # Administer an Azure AD Domain Services managed domain
 This article shows you how to administer an Azure AD Domain Services managed domain.
 
+
+## Before you begin
+To perform the tasks listed in this article, you will need:
+
+1. A valid **Azure subscription**.
+
+2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
+
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](./active-directory-ds-getting-started.md).
+
+4. A **domain-joined virtual machine** from which you will administer the Azure AD Domain Services managed domain. If you don't have such a virtual machine, follow all the tasks outlined in the article titled [Join a Windows virtual machine to a managed domain](./active-directory-ds-admin-guide-join-windows-vm.md).
+
+5. You will need the credentials of a **user account belonging to the 'AAD DC Administrators' group** in your directory, in order to administer your managed domain.
+
+<br>
+
+
 ## Administrative tasks you can perform on a managed domain
 To start with, let's take a look at administrative tasks that you can perform on a managed domain. Members of the 'AAD DC Administrators' group are granted privileges on the managed domain that enable them to perform tasks such as:
 
-- Join machines to the domain.
+- Join machines to the managed domain.
 
-- Configure the built-in GPO for the Computers and Users containers in the domain.
+- Configure the built-in GPO for the 'AADDC Computers' and 'AADDC Users' containers in the managed domain.
 
-- Administer DNS on the domain.
+- Administer DNS on the managed domain.
 
-- Create custom OUs on the domain.
+- Create and administer custom Organizational Units (OUs) on the managed domain.
 
 - Gain administrative access to computers joined to the managed domain.
 
@@ -36,13 +53,13 @@ To start with, let's take a look at administrative tasks that you can perform on
 ## Administrative privileges you do not have on a managed domain
 The domain is managed by Microsoft, including activities such as patching, monitoring, performing backups etc. Therefore, the domain is locked down and you do not have privileges to perform certain administrative tasks on the domain. Some examples of tasks you cannot perform are below.
 
-- You do not wield Domain Administrator or Enterprise Administrator privileges for the managed domain.
+- You are not granted Domain Administrator or Enterprise Administrator privileges for the managed domain.
 
 - You cannot extend the schema of the managed domain.
 
-- You cannot connect to domain controllers via Remote Desktop.
+- You cannot connect to domain controllers for the managed domain using Remote Desktop.
 
-- You cannot add domain controllers to the domain.
+- You cannot add domain controllers to the managed domain.
 
 
 ## Provision a domain-joined virtual machine to remotely administer the managed domain
@@ -97,6 +114,8 @@ Perform the following steps in order to install the Active Directory Administrat
 ## Explore the managed domain
 Now that the AD Administrative Tools are installed on the domain joined virtual machine, we can use these tools to explore and administer the managed domain.
 
+> [AZURE.NOTE] You will need to be a member of the 'AAD DC Administrators' group, in order to administer the managed domain.
+
 1. From the Start screen, click on **Administrative Tools**. You should see the AD administrative tools installed on the virtual machine.
 
 	![Administrative Tools installed on server](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
@@ -116,3 +135,13 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 5. Click on the container called **AADDC Computers** to see the computers joined to this managed domain. You should see an entry for the current virtual machine, which is joined to the domain. Computer accounts for all computers that are joined to the Azure AD Domain Services managed domain will appear in this 'AADDC Computers' container.
 
     ![ADAC - domain joined computers](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
+
+<br>
+
+## Related Content
+
+- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
+
+- [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [Deploy Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx)
