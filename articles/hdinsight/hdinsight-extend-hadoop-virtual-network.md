@@ -167,19 +167,7 @@ The following is an example script that will create a new Network Security Group
 
 > [AZURE.IMPORTANT] Using the above script only opens access to the HDInsight health and management service on the Azure cloud. This allows you to successfully install an HDInsight cluster into the subnet, however access to the HDInsight cluster from outside the Virtual Network is blocked by default. You will have to add additional Network Security Group rules if you wish to enable access from outside the Virtual Network.
 >
-> For example, to allow SSH access from the internet, you will need to add a rule similar to the following:
-> ```
-Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "SSSH" `
-        -Description "SSH" `
-        -Protocol "*" `
-        -SourcePortRange "*" `
-        -DestinationPortRange "22" `
-        -SourceAddressPrefix "*" `
-        -DestinationAddressPrefix "VirtualNetwork" `
-        -Access Allow `
-        -Priority 304 `
-        -Direction Inbound```
+> For example, to allow SSH access from the internet, you will need to add a rule similar to the following: `Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound
 
 For more information on Network Security Groups, see [Network Security Groups overview](../virtual-network/virtual-networks-nsg.md). For information on controlling routing in an Azure Virtual Network, see [User Defined Routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
