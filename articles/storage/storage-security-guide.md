@@ -40,7 +40,7 @@ Here are the topics to be covered in this article:
 
 -   Encryption at Rest
 
-    We will talk about Storage Service Encryption, and how you can enable it for a storage account, resulting in your block blobs and page blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus Storage Service Encryption vegood lucrsus <!--Loc Question: please note spelling issue for :vegood lucrsus-->Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+    We will talk about Storage Service Encryption, and how you can enable it for a storage account, resulting in your block blobs and page blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus Storage Service Encryption versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
 
 -   Using Storage Analytics to audit access of Azure Storage
 
