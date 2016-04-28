@@ -60,9 +60,9 @@ You need to create a device management enabled IoT Hub for your simulated device
 
   ![][img-keys]
 
-6.  Click the **iothubowner** policy, then copy and make note of the connection string in the **iothubowner** blade.
+6.  Click the **iothubowner** policy, then copy and make note of the connection string in the **iothubowner** blade. Copy it to a location you can access later because you will need it to complete the rest of this tutorial.
 
-  > [AZURE.NOTE] In production scenarios, make sure to use the principle of least privilege and refrain from using the **iothubowner** credentials.
+  > [AZURE.NOTE] In production scenarios, make sure to refrain from using the **iothubowner** credentials.
 
   ![][img-connection]
 

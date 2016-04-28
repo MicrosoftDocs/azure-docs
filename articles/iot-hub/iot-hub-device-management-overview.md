@@ -28,7 +28,7 @@ There are three main concepts for device management in Azure IoT:
 
 3.  **Device jobs**: an action to perform on one or more physical devices, such as firmware update, reboot, and factory reset.
 
-## Device twins
+## Device twin
 
 The device twin is the representation of a physical device in Azure IoT. The **Microsoft.Azure.Devices.Device** object is used to represent the device twin.
 
@@ -40,7 +40,7 @@ The device twin has the following components:
 
 2.  **Device Properties:** Device properties are a predefined dictionary of properties that describes the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An eventually consistent representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described in [Tutorial: how to use the device twin][lnk-tutorial-twin]. Some examples of device properties include firmware version, battery level, and manufacturer name.
 
-3.  **Service Properties:** Service properties are **&lt;key/value&gt;** pairs that the developer adds to the service properties dictionary. These properties extend the data model for the device twin, enabling you to better characterize your device. Service properties are not synchronized to the device and are stored exclusively in the device twin in the cloud. One example of a service property is **&lt;NextServiceDate, 11/12/2017&gt;**, which could be used to find devices by their next date of service.
+3.  **Service Properties:** Service properties are **&lt;key,value&gt;** pairs that the developer adds to the service properties dictionary. These properties extend the data model for the device twin, enabling you to better characterize your device. Service properties are not synchronized to the device and are stored exclusively in the device twin in the cloud. One example of a service property is **&lt;NextServiceDate, 11/12/2017&gt;**, which could be used to find devices by their next date of service.
 
 4.  **Tags:** Tags are a subset of service properties which are arbitrary strings rather than dictionary properties. They can be used to annotate device twins or organize devices into groups. Tags are not synchronized to the device and are stored exclusively in the device twin. For example, if your device twin represents a physical truck, you could add a tag for each type of cargo in the truck – **apples**, **oranges**, and **bananas**.
 
