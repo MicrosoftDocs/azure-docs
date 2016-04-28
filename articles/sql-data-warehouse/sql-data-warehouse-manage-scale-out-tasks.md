@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Performance scalability tasks for Azure SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Manage scalability tasks for Azure SQL Data Warehouse (Azure portal) | Microsoft Azure"
    description="Azure portal tasks to scale out performance for Azure SQL Data Warehouse. Change compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/27/2016"
+   ms.date="04/28/2016"
    ms.author="barbkess;sonyama"/>
 
-# Performance scalability tasks for Azure SQL Data Warehouse
+# Manage scalability tasks for Azure SQL Data Warehouse (Azure portal)
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-scalability.md)
-- [Azure portal](sql-data-warehouse-manage-scale-out-tasks.md)
+- [Portal](sql-data-warehouse-manage-scale-out-tasks.md)
 - [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
 - [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-scale-out-tasks-tsql.md)
@@ -34,7 +34,11 @@ This collection of tasks uses the Azure portal to:
 - Pause compute resources
 - Resume compute resources
 
-## Task 1: Scale performance
+To learn about this, see [Performance scalability overview][].
+
+<a name="scale-performance-bk"></a>
+
+## 1. Scale performance
 
 [AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
@@ -52,8 +56,9 @@ To change compute resources:
 
     ![Click Save][3]
 
+<a name="pause-compute-bk"></a>
 
-## Task 2: Pause compute
+## 2. Pause compute
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -72,7 +77,9 @@ To pause a database:
 
     ![Pause status][4]
 
-## Task 3: Resume compute
+<a name="resume-compute-bk"></a>
+
+## 3. Resume compute
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 To resume a database:
@@ -90,6 +97,8 @@ To resume a database:
 
     ![Online status][6]
 
+<a name="next-steps-bk"></a>
+
 ## Next steps
 For more information, see [Management overview][].
 
@@ -104,6 +113,7 @@ For more information, see [Management overview][].
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
+[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
 
 <!--MSDN references-->
 
