@@ -23,7 +23,7 @@ Sharded databases distribute rows across a scaled out data tier. The schema is i
 
 For a quick start, see [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md).
 
-For non-sharded databases, see [Queries across sharded cloud databases (vertically partitioned)](sql-database-elastic-query-vertical-partitioning.md). 
+For non-sharded databases, see [Query across cloud databases with different schemas](sql-database-elastic-query-vertical-partitioning.md). 
 
  
 ## Prerequisites
