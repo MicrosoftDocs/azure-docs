@@ -39,7 +39,7 @@ Execute the following queries on the **Orders** database to create the **OrderIn
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Now, execute following query on the Customers database to create the CustomerInformation table and input the sample data. 
+Now, execute following query on the **Customers** database to create the **CustomerInformation** table and input the sample data. 
 
 	CREATE TABLE [dbo].[CustomerInformation]( 
 		[CustomerID] [int] NOT NULL, 
@@ -53,9 +53,6 @@ Now, execute following query on the Customers database to create the CustomerInf
 
 ## Create database objects
 ### Database scoped master key and credentials
-
-
-These are used to connect to the shard map manager and the shards: 
 
 1. Open SQL Server Management Studio or SQL Server Data Tools in Visual Studio.
 2. Connect to the Orders database and execute the following T-SQL commands:

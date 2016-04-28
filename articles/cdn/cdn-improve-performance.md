@@ -65,7 +65,7 @@ There are two ways CDN can support compression:
 
 	![File compression](./media/cdn-file-compression/cdn-compress-files.png)
 
-3. Enable compression by clicking the **Compression Enabled** radio button.  Enter the MIME types you wish to compress as a comma-delimited list in the **File Types** textbox. 
+3. Enable compression by clicking the **Compression Enabled** radio button.  Enter the MIME types you wish to compress as a comma-delimited list (no spaces) in the **File Types** textbox. 
 
 4. After making your changes, click the **Update** button.
 
@@ -122,9 +122,10 @@ The tables below describe CDN compression behavior for every scenario.
 
 ## Notes
 
-1. Only one file version (compressed or uncompressed) will be cached on the edge server. A request for a different version will result in the content being transcoded by the edge server.
-2. For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. You cannot enable/disable compression for the mentioned types using the Azure portal.  
-3. While possible, it is not recommended to apply compression on compressed media formats, such as MP3, MP4, JPG, etc.
+1. As with deploying new endpoints, CDN configuration changes take some time to propagate through the network.  In most cases, you will see your changes apply within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs before troubleshooting.
+2. Only one file version (compressed or uncompressed) will be cached on the edge server. A request for a different version will result in the content being transcoded by the edge server.
+3. For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. You cannot enable/disable compression for the mentioned types using the Azure portal.  
+4. While possible, it is not recommended to apply compression to compressed formats, such as ZIP, MP3, MP4, JPG, etc.
 
 ## See also
 - [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md)    
