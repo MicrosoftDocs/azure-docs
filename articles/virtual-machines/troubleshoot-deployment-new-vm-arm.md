@@ -35,7 +35,7 @@ To start troubleshooting your deployment issue, you must begin by collecting the
 
 [Audit operations with Resource Manager](../resource-group-audit.md)
 
-## Resolve your issue
+## Resolve your issues
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-issue1](../../includes/troubleshoot-deployment-new-vm-issue1-include.md)]
 
 | OS status \ Process stage | If Uploaded as Specialized                                                                                                               | If Uploaded as Generalized                                                                                                                                                                                                                             | If Captured as Specialized                                                                                                                                                                                                   | If Captured as Generalized                                                                                                                                                                                                                                                                                 |
