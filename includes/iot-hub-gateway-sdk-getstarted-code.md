@@ -206,3 +206,4 @@ You can find out more about device management with IoT Hub by reading [Overview 
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-device-management]: ../articles/iot-hub/iot-hub-device-management-overview.md
