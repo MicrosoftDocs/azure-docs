@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2016"
+   ms.date="04/28/2016"
    ms.author="johns@contentmaster.com"/>
 
 # Azure blueprints: Implementing a hybrid network architecture in Azure that uses forced tunnelling to route Internet requests
@@ -37,21 +37,23 @@ The following diagram highlights the important components in this architecture:
 
 ![IaaS: multi-tier](./media/guidance-hybrid-network-forced-tunnelling/figure1.png)
 
-- **Azure Virtual Network (VNet).** The VNet hosts the application and other components running in the cloud. 
+- **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **Web tier, Middle tier, and Data subnets.** This is an example 3-tier application running in the cloud; see [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs). For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. You can deploy an internal load balancer in each tier to improve scalability.
+- **Azure Virtual Network (VNet).** The VNet hosts the application and other components running in the cloud.
+
+- **Gateway.** The gateway provides the connectivity between routers in the on-premises network and the VNet. You can implement the gateway using an [Azure VPN Gateway][guidance-vpn-gateway] or by using [Azure ExpressRoute][guidance-expressroute]. The gateway uses its own gateway subnet.
+
+- **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, implementing access security, WAN optimization (including network compression), custom routing, or a variety of other operations. The diagram depicts the NVA as a collection of load-balanced VMs, accepting incoming requests on the inbound NVA subnet (acting as a security perimeter subnet) before validating them and forwarding the requests to the Web tier through the outbound NVA subnet.
+
+- **Web tier, Business tier, and Data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud; see [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs). For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. You can deploy an internal load balancer in each tier to improve scalability.
 
     > [AZURE.NOTE] This article describes the cloud application as a single entity. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
 
-- **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authenticated devops staff to log in, configure, and manage the network through an external IP address.
+- **User-defined routes (UDR).** Each of the application subnets defines one or more custom (user-defined) routes for directing Internet requests made by VMs running in that subnet. Each UDR redirects requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet.
 
-- **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, implementing access security, WAN optimization (including network compression), custom routing, or a variety of other operations. The diagram depicts the NVA as a collection of load-balanced VMs, accepting incoming requests on one subnet before validating them and forwarding the requests to the Web tier.
+    > [AZURE.NOTE] Any response received as a result of the request will return directly to the originator in the Web tier, Business tier, or Data tier subnets and will not pass through on-premises network.
 
-- **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
-
-- **Gateways.** The gateways provide the connectivity between the on-premises network and the VNet. The diagram shows two gateways; one running on-premises and the other in the Azure VNet. **TBD - EXPLAIN WHY** You can implement the gateways using an [Azure VPN Gateway][guidance-vpn-gateway] or by using [Azure ExpressRoute][guidance-expressroute]. Each gateway uses its own gateway subnet.
-
-- **User-defined routes.** **TBD**
+- **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authorized DevOps staff to log in, configure, and manage the network through an external IP address.
 
 ## Implementing this architecture
 
