@@ -217,7 +217,7 @@ Another thing we did that helped people manage overall cluster capacity was to a
 ClusterManifest.xml
 
 ```xml
-        <Section Name=" NodeBufferPercentage">
+        <Section Name="NodeBufferPercentage">
             <Parameter Name="DiskSpace" Value="0.10" />
             <Parameter Name="Memory" Value="0.15" />
             <Parameter Name="SomeOtherMetric" Value="0.20" />
