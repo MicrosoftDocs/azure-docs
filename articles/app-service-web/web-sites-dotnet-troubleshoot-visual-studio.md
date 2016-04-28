@@ -47,9 +47,7 @@ The streaming logs feature only works for applications that target .NET Framewor
 
 ## <a name="sitemanagement"></a>Web app configuration and management
 
-Visual Studio provides access to a subset of the web app management functions and configuration settings available in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). In this section you'll see what's available.
-
->[AZURE.NOTE] This tutorial shows how to access Azure diagnostic and remote debugging features by using **Server Explorer**.  There is also a newer Visual Studio window named **Cloud Explorer** that can do all of these things and more. To see the latest Azure integration features, try out **Cloud Explorer**; you can open it from the **View** menu. 
+Visual Studio provides access to a subset of the web app management functions and configuration settings available in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). In this section you'll see what's available by using **Server Explorer**. To see the latest Azure integration features, try out **Cloud Explorer** also. You can open it from the **View** menu. 
 
 1. If you aren't already signed in to Azure in Visual Studio, click the **Connect to Azure** button in **Server Explorer**.
 
