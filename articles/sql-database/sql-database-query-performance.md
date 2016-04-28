@@ -48,7 +48,8 @@ Query Performance Insight is easy to use:
 - Review the list of top resource-consuming queries. 
 - Select an individual query to view its details.
 - Open [Performance Advisor](sql-database-index-advisor.md) and check if any recommendations are available.
-
+- Zoom in for detailed information.
+- 
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insight. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
