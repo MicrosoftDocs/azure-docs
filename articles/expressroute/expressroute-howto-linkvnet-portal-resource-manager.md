@@ -25,7 +25,7 @@
 
 
 
-This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription or can be part of another subscription.
+This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription, or they can be part of another subscription.
 
 
 **About Azure deployment models**
