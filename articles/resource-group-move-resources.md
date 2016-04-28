@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -57,6 +57,7 @@ For now, the services that support moving to both a new resource group and subsc
 - Notification Hubs
 - Operational Insights
 - Redis Cache
+- Scheduler
 - Search
 - SQL Database server (see [SQL Database limitations](#sql-database-limitations) below)
 
@@ -64,18 +65,19 @@ For now, the services that support moving to both a new resource group and subsc
 
 The services that support moving to a new resource group but not a new subscription are:
 
-- Virtual Machines (classic)
-- Storage (classic)
-- Virtual Networks
 - Cloud Services
+- Storage (classic)
+- Virtual Machines (classic)
+- Virtual Networks
 
 ## Services that do not support move
 
 The services that currently do not support moving a resource are:
 
-- Virtual Machines
-- Storage
+- Application Insights
 - Express Route
+- Storage
+- Virtual Machines
 
 ## App Service limitations
 
