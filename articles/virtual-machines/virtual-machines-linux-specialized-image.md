@@ -46,7 +46,7 @@ This article assumes the following prerequisites are met before you start the st
 
 1. First free up the VHDs used by the source VM, by doing either of the following two options:
 
-	- If you want to **_copy_** your source virtual machine, **stop** and **deallocate** it. In portal, click **Browse** > **Virtual machines** or **Virtual machines (classic)** > *your VM* > **Stop**. For VMs created in the Resource Manager deployment model, you can also use the Azure CLI command `azure vm stop <yourResourceGroup> <yourVmName>` followed by `azure vm deallocate <yourResourceGroup> <yourVmName>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**. OR,
+	- If you want to **_copy_** your source virtual machine, **stop** and **deallocate** it. In portal, click **Browse** > **Virtual machines** or **Virtual machines (classic)** > *your VM* > **Stop**. For VMs created in the Resource Manager deployment model, you can also use the Azure CLI command `azure vm stop <yourResourceGroup> <yourVmName>` followed by `azure vm deallocate <yourResourceGroup> <yourVmName>`. Notice that the *Status* of the VM in the portal changes from **Running** to **Stopped (deallocated)**.
 	
 	- Or, if you want to **_migrate_** your source virtual machine, then **delete** that VM and use the VHD left behind. **Browse** to your virtual machine in the [portal](https://portal.azure.com) and click **Delete**. 
 	
@@ -56,20 +56,20 @@ This article assumes the following prerequisites are met before you start the st
 
 	- For a VM created using the Resource Manager deployment model, click **Browse** > **Storage accounts** > *your storage account* > **All Settings** > **Access keys** and copy the text labelled as **key1**. Or in Azure CLI, make sure you are in Resource Manager mode by using `azure config mode arm` and then use `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`.
 
-1. On your local computer, navigate to an Azure CLI command window and copy the VHD file using the following commands. For more information on these commands, read [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md). Alternatively, if you prefer a UI approach to achieve the same results, you can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com/ ) instead.
+1. Copy the VHD files using the [Azure CLI commands for Storage](../storage/storage-azure-cli.md), as described in the following steps. Alternatively, if you prefer a UI approach to achieve the same results, you can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com/ ) instead.
 </br>
 	1. Set up the connection string for the destination storage account. This connection string will contain the access key for this storage account.
 	
 			$azure storage account connectionstring show -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>
 			$export AZURE_STORAGE_CONNECTION_STRING=<the_connectionstring_output_from_above_command>
 	
-	2. Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Note down the "Shared Access URL" output of the following command.
+	2. Create a [Shared Access Signature](../storage/storage-dotnet-shared-access-signature-part-1.md) for the VHD file in the source storage account. Note down the **Shared Access URL** output of the following command.
 	
-			$azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSASkey_to_expire>
+			$azure storage blob sas create  --account-name <yourSourceStorageAccountName> --account-key <SourceStorageAccessKey> --container <SourceStorageContainerName> --blob <FileNameOfTheVHDtoCopy> --permissions "r" --expiry <mm/dd/yyyy_when_you_want_theSAS_to_expire>
 	
 	3. Copy the VHD from source storage to destination by using the following command.
 	
-			$azure storage blob copy start <SharedAccessURL_ofSourceContainer> <DestinationContainerName>
+			$azure storage blob copy start <SharedAccessURL_ofTheSourceVHD> <DestinationContainerName>
 	
 	4. The VHD file will be copied asynchronously. You can check the progress by using the following command.
 	
