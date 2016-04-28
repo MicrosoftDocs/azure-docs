@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 #  Sampling in Application Insights
@@ -28,10 +28,11 @@ Sampling is currently in Beta, and may change in the future.
 ## In brief:
 
 * Sampling retains 1 in *n* records and discards the rest. For example, it might retain 1 in 5 events, a sampling rate of 20%.
-* Sampling happens automatically if your application sends a lot of telemetry. Automatic sampling only kicks in at high volumes.
+* Sampling happens automatically if your application sends a lot of telemetry. Automatic sampling only kicks in at high volumes, and only in ASP.NET web server apps.
 * You can also set sampling manually, either in the portal on the pricing page (to reduce the volume of telemetry retained, and keep within your monthly quota); or in the ASP.NET SDK in the .config file, to also reduce the network traffic.
 * The current sampling rate is a property of each record. In the Search window, open an event such as a request. Expand the full properties ellipsis "..." to find the "* count" property - named, for example, "request count" or "event count", depending on the type of telemetry. If it is > 1, then sampling is occurring. A count of 3 would mean that sampling is at 33%: each retained record stands for 3 originally generated records.
 * If you log custom events and you want to make sure that a set of events is either retained or discarded together, make sure that they have the same OperationId value.
+* If you write Analytics queries, you should [take account of sampling](app-insights-analytics.md#counting-sampled-data). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
 
 
 ## Types of sampling

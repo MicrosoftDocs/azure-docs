@@ -339,7 +339,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-desktop.md#persistence-channel).
+Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-services.md#persistence-channel).
 
 
 ## Authenticated users
@@ -567,12 +567,12 @@ Individual telemetry calls can override the default values in their property dic
 
 **For JavaScript web clients**, [use JavaScript telemetry initializers](#js-initializer).
 
-**To add properties to all telemetry** including the data from standard collection modules, [create a telemetry initializer](app-insights-api-filtering-sampling.md#add-properties).
+**To add properties to all telemetry** including the data from standard collection modules, [implement `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Sampling, filtering and processing telemetry 
 
-You can write code to process your telemetry before it is sent from the SDK. The processing includes data sent from the standard telemetry modules such as HTTP request collection and dependency collection.
+You can write code to process your telemetry before it is sent from the SDK by implementing `ITelemetryProcesor`. The processing includes data sent from the standard telemetry modules such as HTTP request collection and dependency collection.
 
 * [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry - for example, version numbers, or values calculated from other properties.
 * [Sampling](app-insights-api-filtering-sampling.md#sampling) reduces the volume of data sent from your app to the portal, without affecting the displayed metrics, and without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests and page views.
