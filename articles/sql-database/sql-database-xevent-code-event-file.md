@@ -587,7 +587,7 @@ The primary topic for extended events on Azure SQL Database is:
 
 For more info about accounts and containers in the Azure Storage service, see:
 
-- [How to use Blob storage from .NET](storage-dotnet-how-to-use-blobs.md)
+- [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 - [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Working with the Root Container](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 
