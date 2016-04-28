@@ -3,7 +3,7 @@
    description="This article provides a set of best practices for network security using built in Azure capabilities."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="YuriDio"
+   authors="TomShinder"
    manager="swadhwa"
    editor="TomShinder"/>
 
