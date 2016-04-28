@@ -80,7 +80,9 @@ If you have resources on a Virtual Network that is not usable by the cluster you
 
 ###Secured Virtual Networks
 
-The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks. If you need to install HDInsight into a secured Virtual Network, the following IP addresses must be allowed inbound access to the subnet that you want to install HDInsight into:
+The HDInsight service is a managed service, and requires Internet access during provisioning and while running. This is so that Azure can monitor the health of the cluster, initiate failover of cluster resources, change the number of nodes in the cluster through scaling operations, and other management tasks.
+
+If you need to install HDInsight into a secured Virtual Network, you must allow access from the following IP addresses, which allow Azure to manage the HDInsight cluster.
 
 * 168.61.49.99
 * 23.99.5.239
