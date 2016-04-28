@@ -22,19 +22,19 @@ Azure IoT device management enables you to find device twins, the service repres
 
 -   To query for device twins using tags, you pass an array of strings and the query returns the set of devices which are tagged with all of those strings.
 
--   To query for device twins using service properties or device properties, you user a JSON query expression. The example below shows how you could query for all devices with the device property with the key **FirmwareVersion** and value **1.0**. You can see that the **type** of the property is **device**, indicating we are querying based on device properties, not service properties:
+-   To query for device twins using service properties or device properties, you user a JSON query expression.
 
 For more information on the device twin and queries, please refer to [Overview of Azure IoT Hub device management][lnk-dm-overview].
 
-## Running the device query sample 
+## Running the device query sample
 
 The following sample extends the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial functionality. Starting from having the different simulated devices running, it will use a query to find specific devices.
 
-### Prerequisites  
+### Prerequisites 
 
 Before running this sample, you must have completed the steps in [Get started with Azure IoT Hub device management][lnk-get-started]. That means your simulated devices must be running. If you completed the process before, please restart your simulated devices now.
 
-### Starting the sample 
+### Starting the sample
 
 To start the sample, you need to run the **Query.exe** process. This will execute a few different queries. Follow the steps below to start the sample:
 
@@ -51,7 +51,7 @@ You should see output in the command line window showing the result of queries f
 Queries on device and service properties are executed with a JSON string to represent the query itself. The JSON string is composed 4 parts. Below is an explanation of each part and the C\# object which can  serialized into the correct JSON string.
 
 - **Project**: The expression that designates the fields from the device object to include in the ery result set (equivalent to SELECT in SQL):
-  
+
   ```
   var query = JsonConvert.SerializeObject(
       project = new
@@ -75,7 +75,7 @@ Queries on device and service properties are executed with a JSON string to repr
 ```
 
 - **Filter**: The expression that limits the device objects included in the query result set (equivalent to WHERE in SQL):
-  
+
   ```
   var query = JsonConvert.SerializeObject(
       new
@@ -90,14 +90,13 @@ Queries on device and service properties are executed with a JSON string to repr
           value = "123456",
           comparisonOperator = "eq",
           type = "comparison"
-        },
-        sort = new string[] { }
+        }
       }
   );
   ```
 
 - **Aggregate**: The expression that determines how to group the query result set (equivalent to GROUPBY in SQL):
-  
+
   ```
   var query = JsonConvert.SerializeObject(
       new
@@ -136,14 +135,13 @@ Queries on device and service properties are executed with a JSON string to repr
               columnName = "TotalWeight"
             }
           }
-        },
-        sort = new string[] { }
+        }
       }
   );
   ```
 
 - **Sort**: The expression definition which property should be used to sort the query result set (equivalent to ORDER BY in SQL). If sort is null, **deviceID** is used by default:
-  
+
   ```
   var query = JsonConvert.SerializeObject(
     new
@@ -172,9 +170,9 @@ There are some limitations in the public preview implementation of queries.
 
 -   Queries are case sensitive.
 
--   Only 100 devices will be returned when using query expressions to query by service or device properties. You can implement paging by [**LINK TO AFFAN**][lnk-paging].
+-   Only 100 devices will be returned when using query expressions to query by service or device properties. An example of how to implement paging is available in [our query library][lnk-query-samples].
 
-More details on the syntax and available fields for the JSON are [available]. You can also see our library of sample queries at [**LINK TO AFFAN**][lnk-query-samples].
+More details on the syntax and available fields for the JSON are [available][lnk-query-expression-guide]. You can also see our library of sample queries in our [query expressions library][lnk-query-samples].
 
 ### Query by device and service properties
 
@@ -215,5 +213,5 @@ To learn more about the Azure IoT Hub device management features you can go thro
 [lnk-twin-tutorial]: iot-hub-device-management-device-twin.md
 [lnk-jobs-tutorial]: iot-hub-device-management-device-jobs.md
 [lnk-query-spec]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
-[lnk-paging]: http://TODO
-[lnk-query-samples]: http://TODO
+[lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
+[lnk-query-expression-guide]:https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
