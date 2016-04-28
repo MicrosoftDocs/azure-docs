@@ -29,7 +29,7 @@ You need the following installed to complete the steps:
 
 - Microsoft Visual Studio 2015
 - Git
-- CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. For a Windows PC, please choose the Windows Installer (.msi) option. Make sure to check the box to add CMake to your PATH variable.
+- CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. For a Windows PC, please choose the Windows Installer (.msi) option. Make sure to check the box to add CMake to the current user PATH variable.
 - An active Azure subscription.
 
 	If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
@@ -80,7 +80,7 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 2.  Clone the github repository. **Make sure to clone in a directory that does not have any spaces.**
 
   ```
-  git clone --recursive --branch dmpreview <https://github.com/Azure/azure-iot-sdks.git>
+  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
   ```
 
 3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **\\azure-iot-sdks\\csharp\\service\\samples** folder and run, replacing the placeholder value with your connection string from the previous section:
