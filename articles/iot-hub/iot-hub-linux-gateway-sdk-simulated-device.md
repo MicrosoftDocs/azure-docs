@@ -119,8 +119,13 @@ To run the sample:
 
 3. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages that IoT hub receives from the gateway.
 
+## Next steps
+
+To learn about how to use the Gateway SDK, see [Azure IoT Gateway SDK][lnk-gateway-sdk] on GitHub.
+
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-field-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/

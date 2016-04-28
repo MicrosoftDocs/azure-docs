@@ -54,6 +54,15 @@ The following illustration shows the high level architecture used to enable this
 
 ![][3]
 
+## Next steps
+
+To learn about how to use the Gateway SDK, see the following tutorials:
+
+- [IoT Gateway SDK - Get started using Linux][lnk-gateway-get-started]
+- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated]
+
+You can find out more about device management with IoT Hub by reading [Overview of Azure IoT Hub device management][lnk-device-management].
+
 <!-- Images and links -->
 [1]: media/iot-hub-gateway-device-management/overview.png
 [2]: media/iot-hub-gateway-device-management/manage.png
@@ -62,4 +71,5 @@ The following illustration shows the high level architecture used to enable this
 [Ubuntu]: https://help.ubuntu.com/community/Internet/ConnectionSharing
 [3]: media/iot-hub-gateway-device-management/manage_2.png
 [lnk-gateway-get-started]: iot-hub-linux-gateway-sdk-get-started.md
-[lnk-device-management]: iot-hub-csharp-csharp-dm-getstarted.md
+[lnk-gateway-simulated]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-device-management]: iot-hub-device-management-overview.md
