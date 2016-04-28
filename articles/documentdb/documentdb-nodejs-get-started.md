@@ -181,20 +181,20 @@ Open your empty ```app.js``` file in the text editor. Copy and paste the code be
     var config = require("./config");
     var url = require('url');
 
-Copy and paste the code to use the previously saved ```config.endpoint``` and ```config.authKey``` to create a new DocumentClient.
+Copy and paste the code to use the previously saved ```config.endpoint``` and ```config.primaryKey``` to create a new DocumentClient.
 
     var config = require("./config");
     var url = require('url');
 
     // ADD THIS PART TO YOUR CODE
-    var client = new documentClient(config.endpoint, { "masterKey": config.authKey });
+    var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
 Now that you have the code to initialize the documentdb client, let's take a look at working with DocumentDB resources.
 
 ## Step 5: Create a Node database
 Copy and paste the code below to set the HTTP status for Not Found, the database url, and the collection url. These urls are how the DocumentDB client will find the right database and collection.
 
-    var client = new documentClient(config.endpoint, { "masterKey": config.authKey });
+    var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
     // ADD THIS PART TO YOUR CODE
     var HttpStatusCodes = { NOTFOUND: 404 };
@@ -536,10 +536,11 @@ Copy and paste the following code snippet (function **cleanup**) to remove the d
     }
 
 Copy and paste the code below the call to **deleteDocument** to execute the **cleanup** function.
-    .then(() => queryCollection())
+
+    .then(() => deleteFamilyDocument(config.documents.Andersen))
 
     // ADD THIS PART TO YOUR CODE
-    .then(() => deleteFamilyDocument(config.documents.Andersen))
+    .then(() => cleanup())
     // ENDS HERE
 
     .then(() => { exit(`Completed successfully`); })
