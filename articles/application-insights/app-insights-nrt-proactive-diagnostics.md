@@ -31,9 +31,16 @@ Notice that it tells you:
 
 * The failure rate compared to normal app behavior.
 * How many users are affected – so you know how much to worry.
+
+## Diagnose the problem
+
+In addition, if you click the link, you'll be able to see:
+
 * A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
 * The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
 * Links directly to relevant searches on the telemetry in Application Insights.
+
+You can opt to get this additional diagnostic information directly in the email.
 
 Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
@@ -52,31 +59,6 @@ When your service is instrumented with these telemetry, the analyser finds an ex
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
 Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure NRT Proactive Diagnostics. If you want, you can disable it or change its target email addresses.
-
-## Triaging and diagnosing an alert
-
-An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
-
-From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 15% compares with a normal rate of 1.3%, indicates that something bad is going on. 22 distinct users were affected by failures in a particular operation. If it were your app, you'd be able to assess how serious that is.
-
-In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure and trace data provided. 
-
-There are some other clues. For example, the dependency failure rate in this example is the same as the exception rate (89.3%). This suggests that the exception arises directly from the dependency failure - giving you a clear idea of where to start looking in your code.
-
-To investigate further, the links in each section will take you straight to a [search page](app-insights-diagnostic-search.md) filtered to the relevant requests, exception, dependency or traces. Or you can open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
-
-In this example, clicking the 'View dependency failures details' link opens Application Insights search blade on the SQL statement with the root cause: NULLs where provided at mandatory fields and did not pass validation during the save operation.
-
-
-![Diagnostic search](./media/app-insights-nrt-proactive-diagnostics/051.png)
-
-## Review recent alerts
-
-To review alerts in the portal, open **Settings, Audit logs**.
-
-![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/040.png)
-
-Click any alert to see its full detail.
 
 
 ## Configure alerts 
@@ -103,6 +85,33 @@ There's a slight risk that the more detailed alert could contain sensitive infor
 Here's a sample detailed alert:
 
 ![Configuration](./media/app-insights-nrt-proactive-diagnostics/060.png)
+
+## Triaging and diagnosing an alert
+
+An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
+
+From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 22.5% compares with a normal rate of 1%, indicates that something bad is going on. On the other hand, only 11 users were affected. If it were your app, you'd be able to assess how serious that is.
+
+In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure and trace data provided. 
+
+There are some other clues. For example, the dependency failure rate in this example is the same as the exception rate (89.3%). This suggests that the exception arises directly from the dependency failure - giving you a clear idea of where to start looking in your code.
+
+To investigate further, the links in each section will take you straight to a [search page](app-insights-diagnostic-search.md) filtered to the relevant requests, exception, dependency or traces. Or you can open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
+
+In this example, clicking the 'View dependency failures details' link opens Application Insights search blade on the SQL statement with the root cause: NULLs where provided at mandatory fields and did not pass validation during the save operation.
+
+
+![Diagnostic search](./media/app-insights-nrt-proactive-diagnostics/051.png)
+
+## Review recent alerts
+
+To review alerts in the portal, open **Settings, Audit logs**.
+
+![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/040.png)
+
+Click any alert to see its full detail.
+
+
 
 ## What's the difference ...
 

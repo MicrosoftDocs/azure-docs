@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Getting started with elastic queries for sharding (horizontal partitioning) | Microsoft Azure"
+	pageTitle="Report across scaled-out cloud databases (horizontal partitioning) | Microsoft Azure"
 	description="how to use cross database database queries"
 	services="sql-database"
 	documentationCenter=""  
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/26/2016"
 	ms.author="SilviaDoomra" />
 
-# Reporting across scaled-out cloud databases (preview)
+# Report across scaled-out cloud databases (preview)
 
 You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded"). 
 
