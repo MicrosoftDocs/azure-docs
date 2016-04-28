@@ -821,6 +821,7 @@ ahmet@fedora$ azure network nic show TestRG LB-NIC1 --json | jq '.'
 ```
 
 Let's go ahead and create the second NIC, hooking in to our back-end IP pool again, and this time the second of our NAT rules to permit SSH traffic:
+
 ```
 ahmet@fedora$ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" -e "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
 ```
