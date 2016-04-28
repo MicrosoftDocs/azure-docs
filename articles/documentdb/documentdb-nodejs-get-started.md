@@ -471,40 +471,40 @@ DocumentDB supports deleting JSON documents.
 
 Copy and paste the **deleteDocument** function underneath the **replaceDocument** function.
 
-        else {
-          resolve(result);
-        }
-      });
-    });
-  };
+                else {
+                    resolve(result);
+                }
+            });
+        });
+    };
 
-  // ADD THIS PART TO YOUR CODE
-  function deleteFamilyDocument(document) {
-      let documentUrl = `${collectionUrl}/docs/${document.id}`;
-      console.log(`Deleting document:\n${document.id}\n`);
+    // ADD THIS PART TO YOUR CODE
+    function deleteFamilyDocument(document) {
+        let documentUrl = `${collectionUrl}/docs/${document.id}`;
+        console.log(`Deleting document:\n${document.id}\n`);
 
-      return new Promise((resolve, reject) => {
-        client.deleteDocument(documentUrl, (err, result) => {
-          if (err) reject(err);
-        else {
-          resolve(result);
-        }
-      });
-    });
-  };
+        return new Promise((resolve, reject) => {
+            client.deleteDocument(documentUrl, (err, result) => {
+                if (err) reject(err);
+                else {
+                    resolve(result);
+                }
+            });
+        });
+    };
 
 Copy and paste the code below the call to the second **queryCollection** to execute the **deleteDocument** function.
 
-  .then(() => queryCollection())
-  .then(() => replaceFamilyDocument(config.documents.Andersen))
-  .then(() => queryCollection())
+    .then(() => queryCollection())
+    .then(() => replaceFamilyDocument(config.documents.Andersen))
+    .then(() => queryCollection())
 
-  // ADD THIS PART TO YOUR CODE
-  .then(() => deleteFamilyDocument(config.documents.Andersen))
-  // ENDS HERE
+    // ADD THIS PART TO YOUR CODE
+    .then(() => deleteFamilyDocument(config.documents.Andersen))
+    // ENDS HERE
 
-  .then(() => { exit(`Completed successfully`); })
-  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+    .then(() => { exit(`Completed successfully`); })
+    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 In your terminal, locate your ```app.js``` file and run the command: ```node app.js```
 
@@ -516,40 +516,40 @@ Deleting the created database will remove the database and all children resource
 
 Copy and paste the following code snippet (function **cleanup**) to remove the database and all the children resources.
 
-        else {
-          resolve(result);
-        }
-      });
-    });
-  };
+                else {
+                    resolve(result);
+                }
+            });
+        });
+    };
 
-  // ADD THIS PART TO YOUR CODE
-  function cleanup() {
-    console.log(`Cleaning up by deleting database ${config.database.id}`);
+    // ADD THIS PART TO YOUR CODE
+    function cleanup() {
+        console.log(`Cleaning up by deleting database ${config.database.id}`);
 
-    return new Promise((resolve, reject) => {
-      client.deleteDatabase(databaseUrl, (err) => {
-        if (err) reject(err)
-        else resolve(null);
-      });
-    });
-  }
+        return new Promise((resolve, reject) => {
+            client.deleteDatabase(databaseUrl, (err) => {
+                if (err) reject(err)
+                else resolve(null);
+            });
+        });
+    }
 
 Copy and paste the code below the call to **deleteDocument** to execute the **cleanup** function.
-  .then(() => queryCollection())
+    .then(() => queryCollection())
 
-  // ADD THIS PART TO YOUR CODE
-  .then(() => deleteFamilyDocument(config.documents.Andersen))
-  // ENDS HERE
+    // ADD THIS PART TO YOUR CODE
+    .then(() => deleteFamilyDocument(config.documents.Andersen))
+    // ENDS HERE
 
-  .then(() => { exit(`Completed successfully`); })
-  .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+    .then(() => { exit(`Completed successfully`); })
+    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ##<a id="Run"></a>Step 12: Run your Node.js application all together!
 
 Altogether, the sequence for calling your functions should look like this:
 
-  getDatabase()
+    getDatabase()
     .then(() => getCollection())
     .then(() => getFamilyDocument(config.documents.Andersen))
     .then(() => getFamilyDocument(config.documents.Wakefield))
@@ -565,35 +565,35 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 
 You should see the output of your get started app. The output should match the example text below.
 
-  Getting database:
-  FamilyDB
+    Getting database:
+    FamilyDB
 
-  Getting collection:
-  FamilyColl
+    Getting collection:
+    FamilyColl
 
-  Getting document:
-  Anderson.1
+    Getting document:
+    Anderson.1
 
-  Getting document:
-  Wakefield.7
+    Getting document:
+    Wakefield.7
 
-  Querying collection through index:
-  FamilyColl
-      Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":5,"pets":[{"givenName":"Fluffy"}]}]
+    Querying collection through index:
+    FamilyColl
+        Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":5,"pets":[{"givenName":"Fluffy"}]}]
 
-  Replacing document:
-  Anderson.1
+    Replacing document:
+    Anderson.1
 
-  Querying collection through index:
-  FamilyColl
-      Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":6,"pets":[{"givenName":"Fluffy"}]}]
+    Querying collection through index:
+    FamilyColl
+        Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":6,"pets":[{"givenName":"Fluffy"}]}]
 
-  Deleting document:
-  Anderson.1
+    Deleting document:
+    Anderson.1
 
-  Cleaning up by deleting database FamilyDB
-  Completed successfully
-  Press any key to exit
+    Cleaning up by deleting database FamilyDB
+    Completed successfully
+    Press any key to exit
 
 Congratulations! You've created you've completed the Node.js tutorial and have your first DocumentDB console application!
 
