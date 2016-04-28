@@ -64,7 +64,7 @@ In addition to giving users access to your application, you can also allow anoth
 
 >[AZURE.IMPORTANT] Because they run on customer devices, mobile applications do _not_ count as trusted applications and should not use a service principal flow. Instead, they should use one of the user flows detailed above.
 
-For service-to-service scenarios, App Service can protect your application using Azure Active Directory. The calling application just needs to provide an AAD service principal authorization token obtained by providing the client ID and client secret from AAD. An example of this scenario using ASP.NET API apps is covered by the tutorial [Service principal authentication for API Apps](app-service-api-dotnet-service-principal-auth.md).
+For service-to-service scenarios, App Service can protect your application using Azure Active Directory. The calling application just needs to provide an AAD service principal authorization token obtained by providing the client ID and client secret from AAD. An example of this scenario using ASP.NET API apps is covered by the tutorial [Service principal authentication for API Apps][apia-service].
 
 If you want to handle a service-to-service scenario without using App Service authentication, you can use client certificates or basic authentication. For information about client certificates in Azure, see [How To Configure TLS Mutual Authentication for Web Apps](../app-service-web/app-service-web-configure-tls-mutual-auth.md). For information about basic authentication in ASP.NET, see [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
@@ -101,7 +101,7 @@ App Service passes some user information to your application using special heade
 
 Code written in any language or framework can get the information it needs from these headers. For ASP.NET 4.6 apps, the ClaimsPrincipal is automatically set with the appropriate values.
 
-Your application can also obtain additional user details through an HTTP GET on the `/.auth/me` endpoint of your application. If a valid token was included with the request, this will return a JSON payload with details about the provider being used, the underlying provider token, and some other user information. The Mobile Apps server SDKs provide helper methods for working with this data ([Node.JS](app-service-mobile-node-backend-how-to-use-server-sdk.md/#howto-tables-getidentity), [.NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md/#user-info)).
+Your application can also obtain additional user details through an HTTP GET on the `/.auth/me` endpoint of your application. If a valid token was included with the request, this will return a JSON payload with details about the provider being used, the underlying provider token, and some other user information. The Mobile Apps server SDKs provide helper methods for working with this data ([Node.JS](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md/#howto-tables-getidentity), [.NET](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md/#user-info)).
 
 ## Documentation and additional resources
 
@@ -147,25 +147,25 @@ The following tutorials show how to protect your API apps:
 
 
 
-[apia-user]: app-service-api-dotnet-user-principal-auth.md
-[apia-service]: app-service-api-dotnet-service-principal-auth.md
+[apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
+[apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
 
-[iOS]: app-service-mobile-ios-get-started-users.md
-[Android]: app-service-mobile-android-get-started-users.md
-[Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started-users.md
-[Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
-[Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started-users
-[Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Cordova]: app-service-mobile-cordova-get-started-users.md
+[iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
+[Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
+[Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
+[Xamarin.Android]: ../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md
+[Xamarin.Forms]: ../app-service-mobile/app-service-mobile-xamarin-forms-get-started-users
+[Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
+[Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook]: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md
+[Google]: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md
+[MSA]: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter]: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md
 
-[custom-auth]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
+[custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
-[ADAL-Android]: app-service-mobile-android-how-to-use-client-library.md/#adal
-[ADAL-iOS]: app-service-mobile-ios-how-to-use-client-library.md/#adal
-[ADAL-dotnet]: app-service-mobile-dotnet-how-to-use-client-library.md/#adal
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md/#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md/#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md/#adal
