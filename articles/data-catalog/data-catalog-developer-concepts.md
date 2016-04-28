@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Data Catalog developer concepts | Microsoft Azure"
-   description="This article provides an introduction to the key concepts in the Azure Data Catalog conceptual model, as exposed through the Data Catalog REST API."
+   pageTitle="Azure Data Catalog developer concepts"
+   description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/29/2016"
+   ms.date="10/27/2015"
    ms.author="derrickv"/>  
 
 # Azure Data Catalog developer concepts
@@ -24,7 +24,7 @@ Microsoft **Azure Data Catalog** is a fully managed cloud service that provides 
 
 The **Azure Data Catalog** conceptual model is based on four key concepts: The **Catalog**, **Users**, **Assets**, and **Annotations**.
 
-![](media/data-catalog-developer-concepts/concept2.png)
+![concept][1]
 
 *Figure 1 - Azure Data Catalog simplified conceptual model*
 
@@ -58,7 +58,7 @@ An **Asset** is made up from its name, location and type as well as annotations 
 
 Annotations are items that represent metadata about Assets.
 
-Examples of annotations include descriptions, tags, schema, and documentation. A full list of the asset types and annotation types are in the [Asset Object model](#asset-model) section below.
+Examples of annotations are description, tags, schema, documentation, etc… A full list of the asset types and annotation types are in the Asset Object model section.
 
 ## Crowdsourcing annotations and user perspective (multiplicity of opinion)
 
@@ -82,7 +82,6 @@ The UX can then choose how to display the combination. There are three different
 -	Another pattern is “Merge”. In this pattern all the values from the different users are merged together, with duplicate removed. Examples of this pattern in the Azure Data Catalog portal UX are the tags and experts properties.
 -	A third pattern is “last writer wins”. In this pattern only the most recent value typed in is shown. friendlyName is an example of this pattern.
 
-<a name="asset-model"/>
 ## Asset object model
 
 As introduced in the Key Concepts section, the **Azure Data Catalog** object model includes items, which can be assets or annotations. Items have properties, which can be optional or required. Some properties apply to all items. Some properties apply to all assets. Some properties apply only to specific asset types.
@@ -116,58 +115,58 @@ These properties apply to all non-singleton annotation types (i.e. annotations w
 
 ### Root asset types
 
-Root asset types are those types that represent the various types of data assets that can be registered in the catalog.
+Root asset types are those types that represent the various types of data assets that can be registered in the catalog. For each root type there is a view defined which describes asset and annotations included in the view. View name should be used in the corresponding {view_name} url segment when publishing an asset using REST API.
 
-<table><tr><td><b>Asset Type</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Allowed Annotations</b></td><td><b>Comments</b></td></tr><tr><td>Table</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>Documentation<p></td><td>A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc…   </td></tr><tr><td>Measure</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>measure</td><td>Column</td><td></td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><td>KPI</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td>
-<tr><td>Report</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a SQL Server Reporting Services report </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Container</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a container of other assets such as a SQL database, an Azure Blobs container, or an Analysis Services model.</td></tr></table>
+<table><tr><td><b>Asset Type (View name)</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Allowed Annotations</b></td><td><b>Comments</b></td></tr><tr><td>Table ("tables")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Schema<p>ColumnDescription<p>ColumnTag<p> Expert<p>Preview<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>Documentation<p></td><td>A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc…   </td></tr><tr><td>Measure ("measures")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>measure</td><td>Column</td><td></td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Physical container for measure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td>
+<tr><td>Report ("reports")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a SQL Server Reporting Services report </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Container ("containers")</td><td></td><td></td><td>Description<p>FriendlyName<p>Tag<p>Expert<p>AccessInstruction<p>Documentation<p></td><td>This type represents a container of other assets such as a SQL database, an Azure Blobs container, or an Analysis Services model.</td></tr></table>
 
 ### Annotation types
 
 Annotation types represent types of metadata that can be assigned to other types within the catalog.
 
 <table>
-<tr><td><b>Annotation Type</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr>
+<tr><td><b>Annotation Type (Nested view name)</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr>
 
-<tr><td>Description</td><td></td><td></td><td>This contains a description for an asset. Each user of the system can add their own description.  Only that user can edit the Description object.  (Admins and Asset owners can delete the Description object but not edit it). The system maintains these separately.  Thus there is an array of descriptions on each asset (one for each user who has contributed their knowledge about the asset, in addition to possibly one that contains information derived from the data source).</td></tr>
+<tr><td>Description ("descriptions")</td><td></td><td></td><td>This contains a description for an asset. Each user of the system can add their own description.  Only that user can edit the Description object.  (Admins and Asset owners can delete the Description object but not edit it). The system maintains these separately.  Thus there is an array of descriptions on each asset (one for each user who has contributed their knowledge about the asset, in addition to possibly one that contains information derived from the data source).</td></tr>
 <tr><td></td><td>description</td><td>string</td><td>A short description (2-3 lines) of the asset</td></tr>
 
-<tr><td>Tag</td><td></td><td></td><td>This contains a tag for an asset. Each user of the system can add multiple tags for an asset.  Only the user who created Tag objects can edit them.  (Admins and Asset owners can delete the Tag object but not edit it). The system maintains these separately.  Thus there is an array of Tag objects on each asset.</td></tr>
+<tr><td>Tag ("tags")</td><td></td><td></td><td>This contains a tag for an asset. Each user of the system can add multiple tags for an asset.  Only the user who created Tag objects can edit them.  (Admins and Asset owners can delete the Tag object but not edit it). The system maintains these separately.  Thus there is an array of Tag objects on each asset.</td></tr>
 <tr><td></td><td>tag</td><td>string</td><td>A tag describing the asset.</td></tr>
 
-<tr><td>FriendlyName</td><td></td><td></td><td>This contains a friendly name for an asset. FriendlyName is a sigleton annotation - only one FriendlyName can be added to an asset.  Only the user who created FriendlyName object can edit it. (Admins and Asset owners can delete the FriendlyName object but not edit it). The system maintains these separately.</td></tr>
+<tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>This contains a friendly name for an asset. FriendlyName is a sigleton annotation - only one FriendlyName can be added to an asset.  Only the user who created FriendlyName object can edit it. (Admins and Asset owners can delete the FriendlyName object but not edit it). The system maintains these separately.</td></tr>
 <tr><td></td><td>friendlyName</td><td>string</td><td>A friendly name of the asset.</td></tr>
 
-<tr><td>Schema</td><td></td><td></td><td>The Schema describes the structure of the data.  It lists the attribute (i.e. column, attribute, field, etc…) names, types as well other metadata.  This information is all derived from the data source.  Schema is a singleton annotaiton - only one Schema can be added for an asset.</td></tr>
+<tr><td>Schema ("schema")</td><td></td><td></td><td>The Schema describes the structure of the data.  It lists the attribute (i.e. column, attribute, field, etc…) names, types as well other metadata.  This information is all derived from the data source.  Schema is a singleton annotaiton - only one Schema can be added for an asset.</td></tr>
 <tr><td></td><td>columns</td><td>Column[]</td><td>An array of column objects. They describe the column with information derived from the data source.</td></tr>
 
-<tr><td>ColumnDescription</td><td></td><td></td><td>This contains a description for a column.  Each user of the system can add their own descriptions for multiple columns (at most one per column). Only the user who created ColumnDescription objects can edit them.  (Admins and Asset owners can delete the ColumnDescription object but not edit it). The system maintains these separately.  Thus there is an array of ColumnDescription objects on each asset (one per column for each user who has contributed their knowledge about the column in addition to possibly one that contains information derived from the data source).  The ColumnDescription is loosely bound to the Schema so it can get out of sync. i.e. the ColumnDescription might describe a column that no longer exist in the schema.  It is up to the writer to keep these in sync.  The data source may also have columns description information. These would be additional ColumnDescription objects that would be created when running the tool.</td></tr>
+<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>This contains a description for a column.  Each user of the system can add their own descriptions for multiple columns (at most one per column). Only the user who created ColumnDescription objects can edit them.  (Admins and Asset owners can delete the ColumnDescription object but not edit it). The system maintains these separately.  Thus there is an array of ColumnDescription objects on each asset (one per column for each user who has contributed their knowledge about the column in addition to possibly one that contains information derived from the data source).  The ColumnDescription is loosely bound to the Schema so it can get out of sync. i.e. the ColumnDescription might describe a column that no longer exist in the schema.  It is up to the writer to keep these in sync.  The data source may also have columns description information. These would be additional ColumnDescription objects that would be created when running the tool.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>The name of the column this description refers to.</td></tr>
 <tr><td></td><td>description</td><td>String</td><td>a short description (2-3 lines) of the column.</td></tr>
 
-<tr><td>ColumnTag</td><td></td><td></td><td>This contains a tag for a column.  Each user of the system can add multiple tags for a given column and can add tags for multiple columns. Only the user who created ColumnTag objects can edit them. (Admins and Asset owners can delete the ColumnTag object but not edit it). The system maintains these separately.  Thus there is an array of ColumnTag objects on each asset.  The ColumnTag is loosely bound to the schema so it can get out of sync. i.e. the ColumnTag might describe a column that no longer exist in the schema.  It is up to the writer to keep these in sync.</td></tr>
+<tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>This contains a tag for a column.  Each user of the system can add multiple tags for a given column and can add tags for multiple columns. Only the user who created ColumnTag objects can edit them. (Admins and Asset owners can delete the ColumnTag object but not edit it). The system maintains these separately.  Thus there is an array of ColumnTag objects on each asset.  The ColumnTag is loosely bound to the schema so it can get out of sync. i.e. the ColumnTag might describe a column that no longer exist in the schema.  It is up to the writer to keep these in sync.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>The name of the column this tag refers to.</td></tr>
 <tr><td></td><td>tag</td><td>String</td><td>A tag describing the column.</td></tr>
 
-<tr><td>Expert</td><td></td><td></td><td>This contains a user who is considered an expert in the data set.  The experts’ opinions (i.e. descriptions) will bubble to the top of the UX when listing descriptions.    Each user can specify their own experts.    Only that user can edit the experts object.  (Admins and Asset owners can delete the Expert objects but not edit it).</td></tr>
+<tr><td>Expert ("experts")</td><td></td><td></td><td>This contains a user who is considered an expert in the data set.  The experts’ opinions (i.e. descriptions) will bubble to the top of the UX when listing descriptions.    Each user can specify their own experts.    Only that user can edit the experts object.  (Admins and Asset owners can delete the Expert objects but not edit it).</td></tr>
 <tr><td></td><td>expert</td><td>SecurityPrincipal</td><td></td></tr>
 
-<tr><td>Preview</td><td></td><td></td><td>The preview contains a snapshot of the top 20 rows of data for the asset. Preview only make sense for some types of assets (i.e. it makes sense for Table but not for Measure).</td></tr>
+<tr><td>Preview ("previews")</td><td></td><td></td><td>The preview contains a snapshot of the top 20 rows of data for the asset. Preview only make sense for some types of assets (i.e. it makes sense for Table but not for Measure).</td></tr>
 <tr><td></td><td>preview</td><td>object[]</td><td>Array of objects that represent a column.  Each object has a property mapping to a column with a value for that column for the row.</td></tr>
 
-<tr><td>AccessInstruction</td><td></td><td></td><td></td></tr>
+<tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>The mime type of the content.</td></tr>
 <tr><td></td><td>content</td><td>string</td><td>The instructions for how to get access to this data asset. This could be an URL, an email address, or a set of instructions.</td></tr>
 
-<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>The number of rows in the data set</td></tr>
 <tr><td></td><td>size</td><td>long</td><td>The size in bytes of the data set.  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>string</td><td>The last time the schema was modified</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>string</td><td>The last time the data set was modified (data was added, modified or delete)</td></tr>
 
-<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>An array of column data profiles.</td></tr>
 
-<tr><td>Documentation</td><td></td><td></td><td>A given asset can have only one documentation associated with it.</td></tr>
+<tr><td>Documentation ("documentation")</td><td></td><td></td><td>A given asset can have only one documentation associated with it.</td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>The mime type of the content.</td></tr>
 <tr><td></td><td>content</td><td>string</td><td>The documentation content.</td></tr>
 
@@ -271,66 +270,69 @@ By default any authenticated user has **Read** right for any item in the catalog
 Special security principal <Everyone> has objectId "00000000-0000-0000-0000-000000000201".
   **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
-> [AZURE.NOTE] Some HTTP client implementations may automatically re-issue requests in response to a 302 from the server, but typically strip **Authorization headers** from the request. Since the Authorization header is required to make requests to ADC, you must ensure the Authorization header is still provided when re-issuing a request to a redirect location specified by ADC. Below is sample code demonstrating this using the .NET HttpWebRequest object.
+> [AZURE.NOTE] Some HTTP client implementations may automatically re-issue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to ADC, you must ensure the Authorization header is still provided when re-issuing a request to a redirect location specified by ADC. Below is sample code demonstrating this using the .NET HttpWebRequest object.
 
-  **Body**
+**Body**
 
-    {
-      "roles": [
-        {
-          "role": "Contributor",
-          "members": [
-            {
-              "objectId": "00000000-0000-0000-0000-000000000201"
-            }
-          ]
-        }
-      ]
-    }
+	{
+    "roles": [
+	        {
+	            "role": "Contributor",
+	            "members": [
+	                {
+	                    "objectId": "00000000-0000-0000-0000-000000000201"
+	                }
+	            ]
+	        }
+    ]
+	}
 
-  **Assign owners and restrict visibility for an existing root item**
+**Assign owners and restrict visibility for an existing root item**
   **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
-    {
-      "roles": [
-        {
-          "role": "Owner",
-          "members": [
-            {
-              "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
-              "upn": "user1@contoso.com"
-            },
-            {
-              "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
-              "upn": "user2@contoso.com"
-            }
-          ]
-        }
-      ],
-      "permissions": [
-        {
-          "principal": {
-            "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
-            "upn": "user3@contoso.com"
-          },
-          "rights": [
-            {
-              "right": "Read"
-            }
-          ]
-        },
-        {
-          "principal": {
-            "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
-            "upn": "user4@contoso.com"
-          },
-          "rights": [
-            {
-              "right": "Read"
-            }
-          ]
-        }
-      ]
-    }
+	{
+    "roles": [
+	        {
+	            "role": "Owner",
+	            "members": [
+	                {
+	                    "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
+	                    "upn": "user1@contoso.com"
+	                },
+	                {
+	                    "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
+	                    "upn": "user2@contoso.com"
+	                }
+	            ]
+	        }
+	    ],
+    "permissions": [
+	        {
+	            "principal": {
+	                "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
+	                "upn": "user3@contoso.com"
+	            },
+	            "rights": [
+	                {
+	                    "right": "Read"
+	                }
+	            ]
+	        },
+	        {
+	            "principal": {
+	                "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
+	                "upn": "user4@contoso.com"
+	            },
+	            "rights": [
+	                {
+	                    "right": "Read"
+	                }
+	            ]
+	        }
+	    ]
+	}
 
-  > [AZURE.NOTE] In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
+> [AZURE.NOTE] In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
+
+<!--Image references-->
+[1]: ./media/data-catalog-developer-concepts/concept2.png
