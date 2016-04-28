@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # How to use Azure blob storage with the WebJobs SDK
