@@ -38,9 +38,9 @@ The device twin has the following components:
 
 1.  **Device Fields:** Device fields are predefined properties used for both IoT Hub messaging and device management. These properties help IoT Hub identify and connect with physical devices. Device fields are not synchronized to the device and are stored exclusively in the device twin. Device fields include the device id and authentication information.
 
-2.  **Device Properties:** Device properties are a predefined dictionary of properties that describes the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An eventually consistent representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described in [Tutorial: device twin][lnk-tutorial-twin]. Some examples of device properties include firmware version, battery level, and manufacturer name.
+2.  **Device Properties:** Device properties are a predefined dictionary of properties that describes the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An eventually consistent representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described in [Tutorial: how to use the device twin][lnk-tutorial-twin]. Some examples of device properties include firmware version, battery level, and manufacturer name.
 
-3.  **Service Properties:** Service properties are *&lt;key/value&gt;* pairs that the developer adds to the service properties dictionary. These properties extend the data model for the device twin, enabling you to better characterize your device. Service properties are not synchronized to the device and are stored exclusively in the device twin in the cloud. One example of a service property is **&lt;NextServiceDate, 11/12/2017&gt;**, which could be used to find devices by their next date of service.
+3.  **Service Properties:** Service properties are **&lt;key/value&gt;** pairs that the developer adds to the service properties dictionary. These properties extend the data model for the device twin, enabling you to better characterize your device. Service properties are not synchronized to the device and are stored exclusively in the device twin in the cloud. One example of a service property is **&lt;NextServiceDate, 11/12/2017&gt;**, which could be used to find devices by their next date of service.
 
 4.  **Tags:** Tags are a subset of service properties which are arbitrary strings rather than dictionary properties. They can be used to annotate device twins or organize devices into groups. Tags are not synchronized to the device and are stored exclusively in the device twin. For example, if your device twin represents a physical truck, you could add a tag for each type of cargo in the truck – **apples**, **oranges**, and **bananas**.
 
@@ -53,7 +53,7 @@ You can query using tags and properties:
 -   To query for device twins using tags, you pass an array of strings and the query returns the set of devices which are tagged with all of those strings.
 
 -   To query for device twins using service properties or device properties, you use a JSON query expression. The example below shows how you could query for all devices with the device property with the key **FirmwareVersion** and value **1.0**. You can see that the **type** of the property is **device**, indicating we are querying based on device properties, not service properties:
-  
+
   ```
   {                           
       "filter": {                  
@@ -90,7 +90,7 @@ A job can operate on multiple devices. When you start a job, an associated child
 
 ![][img-jobs]
 
-You can query job history to understand the state of jobs that you have started. For some example queries, see [LINK TO AFFAN'S NEW THING][lnk-query-samples].
+You can query job history to understand the state of jobs that you have started. For some example queries, see [our query library][lnk-query-samples].
 
 ## Device Implementation
 
@@ -126,11 +126,11 @@ To learn more about the Azure IoT Hub device management features you can go thro
 [img-jobs]: media/iot-hub-device-management-overview/image2.png
 [img-client]: media/iot-hub-device-management-overview/image3.png
 
-[lnk-lwm2m]: http://www.slideshare.net/OpenMobileAlliance/oma-lwm2m-tutorial-by-arm-to-ietf-ace?qid=9a40eb2e-fb28-44f2-875c-8f3ad13f0cbc&v=default&b=&from_search=2
+[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
 [lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
-[lnk-query-samples]: http://TODO
+[lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
