@@ -87,7 +87,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     When sampling percentage value changes, how soon after are we allowed to lower sampling percentage again to capture less data.
 
-* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageIncreaseTimeout>`
 
     When sampling percentage value changes, how soon after are we allowed to increase sampling percentage again to capture more data.
 
