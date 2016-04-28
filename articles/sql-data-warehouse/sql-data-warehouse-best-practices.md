@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/15/2016"
+   ms.date="04/28/2016"
    ms.author="sonyama;barbkess"/>
 
 # SQL Data Warehouse Best Practices
@@ -25,7 +25,7 @@ If you are just getting started with Azure SQL Data Warehouse, do not let this a
 ## Reduce Cost with Pause and Scale
 A key feature of SQL Data Warehouse is the ability to pause when you are not using it, which stops the billing of compute resources.  Another key feature is the ability to scale resources.  Pausing and Scaling can be done via the Azure Portal or through PowerShell commands.  Become familiar with these features as these features can greatly reduce the cost of your data warehouse when it is not in use.  If you always want your data warehouse accessible, you may want to consider scaling it down to the smallest size, a DW100 rather than pausing.
 
-See also [Pausing compute resources][], [Scaling compute resources up and down][]
+See also [Pausing compute resources][], [Resuming compute resources][], [Scaling compute resources][]
 
 ## Drain Transactions Before Pausing or Scaling 
 When you pause or change the size of your SQL Data Warehouse, behind the scenes your database instance is stopped.  This means that all in-flight queries will be canceled.  Canceling a simple SELECT query is a quick operation and has almost no impact to pausing or scaling your instance.  However, queries which modify your data or the structure of the data in your database are considered transactional queries.  Transactional queries must either complete in their entirety or be undone.  When transactional queries are canceled, then any changes made by the query must be rolled back.  Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying.  For example, if a which was deleting rows is canceled after running for an d hour, it could take the system an hour to re-add the rows which were deleted.  If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time.  This is because pausing and scaling has to wait for the rollback to complete before it can proceed.
@@ -92,9 +92,9 @@ See also [Monitor your workload using DMVs][], [Use labels to instrument queries
 ## Other Resources
 There are many places to look for information about how to use Azure SQL Data Warehouse.  This article is part of the Azure documentation and has lots of links to other Azure articles as well as MSDN articles.  We monitor all of these articles for your feedback and do frequent updates.  If you find an article useful, please let us know by answering the question "Was this page helpful?".  You can provide comments whether you answer Yes or No.  If you find an article helpful, but have feedback, please click Yes and add your comments on anything we can do to make the article better.  If you are not prompted with this question, it can always be found at the end of every Azure article and for MSDN articles use the "Any suggestions?" link in the top right corner of every MSDN page.  We value your feedback and do take action on most feedback.
 
-If you have **feature suggestions** for SQL Data Warehouse, please use the [SQL Data Warehouse Feedback][] page.  Adding your requests or up-voting other requests helps us prioritize features.
+If you have **feature suggestions** for SQL Data Warehouse, please use the [Azure SQL Data Warehouse Feedback][] page.  Adding your requests or up-voting other requests helps us prioritize features.
 
-The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask questions to other users and to the SQL Data Warehouse Product Group.  We actively monitors this forum to ensure that your question are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have a [Azure SQL Data Warehouse Stack Overflow Forum][].
+The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask questions to other users and to the SQL Data Warehouse Product Group.  We actively monitor this forum to ensure that your question are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have a [Azure SQL Data Warehouse Stack Overflow Forum][].
 
 <!--Image references-->
 
@@ -112,9 +112,9 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: data-factory-azure-sql-data-warehouse-connector.md
 [Optimizing transactions for SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
-[Pausing compute resources]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-performance-scale/#pausing-compute-resources
-[Scaling compute resources up and down]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-performance-scale/#scaling-compute-resources-up-and-down
-[SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Pausing compute resources]: sql-data-warehouse-overview-scalability.md#pause-compute
+[Resuming compute resources]: sql-data-warehouse-overview-scalability.md#resume-compute
+[Scaling compute resources]: sql-data-warehouse-overview-scalability.md#scale-performance
 [Table design in SQL Data Warehouse]: sql-data-warehouse-develop-table-design.md
 [Table partitions in SQL Data Warehouse]: sql-data-warehouse-develop-table-partitions.md
 [Temporary tables in SQL Data Warehouse]: sql-data-warehouse-develop-temporary-tables.md
@@ -141,5 +141,6 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 [UPDATE STATISTICS (Transact-SQL)]: https://msdn.microsoft.com/library/ms187348.aspx
 
 <!--Other Web references-->
+[Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
