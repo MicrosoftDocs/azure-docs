@@ -67,7 +67,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 6. Click **Summary** to review your choices. When you're done, click **Create**.
 
-	![Screenshot that shows the summary of the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.PNG)
+	![Screenshot that shows the summary of the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
 7. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
 
