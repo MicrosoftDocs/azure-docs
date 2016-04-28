@@ -4,7 +4,7 @@
 	services="app-service"
 	documentationCenter=""
 	authors="mattchenderson"
-	manager="stefsch"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -74,17 +74,17 @@ Service account authentication from an App Service logic app to an API app is a 
 
 You have full control over what requests are allowed to access your application. App Service Authentication / Authorization can be configured with any of the following behaviors:
 
-1. Allow only authenticated requests to reach your application.
+- Allow only authenticated requests to reach your application.
 
 	If an anonymous request is received from a browser, App Service will redirect to a logon page for the identity provider that you choose. If the request comes from a mobile device, an HTTP _401 Unauthorized_ response response will be returned.
 
 	With this option, you don't need to write any authentication code at all in your app. If you need finer-grained authorization, information about the user is available to your code.
 
-2. Allow all requests to reach your application, but validate authenticated requests and pass along authentication information in the HTTP headers.
+- Allow all requests to reach your application, but validate authenticated requests and pass along authentication information in the HTTP headers.
 
 	This option defers authorization decisions to your application code. It provides more flexibility in handling anonymous requests, but requires that you write code.
 	
-3. Allow all requests to reach your application, take no action on authentication information in the requests.
+- Allow all requests to reach your application, take no action on authentication information in the requests.
 
 	In this case, the Authentication / Authorization feature is off. The tasks of authentication and authorization are entirely up to your application code.
 
