@@ -42,29 +42,58 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	- An Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F).
 	- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 	- Azure Media Services .NET SDK version **3.6.0** or later.
+
 - The following things must be set on AMS key delivery side:
 	- **App Cert (AC)** - .pfx file containing private key. This file is created by the customer and encrypted with a password by the same customer. 
 		
 	 	When the customer configures key delivery policy, they must provide that password and the .pfx in base64 format.
 
 	- **App Cert password** - Customer password for creating the .pfx file.
-	- **App Cert password ID**
-	- **iv** -  16 bytes random value, must match the iv in the asset delivery policy.
+	- **App Cert password ID** - The customer must upload the password similar to how they upload other AMS keys and using **ContentKeyType.FairPlayPfxPassword** enum value. In the result they will get AMS id this is what they need to use inside the key delivery policy option.
+	- **iv** -  16 bytes random value, must match the iv in the asset delivery policy. Customer generates the IV and puts it in both places: asset delivery policy and key delivery policy option. 
 	- **ASk** - ASK (Application Secret Key) is received when you generate the certification using Apple Developer portal. Each development team will receive a unique ASK. Please save a copy of the ASK and store it in a safe place. You will need to configure ASK as FairPlayAsk to Azure Media Services later. 
-	-  **ASk ID** - provided by Apple.
+	-  **ASk ID** - provided by Apple. The customer must upload the ASk similar to how they upload other AMS keys using **ContentKeyType.FairPlayASk ** enum value. In the result they will get WAMS id this is what they need to use inside the key delivery policy option.
 
 - The following things must be set by the FPS client side:
  	- **App Cert (AC)** - .cer/.der file containing public key which OS uses to encrypt some payload. AMS needs to know about it because it is required by the player. The key delivery service decrypts it using the corresponding private key.
 
-- You have to configure separate delivery policies if you want to deliver a stream that is encrypted with FairPlay + another DRM
+- To playback a FairPlay encrypted stream, you need to get real ASk first and then generate a real cert. That process will create all 3 parts:
 
-	- One IAssetDeliveryPolicy to configure DASH with CENC (PlayReady + WideVine) and Smooth with PlayReady. 
-	- Another IAssetDeliveryPolicy  to configure FairPlay for HLS
+	-  .der, 
+	-  .pfx and 
+	-  the password for the .pfx.
  
 - Clients that support HLS with **AES-128 CBC** encryption: Safari on OS X, Apple TV, iOS.
 
-##.NET sample
+##Steps for configuring FairPlay dynamic encryption and license delivery services
+
+The following are general steps that you would need to perform when protecting your assets with FairPlay, using the Media Services license delivery service, and also using dynamic encryption.
+
+1. Create an asset and upload files into the asset. 
+1. Encode the asset containing the file to the adaptive bitrate MP4 set.
+1. Create a content key and associate it with the encoded asset.  
+1. Configure the content key’s authorization policy. When creating the content key authorization policy, you need to specify the following: 
 	
+	- delivery method (in this case, FairPlay), 
+	- FairPlay policy options configuration. For details on how to configure FairPlay, see ConfigureFairPlayPolicyOptions() method below.
+	- restrictions (open or token), 
+	- and information specific to the key delivery type that defines how the key is delivered to the client. 
+	
+2. Configure asset delivery policy. The delivery policy configuration includes: 
+
+	- delivery protocol (HLS), 
+	- the type of dynamic encryption (Common CBC Encryption), 
+	- license acquisition URL. 
+	
+	>[AZURE.NOTE] You have to configure separate delivery policies if you want to deliver a stream that is encrypted with FairPlay + another DRM
+	>
+	>- One IAssetDeliveryPolicy to configure DASH with CENC (PlayReady + WideVine) and Smooth with PlayReady. 
+	>- Another IAssetDeliveryPolicy  to configure FairPlay for HLS
+
+1. Create an OnDemand locator in order to get a streaming URL.
+
+##.NET sample
+			
 	using System;
 	using System.Collections.Generic;
 	using System.Configuration;
@@ -237,9 +266,9 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	            return key;
 	        }
 	
+	       
 	        static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
 	        {
-	
 	            // Create ContentKeyAuthorizationPolicy with Open restrictions 
 	            // and create authorization policy          
 	
@@ -254,9 +283,8 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	                };
 	
 	
-	
 	            // Configure FairPlay policy option.
-	            string FairPlayConfiguration = ConfigureFairPlayPolicyOption();
+	            string FairPlayConfiguration = ConfigureFairPlayPolicyOptions();
 	
 	            IContentKeyAuthorizationPolicyOption FairPlayPolicy =
 	                _context.ContentKeyAuthorizationPolicyOptions.Create("",
@@ -277,31 +305,6 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	            contentKey = contentKey.UpdateAsync().Result;
 	        }
 	
-	        private static string ConfigureFairPlayPolicyOption()
-	        { 
-	            // iv - 16 bytes random value, must match the iv in the asset delivery policy.
-	            byte[] iv = Guid.NewGuid().ToByteArray();
-	
-	            // askId - provided by Apple
-	            var askId = Guid.NewGuid();
-	
-	            var pfxPasswordId = Guid.NewGuid();
-	
-	            //Customer password for creating the .pfx file.
-	            string pfxPassword = "<customer password for creating the .pfx file>";
-	
-	            //Specify the .pfx file created by the customer.
-	            var appCert = new X509Certificate2("path to the .pfx file created by the customer", pfxPassword, X509KeyStorageFlags.Exportable);
-	
-	            string FairPlayConfiguration = Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
-	                    appCert,
-	                    pfxPassword,
-	                    pfxPasswordId,
-	                    askId,
-	                    iv);
-	
-	            return FairPlayConfiguration;
-	        }
 	        public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
 	        {
 	            string tokenTemplateString = GenerateTokenRequirements();
@@ -316,9 +319,8 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	                    }
 	                };
 	
-	
 	            // Configure FairPlay policy option.
-	            string FairPlayConfiguration = ConfigureFairPlayPolicyOption();
+	            string FairPlayConfiguration = ConfigureFairPlayPolicyOptions();
 	
 	
 	            IContentKeyAuthorizationPolicyOption FairPlayPolicy =
@@ -341,6 +343,47 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	            return tokenTemplateString;
 	        }
 	
+	        private static string ConfigureFairPlayPolicyOptions()
+	        {
+	            // For testing you can provide all zeroes for ASK bytes together with the cert from Apple FPS SDK. 
+	            // However, for production you must use a real ASK from Apple bound to a real prod certificate.
+	            byte[] askBytes = Guid.NewGuid().ToByteArray();
+	            var askId = Guid.NewGuid();
+	            // Key delivery retrieves askKey by askId and uses this key to generate the response.
+	            IContentKey askKey = _context.ContentKeys.Create(
+	                                    askId,
+	                                    askBytes,
+	                                    "askKey",
+	                                    ContentKeyType.FairPlayASk);
+	
+	            //Customer password for creating the .pfx file.
+	            string pfxPassword = "<customer password for creating the .pfx file>";
+	            // Key delivery retrieves pfxPasswordKey by pfxPasswordId and uses this key to generate the response.
+	            var pfxPasswordId = Guid.NewGuid();
+	            byte[] pfxPasswordBytes = System.Text.Encoding.UTF8.GetBytes(pfxPassword);
+	            IContentKey pfxPasswordKey = _context.ContentKeys.Create(
+	                                    pfxPasswordId,
+	                                    pfxPasswordBytes,
+	                                    "pfxPasswordKey",
+	                                    ContentKeyType.FairPlayPfxPassword);
+	
+	            // iv - 16 bytes random value, must match the iv in the asset delivery policy.
+	            byte[] iv = Guid.NewGuid().ToByteArray();
+	
+	            //Specify the .pfx file created by the customer.
+	            var appCert = new X509Certificate2("path to the .pfx file created by the customer", pfxPassword, X509KeyStorageFlags.Exportable);
+	
+	            string FairPlayConfiguration = 
+	                Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
+	                    appCert,
+	                    pfxPassword,
+	                    pfxPasswordId,
+	                    askId,
+	                    iv);
+	
+	            return FairPlayConfiguration;
+	        }
+
 	        static private string GenerateTokenRequirements()
 	        {
 	            TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
