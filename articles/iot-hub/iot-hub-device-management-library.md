@@ -49,10 +49,10 @@ The following sections will walk you through the client library architecture as 
 ## DM client library design principles and functional concepts
 The DM client library has been designed thinking of portability and cross-platform integration. This was achieved by the following design decisions:
 
-1)	Built on LWM2M over COAP standard protocol to accommodate extensibility for a range of diverse devices.
-2)	Written in ANSI C99 to facilitate portability to a wide variety of platforms.
-3)	Secured through TCP/TLS and Azure IoT Hub authentication (SAS tokens) so it can be used in high security scenarios.
-4)	Based on the [Eclipse Wakaama][lnk-Wakaama] OSS project to leverage existing and contribute back to the community.
+1.	Built on LWM2M over COAP standard protocol to accommodate extensibility for a range of diverse devices.
+2.	Written in ANSI C99 to facilitate portability to a wide variety of platforms.
+3.	Secured through TCP/TLS and Azure IoT Hub authentication (SAS tokens) so it can be used in high security scenarios.
+4.	Based on the [Eclipse Wakaama][lnk-Wakaama] OSS project to leverage existing and contribute back to the community.
 
 ### Relevant LWM2M concepts
 We chose LWM2M standard to accommodate extensibility for a range of diverse devices. To simplify the development experience, we have abstracted most of the protocol. However, it is important to understand the foundational principles of the library, mainly its data model and how data is transmitted.
@@ -149,6 +149,7 @@ The figure below shows the DM client library components.
 This article covered the basics of using the IoT Hub device management client library for C.
 
 To get hands on experience, you can access the following resources:
+
 - Intel Edison firmware update sample: sample with device management features enabled using an Intel Edison device. Refer to the [iotdm_edison_sample][lnk-edison-sample].
 - Simulated devices sample: A platform independent device sample that runs on Linux and Windows devices. Refer to the [iotdm_simple_sample][lnk-simple-sample]
 - To learn more about LWM2M objects, refer to [OMA LWM2M object and resource registry][lnk-oma]
