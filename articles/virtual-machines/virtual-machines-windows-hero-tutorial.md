@@ -59,7 +59,7 @@ After you select the image, you can use Azure's default settings for most of the
 	
 5. In the **Size** blade, select an appropriate virtual machine [size](virtual-machines-windows-sizes.md) by clicking on it and then click **Select** to continue. 
 
-	![Screenshot that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.PNG)
+	![Screenshot that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
 3. On the  **Settings** blade, you can change the storage and networking options. For a first virtual machine, you can generally accept the default settings. If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** under **Disk type**. When you are done making changes, click **OK**.
 
