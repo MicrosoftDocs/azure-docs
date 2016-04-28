@@ -3,7 +3,7 @@
    description="Create a Linux VM, Storage, Virtual Network & subnet, NIC, Public IP, Network Security Group all from the ground up using the Azure CLI."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
-   authors="vlivech"
+   authors="iainfoulds"
    manager="squillace"
    editor=""
    tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/04/2016"
-   ms.author="v-livech"/>
+   ms.date="04/28/2016"
+   ms.author="iainfou"/>
 
 # Create a Linux VM from the ground up using the Azure CLI
 
@@ -211,7 +211,7 @@ info:    group show command OK
 Let's use the [jq](https://stedolan.github.io/jq/) tool (you can use **jsawk** or any language library you prefer to parse the JSON) along with the `--json` Azure CLI option to examine our resource group using the `azure group show` command.
 
 ```
-ahmet@fedora$ azure group show testrg --json | jq '.'                                                                                        
+ahmet@fedora$ azure group show TestRG --json | jq '.'                                                                                        
 {
   "tags": {},
   "id": "/subscriptions/<guid>/resourceGroups/TestRG",
@@ -281,7 +281,7 @@ info:    network vnet create command OK
 Again, let's see how we're building our resources using the --json option of `azure group show` and **jq**. We now have a `storageAccounts` resource and a `virtualNetworks` resource.  
 
 ```
-ahmet@fedora$ azure group show testrg --json | jq '.'
+ahmet@fedora$ azure group show TestRG --json | jq '.'
 {
   "tags": {},
   "id": "/subscriptions/<guid>/resourceGroups/TestRG",
@@ -338,7 +338,7 @@ info:    network vnet subnet create command OK
 As the subnet is logically inside the virtual network, we'll look for the subnet information with a slightly different command -- `azure network vnet show`, but still examining the JSON output using **jq**.
 
 ```
-ahmet@fedora$ azure network vnet show testrg testvnet --json | jq '.'
+ahmet@fedora$ azure network vnet show TestRG TestVNet --json | jq '.'
 {
   "subnets": [
     {
@@ -371,13 +371,13 @@ ahmet@fedora$ azure network vnet show testrg testvnet --json | jq '.'
 Now let's create your public IP address (PIP) that we'll assign to your load balancer and enable you to connect to your VMs from the internet using the `azure network public-ip create` command. Because the default is a dynamic address, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `-d testsubdomain` option.
 
 ```
-ahmet@fedora$ azure network public-ip create -d testsubdomain testrg testpip westeurope
+ahmet@fedora$ azure network public-ip create -d testsubdomain TestRG TestPIP westeurope
 info:    Executing command network public-ip create
-+ Looking up the public ip "testpip"
-+ Creating public ip address "testpip"
-+ Looking up the public ip "testpip"
-data:    Id                              : /subscriptions/guid/resourceGroups/testrg/providers/Microsoft.Network/publicIPAddresses/testpip
-data:    Name                            : testpip
++ Looking up the public ip "TestPIP"
++ Creating public ip address "TestPIP"
++ Looking up the public ip "TestPIP"
+data:    Id                              : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP
+data:    Name                            : TestPIP
 data:    Type                            : Microsoft.Network/publicIPAddresses
 data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
@@ -391,7 +391,7 @@ info:    network public-ip create command OK
 This is also a top-level resource, so you can see it with `azure group show`.
 
 ```
-ahmet@fedora$ azure group show testrg --json | jq '.'
+ahmet@fedora$ azure group show TestRG --json | jq '.'
 {
 "tags": {},
 "id": "/subscriptions/guid/resourceGroups/TestRG",
@@ -445,7 +445,7 @@ ahmet@fedora$ azure group show testrg --json | jq '.'
 And, as always, you can investigate more resource details, including the subdomain fully qualified domain name (FQDN) using the more complete `azure network public-ip show` command. Note that the public IP address resource has been allocated logically, but there is not yet a specific address assigned. For that, you're going to need a load balancer, which we have not yet created.
 
 ```
-azure network public-ip show testrg testpip --json | jq '.'
+azure network public-ip show TestRG TestPIP --json | jq '.'
 {
 "tags": {},
 "publicIpAllocationMethod": "Dynamic",
@@ -513,7 +513,7 @@ info:    network lb address-pool create command OK
 We can check how our load balancer is looking with `azure network lb show` and examining the JSON output:
 
 ```
-ahmet@fedora$ azure network lb show testrg testlb --json | jq '.'
+ahmet@fedora$ azure network lb show TestRG TestLB --json | jq '.'
 {
   "etag": "W/\"29c38649-77d6-43ff-ab8f-977536b0047c\"",
   "provisioningState": "Succeeded",
@@ -705,7 +705,7 @@ ahmet@fedora$ azure network lb show -g TestRG -n TestLB --json | jq '.'
           "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/loadBalancingRules/WebRule"
         }
       ],
-      "id": "/subscriptions/guidresourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
     }
   ],
   "loadBalancingRules": [
@@ -831,14 +831,14 @@ ahmet@fedora$ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subn
 Now we create your network security group (NSG) and the inbound rules that govern access to the NIC.
 
 ```
-ahmet@fedora$ azure network nsg create testrg testnsg westeurope
+ahmet@fedora$ azure network nsg create TestRG TestNSG westeurope
 ```
 
 Let's add the inbound rule for the NSG to allow inbound connections on port 22 (to support SSH):
 
 ```
 ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 22 --access allow testrg testnsg testnsgrule
+    --destination-port-range 22 --access allow TestRG TestNSG SSHRule
 ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1001 \
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
@@ -906,7 +906,7 @@ info:    Found an Availability set "TestAvailSet"
 info:    Found an existing NIC "LB-NIC1"
 info:    Found an IP configuration with virtual network subnet id "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd" in the NIC "LB-NIC1"
 info:    This is an NIC without publicIP configured
-info:    The storage URI 'https://computeteststoreikf.blob.core.windows.net/' will be used for boot diagnostics settings, and it can be overwritten by the parameter input of '--boot-diagnostics-storage-uri'.
+info:    The storage URI 'https://computeteststore.blob.core.windows.net/' will be used for boot diagnostics settings, and it can be overwritten by the parameter input of '--boot-diagnostics-storage-uri'.
 info:    vm create command OK
 ```
 
@@ -995,7 +995,7 @@ data:        Name                        :cli1cca1d20a1dcf56c-os-1461800591317
 data:        Caching                     :ReadWrite
 data:        CreateOption                :FromImage
 data:        Vhd:
-data:          Uri                       :https://computeteststoreikf.blob.core.windows.net/vhds/cli1cca1d20a1dcf56c-os-1461800591317.vhd
+data:          Uri                       :https://computeteststore.blob.core.windows.net/vhds/cli1cca1d20a1dcf56c-os-1461800591317.vhd
 data:
 data:    OS Profile:
 data:      Computer Name                 :TestVM1
@@ -1013,11 +1013,11 @@ data:          Name                      :LB-NIC1
 data:          Location                  :westeurope
 data:
 data:    AvailabilitySet:
-data:      Id                            :/subscriptions/8fa5cd83-7fbb-431a-af16-4a20dede8802/resourceGroups/testrg/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
+data:      Id                            :/subscriptions/guid/resourceGroups/testrg/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://computeteststoreikf.blob.core.windows.net/
+data:      BootDiagnostics StorageUri    :https://computeteststore.blob.core.windows.net/
 data:
 data:      Diagnostics Instance View:
 info:    vm show command OK
