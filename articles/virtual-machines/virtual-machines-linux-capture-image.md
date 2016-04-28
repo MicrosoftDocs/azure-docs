@@ -35,7 +35,7 @@ For example, you might create a resource group named *MyResourceGroup* in the Ce
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:latest -u <your-user-name> -p <your-password>
 
-After the VM is provisioned and running, you might want to attach and mount a data disk. See instructions [here](virtual-machines-linux-add-disk).
+After the VM is provisioned and running, you might want to attach and mount a data disk. See instructions [here](virtual-machines-linux-add-disk.md).
 
 
 ## Capture the VM

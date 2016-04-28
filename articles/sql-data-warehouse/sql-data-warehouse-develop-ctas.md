@@ -282,7 +282,7 @@ SELECT @d*@f
 ;
 ```
 
-Instinctively you might think you should migrate this code to a CTAS and you would be correct. However, their is a hidden issue here.
+Instinctively you might think you should migrate this code to a CTAS and you would be correct. However, there is a hidden issue here.
 
 The following code does NOT yield the same result:
 

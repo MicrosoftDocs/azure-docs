@@ -35,6 +35,9 @@ To keep the changes through the clusters' lifetime, you can use HDInsight cluste
 There are 3 methods to use bootstrap:
 
 - Use Azure PowerShell
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    
 - Use .NET SDK
 - Use ARM template
 
