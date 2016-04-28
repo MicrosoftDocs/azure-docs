@@ -40,7 +40,7 @@ The [PythonTutorial][github_pythontutorial] sample is one of the many code sampl
 
 ### Python environment
 
-In order to run the *BatchPythonTutorial* sample, you will need a Python interpreter compatible with version 2.7 or 3.3-3.5. You will also need to install the Azure Batch and Azure Storage Python **packages**. This can be done using `requirements.txt` found in `/azure-batch-samples/Python/Batch` and the following **pip** command:
+In order to run the *python_tutorial_client* sample, you will need a Python interpreter compatible with version 2.7 or 3.3-3.5. You will also need to install the Azure Batch and Azure Storage Python **packages**. This can be done using `requirements.txt` found in `/azure-batch-samples/Python/Batch` and the following **pip** command:
 
 `pip install -r requirements.txt`
 
@@ -50,11 +50,11 @@ The [Azure Batch Explorer][github_batchexplorer] is a free utility that is inclu
 
 ## DotNetTutorial sample project overview
 
-The *BatchPythonTutorial* code sample consists of two Python scripts: **BatchPythonTutorial.py** and **TaskApplication.py**.
+The *python_tutorial_client* code sample consists of two Python scripts: **python_tutorial_client.py** and **python_tutorial_task.py**.
 
-- **BatchPythonTutorial.py** acts as the client application that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). BatchPythonTutorial runs on your local workstation.
+- **python_tutorial_client.py** acts as the client application that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). The python_tutorial_client script runs on your local workstation.
 
-- **TaskApplication.py** is the script that runs on compute nodes in Azure to perform the actual work. In the sample, `TaskApplication.py` parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, TaskApplication uploads the file to Azure Storage. This makes it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
+- **python_tutorial_task.py** is the script that runs on compute nodes in Azure to perform the actual work. In the sample, `python_tutorial_client.py` parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, TaskApplication uploads the file to Azure Storage. This makes it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
 
 The following diagram illustrates the primary operations that are performed by the client script, *BatchPythonTutorial.py*, and the script that is executed by the tasks, *TaskApplication.py*. This basic workflow is typical of many compute solutions that are created with Batch. While it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
 
