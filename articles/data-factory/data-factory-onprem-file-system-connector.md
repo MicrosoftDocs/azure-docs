@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from On-premises file system using Azure Data Factory
@@ -485,7 +485,7 @@ Property | Description | Required
 folderPath | Path to the folder. Example: myfolder<br/><br/>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\\\subfolder and for d:\samplefolder, specify d:\\\\samplefolder.<br/><br/>You can combine this with **partitionBy** to have folder paths based on slice start/end date-times. | Yes
 fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
-Format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either if this value. When the forAvroFormatmat is TextFormat you can specify additional optional properties for format. See the format section below for more details. **Format property is currently not supported for On-premise file systems. It shall be enabled shortly as documented here.** | No
+Format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either if this value. When the forAvroFormatmat is TextFormat you can specify additional optional properties for format. See the format section below for more details. **Format property is now supported for On-premise file systems. To do a binary as-is copy do not specify format in both source and destination datasets.** | No
 fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: * (multiple characters) and ? (single character).<br/><br/>Examples 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Note**: fileFilter is applicable for an input FileShare dataset | No
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. See [Compression support](#compression-support) section for more details.  | No |
 

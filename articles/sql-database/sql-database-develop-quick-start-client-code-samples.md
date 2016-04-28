@@ -3,7 +3,7 @@
 	description="Provides code samples and drivers for Node.js on Linux, Python on Mac OS, Java and Windows, Enterprise Library, and many more all for Azure SQL Database clients."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
+	authors="annemill" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/10/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # Client quick-start code samples to SQL Database

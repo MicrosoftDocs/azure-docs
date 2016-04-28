@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with sample"
-   description="Get started with Microsoft Power BI Embedded sample"
+   description="Power BI Embedded, use SDK to add interactive Power BI reports into your business intelligence application"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -21,7 +21,7 @@
 **Microsoft Power BI Embedded Preview** enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users. The following resources can help you get started integrating Power BI reports into your app.
 
  -	[Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt712303.aspx)
+ -	[Power BI Embedded API reference](https://msdn.microsoft.com/library/mt711493.aspx)
  -	[Power BI Embedded .NET SDK (available via NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 In this article, you are introduced to the **Power BI Embedded** get started sample. Let’s get started configuring the sample app so that you can run the sample web app.

@@ -18,15 +18,21 @@
 
 #Windows Universal Apps SDK Release Notes
 
+##3.4.0 (04/19/2016)
+
+-   Reach overlay improvements.
+-   Added "TestLogLevel" API to enable/disable/filter console logs emitted by the SDK.
+-   Fixed in-activity notifications targeting the first activity not displayed on App start.
+
 ##3.3.1 (02/18/2016)
 
--   Fix conflicts between web announcement's HTML content and SDK's HTML page.
+-   Fixed conflicts between web announcement's HTML content and SDK's HTML page.
 -   Stability improvements.
 
 ##3.3.0 (01/22/2016)
 
--   Fix crash formatting on UWP apps running in release mode.
--   Fix 1px margin on notifications for Universal 8.1 apps.
+-   Fixed crash formatting on UWP apps running in release mode.
+-   Fixed 1px margin on notifications for Universal 8.1 apps.
 -   ms-appx and ms-appdata schemes available on action urls.
 -   Stability improvements.
 

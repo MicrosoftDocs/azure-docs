@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="04/15/2016" 
 	ms.author="adegeo"/>
 
 # Should I choose cloud services or something else?

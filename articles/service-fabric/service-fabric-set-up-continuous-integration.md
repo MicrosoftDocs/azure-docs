@@ -138,7 +138,7 @@ If you don't yet have a machine, you can quickly provision an Azure virtual mach
 
 ### Install the Service Fabric SDK
 
-Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/) on your machine.
+Install the [Service Fabric SDK](service-fabric-get-started.md#install-the-runtime-sdk-and-tools) on your machine.
 
 ### Install Azure PowerShell
 
@@ -185,7 +185,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     d.	Select the **Add** button, enter **Network Service**, and then select **Check Names**.
 
-    e.	Select **OK**, and then close the certificate manager.
+    e.	Select **OK**.
 
     ![Screenshot of steps for granting Local Service account permission](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
@@ -222,7 +222,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 |Agent Pool|Enter the name of your agent pool. (If you haven't created an agent pool, accept the default value.)|
 |Work folder|Accept the default value. This is the folder where the build agent will actually build your application. If you plan to use ASP.NET 5 Web Services, we recommend that you choose the shortest name possible for this folder to avoid running into PathTooLongExceptions errors during deployment.|
 |Install as Windows Service?|Default value is N. Change the value to **Y**.|
-|User account to run the service|Accept the default value, `NT AUTHORITY\NetworkService`.|
+|User account to run the service|Default value is `NT AUTHORITY\LOCAL SERVICE`. Change the default value to `NT AUTHORITY\NetworkService`.|
 |Password for `NT AUTHORITY\Network Service`|The network service account does not have a password, but will refuse blank passwords. Enter any non-empty string for the password (whatever you enter will be ignored).|
 |Un-configure existing agent?|Accept the default value, **N**.|
 
@@ -247,11 +247,22 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 >[AZURE.NOTE] The build definition that you create from these instructions will not support multiple concurrent builds, even on separate machines. This is because each build would compete for the same resource group/cluster. If you want to run multiple build agents, you will need to modify the following instructions/scripts to prevent this interference.
 
-### Add the continuous integration scripts to source control for your application
+### Add a Service Fabric Azure Resource Manager template to your application
 
-1.	Extract [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) to any folder on your machine. Copy the contents of `Powershell\Automation` to any folder in source control.
+1. Download `azuredeploy.json` and `azuredeploy.parameters.json` from [this sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
 
-2.	Check in the resulting files.
+2. Open `azuredeploy.parameters.json` and edit the following parameters:
+
+    |Parameter|Value|
+    |---|---|
+    |clusterLocation|Must match the location of your key vault. Example: `westus`|
+    |clusterName|Must match the DNS name of your certificate. For example, if the cert's DNS name is `mycluster.westus.cloudapp.net`, then `clusterName` must be `mycluster`.|
+    |adminPassword|8-123 characters, with at least 3 of the following types of characters: Upper-case, lower-case, numeric, special character.|
+    |certificateThumbprint|From the output of `CreateAndUpload-Certificate.ps1`|
+    |sourceVaultValue|From the output of `CreateAndUpload-Certificate.ps1`|
+    |certificateUrlvalue|From the output of `CreateAndUpload-Certificate.ps1`|
+
+3. Add the new files to source control, and push to VSTS.
 
 ### Create the build definition
 
@@ -274,22 +285,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
     |Variable|Value|Secret|Allow at queue time|
     |---|---|---|---|
     |BuildConfiguration|Release||X|
-    |BuildPlatform|x64|||
-    |ServicePrincipalPassword|The password that you used when you created your service principal.|X||
-    |ServicePrincipalId|From the output of the script you used to create your service principal.|||
-    |ServicePrincipalTenantId|From the output of the script you used to create your service principal.|||
-    |ServicePrincipalSubscriptionId|From the output of the script you used to create your service principal.|||
-    |ServiceFabricCertificateThumbprint|From the output of CreateAndUpload-Certificate.ps1|||
-    |ServiceFabricKeyVaultId|From the output of CreateAndUpload-Certificate.ps1|||
-    |ServiceFabricCertificateSecretId|From the output of CreateAndUpload-Certificate.ps1|||
-    |ServiceFabricClusterName|Must match the DNS Name of your certificate.|||
-    |ServiceFabricClusterResourceGroupName|Any name you want.|||
-    |ServiceFabricClusterLocation|Must match the location of your key vault.|||
-    |ServiceFabricClusterAdminPassword|8-123 characters, with at least 3 of the following types of characters: Upper-case, lower-case, numeric, special character.|X||
-    |ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
-    |ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` The connection endpoint in your publish profile will be ignored. The connection endpoint for your temporary cluster is used instead.|||
-    |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
-    |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` This should be the folder that contains your .sfproj file.||||
+    |BuildPlatform|x64||||
 
 3.  Save the build definition and give it a name. You can change this name later if you want.
 
@@ -313,15 +309,15 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 3.	Select the pencil icon by the build step's name, and then rename it to **Build**.
 
-4.	Select the **…** button next to the **Solution** field, and then select your .sln file.
+4. Select these values:
 
-5.	Enter `$(BuildPlatform)` for **Platform**.
+    |Setting Name|Value|
+    |---|---|
+    |Solution|Click the **…** button and select the `.sln` file for your solution.|
+    |Platform|`$(BuildPlatform)`|
+    |Configuration|`$(BuildConfiguration)`|
 
-6.	Enter `$(BuildConfiguration)` for **Configuration**.
-
-7.	Clear the **Restore NuGet Packages** check box (if it isn't already selected).
-
-8.	Save the build definition.
+5.	Save the build definition.
 
 ### Add a "Package" step
 
@@ -331,17 +327,16 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 3.	Select the pencil icon next to the build step's name, and then rename it to **Package**.
 
-4.	Select the **…** button next to the **Solution** field, and then select your application project's .sfproj file.
+4. Select these values:
 
-5.	Enter `$(BuildPlatform)` for **Platform**.
+    |Setting Name|Value|
+    |---|---|
+    |Solution|Click the **…** button and select your application project's `.sfproj` file.|
+    |Platform|`$(BuildPlatform)`|
+    |Configuration|`$(BuildConfiguration)`|
+    |MSBuild Arguments|`/t:Package`|
 
-6.	Enter `$(BuildConfiguration)` for **Configuration**.
-
-7.	Enter `/t:Package` for **MSBuild Arguments**.
-
-8.	Clear the **Restore NuGet Packages** check box (if it isn't already cleared).
-
-9.	Save the build definition.
+5.	Save the build definition.
 
 ### Add a "Remove cluster resource group" step
 
@@ -349,66 +344,74 @@ If a previous build did not clean up after itself (for example, if the build was
 
 1.	On the **Build** tab, select the **Add build step…** command.
 
-2.	Select **Utility** > **PowerShell**.
+2.	Select **Deploy** > **Azure Resource Group Deployment**.
 
 3.	Select the pencil icon next to the build step's name, and then rename it to **Remove cluster resource group**.
 
-4.	Select the **…** command next to **Script filename**. Browse to where you extracted the automation scripts, and then select **Remove-ClusterResourceGroup.ps1**.
+4. Select these values:
 
-5.	For **Arguments**, enter `-ServicePrincipalPassword "$(ServicePrincipalPassword)"`.
+    |Setting Name|Value|
+    |---|---|
+    |AzureConnectionType|**Azure Resource Manager**|
+    |Azure RM Subscription|Select the connection endpoint that you created in the **Create a Service Principal** section.|
+    |Action|**Delete Resource Group**|
+    |Resource Group|Enter any unused name. You must use the same name in the next step.|
 
-6.	Save the build definition.
+5.	Save the build definition.
 
-### Add a "Provision and deploy to secure cluster" step
+### Add a "Provision secure cluster" step
+
+1.	On the **Build** tab, select the **Add build step…** command.
+
+2.	Select **Deploy** > **Azure Resource Group Deployment**.
+
+3.	Select the pencil icon next to the build step's name, and then rename it to **Provision secure cluster**.
+
+4. Select these values:
+
+    |Setting Name|Value|
+    |---|---|
+    |AzureConnectionType|**Azure Resource Manager**|
+    |Azure RM Subscription|Select the connection endpoint that you created in the **Create a Service Principal** section.|
+    |Action|**Create or Update Resource Group**|
+    |Resource Group|Must match the name that you used in the previous step.|
+    |Location|Must match the location of your key vault.|
+    |Template|Click the **…** button and select `azuredeploy.json`|
+    |Template Parameters|Click the **…** button and select `azuredeploy.parameters.json`|
+
+5.	Save the build definition.
+
+### Add a "Deploy" step
 
 1.	On the **Build** tab, select the **Add build step…** command.
 
 2.	Select **Utility** > **PowerShell**.
 
-3.	Select the pencil icon next to the build step's name, and then rename it to **Provision and deploy to secure cluster**.
+3.	Select the pencil icon next to the build step's name, and then rename it to **Deploy**.
 
-4.	Select the **…** button next to **Script filename**. Browse to where you extracted the automation scripts, and then select **ProvisionAndDeploy-SecureCluster.ps1**.
+4. Select these values:
 
-5.	For **Arguments**, enter `-ServicePrincipalPassword "$(ServicePrincipalPassword)" -ServiceFabricClusterAdminPassword "$(ServiceFabricClusterAdminPassword)"`
+    |Setting Name|Value|
+    |---|---|
+    |Type|**File Path**|
+    |Script filename|Click the **…** button and navigate to the **Scripts** directory inside your application project. Select `Deploy-FabricApplication.ps1`.|
+    |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
-6.	Save the build definition.
-
-### Add a "Remove cluster resource group" step
-
-Now that you're done with the temporary cluster, you should clean it up. If you don't do this, you'll continue to be charged for the temporary cluster. This step removes the resource group, which removes the cluster and all other resources in the group.
-
->[AZURE.NOTE] There is one difference between this step and the previous "Remove Cluster Resource Group" step: this one should have **Always Run** selected.
-
-1.	On the **Build** tab, select the **Add build step…** command.
-
-2.	Select **Utility** > **PowerShell**.
-
-3.	Select the pencil icon next to the build step's name, and then rename it to **Remove cluster resource group**.
-
-4.	Select the **…** button next to **Script filename**. Browse to where you extracted the automation scripts, and then select **RemoveClusterResourceGroup.ps1**.
-
-5.	For **Arguments**, enter `-ServicePrincipalPassword "$(ServicePrincipalPassword)`."
-
-6.	Under **Control Options**, select the **Always Run** check box.
-
-7.	Save the build definition.
+5.	Save the build definition.
 
 ### Try it
 
 Select **Queue Build** to start a build. Builds will also be triggered upon push or check-in.
 
-
 ## Alternative solutions
 
 The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, use the following steps:
 
-1.	Manually create a test cluster through the Azure portal or Azure PowerShell. You can refer to the `ProvisionAndDeploy-SecureCluster.ps1` script as a reference.
+1.	Manually create a test cluster through the Azure portal or Azure PowerShell by following [these instructions](service-fabric-cluster-creation-via-portal.md).
 
 2.	Configure your publish profile to support application upgrade by following [these instructions](service-fabric-visualstudio-configure-upgrade.md).
 
-3.	Replace the **Provision and Deploy to Secure Cluster** step with a step that calls Deploy-FabricApplication.ps1 directly (and passes it to your publish profile).
-
-4.	Remove both of the **Remove Cluster Resource Group** build steps from your build definition.
+4.	Remove the **Remove Cluster Resource Group** and **Provision Cluster** build steps from your build definition.
 
 ## Next steps
 

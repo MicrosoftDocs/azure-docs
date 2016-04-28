@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="01/13/2016"
+ ms.date="04/14/2016"
  ms.author="danlep"/>
 
 # Set up a Windows RDMA cluster with HPC Pack and A8 and A9 instances to run MPI applications
@@ -21,12 +21,14 @@ ms.service="virtual-machines-windows"
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-This article shows you how to set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [size A8 and A9 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up size A8 and A9 Windows Server-based instances to run in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
+Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [size A8 and A9 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you set up size A8 and A9 Windows Server-based instances to run in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
 If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 ## HPC Pack cluster deployment options
-Microsoft HPC Pack is a recommended tool to create Windows Server–based HPC clusters in Azure. When used with A8 and A9 instances, HPC Pack provides an efficient way to run Windows-based MPI applications that access the RDMA network in Azure. HPC Pack includes a runtime environment for the Microsoft implementation of the Message Passing Interface for Windows (MSMPI).
+Microsoft HPC Pack is a tool provided at no additional cost to create Windows Server–based HPC clusters in Azure. HPC Pack includes a runtime environment for the Microsoft implementation of the Message Passing Interface for Windows (MS-MPI). When used with A8 and A9 instances, HPC Pack provides an efficient way to run Windows-based MPI applications that access the RDMA network in Azure. 
 
 This article introduces two scenarios to deploy clustered A8 and A9
 instances with Microsoft HPC Pack.
@@ -39,14 +41,11 @@ instances with Microsoft HPC Pack.
 
 * **Review [background information and considerations](virtual-machines-windows-a8-a9-a10-a11-specs.md)** about the compute-intensive instances
 
-
-* **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-
+* **Azure subscription** - If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. 
 
 * **Cores quota** - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs. For example, you will need at least 128 cores if you want to deploy 8 A9 instances with HPC Pack. To increase a quota, open an [online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 ## Scenario 1. Deploy compute intensive worker role instances (PaaS)
-
 
 From an existing HPC Pack cluster, add extra compute resources in Azure worker role instances (Azure nodes) running in a cloud
 service (PaaS). This feature, also called “burst to Azure” from HPC
@@ -71,7 +70,7 @@ in an Azure VM.
 
 4. **Deploy and configure an HPC Pack 2012 R2 head node**
 
-    Download the latest HPC Pack installation package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). For requirements and instructions to prepare for an Azure burst deployment, see [HPC Pack Getting Started Guide](https://technet.microsoft.com/library/jj884144.aspx) and [Burst to Azure with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+    Download the latest HPC Pack installation package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). For requirements and instructions to prepare for an Azure burst deployment, see [HPC Pack Getting Started Guide](https://technet.microsoft.com/library/jj884144.aspx) and [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 5. **Configure a management certificate in the Azure subscription**
 
@@ -118,22 +117,7 @@ automate most of this process.
 
 ![Cluster in Azure VMs][iaas]
 
-### Considerations for using A8 and A9 instances
 
-* **Virtual network** - Specify a new virtual network in a region in which the A8 and A9 instances are available.
-
-
-* **Windows Server operating system** - To support RDMA connectivity, specify a Windows Server 2012 R2 or Windows Server 2012 operating system for the size A8 or A9 compute node VMs.
-
-
-* **Cloud services** - We recommend deploying your head node in one cloud service and your A8 and A9 compute nodes in a different cloud service.
-
-
-* **Head node size** - When adding compute node VMs in the A8 or A9 size, consider a size of at least A4 (Extra Large) for the head node.
-
-* **HpcVmDrivers extension** - The deployment script installs the Azure VM Agent and the HpcVmDrivers extension automatically when you deploy size A8 or A9 compute nodes with a Windows Server operating system. HpcVmDrivers installs drivers on the compute node VMs so they can connect to the RDMA network.
-
-* **Cluster network configuration** - The deployment script automatically configures the HPC Pack cluster in Topology 5 (all nodes on the Enterprise network). This topology is required for all HPC Pack cluster deployments in VMs, including those with size A8 or A9 compute nodes. Do not change the cluster network topology later.
 
 ### Steps
 
@@ -141,7 +125,19 @@ automate most of this process.
 
     Download the HPC Pack IaaS Deployment Script package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
 
-    To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). To deploy size A8 and A9 compute nodes, see the additional considerations later in this article.
+    To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). To deploy size A8 and A9 compute nodes, note the following additional considerations:
+    
+    * **Virtual network** - Specify a new virtual network in a region in which the A8 and A9 instances are available.
+
+    * **Windows Server operating system** - To support RDMA connectivity, specify a Windows Server 2012 R2 or Windows Server 2012 operating system for the size A8 or A9 VMs.
+
+    * **Cloud services** - We recommend deploying your head node in one cloud service and your A8 and A9 compute nodes in a different cloud service.
+
+    * **Head node size** - For this scenario, consider a size of at least A4 (Extra Large) for the head node.
+
+    * **HpcVmDrivers extension** - The deployment script installs the Azure VM Agent and the HpcVmDrivers extension automatically when you deploy size A8 or A9 compute nodes with a Windows Server operating system. HpcVmDrivers installs drivers on the compute node VMs so they can connect to the RDMA network.
+
+    * **Cluster network configuration** - The deployment script automatically sets up the HPC Pack cluster in Topology 5 (all nodes on the Enterprise network). This topology is required for all HPC Pack cluster deployments in VMs. Do not change the cluster network topology later.
 
 2. **Bring the compute nodes online to run jobs**
 
@@ -154,7 +150,6 @@ automate most of this process.
 4. **Take the nodes offline and stop (deallocate) them**
 
     When you are done running jobs, take the nodes offline in HPC Cluster Manager. Then, use Azure management tools to shut them down.
-
 
 
 
@@ -262,6 +257,8 @@ instances added in a “burst to Azure” configuration).
 
 
 ## Next steps
+
+* As an alternative to using HPC Pack, develop with the Azure Batch service to run MPI applications on managed pools of compute nodes in Azure. See [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](../batch/batch-mpi.md).
 
 * If you want to run Linux MPI applications that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md).
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to: Configure firewall settings | Microsoft Azure"
+	pageTitle="How to: Configure an SQL Database firewall | Microsoft Azure"
 	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="04/12/2016"
+	ms.date="04/14/2016"
 	ms.author="rickbyh;carlrab"/>
 
 
-# How to: Configure firewall settings on SQL Database using the Azure Portal
+# How to: Configure an Azure SQL Database firewall using the Azure Portal
 
 
 > [AZURE.SELECTOR]

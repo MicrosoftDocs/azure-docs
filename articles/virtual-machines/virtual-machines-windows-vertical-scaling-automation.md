@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vertically scale Azure virtual machine with Azure Automation | Microsoft Azure"
+	pageTitle="Vertically scale Azure virtual machines with Azure Automation | Microsoft Azure"
 	description="How to vertically scale a Windows Virtual Machine in response to monitoring alerts with Azure Automation"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="03/29/2016"
 	ms.author="singhkay"/>
 
-# Vertically scale Azure virtual machine with Azure Automation
+# Vertically scale Azure virtual machines with Azure Automation
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model
 

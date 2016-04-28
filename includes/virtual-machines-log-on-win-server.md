@@ -10,7 +10,7 @@
 
  	Usually the credentials are the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the name of the virtual machine and it is entered as *vmname*&#92;*username*.  
 	
-	If the virtual machine belongs to a domain in your organization, make sure that the user name includes the name of the domain in the format *Domain*&#92;*Username*. The account also needs to either be in the Administrators group or have been granted remote access priviledges to the VM.
+	If the virtual machine belongs to a domain in your organization, make sure that the user name includes the name of the domain in the format *Domain*&#92;*Username*. The account also needs to either be in the Administrators group or have been granted remote access privileges to the VM.
 	
 	If the virtual machine is a domain controller, type the user name and password of a domain administrator account for that domain.
 

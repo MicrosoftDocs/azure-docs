@@ -28,7 +28,7 @@ preconfigured to run containerized applications. It uses an optimized configurat
 ![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
 <br /><br />
 
-Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and Apache Mesos or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
+Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
 
 By using Azure Container Service, you can take advantage of the
 enterprise-grade features of Azure, while still maintaining application portability--including portability at the orchestration layers.
@@ -37,29 +37,28 @@ Using Azure Container Service
 -----------------------------
 
 Our goal with Azure Container Service is to provide a container
-hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator. By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For Apache Mesos, you might choose to use the DCOS CLI.
+hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator. By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For DC/OS, you might choose to use the DCOS CLI.
 
 Creating a Docker cluster by using Azure Container Service
 -------------------------------------------------------
 
-To begin using Azure Container Service, you deploy an Azure Container Service cluster by using an Azure Resource Manager template. You can configure this deployment with different size and availability options, by using either Apache Mesos or Docker Swarm. You can deploy Azure Resource Manager templates through the Azure portal by using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](./container-service-deployment.md).
+To begin using Azure Container Service, you deploy an Azure Container Service cluster by using an Azure Resource Manager template. You can configure this deployment with different size and availability options, by using either DC/OS or Docker Swarm. You can deploy Azure Resource Manager templates through the Azure portal by using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](./container-service-deployment.md).
 
 Deploying an application
 ------------------------
 
-During preview, we provide a choice of either Docker Swarm or Apache
-Mesos (with DCOS Marathon and DCOS Chronos frameworks) for orchestration.
+Azure Container Service provides a choice of either Docker Swarm or DC/OS for orchestration.
 
-### Using Apache Mesos
+### Using DC/OS
 
-Apache Mesos is an open-source project that is housed at the Apache Software
+DC/OS is an open-source project that is housed at the Apache Software
 Foundation. It lists some of the [biggest names in
 IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
 users and contributors.
 
-![Azure Container Service configured for Swarm showing agents and masters.](media/acs-intro/acs-mesos2.png)
+![Azure Container Service configured for Swarm showing agents and masters.](media/acs-intro/dcos.png)
 
-Mesos includes an impressive feature set:
+DC/OS includes an impressive feature set:
 
 -   Scalability to 10,000's of nodes
 
@@ -75,7 +74,7 @@ Mesos includes an impressive feature set:
 
 -   A web UI for viewing cluster state
 
-Mesos supports a large number of
+DC/OS supports a large number of
 [frameworks](http://mesos.apache.org/documentation/latest/frameworks/)
 that you can use for scheduling workloads on Azure Container
 Service. By default, Azure Container Service includes the Marathon and Chronos frameworks.
@@ -83,7 +82,7 @@ Service. By default, Azure Container Service includes the Marathon and Chronos f
 #### Using Marathon and Chronos
 
 Marathon is a cluster-wide init and control system for services in
-cgroups--or, in the case of Azure Container Service, Docker-formatted containers. It is an ideal partner to Chronos, which is a fault-tolerant job scheduler for Mesos that handles dependencies and time-based schedules.
+cgroups--or, in the case of Azure Container Service, Docker-formatted containers. It is an ideal partner to Chronos, which is a fault-tolerant job scheduler for DC/OS that handles dependencies and time-based schedules.
 
 Marathon and Chronos provide a web UI from which you can deploy your applications. You can access this at a URL that looks something like
 `http://DNS\_PREFIX.REGION.cloudapp.azure.com`
@@ -99,7 +98,7 @@ serves the standard Docker API, any tool that already communicates with
 a Docker daemon can use Swarm to transparently scale to multiple hosts
 on Azure Container Service.
 
-![Azure Container Service configured to use Apache Mesos--showing jumpbox, agents, and masters.](media/acs-intro/acs-swarm2.png)
+![Azure Container Service configured to use DC/OS--showing jumpbox, agents, and masters.](media/acs-intro/acs-swarm2.png)
 
 Supported tools for managing containers on a Swarm cluster include, but are not limited
 to, the following:
