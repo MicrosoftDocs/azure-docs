@@ -95,13 +95,13 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 
 Guest accounts are users from other directories who were invited to your directory to access SharePoint documents, applications, or other Azure resources. A guest account in your directory has its underlying UserType attribute set to "Guest." Regular users (specifically, members of your directory) have the UserType attribute "Member."
 
-Guests have a limited set of rights in the directory. These rights limit the ability for Guests to discover information about other users in the directory. However, guest users  can still interact with the users and groups associated with the resources they're working on. Guest users can:
+Guests have a limited set of rights in the directory. These rights limit the ability for Guests to discover information about other users in the directory. However, guest users can still interact with the users and groups associated with the resources they're working on. Guest users can:
 
 - See other users and groups associated with an Azure subscription to which they're assigned
 - See the members of groups to which they belong
 - Look up other users in the directory, if they know the full email address of the user
 - See only a limited set of attributes of the users they look up--limited to display name, email address, user principal name (UPN), and thumbnail photo
-- Get a list of verified domains in the tenant directory
+- Get a list of verified domains in the directory
 - Consent to applications, granting them the same access that Members have in your directory
 
 ## Set user access policies
