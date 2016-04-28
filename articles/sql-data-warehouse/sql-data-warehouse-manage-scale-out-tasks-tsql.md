@@ -1,5 +1,5 @@
 <properties
-pageTitle="Performance scalability tasks for Azure SQL Data Warehouse | Microsoft Azure"
+pageTitle="Manage scalability tasks for Azure SQL Data Warehouse (TSQL) | Microsoft Azure"
    description="TSQL tasks to scale out performance for Azure SQL Data Warehouse. Use TSQL to change compute resources by adjusting DWUs."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,14 +13,14 @@ pageTitle="Performance scalability tasks for Azure SQL Data Warehouse | Microsof
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/26/2016"
+   ms.date="04/28/2016"
    ms.author="barbkess;sonyama"/>
 
-# Performance scalability tasks for Azure SQL Data Warehouse
+# Manage scalability tasks for Azure SQL Data Warehouse (TSQL)
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-scalability.md)
-- [Azure portal](sql-data-warehouse-manage-scale-out-tasks.md)
+- [Portal](sql-data-warehouse-manage-scale-out-tasks.md)
 - [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
 - [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-scale-out-tasks-tsql.md)
@@ -35,7 +35,11 @@ This collection of tasks uses TSQL to:
 
 To pause or resume a database, choose one of the other platform options at the top of this article.
 
-## Task 1: View current DWU settings
+To learn about this, see [Performance scalability overview][].
+
+<a name="current-dwu-bk"></a>
+
+## 1. View current DWU settings
 
 To view the current DWU settings for your databases:
 
@@ -53,7 +57,9 @@ FROM
  JOIN sys.databases db ON ds.database_id = db.database_id
 ```
 
-## Task 2: Scale DWUs
+<a name="scale-dwu-bk"></a>
+
+## 2. Scale DWUs
 
 [AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
@@ -68,6 +74,8 @@ ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
+
+<a name="next-steps-bk"></a>
 
 ## Next steps
 

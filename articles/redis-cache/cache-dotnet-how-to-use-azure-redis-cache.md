@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to Use Azure Redis Cache" 
+	pageTitle="How to Use Azure Redis Cache | Microsoft Azure" 
 	description="Learn how to improve the performance of your Azure applications with Azure Redis Cache" 
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/27/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -34,7 +34,7 @@ Microsoft Azure Redis Cache is available in the following tiers:
 
 Each tier differs in terms of features and pricing. For information on pricing, see [Cache Pricing Details][].
 
-This guide shows you how to use the [StackExchange.Redis][] client using C\# code. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, and **adding and removing objects from the cache**. For more information on using Azure Redis Cache, refer to the [Next Steps][] section.
+This guide shows you how to use the [StackExchange.Redis][] client using C\# code. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, and **adding and removing objects from the cache**. For more information on using Azure Redis Cache, refer to the [Next Steps][] section. For a step-by-step tutorial of building an ASP.NET MVC web app with Redis Cache, see [How to create a Web App with Redis Cache](cache-web-app-howto.md).
 
 <a name="getting-started-cache-service"></a>
 ## Get Started with Azure Redis Cache
