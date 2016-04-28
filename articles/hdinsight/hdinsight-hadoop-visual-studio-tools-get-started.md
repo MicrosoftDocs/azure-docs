@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="01/27/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # Get started using Visual Studio Hadoop tools for HDInsight to run a Hive query
