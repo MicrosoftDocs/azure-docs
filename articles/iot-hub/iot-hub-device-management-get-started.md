@@ -122,7 +122,7 @@ Below is output from the **iotdm\_simple\_sample** sample application. At the to
 
 Make sure to leave all the simulated devices running as you complete the tutorials in "Next steps".
 
-# Next steps
+## Next steps
 
 To learn more about the Azure IoT Hub device management features you can go through the tutorials:
 

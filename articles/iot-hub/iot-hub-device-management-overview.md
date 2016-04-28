@@ -109,7 +109,7 @@ The diagram below shows the different components needed in the IoT Hub client ag
 
 You can learn more about the implementation on the physical device in [Introducing the Azure IoT Hub device management library for C][lnk-library-c].
 
-# Next steps
+## Next steps
 
 To learn more about the Azure IoT Hub device management features you can go through the tutorials:
 

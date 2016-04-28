@@ -114,7 +114,7 @@ set\_device\_batterylevel(0, level);
 
 Instead of using the set method, you could implement a callback. For additional information on this option, see [Introducing the Azure IoT Hub device management library for C][lnk-dm-library].
 
-# Next steps
+## Next steps
 
 To learn more about the Azure IoT Hub device management features you can go through the tutorials:
 

@@ -150,7 +150,7 @@ Azure IoT Hub device management client library handles communication between the
 
 - Inform the service of the firmware update process: this involves modifying the firmware update state and firmware update result fields. You achieve this by calling the **set\_firmwareupdate\_state** and **set\_firmwareupdate\_updateresult** APIs. In the simulated sample, this is implemented in [**LINK TO GITHUB**][lnk-github-inform-service].
 
-# Next steps
+## Next steps
 
 To learn more about the Azure IoT Hub device management features you can go through the tutorials:
 
