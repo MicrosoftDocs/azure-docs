@@ -16,11 +16,12 @@
  ms.date="04/29/2016"
  ms.author="carlosa"/>
 
-#  Introducing the Azure IoT Hub device management (DM) client library
+# Introducing the Azure IoT Hub device management (DM) client library
 
 ## Overview
 
 The Azure IoT Hub DM client library enables you to manage your IoT devices with Azure IoT Hub. “Manage” includes actions such as rebooting, factory resetting, and updating firmware.  Today, we provide a platform-independent C library, but we will add support for other languages soon.  As described in the [Azure IoT Hub device management overview][lnk-dm-overview], there are three key concepts in IoT Hub device management:
+
 - Device twins
 - Device jobs
 - Device queries
@@ -28,23 +29,26 @@ The Azure IoT Hub DM client library enables you to manage your IoT devices with 
 If you’re not familiar with these, you may want to read the overview before continuing.  All are tightly related to the client library.
 
 The DM client library has two main responsibilities in device management:
+
 - Synchronize properties on the physical device with its corresponding device twin in IoT Hub
 - Choreograph device jobs sent by IoT Hub to the device
 
-The device properties of the physical device (e.g. battery level, serial number) are periodically synchronized with the cloud-based device twin so that IoT Hub has an up-to-date view of each of the physical devices at all times (so long as the device is connected).  
+The device properties of the physical device (e.g. battery level and serial number) are periodically synchronized with the cloud-based device twin so that IoT Hub has an up-to-date view of each of the physical devices at all times (so long as the device is connected).  
 
-The primary way the service side interacts with the physical device is through device jobs and the associated device twin.  The following job types are provided in IoT Hub.  The DM client library takes care of much of the orchestration for device jobs, but it is up to you, the developer, to implement the necessary callbacks on your device to support each job type.
-1.	Firmware update: Updates the firmware (or OS image) on the physical device
-2.	Reboot: Reboots the physical device
-3.	Factory reset: Reverts the firmware (or OS image) of the physical device to a factory-provided backup image stored on the device
-4.	Configuration update: Configures the IoT Hub client agent running on the physical device
-5.	Read device property: Gets the most recent value of a device property on the physical device
-6.	Write device property: Changes a device property on the physical device
+The primary way the service interacts with the physical device is through device jobs and the device twin.  The following job types are provided in IoT Hub.  The DM client library takes care of much of the orchestration for device jobs, but it is up to you, the developer, to implement the necessary callbacks on your device to support each job type.
+
+1.	**Firmware update**: Updates the firmware (or OS image) on the physical device
+2.	**Reboot**: Reboots the physical device
+3.	**Factory reset**: Reverts the firmware (or OS image) of the physical device to a factory-provided backup image stored on the device
+4.	**Configuration update**: Configures the IoT Hub client agent running on the physical device
+5.	**Read device property**: Gets the most recent value of a device property on the physical device
+6.	**Write device property**: Changes a device property on the physical device
 
 The following sections will walk you through the client library architecture as well as provide you with guidelines on how to implement the different device objects on your device.
 
 ## DM client library design principles and functional concepts
-The DM client library has been designed thinking of portability and cross-platform integration. This was achieved by the following design decision:
+The DM client library has been designed thinking of portability and cross-platform integration. This was achieved by the following design decisions:
+
 1)	Built on LWM2M over COAP standard protocol to accommodate extensibility for a range of diverse devices.
 2)	Written in ANSI C99 to facilitate portability to a wide variety of platforms.
 3)	Secured through TCP/TLS and Azure IoT Hub authentication (SAS tokens) so it can be used in high security scenarios.
@@ -56,24 +60,24 @@ We chose LWM2M standard to accommodate extensibility for a range of diverse devi
 #### Objects and resources: data model in LWM2M
 The LWM2M data model introduces the concept of objects and resources:
 
-- Objects describe a set of coherent functional entities in the system such as the device and firmware updates.
-- Resources describe attributes or actions included in those objects such as battery level information and the reboot action.
+- **Objects** describe a set of coherent functional entities in the system such as the device and firmware updates.
+- **Resources** describe attributes or actions included in those objects such as battery level information and the reboot action.
 
-Notice that there are two “1: many” relationships in these model:
+Notice that there are two “1: many” relationships in this model:
 
-- Device and objects: each device can have multiple objects. For example, a Contoso device must have a “Device object” and a “Server object” (we will get into the detailed descriptions of the objects in the next section).
-- Objects and resources: each object can have multiple resources. For example, an object can contain the Contoso device firmware update resources such as the package URI where the new image is stored.
+- **Device and objects**: each device can have multiple objects. For example, a Contoso device must have a “Device object” and a “Server object” (we will get into the detailed descriptions of the objects in the next section).
+- **Objects and resources**: each object can have multiple resources. For example, an object can contain the Contoso device firmware update resources such as the package URI where the new image is stored.
 
 #### Observe/notify pattern: how data is transmitted in LWM2M
-In addition to these concepts, it’s important to understand how data flows from the device to the service. To do this, LWM2M defines the “observe/notify” pattern. When the physical device connects to the service, this initiates “observes” on the selected device properties. Then, the physical device “notifies” the service of changes to the device properties.  
+In addition to these concepts, it’s important to understand how data flows from the device to the service. To do this, LWM2M defines the “observe/notify” pattern. When the physical device connects to the service, it initiates “observes” on the selected device properties. Then, the physical device “notifies” the service of changes to the device properties.  
 
 In our client library, we have implemented the observe/notify pattern as the way to send device management data from the device to IoT Hub. The pattern is controlled by two parameters:
 
-- Minimum period: The period of time for which the device delays sending an update for an observed property. This is set to 5 minutes. Therefore, the device sends an update for an observed property at most every 5 minutes, even if the value changes more frequently. That means that if the property changes every minute, the service would only see the last change on minute 5.
+- **Minimum period**: The period of time for which the device delays sending an update for an observed property. This is set to 5 minutes. Therefore, the device sends an update for an observed property at most every 5 minutes, even if the value changes more frequently. That means that if the property changes every minute, the service would only see the last change on minute 5.
 
-- Maximum period: The period of time for which the device, independent of whether the observed property changes or not, sends an update for the value of the property. This is set to 6 hours. Therefore, the device sends an update for the value for an observed property at least every 6 hours, even if the value has not changed.  
+- **Maximum period**: The period of time for which the device, independent of whether the observed property changes or not, sends an update for the value of the property. This is set to 6 hours. Therefore, the device sends an update for the value for an observed property at least every 6 hours, even if the value has not changed.  
 
-> [AZURE.NOTE]  The only exception to these parameters is that the property used for the firmware update job is set to 30 seconds. The reason behind it is that these properties change very often during the job execution, so we’ve reduced the minimum period in order to expedite the update process.
+> [AZURE.NOTE]  The only exception to these parameters is that the properties used for the firmware update job have a minimum period set to 30 seconds. This is because these properties change very often during the job execution, so we’ve reduced the minimum period in order to expedite the update process.
 
 ## Client library functions and architecture
 As we saw in the overview, there’re two main functions that the client libraries take care of:
@@ -86,9 +90,9 @@ In this section, we will do a deep dive in each of them.
 ### Synchronizing the physical device and its device twin
 The client library uses the observe/notify pattern to keep the device twin updated. Remember, the device twin is the service-side representation of the physical device. To perform this synchronization, the following process occurs:
 
-1. The device registers with the service, typically during initialization. Example: “I’m a device, I have device ID Contoso with access token Y”.
-2. The service observes resources on the objects. Example: “keep me updated on the battery level of my Contoso device”
-3. The device notifies the service of the value of the resource. The frequency of notifications is based of minimum and maximum period. Example: “5:00pm battery level 99%, 5:05pm battery level 90%, etc.
+1. The device registers with the service, typically during initialization. Example: “I’m a device, I have device ID Contoso with access token Y.”
+2. The service observes resources on the objects. Example: “keep me updated on the battery level of my Contoso device.”
+3. The device notifies the service of the value of the resource. The frequency of notifications is based of minimum and maximum period. Example: “5:00pm battery level 99%, 5:05pm battery level 90%, etc."
 
 ### Choreograph device jobs: how the device twin and device jobs work together
 In order to act on a physical device, the service must find the associated device twin. This can be done by querying on properties or searching for a specific ID. Knowing the twin ID (and thus, the match to the physical device), the service is then ready to start a device job on the physical device.
@@ -101,7 +105,7 @@ The device job represents a set of different commands that represent the specifi
 This sequence repeats if the process is composed of multiple steps (for example: during a firmware update, the device twin will change its properties multiple times through the various steps before considering the job finished).
 
 ## Guidelines to implement device management in your client
-In the previous sections, we have learned about the functions of the device management client libraries, it’s design principles, and how it relates to LWM2M. Now we will focus on explaining how the pieces fit together in runtime and on providing you guidance to implement the most common scenarios on your device.
+In the previous sections, we have learned about the functions of the device management client libraries, its design principles, and how it relates to LWM2M. Now we will focus on explaining how the pieces fit together in runtime.
 
 Essentially, the client library handles communication between the device and the service, so all that remains is implementation of device specific logic. This consists of two pieces:
 
@@ -123,17 +127,17 @@ Essentially, the client library handles communication between the device and the
 We have just explained how would you implement the device-specific logic to perform device jobs. Now we will explain what objects are available for you to use.
 
 Some of these objects are required, which means that you need to implement the specific device-logic for it to be part of IoT Hub device management. Others are optional, so you can choose depending on your service needs (for example: you may choose not want to do firmware updates using IoT Hub). Here’s a description of each:
+
 - **Device object (required)**: Provides device-specific information such as manufacturer information, model number, serial number, device time. The service can read this information, and in some cases update it. It also defines two actions that the service can perform on a device: reboot and factory reset.
 - **Server object (required)**: Contains connection parameters and settings used to connect to IoT Hub, such as the lifetime of the registration and the transport binding. The service can only read this information.
-- **Config object (optional)**: Contains user defined configuration information that can be queried from the device or pushed to a device from the service to facilitate device configuration. The service can read and update this information.
-- **Firmware update object (optional)**: Provides a firmware update action which the service can invoke. It also provides information such as the location of the firmware package and the status of any ongoing firmware update operation.
+- **Config object (optional)**: Contains user-defined configuration information that can be queried from the device or pushed to a device from the service to facilitate device configuration. The service can read and update this information.
+- **Firmware update object (optional)**: Provides a firmware update action which the service can invoke. It also provides information such as the location of the firmware package and the status of an ongoing firmware update operation.
 
 Each of these objects has a set of associated resources to it (remember the 1:many association). The list of the LWM2M objects and all its associated resources supported in Azure IoT Hub device management is included at the end of this article.
 
 > [AZURE.NOTE] Custom device properties, multiple resource instances, and multiple object instances are not supported in the current release of the system.
 
-###
-Putting it all together
+### Putting it all together
 
 Below you can find a diagram that puts all the different pieces together. On the right side, in blue, you can see the different components of the device management client library: objects, handlers and notify methods. The left side, in green, represents the logic that you need to write at the device application level. The client library connects the application logic with IoT Hub, ensuring that communication and choreography are handled appropriately.
 
@@ -149,7 +153,7 @@ To get hands on experience, you can access the following resources:
 - Simulated devices sample: A platform independent device sample that runs on Linux and Windows devices. Refer to the [iotdm_simple_sample][lnk-simple-sample]
 - To learn more about LWM2M objects, refer to [OMA LWM2M object and resource registry][lnk-oma]
 
-## Appendix A: Currently supported LWM2M objects and resources
+## Appendix: Currently supported LWM2M objects and resources
 
 ### Device object
 
