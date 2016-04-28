@@ -70,5 +70,5 @@ The figure above shows the architecture of the Hello World sample and the relati
 [5]: media/iot-hub-gateway-sdk-getstarted-selector/detailed_architecture.png
 
 <!-- Links -->
-[lnk-helloworld-sample]: https://github.com/Azure/azure-iot-field-gateway-sdk/tree/master/samples/hello_world
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-field-gateway-sdk
+[lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
