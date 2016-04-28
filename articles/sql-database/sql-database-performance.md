@@ -22,16 +22,18 @@ Azure SQL Database provides performance tools to help you identify and improve t
 
 1. Browse to your database in the [Azure Portal](http://portal.azure.com) and click **All settings** > **Performance ** > **Overview** to open the **Performance** page. 
 
-    ![View Performance](./media/sql-database-performance/entries.png)
-
 
 2. Click **Recommendations** to open the [SQL Database Advisor](#sql-database-advisor), and click **Queries** to open [Query Performance Insight](#query-performance-insight).
 
-    ![Performance](./media/sql-database-performance/performance.png)
+    ![View Performance](./media/sql-database-performance/entries.png)
+
+
 
 ## Performance Overview
 
 Clicking on **Overview** or on the **Performance** tile will take you to the performance dashboard for your database. This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
+
+![Performance](./media/sql-database-performance/performance.png)
 
 - The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top 3 recommendations are shown if there are more). Clicking this tile takes you to **SQL Database Advisor**. 
 - The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
