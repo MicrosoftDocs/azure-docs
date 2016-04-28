@@ -21,16 +21,13 @@
 
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-selectors](../../includes/troubleshoot-deployment-new-vm-selectors-include.md)]
 
-
-Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../articles/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
-
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-opening](../../includes/troubleshoot-deployment-new-vm-opening-include.md)]
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Troubleshooting steps
-
-### Identify your issues
+## Identify your issues
 
 To start troubleshooting your deployment issue, you must begin by collecting the audit logs to identify the error associated with the issue. The following links contained detailed information on the process to follow.
 
@@ -38,10 +35,10 @@ To start troubleshooting your deployment issue, you must begin by collecting the
 
 [Audit operations with Resource Manager](../resource-group-audit.md)
 
-### Resolve your issue
+## Resolve your issue
 [AZURE.INCLUDE [troubleshoot-deployment-new-vm-issue1](../../includes/troubleshoot-deployment-new-vm-issue1-include.md)]
 
-#### Issue 2: You’re using a custom, gallery or marketplace image, and the audit log indicates an allocation failure
+### Issue 2: You’re using a custom, gallery or marketplace image, and the audit log indicates an allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.
 
 **Cause 1:** The cluster cannot support the requested VM size.
@@ -49,10 +46,10 @@ This error arises in situations when the new VM request is pinned to a cluster t
 **Resolution 1:**
 
 - Retry the request using a smaller VM size.
-- If the size of the requested VM cannot be changed, stop all the VMs in the same availability set. Create the new VM, and then restart each existing VM. Here’s how:
+- If the size of the requested VM cannot be changed, stop all the VMs in the availability set. Create and start the new VM, and then restart each existing VM. Here’s how:
 
   - Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
-  - After all the VMs stop, create the new VM in the desired size. Then select each of the stopped VMs and click **Start**.
+  - After all the VMs stop, create the new VM in the desired size. Then start the new VM first, and then select each of the stopped VMs and click **Start**.
 
 **Cause 2:** The cluster does not have free resources.
 
