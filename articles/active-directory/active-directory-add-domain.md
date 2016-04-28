@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add your custom domain name to simplify sign-in using Azure Active Directory | Microsoft Azure"
+	pageTitle="Add your custom domain name to Azure Active Directory | Microsoft Azure"
 	description="How to add your company's domain names to Azure Active Directory, and how to verify the domain name."
 	services="active-directory"
 	documentationCenter=""
@@ -18,11 +18,21 @@
 
 # Add your custom domain name to simplify sign-in using Azure Active Directory
 
-When you first get your directory in Azure Active Directory (Azure AD), one of the important first tasks is to verify a custom domain name that your organization uses, such as ‘contoso.com’. Completing this task lets you assign user names that are familiar to your users, such as ‘alice@contoso.com.’ Until you verify your custom domain name, your users must sign in with user names like ‘alice@contoso.onmicrosoft.com’ which use the initial domain name for your directory.
+You've got one or more domain names that your organization uses to do business, and your users sign in to your corporate network using your corporate domain name. Now that you're using Azure Active Directory (Azure AD), you can add your corporate domain name to Azure AD. This allows you to assign user names in the directory that are familiar to your users, such as ‘alice@contoso.com.’ The process is simple:
+
+- Add your custom domain name in our **Add Domain** wizard in the Azure classic portal
+
+- Get DNS entry in the Azure AD management portal or the Azure AD Connect tool
+
+- Add the DNS entry for the domain name into the DNS zone file at the website for the DNS registrar
+
+- Verify the domain name in the Azure AD classic portal or the Azure AD Connect tool
+
+picture
+
+Until you verify your custom domain name, your users must sign in with user names like ‘alice@contoso.onmicrosoft.com,’ which use the initial domain name for your directory. If you require multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them up to a maximum of 900 domain names. Use the same steps in this article to add each domain name.
 
 ## Add a custom domain name to your directory
-
-To add a custom domain name to your directory:
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with a user account that is a global administrator of your Azure AD directory.
 
@@ -38,17 +48,15 @@ To add a custom domain name to your directory:
 
 8. Select **Add**.
 
-Before you can assign user names that include your custom domain name, Azure AD must verify that your organization owns the domain name. To do perform this verification, you must add a DNS entry in the DNS zone file for the domain name. This task can be completed at the website for domain name registrar for the domain name.
+Now that you've added the domain name, Azure AD must verify that your organization owns the domain name. Before Azure AD can perform this verification, you must add a DNS entry in the DNS zone file for the domain name. This task is performed at the website for domain name registrar for the domain name.
 
 ## Get the DNS entries for the domain name
 
-If you opted to configure the domain for federation, you'll be directed to download the Azure AD Connect tool. Run the Azure AD Connect tool to [get the DNS entries you need to add at your domain name registrar](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
+The DNS entries are on the second page of the **Add domain** wizard, if you're not federating with an on-premises Windows Server Active Directory.
 
-If you didn't opt to configure the domain for federation, the DNS entries are on the second page of the **Add domain** wizard.
+If you are configuring the domain for federation, you'll be directed to download the Azure AD Connect tool. Run the Azure AD Connect tool to [get the DNS entries you need to add at your domain name registrar](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). The Azure AD Connect tool will also verify the domain name for Azure AD.
 
 ## Add the DNS entry to the DNS zone file
-
-To add the DNS entry required by Azure AD:
 
 1.  Sign in to the domain name registrar for the domain. If you don't have sufficient permissions to update the DNS entry, ask the person or team who has this access to add the DNS entry.
 
@@ -58,31 +66,21 @@ To add the DNS entry required by Azure AD:
 
 ## Verify the domain name with Azure AD
 
-Once you have added the DNS entry, you can verify the domain name with Azure AD.
+Once you have added the DNS entry, you can verify the domain name with Azure AD. This is the final step to success.
 
-If you opted to federate your custom domain name, the Azure AD Connect tool performs verification automatically. Run the tool once you have completed the prerequisites. Otherwise, verify the domain in the Azure classic portal. If you still have the **Add domain** wizard open, you can click **Verify** on the third page of the wizard. It can take up to an hour for the DNS records to propagate.
+If you still have the **Add domain** wizard open, you can click **Verify** on the third page of the wizard. Be aware that it can take up to an hour for the DNS entry to propagate after it was added.
 
 If the **Add domain** wizard isn't still open, you can verify the domain in the [Azure classic portal](https://manage.windowsazure.com/):
 
 1.  Sign in with a user account that is a global administrator of your Azure AD directory.
 
-2.  Select **Active Directory** on the left navigation bar.
+3.  Open your directory and select the **Domains** tab.
 
-3.  Open your directory.
+5.  Select the domain you want to verify.
 
-4.  Select the **Domains** tab.
+6.  Select **Verify** on the command bar, and then select **Verify** in the dialog box.
 
-5.  In the list of domains, select the domain you want to verify.
-
-6.  Select **Verify** on the command bar.
-
-7.  Select **Verify** in the dialog box.
-
-Now you can [assign user names that include your custom domain name](active-directory-add-domain-add-users.md).
-
-## Add more custom domain names
-
-If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them to your Azure AD directory. The maximum is 900 domain names. Use the same steps to add each subsequent domain name.
+Congratulations on your success! Now you can [assign user names that include your custom domain name](active-directory-add-domain-add-users.md). If you had any trouble verifying the domain name, see our [Troubleshooting](#troubleshooting) section.
 
 ## Troubleshooting
 If you can't verify a custom domain name, there are a few potential causes. We'll start with the most common and work down to the least common.
