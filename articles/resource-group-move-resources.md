@@ -29,7 +29,7 @@ You cannot change the location of the resource. Moving a resource only moves it 
 
 ## Checklist before moving resources
 
-There are some important steps to perform before moving a resource. By verifying these conditions you can avoid errors.
+There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
 1. The service must support the ability to move resources. See the list below for information about which [services support moving resources](#services-that-support-move).
 2. The destination subscription must be registered for the resource provider of the resource being moved. If not, you will receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
@@ -121,7 +121,7 @@ Select its **Properties**.
 
 ![select properties](./media/resource-group-move-resources/select-properties.png)
 
-And, if available for this resource type, select **Change resource group**.
+If available for this resource type, select **Change resource group**.
 
 ![change resource group](./media/resource-group-move-resources/change-resource-group.png)
 
@@ -148,11 +148,24 @@ The second example shows how to move multiple resources to a new resource group.
 
 To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
 
+You will be asked to confirm that you want to move the specified resources.
+
+    Confirm
+    Are you sure you want to move these resources to the resource group
+    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
+
+    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
+    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+
 ## Using Azure CLI to move resources
 
 To move existing resources to another resource group or subscription, use the **azure resource move** command. The following example shows how to move a Redis Cache to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource id's to move.
 
     azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+	
+You will be asked to confirm that you want to move the specified resource.
+	
     info:    Executing command resource move
     Move selected resources in OldRG to NewRG? [y/n] y
     + Moving selected resources to NewRG
