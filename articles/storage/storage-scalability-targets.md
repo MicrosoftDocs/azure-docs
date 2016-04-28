@@ -40,8 +40,7 @@ If the needs of your application exceed the scalability targets of a single stor
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-
-See [Virtual machine sizes](../virtual-machines/virtual-machines-linux-sizes.md) for additional details.
+See [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) for additional details.
 
 ### Standard storage accounts
 

@@ -16,7 +16,7 @@
 	ms.date="04/20/2016"
 	ms.author="tobiast"/>
 
-# Using SQL Database from .NET (C#)
+# Connect to SQL Database by using .NET (C#)
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016" 
+	ms.date="04/26/2016" 
 	ms.author="casoper"/>
 
 # Improve performance by compressing files
@@ -65,7 +65,9 @@ There are two ways CDN can support compression:
 
 	![File compression](./media/cdn-file-compression/cdn-compress-files.png)
 
-3. After modifying the list of file types, click the **Update** button.
+3. Enable compression by clicking the **Compression Enabled** radio button.  Enter the MIME types you wish to compress as a comma-delimited list in the **File Types** textbox. 
+
+4. After making your changes, click the **Update** button.
 
 
 ## Compression process
@@ -83,11 +85,13 @@ There are two ways CDN can support compression:
 	1.	Cache **Miss**: If the requested version is not cached, the request is forwarded to the origin.
 	2.	Cache **Hit**: If the requested version is cached with the requested compression method, the edge server will immediately deliver the compressed content to the client.
 	3.	Cache **Hit**: If the file is cached with different compression method, the edge server will transcode the asset to the requested compression method.
-	4.	Cache **Hit**: If the file is cached in an uncompressed format, a check will be performed to determine whether the request is eligible for edge server compression.  If eligible, the edge server will compress the file and serve it to the client.  Otherwise, it will return the uncompressed content.
-		> [AZURE.NOTE] To be eligible for compression, a file must:
-		>	1. Be larger than 128 bytes.
-		>	2. Be smaller than 1 MB.
-		>	3. Be a MIME type that has been [configured for compression](#enabling-compression).
+	4.	Cache **Hit**: If the file is cached in an uncompressed format, a check will be performed to determine whether the request is eligible for edge server compression (see note below).  If eligible, the edge server will compress the file and serve it to the client.  Otherwise, it will return the uncompressed content.
+		
+> [AZURE.IMPORTANT] To be eligible for compression, a file must:
+>
+> - Be larger than 128 bytes.
+> - Be smaller than 1 MB.
+> - Be a MIME type that has been [configured for compression](#enabling-compression).
 
 ### Tables
 
