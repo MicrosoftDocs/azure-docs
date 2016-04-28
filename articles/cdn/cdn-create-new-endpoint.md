@@ -42,7 +42,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
 3. Select a **Pricing tier** or use the default.
 
-4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview/#resource-groups).
+4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
 5. Select the **Subscription** for this CDN profile.
 
@@ -84,7 +84,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 	
 	> [AZURE.TIP] Accessing CDN content using HTTPS has the following constraints:
 	> 
-	> - You must use SSL the certificate provided by the CDN. Third party certificates are not supported.
+	> - You must use the SSL certificate provided by the CDN. Third party certificates are not supported.
 	> - You must use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
 
 9. Click the **Add** button to create the new endpoint.
