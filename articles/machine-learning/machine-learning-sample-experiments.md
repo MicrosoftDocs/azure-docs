@@ -29,7 +29,7 @@ To browse all experiments:
 
 1. Click **Browse all** at the top of the page.
 2. Under **Refine by** select **Experiment** to see all the experiments in the Gallery.
-3. You can further refine the list by selecting filters on the left. For example, to browse experiments that use a PCA-based anomaly detection algorithm, select **Experiment** under **Categories**, and **PCA-Based Anomaly Detection** under **Algorithms Used**  (if you don't see that algorithm, click **Show all** at the bottom of the list).
+3. You can further refine the list by selecting filters on the left. For example, to browse experiments that use a PCA-based anomaly detection algorithm, select **Experiment** under **Categories**, and **PCA-Based Anomaly Detection** under **Algorithms Used**  (if you don't see that algorithm, click **Show all** at the bottom of the list).<br></br>
 ![](./media/machine-learning-sample-experiments/refine-the-view.png) 
 4. You can use the search box to further narrow your choices. For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box and select **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:
 ![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
