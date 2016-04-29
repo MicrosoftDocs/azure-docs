@@ -31,7 +31,7 @@ Some situations where field mappings are useful:
 
 ## Setting up field mappings
 
-You can add field mappings when creating a new indexer using the [Create Indexer](search-api-indexers-2015-02-28-preview.md/#create-indexer) API. You can manage field mappings on an indexing indexer using the [Update Indexer](search-api-indexers-2015-02-28-preview.md/#update-indexer) API. 
+You can add field mappings when creating a new indexer using the [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer) API. You can manage field mappings on an indexing indexer using the [Update Indexer](search-api-indexers-2015-02-28-preview.md#update-indexer) API. 
 
 A field mapping consists of 3 parts: 
 
@@ -41,7 +41,7 @@ A field mapping consists of 3 parts:
 
 3. An optional `mappingFunction`, which can transform your data using one of several predefined functions. The full list of functions is [below](#mappingFunctions).
 
-Fields mappings are added to the `fieldsMappings` array on the indexer definition. 
+Fields mappings are added to the `fieldMappings` array on the indexer definition. 
 
 For example, here's how you can accommodate differences in field names: 
 
