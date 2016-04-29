@@ -1,38 +1,33 @@
 <properties
-pageTitle="Use the  todo-api-name connector in your Logic Apps | Microsoft Azure"
-description="TODO"
-services=""	
-documentationCenter="" 	
+pageTitle="OneDrive for Business | Microsoft Azure"
+description="Create Logic apps with Azure App service. Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files."
+services="app-servicelogic"	
+documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
-editor="" tags="connectors" />
+editor=""
+tags="connectors" />
 
 <tags
-ms.service=""
-ms.devlang="na"
+ms.service="app-service-logic"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
+ms.workload="integration"
 ms.date="04/29/2016"
 ms.author="deonhe"/>
 
 # Get started with the OneDrive for Business connector
 
-Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files.
+
 
 The OneDrive for Business connector can be used from:  
 
-- [Logic apps]()  
+- [Logic apps](./app-service-logic-apps/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [ProcessSimple](http://flows.microsoft.com)  
+- [Flows](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
-
-With the OneDrive for Business connector, you can:
-
-* Use it to build logic apps
-* TODO
-* TODO
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -68,7 +63,7 @@ You can listen for these event(s):
 
 
 ## Create a connection to OneDrive for Business
-To use the OneDrive for Business API, you first create a **connection** then provide the details for these properties: 
+To create Logic apps with OneDrive for Business, you must first create a **connection** then provide the details for the following properties: 
 
 |Property| Required|Description|
 | ---|---|---|
@@ -77,7 +72,7 @@ After you create the connection, you can use it to execute the actions and liste
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 
-##  REST API reference
+## Reference for OneDrive for Business
 Applies to version: 1.0
 
 ## GetFileMetadata
@@ -292,9 +287,9 @@ Extract folder: Extracts a folder to OneDrive for Business
 |default|Operation Failed.|
 
 
-## Object definitions: 
+## Object definitions 
 
-## DataSetsMetadata:
+### DataSetsMetadata
 
 
 | Property Name | Data Type | Required |
@@ -304,7 +299,7 @@ Extract folder: Extracts a folder to OneDrive for Business
 
 
 
-## TabularDataSetsMetadata:
+### TabularDataSetsMetadata
 
 
 | Property Name | Data Type | Required |
@@ -317,7 +312,7 @@ Extract folder: Extracts a folder to OneDrive for Business
 
 
 
-## BlobDataSetsMetadata:
+### BlobDataSetsMetadata
 
 
 | Property Name | Data Type | Required |
@@ -328,7 +323,7 @@ Extract folder: Extracts a folder to OneDrive for Business
 
 
 
-## BlobMetadata:
+### BlobMetadata
 
 
 | Property Name | Data Type | Required |
@@ -346,7 +341,7 @@ Extract folder: Extracts a folder to OneDrive for Business
 
 
 
-## Object:
+### Object
 
 
 | Property Name | Data Type | Required |
