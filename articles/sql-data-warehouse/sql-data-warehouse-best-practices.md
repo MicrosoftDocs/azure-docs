@@ -120,9 +120,9 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: data-factory-azure-sql-data-warehouse-connector.md
 [Optimizing transactions for SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
-[Pause compute resources]: ./sql-data-warehouse-overview-scalability/#pause-compute-bk
-[Resume compute resources]: ./sql-data-warehouse-overview-scalability/#resume-compute-bk
-[Scale compute resources]: ./sql-data-warehouse-overview-scalability/#scale-performance-bk
+[Pause compute resources]: sql-data-warehouse-overview-scalability.md/#pause-compute-bk
+[Resume compute resources]: sql-data-warehouse-overview-scalability.md/#resume-compute-bk
+[Scale compute resources]: sql-data-warehouse-overview-scalability.md/#scale-performance-bk
 [Table design in SQL Data Warehouse]: sql-data-warehouse-develop-table-design.md
 [Table partitions in SQL Data Warehouse]: sql-data-warehouse-develop-table-partitions.md
 [Temporary tables in SQL Data Warehouse]: sql-data-warehouse-develop-temporary-tables.md
