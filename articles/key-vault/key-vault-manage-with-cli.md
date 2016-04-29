@@ -106,6 +106,12 @@ When using Azure Resource Manager, all related resources are created inside a re
 
 The first parameter is resource group name and the second parameter is the location. For location, use the command `azure location list` to identify how to specify an alternative location to the one in this example. If you need more information, type: `azure help location`
 
+## Register the Key Vault resource provider
+Make sure that Key Vault resource provider is registered in your subscription:
+
+`azure provider register Microsoft.KeyVault`
+
+This only needs to be done once per subscription.
 
 
 ## Create a key vault
