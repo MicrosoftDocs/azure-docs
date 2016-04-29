@@ -22,8 +22,7 @@ Connection issues to Azure SQL Database can be broadly classified as any of the 
 - [Transient errors (short-lived or intermittent)](#troubleshoot-the-transient-errors)
 - [Persistent or non-transient errors (errors that regularly recur)](#troubleshoot-the-persistent-errors-non-transient-errors)
 
-If you encounter the connection issues, try the troubleshoot steps that are described in this article.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+If you encounter the connection issues, try the troubleshoot steps that are described in this article. [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Troubleshoot the transient errors
 If your application is experiencing transient errors, review the following topics for tips about how to troubleshoot and reduce the frequency of these errors:
