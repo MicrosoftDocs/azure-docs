@@ -3,8 +3,8 @@
 	description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="erikre" 
 	editor="jimbe"/>
 
 <tags 
