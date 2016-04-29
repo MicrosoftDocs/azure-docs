@@ -133,7 +133,7 @@ Go to **MainActivity.java** and add the following to replace the base class of *
 
 	public class MainActivity extends EngagementActivity {
 
-[AZURE.NOTE] If your base class is not *Activity*, consult
+> [AZURE.NOTE] If your base class is not *Activity*, consult
 [Advanced Android Reporting](mobile-engagement-android-integrate-engagement.md) for how to inherit from different classes.
 
 
