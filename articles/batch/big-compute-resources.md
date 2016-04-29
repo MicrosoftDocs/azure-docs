@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic=""
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="04/29/2016"
