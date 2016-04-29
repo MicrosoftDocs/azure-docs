@@ -48,7 +48,7 @@ Now that you reviewed the prerequisites and completed the necessary tasks, you c
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Create a virtual machine running Windows in the Azure preview portal](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/)
+- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-hero-tutorial/)
 
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
