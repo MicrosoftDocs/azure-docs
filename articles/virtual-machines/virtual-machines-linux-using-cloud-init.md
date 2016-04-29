@@ -69,8 +69,7 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
 ## Detailed Walkthrough
@@ -179,8 +178,7 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
 After the new Linux VM has booted it will create the new user and add it to the sudo group.
