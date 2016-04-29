@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/29/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -43,7 +43,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 ```
 
-Then, connect to your SQL Data Warhouse database with your server admin login and create a database user based on the server login you just created.
+Then, connect to your SQL Data Warehouse database with your server admin login and create a database user based on the server login you just created.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -67,7 +67,7 @@ The server admin account you are connecting with is a member of db_owner, which 
 
 There are ways to further limit what a user can do with Azure SQL Database:
 
-- Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database. Use granular permissions to have the most control and grant the mimimum permissions necessary. The granular permission system is somewhat complicated and will require some study to use effectively.
+- Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database. Use granular permissions to have the most control and grant the minimum permissions necessary. The granular permission system is somewhat complicated and will require some study to use effectively.
 - [Database roles][] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
 - [Stored procedures][] can be used to limit the actions that can be taken on the database.
 
