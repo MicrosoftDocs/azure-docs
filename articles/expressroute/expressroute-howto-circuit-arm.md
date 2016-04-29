@@ -170,7 +170,7 @@ You can get detailed descriptions of all the parameters by running the following
 
 ### 5. Send the service key to your connectivity provider for provisioning
 
-"ServiceProviderProvisioningState" provides information about the current state of provisioning on the service provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+"ServiceProviderProvisioningState" provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
@@ -329,17 +329,17 @@ You can enable the ExpressRoute premium add-on for your existing circuit by usin
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-The circuit will now have the ExpressRoute premium add-on features enabled. Note that Microsoft will begin billing you for the premium add-on capability as soon as the command has successfully run.
+The circuit will now have the ExpressRoute premium add-on features enabled. Note that we will begin billing you for the premium add-on capability as soon as the command has successfully run.
 
 ### To disable the ExpressRoute premium add-on
 
->[AZURE.IMPORTANT] This operation can fail if you're using resources than are greater than what is permitted for the standard circuit.
+>[AZURE.IMPORTANT] This operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
 
 Note the following:
 
-- Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't do this, your update request fails, and Microsoft will bill you at premium rates.
+- Before you downgrade from premium to standard, you must ensure that the number of virtual networks that are linked to the circuit is less than 10. If you don't do this, your update request fails, and we will bill you at premium rates.
 
-- You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request will fail, and Microsoft will bill you at premium rates.
+- You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request will fail, and we will bill you at premium rates.
 
 - Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops and won't be reenabled until the number of advertised prefixes goes below 4,000.
 
@@ -370,7 +370,7 @@ After you decide what size you need, use the following command to resize your ci
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-Your circuit will be sized up on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, Microsoft will begin billing you for the updated bandwidth option.
+Your circuit will be sized up on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, we will begin billing you for the updated bandwidth option.
 
 
 ### To move the SKU from metered to unlimited
@@ -395,9 +395,9 @@ Note the following:
 
 - You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to *disabling* from an enabled state. You must work with your service provider to deprovision the circuit on their side. Microsoft will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to *Disabling* from an enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the previous cmdlet, Microsoft will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *Not provisioned*) before you run the previous cmdlet, we will deprovision the circuit and stop billing you.
 
 You can delete your ExpressRoute circuit by running the following command:
 
