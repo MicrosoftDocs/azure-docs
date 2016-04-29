@@ -30,7 +30,7 @@ In the following command examples, replace the values between &lt; and &gt; with
 azure group create \
 -n quicksecuretemplate \
 -l eastus \
---template-uri https://raw.githubusercontent.com/squillace/azure-quickstart-templates/streamline/101-vm-sshkey/azuredeploy.json
+--template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 ## Detailed Walkthrough
@@ -41,13 +41,13 @@ Azure Resource Manager templates are JSON files that can be used for simple one-
 
 ## Create the Linux VM
 
-The following code example shows how to call `azure group create` to create a resource group and deploy an SSH-secured Linux VM at the same time using [this Azure Resource Manager template](https://raw.githubusercontent.com/squillace/azure-quickstart-templates/streamline/101-vm-sshkey/azuredeploy.json). Remember that in your example you need to use names that are unique to your environment. This example uses `quicksecuretemplate` as the resource group name, `securelinux` as the VM name, and `quicksecurelinux` as a subdomain name.
+The following code example shows how to call `azure group create` to create a resource group and deploy an SSH-secured Linux VM at the same time using [this Azure Resource Manager template](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Remember that in your example you need to use names that are unique to your environment. This example uses `quicksecuretemplate` as the resource group name, `securelinux` as the VM name, and `quicksecurelinux` as a subdomain name.
 
 ```bash
 azure group create \
 -n quicksecuretemplate \
 -l eastus \
---template-uri https://raw.githubusercontent.com/squillace/azure-quickstart-templates/streamline/101-vm-sshkey/azuredeploy.json
+--template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 Output
