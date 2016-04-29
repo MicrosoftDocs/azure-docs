@@ -75,7 +75,7 @@ In Active Directory, the default UPN suffix is the DNS name of the domain in whi
 The UPN of the user is of the format username@domain, for e.g. for an active directory contoso.com user John might have UPN john@contoso.com. The UPN of the user is based on RFC 822. Although UPN and email share the same format, the value of UPN for a user may or may not be equal to the email address of the user.
 
 ### Custom domain in Azure AD
-Every directory in Azure Active Directory comes with a built-in domain name in the form �contoso.onmicrosoft.com� that lets you get started using Azure or other Microsoft services. You can improve and simplify sign-in experience using custom domains. For information on custom domain names in Azure AD, please read [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
+Every directory in Azure Active Directory comes with a built-in domain name in the form contoso.onmicrosoft.com that lets you get started using Azure or other Microsoft services. You can improve and simplify sign-in experience using custom domains. For information on custom domain names in Azure AD, please read [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
 
 #### Verified custom domains and Azure AD sign-in experience
 It is common to use samaccountname / aliases for authentication in on-premises AD. However, any user in Azure AD needs a UPN to sign in to various online services provided by Azure / O365. When you are selecting the attribute for providing the value of UPN to be used in Azure one should ensure
@@ -90,7 +90,7 @@ Also, it is important to ensure that there is a verified domain for the UPN suff
 John is a user in contoso.com. You want John to use the on-premises UPN john@contoso.com for logging in to Azure after you have synced users to your Azure AD directory azurecontoso.onmicrosoft.com. In order to do so, you will need to add and verify contoso.com as a custom domain in Azure AD before you can start syncing the users. If the UPN suffix of John, i.e. contoso.com, does not match a verified domain in Azure AD, then Azure AD will replace the UPN suffix with azurecontoso.onmicrosoft.com and John will have to use john@azurecontoso.onmicrosoft.com to sign in to Azure.
 
 #### Non-routable on-premises domains and Azure AD Connect
-Some organizations have non-routable domains, like contoso.local or simple single label domains like contoso. In Azure AD you will not be able to verify a non-routable domain. Azure AD Connect can sync to only a verified domain in Azure AD. When you create an Azure AD directory, it creates a routable domain which becomes default domain for your Azure AD � for example, contoso.onmicrosoft.com. Therefore, it becomes necessary to verify any other routable domain in such a scenario in case you don�t want to sync to the default .onmicrosoft.com domain.
+Some organizations have non-routable domains, like contoso.local or simple single label domains like contoso. In Azure AD you will not be able to verify a non-routable domain. Azure AD Connect can sync to only a verified domain in Azure AD. When you create an Azure AD directory, it creates a routable domain which becomes default domain for your Azure AD for example, contoso.onmicrosoft.com. Therefore, it becomes necessary to verify any other routable domain in such a scenario in case you dont want to sync to the default .onmicrosoft.com domain.
 
 Read [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md) for more info on verifying domains.
 
@@ -101,9 +101,9 @@ See **Selecting attribute for user principal name in Azure AD** below for more i
 Azure AD Connect provides help while configuring Azure AD sign-in settings, so that user sign-in experience in cloud is similar to the on-premises experience. Azure AD Connect lists the UPN suffixes defined for the domain(s) and tries to match them with a custom domain in Azure AD and helps you with the appropriate action that needs to be taken.
 The Azure AD sign-in page lists out the UPN suffixes defined for the on-premises Active Directory and displays the corresponding status against each suffix. The status values can be one of the below:
 
-* Verified � Azure AD Connect could find a matching verified domain in Azure AD and no action is needed
-* Not verified � Azure AD Connect could find a matching custom domain in Azure AD but it is not verified. User should verify the custom domain in order to ensure that the UPN suffix of the users is not changed to default .onmicrosoft.com suffix after sync.
-* Not added � Azure AD Connect could not find a custom domain corresponding to the UPN suffix. User must add and verify a custom domain corresponding to the UPN suffix in order to ensure that the UPN suffix of the user is not changed to default .onmicrosoft.com suffix after sync.
+* Verified : Azure AD Connect could find a matching verified domain in Azure AD and no action is needed
+* Not verified : Azure AD Connect could find a matching custom domain in Azure AD but it is not verified. User should verify the custom domain in order to ensure that the UPN suffix of the users is not changed to default .onmicrosoft.com suffix after sync.
+* Not added : Azure AD Connect could not find a custom domain corresponding to the UPN suffix. User must add and verify a custom domain corresponding to the UPN suffix in order to ensure that the UPN suffix of the user is not changed to default .onmicrosoft.com suffix after sync.
 
 To read more about how to add and verify custom domains please refer to the article [here](active-directory-add-domain-add-verify-general.md).
 
@@ -112,7 +112,7 @@ If Azure AD Connect finds that UPN suffix(s) defined for the on-premises Active 
 INSERT SCREENSHOT HERE
 
 #### Custom Installation
-In custom installation, user will be presented with the Azure AD sign-in after they have added the on-premises domains to be synced. Azure AD Connect will try to match the UPN suffixes listed for the on-premises active directory domain(s) and display the appropriate status for it in the table. Depending on the user sign-in option � Password Sync, Federation / None � Azure AD Connect will help you with appropriate message to figure out the action that needs to be taken.
+In custom installation, user will be presented with the Azure AD sign-in after they have added the on-premises domains to be synced. Azure AD Connect will try to match the UPN suffixes listed for the on-premises active directory domain(s) and display the appropriate status for it in the table. Depending on the user sign-in option Password Sync, Federation or None, Azure AD Connect will help you with appropriate message to figure out the action that needs to be taken.
 
 > [AZURE.NOTE] In order to establish federation, you must have minimum one custom domain added in Azure AD.
 
