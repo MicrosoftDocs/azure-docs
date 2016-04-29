@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="04/28/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -22,7 +22,6 @@ This topic shows how to move resources from one resource group to another resour
 
 1. For billing purposes, a resource needs to live in a different subscription.
 2. A resource no longer shares the same lifecycle as the resources it was previously grouped with. You want to move it to a new resource group so you can manage that resource separately from the other resources.
-3. A resource now shares the same lifecycle as other resources in a different resource group. You want to move it to the resource group with the other resources so you can manage them together.
 
 When moving resources, both the source group and the target group are locked for the duration of the operation. Write and delete operations are blocked on the groups until the move completes.
 
@@ -30,7 +29,7 @@ You cannot change the location of the resource. Moving a resource only moves it 
 
 ## Checklist before moving resources
 
-There are some important steps to perform before moving a resource. By verifying these conditions you can avoid errors.
+There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
 1. The service must support the ability to move resources. See the list below for information about which [services support moving resources](#services-that-support-move).
 2. The destination subscription must be registered for the resource provider of the resource being moved. If not, you will receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
@@ -83,12 +82,54 @@ The services that currently do not support moving a resource are:
 
 When working with App Service apps, you cannot move only an App Service plan. To move App Service apps, your options are:
 
-- Move all of the resources from one resource group to a different resource group, if the destination resource group does not already have Microsoft.Web resources.
-- Move the web apps to a different resource group, but keep the App Service plan in the original resource group.
+- Move the App Service plan and its apps in the same operation to a new resource group that does not already have Microsoft.Web resources.
+- Move the apps to a different resource group, but keep the App Service plan in the original resource group.
+
+If your original resource group also includes an Application Insights resource, you cannot move that resource because Application Insights does not currently support the move operation. If you 
+include the Application Insights resource when moving App Service apps, the entire move operation will fail. However, the Application Insights and App Service plan do not need to 
+reside in the same resource group as the app for the app to function correctly.
 
 ## SQL Database limitations
 
 You cannot move a SQL database separately from its server. The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved. 
+
+## Using portal to move resources
+
+You can move some resources through the portal; however, not all resource providers that support the move operation provide that functionality through the portal. 
+
+To move a resource, select the resource and then select the **Move** button.
+
+![move resource](./media/resource-group-move-resources/move-resources.png)
+
+You specify the destination subscription and resource group when moving the resource. If other resources must be moved with the resource, they are listed.
+
+![select destination](./media/resource-group-move-resources/select-destination.png)
+
+In **Notifications**, you will see that the move operation is running.
+
+![show move status](./media/resource-group-move-resources/show-status.png)
+
+When it has completed, you are notified of the result.
+
+![show move result](./media/resource-group-move-resources/show-result.png)
+
+For another option to move resources to a new resource group (but not subscription), select the resource you wish to move.
+
+![select resource to move](./media/resource-group-move-resources/select-resource.png)
+
+Select its **Properties**.
+
+![select properties](./media/resource-group-move-resources/select-properties.png)
+
+If available for this resource type, select **Change resource group**.
+
+![change resource group](./media/resource-group-move-resources/change-resource-group.png)
+
+You can select which resources to move, and the resource group to move them to.
+
+![move resources](./media/resource-group-move-resources/select-group.png)
+
+You will be notified of its status when the move operation completes.
 
 ## Using PowerShell to move resources
 
@@ -107,11 +148,24 @@ The second example shows how to move multiple resources to a new resource group.
 
 To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
 
+You will be asked to confirm that you want to move the specified resources.
+
+    Confirm
+    Are you sure you want to move these resources to the resource group
+    '/subscriptions/{guid}/resourceGroups/newRG' the resources:
+
+    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/serverFarms/exampleplan
+    /subscriptions/{guid}/resourceGroups/destinationgroup/providers/Microsoft.Web/sites/examplesite
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+
 ## Using Azure CLI to move resources
 
 To move existing resources to another resource group or subscription, use the **azure resource move** command. The following example shows how to move a Redis Cache to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource id's to move.
 
     azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+	
+You will be asked to confirm that you want to move the specified resource.
+	
     info:    Executing command resource move
     Move selected resources in OldRG to NewRG? [y/n] y
     + Moving selected resources to NewRG
@@ -124,18 +178,6 @@ To move existing resources to another resource group or subscription, run:
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
 In the request body, you specify the target resource group and the resources to move. For more information about the move REST operation, see [Move resources](https://msdn.microsoft.com/library/azure/mt218710.aspx).
-
-## Using portal to move resources
-
-You can move some resources through the portal; however, not all resource providers that support the move operation provide that functionality through the portal. 
-
-To move a resource, select the resource and then select the **Move** button.
-
-![move resource](./media/resource-group-move-resources/move-resources.png)
-
-You specify where you would like to move the resource. If other resources must be moved with the resource, they are listed.
-
-![select destination](./media/resource-group-move-resources/select-destination.png)
 
 ## Next steps
 - To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md).
