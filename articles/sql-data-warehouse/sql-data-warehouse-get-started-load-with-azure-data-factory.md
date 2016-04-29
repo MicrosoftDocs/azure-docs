@@ -40,7 +40,7 @@ To familiarize yourself with Azure Data Factory, see [Introduction to Azure Data
 
 Before starting this tutorial, you need to have the following resources.
 
-   + **Azure Storage Blob**: This tutorial uses Azure Storage Blob as the data source for the Azure Data Factory pipeline, and so you need to have one available to store the sample data. If you don't have one already, learn how to [Create a storage account](../storage/storage-create-storage-account/#create-a-storage-accoun/).
+   + **Azure Storage Blob**: This tutorial uses Azure Storage Blob as the data source for the Azure Data Factory pipeline, and so you need to have one available to store the sample data. If you don't have one already, learn how to [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).
 
    + **SQL Data Warehouse**: This tutorial moves the data from Azure Storage Blob to  SQL Data Warehouse and so need to have a data warehouse online that is loaded with the AdventureWorksDW sample data. If you do not already have a data warehouse, learn how to [provision one](sql-data-warehouse-get-started-provision.md). If you have a data warehouse but didn't provision it with the sample data, you can [load it manually](sql-data-warehouse-get-started-manually-load-samples.md).
 
