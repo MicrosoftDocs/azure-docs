@@ -45,16 +45,23 @@ NOTE: Though a [CustomScriptExtention](virtual-machines-linux-extensions-customs
 
 ## Quick Commands
 
+Create a hostname cloud-init script
+
 ```bash
-# Create a hostname cloud-init script
 #cloud-config
 hostname: exampleServerName
+```
 
-# Create an update Linux on first boot cloud-init script for Debian Family
+Create an update Linux on first boot cloud-init script for Debian Family
+
+```bash
 #cloud-config
 apt_upgrade: true
+```
 
-# Create an add a user cloud-init script
+Create an add a user cloud-init script
+
+```bash
 #cloud-config
 users:
   - name: exampleUser
@@ -64,7 +71,6 @@ users:
     ssh-authorized-keys:
       - ssh-rsa
 AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
-
 ```
 
 ## Detailed Walkthrough

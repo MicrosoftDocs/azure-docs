@@ -23,88 +23,158 @@ To create a Linux VM you will need [the Azure CLI](../xplat-cli-install.md) in r
 
 ## Quick Commands
 
+Create the Resource Group
+
 ```bash
-# Create the Resource Group
 ahmet@fedora$ azure group create TestRG -l westeurope
+```
 
-# Verify the RG using the JSON parser
+Verify the RG using the JSON parser
+
+```bash
 ahmet@fedora$ azure group show TestRG --json | jq '.'
+```
 
-# Create the Storage Account
+Create the Storage Account
+
+```bash
 ahmet@fedora$ azure storage account create -g TestRG -l westeurope --type GRS computeteststore
+```
 
-# Verify the storage using the JSON parser
+Verify the storage using the JSON parser
+
+```bash
 ahmet@fedora$ azure storage account show -g TestRG computeteststore --json | jq '.'
+```
 
-# Create the Virtual Network
+Create the Virtual Network
+
+```bash
 ahmet@fedora$ azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
+```
 
-# Create the Subnet
+Create the Subnet
+
+```bash
 ahmet@fedora$ azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
+```
 
-# Verify the VNet and Subnet using the JSON parser
+Verify the VNet and Subnet using the JSON parser
+
+```bash
 ahmet@fedora$ azure network vnet show TestRG TestVNet --json | jq '.'
+```
 
-# Create a public IP
+Create a public IP
+
+```bash
 ahmet@fedora$ azure network public-ip create -g TestRG -n TestLBPIP -l westeurope -d testlb -a static -i 4
+```
 
-# Create the load balancer
+Create the load balancer
+
+```bash
 ahmet@fedora$ azure network lb create -g TestRG -n TestLB -l westeurope
+```
 
-# Create a front-end IP pool for the load balancer, and associate our public IP
+Create a front-end IP pool for the load balancer, and associate our public IP
+
+```bash
 ahmet@fedora$ azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
+```
 
-# Create our back-end IP pool for the load balancer
+Create our back-end IP pool for the load balancer
+
+```bash
 ahmet@fedora$ azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
+```
 
-# Create SSH inbound NAT rules for the load balancer
+Create SSH inbound NAT rules for the load balancer
+
+```bash
 ahmet@fedora$ azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 ahmet@fedora$ azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
+```
 
-# Create our web inbound NAT rules for the load balancer
+Create our web inbound NAT rules for the load balancer
+
+```bash
 ahmet@fedora$ azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
      -t TestFrontEndPool -o TestBackEndPool
+```
 
-# Create our load balancer health probe
+Create our load balancer health probe
+
+```bash
 ahmet@fedora$ azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+```
 
-# Verify the load balancer, IP pools, and NAT rules using the JSON parser
+Verify the load balancer, IP pools, and NAT rules using the JSON parser
+
+```bash
 ahmet@fedora$ azure network lb show -g TestRG -n TestLB --json | jq '.'
+```
 
-# Create the first NIC
+Create the first NIC
+
+```bash
 ahmet@fedora$ ahmet@fedora$ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
     -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
-    
-# Create the second NIC
+```
+
+Create the second NIC
+
+```bash
 ahmet@fedora$ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
     -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
+```
 
-# Verify the NICs using the JSON parser
+Verify the NICs using the JSON parser
+
+```bash
 ahmet@fedora$ azure network nic show TestRG LB-NIC1 --json | jq '.'
 ahmet@fedora$ azure network nic show TestRG LB-NIC2 --json | jq '.'
+```
 
-# Create the NSG
+Create the NSG
+
+```bash
 ahmet@fedora$ azure network nsg create -g TestRG -n TestNSG -l westeurope
+```
 
-# Add the inbound rules for the NSG
+Add the inbound rules for the NSG
+
+```bash
 ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
     --destination-port-range 22 --access allow -g TestRG -a TestNSG -n SSHRule
 ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1001 \
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
+```
 
-# Verify the NSG and inbound rules using the JSON parser
+Verify the NSG and inbound rules using the JSON parser
+
+```bash
 ahmet@fedora$ azure network nsg show -g TestRG -n TestNSG --json | jq '.'
+```
 
-# Bind the NSG to the NICs
+Bind the NSG to the NICs
+
+```bash
 ahmet@fedora$ azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
 ahmet@fedora$ azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
+```
 
-# Create the availability set
+Create the availability set
+
+```bash
 ahmet@fedora$ azure availset create -g TestRG -n TestAvailSet -l westeurope
+```
 
-# Create the first Linux VM
+Create the first Linux VM
+
+```bash
 ahmet@fedora$ azure vm create \            
     --resource-group TestRG \
     --name TestVM1 \
@@ -118,8 +188,11 @@ ahmet@fedora$ azure vm create \
     --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
-    
-# Create the second Linux VM
+```
+
+Create the second Linux VM
+
+```bash
 ahmet@fedora$ azure vm create \            
     --resource-group TestRG \
     --name TestVM2 \
@@ -133,11 +206,13 @@ ahmet@fedora$ azure vm create \
     --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
+```
 
-# Verify everything built using the JSON parser
+Verify everything built using the JSON parser
+
+```bash
 ahmet@fedora$ azure vm show -g TestRG -n TestVM1 --json | jq '.'
 ahmet@fedora$ azure vm show -g TestRG -n TestVM2 --json | jq '.'
-
 ```
 
 ## Detailed Walkthrough
@@ -480,7 +555,7 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Our load balancer is pretty empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for our front-end, and one for our back-end. The front-end IP pool is what we'll have publicly visible and where we'll assign the PIP we created earlier. The back-end pool we'll then use for our VMs to connect to in order for the traffic to flow through the load balancer to them. 
+Our load balancer is pretty empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for our front-end, and one for our back-end. The front-end IP pool is what we'll have publicly visible and where we'll assign the PIP we created earlier. The back-end pool we'll then use for our VMs to connect to in order for the traffic to flow through the load balancer to them.
 
 First, let's create our front-end IP pool:
 

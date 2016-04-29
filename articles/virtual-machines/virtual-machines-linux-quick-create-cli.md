@@ -23,8 +23,9 @@ This article shows how to quickly deploy a Linux Virtual Machine on Azure using 
 
 ## Quick Command Summary
 
+One command to deploy the VM and attach your SSH key
+
 ```
-# One command to deploy the VM and attach your SSH key
 ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
@@ -36,8 +37,9 @@ For the ImageURN we will use `canonical:ubuntuserver:14.04.2-LTS:latest` to depl
 
 In the following command walk through, please replace the prompts with values from your own environment, we are using "example" values.  The output should look like the following output block.  
 
+Follow the prompts and enter your own names
+
 ```bash
-# Follow the prompts and enter your own names
 ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
@@ -50,8 +52,9 @@ Password: ************************************************
 Confirm password: ************************************************
 ```
 
+Expected output
+
 ```bash
-########### expected output ###########
 + Looking up the VM "exampleVMname"
 info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
