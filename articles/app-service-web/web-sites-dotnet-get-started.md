@@ -78,6 +78,8 @@ Your next step is to create a web project in Visual Studio and a web app in Azur
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** template.
 
+	If you wanted to deploy a web API rather than a website, you would choose the **Azure API App** template at this point. The [Next steps](#next-steps) section links to a tutorial for API apps.
+
 7. Click **Change Authentication**.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started/GS13changeauth.png)
@@ -231,7 +233,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * Deploy an ASP.NET Web API to an API app in Azure App Service
 
-	You've seen how to create an instance of Azure App Service that is mainly intended to host a website. Instances of App Service intended mainly to host APIs are called API apps. For more information, see [Get started with API Apps and ASP.NET in Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md). 
+	You've seen how to create an instance of Azure App Service that is mainly intended to host a website. App Service also offers features for hosting Web APIs, such as CORS support and API metadata support for client code generation. You can use API features in a web app, but if you mainly want to host an API in an instance of App Service, an **API app** would be a better choice. For more information, see [Get started with API Apps and ASP.NET in Azure App Service](../app-service-api/app-service-api-dotnet-get-started.md). 
 
 * Add a custom domain name and SSL
 
