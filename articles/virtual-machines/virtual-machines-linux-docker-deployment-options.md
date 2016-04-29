@@ -29,9 +29,9 @@ This article focuses on using resource manager templates to deploy the Docker VM
 
 ## Azure Docker VM Extension for template deployments
 
-The Azure Docker VM Extension installs Docker in your Linux VM and configures it for you. By using reosurce manager templates, the environment can then be re-deployed in a consistent fashion. Using the Azure Docker VM Extension is well suited for a more robust developer or production environments as you have some additional controls over simply using Docker Machine.
+The Azure Docker VM Extension installs Docker in your Linux VM and configures it for you. By using resource manager templates, the environment can then be re-deployed in a consistent fashion. Using the Azure Docker VM Extension is well suited for a more robust developer or production environments as you have some additional controls over simply using Docker Machine.
 
-Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment, such as the Docker hosts, storage, Role Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../resource-group-overview.md) and templates to better understand some of the benefits. The advantage of using Resource Manager templates over simply using Docker Machine is that you can define out additional Docker hosts, storage, access controls, etc. and be able to reproduce the deployments as needed in the future. 
+Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment, such as the Docker hosts, storage, Role Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../resource-group-overview.md) and templates to better understand some of the benefits. The advantage of using Resource Manager templates over simply using Docker Machine is that you can define additional Docker hosts, storage, access controls, etc. and be able to reproduce the deployments as needed in the future. 
 
 ## Deploy a template with the Docker VM Extension:
 
@@ -44,7 +44,7 @@ azure group create --name myDockerResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Answer the prompts for naming your storage account, DNS name, username, etc. and then give it a few minutes to finish the deployment. You should see output as below:
+Answer the prompts for naming your storage account, DNS name, username, etc. and then give it a few minutes to finish the deployment. You should see output similar to the following:
 
 ```
 info:    Executing command group create
@@ -71,7 +71,7 @@ info:    group create command OK
 
 ## Deploy you first nginx container
 
-Once the deployment has finished, SSH to your new Docker host. The Docker tools will already be installed, so let's try to spin up an nginx container:
+Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment. The Docker tools will already be installed, so let's try to spin up an nginx container:
 
 ```
 docker run -d -p 80:80 nginx
@@ -103,7 +103,7 @@ Open up a web browser and enter the DNS name you specified during deployment to 
 ![Running ngnix container](./media/virtual-machines-docker-deployment-options/nginxrunning.png)
 
 ## Docker VM Extension JSON template reference
-In this example, we used a quick-start template. You can use your own existing Resource Manager templates and add the Docker VM Extension by adding the following to your JSON definition file in order to push the extension to the Linux VMs also defined within your template:
+In this example, we used a quick-start template. You can use your own existing Resource Manager templates to install the Docker VM Extension to VMs defined in your template by adding the following to your JSON definition file:
 
 ```
 {
@@ -125,7 +125,7 @@ In this example, we used a quick-start template. You can use your own existing R
 }
 ```
 
-More detailed walkthrough on using Resource Manager templates - [Azure Resource Manager overview](../resource-group-overview.md)
+You can find more detailed walkthrough on using Resource Manager templates by reading [Azure Resource Manager overview](../resource-group-overview.md)
 
 ## Next steps
 
