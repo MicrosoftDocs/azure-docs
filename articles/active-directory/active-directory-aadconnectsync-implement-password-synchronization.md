@@ -24,17 +24,16 @@ Azure Active Directory Connect synchronization services (Azure AD Connect sync) 
 
 ## What is password synchronization
 
-The probability that you are blocked from getting your work done due to a forgotten password is related to the number of different passwords you need to remember. The more passwords you need to remember, the higher the probability to forget one. Help in conjunction with passwords is in many environments the single biggest demand for help desk resources.
+The probability that you are blocked from getting your work done due to a forgotten password is related to the number of different passwords you need to remember. The more passwords you need to remember, the higher the probability to forget one. Questions and calls about password resets and other password-related issues demand the most helpdesk resources. 
 
 Password synchronization is a feature to synchronize user passwords from an on-premises Active Directory to a cloud-based Azure Active Directory (Azure AD).
 This feature enables you to sign on to Azure Active Directory services (such as Office 365, Microsoft Intune, CRM Online and Azure AD Domain Services) using the same password you are using to sign-on to your on-premises Active Directory. 
 
-![What is Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch.png)
+![What is Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
+
+Enabling password synchronization helps you to improve the productivity of your users and to reduce your help desk related costs by reducing the number of passwords you need to maintain. 
 
 Also, if you select to use [**Federation with AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), then you can optionally enable password sync as a backup in case your AD FS infrastructure fails. 
- 
-Enabling password synchronization in your environment helps you to improve the productivity of your users and to reduce your help desk related costs.
-
 
 Password synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. To use password synchronization in your environment, you need to:
 
@@ -71,7 +70,7 @@ Your current cloud service session is not immediately affected by a synchronized
 
 ### How password synchronization works with Azure AD Domain Services
 
-You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.    
+You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.    
 
 
 ### Security considerations
@@ -128,22 +127,30 @@ If you use custom settings when you install Azure AD Connect, you enable passwor
 
 ### Password synchronization and FIPS
 
-If your server has been locked down according to FIPS (Federal Information Processing Standard), then MD5 has been disabled. To enable MD5 for password synchronization, add the enforceFIPSPolicy key in miiserver.exe.config in C:\Program Files\Azure AD Sync\Bin.
+If your server has been locked down according to Federal Information Processing Standard (FIPS), then MD5 has been disabled. 
 
-```
-<configuration>
-    <runtime>
-        <enforceFIPSPolicy enabled="false"/>
-    </runtime>
-</configuration>
-```
 
-The configuration/runtime node can be found at the end of the config file.
+**To enable MD5 for password synchronization, perform the following steps:**
+
+    <configuration>
+        <runtime>
+            <enforceFIPSPolicy enabled="false"/>
+        </runtime>
+    </configuration>
+
+1. Go to **%programfiles%\Azure AD Sync\Bin**.
+2. Open **miiserver.exe.config**.
+2. Go to the **configuration/runtime** node (at the end of the file). 
+3. Add the following node: **<enforceFIPSPolicy enabled="false"/>** 
+4. Save your changes.
 
 For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
 
 
 ## Troubleshooting password synchronization
+
+You can easily troubleshoot password synchronization related issues by reviewing the current status of an object.
+
 
 **To troubleshoot password synchronization, perform the following steps:**
 
