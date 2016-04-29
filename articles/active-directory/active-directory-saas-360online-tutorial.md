@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="04/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -136,7 +136,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your 360° Online support team via [support.community@software-innovation.com](mailto:support.community@software-innovation.com) and attach the downloaded metadata file to your mail.
+5. To get SSO configured for your application, contact your 360° Online support team via [support.community@software-innovation.com](mailto:360online@software-innovation.com) and attach the downloaded metadata file to your mail.
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
@@ -216,7 +216,7 @@ In the Users list, select **Britta Simon**.
 
 The objective of this section is to create a user called Britta Simon in 360° Online. 
 
-To get a user in 360° Online created, you need to contact your 360° Online support team via [support.community@software-innovation.com](mailto:support.community@software-innovation.com).
+To get a user in 360° Online created, you need to contact your 360° Online support team via [support.community@software-innovation.com](mailto:360online@software-innovation.com).
 
 
 ### Assigning the Azure AD test user
