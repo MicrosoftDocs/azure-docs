@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/02/2016"
+    ms.date="04/28/2016"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -55,7 +55,7 @@ Create predictive models in [Machine Learning Studio](machine-learning-what-is-m
 * Use a large library of [Machine Learning algorithms and modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio to jump-start your predictive models. Choose from a library of sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing. Extend Studio modules with your own custom  [R](machine-learning-r-quickstart.md) and [Python](machine-learning-execute-python-scripts.md) scripts.
 * In [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) you can try analytics solutions authored by others or contribute your own using Azure services including Machine Learning, HDInsight (Hadoop), Stream Analytics, and Data Lake Analytics, as well as Azure big data stores and data management services.  Post questions or comments about experiments to the community, or share links to experiments via social networks such as LinkedIn and Twitter.  
 
-	![Try predictive experiments or contribute your own in Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
+	![Try predictive experiments or contribute your own in Azure Cortana Intelligence Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 
 ### Operationalize predictive analytics solutions: Purchase web services or publish your own
 
