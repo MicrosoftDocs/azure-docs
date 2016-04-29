@@ -289,6 +289,6 @@ If you browse to the directory by using Server Explorer, you can find the workin
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. As a next step, you can check out additional content for this topic.
 
-- [Sample for packaging and deploying a guest executable on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), including a link to the prerelease of the packaging tool
+- [Sample for packaging and deploying a guest executable on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), including a link to the prerelease of the packaging tool
 - [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 - [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
