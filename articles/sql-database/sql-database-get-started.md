@@ -1,7 +1,7 @@
 <properties
 	pageTitle="SQL Database tutorial: Create a SQL database | Microsoft Azure"
 	description="Learn how to set up a SQL Database logical server, server firewall rule, SQL database, sample data, connect with client tools, configure users, and database firewall rule."
-	keywords="sql database tutorial,create a sql database"
+	keywords="sql database tutorial, create a sql database"
 	services="sql-database"
 	documentationCenter=""
 	authors="carlrabeler"
@@ -30,7 +30,7 @@
 In this tutorial, you'll learn how to use the Azure portal to:
 
 - Create a SQL Database logical server to host SQL databases
-- Create a SQL database with no data, with sanple data or with data fron a SQL database backup.
+- Create a SQL database with no data, with sample data or with data from a SQL database backup.
 - Create a server-level firewall rule for a single IP address or for a range of IP addresses.
 
 Use these links to perform these same tasks using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
