@@ -46,7 +46,7 @@ To integrate a report into an app, you need a report **ID** and **embedUrl**. To
 ### Get reports JSON response
 ```
 {
-  "@odata.context":"http://wabi-paas-1-scus-redirect.analysis.windows.net/beta/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
+  "@odata.context":"https://api.powerbi.com/beta/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
     {
       "id":"804d3664-…-e71882055dba","name":"Import report sample","webUrl":"https://embedded.powerbi.com/reports/804d3664-...-e71882055dba","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=804d3664-...-e71882055dba"
     },{
