@@ -35,7 +35,7 @@ The log files to be collected must match the following criteria.
 
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
 
-### 1. Open the Custom Log Wizard
+### Step 1. Open the Custom Log Wizard
 
 The Custom Log Wizard runs in the OMS portal and allows you to define a new custom log to collect.
 
@@ -44,7 +44,7 @@ The Custom Log Wizard runs in the OMS portal and allows you to define a new cust
 3.	By default, all configuration changes are automatically pushed to all agents.  For Linux agents, a configuration file is sent to the Fluentd data collector.  If you wish to modify this file manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
 4.	Click **Add+** to open the Custom Log Wizard.
 
-### 2. Upload and parse a sample log
+### Step 2. Upload and parse a sample log
 
 You start by uploading a sample of the custom log.  The wizard will parse and display the entries in this file for you to validate.  Log Analytics will use the delimiter that you specify to identify each record.
 
@@ -60,7 +60,7 @@ If a timestamp delimiter is used, then the TimeGenerated property of each record
 4.	Change the delimiter that is used to identify a new record and select the delimiter that best identifies the records in your log file.
 5.	Click **Next**.
 
-### 3. Add log collection paths
+### Step 3. Add log collection paths
 
 You must define one or more paths on the agent where it can locate the custom log.  You can either provide a specific path and name for the log file, or you can specify a path with a wildcard for the name.  This supports applications that create a new file each day or when one file reaches a certain size.  You can also provide multiple paths for a single log file.
 
@@ -80,7 +80,7 @@ The following table provides examples of valid patterns to specify different log
 2.	Type in the path and click the **+** button.
 3.	Repeat the process for any additional paths.
 
-### 4. Provide a name and description for the log
+### Step 4. Provide a name and description for the log
 
 The name that you specify will be used for the log type as described above.  It will always end with _CL to distinguish it as a custom log.
 
@@ -88,14 +88,14 @@ The name that you specify will be used for the log type as described above.  It 
 2.	Add an optional **Description**.
 3.	Click **Next** to save the custom log definition.
 
-### 5. Validate that the custom logs are being collected
+### Step 5. Validate that the custom logs are being collected
 It may take up to an hour for the initial data from a new custom log to appear in Log Analytics.  It will start collecting entries from the logs found in the path you specified from the point that you defined the custom log.  It will not retain the entries that you uploaded during the custom log creation, but it will collect already existing entries in the log files that it locates.
 
 Once Log Analytics starts collecting from the custom log, its records will be available with a Log Search.  Use the name that you gave the custom log as the **Type** in your query.
 
 >[AZURE.NOTE] If the RawData property is missing from the search, you may need to close and reopen your browser.
 
-### 6. Parse the custom log entries
+### Step 6. Parse the custom log entries
 
 The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties stored in the record.  You do this using the [Custom Fields](Custom%20fields.md) feature of Log Analytics.
 
