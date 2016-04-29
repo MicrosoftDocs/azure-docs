@@ -47,7 +47,7 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 >[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 
-- **Step 1.** You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **New** > **Networking** > **ExpressRoute**, as shown in the image below.
+- **Step 1.** You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **New** > **Networking** > **ExpressRoute**, as shown in the following image:
 
 	![Create an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 
@@ -57,12 +57,12 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 	- **Data metering** determines the billing type. You can specify "Metered" for a metered data plan and "Unlimited" for an unlimited data plan. **Note:** You can change the billing type from "Metered" to "Unlimited", but you can't change the type from "Unlimited" to "Metered".
 
-	![Configure SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
+	![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
 
 ### 3. View circuits and properties
 
-- **To view all circuits**
+- **To view all the circuits**
 
 	You can view all the circuits that you created by selecting **All resources** on the left-side menu.
 
@@ -77,10 +77,9 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 ### 4. Send the service key to your connectivity provider for provisioning
 
-On this blade, Provider Status provides information on the current state of provisioning on the service provider side. Circuit Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+On this blade, **Provider status** provides information on the current state of provisioning on the service-provider side. **Circuit status** provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
-
 
 Provider status : Not provisioned<BR>
 Circuit status	: Enabled
@@ -100,7 +99,7 @@ Circuit status	: Enabled
 
 ### 5. Periodically check the status and the state of the circuit key
 
-You can view the properties of the circuit that you are interested in by selecting it. Check the **Provider status** and ensure that it has moved to **Provisioned** before you continue.
+You can view the properties of the circuit that you're interested in by selecting it. Check the **Provider status** and ensure that it has moved to **Provisioned** before you continue.
 
 
 ![Circuit and provider status](./media/expressroute-howto-circuit-portal-resource-manager/viewstatusprovisioned.png)
@@ -125,7 +124,7 @@ You can view the status of a circuit by selecting it.
 
 ## Modifying an ExpressRoute circuit
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity. At this time, you cannot modify ExpressRoute circuit properties by using the Azure portal. However, you can use PowerShell to modify circuit properties. Refer to  the article section "[Modifying an ExpressRoute circuit using PowerShell](expressroute-howto-circuit-arm.md#modify)."
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity. At this time, you cannot modify ExpressRoute circuit properties by using the Azure portal. However, you can use PowerShell to modify circuit properties. For more information, see the section "[Modifying an ExpressRoute circuit by using PowerShell](expressroute-howto-circuit-arm.md#modify)."
 
 You can do the following with no downtime:
 
@@ -144,11 +143,11 @@ For more information on limits and limitations, refer to the [ExpressRoute FAQ](
 
 You can delete your ExpressRoute circuit by selecting the **delete** icon. Note the following:
 
-- You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
+- You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check to see whether any virtual networks are linked to the circuit.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to "disabling" from an enabled state. You must work with your service provider to deprovision the circuit on their side. Microsoft will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to "Disabling" from an enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to "not provisioned") before you run the previous cmdlet, Microsoft will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to "Not provisioned") before you run the previous cmdlet, we will deprovision the circuit and stop billing you.
 
 ## Next steps
 
