@@ -12,7 +12,7 @@
    ms.service="virtual-machines"
    ms.topic="article"
    ms.tgt_pltfrm="virtual-machines"
-   ms.devlang = "na"
+   ms.devlang="na"
    ms.workload="required"
    ms.date="04/28/2016"
    ms.author="delhan"/>
