@@ -13,7 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="virtual-machines"
    ms.workload="required"
-   ms.date="4/28/2016"
+   ms.date="04/28/2016"
+   ms.devlang="na"
    ms.author="delhan"/>
 
 # Troubleshoot deployment issues with restarting or resizing an existing Azure Virtual Machine
@@ -41,7 +42,7 @@ Before you start troubleshooting the deployment issue, you must collect the audi
 In the Azure portal, click **Browse** > **Virtual machines** > _your Windows virtual machine_ > **Settings** > **Audit logs**.
 
 See the following two articles for details:<br />
-[Troubleshooting resource group deployments with Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-troubleshoot-deployments-portal/)<br />[Audit operations with Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-audit/ )
+[Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)<br />[Audit operations with Resource Manager](../resource-group-audit.md)
 
 ### Issue 1: You try to start a stopped VM but get an allocation failure.
 
