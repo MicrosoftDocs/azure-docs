@@ -67,9 +67,10 @@ For complete examples of using Key Vault with your applications, see:
 
 The following articles and scenarios provide task specific guidance:
 
-- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md)
-- [Pass secure values (such as passwords) during deployment](../resource-manager-keyvault-parameter.md).
-- For task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones ARM template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
+- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md) - This will help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
+- [How to pass secure values (such as passwords) during deployment](../resource-manager-keyvault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
+- [How to use Key Vault for extensible key management with SQL Server](https://msdn.microsoft.com/en-us/library/dn198405.aspx) - The SQL Server Connector for Microsoft Azure Key Vault enables SQL Server encryption to leverage the Azure Key Vault service as an Extensible Key Management (EKM) provider to protect its encryption keys.
+- For more task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones ARM template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## Supporting Libraries
 
