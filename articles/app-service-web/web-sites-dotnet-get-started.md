@@ -140,8 +140,6 @@ Now you tell Visual Studio about the Azure resources that you want it to create.
 
 7. In the **Create App Service** dialog box, click **Create**.
 
-	![Create App Service dialog box](./media/web-sites-dotnet-get-started/clickcreate.png)
-
 ## Visual Studio creates the project and web app
 
 In a short time, usually less than a minute, Visual Studio creates the web project and the web app.  
@@ -178,13 +176,9 @@ In this section, you deploy the web project to the web app.
 
 	![Click Next on Connection tab of Publish Web wizard](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
-	The next tab is the **Settings** tab. Here you can change the build configuration tab to deploy a debug build for [remote debugging](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several **File Publish Options**:
+	Next is the **Settings** tab. Here you can change the build configuration to deploy a debug build for [remote debugging](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several [File Publish Options](https://msdn.microsoft.com/library/dd465337.aspx#Anchor_2).
 
-	* Remove additional files at destination
-	* Precompile during publishing
-	* Exclude files from the App_Data folder
-
-	For this tutorial you don't need any of these. For detailed explanations of what they do, see [How to: Deploy a Web Project Using One-Click Publish in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	> [AZURE.TIP] One of the **File Publish Options** is **Remove additional files at destination**. Select that option when you deploy to a web app that you deployed a different project to earlier. Otherwise files left behind by the earlier deployment might cause exceptions when they interact with files uploaded for the later deployment.
 
 10. On the **Settings** tab, click **Next**.
 
