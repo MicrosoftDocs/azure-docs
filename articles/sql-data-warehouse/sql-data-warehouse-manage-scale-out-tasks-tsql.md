@@ -39,7 +39,7 @@ To learn about this, see [Performance scalability overview][].
 
 <a name="current-dwu-bk"></a>
 
-## 1. View current DWU settings
+## View current DWU settings
 
 To view the current DWU settings for your databases:
 
@@ -59,7 +59,7 @@ FROM
 
 <a name="scale-dwu-bk"></a>
 
-## 2. Scale DWUs
+## Scale DWUs
 
 [AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
