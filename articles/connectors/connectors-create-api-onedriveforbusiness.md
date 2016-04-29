@@ -23,7 +23,7 @@ ms.author="deonhe"/>
 
 The OneDrive for Business connector can be used from:  
 
-- [Logic apps](./app-service-logic-apps/app-service-logic-what-are-logic-apps.md)  
+- [Logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
 - [Flows](http://flows.microsoft.com)  
 
