@@ -1,6 +1,6 @@
 <properties
-pageTitle="Using field mappings with Azure Search indexers"
-description="Learn how to use Azure Search field mappings"
+pageTitle="Azure Search indexer field mappings bridge the differences between data sources and search indexes"
+description="Configure Azure Search indexer field mappings to account for differences in field names and data representations"
 services="search"
 documentationCenter=""
 authors="chaosrealm"
@@ -13,10 +13,10 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/28/2016"
+ms.date="04/30/2016"
 ms.author="eugenesh" />
 
-# Using field mappings with Azure Search indexers
+# Azure Search indexer field mappings bridge the differences between data sources and search indexes
 
 When using Azure Search indexers, you can occasionally find yourself in situations where your input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to transform your data into the desired shape. 
 
@@ -31,15 +31,19 @@ Some situations where field mappings are useful:
 
 ## Setting up field mappings
 
+You can add field mappings when creating a new indexer using [Create Indexer](search-api-indexers-2015-02-28-preview.md/#create-indexer) API. You can manage field mappings on an indexing indexer using [Update Indexer](search-api-indexers-2015-02-28-preview.md/#update-indexer) API. 
+
 A field mapping consists of 3 parts: 
 
 1. A `sourceFieldName`, which represents a field in your data source. This property is required. 
 
-2. An optional `targetFieldName`, which represents a field in your search index. You can provide a name different from `sourceFieldName` to "rename" a field from the data source.
+2. An optional `targetFieldName`, which represents a field in your search index. If omitted, the same name as in the data source is used. 
 
-3. An optional `mappingFunction`, which can transform your data using one of several predefined functions. The full list of functions is below.
+3. An optional `mappingFunction`, which can transform your data using one of several predefined functions. The full list of functions is [below](#mappingFunctions).
 
-Fields mappings are added to the `fieldsMappings` array on the indexer definition. For example: 
+Fields mappings are added to the `fieldsMappings` array on the indexer definition. 
+
+For example, here's how you can accommodate differences in field names: 
 
 ```JSON
 
@@ -65,6 +69,7 @@ An indexer can have multiple field mappings. For example, here's how you can "fo
 
 > [AZURE.NOTE] Azure Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
 
+<a name="mappingFunctions"></a>
 ## Field mapping functions
 
 These functions are currently supported: 
