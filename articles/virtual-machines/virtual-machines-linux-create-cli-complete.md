@@ -154,8 +154,17 @@ Let's build a simple network and load balancer with a pair of VMs useful to deve
 
 Azure Resource Groups are logical deployment entities that contain configuration and other metadata to enable logical management of resource deployments.
 
+```bash
+ahmet@fedora$ azure group create TestRG westeurope
 ```
+<<<<<<< Updated upstream
 azure group create TestRG westeurope                        
+=======
+
+Output
+
+```bash                        
+>>>>>>> Stashed changes
 info:    Executing command group create
 + Getting resource group TestRG
 + Creating resource group TestRG
@@ -175,12 +184,22 @@ You're going to need storage accounts for your VM disks and for any additional d
 
 Here we use the `azure storage account create` command, passing the location of the account, the resource group that will control it, and the type of storage support you would like.
 
+<<<<<<< Updated upstream
 ```
 azure storage account create \  
+=======
+```bash
+ahmet@fedora$ azure storage account create \  
+>>>>>>> Stashed changes
 --location westeurope \
 --resource-group TestRG \
 --type GRS \
 computeteststore
+```
+
+Output
+
+```bash
 info:    Executing command storage account create
 + Creating storage account
 info:    storage account create command OK
@@ -210,8 +229,17 @@ info:    group show command OK
 
 Let's use the [jq](https://stedolan.github.io/jq/) tool (you can use **jsawk** or any language library you prefer to parse the JSON) along with the `--json` Azure CLI option to examine our resource group using the `azure group show` command.
 
+<<<<<<< Updated upstream
 ```
 azure group show TestRG --json | jq '.'                                                                                        
+=======
+```bash
+ahmet@fedora$ azure group show TestRG --json | jq '.'                                                                                        ```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 {
   "tags": {},
   "id": "/subscriptions/<guid>/resourceGroups/TestRG",
@@ -249,8 +277,17 @@ AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show c
 
 Then you'll be able to view your storage information easily:
 
+<<<<<<< Updated upstream
 ```
 azure storage container list
+=======
+```bash
+ahmet@fedora$ azure storage container list
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command storage container list
 + Getting storage containers
 data:    Name  Public-Access  Last-Modified
@@ -262,8 +299,18 @@ info:    storage container list command OK
 
 You're going to need to create an Azure Virtual Network and a subnet into which you can install your VMs.
 
+<<<<<<< Updated upstream
 ```
 azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
+=======
+```bash
+ahmet@fedora$ azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command network vnet create
 + Looking up virtual network "TestVNet"
 + Creating virtual network "TestVNet"
@@ -280,8 +327,17 @@ info:    network vnet create command OK
 
 Again, let's see how we're building our resources using the --json option of `azure group show` and **jq**. We now have a `storageAccounts` resource and a `virtualNetworks` resource.  
 
+<<<<<<< Updated upstream
 ```
 azure group show TestRG --json | jq '.'
+=======
+```bash
+ahmet@fedora$ azure group show TestRG --json | jq '.'
+```
+
+Output
+```bash
+>>>>>>> Stashed changes
 {
   "tags": {},
   "id": "/subscriptions/<guid>/resourceGroups/TestRG",
@@ -320,8 +376,18 @@ azure group show TestRG --json | jq '.'
 
 Now let's create a subnet in the `TestVnet` virtual network into which the VMs will be deployed. We use the `azure network vnet subnet create` command, along with the resources we've already created: the `TestRG` resource group, the `TestVNet` virtual network, and we'll add the subnet name `FrontEnd` and the subnet address prefix `192.168.1.0/24`, as follows.
 
+<<<<<<< Updated upstream
 ```
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
+=======
+```bash
+ahmet@fedora$ azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command network vnet subnet create
 + Looking up the subnet "FrontEnd"
 + Creating subnet "FrontEnd"
@@ -337,8 +403,18 @@ info:    network vnet subnet create command OK
 
 As the subnet is logically inside the virtual network, we'll look for the subnet information with a slightly different command -- `azure network vnet show`, but still examining the JSON output using **jq**.
 
+<<<<<<< Updated upstream
 ```
 azure network vnet show TestRG TestVNet --json | jq '.'
+=======
+```bash
+ahmet@fedora$ azure network vnet show TestRG TestVNet --json | jq '.'
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 {
   "subnets": [
     {
@@ -366,12 +442,23 @@ azure network vnet show TestRG TestVNet --json | jq '.'
   "location": "westeurope"
 }
 ```
+
 ## Create your Public IP address (PIP)
 
 Now let's create your public IP address (PIP) that we'll assign to your load balancer and enable you to connect to your VMs from the internet using the `azure network public-ip create` command. Because the default is a dynamic address, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `-d testsubdomain` option.
 
+<<<<<<< Updated upstream
 ```
 azure network public-ip create -d testsubdomain TestRG TestPIP westeurope
+=======
+```bash
+ahmet@fedora$ azure network public-ip create -d testsubdomain TestRG TestPIP westeurope
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command network public-ip create
 + Looking up the public ip "TestPIP"
 + Creating public ip address "TestPIP"
@@ -390,8 +477,18 @@ info:    network public-ip create command OK
 
 This is also a top-level resource, so you can see it with `azure group show`.
 
+<<<<<<< Updated upstream
 ```
 azure group show TestRG --json | jq '.'
+=======
+```bash
+ahmet@fedora$ azure group show TestRG --json | jq '.'
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 {
 "tags": {},
 "id": "/subscriptions/guid/resourceGroups/TestRG",
@@ -444,8 +541,13 @@ azure group show TestRG --json | jq '.'
 
 And, as always, you can investigate more resource details, including the subdomain fully qualified domain name (FQDN) using the more complete `azure network public-ip show` command. Note that the public IP address resource has been allocated logically, but there is not yet a specific address assigned. For that, you're going to need a load balancer, which we have not yet created.
 
-```
+```bash
 azure network public-ip show TestRG TestPIP --json | jq '.'
+```
+
+Output
+
+```bash
 {
 "tags": {},
 "publicIpAllocationMethod": "Dynamic",
@@ -467,9 +569,22 @@ Creating a load balancer allows you to distribute traffic across multiple VMs, s
 
 We create our load balancer with:
 
+<<<<<<< Updated upstream
 ```
 azure network lb create -g TestRG -n TestLB -l westeurope
+=======
+```bash
+ahmet@fedora$ azure network lb create -g TestRG -n TestLB -l westeurope
+```
+
+```bash
+>>>>>>> Stashed changes
 azure network lb create -g TestRG -n TestLB -l westeurope
+```
+
+Output
+
+```bash
 info:    Executing command network lb create
 + Looking up the load balancer "TestLB"
 + Creating load balancer "TestLB"
@@ -480,12 +595,23 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
+
 Our load balancer is pretty empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for our front-end, and one for our back-end. The front-end IP pool is what we'll have publicly visible and where we'll assign the PIP we created earlier. The back-end pool we'll then use for our VMs to connect to in order for the traffic to flow through the load balancer to them.
 
 First, let's create our front-end IP pool:
 
+<<<<<<< Updated upstream
 ```
 azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
+=======
+```bash
+ahmet@fedora$ azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command network lb frontend-ip create
 + Looking up the load balancer "TestLB"
 + Looking up the public ip "TestLBPIP"
@@ -496,12 +622,23 @@ data:    Private IP allocation method    : Dynamic
 data:    Public IP address id            : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestLBPIP
 info:    network lb frontend-ip create command OK
 ```
+
 Note how we used the `--public-ip-name` switch to pass in the TestLBPIP we created earlier. This assigns the public IP address to the load balancer so we can reach our VMs across the Internet.
 
 Next, let's create our second IP pool, this time for our back-end traffic:
 
+<<<<<<< Updated upstream
 ```
 azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
+=======
+```bash
+ahmet@fedora$ azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command network lb address-pool create
 + Looking up the load balancer "TestLB"
 + Updating load balancer "TestLB"
@@ -512,8 +649,18 @@ info:    network lb address-pool create command OK
 
 We can check how our load balancer is looking with `azure network lb show` and examining the JSON output:
 
+<<<<<<< Updated upstream
 ```
 azure network lb show TestRG TestLB --json | jq '.'
+=======
+```bash
+ahmet@fedora$ azure network lb show TestRG TestLB --json | jq '.'
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 {
   "etag": "W/\"29c38649-77d6-43ff-ab8f-977536b0047c\"",
   "provisioningState": "Succeeded",
@@ -553,8 +700,18 @@ azure network lb show TestRG TestLB --json | jq '.'
 ## Create your load balancer NAT rules
 To actually get traffic flowing through our load balancer, we need to create NAT rules that specify either inbound or outbound actions. You can specify the protocol in use, then map external ports to internal ports as desired. For our environment, let's create some rules that allow SSH through our load balancer to our VMs. We'll set up TCP ports 4222 and 4223 to direct to TCP port 22 on our VMs (which we'll create later):
 
+<<<<<<< Updated upstream
 ```
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
+=======
+```bash
+ahmet@fedora$ azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command network lb inbound-nat-rule create
 + Looking up the load balancer "TestLB"
 warn:    Using default enable floating ip: false
@@ -574,15 +731,30 @@ info:    network lb inbound-nat-rule create command OK
 
 Repeat the procedure for your second NAT rule for SSH:
 
+<<<<<<< Updated upstream
 ```
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
+=======
+```bash
+ahmet@fedora$ azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
+>>>>>>> Stashed changes
 ```
 
 Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. Rather than hooking up the rule to our VMs individually means we can simply add or remove VMs from the IP pool and have the load balancer automatically adjust the flow of traffic:
 
+<<<<<<< Updated upstream
 ```
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
+=======
+```bash
+ahmet@fedora$ azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
+>>>>>>> Stashed changes
      -t TestFrontEndPool -o TestBackEndPool
+```
+
+Output
+
+```bash
 info:    Executing command network lb rule create
 + Looking up the load balancer "TestLB"
 warn:    Using default idle timeout: 4
@@ -600,14 +772,23 @@ data:    Idle timeout in minutes         : 4
 data:    Frontend IP configuration id    : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool
 data:    Backend address pool id         : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool
 info:    network lb rule create command OK
-
 ```
 
 ## Create your load balancer health probe
 A health probe will periodically check on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they will be removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information on health probes, you can look read [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
 
+<<<<<<< Updated upstream
 ```
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+=======
+```bash
+ahmet@fedora$ azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command network lb probe create
 warn:    Using default probe port: 80
 + Looking up the load balancer "TestLB"
@@ -628,8 +809,18 @@ That's all of the load balancer configuration done. You created a load balancer,
 
 Let's review what your load balancer now looks like:
 
+<<<<<<< Updated upstream
 ```
 azure network lb show -g TestRG -n TestLB --json | jq '.'
+=======
+```bash
+ahmet@fedora$ azure network lb show -g TestRG -n TestLB --json | jq '.'
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 {
   "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
   "provisioningState": "Succeeded",
@@ -742,15 +933,23 @@ azure network lb show -g TestRG -n TestLB --json | jq '.'
     }
   ]
 }
-
 ```
 
 ## Create a NIC to use with the Linux VM
 
 Even NICs are programmatically available, as you may apply rules to their use and have more than one. Note that in the following `azure network nic create` command, you hook up our NIC to the load back-end IP pool and associated with our NAT rule to permit SSH traffic. To do this, you need to specify the subscription ID of your Azure subscription in place of `<GUID>`:
 
+```bash
+ahmet@fedora$ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
 ```
+<<<<<<< Updated upstream
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" -e "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
+=======
+
+Output
+
+```bash "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" -e "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
+>>>>>>> Stashed changes
 info:    Executing command network nic create
 + Looking up the subnet "FrontEnd"
 + Looking up the network interface "LB-NIC1"
@@ -773,13 +972,22 @@ data:      Load balancer inbound NAT rules:
 data:        Id                          : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 data:
 info:    network nic create command OK
-
 ```
 
 You can see the details by examining the resource directly, using the `azure network nic show` command.
 
+<<<<<<< Updated upstream
 ```
 azure network nic show TestRG LB-NIC1 --json | jq '.'
+=======
+```bash
+ahmet@fedora$ azure network nic show TestRG LB-NIC1 --json | jq '.'
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 {
   "etag": "W/\"fc1eaaa1-ee55-45bd-b847-5a08c7f4264a\"",
   "provisioningState": "Succeeded",
@@ -817,13 +1025,22 @@ azure network nic show TestRG LB-NIC1 --json | jq '.'
   "enableIPForwarding": false,
   "resourceGuid": "a20258b8-6361-45f6-b1b4-27ffed28798c"
 }
-
 ```
 
 Let's go ahead and create the second NIC, hooking in to our back-end IP pool again, and this time the second of our NAT rules to permit SSH traffic:
 
+```bash
+ahmet@fedora$ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d
 ```
+<<<<<<< Updated upstream
 azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd -d "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" -e "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
+=======
+
+Output
+
+```bash
+ "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" -e "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
+>>>>>>> Stashed changes
 ```
 
 ## Create your Network Security Group and rules
@@ -836,10 +1053,20 @@ azure network nsg create TestRG TestNSG westeurope
 
 Let's add the inbound rule for the NSG to allow inbound connections on port 22 (to support SSH):
 
+<<<<<<< Updated upstream
 ```
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
     --destination-port-range 22 --access allow TestRG TestNSG SSHRule
 azure network nsg rule create --protocol tcp --direction inbound --priority 1001 \
+=======
+```bash
+ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
+    --destination-port-range 22 --access allow TestRG TestNSG SSHRule
+```
+
+```bash
+ahmet@fedora$ azure network nsg rule create --protocol tcp --direction inbound --priority 1001 \
+>>>>>>> Stashed changes
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
@@ -849,16 +1076,30 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
 
 Bind the NSG to the NICs:
 
+<<<<<<< Updated upstream
 ```
 azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
 azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
+=======
+```bash
+ahmet@fedora$ azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
+```
+
+```bash
+ahmet@fedora$ azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
+>>>>>>> Stashed changes
 ```
 
 ## Create an availability set
 Availability sets help spread your VMs across what are known as fault domains and upgrade domains. Let's create an availability set for your VMs:
 
+<<<<<<< Updated upstream
 ```
 azure availset create -g TestRG -n TestAvailSet -l westeurope
+=======
+```bash
+ahmet@fedora$ azure availset create -g TestRG -n TestAvailSet -l westeurope
+>>>>>>> Stashed changes
 ```
 
 Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains will not affect every VM that is running your app. Azure will automatically distribute VMs across the fault domains when placing them in to an availability set.
@@ -880,8 +1121,13 @@ Alternatively, you can use the `azure vm create --admin-username --admin-passwor
 
 We create the VM by bringing all of our resources and information together with the `azure vm create` command.
 
+<<<<<<< Updated upstream
 ```
 azure vm create \            
+=======
+```bash
+ahmet@fedora$ azure vm create \            
+>>>>>>> Stashed changes
     --resource-group TestRG \
     --name TestVM1 \
     --location westeurope \
@@ -894,6 +1140,11 @@ azure vm create \
     --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
+```
+
+Output
+
+```bash
 info:    Executing command vm create
 + Looking up the VM "TestVM1"
 info:    Verifying the public key SSH file: /home/ifoulds/.ssh/id_rsa.pub
@@ -912,8 +1163,18 @@ info:    vm create command OK
 
 Immediately, you can connect to your VM using your default SSH keys, making sure you specify the appropriate port since we're passing through the load balancer (for our first VM, we set up the NAT rule to forward port 4222 to our VM):
 
+<<<<<<< Updated upstream
 ```
  ssh ops@testlb.westeurope.cloudapp.azure.com -p 4222
+=======
+```bash
+ahmet@fedora$  ssh ops@testlb.westeurope.cloudapp.azure.com -p 4222
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 The authenticity of host '[testlb.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
 ECDSA key fingerprint is 94:2d:d0:ce:6b:fb:7f:ad:5b:3c:78:93:75:82:12:f9.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -950,7 +1211,7 @@ ops@TestVM1:~$
 
 Go ahead and create your second VM in the same manner:
 
-```
+```bash
 azure vm create \            
     --resource-group TestRG \
     --name TestVM2 \
@@ -968,8 +1229,18 @@ azure vm create \
 
 And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you have your running Ubuntu VMs behind a load balancer in Azure that you can only log into with the SSH key pair that you have; passwords are disabled. You can install nginx or httpd and deploy a web app and see the traffic flow through the load balancer to both of the VMs.
 
+<<<<<<< Updated upstream
 ```
 azure vm show TestRG TestVM1
+=======
+```bash
+ahmet@fedora$ azure vm show TestRG TestVM1
+```
+
+Output
+
+```bash
+>>>>>>> Stashed changes
 info:    Executing command vm show
 + Looking up the VM "TestVM1"
 + Looking up the NIC "LB-NIC1"

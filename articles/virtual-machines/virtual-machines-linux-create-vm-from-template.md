@@ -48,6 +48,11 @@ azure group create \
 -n quicksecuretemplate \
 -l eastus \
 --template-uri https://raw.githubusercontent.com/squillace/azure-quickstart-templates/streamline/101-vm-sshkey/azuredeploy.json
+```
+
+Output
+
+```bash
 info:    Executing command group create
 + Getting resource group quicksecuretemplate
 + Creating resource group quicksecuretemplate
