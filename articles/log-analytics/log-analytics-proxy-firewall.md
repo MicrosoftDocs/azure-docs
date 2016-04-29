@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure proxy and firewall settings | Microsoft Azure"
+	pageTitle="Configure proxy and firewall settings in Log Analytics | Microsoft Azure"
 	description="Configure proxy and firewall settings when your agents or OMS services need to use specific ports."
 	services="log-analytics"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
-# Configure proxy and firewall settings
+# Configure proxy and firewall settings in Log Analytics
 
 
-Actions needed to configure proxy and firewall settings for OMS differ when you use Operations Manager and it’s agents versus Microsoft Monitoring Agents that connect directly to servers. Review the following sections for the type of agent that you use.
+Actions needed to configure proxy and firewall settings for Log Analytics in OMS differ when you use Operations Manager and its agents versus Microsoft Monitoring Agents that connect directly to servers. Review the following sections for the type of agent that you use.
 
 ## Configure proxy and firewall settings with the Microsoft Monitoring Agent
 
@@ -131,9 +131,7 @@ Use the following procedures to register your Operations Manager management grou
 ### To request exceptions for the OMS service endpoints
 
 1. Use the information from the first table presented previously to ensure that the resources needed for the Operations Manager management server are accessible through any firewalls you might have.
-
 2. Use the information from the second table presented previously to ensure that the resources needed for the Operations console in Operations Manager and OMS are accessible through any firewalls you might have.
-
 3. If you use a proxy server with Internet Explorer, ensure that it is configured and works correctly. To verify, you can open a secure web connection (https), for example [https://bing.com](https://bing.com). If the secure web connection doesn’t work in a browser, it probably won’t work in the Operations Manager management console with web services in the cloud.
 
 ### To configure the proxy server in the Operations Manager console
@@ -142,10 +140,8 @@ Use the following procedures to register your Operations Manager management grou
 
 2. Expand **Operational Insights**, and then select **Operational Insights Connection**.  
     ![Operations Manager OMS Connection](./media/log-analytics-proxy-firewall/proxy-om01.png)
-
 3. In the OMS Connection view, click **Configure Proxy Server**.  
     ![Operations Manager OMS Connection Configure Proxy Server](./media/log-analytics-proxy-firewall/proxy-om02.png)
-
 4. In Operational Insights Settings Wizard: Proxy Server, select **Use a proxy server to access the Operational Insights Web Service**, and then type the URL with the port number, for example, **http://myproxy:80**.  
     ![Operations Manager OMS proxy address](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
@@ -154,14 +150,11 @@ Use the following procedures to register your Operations Manager management grou
  Proxy server credentials and settings need to propagate to managed computers that will report to OMS. Those servers should be in the *Microsoft System Center Advisor Monitoring Server Group*. Credentials are encrypted in the registry of each server in the group.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
-
 2. Under **RunAs Configuration**, select **Profiles**.
-
 3. Open the **System Center Advisor Run As Profile Proxy** profile.  
     ![image of the System Center Advisor Run As Proxy profile](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
 4. In the Run As Profile Wizard, click **Add** to use a Run As account. You can create a new Run As account or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.  
     ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-
 5. To set the account to manage, choose **A selected class, group, or object** to open the Object Search box.  
     ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
 6. Search for then select **Microsoft System Center Advisor Monitoring Server Group**.  
@@ -174,9 +167,9 @@ Use the following procedures to register your Operations Manager management grou
 
 ### To validate that OMS management packs are downloaded
 
-- If you added solutions by using OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
+- If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
     ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
-- Or, You can also check for OMS management packs by using the following Windows PowerShell commands in the Operations Manager management server:
+- Or, you can also check for OMS management packs by using the following Windows PowerShell commands in the Operations Manager management server:
 
         get-scommanagementpack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
 
@@ -185,9 +178,7 @@ Use the following procedures to register your Operations Manager management grou
 ### To validate that Operations Manager is sending data to the OMS service
 
 1. In the Operations Manager management server, open Performance Monitor (perfmon.exe), and select **Performance Monitor**.
-
 2. Click **Add**, and then select **Health Service Management Groups**.
-
 3. Add all the counters that start with **HTTP**.  
     ![add counters](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
 4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in OMS and the configured log collection policy.  
@@ -201,5 +192,6 @@ There are no inbound firewall requirements to support Hybrid Runbook Workers.
 For the on-premise machine running Hybrid Runbook Worker, it must have outbound access to \*.cloudapp.net on ports 443, 9354, and 30000-30199.
 
 ## Next Steps
-- [Add solutions](log-analytics-add-solutions.md)
-- Learn about [log searches](log-analytics-log-searches.md) to start viewing data from your computers.
+
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Operations Manager agents | Microsoft Azure"
+	pageTitle="Connect Operations Manager to Log Analytics | Microsoft Azure"
 	description="To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your OMS workspace."
 	services="log-analytics"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
-# Operations Manager agents
+# Connect Operations Manager to Log Analytics
 
 To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your OMS workspace.  This allows you leverage the opportunities of OMS while continuing to use Operations Manager to:
 
 - Continue monitoring the health of your IT services with Operations Manager
 - Maintain integration with your ITSM solutions supporting incident and problem management
-- Manage the lifecycle of agents deployed to on-premise and public cloud IaaS virtual machines that you monitor with Operations Manager
+- Manage the lifecycle of agents deployed to on-premises and public cloud IaaS virtual machines that you monitor with Operations Manager
 
 Integrating with System Center Operations Manager adds value to your service operations strategy by leveraging the speed and efficiency of OMS in collecting, storing and analyzing data from Operations Manager.  OMS helps correlate and work towards identifying the faults of problems and surfacing reoccurrences in support of your existing problem management process.   The flexibility of the search engine to examine performance, event and alert data, with rich dashboards and reporting capabilities to expose this data in meaningful ways, demonstrates the strength OMS brings in complimenting Operations Manager.
 
@@ -36,18 +36,17 @@ The following diagram shows the System Center Operations Manager and OMS relatio
 Before starting, please review the following details to verify you meet necessary prerequisites.
 
 - OMS only supports Operations Manager 2012 SP1 UR6 and greater, and Operations Manager 2012 R2 UR2 and greater.  Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
-- An OMS subscription.  For further information, please review [First Look: Get started with Log Analytics](log-analytics-get-started.md).
+- An OMS subscription.  For further information, review [Get started with Log Analytics](log-analytics-get-started.md).
 
 ## Connecting Operations Manager to OMS
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your OMS workspaces.
+
 1. In the Operations Manager console, select the **Administration** workspace.
 2. Expand the Operations Management Suite node and click **Connection**.
 3. Click the **Register to Operations Management Suite** link.
 4. On the **Operations Management Suite Onboarding Wizard: Authentication** page, enter the email address or phone number and password of the administrator account that is associated with your OMS subscription, and click **Sign in**.
 5. After you are successfully authenticated, on the **Operations Management Suite Onboarding Wizard: Select Workspace** page, you will be prompted to select your OMS workspace.  If you have more than one workspace, select the workspace you want to register with the Operations Manager management group from the drop-down list, and then click **Next**.
-
->[AZURE.NOTE]Operations Manager only supports one OMS workspace at a time. The connection and the computers that were registered to OMS with the previous workspace are removed from OMS.
-
+    >[AZURE.NOTE] Operations Manager only supports one OMS workspace at a time. The connection and the computers that were registered to OMS with the previous workspace are removed from OMS.
 6. On the **Operations Manager Suite Onboarding Wizard: Summary** page, confirm your settings and if they are correct, click **Create**.
 7. On the **Operations Management Suite Onboarding Wizard: Finish** page, click **Close**.
 
@@ -112,4 +111,6 @@ There are a few different ways you can verify that your OMS to Operations Manage
 3.	Depending on the solutions you have enabled, you will see a corresponding management pack listed in the search results.  For example, if you have enabled the Alert Management solution, the management pack Microsoft System Center Advisor Alert Management will be in the list.
 
 ## Next steps
-- Connect [data sources](log-analytics-data-sources.md)
+
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="First look: Get started with Log Analytics | Microsoft Azure"
+	pageTitle="Get started with Log Analytics | Microsoft Azure"
 	description="You can get up and running with Log Analytics in the Microsoft Operations Management Suite (OMS) in minutes."
 	services="log-analytics"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
 
-# First look: Get started with Log Analytics
+# Get started with Log Analytics
 
 You can get up and running with Log Analytics in the Microsoft Operations Management Suite (OMS) in minutes. You have two options when choosing how to create an OMS workspace, which is similar to an account:
 
@@ -39,7 +39,7 @@ Here's a look at the process:
 
 You're ready to get started with the Operations Management Suite portal.
 
-You can learn more about setting up your workspace and linking existing Azure accounts to workspaces created with the Operations Management Suite at [Manage access](log-analytics-manage-access.md).
+You can learn more about setting up your workspace and linking existing Azure accounts to workspaces created with the Operations Management Suite at [Manage access to Log Analytics](log-analytics-manage-access.md).
 
 ## Sign up quickly using Microsoft Azure
 
@@ -58,9 +58,9 @@ You can learn more about setting up your workspace and linking existing Azure ac
 
 You're ready to start using the Operations Management Suite portal.
 
-You can learn more about setting up your workspace and linking existing workspaces that you created with the Operations Management Suite to Azure subscriptions at [Manage access](log-analytics-manage-access.md).
+You can learn more about setting up your workspace and linking existing workspaces that you created with the Operations Management Suite to Azure subscriptions at [Manage access to Log Analytics](log-analytics-manage-access.md).
 
-## Getting started with the Operations Management Suite portal
+## Get started with the Operations Management Suite portal
 To choose solutions and connect the servers that you want to manage, click the **Settings** tile and follow the steps in this section.  
 
 ![get started](./media/log-analytics-get-started/oms-onboard-get-started.png)  
@@ -95,26 +95,28 @@ To choose solutions and connect the servers that you want to manage, click the *
 
 You can also connect the agent to System Center Operations Manager 2012 SP1 and later. To do so, select **Connect the agent to System Center Operations Manager**. When you choose that option, you send data to the service without requiring additional hardware or load on your management groups.
 
-You can read more about connecting agents to the Operations Management Suite at [Windows agents](log-analytics-windows-agents.md).
+You can read more about connecting agents to the Operations Management Suite at [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md).
 
 ## Optionally, connect servers using System Center Operations Manager
 
 1. In the Operations Manager console, select **Administration**.
 2. Expand the **Operational Insights** node and select **Operational Insights Connection**.
-  >[AZURE.NOTE] Depending on what Update Rollup of SCOM you are in, you may see a node for *System Center Advisor*, *Operational Insights*, or *Operations Management Suite*.
+
+  >[AZURE.NOTE] Depending on what Update Rollup of SCOM you are using, you may see a node for *System Center Advisor*, *Operational Insights*, or *Operations Management Suite*.
 
 3. Click the **Register to Operational Insights** link towards the top right and follow the instructions.
 4. After completing the registration wizard, click the **Add a Computer/Group** link.
 5. In the **Computer Search** dialog box you can search for computers or groups monitored by Operations Manager. Select computers or groups to onboard them to Log Analytics, click **Add**, and then click **OK**. You can verify that the OMS service is receiving data by going to the **Usage** tile in the Operations Management Suite portal. Data should appear in about 5-10 minutes.
 
-You can read more about connecting Operations Manager to the Operations Management Suite at [Operations Manager agents](log-analytics-om-agents.md).
+You can read more about connecting Operations Manager to the Operations Management Suite at [Connect Operations Manager to  Log Analytics](log-analytics-om-agents.md).
 
 ## Optionally, analyze data from cloud services in Microsoft Azure
 
-With the Operations Management Suite, you can quickly search event and IIS logs for cloud services and virtual machines by enabling diagnostics for Azure Cloud Services. You can also receive additional insights for your Azure virtual machines by installing the Microsoft Monitoring Agent. You can read more about how to configure your Azure environment to use the Operations Management Suite at [Azure storage](log-analytics-azure-storage.md).
+With the Operations Management Suite, you can quickly search event and IIS logs for cloud services and virtual machines by enabling diagnostics for Azure Cloud Services. You can also receive additional insights for your Azure virtual machines by installing the Microsoft Monitoring Agent. You can read more about how to configure your Azure environment to use the Operations Management Suite at [Connect Azure storage to Log Analytics](log-analytics-azure-storage.md).
 
 
 ## Next steps
-- Start using [solutions](log-analytics-add-solutions.md).
-- Get familiar with [log searches](log-analytics-log-searches.md).
-- Use [dashboards](log-analytics-dashboards.md) to save and display your custom searches.
+
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
+- Use [dashboards](log-analytics-dashboards.md) to save and display your own custom searches.

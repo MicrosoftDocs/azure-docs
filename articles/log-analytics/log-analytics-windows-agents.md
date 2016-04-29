@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Windows agents in OMS | Microsoft Azure"
+	pageTitle="Connect Windows computers to Log Analytics | Microsoft Azure"
 	description="This article covers the steps needed for you to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA)."
 	services="log-analytics"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
 
-# Windows agents
+# Connect Windows computers to Log Analytics
 
 This article covers the steps needed for you to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA). You need to install and connect agents for all of the computers that you want to on board to OMS in order for them to send data to OMS and to view and act on that data in the OMS portal.
 
@@ -39,10 +39,10 @@ The following diagram shows the relationship between your Windows computers and 
 Before you install or deploy agents, review the following details to ensure you meet necessary requirements.
 
 - You can only install the OMS MMA on computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later.
-- You'll need an OMS subscription.  For additional information, see [First Look: Get started with OMS](log-analytics-get-started.md).
+- You'll need an OMS subscription.  For additional information, see [Get started with Log Analytics](log-analytics-get-started.md).
 - Each Windows computer must be able to connect to the Internet. This connection can be via a proxy or through the  OMS Log Analytics Forwarder.
-- You can install the OMS MMA on stand-alone computers, servers, and virtual machines. If you want to connect Azure-hosted virtual machines to OMS, see [Connect Microsoft Azure to OMS](log-analytics-azure-storage.md).
-- The agent needs to use TCP port 443 for various resources. For more information, see [Configure proxy and firewall settings (Optional)](log-analytics-proxy-firewall.md).
+- You can install the OMS MMA on stand-alone computers, servers, and virtual machines. If you want to connect Azure-hosted virtual machines to OMS, see [Connect Azure storage to Log Analytics](log-analytics-azure-storage.md).
+- The agent needs to use TCP port 443 for various resources. For more information, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
 
 ## Download the agent setup file from OMS
 1. In the OMS portal, on the **Overview** page, click the **Settings** tile.  Click the **Connected Sources** tab at the top.  
@@ -167,10 +167,12 @@ If you have servers or clients that do not have a connection to the Internet, yo
 
 See [OMS Log Analytics Forwarder](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) to learn more about the forwarder, including set up and configuration.
 
-For information about how to configure your agents to use a proxy server, which in this case is the OMS Forwarder, see [Configure proxy and firewall settings (Optional)](log-analytics-proxy-firewall.md).
+For information about how to configure your agents to use a proxy server, which in this case is the OMS Forwarder, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
 
 ## Optionally, configure proxy and firewall settings
-If you have proxy servers or firewalls in your environment that restrict access to the Internet, you might need to [configure proxy and firewall settings](log-analytics-proxy-firewall.md) to enable your agents to communicate to the OMS service.
+If you have proxy servers or firewalls in your environment that restrict access to the Internet, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) to enable your agents to communicate to the OMS service.
 
 ## Next steps
-- [Connect data sources](log-analytics-data-sources.md)
+
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.

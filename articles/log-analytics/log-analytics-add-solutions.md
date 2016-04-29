@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add solutions | Microsoft Azure"
-	description="Solutions are a collection of logic, visualization and data acquisition rules that address key challenges and solutions are powered by OMS log search to bring you metrics pivoted around a particular problem area."
+	pageTitle="Add Log Analytics solutions from the Solutions Gallery | Microsoft Azure"
+	description="Log Analytics solutions are a collection of logic, visualization and data acquisition rules that provide metrics pivoted around a particular problem area."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -13,16 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
-# Add solutions
+# Add Log Analytics solutions from the Solutions Gallery
 
-Solutions are a collection of **logic**, **visualization** and **data acquisition rules** that address key challenges and solutions are powered by OMS log search to bring you metrics pivoted around a particular problem area. They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing.
+Log Analytics solutions are a collection of **logic**, **visualization** and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists solutions supported Log Analytics and tells you how to add and remove them using the Solutions Gallery.
 
-OMS includes base Log Search functionality, so you don't need to install a solution to enable it. However, you can get additional functionality by adding solutions to it from the Solution Gallery page.
+Solutions allow deeper insights to:
+- help investigate and resolve operational issues faster
+- collect and correlate various types of machine data
+- help you be proactive with activities such as capacity planning, patch status reporting and security auditing.
 
-After you have added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service can take from a few minutes to several hours. After the service processes the data, you can view it in OMS.
+
+>[AZURE.NOTE] OMS includes base Log Search functionality, so you don't need to install a solution to enable it. However, you can get additional functionality by adding solutions to it from the Solution Gallery page.
+
+After you've added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service can take from a few minutes to several hours. After the service processes the data, you can view it in OMS.
 
 You can easily remove a solution when it is no longer needed. When you remove a solution, its data is not sent to OMS, which can reduce the amount of data used by your daily quota, if you have one.
 
@@ -38,25 +44,27 @@ At this time, servers that are connected to OMS using the Microsoft Monitoring A
 - Active Directory Assessment
 - Alert Management (without SCOM alerts)
 
-However, the following solutions are *not* supported with the Microsoft Monitoring Agent and require System Center Operations Manager (SCOM).
+However, the following solutions are *not* supported with the Microsoft Monitoring Agent and require System Center Operations Manager (SCOM) agent.
 
 - Capacity Management
 - Alert Management (including SCOM alerts)
 - Configuration Assessment
 
-Refer to [Operations Manager agents](log-analytics-om-agents.md) for guidance on using these solutions with Operations Manager.
+Refer to [Connecting Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting the SCOM agent to Log Analytics.
 
 ### To add a solution using the Solutions Gallery
 
 1. On the Overview page in OMS, click the **Solutions Gallery** tile.    
     ![solutions gallery](./media/log-analytics-add-solutions/sol-gallery.png)
-2. On the OMS Solutions Gallery page, you can learn about each available solution. Click the name of the solution that you want to add to OMS.
+2. On the OMS Solutions Gallery page, learn about each available solution. Click the name of the solution that you want to add to OMS.
 3. On the page for the solution that you chose, detailed information about the solution is displayed. Click **Add**.
 4. A new tile for the solution that you added appears on the Overview page in OMS and you can start using it after the OMS service processes your data.
-5. You'll need to configure some solutions. For example, you'll need to configure Automation, Azure Site Recovery, and Backup before you can use them.
-    1. For any of those solutions, click its tile on the Overview page.  
+
+## To configure solutions
+1. You'll need to configure some solutions. For example, you'll need to configure Automation, Azure Site Recovery, and Backup before you can use them.
+2. For any of those solutions, click its tile on the Overview page.  
     ![configure solution](./media/log-analytics-add-solutions/configure-additional.png)
-    2.  Then, configure the solution with the necessary information and then click **Save**.  
+3. Then, configure the solution with the necessary information and then click **Save**.  
     ![configure solution](./media/log-analytics-add-solutions/configure.png)
 
 ### To remove a solution using the Solutions Gallery
@@ -99,4 +107,5 @@ The following table shows data collection methods and other details about how da
 
 
 ## Next steps
-- [Search logs](log-analytics-log-searches.md)
+
+- [Search logs](log-analytics-log-searches.md) to view detailed information gathered by solutions.

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create your own Log Analytics dashboards | Microsoft Azure"
-	description="This guide helps you understand how OMS Dashboards can visualize all of your saved log searches, giving you a single lens to view your environment."
+	pageTitle="Create a custom dashboard in Log Analytics | Microsoft Azure"
+	description="This guide helps you understand how Log Analytics Dashboards can visualize all of your saved log searches, giving you a single lens to view your environment."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
-# Create your own Log Analytics dashboards
+# Create a custom dashboard in Log Analytics
 
-This guide helps you understand how OMS Dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
+This guide helps you understand how Log Analytics Dashboards can visualize all of your saved log searches, giving you a single lens to view your environment.
 
 ![Example Dashboard](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
@@ -56,17 +56,10 @@ In the My Dashboard view, simply click on the 'customize' gear at the bottom of 
 ### Tile visualizations#
 There are two kinds of tile visualizations to choose from:
 
-**Bar Chart**
-
-![Bar Chart](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png)
-
-This displays a timeline of your saved log search's results, or a list of results by a field depending on if your log search aggregates results by a field or not.
-
-**Metric**
-
-![Metric](./media/log-analytics-dashboards/oms-dashboards-metric.png)
-
-This displays your total log search result hits as a number in a tile. Metric tiles allow you to set a threshold that will highlight the tile when the threshold is reached.
+|chart type|what it does|
+|---|---|
+|![Bar Chart](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png)|Displays a timeline of your saved log search's results, or a list of results by a field depending on if your log search aggregates results by a field or not.
+|![metric](./media/log-analytics-dashboards/oms-dashboards-metric.png)|Displays your total log search result hits as a number in a tile. Metric tiles allow you to set a threshold that will highlight the tile when the threshold is reached.|
 
 ### Threshold
 You can create a threshold on a tile using the Metric visualization. Select on to create a threshold value on the tile. Choose whether to highlight the tile when the value is over or under the chosen threshold, then set the threshold value below.
@@ -82,4 +75,5 @@ To remove a tile, navigate to the My Dashboard view and click on the **customize
 ![Remove a Tile](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## Next steps
-- Create Alerts
+
+- Create alerts in Log Analytics to generate notifications and to remediate problems.
