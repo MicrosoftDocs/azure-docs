@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Log Analytics and Power BI"
+   pageTitle="Export Log Analytics data to Power BI | Microsoft Azure"
    description="Power BI is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can continuously export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.  This article describes how to configure queries in Log Analytics that automatically export to Power BI at regular intervals."
    services="log-analytics"
    documentationCenter=""
@@ -15,7 +15,7 @@
    ms.date="04/21/2016"
    ms.author="bwren" />
 
-# Log Analytics and Power BI
+# Export Log Analytics data to Power BI
 
 [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can automatically export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.
 
