@@ -32,7 +32,7 @@ Here are the steps to integrate a report.
 
 If you want to run the sample to see how to integrate a report, download the [Integrate a report]() sample on GitHub, and configure three Web.Config settings:
 
-- **AccessKey**: An **AccessKey** is used to generate a JSON Web Token (JWT) which is used to get reports and embed a report. To learn how to get an **AccessKey**, see [Get started with Microsoft Power BI Embedded Preview](https://azure.microsoft.com/documentation/articles/power-bi-embedded-get-started).
+- **AccessKey**: An **AccessKey** is used to generate a JSON Web Token (JWT) which is used to get reports and embed a report. To learn how to get an **AccessKey**, see [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 - **WorkspaceName**: To learn how to get a **WorkspaceName**, see [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 - **WorkspaceId**: To learn how to get a **WorkspaceId**, see [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 
@@ -187,7 +187,7 @@ In this article, you were introduced to the code to integrate a **Power BI** rep
 - [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## See Also
-- [Get started with Microsoft Power BI Embedded Preview](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started)
+- [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 - [Get started with sample](power-bi-embedded-get-started-sample.md)
 - [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
