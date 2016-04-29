@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Learn about different deployment methods for Docker on Azure | Microsoft Azure"
-   description="Article description that will be displayed on landing pages and in most search results"
+   pageTitle="Learn about the Docker VM Extenstion on Azure | Microsoft Azure"
+   description="Learn how to use the Docker VM Extension to quickly and securely deploy a Docker environment in Azure"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,9 +16,10 @@
    ms.date="04/27/2016"
    ms.author="iainfou"/>
 
-# Deployment methods for Docker on Azure
+# Docker VM Extension for 
 
 Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). With Azure, you have the flexibility to deploy Docker in a few different manners depending on your needs:
+
 - To quickly prototype an app, you can [use the Docker Machine Azure driver](./virtual-machines-linux-docker-machine.md) to spin up a Docker host within Azure.
 - For more control over deploying a Docker environment in a reproducible, template-defined manner including Role-Based Access Controls, diagnostics, and multiple Docker hosts on the distro of your choice, the Azure Docker VM Extension with Azure Resource Manager is your best approach.
 - You can [deploy a full Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md) for production-ready, scalable deployments that leverage the additional scheduling and management tools provided by Swarm.
@@ -26,9 +27,9 @@ Docker is a popular container management and imaging platform that allows you to
 This article focuses on using resource manager templates to deploy the Docker VM Extension in a custom, production-ready environment that you define.
 
 
-## Azure Docker VM Extension for template deployments overview
+## Azure Docker VM Extension for template deployments
 
-The Azure Docker VM Extension installs Docker in your Linux host VM and configures it for you, quickly providing a Docker host for you to access that can then re-deployed in a consistent fashion. Using the Azure Docker VM Extension is well suited for a more robust developer or production environments as you have some additional controls over simply using Docker Machine.
+The Azure Docker VM Extension installs Docker in your Linux VM and configures it for you. By using reosurce manager templates, the environment can then be re-deployed in a consistent fashion. Using the Azure Docker VM Extension is well suited for a more robust developer or production environments as you have some additional controls over simply using Docker Machine.
 
 Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment, such as the Docker hosts, storage, Role Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../resource-group-overview.md) and templates to better understand some of the benefits. The advantage of using Resource Manager templates over simply using Docker Machine is that you can define out additional Docker hosts, storage, access controls, etc. and be able to reproduce the deployments as needed in the future. 
 
