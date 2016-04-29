@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="02/06/2016"
+      ms.date="04/29/2016"
       ms.author="hascipio; v-divte" />
 
 # Guide to create a solution template for Azure Marketplace
@@ -60,7 +60,7 @@ You might also be interested in these related articles:
 
 - VM extensions: [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/azure/dn832621.aspx) and [Azure VM Extensions and Features](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-- Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates/) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
+- Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates.md) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
 
 - Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)
 
