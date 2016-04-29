@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Use Azure CDN in Azure App Service" 
 	description="A tutorial that teaches you how to deploy a web app to Azure App Service that serves content from an integrated Azure CDN endpoint" 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
