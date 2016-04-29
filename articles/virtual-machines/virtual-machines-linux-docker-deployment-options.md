@@ -16,7 +16,7 @@
    ms.date="04/27/2016"
    ms.author="iainfou"/>
 
-# Docker VM Extension for 
+# Using the Docker VM Extension to deploy your environment
 
 Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux (and Windows as well). With Azure, you have the flexibility to deploy Docker in a few different manners depending on your needs:
 
