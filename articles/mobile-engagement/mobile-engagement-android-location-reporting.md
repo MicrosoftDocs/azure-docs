@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Azure Mobile Engagement Android Location Reporting"
+	pageTitle="Location Reporting for Android Mobile Engagement"
 	description="Location Reporting for Android for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="RickSaling"
+	authors="piyushjo"
 	manager="erikre"
 	editor="" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="04/20/2016"
-	ms.author="ricksal" />
+	ms.author="piyushjo;ricksal" />
 
 # Location Reporting in Engagement on Android
 

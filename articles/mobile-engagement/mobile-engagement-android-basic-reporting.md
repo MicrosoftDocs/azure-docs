@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Mobile Engagement Android SDK Integration"
+	pageTitle="Advanced Reporting Options for Android Azure Mobile Engagement"
 	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"

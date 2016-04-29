@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Advanced Configuration for Android Mobile Engagement"
-	description="Advanced configuration procedures for Android for Azure Mobile Engagement"
+	description="Advanced configuration options for Android for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -21,17 +21,45 @@
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-logging.md)
 
-This procedure describes how to add logging to your Engagement Android application.
+This procedure describes how to configure various advanced configuration options for Engagement Android apps.
 
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
-## Advanced configuration (in AndroidManifest.xml)
+## Permission Requirements
+A number of options require specific permissions, all of which are listed here for reference, as well as in-line in the specific feature. Add these permissions to the AndroidManifest.xml of your project immediately before or after the `<application>` tag.
+
+
+### Basic reporting
+These permissions are required for basic reporting fucntionality.
 
 ### Wake locks
 
 If you want to be sure that statistics are sent in real time when using Wifi or when the screen is off, add the following optional permission:
 
 			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+### Background reporting
+
+By default, real time location reporting is only active when the application runs in foreground (i.e. during a session). To enable reporting also in the background, permissions are required.
+
+			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+And starting with Android M, [some permissions are managed at run time](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
+
+### Real-time location reporting
+You must ensure that this permission is present:
+
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
+
+### GPS Based Reporting
+You must ensure that this permission is present:
+
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+
+## Manifest file configuration options
 
 ### Crash report
 
