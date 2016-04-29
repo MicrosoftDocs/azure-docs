@@ -35,9 +35,9 @@ Using Azure Resource Manager, you can create and deploy templates that define th
 
 ## Deploy a template with the Docker VM Extension:
 
-We'll use an existing quick-start template to show how to deploy an Ubuntu VM which has the Docker VM Extension installed. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
+Let's use an existing quick-start template to show how to deploy an Ubuntu VM which has the Docker VM Extension installed. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 
-We deploy our template using the Azure CLI, specifying a name for our new resource group (here `myDockerResourceGroup`) along with the template URI:
+Deploy the template using the Azure CLI, specifying a name for our new resource group (here `myDockerResourceGroup`) along with the template URI:
 
 ```
 azure group create --name myDockerResourceGroup --location "West US" \
@@ -103,7 +103,7 @@ Open up a web browser and enter the DNS name you specified during deployment to 
 ![Running ngnix container](./media/virtual-machines-docker-deployment-options/nginxrunning.png)
 
 ## Docker VM Extension JSON template reference
-In this example, we used a quick-start template. You can use your own existing Resource Manager templates to install the Docker VM Extension to VMs defined in your template by adding the following to your JSON definition file:
+This example used a quick-start template. You can use your own existing Resource Manager templates to install the Docker VM Extension to VMs defined in your template by adding the following to your JSON definition file:
 
 ```
 {
