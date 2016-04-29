@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
- 	ms.date="04/18/2016"
+ 	ms.date="04/26/2016"
 	ms.author="juliako;anilmur"/>
 
 #Azure Media Services Overview and Common Scenarios
@@ -215,13 +215,6 @@ You can also scale your Media Services account by adding storage accounts to it.
 ##Support
 
 [Azure Support](https://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
-
-##Patterns & practices guidance
-
-[Patterns and practices guidance](https://wamsg.codeplex.com/)
-[Online documentation](https://msdn.microsoft.com/library/dn735912.aspx)
-[Downloadable eBook](https://www.microsoft.com/download/details.aspx?id=42629)
-
 
 ##Provide feedback
 
