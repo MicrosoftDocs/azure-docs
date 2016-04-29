@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure classic portal keyboard shortcuts | Microsoft Azure"
-   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure classic portal. Individual services might have their own specialized keyboard shortcuts."
-   services="cloud-services"
+   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
+   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
+   services="azure-portal"
    documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
+   authors="flanakin"
+   manager="lwelicki"
    editor=""/>
 
 <tags
@@ -14,9 +14,9 @@
    ms.tgt_pltfrm="NA"
    ms.workload="na"
    ms.date="02/07/2016"
-   ms.author="curtand"/>
+   ms.author="micflan"/>
 
-# Azure classic portal keyboard shortcuts
+# Azure portal keyboard shortcuts
 
 ## Open hubs
 
@@ -45,7 +45,3 @@
 | . | Move focus to navigation bar |
 | ? | View keyboard shortcuts |
 
-
-## Next steps
-
-Get to know the Azure classic portal better: http://azure.microsoft.com.
