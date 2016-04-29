@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Backup - Backup of Azure IaaS VMs with encrypted disks | Microsoft Azure"
    description="Learn how Azure Backup handles data encrypted using BitLocker or dmcrypt during IaaS VM backup. This article prepares you for the differences in backup and restore experiences when dealing with encrypted disks."
    services="backup"
@@ -46,8 +46,9 @@ There are many parts to this solution that need to be configured and managed cor
 
 ### Supported Scenarios
 
-|  | Backup Vault | Recovery Services Vault  
-| -------- | ------------- | ------- |
+
+| &nbsp; | Backup Vault | Recovery Services Vault |
+| :-- | :-- | :-- |
 | Azure IaaS V1 VMs | Yes | No |
 | Azure IaaS V2 VMs | N/A | No |
 
