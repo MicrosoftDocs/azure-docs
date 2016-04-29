@@ -61,7 +61,7 @@ Moving a database can take time. Track a move status using the [Get-AzureRmSqlDa
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Get usage data for a pool
+## Get resource usage data for a pool
 
 Metrics that can be retrieved as a percentage of the resource pool limit:   
 
