@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure App Service and ASP.NET | Microsoft Azure"
+	pageTitle="Deploy an ASP.NET app to Azure App Service using Visual Studio | Microsoft Azure"
 	description="Learn how to deploy an ASP.NET web project to a new web app in Azure App Service, using Visual Studio."
 	services="app-service\web"
 	documentationCenter=".net"
@@ -16,7 +16,7 @@
 	ms.date="04/22/2016"
 	ms.author="tdykstra"/>
 
-# Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio
+# Deploy an ASP.NET web app to Azure App Service, using Visual Studio
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -35,6 +35,8 @@ The diagram illustrates what you do in the tutorial.
 ![Visual Studio create and deploy diagram](./media/web-sites-dotnet-get-started/Create_App.png)
 
 At the end of the tutorial, a [Troubleshooting](#troubleshooting) section gives ideas on what to do if something doesn't work, and a [Next steps](#next-steps) section provides links to other tutorials that go into more depth about how to use Azure App Service.
+
+As this is a getting-started tutorial, the web project it shows how to deploy is a simple one that doesn't use a database and doesn't do authentication or authorization. For links to more advanced deployment topics, see [How to deploy an Azure web app](web-sites-deploy.md).
 
 ## Prerequisites
 
