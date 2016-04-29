@@ -201,6 +201,11 @@ Login and verify the newly created user.
 
 ```bash
 cat /etc/group
+```
+
+Output
+
+```bash
 root:x:0:
 <snip />
 sudo:x:27:exampleUser
