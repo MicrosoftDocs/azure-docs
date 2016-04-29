@@ -37,7 +37,7 @@ To learn about this, see [Performance scalability overview][].
 
 <a name="scale-performance-bk"></a>
 
-## 1. Scale performance
+## Scale performance
 
 [AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
@@ -56,7 +56,7 @@ Content-Type: application/json; charset=UTF-8
 
 <a name="pause-compute-bk"></a>
 
-## 2. Pause compute
+## Pause compute
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -68,7 +68,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 <a name="resume-compute-bk"></a>
 
-## 3. Resume compute
+## Resume compute
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
