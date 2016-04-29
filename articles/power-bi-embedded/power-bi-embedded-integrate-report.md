@@ -17,11 +17,11 @@
    ms.author="derrickv"/>
 
 # Integrate a report into your app
-This article shows you how to use the **Power BI Embedded** REST API, app tokens, and some JavaScript to integrate a report into your app.
+This article shows you how to use the **Power BI Embedded** REST API, app tokens, and some JavaScript to integrate, or embed, a report into your app.
 
-In [Get started with Microsoft Power BI Embedded Preview](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started), you learn how to configure a **Workspace Collection** to hold one or more **Workspaces** for your report content. Then, in [Get started with Microsoft Power BI Embedded sample](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started-sample/) you import a report into a **Workspace**.
+In [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md), you learn how to configure a **Workspace Collection** to hold one or more **Workspaces** for your report content. Then, in [Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md) you import a report into a **Workspace**.
 
-This article shows you the steps to integrate a report into your app. To follow along with this article, you can download the [Integrate a report]() sample on GitHub. This sample is a simple ASP.NET web form app intended to illustrate essential C# code you need to integrate a report. For a more advanced sample that uses the Model-View-Controller (MVC) design pattern to integrate a report, see the [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493) on GitHub.
+This article shows you the steps to embed a report into your app. To follow along with this article, you can download the [Integrate a report]() sample on GitHub. This sample is a simple ASP.NET web form app intended to illustrate essential C# and JavaScript code you need to integrate a report. For a more advanced sample that uses the Model-View-Controller (MVC) design pattern to integrate a report, see the [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493) on GitHub.
 
 Let's get started describing how to integrate a **Power BI Embedded** report into your app.
 
@@ -30,20 +30,18 @@ Here are the steps to integrate a report.
 - Step 1: [Get a report in a workspace](#GetReport). In this step, you use an app token flow to get an access token to call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation. Once you get a report from the **Get Reports** list, you embed the report into an app with an **IFrame** element.
 - Step 2: [Embed a report into an app](#EmbedReport). In this step, you use an embed token for a report, and some JavaScript to integrate, or embed, a report into a web app.
 
-If you want to run the sample to see how to integrate a report, download the [Integrate a report]() sample on GitHub.
+If you want to run the sample to see how to integrate a report, download the [Integrate a report]() sample on GitHub, and configure three Web.Config settings:
 
-Before running the [Integrate a report]() sample, you need to configure three settings in Web.Config:
+- **AccessKey**: An **AccessKey** is used to generate a JSON Web Token (JWT) which is used to get reports and embed a report. To learn how to get an **AccessKey**, see [Get started with Microsoft Power BI Embedded Preview](https://azure.microsoft.com/documentation/articles/power-bi-embedded-get-started).
+- **WorkspaceName**: To learn how to get a **WorkspaceName**, see [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
+- **WorkspaceId**: To learn how to get a **WorkspaceId**, see [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 
-- **AccessKey**: An **AccessKey** is used to generate a JSON Web Token (JWT) which is used to get reports and embed a report. To learn how to get an **AccessKey**, see [Get started with Microsoft Power BI Embedded Preview](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started).
-- **WorkspaceName**: To learn how to get a **WorkspaceName**, see [Get started with Microsoft Power BI Embedded Preview](https://azure.microsoft.com/documentation/articles/power-bi-embedded-get-started).
-- **WorkspaceId**: To learn how to get a **WorkspaceId**, see [Get started with Microsoft Power BI Embedded Preview](https://azure.microsoft.com/documentation/articles/power-bi-embedded-get-started).
-
-The next sections shows you the code you need to integrate a report.
+The next sections shows you code you need to integrate a report.
 
 <a name="GetReport"/>
 ## Get a report in a workspace
 
-To integrate a report into an app, you need a report **ID** and **embedUrl**. To get a report **ID** and **embedUrl**, you call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, and choose a report from the JSON list. In the [Embed a report into an app](#) you use a report **ID** and **embedUrl** to embed the report into your app.
+To integrate a report into an app, you need a report **ID** and **embedUrl**. To get a report **ID** and **embedUrl**, you call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, and choose a report from the JSON list. In the [Embed a report into an app](#EmbedReport) you use a report **ID** and **embedUrl** to embed the report into your app.
 
 ### Get reports JSON response
 ```
@@ -59,7 +57,7 @@ To integrate a report into an app, you need a report **ID** and **embedUrl**. To
 
 ```
 
-To call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, you use an app token. To learn more about the app token flow, see [About app token flow in Power BI Embedded](power-bi-embedded-app-token-flow.md). The following code describes how to get a JSON list of reports.
+To call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, you use an app token. To learn more about the app token flow, see [About app token flow in Power BI Embedded](power-bi-embedded-app-token-flow.md). The following code describes how to get a JSON list of reports. To embed a report, see [Embed a report into an app](#EmbedReport).
 
 ```
 protected void getReportsButton_Click(object sender, EventArgs e)
@@ -110,15 +108,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 }
 ```
 
-
-
 <a name="EmbedReport"/>
 ## Embed a report into an app
 
+Before you can embed a report into your app, you need an embed token for a report. This token is similar to an app token used to call **Power BI Embedded** REST operations, but is generated for a report resource rather than a REST resource. The following is the code to get an app token for a report. To use the report app token, see [Embed report into your app](#EmbedReportJS).
 
 <a name="EmbedReportToken"/>
 ### Get an app token for a report
-
 
 ```
 protected void getReportAppTokenButton_Click(object sender, EventArgs e)
@@ -135,6 +131,13 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
     reportAppTokenTextbox.Text = jwt;
 }
 ```
+
+<a name="EmbedReportJS"/>
+### Embed report into your app
+
+To embed a **Power BI** report into you app, you use an IFrame and some JavaScript code. The following is an example IFrame, and JavaScript code to embed a report. To see all of the sample code to embed a report, see [Integrate a report]() sample on GitHub.
+
+![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
 
 
 ```
@@ -178,10 +181,15 @@ function postActionLoadReport() {
 }
 ```
 
+In this article, you were introduced to the code to integrate a **Power BI** report into your app. To quickly get started integrating a report into an app, download these samples on GitHub:
+
+- [Integrate a report]()
+- [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
+
 ## See Also
 - [Get started with Microsoft Power BI Embedded Preview](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started)
 - [Get started with sample](power-bi-embedded-get-started-sample.md)
 - [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityTokenHandler]
-(https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+- [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+- [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx)
