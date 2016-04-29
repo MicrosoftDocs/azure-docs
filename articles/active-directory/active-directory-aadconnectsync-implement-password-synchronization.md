@@ -18,8 +18,7 @@
 
 # Implementing password synchronization with Azure AD Connect sync
 
-This topic provides you with the information you need to enable password synchronization provided by 
-Azure Active Directory Connect synchronization services (Azure AD Connect sync) in your environment.
+This topic provides you with the information you need to synchronize your user passwords from an on-premises Active Directory (AD) to a cloud-based Azure Active Directory (Azure AD).
 
 
 ## What is password synchronization
@@ -31,13 +30,16 @@ This feature enables you to sign on to Azure Active Directory services (such as 
 
 ![What is Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
 
-Enabling password synchronization helps you to improve the productivity of your users and to reduce your help desk related costs by reducing the number of passwords you need to maintain. 
+By reducing the number of passwords your users need to maintain to just one, password synchronization helps you to:
 
-Also, if you select to use [**Federation with AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), then you can optionally enable password sync as a backup in case your AD FS infrastructure fails. 
+- Improve the productivity of your users 
+- Reduce your help desk related costs  
+
+Also, if you select to use [**Federation with AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), you can optionally enable password synchronization as a backup in case your AD FS infrastructure fails. 
 
 Password synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. To use password synchronization in your environment, you need to:
 
-- Install Azure AD Connect sync 
+- Install Azure AD Connect  
 
 - Configure directory synchronization between your on-premises AD and your Azure Active Directory
 
@@ -52,7 +54,7 @@ For more details, see [Integrating your on-premises identities with Azure Active
 
 ## How password synchronization works
 
-The Active Directory domain service stores passwords in form of a hash value representation of the actual user password. A hash value is a result of a one way mathematical function (the "*hashing algorithm*"). There is no method to revert the result of a one way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
+The Active Directory domain service stores passwords in form of a hash value representation of the actual user password. A hash value is a result of a one way mathematical function (the "*hashing algorithm*") called MD5. There is no method to revert the result of a one way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
 
 To synchronize your password, Azure AD Connect sync extracts your password hash from the on-premises Active Directory. Extra security processing is applied to the password hash before it is synchronized to the Azure Active Directory authentication service. Passwords are synchronized on a per-user basis and in chronological order.
 
@@ -61,7 +63,7 @@ The actual data flow of the password synchronization process is similar to the s
 The first time, you enable the password synchronization feature, it performs an initial synchronization of the passwords of all in-scope users. You cannot explicitly define a subset of user passwords you want to synchronize.
 
 When you change an on-premises password, the updated password is synchronized, most often in a matter of minutes.
-The password synchronization feature automatically retries failed user password syncs. If an error occurs during an attempt to synchronize a password, an error is logged in your event viewer.
+The password synchronization feature automatically retries failed synchronization attempts. If an error occurs during an attempt to synchronize a password, an error is logged in your event viewer.
 
 The synchronization of a password has no impact on the currently logged on user.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are logged in to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
