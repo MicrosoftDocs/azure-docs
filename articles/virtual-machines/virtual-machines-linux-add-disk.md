@@ -15,7 +15,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.date="03/01/2016"
+	ms.date="04/29/2016"
 	ms.author="rclaus"/>
 
 # Add a disk to a Linux VM
@@ -44,7 +44,7 @@ Attaching a new disk is quick. Just type `azure vm disk attach-new <myuniquegrou
 
 ## Connect to the Linux VM to mount the new disk
 
-> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. 
+> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access.
 
 You will need to SSH into your Azure VM in order to partition, format, and mount your new disk so your Linux VM can use it. If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<FQDNofAzureVM> -p <the ssh port>`, and looks like the following:
 

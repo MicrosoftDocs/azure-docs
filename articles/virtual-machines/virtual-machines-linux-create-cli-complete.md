@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/28/2016"
+   ms.date="04/29/2016"
    ms.author="iainfou"/>
 
 # Create a Linux VM from the ground up using the Azure CLI
@@ -75,7 +75,7 @@ ahmet@fedora$ azure network lb show -g TestRG -n TestLB --json | jq '.'
 ahmet@fedora$ ahmet@fedora$ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
     -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
-    
+
 # Create the second NIC
 ahmet@fedora$ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd
     -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
@@ -118,7 +118,7 @@ ahmet@fedora$ azure vm create \
     --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
-    
+
 # Create the second Linux VM
 ahmet@fedora$ azure vm create \            
     --resource-group TestRG \
@@ -480,7 +480,7 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Our load balancer is pretty empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for our front-end, and one for our back-end. The front-end IP pool is what we'll have publicly visible and where we'll assign the PIP we created earlier. The back-end pool we'll then use for our VMs to connect to in order for the traffic to flow through the load balancer to them. 
+Our load balancer is pretty empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for our front-end, and one for our back-end. The front-end IP pool is what we'll have publicly visible and where we'll assign the PIP we created earlier. The back-end pool we'll then use for our VMs to connect to in order for the traffic to flow through the load balancer to them.
 
 First, let's create our front-end IP pool:
 

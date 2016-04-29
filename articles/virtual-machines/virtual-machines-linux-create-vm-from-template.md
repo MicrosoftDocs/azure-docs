@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/27/2016"
+	ms.date="04/29/2016"
 	ms.author="v-livech"/>
 
 # Create a Linux VM using an Azure template
