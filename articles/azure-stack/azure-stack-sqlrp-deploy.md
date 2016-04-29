@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
+	ms.date="04/27/2016"
 	ms.author="dumagar"/>
 
 # Installing SQL Server Resource Provider adaptor for Azure Stack
@@ -57,7 +57,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 3. In Internet Explorer, click the Tools (gear) icon, click **Internet Options**, and then click the **Privacy** tab.
 
-4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again. 
+4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again.
 
 5. Close Internet Explorer and restart PowerShell ISE as an administrator.
 
@@ -79,7 +79,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 2. Open Internet Information Services (IIS) Manager by typing *InetMgr* in the **Run** command box.
 
-3. Expand **PORTALVM** in the left pane and then double-click **Server Certificates** in the center pane. 
+3. Expand **PORTALVM** in the left pane and then double-click **Server Certificates** in the center pane.
 
 4. In the **Actions** pane, click **Create Domain Certificate**.
 
@@ -145,7 +145,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 14. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
-15. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**. 
+15. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**.
 
 16. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
@@ -167,7 +167,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 7. Open DNS Manager by running **DNSmgmt.msc** from the **Run** command box.
 
-8. Expand **ADVM**, expand **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host (A or AAAA)**. 
+8. Expand **ADVM**, expand **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host (A or AAAA)**.
 
 9. In the **New Host** dialog box, type *sqlrp* in the **Name** box. This will set the new host URL to **sqlrp.azurestack.local**.
 
@@ -195,4 +195,3 @@ You’ll need a wildcard certificate to secure communications between the resour
 ## Next Steps
 
 You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [Web Apps resource provider](azure-stack-webapps-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
-

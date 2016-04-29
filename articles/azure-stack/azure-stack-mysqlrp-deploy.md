@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="04/27/2016"
 	ms.author="dumagar"/>
 
 # Add a MySQL resource provider to Azure Stack
@@ -70,4 +70,3 @@ Now that you have prepared the Azure Stack POC with the necessary certificates a
 ## Next steps
 
 You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [Web Apps resource provider](azure-stack-webapps-deploy.md).
-

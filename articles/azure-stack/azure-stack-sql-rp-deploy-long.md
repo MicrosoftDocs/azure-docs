@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Deploy the SQL Server resource provider on Azure Stack"
+	pageTitle="Deploy the SQL Server resource provider on Azure Stack | Microsoft Azure"
 	description="Detailed steps to deploy a SQL Server Resource Provider Adapter on Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
 	authors="Dumagar"
-	manager="bradleyb"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -36,7 +36,7 @@ If you downloaded before 2/23/2016, you need to create a Windows Server 2012 R2 
 
 ### Turn off IE enhanced security and enable cookies
 
-To deploy a resource provider, you run the PowerShell Integrated Scripting Environment (ISE) as an administrator, so you need to allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user signins.
+To deploy a resource provider, you run the PowerShell Integrated Scripting Environment (ISE) as an administrator, so you need to allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user sign-ins.
 
 **To turn off IE enhanced security:**
 

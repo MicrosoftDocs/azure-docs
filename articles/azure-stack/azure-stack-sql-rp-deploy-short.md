@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Using SQL databases on Azure Stack"
+	pageTitle="Using SQL databases on Azure Stack | Microsoft Azure"
 	description="Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server Resource Provider Adapter."
 	services="azure-stack"
 	documentationCenter=""
 	authors="Dumagar"
-	manager="bradleyb"
+	manager="byronr"
 	editor=""/>
 
 <tags
