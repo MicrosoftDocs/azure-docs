@@ -931,7 +931,8 @@ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name T
 
 Output
 
-```bash /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
+```bash 
+/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 info:    Executing command network nic create
 + Looking up the subnet "FrontEnd"
 + Looking up the network interface "LB-NIC1"
@@ -1020,7 +1021,7 @@ Output
 
 Now we create your network security group (NSG) and the inbound rules that govern access to the NIC.
 
-```
+```bash
 azure network nsg create TestRG TestNSG westeurope
 ```
 
