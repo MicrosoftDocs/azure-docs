@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure SQL Database Performance" 
+   pageTitle="Azure SQL Database Performance Insight | Microsoft Azure" 
    description="The Azure SQL Database provides performance tools to help you identify areas that can improve current query performance." 
    services="sql-database" 
    documentationCenter="" 
@@ -16,7 +16,7 @@
    ms.date="04/28/2016"
    ms.author="sstein"/>
 
-# SQL Database Performance
+# SQL Database Performance Insight
 
 Azure SQL Database provides performance tools to help you identify and improve the performance of your databases by providing intelligent tuning actions and recommendations. 
 
