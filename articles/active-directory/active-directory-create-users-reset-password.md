@@ -25,3 +25,12 @@ Whether you're responding to a user requesting a password reset after a lockout,
   3. In the command bar, select **Reset Password**.
   4. In the reset password dialog, click **reset**.
   5. Select the check mark to finish resetting the password.
+
+
+
+## What's next
+
+- [Add new users to Azure Active Directory](active-directory-create-users.md)
+- [Administering Azure AD](active-directory-administer.md)
+- [Manage passwords in Azure AD](active-directory-manage-passwords.md)
+- [Manage groups in Azure AD](active-directory-manage-groups.md)

@@ -82,7 +82,3 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 - [Administering Azure AD](active-directory-administer.md)
 - [Manage passwords in Azure AD](active-directory-manage-passwords.md)
 - [Manage groups in Azure AD](active-directory-manage-groups.md)
-
-<!--Image references-->
-[1]: ./media/active-directory-create-users/RBACDirConfigTab.png
-[2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
