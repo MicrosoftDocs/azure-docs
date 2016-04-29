@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="get-started-article"
+   ms.topic=""
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="04/29/2016"
@@ -34,7 +34,7 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 * [Documentation](https://azure.microsoft.com/documentation/services/batch/)
 
-* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/,), and [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API reference
+* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), and [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API reference
 
 * [Batch management .NET library](https://msdn.microsoft.com/library/mt463120.aspx) reference
 
