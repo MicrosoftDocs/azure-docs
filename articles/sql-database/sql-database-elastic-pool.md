@@ -22,8 +22,6 @@
 
 Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
-For API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
-
 ## How it works
 
 A common SaaS application pattern is the single-tenant database model: each customer is given a database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic database pools solve this problem by ensuring that databases get the performance resources they need, when they need it, while  providing a simple resource allocation mechanism within a predictable budget.
@@ -60,10 +58,10 @@ Databases that are great candidates for elastic database pools typically have pe
 | Property | Description |
 | :-- | :-- |
 | Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
-| eDtus per pool | The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. For every eDTU that you allocate to the pool, you get a fixed amount of database storage, and vice versa. |
+| eDTUs per pool | The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
 | Max storage per pool (GB) | The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
-| Max number of databases per pool | The maximum number of databases per pool. |
-| Max concurrent workers per pool | The maximum number of concurrent worker threads available for SQL processes in the pool. |
+| Max number of databases per pool | The maximum number of databases allowed per pool. |
+| Max concurrent workers per pool | The maximum number of concurrent workers (also referred to as requests) available for all databases in the pool. |
 | Max concurrent logins per pool | The maximum number of concurrent logins for all databases in the pool. |
 | Max concurrent sessions per pool | The maximum number of sessions available for all databases in the pool. |
 
@@ -72,9 +70,9 @@ Databases that are great candidates for elastic database pools typically have pe
 
 | Property | Description |
 | :-- | :-- |
-| Max eDTUs per database | The maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The **max eDTUs** is not a resource guarantee for a database, it is an eDTU ceiling that can be hit if available. This is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle spikes to the database's peak utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 50 eDTUs and only 20% of the 100 databases in the group simultaneously spike to the peak. If the eDTU cap per database is set to 50 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the **eDTUs per pool** to 1,000. |
-| Min eDTUs per database | The minimum number of eDTUs that any database in the pool is guaranteed; this applies to all databases in the pool. The min eDTUs may be set to 0.  This property is usually set to anywhere between 0 and the average historical eDTU utilization per database. Note that the product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool. |
-| Max storage per database (GB) | The maximum storage for a database in a pool. |
+| Max eDTUs per database | The maximum number of eDTUs that any database in the pool may use if available based on utilization by other databases in the pool.  Max eDTU per database is not a resource guarantee for a database.  This is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time.  If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
+| Min eDTUs per database | The minimum number of eDTUs that any database in the pool is guaranteed.  This is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is usually set to anywhere between 0 and the average  eDTU utilization per database. Note that the product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool.  For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
+| Max storage per database (GB) | The maximum storage for a database in a pool. Elastic databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database.|
 
 
 ## Elastic database jobs
@@ -85,7 +83,7 @@ For more information about other tools, see the [Elastic database tools learning
 
 ## Business continuity features for databases in a pool
 
-Currently in the preview, elastic databases support most [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
+Elastic databases support most [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
 
 
 ### Point in time restore
