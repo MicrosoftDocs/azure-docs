@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="04/29/2016"
    ms.author="bruceper" />
 
 # Azure Key Vault Developer's Guide
