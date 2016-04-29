@@ -115,13 +115,15 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-siz
 
 * [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
+* [Virtual Machine Scale Sets](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)
+
 * [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
 
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
 
 ## Architecture blueprints
 
-* [HPC and data orchestration using Azure Batch and Azure Data Factory](http://go.mic rosoft.com/fwlink/?linkid=717686) (PDF) and [article](../data-factory/data-factory-data-processing-using-batch.md)
+* [HPC and data orchestration using Azure Batch and Azure Data Factory](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) and [article](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Industry solutions
 
@@ -148,8 +150,6 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-siz
 * [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
 
 * [UberCloud](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
-
-
 
 
 
