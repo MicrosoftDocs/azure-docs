@@ -24,9 +24,9 @@ This article shows how to attach a persistent disk to your VM so that you can pr
 
 ## Quick Commands
 
-```
-# In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
+In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
+```bash
 azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
 ```
 
@@ -56,6 +56,11 @@ You will need to SSH into your Azure VM in order to partition, format, and mount
 
 ```bash
 ssh ops@myuni-westu-1432328437727-pip.westus.cloudapp.azure.com -p 22
+```
+
+Output
+
+```bash
 The authenticity of host 'myuni-westu-1432328437727-pip.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
 ECDSA key fingerprint is bx:xx:xx:xx:xx:xx:xx:xx:xx:x:x:x:x:x:x:xx.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -93,6 +98,11 @@ Now that you're connected to your VM, you're ready to attach a disk.  First find
 
 ```bash
 dmesg | grep SCSI
+```
+
+Output
+
+```bash
 [    0.294784] SCSI subsystem initialized
 [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
 [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
