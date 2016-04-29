@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="03/02/2016"
+   ms.date="04/29/2016"
    ms.author="coreyp"/>
 
 # Azure Automation DSC Overview #
@@ -98,8 +98,6 @@ The following image illustrates detailed step-by-step process in the life cycle 
 ![DSC Architecture](./media/automation-dsc-overview/dsc-architecture.png)     
 
 ##Gotchas / Known Issues:##
-
-- When upgrading to WMF 5 RTM, if the machine is already registered as a node in Azure Automation DSC, please unregister it from Azure Automation DSC and reregister it after the WMF 5 RTM upgrade.
 
 - Azure Automation DSC does not support partial or composite DSC configurations at this time. However, DSC composite resources can be imported and used just like in local PowerShell, enabling configuration reuse.
 
