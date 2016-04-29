@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/28/2016"
+   ms.date="04/29/2016"
    ms.author="sonyama;barbkess"/>
 
 # SQL Data Warehouse Best Practices
