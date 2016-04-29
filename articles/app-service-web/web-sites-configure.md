@@ -38,7 +38,7 @@ The **Application settings** blade has settings grouped under several categories
 **Framework versions**. Set these options if your app uses any these frameworks: 
 
 - **.NET Framework**: Set the .NET framework version. 
-- **PHP**: Set the PHP version, or **OFF **to disable PHP. 
+- **PHP**: Set the PHP version, or **OFF** to disable PHP. 
 - **Java**: Select the Java version or **OFF** to disable Java. Use the **Web Container** option to choose between Tomcat and Jetty versions.
 - **Python**: Select the Python version, or **OFF** to disable Python.
 
