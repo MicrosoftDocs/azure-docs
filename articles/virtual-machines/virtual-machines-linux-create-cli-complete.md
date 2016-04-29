@@ -296,7 +296,9 @@ info:    group show command OK
 Let's use the [jq](https://stedolan.github.io/jq/) tool (you can use **jsawk** or any language library you prefer to parse the JSON) along with the `--json` Azure CLI option to examine our resource group using the `azure group show` command.
 
 ```bash
-azure group show TestRG --json | jq '.'                                                                                        ```
+azure group show TestRG --json | jq                                                                                      
+```
+
 
 Output
 
@@ -1011,7 +1013,7 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
 Output
 
 ```bash
- "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" -e "/subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
+ /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
 ```
 
 ## Create your Network Security Group and rules
@@ -1168,7 +1170,7 @@ azure vm create \
     --image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
     --ssh-publickey-file ~/.ssh/id_rsa.pub \
     --admin-username ops
- ```
+```
 
 And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you have your running Ubuntu VMs behind a load balancer in Azure that you can only log into with the SSH key pair that you have; passwords are disabled. You can install nginx or httpd and deploy a web app and see the traffic flow through the load balancer to both of the VMs.
 
