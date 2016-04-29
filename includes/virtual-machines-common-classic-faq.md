@@ -13,6 +13,13 @@ All subscribers can run server software on an Azure virtual machine. You can run
 
 For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
+## What is happening with deprecation of Affinity Groups in the classic portal?
+
+Affinity Groups is a legacy concept which was originally provided to improve VM-to-VM network performance in the early Azure network designs and to support the initial release of virtual networks (VNets) which were limited to a small set of hardware in a region. The current Azure network within a region is designed such that affinity groups are no longer required. VNets are also at a regional scope, so an affinity group is no longer required when using a VNet. Due to these improvements we no longer recommend that customers use affinity groups because they can be limiting in some scenarios. Using affinity groups will unnecessarily associated your VMs to specific hardware which will limit the choice of VM sizes available to you. It may also lead to capacity related errors when attempting to add new VMs if the specific hardware associated with the affinity group is near capacity.
+
+Affinity Group features are already deprecated in the Resource Manager deployment model and in the portal. We are deprecating the support for creating affinity groups and creating storage resources pinned to an affinity group, from classic portal. Existing cloud services which are using an affinity group do not need to be modified. New cloud services should not use affinity groups unless recommended by an Azure support professional.
+
+
 ## How much storage can I use with a virtual machine?
 
 Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).
