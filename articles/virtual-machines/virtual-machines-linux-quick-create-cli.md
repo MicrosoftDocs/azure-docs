@@ -25,7 +25,7 @@ This article shows how to quickly deploy a Linux Virtual Machine on Azure using 
 
 ```
 # One command to deploy the VM and attach your SSH key
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
 ## Deploy the Linux VM
@@ -38,7 +38,7 @@ In the following command walk through, please replace the prompts with values fr
 
 ```bash
 # Follow the prompts and enter your own names
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
 Virtual machine name: exampleVMname
@@ -130,7 +130,7 @@ info:    vm quick-create command OK
 You can now SSH into your VM on the default SSH port 22 and the Public IP address (or the fully qualified domain name -- FQDN) listed in the output above.
 
 ```
-ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 ```
 
 ## Next Steps

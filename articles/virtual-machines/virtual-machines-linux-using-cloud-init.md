@@ -76,7 +76,7 @@ To launch a cloud-init script when creating a VM in Azure, specify the cloud-ini
 NOTE: Although this articles discusses using the `--custom-data` switch for cloud-init files, you can also pass arbitrary code or files using this switch. If the Linux VM already knows what to do with such files, they execute automatically.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -101,7 +101,7 @@ hostname: exampleServerName
 During the initial startup of the VM this cloud-init script sets the hostname to `exampleServerName`.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -115,9 +115,9 @@ bill@slackware$ azure vm create \
 Login and verify the hostname of the new VM.
 
 ```bash
-bill@slackware$ ssh exampleVM
-bill@ubuntu$ hostname
-bill@ubuntu$ exampleServerName
+ssh exampleVM
+hostname
+exampleServerName
 ```
 
 ### Creating a cloud-init script to update Linux
@@ -134,7 +134,7 @@ apt_upgrade: true
 After the new Linux VM has booted it will immediately update all the installed packages via `apt-get`.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -148,8 +148,8 @@ bill@slackware$ azure vm create \
 Login and verify all packages are updated.
 
 ```bash
-bill@slackware$ ssh exampleVM
-bill@ubuntu$ sudo apt-get upgrade
+ssh exampleVM
+sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -180,7 +180,7 @@ AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@s
 After the new Linux VM has booted it will create the new user and add it to the sudo group.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -194,7 +194,7 @@ bill@slackware$ azure vm create \
 Login and verify the newly created user.
 
 ```bash
-bill@slackware$ cat /etc/group
+cat /etc/group
 root:x:0:
 <snip />
 sudo:x:27:exampleUser

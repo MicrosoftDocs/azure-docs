@@ -27,7 +27,7 @@ This article shows how to attach a persistent disk to your VM so that you can pr
 ```
 # In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
-rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
+azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>
 ```
 
 ## Attach a disk
