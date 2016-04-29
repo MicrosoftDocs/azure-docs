@@ -61,7 +61,7 @@ Check to see if your connectivity provider is listed there. Make a note of the f
 
 - BandwidthsOffered
 
-You are now ready to create an ExpressRoute circuit. 		
+You're now ready to create an ExpressRoute circuit. 		
 
 ### 3. Create an ExpressRoute circuit
 
@@ -90,7 +90,7 @@ The response will contain the service key. You can get detailed descriptions of 
 
 ### 4. List all the ExpressRoute circuits
 
-You can run the `Get-AzureDedicatedCircuit` command to get a list of all the ExpressRoute circuits that you created.
+You can run the `Get-AzureDedicatedCircuit` command to get a list of all the ExpressRoute circuits that you created:
 
 
 	Get-AzureDedicatedCircuit
@@ -106,7 +106,7 @@ The response will be something similar to the example below:
 	Sku                              : Standard
 	Status                           : Enabled
 
-You can retrieve this information at any time by using the `Get-AzureDedicatedCircuit` cmdlet. Making the call without any parameters lists all circuits. Your service key will be listed in the *ServiceKey* field.
+You can retrieve this information at any time by using the `Get-AzureDedicatedCircuit` cmdlet. Making the call without any parameters lists all the circuits. Your service key will be listed in the *ServiceKey* field.
 
 	Get-AzureDedicatedCircuit
 
@@ -126,9 +126,9 @@ You can get detailed descriptions of all the parameters by running the following
 ### 5. Send the service key to your connectivity provider for provisioning
 
 
-*ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+*ServiceProviderProvisioningState* provides information on the current state of provisioning on the service-provider side. *Status* provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
 
-When you create a new ExpressRoute circuit, the circuit will be the following state:
+When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
 	ServiceProviderProvisioningState : NotProvisioned
 	Status                           : Enabled
@@ -172,7 +172,7 @@ Next, link a virtual network to your ExpressRoute circuit. Refer to [Linking Exp
 
 ## Getting the status of an ExpressRoute circuit
 
-You can retrieve this information at any time by using the `Get-AzureCircuit` cmdlet. Making the call without any parameters lists all circuits.
+You can retrieve this information at any time by using the `Get-AzureCircuit` cmdlet. Making the call without any parameters lists all the circuits.
 
 	Get-AzureDedicatedCircuit
 
@@ -212,7 +212,7 @@ You can get detailed descriptions of all the parameters by running the following
 
 	get-help get-azurededicatedcircuit -detailed
 
-##Modifying an ExpressRoute circuit
+## Modifying an ExpressRoute circuit
 
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
 
@@ -220,7 +220,7 @@ You can do the following with no downtime:
 
 - Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 - Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported.
-- Change the metering plan from Metered Data to Unlimited Data. Note that changing metering plan from Unlimited Data to Metered Data is not supported.
+- Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
 - You can enable and disable "Allow Classic Operations".
 
 Refer to the [ExpressRoute FAQ](expressroute-faqs.md) for more information on limits and limitations.
@@ -244,13 +244,13 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. Not
 
 ### To disable the ExpressRoute premium add-on
 
->[AZURE.IMPORTANT] This operation can fail if you are using resources than are greater than what is permitted for the standard circuit.
+>[AZURE.IMPORTANT] This operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
 
 Note the following:
 
-- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do this, your update request will fail and you'll be billed the premium rates.
+- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do this, your update request will fail, and you'll be billed the premium rates.
 
-- You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request will fail and you'll be billed the premium rates.
+- You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request will fail, and you'll be billed the premium rates.
 
 - Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session will drop and won't be reenabled until the number of advertised prefixes goes below 4,000.
 
@@ -271,9 +271,9 @@ You can disable the ExpressRoute premium add-on for your existing circuit by usi
 
 ### To update the ExpressRoute circuit bandwidth
 
-Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth options for your provider. You can pick any size greater than the size of your existing circuit.
+Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth options for your provider. You can pick any size that is greater than the size of your existing circuit.
 
->[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then reprovision a new ExpressRoute circuit.
+>[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
 
 After you decide what size you need, you can use the following command to resize your circuit:
 
@@ -296,9 +296,9 @@ Note the following:
 
 - You must unlink all virtual networks from the ExpressRoute circuit for this operation to succeed. Check to see if you have any virtual networks that are linked to the circuit if this operation fails.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *disabling* from the enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
+- If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *Disabling* from the enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *Not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you.
 
 You can delete your ExpressRoute circuit by running the following command:
 
