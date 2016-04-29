@@ -95,13 +95,16 @@ You can use these apps in the following ways:
 
 	![][29]
 
+	
 	- On iOS, you will have to close the app to see the out-of-app or system push notifications. You can look at the implementation here for adding **Action buttons** like the ones added to this out-of-app notification here for *Feedback* and *Share* so that the user can take action right from the notification itself. 
 	    
 	![][11] ![][14]
 	
+	
 	- On Android, you will see the options supported by Android in the form of adding multi-line text (**Big Text**) or adding an image in the notification **Big Picture**) to the notification along with the **Action buttons** as supported by iOS. 
 	
 	![][12] ![][15]
+	
 	
 	- On Windows 10, you can see how the notifications look like on the PC. This notification will also show up in the Windows 10 **Notification Center**. There is no support for adding **Action buttons** at the moment with Windows SDK. 
 	
