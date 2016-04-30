@@ -149,15 +149,15 @@ If you selected User sign-in option as "Federation with AD FS", then you must ha
 
 You can change the user sign-in method from Federation to Password Sync using the tasks avaialble in Azure AD Connect after the initial configuration of Azure AD Connect using the wizard. Run the Azure AD Connect wizard again and you will be presented with a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
 
-![Change user sign-in"](./media//active-directory-aadconnect-user-signin/changeusersignin.png)
+![Change user sign-in"](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 On the next page, you will be asked to provide the credentials for Azure AD.
 
-![Connect to Azure AD](./media//active-directory-aadconnect-user-signin/changeusersignin2.png)
+![Connect to Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2.png)
 
 On the **User sign-in** page, select **Password Synchronization**. This will change the directory from federated to a managed one.
 
-![Connect to Azure AD](./media//active-directory-aadconnect-user-signin/changeusersignin3.png)
+![Connect to Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin3.png)
 
 >[AZURE.NOTE] If you are making only a temporary switch to password synchronization, then check the **Do not convert user accounts**. Not checking on the option will lead to conversion of each user to federated and it can take
   
