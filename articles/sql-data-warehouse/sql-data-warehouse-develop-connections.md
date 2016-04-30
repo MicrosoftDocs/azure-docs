@@ -17,7 +17,7 @@
    ms.author="jrj;barbkess;sonyama"/>
 
 # Connect to SQL Data Warehouse
-To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.  You may also want to see the article [Secure a database in SQL Data Warehouse][] for more information on security and how to allow connections to your SQL Data Warehouse.
+To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.  You may also want to review the article [Secure a database in SQL Data Warehouse][] for more information on security and how to enable connections to your SQL Data Warehouse.
 
 This article details the following aspects of connecting to SQL Data Warehouse:
 
