@@ -145,7 +145,7 @@ If you selected User sign-in option as "Federation with AD FS", then you must ha
 | Not verified | In this case Azure AD Connect will prompt you with appropriate details on how you can verify your domain at a later stage|
 | Verified | In this case you can go ahead with the configuration without any further action|  
 
-## Changing user sign-in method from Federation to Password Sync
+## Changing user sign-in method
 
 You can change the user sign-in method from Federation to Password Sync using the tasks avaialble in Azure AD Connect after the initial configuration of Azure AD Connect using the wizard. Run the Azure AD Connect wizard again and you will be presented with a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
 
