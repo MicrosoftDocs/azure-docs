@@ -93,14 +93,13 @@ You can also enable Transparent Data Encryption from database settings in the [A
 Auditing and tracking database events can help you maintain regulatory compliance and identify suspicious activity. SQL Data Warehouse Auditing allows you to record events in your database to an audit log in your Azure Storage account. SQL Data Warehouse Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses. For more information, see [Get started with SQL Database Auditing][].
 
 ## Next steps
-For more development tips, see [development overview][].
-
+For more tips on connecting to your SQL Data Warehouse, see [Connect to SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
+[Connect to SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
+[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -109,7 +108,6 @@ For more development tips, see [development overview][].
 [Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
 [Azure Classic Portal]: https://portal.azure.com/
 
 <!--Other Web references-->
