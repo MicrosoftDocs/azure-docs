@@ -73,7 +73,7 @@ As in the first scenario, the management database(s) will be quite active so you
 
 The paying customers’ tenant databases will have active databases in the “paid” pool provisioned in the primary region. You should provision a secondary pool with the same name in the DR region. Each tenant would be geo-replicated to the secondary pool (2). This will enable a quick recovery of all tenant databases using failover. 
 
-If an outage occurs in the primary region, the recovery steps to bring your application online are illustrated on the next diagram.
+If an outage occurs in the primary region, the recovery steps to bring your application online are illustrated in the next diagram:
 
 ![Figure 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
@@ -86,7 +86,7 @@ If an outage occurs in the primary region, the recovery steps to bring your appl
 
 At this point your application is back online in the DR region. All paying customers have access to their data while the trial customers will experience delay when accessing their data.
 
-When the primary region is recovered by Azure *after* you have restored the application in the DR region you can continue running the application in that region or you can decide to fail back to the primary region. If the primary region is recovered *before* the failover process is completed, you should consider failing back right away. The failback will take the steps illustrated on the next diagram. 
+When the primary region is recovered by Azure *after* you have restored the application in the DR region you can continue running the application in that region or you can decide to fail back to the primary region. If the primary region is recovered *before* the failover process is completed, you should consider failing back right away. The failback will take the steps illustrated in the next diagram: 
  
 ![Figure 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
@@ -100,15 +100,15 @@ When the primary region is recovered by Azure *after* you have restored the appl
 
 > [AZURE.NOTE] The failover operation is asynchronous. To minimize the recovery time it is important that you execute the tenant databases' failover command in batches of at least 20 databases. 
 
-The key **benefit** of this strategy is that it provides the highest SLA for the paying customers. It also guarantees that the new trials are unblocked as soon as the trail DR pool is created. The **trade-off** is that this setup will increase the total cost of the tenant databases by the cost of the secondary DR pool for paid customers. In addition, if the secondary pool has a different size, the paying customers will experience lower performance after failover until the pool upgrade in the DR region is completed. 
+The key **benefit** of this strategy is that it provides the highest SLA for the paying customers. It also guarantees that the new trials are unblocked as soon as the trial DR pool is created. The **trade-off** is that this setup will increase the total cost of the tenant databases by the cost of the secondary DR pool for paid customers. In addition, if the secondary pool has a different size, the paying customers will experience lower performance after failover until the pool upgrade in the DR region is completed. 
 
 ## Scenario 3
 
 <i>I have a mature SaaS application with tiered service offers. I want to offer a very aggressive SLA to my paid customers and minimize the risk of impact when outages occur because even brief interruption can cause customer dissatisfaction. It is critical that the paying customers can always access their data. The trials are free and an SLA is not offered during the trial period. </i> 
 
-To support this scenario, you should have three separate elastic pools. Two equal size pools with high DTUs per database should be provisioned in two different regions to contain the paid customers' tenant databases. The third pool containing the trial tenants would have a lower DTUs per database and be provisioned in one of the two region.
+To support this scenario, you should have three separate elastic pools. Two equal size pools with high eDTUs per database should be provisioned in two different regions to contain the paid customers' tenant databases. The third pool containing the trial tenants would have a lower eDTUs per database and be provisioned in one of the two region.
 
-To guarantee the lowest recovery time during outages the paying customers' tenant databases should be geo-replicated with 50% of the primary databases in each of the two regions. Similarly, each region would have 50% of the secondary databases. This way if a region is offline only 50% of the paid customers' databases would be impacted and would have to failover. The other databases would remain intact. This configuration is illustrated on the next diagram.
+To guarantee the lowest recovery time during outages the paying customers' tenant databases should be geo-replicated with 50% of the primary databases in each of the two regions. Similarly, each region would have 50% of the secondary databases. This way if a region is offline only 50% of the paid customers' databases would be impacted and would have to failover. The other databases would remain intact. This configuration is illustrated in the following diagram:
 
 ![Figure 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
