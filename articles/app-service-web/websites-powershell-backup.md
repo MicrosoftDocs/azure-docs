@@ -16,7 +16,6 @@
 	ms.date="04/28/2016"
 	ms.author="nicking"/>
 
-
 > [AZURE.SELECTOR]
 - [PowerShell](websites-powershell-backup.md)
 - [REST API](websites-csm-backup.md)
@@ -92,7 +91,7 @@ To get the current backup schedule, use the Get-AzureRmWebAppBackupConfiguration
 
 ## Restore a web app from a backup
 
-To restore a web app from a backup, use the Restore-AzureRmWebAppBackup cmdlet. The easiest way to use this cmdlet is to pipe in a backup object retrieved from the Get-AzureRmWebAppBackup or Get-AzureRmWebAppBackupList cmdlets.
+To restore a web app from a backup, use the Restore-AzureRmWebAppBackup cmdlet. The easiest way to use this cmdlet is to pipe in a backup object retrieved from the Get-AzureRmWebAppBackup cmdlet or Get-AzureRmWebAppBackupList cmdlet.
 
 The Get-AzureRmWebAppBackupList cmdlet will return an array of all backups for a web app. You must supply the name of the web app and its resource group.
 
