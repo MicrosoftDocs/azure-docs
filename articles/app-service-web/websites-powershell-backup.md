@@ -33,64 +33,6 @@ In order to use PowerShell to manage your app backups, you will need the followi
 
 See [Using Azure PowerShell with Azure Resource Manager](../powershell-install-configure.md) for instructions on installing and using Azure PowerShell.
 
-## Get web app backups
-
-To get information about your web app backups, use either Get-AzureRmWebAppBackup or Get-AzureRmWebAppBackupList.
-
-To get a list of all backups for a web app, use the Get-AzureRmWebAppBackupList cmdlet. You must supply the name of the web app and its resource group.
-
-		$resourceGroupName = "Default-Web-WestUS"
-		$appName = "ContosoApp"
-		$backups = Get-AzureRmWebAppBackupList -Name $appName -ResourceGroupName $resourceGroupName
-
- An array of backup objects will be returned to you.
-
- ```
-ResourceGroupName  : Default-Web-WestUS
-Name               : ConsotoApp
-Slot               : StagingSlot
-StorageAccountUrl  : <your SAS URL>
-Databases          : { ContosoDB }
-BackupId           : 10101
-BackupName         : ContosoBackup
-BackupStatus       : Succeeded
-Scheduled          : True
-BackupSizeInBytes  : 30923339
-WebsiteSizeInBytes : 228352
-Created            : 4/26/2016 12:17:17 AM
-LastRestored       :
-Finished           : 4/26/2016 12:28:38 AM
-Log                :
-CorrelationId      : 1511111a-d9eb-4bcb-8568-c1131b176150
-
-ResourceGroupName  : Default-Web-WestUS
-Name               : ConsotoApp
-Slot               : StagingSlot
-StorageAccountUrl  : <your SAS URL>
-Databases          : { ContosoDB }
-BackupId           : 10102
-BackupName         : ContosoBackup2
-BackupStatus       : Succeeded
-Scheduled          : True
-BackupSizeInBytes  : 30923339
-WebsiteSizeInBytes : 228352
-Created            : 4/27/2016 12:17:18 AM
-LastRestored       :
-Finished           : 4/27/2016 12:28:59 AM
-Log                :
-CorrelationId      : 1511111a-d8e7-4bcb-8568-c1131b176150
- ```
-
-To get a specific backup, use the Get-AzureRmWebAppBackup cmdlet.
-
-		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
-
-You can pipe a web app object into any of the backup management cmdlets for convenience.
-
-		$app = Get-AzureRmWebApp -Name ContosoApp -ResourceGroupName Default-Web-WestUS
-		$app | Get-AzureRmWebAppBackupList
-		$app | Get-AzureRmWebAppBackup -BackupId 10102
-
 ## Create a backup
 
 Use the New-AzureRmWebAppBackup cmdlet to create a backup of a web app.
@@ -110,38 +52,6 @@ If you would like to include a database as part of your backup, first create a d
 		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbBackup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupName MyBackup -StorageAccountUrl $sasUrl -Databases $dbSetting1,$dbSetting2
-
-## Restore a web app from a backup
-
-To restore a web app from a backup, use the Restore-AzureRmWebAppBackup cmdlet. The easiest way to use this cmdlet is to pipe in a backup object retrieved from a cmdlet such as Get-AzureRmWebAppBackup. You must specify the Overwrite switch parameter to indicate that you intent to overwrite the contents of your web app with the contents of the backup. If the backup contains databases, those databases will be restored as well.
-
-		$resourceGroupName = "Default-Web-WestUS"
-		$appName = "ContosoApp"
-		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
-		$backup | Restore-AzureRmWebAppBackup -Overwrite
-
-Below is an example of how to use the Restore-AzureRmWebAppBackup by specifying all of the parameters.
-
-		$resourceGroupName = "Default-Web-WestUS"
-		$appName = "ContosoApp"
-		$slotName = "StagingSlot"
-		$blobName = "ContosoBackup.zip"
-		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
-		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
-		Restore-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -Slot $slotName -StorageAccountUrl "<your SAS URL>" -BlobName $blobName -Databases $dbSetting1,$dbSetting2 -Overwrite
-
-## Delete a backup
-
-To delete a backup, use the Remove-AzureRmWebAppBackup cmdlet. This will remove the backup from your storage account. You must specify your app name, its resouce group, and the ID of the backup you want to delete.
-
-		$resourceGroupName = "Default-Web-WestUS"
-		$appName = "ContosoApp"
-		Remove-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupId 10102
-
-You can also pipe a backup object into the Remove-AzureRmWebAppBackup cmdlet to delete it.
-
-		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
-		$backup | Remove-AzureRmWebAppBackup -Overwrite
 
 ## Schedule automatic backups
 
@@ -179,3 +89,50 @@ To get the current backup schedule, use the Get-AzureRmWebAppBackupConfiguration
 
 		# Apply the new configuration by piping it into the Edit-AzureRmWebAppBackupConfiguration cmdlet
 		$configuration | Edit-AzureRmWebAppBackupConfiguration
+
+## Restore a web app from a backup
+
+To restore a web app from a backup, use the Restore-AzureRmWebAppBackup cmdlet. The easiest way to use this cmdlet is to pipe in a backup object retrieved from the Get-AzureRmWebAppBackup or Get-AzureRmWebAppBackupList cmdlets.
+
+The Get-AzureRmWebAppBackupList cmdlet will return an array of all backups for a web app. You must supply the name of the web app and its resource group.
+
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
+		$backups = Get-AzureRmWebAppBackupList -Name $appName -ResourceGroupName $resourceGroupName
+
+To get a specific backup, use the Get-AzureRmWebAppBackup cmdlet.
+
+		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
+
+You can also pipe a web app object into any of the backup management cmdlets for convenience.
+
+		$app = Get-AzureRmWebApp -Name ContosoApp -ResourceGroupName Default-Web-WestUS
+		$backupList = $app | Get-AzureRmWebAppBackupList
+		$backup = $app | Get-AzureRmWebAppBackup -BackupId 10102
+
+Once you have a backup object, you can pipe it into the Restore-AzureRmWebAppBackup cmdlet. You must specify the Overwrite switch parameter to indicate that you intend to overwrite the contents of your web app with the contents of the backup. If the backup contains databases, those databases will be restored as well.
+
+		$backup | Restore-AzureRmWebAppBackup -Overwrite
+
+Below is an example of how to use the Restore-AzureRmWebAppBackup by specifying all of the parameters.
+
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
+		$slotName = "StagingSlot"
+		$blobName = "ContosoBackup.zip"
+		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
+		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
+		Restore-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -Slot $slotName -StorageAccountUrl "<your SAS URL>" -BlobName $blobName -Databases $dbSetting1,$dbSetting2 -Overwrite
+
+## Delete a backup
+
+To delete a backup, use the Remove-AzureRmWebAppBackup cmdlet. This will remove the backup from your storage account. You must specify your app name, its resouce group, and the ID of the backup you want to delete.
+
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
+		Remove-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupId 10102
+
+You can also pipe a backup object into the Remove-AzureRmWebAppBackup cmdlet to delete it.
+
+		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
+		$backup | Remove-AzureRmWebAppBackup -Overwrite
