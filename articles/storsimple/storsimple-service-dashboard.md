@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="05/02/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service dashboard
@@ -25,7 +25,7 @@ The StorSimple Manager service dashboard page provides a summary view of all the
 
 The StorSimple Manager service dashboard displays the following information:
 
-- In the **chart** area, you can see the relevant metrics chart for your devices. You can view the primary storage used across all the devices, as well as the cloud storage consumed by devices over a period of time. Use the controls in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time scale.
+- In the **chart** area, you can see the relevant metrics chart for your devices. You can view the primary storage (locally pinned and tiered) used across all the devices, as well as the cloud storage consumed by devices over a period of time. Use the controls in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time scale.
 
 - The **usage overview** shows the primary storage that is provisioned and consumed by all devices relative to the total storage available across all devices. **Provisioned** refers to the amount of storage that is prepared and allocated for use, while **Used** refers to usage of volumes as viewed by the initiators that are connected to the devices.
 
