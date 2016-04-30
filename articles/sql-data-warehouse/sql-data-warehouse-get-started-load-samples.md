@@ -13,25 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load sample data into SQL Data Warehouse
 
-While you are creating your SQL Data Warehouse instance, you can easily load some sample data into it. If you missed this step during provisioning, you can also [load sample data manually][].
+The following steps can be follwed to simply load the AdventureWorksDW dataset to your database. This dataset models out a sample data warehouse structure for a fictional company called AdventureWorks with data representing sales and customers for the company.
 
-The following will give you a brief view of how AdventureWorksDW can be loaded in your database. This dataset models out a sample data warehouse structure for a fictional company called AdventureWorks with data representing sales and customers for the company.
+## Adding sample data at creation
 
-## Adding sample data during creation
-You can ensure that sample data is loaded into your SQL Data Warehouse during deployment by following these steps:   
+You can create the AdventureWorks sample database during creation of your SQL Data Warehouse by following these steps:   
 
 1. Start the creation process by finding SQL Data Warehouse in the [Azure Classic Portal][] by clicking '+ New' and then 'Data and Storage' or in the Marketplace by searching for 'SQL Data Warehouse'.
 
-2. Once the process is started, ensure that you click the 'Select source' option and set it to 'Sample'. If you are not creating a new server you will also be asked to provide the log-in for the server that you are using to create.  
+2. Once the process is started, click on the 'Select source' option and set it to 'Sample'. If you are not creating a new server you will also be asked to provide the log-in for the server that you are using to create.  
 
+> [AZURE.NOTE] In order to load sample data into your instance, you will need to enable Azure services to access your server (this should be on by default when creating a new server).  If this is not done the load will fail, but you can still [load sample data manually][].
 
-> [AZURE.NOTE] In order to load sample data into your instance, you will need to enable Azure services to access your server (this should be on by default when creating a new server).  If this is not done then the load will fail, but you can still [load sample data manually][].
+## Adding sample data after creation
 
+If you didn't create the AdventureWorks database during creation of your database you can [load sample data manually][] anytime.
 
 ## Using Power BI to analyze Adventureworks
 
