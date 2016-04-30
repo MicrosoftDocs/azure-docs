@@ -20,7 +20,7 @@
 
 The following steps can be follwed to simply load the AdventureWorksDW dataset to your database. This dataset models out a sample data warehouse structure for a fictional company called AdventureWorks with data representing sales and customers for the company.
 
-## Adding sample data at creation
+## Adding sample data during creation
 
 You can create the AdventureWorks sample database during creation of your SQL Data Warehouse by following these steps:   
 
