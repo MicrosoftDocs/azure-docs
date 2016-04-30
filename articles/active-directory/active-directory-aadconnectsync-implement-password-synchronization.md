@@ -90,23 +90,14 @@ There are two types of password policies that are affected by enabling password 
 
 **Password complexity policy**
 
-When you enable password synchronization:
-
-- The password complexity policies in your on-premises Active Directory override complexity policies in the cloud for synchronized users. 
-
-- You can use all valid passwords of your on-premises Active Directory to access Azure AD services.
+When you enable password synchronization, the password complexity policies in your on-premises Active Directory override complexity policies in the cloud for synchronized users. You can use all valid passwords of your on-premises Active Directory to access Azure AD services.
 
 > [AZURE.NOTE] Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
 
 **Password expiration policy**
 
-If a user is in the scope of password synchronization:
-
-- The cloud account password is set to "*Never Expire.*" 
-
-- You can continue to sign in to cloud services using a synchronized password that has been expired in your on-premises environment.
-
-Your cloud password is updated the next time you change the password in the on-premises environment.
+If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire.*" 
+You can continue to sign in to your cloud services using a synchronized password that has been expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
 
 ### Overwriting synchronized passwords
 
