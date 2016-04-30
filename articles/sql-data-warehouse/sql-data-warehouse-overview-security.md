@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/29/2016"
+   ms.date="04/30/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -24,7 +24,9 @@ This article walks through the basics of securing your Azure SQL Data Warehouse 
 
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
-Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow your application or client machine's public IP address to attempt connecting to a new database, you must first create a server-level firewall rule using the Azure Classic Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible. For more information, see [Azure SQL Database firewall][].
+Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure Classic Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access Azure SQL Data Warehouse from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  For more information, see [Azure SQL Database firewall][].
+
+Connections to your SQL Data Warehouse can be encrypted by setting the encryption mode in your connection string.  The syntax for turning on encryption for the connection varies by protocol.  To help you set up your connection string, navigate to your database on the Azure Portal.  Under *Essentials* click on *Show database connection strings*.
 
 
 ## Authentication
