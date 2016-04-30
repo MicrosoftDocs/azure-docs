@@ -117,7 +117,7 @@ using System.Threading.Tasks;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-    log.Verbose($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -177,7 +177,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     string jsonContent = await req.Content.ReadAsStringAsync();
     dynamic data = JsonConvert.DeserializeObject(jsonContent);
 
-    log.Verbose($"WebHook was triggered! Comment: {data.comment.body}");
+    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         body = $"New GitHub comment: {data.comment.body}"
@@ -254,7 +254,7 @@ This C# code example writes a single log each time the function is triggered.
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
-    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");    
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");    
 }
 ```
 
@@ -349,7 +349,7 @@ public static void Run(string myQueueItem,
     int dequeueCount,
     TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}\n" +
+    log.Info($"C# Queue trigger function processed: {myQueueItem}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -379,7 +379,7 @@ The *function.json* file provides the name of the output queue and a variable na
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -388,7 +388,7 @@ The *function.json* file provides the name of the output queue and a variable na
       "name": "myQueue",
       "type": "queue",
       "queueName": "samples-workitems-out",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "out"
     }
   ],
@@ -470,7 +470,7 @@ This C# code example logs the contents of each blob that is added to the contain
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -539,7 +539,7 @@ The *function.json* provides the name of the container and variable names for bl
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -548,14 +548,14 @@ The *function.json* provides the name of the container and variable names for bl
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "out"
     }
   ],
@@ -584,7 +584,7 @@ This C# code example copies a blob whose name is received in a queue message.
 ```CSHARP
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
@@ -626,7 +626,7 @@ This *function.json* example uses a queue trigger to read a single table row, wi
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -637,7 +637,7 @@ This *function.json* example uses a queue trigger to read a single table row, wi
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     }
   ],
@@ -649,8 +649,8 @@ The following C# code example works with the preceding *function.json* file to t
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-    log.Verbose($"Name in Person entity: {personEntity.Name}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -680,7 +680,7 @@ The following *function.json* and C# code example reads entities for a partition
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -688,6 +688,7 @@ The following *function.json* and C# code example reads entities for a partition
     {
       "name": "tableBinding",
       "type": "table",
+      "connection": "MyStorageConnection",
       "tableName": "Person",
       "direction": "in"
     }
@@ -704,10 +705,10 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Verbose($"Name: {person.Name}");
+        log.Info($"Name: {person.Name}");
     }
 }
 
@@ -731,7 +732,7 @@ The following *function.json* and *run.csx* example shows how to write table ent
     },
     {
       "tableName": "Person",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -746,7 +747,7 @@ public static void Run(string input, ICollector<Person> tableBinding, TraceWrite
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Verbose($"Adding Person entity {i}");
+            log.Info($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -775,7 +776,7 @@ The following *function.json* and *run.csx* example shows how to write a table e
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -784,7 +785,7 @@ The following *function.json* and *run.csx* example shows how to write a table e
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "personEntity",
       "type": "table",
       "direction": "out"
@@ -798,6 +799,167 @@ The following *function.json* and *run.csx* example shows how to write a table e
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
     context.bindings.personEntity = {"Name": "Name" + myQueueItem }
+    context.done();
+};
+```
+
+## Azure Service Bus triggers and bindings
+
+This section contains the following subsections:
+
+* [Azure Service Bus: PeekLock behavior](#sbpeeklock)
+* [Azure Service Bus: poison message handling](#sbpoison)
+* [Azure Service Bus: single-threading](#sbsinglethread)
+* [Azure Service Bus queue or topic trigger](#sbtrigger)
+* [Azure Storage Bus queue or topic output binding](#sboutput)
+
+### <a id="sbpeeklock"></a> Azure Service Bus: PeekLock behavior
+
+The Functions runtime receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+
+### <a id="sbpoison"></a> Azure Service Bus: poison message handling
+
+Service Bus does its own poison message handling which can't be controlled or configured in Azure Functions configuration or code. 
+
+### <a id="sbsinglethread"></a> Azure Service Bus: single-threading
+
+By default the Functions runtime processes multiple queue messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `serviceBus.maxConcurrrentCalls` to 1 in the *host.json* file. For information about the *host.json* file, see [Folder Structure](functions-reference.md#folder-structure) in the Developer reference article, and [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
+
+### <a id="sbtrigger"></a> Azure Service Bus queue or topic trigger
+
+The *function.json* file for a Service Bus trigger specifies the following properties.
+
+- `name` : The variable name used in function code for the queue or topic, or the queue or topic message. 
+- `queueName` : For queue trigger only, the name of the queue to poll.
+- `topicName` : For topic trigger only, the name of the topic to poll.
+- `subscriptionName` : For topic trigger only, the subscription name.
+- `connection` : The name of an app setting that contains a Service Bus connection string. The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If the connection string doesn't have manage rights, set the `accessRights` property. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is specified by the AzureWebJobsServiceBus app setting.
+- `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `listen` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights.
+- `type` : Must be set to *serviceBusTrigger*.
+- `direction` : Must be set to *in*. 
+
+The Service Bus queue message can be deserialized to any of the following types:
+
+* Object (from JSON)
+* string
+* byte array 
+* `BrokeredMessage` (C#) 
+
+#### *Function.json* example for using a Service Bus queue trigger
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+#### C# code example that processes a Service Bus queue message
+
+```csharp
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
+
+#### Node.js code example that processes a Service Bus queue message
+
+```javascript
+module.exports = function(context, myQueueItem) {
+    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.done();
+};
+```
+
+### <a id="sboutput"></a> Azure Service Bus queue or topic output
+
+The *function.json* file for a Service Bus output binding specifies the following properties.
+
+- `name` : The variable name used in function code for the queue or queue message. 
+- `queueName` : For queue trigger only, the name of the queue to poll.
+- `topicName` : For topic trigger only, the name of the topic to poll.
+- `subscriptionName` : For topic trigger only, the subscription name.
+- `connection` : Same as for Service Bus trigger.
+- `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `send` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights, such as creating queues.
+- `type` : Must be set to *serviceBus*.
+- `direction` : Must be set to *out*. 
+
+Azure Functions can create a Service Bus queue message from any of the following types.
+
+* Object (always creates a JSON message, creates the message with a null object if the value is null when the function ends)
+* string (creates a message if the value is non-null when the function ends)
+* byte array (works like string) 
+* `BrokeredMessage` (C#, works like string)
+
+For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. A message is created when you call the `Add` method.
+
+#### *function.json* example for using a timer trigger to write Service Bus queue messages
+
+```JSON
+{
+  "bindings": [
+    {
+      "schedule": "0/15 * * * * *",
+      "name": "myTimer",
+      "runsOnStartup": true,
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "outputSbQueue",
+      "type": "serviceBus",
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+#### C# code examples that create Service Bus queue messages
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue = message;
+}
+```
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue.Add("1 " + message);
+    outputSbQueue.Add("2 " + message);
+}
+```
+
+#### Node.js code example that creates a Service Bus queue message
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    var message = 'Service Bus queue message created at ' + timeStamp;
+    context.log(message);   
+    context.bindings.outputSbQueueMsg = message;
     context.done();
 };
 ```
@@ -917,7 +1079,7 @@ The output document:
 
 	public static void Run(string myQueueItem, out object document, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   
 	    document = new {
 	        text = $"I'm running in a C# function! {myQueueItem}"
@@ -945,7 +1107,7 @@ You could use the following C# code in a queue trigger function:
 	
 	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	    
 	    dynamic employee = JObject.Parse(myQueueItem);
 	    
@@ -1163,7 +1325,7 @@ This example sends a notification for a [template registration](../notification-
 	 
 	public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
         notification = GetTemplateProperties(myQueueItem);
 	}
 	 
@@ -1180,7 +1342,7 @@ This example sends a notification for a [template registration](../notification-
 	 
 	public static void Run(string myQueueItem,  out string notification, TraceWriter log)
 	{
-		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+		log.Info($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{\"message\":\"Hello from C#. Processed a queue item!\"}";
 	}
 
@@ -1208,7 +1370,7 @@ Example code:
 	 
 	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
 	{
-	   log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   notification = GetTemplateNotification(myQueueItem);
 	}
 	private static TemplateNotification GetTemplateNotification(string message)

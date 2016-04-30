@@ -63,5 +63,5 @@ The rules engine allows you to customize how HTTP requests are handled, such as 
 - The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
 
 ## See also
-* [Azure Fridays: Azure CDN's powerful new Premium Features](../../videos/azure-cdns-powerful-new-premium-features/) (video)
+* [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
 * [Rules Engine Match Condition and Feature Details](cdn-rules-engine-details.md)

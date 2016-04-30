@@ -75,4 +75,4 @@ To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
 
 If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).
 
-To see the CDN in action, check out the [video of our Build 2016 session](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
