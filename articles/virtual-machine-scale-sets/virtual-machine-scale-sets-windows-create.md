@@ -14,34 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Create a Windows Virtual Machine Scale Set using Azure PowerShell
 
-These steps follow a fill-in-the-blanks approach for creating an Azure virtual machine scale set. Throughout the article are variables that need values provided by you. Replace everything within the quotes with values that make sense for your subscription and application.
+These steps follow a fill-in-the-blanks approach for creating an Azure Virtual Machine Scale Set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
+
+It should take about 30 minutes to do the steps in this article.
 
 ## Step 1: Install Azure PowerShell
 
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
-
-## Step 2: Set your subscription
-
-1. Start a PowerShell prompt.
-
-2. Login to your account:
-
-        Login-AzureRmAccount
-
-3. Get your subscription:
-
-        Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
-
-4. Set the subscription that you want to use as current:
-
-        $subscr = "subscription name"
-        Select-AzureSubscription -SubscriptionName $subscr –Current
-
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
 
 ## Step 2: Create resources
 
@@ -51,7 +35,7 @@ Create the resources that are needed for your new virtual machine scale set.
 
 A virtual machine scale set must be contained in a resource group.
 
-1.  Run this command to get a list of available locations and the services that are supported:
+1.  Get a list of available locations and the services that are supported:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
@@ -78,13 +62,16 @@ A virtual machine scale set must be contained in a resource group.
         West India          {Compute, Storage, PersistentVMRole, HighMemory}
         West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
-    Pick a location that works best for you and then replace the text in quotes with that location name:
+2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
 
         $locName = "location name from the list, such as Central US"
 
-4. Replace the text in quotes with the name that you want to use for the new resource group and then create it in the location that you previously set:
+3. Replace the value of **$rgName** with the name that you want to use for the new resource group and then create the variable: 
 
         $rgName = "resource group name"
+        
+4. Create the resource group:
+    
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
     You should see something like this:
@@ -99,16 +86,24 @@ A virtual machine scale set must be contained in a resource group.
 
 Virtual machines created in a scale set require a storage account to store the associated disks.
 
-1. Replace the text in quotes with the name that you want to use for the storage account and then test whether it is unique:
+1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
 
         $saName = "storage account name"
+        
+2. Test whether the name that you selected is unique:
+    
         Test-AzureName -Storage $saName
 
     If the answer is **False**, your proposed name is unique.
 
-2. Replace the text in quotes with the type of the storage account and then create the account with the name and location you previously set. Possible values are: Standard_LRS, Standard_GRS, Standard_RAGRS, or Premium_LRS:
+3. Replace the value of **$saType** with the type of the storage account and then create the variable:  
 
         $saType = "storage account type"
+        
+    Possible values are: Standard_LRS, Standard_GRS, Standard_RAGRS, or Premium_LRS.
+        
+4. Create the account:
+    
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
     You should see something like this:
@@ -136,165 +131,163 @@ Virtual machines created in a scale set require a storage account to store the a
 
 A virtual network is required for the virtual machines in the scale set.
 
-1. Replace the text in quotes with the name that you want to use for the subnet in the virtual network and then create the configuration:
+1. Replace the value of **$subName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
 
         $subName = "subnet name"
+        
+2. Create the subnet configuration:
+    
         $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        
+    The address prefix may be different in your virtual network.
 
-2. Replace the text in quotes with the name that you want to use for the virtual network and then create it using the information and resources that you previously defined:
+3. Replace the value of **$netName** with the name that you want to use for the virtual network and then create the variable: 
 
-        $netName="virtual network name"
-        $vnet=New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
+        $netName = "virtual network name"
+        
+4. Create the virtual network:
+    
+        $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 ### Public IP address
 
 Before a network interface can be created, you need to create a public IP address.
 
-1. Replace the text in the quotes with the domain name label that you want to use with your public IP address and then test whether the name is unique. The label can contain only letters, numbers, and hyphens, and last character must be a letter or number:
+1. Replace the value of **$domName** with the domain name label that you want to use with your public IP address and then create the variable:  
 
         $domName = "domain name label"
+        
+    The label can contain only letters, numbers, and hyphens, and the last character must be a letter or number.
+    
+2. Test whether the name is unique:
+    
         Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
 
-    If the answer is **False**, your proposed name is unique.
+    If the answer is **True**, your proposed name is unique.
 
-2. Replace the text in the quotes with the name that you want to use for the public IP address and then create it:
+3. Replace the value of **$pipName** with the name that you want to use for the public IP address and then create the variable. 
 
         $pipName = "public ip address name"
+        
+4. Create the public IP address:
+    
         $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
 
 ### Network interface
 
 Now that you have the public IP address, you can create the network interface.
 
-1. Replace the text in the quotes with the name that you want to use for the network interface and then create it using the resources that you previously created:
+1. Replace the value of **$nicName** with the name that you want to use for the network interface and then create the variable: 
 
         $nicName = "network interface name"
+        
+2. Create the network interface:
+    
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
+### Configuration of the scale set
 
-### Create the virtual machine scale set
+You have all the resources that you need for the scale set configuration, so let's create it.  
 
-You have all the resources that you need, now it's time to create the scale set.  
-
-1. Replace the text in quotes with the name that you want to use for the IP configuration and then create it:
+1. Replace the value of **$ipName** with the name that you want to use for the IP configuration and then create the variable: 
 
         $ipName = "IP configuration name"
-        $ipConfig = New-AzureRmVmssIpConfigurationConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
+        
+2. Create the IP configuration:
 
-2. Replace the text in quotes with the name that you want to use for the scale set configuration and then create it. This step includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](..\virtual-machines\virtual-machines-windows-sizes.md) to find a size that meets your needs. For this example, it is recommended to use Standard_A0.:
+        $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-        $vmssName = "Scale set configuration name"
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0"
-        Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssName -Primary $true -IPConfiguration $ipConfig
+2. Replace the value of **$vmssConfig** with the name that you want to use for the scale set configuration and then create the variable:   
 
+        $vmssConfig = "Scale set configuration name"
+        
+3. Create the configuration for the scale set:
+
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
+        
+    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](..\virtual-machines\virtual-machines-windows-sizes.md) to find a size that meets your needs.
+    
+4. Add the network interface configuration to the scale set configuration:
+        
+        Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
+        
     You should see something like this:
 
-        Sku                   : {
-                                  "name": "Standard_A0",
-                                  "tier": null,
-                                  "capacity": 3
-        						}
-        UpgradePolicy         : {
-                                  "mode": "automatic"
-                                }
-        VirtualMachineProfile : {
-                                  "osProfile": null,
-                                  "storageProfile": null,
-                                  "networkProfile": {
-                                    "networkInterfaceConfigurations": [
-                                      {
-                                        "name": "myniccfg1",
-                                        "properties.primary": true,
-                                        "properties.ipConfigurations": [
-                                          {
-                                            "name": "myipconfig1",
-                                            "properties.subnet": {
-                                              "id": "/subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft.Network/virtualNetworks/myvn1/subnets/mysn1"
-                                            },
-                                            "properties.loadBalancerBackendAddressPools": [],
-                                            "properties.loadBalancerInboundNatPools": [],
-                                            "id": null
-                                          }
-                                        ],
-                                        "id": null
-                                      }
-                                    ]
-                                  },
-                                  "extensionProfile": {
-                                    "extensions": null
-                                  }
-                                }
+        Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+        UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+        VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
         ProvisioningState     :
+        OverProvision         :
         Id                    :
         Name                  :
         Type                  :
         Location              : Central US
-        Tags.Count            : 0
         Tags                  :
 
-3. Replace the text in quotes for the computer name prefix that you want to use, for the name of the administrator account on the virtual machines, for the account password, and then create the operating system profile:
+#### Operating system  profile
+
+1. Replace the value of **$computerName** with the computer name prefix that you want to use and then create the variable: 
 
         $computerName = "computer name prefix"
+        
+2. Replace the value of **$adminName** the name of the administrator account on the virtual machines and then create the variable:
+
         $adminName = "administrator account name"
+        
+3. Replace the value of **$adminPassword** with the account password and then create the variable:
+
         $adminPassword = "password for administrator accounts"
+        
+4. Create the operating system profile:
+
         Set-AzureRmVmssOsProfile -VirtualMachineScaleSet $vmss -ComputerNamePrefix $computerName -AdminUsername $adminName -AdminPassword $adminPassword
 
-    You should see like this in the osProfile section:
+#### Storage profile
 
-        "osProfile": {
-          "computerNamePrefix": "myvmss1",
-          "adminUsername": "########",
-          "adminPassword": "########",
-          "customData": null,
-          "windowsConfiguration": null,
-          "linuxConfiguration": null,
-          "secrets": null
-        },
-
-4. Replace the text in quotes with the name that you want to use for the storage profile, the image information, and the storage path for where the disks for the virtual machines are stored, and then create the profile. Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md) to find the information that you need:
+1. Replace the value of **$storageProfile** with the name that you want to use for the storage profile and then create the variable:  
 
         $storeProfile = "storage profile name"
-        $imagePublisher = "image publisher name, such as MicrosoftWindowsServer"
-        $imageOffer = "offer from publisher, such as WindowsServer"
-        $imageSku = "sku of image, such as 2012-R2-Datacenter"
+        
+2. Create the variables that define the image to use:  
+      
+        $imagePublisher = "MicrosoftWindowsServer"
+        $imageOffer = "WindowsServer"
+        $imageSku = "2012-R2-Datacenter"
+        
+    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](..\virtual-machines\virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+        
+3. Replace the value of **$vhdContainer** with the path where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
+       
         $vhdContainer = "URI of storage container"
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -CreateOption "FromImage" -Caching "None"
+        
+4. Create the storage profile:
 
-    You should see something like this in the storageProfile section:
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storeProfile -VhdContainer $vhdContainer -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-          "osDisk": {
-            "name": "mystore1",
-            "caching": "None",
-            "createOption": "FromImage",
-            "osType": null,
-            "image": null,
-            "vhdContainers": {
-              "http://myst1.blob.core.windows.net/vhds"
-            }
-          }
-        },
+### Virtual machine scale set
 
-5. Replace the text in quotes with the name of the virtual machine scale set and then create it:
+Finally, you can create the scale set.
+
+1. Replace the value of **$vmssName** with the name of the virtual machine scale set and then create the variable:
 
         $vmssName = "scale set name"
-        New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSetCreateOrUpdateParameter $vmss
+        
+2. Create the scale set:
+
+        New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
     You should see something like this that shows you the deployment succeeded:
 
-        ProvisioningState     : Succeeded
-        Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1
+        Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
+        UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
+        VirtualMachineProfile : Microsoft.Azure.Management.Compute.Models.VirtualMachineScaleSetVMProfile
+        ProvisioningState     : Updating
+        OverProvision         :
+        Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
+                               ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
-        Tags.Count            : 0
         Tags                  :
 
 ## Step 3: Explore resources
@@ -309,6 +302,6 @@ Use these resources to explore the virtual machine scale set that you just creat
 
 ## Next steps
 
-1. Take a look at the [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more.
-
-2. Consider setting up automatic scaling of your scale set by using information in [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md)
+- Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md)
+- Consider setting up automatic scaling of your scale set by using information in [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md)
+- Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)

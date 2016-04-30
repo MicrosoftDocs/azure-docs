@@ -24,7 +24,7 @@ To manage scaled-out sharded databases, the **Elastic Database jobs** feature (p
 * all databases in an [Elastic Database pool](sql-database-elastic-pool.md)
 * a shard set (created using [Elastic Database client library](sql-database-elastic-database-client-library.md)). 
  
-## Resources
+## Documentation
 
 * [Install the Elastic Database job components](sql-database-elastic-jobs-service-installation.md). 
 * [Get started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
@@ -41,26 +41,25 @@ To manage scaled-out sharded databases, the **Elastic Database jobs** feature (p
 
 Easily do schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection.
 
+**Reports**
+
+Aggregate data from a collection of Azure SQL Databases into a single destination table.
+
 **Reduce overhead**
 
 Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. A job handles the task of logging in to each database in the target group. You also define, maintain and persist Transact-SQL scripts to be executed across a group of Azure SQL Databases.
 
-**Accounting** 
+**Accounting**
 
 Jobs run the script and log the status of execution for each database. You also get automatic retry when failures occur.
 
 **Flexibility**
 
-Define custom groups of Azure SQL Databases.
+Define custom groups of Azure SQL Databases, and define schedules for running a job.
 
 **Deployment**
+
 Deploy data-tier applications (DACPACs).
-
-**Schedule**
-Define execution schedules.
-
-**Reports**
-Aggregate data from a collection of Azure SQL Databases into a single destination table.
 
 > [AZURE.NOTE] In the Azure portal, only a reduced set of functions limited to SQL Azure elastic pools is available. Use the PowerShell APIs to access the full set of current functionality.
 
@@ -103,7 +102,7 @@ There are two kinds of groups:
 1. Shard sets
 2. Custom groups
 
-Shard set groups are created using the [Elastic Database tools](sql-database-elastic-scale-introduction.md). When you create a shard set group, databases are added or removed from the group automatically. For example, a new shard will be automatically in the group. A jobs will run against the group with no adjustment.
+Shard set groups are created using the [Elastic Database tools](sql-database-elastic-scale-introduction.md). When you create a shard set group, databases are added or removed from the group automatically. For example, a new shard will be automatically in the group when you add it to the shard map. A job can then be run against the group.
 
 Custom groups, on the other hand, are rigidly defined. You must explicitly add or remove databases from custom groups. If a database in the group is dropped, the job will attempt to run the script against the database resulting in an eventual failure. Groups created using the Azure portal currently are custom groups. 
 
@@ -135,7 +134,7 @@ There are multiple types of job tasks that carry out execution of jobs:
 * ScriptExecution: Executes a script against a particular database using defined credentials
 * Dacpac: Applies a DACPAC to a particular database using particular credentials
 
-## End-to-End job execution work-flow
+## End-to-end job execution work-flow
 
 1.	Using either the Portal or the PowerShell API, a job is inserted into the  **control database**. The job requests execution of a Transact-SQL script against a group of databases using specific credentials.
 2.	The controller identifies the new job. Job tasks are created and executed to split the script and to refresh the group’s databases. Lastly, a new job is created and executed to expand the job and create new child jobs where each child job is specified to execute the Transact-SQL script against an individual database in the group.

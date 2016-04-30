@@ -3,7 +3,7 @@
    description="Learn how to install Data Lake Tools for Visual Studio, how to develop and test U-SQL scripts. "
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/15/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
 

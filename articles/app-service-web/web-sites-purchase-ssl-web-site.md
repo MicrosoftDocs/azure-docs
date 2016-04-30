@@ -94,7 +94,7 @@ In this Step, you will learn how to place an Store an SSL Certificate that you p
     ![insert image of create new KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
     > [AZURE.NOTE]
-    Azure Key Vault has very minimal charges for storing this certificate. The cost will be roughly around $0.03 cents (USD)
+    Azure Key Vault has very minimal charges for storing this certificate. 
     See **[Azure Key Vault Pricing Details](https://azure.microsoft.com/pricing/details/key-vault/)** for more information.
 
 4. Once you have selected the Key Vault Repository to store this certificate in, go ahead and store it by clicking on **“Store”** button at the top of **“Key Vault Status”** blade.  

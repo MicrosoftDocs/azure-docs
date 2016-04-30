@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="04/20/2015"
 	ms.author="anuragm;jimpark;delhan"/>
 
 
@@ -32,6 +32,7 @@ Before you continue, make sure that all the [prerequisites](backup-azure-dpm-int
 - Agent and vault credentials have been downloaded to the DPM server.
 - The agent is installed on the DPM server.
 - The vault credentials were used to register the DPM server.
+- If you are protecting Exchange 2016, please upgrade to DPM 2012 R2 UR9 or later
 
 ## DPM protection agent  
 To install the DPM protection agent on the Exchange server, follow these steps:
