@@ -131,7 +131,7 @@ The following steps will help you isolate the source of the failure and figure o
 
 First, check the status of the virtual machine in the portal.
 
-In the [Azure classic portal](https://manage.windowsazure.com), for virtual machines in that were created with the classic deployment model:
+In the [Azure classic portal](https://manage.windowsazure.com), for virtual machines that were created by using the classic deployment model:
 
 1. Select **Virtual machines** > *VM name*.
 2. Select the VM's **Dashboard** to check its status.
@@ -140,11 +140,11 @@ In the [Azure classic portal](https://manage.windowsazure.com), for virtual mach
 
 In the [Azure portal](https://portal.azure.com):
 
-1. For virtual machines created with the classic deployment model, select **Browse** > **Virtual machines (classic)** > *VM name*.
+1. For virtual machines created by using the classic deployment model, select **Browse** > **Virtual machines (classic)** > *VM name*.
 
 	-OR
 
-	For virtual machines created with the Resource Manager model, click **Browse** > **Virtual machines** > *VM name*.
+	For virtual machines created by using the Resource Manager model, click **Browse** > **Virtual machines** > *VM name*.
 
 	The status pane for the virtual machine should show **Running**. Scroll down to show recent activity for compute, storage, and network resources.
 
@@ -215,7 +215,7 @@ To eliminate the cloud service endpoint and ACL as the source of the failure, ve
 
 If you don't have another VM in the same virtual network, you can easily create a new one. For more information, see [Create a Linux VM on Azure using the CLI](virtual-machines-linux-quick-create-cli.md). Delete the extra VM when you are done with your testing.
 
-If you can create an SSH connection with a VM in the same virtual network, check:
+If you can create an SSH connection with a VM in the same virtual network, check the following:
 
 - **The endpoint configuration for SSH traffic on the target VM.** The private TCP port of the endpoint should match the TCP port on which the SSH service on the VM is listening. (The default port is 22). For VMs created by using the Resource Manager deployment model, verify the SSH TCP port number in the Azure portal by selecting **Browse** > **Virtual machines (v2)** > *VM name* > **Settings** > **Endpoints**.
 
