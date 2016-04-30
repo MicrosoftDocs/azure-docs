@@ -161,8 +161,8 @@ This article focuses on the disaster recovery strategies for the database tier u
 
 The following pages will help you learn about the specific operations required to implement each of the scenarios in this article:
 
-- [Add secondary database](https://https://msdn.microsoft.com/library/mt603689.aspx) 
-- [Failover database to secondary](https://msdn.microsoft.com/library/mt619393.aspx)
+- [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
+- [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
 - [Geo-restore database](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
 - [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)
