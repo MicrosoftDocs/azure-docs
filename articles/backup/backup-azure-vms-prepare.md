@@ -20,6 +20,10 @@
 
 # Prepare your environment to back up Azure virtual machines
 
+> [AZURE.SELECTOR]
+- [Prepare to back up ARM VMs](backup-azure-arm-vms-prepare.md)
+- [Prepare to back up Azure VMs](backup-azure-vms-prepare.md)
+
 Before you can back up an Azure virtual machine (VM), there are three conditions that must exist.
 
 - You need to create a backup vault or identify an existing backup vault *in the same region as your VM*.
