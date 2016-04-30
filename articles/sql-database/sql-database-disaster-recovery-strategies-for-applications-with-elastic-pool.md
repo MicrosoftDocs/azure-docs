@@ -49,9 +49,9 @@ If the outage was temporary, it is possible that the primary region will be reco
  
 - Cancel all outstanding geo-restore requests.   
 - Failover the management database(s) to the primary region (5). Note: After the region’s recovery the old primaries have automatically become secondaries. Now they will switch roles again. 
-- Change the the application's connection string to point to the DR region. Now all new accounts and tenant databases will be created in the primary region. Some existing customers will see their data temporarily unavailable.   
+- Change the the application's connection string to point back to the primary region. Now all new accounts and tenant databases will be created in the primary region. Some existing customers will see their data temporarily unavailable.   
 - Set all databases in the DR pool to read-only to ensure they cannot be modified in the DR region (6). 
-- For each database in the DR pool that has changed since the recovery rename or delete the corresponding databases in the primary pool (7). 
+- For each database in the DR pool that has changed since the recovery, rename or delete the corresponding databases in the primary pool (7). 
 - Copy the updated databases from the DR pool to the primary pool (8). 
 - Delete the DR pool (9)
 
@@ -65,7 +65,7 @@ The key **benefit** of this strategy is low ongoing cost for data tier redundanc
 
 <i>I am a mature SaaS application with tiered service offers and different SLAs for trial customers and for paying customers. For the trial customers, I have to reduce the cost as much as possible. Trial customers can take downtime but I want to reduce its likelihood. For the paying customers, any downtime is a flight risk. So I want to make sure that paying customers are always able to access their data.</i> 
 
-To support this scenario, you should separate the trial tenants from paid tenants by putting them into separate elastic pools. The trial customers would have lower DTU per tenant and lower SLA with a longer recovery time. The paying customers would be in a pool with higher DTU per tenant and a higher SLA. To guarantee the lowest recovery time, the paying customers' tenant databases should be geo-replicated. This configuration is illustrated on the next diagram. 
+To support this scenario, you should separate the trial tenants from paid tenants by putting them into separate elastic pools. The trial customers would have lower eDTU per tenant and lower SLA with a longer recovery time. The paying customers would be in a pool with higher eDTU per tenant and a higher SLA. To guarantee the lowest recovery time, the paying customers' tenant databases should be geo-replicated. This configuration is illustrated on the next diagram. 
 
 ![Figure 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
@@ -160,6 +160,7 @@ The main **trade-offs** are:
 This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The choice of the strategy should be based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc.. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application will likely include other Azure components. You should review their business continuity guidance and orchestrate the recovery of the database tier with other application components. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](./sql-database-designing-cloud-solutions-for-disaster-recovery.md) .  
 
 The following pages will help you learn about the specific operations required to implement each of the scenarios in this article:
+
 - [Add secondary database](https://https://msdn.microsoft.com/library/mt603689.aspx) 
 - [Failover database to secondary](https://msdn.microsoft.com/library/mt619393.aspx)
 - [Geo-restore database](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
