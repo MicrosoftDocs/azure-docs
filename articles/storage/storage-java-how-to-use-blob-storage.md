@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use Azure Blob storage from Java | Microsoft Azure"
-	description="Learn how to use Azure Blob storage to upload, download, list, and delete blob content. Samples written in Java."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
