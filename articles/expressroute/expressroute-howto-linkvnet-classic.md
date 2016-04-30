@@ -44,7 +44,7 @@ You can link up to 10 VNets to an ExpressRoute circuit. All ExpressRoute circuit
 
 ## Connect a VNet in the same subscription to a circuit
 
-Yon can link a virtual network to an ExpressRoute circuit using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
+You can link a virtual network to an ExpressRoute circuit using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
 
 	New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 	Provisioned

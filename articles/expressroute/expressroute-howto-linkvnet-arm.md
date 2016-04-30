@@ -75,7 +75,7 @@ The circuit owner creates an authorization. This results in the creation of an a
 
 The following cmdlet snippet shows how to create an authorization:
 
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
@@ -106,7 +106,7 @@ The circuit owner can review all authorizations that are issued on a particular 
 The circuit owner can add authorizations by using the following cmdlet:
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization2"
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -117,14 +117,12 @@ The circuit owner can add authorizations by using the following cmdlet:
 
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
-	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -Circuit $circuit
+	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
 ### Circuit user operations
 
-The circuit user needs the peer ID and an authorization key from the circuit owner. The circuit key looks similar to the one listed below.
-
-The authorization key is a GUID.
+The circuit user needs the peer ID and an authorization key from the circuit owner. The authorization key is a GUID.
 
 #### Redeeming connection authorizations
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/25/2016"
+	ms.date="04/20/2016"
 	ms.author="deonhe"/>
 
 # How to migrate logic apps to schema version 2015-08-01-preview
@@ -29,7 +29,7 @@ The Update Schema page displays and provides a link to a document that provide d
 
 >[AZURE.NOTE] When you select **Update Schema**, we automatically run the migration steps and provide the code output for you. You can use this to update your definition, however, ensure you follow good coding practices such as those outlined in the **Best practices** section below.
 
-##Best practices when migrating your Logic apps to the latest schema version:  
+## Best practices when migrating your Logic apps to the latest schema version:  
 
 - Copy the migrated script to a new Logic App - don't overwrite the old one until you've completed your testing and confirmed the migrated app works as expected.
 - Test your Logic app **before** putting in production

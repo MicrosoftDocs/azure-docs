@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 #  Sampling in Application Insights
@@ -24,6 +24,18 @@ Sampling is a feature in Application Insights that allows you to collect and sto
 When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics.
 
 Sampling is currently in Beta, and may change in the future.
+
+## In brief:
+
+* Sampling retains 1 in *n* records and discards the rest. For example, it might retain 1 in 5 events, a sampling rate of 20%.
+* Sampling happens automatically if your application sends a lot of telemetry. Automatic sampling only kicks in at high volumes, and only in ASP.NET web server apps.
+* You can also set sampling manually, either in the portal on the pricing page (to reduce the volume of telemetry retained, and keep within your monthly quota); or in the ASP.NET SDK in the .config file, to also reduce the network traffic.
+* The current sampling rate is a property of each record. In the Search window, open an event such as a request. Expand the full properties ellipsis "..." to find the "* count" property - named, for example, "request count" or "event count", depending on the type of telemetry. If it is > 1, then sampling is occurring. A count of 3 would mean that sampling is at 33%: each retained record stands for 3 originally generated records.
+* If you log custom events and you want to make sure that a set of events is either retained or discarded together, make sure that they have the same OperationId value.
+* If you write Analytics queries, you should [take account of sampling](app-insights-analytics-tour.md#counting-sampled-data). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
+
+
+## Types of sampling
 
 There are three alternative sampling methods:
 
@@ -75,7 +87,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     When sampling percentage value changes, how soon after are we allowed to lower sampling percentage again to capture less data.
 
-* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageIncreaseTimeout>`
 
     When sampling percentage value changes, how soon after are we allowed to increase sampling percentage again to capture more data.
 
@@ -243,6 +255,7 @@ Instead of setting the sampling parameter in the .config file, you can use code.
 
 ([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
 
+
 ## When  to use sampling?
 
 Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. No matter what SDK version you use, you can use ingestion sampling (at our server).
@@ -316,9 +329,7 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 
  * Yes, adaptive sampling gradually changes the sampling percentage, based on the currently observed volume of the telemetry.
 
-*Can I find out the sampling rate that adaptive sampling is using?*
-
- * Yes - use the code method of configuring adaptive sampling, and you can provide a callback that gets the sampling rate. If you use continuous export, you can see the sampling rate listed in the exported data points.
+ 
 
 *If I use fixed-rate sampling, how do I know which sampling percentage will work the best for my app?*
 

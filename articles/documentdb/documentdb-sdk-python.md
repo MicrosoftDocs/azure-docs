@@ -3,7 +3,7 @@
 	description="Learn all about the Python SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/26/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -36,6 +36,9 @@
 
 ## Release notes
 
+### <a name="1.7.0"/>[1.7.0](https://pypi.python.org/pypi/pydocumentdb/1.7.0)
+- Added the support for Time To Live(TTL) feature for documents.
+
 ### <a name="1.6.1"/>[1.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
 - Bug fixes related to server side partitioning to allow special characters in partitionkey path.
 
@@ -55,13 +58,13 @@
 - Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>[1.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
-- Implements V2 indexing policy
+- Implements V2 indexing policy.
 
 ### <a name="1.0.1"/>[1.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
-- Supports proxy connection
+- Supports proxy connection.
 
 ### <a name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
-- GA SDK
+- GA SDK.
 
 ## Release & retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
@@ -77,6 +80,7 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.7.0](#1.7.0) | April 26, 2016 |---
 | [1.6.1](#1.6.1) | April 08, 2016 |---
 | [1.6.0](#1.6.0) | March 29, 2016 |---
 | [1.5.0](#1.5.0) | January 03, 2016 |---
