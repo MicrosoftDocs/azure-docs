@@ -310,7 +310,7 @@ Azure Automation is a good choice to automate the manual, long-running, error-pr
 
 Creating and publishing Application Programmer Interfaces (APIs) on the internet is a common way to provide services to applications. If those services are resellable (for example, weather data), an organization can allow other third parties to access those same services for a fee. As you scale to more partners, you'll usually need to optimize and control access.  Some partners may even need the data in a different format.
 
-Azure API Management makes it easy for organizations to publish APIs to partners, employees and third-party developers securely and at scale. It provides a different API endpoint and acts as a proxy to call the actual endpoint whild providing services like caching, transformation, throttling, access control, and analytics aggregation.
+Azure API Management makes it easy for organizations to publish APIs to partners, employees and third-party developers securely and at scale. It provides a different API endpoint and acts as a proxy to call the actual endpoint while providing services like caching, transformation, throttling, access control, and analytics aggregation.
 
 **API Management Scenarios**
 
