@@ -35,7 +35,7 @@ This section lists quick fixes for common SSH connection issues.
 
 Try these steps to resolve the most common SSH connection failures for virtual machines that were created by using the classic deployment model.
 
-1. Reset remote access from the [Azure portal](https://portal.azure.com). On the Azure portal, select **Browse** > **Virtual machines (classic)** > *your Linux virtual machine* > **Reset Remote...**.
+1. Reset remote access from the [Azure portal](https://portal.azure.com). On the Azure portal, select **Browse** > **Virtual machines (classic)** > *your Linux virtual machine* > **Reset Remote...**. q
 
 2. Restart the virtual machine. On the [Azure portal](https://portal.azure.com), select **Browse** > **Virtual machines (classic)** > *your Linux virtual machine* > **Restart**.
 
@@ -142,7 +142,7 @@ In the [Azure portal](https://portal.azure.com):
 
 1. For virtual machines created by using the classic deployment model, select **Browse** > **Virtual machines (classic)** > *VM name*.
 
-	-OR
+	-OR-
 
 	For virtual machines created by using the Resource Manager model, click **Browse** > **Virtual machines** > *VM name*.
 
