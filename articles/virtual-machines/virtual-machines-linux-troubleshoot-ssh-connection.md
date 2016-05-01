@@ -39,7 +39,7 @@ Try these steps to resolve the most common SSH connection failures for virtual m
 
 2. Restart the virtual machine. On the [Azure portal](https://portal.azure.com), select **Browse** > **Virtual machines (classic)** > *your Linux virtual machine* > **Restart**.
 
-	-OR
+	-OR-
 
 	On the [Azure classic portal](https://manage.windowsazure.com), select **Virtual machines** > **Instances** > **Restart**.
 
