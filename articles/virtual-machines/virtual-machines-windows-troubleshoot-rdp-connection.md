@@ -46,8 +46,7 @@ These steps can help resolve most Remote Desktop connection failures in Azure vi
 
 	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 
-- Review your VM’s console log or screenshot to correct boot problems.
-	Select **Browse** > **Virtual machines (classic**) > *your Windows virtual machine* > **Settings** > **Boot diagnostics**.
+- Review your VM’s console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your Windows virtual machine* > **Settings** > **Boot diagnostics**.
 
 - Check the VM's Resource Health for any platform issues. Select **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Settings** > **Check Health**.
 
