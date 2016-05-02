@@ -62,7 +62,7 @@ The service author has full control of when to make backups and where backups wi
 To start a backup, the service needs to invoke the inherited member function **BackupAsync**.  
 Backups can be made only from primary replicas, and they require write status to be granted.
 
-As shown below, **BackupAsync** takes in a **BackupDescription** object, where one can specify a full or incremental backup, as well as a callback function, **Func<< BackupInfo, bool, CancellationToken >>** which is invoked when the backup folder has been created locally and is ready to be moved out to some external storage.
+As shown below, **BackupAsync** takes in a **BackupDescription** object, where one can specify a full or incremental backup, as well as a callback function, **Func<< BackupInfo, CancellationToken, Task<bool>>>** which is invoked when the backup folder has been created locally and is ready to be moved out to some external storage.
 
 ```C#
 
