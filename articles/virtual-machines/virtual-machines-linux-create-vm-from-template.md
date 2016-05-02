@@ -27,7 +27,10 @@ This article shows how to quickly deploy a Linux Virtual Machine on Azure using 
 In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
 ```bash
-chrisl@fedora$ azure group create -n <exampleRGname> -l <exampleAzureRegion> [--template-uri <URL> | --template-file <path> | <template-file> -e <parameters.json file>]
+ahmet@fedora$ azure group create \
+-n quicksecuretemplate \
+-l eastus \
+--template-uri https://raw.githubusercontent.com/squillace/azure-quickstart-templates/streamline/101-vm-sshkey/azuredeploy.json
 ```
 
 ## Detailed Walkthrough
@@ -38,23 +41,23 @@ Azure Resource Manager templates are JSON files that can be used for simple one-
 
 ## Create the Linux VM
 
-The following code example shows how to call `azure group create` to create a resource group and deploy an SSH-secured Linux VM at the same time using [this Azure Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Remember that in your example you need to use names that are unique to your environment. This example uses `quicksecuretemplate` as the resource group name, `securelinux` as the VM name, and `quicksecurelinux` as a subdomain name.
+The following code example shows how to call `azure group create` to create a resource group and deploy an SSH-secured Linux VM at the same time using [this Azure Resource Manager template](https://raw.githubusercontent.com/squillace/azure-quickstart-templates/streamline/101-vm-sshkey/azuredeploy.json). Remember that in your example you need to use names that are unique to your environment. This example uses `quicksecuretemplate` as the resource group name, `securelinux` as the VM name, and `quicksecurelinux` as a subdomain name.
 
 ```bash
-chrisl@fedora$ azure group create -n quicksecuretemplate -l eastus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+ahmet@fedora$ azure group create \
+-n quicksecuretemplate \
+-l eastus \
+--template-uri https://raw.githubusercontent.com/squillace/azure-quickstart-templates/streamline/101-vm-sshkey/azuredeploy.json
 info:    Executing command group create
 + Getting resource group quicksecuretemplate
 + Creating resource group quicksecuretemplate
 info:    Created resource group quicksecuretemplate
 info:    Supply values for the following parameters
-adminUserName: ops
-sshKeyData: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDRZ/XB8p8uXMqgI8EoN3dWQw... user@contoso.com
-dnsLabelPrefix: quicksecurelinux
-vmName: securelinux
+sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== vlivech@azure
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/<guid>/resourceGroups/quicksecuretemplate
+data:    Id:                  /subscriptions/<..subid text..>/resourceGroups/quicksecuretemplate
 data:    Name:                quicksecuretemplate
 data:    Location:            eastus
 data:    Provisioning State:  Succeeded
@@ -67,4 +70,4 @@ You can create a new resource group and deploy a VM using the `--template-uri` p
 
 ## Next steps
 
-Once you create Linux VMs with templates, you'll want to see what other app frameworks are available to use with templates. Search the [templates gallery](https://azure.microsoft.com/documentation/templates/) to discover what app frameworks to deploy next.
+Once you create Linux VMs with templates, you'll want to see what other app frameworks are available to deploy with templates. Search the [templates gallery](https://azure.microsoft.com/documentation/templates/) to discover what app frameworks to deploy next.
