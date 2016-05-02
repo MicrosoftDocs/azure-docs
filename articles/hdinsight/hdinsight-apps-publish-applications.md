@@ -19,7 +19,7 @@
 
 # Publish HDInsight applications into the Azure Marketplace
 
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this tutorial, you will learn how to publish an HDInsight application into the Azure Marketplace. The application you will publish is [Hue](http://gethue.com/). For general information about publishing into the Azure Marketplace, see [publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to publish an HDInsight application into the Azure Marketplace.  For general information about publishing into the Azure Marketplace, see [publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
 
 HDInsight applications use the *Bring Your Own License (BYOL)* model, where application provider is responsible for licensing the application to end-users, and end-users are only charged by Azure for the resources they create, such as the HDInsight cluster and its VMs/nodes. At this time, billing for the application itself is not done through Azure.
 
@@ -61,13 +61,15 @@ There are two steps involved for publishing applications to the Azure Marketplac
 
 ## Package application
 
-Create a zip file that contains all required files for creating HDInsight cluster and installing HDInsight applications:
+Create a zip file that contains all required files for installing your HDInsight applications on an existing HDInsight cluster.
 
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json and any linked templates. See a sample at [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 - All required scripts.
 
-[jgao: I assume the mainTemplate is the template for install HDInsight applications on an existing HDInsight application.  If yes, what is the suggestion approach for ISVs to distribute the template for installing applications during cluster creation?]
+[jgao: do I have to use the file name "mainTemplate.json"?]
+
+[jgao: I assume the mainTemplate is the template for install HDInsight applications on an existing HDInsight application.  If yes, what is the suggested approach for ISVs to distribute the template for installing applications during cluster creation?]
 
 [jgao: I don't believe installing HDI application requires any linked templates.  Please confirm.]
 
@@ -87,6 +89,11 @@ Follow the following steps to publish an HDInsight application:
 6. Upload the zip file prepared in [Package application](#package-application).  
 7. Click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
  
+ 
+## Validate application
+
+Following the instructions found at [Install HDInsight application](hdinsight-apps-install-applications.md) to validate your application.
+
 ## Next steps
 
 - [Install HDInsight applications](hdinsight-apps-install-applications.md): learn how to deploy a published HDInsight application from the Azure portal.
