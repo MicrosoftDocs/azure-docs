@@ -43,7 +43,7 @@ Since it has the checkpoints and the log, a full backup can be restored by itsel
 The problem with full backups arises when the checkpoints are large.
 For example, a replica that has 16 GB of state will have checkpoints that add up approximately to 16 GB.
 If we have an Recovery Point Objective of 5 minutes, the replica needs to be backed up every 5 minutes.
-Each time it backs up it will need to copy 16 GB of checkpoints in addition to 50 Mb (configurable using **CheckpointThresholdInMB**) worth of logs.
+Each time it backs up it will need to copy 16 GB of checkpoints in addition to 50 MB (configurable using **CheckpointThresholdInMB**) worth of logs.
 
 ![Full Backup Example.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
