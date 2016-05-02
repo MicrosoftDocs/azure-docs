@@ -97,7 +97,7 @@ Once Log Analytics starts collecting from the custom log, its records will be av
 
 ### Step 6. Parse the custom log entries
 
-The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties stored in the record.  You do this using the [Custom Fields](Custom%20fields.md) feature of Log Analytics.
+The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties stored in the record.  You do this using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
 
 Detailed steps for parsing the custom log entry are not provided here.  Please refer to the [Custom Fields](Custom%20fields.md) documentation for this information.
 
