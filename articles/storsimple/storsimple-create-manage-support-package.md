@@ -26,17 +26,17 @@ This tutorial includes step-by-step instructions to create and manage the suppor
 
 ## Create and upload a support package in the Azure classic portal
 
-You can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in the classic portal.
+You can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in the Azure classic portal.
 
-> [AZURE.NOTE] The upload requires a support passkey. The support passkey should be provided to you by your support engineer in an email.
+> [AZURE.NOTE] The upload requires a support passkey. Your support engineer should provide this to you in an email.
 
-An encrypted and compressed support package (.cab file) is created and uploaded to the Support site. This package can then be retrieved by the support engineer from the Support site for troubleshooting the issue.
+An encrypted and compressed support package (.cab file) is created and uploaded to the Support site. The support engineer can then retrieve this package from the Support site for troubleshooting the issue.
 
 Perform the following steps in the classic portal to create a support package.
 
 #### To create a support package in the Azure classic portal
 
-1. Select **Devices > Maintenance**.
+1. Select **Devices** > **Maintenance**.
 
 2. In the **Support package** section, select **Create and upload support package**.
 
@@ -44,26 +44,26 @@ Perform the following steps in the classic portal to create a support package.
 
 	![Create support package](./media/storsimple-create-manage-support-package/IC740923.png)
 
-	- In the **Support Passkey** text box, enter the passkey. This key should be sent to you by your Microsoft support engineer in an email.
+	- In the **Support Passkey** text box, enter the passkey. Your Microsoft support engineer should send this passkey to you in email.
 
-	- Check the box to provide consent to automatically upload the support package to the Microsoft Support site.
+	- Select the check box to provide consent to automatically upload the support package to the Microsoft Support site.
 
 	- Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png).
 
 
 ## Manually create a support package
 
-In some cases, you'll need to manually create the support package through the Windows PowerShell for StorSimple. For example:
+In some cases, you'll need to manually create the support package through Windows PowerShell for StorSimple. For example:
 
 - If you need to remove sensitive information from your log files prior to sharing with Microsoft Support.
 
 - If you are having difficulty uploading the package due to connectivity issues.
 
-You can share your manually-generated support package with Microsoft Support over email. Perform the following steps to create a support package in Windows PowerShell for StorSimple.
+You can share your manually generated support package with Microsoft Support over email. Perform the following steps to create a support package in Windows PowerShell for StorSimple.
 
 #### To create a support package in Windows PowerShell for StorSimple
 
-1. To start a Windows PowerShell session as an administrator on the remote computer used to connect to your StorSimple device, enter the following command:
+1. To start a Windows PowerShell session as an administrator on the remote computer that's used to connect to your StorSimple device, enter the following command:
 
 	`Start PowerShell`
 
@@ -114,7 +114,7 @@ You can use the following parameters with the Export-HcsSupportPackage cmdlet.
 
 ## Edit a support package
 
-After you have generated a support package, you may need to edit the package to remove sensitive information. This could include volume names, device IP addresses, and backup names from the log files.
+After you have generated a support package, you might need to edit the package to remove sensitive information. This can include volume names, device IP addresses, and backup names from the log files.
 
 > [AZURE.IMPORTANT] You can only edit a support package that was generated through Windows PowerShell for StorSimple. You can't edit a package created in the Azure classic portal with StorSimple Manager service.
 
@@ -138,15 +138,15 @@ To edit a support package before uploading it on the Microsoft Support site, fir
 
 	![Edit support package](./media/storsimple-create-manage-support-package/IC750706.png)
 
-5. When prompted for the encryption passphrase, enter the passphrase used when the support package was created.
+5. When you're prompted for the encryption passphrase, enter the passphrase that you used when the support package was created.
 
     	cmdlet Open-HcsSupportPackage at command pipeline position 1
 
     	Supply values for the following parameters:EncryptionPassphrase: ****
 
-6. Navigate to the folder that contains the log files. As the log files are now decompressed and decrypted, these will have original file extensions. Modify these files to remove any customer-specific information, such as volume names and device IP addresses, and save the files.
+6. Browse to the folder that contains the log files. Because the log files are now decompressed and decrypted, these will have original file extensions. Modify these files to remove any customer-specific information, such as volume names and device IP addresses, and save the files.
 
-7. Close the files to compress them with Gzip and encrypt them with AES-256. This is for speed and security when transferring the support package over a network. To compress and encrypt files, enter the following:
+7. Close the files to compress them with gzip and encrypt them with AES-256. This is for speed and security in transferring the support package over a network. To compress and encrypt files, enter the following:
 
 	`Close-HcsSupportPackage <Path to the folder that contains support package files>`
 
