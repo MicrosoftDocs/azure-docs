@@ -25,7 +25,7 @@ This article discusses the options available to create multiple VMs in Azure whi
 
 ## Resource loops
 
-Resource loops are a syntactical shorthand in Azure Resource Manager templates which allow you to create a set of similarly configured resources in a loop. You can use resource loops to create multiple storage accounts, network interfaces, virtual machines for example. For more information about resource loops refer to [Create VMs in Availability Sets using Resource Loops](https://azure.microsoft.com/en-us/documentation/templates/201-vm-copy-index-loops/).
+Resource loops are a syntactical shorthand in Azure Resource Manager templates which allow you to create a set of similarly configured resources in a loop. You can use resource loops to create multiple storage accounts, network interfaces, virtual machines for example. For more information about resource loops refer to [Create VMs in Availability Sets using Resource Loops](https://azure.microsoft.com/documentation/templates/201-vm-copy-index-loops/).
 
 ## Challenges of Scale
 
@@ -43,4 +43,4 @@ For applications that need to scale compute resources out and in, scale operatio
 
 Instead of correlating multiple resources such as NICs and VMs, a scale set has network, storage, virtual machine and extension properties which you can configure centrally.
 
-For an introduction to VM scale sets refer to the [product page](https://azure.microsoft.com/services/virtual-machine-scale-sets/), and for more detailed information go to the [documentation](https://azure.microsoft.com/en-us/documentation/services/virtual-machine-scale-sets/).
+For an introduction to VM scale sets refer to the [product page](https://azure.microsoft.com/services/virtual-machine-scale-sets/), and for more detailed information go to the [documentation](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
