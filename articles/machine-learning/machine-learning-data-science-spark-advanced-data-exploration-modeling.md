@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/02/2016"
 	ms.author="deguhath;bradsev" />
 
 # Advanced data exploration and modeling with Spark 
@@ -49,7 +49,7 @@ Modeling examples using CV and Hyperparameter sweep are shown for the binary cla
 
 ## Prerequisites
 
-You need an Azure account and an HDInsight Spark cluster, version Spark 1.5.2 (HDI 3.3), to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
+You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark 1.6 cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -75,6 +75,10 @@ The following code sample specifies the location of the data to be read and the 
 	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
 	modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
+TBD: Explain
+Creating SparkContext as 'sc'
+Creating HiveContext as 'sqlContext'
+
 	# PRINT START TIME
 	import datetime
 	datetime.datetime.now()
@@ -84,19 +88,17 @@ The following code sample specifies the location of the data to be read and the 
 datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
 
-### Import libraries needed and set Spark context 
+### Import libraries
 
-Set spark context and import necessary libraries with the following code.
+Import necessary libraries with the following code.
 
 	# LOAD PYSPARK LIBRARIES
 	import pyspark
 	from pyspark import SparkConf
 	from pyspark import SparkContext
 	from pyspark.sql import SQLContext
-	%matplotlib inline
 	import matplotlib
 	import matplotlib.pyplot as plt
-	#matplotlib.style.use('ggplot')
 	from pyspark.sql import Row
 	from pyspark.sql.functions import UserDefinedFunction
 	from pyspark.sql.types import *
@@ -105,16 +107,6 @@ Set spark context and import necessary libraries with the following code.
 	import numpy as np
 	import datetime
 	
-	# SET SPARK CONTEXT
-	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-	sqlContext = SQLContext(sc)
-	atexit.register(lambda: sc.stop())
-	
-	sc.defaultParallelism
-
-**OUTPUT**
-
-4
 
 ## Data ingestion: 
 
@@ -186,7 +178,7 @@ Here is the code for data ingestion.
 
 **OUTPUT**
 
-Time taken to execute above cell: 17.73 seconds
+Time taken to execute above cell: 9.02 seconds
 
 
 ## Data exploration & visualization 
@@ -200,23 +192,19 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 	# PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
 	# SQL SQUERY
-	sqlStatement = """
-	    SELECT passenger_count, COUNT(*) as trip_counts 
-	    FROM taxi_train 
-	    WHERE passenger_count > 0 and passenger_count < 7
-	    GROUP BY passenger_count 
-	"""
-	sqlResults = sqlContext.sql(sqlStatement)
+	%%sql -q -o sqlResults
+	SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 	
-	#CONVERT TO PANDAS DATA-FRAMES FOR PLOTTING IN PYTHON
-	resultsPDDF = sqlResults.toPandas()
+	# PLOT PASSENGER NUMBER VS TRIP COUNTS
+	%%local
+	import matplotlib.pyplot as plt
+	%matplotlib inline
 	
-	# PLOT PASSENGER NUMBER VS. TRIP COUNTS
-	x_labels = resultsPDDF['passenger_count'].values
-	fig = resultsPDDF[['trip_counts']].plot(kind='bar', facecolor='lightblue')
+	x_labels = sqlResults['passenger_count'].values
+	fig = sqlResults[['trip_counts']].plot(kind='bar', facecolor='lightblue')
 	fig.set_xticklabels(x_labels)
 	fig.set_title('Counts of trips by passenger count')
-	fig.set_xlabel('Passenger counts')
+	fig.set_xlabel('Passenger count in trips')
 	fig.set_ylabel('Trip counts')
 	plt.show()
 
@@ -227,24 +215,24 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 
 ### Plot a histogram of tip amounts and how tip amount varies by passenger count and fare amounts.
 
-The code uses a SQL squery to sample the data and converts the results to a Pandas data frame to plot.
+The code uses a SQL squery to sample the data.
 
-	# RECORD START TIME
-	timestart = datetime.datetime.now()
 	
 	# SQL SQUERY
-	sqlStatement = """
+	%%sql -q -o sqlResults
 	    SELECT fare_amount, passenger_count, tip_amount, tipped
 	    FROM taxi_train 
-	    WHERE passenger_count > 0 AND passenger_count < 7
-	    AND fare_amount > 0 AND fare_amount < 200
+	    WHERE passenger_count > 0 
+		AND passenger_count < 7
+	    AND fare_amount > 0 
+		AND fare_amount < 200
 	    AND payment_type in ('CSH', 'CRD')
-	    AND tip_amount > 0 AND tip_amount < 25
-	"""
-	sqlResults = sqlContext.sql(sqlStatement)
+	    AND tip_amount > 0 
+		AND tip_amount < 25
 	
-	# CONVERT TO PANDAS DATA-FRAME FOR PLOTTING IN PYTHON
-	resultsPDDF= sqlResults.toPandas()
+	# SET CONTEXT
+	%%local
+	%matplotlib inline
 	
 	# TIP BY PAYMENT TYPE AND PASSENGER COUNT
 	ax1 = resultsPDDF[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
@@ -275,7 +263,7 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:** 
+**OUTPUT:** 
 
 ![Tip amount distribution](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-distribution.png)
 
@@ -375,7 +363,7 @@ Here is the code to index and encode categorical features:
 
 **OUTPUT**
 
-Time taken to execute above cell: 1.22 seconds
+Time taken to execute above cell: 2.45 seconds
 
 
 ### Create labeled point objects for input into ML functions
@@ -425,7 +413,6 @@ This section contains code that shows how to index categorical text data as a la
 	    return  labPt
 
 
-
 ### Create a random sub-sampling of the data and split it into training and testing sets
 
 This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample here so you know how to use it for your own problem when needed. When samples are large, this can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
@@ -470,7 +457,7 @@ This code creates a random sampling of the data (25% is used here). Although it 
 
 **OUTPUT**
 
-Time taken to execute above cell: 0.4 seconds
+Time taken to execute above cell: 0.25 seconds
 
 
 ### Feature scaling
@@ -512,7 +499,7 @@ Here is the code to scale to scale variables for use with the regularized linear
 
 **OUTPUT**
 
-Time taken to execute above cell: 7.33 seconds
+Time taken to execute above cell: 10.46 seconds
 
 ### Cache objects in memory
 
@@ -542,9 +529,9 @@ The time taken for training and testing of ML algorithms can be reduced by cachi
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:** 
+**OUTPUT** 
 
-Time taken to execute above cell: 0.11 seconds
+Time taken to execute above cell: 0.13 seconds
 
 
 ## Predict whether or not a tip is paid with binary classification models
@@ -584,6 +571,7 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
 	
+	# LOAD PYSPARK LIBRARIES
 	from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
 	from pyspark.mllib.evaluation import BinaryClassificationMetrics
 	
@@ -642,6 +630,7 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 	                                              regParam=bestParam['regParam'], tolerance = bestParam['tolerance'], 
 	                                              intercept=True)
 	
+	# PRINT ELAPSED TIME	
 	timeend = datetime.datetime.now()
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
@@ -649,7 +638,7 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 
 **OUTPUT**
 
-Time taken to execute above cell: 160.47 seconds
+Time taken to execute above cell: 142.78 seconds
 
 
 **Evaluate binary classification model with standard metrics, and plot ROC curve**
@@ -687,19 +676,49 @@ The code in this section shows how to evaluate a logistic regression model again
 	print("Recall = %s" % recall)
 	print("F1 Score = %s" % f1Score)
 	
-	
-	# CREATE A PANDAS DATA-FRAME AND PLOT ROC-CURVE, FROM PREDICTED PROBS AND LABELS                                     
-	logitBest.clearThreshold() # This clears threshold for classification (0.5) and outputs probabilities
-	predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitBest.predict(lp.features)), lp.label))
+	# OUTPUT PROBABILITIES AND REGISTER TEMP TABLE
+	logitBest.clearThreshold(); # This clears threshold for classification (0.5) and outputs probabilities
 	predictionAndLabelsDF = predictionAndLabels.toDF()
-	test_predictions = predictionAndLabelsDF.toPandas()
-	predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
+	predictionAndLabelsDF.registerTempTable("tmp_results");
+
+	# PRINT ELAPSED TIME	
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT**
+
+Area under PR = 0.984753146176
+
+Area under ROC = 0.982986767486
+
+Summary Stats
+
+Precision = 0.983655467635
+
+Recall = 0.983655467635
+
+F1 Score = 0.983655467635
+
+Time taken to execute above cell: 2.63 seconds
+
+
+
+	# PLOT ROC-CURVE FROM PREDICTED PROBS AND LABELS 
+
+    # SET CONTEXT AND IMPORT LIBRARIES                                
+	%%local
+	%matplotlib inline
+	from sklearn.metrics import roc_curve,auc
 	
+	#PREDICTIONS
+	predictions_pddf = sqlResults.rename(columns={'_1': 'probability', '_2': 'label'})
 	prob = predictions_pddf["probability"] 
 	fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
 	roc_auc = auc(fpr, tpr)
 	
-	# PLOT ROC CURVE
+	# PLOT ROC CURVES
 	plt.figure(figsize=(5,5))
 	plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
 	plt.plot([0, 1], [0, 1], 'k--')
@@ -711,28 +730,10 @@ The code in this section shows how to evaluate a logistic regression model again
 	plt.legend(loc="lower right")
 	plt.show()
 	
-	# PRINT ELAPSED TIME
-	timeend = datetime.datetime.now()
-	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 **OUTPUT**
 
-Area under PR = 0.985319161941
-
-Area under ROC = 0.983511076103
-
-Summary Stats
-
-Precision = 0.984187223276
-
-Recall = 0.984187223276
-
-F1 Score = 0.984187223276
-
 ![Logistic regression ROC curve for generic approach](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/logistic-regression-roc-curve.png)
-
-Time taken to execute above cell: 5.02 seconds
 
 
 **Persist model in a blob for future consumption**
@@ -760,7 +761,7 @@ The code in this section shows how to save the logistic regression model for con
 
 **OUTPUT**
 
-Time taken to execute above cell: 9.96 seconds
+Time taken to execute above cell: 23.4 seconds
 
 
 ### Use MLlib's CrossValidator pipeline function with LogisticRegression (Elastic regression) model
@@ -836,9 +837,42 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 
 **OUTPUT**
 
+Time taken to execute above cell: 102.37 seconds
+
+usr/hdp/current/spark-client/python/pyspark/ml/classification.py:207: UserWarning: weights is deprecated. Use coefficients instead.
+  warnings.warn("weights is deprecated. Use coefficients instead.")
+
+
+	#QUERY
+	%%sql -q -o sqlResults
+	SELECT label, prediction, probability from tmp_results
+
+    # SET CONTEXT AND IMPORT LIBRARIES  
+	%%local
+	from sklearn.metrics import roc_curve,auc
+	
+	# ROC CURVE
+	prob = [x["values"][1] for x in sqlResults["probability"]]
+	fpr, tpr, thresholds = roc_curve(sqlResults['label'], prob, pos_label=1);
+	roc_auc = auc(fpr, tpr)
+	
+	#PLOT
+	plt.figure(figsize=(5,5))
+	plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+	plt.plot([0, 1], [0, 1], 'k--')
+	plt.xlim([0.0, 1.0])
+	plt.ylim([0.0, 1.05])
+	plt.xlabel('False Positive Rate')
+	plt.ylabel('True Positive Rate')
+	plt.title('ROC Curve')
+	plt.legend(loc="lower right")
+	plt.show()
+
+
+**OUTPUT**
+
 ![Logistic regression ROC curve using MLlib's CrossValidator](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
 
-Time taken to execute above cell: 118.25 seconds
 
 
 ### Random forest classification
@@ -890,9 +924,9 @@ The code in this section shows how to train evaluate, and save a random forest r
 
 **OUTPUT**
 
-Area under ROC = 0.985240932843
+Area under ROC = 0.984753146176
 
-Time taken to execute above cell: 22.9 seconds
+Time taken to execute above cell: 20.78 seconds
 
 
 ### Gradient boosting trees classification
@@ -937,9 +971,9 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 
 **OUTPUT**
 
-Area under ROC = 0.985240932843
+Area under ROC = 0.984753146176
 
-Time taken to execute above cell: 22.41 seconds
+Time taken to execute above cell: 13.87 seconds
 
 
 ## Predict tip amount with regression models (not using CV)
@@ -1002,11 +1036,11 @@ The code in this section shows how to use scaled features to train a linear regr
 
 **OUTPUT**
 
-RMSE = 1.29395294535
+RMSE = 1.33377864897
 
-R-sqr = 0.588405443258
+R-sqr = 0.585503152994
 
-Time taken to execute above cell: 36.14 seconds
+Time taken to execute above cell: 33.26 seconds
 
 
 ### Random Forest regression
@@ -1059,11 +1093,11 @@ The code in this section shows how to train evaluate, and save a random forest m
 
 **OUTPUT**
 
-RMSE = 0.962262172157
+RMSE = 1.00996395626
 
-R-sqr = 0.69142848223
+R-sqr = 0.673021661896
 
-Time taken to execute above cell: 29.3 seconds
+Time taken to execute above cell: 21.85 seconds
 
 
 ### Gradient boosting trees regression
@@ -1097,20 +1131,10 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 	test_predictions= sqlContext.createDataFrame(predictionAndLabels)
 	test_predictions_pddf = test_predictions.toPandas()
 	
-	ax = test_predictions_pddf.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
-	fit = np.polyfit(test_predictions_pddf['_1'], test_predictions_pddf['_2'], deg=1)
-	ax.set_title('Actual vs. Predicted Tip Amounts ($)')
-	ax.set_xlabel("Actual")
-	ax.set_ylabel("Predicted")
-	ax.plot(test_predictions_pddf['_1'], fit[0] * test_predictions_pddf['_1'] + fit[1], color='magenta')
-	plt.axis([-1, 20, -1, 20])
-	plt.show(ax)
-	
 	# SAVE MODEL IN BLOB
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
 	btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
 	dirfilename = modelDir + btregressionfilename;
-	
 	gbtModel.save(sc, dirfilename)
 	
 	# PRINT ELAPSED TIME
@@ -1121,9 +1145,30 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 
 **OUTPUT**
 
-RMSE = 0.962160568829
+RMSE = 1.01232323826
 
-R-sqr = 0.717354800581
+R-sqr = 0.669483122879
+
+Time taken to execute above cell: 17.32 seconds
+
+	
+	# QUERY
+	%%sql -q -o sqlResults
+	SELECT * from tmp_results
+
+	# SET CONTEXT AND IMPORT LIBRARIES
+	%%local
+	import numpy as np
+	
+	# PLOT
+	ax = sqlResults.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
+	fit = np.polyfit(sqlResults['_1'], sqlResults['_2'], deg=1)
+	ax.set_title('Actual vs. Predicted Tip Amounts ($)')
+	ax.set_xlabel("Actual")
+	ax.set_ylabel("Predicted")
+	ax.plot(sqlResults['_1'], fit[0] * sqlResults['_1'] + fit[1], color='magenta')
+	plt.axis([-1, 15, -1, 15])
+	plt.show(ax)
 
 ![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
@@ -1148,46 +1193,42 @@ The code in this section shows how to do cross validation using Elastic net for 
 	from pyspark.ml.evaluation import RegressionEvaluator
 	from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
 	
-	# Define algo / model
+	# DEFINE ALGORITHM/MODEL
 	lr = LinearRegression()
 	
-	# Define grid parameters
+	# DEFINE GRID PARAMETERS
 	paramGrid = ParamGridBuilder().addGrid(lr.regParam, (0.01, 0.1))\
 	                              .addGrid(lr.maxIter, (5, 10))\
 	                              .addGrid(lr.tol, (1e-4, 1e-5))\
 	                              .addGrid(lr.elasticNetParam, (0.25,0.75))\
 	                              .build() 
 	
-	# Define pipeline, in this case, simply the modeling (without any transformations etc.)
+	# DEFINE PIPELINE 
+	# SIMPLY THE MODEL HERE, WITHOUT TRANSFORMATIONS
 	pipeline = Pipeline(stages=[lr])
 	
-	# Define CV with parameter sweep
+	# DEFINE CV WITH PARAMETER SWEEP
 	cv = CrossValidator(estimator= lr,
 	                    estimatorParamMaps=paramGrid,
 	                    evaluator=RegressionEvaluator(),
 	                    numFolds=3)
 	
-	# Convert to data-frame, as CrossValidator won't run on RDDs
+	# CONVERT TO DATA FRAME, AS CROSSVALIDATOR WON'T RUN ON RDDS
 	trainDataFrame = sqlContext.createDataFrame(oneHotTRAINreg, ["features", "label"])
 	
-	# Train with cross-validation
+	# TRAIN WITH CROSS-VALIDATION
 	cv_model = cv.fit(trainDataFrame)
-	
-	timeend = datetime.datetime.now()
-	timeend-timestart
 	
 
 	# EVALUATE MODEL ON TEST SET
 	testDataFrame = sqlContext.createDataFrame(oneHotTESTreg, ["features", "label"])
 	
-	# MAKE PREDICTIONS ON TEST DOCUMENTS 
-	#THE cvModel USES THE BEST MODEL FOUND (lrModel).
-	test_predictions = cv_model.transform(testDataFrame)
-	predictions_pddf = test_predictions.toPandas()
+	# MAKE PREDICTIONS ON TEST DOCUMENTS
+	# cvModel uses the best model found (lrModel).
+	predictionAndLabels = cv_model.transform(testDataFrame)
 	
-	corstats = stats.linregress(predictions_pddf['label'],predictions_pddf['prediction'])
-	r2 = (corstats[2]*corstats[2])
-	print("R-sqr = %s" % r2)
+	# CONVERT TO DF AND SAVE REGISER DF AS TABLE
+	predictionAndLabels.registerTempTable("tmp_results");
 	
 	# PRINT ELAPSED TIME
 	timeend = datetime.datetime.now()
@@ -1197,9 +1238,28 @@ The code in this section shows how to do cross validation using Elastic net for 
 
 **OUTPUT**
 
-R-sqr = 0.594830601664
+Time taken to execute above cell: 150.69 seconds
 
-Time taken to execute above cell: 129.51 seconds
+/usr/hdp/current/spark-client/python/pyspark/ml/regression.py:123: UserWarning: weights is deprecated. Use coefficients instead.
+  warnings.warn("weights is deprecated. Use coefficients instead.")
+
+	#QUERY
+	%%sql -q -o sqlResults
+	SELECT label,prediction from tmp_results
+
+	# SET CONTEXT AND IMPORT LIBRARIES
+	%%local
+	from scipy import stats
+	
+	#R-SQR TEST METRIC
+	corstats = stats.linregress(sqlResults['label'],sqlResults['prediction'])
+	r2 = (corstats[2]*corstats[2])
+	print("R-sqr = %s" % r2)
+
+
+**OUTPUT**
+
+R-sqr = 0.564016585075
 
 
 ### Cross validation with parameter sweep using custom code for random forest regression
@@ -1289,11 +1349,11 @@ The code in this section shows how to do cross validation with parameter sweep u
 
 **OUTPUT**
 
-RMSE = 0.990182456723
+RMSE = 1.00698169839
 
-R-sqr = 0.609523627251
+R-sqr = 0.674480212537
 
-Time taken to execute above cell: 72.5 seconds
+Time taken to execute above cell: 66.47 seconds
 
 
 ### Cleanup objects from memory, and print model locations
@@ -1335,19 +1395,17 @@ Use `unpersist()` to delete objects cached in memory.
 
 **OUTPUT**
 
-PythonRDD[119] at RDD at PythonRDD.scala:43
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-2523_40_16.087332"
 
-logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-1817_40_35.796789"
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-2523_43_30.058765"
 
-linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-1817_44_00.993832"
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-2523_42_39.585378"
 
-randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-1817_42_58.899412"
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-2523_43_52.456436"
 
-randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-1817_44_27.204734"
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-2523_42_55.680761"
 
-BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-1817_43_16.354770"
-
-BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-1817_44_46.206262"
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-2523_44_10.079694"
 
 ## What's next?
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/02/2016"
 	ms.author="deguhath;bradsev" />
 
 # Data exploration and modeling with Spark
@@ -39,7 +39,7 @@ The modeling steps also contain code showing how to train, evaluate and save eac
 
 ## Prerequisites
 
-You need an Azure account and an HDInsight Spark cluster, version Spark 1.5.2 (HDI 3.3), to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
+You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark 1.6 cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark). 
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -52,6 +52,8 @@ Spark is able to read and write to Azure Storage Blob (also known as WASB). So a
 To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb///". Other locations are referenced by “wasb://”.
 
 Set up also requires importing necessary libraries and set ting the spark context.
+
+TBD Explaining about pyspark magic for context.
 
 ### Set directory paths for storage locations in WASB
 
@@ -67,6 +69,10 @@ The following code sample specifies the location of the data to be read and the 
 	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
 	modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 
+TBD: Explain how:
+Creating SparkContext as 'sc'
+Creating HiveContext as 'sqlContext'
+
 
 ### Import libraries needed and set Spark context 
 
@@ -78,7 +84,6 @@ Set spark context and import necessary libraries with the following code.
 	from pyspark import SparkConf
 	from pyspark import SparkContext
 	from pyspark.sql import SQLContext
-	%matplotlib inline
 	import matplotlib
 	import matplotlib.pyplot as plt
 	from pyspark.sql import Row
@@ -88,18 +93,6 @@ Set spark context and import necessary libraries with the following code.
 	from numpy import array
 	import numpy as np
 	import datetime
-	datetime.datetime.now()
-	
-	# SET SPARK CONTEXT
-	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-	sqlContext = SQLContext(sc)
-	atexit.register(lambda: sc.stop())
-	
-	sc.defaultParallelism
-
-**Output:**
-
-4
 
 
 ## Data ingestion
@@ -143,40 +136,40 @@ Here is the code for data ingestion.
 	fields[26].dataType = IntegerType() # Tip class
 	taxi_schema = StructType(fields)
 	
-	# PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
+	## PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
 	taxi_header = taxi_train_file.filter(lambda l: "medallion" in l)
 	taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
 	        .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
 	                        float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
 	                        float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 	
-	    
-	# CREATE DATA FRAME
+	
+	## CREATE DATA FRAME
 	taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 	
-	# CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
+	## CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
 	taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
 	    .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
 	    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
 	    .drop('direct_distance').drop('surcharge')\
 	    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
+
 	
-	
-	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+	## CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
 	taxi_df_train_cleaned.cache()
 	taxi_df_train_cleaned.count()
 	
-	# REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
+	## REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
 	taxi_df_train_cleaned.registerTempTable("taxi_train")
 	
-	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	## PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**Output:**
+**OUTPUT:**
 
-Time taken to execute above cell: 19.8 seconds
+Time taken to execute above cell: 339.0 seconds
 
 
 ## Data exploration & visualization
@@ -185,67 +178,66 @@ Once the data has been brought into Spark, the next step in the data science pro
 
 ### Plot a histogram of passenger count frequencies in the sample of taxi trips
 
-The code uses a SQL squery to sample the data and converts the results to a Pandas data frame to plot.
+The code uses a SQL squery to sample and plot the data.
 
 	# PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
 	# SQL SQUERY
-	sqlStatement = """
-	    SELECT passenger_count, COUNT(*) as trip_counts 
-	    FROM taxi_train 
-	    WHERE passenger_count > 0 and passenger_count < 7
-	    GROUP BY passenger_count 
-	"""
-	sqlResults = sqlContext.sql(sqlStatement)
+	%%sql -q -o sqlResults
+	SELECT passenger_count, COUNT(*) as trip_counts 
+	FROM taxi_train 
+	WHERE passenger_count > 0 and passenger_count < 7 
+	GROUP BY passenger_count 
+
 	
-	#CONVERT TO PANDAS DATA FRAME FOR PLOTTING IN PYTHON
-	resultsPDDF = sqlResults.toPandas()
+	#SET LOCAL CONTEXT AND IMPORT PYPLOT
+	%%local
+	import matplotlib.pyplot as plt
+	%matplotlib inline
 	
 	# PLOT PASSENGER NUMBER VS. TRIP COUNTS
-	x_labels = resultsPDDF['passenger_count'].values
-	fig = resultsPDDF[['trip_counts']].plot(kind='bar', facecolor='lightblue')
+	x_labels = sqlResults['passenger_count'].values
+	fig = sqlResults[['trip_counts']].plot(kind='bar', facecolor='lightblue')
 	fig.set_xticklabels(x_labels)
-	fig.set_title('Frequency of trips by passenger count')
+	fig.set_title('Counts of trips by passenger count')
+	fig.set_xlabel('Passenger count in trips')
+	fig.set_ylabel('Trip counts')
 	plt.show()
 
-**Output:**
+**OUTPUT:**
 
 ![Trip frequency by passenger count](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
 
 	
 ### Plot a histogram of tip amounts and how tip amount varies by passenger count and fare amounts.
 
-The code uses a SQL squery to sample the data and converts the results to a Pandas data frame to plot.
+The code uses a SQL squery to sample and plot the data.
 
 	#PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
-
-	# RECORD START TIME
-	timestart = datetime.datetime.now()
 	
 	# SQL SQUERY
-	sqlStatement = """
-	    SELECT fare_amount, passenger_count, tip_amount, tipped
-	    FROM taxi_train 
-	    WHERE passenger_count > 0 AND passenger_count < 7
-	    AND fare_amount > 0 AND fare_amount < 200
-	    AND payment_type in ('CSH', 'CRD')
-	    AND tip_amount > 0 AND tip_amount < 25
-	"""
-	sqlResults = sqlContext.sql(sqlStatement)
+	%%sql -q -o sqlResults
+	SELECT fare_amount, passenger_count, tip_amount, tipped 
+	FROM taxi_train 
+	WHERE passenger_count > 0 
+	AND passenger_count < 7 
+	AND fare_amount > 0 
+	AND fare_amount < 200 
+	AND payment_type in ('CSH', 'CRD') 
+	AND tip_amount > 0 
+	AND tip_amount < 25
+
 	
-	#CONVERT TO PANDAS DATA FRAME FOR PLOTTING IN PYTHON
-	resultsPDDF= sqlResults.toPandas()
-	
-	# HISTOGRAM OF TIP AMOUNTS
-	ax1 = resultsPDDF[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
+	# HISTOGRAM OF TIP AMOUNTS AND PASSENGER COUNT
+	ax1 = sqlResults[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
 	ax1.set_title('Tip amount distribution')
 	ax1.set_xlabel('Tip Amount ($)')
 	ax1.set_ylabel('Counts')
 	plt.suptitle('')
 	plt.show()
 	
-	# TIP AMOUNT BY PASSENGER COUNT
-	ax2 = resultsPDDF.boxplot(column=['tip_amount'], by=['passenger_count'])
+	# TIP BY PASSENGER COUNT
+	ax2 = sqlResults.boxplot(column=['tip_amount'], by=['passenger_count'])
 	ax2.set_title('Tip amount by Passenger count')
 	ax2.set_xlabel('Passenger count')
 	ax2.set_ylabel('Tip Amount ($)')
@@ -253,20 +245,15 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 	plt.show()
 	
 	# TIP AMOUNT BY FARE AMOUNT, POINTS ARE SCALED BY PASSENGER COUNT
-	ax = resultsPDDF.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(resultsPDDF.passenger_count))
+	ax = sqlResults.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(sqlResults.passenger_count))
 	ax.set_title('Tip amount by Fare amount')
 	ax.set_xlabel('Fare Amount ($)')
 	ax.set_ylabel('Tip Amount ($)')
-	plt.axis([-2, 120, -2, 30])
+	plt.axis([-2, 100, -2, 20])
 	plt.show()
-	
-	# PRINT ELAPSED TIME
-	timeend = datetime.datetime.now()
-	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**Output:** 
+**OUTPUT:** 
 
 ![Tip amount distribution](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-distribution.png)
 
@@ -309,7 +296,7 @@ This code shows how to create a new feature by binning hours into traffic time b
 	taxi_df_train_with_newFeatures.cache()
 	taxi_df_train_with_newFeatures.count()
 
-**Output:** 
+**OUTPUT:** 
 
 126050
 
@@ -365,9 +352,9 @@ Here is the code to index and encode categorical features:
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**OUTPUT:**
 
-Time taken to execute above cell: 1.42 seconds
+Time taken to execute above cell: 1.28 seconds
 
 ### Create labeled point objects for input into ML functions
 
@@ -460,9 +447,9 @@ This code creates a random sampling of the data (25% is used here). Although it 
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**OUTPUT:**
 
-Time taken to execute above cell: 0.26 seconds
+Time taken to execute above cell: 0.16 seconds
 
 
 ### Feature scaling
@@ -502,9 +489,9 @@ Here is the code to scale to scale variables for use with the regularized linear
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**OUTPUT:**
 
-Time taken to execute above cell: 6.63 seconds
+Time taken to execute above cell: 7.63 seconds
 
 
 ### Cache objects in memory
@@ -535,9 +522,9 @@ The time taken for training and testing of ML algorithms can be reduced by cachi
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:** 
+**OUTPUT:** 
 
-Time taken to execute above cell: 0.11 seconds
+Time taken to execute above cell: 0.14 seconds
 
 
 ## Predict whether or not a tip is paid with binary classification models
@@ -597,13 +584,48 @@ The code in this section shows how to train evaluate, and save a logistic regres
 	print("Precision = %s" % precision)
 	print("Recall = %s" % recall)
 	print("F1 Score = %s" % f1Score)
+
+
+	## SAVE MODEL WITH DATE-STAMP
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
+	dirfilename = modelDir + logisticregressionfilename;
+	logitModel.save(sc, dirfilename);
 	
-	# CREATE A PANDAS DATA-FRAME AND PLOT ROC-CURVE, FROM PREDICTED PROBS AND LABELS                                     
+	# OUTPUT PROBABILITIES AND REGISTER TEMP TABLE
 	logitModel.clearThreshold(); # This clears threshold for classification (0.5) and outputs probabilities
 	predictionAndLabelsDF = predictionAndLabels.toDF()
-	test_predictions = predictionAndLabelsDF.toPandas()
-	predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
+	predictionAndLabelsDF.registerTempTable("tmp_results");
 	
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+
+**OUTPUT:** 
+
+Area under PR = 0.98430709802
+
+Area under ROC = 0.9824181769
+
+Summary Stats
+
+Precision = 0.983136593592
+
+Recall = 0.983136593592
+
+F1 Score = 0.983136593592
+
+Time taken to execute above cell: 21.43 seconds
+
+	
+	# MAKE PREDICTIONS AND PLOT ROC-CURVE
+
+	# SET CONTEXT AND SELECT RESULTS                              
+	%%sql -q -o sqlResults
+	SELECT * from tmp_results
+
+	# MAKE PREDICTIONS
+	predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
 	prob = predictions_pddf["probability"] 
 	fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
 	roc_auc = auc(fpr, tpr)
@@ -620,30 +642,11 @@ The code in this section shows how to train evaluate, and save a logistic regres
 	plt.legend(loc="lower right")
 	plt.show()
 	
-	## SAVE MODEL WITH DATE-STAMP
-	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
-	dirfilename = modelDir + logisticregressionfilename;
-	
-	logitModel.save(sc, dirfilename);
-	
-	# PRINT ELAPSED TIME
-	timeend = datetime.datetime.now()
-	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
-
-Area under PR = 0.985319161941
-Area under ROC = 0.983511076103
-Summary Stats
-Precision = 0.984187223276
-Recall = 0.984187223276
-F1 Score = 0.984187223276
+**OUTPUT:**
 
 ![Logistic regression ROC curve.png](./media/machine-learning-data-science-spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
-Time taken to execute above cell: 26.63 seconds
 
 ### Random forest classification
 
@@ -678,8 +681,6 @@ The code in this section shows how to train evaluate, and save a random forest m
 	
 	# AREA UNDER ROC CURVE
 	metrics = BinaryClassificationMetrics(predictionAndLabels)
-
-	# PRINT TEST METRICS
 	print("Area under ROC = %s" % metrics.areaUnderROC)
 	
 	# PERSIST MODEL IN BLOB
@@ -694,10 +695,11 @@ The code in this section shows how to train evaluate, and save a random forest m
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Output:**
+**OUTPUT:**
 
-Area under ROC = 0.985240932843
-Time taken to execute above cell: 25.62 seconds
+Area under ROC = 0.98430709802
+
+Time taken to execute above cell: 19.04 seconds
 
 
 ### Gradient boosting trees classification
@@ -740,6 +742,11 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
+**OUTPUT:**
+
+Area under ROC = 0.98430709802
+
+Time taken to execute above cell: 12.0 seconds
 
 ## Predict tip amounts for taxi trips with regression models
 
@@ -795,6 +802,13 @@ In our experience, there can be issues with the convergence of LinearRegressionW
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
+**OUTPUT:**
+
+RMSE = 1.33845976353
+
+R-sqr = 0.588874759849
+
+Time taken to execute above cell: 35.29 seconds
 
 ### Random Forest regression
 
@@ -824,9 +838,9 @@ The code in this section shows how to train evaluate, and save a random forest r
 	## PREDICT AND EVALUATE ON TEST DATA-SET
 	predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
 	predictionAndLabels = oneHotTESTreg.map(lambda lp: lp.label).zip(predictions)
-	testMetrics = RegressionMetrics(predictionAndLabels)
 
-	# PRINT TEST METRICS
+	# TEST METRICS
+	testMetrics = RegressionMetrics(predictionAndLabels)
 	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
 	print("R-sqr = %s" % testMetrics.r2)
 	
@@ -842,6 +856,13 @@ The code in this section shows how to train evaluate, and save a random forest r
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
+**OUTPUT:**
+
+RMSE = 1.01249305361
+
+R-sqr = 0.678614669757
+
+Time taken to execute above cell: 24.26 seconds
 
 ### Gradient boosting trees regression
 
@@ -865,16 +886,48 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 	## EVALUATE A TEST DATA-SET
 	predictions = gbtModel.predict(indexedTESTreg.map(lambda x: x.features))
 	predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
-	testMetrics = RegressionMetrics(predictionAndLabels)
 
-	# PRINT TEST METRICS
+	# TEST METRICS
+	testMetrics = RegressionMetrics(predictionAndLabels)
 	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
 	print("R-sqr = %s" % testMetrics.r2)
+
+	# SAVE MODEL IN BLOB
+	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+	btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
+	dirfilename = modelDir + btregressionfilename;
+	gbtModel.save(sc, dirfilename)
 	
+	# CONVER RESULTS TO DF AND REGISER TEMP TABLE
+	test_predictions = sqlContext.createDataFrame(predictionAndLabels)
+	test_predictions.registerTempTable("tmp_results");
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+**OUTPUT:**
+
+RMSE = 0.991445895771
+
+R-sqr = 0.687257397384
+
+Time taken to execute above cell: 41.93 seconds
+
+
 	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
-	test_predictions= sqlContext.createDataFrame(predictionAndLabels)
-	test_predictions_pddf = test_predictions.toPandas()
-	
+
+	# SELECT RESULTS
+	%%sql -q -o sqlResults
+	SELECT * from tmp_results
+
+	# IMPORT NUMPY
+	%%local
+	%matplotlib inline
+	import numpy as np
+
+	# PLOT 
 	ax = test_predictions_pddf.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
 	fit = np.polyfit(test_predictions_pddf['_1'], test_predictions_pddf['_2'], deg=1)
 	ax.set_title('Actual vs. Predicted Tip Amounts ($)')
@@ -884,23 +937,8 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 	plt.axis([-1, 20, -1, 20])
 	plt.show(ax)
 	
-	# SAVE MODEL IN BLOB
-	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-	btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
-	dirfilename = modelDir + btregressionfilename;
-	
-	gbtModel.save(sc, dirfilename)
-	
-	# PRINT ELAPSED TIME
-	timeend = datetime.datetime.now()
-	timedelta = round((timeend-timestart).total_seconds(), 2) 
-	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTLOOK**
-
-RMSE = 0.962160568829
-
-R-sqr = 0.717354800581
+**OUTPUT:**
 
 ![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
@@ -941,6 +979,21 @@ For the consumption and scoring an independent dataset described in the [Score a
 	print "randomForestRegFileLoc = modelDir + \"" + rfregressionfilename + "\"";
 	print "BoostedTreeClassificationFileLoc = modelDir + \"" + btclassificationfilename + "\"";
 	print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
+
+
+**OUTPUT**
+
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-2523_22_13.650522"
+
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-2523_23_30.590277"
+
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-2523_22_41.207697"
+
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-2523_23_53.380823"
+
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-2523_22_53.086531"
+
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-2523_24_11.828291"
 
 
 ## What's next?
