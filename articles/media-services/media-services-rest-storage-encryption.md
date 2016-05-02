@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/28/2016"   
+ 	ms.date="05/02/2016"   
 	ms.author="juliako"/>
 
 
@@ -59,7 +59,7 @@ The following are general steps for generating content keys that you will associ
 2.	Call the [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
 3.	Encrypt your content key with the public key of the X.509 Certificate. 
 
-	Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+	Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see a .NET example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Create a checksum value calculated using the key identifier and content key. The following .NET example calculates the checksum using the GUID part of the key identifier and the clear content key.
 	
 
@@ -99,7 +99,7 @@ The following are general steps for generating content keys that you will associ
 	---|---
 	Id | The ContentKey Id which we generate ourselves using the following format, “nb:kid:UUID:<NEW GUID>”.
 	ContentKeyType | This is the content key type as an integer for this content key. We pass the value 1 for storage encryption.
-	EncryptedContentKey | We create a new content key value which is a 256-bit (32 byte) value. The key is encrypted using the storage encryption X.509 certificate which we retrieve from Microsoft Azure Media Services by executing a HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. As an example, see the following .NET example: the **EncryptSymmetricKeyData** method defined [here](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+	EncryptedContentKey | We create a new content key value which is a 256-bit (32 byte) value. The key is encrypted using the storage encryption X.509 certificate which we retrieve from Microsoft Azure Media Services by executing a HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. As an example, see the following .NET code: the  **EncryptSymmetricKeyData** method defined [here](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 	ProtectionKeyId | This is the protection key id for the storage encryption X.509 certificate that was used to encrypt our content key.
 	ProtectionKeyType | This is the encryption type for the protection key that was used to encrypt the content key. This value is StorageEncryption(1) for our example.
 	Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content Id with the content key. The example code demonstrates how to calculate the checksum.
