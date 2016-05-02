@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Performance scalability tasks for Azure SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Manage scalability tasks for Azure SQL Data Warehouse (REST) | Microsoft Azure"
    description="REST API tasks to scale out performance for Azure SQL Data Warehouse. Change compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/26/2016"
+   ms.date="04/28/2016"
    ms.author="barbkess;sonyama"/>
 
-# Performance scalability tasks for Azure SQL Data Warehouse
+# Manage scalability tasks for Azure SQL Data Warehouse (REST)
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-scalability.md)
-- [Azure portal](sql-data-warehouse-manage-scale-out-tasks.md)
+- [Portal](sql-data-warehouse-manage-scale-out-tasks.md)
 - [PowerShell](sql-data-warehouse-manage-scale-out-tasks-powershell.md)
 - [REST](sql-data-warehouse-manage-scale-out-tasks-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-scale-out-tasks-tsql.md)
@@ -33,7 +33,11 @@ This collection of tasks uses REST APIs to:
 - Pause compute resources
 - Resume compute resources
 
-## Task 1: Scale performance
+To learn about this, see [Performance scalability overview][].
+
+<a name="scale-performance-bk"></a>
+
+## Scale performance
 
 [AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
@@ -50,7 +54,9 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-## Task 2: Pause compute
+<a name="pause-compute-bk"></a>
+
+## Pause compute
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -60,7 +66,9 @@ To pause a database, use the [Pause Database][] REST API. The following example 
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/pause?api-version=2014-04-01-preview HTTP/1.1
 ```
 
-## Task 3: Resume compute
+<a name="resume-compute-bk"></a>
+
+## Resume compute
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
@@ -70,6 +78,8 @@ To start a database, use the [Resume Database][] REST API. The following example
 POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
 ```
 
+<a name="next-steps-bk"></a>
+
 ## Next steps
 
 For other management tasks, see [Management overview][].
@@ -78,6 +88,7 @@ For other management tasks, see [Management overview][].
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
+[Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
 
 <!--MSDN references-->
 [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx

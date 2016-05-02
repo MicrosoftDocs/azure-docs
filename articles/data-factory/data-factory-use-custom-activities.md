@@ -19,7 +19,7 @@
 # Use custom activities in an Azure Data Factory pipeline
 There are two types of activities that you can use in an Azure Data Factory pipeline.
  
-- [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported data stores](data-factory-data-movement-activities#supported-data-stores).
+- [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores).
 - [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform/process data using computes such as Azure HDInsight, Azure Batch, and Azure Machine Learning. For example: HDInsight Hive and Machine Learning Batch Execution.  
 
 If you need to move data to/from a data store that is not supported by Azure Data Factory, you can create a custom .NET activity with your own data movement logic and use the activity in the pipeline. 
@@ -756,7 +756,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 			        "typeProperties": {
 			            "clusterSize": 4,
 			            "timeToLive": "00:05:00",
-			            "osType": "linux",
+			            "osType": "Windows",
 			            "linkedServiceName": "AzureStorageLinkedService",
 			        }
 			    }

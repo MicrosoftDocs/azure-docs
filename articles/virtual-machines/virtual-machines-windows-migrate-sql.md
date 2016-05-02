@@ -19,7 +19,7 @@
 
 # Migrate a SQL Server database to SQL Server in an Azure VM
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] Resource Manager model.
 
 
 There are a number of methods for migrating an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods, recommend the best method for various scenarios, and include a [tutorial](#azure-vm-deployment-wizard-tutorial) to guide you through the use of the **Deploy a SQL Server Database to a Microsoft Azure VM** wizard. 
@@ -67,6 +67,8 @@ The following table lists each of the primary migration methods and discusses wh
 ## Azure VM deployment wizard tutorial
 
 Use the **Deploy a SQL Server Database to a Microsoft Azure VM** wizard in Microsoft SQL Server Management Studio to migrate a SQL Server 2005, SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014, or SQL Server 2016 on-premises user database (up to 1 TB) to SQL Server 2014 or SQL Server 2016 in an Azure virtual machine. Use this wizard to migrate a user database either to an existing Azure virtual machine or to an Azure VM with SQL Server created by the wizard during the migration process. When you migrate a database to a newer version of SQL Server, the database is automatically upgraded during the process.
+
+The method is for only the classic deployment model. 
 
 ### Get Latest Version of the Deploy a SQL Server Database to a Microsoft Azure VM wizard
 

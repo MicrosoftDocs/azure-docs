@@ -278,7 +278,7 @@ In this example, both gateways are in the same subscription. You can complete th
 Make sure you login and connect to Subscription 1.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+	$vnet2gw = Get-AzureRmLocalNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
 #### 2. Create both connections
 
