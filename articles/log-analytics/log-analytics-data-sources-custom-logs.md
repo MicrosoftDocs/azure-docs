@@ -99,13 +99,13 @@ Once Log Analytics starts collecting from the custom log, its records will be av
 
 The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties stored in the record.  You do this using the [Custom Fields](log-analytics-custom-fields.md) feature of Log Analytics.
 
-Detailed steps for parsing the custom log entry are not provided here.  Please refer to the [Custom Fields](Custom%20fields.md) documentation for this information.
+Detailed steps for parsing the custom log entry are not provided here.  Please refer to the [Custom Fields](log-analytics-custom-fields.md) documentation for this information.
 
 ## Data collection
 
 Log Analytics will collect new entries from each custom log approximately every 5 minutes.  The agent will record its place in each log file that it collects from.  If the agent goes offline for a period of time, then Log Analytics will collect entries from where it last left off, even if those entries were created while the agent was offline.
 
-The entire contents of the log entry are written to a single property called **RawData**.  You can parse this into multiple properties that can be analyzed and searched separately by defining [Custom Fields](Custom%20fields.md) after you have created the custom log.
+The entire contents of the log entry are written to a single property called **RawData**.  You can parse this into multiple properties that can be analyzed and searched separately by defining [Custom Fields](log-analytics-custom-fields.md) after you have created the custom log.
 
 
 ## Custom log record properties
