@@ -62,7 +62,7 @@ Sample OEM configurations are available.
 
 ## Next steps
 
-[Prepare your Azure Stack environment](TBD.md)
+[Prepare your Azure Stack environment](azure-stack-deploy-1node-prepare.md)
 
 [Download the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
