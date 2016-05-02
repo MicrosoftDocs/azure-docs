@@ -58,7 +58,7 @@ To get started:
 
 <a name="scale-performance-bk"></a>
 
-## 1. Scale performance
+## Scale performance
 
 [AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
@@ -70,7 +70,7 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 
 <a name="pause-compute-bk"></a>
 
-## 2. Pause compute
+## Pause compute
 
 [AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
@@ -93,7 +93,7 @@ $resultDatabase
 
 <a name="resume-compute-bk"></a>
 
-## 3. Resume compute
+## Resume compute
 
 [AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
