@@ -14,14 +14,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/25/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
-# Create a resource manager VNet with a Site-to-Site VPN connection using the Azure Portal
+# Create a VNet with a Site-to-Site VPN connection using the Azure Portal and Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure Portal - Classic](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
