@@ -36,7 +36,7 @@ The Backup/Restore feature allows services built on the Reliable Services API to
 
 ## Types of Backup
 
-There are two backup options: full and incremental.
+There are two backup options: Full and Incremental.
 A full backup is a backup that contains all the data required to recreate the state of the replica: checkpoints and all log records.
 Since it has the checkpoints and the log, a full backup can be restored by itself.
 
@@ -47,12 +47,13 @@ Each time it backs up it will need to copy 16 GB of checkpoints in addition to 5
 
 ![Full Backup Example.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.png)
 
-The solution to this problem is incremental backups, where only the log records since the last backup are copied.
+The solution to this problem is incremental backups, where only the log records since the last backup are backed up.
 
 ![Incremental Backup Example.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.png)
 
 Since incremental backups are only changes since the last backup (does not include the checkpoints), they tend to be faster but they cannot be restored on their own.
-An incremental backup must be accompanied by its parent full backup as well as all the incremental backups taken since the relevant full backups.
+To restore an incremental backup, the entire backup chain is required.
+A backup chain is a chain of backups starting with a full backup and followed by a number of contiguous incremental backups.
 
 ## Backup Reliable Services
 
@@ -61,7 +62,7 @@ The service author has full control of when to make backups and where backups wi
 To start a backup, the service needs to invoke the inherited member function **BackupAsync**.  
 Backups can be made only from primary replicas, and they require write status to be granted.
 
-As shown below, **BackupAsync** takes in a **BackupDescription** object, where one can specify a full or incremental backup, as well as a callback function, **Func<< BackupInfo, bool >>** which is invoked when the backup folder has been created locally and is ready to be moved out to some external storage.
+As shown below, **BackupAsync** takes in a **BackupDescription** object, where one can specify a full or incremental backup, as well as a callback function, **Func<< BackupInfo, bool, CancellationToken >>** which is invoked when the backup folder has been created locally and is ready to be moved out to some external storage.
 
 ```C#
 
