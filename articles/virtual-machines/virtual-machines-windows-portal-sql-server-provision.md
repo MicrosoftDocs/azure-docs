@@ -5,20 +5,22 @@
 	documentationCenter="na"
 	authors="MikeRayMSFT"
     editor=""
-	manager="jeffreyg"
+	manager="jhubbard"
 	tags="azure-resource-manager" />
-
-
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
+	ms.date="04/20/2016"
 	ms.author="mikeray" />
 
 # Provision a SQL Server virtual machine in the Azure Portal
+
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-windows-portal-sql-server-provision.md)
+- [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
 ## Overview
 

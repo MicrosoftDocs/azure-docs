@@ -1,4 +1,4 @@
-- [Getting started with Azure Privileged Identity Management](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
+- [Get started with Azure Privileged Identity Management](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
 - [Roles in Azure PIM](../articles/active-directory/active-directory-privileged-identity-management-roles.md)
 - [The security wizard](../articles/active-directory/active-directory-privileged-identity-management-security-wizard.md)
 - [How to add or remove a user role](../articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
