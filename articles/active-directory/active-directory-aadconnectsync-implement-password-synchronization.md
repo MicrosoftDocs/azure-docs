@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/02/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -54,7 +54,7 @@ For more details, see [Integrating your on-premises identities with Azure Active
 
 ## How password synchronization works
 
-The Active Directory domain service stores passwords in form of a hash value representation of the actual user password. A hash value is a result of a one way mathematical function (the "*hashing algorithm*") called MD5. There is no method to revert the result of a one way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
+The Active Directory domain service stores passwords in form of a hash value representation of the actual user password. A hash value is a result of a one way mathematical function (the "*hashing algorithm*"). There is no method to revert the result of a one way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
 
 To synchronize your password, Azure AD Connect sync extracts your password hash from the on-premises Active Directory. Extra security processing is applied to the password hash before it is synchronized to the Azure Active Directory authentication service. Passwords are synchronized on a per-user basis and in chronological order.
 
@@ -90,27 +90,18 @@ There are two types of password policies that are affected by enabling password 
 
 **Password complexity policy**
 
-When you enable password synchronization:
-
-- The password complexity policies in your on-premises Active Directory override complexity policies in the cloud for synchronized users. 
-
-- You can use all valid passwords of your on-premises Active Directory to access Azure AD services.
+When you enable password synchronization, the password complexity policies in your on-premises Active Directory override complexity policies in the cloud for synchronized users. You can use all valid passwords of your on-premises Active Directory to access Azure AD services.
 
 > [AZURE.NOTE] Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
 
 **Password expiration policy**
 
-If a user is in the scope of password synchronization:
-
-- The cloud account password is set to "*Never Expire.*" 
-
-- You can continue to sign in to cloud services using a synchronized password that has been expired in your on-premises environment.
-
-Your cloud password is updated the next time you change the password in the on-premises environment.
+If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire.*" 
+You can continue to sign in to your cloud services using a synchronized password that has been expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
 
 ### Overwriting synchronized passwords
 
-An administrator can manually reset your password using PowerShell.
+An administrator can manually reset your password using Windows PowerShell.
 
 In this case, the new password overrides your synchronized password and all password policies defined in the cloud are applied to the new password.
 
@@ -143,7 +134,7 @@ If your server has been locked down according to Federal Information Processing 
 1. Go to **%programfiles%\Azure AD Sync\Bin**.
 2. Open **miiserver.exe.config**.
 2. Go to the **configuration/runtime** node (at the end of the file). 
-3. Add the following node: **<enforceFIPSPolicy enabled="false"/>** 
+3. Add the following node: **\<enforceFIPSPolicy enabled="false"/\>** 
 4. Save your changes.
 
 For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
@@ -156,13 +147,13 @@ You can easily troubleshoot password synchronization related issues by reviewing
 
 **To troubleshoot password synchronization, perform the following steps:**
 
-1. Open the **Synchronization Service Manager**
+1. Start the **[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)**.
 
-2. Click **Connectors**
+2. Click **Connectors**.
 
-3. Select the Active Directory Connector the user is located in
+3. Select the **Active Directory Connector** the user is located in.
 
-4. Select **Search Connector Space**
+4. Select **Search Connector Space**.
 
 5. Locate the user you are looking for.
 
