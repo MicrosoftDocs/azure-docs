@@ -26,27 +26,40 @@ To create a password-secured SSH public and private key you need a terminal open
 In the following command examples, replace the values between &lt; and &gt; with the values from your own environment.
 
 ```bash
-[ahmet@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
+ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
+```
 
-#Enter the name of the file that will be saved in the `~/.ssh/` directory.
+Enter the name of the file that will be saved in the `~/.ssh/` directory:
+
+```bash
 <azure_fedora_id_rsa>
+```
 
-#Enter passphrase for azure_fedora_id_rsa:
+Enter passphrase for azure_fedora_id_rsa:
+
+```bash
 <correct horse battery staple>
+```
 
-#Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
-[ahmet@fedora ~]$ eval "$(ssh-agent -s)"
-[ahmet@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
+Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain):
 
-#Copy the SSH public key to your Linux Server.
-[ahmet@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/azure_fedora_id_rsa
+```
 
-#Test the login using keys instead of a password.
-[ahmet@fedora ~]$ ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+Copy the SSH public key to your Linux Server:
 
+```bash
+ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+```
+
+Test the login using keys instead of a password:
+
+```bash
+ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
-[ahmet@fedora ~]$
-
+$
 ```
 
 ## Introduction
@@ -124,11 +137,11 @@ To avoid typing your private key file password with every SSH login you can use 
 
 First verify that `ssh-agent` is running
 
-`[ahmet@fedora ~]$ eval "$(ssh-agent -s)"`
+`eval "$(ssh-agent -s)"`
 
 Now add the private key to `ssh-agent` using the command `ssh-add`, again on OSX this will launch the Keychain which will store the credentials.
 
-`[ahmet@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa`
+`ssh-add ~/.ssh/azure_fedora_id_rsa`
 
 The private key password is now stored so you will not have to type the key password with every SSH login.
 
