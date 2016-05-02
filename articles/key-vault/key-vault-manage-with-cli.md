@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Manage Key Vault using CLI | Microsoft Azure"
 	description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
 	services="key-vault"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Manage Key Vault using CLI #
@@ -31,7 +31,6 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites
-
 To complete this tutorial, you must have the following:
 
 - A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../pricing/free-trial).
@@ -106,6 +105,12 @@ When using Azure Resource Manager, all related resources are created inside a re
 
 The first parameter is resource group name and the second parameter is the location. For location, use the command `azure location list` to identify how to specify an alternative location to the one in this example. If you need more information, type: `azure help location`
 
+## Register the Key Vault resource provider
+Make sure that Key Vault resource provider is registered in your subscription:
+
+`azure provider register Microsoft.KeyVault`
+
+This only needs to be done once per subscription.
 
 
 ## Create a key vault
