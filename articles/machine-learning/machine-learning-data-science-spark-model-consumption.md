@@ -84,7 +84,7 @@ Creating HiveContext as 'sqlContext'
 datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 
-### Import libraries needed and set Spark context 
+### Import libraries
 
 Set spark context and import necessary libraries with the following code
 

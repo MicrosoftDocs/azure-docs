@@ -49,7 +49,7 @@ You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark
 
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
-To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb///". Other locations are referenced by “wasb://”.
+To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
 
 Set up also requires importing necessary libraries and set ting the spark context.
 
@@ -74,7 +74,7 @@ Creating SparkContext as 'sc'
 Creating HiveContext as 'sqlContext'
 
 
-### Import libraries needed and set Spark context 
+### Import libraries
 
 Set spark context and import necessary libraries with the following code.
 

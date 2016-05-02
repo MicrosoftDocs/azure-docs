@@ -59,7 +59,7 @@ You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark
 
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
-To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb///". Other locations are referenced by “wasb://”.
+To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
 
 ### Set directory paths for storage locations in WASB
 
@@ -465,7 +465,7 @@ Time taken to execute above cell: 0.25 seconds
 Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).   
 
 
->[AZURE.NOTE] We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.   
+>[AZURE.TIP] We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.   
 
 
 Here is the code to scale to scale variables for use with the regularized linear SGD algorithm.
@@ -562,9 +562,9 @@ We show how to do cross-validation (CV) with parameter sweeping in two ways:
 
 The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with custom code that can be applied to any of the learning algorithms in MLlib.   
 
-
 >[AZURE.NOTE] The execution of this custom CV code can take several minutes.
 
+**Train the logistic regression model using CV and hyperparameter sweeping**
 
 	# LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
 
@@ -641,7 +641,7 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 Time taken to execute above cell: 142.78 seconds
 
 
-**Evaluate binary classification model with standard metrics, and plot ROC curve**
+**Evaluate the binary classification model with standard metrics**
 
 The code in this section shows how to evaluate a logistic regression model against a test data-set, including a plot of the ROC curve.
 
@@ -704,8 +704,9 @@ F1 Score = 0.983655467635
 Time taken to execute above cell: 2.63 seconds
 
 
+**Plot the ROC curve.**
 
-	# PLOT ROC-CURVE FROM PREDICTED PROBS AND LABELS 
+	# PLOT ROC-CURVE FROM PREDICTED PROBABILITIES AND LABELS 
 
     # SET CONTEXT AND IMPORT LIBRARIES                                
 	%%local
@@ -764,7 +765,7 @@ The code in this section shows how to save the logistic regression model for con
 Time taken to execute above cell: 23.4 seconds
 
 
-### Use MLlib's CrossValidator pipeline function with LogisticRegression (Elastic regression) model
+### Use MLlib's CrossValidator pipeline function with logistic regression (Elastic regression) model
 
 The code in this section shows how to train, evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset. The model is trained using cross validation (CV) and hyperparameter sweeping implemented with the MLlib CrossValidator pipeline function for CV with parameter sweep.   
 
@@ -842,6 +843,7 @@ Time taken to execute above cell: 102.37 seconds
 usr/hdp/current/spark-client/python/pyspark/ml/classification.py:207: UserWarning: weights is deprecated. Use coefficients instead.
   warnings.warn("weights is deprecated. Use coefficients instead.")
 
+Evaluate the 
 
 	#QUERY
 	%%sql -q -o sqlResults

@@ -44,7 +44,7 @@ The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark
 
 >[AZURE.NOTE] Although this walkthrough has been designed to work with the PySpark notebooks that run on the default HDInsight 3.4 Spark 1.6 cluster, Python 2 notebooks that run on a Spark 1.5.2 (HDI 3.3) cluster have also been provided. But this version must be selected when creating the cluster.
 
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+>[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## The NYC 2013 Taxi data
