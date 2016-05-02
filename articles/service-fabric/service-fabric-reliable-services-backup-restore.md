@@ -45,11 +45,11 @@ For example, a replica that has 16 GB of state will have checkpoints that add up
 If we have an Recovery Point Objective of 5 minutes, the replica needs to be backed up every 5 minutes.
 Each time it backs up it will need to copy 16 GB of checkpoints in addition to 50 Mb (configurable using **CheckpointThresholdInMB**) worth of logs.
 
-![Full Backup Example.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.png)
+![Full Backup Example.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
 The solution to this problem is incremental backups, where only the log records since the last backup are backed up.
 
-![Incremental Backup Example.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.png)
+![Incremental Backup Example.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
 
 Since incremental backups are only changes since the last backup (does not include the checkpoints), they tend to be faster but they cannot be restored on their own.
 To restore an incremental backup, the entire backup chain is required.
@@ -80,11 +80,11 @@ Users can modify the truncation rate by modifying the **CheckpointThresholdInMB*
 The following code demonstrates how the **BackupCallbackAsync** method can be used to upload the backup to Azure Storage:
 
 ```C#
-private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
+private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
 {
     var backupId = Guid.NewGuid();
 
-    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
+    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, cancellationToken);
 
     return true;
 }
