@@ -3,8 +3,8 @@
 	description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="erikre" 
 	editor="jimbe"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="cephalin"/>
+	ms.date="04/29/2015" 
+	ms.author="casoper"/>
 
 # Serve Content from Azure CDN in Your Web Application #
 
