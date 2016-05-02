@@ -37,7 +37,7 @@ To deploy a 1-node Azure Stack environment:
 
 2. [Prepare the one-node environment](azure-stack-deploy-1node-prepare.md)
 
-3. [Deploy the one-node Azure Stack environment](azure-stack-deploy-1node-deploy.md)
+3. [Deploy the four-node Azure Stack environment](azure-stack-deploy-1node-deploy.md)
 
 ## Four-node configuration
 
