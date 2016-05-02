@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/05/2016" 
 	ms.author="awills"/>
  
 # Near Real Time Proactive Diagnostics
@@ -31,9 +31,16 @@ Notice that it tells you:
 
 * The failure rate compared to normal app behavior.
 * How many users are affected – so you know how much to worry.
+
+## Diagnose the problem
+
+In addition, if you click the link, you'll be able to see:
+
 * A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
 * The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
 * Links directly to relevant searches on the telemetry in Application Insights.
+
+You can opt to get this additional diagnostic information directly in the email.
 
 Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
@@ -53,11 +60,37 @@ The resulting analysis is sent to you as alert, unless you have configured it no
 
 Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure NRT Proactive Diagnostics. If you want, you can disable it or change its target email addresses.
 
+
+## Configure alerts 
+
+You can disable proactive diagnostics, change the email recipients, create a webhook, or opt in to more detailed alert messages.
+
+Open the Alerts page. Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+
+![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/021.png)
+
+Click the alert to configure it.
+
+![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
+
+Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
+
+
+#### Detailed alerts
+
+If you select "Receive detailed analysis" then the email will contain more diagnostic information. Sometimes you'll be able to diagnose the problem just from the data in the email. 
+
+There's a slight risk that the more detailed alert could contain sensitive information, because it includes exception and trace messages. However, this would only happen if your code could allow sensitive information into those messages. 
+
+Here's a sample detailed alert:
+
+![Configuration](./media/app-insights-nrt-proactive-diagnostics/060.png)
+
 ## Triaging and diagnosing an alert
 
 An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
 
-From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 15% compares with a normal rate of 1.3%, indicates that something bad is going on. 22 distinct users were affected by failures in a particular operation. If it were your app, you'd be able to assess how serious that is.
+From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 22.5% compares with a normal rate of 1%, indicates that something bad is going on. On the other hand, only 11 users were affected. If it were your app, you'd be able to assess how serious that is.
 
 In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure and trace data provided. 
 
@@ -78,18 +111,6 @@ To review alerts in the portal, open **Settings, Audit logs**.
 
 Click any alert to see its full detail.
 
-
-## Configure alerts 
-
-Open the Alerts page. Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
-
-![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/021.png)
-
-Click the alert to configure it.
-
-![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
-
-Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
 
 
 ## What's the difference ...
@@ -137,6 +158,5 @@ NRT Proactive Diagnostics complements other similar but distinct features of App
 ## Feedback please
 
 *We are very interested to know what you think about this. Please send feedback to:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
-
 
 
