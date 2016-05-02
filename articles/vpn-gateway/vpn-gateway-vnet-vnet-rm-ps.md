@@ -20,7 +20,7 @@
 # Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Classic](virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 This article will walk you through the steps to create a connection between virtual networks using the Resource Manager deployment model and PowerShell. The virtual networks can be in the same or different regions, from the same or different subscriptions.

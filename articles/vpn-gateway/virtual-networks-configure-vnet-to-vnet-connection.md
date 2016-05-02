@@ -21,7 +21,7 @@
 # Configure a VNet-to-VNet connection for the classic deployment model
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Classic](virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
