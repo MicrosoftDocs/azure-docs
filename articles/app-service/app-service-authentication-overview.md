@@ -28,6 +28,7 @@ If you wish to get started right away, see one of the following tutorials:
 
 - [Add authentication to your iOS app][iOS] (or [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], or [Cordova])
 - [User authentication for API Apps in Azure App Service][apia-user]
+- [Get started with Azure App Service - Part 2][web-getstarted]
 
 ## How authentication works in App Service
 
@@ -116,6 +117,11 @@ The following tutorials show how to configure App Service to leverage different 
 
 If you wish to use an identity system other than the ones provided here, you can also leverage the [preview custom authentication support in the Mobile Apps .NET server SDK][custom-auth], which can be used in Web, Mobile, or API Apps.
 
+### Web applications
+The following tutorials show how to add authentication to a web application:
+
+- [Get started with Azure App Service - Part 2][web-getstarted]
+
 ### Mobile applications
 The following tutorials show how to add authentication to your mobile clients using the server-directed flow:
 
@@ -149,6 +155,8 @@ The following tutorials show how to protect your API apps:
 
 [apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
 [apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
+
+[web-getstarted]: ../app-service-web/app-service-web-get-started-2.md#authenticate-your-users
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
