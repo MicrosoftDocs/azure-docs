@@ -56,7 +56,7 @@ Select the subscription that you want to create an ExpressRoute circuit for:
 
 ### 2. Get the list of supported providers, locations, and bandwidths
 
-Before you create an ExpressRoute circuit, you need the list of connectivity providers, supported locations, and bandwidth options.
+Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
 
 The PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` returns this information, which you’ll use in later steps:
 
@@ -86,9 +86,9 @@ The following example shows how to create a 200-Mbps ExpressRoute circuit throug
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-- SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify "Standard" to get the standard SKU or "Premium" for the premium add-on.
+- SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify *Standard* to get the standard SKU or *Premium* for the premium add-on.
 
-- SKU family determines the billing type. You can specify "Metereddata" for a metered data plan and "Unlimiteddata" for an unlimited data plan. Note that you can change the billing type from "Metereddata" to "Unlimiteddata", but you can't change the type from "Unlimiteddata" to "Metereddata".
+- SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. Note that you can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*.
 
 
 >[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
@@ -131,7 +131,7 @@ The response will look similar to the following example:
 	ServiceKey                        : **************************************
 	Peerings                          : []
 
-You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters lists all the circuits. Your service key will be listed in the "ServiceKey" field:
+You can retrieve this information at any time by using the `Get-AzureRmExpressRouteCircuit` cmdlet. Making the call with no parameters lists all the circuits. Your service key will be listed in the *ServiceKey* field:
 
 
 	Get-AzureRmExpressRouteCircuit
@@ -170,7 +170,7 @@ You can get detailed descriptions of all the parameters by running the following
 
 ### 5. Send the service key to your connectivity provider for provisioning
 
-"ServiceProviderProvisioningState" provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+*ServiceProviderProvisioningState* provides information about the current state of provisioning on the service-provider side. Status provides the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
@@ -192,7 +192,7 @@ For you to be able to use an ExpressRoute circuit, it must be in the following s
 
 ### 6. Periodically check the status and the state of the circuit key
 
-Checking the status and the state of the circuit key lets you know when your provider has enabled your circuit. After the circuit has been configured, "ServiceProviderProvisioningState" appears as "Provisioned", as shown in the following example:
+Checking the status and the state of the circuit key lets you know when your provider has enabled your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* appears as *Provisioned*, as shown in the following example:
 
 
 	Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -313,7 +313,7 @@ You can do the following with no downtime:
 - Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 - Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported.
 - Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
--  You can enable and disable "Allow Classic Operations".
+-  You can enable and disable *Allow Classic Operations*.
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
 
