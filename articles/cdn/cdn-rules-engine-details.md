@@ -99,6 +99,8 @@ A feature defines the type of action that will be applied to the type of request
 
 These features are designed to control access to content.
 
+> [AZURE.NOTE] Token auth is not generally available yet, but will be supported in a future release.
+
 Name | Purpose
 -----|--------
 Deny Access | Determines whether all requests are rejected with a 403 Forbidden response.

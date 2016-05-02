@@ -13,16 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="04/11/2016"
+    ms.date="04/19/2016"
     ms.author="deonhe"/>
 
 # We've improved the Dropbox connector 
 
-This connector is now only supported on the new [Logic Apps schema version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) and later. 
+We've removed the content (which targeted Logic apps version 2014-12-01-preview) from this page because this connector has been upgraded and is now only supported on the new [Logic Apps schema version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) and later. 
 
 
 ## Next steps    
 
 - [Learn more about the this new connector](../connectors/connectors-create-api-dropbox.md)
-- [Migrate your older connectors](../connectors/connectors-schema-migration.md) to the new Logic Apps schema version 2015-08-01-preview
 - See [the full list](../connectors/apis-list.md) of all connectors that run on the new Logic Apps schema version 2015-08-01-preview  

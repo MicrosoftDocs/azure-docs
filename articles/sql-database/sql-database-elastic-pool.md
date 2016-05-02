@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Elastic database pool for SQL databases | Microsoft Azure"
+	pageTitle="What is an Azure elastic database pool? | Microsoft Azure"
 	description="Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will."
 	keywords="elastic database,sql databases"
 	services="sql-database"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/04/2016"
+	ms.date="04/28/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -20,9 +20,7 @@
 
 # What is an Azure elastic database pool?
 
-A SaaS developer must create and manage tens, hundreds, or even thousands of SQL databases. An elastic database pool simplifies the creation, maintenance, and performance management across many databases. Add or subtract databases from the pool at will. See [Create a scalable elastic database pool for SQL databases in Azure portal](sql-database-elastic-pool-create-portal.md), or [using PowerShell](sql-database-elastic-pool-create-powershell.md), or [C#](sql-database-elastic-pool-csharp.md).
-
-For API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
+Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
 ## How it works
 
@@ -49,22 +47,33 @@ Databases that are great candidates for elastic database pools typically have pe
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers.
 
+## eDTU and storage limits for elastic pools and elastic databases
+
+[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
 ## Elastic database pool properties
-Limits for elastic pools and elastic databases.
+
+### Limits for elastic pools
 
 | Property | Description |
 | :-- | :-- |
-| Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition”.|
-| eDtu per pool | Maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
-| Storage per pool | Maximum amount of storage that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
-| Max eDTU per database | Maximum number of eDTUs that any database in the pool may use, and applies to all databases in the pool. The max eDTU per database is not a resource guarantee. |
-| Min eDTU per database | Minimum number of eDTUs that any database in the pool is guaranteed, and applies to all databases in the pool. The min eDTU per database may be set to 0.  Note that the product of the number of databases in the pool and the min eDTU per database cannot exceed the eDTU per pool. |
+| Service tier | Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
+| eDTUs per pool | The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
+| Max storage per pool (GB) | The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
+| Max number of databases per pool | The maximum number of databases allowed per pool. |
+| Max concurrent workers per pool | The maximum number of concurrent workers (also referred to as requests) available for all databases in the pool. |
+| Max concurrent logins per pool | The maximum number of concurrent logins for all databases in the pool. |
+| Max concurrent sessions per pool | The maximum number of sessions available for all databases in the pool. |
 
 
-## eDTU and storage limits for elastic pools and elastic databases
+### Limits for elastic databases
 
+| Property | Description |
+| :-- | :-- |
+| Max eDTUs per database | The maximum number of eDTUs that any database in the pool may use if available based on utilization by other databases in the pool.  Max eDTU per database is not a resource guarantee for a database.  This is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time.  If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
+| Min eDTUs per database | The minimum number of eDTUs that any database in the pool is guaranteed.  This is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is usually set to anywhere between 0 and the average  eDTU utilization per database. Note that the product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool.  For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
+| Max storage per database (GB) | The maximum storage for a database in a pool. Elastic databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database.|
 
-[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 ## Elastic database jobs
 
@@ -74,30 +83,20 @@ For more information about other tools, see the [Elastic database tools learning
 
 ## Business continuity features for databases in a pool
 
-Currently in the preview, elastic databases support most [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
+Elastic databases support most [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
 
-### Point in Time Restore
 
-Databases in an elastic database pool are backed up automatically by the system and the backup retention policy is the same as the corresponding service tier for single databases. In sum, databases in  each tier has a different restore range:
+### Point in time restore
 
-* **Basic pool**: Restore-able to any point within the last 7 days.
-* **Standard pool**: Restore-able to any point within the last 14 days.
-* **Premium pool**: Restore-able to any point within the last 35 days.
-
-During preview, databases in a pool will be restored to a new database in the same pool. Dropped databases will always be restored as a standalone database outside the pool into the lowest performance level for that service tier. For example, an elastic database in a Standard pool that is dropped will be restored as an S0 database. You can perform database restore operations through the Azure Portal or programmatically using REST API. PowerShell cmdlet support is coming soon.
+Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Recover an Azure SQL Database from a user error](sql-database-user-error-recovery.md)
 
 ### Geo-Restore
 
-Geo-Restore allows you to recover a database in a pool to a server in a different region. During the preview, to restore a database in a pool on a different server, the target server needs to have a pool with the same name as the source pool. If needed, create a new pool on the target server and give it the same name prior to restoring the database. If a pool with the same name on the target server doesn’t exist the Geo-Restore operation will fail. For details, see [Recover using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore).
+Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md) 
 
+### Active Geo-Replication
 
-### Geo-Replication
-
-Geo-replication is available for any database in a Standard or Premium elastic database pool.  One or all databases in a geo-replication partnership can be in an elastic database pool as long as the service tiers are the same. You can configure geo-replication for elastic database pools using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
-
-### Import and Export
-
-Export of a database from within a pool is supported. Currently, import of a database directly into a pool is not supported, but you can import into a single database and then move the database into a pool.
+For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 
 <!--Image references-->
