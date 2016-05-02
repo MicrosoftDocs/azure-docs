@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
 # Manage access to Log Analytics
 
 To manage access to Log Analytics, you'll use a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts. To create a new workspace in the Operations Management Suite (OMS), you choose a workspace name, associate it with your account, and you choose a geographical location. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple OMS workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
-The [First look: Get started with Log Analytics](log-analytics-get-started.md) article shows you how to quickly get up and running and the rest of this article describes in more detail some of the actions you'll need to manage access to OMS.
+The [Get started with Log Analytics](log-analytics-get-started.md) article shows you how to quickly get up and running and the rest of this article describes in more detail some of the actions you'll need to manage access to OMS.
 
 Although you might not need to perform every management task at first, we'll cover all the commonly used tasks that you might use in the following sections:
 
@@ -144,9 +144,10 @@ The OMS Add On for System Center provides an entitlement for the Premium plan of
 
 If you purchase the OMS add-on for System Center, your Microsoft account team or reseller will associate the OMS add-ons to your Enterprise Agreement that includes your Azure purchases. Your OMS add-on creates an entitlement on your agreement, and any Azure subscription can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
 
-To ensure that usage of an OMS workspace is applied to your entitlements from the OMS add-on, you'll need to :
-1.	Link your OMS workspace to an Azure subscription that is part of the Enterprise Agreement that includes both the OMS add-on purchase and Azure subscription usage
-2.	Select the Premium plan for the workspace
+To ensure that usage of an OMS workspace is applied to your entitlements from the OMS add-on, you'll need to:
+
+1. Link your OMS workspace to an Azure subscription that is part of the Enterprise Agreement that includes both the OMS add-on purchase and Azure subscription usage
+2. Select the Premium plan for the workspace
 
 When you review your usage in the Azure or OMS portal, you won’t see the OMS add-on entitlements. However, you can see entitlements in the Enterprise Portal.  
 
@@ -217,5 +218,8 @@ If you are an administrator, and there are multiple users associated with the wo
 
 3. Click **Close workspace**.
 
-## Next Steps
-- Connect [Windows agents](log-analytics-windows-agents.md)
+## Next steps
+
+- See [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) to add agents and gather data.
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.

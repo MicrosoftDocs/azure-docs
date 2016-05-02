@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Log searches | Microsoft Azure"
+	pageTitle="Log searches in Log Analytics | Microsoft Azure"
 	description="Log searches allow you to combine and correlate any machine data from multiple sources within your environment."
 	services="log-analytics"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
-# Log searches
+# Log searches in Log Analytics
 
 At the core of Log Analytics is the log search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Solutions are also powered by log search to bring you metrics pivoted around a particular problem area.
 
@@ -28,7 +28,7 @@ In this tutorial, we'll walk through examples to cover all the basics when you u
 
 We'll start with simple, practical examples and then build on them so that you can get an understanding of practical use cases about how to use the syntax to extract the insights you want from the data.
 
-After you've familiar with search techniques, you can review the [Search field and facet reference](log-analytics-search-reference.md).
+After you've familiar with search techniques, you can review the [Log Analytics log search reference](log-analytics-search-reference.md).
 
 ## Use basic filters
 
@@ -49,7 +49,7 @@ These filters are not really object types/classes. *Type* is just a tag, or a pr
 
 *Type* is really just a field that all records have, it is not different from any other field. This was established based on the value of the Type field. That record will have a different shape or form. Incidentally, **Type=Perf**, or **Type=Event** is also the syntax that you need to learn to query for performance data or events.
 
-You can use either a colon (:) or an equal sign (=) after the field name and before the value. **Type:Event** and **Type=Event** are equivalent in meaning, you can chose the style you prefer.
+You can use either a colon (:) or an equal sign (=) after the field name and before the value. **Type:Event** and **Type=Event** are equivalent in meaning, you can choose the style you prefer.
 
 So, if the Type=Perf records have a field called 'CounterName', then you can write a query resembling `Type=Perf CounterName="% Processor Time"`.
 
@@ -233,7 +233,7 @@ Type=Event EventID=2110 | Top 1
 - In the search query field, type `Type=Event EventID=2110 | Top 1`   
     ![search top](./media/log-analytics-log-searches/oms-search-top.png)
 
-In the image above, there are 988 records with EventID=2110. The fields, facets, and filters on the left always show information about the results returned *by the filter portion* of the query, which is the the part before any pipe character. The **Results** pane only returns the most recent 1 result, because the example command shaped and transformed the results.
+In the image above, there are 988 records with EventID=2110. The fields, facets, and filters on the left always show information about the results returned *by the filter portion* of the query, which is the part before any pipe character. The **Results** pane only returns the most recent 1 result, because the example command shaped and transformed the results.
 
 ### Select
 
@@ -332,7 +332,7 @@ Type=ConfigurationAlert | Measure Max(Severity) by Computer
 
 ![search measure max time generated computer](./media/log-analytics-log-searches/oms-search-measure-max03.png)
 
-This function works well with numbers, but it also works with DateTime fields. It is useful to check for the last or most recent time stamp for any piece of data indexed for each computer. For example : When was the most recent configuration change reported by change tracking solution for each machine?
+This function works well with numbers, but it also works with DateTime fields. It is useful to check for the last or most recent time stamp for any piece of data indexed for each computer. For example: When was the most recent configuration change reported by change tracking solution for each machine?
 
 ```
 Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
@@ -411,7 +411,7 @@ This gives you a useful compact view of a couple of your environment's KPIs.
 ![search avg grouping](./media/log-analytics-log-searches/oms-search-avg04.png)
 
 
-You can easily use this in a dashboard. To learn more about using dashboards, see [Create your own dashboards](log-analytics-dashboards.md).
+You can easily use this in a dashboard. To learn more about using dashboards, see [Create a custom dashboard in Log Analytics](log-analytics-dashboards.md).
 
 ![search avg dashboard](./media/log-analytics-log-searches/oms-search-avg05.png)
 
@@ -452,7 +452,7 @@ Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(C
 
 If you're familiar with Microsoft System Center - Operations Manager, you can think of the where command in management pack terms. If the example were a rule, the first part of the query would be the data source and the where command would be the condition detection.
 
-You can use the query as a tile in **My Dashboard**, as a monitor of sorts, to see when computer CPUs are over-utilized. To learn more about dashboards, see [Create your own dashboards](log-analytics-dashboards.md). You can also create and use dashboards using the mobile app. For more information, see [OMS Mobile App ](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). In the bottom two tiles of the following image, you can see the monitor displayed a list and as a number. Essentially, you always want the number to be zero and the list to be empty. Otherwise, it indicates an alert condition. If needed, you can use it to take a look at which machines are under pressure.
+You can use the query as a tile in **My Dashboard**, as a monitor of sorts, to see when computer CPUs are over-utilized. To learn more about dashboards, see [Create a custom dashboard in Log Analytics](log-analytics-dashboards.md). You can also create and use dashboards using the mobile app. For more information, see [OMS Mobile App ](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). In the bottom two tiles of the following image, you can see the monitor displayed a list and as a number. Essentially, you always want the number to be zero and the list to be empty. Otherwise, it indicates an alert condition. If needed, you can use it to take a look at which machines are under pressure.
 
 ![mobile dashboard](./media/log-analytics-log-searches/oms-search-mobile.png)
 
@@ -589,5 +589,5 @@ Here is another example:
 
 For additional information about log searches, see:
 
-- Use [Custom fields](log-analytics-custom-fields.md) to extend log searches.
-- [Log Analytics search reference](log-analytics-search-reference.md)
+- Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) to extend log searches.
+- Review the [Log Analytics log search reference](log-analytics-search-reference.md) to view all of the search fields and facets available in Log Analytics.

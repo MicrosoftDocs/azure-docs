@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Log search API | Microsoft Azure"
+	pageTitle="Log Analytics log search API | Microsoft Azure"
 	description="This guide provides a basic tutorial describing how you can use the Log Analytics search API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands."
 	services="log-analytics"
 	documentationCenter=""
@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="04/28/2016"
 	ms.author="banders"/>
 
 
-# Log search API
+# Log Analytics log search API
 
-This guide provides a basic tutorial describing how you can use the Log Analytics Search API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands.
-
->[AZURE.NOTE] Some of the examples in this article reference Operational Insights, which is the name of the previous version of Log Analytics.
+This guide provides a basic tutorial describing how you can use the Log Analytics Search API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands. Some of the examples in this article reference Operational Insights, which is the name of the previous version of Log Analytics.
 
 ## Overview of the Log Search API
 
@@ -402,4 +400,5 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 
 ## Next steps
+
 - Learn about [log searches](log-analytics-log-searches.md) to build queries using custom fields for criteria.

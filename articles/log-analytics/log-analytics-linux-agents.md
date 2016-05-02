@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Linux agents | Microsoft Azure"
-	description="Using OMS, you can collect and act on data generated from Linux computers."
+	pageTitle="Connect Linux computers to Log Analytics | Microsoft Azure"
+	description="Using Log Analytics, you can collect and act on data generated from Linux computers."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -16,9 +16,9 @@
 	ms.date="04/19/2016"
 	ms.author="banders"/>
 
-# Linux agents
+# Connect Linux computers to Log Analytics
 
-Using OMS, you can collect and act on data generated from Linux computers. Adding data collected from Linux to OMS allows you to manage Linux systems and container solutions like Docker regardless of where your computers are located—virtually anywhere. So, those data sources might reside in your on-premise datacenter as physical servers, virtual computers in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure, or even the laptop on your desk. In addition, OMS also collects data from Windows computers similarly, so it supports a truly hybrid IT environment.
+Using Log Analytics, you can collect and act on data generated from Linux computers. Adding data collected from Linux to OMS allows you to manage Linux systems and container solutions like Docker regardless of where your computers are located—virtually anywhere. So, those data sources might reside in your on-premises datacenter as physical servers, virtual computers in a cloud-hosted service like Amazon Web Services (AWS) or Microsoft Azure, or even the laptop on your desk. In addition, OMS also collects data from Windows computers similarly, so it supports a truly hybrid IT environment.
 
 You can view and manage data from all of those sources with Log Analytics in OMS with a single management portal. This reduces the need to monitor it using many different systems, makes it easy to consume, and you can export any data you like to whatever business analytics solution or system that you already have.
 
@@ -133,7 +133,7 @@ Linux performance counters are similar to Windows performance counters—both op
 
 1. To configure OMS Agents for Linux using the OMS portal, you can add Linux performance counters on the Settings page, click **Data**.  
     ![data](./media/log-analytics-linux-agents/oms-settings-data01.png)
-2. On the **Settings** page under **Data** , click **Linux performance counters** and then to the left of the plus icon, type the name of the counter you want to add.
+2. On the **Settings** page under **Data** , click **Linux performance counters** and then to the left of the plus icon, type the name of the counter you want to add.  
     ![Linux performance counters](./media/log-analytics-linux-agents/oms-linuxperfcounter01.png)
 3. If you don't know the full name of the counter, you can start typing a partial name and a list of available counters will appear. When you find the counter you want to add, click the name in the list and then click the plus icon to add the counter.
 4. After you add the counter, it appears in the list of counters highlighted with a colored bar.
@@ -172,10 +172,10 @@ Each object, or category, of performance metrics to collect should be defined in
 
 The configurable parameters of this element are:
 
-- **Object\_name** : the object name for the collection.
-- **Instance\_regex** : a *regular expression* defining which instances to collect. The value: `.*` specifies all instances. To collect processor metrics for only the \_Total instance, you could specify `_Total`. To collect process metrics for only the crond or sshd instances, you could specify: `(crond|sshd)`.
-- **Counter\_name\_regex:** a *regular expression* defining which counters (for the object) to collect. To collect all counters for the object, specify: `.*`. To collect only swap space counters for the memory object, you could specify: `.+Swap.+`
-- **Interval:** the frequency at which the object's counters are collected.
+- **Object\_name**: the object name for the collection.
+- **Instance\_regex**: a *regular expression* defining which instances to collect. The value: `.*` specifies all instances. To collect processor metrics for only the \_Total instance, you could specify `_Total`. To collect process metrics for only the crond or sshd instances, you could specify: `(crond|sshd)`.
+- **Counter\_name\_regex**: a *regular expression* defining which counters (for the object) to collect. To collect all counters for the object, specify: `.*`. To collect only swap space counters for the memory object, you could specify: `.+Swap.+`
+- **Interval:**: the frequency at which the object's counters are collected.
 
 The default configuration for performance metrics is:
 
@@ -219,6 +219,7 @@ The default configuration for performance metrics is:
 If MySQL Server or MariaDB Server is detected on the computer when the omsagent bundle is installed, a performance monitoring provider for MySQL Server is automatically installed. This provider connects to the local MySQL/MariaDB server to expose performance statistics. You need to configure MySQL user credentials so that the provider can access the MySQL Server.
 
 To define a default user account for the MySQL server on localhost, use the following command example.
+
 >[AZURE.NOTE] The credentials file must be readable by the omsagent account. Running the mycimprovauth command as omsgent is recommended.
 
 
@@ -587,4 +588,7 @@ These command examples reference a file named PrivateConfig.json. The format of 
 Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog. For more information on replacing sysklog with rsyslog, see [Install the newly built rsyslog RPM](http://wiki.rsyslog.com/index.php/Rsyslog_on_CentOS_success_story#Install_the_newly_built_rsyslog_RPM).
 
 ## Next Steps
-- [Connect data sources](log-analytics-data-sources.md)
+
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
+- Use [dashboards](log-analytics-dashboards.md) to save and display your own custom searches.
