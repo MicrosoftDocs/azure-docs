@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="04/27/2016"
+   	ms.date="05/02/2016"
    	ms.author="jgao"/>
 
 # Install custom HDInsight applications
@@ -71,17 +71,18 @@ The files needed for deploying this application (Hue):
 
 2. Follow the instruction to create cluster and install Hue. For more information on creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-## Connect to the application
+## Validate the installation
+
+You can check the application status on the Azure portal to validate the application installation. In addition, you can also validate all HTTP endpoints came up as expected and the webpage if there is one:
 
 **To open the Hue portal**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click the cluster where you installed the application.
-4. From the **Settings** blade, click **Applications** under the **General** category. You shall see **hue** listed in the **Installed** Apps blade.
+4. From the **Settings** blade, click **Applications** under the **General** category. You shall see **hue** listed in the **Installed Apps** blade.
 5. Click **hue** from the list to list the properties.  
-6. Click the Webpage link. 
-7. Use the HDInsight cluster HTTP user credentials to login.
+6. Click the Webpage link to validate the website; open the HTTP endpoint in a brower to validate the Hue web UI, open the SSH endpoint using [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) or other [SSH clients](hdinsight-hadoop-linux-use-ssh-unix.md).
  
 ## Next steps
 

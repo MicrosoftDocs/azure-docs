@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="04/27/2016"
+   	ms.date="05/02/2016"
    	ms.author="jgao"/>
 
 # Install HDInsight applications
