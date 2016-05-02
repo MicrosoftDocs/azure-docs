@@ -51,7 +51,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 **Time**: If you are familiar with Azure, Data Factory, and Batch, and have completed the prerequisites, we estimate this solution will take 1-2 hours to complete.
 
-### Prerequisites
+## Prerequisites
 
 1.  **Azure subscription**. If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -101,7 +101,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 6.  **Microsoft Visual Studio 2012 or later** (to create the custom Batch activity to be used in the Data Factory solution).
 
-### High-level steps to create the solution
+## High-level steps to create the solution
 
 1.  Create a custom activity to use in the Data Factory solution. The custom activity contains the data processing logic.
 
