@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Performance counters in Log Analytics"
-   description="Performance counters are collected by Log Analytics to analyze performance on Windows and Linux agents.  They can be collected at frequent intervals to provide Near Real Time (NRT) analysis in addition to aggregated over longer intervals.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the OMS repository, and how to analyze them in the OMS portal."
+   pageTitle="Windows and Linux performance counters in Log Analytics | Microsoft Azure"
+   description="Performance counters are collected by Log Analytics to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the OMS repository, and how to analyze them in the OMS portal."
    services="log-analytics"
    documentationCenter=""
    authors="bwren"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2016"
+   ms.date="04/28/2016"
    ms.author="bwren" />
 
-# Windows and Linux performance counters in Log Analytics 
+# Windows and Linux performance data sources in Log Analytics 
 
 Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Log Analytics can collect performance counters at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
 
@@ -25,7 +25,7 @@ Performance counters in Windows and Linux provide insight into the performance o
 
 Configure  Performance counters from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md/configuring-data-sources).
 
-When you first configure Windows or Linux Performance counters for a new OMS workspace, you will be given the option to quickly create several common counters.  They will listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
+When you first configure Windows or Linux Performance counters for a new OMS workspace, you will be given the option to quickly create several common counters.  They will be listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
 ![Configure Windows Performance counters](media/log-analytics-data-sources-performance-counters/configure-windows.png)
 
@@ -55,7 +55,7 @@ All collected performance data is aggregated at 30 minute intervals.  The aggreg
 
 ## Performance record properties
 
-Performance records are created from performance data aggregated over 30 minute intervals.  The value for the record is the average value of the counter fore the previous 30 minutes.  Records are not created for raw NRT data.  The raw data is only available in the **Metrics** view of the OMS console.
+Performance records are created from performance data aggregated over 30 minute intervals.  The value for the record is the average value of the counter over the previous 30 minutes.  Records are not created for raw NRT data.  The raw data is only available in the **Metrics** view of the OMS console.
 
 Performance records have a type of **Perf** and have the [standard properties of all Log Analytics records](log-analytics-data-sources.md#log-analytics-events) in addition to the properties in the following table.
 

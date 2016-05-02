@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Data sources in Log Analytics"
+   pageTitle="Data sources in Log Analytics | Microsoft Azure"
    description="Data sources define the data that Log Analytics collects from agents and other connected sources.  This article describes the concept of how Log Analytics uses data sources, explains the details of how to configure them, and provides a summary of the different data sources available."
    services="log-analytics"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="04/28/2016"
    ms.author="bwren" />
 
 # Data sources in Log Analytics
@@ -51,7 +51,7 @@ You configure data sources from the **Data** menu in Log Analytics **Settings**.
 
 Data source configurations are delivered to agents that are directly connected to OMS within a few minutes.  The specified data is collected from the agent and delivered directly to Log Analytics at intervals specific to each data source.  See the documentation for each data source for these specifics.
 
-For System Center Operations Manager (SCOM) agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other,  collects the specified data and send it to a management server which forwards the data to the OMS.  The agent requires no communication directly with OMS for any of the data sources.  You can read about details of connecting SCOM and OMS and modifying the frequency that configuration is delivered at .    
+For System Center Operations Manager (SCOM) agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other,  collects the specified data and send it to a management server which forwards the data to the OMS.  The agent requires no communication directly with OMS for any of the data sources.  You can read about details of connecting SCOM and OMS and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md).
 
 ## Log Analytics records
 

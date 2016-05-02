@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Custom fields in Log Analytics"
+   pageTitle="Custom fields in Log Analytics | Microsoft Azure"
    description="The Custom Fields feature of Log Analytics allows you to create your own searchable fields from OMS data that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event."
    services="log-analytics"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="04/28/2016"
    ms.author="bwren" />
 
 # Custom fields in Log Analytics
@@ -25,13 +25,13 @@ For example, the sample record below has useful data buried in the event descrip
 
 ![Log Search button](media/log-analytics-custom-fields/sample-extract.png)
 
-> [!NOTE] In the Preview, you are limited to 100 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
+>[AZURE.NOTE] In the Preview, you are limited to 100 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
 
 ## Creating a custom field
 
 When you create a custom field, Log Analytics must understand which data to use to populate its value.  It uses a technology from Microsoft Research called FlashExtract to quickly identify this data.  Rather than requiring you to provide explicit instructions, Log Analytics learns about the data you want to extract from examples that you provide.
 
-The following sections provide the procedure for creating a custom field.  A the bottom of this article is a walkthrough of a sample extraction.
+The following sections provide the procedure for creating a custom field.  At the bottom of this article is a walkthrough of a sample extraction.
 
 > [!NOTE] The custom field is populated as records matching the specified criteria are added to the OMS data store, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
 
@@ -42,7 +42,7 @@ The first step is to identify the records that will get the custom field.  You s
 2. Select a record that Log Analytics will use to act as a model for extracting data to populate the custom field.  You will identify the data that you want to extract from this record, and Log Analytics will use this information to determine the logic to populate the custom field for all similar records.
 3. Click the button to the left of any text property of the record and select **Extract fields from**.
 4. The **Field Extraction Wizard is opened**, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
-5. If the selection is not exactly was you want, select additional fields to narrow the criteria.  In order to change the field values for the criteria, you must cancel and select a different record matching the criteria you want.
+5. If the selection is not exactly what you want, select additional fields to narrow the criteria.  In order to change the field values for the criteria, you must cancel and select a different record matching the criteria you want.
 
 ### Step 2 - Perform initial extract.
 Once you’ve identified the records that will have the custom field, you identify the data that you want to extract.  Log Analytics will use this information to identify similar patterns in similar records.  In the step after this you will be able to validate the results and provide further details for Log Analytics to use in its analysis.

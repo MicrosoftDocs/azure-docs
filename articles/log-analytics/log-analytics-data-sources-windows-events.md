@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Windows Event logs in Log Analytics"
+   pageTitle="Windows Event logs in Log Analytics | Microsoft Azure"
    description="Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the records they create in the OMS repository."
    services="log-analytics"
    documentationCenter=""
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2016"
+   ms.date="04/28/2016"
    ms.author="bwren" />
 
-# Windows event logs in Log Analytics
+# Windows event log data sources in Log Analytics
 
 Windows Event logs are one of the most common [data sources](log-analytics-data-sources.md) used for Windows agents since this is the method used by most applications to log information and errors.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
 

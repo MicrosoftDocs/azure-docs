@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="IIS logs in Log Analytics"
-   description="Internet Information Services (IIS) stores user activity in log files that can be collected by Log Analytics.  This article describes how to configure collection of IIS logs and details of the records they create in the OMS repository.""
+   pageTitle="IIS logs in Log Analytics | Microsoft Azure"
+   description="Internet Information Services (IIS) stores user activity in log files that can be collected by Log Analytics.  This article describes how to configure collection of IIS logs and details of the records they create in the OMS repository."
    services="log-analytics"
    documentationCenter=""
    authors="bwren"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2016"
+   ms.date="04/28/2016"
    ms.author="bwren" />
 
 # IIS logs in Log Analytics
