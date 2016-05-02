@@ -92,7 +92,37 @@ The following are general steps that you would need to perform when protecting y
 
 1. Create an OnDemand locator in order to get a streaming URL.
 
-##.NET sample
+##.NET example
+
+
+The following sample demonstrates functionality that was introduced in Azure Media Services SDK for .Net -Version 3.6.0 (the ability to use Azure Media Services to deliver your content encrypted with FairPlay). The following Nuget package command was used to install the package:
+
+	PM> Install-Package windowsazure.mediaservices -Version 3.6.0
+
+
+1. Create a new Console project.
+1. Use NuGet to install and add Azure Media Services .NET SDK.
+2. Add additional references: System.Configuration.
+2. Add config file that contains the account name and key information:
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<configuration>
+		    <startup> 
+		        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+		    </startup>
+			  <appSettings>
+			
+			    <add key="MediaServicesAccountName" value="AccountName"/>
+			    <add key="MediaServicesAccountKey" value="AccountKey"/>
+			
+			    <add key="Issuer" value="http://testacs.com"/>
+			    <add key="Audience" value="urn:test"/>
+			  </appSettings>
+		</configuration>
+
+1. Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see: [configure streaming endpoints](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
+
+1. Overwrite the code in your Program.cs file with the code shown in this section.
 			
 	using System;
 	using System.Collections.Generic;
