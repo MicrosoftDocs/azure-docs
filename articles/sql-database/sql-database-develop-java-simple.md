@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to SQL Database by using Java with JDBC on Windows"
+	pageTitle="Connect to SQL Database by using Java with JDBC on Windows | Microsoft Azure"
 	description="Presents a Java code sample you can use to connect to Azure SQL Database. The sample uses JDBC, and it runs on a Windows client computer."
 	services="sql-database"
 	documentationCenter=""
