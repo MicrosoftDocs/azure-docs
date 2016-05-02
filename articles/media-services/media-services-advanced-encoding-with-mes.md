@@ -955,22 +955,22 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
 
 The following example illustrates how you can generate a preset to concatenate two or more video files. The most common scenario is when you want to add a header or a trailer to the main video. The intended use is when the video files being edited together share the same properties (video resolution, frame rate, audio track count, etc.). You should take care not to mix videos of different frame rates, or with different number of audio tracks.
 
-###Requirements
+###Requirements and considerations
 
 - Input videos should only have one audio track.
 - Input videos should all have the same frame rate.
 - You must upload your videos into separate assets and set the videos as the primary file in each asset.
 - You need to know the duration of your videos.
+- The preset examples below assumes that all the input videos start with a timestamp of zero. You will need to modify the StartTime values if the videos have different starting timestamp, as is typically the case with live archives.
+- The JSON preset makes explicit references to the AssetID values of the input assets.
+- The sample code assumes that the JSON preset has been saved to a local file, such as "C:\supportFiles\preset.json". It also assumes that two assets have been created by uploading two video files, and that you know the resultant AssetID values.
+- The code snippet and JSON preset shows an example of concatenating two video files. You can extend it to more than two videos by:
+
+	1. Calling task.InputAssets.Add() repeatedly to add more videos, in order.
+	2. Making corresponding edits to the "Sources" element in the JSON, by adding more entries, in the same order. 
 
 
 ###.NET code
-
-
-The preset examples below assumes that all the input videos start with a timestamp of zero. You will need to modify the StartTime values if the videos have different starting timestamp, as is typically the case with live archives.
-
-Note also that the preset JSON makes explicit references to the AssetID values of the input assets.
-
-The sample code assumes that the JSON preset has been saved to a local file, such as "C:\supportFiles\preset.json". It also assumes that two assets have been created by uploading two video files, and that you know the resultant AssetID values.
 
 	
 	IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();

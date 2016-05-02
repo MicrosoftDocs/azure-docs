@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/22/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Data connection: Learn about data stream inputs from events to Stream Analytics

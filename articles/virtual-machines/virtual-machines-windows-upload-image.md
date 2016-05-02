@@ -65,6 +65,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 	![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 
 </br>
+<a id="createstorage"></a>
 ## Create or find an Azure storage account
 
 You will need a storage account in Azure to upload the VM image. You can either use an existing storage account or create a new one. You can use either the portal or the PowerShell to do this.
