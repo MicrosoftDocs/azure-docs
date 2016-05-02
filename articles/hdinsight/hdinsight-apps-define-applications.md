@@ -139,7 +139,7 @@ See [Appendix A](#appendix-a) for a complete sample template for installing Hue 
 
 ## Publish application 
 
-[jgao: to be provided by Travis and Matthew]
+[jgao: see the new publishing article.]
 
 
 ## Install applications
@@ -150,9 +150,7 @@ After you have completed your ARM template, you can deploy the application using
 - Azure CLI: See [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md#use-resource-group-templates).
 - Azure PowerShell: See [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#deploy-the-template)
 
-## Uninstall applications
 
-This feature will be released soon.
 
 ## Next steps
 
