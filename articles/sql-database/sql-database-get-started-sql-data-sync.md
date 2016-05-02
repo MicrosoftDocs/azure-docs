@@ -3,7 +3,7 @@
 	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)."
 	services="sql-database"
 	documentationCenter=""
-	authors="jhubbard"
+	authors="jennieHubbard"
 	manager="jhubbard"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="04/26/2016"
 	ms.author="jhubbard"/>
 
 

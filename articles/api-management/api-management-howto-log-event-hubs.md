@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # How to log events to Azure Event Hubs in Azure API Management
@@ -71,14 +71,12 @@ Specify the request body using the following template.
       "credentials" : {
         "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
-        },
-        "isBuffered": "true | false"
+        }
     }
 
 -	`type` must be set to `AzureEventHub`.
 -	`description` provides an optional description of the logger and can be a zero length string if desired.
 -	`credentials` contains the `name` and `connectionString` of your Azure Event Hub.
--	`isBuffered` determines whether the records in the logger are buffered before publishing. This property is optional and the default value is `true`. When records are buffered, they are sent to the Event hub every 15 seconds, or whenever the buffer receives 256kb of messages.
 
 When you make the request, if the logger is created a status code of `201 Created` is returned. 
 

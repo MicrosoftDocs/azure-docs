@@ -3,8 +3,8 @@
    description="This article will walk you through connecting multiple local on-premises sites to a virtual network using a VPN Gateway for the classic deployment model."
    services="vpn-gateway"
    documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
+   authors="yushwang"
+   manager="rossort"
    editor=""
    tags="azure-service-management"/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/17/2015"
-   ms.author="cherylmc" />
+   ms.author="yushwang" />
 
 # Connect multiple on-premises sites to a virtual network
 

@@ -42,7 +42,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
 3. Select a **Pricing tier** or use the default.
 
-4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview/#resource-groups).
+4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
 5. Select the **Subscription** for this CDN profile.
 
@@ -80,11 +80,13 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
 7. In the **Origin host header**, enter the host header you want the CDN to send with each request, or leave the default.
 
-8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin.  Your clients will continue to use these same protocols and ports when they access resources on the CDN.  At least one protocol (HTTP or HTTPS) must be selected.
+8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin.  At least one protocol (HTTP or HTTPS) must be selected.
 	
-	> [AZURE.TIP] Accessing CDN content using HTTPS has the following constraints:
+	> [AZURE.NOTE] The **Origin port** only affects what port the endpoint uses to retrieve information from the origin.  The endpoint itself will only be available to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port**.  
+	>
+	>Accessing CDN content using HTTPS has the following constraints:
 	> 
-	> - You must use SSL the certificate provided by the CDN. Third party certificates are not supported.
+	> - You must use the SSL certificate provided by the CDN. Third party certificates are not supported.
 	> - You must use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
 
 9. Click the **Add** button to create the new endpoint.
@@ -93,9 +95,9 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
     ![CDN endpoint][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] The endpoint will not immediately be available for use, as it takes time for the registration to propagate through the CDN network.  It will usually be available within 90 minutes, but in some cases can take longer.
+    > [AZURE.IMPORTANT] The endpoint will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  It will usually be available within 90 minutes, but in some cases can take longer.
 	>	 
-	> Users who try to use the CDN domain name before the endpoint configuration has propagated to the POPs will receive HTTP 404 response codes. 
+	> Users who try to use the CDN domain name before the endpoint configuration has propagated to the POPs will receive HTTP 404 response codes.  If it's been several hours since you created your endpoint and you're still receiving 404 responses, please see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
 
 
 ##See Also
@@ -103,6 +105,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 - [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
 - [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
 - [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
+- [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md)
 
 [new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
