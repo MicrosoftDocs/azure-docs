@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/29/2016"
 	ms.author="robinsh"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
@@ -129,7 +129,7 @@ For bandwidth, the problem is often the capabilities of the client. For example,
 As with any network usage, be aware that network conditions resulting in errors and packet loss will slow effective throughput.  Using WireShark or NetMon may help in diagnosing this issue.  
 
 #####Useful Resources
-For more information about virtual machine sizes and allocated bandwidth, see [Sizes for virtual machines](../virtual-machines/virtual-machines-linux-sizes.md).  
+For more information about virtual machine sizes and allocated bandwidth, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md).  
 
 ####<a name="subheading4"></a>Location
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure Web Site that uses Azure Storage, you should locate them both within a single region (for example, US West or Asia Southeast). This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  
@@ -149,7 +149,7 @@ Normally, a browser will not allow JavaScript in a page hosted by a website on o
 Both of these technologies can help you avoid unnecessary load (and bottlenecks) on your web application.  
 
 ####Useful Resources
-For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/).  
+For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).  
 
 For more information about CORS, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -393,7 +393,7 @@ For up to date cost information, see [Azure Storage Pricing](https://azure.micro
 ###<a name=subheading44"></a>UpdateMessage
 You can use **UpdateMessage** to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **UpdateMessage** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **UpdateMessage** operation allows your application to save the job state to the message and then continue working, instead of re-queuing the message for the next step of the job every time a step completes.  
 
-For more information, see the article [How to: Change the contents of a queued message](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message).  
+For more information, see the article [How to: Change the contents of a queued message](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ###<a name=subheading45"></a>Application architecture
 You should use queues to make your application architecture scalable. The following lists some ways you can use queues to make your application more scalable:  

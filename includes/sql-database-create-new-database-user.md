@@ -15,3 +15,4 @@ The steps below assume that you are using SSMS and connected to SQL Database in 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
 
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
+
