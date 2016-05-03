@@ -14,12 +14,12 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/04/2016"
+   ms.date="04/27/2016"
    ms.author="jgao"/>
 
 # Learn Hadoop by using the Azure HDInsight Getting Started Gallery
 
-The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoop by running sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
+The Getting Started Gallery is only available for Windows-based HDInsight clusters. The gallery provides an easy and quick way learn Hadoop by running sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
 
 - Solutions with your Azure data
 	- Microsoft Azure website log analysis
@@ -60,6 +60,6 @@ Other ways to learn about HDInsight include:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learn.map]: hdinsight-learn-map.md
+[hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]:https://portal.azure.com

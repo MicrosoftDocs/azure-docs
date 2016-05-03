@@ -52,7 +52,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
 ## Create a new CDN endpoint
 
-**To create a new CDN endpoint for your storage account**
+**To create a new CDN endpoint**
 
 1. In the [Azure Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
 
