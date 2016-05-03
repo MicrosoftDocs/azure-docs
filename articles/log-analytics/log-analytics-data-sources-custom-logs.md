@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2016"
+   ms.date="05/02/2016"
    ms.author="bwren" />
 
 # Custom logs in Log Analytics
@@ -54,7 +54,7 @@ If a timestamp delimiter is used, then the TimeGenerated property of each record
 
 >[AZURE.NOTE]Log Analytics currently treats the date/time collected from a log using a timestamp delimiter as UTC.  This will soon be changed to use the time zone on the agent. 
  
-1.	Click **Browse** and browse to a sample file.
+1.	Click **Browse** and browse to a sample file.  Note that this may button may be labeled **Choose File** in some browsers.
 2.	Click **Next**. 
 3.	The Custom Log Wizard will upload the file and list the records that it identifies.
 4.	Change the delimiter that is used to identify a new record and select the delimiter that best identifies the records in your log file.

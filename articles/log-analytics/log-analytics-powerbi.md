@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="05/02/2016"
    ms.author="bwren" />
 
 # Export Log Analytics data to Power BI

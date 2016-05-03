@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2016"
+   ms.date="05/02/2016"
    ms.author="bwren" />
 
 # IIS logs in Log Analytics
@@ -35,29 +35,31 @@ Log Analytics will collect IIS log entries from each connected source approximat
 
 ## IIS log record properties
 
-IIS log records have a type of **W3CIISLog** and have the [standard properties of all Log Analytics records](log-analytics-data-sources.md#log-analytics-records) in addition to the properties in the following table.
+IIS log records have a type of **W3CIISLog** and have the properties in the following table.
 
 | Property | Description |
 |:--|:--|
-| sSiteName | Name of the IIS site. |
-| csMethod | Method of the request such as GET or POST. |
-| scStatus | HTTP status code. |
 | Computer | Name of the computer that the event was collected from. |
-| RemoteIPCountry | Country of the IP address of the client. |
-| sIP | IP address of the web server. |
 | cIP | IP address of the client. |
-| TimeTaken | Length of time to process the request in milliseconds. |
+| csMethod | Method of the request such as GET or POST. |
+| csReferer | Site that the user followed a link from to the current site. |
+| csUserAgent | Browser type of the client. |
+| csUserName | Name of the authenticated user that accessed the server. Anonymous users are indicated by a hyphen. |
 | csUriStem | Target of the request such as a web page. |
 | csUriQuery | Query, if any, that the client was trying to perform. |
-| sPort | Port on the server the client connected to. |
-| csUserAgent | Browser type of the client. |
-| csReferer | Site that the user followed a link from to the current site. |
+| ManagementGroupName | Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
+| RemoteIPCountry | Country of the IP address of the client. |
+| RemoteIPLatitude | Latitude of the client IP address. |
+| RemoteIPLongitude | Longitude of the client IP address. |
+| scStatus | HTTP status code. |
 | scSubStatus | Substatus  error code. |
 | scWin32Status | Windows status code. |
-| ManagementGroupName | Name of the management group for SCOM agents.  For other agents, this is AOI-<workspace ID> |
-| RemoteIPLongitude | Longitude of the client IP address. |
-| RemoteIPLatitude | Latitude of the client IP address. |
-| csUserName | Name of the authenticated user that accessed the server. Anonymous users are indicated by a hyphen. |
+| sIP | IP address of the web server. |
+| SourceSystem  | OpsMgr |
+| sPort | Port on the server the client connected to. |
+| sSiteName | Name of the IIS site. |
+| TimeGenerated | Date and time the entry was logged. |
+| TimeTaken | Length of time to process the request in milliseconds. |
 
 ## Log searches with IIS logs
 

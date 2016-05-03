@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2016"
+   ms.date="05/02/2016"
    ms.author="bwren" />
 
 # Windows event log data sources in Log Analytics
@@ -37,7 +37,7 @@ Log Analytics will collect each event that matches a selected severity from a mo
 
 ## Windows event records properties
 
-Windows event records have a type of **Event** and have the [standard properties of all Log Analytics records](log-analytics-data-sources.md#log-analytics-records) in addition to the properties in the following table.
+Windows event records have a type of **Event** and have the properties in the following table.
 
 | Property | Description |
 |:--|:--|
@@ -52,6 +52,8 @@ Windows event records have a type of **Event** and have the [standard properties
 | ManagementGroupName | Name of the management group for SCOM agents.  For other agents, this is AOI-<workspace ID> |
 | RenderedDescription | Event description with parameter values |
 | Source              | Source of the event. |
+| SourceSystem  | Type of agent the event was collected from. <br> OpsManager – Windows agent, either direct connect or SCOM <br> Linux – All Linux agents  <br> AzureStorage – Azure Diagnostics |
+| TimeGenerated       | Date and time the event was created in Windows. |
 | UserName            | User name of the account that logged the event. |
 
 
