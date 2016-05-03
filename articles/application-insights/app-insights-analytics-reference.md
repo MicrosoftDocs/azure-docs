@@ -814,7 +814,7 @@ Notice that we put the comparison between two columns last, as it can't utilize 
 
 
 
-## Aggregrations
+## Aggregations
 
 Aggregations are functions used to combine values in groups created in the [summarize operation](#summarize-operator). For example, in this query, dcount() is an aggregation function:
 

@@ -42,7 +42,8 @@ Try these steps to resolve the most common SSH connection failures:
    From the [Azure portal](https://portal.azure.com), click **Browse** > **Virtual machines (classic)** > your Linux virtual machine > **Restart**.<br>
 	 From the [Azure classic portal](https://manage.windowsazure.com), open the **Virtual machines** > **Instances** > **Restart**.
 
-3. [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+3. Redeploy the Virtual Machine to new Azure node. See [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).<br>
+Note that after this operation is completed, ephemeral disk data will be lost and dynamic IP addresses associated with virtual machine will be updated.
 
 4. Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md) on the virtual machine, to:
 

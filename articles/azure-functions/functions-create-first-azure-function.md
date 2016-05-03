@@ -27,13 +27,13 @@ This topic shows you how to use the Azure Functions quickstart in the Azure Func
 
 ## Watch the video
 
-The following video show how to perform the basic steps in this tutorial 
+The following video show how to perform the basic steps in this tutorial. 
 
 [AZURE.VIDEO create-your-first-azure-function]
 
 ##Create a function from the quickstart
 
-A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. Before you can create your first function, you need top have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
+A function app hosts the execution of your functions in Azure. Follow these steps to create a new function app as well as the new function. Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
 
 1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
 
