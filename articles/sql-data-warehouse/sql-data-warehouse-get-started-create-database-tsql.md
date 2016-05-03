@@ -31,7 +31,7 @@ This article will show you how to create a SQL Data Warehouse database with Tran
 To complete the steps in this article you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
-- A V12 logical SQL server. You will need a V12 SQL server to create SQL Data Warehouse.  If you don't have a V12 logical SQL server, see **Configure and create a server** in the article [how to create a SQL Data Warehouse from the Azure Pportal][].
+- A V12 logical SQL server. You will need a V12 SQL server to create SQL Data Warehouse.  If you don't have a V12 logical SQL server, see **Configure and create a server** in the article [how to create a SQL Data Warehouse from the Azure portal][].
 - Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads][] page.
 
 
