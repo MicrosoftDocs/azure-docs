@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 # Deleting a Service Fabric cluster or deleting all the resources that the cluster uses including the cluster resource.
