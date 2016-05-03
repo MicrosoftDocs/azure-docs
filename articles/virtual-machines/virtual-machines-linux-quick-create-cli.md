@@ -23,10 +23,10 @@ This article shows how to quickly deploy a Linux Virtual Machine on Azure using 
 
 ## Quick Command Summary
 
-One command to deploy the VM and attach your SSH key
+One command to deploy a CoreOS VM and attach your SSH key
 
-```
-azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+```bash
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 ```
 
 ## Deploy the Linux VM
