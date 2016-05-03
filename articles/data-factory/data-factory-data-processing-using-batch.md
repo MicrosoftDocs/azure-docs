@@ -899,7 +899,7 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 	See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
 
-	> [AZURE.NOTE] If you use the auto-scale feature of Azure Batch, the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.
+	The Azure Batch service could take 15-30 minutes to prepare the VM before running the custom activity on the VM. 
 	 
 5. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
 

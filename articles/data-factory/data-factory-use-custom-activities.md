@@ -731,7 +731,7 @@ You can also create an Azure Batch pool with **autoscale** feature. For example,
 
 See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
 
-> [AZURE.NOTE] If you use the auto-scale feature of Azure Batch, the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. 
+The Batch service could take 15-30 minutes to prepare the VM before running the custom activity on the VM.  
 
 ## Use Azure HDInsight linked services
 In the walkthrough, you used Azure Batch compute to run the custom activity. You can also use your own HDInsight cluster or have Data Factory create an on-demand HDInsight cluster and have the custom activity run on the HDInsight cluster. Here are the high level steps for using an HDInsight cluster.  
