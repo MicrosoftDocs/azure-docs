@@ -55,6 +55,9 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
         - Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
         - Upload the certificates and all other artifacts to an Azure Stack storage account.
         - Publish gallery packages to allow deployment SQL and resources through gallery.
+ 
+ > [AZURE.IMPORTANT] if any of the above scripts hangs for no apparent reason after submitting you AAD tenant, your security settings might be blocking one of the DLLs required for the deployment to run. To resolve this, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your RP folder, right click it, click properties and check the "unblock" box in the "General" tab.
+
     - In the “Deploy” tab:
         - [Deploy a VM](azure-stack-sql-rp-deploy-long.md#Deploy-the-SQL-Server-Resource-Provider-VM) that hosts both your resource provider and hosting SQL Server. This script references a JSON parameter file, which you need to update with some values before you run the script.
         - [Register a local DNS record](azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that maps to your resource provider VM.

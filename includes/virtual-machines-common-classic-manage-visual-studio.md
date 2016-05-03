@@ -34,7 +34,7 @@ While you can create a virtual machine in the [Azure Management Portal](http://g
 
     You can click a virtual machine image name to see information about the image on the right side of the page.
 
-        >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
+    >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
 
     If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
@@ -42,7 +42,7 @@ While you can create a virtual machine in the [Azure Management Portal](http://g
 
     You’ll use the new name and password to log into the machine using remote desktop, so it’s a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+    >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
 1. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](./storage/storage-introduction/) for more information.
 
