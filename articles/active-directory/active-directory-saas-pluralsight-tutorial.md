@@ -123,7 +123,7 @@ You can also add the **"Unique ID"** attribute with the appropriate value like E
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Pluralsight sales rep and provide the downloaded metadata file.
+5. To get SSO configured for your application, contact Pluralsight [Professional Services](mailTo:professionalservices@pluralsight.com) team and provide the downloaded metadata file.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
