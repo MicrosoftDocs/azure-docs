@@ -71,7 +71,9 @@ The *circuit owner* has the power to modify and revoke authorizations at any tim
 
 #### Creating an authorization
 	
-The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
+The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit.
+
+> [AZURE.NOTE] An authorization is valid for only one connection.
 
 The cmdlet snippet below shows how to create an authorization. 
 
