@@ -29,14 +29,15 @@ A data source specifies which data to index, credentials needed to access the da
 
 An indexer is a resource that connects data sources with target search indexes.
 
-To set up a blob indexer, do the following:
+To set up blob indexing, do the following:
 
 1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account
 	- Pass in your storage account connection string as the `credentials.connectionString` parameter
 	- Specify a container name. You can also optionally include a folder using the `query` parameter
-2. Create the indexer by connecting your data source to an existing target index (create the index if you don't already have one)
+2. Create a search index with a searchable `content` field 
+3. Create the indexer by connecting your data source to the target index
 
-The following example provides an illustration:
+### Create data source
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -49,7 +50,27 @@ The following example provides an illustration:
 	    "container" : { "name" : "my-container", "query" : "my-folder" }
 	}   
 
-Next, create an indexer that references the data source and a target index. For example:
+For more on Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
+
+### Create index 
+
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "content", "type": "Edm.String", "searchable": true }
+  		]
+	}
+
+For more on Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+
+### Create indexer 
+
+Finally, create an indexer that references the data source and a target index. For example:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -61,6 +82,8 @@ Next, create an indexer that references the data source and a target index. For 
 	  "targetIndexName" : "my-target-index",
 	  "schedule" : { "interval" : "PT2H" }
 	}
+
+For more details on Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 
 ## Supported document formats
@@ -144,7 +167,7 @@ To bring this all together, here's how you can add field mappings and enable bas
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
-> [AZURE.NOTE] To learn more about field mappings, see [this article](search-indexers-customization.md).
+> [AZURE.NOTE] To learn more about field mappings, see [this article](search-indexer-field-mappings.md).
 
 ## Incremental indexing and deletion detection
 
