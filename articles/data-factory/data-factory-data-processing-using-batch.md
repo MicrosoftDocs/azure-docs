@@ -893,9 +893,18 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 3.  Create a pool with higher/lower **Maximum tasks per VM**. Update the Azure Batch linked service in the Data Factory solution to use the new pool you created. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
 
-4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md).
+4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+	See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
+
+	> [AZURE.NOTE] If you use the auto-scale feature of Azure Batch, the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.
+	 
+5. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+
+ 
+
 
 ## Next steps: Consume the data
 

@@ -58,7 +58,6 @@ For the purpose of the tutorial, you need to create an Azure Batch account with 
 	- Specify **2** as value for the **Max tasks per compute node** setting.
 	- Specify **2** as value for the **Number of Target Dedicated** setting. 
 
-
 ### High-level steps 
 1.	**Create a custom activity** to use a Data Factory pipeline. The custom activity in this sample will contain the data transformation/processing logic. 
 	1.	In Visual Studio, create a .NET Class Library project, add the code to process input data, and compile the project.	
@@ -725,6 +724,14 @@ To access these extended properties in the **Execute** method, use code similar 
     	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
 	}
 
+## Auto-scaling feature of Azure Batch
+You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
+ 
+	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+
+See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
+
+> [AZURE.NOTE] If you use the auto-scale feature of Azure Batch, the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. 
 
 ## Use Azure HDInsight linked services
 In the walkthrough, you used Azure Batch compute to run the custom activity. You can also use your own HDInsight cluster or have Data Factory create an on-demand HDInsight cluster and have the custom activity run on the HDInsight cluster. Here are the high level steps for using an HDInsight cluster.  
