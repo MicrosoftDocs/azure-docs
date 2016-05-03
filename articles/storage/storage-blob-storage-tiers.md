@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Blob Storage: Cool and Hot tiers | Microsoft Azure"
-	description="An overview of Azure Blob Storage tiers for cost efficient storage of object data based on access patterns."
+	pageTitle="Azure Blob Storage: Hot and Cool Access Tiers | Microsoft Azure"
+	description="Azure storage tiers for Blob storage offer cost-efficient storage for object data based on access patterns. Azure cool storage is optimized for data that is accessed less frequently."
 	services="storage"
 	documentationCenter=""
 	authors="sribhat-msft"
@@ -17,15 +17,15 @@
 	ms.author="sribhat"/>
 
 
-# Azure Blob Storage: Cool and Hot tiers
+# Azure Blob Storage: Hot and Cool Access Tiers
 
 ## Overview
 
-Azure Blob storage is a cost-effective, scalable solution for storing large amounts of unstructured data in the cloud. With massive storage capacity and scalability, Blob storage easily and cost-effectively stores petabytes of data and billions of objects per customer. See [Introduction to Microsoft Azure Storage](storage-introduction.md) for more details.
+Azure Storage now offers two access tiers for Blob storage (object storage), so that you can store your data most cost-effectively depending on how you use it. The **hot tier** is optimized for storing data that is accessed frequently and needs to be highly durable and available. The **cool tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool tier can tolerate a slightly lower availability, but still requires high durability and similar time to access and throughput characteristics as hot data. For cool data, slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
 
-Today, data stored in the cloud is growing at an exponential pace and an important aspect of managing the cost for your expanding storage needs is tiering your data based on attributes like frequency of access, retention period, etc. Based on customer feedback and usage patterns, we have seen that the data stored in the cloud can be quite different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime, some accessed very frequently early in its lifetime, with access dropping drastically as the data ages, while some start idle in the cloud and are rarely, if ever, accessed once stored. In general, we classify **hot data** as data that is accessed very frequently and needs to be highly durable and available. On the other hand, **cool data** is data that is infrequently accessed and long-lived. Cool data can tolerate a slightly lower availability, but still requires high durability and similar time to access and throughput characteristics as hot data. For cool data, slightly lower availability SLA and higher access costs are acceptable tradeoffs for much lower storage costs.
+Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency of access and planned retention period. Data stored in the cloud can be quite different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed very frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. 
 
-Each of these data access scenarios described above benefits from a differentiated tier of storage that optimizes for a particular access pattern. Azure Blob storage now addresses this need for differentiated storage tiers for data with different access patterns and pricing model.
+Each of these data access scenarios described above benefits from a differentiated tier of storage that is optimized for a particular access pattern. With the introduction of hot and cool access tiers, Azure Blob storage now addresses this need for differentiated storage tiers with separate pricing models.
 
 ## Blob storage accounts
 
