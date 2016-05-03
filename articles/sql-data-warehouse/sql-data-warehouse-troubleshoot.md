@@ -131,7 +131,7 @@ The guidance for minimum resource class for loads to a CCI table is to use xlarg
 
 Please refer to the following articles to help you understand some additional key performance and scale concepts:
 
-- [performance and scale][]
+- [performance scalability][]
 - [concurrency model][]
 - [designing tables][]
 - [choose a hash distribution key for your table][]
@@ -142,7 +142,7 @@ Please refer to the [development overview][] article to get some guidance on bui
 <!--Image references-->
 
 <!--Article references-->
-[performance and scale]: sql-data-warehouse-performance-scale.md
+[performance scalability]: sql-data-warehouse-overview-scalability.md
 [concurrency model]: sql-data-warehouse-develop-concurrency.md
 [designing tables]: sql-data-warehouse-develop-table-design.md
 [choose a hash distribution key for your table]: sql-data-warehouse-develop-hash-distribution-key
