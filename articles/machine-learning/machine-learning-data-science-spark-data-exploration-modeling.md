@@ -178,7 +178,7 @@ Here is the code for data ingestion.
 
 **OUTPUT:**
 
-Time taken to execute above cell: 339.0 seconds
+Time taken to execute above cell: 51.72 seconds
 
 
 ## Data exploration & visualization
@@ -187,11 +187,16 @@ Once the data has been brought into Spark, the next step in the data science pro
 
 ### Plot a histogram of passenger count frequencies in the sample of taxi trips
 
-The code uses a SQL squery to sample and plot the data.
+This code and subsequent snippets use SQL magic to query the sample and local magic to plot the data.
+
+- **SQL magic (`%%sql`)** The HDInsight PySpark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas dataframe on the Jupyter server. This means it'll be available in the local mode.
+- The **`%%local` magic** is used to run code locally on the Jupyter server, which is the headnode of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with -o parameter. The -o parameter would persist the output of the SQL query locally and then %%local magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally
+
+The output will be automatically visualized after you run the code. 
 
 	# PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
-	# SQL SQUERY
+	# HIVEQL QUERY AGAINST THE sqlContext
 	%%sql -q -o sqlResults
 	SELECT passenger_count, COUNT(*) as trip_counts 
 	FROM taxi_train 
@@ -199,12 +204,18 @@ The code uses a SQL squery to sample and plot the data.
 	GROUP BY passenger_count 
 
 	
-	#SET LOCAL CONTEXT AND IMPORT PYPLOT
+	#CREATE LOCAL DATA-FRAME AND USE FOR MATPLOTLIB PLOTTING
+	%%local
+	
+	## USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
+	## CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+	sqlResults
+
+	# PLOT PASSENGER NUMBER VS. TRIP COUNTS
 	%%local
 	import matplotlib.pyplot as plt
 	%matplotlib inline
 	
-	# PLOT PASSENGER NUMBER VS. TRIP COUNTS
 	x_labels = sqlResults['passenger_count'].values
 	fig = sqlResults[['trip_counts']].plot(kind='bar', facecolor='lightblue')
 	fig.set_xticklabels(x_labels)
@@ -217,6 +228,7 @@ The code uses a SQL squery to sample and plot the data.
 
 ![Trip frequency by passenger count](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
 
+You can select among several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook. The Bar plot is shown here.
 	
 ### Plot a histogram of tip amounts and how tip amount varies by passenger count and fare amounts.
 
@@ -224,7 +236,7 @@ The code uses a SQL squery to sample and plot the data.
 
 	#PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
 	
-	# SQL SQUERY
+	# HIVEQL QUERY AGAINST THE sqlContext
 	%%sql -q -o sqlResults
 	SELECT fare_amount, passenger_count, tip_amount, tipped 
 	FROM taxi_train 
@@ -458,7 +470,7 @@ This code creates a random sampling of the data (25% is used here). Although it 
 
 **OUTPUT:**
 
-Time taken to execute above cell: 0.16 seconds
+Time taken to execute above cell: 0.24 seconds
 
 
 ### Feature scaling
@@ -500,7 +512,7 @@ Here is the code to scale to scale variables for use with the regularized linear
 
 **OUTPUT:**
 
-Time taken to execute above cell: 7.63 seconds
+Time taken to execute above cell: 13.17 seconds
 
 
 ### Cache objects in memory
@@ -533,7 +545,7 @@ The time taken for training and testing of ML algorithms can be reduced by cachi
 
 **OUTPUT:** 
 
-Time taken to execute above cell: 0.14 seconds
+Time taken to execute above cell: 0.15 seconds
 
 
 ## Predict whether or not a tip is paid with binary classification models
@@ -554,6 +566,7 @@ Each model building code section will be split into steps:
 
 The code in this section shows how to train evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
+**Train**
 
 	#PREDICT WHETHER A TIP IS PAID OR NOT USING LOGISTIC REGRESSION WITH LBFGS
 
@@ -572,6 +585,33 @@ The code in this section shows how to train evaluate, and save a logistic regres
 	                                               regParam=0.01, regType='l2', intercept=True, corrections=10, 
 	                                               tolerance=0.0001, validateData=True, numClasses=2)
 	
+	# PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
+	# NOTE: There are 20 coefficient terms for the 10 features, 
+	#       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+	print("Coefficients: " + str(logitModel.weights))
+	print("Intercept: " + str(logitModel.intercept))
+	
+	# PRINT ELAPSED TIME
+	timeend = datetime.datetime.now()
+	timedelta = round((timeend-timestart).total_seconds(), 2) 
+	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+
+
+**OUTPUT:** 
+
+Coefficients: [0.0082065285375,-0.0223675576104,-0.0183812028036,-3.48124578069e-05,-0.00247646947233,-0.00165897881503,0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354,0.591088507921,-0.664263411392,-1.00439726852,3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294,0.000243375810385,0.054518719222]
+
+Intercept: -0.0111216486893
+
+Time taken to execute above cell: 14.43 seconds
+
+**Evaluate**
+
+	#EVALUATE LOGISTIC REGRESSION MODEL WITH LBFGS
+
+	# RECORD START TIME
+	timestart = datetime.datetime.now()
+
 	# PREDICT ON TEST DATA WITH MODEL
 	predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitModel.predict(lp.features)), lp.label))
 	
@@ -606,32 +646,41 @@ The code in this section shows how to train evaluate, and save a logistic regres
 	predictionAndLabelsDF = predictionAndLabels.toDF()
 	predictionAndLabelsDF.registerTempTable("tmp_results");
 	
+	# PRINT ELAPSED TIME
 	timeend = datetime.datetime.now()
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 **OUTPUT:** 
 
-Area under PR = 0.98430709802
+Area under PR = 0.985297691373
 
-Area under ROC = 0.9824181769
+Area under ROC = 0.983714670256
 
 Summary Stats
 
-Precision = 0.983136593592
+Precision = 0.984304060189
 
-Recall = 0.983136593592
+Recall = 0.984304060189
 
-F1 Score = 0.983136593592
+F1 Score = 0.984304060189
 
-Time taken to execute above cell: 21.43 seconds
+Time taken to execute above cell: 57.61 seconds
 
-	
+**Plot**
+
+The *predictionAndLabelsDF* is registered as a table, *tmp_results*, in the previous cell. *tmp_results* can be used to do queries and output results into the sqlResults data-frame for plotting
+
 	# MAKE PREDICTIONS AND PLOT ROC-CURVE
 
-	# SET CONTEXT AND SELECT RESULTS                              
+	# QUERY RESULTS                              
 	%%sql -q -o sqlResults
 	SELECT * from tmp_results
+
+	# LOCAL MAGIC AND IMPORT LIBRARIES
+	%%local
+	%matplotlib inline
+	from sklearn.metrics import roc_curve,auc
 
 	# MAKE PREDICTIONS
 	predictions_pddf = test_predictions.rename(columns={'_1': 'probability', '_2': 'label'})
@@ -706,9 +755,9 @@ The code in this section shows how to train evaluate, and save a random forest m
 
 **OUTPUT:**
 
-Area under ROC = 0.98430709802
+Area under ROC = 0.985297691373
 
-Time taken to execute above cell: 19.04 seconds
+Time taken to execute above cell: 31.09 seconds
 
 
 ### Gradient boosting trees classification
@@ -753,9 +802,9 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 
 **OUTPUT:**
 
-Area under ROC = 0.98430709802
+Area under ROC = 0.985297691373
 
-Time taken to execute above cell: 12.0 seconds
+Time taken to execute above cell: 19.76 seconds
 
 ## Predict tip amounts for taxi trips with regression models
 
@@ -790,6 +839,12 @@ In our experience, there can be issues with the convergence of LinearRegressionW
 	
 	# USE SCALED FEATURES TO TRAIN MODEL
 	linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
+
+	# PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
+	# NOTE: There are 20 coefficient terms for the 10 features, 
+	#       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+	print("Coefficients: " + str(linearModel.weights))
+	print("Intercept: " + str(linearModel.intercept))
 	
 	# SCORE ON SCALED TEST DATA-SET & EVALUATE
 	predictionAndLabels = oneHotTESTregScaled.map(lambda lp: (float(linearModel.predict(lp.features)), lp.label))
@@ -799,7 +854,7 @@ In our experience, there can be issues with the convergence of LinearRegressionW
 	print("RMSE = %s" % testMetrics.rootMeanSquaredError)
 	print("R-sqr = %s" % testMetrics.r2)
 	
-	# SAVE MODEL IN BLOB
+	# SAVE MODEL WITH DATE-STAMP IN THE DEFAULT BLOB FOR THE CLUSTER
 	datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
 	linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
 	dirfilename = modelDir + linearregressionfilename;
@@ -813,11 +868,16 @@ In our experience, there can be issues with the convergence of LinearRegressionW
 
 **OUTPUT:**
 
-RMSE = 1.33845976353
+Coefficients: [0.00457675809917,-0.0226314167349,-0.0191910355236,0.246793409578,0.312047890459,0.359634405999,0.00928692253981,-0.000987181489428,-0.0888306617845,0.0569376211553,0.115519551711,0.149250164995,-0.00990211159703,-0.00637410344522,0.545083566179,-0.536756072402,0.0105762393099,-0.0130117577055,0.0129304737772,-0.00171065945959]
 
-R-sqr = 0.588874759849
+Intercept: 0.853872718283
 
-Time taken to execute above cell: 35.29 seconds
+RMSE = 1.24190115863
+
+R-sqr = 0.608017146081
+
+Time taken to execute above cell: 58.42 seconds
+
 
 ### Random Forest regression
 
@@ -867,16 +927,18 @@ The code in this section shows how to train evaluate, and save a random forest r
 
 **OUTPUT:**
 
-RMSE = 1.01249305361
+RMSE = 0.891209218139
 
-R-sqr = 0.678614669757
+R-sqr = 0.759661334921
 
-Time taken to execute above cell: 24.26 seconds
+Time taken to execute above cell: 49.21 seconds
+
 
 ### Gradient boosting trees regression
 
 The code in this section shows how to train evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
+**Evaluate and save the model**
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -918,12 +980,15 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 
 **OUTPUT:**
 
-RMSE = 0.991445895771
+RMSE = 0.908473148639
 
-R-sqr = 0.687257397384
+R-sqr = 0.753835096681
 
-Time taken to execute above cell: 41.93 seconds
+Time taken to execute above cell: 34.52 seconds
 
+**Plot**
+
+*tmp_results* is registered as a Hive table in the previous cell. Results from the table is output into the *sqlResults* data-frame for plotting
 
 	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -931,7 +996,7 @@ Time taken to execute above cell: 41.93 seconds
 	%%sql -q -o sqlResults
 	SELECT * from tmp_results
 
-	# IMPORT NUMPY
+	# LOCAL MAGIC AND IMPORT NUMPY
 	%%local
 	%matplotlib inline
 	import numpy as np
@@ -992,17 +1057,17 @@ For the consumption and scoring an independent dataset described in the [Score a
 
 **OUTPUT**
 
-logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-2523_22_13.650522"
+logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0317_03_23.516568"
 
-linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-04-2523_23_30.590277"
+linearRegFileLoc = modelDir + "LinearRegressionWithSGD_2016-05-0317_05_21.577773"
 
-randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-04-2523_22_41.207697"
+randomForestClassificationFileLoc = modelDir + "RandomForestClassification_2016-05-0317_04_11.950206"
 
-randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-04-2523_23_53.380823"
+randomForestRegFileLoc = modelDir + "RandomForestRegression_2016-05-0317_06_08.723736"
 
-BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-04-2523_22_53.086531"
+BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-05-0317_04_36.346583"
 
-BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-04-2523_24_11.828291"
+BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0317_06_51.737282"
 
 
 ## What's next?

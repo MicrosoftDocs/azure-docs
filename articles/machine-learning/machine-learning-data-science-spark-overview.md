@@ -131,7 +131,7 @@ Now you can:
 - Run the entire notebook by clicking on **Cell** -> **Run**
 - Use the automatic visualization of queries
 
-> [AZURE.TIP] The Pyspark kernel automatically visualizes the output of SQL (HiveQL) queries. You are given the option to toggle between several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook:
+> [AZURE.TIP] The Pyspark kernel automatically visualizes the output of SQL (HiveQL) queries. You are given the option to select among several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook:
 
 ![Logistic regression ROC curve for generic approach](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
