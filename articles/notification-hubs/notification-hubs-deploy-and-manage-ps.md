@@ -110,7 +110,7 @@ These variables are used to connect to your namespace and create a new Notificat
 
 ``` powershell
 
-$Namespace = "<Enter your namespace>
+$Namespace = "<Enter your namespace>"
 $Path  = "<Enter a name for your notification hub>"
 $WnsPackageSid = "<your package sid>"
 $WnsSecretkey = "<enter your secret key>"
