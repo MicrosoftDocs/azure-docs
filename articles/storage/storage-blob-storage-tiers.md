@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Blob Storage: Hot and Cool Access Tiers | Microsoft Azure"
-	description="Azure storage tiers for Blob storage offer cost-efficient storage for object data based on access patterns. Azure cool storage is optimized for data that is accessed less frequently."
+	pageTitle="Azure Cool Storage for Blobs | Microsoft Azure"
+	description="Storage tiers for Blob storage offer cost-efficient storage for object data based on access patterns. Azure cool storage is optimized for data that is accessed less frequently."
 	services="storage"
 	documentationCenter=""
 	authors="sribhat-msft"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/24/2016"
+	ms.date="05/03/2016"
 	ms.author="sribhat"/>
 
 
@@ -21,15 +21,15 @@
 
 ## Overview
 
-Azure Storage now offers two access tiers for Blob storage (object storage), so that you can store your data most cost-effectively depending on how you use it. The **hot tier** is optimized for storing data that is accessed frequently and needs to be highly durable and available. The **cool tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool tier can tolerate a slightly lower availability, but still requires high durability and similar time to access and throughput characteristics as hot data. For cool data, slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
+Azure Storage now offers two access tiers for Blob storage (object storage), so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently and needs to be highly durable and available. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool storage tier can tolerate a slightly lower availability, but still requires high durability and similar time to access and throughput characteristics as hot data. For cool data, slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
 
 Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency of access and planned retention period. Data stored in the cloud can be quite different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed very frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. 
 
-Each of these data access scenarios described above benefits from a differentiated tier of storage that is optimized for a particular access pattern. With the introduction of hot and cool access tiers, Azure Blob storage now addresses this need for differentiated storage tiers with separate pricing models.
+Each of these data access scenarios described above benefits from a differentiated tier of storage that is optimized for a particular access pattern. With the introduction of hot and cool storage access tiers, Azure Blob storage now addresses this need for differentiated storage tiers with separate pricing models.
 
 ## Blob storage accounts
 
-**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between Cool and Hot access tiers to store your less frequently accessed cool data at a lower storage cost, and store more frequently accessed hot data at a lower access cost. Blob storage accounts are similar to your existing general purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
+**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage access tiers to store your less frequently accessed cool data at a lower storage cost, and store more frequently accessed hot data at a lower access cost. Blob storage accounts are similar to your existing general purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
 
 Blob storage accounts expose the **Access Tier** attribute, which allow you to specify the access tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time.
 
@@ -38,9 +38,9 @@ Blob storage accounts expose the **Access Tier** attribute, which allow you to s
 Example usage scenarios for the hot access tier include:
 
 - Data that is in active use or expected to be accessed (read from and written to) frequently.
-- Data that is staged for processing and eventual migration to the cool tier.
+- Data that is staged for processing and eventual migration to the cool storage tier.
 
-Example usage scenarios for the cool access tier include:
+Example usage scenarios for the cool storage access tier include:
 
 - Backup, archival and disaster recovery datasets.
 - Older media content not viewed frequently anymore but is expected to be available immediately when accessed.
@@ -114,9 +114,9 @@ general purpose storage accounts</center></td>
 
 Blob storage accounts use a new pricing model for blob storage based on the access tier. When using a Blob storage account, the following billing considerations apply:
 
-- **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the access tier. The per-gigabyte cost is lower for the cool access tier than for the hot access tier.
-- **Data access costs**: For data in the cool access tier, you will be charged a per-gigabyte data access charge for reads and writes.
-- **Transaction costs**: There is a per-transaction charge for both tiers. However, the per-transaction cost for the cool access tier is higher than that for the hot access tier.
+- **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the access tier. The per-gigabyte cost is lower for the cool storage access tier than for the hot access tier.
+- **Data access costs**: For data in the cool storage access tier, you will be charged a per-gigabyte data access charge for reads and writes.
+- **Transaction costs**: There is a per-transaction charge for both tiers. However, the per-transaction cost for the cool storage access tier is higher than that for the hot access tier.
 - **Geo-Replication data transfer costs**: This only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
 - **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general purpose storage accounts.
 - **Changing access tier**: Changing the access tier from cool to hot will incur a charge equal to reading all the data existing in the storage account for every transition. On the other hand, changing the access tier from hot to cool will be free of cost.
@@ -170,7 +170,7 @@ The purpose of this section is to help users to make a smooth transition to Blob
 
 ### Planning the migration of existing data
 
-If you are moving your data to a Blob storage account, you probably want to take advantage of the cool access tier to save on storage costs for less frequently used data. The first step in planning the migration of data in a Blob storage account in the cool access tier is to evaluate your existing usage pattern to determine whether you will benefit from migrating to a Blob storage account. In general, you will want to know:
+If you are moving your data to a Blob storage account, you probably want to take advantage of the cool storage access tier to save on storage costs for less frequently used data. The first step in planning the migration of data in a Blob storage account in the cool storage access tier is to evaluate your existing usage pattern to determine whether you will benefit from migrating to a Blob storage account. In general, you will want to know:
 
 - Your storage consumption pattern – How much data is being stored and how does this change on a monthly basis?
 - Your storage access patterns – How much data is being read from and written to the account (including new data)? How many and which transactions are used for data access?
