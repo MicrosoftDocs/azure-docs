@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="02/04/2016"
-	ms.author="normesta"/>
+	ms.date="05/03/2016"
+	ms.author="glenga"/>
 
 #Create a Xamarin.Forms app
 
@@ -147,6 +147,16 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 
 > [AZURE.NOTE]
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
+
+##Next steps
+
+* [Add authentication to your app ](app-service-mobile-xamarin-forms-get-started-users.md)  
+Learn how to authenticate users of your app with an identity provider.
+* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-forms-get-started-push.md)  
+Learn how to add push notifications to your app.
+* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
+Learn how to work with the managed client SDK in your Xamarin app. 
+
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started

@@ -28,7 +28,7 @@ You can easily scale out Azure SQL databases using the **Elastic Database** tool
 
 The graphic below shows an architecture that includes the **Elastic Database features** in relation to a collection of databases.
 
-In this [graphic]((http://aka.ms/axmybc)), colors of the database represent schemas. Databases with the same color share the same schemas.
+In this graphic, colors of the database represent schemas. Databases with the same color share the same schema.
 
 1. A set of **Azure SQL databases** are hosted on Azure using sharding architecture.
 2. The **Elastic Database client library** is used to manage a shard set.
@@ -36,6 +36,7 @@ In this [graphic]((http://aka.ms/axmybc)), colors of the database represent sche
 4. An **Elastic Database job** runs T-SQL scripts against all databases.
 5. The **split-merge tool** is used to move data from one shard to another.
 6. The **Elastic Database query** allows you to write a query that spans all databases in the shard set.
+7. **Elastic transactions** allows you to run transactions that span several databases. 
 
 
 ![Elastic Database tools][1]
@@ -93,9 +94,9 @@ When creating a SaaS application, it is typical to offer prospective customers a
 
 ## Next steps
 
-For a sample app that demonstrates the client library, see [Get started with Elastic Datbabase tools](sql-database-elastic-scale-get-started.md).
+For a sample app that demonstrates the client library, see [Get started with Elastic Datababase tools](sql-database-elastic-scale-get-started.md).
 
-To use the split-merge tool, you must [configure security](sql-database-elastic-scale-split-merge-security-configuration.md).
+To convert existing databases to use the tools, see [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 To see the specifics of the Elastic Database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-create-portal.md).  
 
