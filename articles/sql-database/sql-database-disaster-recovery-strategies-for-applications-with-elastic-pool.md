@@ -159,7 +159,7 @@ The main **trade-offs** are:
 
 This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The choice of the strategy should be based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc.. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application will likely include other Azure components. You should review their business continuity guidance and orchestrate the recovery of the database tier with other application components. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](./sql-database-designing-cloud-solutions-for-disaster-recovery.md) .  
 
-The following pages will help you learn about the specific operations required to implement each of the scenarios in this article:
+The individual steps required for each scenario involve operations against a large number of databases. Consider using SQL Database Elastic Jobs to manage these operations at scale. For more information refer to [Managing scaled-out cloud databases](./sql-database-elastic-jobs-overview.md). The following pages will help you learn about the specific operations required to implement each of the scenarios in this article:
 
 - [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
