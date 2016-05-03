@@ -73,7 +73,7 @@ Follow these steps to create an Azure web app, enable Git publishing, and then e
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure Free Trial</a>.
 
-1. Install the Azure Command-Line Interface (Azure CLI) and connect to your Azure subscription. See [Install and Configure the Azure CLI](../xplat-cli).
+1. Install the Azure Command-Line Interface (Azure CLI) and connect to your Azure subscription. See [Install and Configure the Azure CLI](../xplat-cli-install.md).
 
 2. If this is your first time setting up a repository in Azure, you need to create login credentials. From the Azure CLI, enter the following command:
 
