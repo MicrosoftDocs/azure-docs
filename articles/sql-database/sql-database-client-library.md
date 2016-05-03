@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
    ms.date="05/03/2016"
-   ms.author="sidneyh"/>
+   ms.author="sstein"/>
 
 # Create and manage SQL Database with C&#x23;
 
