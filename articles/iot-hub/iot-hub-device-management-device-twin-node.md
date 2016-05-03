@@ -16,10 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Tutorial: How to use the device twin with C# (preview)
+# Tutorial: How to use the device twin with node.js (preview)
 
 [AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
-
 
 ## Running the device twin sample
 
