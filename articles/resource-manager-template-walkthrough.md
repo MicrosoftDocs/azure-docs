@@ -13,22 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/29/2016"
+   ms.date="05/03/2016"
    ms.author="navale;tomfitz"/>
    
 # Resource Manager Template Walkthrough
 
-This topic walks you through the steps of creating a Resource Manager template. You will create a template that is based on the [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates). The techniques you learn can be applied to any template you need to create.
+One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure descibed in [Authoring Template article](../resource-group-authoring-templates/#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own spepcifc scenario. [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file. 
 
-Let's take a look at a common architecture:
+This topic walks you through the steps of creating a Resource Manager template. You will first write a simple template that creates a storage account. Later, you will extend the template to deploy a more complex architecture.
 
-* Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.
-* A single NIC and VM IP address for each virtual machine.
-* A load balancer with a load balancing rule on port 80
-
-![architecture](./media/resource-group-overview/arm_arch.png)
-
-You have decided you want to deploy this architecture to Azure, and you want to use Resource Manager templates so you can easily re-deploy the architecture at other times; however you are unsure how to create that template. This topic will help you understand what to put in the template.
+1. Basic template to deploy a Storage Account
+2. Advanced template to deploy full architecture
 
 You can use any type of editor when creating the template. Visual Studio provides tools that simplify template development, but you do not need Visual Studio to complete this tutorial. For a tutorial on using Visual Studio to create a Web App and SQL Database deployment, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
 
@@ -47,12 +42,10 @@ Let's start with the simplest template:
       "outputs": {  }
     }
 
-Save this file as **azuredeploy.json**.
+Save this file as **azuredeploy.json** (note that the template can have any name you want, just that it must be a json file).
 
-First, we'll focus on **resources** section, and get to **parameters** and **variables** later in this topic. 
-
-## Storage Account
-You will define a storage account to be used by the virtual machines. Within the **resources** section, add an object that defines the storage account, as shown below.
+## Create a Storage Account
+Within the **resources** section, add an object that defines the storage account, as shown below. 
 
 ```json
 "resources": [
@@ -68,9 +61,77 @@ You will define a storage account to be used by the virtual machines. Within the
 ]
 ```
 
-You may be wondering where these properties and values come from. The properties **type**, **name**, **apiVersion**, and **location** are standard elements that are availabe for all resource types. You can learn about the common elements at [Resources](../resource-group-authoring-templates/#resources). You are setting **name** to a parameter value that you pass in during deployment. You are setting **location** as the location used by the resource group. We'll look at how you determine **type** and **apiVersion** in the sections below.
+You may be wondering where these properties and values come from. The properties **type**, **name**, **apiVersion**, and **location** are standard elements that are available for all resource types. You can learn about the common elements at [Resources](../resource-group-authoring-templates/#resources). 
+You are setting **name** to a parameter value that you pass in during deployment. You are setting **location** as the location used by the resource group. We'll look at how you determine **type** and **apiVersion** in the sections below.
 
 The **properties** section contains all of the properties that are unique to a particular resource type. The values you specify in this section exactly match the PUT operation in the REST API for creating that resource type. When creating a storage account, you must provide an **accountType**. Notice in the [REST API for creating a Storage account](https://msdn.microsoft.com/library/azure/mt163564.aspx) that the properties section of the REST operation also contains an **accountType** property, and the permitted values are documented. In this example, the account type is set to **Standard_LRS**, but you could specify some other value or permit users to pass in the account type as a parameter.
+
+Now let's jump back to the **parameters** section, and see how you define the name of the storage account. 
+You can learn more about the use of parameters at [Parameters](../resource-group-authoring-templates/#parameters). 
+
+```json
+"parameters" : {
+	"storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage Account Name"
+      }
+    }
+}
+```
+## Deploying a template
+We have a full template for creating a new storage account. As you recall, the template was saved in  **azuredeploy.json** file:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters" : {
+	"storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage Account Name"
+      }
+    }
+  },  
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[parameters('storageAccountName')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
+    }
+  ]
+}
+```
+
+There are quite a few ways to deploy a template, as you can see in the [Resource Deployment article](../resource-group-template-deploy/). Let's deploy the template using powershell:
+
+```powershell
+# create a new resource group
+New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
+
+# deploy the template to the resource group
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
+```
+
+You are now the proud owner of a storage account!
+
+## Create a Complete Architecture Template
+
+Let's take a look at a common architecture:
+
+* Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.
+* A single NIC and VM IP address for each virtual machine.
+* A load balancer with a load balancing rule on port 80
+
+![architecture](./media/resource-group-overview/arm_arch.png)
+
+You already created a base template, with a storage account. The next steps will be to add all the resources required to deploy the above architecture to Azure.
+The template you will create is based on the [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) from the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates). 
 
 ## Availability Set
 After the definition for the storage account, add an availably set for the virtual machines. In this case, there are no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
@@ -499,6 +560,8 @@ In the variables section, you can define values that are used in more than one p
   }
 ```
 
+## Complete Template
+The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) under [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules).
 
 
 ## Next steps
