@@ -22,6 +22,8 @@
 
 ![patterns & practices](media/guidance/pnp-logo.png)
 
+The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals to be successful on the Microsoft Azure platform. We discover, collect, and encourage practices that lead to successful cloud solutions.
+
 ## Checklists
 
 These lists are a quick reference for reviewing the fundamental aspects of availability and scalability. 
