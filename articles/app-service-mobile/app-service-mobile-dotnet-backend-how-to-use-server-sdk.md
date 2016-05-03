@@ -5,7 +5,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -168,7 +168,7 @@ This section shows you how to publish your .NET backend project from Visual Stud
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## How to: Define a table controller
+##<a name="define-table-controller"></a> How to: Define a table controller
 
 A table controller provides access to entity data in a table-based data store, such as SQL Database or Azure Table storage. Table controllers inherit from the **TableController** generic class, where the generic type is an entity in the model that represents the table schema, as follows:
 
@@ -225,6 +225,7 @@ Mobile Apps uses the facilities of App Service authentication and ASP.NET to sim
 + [How to: Add authentication to a server project](#add-auth)
 + [How to: Use custom authentication for your application](#custom-auth)
 + [How to: Retrieve authenticated user information](#user-info)
++ [How to: Restrict data access for authorized users](#authorize)
 
 ### <a name="add-auth"></a>How to: Add authentication to a server project
 
@@ -290,7 +291,7 @@ You can also simplify the client code to use the `loginAsync()` method (naming m
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
 
-Replace the string "CustomAuth" above with the name of the contoller hosting your login action.
+Replace the string "CustomAuth" above with the name of the controller hosting your login action.
 
 >[AZURE.TIP] Using the loginAsync() approach ensures that the authentication token is attached to every subsequent call to the service.
 
@@ -333,6 +334,9 @@ The following code calls the **GetAppServiceIdentityAsync** extension method to 
 
 Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method  work.
 
+###<a name="authorize"></a>How to: Restrict data access for authorized users
+
+It is often desired to restrict the data that is returned to a specific authenticated user. This kind of data partitioning is done by including a userId column on the table and storing the SID of the user when the data is inserted 
 
 ## How to: Add push notifications to a server project
 
@@ -374,27 +378,40 @@ You can add push notifications to your server project by extending the **MobileA
 
 At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
 
-##<a name="tags"></a>How to: Add tags to a device installation to enable push-to-tags
+##<a name="tags"></a>How to: Add tags to a device installation to enable targeted push
 
-Following the above **How to: Define a custom API controller**, you will want to set up a custom API on your backend to work with Notification Hubs to add tags to a specific device installation. Make sure you pass along the Installation ID stored on the client local storage and the tags you want to add (optional, since you can also specify tags directly on your backend). The following snippet should be added to your controller to work with Notification Hubs to add a tag to a device Installation ID.
+Notification Hubs lets you send targeted notifications to specific registrations by using tags. One tag that gets created automatically is the installation ID, which is specific to an instance of the app on a given device. A registration with an installation ID is also called an *installation*. You can use the installation ID to manage installation, such as for adding tags. The installation ID can be accessed  from the **installationId** property on the **MobileServiceClient**.
 
-Using [Azure Notification Hubs NuGet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) ([reference](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+The following example shows how to use an installation ID to add a tag to a specific installation in Notification Hubs:
 
-		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+	hub.PatchInstallation("my-installation-id", new[]
+	{
+	    new PartialUpdateOperation
+	    {
+	        Operation = UpdateOperationType.Add,
+	        Path = "/tags",
+	        Value = "{my-tag}"
+	    }
+	});
 
-		hub.PatchInstallation("my-installation-id", new[]
-		{
-		    new PartialUpdateOperation
-		    {
-		        Operation = UpdateOperationType.Add,
-		        Path = "/tags",
-		        Value = "{my-tag}"
-		    }
-		});
+Note that any tags supplied by the client during push notification registration are ignored by the backend when creating the installation. To enable a client to add tags to the installation, you must create a new custom API that adds tags using the pattern above. For an example of a custom API controller that lets clients add tags to an installation, see [Client-added push notification tags](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) in the App Service Mobile Apps completed quickstart sample for .NET backend.
 
-To push to these tags, work with [Notification Hubs APIs](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+##<a name="push-user"></a>How to: Send push notifications to an authenticated user
 
-You can also stand up your custom API to register device installations with Notification Hubs directly on your backend.
+When an authenticated user registers for push notifications, a user ID tag is automatically added to the registration. By using this tag, you can send push notifications to all devices registered by a specific user. The following code gets the SID of user making the request and sends a template push notification to every device registration for that user:
+
+    // Get the current user SID and create a tag for the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    string userTag = "_UserId:" + sid;
+
+    // Build a dictionary for the template with the item message text.
+    var notification = new Dictionary<string, string> { { "message", item.Text } };
+
+    // Send a template notification to the user ID.
+    await hub.SendTemplateNotificationAsync(notification, userTag);
+
+When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration. For more information, see [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) in the App Service Mobile Apps completed quickstart sample for .NET backend.
 
 ## How to: Debug and troubleshoot the .NET Server SDK
 

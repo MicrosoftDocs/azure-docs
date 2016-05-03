@@ -13,7 +13,7 @@
    ms.workload="big-data"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.date="02/04/2016"
    ms.author="jgao"/>
 
@@ -29,10 +29,6 @@ The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoo
 	- Twitter trend analysis
 	- Website log analysis
 	- Mahout movie recommendation
-
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Learn Hadoop by using the HDInsight Getting Started Gallery](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
 
 ![HDInsight Hadoop, Storm, and HBase Getting Started Gallery solutions including sample data.][hdinsight.sample.gallery]
 

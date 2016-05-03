@@ -19,13 +19,10 @@
 
 # Customize Windows-based HDInsight clusters using Script Action
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
-
 **Script Action** can be used to invoke [custom scripts](hdinsight-hadoop-script-actions.md) 
 during the cluster creation process for installing additional software on a cluster.
 
-The information in this article is specific to Windows-based HDInsight clusters. Use the tab 
-select above to switch to a version of this article that is specific to Linux-based clusters.
+The information in this article is specific to Windows-based HDInsight clusters. For Linux-based clusters, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). 
 
 HDInsight clusters can be customized in a variety of other ways as well, such as including 
 additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml, 
@@ -33,6 +30,8 @@ hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common
 in the cluster. These customizations can be done through Azure PowerShell, the Azure 
 HDInsight .NET SDK, or the Azure Portal. For more information, see 
 [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster].
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 ## Script Action in the cluster creation process
 

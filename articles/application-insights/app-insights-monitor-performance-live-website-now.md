@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="03/09/2016"
 	ms.author="awills"/>
 
 
@@ -154,12 +154,11 @@ You need to open some outgoing ports in your server's firewall to allow Status M
  -	`management.azure.com:443`
  -	`login.windows.net:443`
  -	`login.microsoftonline.com:443`
- -	`secure.addcdn.microsoftonline-p.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
  -	`auth.gfx.ms:443`
  -	`login.live.com:443`
 + Installation:
  +	`packages.nuget.org:443`
- +	`appinsightsstatusmonitor.blob.core.windows.net:80`
 
 This list may change from time to time.
 
@@ -195,6 +194,89 @@ On the client side Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)
 
+## Automation with PowerShell
+
+You can start and stop monitoring by using PowerShell.
+
+`Get-ApplicationInsightsMonitoringStatus [-Name appName]`
+
+* `-Name` (Optional) The name of a web app.
+* Displays the Application Insights monitoring status for each web app (or the named app) in this IIS server.
+
+* Returns `ApplicationInsightsApplication` for each app:
+ * `SdkState==EnabledAfterDeployment`: App is being monitored, and was instrumented at run time, either by the Status Monitor tool, or by `Start-ApplicationInsightsMonitoring`.
+ * `SdkState==Disabled`: The app is not instrumented for Application Insights. Either it was never instrumented, or run-time monitoring was disabled with the Status Monitor tool or with `Stop-ApplicationInsightsMonitoring`.
+ * `SdkState==EnabledByCodeInstrumentation`: The app was instrumented by adding the SDK to the source code. Its SDK cannot be updated or stopped.
+ * `SdkVersion` shows the version in use for monitoring this app.
+ * `LatestAvailableSdkVersion`shows the version currently available on the NuGet gallery. To upgrade the app to this version, use `Update-ApplicationInsightsMonitoring`.
+
+`Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
+
+* `-Name` The name of the app in IIS
+* `-InstrumentationKey` The ikey of the Application Insights resource where you want the results to be displayed.
+
+* This cmdlet only affects apps that are not already instrumented - that is, SdkState==NotInstrumented.
+
+    The cmdlet does not affect an app that is already instrumented, either at build time by adding the SDK to the code, or at run time by a previous use of this cmdlet.
+
+    The SDK version used to instrument the app is the version that was most recently downloaded to this server.
+
+    To download the latest version, use Update-ApplicationInsightsVersion.
+
+* Returns `ApplicationInsightsApplication` on success. If it fails, it logs a trace to stderr.
+
+    
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+
+`Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
+
+* `-Name` The name of an app in IIS
+* `-All` Stops monitoring all apps in this IIS server for which `SdkState==EnabledAfterDeployment`
+
+* Stops monitoring the specified apps and removes instrumentation. It only works for apps that have been instrumented at run-time using the Status Monitoring tool or Start-ApplicationInsightsApplication. (`SdkState==EnabledAfterDeployment`)
+
+* Returns ApplicationInsightsApplication.
+
+`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
+
+* `-Name`: The name of a web app in IIS.
+* `-InstrumentationKey` (Optional.) Use this to change the resource to which the app's telemetry is sent.
+* This cmdlet:
+ * Upgrades the named app to the version of the SDK most recently downloaded to this machine. (Only works if `SdkState==EnabledAfterDeployment`)
+ * If you provide an instrumentation key, the named app is reconfigured to send telemetry to the resource with that key. (Works if `SdkState != Disabled`)
+
+`Update-ApplicationInsightsVersion`
+
+* Downloads the latest Application Insights SDK to the server.
+
+## Azure template
+
+If the web app is in Azure and you create your resources using an Azure Resource Manager template, you can configure Application Insights by adding this to the resources node:
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` - a name for the Application Insights resource
+* `myWebAppName` - the id of the web app
 
 ## <a name="next"></a>Next steps
 

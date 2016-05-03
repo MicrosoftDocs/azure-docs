@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -34,9 +34,9 @@ Every Marketplace item has:
 
 -   Metadata, like strings, icons, and other marketing collateral
 
--   Formatting info to display the item in the portal
+-   Formatting information to display the item in the portal
 
-Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Deployment or runtime resources (like code, zip files with software, virtual machines, or disks) shouldn't be included the Azure Gallery Package.
+Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Deployment or runtime resources (like code, zip files with software, virtual machines, or disks) shouldn't be included in the Azure Gallery Package.
 
 ## Next steps
 

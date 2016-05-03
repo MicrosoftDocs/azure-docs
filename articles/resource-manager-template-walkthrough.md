@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
 # Resource Manager Template Walkthrough
 
-This topic walks you through the steps of creating a Resource Manager template. It assumes you are familiar with the Azure services you want to deploy, but are not familiar with how you would represent that infrastructure in a template. You will create a template that is based on the [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates), but the techniques can be applied to any template you need to create.
+This topic walks you through the steps of creating a Resource Manager template. You will create a template that is based on the [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates). The techniques you learn can be applied to any template you need to create.
 
 Let's take a look at a common architecture:
 
@@ -89,7 +89,7 @@ Notice that the **name** is set to the value of a variable. For this template, t
 
 The value you specify for **type** contains both the resource provider and the resource type. For availability sets, the resource provider is **Microsoft.Compute** and the resource type is **availabilitySets**. You can get the list of available resource providers by running the following PowerShell command:
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
 
 Or, if you are using Azure CLI, you can run the following command:
 
@@ -103,7 +103,7 @@ Given that in this topic you are creating with storage accounts, virtual machine
 
 To see the resource types for a particular provider, run the following PowerShell command:
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
 Or, for Azure CLI, the following command will return the available types in JSON format and save it to a file.
 
@@ -133,7 +133,7 @@ The allocation method is set to **Dynamic** but you could set it to the value yo
 
 Now, let's look at how you determine the **apiVersion**. The value you specify simply matches the version of the REST API that you want to use when creating the resource. So, you can look at the REST API documentation for that resource type. Or, you can run the following PowerShell command for a particular type.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 
 Which returns the following values:
 
@@ -311,10 +311,10 @@ Look at the [REST API for network interfaces](https://msdn.microsoft.com/library
 
 ## Virtual Machine
 You will create 2 virtual machines, using copyIndex() function, as you did in creation of the [network interfaces](#network-interface).
-The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReferece` is used to define the image publisher, offer, sku and version. 
+The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
-To find the relevant properties for a marketplace image, follow the [VM searching](./virtual-machines/resource-groups-vm-searching.md) article.
+To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
 For images published by 3rd party vendors, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
 
 

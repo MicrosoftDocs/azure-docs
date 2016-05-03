@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="03/31/2016"
 	ms.author="awills"/>
 
 # Get started with Visual Studio Application Insights
@@ -24,6 +24,8 @@ Detect issues, solve problems and continuously improve your applications. Quickl
 Configuration is very easy, and you'll see results within minutes.
 
 We currently support iOS, Android, and Windows apps, J2EE and ASP.NET web applications, and WCF services. Web apps can run on Azure or your own on-premises servers. Our JavaScript SDK runs on any web page.
+
+[Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## Get started
 
@@ -53,7 +55,7 @@ What you want | What to do | What you get
 * Bugs:
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions:
- * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Code samples
  * [Code samples](app-insights-code-samples.md)
 

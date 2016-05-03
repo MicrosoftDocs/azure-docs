@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Query Your Azure Search Index using the REST API | Microsoft Azure | Hosted cloud search service"
-    description="Build a search query in Azure search and use search parameters to filter, sort, and facet search results."
+    pageTitle="Query your Azure Search Index using the REST API | Microsoft Azure | Hosted cloud search service"
+    description="Build a search query in Azure search and use search parameters to filter and sort search results."
     services="search"
     documentationCenter=""
 	authors="ashmaka"
@@ -12,18 +12,19 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
 # Query your Azure Search index using the REST API
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
-- [Fiddler](search-fiddler.md)
+- [Portal](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-This article will show you how to query an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). Before beginning this walkthrough, you should already have [created an Azure Search index](search-create-index-rest-api.md) and [populated it with data](search-import-data-rest-api.md).
+This article will show you how to query an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
 ## I. Identify your Azure Search service's query api-key
 A key component of every search operation against the Azure Search REST API is the *api-key* that was generated for the service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
@@ -33,8 +34,9 @@ A key component of every search operation against the Azure Search REST API is t
 3. Click on the "Keys" icon
 
 Your service will have *admin keys* and *query keys*.
-  * Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
-  * Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
+
+ - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+ - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
 For the purposes of querying an index, you can use one of your query keys. Your admin keys can also be used for queries, but you should use a query key in your application code as this better follows the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -47,7 +49,7 @@ For both POST and GET, you need to provide your *service name*, *index name*, an
 
 The format for POST is the same, but with only api-version in the query string parameters.
 
-Azure Search offers many options to create extremely powerful queries. To learn more about all the different parameters of a query, please visit [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx). There are also a few example queries below.
+
 
 #### Example Queries
 
@@ -65,7 +67,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Search the entire index for hotels cheaper than $150 per night and return the `hotelId` and `description`:
+Apply a filter to the index to find hotels cheaper than $150 per night, and return the `hotelId` and `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
@@ -122,7 +124,7 @@ api-key: [query key]
 }
 ```
 
-A successful query request will result in a Status Code of `200 OK` and the search results are returned as JSON in the response body. Here is what the results for the above query look like, assuming the "hotels" index is populated with the sample data in [this article](search-import-data-rest-api.md) (note that the JSON has been formatted for clarity).
+A successful query request will result in a Status Code of `200 OK` and the search results are returned as JSON in the response body. Here is what the results for the above query look like, assuming the "hotels" index is populated with the sample data in [Data Import in Azure Search using the REST API](search-import-data-rest-api.md) (note that the JSON has been formatted for clarity).
 
 ```JSON
 {
@@ -155,4 +157,4 @@ A successful query request will result in a Status Code of `200 OK` and the sear
 }
 ```
 
-To learn more, please visit the "Response" section of [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [this article](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+To learn more, please visit the "Response" section of [Search Documents](https://msdn.microsoft.com/library/azure/dn798927.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).

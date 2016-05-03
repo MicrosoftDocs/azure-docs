@@ -91,6 +91,8 @@ If the application can tolerate a Service Bus entity being unavailable, but must
 
 A durable client-side queue preserves message order and shields the client application from exceptions in case the Service Bus entity is unavailable. It can be used with simple and distributed transactions.
 
+> [AZURE.NOTE] This sample works well in Infrastructure as a Service (IaaS) scenarios where a local disk or a disk for MSMQ is mapped to a storage account and messages are stored reliably with MSMQ. This is not suitable for Platform as a Service (PaaS) scenarios such as Cloud Services and Web Applications.
+
 ## Next steps
 
 To learn more about disaster recovery, see these articles:

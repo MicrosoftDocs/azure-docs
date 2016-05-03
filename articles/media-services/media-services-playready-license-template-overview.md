@@ -2,7 +2,7 @@
 	pageTitle="Media Services PlayReady License Template Overview" 
 	description="This topic gives an overview of a PlayReady license template that used to configure PlayReady licenses." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 #Media Services PlayReady License Template Overview

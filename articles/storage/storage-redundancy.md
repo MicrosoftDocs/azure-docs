@@ -1,21 +1,21 @@
 
-<properties 
-  pageTitle="Azure Storage replication | Microsoft Azure" 
-  description="Data in your Microsoft Azure storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS)." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="carmonm" 
-  editor="tysonn"/>
+<properties
+  pageTitle="Azure Storage replication | Microsoft Azure"
+  description="Data in your Microsoft Azure storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS)."
+  services="storage"
+  documentationCenter=""
+  authors="tamram"
+  manager="carmonm"
+  editor="tysonn"/>
 
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="02/17/2016" 
-  ms.author="tamram"/>
+<tags
+  ms.service="storage"
+  ms.workload="storage"
+  ms.tgt_pltfrm="na"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="02/17/2016"
+  ms.author="tamram"/>
 
 # Azure Storage replication
 
@@ -91,7 +91,8 @@ When you create a storage account, you select the primary region for the account
 | Australia Southeast | Australia East      |
 | India South         | India Central       |
 | India Central       | India South         |
-
+| US Gov Iowa         | US Gov Virginia     |
+| US Gov Virginia     | US Gov Iowa         |
 
 ## Read-access geo-redundant storage
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/18/2016"
-	ms.author="mandia"/> 
+	ms.author="mandia"/>
 
 
 # Learn about OAUTH Security in SaaS connectors
@@ -24,7 +24,7 @@
 Many of the Software as a Service (SaaS) connectors like Facebook, Twitter, DropBox, and so on require users to authenticate using the OAUTH protocol.  When you use these SaaS Connectors from Logic Apps, we provide a simplified user experience where you click "Authorize" in the Logic Apps designer. When you **Authorize**, you are asked to sign in (if not already) and provide consent to connect to the SaaS service on your behalf. After you do provide consent and authorize, your Logic Apps can then access these SaaS services.
 
 ## Create your own SaaS app
-This simplified experience is possible because we previously created and registered our application in these SaaS services.  In certain cases, you may want to register and use your own application.  This is necessary, for instance, when you want to use these SaaS connectors in your custom applications, for example at [Deploy a SaaS connector API app](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md). This example uses the DropBox Connector, but the process is the same for all connectors that rely on OAUTH.
+This simplified experience is possible because we previously created and registered our application in these SaaS services.  In certain cases, you may want to register and use your own application.  This is necessary, for instance, when you want to use these SaaS connectors in your custom applications. This example uses the DropBox Connector, but the process is the same for all connectors that rely on OAUTH.
 
 Even in the context of Logic Apps, you can use your own application instead of using the default application that we provide. If the "Authorize" button fails to connect, you can try creating your own app. The following lists these steps for the Twitter connector:
 

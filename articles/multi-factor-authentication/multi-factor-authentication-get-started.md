@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/24/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 #Choose the multi-factor security solution for you
@@ -65,17 +65,17 @@ One-way SMS as second factor | ● | ●
 Two-way SMS as second factor |  | ● 
 Hardware Tokens as second factor |  | ● 
 App passwords for clients that don’t support MFA | ● |  
-Admin control over authentication methods |  | ● 
+Admin control over authentication methods | ● | ● 
 PIN mode |  | ●
 Fraud alert | ● | ●
 MFA Reports | ● | ● 
-One-Time Bypass | ● | ● 
+One-Time Bypass |  | ● 
 Custom greetings for phone calls | ● | ● 
 Customizable caller ID for phone calls | ● | ● 
 Trusted IPs | ● | ● 
-Remember MFA for trusted devices (Public Preview) | ● |  
+Remember MFA for trusted devices  | ● |  
 Conditional access | ● | ● 
-Cache | ● | ● 
+Cache |  | ● 
 
 Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication.   **Select the icon that represents your scenario!**
 

@@ -1,6 +1,6 @@
     <properties
-	pageTitle="Create a DevTest Lab | Microsoft Azure"
-	description="Create a new DevTest Lab lab for virtual machines"
+	pageTitle="Create a lab in DevTest Labs | Microsoft Azure"
+	description="Create a new lab in DevTest Labs for virtual machines"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/30/2016"
+	ms.date="05/01/2016"
 	ms.author="tarcher"/>
 
-# Create an Azure DevTest Lab
+# Create a lab in Azure DevTest Labs
 
 ## Prerequisites
 
-To create a DevTest Lab, you will need:
+To create a lab, you will need:
 
 - An Azure subscription. To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/). You must be the owner of the subscription to create the lab.
-- An Azure Resource Group for the lab. See [Azure Resource Manager Overview](/resource-group-overview.md) and [Azure Role-based Access Control](/active-directory/role-based-access-control-configure.md).
-
+- An Azure Resource Group for the lab. See [Azure Resource Manager Overview](../resource-group-overview.md) and [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 ## Create a lab
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Tap **Browse**.
 
@@ -36,7 +35,7 @@ To create a DevTest Lab, you will need:
 
 1. On the **DevTest Labs** blade, tap **Add**.
 
-    ![Add a DevTest Lab](./media/devtest-lab-create-lab/add-lab-button.png)
+    ![Add a lab](./media/devtest-lab-create-lab/add-lab-button.png)
 
 1. On the **Create a DevTest Lab** blade:
 
@@ -45,7 +44,7 @@ To create a DevTest Lab, you will need:
     1. Select a **Location** in which to store the lab.
     1. Tap **Create**.
 
-    ![Create a DevTest Lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+    ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 ## Next steps
 

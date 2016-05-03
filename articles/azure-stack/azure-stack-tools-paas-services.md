@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -21,11 +21,11 @@
 Azure Stack enables deploying Platform as a Service (PaaS) services from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
 
 ## Additional PaaS services
-In Technical Preview 1, three PaaS resource providers are now available. 
+In Technical Preview 1, three PaaS resource providers are now available.
 
-[Add a SQL Server resource provider to Azure Stack](azure-stack-sqlrp-deploy.md)
+[Add a SQL Server resource provider to Azure Stack](azure-stack-sql-rp-deploy-short.md)
 
-[Add a MySQL resource provider to Azure Stack](azure-stack-mysqlrp-deploy.md)
+[Add a MySQL resource provider to Azure Stack](azure-stack-mysqlrp-deploy-short.md)
 
 [Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
 
@@ -47,15 +47,20 @@ Use the Visual Studio Cloud Tools to quickly build new applications or deploy ex
 
 ### Azure PowerShell SDK
 Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform.
-[Download Azure PowerShell SDK](http://aka.ms/webpi-azps)
+[Download Azure PowerShell SDK](http://aka.ms/azStackPsh)
 
-> [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download]( http://aka.ms/webpi-azps) the latest Azure PowerShell SDK. 
+> [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download](http://aka.ms/azStackPsh) the latest Azure PowerShell SDK.
 
 ### Azure cross platform command line interfaces
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
 
-[Download the Windows CLI](http://go.microsoft.com/?linkid=9828653&clcid=0x409)
+[Download the Windows CLI](http://aka.ms/azstack-windows-cli)
 
-[Download the Mac CLI](http://go.microsoft.com/fwlink/?linkid=253471&clcid=0x409)
+[Download the Mac CLI](http://aka.ms/azstack-linux-cli)
 
-[Download the Linux CLI](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)
+[Download the Linux CLI](http://aka.ms/azstack-mac-cli)
+
+>[AZURE.NOTE]
+>
+> + If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.9.11`</br>
+> + If you're getting certificate validation issues, run the command `set NODE_TLS_REJECT_UNAUTHORIZED=0`

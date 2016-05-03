@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="03/28/2016" 
 	ms.author="spelluru"/>
 
 # Move data from DB2 using Azure Data Factory
@@ -223,13 +223,13 @@ The following table provides description for JSON elements specific to DB2 linke
 | type | The type property must be set to: **OnPremisesDB2** | Yes |
 | server | Name of the DB2 server. | Yes |
 | database | Name of the DB2 database. | Yes |
-| schema | Name of the schema in the database. | No |
+| schema | Name of the schema in the database. The schema name is case sensitive. | No |
 | authenticationType | Type of authentication used to connect to the DB2 database. Possible values are: Anonymous, Basic, and Windows. | Yes |
 | username | Specify user name if you are using Basic or Windows authentication. | No |
 | password | Specify password for the user account you specified for the username. | No |
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises DB2 database. | Yes |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises DB2 data source. 
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises DB2 data source. 
 
 
 ## DB2 dataset type properties
@@ -240,7 +240,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
-| tableName | Name of the table in the DB2 Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) |
+| tableName | Name of the table in the DB2 Database instance that linked service refers to. The tableName is case sensitive. | No (if **query** of **RelationalSource** is specified) |
 
 ## DB2 copy activity type properties
 
@@ -253,7 +253,14 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------- | -------------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified)|
+| query | Use the custom query to read data. | SQL query string. For example: "query": "select * from \"MySchema\".\"MyTable\"". | No (if **tableName** of **dataset** is specified)|
+
+> [AZURE.NOTE] Schema and table names are case sensitive and they have to enclosed in "" (double quotes) in the query.  
+
+**Example:**
+
+ "query": "select * from \"DB2ADMIN\".\"Customers\""
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -314,6 +321,7 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
 

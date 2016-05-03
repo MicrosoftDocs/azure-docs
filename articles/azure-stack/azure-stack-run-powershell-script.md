@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,18 +12,22 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.topic="get-started-article"
+	ms.date="04/26/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
-Before you deploy, prepare the Azure Stack POC machine and make sure it meets the [minimum requirements](azure-stack-deploy.md).
+To deploy the Azure Stack POC, you'll first need to [prepare the deployment machine](#prepare-the-deployment-machine) and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
-1.  [Install](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+## Prepare the deployment machine
 
-2.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
+1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md).
 
-3.  Run the **Microsoft Azure Stack POC.exe** file.
+2.  [Install](http://aka.ms/ReqOSforAzureStack) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+
+3.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
+
+4.  Run the **Microsoft Azure Stack POC.exe** file.
 
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
@@ -35,34 +39,40 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 	-   WindowsServer2012R2DatacenterEval.vhd
 
-	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD (includes KB 3124262)
+	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Datacenter VHD (includes KB 3124262)
 
-	**Important**: You must have at least 128GB of free space on the physical boot volume.
+	> [AZURE.IMPORTANT] You must have at least 128GB of free space on the physical boot volume.
 
-4. Copy WindowsServer2016Datacenter.vhdx to the C:\ drive and rename it MicrosoftAzureStackPOCBoot.vhdx.
+5. Copy WindowsServer2016Datacenter.vhdx to the C:\ drive and rename it MicrosoftAzureStackPOCBoot.vhdx.
 
-5. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
+6. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
 
-6. Open a Command Prompt window as an administrator and run the bcdboot command below. This command creates a dual boot environment. From this point, you should boot into the upper boot option.
+7. Open a Command Prompt window as an administrator and run the bcdboot command below. This command creates a dual boot environment. From this point, you should boot into the upper boot option.
 
     	bcdboot <mounted drive letter>:\windows
 
-7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
+8. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
 
-8. If your BIOS includes such an option, you should configure it to use the local time instead of UTC time.
+9. If your BIOS includes such an option, you should configure it to use the local time instead of UTC time.
 
-9. Log in using a local account with administrator permissions.
+10. Log in using a local account with administrator permissions.
 
-10. Verify that four drives for Azure Stack POC data:
+11. Verify that **exactly** four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
   - Show as Online, RAW
 
-11. Verify that the host is not joined to a domain.
+12. Verify that the host is not joined to a domain.
 
-12. Verify network connectivity to Azure.com.
+13. Verify network connectivity to Azure.com.
 
-**Important**: Only one NIC is allowed during the deployment process. If you have multiple NICs, you'll need to make sure all but one is disabled before running the deployment script below. If you used the VHD boot steps defined above, you’ll need to do this after booting into the VHD and before starting the deployment script.
+> [AZURE.IMPORTANT] The TP1 POC deployment supports exactly four drives for the storage features and only one NIC for networking.
+>
+> - **For storage**, use device manager or WMI to disable all other drives (taking the disks offline through disk manager is not enough).
+>
+> - **For network**, if you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script below.
+>
+> If you used the VHD boot steps defined above, you’ll need to make these updates after booting into the VHD and before starting the deployment script.
 
 ## Run the PowerShell deployment script
 
@@ -72,11 +82,11 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 3.  Run the deploy command:
 
-    	.\DeployAzureStack.ps1 –verbose
+    	.\DeployAzureStack.ps1 –Verbose
 
     In China, use the following command instead:
 
-    	.\DeployAzureStack.ps1 –verbose -UseAADChina $true
+    	.\DeployAzureStack.ps1 –Verbose -UseAADChina $true
 
     Deployment starts and the Azure Stack POC domain name is hardcoded as azurestack.local.
 
@@ -84,15 +94,15 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 5.  At the **Please login to your Azure account in the pop-up Azure authentication page**, hit any key to open the Microsoft Azure sign-in dialog box.
 
-6.  Enter the credentials for your Azure Active Directory Account. This user must be the Global Admin in the directory tenant
+6.  Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant
 
-7.  Back in PowerShell, at the account selection confirmation prompt, enter *y*. This creates two users and three applications for Azure stack in that directory tenant: an admin user for Azure Stack, a tenant user for the TiP tests, and one application each for the Portal, API, and Monitoring resource providers. In addition to this, the installer adds consents for the Azure PowerShell, XPlat CLI, and Visual Studio to that Directory Tenant.
+7.  Back in PowerShell, at the account selection confirmation prompt, enter *y*. This creates two users and three applications for Azure Stack in that directory tenant: an admin user for Azure Stack, a tenant user for the TiP tests, and one application each for the Portal, API, and Monitoring resource providers. In addition to this, the installer adds consents for the Azure PowerShell, XPlat CLI, and Visual Studio to that Directory Tenant.
 
 8.  At the **Microsoft Azure Stack POC is ready to deploy. Continue?** prompt, enter *y*.
 
 9.  The deployment process will take a few hours, during which several automated system reboots will occur. Signing in during deployment will automatically launch a PowerShell window that will display deployment progress. The PowerShell window closes after deployment completes.
 
-10. On the Azure Stack POC machine, sign in as an AzureStack/administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
+10. On the Azure Stack POC machine, sign in as an AzureStack\administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
 
 If the deployment fails with a time or date error, configure the BIOS to use Local Time instead of UTC. Then redeploy.
 
@@ -111,18 +121,18 @@ You can find the script logs on the POC host `C:\ProgramData\microsoft\azurestac
 **Force** (Switch) - Sets the cmdlet to run without confirmations.
 
 **NATVMStaticGateway** (String) - Sets the default gateway used in the static IP address for the NATVM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. If this parameter is used, then you must also use the NATVMStaticIP parameter.
-For example, `.\DeployAzureStack.ps1 –verbose -NATVMStaticIP 10.10.10.10/24 – NATVMStaticGateway 10.10.10.1`
+For example, `.\DeployAzureStack.ps1 –Verbose -NATVMStaticIP 10.10.10.10/24 – NATVMStaticGateway 10.10.10.1`
 
 **NATVMStaticIP** (string) - Sets an additional static IP address for the NATVM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.
-For example, `.\DeployAzureStack.ps1 –verbose -NATVMStaticIP 10.10.10.10/24`
+For example, `.\DeployAzureStack.ps1 –Verbose -NATVMStaticIP 10.10.10.10/24`
 
-**NoAutoReboot** (switch) - Sets the script to run without automatic reboots.
+**NoAutoReboot** (Switch) - Sets the script to run without automatic reboots.
 
 **ProxyServer** (String) - Sets the proxy information. Only use this parameter if your environment must use a proxy to access the Internet. Proxy servers that require credentials are not supported.
 For example, `.\DeployAzureStack.ps1 -Verbose -ProxyServer 172.11.1.1:8080`
 
 **PublicVLan** (String) - Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet).
-For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
+For example, `.\DeployAzureStack.ps1 –Verbose –PublicVLan 305`
 
 **TIPServiceAdminCredential** (PSCredential) - Sets the credentials of an existing service administrator Azure Active Directory account. This account is used by TiP (Test in Production). If this parameter is not provided, an account is automatically created.
 
@@ -130,19 +140,19 @@ For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
 
 **UseAADChina**(Boolean) - Set this Boolean parameter to $true if you want to deploy the Microsoft Azure Stack POC with Azure China (Mooncake).
 
-## Turn off automated TiP tests
+## Turn off automated TiP tests (optional)
 
 Microsoft Azure Stack Technical Preview 1 includes a set of validation tests used during the deployment process and on a recurring daily schedule. They simulate actions taken by an Azure Stack tenant, and Test-in-POC (TiP) user accounts are created in your Azure Active Directory in order to run the tests. After a successful deployment, you can turn off these TiP tests. 
 
 **To turn off TiP automated tests**
 
-1. On the ClientVM, run the following cmdlet:
+  - On the ClientVM, run the following cmdlet:
 
   `Disable-ScheduledTask -TaskName AzureStackSystemvalidationTask`
 
 **To view the test results**
 
-1. On the ClientVM, run the following cmdlet:
+  - On the ClientVM, run the following cmdlet:
 
   `Get-AzureStackTiPTestsResult`
 

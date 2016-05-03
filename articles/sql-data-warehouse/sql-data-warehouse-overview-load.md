@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/28/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load data into SQL Data Warehouse
@@ -27,23 +27,23 @@ SQL Data Warehouse presents numerous options for loading data including:
 
 While all of the above methods can be used with SQL Data Warehouse, PolyBase's ability to transparently parallelize loads from Azure Blob Storage will make it the fastest tool for loading data.  Check out more about how to [load with PolyBase][].  In addition, as many of our users are looking at initial loads in the 100s of Gigabytes to the 10s of Terabytes from on-premise sources, in the below sections we provide some guidance on initial data loading.  
 
-## Initial Loading into SQL Data Warehouse from SQL Server 
+## Initial Loading into SQL Data Warehouse from SQL Server
 When loading into SQL Data Warehouse from an on-premise SQL Server instance, we recommend the following steps:
 
-1. **BCP** SQL Server data into flat files 
+1. **BCP** SQL Server data into flat files
 2. Use **AZCopy** or **Import/Export** (for larger datasets) to move your files into Azure
 3. Configure PolyBase to read your files from your storage account
 4. Create new tables and load data with **PolyBase**
 
 In the following sections we will take a look at each step in great depth and provide examples of the process.
 
-> [AZURE.NOTE] Before moving data from a system such as SQL Server, we suggest reviewing the [Migrate schema][] and [Migrate code][] articles of our documentation. 
+> [AZURE.NOTE] Before moving data from a system such as SQL Server, we suggest reviewing the [Migrate schema][] and [Migrate code][] articles of our documentation.
 
 ## Exporting files with BCP
 
 In order to prep your files for movement to Azure, you will need to export them to flat files.  This is best done using the BCP Command-line Utility.  If you do not have the utility yet, it can be downloaded with the [Microsoft Command Line Utilities for SQL Server][].  A sample BCP command might look like the following:
 
-```
+```sql
 bcp "select top 10 * from <table>" queryout "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
 or
 bcp <table> out "<Directory>\<File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
@@ -53,10 +53,10 @@ To maximize throughput, you can try parallelizing the process by running multipl
 
 In addition, as we will be loading using PolyBase, please note that PolyBase does not yet support UTF-16, and all files must be in UTF-8.  This can easily be accomplished by including the '-c' flag in your BCP command or you can also convert flat files from UTF-16 to UTF-8 with the below code:
 
-```
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
- 
+
 Once you have successfully exported your data to files, it is time to move them to Azure.  This can be accomplished with AZCopy or with the Import/Export service as described in the next section.  
 
 ## Loading into Azure with AZCopy or Import/Export
@@ -77,49 +77,49 @@ In addition to the basic, we recommend the following best practices for loading 
 
 + **Concurrent Connections**: In addition to increasing the number of AZCopy operations that run at once, the AZCopy operation itself can be further parallelized by setting the /NC parameter, which opens a number of concurrent connections to the destination.  While the parameter can be set as high as 512, we found optimal data transfer took place at 256, and recommend that a number of values are tested to find what is optimal for your configuration.
 
-+ **Express Route**: As stated above, this process can be sped up if express route is enabled.  An overview of Express Route and steps to configure can be found in the [ExpressRoute documentation][]. 
++ **Express Route**: As stated above, this process can be sped up if express route is enabled.  An overview of Express Route and steps to configure can be found in the [ExpressRoute documentation][].
 
-+ **Folder Structure**: To make transfer with PolyBase easier, ensure that each table is mapped to its own folder.  This will minimize and simplify your steps when loading with PolyBase later. That being said, there is no impact if a table is split into multiple files or even sub directories within the folder. 
-	 
++ **Folder Structure**: To make transfer with PolyBase easier, ensure that each table is mapped to its own folder.  This will minimize and simplify your steps when loading with PolyBase later. That being said, there is no impact if a table is split into multiple files or even sub directories within the folder.
 
-## Configuring PolyBase 
+
+## Configuring PolyBase
 
 Now that your data resides in Azure storage blobs, we will import it into your SQL Data Warehouse instance using PolyBase.  The below steps are for configuration only, and many of them will only need to be completed once per SQL Data Warehouse instance, user, or storage account.  These steps have also been outlined in in greater detail in our [Load with PolyBase][] documentation.  
 
-1. **Create a database master key.**  This operation will only need to be completed once per database. 
+1. **Create a database master key.**  This operation will only need to be completed once per database.
 
-2. **Create a database scoped credential.**  This operation only needs to be created if you are looking at creating a new credential/user, otherwise a previously created credential can be used. 
+2. **Create a database scoped credential.**  This operation only needs to be created if you are looking at creating a new credential/user, otherwise a previously created credential can be used.
 
-3. **Create an external file format.**  External file formats are reusable as well, you will only need to create one if you are uploading a new type of file. 
+3. **Create an external file format.**  External file formats are reusable as well, you will only need to create one if you are uploading a new type of file.
 
-4. **Create an external data source.**  When pointing at a storage account, an external data source can be used when loading from the same container. For your 'LOCATION' parameter, use a location of the format: 'wasbs://mycontainer@ test.blob.core.windows.net/path'.
+4. **Create an external data source.**  When pointing at a storage account, an external data source can be used when loading from the same container. For your 'LOCATION' parameter, use a location of the format: 'wasbs://mycontainer@ test.blob.core.windows.net'.
 
-```
+```sql
 -- Creating master key
 CREATE MASTER KEY;
 
 -- Creating a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL <Credential Name> 
-WITH 
+CREATE DATABASE SCOPED CREDENTIAL <Credential Name>
+WITH
     IDENTITY = '<User Name>'
 ,   Secret = '<Azure Storage Key>'
 ;
 
 -- Creating external file format (delimited text file)
-CREATE EXTERNAL FILE FORMAT text_file_format 
-WITH 
+CREATE EXTERNAL FILE FORMAT text_file_format
+WITH
 (
-    FORMAT_TYPE = DELIMITEDTEXT 
+    FORMAT_TYPE = DELIMITEDTEXT
 ,   FORMAT_OPTIONS  (
-                        FIELD_TERMINATOR ='|' 
+                        FIELD_TERMINATOR ='|'
                     )
 );
 
 --Creating an external data source
-CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH 
+CREATE EXTERNAL DATA SOURCE azure_storage
+WITH
 (
-    TYPE = HADOOP 
+    TYPE = HADOOP
 ,   LOCATION ='wasbs://<Container>@<Blob Path>'
 ,   CREDENTIAL = <Credential Name>
 )
@@ -128,49 +128,49 @@ WITH
 
 Now that your storage account is properly configured to you can proceed to loading your data into SQL Data Warehouse.  
 
-## Loading data with PolyBase 
-After configuring PolyBase, you can load data directly into your SQL Data Warehouse by simply creating an external table that points to your data in storage and then mapping that data to a new table within SQL Data Warehouse.  This can be accomplished with the two simple commands below. 
+## Loading data with PolyBase
+After configuring PolyBase, you can load data directly into your SQL Data Warehouse by simply creating an external table that points to your data in storage and then mapping that data to a new table within SQL Data Warehouse.  This can be accomplished with the two simple commands below.
 
 1. Use the 'CREATE EXTERNAL TABLE' command to define the structure of your data.  To make sure you capture the state of your data quickly and efficiently, we recommend scripting out the SQL Server table in SSMS, and then adjusting by hand to account for the external table differences. After creating an external table in Azure it will continue to point to the same location, even if data is updated or additional data is added.  
 
-```
+```sql
 -- Creating external table pointing to file stored in Azure Storage
-CREATE EXTERNAL TABLE <External Table Name> 
+CREATE EXTERNAL TABLE <External Table Name>
 (
     <Column name>, <Column type>, <NULL/NOT NULL>
 )
-WITH 
+WITH
 (   LOCATION='<Folder Path>'
 ,   DATA_SOURCE = <Data Source>
 ,   FILE_FORMAT = <File Format>      
 );
 ```
 
-2. Load data with a 'CREATE TABLE...AS SELECT' statement. 
+2. Load data with a 'CREATE TABLE...AS SELECT' statement.
 
-```
-CREATE TABLE <Table Name> 
-WITH 
+```sql
+CREATE TABLE <Table Name>
+WITH
 (
 	CLUSTERED COLUMNSTORE INDEX,
 	DISTRIBUTION = <HASH(<Column Name>)>/<ROUND_ROBIN>
 )
-AS 
-SELECT  * 
+AS
+SELECT  *
 FROM    <External Table Name>
 ;
 ```
 
-Note that you can also load a subsection of the rows from a table using a more detailed SELECT statement.  However, as PolyBase does not push additional compute to storage accounts at this time, if you load a subsection with a SELECT statement this will not be faster than loading the entire dataset. 
+Note that you can also load a subsection of the rows from a table using a more detailed SELECT statement.  However, as PolyBase does not push additional compute to storage accounts at this time, if you load a subsection with a SELECT statement this will not be faster than loading the entire dataset.
 
 In addition to the `CREATE TABLE...AS SELECT` statement, you can also load data from external tables into pre-existing tables with a 'INSERT...INTO' statement.
 
-##  Create Statistics on your newly loaded data 
+##  Create Statistics on your newly loaded data
 
 Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
 
 
-```
+```sql
 create statistics [<name>] on [<Table Name>] ([<Column Name>]);
 create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 ```

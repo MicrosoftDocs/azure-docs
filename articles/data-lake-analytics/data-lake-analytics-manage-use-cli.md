@@ -3,7 +3,7 @@
    description="Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure CLI" 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)
 
@@ -32,7 +32,7 @@ Before you begin this tutorial, you must have the following:
 - **Authentication**, using the following command:
 
 		azure login
-	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
+	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 - **Switch to the Azure Resource Manager mode**, using the following command:
 
 		azure config mode arm

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/18/2015"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # Why a microservices approach to building applications?
 As software developers, there is nothing new in how we think about factoring an application into component parts. It is the central paradigm of object orientation, software abstractions, and componentization. Today, this factorization tends to take the form of classes and interfaces between shared libraries and technology layers, typically through a tiered approach with a back-end store, middle-tier business logic, and a front-end UI. What *has* changed over the last few years is that we, as developers, are building distributed applications for the cloud, driven by the business.
@@ -26,6 +26,8 @@ The changing business needs are:
 - Improved resource utilization to reduce costs.
 
 These business needs are affecting *how* we build applications.
+
+For more information on Azure's approach to microservices, read [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## Monolithic vs. microservice design approach
 All applications evolve over time. Successful applications evolve by being useful to people. Unsuccessful applications do not evolve and eventually are deprecated. The question becomes, How much do you know about your requirements today, and where do you think these may go in the future? For example, if you are building a reporting application for a department and you are sure that this will remain within the scope of your company and that the reports will be short-lived, your choice of approach will be different than, say, building a service for delivering video content to tens of millions of customers. Sometimes, getting something out the door as proof of concept is the driving factor, with the knowledge that the application can be redesigned later. There is little point in overengineering something that never gets used. It’s the usual engineering trade-off. On the other hand, when companies talk about building for the cloud, the expectation is growth and usage. The issue is that growth and scale are unpredictable. We would like to be able to prototype quickly while also knowing that we are on a path to deal with future success. This is the lean startup approach: build, measure, learn, iterate.
@@ -145,9 +147,7 @@ The objective of Service Fabric is to reduce the complexities of building applic
 
 * For more information:
 	* [Overview of Service Fabric](service-fabric-overview.md)
-	* [Technical overview](service-fabric-technical-overview.md)
-* Setting up your Service Fabric [development environment](service-fabric-get-started.md)
-* Choosing a [programming model framework](service-fabric-choose-framework.md) for your service
+    * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

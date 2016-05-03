@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Manage DNS record sets and records on Azure DNS using CLI | Microsoft Azure" 
+   pageTitle="Manage DNS record sets and records on Azure DNS using Azure CLI | Microsoft Azure" 
    description="Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All CLI commands for operations on record sets and records." 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -13,16 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
-   ms.author="joaoma"/>
+   ms.date="03/04/2016"
+   ms.author="cherylmc"/>
 
 # How to manage DNS records using CLI
 
+
 > [AZURE.SELECTOR]
+- [Azure Portal](dns-operations-recordsets-portal.md)
 - [Azure CLI](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
-This guide will show how to manage record sets and records for your DNS zone.
+
+This guide will show how to manage record sets and records for your DNS zone using the cross-platform Azure CLI.
 
 >[AZURE.NOTE] Azure DNS is an Azure Resource Manager-only service.  It does not have an ASM API.  You will therefore need to ensure the Azure CLI is configured to use Resource Manager mode, using the 'azure config mode arm' command.
 

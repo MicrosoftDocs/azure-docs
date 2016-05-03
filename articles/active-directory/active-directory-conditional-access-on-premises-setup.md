@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.topic="article"
+	ms.date="03/18/2016"
 	ms.author="femila"/>
 
 
@@ -120,13 +120,13 @@ This will help you integrate your Azure AD tenant with your on-premises active d
   1.	Add domains.
   2.	Install and run Azure AD Connect: Install Azure AD Connect using the following instructions, [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verify and manage directory sync. Single sign-on instructions are available within this step.
-  >[AZURE.NOTE] Configure Federation with AD FS as outlined in the document linked above.
-  >[AZURE.NOTE] You do not need to configure any of the preview features.
-
-
+  
+  > [AZURE.NOTE] 
+  > Configure Federation with AD FS as outlined in the document linked above. You do not need to configure any of the preview features.
 
 
 ## Upgrade your Active Directory Domain Services schema
+
 > [AZURE.NOTE]
 > Upgrading your Active Directory schema cannot be reversed. It is recommended that you first perform this in a test environment.
 
@@ -136,6 +136,7 @@ This will help you integrate your Azure AD tenant with your on-premises active d
 4. From a command prompt, navigate to the adprep directory and execute: **adprep.exe /forestprep**. Follow the onscreen instructions to complete the schema upgrade.
 
 ## Prepare your Active Directory to support devices
+
 >[AZURE.NOTE] This is a one-time operation that you must run to prepare your Active Directory forest to support devices. You must be logged on with enterprise administrator permissions and your Active Directory forest must have the Windows Server 2012 R2 schema to complete this procedure.
 
 
@@ -208,6 +209,7 @@ By default, device objects that are written-back from Azure Active Directory wil
 Consider the following scenario: You create an application Relying Party Trust in AD FS and configure an Issuance Authorization Rule that allows only registered devices. Now only devices that are registered are allowed to access the application. To make it easy for your users to gain access to the application, you configure a custom access denied message that includes instructions on how to join their device. Now your users have a seamless way to register their devices in order to access an application.
 
 The following steps will show you how to implement this scenario.
+
 >[AZURE.NOTE]
 This section assumes that you have already configured a Relying Party Trust for your application in AD FS.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -22,27 +22,11 @@
 
 ### What is Azure Data Factory?
 
-Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
-
-Data Factory works across on-premises and cloud data sources and SaaS to ingest, prepare, transform, analyze, and publish your data.  Use Data Factory to compose services into managed data flow pipelines to transform your data using services like [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) and [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) for your big data computing needs, and with [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) to operationalize your analytics solutions.  Go beyond just a tabular monitoring view, and use the rich visualizations of Data Factory to quickly display the lineage and dependencies between your data pipelines. Monitor all of your data flow pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.
+Data Factory is a cloud-based data integration service that **automates the movement and transformation of data**. Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
+ 
+The Data Factory service allows you to create data-driven workflows to move data between both on-premises and cloud data stores as well as process/transform data using compute services such as Azure HDInsight and Azure Data Lake Analytics. After you create a pipeline that performs the action that you need, you can schedule it to run periodically (hourly, daily, weekly etc...).   
 
 See [Overview & Key Concepts](data-factory-introduction.md) for more details. 
- 
-### What customer challenge does Data Factory solve?
-
-Azure Data Factory balances the agility of leveraging diverse data storage, processing and movement services across traditional relational storage alongside unstructured data, with the control and monitoring capabilities of a fully managed service.
-
-### Who are the target audiences for Data Factory?
-
-
-- Data Developers: who are responsible for building integration services between Hadoop and other systems:
-	- Must keep up and integrate with a continually changing and growing data landscape
-	- Must write custom code for information production, and it  is expensive, hard to maintain, and not highly available or fault tolerant
-
-- IT Professionals: who are looking to incorporate more diverse data within their IT infrastructure:
-	- Required to look across all of an organization’s data to derive rich business insights
-	- Must manage compute and storage resources to balance cost and scale across on-premises and cloud
-	- Must quickly add diverse sources and processing to address new business needs, while maintaining visibility across all compute and storage assets
 
 ### Where can I find pricing details for Azure Data Factory?
 
@@ -50,18 +34,12 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 
 ### How do I get started with Azure Data Factory?
 
-- For an overview of Azure Data Factory, see [Introduction to Azure Data Factory][adf-introduction].
-- For a quick tutorial, see [Get started with Azure Data Factory][adfgetstarted].
-- For comprehensive documentation, see [Azure Data Factory documentation][adf-documentation-landingpage].
-
+- For an overview of Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md).
+- For a quick tutorial, see [Get started with Azure Data Factory](data-factory-get-started.md).
+- For comprehensive documentation, see [Azure Data Factory documentation](https://azure.microsoft.com/documentation/services/data-factory/).
   
-### How do customers access Data Factory?
-
-Customers can get access to Data Factory through the [Azure Portal][azure-portal].
-
 ### What is the Data Factory’s region availability?
-
-Data Factory is available in US West and North Europe. The compute and storage services used by data factories can be in other regions.
+Data Factory is available in **US West** and **North Europe**. The compute and storage services used by data factories can be in other regions. See [Supported regions](data-factory-introduction.md#supported-regions).
  
 ### What are the limits on number of data factories/pipelines/activities/datasets?
  
@@ -72,22 +50,35 @@ See **Azure Data Factory Limits** section of the [Azure Subscription and Service
 
 You can author/create data factories using one of the following:
 
-- **Azure Portal**. The Data Factory blades in the Azure Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
-- **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Create and monitor Azure Data Factory using Azure PowerShell][create-data-factory-using-powershell] for a simple example and [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an advanced example of using PowerShell cmdles to create ad deploy a data factory. See [Data Factory Cmdlet Reference][adf-powershell-reference] content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.  
-- **Visual Studio**. You can also use Visual Studio to programmatically create, monitor, and manage data factories. See [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md) article for details.  
-- **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
-- **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for  a comprehensive documentation of Data Factory REST API. 
+- **Azure Portal** 
+	The Data Factory blades in the Azure Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Get started with Data Factory](data-factory-get-started.md) for an example of using the portal/editor to create and deploy a data factory.   
+
+- **Azure PowerShell** 
+	If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Create and monitor Azure Data Factory using Azure PowerShell](data-factory-monitor-manage-using-powershell.md) for a simple example and [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an advanced example of using PowerShell cmdles to create ad deploy a data factory. See [Data Factory Cmdlet Reference][adf-powershell-reference] content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.
+  
+- **Visual Studio** 
+	You can also use Visual Studio to programmatically create, monitor, and manage data factories. See [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md) article for details.
+  
+- **.NET Class Library** 
+	You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.
+
+- **REST API** 
+	You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for  a comprehensive documentation of Data Factory REST API.
+ 
+- **Azure Resource Manager Template**
+	See [Tutorial: Build your first Azure data factory using Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md) fo details. 
 
 ### Can I rename a data factory?
 No. Like other Azure resources, the name of an Azure data factory cannot be changed. 
 
 ## Activities - FAQ
-### What are the supported data sources and activities?
+### What are the different types of activities you can use in a Data Factory pipeline? 
 
-See [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for the supported data sources and activities.  
+- [Data Movement Activities](data-factory-data-movement-activities.md) to move data.
+- [Data Transformation Activities](data-factory-data-transformation-activities.md) to process/transform data. 
 
 ### When does an activity run?
-The **availability** configuration setting in the output data table determines when the activity is run. The activity checks whether all the input data dependencies are satisfied (i.e., **Ready** state) before it starts running.
+The **availability** configuration setting in the output data table determines when the activity is run. The activity checks whether all the input data dependencies are satisfied (i.e., **Ready** state) before it starts running if input datasets are specified. 
 
 ## Copy Activity - FAQ
 ### Is it better to have a pipeline with multiple activities or a separate pipeline for each activity? 
@@ -152,19 +143,12 @@ If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDat
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline. 
 
 
-
-[adfgetstarted]: data-factory-get-started.md
-[adf-introduction]: data-factory-introduction.md
-[adf-troubleshoot]: data-factory-troubleshoot.md
-[datafactory-getstarted]: data-factory-get-started.md
-[create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [adf-tutorial]: data-factory-tutorial.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
 [msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
 [msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx 
-[adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 

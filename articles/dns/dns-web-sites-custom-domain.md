@@ -3,8 +3,8 @@
    description="How to create custom domain DNS records for Web app using Azure DNS. Step by step to verify your domain ownership using CNAME or A record" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
-   manager="carolz" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
-   ms.author="joaoma"/>
+   ms.date="03/03/2016"
+   ms.author="cherylmc"/>
 
 # Create DNS records for Web app in a custom domain
 

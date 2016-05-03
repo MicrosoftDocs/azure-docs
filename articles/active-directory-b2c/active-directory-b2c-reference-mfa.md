@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Enable Multi-Factor Authentication in your consumer-facing applications
@@ -53,3 +53,7 @@ A consumer account gets created in your directory before the Multi-Factor Authen
 You can use the "Run now" feature on the policy to verify the consumer experience. Confirm the following:
 
 When the consumer signs in (using a social or local account), if a verified phone number is attached to the consumer account, he or she is asked to verify it. If no phone number is attached, the consumer is asked to provide one and verify it. On successful verification, the phone number is attached to the consumer account for later use.
+
+## Multi-Factor Authentication on other policies
+
+As described for sign-up & sign-in policies above, it is also possible to enable multi-factor authentication on sign-up or sign-in policies and password reset policies. It will be available soon on profile editing policies.

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # RunAs: Run a Service Fabric application with different security permissions
 Azure Service Fabric provides the ability to secure applications running in the cluster under different user accounts, known as **RunAs**. Service Fabric also secures the resources used by the applications with the user account such as files, directories, and certificates.
@@ -110,7 +110,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Then, note the name of the node where the service was deployed and started in the Service Fabric Explorer, for example, Node 1. Next, navigate to the application instance work folder to find the out.txt file that shows the value of **TestVariable**. For example if this was deployed to Node 2, then you can go to this path for the **MyApplicationType**:
+Then, note the name of the node where the service was deployed and started in the Service Fabric Explorer, for example, Node 2. Next, navigate to the application instance work folder to find the out.txt file that shows the value of **TestVariable**. For example if this was deployed to Node 2, then you can go to this path for the **MyApplicationType**:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt

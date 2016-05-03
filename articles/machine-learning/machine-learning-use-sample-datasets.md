@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -21,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Cortana Analytics Gallery](http://gallery.azureml.net/), and others are included as examples of various types of data typically used in machine learning.
+When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/), and others are included as examples of various types of data typically used in machine learning.
 
 Some of these data sets are available in Azure Blob storage. For these data sets the table below provides a direct link. You can use these data sets in your experiments by using the [Reader][reader] module.
 

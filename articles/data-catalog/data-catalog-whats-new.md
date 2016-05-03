@@ -1,6 +1,6 @@
 <properties
-   pageTitle="What's New in Azure Data Catalog"
-   description="Overview of new capabilities in the Azure Data Catalog preview."
+   pageTitle="What's New in Azure Data Catalog | Microsoft Azure"
+   description="This article provides an overview of new capabilities added to Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/19/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
+
+## What's new for the week of March 11, 2016 release
+
+As of the week of March 11, 2016, the following capabilities have been added to **Azure Data Catalog**:
+
+- A consolidated REST API endpoint for programmatically accessing the search capabilities and catalog asset management capabilities of the **Azure Data Catalog** service. The existing search API endpoint and catalog API endpoint are being deprecated and will be discontinued on March 21, 2016. There are no changes to the semantics of the API; only the endpoint URI is changing. For additional information, see the [Azure Data Catalog REST API Reference](https://msdn.microsoft.com/library/azure/mt267595.aspx). For API samples, see [Azure Data Catalog developer samples](data-catalog-samples.md).
 
 ## What's new for the week of February 19, 2016 release
 
@@ -26,7 +32,7 @@ As of the week of February 19, 2016, the following capabilities have been added 
 
 - A newly redesigned data source selection experience in the **Azure Data Catalog** data source registration tool. The data source registration tool has been updated to make it easier for users to locate and select from the data sources supported by **Azure Data Catalog**.
 - Support for ten additional languages in the **Azure Data Catalog** portal and the data source registration tool. In addition to English, the **Azure Data Catalog** experience is now available in German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Russian, Simplified Chinese, and Traditional Chinese. The **Azure Data Catalog** user experience will be localized based on the language preferences set in Windows or in the user’s web browser.
-- Support for geo-replication of **Azure Data Catalog** data for business continuity and disaster recovery. All **Azure Data Catalog** contents, including data source metadata and crowdsourced annotations, are now replicated between two Azure regions at no additional cost to customers. The Azure regions are pre-paired, at least 500 miles apart, and follow the mapping as described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md). 
+- Support for geo-replication of **Azure Data Catalog** data for business continuity and disaster recovery. All **Azure Data Catalog** contents, including data source metadata and crowdsourced annotations, are now replicated between two Azure regions at no additional cost to customers. The Azure regions are pre-paired, at least 500 miles apart, and follow the mapping as described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
 
 ## What's new for the week of February 5, 2016 release
@@ -178,7 +184,7 @@ As of the week of September 18, 2015, the following capabilities have been added
 As of the week of September 11, 2015, the following capabilities have been added to **Azure Data Catalog**:
 
 - Support for registering and discovering SQL Server Analysis Services objects via HTTP/HTTPS. Users can now connect to SSAS servers using a URL (such as https://servername/olap/msmdpump.dll) rather than a server name, and can use Basic authentication and Anonymous connections in addition to Windows authentication. For additional information on HTTP/HTTPS connections to SSAS, see [Configure HTTP Access to Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-- Support for Hive data sources on HDInsight. Users can now register and discover Hive tables for Apache Hive in Hadoop on HDInsight data sources. For additional information on Hive on HDInsight, see the [HDInsight documentation center](../hdinsight-use-hive/).
+- Support for Hive data sources on HDInsight. Users can now register and discover Hive tables for Apache Hive in Hadoop on HDInsight data sources. For additional information on Hive on HDInsight, see the [HDInsight documentation center](../hdinsight/hdinsight-use-hive.md).
 - Support for registering and discovering Oracle databases and HDFS clusters as containers. When registering Oracle tables and views or HDFS , **Azure Data Catalog** will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the **Azure Data Catalog** portal. Users can also search and filter the contents of a database or cluster in addition to searching and filtering the contents of the catalog.
 
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -48,6 +48,8 @@ To get an email when a metric crosses a threshold, start either from Metrics Exp
 
 *I don't see the Add Alert button.* - Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at Settings -> Users. [Learn about access control][roles].
 
+> [AZURE.NOTE] In the alerts blade, you'll see that there's already an alert set up: [NRT Proactive Diagnosis](app-insights-nrt-proactive-diagnostics.md). This is an automatic alert that monitors one particular metric, request failure rate. So unless you decide to disable this, you don't need to set your own alert on request failure rate. 
+
 ## See your alerts
 
 You get an email when an alert changes state between inactive and active. 
@@ -58,13 +60,10 @@ There's a summary of recent activity in the alerts drop-down:
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-The history of state changes is in the Operations Events log:
+The history of state changes is in the Audit Log:
 
-![On the Overview blade, near the bottom, click 'Events in the past week'](./media/app-insights-alerts/09-alerts.png)
+![On the Overview blade, click Settings, Audit logs](./media/app-insights-alerts/09-alerts.png)
 
-*Are these "events" related to telemetry events or custom events?*
-
-* No. These operational events are just a log of things that have happened to this application resource. 
 
 
 ## How alerts work

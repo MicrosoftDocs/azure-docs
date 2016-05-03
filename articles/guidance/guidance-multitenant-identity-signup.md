@@ -284,8 +284,13 @@ Here is a summary of the entire sign-up flow in the Surveys application:
 5.	In the `AuthenticationValidated` event, look for the "signup" state.
 6.	Add the tenant to the database.
 
+## Next steps
+
+- Read the next article in this series: [Application roles in multitenant applications][app roles]
+
 
 <!-- Links -->
+[app roles]: guidance-multitenant-identity-app-roles.md
 [Tailspin]: guidance-multitenant-identity-tailspin.md
 [part of a series]: guidance-multitenant-identity.md
 [AccountController]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Controllers/AccountController.cs

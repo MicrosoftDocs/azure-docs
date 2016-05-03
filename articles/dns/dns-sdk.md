@@ -3,8 +3,8 @@
    description=" Using the .NET SDK to automate all DNS operations for Azure DNS. " 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/19/2015"
-   ms.author="joaoma"/>
+   ms.date="03/03/2016"
+   ms.author="cherylmc"/>
 # Creating DNS zones and record sets using the .NET SDK
 You can automate operations to create , delete or update DNS zones, recordsets and records using DNS SDK with .NET DNS Management library. A full Visual Studio project is available [here.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 

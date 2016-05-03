@@ -72,7 +72,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Restore | Backup vault and target storage account are in two different regions - Ensure that the storage account specified in restore operation is in the same Azure region as the backup vault. | None |
 | Restore | Storage Account specified for the restore operation is not supported - Only Basic/Standard storage accounts with locally redundant or geo redundant replication settings are supported. Please select a supported storage account | None |
 | Restore | Type of Storage Account specified for restore operation is not online - Make sure that the storage account specified in restore operation is online | This might happen because of a transient error in Azure Storage or due to an outage. Please choose another storage account. |
-| Restore | Resource Group Quota has been reached - Please delete some resource groups from preview portal or Contact Azure support to increase the limits. | None |
+| Restore | Resource Group Quota has been reached - Please delete some resource groups from Azure portal or contact Azure support to increase the limits. | None |
 | Restore | Selected subnet does not exist - Please select a subnet which exists | None |
 
 
@@ -155,4 +155,4 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
     - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
 >[AZURE.NOTE] DHCP must be enabled inside the guest for IaaS VM Backup to work.  If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled.
-You can get more information about Setting a Static Internal Private IP [here](virtual-networks-reserved-private-ip.md).
+View more information about [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md).

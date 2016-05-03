@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2015" 
+	ms.date="03/18/2016" 
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -22,7 +22,8 @@
 
 &nbsp;
 
->[AZURE.NOTE]This is an Azure Mobile Services topic. Microsoft Azure recommends Azure App Service Mobile Apps for all new mobile backend deployments. For more information, see the [equivalent tutorial in Mobile Apps documentation](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add authentication to your Xamarin.iOS app](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
 This topic shows you how to authenticate users in Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 

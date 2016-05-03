@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Copy Activity Performance & Tuning Guide"
+	pageTitle="Copy Activity Performance & Tuning Guide | Microsoft Azure"
 	description="Learn about key factors that impact performance of data movement in Azure Data Factory via the Copy Activity."
 	services="data-factory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 

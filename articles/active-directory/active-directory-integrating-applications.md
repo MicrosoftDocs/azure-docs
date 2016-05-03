@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integrating Applications with Azure Active Directory
@@ -37,13 +37,13 @@ If you’re building a Web application that just needs to support sign-in for us
 
 1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
-1. On the top menu, click Applications. If no apps have been added to your directory, this page will only show the Add an App link. Click on the link, or alternatively you can click on the Add button on the command bar.
+1. On the top menu, click **Applications**. If no apps have been added to your directory, this page will only show the Add an App link. Click on the link, or alternatively you can click on the **Add** button on the command bar.
 
-1. On the What do you want to do page, click on the link to Add an application my organization is developing.
+1. On the What do you want to do page, click on the link to **Add an application my organization is developing**.
 
-1. On the Tell us about your application page, you must specify a name for your application as well as indicate the type of application you are registering with Azure AD.  You can choose from a Web application and/or Web API (default, known as a confidential client in OAuth2 parliance) or Native client application which represents an application that is installed on a device such as a phone or computer (known as a public client in OAuth2 parliance). Once finished, click the arrow icon on the bottom-right corner of the page.
+1. On the Tell us about your application page, you must specify a name for your application as well as indicate the type of application you are registering with Azure AD.  You can choose from a Web application and/or Web API (default, known as a confidential client in OAuth2) or Native client application which represents an application that is installed on a device such as a phone or computer (known as a public client in OAuth2). Once finished, click the arrow icon on the bottom-right corner of the page.
 
-1. On the App properties page, provide the Sign-on URL and App ID URI, for your Web application (or just the Redirect URI for a Native client application), then click the checkbox in the bottom-right hand corner of the page.
+1. On the App properties page, provide the Sign-on URL and App ID URI if you’re registering a Web application or just the Redirect URI for a Native client application, then click the checkbox in the bottom-right hand corner of the page.
 
 1. Your application has been added, and you will be taken to the Quick Start page for your application. Depending on whether your application is a Web or Native application, you will see different options on how to add additional capabilities to your application. Once your application has been added, you can begin updating your application to enable users to sign in, access Web APIs in other applications, or configure multi-tenant application (which allows other organizations to access your application).
 
@@ -55,7 +55,7 @@ Once your application has been registered with Azure AD, it may need to be updat
 
 ### Overview of the Consent Framework
 
-Azure AD’s consent framework makes it easy to develop multi-tenant Web and Native client applications that need to access Web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These Web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own Web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data. 
+Azure AD’s consent framework makes it easy to develop multi-tenant Web and Native client applications that need to access Web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These Web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own Web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data.
 
 For example, if a Web client application needs to call an Office 365 Web API/resource application to read calendar information about the user, that user will be required to consent to the client application. After consent is given, the client application will be able to call the Office 365 Web API on behalf of the user, and use the calendar information as needed.
 
@@ -97,13 +97,13 @@ When a client application is configured to access a Web API exposed by a resourc
 
 1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
-1. On the top menu, click Applications, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. Expand the Access Web APIs in Other Applications section of the Quick Start, and then click the Configure it now link under the Select permissions section. The application properties page will appear.
+1. Expand the Access Web APIs in Other Applications section of the Quick Start, and then click the **Configure it now** link under the Select permissions section. The application properties page will appear.
 
 1. Scroll down to the Permissions to other applications section. The first column allows you to select from the available resource applications in your directory that expose a Web API.  Once selected, you may select application and delegation permissions that the Web API exposes.
 
-1. Once selected, click the Save button on the command bar.
+1. Once selected, click the **Save** button on the command bar.
 
 >[AZURE.NOTE] Clicking the Save button also automatically sets the permissions for your application in your directory based on the Permissions to other applications that you configured.  You can view these application permissions by looking at the application Properties tab.
 
@@ -117,9 +117,9 @@ You can develop a Web API and make it available to client applications by exposi
 
 1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
-1. On the top menu, click Applications, and then click the resource application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
+1. On the top menu, click **Applications**, and then click the resource application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. Click on the Manage manifest button in the command bar, and select Download manifest.
+1. Click on the **Manage manifest** button in the command bar, and select **Download manifest**.
 
 1. Open the JSON application manifest file and replace “oauth2Permissions” node with the following JSON snippet. This snippet is an example of how to expose a permission scope known as user impersonation. Make sure that you change the text and values for your own application:
 
@@ -136,15 +136,15 @@ You can develop a Web API and make it available to client applications by exposi
 			}
 		],
 
-    The id value must be a new generated GUID that you create by using a GUID generation tool or programmatically. It represents a unique identifier for the permission that is exposed by the Web API. Once your client is appropriately configured to request access to your Web API and calls the Web API, it will present an OAuth 2.0 JWT token that has the scope (scp) claim set to the value above, which in this case is user_impersonation.
+    The id value must be a new generated GUID that you create by using a [GUID generation tool](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) or programmatically. It represents a unique identifier for the permission that is exposed by the Web API. Once your client is appropriately configured to request access to your Web API and calls the Web API, it will present an OAuth 2.0 JWT token that has the scope (scp) claim set to the value above, which in this case is user_impersonation.
 
 	>[AZURE.NOTE] You can expose additional permission scopes later as necessary. Consider that your Web API might expose multiple permissions associated with a variety of different functions. Now you can control access to the Web API by using the scope (scp) claim in the received OAuth 2.0 JWT token.
 
-1. Save the updated JSON file and upload it by clicking the Manage manifest button in the command bar, selecting Upload manifest, browsing to your updated manifest file and then selecting it. Once uploaded, your Web API is now configured to be used by other applications in your directory.
+1. Save the updated JSON file and upload it by clicking the **Manage manifest** button in the command bar, selecting **Upload manifest**, browsing to your updated manifest file and then selecting it. Once uploaded, your Web API is now configured to be used by other applications in your directory.
 
 #### To verify the Web API is exposed to other applications in your directory
 
-1. On the top menu, click Applications, select the desired client application you want to configure access to the Web API, and then click Configure.
+1. On the top menu, click **Applications**, select the desired client application you want to configure access to the Web API, and then click **Configure**.
 
 1. Scroll down to the permissions to other applications section. Click on the Select application drop-down menu and you will be able to select the Web API that you just exposed a permission for. From the Delegated Permissions drop-down menu, select the new permission.
 
@@ -175,7 +175,7 @@ When adding an application to Azure AD, you may want your application to be acce
 
 It’s important to note the differences between a single tenant and multi-tenant application:  
 
-- A single tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory. 
+- A single tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory.
 - A multi-tenant application intended for use in many organizations. They are a software-as-a-service (SaaS) Web application typically written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them, supported via the Azure AD consent framework. Note that all Native client applications are multi-tenant by default as they are installed on the resource owner's device. See the Overview of the Consent Framework section above for more details on the consent framework.
 
 #### Enabling External Users to Grant Access
@@ -190,15 +190,15 @@ If you are writing an application that you want to make available to your custom
 
 1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
-1. On the top menu, click Applications, and then click the application you want to configure. The Quick Start page will appear with configuration options.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with configuration options.
 
-1. Expand the Configure Multi-tenant Application section of the Quick Start, then click the Configure it now link in the Enable Access section. The application properties page will appear.
+1. Expand the **Configure Multi-tenant Application** section of the Quick Start, then click the **Configure it now** link in the Enable Access section. The application properties page will appear.
 
-1. Click the Yes button next to Application is multi-tenant, then click the Save button on the command bar.
+1. Click the **Yes** button next to Application is multi-tenant, then click the **Save** button on the command bar.
 
 Once you have made the change above, users and administrators in other organizations will be able to grant your application access to their directory and other data.
 
-### Triggering the Azure AD consent framework at runtime 
+### Triggering the Azure AD consent framework at runtime
 
 To use the consent framework, multi-tenant client applications must request authorization using OAuth 2.0. [Code samples](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) are available to show you how a Web application, Native application, or server/daemon application requests authorization codes and access tokens to call Web APIs.
 
@@ -218,7 +218,7 @@ Single Page Application’s (SPAs) are typically structured with a JavaScript-he
 1. Click on the **Manage manifest** button in the command bar, and select **Download manifest**.
 Open the JSON application manifest file and set the “oauth2AllowImplicitFlow” value to “true”. By default, it is “false”.
 
-       "oauth2AllowImplicitFlow": true,
+    `"oauth2AllowImplicitFlow": true,`
 
 1. Save the updated JSON file and upload it by clicking the **Manage manifest** button in the command bar, selecting **Upload manifest**, browsing to your updated manifest file and then selecting it. Once uploaded, your Web API is now configured to use OAuth 2.0 Implicit Grant to authenticate users.
 
@@ -239,7 +239,7 @@ You can follow the steps in the [Developing Multi-Tenant Web Applications with A
 
 In order for external users to sign up for your app using their organizational accounts, you’ll need to update your app to show a button that links to the page on Azure AD that enables them to grant access. Branding guidance for this sign up button is discussed in the [Branding Guidelines for Integrated Applications](active-directory-branding-guidelines.md) topic. After the user either grants or denies access, the Azure AD grant access page will redirect the browser back to your app with a response. For more information about application properties, see [Application Objects and Service Principles](active-directory-application-objects.md).
 
-The grant access page is created by Azure AD, and you can find a link to it in your app’s Configuration page in the Azure classic portal. To get to the Configuration page, click on the Applications link in the top menu of your Azure AD tenant, click the app you want to configure, then click on Configure from the top menu of the Quick Start page.
+The grant access page is created by Azure AD, and you can find a link to it in your app’s Configuration page in the Azure classic portal. To get to the Configuration page, click on the **Applications** link in the top menu of your Azure AD tenant, click the app you want to configure, then click on **Configure** from the top menu of the Quick Start page.
 
 The link for your application will look like this: `http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`. The following table describes the parts of the link:
 
@@ -282,11 +282,11 @@ The following is an example response to an access grant request that was denied:
 
 During the lifetime of your app, you may need to change the keys that you use when you call into Azure AD to acquire an access token to call the Graph API.  Generally changing keys falls into two categories: emergency roll over where your key has been compromised or a roll over when your current key is about to expire. The following procedure should be followed to provide your app with uninterrupted access while you refresh your keys (primarily for the second case).
 
-1. In the Azure classic portal, click on your directory tenant, click Applications from the top menu, then click the app you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
+1. In the Azure classic portal, click on your directory tenant, click **Applications** from the top menu, then click the app you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. Click on Configure in the top menu to see a list of your app’s properties, and you’ll see a list of your keys.
+1. Click on **Configure** in the top menu to see a list of your app’s properties, and you’ll see a list of your keys.
 
-1. Under Keys, click on the drop down that says Select duration and pick 1 or 2 years, and then click Save in the command bar. This generates a new password key for your app. Copy this new password key. At this point both the existing and new key can be used by your app to obtain an access token from Azure AD.
+1. Under Keys, click on the drop down that says **Select duration** and pick 1 or 2 years, and then click **Save** in the command bar. This generates a new password key for your app. Copy this new password key. At this point both the existing and new key can be used by your app to obtain an access token from Azure AD.
 
 1. Go back to your app and update the configuration to start using the new password key. See [Using the Graph API to Query Azure AD](https://msdn.microsoft.com/library/azure/dn151791.aspx) for an example of where this update should happen.
 
@@ -305,7 +305,7 @@ If you make a change to the RequestedPermissions to request a greater access lev
 This section describes how to remove an application from your Azure AD tenant.
 
 ### Removing an application authored by your organization
-These are the applications that show under the "Applications my company owns" filter on the main "Applications" page for your Azure AD tenant. In technical terms, these are applications you registered either manually via the Azure classic portal, or programatically via PowerShell or the Graph API. More specifically, they are represented by both an Application and Service Principal object in your tenant. See [Application Objects and Service Principal Objects](active-directory-application-objects.md) for more information.
+These are the applications that show under the "Applications my company owns" filter on the main "Applications" page for your Azure AD tenant. In technical terms, these are applications you registered either manually via the Azure classic portal, or programmatically via PowerShell or the Graph API. More specifically, they are represented by both an Application and Service Principal object in your tenant. See [Application Objects and Service Principal Objects](active-directory-application-objects.md) for more information.
 
 #### To remove a single tenant application from your directory
 
@@ -313,11 +313,11 @@ These are the applications that show under the "Applications my company owns" fi
 
 1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
-1. On the top menu, click Applications, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. Click on the Delete button in the command bar.
+1. Click on the **Delete** button in the command bar.
 
-1. Click Yes in the confirmation message.
+1. Click **Yes** in the confirmation message.
 
 #### To remove a multi-tenant application from your directory
 
@@ -325,13 +325,13 @@ These are the applications that show under the "Applications my company owns" fi
 
 1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
-1. On the top menu, click Applications, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
+1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
-1. On the Application is multi-tenant section, click No. This converts your application to be single tenant, but the application will still remain in an organization who has already consented to it.
+1. On the Application is multi-tenant section, click **No**. This converts your application to be single tenant, but the application will still remain in an organization who has already consented to it.
 
-1. Click on the Delete button in the command bar.
+1. Click on the **Delete** button in the command bar.
 
-1. Click Yes in the confirmation message.
+1. Click **Yes** in the confirmation message.
 
 ### Removing a multi-tenant application authorized by another organization
 These are a subset of the applications that show under the "Applications my company uses" filter on the main "Applications" page for your Azure AD tenant, specifically the ones that are not listed under the "Applications my company owns" list. In technical terms, these are multi-tenant applications registered during the consent process. More specifically, they are represented by only a Service Principal object in your tenant. See [Application Objects and Service Principal Objects](active-directory-application-objects.md) for more information.
