@@ -23,19 +23,19 @@
 
 This article shows you how to create a copy of your Azure virtual machine (VM) running Linux. Specifically, it covers how to do this in the Azure Resource Manager deployment model, by using the Azure command-line interface (CLI) and the Azure portal. It shows you how to create a *specialized* image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for porting your Linux VM from the classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Linux VM created in the Resource Manager deployment model. You can copy over the operating system and data disks this way, and then set up the network resources to create the new virtual machine.
 
-If you need to create mass deployments of similar Linux VMs, you need a *generalized* image; for that, read [How to capture a Linux virtual machine](virtual-machines-linux-capture-image.md).
+If you need to create mass deployments of similar Linux VMs, you should use a *generalized* image; for that, see [How to capture a Linux virtual machine](virtual-machines-linux-capture-image.md).
 
 
 
 ## Before you begin
 
-Ensure that the following prerequisites are met before you start the steps:
+Ensure that you meet the following prerequisites before you start the steps:
 
-1. You have an Azure virtual machine running Linux, which you created using either the classic or the Resource Manager deployment model. You have configured the operating system, attached data disks, and made other customizations like installing required applications. You'll use this VM to create the copy. If you need help creating the source VM, see [Create a Linux VM in Azure](virtual-machines-linux-quick-create-cli.md).
+- You have an Azure virtual machine running Linux, which you created using either the classic or the Resource Manager deployment model. You have configured the operating system, attached data disks, and made other customizations like installing required applications. You'll use this VM to create the copy. If you need help creating the source VM, see [Create a Linux VM in Azure](virtual-machines-linux-quick-create-cli.md).
 
-1. You have the Azure CLI downloaded and installed on your machine, and you have signed in to your Azure subscription. For more information, see [How to install Azure CLI](../xplat-cli-install.md).
+- You have the Azure CLI downloaded and installed on your machine, and you have signed in to your Azure subscription. For more information, see [How to install Azure CLI](../xplat-cli-install.md).
 
-1. You have a resource group, a storage account, and a blob container created in that resource group to copy the VHDs to. For more information about creating storage accounts and blob containers, see: [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
+- You have a resource group, a storage account, and a blob container created in that resource group to copy the VHDs to. For more information about creating storage accounts and blob containers, see: [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
 
 > [AZURE.NOTE] Similar steps apply for a VM created using either of the two deployment models as the source image. Where applicable, minor differences are noted.  
@@ -52,7 +52,7 @@ Ensure that the following prerequisites are met before you start the steps:
 
 	Notice that the status of the VM in the portal changes from **Running** to **Stopped (deallocated)**.
 
-	- If you want to migrate your source virtual machine, then delete that VM and use the VHD left behind. Browse to your virtual machine in the [portal](https://portal.azure.com), and click **Delete**.
+	- If you want to migrate your source virtual machine, delete that VM and use the VHD left behind. Browse to your virtual machine in the [portal](https://portal.azure.com), and click **Delete**.
 
 1. Find the access key for the storage account that contains your source VHD. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
@@ -84,12 +84,12 @@ Ensure that the following prerequisites are met before you start the steps:
 >[AZURE.NOTE] You should copy the operating system and data disks separately, as described earlier.
 
 
-## Create a VM using the copied VHD
+## Create a VM by using the copied VHD
 
-Using the VHD copied in the preceding steps, you can now use Azure CLI to create a Resource Manager-based Linux VM in a new virtual network. The VHD should be present in the same storage account as the new virtual machine that will be created.
+By using the VHD copied in the preceding steps, you can now use Azure CLI to create a Resource Manager-based Linux VM in a new virtual network. The VHD should be present in the same storage account as the new virtual machine that will be created.
 
 
-First set up a virtual network and NIC for your new VM similar to following script. Use values for the variables as appropriate to your application.
+Set up a virtual network and NIC for your new VM, similar to following script. Use values for the variables as appropriate to your application.
 
 	$azure network vnet create <yourResourceGroup> <yourVnetName> -l <yourLocation>
 
@@ -100,16 +100,16 @@ First set up a virtual network and NIC for your new VM similar to following scri
 	$azure network nic create <yourResourceGroup> <yourNicName> -k <yourSubnetName> -m <yourVnetName> -p <yourIpName> -l <yourLocation>
 
 
-Now create the new virtual machine using the copied VHD(s) by using the following command.
+Create the new virtual machine using the copied VHD(s) by using the following command.
 </br>
 
 	$azure vm create -g <yourResourceGroup> -n <yourVmName> -f <yourNicName> -d <UriOfYourOsDisk> -x <UriOfYourDataDisk> -e <DataDiskSizeGB> -Y -l <yourLocation> -y Linux -z "Standard_A1" -o <DestinationStorageAccountName> -R <DestinationStorageAccountBlobContainer>
 
 
-The data and OS disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this out on the portal by browsing to the storage container, clicking the OS or data VHD that was copied, and then copying the contents of the **URL**.
+The data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this  on the portal by browsing to the storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the **URL**.
 
 
-If this command was successful, you will see an output similar to this:
+If this command was successful, you'll see output similar to this:
 
 	$azure vm create -g "testcopyRG" -n "redhatcopy" -f "LinCopyNic" -d https://testcopystore.blob.core.windows.net/testcopyblob/RedHat201631816334.vhd -x https://testcopystore.blob.core.windows.net/testcopyblob/RedHat-data.vhd -e 10 -Y -l "West US" -y Linux -z "Standard_A1" -o "testcopystore" -R "testcopyblob"
 	info:    Executing command vm create
@@ -126,7 +126,7 @@ If this command was successful, you will see an output similar to this:
 
 You should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**.
 
-Connect to your new virtual machine using an SSH client of your choice, and use the account credentials of your original virtual machine, e.g., `ssh OldAdminUser@<IPaddressOfYourNewVM>`. To read more about SSH to your Linux VM, read [How to use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
+Connect to your new virtual machine using an SSH client of your choice, and use the account credentials of your original virtual machine (for example, `ssh OldAdminUser@<IPaddressOfYourNewVM>`). For more information, see [How to use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md).
 
 
 ## Next steps
