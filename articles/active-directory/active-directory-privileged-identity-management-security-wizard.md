@@ -32,8 +32,8 @@ The second step of the wizard gives you an opportunity to change administrator's
 
 After you have made changes, the wizard will no longer show up. The next time you or another security administrator use PIM, you will see the PIM dashboard.  
 
-- If you would like to add or remove users from roles or change assignments from permanent to temporary, read more at [how to add or remove a user's role](active-directory-privileged-identity-management-how-to-add-role-to-user).
-- If you would like to give more users access to manage PIM, read more at [how to give access to manage in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim).
+- If you would like to add or remove users from roles or change assignments from permanent to temporary, read more at [how to add or remove a user's role](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
+- If you would like to give more users access to manage PIM, read more at [how to give access to manage in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 
 

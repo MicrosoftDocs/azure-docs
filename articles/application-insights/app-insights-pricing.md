@@ -67,7 +67,7 @@ At any time, you can switch to the 30 day free Premium trial. This gives you the
 * You can also inspect individual data points at source during debugging:
  * If you run your app in debug mode in Visual Studio, the data points are logged in the Output window. 
  * To see client data points, open your browser's debugging pane (usually F12) and open the network tab.
-* The data rate may be (by default) reduced by [adaptive sampling](app-insights-sampling). This means that, as usage of your app increases, the telemetry rate won't increase as much as you might expect.
+* The data rate may be (by default) reduced by [adaptive sampling](app-insights-sampling.md). This means that, as usage of your app increases, the telemetry rate won't increase as much as you might expect.
 
 ### Overage
 
@@ -86,7 +86,7 @@ The chart at the bottom of the pricing blade shows your application's data point
 
 Click the chart for more detail, or drag across it and click (+) for the detail of a time range.
 
-The chart shows the volume of data that arrives at the Application Insights service, after [sampling](app-insights-sampling).
+The chart shows the volume of data that arrives at the Application Insights service, after [sampling](app-insights-sampling.md).
 
 
 ## Data rate

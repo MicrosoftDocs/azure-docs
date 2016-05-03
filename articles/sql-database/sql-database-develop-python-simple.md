@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to SQL Database by using Python"
+	pageTitle="Connect to SQL Database by using Python | Microsoft Azure"
 	description="Presents a Python code sample you can use to connect to Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""

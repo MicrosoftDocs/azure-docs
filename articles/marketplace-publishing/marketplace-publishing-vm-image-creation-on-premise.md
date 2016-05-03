@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="02/04/2016"
+  ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Develop an on-premises virtual machine image for the Azure Marketplace
@@ -117,7 +117,7 @@ Then you can create a container within that storage account by using the [NewAzu
 > [AZURE.NOTE] Those commands assume that the current storage account context has already been set in PowerShell.   Refer to [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md) for more details on PowerShell setup.
  
 ### Create a storage account by using the command-line tool for Mac and Linux
-From [Linux command-line tool](../virtual-machines/command-line-tools/), create a storage account as follows.
+From [Linux command-line tool](../virtual-machines/virtual-machines-linux-cli-manage.md), create a storage account as follows.
 
         azure storage account create mystorageaccount --location "West US"
 

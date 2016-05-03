@@ -77,7 +77,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **MTN** | Supported | Supported | London |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
 | **NTT Communications** | Supported | Supported | London, Osaka, Tokyo |
-| **[Orange]( http://www.orange-business.com/)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
+| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supported | Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
 | **Softbank** | Supported | Supported | Osaka, Tokyo | 
