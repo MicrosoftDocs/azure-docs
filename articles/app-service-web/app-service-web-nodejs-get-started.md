@@ -75,7 +75,7 @@ be followed on any operating system that is capable of running Node.js.
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
 2. Make sure you're still in the root directory of your app. Create the App Service app resource in Azure with a unique
-app name with the next command. Your web app's URL will be http://&lt;appname>.azurewebsites.net.
+app name with the next command. Your web app's URL is http://&lt;appname>.azurewebsites.net.
 
         azure site create --git <appname>
 
@@ -127,7 +127,7 @@ root directory. You can use this file to customize iisnode.
 - At `git push azure master`, Kudu automates the following deployment tasks:
 
     - If package.json is in the repository root, run `npm install --production`.
-    - Generate a Web.config for iisnode that points to your in the start script in package.json (e.g. server.js or app.js).
+    - Generate a Web.config for iisnode that points to your start script in package.json (e.g. server.js or app.js).
     - Customize Web.config to ready your app for debugging with Node-Inspector.
     
 ## Use a Node.js framework

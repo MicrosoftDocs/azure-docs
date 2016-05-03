@@ -3,7 +3,7 @@
    description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Team Services (VSTS)."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawams"
+   authors="mthalman-msft"
    manager="timlt"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="03/29/2016"
-   ms.author="cawa" />
+   ms.author="mthalman" />
 
 # Set up continuous integration for a Service Fabric application by using Visual Studio Team Services
 

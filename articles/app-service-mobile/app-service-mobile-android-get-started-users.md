@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Add authentication on Android with Mobile Apps| Azure App Service"
+	pageTitle="Add authentication on Android with Mobile Apps | Azure App Service"
 	description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="ggailey777"
+	authors="RickSaling"
 	manager="erikre"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="05/03/2016"
-	ms.author="glenga;ricksal"/>
+	ms.author="ricksal"/>
 
 # Add authentication to your Android app
 
