@@ -137,9 +137,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. As **SAML-enabled**, select **Yes**. 
 
-    b. In the Azure classic portal, on the **Configure single sign-on at UserEcho** dialog page, copy the **Single Sign-On Service URL** value, and then paste itOpen your downloaded certificate in Notepad, copy the content, and then paste it into the **SAML SSO URL** textbox. 
+    b. In the Azure classic portal, on the Configure single sign-on at UserEcho dialog page, copy the **Single Sign-On Service URL** value, and then paste it in **SAML SSO URL** textbox.
 
-    c. In the Azure classic portal, on the **Configure single sign-on at UserEcho** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote logoout URL** textbox. 
+    c. In the Azure classic portal, on the Configure single sign-on at UserEcho dialog page, copy the **Remote Logout URL** value, and then paste it into the **Remote logoout URL** textbox. 
 
     d. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **X.509 Certificate** textbox.    
 

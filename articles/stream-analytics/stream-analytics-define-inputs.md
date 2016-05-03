@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/22/2016"
 	ms.author="jeffstok"/>
 
 # Data connection: Learn about data stream inputs from events to Stream Analytics
@@ -28,7 +28,7 @@ As data is pushed to a data source, it is consumed by the Stream Analytics job a
 A data stream is unbounded sequence of events coming over time. Stream Analytics jobs must include at least one data stream input to be consumed and transformed by the job. Blob storage, Event Hubs, and IoT Hubs are supported as data stream input sources. Event Hubs are used to collect event streams from multiple devices and services, such as social media activity feeds, stock trade information or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios.  Blob storage can be used as an input source for ingesting bulk data as a stream.  
 
 ### Reference data
-Stream Analytics supports a second type of input known as reference data. This is auxiliary data which is either static or slowly changing over time and is typically used for performing correlation and look-ups. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
+Stream Analytics supports a second type of input known as reference data. This is auxiliary data which is either static or slowly changing over time and is typically used for performing correlation and look-ups. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100MB in size.
 	To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md)  
 
 ## Create a data stream input with an Event Hub
@@ -39,7 +39,7 @@ It is important to note that the default timestamp of events coming from Event H
 
 ### Consumer groups
 
-Each Stream Analytics Event Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](./event-hubs/event-hubs-programming-guide.md).
+Each Stream Analytics Event Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 
 ## Configure Event Hub as an input data stream
 
@@ -117,6 +117,8 @@ When your data is coming from an IoT Hub source, you can access to few metadata 
 For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. Data in [Blob storage](https://azure.microsoft.com/services/storage/blobs/) is generally considered data “at rest” but it can be processed as a data stream by Stream Analytics. One common scenario for Blob storage inputs with Stream Analytics is log processing, where telemetry is captured from a system and needs to be parsed and processed to extract meaningful data.
 
 It is important to note that the default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was last modified which *isBlobLastModifiedUtcTime*. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword must be used.
+
+> [AZURE.NOTE] Stream Analytics does not support adding content to an existing blob. Stream Analytics will only view a blob once and any changes done after this read will not be processed. The best practice is to upload all the data once and not add any additional events to the blob store.
 
 The table below explains each property in the Blob storage input tab with its description:
 

@@ -2,7 +2,8 @@
     pageTitle="Elastic Scale Security Configurations | Microsoft Azure" 
     description="Set up x409 certificates for encryption" 
     metaKeywords="Elastic Database certificates security" 
-    services="sql-database" documentationCenter="" 
+    services="sql-database" 
+    documentationCenter="" 
     manager="jhubbard" 
     authors="torsteng"/>
 
@@ -12,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/04/2016" 
+    ms.date="02/23/2016" 
     ms.author="torsteng;sidneyh" />
 
 

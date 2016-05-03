@@ -6,7 +6,7 @@
 	documentationCenter="android"
 	authors="RickSaling"
 	writer="ricksal"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -15,13 +15,18 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/20/2016"
+	ms.date="04/07/2016"
 	ms.author="ricksal"/>
 
 
 # Add push notifications to your Mobile Services Android app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add push notifications to your Android app](../app-service-mobile/app-service-mobile-android-get-started-push.md).
 
 ## Summary
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="tdykstra"/>
 
 
@@ -74,7 +74,7 @@ This section contains name/value pairs that you web app will load on start up.
 
 Connection strings for linked resources. 
 
-For .NET apps, these connection strings are be injected into your .NET configuration `connectionStrings` settings at runtime, overriding existing entries where the key equals the linked database name. 
+For .NET apps, these connection strings are injected into your .NET configuration `connectionStrings` settings at runtime, overriding existing entries where the key equals the linked database name. 
 
 For PHP, Python, Java and Node applications, these settings will be available as environment variables at runtime, prefixed with the connection type. The environment variable prefixes are as follows: 
 

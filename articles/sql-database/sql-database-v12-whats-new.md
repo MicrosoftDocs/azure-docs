@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="What's new in SQL Database V12 | Microsoft Azure" 
-	description="Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
+<properties
+	pageTitle="What's new in SQL Database V12 | Microsoft Azure"
+	description="Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/21/2016"
 	ms.author="genemi"/>
 
 
@@ -37,15 +37,21 @@ The latest information about resource limits for SQL Database is documented at:<
 ## Increased application compatibility with SQL Server
 
 
-A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For instance:
+A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014, and to maintain the compatibility as new versions of SQL Server are released. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For example:
 
+- [Built-in JSON support](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [Window functions](http://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Window functions](http://msdn.microsoft.com/library/ms189798.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
+
 - [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
+
 - [Change tracking](http://msdn.microsoft.com/library/bb933875.aspx)
+
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
+
 - [Full-text search](http://msdn.microsoft.com/library/ms142571.aspx)
 
+- [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 Please see [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
 
@@ -53,7 +59,7 @@ Please see [here](sql-database-transact-sql-information.md) for the small set of
 ## More premium performance, new performance levels
 
 
-In V12, we increased the database throughput units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
+In V12, we increased the Database Transaction Units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
 
 
 - Support for in-memory [columnstore indexes](http://msdn.microsoft.com/library/gg492153.aspx).

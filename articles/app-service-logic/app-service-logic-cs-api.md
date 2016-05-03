@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="jehollan"/>
 
 #C\# API App
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. 
+
 The C# API app gives you an easy way to run simple C# expressions *while your Logic app executes*.
 
 ##When should you use this API app?
@@ -102,7 +105,7 @@ The action returns the object that you returned from your function in a results 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic app. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 

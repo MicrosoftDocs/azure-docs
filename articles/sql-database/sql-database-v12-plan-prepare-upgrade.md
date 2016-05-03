@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -60,7 +60,7 @@ Starting with V12, Azure SQL Database will support only the service tiers named 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
 - [SQL Database service tiers](sql-database-service-tiers.md)
-- [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md)
+- [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-server-portal.md)
 
 
 
@@ -226,7 +226,7 @@ The following scenario explains that a deleted V11 Azure SQL database can be res
 
 PowerShell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
 
-- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server.md)
+- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
 
 For reference documentation about these PowerShell cmdlets, see:
 
@@ -253,4 +253,3 @@ If the upgrade fails for any odd reason, your V11 database remains active and av
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
- 

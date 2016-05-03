@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.topic="get-started-article" 
+	ms.date="04/04/2016" 
 	ms.author="billmath"/>
 
 # Getting started the MFA Server Mobile App Web Service
@@ -24,7 +24,7 @@ In order to use the Azure Multi-Factor Authentication App, the following are req
 
 - Please see Hardware and Software Requirements for hardware and software requirements
 - You must be using v6.0 or higher of the Azure Multi-Factor Authentication Server
-- Mobile App Web Service must be installed on an Internet-facing web server running Microsoft® Internet Information Services (IIS) 6.x or IIS 7.x
+- Mobile App Web Service must be installed on an Internet-facing web server running Microsoft® Internet Information Services (IIS) 6.x or IIS 7.x  For more information on IIS see [IIS.NET](http://www.iis.net/).
 - When using IIS 6.x, ensure ASP.NET v2.0.50727 is installed, registered and set to Allowed
 - Required role services when using IIS 7.x include ASP.NET and IIS 6 Metabase Compatibility
 - Mobile App Web Service must be accessible via a public URL

@@ -4,8 +4,8 @@
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
 
 # Create BizTalk Services using the Azure portal
 
-This article shows how to create Azure BizTalk Services in the Azure portal.
+Create Azure BizTalk Services in the Azure portal.
 
 > [AZURE.TIP] To sign in to the Azure portal, you need an Azure account and Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. See [Azure Free Trial](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 

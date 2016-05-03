@@ -2,7 +2,7 @@
 	pageTitle="Use Logic App features | Microsoft Azure" 
 	description="Learn how to use the advanced features of logic apps." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,64 +13,58 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/> 
 	
 # Use Logic Apps features
 
-In the [previous topic][Create a new logic app], you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
+In the [previous topic](app-service-logic-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
 
 - Conditional logic, which executes an action only when a certain condition is met.
-- Repeating actions.
 - Code view to edit an existing logic app.
 - Options for starting a workflow.
 
-Before you complete this topic, you should complete the steps in [Create a new logic app]. In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
+Before you complete this topic, you should complete the steps in [Create a new logic app](app-service-logic-create-a-logic-app.md). In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
 
 ## Reference material
 
 You may find the following documents useful:
 
-- [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/dn948513.aspx) - including how to invoke Logic apps directly
-- [Language reference](https://msdn.microsoft.com/library/azure/dn948512.aspx) - a comprehensive list of all supported functions/expressions
-- [Trigger and action types](https://msdn.microsoft.com/library/azure/dn948511.aspx) - the different types of actions and the inputs they take
-- [Overview of App Service](app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
+- [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/mt643787.aspx) - including how to invoke Logic apps directly
+- [Language reference](https://msdn.microsoft.com/library/azure/mt643789.aspx) - a comprehensive list of all supported functions/expressions
+- [Trigger and action types](https://msdn.microsoft.com/library/azure/mt643939.aspx) - the different types of actions and the inputs they take
+- [Overview of App Service](../app-service/app-service-value-prop-what-is.md) - description of what components to choose when to build a solution
 
-## Adding conditional logic and a repeat
+## Adding conditional logic
 
-Although the original flow works, there are some areas that could be improved. First, the action only sends you the top tweet returned. Logically, you would want to receive all of the tweets with the keyword. To repeat an action for a list of items, such as the returned tweets, you must use the `repeat` property.
+Although the original flow works, there are some areas that could be improved. 
 
-### Repeating
-Repeat takes a list of items and executes the action for each item in that list. The following steps update the existing action to use repeats, which makes more sense for a list of tweets.
-
-1. Return to the workflow you created and click the **Definition** link in the **Essentials**. 
-
-2. To edit the **Dropbox connector** action, click the pencil icon.
-
-3. Click on the gear icon, and select **Repeat over a list**. 
- 
-2. Next to the **Repeat** box, click the `...` and select **Body**. This inputs:
-
-    	@body('twitterconnector')
-
-	Into the text box. This function outputs a list of tweets. 
-
-3. Select all of the text in the **Content** text box and delete it. Then, click the `...` and select **Tweet Text**. This inserts the **repeatItem()** function, which returns each element in the list. 
-
-Finally, note that the outputs of repeating actions are special. If you wanted to reference the results of the Dropbox operation, for example, you could *not* do the normal `@actions('dropboxconnector').outputs.body`. You would instead do: `@actions('dropboxconnector').outputs.repeatItems`. This returns a list of all of the times that the operation ran, along with the outputs of each. For example, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` returns the path of the first file uploaded.
 
 ### Conditional
-This logic app still results in a lot of files being uploaded to Dropbox. The following steps add additional logic to make sure that you only receive a file when the tweet has a certain number of retweets. 
+This logic app may result in you getting a lot of emails. The following steps add logic to make sure that you only receive an email when the tweet comes from someone with a certain number of followers. 
 
-1. Click the gear icon at the top of the action and select **Add a condition to be met**.
+1. Click the plus and find the action *Get User* for Twitter.
 
-2. In the text box, type the following:
+2. Pass in the **Tweeted by** field from the trigger to get the information about the Twitter user.
 
-    	@greater(repeatItem().Retweet_Count , 5)
-    
-	The function **greater** compares two values and only allows the action to be executed when the first value is greater than the second value. You access a given property as a dot (.) followed by the property name, such as `.Retweet_Count` above. 
+	![Get user](./media/app-service-logic-use-logic-app-features/getuser.png)
 
-3. Click the check mark to save the Dropbox action.
+3. Click the plus again, but this time select **Add Condition**
+
+4. In the first box, click the **...** underneath **Get User** to find the **Followers count** field.
+
+5. In the dropdown, select **Greater than**
+
+6. In the second box type the number of followers you want users to have.
+
+	![Conditional](./media/app-service-logic-use-logic-app-features/conditional.png)
+
+7.  Finally, drag-and-drop the email box into the **If Yes** box. This will mean you'll only get emails when the follower count is met.
+
+## Repeating over a list with forEach
+
+The forEach loop specifies an array to repeat an action over. If it is not an array the flow fails. As an example, if you have action1 that outputs an array of messages, and you want to send each message, you can include this forEach statement in the properties of your action: forEach : "@action('action1').outputs.messages"
+ 
 
 ## Using the code view to edit a Logic App
 
@@ -101,11 +95,7 @@ The following updates your existing logic app to use parameters for the query te
 2. Scroll to the `twitterconnector` action, locate the query value, and replace it with `#@{parameters('topic')}`.
 	You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
  
-3. Finally, go to the `dropboxconnector` action and add the topic parameter, as follows:
-
-    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
-
-Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
+Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](https://msdn.microsoft.com/library/mt643787.aspx).
 
 Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
 
@@ -118,27 +108,7 @@ There are several different options for starting the workflow defined in you log
 A recurrence trigger runs at an interval that you specify. When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run. A trigger indicates it should run by returning a `200` status code. When it does not need to run, it returns a `202` status code.
 
 ### Callback using REST APIs
-Services can call a logic app endpoint to start a workflow. You can find the endpoint to access by navigating to the **Properties** blade from the **Settings** command bar button in your logic app. 
-
-You can use this callback to invoke a logic app from inside your custom application. You need to use **Basic** authentication. The username of `default` is created for you, and the password is the **Primary Access Key** field on the **Properties** blade. For example: 
-
-        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
-        Content-type: application/json
-        Authorization: Basic << base-64 encoded string of default:<access key> >>
-        {
-            "name" : "nameOfTrigger",
-            "outputs" : { "property" : "value" }
-        }
-
-You can pass outputs to the workflow and reference them in the workflow. For example, with the above trigger, if you include `@triggers().outputs.property`, you get `value`.
-
-For more information, see [the REST documentation](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). 
-
-### Manual execution
-You can define a logic app that does not have a trigger. In this case, the workflow must be started on-demand. This kind of logic app is best suited for a process that only needs to run intermittently. To create a logic app without a trigger, check the **Run this logic manually** in the **Start logic** box in the designer. 
-
-To start logic app on-demand, click the **Run now** button on the command bar. 
+Services can call a logic app endpoint to start a workflow. See [Logic apps as callable endpoints](app-service-logic-connector-http.md) for more information. To start that kind of logic app on-demand, click the **Run now** button on the command bar. 
 
 <!-- Shared links -->
-[Create a new logic app]: app-service-logic-create-a-logic-app.md
 [Azure portal]: https://portal.azure.com 

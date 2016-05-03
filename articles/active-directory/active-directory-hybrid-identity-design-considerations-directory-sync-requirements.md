@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 # Determine directory synchronization requirements
@@ -37,9 +37,11 @@ Make sure to answer the following questions:
   - What is the current state of UPNs in your organization? 
   - Do you have a different directory that users authenticate against?
   - Does your company use Microsoft Exchange?
-    - Do they plan of having a hybrid exchange deployment? 
+    - Do they plan of having a hybrid exchange deployment?
+
+Now that you have an idea about your synchronization requirements, you need to determine which tool is the correct one to meet these requirements.  Microsoft provides several tools to accomplish directory integration and synchronization.  See the [Hybrid Identity directory integration tools comparison table](active-directory-hybrid-identity-design-considerations-tools-comparison.md) for more information. 
    
-Now that you have an idea about synchronization requirements for your company, you need to evaluate the applications that use these directory services. This evaluation is important to define the technical requirements to integrate these applications to the cloud. Make sure to answer the following questions:
+Now that you have your synchronization requirements and the tool that will accomplish this for your company, you need to evaluate the applications that use these directory services. This evaluation is important to define the technical requirements to integrate these applications to the cloud. Make sure to answer the following questions:
 
 - Will these applications be moved to the cloud and use the directory?
 - Are there special attributes that need to be synchronized to the cloud so these applications can use them successfully?

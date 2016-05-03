@@ -3,7 +3,7 @@
 	description="how to use elastic database jobs"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh; ddove" />
 
 # Getting started with Elastic Database jobs
@@ -430,10 +430,10 @@ Remove a job trigger to stop a job from being executed according to a schedule u
 All the rows from **Customers** table, stored in different shards populate the Excel sheet.
 
 ## Next steps
-You can now use Excel’s powerful data functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
+You can now use Excel’s data functions. Use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. Refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
-There is no additional charge for using the Elastic Database Query feature. However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.
+There is no additional charge for using the Elastic Database query feature. However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.
 
 For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
 

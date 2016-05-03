@@ -4,7 +4,7 @@
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # Configure geo-replication for Azure SQL Database with the Azure portal
@@ -25,7 +25,7 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-This article shows you how to configure geo-replication for SQL Database with the [Azure portal](https://portal.azure.com).
+This article shows you how to configure geo-replication for SQL Database with the [Azure portal](http://portal.azure.com).
 
 Geo-replication enables creating up to 4 replica (secondary) databases in different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
 
@@ -57,7 +57,7 @@ After the secondary is created and seeded, data will begin replicating from the 
 
 ### Add secondary
 
-1. In the [Azure portal](https://portal.azure.com) browse to the database that you want to setup for geo-replication.
+1. In the [Azure portal](http://portal.azure.com) browse to the database that you want to setup for geo-replication.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
 3. Select the region to create the secondary database. Premium databases can use any region for a secondary, Standard databases must use the recommended region:
 
@@ -90,7 +90,7 @@ After the secondary is created and seeded, data will begin replicating from the 
 
 The operation permanently terminates the replication to the secondary database and change the role of the secondary to a regular read-write database. If the connectivity to the secondary database is broken the command succeeds but the secondary will not become read-write until after connectivity is restored.  
 
-1. In the [Azure portal](https://portal.azure.com) browse to the primary database in the geo-replication partnership.
+1. In the [Azure portal](http://portal.azure.com) browse to the primary database in the geo-replication partnership.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
 3. In the **SECONDARIES** list select the database you want to remove from the geo-replication partnership.
 4. Click **Stop Replication**.
@@ -109,7 +109,7 @@ The operation permanently terminates the replication to the secondary database a
 
 The secondary database can be switched to become the primary.  
 
-1. In the [Azure portal](https://portal.azure.com) browse to the primary database in the geo-replication partnership.
+1. In the [Azure portal](http://portal.azure.com) browse to the primary database in the geo-replication partnership.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
 3. In the **SECONDARIES** list, select the database you want to become the new primary.
 4. Click **Failover**.

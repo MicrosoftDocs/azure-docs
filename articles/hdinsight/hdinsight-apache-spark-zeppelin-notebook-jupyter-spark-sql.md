@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="03/07/2016"
 	ms.author="nitinme"/>
 
 
-# Get started: create Apache Spark on Azure HDInsight and run interactive queries using Spark SQL
+# Get started: Create Apache Spark on HDInsight Windows and run interactive queries using Spark SQL (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to get started with Spark clusters on HDInsight Linux, see [Get started: create Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -26,6 +26,8 @@ Learn how to create an Apache Spark cluster in HDInsight using the Quick Create 
 
 
    ![Get started using Apache Spark in HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.getstartedflow.png  "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **Prerequisites:**
 
@@ -267,6 +269,10 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 6. Restart the kernel to exit the application. From the top menu bar, click **Kernel**, click **Restart**, and then click **Restart** again at the prompt.
 
 	![Restart the Jupyter Kernel](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.jupyter.restart.kernel.png "Restart the Jupyter Kernel")
+
+##Delete the cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## <a name="seealso"></a>See also

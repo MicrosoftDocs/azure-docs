@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/28/2016"
+ms.date="04/07/2016"
 ms.author="larryfr"/>
 
 #Use Azure Data Lake Store with Apache Storm with HDInsight
@@ -27,7 +27,9 @@ Azure Data Lake Store is an HDFS compatible cloud storage service that provides 
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or higher
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 * An Azure subscription
-* A Storm on HDInsight cluster. Information on creating a cluster that can use Azure Data Lake Store are included in this document.
+* A Storm on HDInsight cluster. To create a new Storm on HDInsight cluster, use the steps in the [Use HDInsight with Data Lake Store using Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) document. The steps in this document will walk you through creating a new HDInsight cluster and Azure Data Lake Store.  
+
+    > [AZURE.IMPORTANT] When you create the HDInsight cluster, you must select __Storm__ as the cluster type. The OS can be either Windows or Linux.  
 
 ###Configure environment variables
 
@@ -93,12 +95,6 @@ The configuration for HdfsBolt in the topology is as follows:
 If you are familiar with using HdfsBolt, you will notice that this is all pretty standard configuration except for the URL. The URL provides the path to the root of your Azure Data Lake Store.
 
 Since writing to Data Lake Store uses HdfsBolt, and is just a URL change, you should be able to take any existing topology that writes to HDFS or WASB using HdfsBolt, and easily change it to use Azure Data Lake Store.
-
-##Create an HDInsight cluster and Data Lake Store
-
-Create a new Storm on HDInsight cluster using the steps in the [Use HDInsight with Data Lake Store using Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) document. The steps in this document will walk you through creating a new HDInsight cluster and Azure Data Lake Store.
-
-> [AZURE.IMPORTANT] When you create the HDInsight cluster, you must select __Storm__ as the cluster type. The OS can be either Windows or Linux.
 
 ##Build and package the topology
 
@@ -218,6 +214,10 @@ __For Windows-based HDInsight__:
 3. In the __Topology Actions__ section, select __Kill__ and then select OK on the dialog box that appears.
 
     ![topology actions](./media/hdinsight-storm-write-data-lake-store/topologyactions.png)
+
+## Delete your cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Next steps
 

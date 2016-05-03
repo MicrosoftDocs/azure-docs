@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure Data Catalog supported data sources | Microsoft Azure"
-   description="Specification of the currently supported data sources."
+   description="This article lists all data sources and data asset types supported for registration in Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,20 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
-   ms.author="trhabe"/>
+   ms.date="03/31/2016"
+   ms.author="maroche"/>
 
 # Azure Data Catalog supported data sources
 
-Users of the Azure Data Catalog can publish metadata using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The below grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. Further below is a second grid that has a more technical specification of each data sources connection properties.
+Users of **Azure Data Catalog** can publish metadata using a public API, a ClickOnce data source registration tool, or by manually entering information directly to the Data Catalog web portal.
+
+The table below summarizes all sources currently supported by Data Catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from the Data Catalog portal "Open In" experience.
+
+Further below is a second table that provides a more technical specification of each data sources connection properties and the Data Source Reference (DSR) specification used for each supported data asset when using the Data Catalog API.
 
 
-## List of supported data sources
+## List of supported data sources and assets
 
 <table>
 
     <tr>
-       <td><b>Data Source Object</b></td>
+       <td><b>Data Asset</b></td>
        <td><b>API</b></td>
        <td><b>Manual Entry</b></td>
        <td><b>Registration Tool</b></td>
@@ -260,7 +264,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
     </tr>
 
     <tr>
-      <td>Db2 Table</td>
+      <td>DB2 Table</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -269,7 +273,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
     </tr>
 
     <tr>
-      <td>Db2 View</td>
+      <td>DB2 View</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -399,7 +403,8 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
 
 <br>
 <br>
-## Data source reference specification
+
+## Data Source Reference specification
 
 <table>
     <tr>
@@ -441,20 +446,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
       </td>
     </tr>
 
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual Cluster</td>
-      <td>N/A</td>
-      <td>
-        <font size=2>
-            protocol:  cosmos
-            <br>authentication:  {basic, windows}
-            <br>address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        </font>
-      </td>
-    </tr>
+
 
     <tr>
       <td>SQL Server Reporting Services</td>
@@ -539,58 +531,13 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
             <br>
-            <br>*basic/anonymous available only over https
+            <br>*basic/anonymous available only over https*
         </font>
       </td>
     </tr>
 
     <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream</td>
-      <td>Virtual Cluster</td>
-      <td>
-        <font size=2>
-            protocol:  cosmos
-            <br>authentication:  {basic, windows}
-            <br>address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream Set</td>
-      <td>Virtual Cluster</td>
-      <td>
-        <font size=2>
-            protocol:  cosmos
-            <br>authentication:  {basic, windows}
-            <br>address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>View</td>
-      <td>Virtual Cluster</td>
-      <td>
-        <font size=2>
-            protocol:  cosmos
-            <br>authentication:  {basic, windows}
-            <br>address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Container</td>
       <td>Database</td>
       <td>N/A</td>
@@ -606,7 +553,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Table</td>
       <td>Table</td>
       <td>Database</td>
@@ -624,7 +571,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Table</td>
       <td>View</td>
       <td>Database</td>
@@ -700,7 +647,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
             <br>
-            <br>*basic/anonymous available only over https
+            <br>*basic/anonymous available only over https*
         </font>
       </td>
     </tr>
@@ -1280,7 +1227,7 @@ server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Kpi}
             <br>
-            <br>*basic/anonymous available only over https
+            <br>*basic/anonymous available only over https*
         </font>
       </td>
     </tr>
@@ -1354,7 +1301,7 @@ server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType:  {Table}
             <br>
-            <br>*basic/anonymous available only over https
+            <br>*basic/anonymous available only over https*
         </font>
       </td>
     </tr>

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="02/24/2016"
    ms.author="tarcher" />
 
 # Configure the Roles for an Azure Cloud Service with Visual Studio
@@ -77,7 +77,7 @@ To improve the performance of your cloud service, you can change the number of i
 
 You can add, remove or modify connection strings for your service configurations. You might want different connection strings for different service configurations. For example, you might want a local connection string for a local service configuration that has a value of `UseDevelopmentStorage=true`. You might also want to configure a cloud service configuration that uses a storage account in Azure.
 
->[AZURE.CAUTION] When you enter the Azure storage account key information for a storage account connection string, this information is stored locally in the service configuration file. However, this information is currently not stored as encrypted text.
+>[AZURE.WARNING] When you enter the Azure storage account key information for a storage account connection string, this information is stored locally in the service configuration file. However, this information is currently not stored as encrypted text.
 
 By using a different value for each service configuration, you do not have to use different connection strings in your cloud service or modify your code when you publish your cloud service to Azure. You can use the same name for the connection string in your code and the value will be different, based on the service configuration that you select when you build your cloud service or when you publish it.
 
@@ -183,7 +183,7 @@ By using a different value for each service configuration, you do not have to us
 
 ## Manage local storage for each role instance
 
-You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. For more information about local storage resources, see [Configure Local Storage Resources](/cloud-services/cloud-services-configure-local-storage-resources.md).
+You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. For more information about local storage resources, see [Configure Local Storage Resources](cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Local storage settings apply to all service configurations. You can only add, remove, or modify local storage for all service configurations.
 
@@ -293,7 +293,7 @@ You can collect diagnostics data for your Azure cloud service. This data is adde
 
 ## Change the size of the virtual machine used for each role
 
-You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Sizes for Cloud Services](/cloud-services/cloud-services-sizes-specs.md).
+You can set the virtual machine size for each role. You can only set this size for all service configurations. If you select a smaller machine size, then less CPU cores, memory and local disk storage is allocated. The allocated bandwidth is also smaller. For more information about these sizes and the resources allocated, see [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md).
 
 The resources required for each virtual machine in Azure affects the cost of running your cloud service in Azure. For more information about Azure Billing, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 

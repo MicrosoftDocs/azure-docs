@@ -41,7 +41,7 @@ There are a few IP address ranges that are not allowed:
 
 - 169.254.0.0/16 (link-local)
 
-- 68.63.129.16/32 (Internal DNS)
+- 168.63.129.16/32 (Internal DNS)
 
 ## Next Steps
 

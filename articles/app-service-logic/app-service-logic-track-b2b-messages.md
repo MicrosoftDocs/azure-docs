@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 
 # Track B2B messages
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## B2B Tracking Information
 B2B communication involves message processing between trading partners. The relationships are defined as agreements between two trading partners. Once the communication is established, there needs to be a way to monitor if the communication is happening as expected. 

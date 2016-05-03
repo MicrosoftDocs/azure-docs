@@ -3,8 +3,8 @@
 	description="This topic explains security considerations for managing Standard or Active Geo-Replication scenarios for SQL Database."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/22/2015"
-	ms.author="jroth" />
+	ms.date="02/01/2016"
+	ms.author="carlrab" />
 
 # Security Configuration for Standard or Active Geo-Replication
 

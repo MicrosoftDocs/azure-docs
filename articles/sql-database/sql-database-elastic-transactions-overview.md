@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="sidneyh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="torsteng"/>
 
 # Overview of Elastic Database Transactions with Azure SQL Database

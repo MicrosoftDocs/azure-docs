@@ -18,6 +18,10 @@
 	ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure
+> [AZURE.SELECTOR]
+- [Portal](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [REST API](search-get-started-management-api.md)
 
 Azure Search is a cloud-based service with an HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
 
@@ -32,7 +36,7 @@ As the administrator setting up a Search service, one of your first decisions is
 
 At no charge to existing subscribers, you can opt for a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects. The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed. There are no performance guarantees with the Shared service, so if you're building a production search application, consider Standard search instead.
 
-Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription. Standard search is allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit. You can scale up on partitions or replicas independently, adding more of whatever resource is needed.
+Basic and Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription. Basic and Standard search are allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit. You can scale up on partitions or replicas independently, adding more of whatever resource is needed.
 
 To plan for capacity and understand the billing impact, we recommend these links:
 
@@ -105,7 +109,7 @@ In this public preview, resource monitoring is limited to the information shown 
 
 On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.
 
-Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Limits and constraints](search-limits-quotas-capacity.md) for details. 
+Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Search service limits](search-limits-quotas-capacity.md) for details. 
 
 +	[Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Count Documents](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -116,15 +120,15 @@ Using the Search Service API, you can get a count on documents and indexes. Ther
 <a id="sub-6"></a>
 ## Scale up or down
 
-Every search service starts with a minimum of one replica and one partition. If you signed up for dedicated resources using the Standard pricing tier, you can click the **SCALE** tile in the service dashboard to readjust the number of partitions and replicas used by your service.
+Every search service starts with a minimum of one replica and one partition. If you signed up for dedicated resources using the [Basic or Standard pricing tiers](search-limits-quotas-capacity.md), you can click the **SCALE** tile in the service dashboard to readjust the number of partitions and replicas used by your service.
 
-When you add either resource, the service uses them automatically. No further action is required on your part, but there will be a slight delay before the impact of the new resource is realized. It can take 15 minutes or more to provision the additional resources.
+When you add capacity via either resource, the service uses them automatically. No further action is required on your part, but there will be a slight delay before the impact of the new resource is realized. It can take 15 minutes or more to provision the additional resources.
 
  ![][10]
 
 ### Add replicas
 
-Increasing queries per second (QPS) or achieving high availability is done by adding replicas. Each replica has one copy of an index, so adding one more replica translates to one more index that can be used to service query requests. Currently, the rule of thumb is that you need at least 3 replicas for high availability. 
+Increasing queries per second (QPS) or achieving high availability is done by adding replicas. Each replica has one copy of an index, so adding one more replica translates to one more index that can be used to service query requests. Currently, the rule of thumb is that you need at least 3 replicas for high availability (see [Capacity Planning](search-capacity-planning.md) for details).
 
 A search service having more replicas can load balance query requests over a larger number of indexes. Given a level of query volume, query throughput is going to be faster when there are more copies of the index available to service the request. If you are experiencing query latency, you can expect a positive impact on performance once the additional replicas are online.
 
@@ -134,7 +138,9 @@ Although query throughput goes up as you add replicas, it does not precisely dou
 
 Most service applications have a built-in need for more replicas rather than partitions, as most applications that utilize search can fit easily into a single partition that can support up to 15 million documents. 
 
-For those cases where an increased document count is required, you can add partitions. Notice that partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding; an index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
+For those cases where an increased document count is required, you can add partitions if you signed up for Standard service. Basic tier does not provide for additional partitions.
+
+At the Standard tier, partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding; an index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
 
 ### Remove replicas
 

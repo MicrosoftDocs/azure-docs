@@ -40,11 +40,9 @@ Some examples of workloads that are commonly processed using this technique are:
 * Engineering stress analysis
 * Software testing
 
-Batch can also perform parallel calculations with a reduce step at the end, as well as execute more complex HPC workloads such as Message Passing Interface (MPI) applications.
+Batch can also perform parallel calculations with a reduce step at the end, as well as execute more complex HPC workloads such as [Message Passing Interface (MPI)](batch-mpi.md) applications.
 
 For a comparison between Batch and other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
-
->[AZURE.NOTE] At this time, Batch supports workloads that run on Windows Server-based virtual machines only.
 
 ## Developing with Batch
 

@@ -14,17 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/17/2015"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # Register an API from Swagger 2.0 API Definition  
-Many organizations already have some existing APIs that users can use and consume within their apps. To use these APIs in your apps, you must "register" the APIs in the Azure portal. The following options are available: 
+Many organizations already have some existing APIs that users can use and consume within their apps. To use these APIs in your apps, you must "register" the APIs in the Azure portal using a managed API, existing APIs in your app service environment, or creating an API using Swagger. 
 
-- Register a pre-built [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
-- Register a web app, API app, and mobile app hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
-- Register one of your own Swagger APIs using a Swagger 2.0 API definition (in this topic).
+> [AZURE.SELECTOR]
+- [Managed APIs](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [APIs in your ASE](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger APIs](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-This article shows you how to **register one of your own APIs using Swagger 2.0 API definition** that you created from an existing API. 
+In this topic, we focus on the third option - **registering one of your own APIs using Swagger 2.0 API definition** that you created from an existing API. 
 
 #### Prerequisites to get started
 
@@ -40,9 +41,10 @@ It's very easy to register these existing APIs. Steps include:
 	- The ``host`` property should point to the actual endpoint of your existing API. Do you not use scheme or any sub-paths. For example, enter ``api.contoso.com``.  <br/><br/>
 	- The ``basePath`` property should list the sub paths of your existing API endpoint, if there is any. Start with a forward slash ``/``. For example,  enter ``/purchaseorderapi``.
 
-2. Make sure your existing API is accessible by your app service environment securely:  <br/><br/>
-	a) If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. [Update an existing API](powerapps-configure-apis.md) to see how.  <br/><br/>
-	b) If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Learn more about [app service environments](../app-service-app-service-environment-intro.md).
+2. Make sure your existing API is accessible by your app service environment securely:  
+
+	1. If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. [Update an existing API](powerapps-configure-apis.md) to see how.  <br/><br/>
+	2. If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Learn more about [app service environments](../app-service-web/app-service-app-service-environment-intro.md).
 
 3. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
 ![][11]

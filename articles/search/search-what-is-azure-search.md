@@ -11,10 +11,11 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
+	ms.date="03/02/2016"
 	ms.author="ashmaka"/>
 
 # What is Azure Search?
+
 Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then use to add search to your web or mobile application. Azure Search allows you to easily add a robust search experience to your applications using a simple [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) or [.NET SDK](search-howto-dotnet-sdk.md) without managing search infrastructure or becoming an expert in search.
 
 ## Give your users a powerful search experience
@@ -29,7 +30,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 **Faceted navigation** is easily added to your search results page with Azure Search. Using [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search will return all the necessary information to construct a faceted search experience in your app's UI to allow your users to drill-down and filter search results  (e.g. filter catalog items by price-range or brand).
 
-**Geo-spatial** [support](search-create-geospatial.md) allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region.
+**Geo-spatial** support allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region. This video explains how it works: [Channel 9: Azure Search and Geospatial data](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
 **Filters** can be used to easily incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
@@ -58,9 +59,9 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 ### 1. Provision service
 You can spin up an Azure Search service using either the [Azure Portal](https://portal.azure.com/) or the [Azure Resource Management API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
-Depending on how you configure the service, you'll use either the Free tier that is shared with other Azure Search subscribers, or the Standard [pricing tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources to be used only by your service. When provisioning your service, you also choose the region of the data center that hosts your service.
+Depending on how you configure the search service, you'll use either the free tier of service that is shared with other Azure Search subscribers, or a [paid tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources to be used only by your service. When provisioning your service, you also choose the region of the data center that hosts your service.
 
-When using Azure Search in the Standard tier, you can scale your service in two dimensions: 1) Add Replicas to grow your capacity to handle heavy query loads and 2) add Partitions to add storage for more documents. By handling document storage and query throughput separately, you can customize your search service for your specific needs.
+Depending on which tier of service you choose, you can scale your service in two dimensions: 1) Add Replicas to grow your capacity to handle heavy query loads and 2) add Partitions to add storage for more documents. By handling document storage and query throughput separately, you can customize your search service for your specific needs.
 
 ### 2. Create index
 Before you can upload your content to your Azure Search service, you must first define an Azure Search index. An index is like a database table that holds your data and can accept search queries. You define the index schema to map to the structure of the documents you wish to search, similar to fields in a database.

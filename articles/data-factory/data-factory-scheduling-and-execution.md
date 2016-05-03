@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Scheduling & Execution with Data Factory
@@ -242,6 +242,54 @@ Once you kick off the rerun and the 9-10AM slice for dataset2 is ready, data fac
 ![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
 For deeper dive on specifying dependency and tracking the dependencies for complex chain of activities and datasets, refer to sections below.
+
+## Chaining activities
+You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. 
+
+For example, consider the following case:
+ 
+1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produce **output** dataset **D2**.
+2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces output dataset D3.
+ 
+In this scenario, the activity A1 will run when the external data is available, and the scheduled availability frequency is reached.  The activity A2 will run when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 will not run for that slice until it becomes available.
+
+The Diagram View would look like below:
+
+![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
+
+The Diagram View with both activities in the same pipeline would look like below: 
+
+![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+### Ordered copy
+It is possible to run multiple copy operations one after another in a sequential/ordered manner. Say you have two copy activities in a pipeline: CopyActivity1 and CopyActivity with the following input data output datasets.   
+
+CopyActivity1: 
+Input: Dataset1
+Output Dataset2
+
+CopyActivity2: 
+Inputs: Dataset2
+Output: Dataset4
+
+CopyActivity2 would run only if the CopyActivity1 has run successfully and Dataset2 is available. 
+
+In the above example, CopyActivity2 can have a different input, say Dataset3, but you will need to specify Dataset2 also as an input to CopyActivity2 so the activity will not run until CopyActivity1 completes. For example: 
+
+CopyActivity1: 
+Input: Dataset1
+Output Dataset2
+
+CopyActivity2: 
+Inputs: Dataset3, Dataset2
+Output: Dataset4
+
+When multiple inputs are specified, only the first input dataset is used for copying data but other datasets are used as dependencies. CopyActivity2 would only start executing when the following conditions are met: 
+
+- CopyActivity2 has successfully completed and Dataset2 is available. This dataset will not be used when copying data to Dataset4. It only acts as a scheduling dependency for CopyActivity2.   
+- Dataset3 is available. This dataset represents the data that is copied to the destination.  
+
+
 
 ## Modeling datasets with different frequencies
 
@@ -511,10 +559,7 @@ The hive activity takes the 2 inputs and produces an output slice every day. You
 	}
 
 
-## Chaining activities
-You can chain two activities by having the output dataset of one activity as the input dataset of the other activity. The activities can be in the same pipeline or in different pipelines. The second activity executes only when the first one completes successfully. This chaining occurs at the time slice level (a discrete unit within a dataset).
-
-## Data Factory function and system variables   
+## Data Factory functions and system variables   
 
 See [Data Factory Functions and System Variables](data-factory-functions-variables.md) article for a list of functions and system variables supported by Azure Data Factory. 
 
@@ -584,6 +629,51 @@ Similar to datasets that are produced by data factory the data slices for extern
 	} 
 
 
+## Onetime pipeline
+You can create and schedule a pipeline to run periodically (hourly, daily, etc...) within the start and end times you specify in the pipeline definition. See [Scheduling activities](#scheduling-and-execution) for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the JSON sample below. The default value for this property is **scheduled**. 
+
+	{
+	    "name": "CopyPipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset"
+	                    }
+	                ]
+	                "name": "CopyActivity-0"
+	            }
+	        ]
+	        "pipelineMode": "OneTime"
+	    }
+	}
+
+Note the following:
+ 
+- You do not need to specify **start** and **end** times for the pipeline. 
+- You need to specify availability of input and output datasets (frequency and interval) at this time even though the values are not used by Data Factory.  
+- Diagram view does not show one-time pipelines. This is by design. 
+- One time pipelines cannot updated. You can clone an one-time pipeline, rename it, update properties, and deploy it to create another one. 
+
+  
 
 
 

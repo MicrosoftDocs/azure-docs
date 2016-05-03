@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/08/2016"
 	ms.author="jgao"/>
 
 # Customize HDInsight clusters using Bootstrap
-
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 Sometimes, you want to configure the configuration files which include:
 
@@ -37,6 +35,9 @@ To keep the changes through the clusters' lifetime, you can use HDInsight cluste
 There are 3 methods to use bootstrap:
 
 - Use Azure PowerShell
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    
 - Use .NET SDK
 - Use ARM template
 

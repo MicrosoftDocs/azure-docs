@@ -3,8 +3,8 @@
    description="Learn how Azure Backup enables you to send data off the network using Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="nkolli1"
+   manager="shivamg"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="01/28/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;nkolli;trinadhk"/>
 
 # Offline Backup workflow in Azure Backup
 Azure Backup has lot of efficeincies built in to save network and storage costs.  Azure Backup not only compresses data but also backs up full content only once and deltas/incrementals after that.  So, if there is a 10TB file volume that is being backed up, Azure Backup will send 10TB as part of Initial Replication (IR) and only deltas as part of Delta Replication.  So, maximum WAN bandwidth required during IR.  To reduce the dependency of WAN at IR, Azure Backup supports offline backup using Azure Import/Export Service.  
@@ -30,7 +30,7 @@ With Azure Backup and Azure Import/Export, it is simple and straightforward to u
 2. Before initiating the workflow, ensure that a Azure Backup vault has been created, vault credentials have been downloaded, Azure Backup agent has been installed on either your Windows Server/Windows Client or System Center Data Protection Manager (SCDPM) server and that the machine is registered with the Azure Backup vault.
 3. Download the Azure Publish file settings from [here](https://manage.windowsazure.com/publishsettings) on the machine from which you plan to backup our data.
 4. Prepare a *staging location* which could be a network share or additional drive on the machine. Ensure that the staging location has enough disk space to hold your initial copy. For example, if you are trying to backup a 500GB file server, ensure that the staging area is at least 500GB (though a lesser amount will be used). The staging area is 'transient storage' and is used temporarily during this workflow.
-5. External SATA drive writer and an external 3.5 Inch SATA drive. Only 3.5 inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives larger than 6TB are not supported. You can attach a SATA II/III disk externally to most computers using a SATA II/III USB Adapter. Check the Azure Import/Export documentation for the latest set of drives which are supported by the service.
+5. External SATA drive writer and an external 3.5 Inch SATA drive. Only 3.5 inch SATA II/III hard drives are supported for use with the Import/Export service. Hard drives larger than 8TB are not supported. You can attach a SATA II/III disk externally to most computers using a SATA II/III USB Adapter. Check the Azure Import/Export documentation for the latest set of drives which are supported by the service.
 6. Enable BitLocker on the machine to which the SATA drive writer is connected.
 7. Download the Azure Import/Export tool from [here](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) to the machine to which the SATA drive writer is connected.
 

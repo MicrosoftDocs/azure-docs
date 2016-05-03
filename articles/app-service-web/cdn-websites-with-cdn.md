@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -49,7 +49,7 @@ This tutorial has the following prerequisites:
 
 ## Deploy a web app to Azure with an integrated CDN endpoint ##
 
-In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2013 to App Service, and then integrate it with a new CDN endpoint. Follow the instructions below:
+In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2015 to App Service, and then integrate it with a new CDN endpoint. Follow the instructions below:
 
 1. In Visual Studio 2015, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
 
@@ -77,36 +77,49 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	You will see your published web app in the browser when publishing is complete. 
 
-1. To create a CDN endpoint, log into the [Azure classic portal](https://manage.windowsazure.com). 
-2. Click **New** > **App Services** > **CDN** > **Quick Create**. Select **http://*&lt;sitename>*.azurewebsites.net/** and click **Create**.
+1. To create a CDN endpoint, log into the [Azure portal](https://portal.azure.com). 
+2. Click **+ New** > **Media + CDN** > **CDN**.
 
-	![](media/cdn-websites-with-cdn/7-create-cdn.png)
+	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
 
-	> [AZURE.NOTE] Once your CDN endpoint is created, the classic portal will show you its URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+3. Specify the **CDN**, **Location**, **Resource group**,  **Pricing tier**, then click **Create**
 
-3. Back in the classic portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
+	![](media/cdn-websites-with-cdn/7-create-cdn.png)	
+
+4. In the **CDN Profile** blade click on **+ Endpoint** button. Give it a name, select **Web App** in the **Origin Type** dropdown and your web app in the **Origin hostname** dropdown, then click **Add**.  
+
+	![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
+
+
+
+	> [AZURE.NOTE] Once your CDN endpoint is created, the **Endpoint** blade will show you its CDN URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+
+3. Back in the **Endpoint** blade, click the name of the CDN endpoint you just created.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-3. Click **Enable Query String** to enable query strings in the CDN cache. Once you enable this, the same link accessed with different query strings will be cached as separate entries.
+3. Click the **Configure** button. In the **Configure** blade, select **Cache every unique URL** in **Query string caching behavior** dropdown, then click the **Save** button.
+
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+Once you enable this, the same link accessed with different query strings will be cached as separate entries.
 
-2. Now, click the CDN endpoint address. If the endpoint is ready, you should see your web app displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
+>[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
+
+2. Now, navigate to the CDN endpoint address. If the endpoint is ready, you should see your web app displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. Next, try to access the **~/Content/bootstrap.css** file in your ASP.NET project. In the browser window, navigate to **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. In my setup, this URL is:
+1. Next, try to access the **~/Content/bootstrap.css** file in your ASP.NET project. In the browser window, navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**. In my setup, this URL is:
 
-		http://az673227.vo.msecnd.net/Content/bootstrap.css
+		http://az673227.azureedge.net/Content/bootstrap.css
 
 	Which corresponds to the following origin URL at the CDN endpoint:
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	When you navigate to **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your web app in Azure. 
+	When you navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your web app in Azure. 
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -217,7 +230,7 @@ Follow the steps above to setup this controller action:
               }
               else // Get content from Azure CDN
               {
-                return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+                return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
               }
             }
 
@@ -303,13 +316,13 @@ When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` acti
       }
       else // Get content from Azure CDN
       {
-        return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+        return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
       }
     }
 
 If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure web app, then it will redirect to:
 
-	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 Which corresponds to the following origin URL at your CDN endpoint:
 
@@ -369,7 +382,7 @@ Follow the steps below to integration ASP.NET bundling and minification with you
           bundles.UseCdn = true;
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
-          var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
@@ -400,7 +413,7 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 
 	is the same as: 
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question. However, note two important characteristics with this carefully crafted CDN URL:
 	
@@ -417,11 +430,11 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 4. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure web app. For example:  
 	
         ...
-        <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-        <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+        <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
         ...
-        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
-        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
         ...
 
 5. In Visual Studio, debug the ASP.NET application in Visual Studio by typing `F5`., 
@@ -450,7 +463,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
         {
           var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
             .GetName().Version.ToString();
-          var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+          var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
           bundles.UseCdn = true;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
@@ -508,13 +521,13 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 	
 	```
 	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	<link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 <script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
                 for (var i = 0; i < len; i++) {
                     var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+                    if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
                         var meta = document.createElement('meta');
                         meta.className = 'sr-only';
                         document.head.appendChild(meta);
@@ -528,13 +541,13 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
                 return true;
             }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
-	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
- 	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
@@ -545,7 +558,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
-6. To test whether the fallback script is working, go back to the your CDN endpoint's dashboard and click **Disable Endpoint**.
+6. To test whether the fallback script is working, go back to the your CDN endpoint's blade and click **Stop**.
 
 	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
@@ -556,10 +569,9 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 - [Serve Content from Azure CDN in Your Web Application](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
 - [Integrate a cloud service with Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](../cdn/cdn-how-to-use-cdn.md)
+- [Using Azure CDN](../cdn/cdn-create-new-endpoint.md)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 

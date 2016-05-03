@@ -13,17 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.date="03/04/2016"
 	ms.author="saah;kenhoff"/>
 
 # Users with anomalous sign in activity
-This is an aggregate report that combines suspicious sign ins from the following reports:
+This is an aggregate report that combines suspicious sign-ins from the following reports:
+
 <ul><li>Sign ins from unknown sources</li>
-<li>Sign ins after multiple failures</li>
-<li>Sign ins from multiple geographies</li>
-<li>Sign ins from IP addresses with suspicious activity</li>
-<li>Sign ins from possibly infected devices</li>
-<li>Irregular sign in activity</li>
+<li>Sign-ins after multiple failures</li>
+<li>Sign-ins from multiple geographies</li>
+<li>Sign-ins from IP addresses with suspicious activity</li>
+<li>Sign-ins from possibly infected devices</li>
+<li>Irregular sign-in activity</li>
 </ul>
 
 

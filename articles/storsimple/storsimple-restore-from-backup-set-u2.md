@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="03/31/2016"
    ms.author="v-sharos" />
 
 # Restore a StorSimple volume from a backup set (Update 2)

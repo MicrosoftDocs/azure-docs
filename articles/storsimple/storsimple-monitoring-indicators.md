@@ -3,7 +3,7 @@
     description="Describes the light-emitting diodes (LEDs) and audible alarms used to monitor the status of the StorSimple device."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="carolz"
     editor="" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="01/05/2016"
-    ms.author="v-sharos" />
+    ms.date="03/21/2016"
+    ms.author="alkohli" />
 
 # Use StorSimple monitoring indicators to manage your device   
 
@@ -37,7 +37,7 @@ The front panel, also known as the *operations panel* or *ops panel*, displays t
  
 The front panel contains the following indicators:  
 
-1. Power button
+1. Mute button
 2. Power indicator LED (green/red-amber)
 3. Module fault indicator LED (ON red-amber/OFF)
 4. Logical fault indicator LED (ON red-amber/OFF

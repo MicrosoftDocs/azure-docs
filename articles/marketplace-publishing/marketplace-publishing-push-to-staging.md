@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="04/25/2016"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -26,34 +26,64 @@ In this step of the publishing process, you will need to provide certain marketi
   2. On the left menu, click the **Marketing** tab.
   3. In the main panel, click the **English (US)** button.
 
+  > [AZURE.IMPORTANT] All fields must have entries, including the images, for you to be able to push to staging.
+
 ### Details
-1. Enter the offer summary, long summary, and description for your offer.
-2.	Upload images of the required specifications (mentioned in the publishing portal) in PNG format, one for each size.
+1. Enter the offer title (maximum 50 characters), offer summary (maximum 100 characters), offer long summary (maximum 256 characters), offer description (maximum 1300 characters), logos under the **Details** tab
+2. Enter SKU title (maximum 50 characters), SKU summary (maximum 100 characters), SKU description (maximum 2000 characters) under the **Plans** tab
+3. Do not enter duplicate text under offer and SKU description.
+4. Do not enter duplicate text under SKU's title and offer long summary.
+5. Do not enter duplicate text under SKU Title and Offer Summary.
+6. Upload images of the required specifications (mentioned in the Publishing Portal) in PNG format, one for each size.
+7. Ensure that the logos follow the Azure Marketplace logo guidelines mentioned below.
 
-  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
-  *Offer title, description, and logos*
+**Azure Marketplace Logo Guidelines**
+
+All the logos uploaded in the Publishing Portal should follow the below guidelines:
+
+- The Azure design has a simple color palette. Please keep the number of primary and secondary colors on the logos low.
+- Logos should not be placed on a white background. We recommend simple primary colors or transparent backgrounds.
+- Do not use a gradient background on the logo.
+- Avoid placing text, even your company or brand name, on the logo.
+- The look and feel of your logo should be 'flat' and should avoid gradients.
+- The logo should not be stretched.
+- Small logo should be of size 40 X 40 px
+- Medium logo should be of size 90 X 90 px
+- Large logo should be of size 115 X 115 px
+- Wide logo should be of size 255 X 115 px
+- Hero logo should be of size 815 X 290 px
+
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
+
+**Additional guidelines for the Hero logo banner:**
+
+- The Hero logo is optional. You can choose not to upload a Hero logo.
+- The publisher display name, SKU title, the offer long summary and the create button are embedded automatically inside the Hero logo once the offer goes live. So you do not have to enter them while you are designing the Hero logo.
+- As the Publisher Display Name, SKU title and the offer long summary are displayed in white font color, you should avoid keeping the background of the Hero Icon as white, or any light color.
+- You should leave space for the above text on the top of the Hero Icon. The space for the text is 415x100 and it is offset by 370px from the left.
+
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### Links
 On the **Links** tab on the left bar, enter any links with information that may help customers. Enter a name and URL for each link.
 
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### Sample images (optional)
 > [AZURE.NOTE] Including a sample image is an optional step. You could complete the other marketing content to fulfill requirements for the push to staging.
 
 On the **Sample Images** tab on the left menu, upload a new image by clicking **Upload a new image**. If you have an existing image and you would like to replace it, click **Replace image**.
 
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-03.png)
-
-### Plans
-![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
 
 ### Legal
-On the **Legal** tab, provide a link to your policies/terms of use. Enter or paste the terms in the large **Terms of Use** box.
+On the **Legal** tab, provide a link to your policies/terms of use. Enter or paste the terms in the large **Terms of Use** box. The character limit for the legal terms of use is 1,000,000 characters.
 
-> [AZURE.IMPORTANT] All fields must have entries, including the images, for you to be able to push to staging.
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
+> [AZURE.NOTE] For virtual machines, you cannot change the following once a SKU is staged or live: **Offer identifier**, **Publisher identifier**, and **SKU identifier**.
 
 ## Step 2: Set your prices
 ### Pricing models
@@ -88,6 +118,8 @@ On the **Legal** tab, provide a link to your policies/terms of use. Enter or pas
 5.	A pricing wizard will open. Proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and you should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See the section “Sell-to countries of the offer” in the introduction of this document for more information on sell-to countries.
 
+  > [AZURE.NOTE] For Virtual Machines, you cannot change the following once a SKU goes live as this impacts the billing of existing customers: **Pricing change**, **Billing model change**, and **Removal of billing regions**.
+
 ### 2.2. Set your Developer service prices
 Plans can be any combination of base + consumption, where base is the monthly price and overage is the pay-per-use price. (See below for more details.)
 
@@ -104,7 +136,7 @@ Plans can be any combination of base + consumption, where base is the monthly pr
 |Gold|$1,000/month|Quota of 10,000 of feature X, 1,000 of feature Y, and unlimited of feature Z.|Can migrate to all plans except free|
 
 ## Step 3: Provide support information
-Some of this information will have been completed during the certification step. You may add or edit information by using the steps below. The contact details are used for internal communications between the partner and Microsoft only. The support URL will be available to the end customers.
+The contact details are used for internal communications between the partner and Microsoft only. The support URL will be available to the end customers.
 
 1.	Go to the **Support** heading on the left side of the publishing portal.
 2.	Enter information under **Engineering Contact**.
@@ -115,7 +147,7 @@ Some of this information will have been completed during the certification step.
 The **Categories** tab provides an array of selections. Your offer may fall under these, and you may select up to five categories.
 
 ## How your marketing will appear
-Below is a detailed view of how the offer marketing information is used on the [Azure Marketplace website](https://azure.microsoft.com/marketplace/) and in the [Azure preview portal](https://ms.portal.azure.com).
+Below is a detailed view of how the offer marketing information is used on the [Azure Marketplace website](https://azure.microsoft.com/marketplace/) and in the [Azure portal](https://portal.azure.com).
 
 ### Azure Marketplace website
 ![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -132,21 +164,21 @@ Below is a detailed view of how the offer marketing information is used on the [
 
 *Offer description pricing details on the Azure Marketplace website*
 
-### Azure preview portal
+### Azure Portal
 ![drawing](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
 
-*Listing of offers in the Azure preview portal*
+*Listing of offers in the Azure Portal*
 
 ![drawing](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
-*Offer description details in the Azure preview portal*
+*Offer description details in the Azure portal*
 
 ## Next steps
 Now that your Marketplace content is loaded, let's move forward with testing your offer in staging. However, you must select the appropriate offer type from the list below, as steps vary by offer type.
 
 ||Virtual machine image |Developer service | Data service | Solution template |
 |----|----|----|----|----|
-| **Step 3. Push your offer to staging** | [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your developer service offer in staging | [Test your data service offer in staging](marketplace-publishing-data-service-test-in-staging.md) | [Test your solution template in staging](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Step 3. Push your offer to staging** | [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md) | Private Preview | [Test your data service offer in staging](marketplace-publishing-data-service-test-in-staging.md) | [Test your solution template in staging](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

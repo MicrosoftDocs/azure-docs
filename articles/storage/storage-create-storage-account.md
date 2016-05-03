@@ -69,25 +69,21 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
 
-3. Select a deployment model: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
-
-4. Enter a name for your storage account.
+3. Enter a name for your storage account.
 
 	> [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 	>  
-	> Your storage account name must be unique within Azure. The Azure Portal will indicate if the storage account name you select is already taken.
+	> Your storage account name must be unique within Azure. The Azure Portal will indicate if the storage account name you select is already in use.
 
 	See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
 
-5. Specify the type of storage account to create. The storage account type determines how the storage account is replication and whether it is a standard storage account or a premium storage account.
+4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
 
-	The default storage account type is **Standard-RAGRS**, which is a standard storage account with read-access geo-redundant replication. This type of storage account is replicated to a secondary region that is hundreds of miles away from the primary region, and provides read access to the secondary location.
+5. Specify the performance tier for the storage account: **Standard** or **Premium**. The default is **Standard**. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
 
-	For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md). For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md)
+6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 
-6. Indicate whether you wish to enable Diagnostics for your storage account. Diagnostics include Storage Analytics logging and metrics.
-
-7. If you have more than one Azure subscription, then the **Subscription** field is displayed. Select the subscription in which you want to create the new storage account.
+7. Select the subscription in which you want to create the new storage account.
 
 8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Using the Azure Portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
@@ -95,27 +91,35 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 10. Click **Create** to create the storage account.
 
-## Manage your storage access keys
+## Manage your storage account
+
+### Change your account configuration
+
+After you create your storage account, you can modify its configuration, such as changing the replication option used for the account. In the Azure Portal, navigate to your storage account, click **All settings** and then click **Configuration** to view and/or change the account configuration. Changing the replication option will change your pricing.
+
+> [AZURE.NOTE] Depending on the performance tier you chose when creating the storage account, some replication options may not be available.
+
+### Manage your storage access keys
 
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
 > [AZURE.NOTE] We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Shared Access Signatures: Understanding the SAS model](storage-dotnet-shared-access-signature-part-1.md) for more information.
 
-### View and copy storage access keys
+#### View and copy storage access keys
 
-In the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications.
+In the [Azure Portal](https://portal.azure.com), navigate to your storage account, click **All settings** and then click **Access keys** to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications.
 
-### Regenerate storage access keys
+#### Regenerate storage access keys
 
 We recommend that you change the access keys to your storage account periodically to help keep your storage connections secure. Two access keys are assigned so that you can maintain connections to the storage account by using one access key while you regenerate the other access key.
 
-> [AZURE.WARNING] Regenerating your access keys affects virtual machines, media services, and any applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
-
-**Virtual machines** - If your storage account contains any virtual machines that are running, you will have to redeploy all virtual machines after you regenerate the access keys. To avoid redeployment, shut down the virtual machines before you regenerate the access keys.
+> [AZURE.WARNING] Regenerating your access keys can affect services in Azure as well as your own applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
 
 **Media services** - If you have media services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
 
 **Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys.
+
+**Storage Explorers** - If you are using any [storage explorer applications](storage-explorers.md), you will probably need to update the storage key used by those applications. 
 
 Here is the process for rotating your storage access keys:
 
@@ -137,9 +141,9 @@ To delete a storage account that is associated with an Azure virtual machine, yo
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-If the storage account uses the Classic deployment model, you can remove the virtual machine disk by following these steps in the [Classic Azure Portal](https://manage.windowsazure.com):
+If the storage account uses the Classic deployment model, you can remove the virtual machine disk by following these steps in the [Azure Portal](https://manage.windowsazure.com):
 
-1. Navigate to the [Azure Classic Portal](https://manage.windowsazure.com).
+1. Navigate to the [Classic Portal](https://manage.windowsazure.com).
 2. Navigate to the Virtual Machines tab.
 3. Click the Disks tab.
 4. Select your data disk, then click Delete Disk.

@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Create HDInsight clusters with Azure Data Lake Store using PowerShell | Azure" 
-   description="Use Azure PowerShell to create and use HDInsight Hadoop clusters with Azure Data Lake" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Create HDInsight clusters with Azure Data Lake Store using PowerShell | Azure"
+   description="Use Azure PowerShell to create and use HDInsight Hadoop clusters with Azure Data Lake"
+   services="data-lake-store,hdinsight" 
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="01/21/2016"
+   ms.workload="big-data"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Create an HDInsight cluster with Data Lake Store using Azure PowerShell
@@ -53,23 +53,23 @@ Before you begin this tutorial, you must have the following:
 To begin with, you must uninstall the 0.9x versions of Azure PowerShell. To check the version of the installed PowerShell, run the following command from a PowerShell window:
 
 	Get-Module *azure*
-	
-To uninstall the older version, run **Programs and Features** in the control panel and remove the installed version if it's earlier than PowerShell 1.0. 
 
-There are two main options for installing Azure PowerShell. 
+To uninstall the older version, run **Programs and Features** in the control panel and remove the installed version if it's earlier than PowerShell 1.0.
+
+There are two main options for installing Azure PowerShell.
 
 - [PowerShell Gallery](https://www.powershellgallery.com/). Run the following commands from elevated PowerShell ISE or elevated Windows PowerShell console:
 
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
 		Install-AzureRM
-		
+
 		# Install the Azure Service Management module from PowerShell Gallery
 		Install-Module Azure
-		
+
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
+
 		# Import Azure Service Management module
 		Import-Module Azure
 
@@ -78,7 +78,7 @@ There are two main options for installing Azure PowerShell.
 - [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires the modules be removed prior to installation to ensure a consistent Azure PowerShell Environment. For the instructions, see [Install Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
 WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. If you are comfortable with installing from PowerShell Gallery, that will be the first channel for the latest and greatest in Azure PowerShell.
- 
+
 
 ## Create an Azure Data Lake Store
 
@@ -88,11 +88,11 @@ Follow these steps to create a Data Lake Store.
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
 
 		# Register for Data Lake Store
@@ -122,7 +122,7 @@ Follow these steps to create a Data Lake Store.
 
 4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-		
+
 		$myrootdir = "/"
 		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
@@ -159,22 +159,22 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
 
 ###  Create an Azure Active Directory and a service principal
 
-In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory. 
+In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory.
 
-1. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified. 
+1. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified.
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
-		
+
 		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
-		
+
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
-		
+
 		$rawCertificateData = $certificatePFX.GetRawCertData()
-		
+
 		$credential = [System.Convert]::ToBase64String($rawCertificateData)
 
 		$application = New-AzureRmADApplication `
-					-DisplayName "HDIADL" ` 
+					-DisplayName "HDIADL" `
 					-HomePage "https://contoso.com" `
 					-IdentifierUris "https://mycontoso.com" `
 					-KeyValue $credential  `
@@ -188,11 +188,11 @@ In this section, you perform the steps to create a service principal for an Azur
 2. Create a service principal using the application ID.
 
 		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
-		
+
 		$objectId = $servicePrincipal.Id
 
 3. Grant the service principal access to the Data Lake Store you created earlier.
-		
+
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
 	At the prompt, enter **Y** to confirm.
@@ -210,9 +210,9 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 		# Create an Azure storage account
 		$location = "East US 2"
 		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-		
+
 		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
- 
+
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
 		$storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
@@ -226,7 +226,7 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
 		$httpCredentials = Get-Credential
 		$rdpCredentials = Get-Credential
-		
+
 		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
 	After the cmdlet successfully completes, you should see an output like this:
@@ -245,7 +245,7 @@ In this section, we create an HDInsight Hadoop cluster. For this release, the HD
 		DefaultStorageAccount     :
 		DefaultStorageContainer   :
 		ResourceGroup             : hdiadlgroup
-		AdditionalStorageAccounts : 
+		AdditionalStorageAccounts :
 
 ## Run test jobs on the HDInsight cluster to use the Data Lake Store
 
@@ -286,7 +286,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 Use the following cmdlets to run the Hive query. In this query we create a table from the data in the Data Lake Store and then run a select query on the created table.
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
-	
+
 	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
 	$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
@@ -306,7 +306,7 @@ This will have the following output. **ExitValue** of 0 in the output suggests t
 	Callback        :
 	Completed       : done
 
-Retrieve the output from the job by using the following cmdlet:	
+Retrieve the output from the job by using the following cmdlet:
 
 	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
 
@@ -357,7 +357,7 @@ You can also use the `hdfs dfs -put` command to upload some files to the Data La
 
 	![Remote into HDI cluster](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
 
-	When prompted, enter the credentials you provided for the remote desktop user. 
+	When prompted, enter the credentials you provided for the remote desktop user.
 
 4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake Store.
 

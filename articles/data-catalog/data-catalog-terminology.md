@@ -1,6 +1,6 @@
 ﻿<properties
-   pageTitle="Azure Data Catalog terminology"
-   description="An introduction to concepts and terms used in Azure Data Catalog documentation."
+   pageTitle="Azure Data Catalog terminology | Microsoft Azure"
+   description="This article provides an introduction to concepts and terms used in Azure Data Catalog documentation."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog terminology

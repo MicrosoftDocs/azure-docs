@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.topic="get-started-article"
+	ms.date="03/02/2016"
 	ms.author="erikje"/>
 
 # Log in to Azure Stack POC
 
-There are two ways to log in to the Azure Stack POC.
+You can log in to the Azure Stack POC as a [service administrator](#log-in-as-a-service-administrator) or as a [tenant](#log-in-as-a-tenant).
 
 ## Log in as a service administrator
 
@@ -26,9 +26,15 @@ A service administrator manages resource providers, tenant offers, plans, servic
 
 1.  Log in to the Azure Stack POC physical machine.
 
-2.  Double-click the **ClientVM.AzureStack.local.rdp** desktop icon to open a Remote Desktop Connection to the client virtual machine. This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
+2.  Double-click the **ClientVM.AzureStack.local.rdp** desktop icon to open a Remote Desktop Connection to the client virtual machine.
+ 
+    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
+    
+    This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
 3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/).
+
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
 
 4.  Log in using the service administrator account.
 
@@ -38,9 +44,15 @@ If you don’t already have one, [Create a tenant account](azure-stack-add-new-u
 
 1.  Log in to the Azure Stack physical machine.
 
-2.  Double-click the **ClientVM.AzureStack.local.rdp** desktop icon to open a Remote Desktop Connection to the client virtual machine. This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
+2.  Double-click the **ClientVM.AzureStack.local.rdp** desktop icon to open a Remote Desktop Connection to the client virtual machine. 
+
+    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
+
+    This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
 3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/).
+
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
 
 4.  Log in using a tenant account.
 

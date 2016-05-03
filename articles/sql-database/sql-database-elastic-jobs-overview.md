@@ -2,8 +2,9 @@
 	pageTitle="Elastic database jobs overview | Microsoft Azure" 
 	description="Illustrates the elastic database job service" 
 	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	services="sql-database" 
+    documentationCenter=""  
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/23/2016" 
 	ms.author="ddove;sidneyh" />
 
 # Elastic Database jobs overview
@@ -23,7 +24,7 @@ The **Elastic Database jobs** feature (preview) enables you to  reliably execute
 * all databases in an [Elastic Database pool](sql-database-elastic-pool.md)
 * a shard set (created using [Elastic Database client library](sql-database-elastic-database-client-library.md)). 
  
-For instructions on installation, go to [Installing the Elastic Database job components](sql-database-elastic-jobs-service-installation.md).
+For instructions on installation, go to [Installing the Elastic Database job components](sql-database-elastic-jobs-service-installation.md). See also [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 
 **Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL Databases by running Transact-SQL scripts to perform administrative operations. 
 
@@ -91,7 +92,7 @@ The following components work together to create an Azure Cloud service that ena
 * **Azure Cloud Service**: elastic database jobs (preview) is delivered as a customer-hosted Azure Cloud service to perform execution of the requested tasks. From the portal, the service is deployed and hosted in your Microsoft Azure subscription. The default deployed service runs with the minimum of two worker roles for high availability. The default size of each worker role (ElasticDatabaseJobWorker) runs on an A0 instance. For pricing, see [Cloud services pricing](https://azure.microsoft.com/pricing/details/cloud-services/). 
 * **Azure SQL Database**: The service uses an Azure SQL Database known as the **control database** to store all of the job metadata. The default service tier is a S0. For pricing, see [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 * **Azure Service Bus**: An Azure Service Bus is for coordination of the work within the Azure Cloud Service. See [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/).
-* **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../service-fabric/cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
+* **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 ## How Elastic Database jobs work
 1.	An Azure SQL Database is designated a control database which stores all meta-data and state data.
@@ -117,7 +118,7 @@ There are multiple types of job tasks that carry out execution of jobs:
 At any point during job execution, the PowerShell API can be used to view the current state of job execution. All times returned by the PowerShell APIs are represented in UTC. If desired, a cancellation request can be initiated to stop a job. 
 
 ## Next steps
-[Install the components](sql-database-elastic-jobs-service-installation.md), then [create and add a log in to each database in the group of databases](sql-database-security.md). To further understand job creation and management, see [creating and managing elastic database jobs](sql-database-elastic-jobs-create-and-manage.md).
+[Install the components](sql-database-elastic-jobs-service-installation.md), then [create and add a log in to each database in the group of databases](sql-database-security.md). To further understand job creation and management, see [creating and managing elastic database jobs](sql-database-elastic-jobs-create-and-manage.md). See also [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -3,7 +3,7 @@
     description="Build scalable .NET database apps"
     services="sql-database"
     documentationCenter=""
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="ddove"
     editor=""/>
 

@@ -4,8 +4,8 @@
 	services="biztalk-services"
 	documentationCenter="na"
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="dwrede"/>
+	manager="erikre"
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 

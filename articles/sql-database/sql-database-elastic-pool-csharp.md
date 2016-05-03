@@ -5,7 +5,7 @@
     keywords="c# database,sql development"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -14,31 +14,28 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # C&#x23; database development: Create and configure an elastic database pool for SQL database
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) for SQL databases from an application using C# database development techniques.
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
 The examples use the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
-The Azure SQL Database Library for .NET provides an [Azure Resource Manager](resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
-
-<br>
 
 > [AZURE.NOTE] The SQL Database Library for .NET is currently in preview.
 
-<br>
+
 
 If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to this article. And for a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
@@ -124,20 +121,15 @@ Additional information about using Azure Active Directory for authentication can
 The client application must retrieve the application access token for the current user. The first time the code is executed by a user they will be prompted to enter their user credentials and the resulting token is cached locally. Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.
 
 
-    /// <summary>
-    /// Prompts for user credentials when first run or if the cached credentials have expired.
-    /// </summary>
-    /// <returns>The access token from AAD.</returns>
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
             ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
+                clientId,
+        new Uri(redirectUri) /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -294,7 +286,7 @@ The following example updates the performance characteristics of an existing ela
 
 ## Move an existing database into an elastic database pool
 
-*After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Monitor and manage an elastic database pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 The following example moves an existing Azure SQL database into a pool:
 
@@ -389,14 +381,13 @@ The following example lists all databases in a pool:
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
-                PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+                    clientId,
+            new Uri(redirectUri) /* redirect URI */,
+            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
         }

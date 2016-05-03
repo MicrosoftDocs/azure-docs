@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/23/2015"
+   ms.date="01/23/2016"
    ms.author="sstein"/>
 
 # SQL Database Index Advisor
@@ -33,7 +33,7 @@ This article describes Index Advisor for V12 servers. Index recommendations are 
 
 ### Permissions
 
-To view and create index recommendations, you need the correct [role-based access control](role-based-access-control-configure.md) permissions in Azure. 
+To view and create index recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-configure.md) permissions in Azure. 
 
 - **Reader**, **SQL DB Contributor** permissions are required to view recommendations.
 - **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.

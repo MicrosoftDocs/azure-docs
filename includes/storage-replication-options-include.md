@@ -21,7 +21,7 @@ When you create a storage account, you must select one of the following replicat
 
 	> [AZURE.IMPORTANT] You can change how your data is replicated after your storage account has been created, unless you specified ZRS when you created the account. However, note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.
  
-See [Azure Storage Replication](../articles/storage/storage-redundancy.md) for additional details about storage replication options.
+See [Azure Storage replication](../articles/storage/storage-redundancy.md) for additional details about storage replication options.
 
 For pricing information for storage account replication, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Debug Stream Analytics jobs using service and operation logs
@@ -26,7 +26,7 @@ All Azure services supply operational logging messages to users to record detail
 Operation Logs can be accessed in two ways:  
 
 - Dashboard of the Stream Analytics job  
-- Management Services in the Azure Portal  
+- Management Services in the Azure Classic Portal  
 
 ## Dashboard of the Stream Analytics job
 
@@ -36,22 +36,22 @@ A link to the corresponding logs of a Stream Analytics job is displayed on the j
 
 ## Management Services
 
-To manually navigate to the Operation Logs for Stream Analytics and other services in the Azure Portal:
+To manually navigate to the Operation Logs for Stream Analytics and other services in the Azure Classic Portal:
 
-1.	Click on **Management Services** in the [Azure Portal](https://manage.windowsazure.com).
+1.	Click on **Management Services** in the [Azure Classic Portal](https://manage.windowsazure.com).
 2.	Select **Stream Analytics** for **Type** and the name of the job for **Service Name**.  
 
   ![Select Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
 
-## Find audit logs in the Azure Preview portal ##
+## Find audit logs in the Azure Portal ##
 
-To find operational logs for your Stream Analytics job in the Azure Preview portal, Click **Browse** and then select **Audit logs**.
+To find operational logs for your Stream Analytics job in the Azure Portal, Click **Browse** and then select **Audit logs**.
 
-  ![Azure preview portal Select Stream Analytics](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)  
+  ![Azure Portal Select Stream Analytics](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)  
 
 This will open a blade showing events from the last 7 days for all resources in your subscription.  You can filter to see events of a specify type or time frame by clicking the **Filter** command.
 
-  ![Azure preview portal Select Stream Analytics](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)  
+  ![Azure Portal Select Stream Analytics](./media/stream-analytics-operation-logs/07-stream-analytics-operation-logs.png)  
 
 ## Get log details
 
@@ -61,13 +61,13 @@ In the Azure Management portal, click on the **Details** button at the bottom of
 
   ![Select Details](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)  
 
-In the Azure Preview portal, click on a log entry to see the detailed events inside it.
+In the Azure Portal, click on a log entry to see the detailed events inside it.
 
-  ![Azure preview portal Select Details](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)  
+  ![Azure Portal Select Details](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)  
 
 From there, you can open the **Detail** blade by clicking on the event.
 
-  ![Azure preview portal Select Details](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)  
+  ![Azure Portal Select Details](./media/stream-analytics-operation-logs/09-stream-analytics-operation-logs.png)  
 
 ## Debug a failed job
 
@@ -75,9 +75,9 @@ In the Azure Management portal, click on the Search icon and type ‘failed’. 
 
   ![Debugging a failed job](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)  
 
-In the Azure Preview portal, you can filter by level of message to view **Critical** events.
+In the Azure Portal, you can filter by level of message to view **Critical** events.
 
-  ![Azure preview portal debug](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)  
+  ![Azure Portal debug](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)  
 
 You can select any one of the failures, and click on the **Details** for more information on the error.  Some error messages also provide information about how the mitigate the issue. 
 

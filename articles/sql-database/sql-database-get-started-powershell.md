@@ -5,13 +5,13 @@
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor="cgronlun"/>
 
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
     ms.date="01/20/2016"

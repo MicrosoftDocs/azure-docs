@@ -2,7 +2,7 @@
 	pageTitle="Author Logic App definitions | Microsoft Azure" 
 	description="Learn how to write the JSON definition for Logic apps" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,21 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 	
 # Author Logic App definitions
-This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](../app-service-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
 
 ## Several steps that repeat over a list
 
-A common pattern is to have one step that gets a list of items, and then you have a series of two or more actions that you want to do on the list:  
+A common pattern is to have one step that gets a list of items, and then you have a series of two or more actions that you want to do for each item in the list:  
 
-![Repeat over lists](./media/app-service-logic-author-definitions/repeatoverlists.png)
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
 
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
+
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
+
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists4.png) 
+
+ 
 In this example, there are 3 actions:
 
-1. Get a list of articles. This returns back an object that contains an array.
+1. Get a list of articles. This returns an object that contains an array.
 
 2. An action that goes to a link property on each article, which returns the actual location of the article.
 
@@ -35,47 +42,49 @@ In this example, there are 3 actions:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "triggers": {},
-    "actions": {
-        "getArticles": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
-            }
-        },
-        "readLinks": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@repeatItem().link"
-            },
-            "repeat": "@body('getArticles').responseData.feed.entries"
-        },
-        "downloadLinks": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@repeatOutputs().headers.location"
-            },
-            "conditions": [
-                {
-                    "expression": "@not(equals(actions('readLinks').status, 'Skipped'))"
-                }
-            ],
-            "repeat": "@actions('readLinks').outputs.repeatItems"
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"getArticles": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+			}
+		},
+		"readLinks": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@item().link"
+			},
+			"forEach": "@body('getArticles').responseData.feed.entries"
+		},
+		"downloadLinks": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@item().outputs.headers.location"
+			},
+			"conditions": [{
+				"expression": "@not(equals(actions('readLinks').status, 'Skipped'))"
+			}],
+			"forEach": "@actions('readLinks').outputs"
+		}
+	},
+	"outputs": {}
 }
 ```
 
-As covered in [use logic app features](app-service-logic-use-logic-app-features.md), you iterate over the first list by using the `repeat:` property on the second action. However, for the third action, you need to select the `@actions('readLinks').outputs.repeatItems` property, because the second executed for each article.
+As covered in [use logic app features](app-service-logic-use-logic-app-features.md), you iterate over the first list by using the `forEach:` property on the second action. However, for the third action, you need to select the `@actions('readLinks').outputs` property, because the second executed for each article.
 
-Inside the action you can use either the: [`repeatItem()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatItem), the [`repeatOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatOutputs) or [`repeatBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatBody) functions. In this example, I wanted to get the `location` header, so I used the [`repeatOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatOutputs) function to get the outputs of the action execution from the second action that we are now iterating over.  
+Inside the action you can use the [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item) function. In this example, I wanted to get the `location` header, so I had to continue with `@item().outputs.headers` to get the outputs of the action execution from the second action that we are now iterating over.  
 
 ## Mapping items in a list to some different configuration
 
@@ -83,60 +92,56 @@ Next, let's say that we want to get completely different content depending on a 
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "specialCategories": {
-            "defaultValue": [
-                "science",
-                "google",
-                "microsoft",
-                "robots",
-                "NSA"
-            ],
-            "type": "Array"
-        },
-        "destinationMap": {
-            "defaultValue": {
-                "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/en-us/default.aspx",
-                "google": "https://www.google.com",
-                "robots": "https://en.wikipedia.org/wiki/Robot",
-                "NSA": "https://www.nsa.gov/"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "getArticles": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
-            },
-            "conditions": []
-        },
-        "getSpecialPage": {
-            "repeat": "@body('getArticles').responseData.feed.entries",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('destinationMap')[first(intersection(repeatItem().categories, parameters('specialCategories')))]"
-            },
-            "conditions": [
-                {
-                    "expression": "@greater(length(intersection(repeatItem().categories, parameters('specialCategories'))), 0)"
-                }
-            ]
-        }
-    }
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"specialCategories": {
+			"defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
+			"type": "Array"
+		},
+		"destinationMap": {
+			"defaultValue": {
+				"science": "http://www.nasa.gov",
+				"microsoft": "https://www.microsoft.com/en-us/default.aspx",
+				"google": "https://www.google.com",
+				"robots": "https://en.wikipedia.org/wiki/Robot",
+				"NSA": "https://www.nsa.gov/"
+			},
+			"type": "Object"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"getArticles": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+			},
+			"conditions": []
+		},
+		"getSpecialPage": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
+			},
+			"conditions": [{
+				"expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
+			}],
+			"forEach": "@body('getArticles').responseData.feed.entries"
+		}
+	}
 }
 ```
 
 In this case, we first get a list of articles, and then the second step looks up in a map, based on the category that was defined as a parameter, which URL to get the content from. 
 
-Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
+Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
 
 ## Chain/nest Logic Apps while repeating over a list
 
@@ -146,95 +151,99 @@ In the parent logic app:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "orders": {
-            "defaultValue": [
-                {
-                    "quantity": 10,
-                    "id": "myorder1"
-                },
-                {
-                    "quantity": 200,
-                    "id": "specialOrder"
-                },
-                {
-                    "quantity": 5,
-                    "id": "myOtherOrder"
-                }
-            ],
-            "type": "Array"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "iterateOverOrders": {
-            "repeat": "@parameters('orders')",
-            "type": "Workflow",
-            "inputs": {
-                "uri": "https://westus.logic.azure.com/subscriptions/xxxxxx-xxxxx-xxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Logic/workflows/xxxxxxx",
-                "apiVersion": "2015-02-01-preview",
-                "trigger": {
-                    "name": "submitOrder",
-                    "outputs": {
-                        "body": "@repeatItem()"
-                    }
-                },
-                "authentication": {
-                    "type": "Basic",
-                    "username": "default",
-                    "password": "xxxxxxxxxxxxxx"
-                }
-            }
-        },
-        "sendInvoices": {
-            "repeat": "@outputs('iterateOverOrders').repeatItems",
-            "type": "Http",
-            "inputs": {
-                "uri": "http://www.example.com/?invoiceID=@{repeatOutputs().run.outputs.deliverTime.value}",
-                "method": "GET"
-            }
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"orders": {
+			"defaultValue": [{
+				"quantity": 10,
+				"id": "myorder1"
+			}, {
+				"quantity": 200,
+				"id": "specialOrder"
+			}, {
+				"quantity": 5,
+				"id": "myOtherOrder"
+			}],
+			"type": "Array"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"iterateOverOrders": {
+			"type": "Workflow",
+			"inputs": {
+				"uri": "https://westus.logic.azure.com/subscriptions/xxxxxx-xxxxx-xxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Logic/workflows/xxxxxxx",
+				"apiVersion": "2015-02-01-preview",
+				"trigger": {
+					"name": "submitOrder",
+					"outputs": {
+						"body": "@item()"
+					}
+				},
+				"authentication": {
+					"type": "Basic",
+					"username": "default",
+					"password": "xxxxxxxxxxxxxx"
+				}
+			},
+			"forEach": "@parameters('orders')"
+		},
+		"sendInvoices": {
+			"type": "Http",
+			"inputs": {
+				"uri": "http://www.example.com/?invoiceID=@{item().outputs.run.outputs.deliverTime.value}",
+				"method": "GET"
+			},
+			"forEach": "@outputs('iterateOverOrders')"
+		}
+	},
+	"outputs": {}
 }
 ```
 
-Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
+Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "triggers": {},
-    "actions": {
-        "calulatePrice": {
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?action=calcPrice&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-            }
-        },
-        "calculateDeliveryTime": {
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?action=calcTime&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-            }
-        }
-    },
-    "outputs": {
-        "deliverTime": {
-            "type": "String",
-            "value": "@outputs('calculateDeliveryTime').headers.etag"
-        }
-    }
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"calulatePrice": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?action=calcPrice&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
+			}
+		},
+		"calculateDeliveryTime": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?action=calcTime&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
+			}
+		}
+	},
+	"outputs": {
+		"deliverTime": {
+			"type": "String",
+			"value": "@outputs('calculateDeliveryTime').headers.etag"
+		}
+	}
 }
 ```
 
-You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx). 
+You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx). 
 
 >[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
 
@@ -245,45 +254,43 @@ You commonly want to be able to write a *remediation step* — some logic that e
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "dataFeeds": {
-            "defaultValue": [
-                "https://www.microsoft.com/en-us/default.aspx",
-                "https://gibberish.gibberish/"
-            ],
-            "type": "Array"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "readData": {
-            "repeat": "@parameters('dataFeeds')",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@repeatItem()"
-            }
-        },
-        "postToErrorMessageQueue": {
-            "repeat": "@actions('readData').outputs.repeatItems",
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?noteAnErrorFor=@{repeatItem().inputs.uri}"
-            },
-            "conditions": [
-                {
-                    "expression": "@equals(actions('readData').status, 'Failed')"
-                },
-                {
-                    "expression": "@equals(repeatItem().status, 'Failed')"
-                }
-            ]
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"dataFeeds": {
+			"defaultValue": ["https://www.microsoft.com/en-us/default.aspx", "https://gibberish.gibberish/"],
+			"type": "Array"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@item()"
+			},
+			"forEach": "@parameters('dataFeeds')"
+		},
+		"postToErrorMessageQueue": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?noteAnErrorFor=@{item().inputs.uri}"
+			},
+			"conditions": [{
+				"expression": "@equals(actions('readData').status, 'Failed')"
+			}, {
+				"expression": "@equals(item().status, 'Failed')"
+			}],
+			"forEach": "@actions('readData').outputs"
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -293,53 +300,54 @@ I am using two conditions because in the first step I am repeating over a list. 
 
 Finally, because you have now handled the error, we no longer mark the run as **Failed**. As you can see here, this run is **Succeeded** even though one step Failed, because I wrote the step to handle this failure.
 
-## Two (or more) steps that execute in parellel
+## Two (or more) steps that execute in parallel
 
-To have multiple actions execution in parellel, rather than in sequence, you need to remove the `dependsOn` condition that links those two actions together. Once the dependency is removed, actions will automatically execute in parallel, unless they need data from each other. 
+To have multiple actions execution in parallel, rather than in sequence, you need to remove the `dependsOn` condition that links those two actions together. Once the dependency is removed, actions will automatically execute in parallel, unless they need data from each other. 
 
 ![Branches](./media/app-service-logic-author-definitions/branches.png)
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "dataFeeds": {
-            "defaultValue": [
-                "https://www.microsoft.com/en-us/default.aspx",
-                "https://office.live.com/start/default.aspx"
-            ],
-            "type": "Array"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "readData": {
-            "repeat": "@parameters('dataFeeds')",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@repeatItem()"
-            }
-        },
-        "branch1": {
-            "repeat": "@actions('readData').outputs.repeatItems",
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?branch1Logic=@{repeatItem().inputs.uri}"
-            }
-        },
-        "branch2": {
-            "repeat": "@actions('readData').outputs.repeatItems",
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?branch2Logic=@{repeatItem().inputs.uri}"
-            }
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"dataFeeds": {
+			"defaultValue": ["https://www.microsoft.com/en-us/default.aspx", "https://office.live.com/start/default.aspx"],
+			"type": "Array"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@item()"
+			},
+			"forEach": "@parameters('dataFeeds')"
+		},
+		"branch1": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?branch1Logic=@{item().inputs.uri}"
+			},
+			"forEach": "@actions('readData').outputs"
+		},
+		"branch2": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?branch2Logic=@{item().inputs.uri}"
+			},
+			"forEach": "@actions('readData').outputs"
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -353,181 +361,177 @@ You can see the timestamp for both branches is identical.
 
 You can combine two conditional flows of logic (that may or may not have executed) by having a single action that takes data from both branches. 
 
-Your strategy for this varies depending on if you are handling one item, or a collection of items. In the case of a single item, you'll want to use the [`coalesce()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#coalesce) function:
+Your strategy for this varies depending on if you are handling one item, or a collection of items. In the case of a single item, you'll want to use the [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce) function:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "order": {
-            "defaultValue": {
-                "quantity": 10,
-                "id": "myorder1"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "handleNormalOrders": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?orderNormally=@{parameters('order').id}"
-            },
-            "conditions": [
-                {
-                    "expression": "@lessOrEquals(parameters('order').quantity, 100)"
-                }
-            ]
-        },
-        "handleSpecialOrders": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?orderSpecially=@{parameters('order').id}"
-            },
-            "conditions": [
-                {
-                    "expression": "@greater(parameters('order').quantity, 100)"
-                }
-            ]
-        },
-        "submitInvoice": {
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?invoice=@{coalesce(outputs('handleNormalOrders')?.headers?.etag,outputs('handleSpecialOrders')?.headers?.etag )}"
-            },
-            "conditions": [
-                {
-                    "expression": "@or(equals(actions('handleNormalOrders').status, 'Succeeded'), equals(actions('handleSpecialOrders').status, 'Succeeded'))"
-                }
-            ]
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"order": {
+			"defaultValue": {
+				"quantity": 10,
+				"id": "myorder1"
+			},
+			"type": "Object"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"handleNormalOrders": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?orderNormally=@{parameters('order').id}"
+			},
+			"conditions": [{
+				"expression": "@lessOrEquals(parameters('order').quantity, 100)"
+			}]
+		},
+		"handleSpecialOrders": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?orderSpecially=@{parameters('order').id}"
+			},
+			"conditions": [{
+				"expression": "@greater(parameters('order').quantity, 100)"
+			}]
+		},
+		"submitInvoice": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?invoice=@{coalesce(outputs('handleNormalOrders')?.headers?.etag,outputs('handleSpecialOrders')?.headers?.etag )}"
+			},
+			"conditions": [{
+				"expression": "@or(equals(actions('handleNormalOrders').status, 'Succeeded'), equals(actions('handleSpecialOrders').status, 'Succeeded'))"
+			}]
+		}
+	},
+	"outputs": {}
 }
 ```
  
-Alternatively, when your first two branches both operate on a list of orders, for example, you'll want to use the [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) function to combine the data from both branches. 
+Alternatively, when your first two branches both operate on a list of orders, for example, you'll want to use the [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) function to combine the data from both branches. 
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "orders": {
-            "defaultValue": [
-                {
-                    "quantity": 10,
-                    "id": "myorder1"
-                },
-                {
-                    "quantity": 200,
-                    "id": "specialOrder"
-                },
-                {
-                    "quantity": 5,
-                    "id": "myOtherOrder"
-                }
-            ],
-            "type": "Array"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "handleNormalOrders": {
-            "repeat": "@parameters('orders')",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?orderNormally=@{repeatItem().id}"
-            },
-            "conditions": [
-                {
-                    "expression": "@lessOrEquals(repeatItem().quantity, 100)"
-                }
-            ]
-        },
-        "handleSpecialOrders": {
-            "repeat": "@parameters('orders')",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?orderSpecially=@{repeatItem().id}"
-            },
-            "conditions": [
-                {
-                    "expression": "@greater(repeatItem().quantity, 100)"
-                }
-            ]
-        },
-        "submitInvoice": {
-            "repeat": "@union(actions('handleNormalOrders').outputs.repeatItems, actions('handleSpecialOrders').outputs.repeatItems)",
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?invoice=@{repeatOutputs().headers.etag}"
-            },
-            "conditions": [
-                {
-                    "expression": "@equals(repeatItem().status, 'Succeeded')"
-                }
-            ]
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"orders": {
+			"defaultValue": [{
+				"quantity": 10,
+				"id": "myorder1"
+			}, {
+				"quantity": 200,
+				"id": "specialOrder"
+			}, {
+				"quantity": 5,
+				"id": "myOtherOrder"
+			}],
+			"type": "Array"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"handleNormalOrders": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?orderNormally=@{item().id}"
+			},
+			"conditions": [{
+				"expression": "@lessOrEquals(item().quantity, 100)"
+			}],
+			"forEach": "@parameters('orders')"
+		},
+		"handleSpecialOrders": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?orderSpecially=@{item().id}"
+			},
+			"conditions": [{
+				"expression": "@greater(item().quantity, 100)"
+			}],
+			"forEach": "@parameters('orders')"
+		},
+		"submitInvoice": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?invoice=@{item().outputs.headers.etag}"
+			},
+			"conditions": [{
+				"expression": "@equals(item().status, 'Succeeded')"
+			}],
+			"forEach": "@union(actions('handleNormalOrders').outputs, actions('handleSpecialOrders').outputs)"
+		}
+	},
+	"outputs": {}
 }
 ```
 ## Working with Strings
 
-There are variety of functions that can be used to maniplate string. Let's take an example where we have a string that we want to pass to a system, but we are not confident that character encoding will be handled properly. One option is to base64 encode this string. However, to avoid escaping in a URL we are going to replace a few characters. 
+There are variety of functions that can be used to manipulate string. Let's take an example where we have a string that we want to pass to a system, but we are not confident that character encoding will be handled properly. One option is to base64 encode this string. However, to avoid escaping in a URL we are going to replace a few characters. 
 
 We also want a substring of the the order's name because the first 5 characters are not used.
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "order": {
-            "defaultValue": {
-                "quantity": 10,
-                "id": "myorder1",
-                "orderer": "NAME=Stèphén__Šīçiłianö"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "order": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-            }
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"order": {
+			"defaultValue": {
+				"quantity": 10,
+				"id": "myorder1",
+				"orderer": "NAME=Stèphén__Šīçiłianö"
+			},
+			"type": "Object"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"order": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
+			}
+		}
+	},
+	"outputs": {}
 }
 ```
 
 Working from the inside out:
 
-1. Get the [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length)  of the orderer's name, this returns back the total number of characters
+1. Get the [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)  of the orderer's name, this returns back the total number of characters
 
 2. Subtract 5 (because we'll want a shorter string)
 
-3. Actually take the [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring) . We start at index `5` and go the remainder of the string.
+3. Actually take the [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) . We start at index `5` and go the remainder of the string.
 
-4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64) string
+4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) string
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace)  all of the `+` characters with `-`
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)  all of the `+` characters with `-`
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) all of the `/` characters with `_`
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all of the `/` characters with `_`
 
 ## Working with Date Times
 
@@ -535,88 +539,86 @@ Date Times can be useful, particularly when you are trying to pull data from a d
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "order": {
-            "defaultValue": {
-                "quantity": 10,
-                "id": "myorder1"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "order": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?id=@{parameters('order').id}"
-            }
-        },
-        "timingWarning": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-        	},
-            "conditions": [
-                {
-                    "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
-                }
-            ]
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"order": {
+			"defaultValue": {
+				"quantity": 10,
+				"id": "myorder1"
+			},
+			"type": "Object"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"order": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?id=@{parameters('order').id}"
+			}
+		},
+		"timingWarning": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+			},
+			"conditions": [{
+				"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
+			}]
+		}
+	},
+	"outputs": {}
 }
 ```
 
-In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
+In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
 
-Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow). 
+Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
 
 ## Passing in values at runtime to vary behavior
 
-Let's say you have different behaviors that you want to run based on some value that you use to kick off your Logic app. You can use the [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerOutputs) function to get these values out of what you passed in:
+Let's say you have different behaviors that you want to run based on some value that you use to kick off your Logic app. You can use the [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs) function to get these values out of what you passed in:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "triggers": {},
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@triggerOutputs().uriToGet"
-            }
-        },
-        "extraStep": {
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/extraStep"
-            },
-            "conditions": [
-                {
-                    "expression": "@triggerOutputs().doMoreLogic"
-                }
-            ]
-        },  
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@triggerOutputs().uriToGet"
+			}
+		},
+		"extraStep": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/extraStep"
+			},
+			"conditions": [{
+				"expression": "@triggerOutputs().doMoreLogic"
+			}]
+		}
+	},
+	"outputs": {}
 }
 ```
 
-To actually make this work, when you start the run you need to pass the properties you want (in the above example `uriToGet` and `doMoreLogic`). Here is the call you can [use Basic auth for](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth):
-
-```
-POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
-Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
-Content-type: application/json
-```
+To actually make this work, when you start the run you need to pass the properties you want (in the above example `uriToGet` and `doMoreLogic`). 
 
 With the following payload. Note that you have provided the Logic app with the values to use now:
 
@@ -641,24 +643,28 @@ You can start with a very simplistic definition like this one:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "connection": {
-            "type": "string"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('connection')"
-            }
-        }        
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"connection": {
+			"type": "string"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@parameters('connection')"
+			}
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -694,31 +700,33 @@ You may have an API that you are calling, and you want to wait for a certain res
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "triggers": {},
-    "actions": {
-        "http0": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://mydomain/listfiles"
-            },
-            "until": {
-                "limit": {
-                    "timeout": "PT10M"
-                },
-                "conditions": [
-                    {
-                        "expression": "@greater(length(action().outputs.body),0)"
-                    }
-                ]
-            }
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"http0": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://mydomain/listfiles"
+			},
+			"until": {
+				"limit": {
+					"timeout": "PT10M"
+				},
+				"conditions": [{
+					"expression": "@greater(length(action().outputs.body),0)"
+				}]
+			}
+		}
+	},
+	"outputs": {}
 }
 ```
 
-See the [REST API documentation](https://msdn.microsoft.com/library/azure/dn948513.aspx) for all of the options you have for creating and managing Logic apps. 
+See the [REST API documentation](https://msdn.microsoft.com/library/azure/mt643787.aspx) for all of the options you have for creating and managing Logic apps. 

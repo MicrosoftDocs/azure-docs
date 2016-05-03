@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Modify a live ASP.NET 5 Web Application running in a local Docker container using Edit and Refresh | Microsoft Azure"
+   pageTitle="Debug apps in a local Docker container with Edit & Refresh | Microsoft Azure"
    description="Learn how to modify an app that is running in a local Docker container and refresh the container via Edit and Refresh"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/17/2016"
+   ms.date="03/25/2016"
    ms.author="tarcher" />
 
-# Modify a live ASP.NET 5 Web Application running in a local Docker container using Edit and Refresh
+# Debug apps in a local Docker container with Edit & Refresh
 
 ## Overview
 The Visual Studio Tools for Docker provides a convenient way to develop and test your application locally in a Docker container without having to restart the container each time you make a code change. This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET 5 Web app in a local Docker container, make any necessary changes, and then refresh the browser to see those changes. 
@@ -27,40 +27,13 @@ The following tools need to be installed.
 - [Microsoft ASP .NET and Web Tools 2015 RC](https://go.microsoft.com/fwlink/?LinkId=627627)
 - [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
 - [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
+- [Configure the Docker client](./vs-azure-tools-docker-setup.md)
 
 > [AZURE.NOTE] If you have a previous version of the Visual Studio 2015 Tools for Docker installed, you'll need to uninstall it from the Control Panel prior to installing the latest version.
 
-## Configuring and testing the Docker client 
-This section will guide you through making sure that the default instance of Docker machine is configured and running. 
-
-1. Create a default docker host instance by issuing the following command at a command prompt.
-
-		docker-machine create --driver virtualbox default
- 
-1. Verify the default instance is configured and running by issuing the following command at the command prompt. (You should see an instance named `default' running.
-
-		docker-machine ls 
-		
-	![][0]
- 
-1. Set default as the current host by issuing the following command at the command prompt.
-
-		docker-machine env default
-
-1. Issue the following command to configure your shell.
-
-		FOR /f "tokens=*" %i IN ('docker-machine env default') DO %i
-
-1. The following command should display an empty response of active containers running.
-
-		docker ps
-
-	![][1]
- 
-> [AZURE.NOTE] Each time you reboot your development machine, you’ll need to restart your local docker host. To do this, issue the following command at a command prompt: `docker-machine start default`
-
 ## Editing an app running in a local Docker container
-Visual Studio 2015 Tools for Docker enables ASP .NET 5 Web app developers to test and run their application in a Docker container, make changes to the application in Visual Studio and refresh the browser to see changes applied to the app running inside of the container. 
+Visual Studio 2015 Tools for Docker enables ASP .NET 5 Web app developers to test and run their application in a Docker container, make changes to the application in Visual Studio and refresh 
+the browser to see changes applied to the app running inside of the container. 
 
 1. From the Visual Studio menu, select **File > New > Project**. 
 
@@ -78,11 +51,11 @@ Visual Studio 2015 Tools for Docker enables ASP .NET 5 Web app developers to tes
 
 1. From the Visual Studio Solution Explorer, right-click the project and select **Add > Docker Support**.
 
-	![][2]
+	![][0]
  
 1. The following files are created under the project node:
 
-	![][3]
+	![][1]
 
 1. Set the Solution Configuration to `Debug` and press **&lt;F5>** to start testing your application locally.
 
@@ -120,7 +93,7 @@ Visual Studio 2015 Tools for Docker enables ASP .NET 5 Web app developers to tes
 
 - **Build : Failed to build the image, Error checking TLS connection: Host is not running**
 
-	Verify the default docker host is running. See the [Configuring the Docker client](#configuring-the-docker-client) section.
+	Verify the default docker host is running. See the article, [Configure the Docker client](./vs-azure-tools-docker-setup.md).
 
 - **Unable to find volume mapping**
 
@@ -138,7 +111,5 @@ Visual Studio 2015 Tools for Docker enables ASP .NET 5 Web app developers to tes
 	6. Refresh the page in Edge, and you should see the site up and running. 
 	7. For more information on this issue, visit Scott Hanselman's blog post, [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx).
 
-[0]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-machine-ls.png
-[1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-ps.png
-[2]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
-[3]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
+[0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
+[1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png

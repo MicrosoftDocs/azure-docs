@@ -13,25 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array - Prepare the portal (Preview)
+# Deploy StorSimple Virtual Array - Prepare the portal
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
 ## Overview 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (Public Preview) only. This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist as well as configuration prerequisites.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release. This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist as well as configuration prerequisites.
 
 You will need administrator privileges to complete the setup and configuration process. We recommend that you review the deployment configuration checklist before you begin. The portal preparation will take less than 10 minutes.
 
-The StorSimple deployment information published in this article applies to StorSimple Virtual Arrays only.
-
-> [AZURE.IMPORTANT]
-> 
-> This public preview is intended for evaluation and deployment planning purposes only. Installing this preview in a production environment is not supported.
-
+The information published in this article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud. 
+ 
 ### Get started
 
 The deployment workflow consists of preparing the portal, provisioning a virtual array in your virtualized environment, and completing the setup. To get started with the StorSimple Virtual Array deployment as a file server or an iSCSI server, you will need to refer to the following tabulated resources (articles and videos). 
@@ -42,8 +38,8 @@ Refer to the following articles in the prescribed sequence to deploy your StorSi
 
 | **#** | **In this step**                          | **You will do this …**                                                         | **Use these documents.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
-|1.   | **Set up the Azure classic portal**       | Create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device.  |[Prepare the portal](storsimple-ova-deploy1-portal-prep.md)| 
-|2.   | **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.| [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
+|1.   | **Set up the Azure classic portal**       | Create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device.  |[Prepare the portal](storsimple-ova-deploy1-portal-prep.md)|
+|2.   | **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.<br></br>| [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
 |3.    | **Set up the Virtual Array**              | For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes.| [Set up virtual array as file server](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Set up virtual array as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)|
 
 #### Deployment videos
@@ -143,6 +139,9 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 After you have the service registration key, you will need to download the appropriate virtual device image to provision a virtual device on your host system. The virtual device images are operating system specific and can be downloaded from the Quick Start page in the Azure classic portal.
 
+> [AZURE.IMPORTANT] The software running on the StorSimple Virtual Array may only be used in conjunction with the Storsimple Manager service.
+
+
 Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/).
 
 #### To get the virtual device image
@@ -150,15 +149,20 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 1.  On the **StorSimple Manager service** page, click the service that you created. This will take you to the **Quick Start** page. (You can click the quick start icon ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) to access the **Quick Start** page at any time.)
 
 
-1.  Download the appropriate VHD on a network share on your datacenter. Separate VHDs are available for:
+1.  Download the appropriate VHD or VHDX on a network share on your datacenter. Separate images are available for:
 
+	-   Hyper-V 2012 and later
+	
 	-   Hyper-V 2008 R2 and later
 
 	-   VMWare ESXi 5.5 and later
 
+	> [AZURE.IMPORTANT] The software running on the StorSimple Virtual Array may only be used in conjunction with the Storsimple Manager service.
+
+
 1.  Click on the image for your host operating system that you will use to provision the virtual device. This will take you to Microsoft Download Center.
 
-1.  If using Hyper-V, download the VHD for Hyper-V 2008 R2 and above. If using VMware, download the VMDK. The VHD is a 4.77 GB zipped file and the VMDK is a 4.75 GB file. The time to download the file depends on your Internet connection.
+1.  If using Hyper-V, download the the VHDX for Hyper-V 2012 or VHD for Hyper-V 2008 R2 and later. If using VMware, download the VMDK. The VHDX is a 4.77 GB zipped file, VHD is a 4.77 GB file and the VMDK is a 4.75 GB file. The time to download the file depends on your Internet connection.
 
 2.  Unzip the file and make a note of the unzipped location on your local drive.
 

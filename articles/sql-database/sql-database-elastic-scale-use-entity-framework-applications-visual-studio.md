@@ -3,7 +3,7 @@
 	description="Use Elastic Database client library and Entity Framework for coding databases" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 

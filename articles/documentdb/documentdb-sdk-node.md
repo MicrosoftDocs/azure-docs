@@ -3,7 +3,7 @@
 	description="Learn all about the Node.js SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/18/2016" 
+	ms.author="andrl"/>
 
 # DocumentDB SDK
 
@@ -36,6 +36,14 @@
 </table></br>
 
 ##Release notes
+
+###<a name="1.6.0"/>1.6.0</a>
+- Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
+
+###<a name="1.5.6"/>1.5.6</a>
+
+- Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results
+
 ###<a name="1.5.5"/>1.5.5</a>
 
 - Fixed hashParitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
@@ -120,6 +128,8 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.6.0](#1.6.0) | March 29, 2016 |---
+| [1.5.6](#1.5.6) | March 08, 2016 |---
 | [1.5.5](#1.5.5) | February 02, 2016 |---
 | [1.5.4](#1.5.4) | February 01, 2016 |---
 | [1.5.2](#1.5.2) | January 26, 2016 |---

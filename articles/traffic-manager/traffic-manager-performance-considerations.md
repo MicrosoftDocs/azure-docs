@@ -75,7 +75,7 @@ http://www.digwebinterface.com – Similar to the watchmouse site, but this one 
 ## Next Steps
 
 
-[About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md)
+[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
 
 [Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 

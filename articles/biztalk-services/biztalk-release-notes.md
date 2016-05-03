@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Release Notes for Azure BizTalk Services | Microsoft Azure BizTalk Services" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+<properties
+	pageTitle="Release Notes for Azure BizTalk Services | Microsoft Azure BizTalk Services"
+	description="Lists the known issues for Azure BizTalk Services" 
+	services="biztalk-services"
+	documentationCenter=""
+	authors="msftman"
+	manager="erikre"
+	editor=""/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="deonhe"/>
 
 # Release Notes for Azure BizTalk Services
@@ -39,7 +39,7 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
 * The option to create templates for agreements is discontinued.  
 * For the send-side agreement, you can now specify different delimiter sets for each schema. This configuration is specified under protocol settings for send side agreement. For more information, see [Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) and [Create an EDIFACT Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Two new entities are also added to the TPM OM API for the same purpose. See [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) and [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Standard XSD constructs, including Derived Types, are now supported. See [Use standard XSD constructs in your maps](https://msdn.microsoft.com/library/azure/dn793987.aspx) and [Use Derived Types in Mapping Scenarios and Examples](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 supports new MIC algorithms for message signing and new encryption algorithms. [See Create an AS2 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* AS2 supports new MIC algorithms for message signing and new encryption algorithms. See [Create an AS2 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
 ## Know Issues
 
 ### Connectivity Issues after BizTalk Services Portal Update
@@ -52,7 +52,7 @@ Install the Visual Studio 2012 Update 3 RC 1 to fix the issue.
 
 ### Custom binding project reference
 Consider the following situations with a BizTalk Services project in a Visual Studio solution:  
-* In the same Visual Studio solution, there is a BizTalk Services project and a custom binding project. The BizTalk Service project has a reference to this custom binding project file. 
+* In the same Visual Studio solution, there is a BizTalk Services project and a custom binding project. The BizTalk Service project has a reference to this custom binding project file.
 * The BizTalk Service project has a reference to a custom binding/behavior DLL.
 
 You ‘Build’ the solution in Visual Studio successfully. Then, you ‘Rebuild’ or ‘Clean’ the solution. After that, when you rebuild or clean again, the following error occurs:  
@@ -156,7 +156,7 @@ Consider a scenario where you use thumbprint-based certificates in your BizTalk 
 
 **Workaround**: Update the certificate in the BizTalk Service project and redeploy the project.  
 
-**Scenario 2: Using name-based behaviors to identify certificates for securing message transfer from a bridge to a service endpoint** 
+**Scenario 2: Using name-based behaviors to identify certificates for securing message transfer from a bridge to a service endpoint**
 
 Consider a scenario where you use name-based behaviors to identify certificates in your BizTalk Service project. You update the certificate in the BizTalk Services Portal but do not update the BizTalk Service project accordingly. In such a scenario, the bridge might continue to process the messages because the older certificate data might still be in the channel cache. After that, message processing fails.  
 
@@ -197,6 +197,3 @@ Throughout this document, the term ‘pipelines’ and ‘bridges’ are used in
 ### Concepts  
 
 [BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
-
-

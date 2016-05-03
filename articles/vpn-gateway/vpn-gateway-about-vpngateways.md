@@ -1,82 +1,137 @@
 <properties 
    pageTitle="About VPN Gateways for Virtual Network cross-premises connectivity | Microsoft Azure"
-   description="Learn about VPN gateways, which can be used for cross-premises connections for hybrid configurations. This article covers Gateway SKUs (Basic, Standard, and High Performance), VPN Gateway and ExpressRoute coexist configurations, gateway routing types (Static, Dynamic, Policy-based, Route-based), and gateway requirements for virtual network connectivity."
+   description="Learn about VPN gateways, which can be used for Site-to-Site cross-premises connections for hybrid configurations, VNet-to-VNet connections, and Point-to-Site connections."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
-   editor="tysonn" />
+   manager="carmonm"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/18/2016"
    ms.author="cherylmc" />
 
 # About VPN gateways
 
-VPN Gateways are used to send network traffic between virtual networks and on-premises locations. They are also used to send traffic between multiple virtual networks within Azure. When creating a gateway, there are some factors to take into consideration.
- 
-Consider the following items when planning:
+VPN Gateways, also called Azure Virtual Network Gateways, are used to send network traffic between virtual networks and on-premises locations. They are also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). The sections below discuss the items that relate to a VPN gateway.
 
-- The gateway SKU that you want to use
-- The gateway routing type for your connection
-- The VPN device, if required for your connection
+The instructions that you use to create your VPN gateway will depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you'll use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway. You can't create a Resource Manager VPN gateway for a classic deployment model virtual network. 
 
-## Gateway SKUs
+See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information about deployment models.
 
-There are 3 VPN Gateway SKUs:
+
+## <a name="gwsub"></a>Gateway subnet
+
+To configure a VPN gateway, you first need to create a gateway subnet for your VNet. All gateway subnets must be named GatewaySubnet to work properly. 
+
+The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26, etc.). 
+
+Creating a larger gateway size prevents you from running up against gateway size limitations. For example, if you created a gateway with a gateway subnet size /29 and you want to configure a Site-to-Site/ExpressRoute coexist configuration, you would have to delete the gateway, delete the gateway subnet, create the gateway subnet as a /28 or larger, and then recreate your gateway. 
+
+By creating a gateway subnet of a larger size from the start, you can save time later when adding new configuration features to your network environment. 
+
+The example below shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that exist at this time.
+
+	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+
+
+## <a name="gwtype"></a>Gateway types
+
+The gateway type specifies how the gateway itself connects and is a required configuration setting for the Resource Manager deployment model. Don't confuse gateway type with VPN type, which specifies the type of routing for your VPN. The available values for `-GatewayType` are: 
+
+- Vpn
+- ExpressRoute
+
+
+This example for the Resource Manager deployment model specifies the -GatewayType as *Vpn*. When you are creating a gateway, you must make sure that the gateway type is correct for your configuration. 
+
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="gwsku"></a>Gateway SKUs
+
+When you create a VPN gateway, you'll need to specify the gateway SKU that you want to use. There are 3 VPN Gateway SKUs:
 
 - Basic
 - Standard
-- High Performance
+- HighPerformance
+
+The example below specifies the `-GatewaySku` as *Standard*.
+
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
+
+### Estimated aggregate throughput by SKU and gateway type
+
 
 The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
 
-| SKU         | VPN Gateway and ExpressRoute coexist | ExpressRoute Gateway throughput | VPN Gateway throughput | VPN Gateway max IPsec tunnels |
-|-------------|-----------------------------------|---------------------------------|------------------------|-------------------------------|
-| Basic       | No                                | 500 Mbps                        | 100 Mbps               | 10                            |
-| Standard    | Yes                               | 1000 Mbps                       | 100 Mbps               | 10                            |
-| High Performance | Yes                               | 2000 Mbps                       | 200 Mbps               | 30                            |
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
-**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
+## <a name="vpntype"></a>VPN types
 
-## Gateway routing types
+Each configuration requires a specific VPN type in order to work. If you are combining two configurations, such as creating a Site-to-Site connection and a Point-to-Site connection to the same VNet, you must use a VPN type that satisfies both connection requirements. In the case of Point-to-Site and Site-to-Site coexisting connections, you must use a route-based VPN type when working with the Azure Resource Manager deployment model, or a dynamic gateway if you are working with the classic deployment mode.
 
-There are two gateway routing types:
+When you create your configuration, you'll select the VPN type that is required for your connection. 
 
-- **Policy-based:** Policy-based gateways were previously called *Static Gateways*. The functionality of a static gateway has not changed, even though the name has changed. This type of gateway supports policy-based VPNs. Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on-premises network and your Azure VNet. The traffic selectors or policies are usually defined as an access list in your VPN configurations.
- 
-- **Route-based:** Route-based gateways were previously called *Dynamic Gateways*. The functionality of a dynamic gateway has not changed, even though the name has changed. Route-based gateways implement route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
+There are two VPN types:
 
-Some connections (such as Point-to-Site and VNet-to-VNet) will only work with a specific gateway routing type. You'll see the gateway requirements listed in the article that corresponds to the connection scenario you want to create. 
+[AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-VPN devices also have configuration limitations. When you create a VPN gateway, you'll select the gateway routing type that is required for your connection, making sure to verify that the VPN device you plan to use also supports that routing type. See [About VPN devices](vpn-gateway-about-vpn-devices.md) for more information.
+This example for the Resource Manager deployment model specifies the `-VpnType` as *RouteBased*. When you are creating a gateway, you must make sure that the -VpnType is correct for your configuration. 
 
-For example, if you plan to use a Site-to-Site connection concurrently with a Point-to-Site connection, you’ll need to configure a route-based VPN gateway. While it's true that Site-to-Site connections will work with policy-based gateways, Point-to-Site connections require a route-based gateway type. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both. Additionally, the VPN device you use must also support route-based configurations.
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
+## <a name="connectiontype"></a>Connection types
+
+Each configuration requires a specific connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
+
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
+
+In the example below, we are creating a Site-to-Site connection, which requires the connection type "IPsec".
+
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+
+
+## <a name="lng"></a>Local network gateways
+
+The local network gateway typically refers to your on-premises location. In the classic deployment model, the local network gateway was referred to as a Local Site. You'll give the local network gateway a name, the public IP address of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure will look at the destination address prefixes for network traffic, consult the configuration that you have specified for your local network gateway, and route packets accordingly. You can modify these address prefixes as needed.
+
+
+
+### Modify address prefixes - Resource Manager
+
+When modifying address prefixes, the procedure differs depending on whether you have already created your VPN gateway. See the article section [Modify address prefixes for a local network gateway](vpn-gateway-create-site-to-site-rm-powershell.md#modify).
+
+In the example below, you can see a local network gateway named MyOnPremiseWest is being specified and will contain two IP address prefixes.
+
+	New-AzureRmLocalNetworkGateway -Name MyOnPremisesWest -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')	
+
+### Modify address prefixes - classic deployment
+
+If you need to modify your local sites when using the classic deployment model, at this time, you can use the Local Networks configuration page in the classic portal, or modify the Network Configuration file, NETCFG.XML, directly.
+
+
+## VPN devices
+
+You must make sure that the VPN device that you plan to use supports the VPN type required for your configuration. See [About VPN devices](vpn-gateway-about-vpn-devices.md) for more information about compatible VPN devices.
 
 ## Gateway requirements
 
-The table below lists the requirements for both static and dynamic VPN gateways.
 
-
-| **Property**                            | **Policy-based VPN Gateway** | **Route-based VPN Gateway**                                       | **Standard VPN Gateway**          | **High Performance VPN Gateway** |
-|-----------------------------------------|--------------------------------|-----------------------------------------------------------------------|-----------------------------------|----------------------------------|
-|    Site-to-Site connectivity   (S2S)    | Policy-based VPN configuration | Route-based VPN configuration                                         | Route-based VPN configuration     | Route-based VPN configuration    |
-| Point-to-Site connectivity (P2S)        | Not supported                  | Supported (Can coexist with S2S)                                      | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| Authentication method                   |    Pre-shared key              | -Pre-shared key for S2S connectivity -Certificates for P2S connectivity | -Pre-shared key for S2S connectivity -Certificates for P2S connectivity | -Pre-shared key for S2S connectivity -Certificates for P2S connectivity |
-| Maximum number of S2S connections       | 1                              | 10                                                                    | 10                                | 30                               |
-| Maximum number of P2S connections       | Not supported                  | 128                                                                   | 128                               | 128                              |
-| Active routing support (BGP)            | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
 
 ## Next steps
 
-Select the VPN device for your configuration. See [About VPN devices](vpn-gateway-about-vpn-devices.md).
+See  the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) article for more information before moving forward with planning and designing your configuration.
 
 
 

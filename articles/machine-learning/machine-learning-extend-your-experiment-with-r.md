@@ -36,7 +36,7 @@ The list of installed packages can change. To get the complete list, include the
     out <- data.frame(installed.packages())
     maml.mapOutputPort("out")
 
-To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**.
+To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**. For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 
 ##Importing packages
 

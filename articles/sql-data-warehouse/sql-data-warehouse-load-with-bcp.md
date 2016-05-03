@@ -3,17 +3,17 @@
    description="Learn what bcp is and how to use it for data warehousing scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="04/20/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -27,7 +27,7 @@
 
 **[bcp][]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL.
 
-bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center.  Generally, dimension tables can be loaded and extracted but fairly large fact tables may take a significant amount of time to load or extract from.
+bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center.  Generally, dimension tables can be loaded and extracted readily with bcp, however, bcp is not recommended for loading or extracting large volumes of data.  Polybase is the recommended tool for loading and extracting large volumes of data as it does a better job leveraging the massively parallel processing architecture of SQL Data Warehouse.
 
 With bcp you can:
 
@@ -59,19 +59,19 @@ In this tutorial, you will create a table in Azure SQL Data Warehouse and import
 
 From a command prompt, connect to your instance using the following command replacing the values as appropriate:
 
-```
+```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 ```
 Once connected, copy the following table script at the sqlcmd prompt and then press the Enter key:
 
-```
-CREATE TABLE DimDate2 
+```sql
+CREATE TABLE DimDate2
 (
     DateId INT NOT NULL,
     CalendarQuarter TINYINT NOT NULL,
     FiscalQuarter TINYINT NOT NULL
 )
-WITH 
+WITH
 (
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = ROUND_ROBIN
@@ -106,13 +106,13 @@ Save this to your local temp directory, C:\Temp\DimDate2.txt.
 ### Step 3: Connect and import the data
 Using bcp, you can connect and import the data using the following command replacing the values as appropriate:
 
-```
+```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 You can verify the data was loaded by connecting with sqlcmd as before and executing the following TSQL command:
 
-```
+```sql
 SELECT * FROM DimDate2 ORDER BY 1;
 GO
 ```
@@ -134,13 +134,13 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### Step 4: Create Statistics on your newly loaded data 
+### Step 4: Create Statistics on your newly loaded data
 
 Azure SQL Data Warehouse does not yet support auto create or auto update statistics. In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data. For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics. Below is a quick example of how to create statistics on the tabled loaded in this example
 
 Execute the following CREATE STATISTICS statements from a sqlcmd prompt:
 
-```
+```sql
 create statistics [DateId] on [DimDate2] ([DateId]);
 create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
@@ -154,7 +154,7 @@ In this tutorial, you will create a data file from a table in SQL Data Warehouse
 
 Using the bcp utility, you can connect and export data using the following command replacing the values as appropriate:
 
-```
+```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 You can verify the data was exported correctly by opening the new file. The data in the file should match the text below:
@@ -189,10 +189,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [Table Design]: ./sql-data-warehouse-develop-table-design.md
 [Statistics]: ./sql-data-warehouse-develop-statistics.md
 
-
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433

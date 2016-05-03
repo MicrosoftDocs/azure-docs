@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users for Android with .NET backend

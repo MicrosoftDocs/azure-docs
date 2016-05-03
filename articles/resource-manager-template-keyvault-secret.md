@@ -4,7 +4,7 @@
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Key vault secret template schema
@@ -40,19 +40,20 @@ resource type.
 
 The following tables describe the values you need to set in the schema.
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | As child resource of key vault:<br />**secrets**<br /><br />As top-level resource:<br />**Microsoft.KeyVault/vaults/secrets** | The resource type to create. |
-| apiVersion | enum | Yes | **2015-06-01** <br /> **2014-12-19-preview** | The API version to use for creating the resource. | 
-| name | string | Yes |   | The name of the secret to create.  If you are deploying the secret as a child resource of a key vault, simply provide a name for the secret. If you are deploying the secret as a top-level resource, the names must be in the format **{key-vault-name}/{secret-name}**. |
-| properties | object | Yes | (shown below) | An object that specifies the value of the secret to create. |
-| dependsOn | array | No | A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
+| Name | Value |
+| ---- | ---- | 
+| type | Enum<br />Required<br />**secrets** (when deployed as a child resource of key vault) or<br /> **Microsoft.KeyVault/vaults/secrets** (when deployed as a top-level resource)<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
+| name | String<br />Required<br />A single word when deployed as a child resource of a key vault, or in the format **{key-vault-name}/{secret-name}** when deployed as a top-level resource to be added to an existing key vault.<br /><br />The name of the secret to create. |
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the value of the secret to create. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
 
+<a id="properties" />
 ### properties object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| value | string | Yes |  | The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
+| Name | Value |
+| ---- | ---- | 
+| value | String<br />Required<br /><br />The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
 
 	
 ## Examples
@@ -173,7 +174,6 @@ The first example deploys a secret as a child resource of a key vault.
                 "type": "secrets",
                 "name": "[parameters('secretName')]",
                 "apiVersion": "2015-06-01",
-                "tags": { "displayName": "secret" },
                 "properties": {
                     "value": "[parameters('secretValue')]"
                 },

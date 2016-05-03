@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Try SQL Database: Use C# to create a SQL database | Microsoft Azure" 
-	description="Try SQL Database for developing SQL and C# apps, and create an Azure SQL Database with C# using the SQL Database Library for .NET." 
+<properties
+	pageTitle="Try SQL Database: Use C# to create a SQL database | Microsoft Azure"
+	description="Try SQL Database for developing SQL and C# apps, and create an Azure SQL Database with C# using the SQL Database Library for .NET."
 	keywords="try sql, sql c#"   
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="01/22/2016"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="csharp"
+   ms.workload="data-management"
+   ms.date="03/24/2016"
    ms.author="sstein"/>
 
-# Try SQL Database: Use C&#x23; to create a SQL database with the SQL Database Library for .NET 
+# Try SQL Database: Use C&#x23; to create a SQL database with the SQL Database Library for .NET
 
 **Single database**
 
@@ -26,15 +26,9 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
+Learn how to use C# commands to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). You'll try SQL Database by creating a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-portal.md). Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
-
-Learn how to use C# commands to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-
-You'll try SQL Database by creating a single database with SQL and C#. To create elastic databases, see [Create an Elastic database pool](sql-database-elastic-pool-portal.md).
-
-Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
-
-The Azure SQL Database Library for .NET provides an [Azure Resource Manager](resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -48,7 +42,7 @@ To complete the steps in this article you need the following:
 - Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 
-## Installing the required libraries
+## Install the required libraries
 
 To set up a SQL database with C#, get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
@@ -120,7 +114,7 @@ The domain name is required for your code. An easy way to identify the proper do
 Additional information about using Azure Active Directory for authentication can be found in [this useful blog post](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
-### Retrieve the access token for the current user 
+### Retrieve the access token for the current user
 
 The client application must retrieve the application access token for the current user. The first time this code is executed by a user they will be prompted to enter their user credentials and the resulting token is cached locally. Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.
 
@@ -148,13 +142,13 @@ This code returns a Microsoft.IdentityModel.Clients.ActiveDirectory.Authenticati
 
 ## Create a resource group
 
-With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. With Azure SQL Database the database server must be created within an existing resource group. 
+With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. With Azure SQL Database the database server must be created within an existing resource group.
 
         static void CreateResourceGroup()
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -169,7 +163,7 @@ With Resource Manager, all resources must be created in a resource group. A reso
         }
 
 
-## Create a server 
+## Create a server
 
 SQL databases are contained in servers. The server name must be globally unique among all Azure SQL servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
 
@@ -218,12 +212,12 @@ SQL databases are contained in servers. The server name must be globally unique 
 
 By default a server cannot be connected to from any location. In order to connect to a server or any databases on the server, a [firewall rule](https://msdn.microsoft.com/library/azure/ee621782.aspx) must be defined that allows access from the client IP address.
 
-The following example creates a rule that opens access to the server from any IP address. It is recommended that you create appropriate SQL logins and passwords to secure your database and not rely on firewall rules as a primary defense against intrusion. 
+The following example creates a rule that opens access to the server from any IP address. It is recommended that you create appropriate SQL logins and passwords to secure your database and not rely on firewall rules as a primary defense against intrusion.
 
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -243,7 +237,7 @@ To allow other Azure services to access a server add a firewall rule and set bot
 
 ## Use C&#x23; to create a SQL database
 
-The following C# command will create a new SQL database if a database with the same name does not already exist on the server; if a database with the same name does exist it will be updated. 
+The following C# command will create a new SQL database if a database with the same name does not already exist on the server; if a database with the same name does exist it will be updated.
 
 
         static void CreateDatabase()
@@ -284,7 +278,7 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    
+
     namespace SqlDbConsoleApp
     {
     class Program
@@ -295,13 +289,13 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
         static string redirectUri = "<Azure App redirectURI>";
         static string domainName = "<domain>";
 
-        // You create these values 
+        // You create these values
         static string resourceGroupName = "<your resource group name>";
         static string location = "<Azure data center location>";
 
         static string serverName = "<your server name>";
         static string administratorLogin = "<your server admin>";
-        
+
         // store your password securely!
         static string administratorPassword = "<your server admin password>";
         static string serverVersion = "12.0";
@@ -340,7 +334,7 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
             Console.WriteLine("Creating database...");
 
             DatabaseCreateOrUpdateResponse dbResponse = CreateDatabase();
-            Console.WriteLine("Status: " + dbResponse.Status.ToString() 
+            Console.WriteLine("Status: " + dbResponse.Status.ToString()
                 + " Code: " + dbResponse.StatusCode.ToString());
 
             Console.WriteLine("Press enter to exit...");
@@ -351,7 +345,7 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -386,7 +380,7 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()

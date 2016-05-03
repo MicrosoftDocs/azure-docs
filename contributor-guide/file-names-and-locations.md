@@ -1,6 +1,6 @@
 <properties title="" pageTitle="File names and locations for Azure technical articles" description="Explains the file structure for articles and the naming conventions you should follow when you create a new article." metaKeywords="" services="" solutions="" documentationCenter="" authors="tysonn" videoId="" scriptId="" manager="required" />
 
-<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="12/16/2014" ms.author="tysonn" />
+<tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="03/14/2016" ms.author="tysonn" />
 
 #File names and locations for Azure technical articles
 
@@ -13,16 +13,15 @@ Here's what you need to know:
 + [Rules]
 + [Pattern]
 + [Standard examples]
-+ [Special file naming convention for the Azure preview portal]
 + [Marketplace content]
 + [File name approval]
 
 ##Rules
 
-- No spaces or punctuation characters. Use hyphens to separate the words in the file name.
-- Use all lowercase letters
+- Files names can contain ONLY lowercase letters, numbers, and hyphens. 
+- No spaces or punctuation characters. Use the hyphens to separate words and numbers in the file name.
 - No more than 80 characters - this is a publishing system limit
-- Use action verbs that are specific such as develop, buy, build, troubleshoot. No -ing words.
+- Use action verbs that are specific, such as develop, buy, build, troubleshoot. No -ing words.
 - No small words - don't include a, and, the, in, or, etc.
 - All files must be in markdown and use the .md file extension.
 
@@ -44,22 +43,8 @@ Here are a few examples of valid names that follow the pattern. :
 - mobile-services-dotnet-backend-get-started-settings-sync.md
 - active-directory-java-authenticate-users-access-control-eclipse.md
 - virtual-machines-install-windows-server-2008r2.md
-
-
-##Special file naming convention for the Azure preview portal
-
-Right now, we have two portals running - the [general availability portal](https://manage.windowsazure.com) and the [Azure preview portal](https://portal.azure.com). To clearly identify content that has been written for the preview portal without hiding it in the metadata, we need to follow some slightly customized file naming guidance:
-
-- If the service is available only in the Azure preview portal, it's easy. Just follow the standard naming guidance.
-
-- If the service is available in both portals, and you are writing an article about the service in the preview portal, add **preview-portal** at the end of the file name before the .md extension. This will help us separate the content for that service in the old portal from content for that service in the new portal. (Don't mix portal content!)
-
-- If the article is about the preview portal itself and not specific to any service or platform, start the file name with **azure-preview-portal**.
-
-Here are some examples:
-
-- azure-preview-portal-supported-browsers-devices.md
-- storage-premium-storage-preview-portal.md
+- cache-aspnet-session-state-provider
+- azure-sdk-dotnet-release-notes-2-8
 
 ##Marketplace content
 
@@ -71,6 +56,17 @@ To distinguish content that focuses on partner contributions to the Azure market
 
 It's the job of our group of pull request reviewers to review file names when a new file is submitted to the repository for the first time. Pull request reviewers should review the file name and provide feedback via the pull request comment stream if changes are needed. The file name needs to be corrected before the pull request is accepted. Contributors can easily push the update to the pending pull request.
 
+##Changing case in file names
+
+Windows operating systems are case insensitive, so if you need to change a file name to fix casing, it is better to make a substantive change, unless you are able to make the change on a Linux or Mac. For example:
+
+  biztalk-administration-and-Development-Task-List-in-BizTalk-Services --> biztalk-services-administration-and-development-task-list
+
+Use the following command to rename a file:
+```
+  git mv <articles/service-folder/current-file-name.md> <articles/service-folder/new-file-name>
+```
+
 ###Contributors' Guide Links
 
 - [Overview article](./../README.md)
@@ -81,6 +77,5 @@ It's the job of our group of pull request reviewers to review file names when a 
 [Rules]: #rules
 [Pattern]: #pattern
 [Standard examples]: #standard-examples
-[Special file naming convention for the Azure preview portal]: #special-file-naming-convention-for-the-azure-preview-portal
 [Marketplace content]: #marketplace-content
 [File name approval]: #file-name-approval

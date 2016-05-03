@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/05/2016"
     ms.author="spelluru"/>
 # HPC and data orchestration using Azure Batch and Data Factory
 
@@ -901,13 +901,13 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 After you process data you can consume it with online tools like **Microsoft Power BI**. Here are links to help you understand Power BI and how to use it in Azure:
 
--   [Explore a dataset in Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Explore a dataset in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
 
--   [Getting started with the Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Getting started with the Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
 
--   [Refresh data in Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Refresh data in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
 
--   [Azure and Power BI - basic overview](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure and Power BI - basic overview](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
 
 ## References
 

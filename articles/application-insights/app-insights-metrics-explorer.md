@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="04/01/2016" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -97,13 +97,14 @@ The default method for each metric is shown when you create a new chart:
 ![Deselect all metrics to see the defaults](./media/app-insights-metrics-explorer/06-total.png)
 
 
+
 ## Editing charts and grids
 
 To add a new chart to the blade:
 
 ![In Metrics Explorer, choose Add Chart](./media/app-insights-metrics-explorer/04-add.png)
 
-Select an existing or new chart to edit what it shows:
+Select **Edit** on an existing or new chart to edit what it shows:
 
 ![Select one or more metrics](./media/app-insights-metrics-explorer/08-select.png)
 
@@ -135,21 +136,25 @@ If you don't select any values for a particular property, it's the same as selec
 
 Notice the counts of events alongside each property value. When you select values of one property, the counts alongside other property values are adjusted.
 
+Filters apply to all the charts on a blade. If you want different filters applied to different charts, create and save different metrics blades. If you want, you can pin charts from different blades to the dashboard, so that you can see them alongside each other.
+
+
+### Remove bot and web test traffic
+
+Use the filter **Real or synthetic traffic** and check **Real**.
+
+You can also filter by **Source of synthetic traffic**.
+
 ### To add properties to the filter list
 
 Would you like to filter telemetry on a category of your own choosing? For example, maybe you divide up your users into  different categories, and you would like segment your data by these categories.
 
 [Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#telemetry-initializers) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
 
-## Remove bot and web test traffic
-
-Use the filter **Real or synthetic traffic** and check **Real**.
-
-You can also filter by **Source of synthetic traffic**.
 
 ## Edit the chart type
 
-In particular, notice that you can switch between grids and graphs:
+Notice that you can switch between grids and graphs:
 
 ![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
@@ -194,11 +199,28 @@ What you see is what gets exported. Change the time range or filters if you want
 
 ### Continuous Export
 
-If you want data continuously exported so that you can process it externally, consider using [Continous export](app-insights-export-telemetry.md).
+If you want data continuously exported so that you can process it externally, consider using [Continuous export](app-insights-export-telemetry.md).
 
 ### Power BI
 
 If you want even richer views of your data, you can [export to Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+
+## Analytics
+
+[Analytics](app-insights-analytics.md) is a more versatile way to analyze your telemetry using a powerful query language. Use it if you want to combine or compute results from metrics, or perform an in-deph exploration of your app's recent performance. On the other hand, use Metrics Explorer if you want automatic refresh, charts on the dashboard, and alerts.
+
+## Troubleshooting
+
+*I don't see any data on my chart.*
+
+* Filters apply to all the charts on the blade. Make sure that, while you're focusing on one chart, you didn't set a filter that excludes all the data on another. 
+
+    If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
+
+* If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
+* Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). It isn't available for Azure websites.
+
+
 
 ## Next steps
 

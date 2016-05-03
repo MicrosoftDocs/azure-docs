@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Azure Active Directory integration with ShiftPlanning | Microsoft Azure" 
     description="Learn how to use ShiftPlanning with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with ShiftPlanning
   

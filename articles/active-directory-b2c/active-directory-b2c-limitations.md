@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Limitations and restrictions
@@ -91,7 +91,3 @@ You won't be able to delete an Azure AD B2C tenant in the Azure classic portal.
 ## Issues with verifying a domain on the Azure classic portal
 
 Currently you can't verify a domain successfully on the [Azure classic portal](https://manage.windowsazure.com/). We are working on a fix.
-
-## Warning messages on the Azure portal
-
-When you access the B2C settings blade on the Azure portal, you will see a warning message under Notifications (at the upper-right corner). It will say: "You do not have any subscriptions in the *B2CTenantName* directory. You have other directories that you can switch to." (*B2CTenantName* is the name of your B2C tenant.) You can safely ignore this message and continue to acccess your B2C features. We are working with the Azure portal team on a fix for this issue.

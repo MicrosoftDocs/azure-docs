@@ -168,6 +168,12 @@ The data comes from scripts in the web pages.
 
 See [dependency telemetry](app-insights-asp-net-dependencies.md) and [exception telemetry](app-insights-asp-net-exceptions.md).
 
+## No performance data
+
+Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). you'll find it under Settings, Servers.
+
+It isn't available for Azure websites.
+
 ## No (server) data since I published the app to my server
 
 + Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
@@ -191,6 +197,10 @@ You can disable it, but this is not recommended. Sampling is designed so that re
 ## Wrong geographical data in user telemetry
 
 The city, region, and country dimensions are derived from IP addresses and aren't always accurate.
+
+## Exception "method not found" on running in Azure Cloud Services
+
+Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
 
 ## Still not working...
 

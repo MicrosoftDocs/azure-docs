@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
+	ms.date="04/08/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
@@ -30,7 +30,7 @@ We've heard the following questions about Azure RemoteApp. Have others? Visit th
 - **Can I try this service for free?** Yes. There is a free trial available for 30 days. After the trial ends, you can transition to a paid account (which you can use in production) or stop using the service. Start your free trial by going to [portal.azure.com](http://portal.azure.com) - create a new instance of RemoteApp. With the free trial, you can build 2 instances of RemoteApp with 10 users per instance. Remember that this trial only lives for 30 days.
 ## Azure RemoteApp subscription details ##
 
-- **What are the service limits?** You can learn about the default settings and service limits of Azure RemoteApp in [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md). Let us know if you have more questions.
+- **What are the service limits?** You can learn about the default settings and service limits of Azure RemoteApp in [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md). Let us know if you have more questions.
 - **How many users do I have to have?** There's a minimum of 20 users. Let me repeat that to be super clear - the MINIMUM is 20. You will be billed for 20. 
 - **How much does RemoteApp cost?** Check out [Azure RemoteApp Pricing Details ](../../../pricing/details/remoteapp/).
 - **Does one type of collection cost more than another?** 
@@ -38,7 +38,7 @@ Yes, it can, depending on your collection requirements. A hybrid collection requ
 
 ## Collections - what's supported, which should you use, and others
 - **Are custom line-of-business (LOB) applications supported?** Yes. To use a custom application in Azure RemoteApp, create a [custom template image](remoteapp-create-custom-image.md), and then upload it to the RemoteApp collection.
-- **Will my custom LOB application work in Azure RemoteApp?** The best way to figure that out is to test it. Review the [application compatibility requirements](http://www.microsoft.com/download/details.aspx?id=18704) and check out the [RD Compatibility Center](http://www.rdcompatibility.com/compatibility/default.aspx).
+- **Will my custom LOB application work in Azure RemoteApp?** The best way to figure that out is to test it. Check out the [RD Compatibility Center](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Which deployment method (cloud or hybrid) is best for my organization?** Hybrid collections provide the most complete experience if you want full integration with single sign-on (SSO) and secure on-premises network connectivity. Cloud collections provide an agile and easy way to isolate your deployment by using multiple authentication methods. Read more about the [deployment options](remoteapp-whatis.md).
 - **We have SQL or another database either on-premises or in Azure. Which deployment type should we use?** That depends on where your SQL or backend database is. If the database is in a private network, use the hybrid collection. If the database is exposed to the Internet and allows client connections to connect to it, you can use the cloud collection.
 - **What about drive mapping, USB and serial port, clipboard sharing, and printer redirection?** All of those features are supported in Azure RemoteApp. Clipboard sharing and printer redirection is enabled by default. You can learn more about redirection [here](remoteapp-redirection.md). 

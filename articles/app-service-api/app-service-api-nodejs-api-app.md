@@ -4,7 +4,7 @@
 	services="app-service\api"
 	documentationCenter="node"
 	authors="bradygaster"
-	manager="mohisri",
+	manager="mohisri"
 	editor="tdykstra "/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/25/2015"
 	ms.author="bradygaster"/>
 
 # Build and deploy a Node.js API app in Azure App Service
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## Prerequisites
-1. [Node.js](nodejs.org) running on development machine (this sample assumes Node.js version 4.2.2 is installed)
+1. [Node.js](http://nodejs.org) running on development machine (this sample assumes Node.js version 4.2.2 is installed)
 1. [GitHub](https://github.com/) account
 1. Microsoft Azure [free trial account](https://azure.microsoft.com/pricing/free-trial/)
 1. Git installed on your local development workstation

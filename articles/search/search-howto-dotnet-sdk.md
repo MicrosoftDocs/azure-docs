@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="03/08/2016"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application
@@ -642,5 +642,3 @@ Hotel.cs:
             }
         }
     }
-
-You can also find the full sample source code [on GitHub](http://aka.ms/search-dotnet-howto).

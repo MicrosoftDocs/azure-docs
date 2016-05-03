@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to set a static private IP in ARM mode using PowerShell| Microsoft Azure"
-   description="Understanding static IPs (DIPs) and how to manage them in ARM mode using PowerShell"
+   pageTitle="How to set a static private IP address in Azure Resource Manager by using PowerShell| Microsoft Azure"
+   description="Understanding static private IP addresses and how to manage them in Azure Resource Manager by using PowerShell"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# How to set a static private IP address in PowerShell
+# How to set a static private IP address in Resource Manager by using PowerShell
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 

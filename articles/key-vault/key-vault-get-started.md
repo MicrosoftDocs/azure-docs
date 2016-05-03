@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/19/2016"
+	ms.date="04/07/2016"
 	ms.author="cabailey"/>
 
 # Get started with Azure Key Vault #
@@ -22,7 +22,7 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 ## Introduction  
 Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure. It walks you through the process of using Azure PowerShell to create a vault that contains a key or password that you can then use with an Azure application. It then shows you how an application can use that key or password.
 
-*Estimated time to complete:** 20 minutes
+**Estimated time to complete:** 20 minutes
 
 >[AZURE.NOTE]  This tutorial does not include instructions for how to write the Azure application that one of the steps includes, namely how to authorize an application to use a key or secret in the key vault.
 >
@@ -34,7 +34,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 
 To complete this tutorial, you must have the following:
 
-- A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../../pricing/free-trial).
+- A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free account](../../../../pricing/free-trial).
 - Azure PowerShell, **minimum version of 1.1.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`. When you have Azure PowerShell version 0.9.1 through 0.9.8 installed, you can still use this tutorial with some minor changes. For example, you must use the `Switch-AzureMode AzureResourceManager` command and some of the Azure Key Vault commands have changed. For a list of the Key Vault cmdlets for versions 0.9.1 through 0.9.8, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
@@ -98,6 +98,9 @@ The output of this cmdlet shows properties of the key vault that you’ve just c
 
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
+>[AZURE.NOTE]  If you see the error **The subscription is not registered to use namespace 'Microsoft.KeyVault'** when you try to create your new key vault, run `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` and then rerun your New-AzureRmKeyVault command. For more information, see [Register-AzureRmProvider](https://msdn.microsoft.com/library/mt679020.aspx).
+>
+
 ## <a id="add"></a>Add a key or secret to the key vault ##
 
 If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) cmdlet, and type the following:
@@ -154,7 +157,7 @@ Applications that use a key vault must authenticate by using a token from Azure 
 
 To register the application in Azure Active Directory:
 
-1. Sign in to the Azure portal.
+1. Sign in to the Azure classic portal.
 2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> **Note:** You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
 
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page shows only the **Add an App** link. Click the link, or alternatively, you can click **ADD** on the command bar.

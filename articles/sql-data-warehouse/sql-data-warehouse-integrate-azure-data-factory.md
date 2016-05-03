@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Use Azure Data Factory with SQL Data Warehouse
 
 Azure Data Factory provides a fully managed method for orchestrating the transfer of data and execution of stored procedures on SQL Data Warehouse.  This will allow you to more easily set-up and schedule complex Extract Transform and Load (ETL) procedures with SQL Data Warehouse. For a more complete overview of Azure Data Factory, see the [Azure Data Factory documentation][].
 
-## Data Movement 
+## Data Movement
 
 Azure Data Factory enables data movement between both on-premises sources and different Azure services.  Overall, current integration with Azure Data Factory supports data movement to and from the following locations:
 
@@ -42,8 +42,8 @@ For more development tips, see [SQL Data Warehouse development overview](sql-dat
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]:https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-sql-connector/ 
-[SQL Data Warehouse development overview]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/ 
+[Copy data with Azure Data Factory]:https://azure.microsoft.com/en-us/documentation/articles/data-factory-azure-sql-connector/
+[SQL Data Warehouse development overview]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
 [SQL Data Warehouse integration overview]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-integrate/
 
 <!--MSDN references-->

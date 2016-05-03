@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/28/2016" 
 	ms.author="josephd"/>
 
 # Set up a simulated hybrid cloud environment for testing (classic deployment mode)
@@ -52,7 +52,7 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 
 ## Phase 1: Configure the TestLab virtual network
 
-Use the instructions in the [Base Configuration Test Environment](../virtual-machines/virtual-machines-base-configuration-test-environment.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
+Use the instructions in the [Base Configuration Test Environment](../virtual-machines/virtual-machines-windows-classic-test-config-env.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
 
 From the Azure Management Portal on your local computer, connect to DC1 with the CORP\User1 credentials. To configure the CORP domain so that computers and users use their local domain controller for authentication, run these commands from an administrator-level Windows PowerShell command prompt.
 
@@ -80,7 +80,7 @@ First, create a new virtual network named TestVNET.
 	- In the **CIDR (Address Count)** column for the TestSubnet, click **/24 (256)**.
 7.	Click the Complete icon. Wait until the virtual network is created before continuing.
 
-Next, use the instructions in [How to install and configure Azure PowerShell to install Azure PowerShell on your local computer](../install-configure-powershell.md).
+Next, use the instructions in [How to install and configure Azure PowerShell to install Azure PowerShell on your local computer](../powershell-install-configure.md).
 
 Next, create a new cloud service for the TestVNET virtual network. You must pick a unique name. For example, you could name it **TestVNET-***UniqueSequence*, in which *UniqueSequence* is an abbreviation of your organization. For example, if your organization is named Tailspin Toys, you could name the cloud service **TestVNET-Tailspin**.
 
@@ -226,7 +226,7 @@ Your simulated hybrid cloud environment is now ready for testing.
 
 ## <a id="costs"></a>Minimizing the ongoing costs of this environment
 
-To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the TestLab and Test_VNET virtual networks at the end of each business day. For more information, see [Get started with Azure Automation](../automation-create-runbook-from-samples.md). When you start the virtual machines on the Corpnet subnet again, start DC1 first.
+To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the TestLab and Test_VNET virtual networks at the end of each business day. When you start the virtual machines on the Corpnet subnet again, start DC1 first.
 
 An Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/). To minimize the costs of the two VPN gateways (one for TestLab and one for TestVNET), create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateways with these steps.
  

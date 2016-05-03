@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor="v-lincan"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/03/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Python

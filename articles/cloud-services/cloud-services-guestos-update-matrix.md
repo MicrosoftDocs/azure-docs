@@ -13,157 +13,148 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="01/18/2016"
+   ms.date="04/17/2016"
    ms.author="yuemlu"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
-Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a a Guest OS is disabled.
+Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
 
-> [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does not apply to IaaS Virtual Machines. If you configure your roles to use automatic Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
+> [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
 
 <!-- -->
-<br />
 
-> [AZURE.TIP] Subscribe to the [Guest OS Update RSS Feed][rss] to receive the most timely notification on all Guest OS changes. Changes mentioned on that feed will be integrated into this page approximately every week.
+> [AZURE.TIP] Subscribe to the [Guest OS Update RSS Feed][rss] to receive the most timely notification on all Guest OS changes.
 
-
+Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
 
-###### **Janurary 18 2015**
-Janurary Guest OS rollout is starting Janurary 18 2016, and projected to be released on Februrary 12 2016.
+###### **April 18 2016**
+April Guest OS rollout is starting April 18 2016, and projected to be released on May 12 2016. 
 
-###### **Janurary 4 2016**
+###### **March 14 2016**
+March Guest OS rollout is starting March 14 2016, and projected to be released on April 8 2016. 
+
+###### **February 22 2016**
+February Guest OS rollout is starting February 22 2016, and projected to be released on March 9 2016.
+
+###### **January 18 2016**
+January Guest OS rollout is starting January 18 2016, and projected to be released on February 12 2016.
+
+###### **January 4 2016**
 November 201511-02 Guest OS was released on January 4, 2016 for deployment. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. 
 
-###### **December 18 2015**
-November 201511-02 Guest OS release date has been postponed from Dec 16 2015 to Jan 4 2016.
+## Releases
 
-###### **December 9 2015**
-December Guest OS rollout is starting December 10 2015, and projected to be released on Janurary 8 2016.
+## Family 4 releases
+**Windows Server 2012 R2**
 
-###### **November 12 2015**  
-On August 7, 2014, Microsoft announced that support will end for .NET Framework 4, 4.5, and 4.5.1 on January 12, 2016. It is recommended that customers and developers complete the in-place update to .NET Framework 4.5.2 by January 12, 2016 to continue receiving technical support and security updates. Visit Microsoft .NET Framework Support Lifecycle Policy for more details. 
+Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
 
-On October 27, we announced that, Azure will update the .NET Framework in Azure Guest operating system (Guest OS) family 2.x, 3.x and 4.x to .NET Framework 4.5.2 in the upcoming November Guest OS Release. Since then, we have received customers’ feedback to postpone the automatic update to an OS release with .NET 4.5.2 and provide an image with .NET 4.5.2 for test validation. 
+>[AZURE.NOTE] Dates with a * are subject to change
 
-To better accommodate customers’ requirements and provide a smooth upgrade to .NET 4.5.2, Azure will update the .NET Framework in Azure Guest operating system (Guest OS) family 2.x, 3.x and 4.x to .NET Framework 4.5.2 in the January 2016 Guest OS Release. Cloud services running on Guest OS family 2.x, 3.x and 4.x with automatic updates enabled will be updated to the January 2016 Guest OS with .NET Framework 4.5.2. In November, the .NET Framework installed in the default OS will not be changed. In order to help customers validate their cloud service with .NET 4.5.2, Azure will provide a second set of November OS Versions 201511-02 for with .NET 4.5.2 for manual deployment. 
+| Configuration String           | Release date    | Disable date  | Expired date |
+| ------------------------------ | --------------- | ------------- | ---- |
+| WA-GUEST-OS-4.31_201604-01     | May 12 2016 *   | Post 4.33     | TBD |
+| WA-GUEST-OS-4.30_201603-01     | April 7 2016    | Post 4.32     | TBD |
+| WA-GUEST-OS-4.29_201602-02     | March 12 2016   | Post 4.31     | TBD |
+| WA-GUEST-OS-4.28_201601-01     | Feb 12 2016     | May 7 2016     | TBD | 
+| WA-GUEST-OS-4.27_201512-01     | Jan 12 2016     | April 12 2016 | TBD |
+| ~~WA-GUEST-OS-4.26_201511-02~~ | Jan 4 2016      | March 12 2016 | TBD |
+| ~~WA-GUEST-OS-4.26_201511-01~~ | Dec 10 2015     | March 12 2016 | TBD |
+| ~~WA-GUEST-OS-4.25_201510-01~~ | Nov 6 2015      | Feb 12 2016   | TBD |
+| ~~WA-GUEST-OS-4.24_201509-01~~ | Oct 1 2015      | Jan 10 2016   | TBD |
+| ~~WA-GUEST-OS-4.23_201508-02~~ | Sep 9 2015      | Dec 6 2015    | TBD |
+| ~~WA-GUEST-OS-4.22_201507-02~~ | Aug 7 2015      | Nov 1 2015    | TBD |
+| ~~WA-GUEST-OS-4.21_201506-01~~ | July 9 2015     | Oct 9 2015    | TBD |
+| ~~WA-GUEST-OS-4.20_201505-02~~ | June 12 2015    | Sep 7 2015    | TBD |
+| ~~WA-GUEST-OS-4.19_201504-01~~ | April 17 2015   | Aug 9 2015    | TBD |
 
-The following table captures the changes which will be applied. 
- 
-| Guest OS Family | Installed .NET Framework prior to Guest OS 201511-02 Release | Installed .NET Framework on Guest OS 201511-02 Release | Installed .NET Framework on Guest OS 201512-01 Release  | Installed .NET Framework on Guest OS 201601-01 Release or later |
-| --------------- | ---------------- | ---------------- | ---------------- | ---------------- |
-| OS Family 2.x based on Windows Server 2008 R2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 | .NET 3.5, .NET 4.0  | .NET 3.5, .NET 4.5.2 |
-| OS Family 3.x based on Windows Server 2012	   | .NET 4.5           | .NET 4.5.2         |  .NET 4.5   | .NET 4.5.2 | 
-| OS Family 4.x based on Windows Server 2012 R2 | .NET 4.5.1         | .NET 4.5.2         |  .NET 4.5.1 | .NET 4.5.2 | 
- 
-If you are on Guest OS manual update, there will be two Guest OS versions released for all Guest OS families in November. 
+## Family 3 releases
 
-   • 	   WA-GUEST-OS-4.26_201511-01, WA-GUEST-OS-3.33_201511-01, WA-GUEST-OS-2.45_201511-01 (Default) 
+**Windows Server 2012**
 
-   These include the November MSRC and October Windows Rollups 
+Supports .NET 4.0, 4.5
 
-   • 	   WA-GUEST-OS-4.26_201511-02, WA-GUEST-OS-3.33_201511-02, WA-GUEST-OS-2.45_201511-02 
+>[AZURE.NOTE] Dates with a * are subject to change
 
-   These include the November MSRC, October Windows Rollups and .NET Framework upgraded to .NET 4.5.2 
-
-
-
-Prior to upgrading, here are some of options to help validate your Cloud Service with .NET 4.5.2: 
-
-1. 	Deploy a test Cloud Service Role to 201511-02 release and conduct application compatibility validation. 
-
-2. 	Install .NET 4.5.2 on a test Cloud Service Role and conduct application compatibility validation. Visit [Install .NET on a Cloud Service Role] for instructions. 
-
-3. 	Conduct application compatibility validation on a standalone VM, either on premise, or on an Azure VM with .NET 4.5.2 installed. 
-
-
-
-
-###### **October 15 2015**
-October Guest OS rollout is starting today October 15 2015, and projected to be released on November 13 2015.
-
-Guest OS versions 4.24, 3.31, 2.43 were released on October 1 2015.
-
-###### **September 9 2015**
-September Guest OS rollout is starting today September 9 2015, and projected to be released on October 8 2015.
-
-Guest OS versions 4.23, 3.30, 2.42 were released on September 9 2015.
-
-###### **August 14 2015**
-August Guest OS rollout is starting today August 14 2015, and projected to be released on September 11 2015.
-
-###### **August 7 2015**
-Guest OS versions 4.22, 3.29, 2.41 were released on August 7 2015.
-
-###### **July 14 2015**
-July Guest OS rollout is starting today July 14 2015, and projected to be released on August 14 2015.
-
-Guest OS versions 4.21, 3.28, 2.40 were released on July 9 2015.
-
-###### **June 15 2015**
-June Guest OS rollout is starting today June 15 2015, and projected to be released on July 9 2015.
-
-Guest OS versions 4.20, 3.27, 2.39 were released on June 12 2015.
-
-###### **May 20 2015**
-May Guest OS rollout is starting today May 20 2015, and projected to be released on June 12 2015.
-
-###### **April 17 2015**
-Guest OS versions 4.19, 3.26, 2.38 were released today.
-
-This release contains [MS15-034](https://technet.microsoft.com/library/security/MS15-034), a **critical** patch for Windows HTTP Servers.
-
-Guest OS versions 4.17, 3.24, 2.36 will be disabled on May 17 2015.
-
-###### **April 6 2015**
-Guest OS versions 4.18, 3.25, 2.37 were released on April 2 2015.
-
-Guest OS versions 4.16, 3.23, 2.35 will be disabled on May 2 2015.
+| Configuration String           | Release date   | Disable date  | Expired date |
+| ------------------------------ | -------------- | ------------- | --- |
+| WA-GUEST-OS-3.38_201604-01     | May 12 2016 *  | Post 3.40     | TBD |
+| WA-GUEST-OS-3.37_201603-01     | April 7 2016   | Post 3.39     | TBD |
+| WA-GUEST-OS-3.36_201602-02     | March 12 2016  | Post 3.38     | TBD |
+| WA-GUEST-OS-3.35_201601-01     | Feb 12 2016    | May 7 2016     | TBD |
+| WA-GUEST-OS-3.34_201512-01     | Jan 12 2016    | April 12 2016 | TBD |
+| ~~WA-GUEST-OS-3.33_201511-02~~ | Jan 4 2016     | March 12 2016 | TBD |
+| ~~WA-GUEST-OS-3.33_201511-01~~ | Dec 10 2015    | March 12 2016 | TBD |
+| ~~WA-GUEST-OS-3.32_201510-01~~ | Nov 6 2015     | Feb 12 2016   | TBD |
+| ~~WA-GUEST-OS-3.31_201509-01~~ | Oct 1 2015     | Jan 10 2016   | TBD |
+| ~~WA-GUEST-OS-3.30_201508-02~~ | Sep 9 2015     | Dec 6 2015    | TBD |
+| ~~WA-GUEST-OS-3.29_201507-02~~ | Aug 7 2015     | Nov 1 2015    | TBD |
+| ~~WA-GUEST-OS-3.28_201506-01~~ | July 9 2015    | Oct 9 2015    | TBD |
+| ~~WA-GUEST-OS-3.27_201505-02~~ | June 12 2015   | Sep 7 2015    | TBD |
+| ~~WA-GUEST-OS-3.26_201504-01~~ | April 17 2015  | Aug 9 2015    | TBD |
 
 
-###### **March 11 2015**
-Guest OS versions 4.17, 3.24, and 2.36 were released on March 9 2015. 
+## Family 2 releases
 
-Guest OS versions 4.15, 3.22, and 2.34 have had their disable date set to April 9 2015.
+**Windows Server 2008 R2 SP1**
 
+Supports .NET 3.5, 4.0
 
-###### **Jan 29 2015**
-Guest OS versions 4.14, 4.13, 3.21, 3.20, 2.33, 2.32 (released in November) have had their Disable Date pushed back. The Guest OS release matrix below has been updated.
+>[AZURE.NOTE] Dates with a * are subject to change
 
+| Configuration String           | Release date  | Disable date  | Expired date |
+| ------------------------------ | ------------- | ------------  | --- |
+| WA-GUEST-OS-2.50_201604-01     | May 12 2016 * | Post 2.52     | TBD |
+| WA-GUEST-OS-2.49_201603-01     | April 7 2016  | Post 2.51     | TBD |
+| WA-GUEST-OS-2.48_201602-02     | March 12 2016 | Post 2.50     | TBD |
+| WA-GUEST-OS-2.47_201601-01     | Feb 12 2016   | May 7 2016  | TBD |
+| WA-GUEST-OS-2.46_201512-01     | Jan 12 2016   | April 12 2016 | TBD |
+| ~~WA-GUEST-OS-2.45_201511-02~~ | Jan 4 2016    | March 12 2016 | TBD |
+| ~~WA-GUEST-OS-2.45_201511-01~~ | Dec 10 2015   | March 12 2016 | TBD |
+| ~~WA-GUEST-OS-2.44_201510-01~~ | Nov 6 2015    | Feb 12 2016   | TBD |
+| ~~WA-GUEST-OS-2.43_201509-01~~ | Oct 1 2015    | Jan 10 2016   | TBD |
+| ~~WA-GUEST-OS-2.42_201508-02~~ | Sep 9 2015    | Dec 6 2015    | TBD |
+| ~~WA-GUEST-OS-2.41_201507-02~~ | Aug 7 2015    | Nov 1 2015    | TBD |
+| ~~WA-GUEST-OS-2.40_201506-01~~ | July 9 2015   | Oct 9 2015    | TBD |
+| ~~WA-GUEST-OS-2.39_201505-02~~ | June 12 2015  | Sep 7 2015    | TBD |
+| ~~WA-GUEST-OS-2.38_201504-01~~ | April 17 2015 | Aug 9 2015    | TBD |
 
-###### **Jan 13 2015, Updated Jan 15 2015**
-The December Guest OS was released on Jan 14 2015.
+## MSRC patch updates
+The list of patches that are included with each monthly Guest OS release is available [here][patches].
 
+## SDK support
 
-###### **Jan 13 2015**
-The January Guest OS deployment is projected to start on or after Jan 19 2015 updating cloud services running on automatic update. The January Guest OS will be released for deployment sometime in February. It will disable SSL v3.0 by default as suggested in the January security update. This article will be updated when more information is available.
+Even though the [retirement policy for the Azure SDK][retire policy sdk] indicates that only versions above 2.2 are supported, specific Guest OS families allow you to use earlier versions. You should always use the latest supported SDK. 
 
-As [previously announced][ssl3 announcement], the January Security update to the PaaS Guest OS will disable SSL v3.0 support by default as recommended by [Microsoft Security Advisory 3009008][]. This change will come in addition to all other monthly security updates. PaaS customers with automatic Updates enabled can validate whether there is an application compatibility impact when SSL v3.0 is disabled by running this [Fix it script][ssl3-fixit] which will proactively disable SSL v3.0 support.
-
-###### **Dec 16, 2014. Updated Jan 7 2015**
-The December Guest OS release is projected to start on or after Jan 9 2015.
-
-
-
+| Guest OS Family | Compatible SDK Versions |
+| --------------- | ----------------------- |
+| 4               | Version 2.1+ |
+| 3               | Version 1.8+ |
+| 2               | Version 1.3+ |
+| 1               | Version 1.0+ |
 
 ## Guest OS Release Information
+There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS hits the **disabled** date it is removed from Azure. However, any Cloud Service targetting that Guest OS will still operate as normal. 
 
-This section lists the currently supported Guest OS versions. Guest OS families and versions have a release date, a disabled date, and an expiration date. As of the release date, a Guest OS version can be manually selected in the Azure classic portal. A Guest OS is removed from the Azure classic portal on or after its "disabled" date. It is then "in transition" but is supported with limited ability to update a deployment. The expiration date is when a version or family is scheduled to be removed from the Azure system completely. Cloud services still running on a version when it expires will be stopped, deleted, or force upgraded to a newer version, as detailed in the [Azure Guest OS Supportability and Retirement Policy][retirepolicy]. 
+The window between the **disabled** date and the **expiration** date provide you with a buffer to easily transition from one Guest OS to one newer. If you're using *automatic* as your Guest OS, you'll always be on the latest version and you don't have to worry about it expiring. 
 
-Microsoft supports at least two recent versions of each supported Guest OS family. The disable date of an existing Guest OS version could move to a later date to ensure at least two released versions remain enabled for deployment.
+When the **expiration** date passes and any Cloud Service still using that Guest OS will be stopped, deleted, or forced to upgrade. You can read more about the retirement policy [here][retirepolicy].
 
-> [AZURE.WARNING] The retirement of Guest OS family 1 began June 1, 2013 and is scheduled to complete soon. Do not create new installations and upgrade older ones using this Guest OS family. For more information see [Azure Guest OS Family 1 Retirement Information][fam1retire]
-
-
-### Guest OS Family, Version, and Release Explanation
+## Guest OS Family-Version Explanation
 The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services run on. Each Guest OS has a family, version and release number. 
 
-The **Guest OS family** corresponds to a Windows Server operating system release that a Guest OS is based on. For example, family 3 is based on Windows Server 2012. 
+- **Guest OS family**  
+A Windows Server operating system release that a Guest OS is based on. For example, *family 3* is based on Windows Server 2012.
 
-A **"Guest OS version"** is the family OS image plus relevant [Microsoft Security Response Center (MSRC)][msrc] patches available at the date the new Guest OS version is produced. Not all patches may be included. Numbers start at 0 and increment by 1 each time a new set of updates is added. Trailing zeros are only shown if important. That is, version 2.10 is a different, much later version than version 2.1. 
+- **Guest OS version**  
+Specific to a Guest OS family image plus relevant [Microsoft Security Response Center (MSRC)][msrc] patches that are available at the date the new Guest OS version is produced. Not all patches may be included. 
 
-A **"Guest OS release"** refers to a rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing requiring changes. The latest release always supersedes any previous releases, public or not. The Azure classic portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug. 
+    Numbers start at 0 and increment by 1 each time a new set of updates is added. Trailing zeros are only shown if important. That is, version 2.10 is a different, much later version than version 2.1.
+
+- **Guest OS release**  
+A rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing; requiring changes. The latest release always supersedes any previous releases, public or not. The Azure classic portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug. 
 
 In the example below, 2 is the family, 12 is the version and "rel2" is the release.
 
@@ -172,130 +163,6 @@ In the example below, 2 is the family, 12 is the version and "rel2" is the relea
 **Configuration string for this release** - WA-GUEST-OS-2.12_201208-02
 
 The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image. 
-
-## Releases
-
-## Family 4 Releases
-**Windows Server 2012 R2**
-
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
-
-| Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
-| ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4.28             | WA-GUEST-OS-4.28_201601-01 | Projected Feb 12 2016  | Will be updated when 4.30 is released | TBD |
-| 4.27             | WA-GUEST-OS-4.27_201512-01 | Jan 12 2016            | Will be updated when 4.29 is released | TBD |
-| 4.26             | WA-GUEST-OS-4.26_201511-02 | Jan 4 2016             | Will be updated when 4.28 is released | TBD |
-| 4.26             | WA-GUEST-OS-4.26_201511-01 | Dec 10 2015            | Will be updated when 4.28 is released | TBD |
-| 4.25             | WA-GUEST-OS-4.25_201510-01 | Nov 6 2015             | Feb 12 2016 | TBD |
-| 4.24             | WA-GUEST-OS-4.24_201509-01 | Oct 1 2015             | Jan 10 2016  | TBD |
-| 4.23             | WA-GUEST-OS-4.23_201508-02 | Sep 9 2015             | Dec 6 2015   | TBD |
-| 4.22             | WA-GUEST-OS-4.22_201507-02 | Aug 7 2015             | Nov 1 2015   | TBD |
-| 4.21             | WA-GUEST-OS-4.21_201506-01 | July 9 2015            | Oct 9 2015   | TBD |
-| 4.20             | WA-GUEST-OS-4.20_201505-02 | June 12 2015           | Sep 7 2015   | TBD |
-| 4.19             | WA-GUEST-OS-4.19_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
-| 4.18             | WA-GUEST-OS-4.18_201503-01 | April 2 2015           | July 12 2015 | October 14 2015 |
-| 4.17             | WA-GUEST-OS-4.17_201502-01 | Mar 9 2015             | May 17 2015  | October 14 2015 |
-| 4.16             | WA-GUEST-OS-4.16_201501-01 | Jan 29 2015            | May 2 2015   | October 14 2015 |
-| 4.15             | WA-GUEST-OS-4.15_201412-01 | Jan 14 2015            | Apr 9 2015   | October 14 2015 |
-| 4.14             | WA-GUEST-OS-4.14_201411-01 | Nov 11 2014            | Feb 28 2015  | October 14 2015 |
-| 4.13             | WA-GUEST-OS-4.13_201410-01 | Nov 3 2014             | Feb 14 2015  | October 14 2015 |
-| 4.12 (Note 1)    | WA-GUEST-OS-4.12_201409-02 | Oct 6 2014             | Oct 12 2014  | March 23 2015 |
-| 4.11 (Note 1)    | WA-GUEST-OS-4.11_201408-02 | Aug 25 2014            | Sept 11 2014 | March 23 2015 |
-| 4.10             | WA-GUEST-OS-4.10_201407-01 | July 18 2014           | Dec 1 2014   | March 23 2015 |
-| 4.9              | WA-GUEST-OS-4.9_201406-01  | June 16 2014           | Nov 10 2014  | March 23 2015 |
-| 4.8              | WA-GUEST-OS-4.8_201405-01  | June 1 2014            | Aug 1 2014   | March 23 2015 |
-
-## Family 3 Releases
-
-**Windows Server 2012**
-
-Supports .NET 4.0, 4.5
-
-| Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
-| ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3.35             | WA-GUEST-OS-3.35_201601-01 | Projected Feb 12 2016  | Will be updated when 3.37 is released | TBD |
-| 3.34             | WA-GUEST-OS-3.34_201512-01 | Jan 12 2016            | Will be updated when 3.36 is released | TBD |
-| 3.33             | WA-GUEST-OS-3.33_201511-02 | Jan 4 2016             | Will be updated when 3.35 is released | TBD |
-| 3.33             | WA-GUEST-OS-3.33_201511-01 | Dec 10 2015            | Will be updated when 3.35 is released | TBD |
-| 3.32             | WA-GUEST-OS-3.32_201510-01 | Nov 6 2015             | Feb 12 2016 | TBD |
-| 3.31             | WA-GUEST-OS-3.31_201509-01 | Oct 1 2015             | Jan 10 2016  | TBD |
-| 3.30             | WA-GUEST-OS-3.30_201508-02 | Sep 9 2015             | Dec 6 2015   | TBD |
-| 3.29             | WA-GUEST-OS-3.29_201507-02 | Aug 7 2015             | Nov 1 2015   | TBD |
-| 3.28             | WA-GUEST-OS-3.28_201506-01 | July 9 2015            | Oct 9 2015   | TBD |
-| 3.27             | WA-GUEST-OS-3.27_201505-02 | June 12 2015           | Sep 7 2015   | TBD |
-| 3.26             | WA-GUEST-OS-3.26_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
-| 3.25             | WA-GUEST-OS-3.25_201503-01 | April 2 2015           | July 12 2015 | October 14 2015 |
-| 3.24             | WA-GUEST-OS-3.24_201502-01 | Mar 9 2015             | May 17 2015  | October 14 2015 |
-| 3.23             | WA-GUEST-OS-3.23_201501-01 | Jan 29 2015            | May 2 2015   | October 14 2015 |
-| 3.22             | WA-GUEST-OS-3.22_201412-01 | Jan 14 2015            | Apr 9 2015   | October 14 2015 |
-| 3.21             | WA-GUEST-OS-3.21_201411-01 | Nov 11 2014            | Feb 28 2015  | October 14 2015 |
-| 3.20             | WA-GUEST-OS-3.20_201410-01 | Nov 3 2014             | Feb 14 2015  | October 14 2015 |
-| 3.19 (Note 1)    | WA-GUEST-OS-3.19_201409-02 | Oct 6 2014             | Oct 12 2014  | March 23 2015 |
-| 3.18 (Note 1)    | WA-GUEST-OS-3.18_201408-02 | Aug 25 2014            | Sept 11 2014 | March 23 2015 |
-| 3.17             | WA-GUEST-OS-3.17_201407-01 | July 18 2014           | Dec 1 2014   | March 23 2015 |
-| 3.16             | WA-GUEST-OS-3.16_201406-01 | June 16 2014           | Nov 10 2014  | March 23 2015 |
-| 3.15             | WA-GUEST-OS-3.15_201405-01 | June 1 2014            | Aug 1 2014   | March 23 2015 |
-
-
-## Family 2 Releases
-
-**Windows Server 2008 R2 SP1**
-
-Supports .NET 3.5, 4.0
-
-| Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
-| ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2.47             | WA-GUEST-OS-2.47_201601-01 | Feb 12 2016            | Will be updated when 2.49 is released | TBD |
-| 2.46             | WA-GUEST-OS-2.46_201512-01 | Jan 12 2016            | Will be updated when 2.48 is released | TBD |
-| 2.45             | WA-GUEST-OS-2.45_201511-02 | Jan 4 2016             | Will be updated when 2.47 is released | TBD |
-| 2.45             | WA-GUEST-OS-2.45_201511-01 | Dec 10 2015            | Will be updated when 2.47 is released | TBD |
-| 2.44             | WA-GUEST-OS-2.44_201510-01 | Nov 6 2015             | Feb 12 2016 | TBD |
-| 2.43             | WA-GUEST-OS-2.43_201509-01 | Oct 1 2015             | Jan 10 2016  | TBD |
-| 2.42             | WA-GUEST-OS-2.42_201508-02 | Sep 9 2015             | Dec 6 2015   | TBD |
-| 2.41             | WA-GUEST-OS-2.41_201507-02 | Aug 7 2015             | Nov 1 2015   | TBD |
-| 2.40             | WA-GUEST-OS-2.40_201506-01 | July 9 2015            | Oct 9 2015   | TBD |
-| 2.39             | WA-GUEST-OS-2.39_201505-02 | June 12 2015           | Sep 7 2015   | TBD |
-| 2.38             | WA-GUEST-OS-2.38_201504-01 | April 17 2015          | Aug 9 2015   | TBD |
-| 2.37             | WA-GUEST-OS-2.37_201503-01 | April 2 2015           | July 12 2015 | October 14 2015 |
-| 2.36             | WA-GUEST-OS-2.36_201502-01 | Mar 9 2015             | May 17 2015  | October 14 2015 |
-| 2.35             | WA-GUEST-OS-2.35_201501-01 | Jan 29 2015            | May 2 2015   | October 14 2015 |
-| 2.34             | WA-GUEST-OS-2.34_201412-01 | Jan 14 2015            | Apr 9 2015   | October 14 2015 |
-| 2.33             | WA-GUEST-OS-2.33_201411-01 | Nov 11 2014            | Feb 28 2015  | October 14 2015 |
-| 2.32             | WA-GUEST-OS-2.32_201410-01 | Nov 3 2014             | Feb 14 2015  | October 14 2015 |
-| 2.31 (Note 1)    | WA-GUEST-OS-2.31_201409-02 | Oct 6 2014             | Oct 12 2014  | March 23 2015 |
-| 2.30 (Note 1)    | WA-GUEST-OS-2.30_201408-02 | Aug 25 2014            | Sept 11 2014 | March 23 2015 |
-| 2.29             | WA-GUEST-OS-2.29_201407-01 | July 18 2014           | Dec 1 2014   | March 23 2015 |
-| 2.28             | WA-GUEST-OS-2.28_201406-01 | June 16 2014           | Nov 10 2014  | March 23 2015 |
-| 2.27             | WA-GUEST-OS-2.27_201405-01 | June 1 2014            | Aug 1 2014   | March 23 2015 |
-
-
-
-
-### Family 1 Releases
-**FAMILY 1** has been [retired][fam1retire].
-
-#### Note 1
-The August and September 2014 releases were partially rolled out due to issues found with an [MSRC patch][MS14-046] partway through release. The problem does not allow the manual install of .NET 3.5.1 on family 3 and 4. The release was disabled as a precaution so customers could not manually select it. 
-
-#### Note 2
-As of Sept 19, 2014, .NET 4.5.2 has not been specifically tested on the Azure Guest OS. But the Guest OS is essentially equivalent to Windows Server. The same compatibility rules that apply to the Windows Server product therefore apply to the equivalent Guest OS Families. If you encounter an exception to this policy, please contact [Azure support][azuresupport]. Microsoft will give a commercially reasonable effort to resolve your issue. [Manual install package for .NET 4.5.2][net install pkg].
-
-## MSRC Updates Included in Guest OS
-The list of patches that are included with each monthly Guest OS release is available [here][patches].
-
-## SDK Support
-
-This table shows which Guest OS family is compatible with which Azure SDK versions. For more information beyond this table, see [Support and Retirement Information for the Azure SDK for .NET and APIs][retire policy sdk]. Any information at this list supersedes the information below.
-
-> [AZURE.IMPORTANT] To ensure that your service works as expected, you must deploy it to Guest OS release that is compatible with the version of the Azure SDK used to develop your service. If you do not, the deployed service may exhibit errors in the cloud that were not apparent in the development environment.
-
-| Guest OS Family | SDK Versions Supported |
-| --------------- | ---------------------- |
-| 4               | Version 2.1 and later  |
-| 3               | Version 1.8 and later  |
-| 2               | Version 1.3 and later  |
-| 1               | Version 1.0 and later  |
-
 
 ## Guest OS System Update Process
 This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur at least 5 days after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family. 
@@ -311,87 +178,6 @@ If you manually update your Guest OS, please read the [Guest OS retirement polic
 
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
- 
-## News Archive
-
-###### **Nov 11, 2014**
-
-The November release (4.14, 3.21, and 2.33) was rolled out November 11th. This update was pushed earlier because it includes the MSRC update [Microsoft Security Bulletin MS14-066 - Critical][MS14-066]. Your web and worker roles on automatic update should reboot once over the next few days and receive this fix. 
-
-###### **Nov 10, 2014**
-The October release (4.13, 3.20, and 2.32) disable date has been updated based on customer feedback. The disable date will always be at least two months from the release date. 
-
-###### **Nov 4, 2014**
-The October release (4.13, 3.20, and 2.32) was rolled out Nov 4, 2014. It includes the MSRC patch which caused problems with the August and September releases. To get around this problem, the October release includes .NET 3.5 and 3.5.1 preinstalled, but disabled. Scripts attempting to install .NET 3.5 or 3.5.1 will effectively re-enable it and return a "success" for the .NET installation, but also avoid the full install problem created by the MSRC patch. 
-
-**Oct 20, 2014. Updated Nov 4, 2014** - The September release (4.12, 3.19, 2.31, and 1.39) partially rolled out due to the same [MSRC patch MS14-046][MS14-046] causing failures for those attempting to install .NET 3.5 or 3.5.1 on family 3 or 4. .NET 3.5.x is NOT officially supported on either family, but Microsoft is responding to the change in behavior because some customer's installations do rely on it and the change was unannounced. The disable dates of previous Guest OSes (June and July) will be delayed accordingly so that at least two fully released Guest OSes are supported and available. A solution for the .NET install problem appeared in the October 2014 release.
-
-The October release includes .NET 3.5 and 3.5.1 preinstalled (but disabled), and also include the MSRC patch listed previously. Scripts attempting to install .NET 3.5 or 3.5.1 will effectively re-enable it and return a "success" for the .NET installation, but also avoid the install problem created by the MSRC patch. 
-
-Because of the partial rollout of the last two releases, people on auto update or who have rolled out new installations may be on any of these Guest OS releases. The following table lists which Guest OS releases allow the installation of .NET 3.5 or 3.5.1 on family 3 and 4. Currently, if a release allows installation, that means it does NOT have MSRC patch MS14-046 installed. 
-
-| OS Version | Can install .NET 3.5 | Includes MSRC patch [MS14-046][] |
-| --- | --- | --- |
-| All later Guest OS versions | Yes | Yes |
-| WA-GUEST-OS-4.13_201410-01  | Yes | Yes |
-| WA-GUEST-OS-4.12_201409-02  | No  | Yes |
-| WA-GUEST-OS-4.12_201409-01  | No  | Yes |
-| WA-GUEST-OS-4.11_201408-02  | Yes | No  |
-| WA-GUEST-OS-4.11_201408-01  | No  | Yes |
-| WA-GUEST-OS-4.10_201407-01  | Yes | No  |
-
-**Oct 20, 2014** - Because August and September release were only partially rolled out, you should note the following: 
-
-1. The cipher changes outlined in Differences between Azure Guest OS and Default Windows Server have not been rolled out across the entirety of Azure. Customers not on the August or September releases will receive these changes in the October release. 
-
-2. The August and September Guest OSes have been disabled in the Azure classic portal. You cannot manually choose them. This is to protect against issues that could arise if you select this Guest OS version. 
-
-3. The disabled dates of some earlier releases have been adjusted forward. This is to ensure continued availability in the portal and support for at least two released Guest OS versions in each family. 
-
-## Release Archive
-
-### Family 4
-
-| Guest OS Version | Configuration String       | Release Date | Disable Date | Expiration Date |
-| ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 4.7 | WA-GUEST-OS-4.7_201404-01 | May 2 2014 | July 2 2014 | Aug 18 2014 |
-| 4.6 | WA-GUEST-OS-4.6_201403-01 | Mar 28 2014  | June 9 2014 | Aug 18 2014 |
-| 4.5 | WA-GUEST-OS-4.5_201402-01 | Mar 21 2014 | May 21 2014 | Aug 18 2014 |
-| 4.4 | WA-GUEST-OS-4.4_201401-01 | Feb 8 2014 | April 8, 2014 | May 14 2014 |
-| 4.3 | WA-GUEST-OS-4.3_201312-01 | Jan 6 2014  | March 6, 2014 | May 14 2014 |
-| 4.2 | WA-GUEST-OS-4.2_201311-01 | Dec 12 2013  | Feb 12 2014 | May 14 2014 |
-| 4.1 | WA-GUEST-OS-4.1_201310-01 | Oct 29 2013 | N/A | May 14 2014 |
-| 4.0 rel3 | WA-GUEST-OS-4.0_201309-03 | Oct 9 2013. Made public Oct 18. | N/A | May 14 2014 |
- 
-
-
-### Family 3
-
-| Guest OS Version | Configuration String       | Release Date | Disable Date | Expiration Date |
-| ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 3.14 | WA-GUEST-OS-3.14_201404-01 | May 2 2014 | July 2 2014 | Aug 18 2014 |
-| 3.13 | WA-GUEST-OS-3.13_201403-01 | Mar 28 2014  | June 9 2014 | Aug 18 2014 |
-| 3.12 | WA-GUEST-OS-3.12_201402-01 | Mar 21 2014 | May 21 2014 | Aug 18 2014 |
-| 3.11 | WA-GUEST-OS-3.11_201401-01 | Feb 8 2014 | April 8, 2014 | May 14 2014 |
-| 3.10 | WA-GUEST-OS-3.10_201312-01 | Jan 6 2014  | March 6, 2014 | May 14 2014 |
-| 3.9 | WA-GUEST-OS-3.9_201311-01 | Dec 12 2013 | Feb 12 2014 | May 14 2014 |
-| 3.8 | WA-GUEST-OS-3.8_201310-01 | Oct 29 2013 | N/A | May 14 2014 |
-| 3.7 rel3 | WA-GUEST-OS-3.7_201309-03 | Oct 9 2013 | N/A | May 14 2014 |
-| 3.7 rel1 | WA-GUEST-OS-3.7_201309-01 | Sept 23 2013 | N/A | May 14 2014 |
-
-### Family 2
-
-| Guest OS Version | Configuration String       | Release Date | Disable Date | Expiration Date |
-| ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 2.26 | WA-GUEST-OS-2.26_201404-01 | May 2 2014 | July 2 2014 | Aug 18 2014 |
-| 2.25 | WA-GUEST-OS-2.25_201403-01 | Mar 28 2014  | June 9 2014 | Aug 18 2014 |
-| 2.24 | WA-GUEST-OS-2.24_201402-01 | Mar 21 2014 | May 21 2014 | Aug 18 2014 |
-| 2.23 | WA-GUEST-OS-2.23_201401-01 | Feb 8 2014 | April 8, 2014 | May 14 2014 |
-| 2.22 | WA-GUEST-OS-2.22_201312-01 | Jan 6 2014  | March 6, 2014 | May 14 2014 |
-| 2.21 | WA-GUEST-OS-2.21_201311-01 | Dec 12, 2013 | Feb 12 2014 | May 14 2014 |
-| 2.20 | WA-GUEST-OS-2.20_201310-01 | Oct 29 2013 | N/A | May 14 2014 |
-| 2.19 rel3 | WA-GUEST-OS-2.19_201309-03 | Oct 9 2013 | N/A | May 14 2014 |
-| 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | Sept 23 2013 | N/A | May 14 2014 |
 
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md

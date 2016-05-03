@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="03/04/2016"
    ms.author="larryfr"/>
 
 #Use the Hive View with Hadoop in HDInsight
@@ -78,16 +78,16 @@ Use the following steps from the Hive view to run a Hive query against data incl
 2. Use the __Execute__ button at the bottom of the Query Editor to start the query. It should turn orange and the text will change to __Stop execution__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job.
 
     > [AZURE.IMPORTANT] Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
-    
+
 3. Once the query has finished, The __Query Process Results__ section will display the results of the operation. The __Stop execution__ button will also change back to a green __Execute__ button. The __Results__ tab should contain the following information:
 
         sev       cnt
         [ERROR]   3
 
     The __Logs__ tab can be used to view the logging information created by the job. You can use this for troubleshooting if there are problems with a query.
-    
+
     > [AZURE.TIP] Note the __Save results__ drop-down dialog in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
-    
+
 3. Select the first four lines of this query, then select __Execute__. Notice that there are no results when the job completes. This is because using the __Execute__ button when part of the query is selected will only run the selected statements. In this case, the selection didn't include the final statement that retrieves rows from the table. If you select just that line and use __Execute__, you should see the expected results.
 
 3. Use the __New Worksheet__ button at the bottom of the __Query Editor__ to create a new worksheet. In the new worksheet, enter the following HiveQL statements:
@@ -100,7 +100,7 @@ Use the following steps from the Hive view to run a Hive query against data incl
 	- **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table will delete the underlying data as well.
 	- **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
 	- **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
-    
+
     Use the __Execute__ button to run this query. The __Results__ tab will not contain any information as no rows are returned by this query, but the status should show as __SUCCEEDED__.
 
 ###Hive settings
@@ -116,7 +116,7 @@ Settings can be used to change various Hive settings, such as changing the execu
 Select the __Visual Explain__ icon to the right of the editor.
 
 ![icons](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
-    
+
 This is the __Visual Explain__ view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the __Explain__ button in the Query Editor.
 
 ![visual explain image](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
@@ -127,7 +127,7 @@ Select the __Tez__ icon to the right of the editor.
 
 ![icons](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
 
-This will display the Directed Acyclic Graph (DAG) used by Tez for this query, if one is available. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
+This will display the Directed Acyclic Graph (DAG) used by Tez for this query, if one is available. If you want to view the DAG for queries you've ran in the past, or debug the Tez process, use the [Tez View](hdinsight-debug-ambari-tez-view.md) instead.
 
 ###Notifications
 
@@ -142,7 +142,7 @@ Notifications are messages that are generated when running queries. For example,
 1. From the Query Editor, create a new worksheet and enter the following query:
 
         SELECT * from errorLogs;
-    
+
     Execute the query to verify that it works. The results will be as follows:
 
         errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
@@ -151,7 +151,7 @@ Notifications are messages that are generated when running queries. For example,
         2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
 
 2. Use the __Save as__ button at the bottom of the editor. Name this query __Errorlogs__ and select __OK__. Note that the name of the worksheet changes to __Errorlogs__.
-    
+
 3. Select the __Saved Queries__ tab at the top of the Hive View page. Note that __Errorlogs__ is now listed as a saved query. It will remain in this list until you remove it. Selecting the name will open the query in the Query Editor.
 
 ##Query history
@@ -160,7 +160,7 @@ The __History__ button at the top of the Hive View allows you to view queries yo
 
 ##User Defined Functions (UDF)
 
-Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. 
+Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL.
 
 While you can add a UDF as part of the HiveQL statements in your query, the UDF tab at the top of the Hive View allows you to declare and save a set of UDFs that can be used with the __Query Editor__.
 
@@ -172,7 +172,7 @@ For example, if you have defined a UDF with the following properties:
 * Resource path: wasb:///myudfs.jar
 * UDF name: myawesomeudf
 * UDF class name: com.myudfs.Awesome
-    
+
 Using the __Insert udfs__ button will display an entry named __myudfs__, with another drop-down for each UDF defined for that resource. In this case, __myawesomeudf__. Selecting this entry will add the following to the beginning of the query:
 
     add jar wasb:///myudfs.jar;

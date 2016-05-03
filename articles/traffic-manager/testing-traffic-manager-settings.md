@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Testing Traffic Manager Settings
@@ -70,6 +70,6 @@ There are free web-based DNS lookup and dig services available. Some of these gi
 
 ## Next Steps
 
-[About Traffic Manager traffic routing methods](../about-traffic-manager-balancing-methods.md)
-[Traffic Manager](../traffic-manager.md)
+[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
+[Traffic Manager](traffic-manager-overview.md)
  

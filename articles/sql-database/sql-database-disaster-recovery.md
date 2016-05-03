@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -137,7 +137,7 @@ Verify if your existing alert rule settings are map to your recovered database. 
   + The recovered database uses a different name from the source database name
   + The recovered database is on a different server from the source server
 
-For more information about database alert rules, see [Receive Alert Notifications](insights-receive-alert-notifications.md) and [Track Service Health](insights-service-health.md).
+For more information about database alert rules, see [Receive Alert Notifications](../azure-portal/insights-receive-alert-notifications.md) and [Track Service Health](../azure-portal/insights-service-health.md).
 
 
 ### Enable Auditing

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -43,7 +43,23 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
+- [I do not see an invoice for the last billing period. Why?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+
 **Subscriptions**
+
+- [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
+
+- [How do I purchase Azure Support?](#how-do-i-purchase-azure-support)
+
+- [Does the monthly rate cover a single Azure plan or the entire account?](#does-the-monthly-rate-cover-a-single-azure-plan-or-the-entire-account)
+
+- [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
+
+- [When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
+
+- [What happens at the end of the term?](#what-happens-at-the-end-of-the-term)
+
+- [How do I cancel my Azure Support plan?](#how-do-i-cancel-my-azure-support-plan)
 
 - [How do I migrate data and services for my Azure subscription to a new subscription?](#how-do-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription)
 
@@ -115,7 +131,7 @@ Our Service Level Agreement for availability applies to customer applications wh
 
 **Planned maintenance (Classic Portal)**: For both single- and multi-instance configurations, Azure sends email communications in advance to alert you of upcoming planned maintenance (one week in advance for single-instance and 48 hours in advance for multi-instance). The email will be sent to the Account Administrator, Service Administrator and Co-administrator email accounts provided in the subscription.
 
-**NOTE:** For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](./virtual-machines/virtual-machines-planned-maintenance.md).
+**NOTE:** For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
 **Unplanned maintenance:** In the event of an unplanned service disruption on the Azure Platform, status updates will be made on our [service dashboard](http://status.azure.com/)  and customers will also receive notice in the [Azure classic portal](https://manage.windowsazure.com/).
 
@@ -131,7 +147,56 @@ Azure SLA Credits are calculated on a per subscription basis as a percentage of 
 
 Azure Service Level Agreements are independent of our on-premises Microsoft licensing agreements. Our SLAs for Azure provide you a monthly uptime guarantee for those services you consume in the cloud, with SLA credits against what we have billed you in the event we fail to meet the guarantee.
 
+### I do not see an invoice for the last billing period. Why?
+
+There could be several reasons for this:
+- It is less than 30 days from the day you subscribed to Azure.
+- Your subscription type is Free Trial or one of the member offers (MSDN/Open/BizSpark/DreamSpark) that doesn't have a credit card or other payment instrument associated with it.
+- The invoice generation date has not yet arrived.
+
 ## Subscriptions
+
+### I am unable to log in to the Azure portal
+
+The following article will help you troubleshoot some common causes of login issues:
+
+[I am unable to log in to manage my Azure subscription](billing-cannot-login-subscription.md)
+
+**Note** Make sure you are logging in as the right administrator: An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/).
+
+### How do I purchase Azure Support?
+Azure Support plans may be purchased either online or through an Enterprise Agreement. The Developer, Standard, or Professional Direct Support plans are available online through the [Azure Support Plans](https://azure.microsoft.com/support/plans/) page. You must be the Microsoft Azure account owner to purchase a support plan.
+
+If you purchase Microsoft Azure through an Enterprise Agreement (EA), you can add either a Standard or Professional Direct support plan to your Enterprise Agreement, by contacting your Large Account Reseller (LAR). Developer Support is not available through an Enterprise Agreement.
+
+### Does the monthly rate cover a single Azure plan or the entire account?
+
+The flat monthly cost for Azure Support covers one account, regardless of how many subscriptions or users you have on the account.
+
+All subscriptions under an account will share the same support plan, and all users with admin/owner access to any of the subscriptions under the account with a Support Plan will also be entitled to support for those specific account’s subscriptions they have access to.
+
+A Microsoft Azure account can be accessed from the [Azure Account Center](https://account.windowsazure.com/Home/Index). From there you can see the list of subscriptions that belong to the account and will be entitled for support.
+
+### How do I upgrade to a higher tier Azure Support plan?
+
+You can upgrade to a higher-tier plan by [submitting a support request](billing-how-to-create-billing-support-ticket.md) and choosing a “Subscription Management”. Microsoft will waive the remaining payments on your original Azure Support plan and charge you at the higher tier for the remaining months of your initial commitment.
+
+### When will I be billed for Azure Support?
+
+When you purchase an Azure Support plan online, you will be charged immediately for the first month. You will be charged the monthly amount on the first day of each subsequent billing cycle. Enterprise Agreement (EA) purchases will follow the agreement billing cycle.
+
+### What happens at the end of the term?
+
+At the end of your 6-month term, your plans will automatically renew to the same Azure Support plan for another 6 months, using the same payment method. As an account owner, you can elect to turn off the auto-renew functionality through the [Azure Account Center](https://account.windowsazure.com/Home/Index).
+
+If you do not wish to auto renew, please log into the [Azure Account Center](https://account.windowsazure.com/Home/Index), select the support plan in question, click on the "Change renewal details," and unselect the default option to auto renew.
+
+### How do I cancel my Azure Support plan?
+
+An account owner can cancel an Azure Support plan by logging into the [Azure Account Center](https://account.windowsazure.com/Home/Index), selecting “ACCOUNT CENTER”, and selecting “subscriptions”. If you have a subscription, your list of subscriptions will be displayed. Select the subscription you wish to cancel. The details of the subscription will then be displayed with a list of options on the right side of the screen. Select “Cancel” and proceed. If you do not have a subscription, then the message “You do not have any subscriptions.” will be displayed.
+
+Note that an Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount.
+For details see [How to cancel your Azure subscription](billing-how-to-cancel-azure-subscription.md).
 
 ### How do I migrate data and services for my Azure subscription to a new subscription?
 

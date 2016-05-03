@@ -1,6 +1,6 @@
 <properties
-   pageTitle="ACS container management through the web UI"
-   description="Deploy containers to an Azure Container Service cluster service using the Marathon Web UI."
+   pageTitle="Azure Container Service container management through the web UI | Microsoft Azure"
+   description="Deploy containers to an Azure Container Service cluster service using the Marathon web UI."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
@@ -8,7 +8,7 @@
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
-   
+
 <tags
    ms.service="container-service"
    ms.devlang="na"
@@ -17,56 +17,82 @@
    ms.workload="na"
    ms.date="02/16/2016"
    ms.author="nepeters"/>
-   
+
 # Container management through the web UI
-   
-Mesos provides an environment for deploying and scaling clustered workload while abstracting the underlying hardware. On top of Mesos, a framework manages scheduling and executing compute workload. While frameworks are available for many popular workloads, this document will detail creating and scaling container deployments with Marathon. Before working through these examples, you will need a Mesos cluster configured in ACS and have remote connectivity to this cluster. For more information in these items see the following articles.
 
-- [Deploying an Azure Container Service Cluster](./container-service-deployment.md) 
-- [Connecting to an ACS Cluster](./container-service-connect.md)
+DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
-## Explore the Mesos UI
+While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles.
 
-With an SSH Tunnel established, browse to http://localhost/Mesos. This will load the Mesos web UI. From the page you can gather information about the Mesos cluster such as activated agents, task status, and resource availability.
+- [Deploying an Azure Container Service cluster](./container-service-deployment.md)
+- [Connecting to an Azure Container Service cluster](./container-service-connect.md)
 
-![Create deployment](media/ui1.png)
+## Explore the DC/OS UI
+
+With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This will load the DC/OS web UI, and show information about the cluster such as used resources, active agents, and running services can be seen.
+
+![](media/dcos/dcos2.png)
 
 ## Explore the Marathon UI
 
-To see the Marathon UI, browse to http://localhost/Marathon. From this screen you can start new container or other application on the ACS Mesos cluster, as well see information about running containers and application.  
+To see the Marathon UI, browse to http://localhost/Marathon. From this screen, you can start a new container or other application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
 
-![Create deployment](media/ui2.png)
+![](media/dcos/dcos3.png)
 
-## Deploy a Docker Container
+## Deploy a Docker-formatted container
 
-To use Marathon to start a new container on the Mesos cluster, click the `Create Application` button. The New Application form is used to define the application or container parameters. For this example, a simple Nginx container will be deployed. Enter the following information.
- Click  create` when completed. 
- 
+To deploy a new container using Marathon, click the **Create Application** button and enter the following information into the form. Click **Create Application** when ready.
+
 Field           | Value
 ----------------|-----------
 ID              | nginx
 Image           | nginx
 Network         | Bridged
-Container Port  | 80
 Host Port       | 80
 Protocol        | TCP
 
-![Create deployment](media/ui3.png)
+![](media/dcos/dcos4.png)
 
-Back on the Marathon main page, deployment status for the container can be seen.
+![](media/dcos/dcos5.png)
 
-![Create deployment](media/ui4.png)
+![](media/dcos/dcos6.png)
 
-If you switch back to the Mesos app (http://localhost/Mesos), you will now see that a task, in this case a Docker container, is running on the Mesos cluster. You can also see the cluster node that the task is running on.
+If you would like to statically map the container port to a port on the agent, this must be completed using ‘JSON Mode’. To do so, switch the New Application wizard to JSON Mode using the toggle, and then enter the following under the ‘portMappings’ section of the application definition. This example bind port 80 of the container to port 80 of the DC/OS agent. This Wizard can be switch out of JSON Mode once this change has been made.
 
-![Create deployment](media/ui5.png)
+```none
+“hostPort”: 80,
+```
 
-## Scale a Docker Container
+![](media/dcos/dcos13.png)
 
-The Marathon Web UI can also be used to scale the instance count of a container. To do so navigate to the Marathon page, select the container that you would like to scale, and click the `scale` button. On the Scale Application window, enter the number of container instance that you would like and select `Scale Application`.
+The DC/OS cluster is deployed with set of private and public agents. To access application from the internet, they must be deployed to a public agent. To do so, select the ‘optional’ tab of the New Application wizard and enter ‘slave_public’ for the ‘Accepted Resource Roles’.
 
-![Create deployment](media/ui6.png)
+![](media/dcos/dcos14.png)
 
-Once the scale operation has completed, you will see multiple instance of the same task spread across Mesos agents.
+Back on the Marathon main page, you can see the deployment status for the container.
 
-![Create deployment](media/ui8.png)
+![](media/dcos/dcos7.png)
+
+If you switch back to the DC/OS app (http://localhost/), you will now see that a task, in this case a Docker-formatted container, is running on the DC/OS cluster.
+
+![](media/dcos/dcos8.png)
+
+You can also see the cluster node that the task is running on.
+
+![](media/dcos/dcos9.png)
+
+## Scale your containers
+
+The Marathon UI can be used to scale the instance count of a container. To do so, navigate to the Marathon page, select the container that you would like to scale, and click the **Scale** button. In the **Scale Application** dialog box, enter the number of container instances that you would like, and select **Scale Application**.
+
+![](media/dcos/dcos10.png)
+
+After the scale operation is complete, you will see multiple instances of the same task spread across DC/OS agents.
+
+![](media/dcos/dcos11.png)
+
+![](media/dcos/dcos12.png)
+
+## Next steps
+
+[Work with the DC/OS and Marathon API](./container-service-mesos-marathon-rest.md)

@@ -3,8 +3,8 @@
 	description="Enterprise Library is designed to ease several tasks for client programs of cloud services, including the integration of retry logic for transient faults."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # Code sample: Retry logic from Enterprise Library 6, in C&#x23; for connecting to SQL Database

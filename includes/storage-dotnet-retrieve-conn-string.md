@@ -15,4 +15,4 @@ If you are creating an application with no reference to Microsoft.WindowsAzure.C
 	using System.Configuration;
 	...
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+		ConfigurationManager.AppSettings["StorageConnectionString"]);

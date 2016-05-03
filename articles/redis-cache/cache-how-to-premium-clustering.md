@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # How to configure Redis clustering for a Premium Azure Redis Cache
@@ -58,7 +58,9 @@ Once the cache is created you connect to it and use it just like a non-clustered
 
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
->[AZURE.IMPORTANT] When connecting to an Azure Redis Cache with clustering enabled using StackExchange.Redis, you may experience an issue and receive `MOVE` exceptions. This occurs because it takes a short interval for the StackExchange.Redis cache client to gather information about the nodes in the cache cluster. These exceptions can occur if you connect to the cache for the first time and immediately make calls to the cache before the client has finished gathering this information. The simplest way to resolve this in your application is by connecting to the cache and then waiting for one second before making any calls to the cache. You can do this by adding a `Thread.Sleep(1000)` as shown in the following sample code. Note that the `Thread.Sleep(1000)` only occurs during the initial connection to the cache. For more information, see [StackExchange.Redis.RedisServerException - MOVED  #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). A fix for this issue is being developed and any updates will be posted here.
+<a name="move-exceptions"></a>
+>[AZURE.IMPORTANT] When connecting to an Azure Redis Cache with clustering enabled using StackExchange.Redis, you may experience an issue and receive `MOVE` exceptions. This occurs because it takes a short interval for the StackExchange.Redis cache client to gather information about the nodes in the cache cluster. These exceptions can occur if you connect to the cache for the first time and immediately make calls to the cache before the client has finished gathering this information. The simplest way to resolve this in your application is by connecting to the cache and then waiting for one second before making any calls to the cache. You can do this by adding a `Thread.Sleep(1000)` as shown in the following sample code. Note that the `Thread.Sleep(1000)` only occurs during the initial connection to the cache. For more information, see [StackExchange.Redis.RedisServerException - MOVED  #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). A fix for this issue is being developed and any updates will be posted here. **Update**: This issue is resolved in the latest [prerelease 1.1.572-alpha](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha) build of StackExchange.Redis. Check the [StackExchange.Redis NuGet page](https://www.nuget.org/packages/StackExchange.Redis/) for the latest build. 
+
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -124,7 +126,7 @@ The largest premium cache size is 53 GB. You can create up to 10 shards giving y
 
 At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
->[AZURE.NOTE] If you are using StackExchange.Redis as your client, ensure you are using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly.
+>[AZURE.NOTE] If you are using StackExchange.Redis as your client, ensure you are using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. If you have any issues with move exceptions, see [move exceptions](#move-exceptions) for more information.
 
 ## How do I connect to my cache when clustering is enabled?
 

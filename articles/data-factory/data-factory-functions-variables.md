@@ -55,21 +55,21 @@ The following tables list all the functions in Azure Data Factory:
 
 Category | Function | Parameters | Description
 -------- | -------- | ---------- | ----------- 
-Time | AddHours(X,Y) | X: DateTime <p>Y: int</p> | Adds Y hours to the given time X. <p>Example: 9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM</p>
-Time | AddMinutes(X,Y) | X: DateTime <p>Y: int</p> | Adds Y minutes to X.<p>Example: 9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM</p>
-Time | StartOfHour(X) | X: Datetime | Gets the starting time for the hour represented by the hour component of X. <p>Example: StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM</p>
-Date | AddDays(X,Y) | X: DateTime<p>Y: int</p> | Adds Y days to X.<p>Example: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM</p>
-Date | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | Adds Y months to X.<p>Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM</p> 
-Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Adds Y * 3 months to X.<p>Example: 9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM</p>
-Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Adds Y * 7 days to X<p>Example: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM</p>
-Date | AddYears(X,Y) | X: DateTime<p>Y: int</p> | Adds Y years to X.<p>Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM</p>
-Date | Day(X) | X: DateTime | Gets the day component of X.<p>Example: Day of 9/15/2013 12:00:00 PM is 9. </p>
-Date | DayOfWeek(X) | X: DateTime | Gets the day of week component of X.<p>Example: DayOfWeek of 9/15/2013 12:00:00 PM is Sunday.</p>
-Date | DayOfYear(X) | X: DateTime | Gets the day in the year represented by the year component of X.<p>Examples:<br/>12/1/2015: day 335 of 2015<br/>12/31/2015: day 365 of 2015<br/>12/31/2016: day 366 of 2016 (Leap Year)</p>
-Date | DaysInMonth(X) | X: DateTime | Gets the days in the month represented by the month component of parameter X.<p>Example: DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month.</p>
-Date | EndOfDay(X) | X: DateTime | Gets the date-time that represents the end of the day (day component) of X.<p>Example: EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM.</p>
-Date | EndOfMonth(X) | X: DateTime | Gets the end of the month represented by month component of parameter X. <p>Example: EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM (date time that represents the end of September month)</p>
-Date | StartOfDay(X) | X: DateTime | Gets the start of the day represented by the day component of parameter X.<p>Example: StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM.</p>
+Time | AddHours(X,Y) | X: DateTime <br/><br/>Y: int | Adds Y hours to the given time X. <br/><br/>Example: 9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM
+Time | AddMinutes(X,Y) | X: DateTime <br/><br/>Y: int | Adds Y minutes to X.<br/><br/>Example: 9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM
+Time | StartOfHour(X) | X: Datetime | Gets the starting time for the hour represented by the hour component of X. <br/><br/>Example: StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM
+Date | AddDays(X,Y) | X: DateTime<br/><br/>Y: int | Adds Y days to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM
+Date | AddMonths(X,Y) | X: DateTime<br/><br/>Y: int | Adds Y months to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM 
+Date | AddQuarters(X,Y) | X: DateTime <br/><br/>Y: int | Adds Y * 3 months to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM
+Date | AddWeeks(X,Y) | X: DateTime<br/><br/>Y: int | Adds Y * 7 days to X<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM
+Date | AddYears(X,Y) | X: DateTime<br/><br/>Y: int | Adds Y years to X.<br/><br/>Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM
+Date | Day(X) | X: DateTime | Gets the day component of X.<br/><br/>Example: Day of 9/15/2013 12:00:00 PM is 9. 
+Date | DayOfWeek(X) | X: DateTime | Gets the day of week component of X.<br/><br/>Example: DayOfWeek of 9/15/2013 12:00:00 PM is Sunday.
+Date | DayOfYear(X) | X: DateTime | Gets the day in the year represented by the year component of X.<br/><br/>Examples:<br/>12/1/2015: day 335 of 2015<br/>12/31/2015: day 365 of 2015<br/>12/31/2016: day 366 of 2016 (Leap Year)
+Date | DaysInMonth(X) | X: DateTime | Gets the days in the month represented by the month component of parameter X.<br/><br/>Example: DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month.
+Date | EndOfDay(X) | X: DateTime | Gets the date-time that represents the end of the day (day component) of X.<br/><br/>Example: EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM.
+Date | EndOfMonth(X) | X: DateTime | Gets the end of the month represented by month component of parameter X. <br/><br/>Example: EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM (date time that represents the end of September month)
+Date | StartOfDay(X) | X: DateTime | Gets the start of the day represented by the day component of parameter X.<br/><br/>Example: StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM.
 DateTime | From(X) | X: String | Parse string X to a date time.
 DateTime | Ticks(X) | X: DateTime | Gets the ticks property of the parameter X. One tick equals 100 nanoseconds. The value of this property represents the number of ticks that have elapsed since 12:00:00 midnight, January 1, 0001. 
 Text | Format(X) | X: String variable | Formats the text.

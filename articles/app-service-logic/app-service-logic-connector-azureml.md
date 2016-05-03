@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,19 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jehollan"/>
    
 # Overview
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 The Azure ML Connector for Logic Apps enables calling Azure ML APIs for batch scoring (Batch Execution Service) and retraining. These features in combination with Logic App Triggers enable scheduling batch jobs and setting up scheduled retraining of models.
 
  ![][1]
  
 ## Get started with the Azure Machine Learning Connector and add it to your Logic App
-To get started, create an experiment in Azure ML Studio, then set up and deploy a web service. You can then use the API URL and Key of the BES Post URL found on the Batch Exaction Help page. ([more info](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
+To get started, create an experiment in Azure ML Studio, then set up and deploy a web service. You can then use the API URL and Key of the BES Post URL found on the Batch Exaction Help page. ([Machine Learning walkthrough](../machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
 
 To run a BES job using the Connector, add the Azure ML Connector to your Logic App. Then enter the required info (see below for more on that).
-To set up Retraining, add a second Azure ML Connector and provide the input parameters (see [here](machine-learning-retrain-models-programmatically.md) for more on setting a model up for retraining).
+To set up Retraining, add a second Azure ML Connector and provide the input parameters (see [setting a model up for retraining](../machine-learning/machine-learning-retrain-models-programmatically.md).
 
 ## Running an Azure ML Batch Execution Job
 The Azure ML Connector provides the following four options for running Batch Execution (BES) jobs:
@@ -36,7 +38,7 @@ The Azure ML Connector provides the following four options for running Batch Exe
 Note that BES is an asynchronous request and could take time to complete depending on the size of your data and the complexity of the model. When the job is completed, the Connector will return the output result.
 
 ### Run Batch Execution: with Input and Output
-If the Studio Experiment has web service input and output modules, you need to provide information on the Storage blob account and location ([more here](machine-learning-consume-web-services.md)). In addition, you can include Global (web service) Parameters if set up in your experiment ([more here](machine-learning-web-service-parameters.md)).
+If the Studio Experiment has web service input and output modules, you need to ([provide information on the Storage blob account and location](../machine-learning/machine-learning-consume-web-services.md)). In addition, you can include Global (web service) Parameters if set up in your experiment ([Machine Learning web service parameters](../machine-learning/machine-learning-web-service-parameters.md)).
 
 ![][2]
 

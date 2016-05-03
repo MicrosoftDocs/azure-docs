@@ -3,7 +3,7 @@
    description="Learn how to use the Azure PowerShell to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/01/2015"
-   ms.author="jgao"/>
+   ms.date="04/21/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell
 
@@ -27,29 +27,20 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
 In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma 
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
-**The basic Data Lake Analytics process:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Azure Data Lake Analytics process flow diagram](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Create a Data Lake Analytics account.
-2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
-3. Develop a U-SQL script.
-4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
-in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
-
-
-**Prerequisites**
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **A workstation with Azure PowerShell**. See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md#prerequisites).
+- **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 	
 ##Create Data Lake Analytics account
 
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
 
-- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
+- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. [Azure Resource Manager](../resource-group-overview.md) enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.  
 
 	To enumerate the resource groups in your subscription:
     
@@ -141,7 +132,7 @@ The following PowerShell script shows you how to get the default Data Lake Store
 
 >[AZURE.NOTE] The Azure Portal provides an user interface to copy the sample data files to the default Data Lake Store account. For instructions, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
 
 ##Submit Data Lake Analytics jobs
 

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="How to: Configure firewall settings | Microsoft Azure"
+	pageTitle="How to: Configure an SQL Database firewall | Microsoft Azure"
 	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="12/16/2015"
-	ms.author="rickbyh"/>
+	ms.date="04/14/2016"
+	ms.author="rickbyh;carlrab"/>
 
 
-# How to: Configure firewall settings on SQL Database using the Azure Portal
+# How to: Configure an Azure SQL Database firewall using the Azure Portal
 
 
 > [AZURE.SELECTOR]
@@ -27,33 +27,26 @@
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
 
+Azure SQL server uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL server logical server to selectively allow access to the database.
 
-SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your SQL Database logical server to selectively allow access to the database.
+> [AZURE.IMPORTANT] To allow applications from Azure to connect to your Azure SQL server, Azure connections must be enabled. To understand how the firewall rules work, see [Azure SQL Database Firewall](sql-database-firewall-configure.md). You may have to open some additional TCP ports if you are making connections inside the Azure cloud boundary. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-> [AZURE.IMPORTANT] To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](sql-database-firewall-configure.md). You may have to open some additional TCP ports if you are making connections inside the Azure cloud boundary. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+[AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
+## Manage existing server-level firewall rules through the Azure portal
 
-### Manage server-level firewall rules through the Azure portal
+Repeat the steps to manage the server-level firewall rules.
 
+- To add the current computer, click Add client IP.
+- To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
+- To modify an existing rule, click any of the fields in the rule and modify.
+- To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
 
-[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
-
-
-## Manage server-level firewall rules 
-
-1. In the Azure portal, click **SQL Databases**. All databases and their corresponding servers are listed here.
-2. Click **Servers** at the top of the page.
-3. Click the arrow beside the server for which you want to manage firewall rules.
-4. Click **Configure** at the top of the page.
-
-	*  To add the current computer, click Add to the Allowed IP Addresses.
-	*  To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
-	*  To modify an existing rule, click any of the fields in the rule and modify.
-	*  To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
-5. Click **Save** at the bottom of the page to save the changes.
-
+Click **Save** to save the changes.
 
 ## Next steps
+
+A server firewall rule affects all SQL Databases on the Azure SQL Server. To configure a database level firewall rule that will affect only a single database instead, see [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx").
 
 For a tutorial on creating a database, see [Create your first Azure SQL Database](sql-database-get-started.md).
 For help in connecting to an Azure SQL database from open source or third-party applications, see [Guidelines for Connecting to Azure SQL Database Programmatically](https://msdn.microsoft.com/library/azure/ee336282.aspx).

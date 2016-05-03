@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/07/2015"
+   ms.date="02/23/2016"
    ms.author="sashan"/>
 
 # Design an application for cloud disaster recovery using geo-replication in SQL Database
@@ -29,9 +29,9 @@ This option is best suited for applications with the following characteristics:
 + Strong dependency on read-write (RW) access to data
 + Cross-region connectivity between the application logic and the database is not acceptable due to latency and traffic cost    
 
-In this case the application deployment topology is optimized for handling regional disasters when all application components are impacted and need to failover as a unit. For geographic redundancy both the application logic and the database are replicated to another region but not used for application workload under the normal conditions. The application in the secondary region should be configured to use a SQL connection string to the secondary database. Traffic manager is set up to use [failover routing method](traffic-manager-configure-failover-load-balancing.md).  
+In this case the application deployment topology is optimized for handling regional disasters when all application components are impacted and need to failover as a unit. For geographic redundancy both the application logic and the database are replicated to another region but not used for application workload under the normal conditions. The application in the secondary region should be configured to use a SQL connection string to the secondary database. Traffic manager is set up to use [failover routing method](../traffic-manager/traffic-manager-configure-failover-routing-method.md).  
 
-> [AZURE.NOTE] [Azure traffic manager](traffic-manager-overview.md) is used throughout this article for illustration purposes only. You can use any load-balancing solution that supports failover routing method.    
+> [AZURE.NOTE] [Azure traffic manager](../traffic-manager/traffic-manager-overview.md) is used throughout this article for illustration purposes only. You can use any load-balancing solution that supports failover routing method.    
 
 In addition to the main application instances, you should consider deploying a small [worker role application](cloud-services-choose-me.md#tellmecs) that monitors your primary database by issuing periodic T-SQL read-only (RO) commands. You can use it to automatically trigger failover, to generate an alert on your application's admin console, or to do both. To ensure that monitoring is not impacted by region-wide outages you should deploy the monitoring application instances to each region and have them connected to the database in the other region but only the instance in the secondary region needs to be active.
 
@@ -75,7 +75,7 @@ This cloud disaster recovery option is best suited for applications with the fol
 + Read-only logic can be separated from read-write logic by using a different connection string
 + Read-only logic does not depend on data being fully synchronized with the latest updates  
 
-If your applications has these characteristics, load balancing the end user connections across multiple application instances in different regions can improve performance and the end-user experience. To achieve that, each region should have an active instance of the application with the read-write (RW) logic connected to the primary database in the primary region. The read-only (RO) logic should be connected to a secondary database in the same region as the application instance. Traffic manager should be set up to use [round-robin routing](traffic-manager-configure-round-robin-load-balancing.md) or [performance routing](traffic-manager-configure-performance-load-balancing.md) with [end-point monitoring](traffic-manager-monitoring.md) enabled for each application instance.
+If your applications has these characteristics, load balancing the end user connections across multiple application instances in different regions can improve performance and the end-user experience. To achieve that, each region should have an active instance of the application with the read-write (RW) logic connected to the primary database in the primary region. The read-only (RO) logic should be connected to a secondary database in the same region as the application instance. Traffic manager should be set up to use [round-robin routing](../traffic-manager/traffic-manager-configure-round-robin-routing-method.md) or [performance routing](../traffic-manager/traffic-manager-configure-performance-routing-method.md) with [end-point monitoring](../traffic-manager/traffic-manager-monitoring.md) enabled for each application instance.
 
 As in pattern #1, you should consider deploying a similar monitoring application. But unlike pattern #1 it will not be responsible for triggering the end-point failover.
 
@@ -110,7 +110,7 @@ This option is best suited for applications with the following characteristics:
 + Any data loss is high business risk; the database failover can only be used as a last resort if the outage is permanent.
 + The application can operate in "read-only mode" for a period of time.
 
-In this pattern, the application switches to read-only mode when connected to the secondary database. The application logic in the primary region is colocated with the primary database and operates in read-write mode (RW), the application logic in the secondary region is colocated with the secondary database and is ready to operate in read-only  mode (RO).  Traffic manager should be set up to use [failover routing](traffic-manager-configure-failover-load-balancing.md) with [end-point monitoring](traffic-manager-monitoring.md) enabled for both application instances.
+In this pattern, the application switches to read-only mode when connected to the secondary database. The application logic in the primary region is colocated with the primary database and operates in read-write mode (RW), the application logic in the secondary region is colocated with the secondary database and is ready to operate in read-only  mode (RO).  Traffic manager should be set up to use [failover routing](../traffic-manager/traffic-manager-configure-failover-routing-method.md) with [end-point monitoring](../traffic-manager/traffic-manager-monitoring.md) enabled for both application instances.
 
 The following diagram illustrates this configuration before an outage.
 ![Active-passive deployment before failover. Cloud disaster recovery.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)

@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="stepsic"/>
 
 #JavaScript API App
+
+>[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. 
+
 The JavaScript API App gives you an easy way to run simple JavaScript expressions *while your Logic App executes*. 
 
 ##When should you use this API app?
@@ -89,7 +92,7 @@ The action returns the JSON that you returned from your function. Thus, in the Y
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 

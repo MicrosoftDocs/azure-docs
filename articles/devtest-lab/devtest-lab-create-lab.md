@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 # Create an Azure DevTest Lab
@@ -23,12 +23,12 @@
 To create a DevTest Lab, you will need:
 
 - An Azure subscription. To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/). You must be the owner of the subscription to create the lab.
-- An Azure Resource Group for the lab. See [Azure Resource Manager Overview](/resource-group-overview.md) and [Azure Role-based Access Control](/active-directory/role-based-access-control-configure.md).
+- An Azure Resource Group for the lab. See [Azure Resource Manager Overview](../resource-group-overview.md) and [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 
 ## Create a lab
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Tap **Browse**.
 

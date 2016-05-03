@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Apply disk encryption | Microsoft Azure"
+   pageTitle="Apply disk encryption in Azure Security Center | Microsoft Azure"
    description="This document shows you how to implement the Azure Security Center recommendation **Apply disk encryption**."
    services="security-center"
    documentationCenter="na"
@@ -10,13 +10,13 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="03/10/2016"
    ms.author="terrylan"/>
 
-# Apply disk encryption
+# Apply disk encryption in Azure Security Center
 
 Azure Security Center will recommend that you apply disk encryption if you have Windows or Linux VM disks that are not encrypted using Azure Disk Encryption. Disk Encryption lets you encrypt your Windows and Linux IaaS VM disks.  Encryption is recommended for both the OS and data volumes on your VM.
 
@@ -33,11 +33,24 @@ Disk Encryption leverages the industry standard [BitLocker](https://technet.micr
 
 ![][1]
 
+To encrypt Azure Virtual Machines that have been identified by Security Center as needing encryption, we recommend the following steps:
+
+- Install and configure Azure PowerShell. This will enable you to run the PowerShell commands required to set up the prerequisites required to encrypt Azure Virtual Machines.
+- Obtain and run the Azure Disk Encryption Prerequisites Azure PowerShell script.
+- Encrypt your virtual machines.
+
+[Encrypt an Azure Virtual Machine](security-center-disk-encryption.md) will walk you through these steps.  This topic assumes you are using Windows 10 as the client machine from which you will configure disk encryption.
+
+There are many approaches that can be used to setup the prerequisites and to configure encryption for Azure Virtual Machines. If you are already well-versed in Azure PowerShell or Azure CLI, then you may prefer to use alternate approaches. To learn about these other approaches see [Azure disk encryption](../azure-security-disk-encryption.md).
+
+
+
 ## Next steps
 
 This document showed you how to implement the Security Center recommendation "Apply disk encryption." To learn more about disk encryption, see the following:
 
 - [Encryption and key management with Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 min 39 sec) -- Learn how to use disk encryption management for IaaS VMs and Azure Key Vault to help protect and safeguard your data.
+- [Encrypt an Azure Virtual Machine](security-center-disk-encryption.md) (document) -- Learn how to encrypt Azure Virtual Machines.
 - [Azure disk encryption](../azure-security-disk-encryption.md) (document) -- Learn how to enable disk encryption for Windows and Linux VMs.
 
 To learn more about Security Center, see the following:

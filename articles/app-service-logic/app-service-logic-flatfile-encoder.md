@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # BizTalk Flat File Encoder
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use the BizTalk Flat File Encoder connector to interop between flat file data (for example, an Excel or CSV file) and XML data. It can convert a given flat file instance to XML and vice versa.
 

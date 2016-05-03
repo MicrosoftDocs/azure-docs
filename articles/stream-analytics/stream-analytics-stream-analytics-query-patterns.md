@@ -180,7 +180,7 @@ e.g. Analyze data for a threshold-based alert and archive all events to blob sto
 The INTO clause tells Stream Analytics which of the outputs to write the data from this statement.
 The first query is a pass-through of the data we received to an output that we named ArchiveOutput.
 The second query does some simple aggregation and filtering and sends the results to a downstream alerting system.
-*Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening less readers to the input source.
+*Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening fewer readers to the input source.
 e.g. 
 
 	WITH AllRedCars AS (
@@ -437,7 +437,7 @@ Use LAST function to retrieve last Time value when event type was ‘Start’. N
 
 ## Query example: Detect duration of a condition
 **Description**: Find out how long a condition occurred for.
-e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,000 pounds) – we want to compute the duration of the bug.
+e.g. Suppose that a bug that resulted in all cars having an incorrect weight (above 20,000 pounds) – we want to compute the duration of the bug.
 
 **Input**:
 

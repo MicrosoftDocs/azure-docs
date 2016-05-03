@@ -2,7 +2,7 @@
 	pageTitle="Using the BizTalk Transform in logic apps in Azure App Service| Microsoft Azure" 
 	description="Learn how to transform XML documents from one schema to another" 
 	authors="anuragdalmia" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="04/20/2016"
 	ms.author="anuragdalmia"/>
 
 # BizTalk Transform
 
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## Overview
-Put simply, the BizTalk Transform API App converts data from one format to another format. For example, you might take shipping and billing addresses from a purchase order and insert them into an invoice document. Or you may have an incoming message that contains the current date in the *YearMonthDay* format. You want to reformat the date to be in the *MonthDayYear* format. 
+The BizTalk Transform API App converts data from one format to another format. For example, you might take shipping and billing addresses from a purchase order and insert them into an invoice document. Or you may have an incoming message that contains the current date in the *YearMonthDay* format. You want to reformat the date to be in the *MonthDayYear* format. 
 
 You can do this using the Transform API App in Microsoft Azure App Service. A Transform, which is also known as a map, consists of a Source XML schema (the input) and a Target XML schema (the output). You can use different built-in functions to help manipulate or control the data, including string manipulations, conditional assignments, arithmetic expressions, date time formatters, and even looping constructs. 
 

@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="03/09/2016"
    ms.author="brjohnst"/>
 
 # Upgrading to the Azure Search .NET SDK version 1.1
@@ -170,6 +170,29 @@ Starting with version 1.1, the Azure Search .NET SDK organizes operation methods
  - Optional parameters are now modeled as default parameters rather than additional method overloads. This reduces the number of method overloads, sometimes dramatically.
  - The extension methods now hide a lot of the extraneous details of HTTP from the caller. For example, older versions of the SDK returned a response object with an HTTP status code, which you often didn't need to check because operation methods throw `CloudException` for any status code that indicates an error. The new extension methods just return model objects, saving you the trouble of having to unwrap them in your code.
  - Conversely, the core interfaces now expose methods that give you more control at the HTTP level if you need it. You can now pass in custom HTTP headers to be included in requests, and the new `AzureOperationResponse<T>` return type gives you direct access to the `HttpRequestMessage` and `HttpResponseMessage` for the operation. `AzureOperationResponse` is defined in the `Microsoft.Rest.Azure` namespace and replaces `Hyak.Common.OperationResponse`.
+
+### ScoringParameters changes
+
+A new class named `ScoringParameter` has been added in the latest SDK to make it easier to provide parameters to scoring profiles in a search query. Previously the `ScoringProfiles` property of the `SearchParameters` class was typed as `IList<string>`; Now it is typed as `IList<ScoringParameter>`.
+
+#### Example
+
+If your code looks like this:
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters = new[] { "featuredParam:featured", "mapCenterParam:" + lon + "," + lat };
+
+You can change it to this to fix any build errors: 
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters =
+        new[]
+        {
+            new ScoringParameter("featuredParam", "featured"),
+            new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
+        };
 
 ### Model class changes
 
@@ -362,7 +385,7 @@ For this reason, we still recommend that you use nullable types in your model cl
 For more details on this bug and the fix, please see [this issue on GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
 
 ## Conclusion
-If you need more details on using the Azure Search .NET SDK, see our recently updated [How-to](search-howto-dotnet-sdk.md) and [Getting Started](search-get-started-dotnet.md) articles.
+If you need more details on using the Azure Search .NET SDK, see our recently updated [How-to](search-howto-dotnet-sdk.md).
 
 We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuresearch). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "Search SDK: ".
 

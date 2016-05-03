@@ -3,8 +3,8 @@
    description="Learn how Azure Backup handles data encrypted using BitLocker or dmcrypt during IaaS VM backup. This article prepares you for the differences in backup and restore experiences when dealing with encrypted disks."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
+   authors="markgalioto"
+   manager="jwhit"
    editor=""/>
 <tags
    ms.service="backup"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="11/27/2015"
-   ms.author="aashishr"/>
+   ms.date="03/14/2016"
+   ms.author="markgal; jimpark"/>
 
 # Dealing with encrypted disks during VM backup
 

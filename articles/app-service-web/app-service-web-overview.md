@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/09/2016"
 	ms.author="jaime.espinosa"/>
 
@@ -24,6 +24,8 @@
 Leverage the power of [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) to use the languages and frameworks you know and depend on, deploy your applications quickly to the Azure Cloud and continuously improve your code without having to worry about infrastructure ever again.
 
 ![Web Marketplace](./media/app-service-web-overview/marketplace.png)
+
+[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 ## More than just websites##
 
@@ -45,10 +47,10 @@ Azure App Service Web Apps is a fully managed platform that enables you to build
 - **Deployment Slots** - Implement [Staged Deployment] [Slots] to verify your code in a pre-production environment which is identical to your production web app in Azure App Service. When satisfied, release a new version of your App with zero downtime by performing a swap operation. 
 - **Testing in Production** - Take Staged Deployments to the next level and perform A/B testing to verify your new code with a configurable fraction of your live traffic. 
 - **Webjobs** - Run any program or script on Web Apps VMs. Run jobs continuously or on a schedule and scale to run on multiple VMs. Use the Azure [WebJobs SDK][Webjobs] to integrate with Azure Storage or Service Bus.
-- **Hybrid connections** - - Access on-premises data using [hybrid connections](../integration-hybrid-connection-overview.md) and [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Hybrid connections** - - Access on-premises data using [hybrid connections](../biztalk-services/integration-hybrid-connection-overview.md) and [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
 
 ## Getting Started ##
-To get started with Web Apps, follow the [Create an ASP.NET web app] [create] tutorial.
+To get started with Web Apps, follow the [Get started with web apps in Azure App Service] [create] tutorial.
 
 For more information on Azure App Service platform, see [Azure App Service][appservice].
 
@@ -58,7 +60,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: web-sites-dotnet-get-started.md
+[create]: app-service-web-get-started.md
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
 

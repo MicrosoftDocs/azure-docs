@@ -14,23 +14,25 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="rgarodia"/>
+	ms.date="03/02/2016"
+	ms.author="cjiang"/>
 
 # Troubleshoot Azure Sign-up Issues
 This article will help you troubleshoot common causes of issues that can occur when you sign up for Azure.
 
-## Is account profile information correct and complete?
-Your profile details are used to generate billing statements, so it is important to enter your information accurately and completely in order to successfully sign up. Examples of incorrect or incomplete fields are:
-- Missing name or last name.
+## I am getting an error when entering my information to sign up.
+Is the account profile information correct?
+Your profile details are used to generate billing statements, so it is important to enter your information accurately. Examples of incorrect fields are:
+- Incorrect name or last name.
 - Invalid phone number.
 - Invalid address.
 - Non-standard characters used.
 
 Suggestions
-- Make sure the information you provide matches your billing statement.
+- Enter your information accurately in order to successfully sign up.
 
-## Have you verified that your phone number can receive SMS or calls during account verification step at sign-up?
+## I am not getting text messages or calls during account verification when I try to sign up.
+- Verify that your phone number can receive SMS.
 - Double check the phone number you entered, including the country code selection in the dropdown menu.
 - Be sure your phone can receive text messages (SMS) if you use "Send text message," or phone calls if you choose the "Call me" alternative.
 - If you use a mobile phone be sure that you have a good phone connection.
@@ -38,22 +40,22 @@ Suggestions
 - As soon as you receive the text message, insert the code in the text box and click the verification button to proceed.
 
 Suggestions:
-- If you do not receive text messages (SMS) in your phone, use the "call me" alternate verification method
-- Use another phone number if the phone verification step fails using both SMS and "Call me" methods
+- If you do not receive text messages (SMS) in your phone, use the "call me" alternate verification method.
+- Use another phone number if the phone verification step fails using both SMS and "Call me" methods.
 - A VOIP phone number cannot be used for the phone verification process.
 
 **Note:** You can change your preferred phone number at a later time by updating [your profile information](https://account.windowsazure.com/Profile).
 
-## Are you sure that the payment method you are using at sign-up is supported for Azure activations or payments?
+## My credit card was not accepted.
+Make sure that the payment method you are using at sign-up is supported for Azure activations or payments.
 - Virtual and prepaid credit/debit cards are not accepted.
 - Accepted credit/debit card providers vary based on account country.
 
 Suggestions:
-- Do not use a virtual or prepaid debit/credit card.
-- Try to use an alternate valid and supported credit card if payment or activation fails.
-- Be sure that the credit card is active and that your bank is not blocking any online transaction for security policies.
+- For common causes of sign-up issues using a credit or debit card see the article [My credit card doesn’t go through when I try to sign up for Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
-## Are you trying to activate an Azure benefit plan like MSDN, BizSpark, BizSparkPlus or MPN?
+## I can’t activate an Azure benefit plan like MSDN, BizSpark, BizSparkPlus or MPN.
+Check your eligibility:
 Verify through your benefit program channel if you are eligible for the chosen plan:
 - MSDN:
   - Verify your eligibility status in your [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
@@ -68,14 +70,14 @@ Verify through your benefit program channel if you are eligible for the chosen p
 Suggestions:
 - If you tried to activate a new benefit subscription and you faced any error during sign up experience, please verify if your subscription setup has been completed at the [Azure subscription page](http://account.windowsazure.com/Subscriptions). It may take a few minutes for your subscription to show as active. Once your subscription has been activated, you will receive an email. If your subscription status remains pending for more than four minutes, please [contact Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for assistance.
 
-## Are you trying to activate a new Azure In Open subscription?
-- You must have a valid OSA key with at least an Azure In Open token associated to it in order to activate a new Azure In Open subscription.
+## I can’t activate a new Azure In Open subscription.
+You must have a valid OSA key with at least an Azure In Open token associated to it in order to activate a new Azure In Open subscription.
 
 Suggestions:
 - If you do not have an OSA key, please contact one of Microsoft Partners listed in [Microsoft Pinpoint](http://pinpoint.microsoft.com/).
 
-## Have you already used an Azure subscription in the past and now you are trying to activate an Azure Free Trial?
-The Azure Terms of Use agreement has a limit of only one available free trial activation for any user that never used Azure before. If you have had any other type of Azure subscription, you will not be able to activate a free trial.
+## I can’t activate an Azure Free Trial.
+Have you already used an Azure subscription in the past? The Azure Terms of Use agreement has a limit of only one available free trial activation for any user that never used Azure before. If you have had any other type of Azure subscription, you will not be able to activate a free trial.
 
 Suggestions:
 - If you already activated an Azure subscription in the past and free trial activation fails, please consider purchasing a Pay-As-You-Go subscription. You may also be eligible for a benefit offer. Learn more at the [Microsoft Azure offer details page](https://azure.microsoft.com/support/legal/offer-details/) instead of Azure Free Trial plan. Please note that benefit plans require specific prerequisites.

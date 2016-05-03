@@ -14,18 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/20/2016" 
 	ms.author="nitinme"/>
 
 
-# Use BI tools with Apache Spark on Azure HDInsight (Linux)
+# Use BI tools with Apache Spark on HDInsight Linux (Preview)
 
 Learn how to use Apache Spark in Azure HDInsight to do the following:
 
 * Take raw sample data and save it as a Hive table
 * Use BI tools such as Power BI and Tableau to analyze and visualize the data.
 
-> [AZURE.TIP] This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Use BI tools with Apache Spark on HDInsight.ipynb** under the **Python** folder.
+> [AZURE.NOTE] This tutorial is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
+
+This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Use BI tools with Apache Spark on HDInsight.ipynb** under the **Python** folder.
 
 **Prerequisites:**
 
@@ -42,7 +44,7 @@ In this section, we use the [Jupyter](https://jupyter.org) notebook associated w
 
 Once your data is saved as a Hive table, in the next section we will connect to the Hive table using BI tools such as Power BI and Tableau.
 
-1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
@@ -50,7 +52,7 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Create a new notebook. Click **New**, and then click **Python 2**.
+2. Create a new notebook. Click **New**, and then click **PySpark**.
 
 	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
@@ -58,22 +60,12 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-4. Import the required modules and create the Spark and Hive contexts. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**.
+4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
-		from pyspark import SparkContext
 		from pyspark.sql import *
-		from pyspark.sql import HiveContext
-		from pyspark.sql import Row
 		
-		# Create Spark and Hive contexts
-		sc = SparkContext('yarn-client')
-		hiveCtx = HiveContext(sc)
-
-	Everytime you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **Python 2** text in the top-right corner. After the job completes, this will change to a hollow circle.
-
-	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-use-bi-tools/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
-
-4. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
+	
+5. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
 	In an empty cell, paste the following snippet and press **SHIFT + ENTER**. This snippet registers the data into a Hive table called **hvac**.
 
@@ -89,31 +81,33 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 		hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
 		
 		# Infer the schema and create a table       
-		hvacTable = hiveCtx.createDataFrame(hvac)
+		hvacTable = sqlContext.createDataFrame(hvac)
 		hvacTable.registerTempTable('hvactemptable')
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. Verify that the table was successfully created. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
+5. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-		hiveCtx.sql("SHOW TABLES").show()
+		%%sql
+		SHOW TABLES
 
 	You will see an output like the following:
 
-		+---------------+-----------+
-		|      tableName|isTemporary|
-		+---------------+-----------+
-		|  hvactemptable|       true|
-		|hivesampletable|      false|
-		|           hvac|      false|
-		+---------------+-----------+
+		+-----------+---------------+
+		|isTemporary|tableName		| 
+		+-----------+---------------+
+		|       true|hvactemptable  |
+		|      false|hivesampletable|
+		|      false|hvac			|
+		+-----------+---------------+
 
 
 	Only the tables that have false under the **isTemporary** column are hive tables that will be stored in the metastore and can be accessed from the BI tools. In this tutorial, we will connect to the **hvac** table we just created.
 
 6. Verify that the table contains the intended data. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
-		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
+		%%sql
+		SELECT * FROM hvac LIMIT 10
 	
 7. You can now shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
 

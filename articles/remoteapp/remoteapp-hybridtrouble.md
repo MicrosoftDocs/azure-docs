@@ -41,6 +41,7 @@ You can add additional network security groups to the VMs deployed by you in the
 
 
 For hybrid collections you use your own DNS servers. You specify them in your network configuration schema or through the management portal when you create your virtual network. DNS servers are used in the order that they are specified in a failover manner (as opposed to round robin).  
+Please refer to [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) to make sure your DNS servers are configured correcly.
 
 Make sure the DNS servers for your collection are accessible and available from the VNET subnet you specified for this collection.
 

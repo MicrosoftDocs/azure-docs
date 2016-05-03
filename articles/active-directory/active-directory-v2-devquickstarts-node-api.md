@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 Node.js Web API | Microsoft Azure"
+	pageTitle="Azure AD v2.0 NodeJS Web API | Microsoft Azure"
 	description="How to build a NodeJS Web API accepts tokens from both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,24 +13,19 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# App Model v2.0 Preview: Secure a Web API using node.js
+# Secure a Web API using node.js
 
 > [AZURE.NOTE]
-This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-With the v2.0 app model, you can protecet a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
+With Azure Active Directory the v2.0 endpoint, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
 
 **Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We will install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
-In order to do this, you’ll need to:
-
-1. Register an application with Azure AD
-2. Set up your app to use Passport's azure-ad-passport plug-in.
-3. Configure a client application to call the To Do List Web API
-
+## Download
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) or clone the skeleton:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
@@ -38,7 +33,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 The completed application is provided at the end of this tutorial as well.
 
 
-## 1. Register an App
+## 1. Register an app
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
@@ -126,7 +121,7 @@ The output of this command should appear similar to the following:
 	├── verror@1.3.6 (extsprintf@1.0.2)
 	├── csv@0.3.6
 	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+	└── bunyan@0.22.0(mv@0.0.5)
 
 
 ## 5: Install Passport.js into your Web API
@@ -656,7 +651,7 @@ Then, change to the directory and start curling..
 `$ curl -isS http://127.0.0.1:8080 | json`
 
 ```Shell
-HTTP/1.1 200 OK
+HTTP/1.1 2.0OK
 Connection: close
 Content-Type: application/json
 Content-Length: 171
@@ -854,8 +849,8 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-[Secure a Web App with the v2.0 app model in Node.js >>](active-directory-v2-devquickstarts-node-web.md)
+[Secure a Node.js web app using the v2.0 endpoint >>](active-directory-v2-devquickstarts-node-web.md)
 
 For additional resources, check out:
-- [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
+- [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="How to: Configure firewall settings | Microsoft Azure"
+	pageTitle="How to: Configure an Azure SQL Database firewall | Microsoft Azure"
 	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -18,7 +18,7 @@
 	ms.author="rickbyh"/>
 
 
-# How to: Configure firewall settings on SQL Database using PowerShell
+# How to: Configure an Azure SQL Database firewall using PowerShell
 
 
 > [AZURE.SELECTOR]

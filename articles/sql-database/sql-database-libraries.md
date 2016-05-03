@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="pehteh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="genemi"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="pehteh"/>
 
 # Connection libraries for SQL Database and SQL Server
@@ -28,10 +28,10 @@ The following table displays libraries that are released by Microsoft. The **Lib
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | Cross-platform (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5+ | SQL Server Provider for .NET Framework | . |
 | PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0+ | PHP Driver for SQL Server | [Link](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0+ |  Type 4 JDBC driver that provides database connectivity through the standard JDBC API | [Link](http://msdn.microsoft.com/library/dn425070.aspx) |
+| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0+ |  Type 4 JDBC driver that provides database connectivity through the standard JDBC API | [Link](https://msdn.microsoft.com/library/mt654048.aspx) |
 | ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | . |
-| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | . |
+| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](https://msdn.microsoft.com/en-us/library/hh568451.aspx) |
+| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](https://msdn.microsoft.com/en-us/library/hh568451.aspx) |
 
 ### ODBC support
 
@@ -59,12 +59,15 @@ The following table displays libraries that are released by third parties such a
 
 | Platform | Libraries |
 | :-- | :-- |
-| Python | [pymssql *(org, stable)*](http://pymssql.org/en/stable/)<br/><br/>[pymssql *(org)*](http://pymssql.org/) |
-| Node.js | [Tedious *(npmjs)*](http://www.npmjs.com/package/tedious) |
-| Node.js | [Node-MSSQL *(github, patriksimek)*](https://github.com/patriksimek/node-mssql)<br/><br/>[Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
-| Node.js | [Edge.js *(github com, tjanczuk)*](https://github.com/tjanczuk/edge)<br/><br/>[Edge.js *(tjanczuk, github io)*](http://tjanczuk.github.io/edge/) |
-| . | [FreeTDS *(org)*](http://www.freetds.org/) |
+| Ruby | [tinytds *(org, stable)*](https://rubygems.org/gems/tiny_tds/versions/0.7.0) |
+| GO | [go-mssqldb *(org, stable)*](https://github.com/denisenkom/go-mssqldb) |
+| Python | [pymssql *(org, stable)*](http://pymssql.org/en/stable/) |
+| Node.js | [Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
+| C++ | [FreeTDS *(org)*](http://www.freetds.org/) |
+
+
 
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
+

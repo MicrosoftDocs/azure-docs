@@ -3,7 +3,7 @@
 	description="A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer" 
 	services="storage" 
 	documentationCenter="dotnet" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="04/21/2016" 
+	ms.author="robinsh"/>
 
 # End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer 
 
@@ -35,6 +35,8 @@ To troubleshoot client applications using Microsoft Azure Storage, you can use a
 	- **Storage metrics** tracks transaction metrics and capacity metrics for your storage account. Using metrics, you can determine how your application is performing according to a variety of different measures. See [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx) for more information about the types of metrics tracked by Storage Analytics. 
 
 	- **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](http://msdn.microsoft.com/library/azure/hh343259.aspx) for more information about the request and response data that is written to the logs by Storage Analytics.
+
+> [AZURE.NOTE] Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. 
 
 - **Azure Classic Portal**. You can configure metrics and logging for your storage account in the [Azure Classic Portal](https://manage.windowsazure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric. 
 	
@@ -58,7 +60,7 @@ For our sample scenario, once we've established that the percent success rate me
 
 The examples below shows a sampling of some 400-range errors for requests against Azure Blob Storage, and their possible causes. Any of these errors, as well as errors in the 300 range and the 500 range, can contribute to a low percent success rate. 
 
-Note that the lists below are far from complete. See [Status and Error Codes](http://msdn.microsoft.com/library/azure/dd179382.aspx) on MSDN for details about general Azure Storage errors and about errors specific to each of the storage services.
+Note that the lists below are far from complete. See [Status and Error Codes](http://msdn.microsoft.com/library/azure/dd179382.aspx) for details about general Azure Storage errors and about errors specific to each of the storage services.
 
 **Status Code 404 (Not Found) Examples**
 
@@ -88,7 +90,7 @@ In this tutorial, we'll use Message Analyzer to work with three different types 
 
 ### Configure server-side logging and metrics
 
-First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure Classic Portal](https://manage.windowsazure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx) on MSDN for details about configuring logging and metrics.
+First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure Classic Portal](https://manage.windowsazure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx) for details about configuring logging and metrics.
 
 **Via the Azure Classic Portal**
 
@@ -130,7 +132,7 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 
 ### Configure .NET client-side logging
 
-To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
+To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) for details.
 
 The client-side log includes detailed information about how the client prepares the request and receives and processes the response.
 
@@ -206,8 +208,8 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 
 1. Download [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) from the Microsoft Download Center, and run the installer.
 2. Launch Message Analyzer.
-3. On the **Start** page, navigate to **Downloads**, then filter on **Azure Storage**. You will see the Azure Storage Assets, as shown in the picture below.
-4. Click **Sync All Displayed Items** to install the Azure Storage Assets. The available assets include: 
+3. From the **Tools** menu, select **Asset Manager**. In the **Asset Manager** dialog, select **Downloads**, then filter on **Azure Storage**. You will see the Azure Storage Assets, as shown in the picture below.
+4. Click **Sync All Displayed Items** to install the Azure Storage Assets. The available assets include:
 	- **Azure Storage Color Rules:** Azure Storage color rules enable you to define special filters that use color, text, and font styles to highlight messages that contain specific information in a trace.
 	- **Azure Storage Charts:** Azure Storage charts are predefined charts that graph server log data. Note that to use Azure Storage charts at this time, you may only load the server log into the Analysis Grid.
 	- **Azure Storage Parsers:** The Azure Storage parsers parse the Azure Storage client, server, and HTTP logs in order to display them in the Analysis Grid.
@@ -215,7 +217,7 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 	- **Azure Storage View Layouts:** Azure Storage view layouts are predefined column layouts and groupings in the Analysis Grid.
 4. Restart Message Analyzer after you've installed the assets.
 
-![Message Analyzer Start Page](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
+![Message Analyzer Asset Manager](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
 > [AZURE.NOTE] Install all of the Azure Storage assets shown for the purposes of this tutorial.
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -196,7 +196,29 @@ If you have several tabs within different HTML pages, you can specify the URL to
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
+#### Timing page views
 
+By default, the times reported as "Page view load time" are measured from when the browser sends the request, until the browser's page load event is called.
+
+Instead, you can either:
+
+* Set an explicit duration in the [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) call.
+ * `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
+* Use the page view timing calls `startTrackPage` and `stopTrackPage`.
+
+*JavaScript*
+
+    // To start timing a page:
+    appInsights.startTrackPage("Page1");
+
+... 
+
+    // To stop timing and log the page:
+    appInsights.stopTrackPage("Page1", url, properties, measurements);
+
+The name you use as the first parameter associates the start and stop calls. It defaults to the current page name. 
+
+The resulting page load durations displayed in Metric Explorer are derived from the interval between the start and stop calls. It's up to you what interval you actually time.
 
 ## Track Request
 
@@ -654,24 +676,14 @@ If you set any of these values yourself, consider removing the relevant line fro
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
 * **User** User information. 
 
-
-
 ## Limits
 
-There are some limits on the number of metrics and events per application (that is, per instrumentation key).
 
-1. A maximum rate per second which applies separately to each instrumentation key. Above the limit, some data will be dropped.
- * Up to 500 data points per second for TrackTrace calls and captured log data. (100 per second for the free pricing tier.)
- * Up to 50 data points per second for exceptions, captured either by our modules or by TrackException calls. 
- * Up to 500 data points per second for all other data, including both the standard telemetry sent by the SDK modules, and custom events, metrics and other telemetry sent by your code. (100 per second for the free pricing tier.)
-1. Monthly total volume of data, depending on your [pricing tier](app-insights-pricing.md).
-1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  Metrics and property names are global per instrumentation key, not scoped to data type.
-2.	Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search but no longer for filters.
-3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 *How can I avoid hitting the data rate limit?*
 
-* Install the latest SDK to use [sampling](app-insights-sampling.md).
+* Use [sampling](app-insights-sampling.md).
 
 *How long is data kept?*
 

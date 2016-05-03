@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN Caching Policy in Media Services Extension" 
-	description="This topic gives an overview of a CDM caching policy in Media Services Extension." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN Caching Policy in Media Services Extension"
+	description="This topic gives an overview of a CDM caching policy in Media Services Extension."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/01/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/01/2016"
 	ms.author="juliako"/>
 
 #CDN Caching Policy in Media Services Extension
@@ -32,7 +32,7 @@ Azure Media services provides [integrated CDN](https://azure.microsoft.com/updat
 
 You can use Azure Management portal or Azure Media Services APIs to configure cache header values.
 
-1. To configure cache headers using management portal please refer to [How to Manage Streaming Endpoints](../media-services-manage-origins.md) section Configuring the Streaming Endpoint.
+1. To configure cache headers using management portal please refer to [How to Manage Streaming Endpoints](../media-services/media-services-manage-origins.md) section Configuring the Streaming Endpoint.
 2. Azure Media Services REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](http://go.microsoft.com/fwlink/?LinkId=615302).
 
@@ -41,4 +41,3 @@ You can use Azure Management portal or Azure Media Services APIs to configure ca
 1. Azure Media Services configured cache value overrides default value.
 2. If there is no manual configuration, default values applies.
 3. By default 2 seconds cache headers applies to live streaming manifest(playlist) regardless of Azure Media or Azure Storage configuration and overriding of this value is not available.
- 

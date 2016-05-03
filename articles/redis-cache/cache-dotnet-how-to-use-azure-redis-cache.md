@@ -4,7 +4,7 @@
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -57,7 +57,7 @@ To create a cache, first sign in to the [Azure Portal][], and click **New**, **D
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE] If you don't have an Azure account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] If you don't have an Azure account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial][].
 
 In the **New Redis Cache** blade, specify the desired configuration for the cache.
 
@@ -235,8 +235,8 @@ One simple way to serialize objects is to use the `JsonConvert` serialization me
 Now that you've learned the basics, follow these links to learn more about Azure Redis Cache.
 
 -	Check out the ASP.NET providers for Azure Redis Cache.
-	-	[Azure Redis Session State Provider](cache-asp.net-session-state-provider.md)
-	-	[Azure Redis Cache ASP.NET Output Cache Provider](cache-asp.net-output-cache-provider.md)
+	-	[Azure Redis Session State Provider](cache-aspnet-session-state-provider.md)
+	-	[Azure Redis Cache ASP.NET Output Cache Provider](cache-aspnet-output-cache-provider.md)
 -	[Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 -	Check out the [StackExchange.Redis cache client documentation][].
 	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][] and [Develop in other languages for Azure Redis Cache][].

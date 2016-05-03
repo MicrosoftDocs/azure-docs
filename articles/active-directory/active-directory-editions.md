@@ -463,10 +463,11 @@ In addition to the generally available features of the Free, Basic, and Premium 
 **Available preview features:**
 
 - [B2B collaboration](active-directory-b2b-collaboration-overview.md)
-- Conditional Access
 - [Administrative Units](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
+- [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 

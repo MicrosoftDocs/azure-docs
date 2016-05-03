@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Manage Role-Based Access Control with the Azure Command Line Interface
@@ -23,7 +23,15 @@
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
 
-## List Role-Based Access Control (RBAC) roles
+Role-Based Access Control (RBAC) in the Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+
+Before you can use the Azure CLI to manage RBAC, you must have the following:
+
+- Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli-install.md).
+- Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md) for more details.
+
+## List roles
+
 ###	List all available roles
 To list all available roles use:
 
@@ -44,17 +52,17 @@ The following example shows the actions of the *Contributor* and *Virtual Machin
 
 ##	List access
 ###	List role assignments effective on a resource group
-To list role assignments effective on a resource group  use:
+To list the role assignments that exist in a resource group, use:
 
     azure role assignment list --resource-group <resource group name>
 
-The following example shows the role assignments effective on the *pharma-sales-projecforcast* group.
+The following example shows the role assignments in the *pharma-sales-projecforcast* group.
 
 ![RBAC Azure command line - azure role assignment list by group- screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	List role assignments to a user, including ones assigned to a user's groups
 
-The following example shows the role assignments effective on the user *sameert@aaddemo.com*.
+The following example shows the role assignments granted to the user *sameert@aaddemo.com*. This includes roles assigned directly to the user, but also roles inherited from groups.
 
 ![RBAC Azure command line - azure role assignment list by user - screenshot](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 

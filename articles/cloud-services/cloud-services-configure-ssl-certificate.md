@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="04/19/2016"
 	ms.author="adegeo"/>
 
 
@@ -58,7 +58,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 1.  In your development environment, open the service definition file
     (CSDEF), add a **Certificates** section within the **WebRole**
     section, and include the following information about the
-    certificate:
+    certificate (and intermediate certificates):
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -66,6 +66,17 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
                     		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
+                <!-- IMPORTANT! Unless your certificate is either
+                self-signed or signed directly by the CA root, you
+                must include all the intermediate certificates
+                here. You must list them here, even if they are
+                not bound to any endpoints. Failing to list any of
+                the intermediate certificates may cause hard-to-reproduce
+                interoperability problems on some clients.-->
+                <Certificate name="CAForSampleCertificate"
+                             storeLocation="LocalMachine"
+                             storeName="CA"
                              permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
@@ -121,6 +132,9 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
             <Certificates>
                 <Certificate name="SampleCertificate" 
                     thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+                    thumbprintAlgorithm="sha1" />
+                <Certificate name="CAForSampleCertificate"
+                    thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
                     thumbprintAlgorithm="sha1" />
             </Certificates>
         ...

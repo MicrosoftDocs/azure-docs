@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/26/2016" 
 	ms.author="awills"/>
  
 # Questions - Application Insights for ASP.NET
 
-## Troubleshooting
+## Configuration problems
 
 *I'm having trouble setting up my:*
 
@@ -92,12 +92,6 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 ## <a name="update"></a>How can I change which Azure resource my project sends data to?
 
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
-
-
-## <a name="q06"></a>On the Microsoft Azure Preview home screen, does that map show the status of my application?
-
-No! It shows the status of the Azure service. To see your web test results, choose Browse > Application Insights > (your application) and then look at the web test results. 
-
 
 
 #### <a name="data"></a>How long is data retained in the portal? Is it secure?

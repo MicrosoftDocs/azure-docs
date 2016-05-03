@@ -3,7 +3,7 @@
     description="Overview of the elastic query feature"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="sidneyh"/>
 
 <tags
@@ -12,20 +12,24 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="04/18/2016"
     ms.author="torsteng" />
 
 # Azure SQL Database elastic database query overview (preview)
 
 The elastic database query feature (in preview) enables you to run a Transact-SQL query that spans multiple databases in Azure SQL Database (SQLDB). It allows you to perform cross-database queries to access remote tables, and to connect Microsoft and third party tools (Excel, PowerBI, Tableau, etc.) to query across data tiers with multiple databases. Using this feature, you can scale out queries to large data tiers in SQL Database and visualize the results in business intelligence (BI) reports.
-To begin building an elastic database query application, see [Getting started with elastic database query](sql-database-elastic-query-getting-started.md).
 
-## What’s new in elastic database query
+1. [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md)
+2. [Queries across sharded cloud databases (horizontally partitioned)](sql-database-elastic-query-horizontal-partitioning.md)
+2. [Queries across sharded cloud databases (vertically partitioned)](sql-database-elastic-query-vertical-partitioning.md)
+
+
+## Elastic database query highlights
 
 * Cross-database querying scenarios with single remote databases can now be defined completely in T-SQL. This allows for read-only querying of remote databases. This provides an option for current on-premises SQL Server customers to migrate applications using three- and four-part names or linked server to SQL DB.
-* Elastic query is now supported on the Standard performance tier in addition to the Premium performance tier. Please see the section on Preview Limitations below on performance limitations for lower performance tiers.
+* Elastic query is supported on the Standard performance tier in addition to the Premium performance tier. Please see the section on Preview Limitations below on performance limitations for lower performance tiers.
 * Elastic queries can now push SQL parameters to the remote databases for execution.
-* Remote stored procedure calls or remote functions invocations that use sp_execute_fanout can now use parameters similar to [sp_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
+* Remote stored procedure calls or remote functions invocations that use sp\_execute\_remote can now use parameters similar to [sp_executesql](https://msdn.microsoft.com/library/ms188001.aspx).
 * Performance for retrieving large result sets from remote database has been improved.
 * External tables with elastic query can now refer to remote tables with a different schema or table name.
 

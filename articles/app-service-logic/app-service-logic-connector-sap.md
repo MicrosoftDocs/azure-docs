@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/18/2016"
    ms.author="sameerch"/>
 
 
 # Get started with the SAP Connector and add it to your Logic App
+
+>[AZURE.NOTE] Based on customer feedback, we are upgrading this connector. We’ll update this page when it is ready. We do not recommend using the SAP connector before the new version is available. This version of the article applies to logic apps 2014-12-01-preview schema version.
+
 Connect to on-premises SAP to call RFC or get metadata. There are scenarios where you may need to work with SAP, which is installed on-premises and behind the firewall. By leveraging the SAP Connector in your flow, you can achieve a variety of scenarios. A few examples:  
 
 1.	Expose a section of the data residing in your SAP via a web or mobile user front end.
@@ -61,6 +64,8 @@ The SAP Connector does require hybrid connectivity to connect to *any* SAP endpo
 3. Follow the install process which gets initiated and provide the primary connection string when asked for
 4. Once the setup process is complete, then a dialog similar to the following is displayed:   
 ![][3]
+
+More on [integrating with an on-premises SAP server](app-service-logic-integrate-with-an-on-premise-sap-server.md). 
 
 Now when you browse to the created API App again then you will observe the hybrid connection status as Connected:  
 ![][4]

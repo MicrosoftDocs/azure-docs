@@ -3,7 +3,7 @@
 	description="how to use cross database database queries"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -15,11 +15,14 @@
 	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
-# Getting started with elastic queries for sharding (horizontal partitioning)
+# Reporting across scaled-out cloud databases (preview)
 
-Elastic Database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. For more information about the Elastic Database query feature, please see the [feature overview page](sql-database-elastic-query-overview.md).
+You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded"). 
 
-This topic extends the sample found in [Getting started with Elastic Database tools](sql-database-elastic-scale-get-started.md). When completed, you will: learn how to configure and use an Azure SQL Database to perform queries that span many related databases.
+If you have an existing database, see [Migrating existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
+
+To understand the SQL objects needed to query, see [Query across horizontally partitioned databases](sql-database-elastic-query-horizontal-partitioning.md).
+
 ## Prerequisites
 
 Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).

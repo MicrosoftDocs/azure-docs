@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="visual-studio-online"
-   ms.date="12/16/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Adding an Azure Active Directory by using Connected Services in Visual Studio 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -557,6 +557,7 @@ Returns the value of variable. The specified variable name must be defined in th
 Resource Manager provides the following functions for getting resource values:
 
 - [listkeys](#listkeys)
+- [list*](#list)
 - [providers](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
@@ -570,11 +571,11 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 **listKeys (resourceName or resourceIdentifier, apiVersion)**
 
-Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
+Returns the keys for any resource type that supports the listKeys operation. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Unique identifier of a storage account.
+| resourceName or resourceIdentifier |   Yes    | Unique identifier for the resource.
 | apiVersion                         |   Yes    | API version of resource runtime state.
 
 The following example shows how to return the keys from a storage account in the outputs section.
@@ -585,6 +586,19 @@ The following example shows how to return the keys from a storage account in the
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### list*
+
+**list* (resourceName or resourceIdentifier, apiVersion)**
+
+Any operation that starts with **list** can be used a function in your template. This includes **listKeys**, as shown above, but also operations like **list**, **listAdminKeys**, and **listStatus**. When calling the function, use the actual name of the function not list*. To determine which resource types have a list operation, use the following PowerShell command.
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+Or, retrieve the list with Azure CLI. The following example retrieves all of the operations for **apiapps**, and uses the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
 
 <a id="providers" />
 ### providers
@@ -598,7 +612,7 @@ Return information about a resource provider and its supported resource types. I
 | providerNamespace                  |   Yes    | Namespace of the provider
 | resourceType                       |   No     | The type of resource within the specified namespace.
 
-Each supported type is returned in the following format:
+Each supported type is returned in the following format; array ordering is not guaranteed:
 
     {
         "resourceType": "",
@@ -774,8 +788,9 @@ Often, you need to use this function when using a storage account or virtual net
 Returns details about the subscription in the following format.
 
     {
-        "id": "/subscriptions/#####"
-        "subscriptionId": "#####"
+        "id": "/subscriptions/#####",
+        "subscriptionId": "#####",
+        "tenantId": "#####"
     }
 
 The following example shows the subscription function called in the outputs section. 
