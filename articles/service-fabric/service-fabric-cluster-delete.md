@@ -113,6 +113,8 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Mic
 
 <!--Image references-->
 [ResourceGroupDelete]: ./media/service-fabric-cluster-delete/ResourceGroupDelete.png
+
 [ResourceTags]: ./media/service-fabric-cluster-delete/ResourceTags.png
+
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.png
 
