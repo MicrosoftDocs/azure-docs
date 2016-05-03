@@ -401,7 +401,7 @@ The following diagram illustrates how the DocumentDB SQL query syntax is called 
 
 ![Node.js tutorial - Diagram illustrating the scope and meaning of the query - Node database](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-The [FROM](documentdb-sql-query.md/#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
+The [FROM](documentdb-sql-query.md#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
 Copy and paste the code below the call to **getFamilyDocument** to execute the **queryCollection** function.
 
@@ -614,9 +614,8 @@ Next, in the ```config.js``` file, update the config.endpoint and config.authKey
 -   Want a more complex Node.js sample? See [Build a Node.js web application using DocumentDB](documentdb-nodejs-application.md).
 -  Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -  Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
--  Learn more about the programming model in the Develop section of the [DocumentDB documentation page](../../services/documentdb/).
+-  Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
-[doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
