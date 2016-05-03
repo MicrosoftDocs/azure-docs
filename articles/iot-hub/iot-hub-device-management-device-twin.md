@@ -19,7 +19,27 @@
 # Tutorial: How to use the device twin with C# (preview)
 
 [AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
+## Introduction
 
+Azure IoT Hub device management introduces the device twin, a service side representation of a physical device. Below is a diagram showing the different components of the device twin.
+
+![][img-twin]
+
+In this tutorial, we focus on the device properties. To learn more about the other components, see [Overview of Azure IoT Hub device management][lnk-dm-overview].
+
+Device properties are a predefined dictionary of properties that describe the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An 'eventually consistent' representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described below. Some examples of device properties include firmware version, battery level, and manufacturer name.
+
+## Device properties synchronization
+
+The physical device is the authoritative source for device properties. Selected values on the physical device are automatically synchronized to the device twin in IoT Hub through the *observe/notify* pattern described by LWM2M.
+
+When the physical device connects to IoT Hub, the service initiates *observes* on the selected device properties. Then, the physical device *notifies* IoT Hub of changes to the device properties. To implement hysteresis, **pmin** (the minimum time between notifies) is set to 5 minutes. This means that for each property the physical device does not notify IoT Hub more often than once per 5 minutes, even if there is a change. To ensure freshness, **pmax** (the maximum time between notifies) is set to 6 hours. This means that for each property the physical device notifies IoT Hub at least once per 6 hours even if the property has not changed in that period.
+
+When the physical device disconnects, the synchronization stops. Synchronization restarts when the device reconnects to the service. You can always check the last update time for a property to ensure freshness.
+
+The complete list of device properties that are automatically observed is listed below:
+
+![][img-observed]
 
 ## Running the device twin sample
 
@@ -31,28 +51,34 @@ Before running this sample, you must have completed the steps in [Get started wi
 
 ### Starting the sample
 
-To start the sample, you need to run the **DeviceTwin.exe** process. This reads the device properties from the device twin and from the physical device. It also changes a device property on the physical device. Follow the steps below to start the sample:
+To start the sample, you need to run ```jobClient_devicePropertyReadWrite.js```. This reads the device properties from the device twin and from the physical device. It also changes a device property on the physical device. Follow the steps below to start the sample:
 
-1.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks\\csharp\\service\\samples\\bin** folder.  
+1.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory.  
 
-2.  Run `DeviceTwin.exe <IoT Hub Connection String>`.
+2.  Open **jobClient_devicePropertyReadWrite.js** and replace the placeholder with your IoT Hub connection string.
+
+2.  Run `node jobClient_devicePropertyReadWrite.js`.
 
 You should see output in the command line window showing the use of the device twin. The sample goes through the following process:
 
-1.  Prints out all device properties on a device twin.
+1.  Shallow read: prints out the `BatteryLevel` and `Timezone` device properties on the device twin.
 
-2.  Deep read: read the battery level device property from the physical device (3 times).
+2.  Deep read: read the `Timezone` device property from the physical device.
 
-3.  Deep write: write the **Timezone** device property on the physical device.
+3. Shallow read: prints out the `BatteryLevel` and `Timezone` device properties on the device twin.
 
-4.  Deep read: read the **Timezone** device property from the physical device to see it has changed.
+4.  Deep write: write the **Timezone** device property on the physical device.
+
+5.  Deep read: read the **Timezone** device property from the physical device to see it has changed.
+
+6.  Shallow read: prints out the `BatteryLevel` and `Timezone` device properties on the device twin.
 
 ### Shallow Read
 
 There is a difference between *shallow* reads and *deep* reads/writes. A shallow read returns the value of the requested property from the device twin stored in Azure IoT Hub. This will be the value from the previous notify operation. You cannot do a shallow write because the physical device is the authoritative source for device properties. A shallow read is simply reading the property from the device twin:
 
 ```
-device.DeviceProperties[DevicePropertyNames.BatteryLevel].Value.ToString();
+deviceInfo.deviceProperties.BatteryLevel.value
 ```
 
 To determine the freshness of these values, you can check the last updated time:
