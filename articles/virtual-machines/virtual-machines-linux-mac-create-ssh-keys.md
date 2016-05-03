@@ -74,7 +74,7 @@ This article creates *ssh-rsa* format key files, as those are recommended for de
 
 Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the pair, we will use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When you create your Azure VM, you pass the public key content, which is copied to the Linux VM and is used with your local and securely stored private key to authenticate you when you log in.
 
-## Using `ssh-keygen`
+## Using ssh-keygen
 
 This command creates a password secured SSH Keypair using 2048 bit RSA and it will be commented to easily identify it.
 
