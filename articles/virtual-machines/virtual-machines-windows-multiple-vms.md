@@ -21,7 +21,9 @@
 
 There are many scenarios where you need to create a large number of similar virtual machines, e.g. high-performance computing (HPC), large scale data analysis, scalable and often stateless middle-tier or backend servers (such as webservers) and distributed databases. 
 
-This article discusses the options available to create multiple VMs in Azure which go beyond the simple cases of manually creating a series of VMs, which doesn't scale well if you need to create more than a handful of VMs. You can optimize creating many VMs by using the Azure Resource Manager construct of _Resource Loops_.
+This article discusses the options available to create multiple VMs in Azure which go beyond the simple cases of manually creating a series of VMs, which doesn't scale well if you need to create more than a handful of VMs. 
+
+One way to optimize creating many similar VMs is to use the Azure Resource Manager construct of _Resource Loops_.
 
 ## Resource loops
 
