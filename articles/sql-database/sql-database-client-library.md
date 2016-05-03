@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="03/23/2016"
-   ms.author="sstein"/>
+   ms.date="05/03/2016"
+   ms.author="sidneyh"/>
 
 # Create and manage SQL Database with C&#x23;
 
@@ -368,7 +368,7 @@ To move an existing database into a pool:
 
 ## Create a new database in an elastic database pool
 
-*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool. For details see, [Monitor and manage an elastic database pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 To create a new database directly in a pool:
 
