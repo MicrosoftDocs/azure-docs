@@ -169,10 +169,13 @@ The following example shows a standard configuration.
 touch ~/.ssh/config
 ```
 
-### Edit the file to add the new SSH configuration
+### Edit the file to add the new SSH configuration:
 
 ```bash
 vim ~/.ssh/config
+```
+
+### Example `~/.ssh/config` file:
 
 # Azure Keys
 Host fedora22
