@@ -51,19 +51,19 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
    A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE).
 
 4. Run all the loaded scripts in sequence from left to right in each tab. The scripts will:
-    - In the “Prepare” tab:
+	  - In the “Prepare” tab:
         - Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
         - Upload the certificates and all other artifacts to an Azure Stack storage account.
         - Publish gallery packages to allow deployment SQL and resources through gallery.
- 
- > [AZURE.IMPORTANT] if any of the above scripts hangs for no apparent reason after submitting you AAD tenant, your security settings might be blocking one of the DLLs required for the deployment to run. To resolve this, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your RP folder, right click it, click properties and check the "unblock" box in the "General" tab.
 
-    - In the “Deploy” tab:
+ 			> [AZURE.IMPORTANT] if any of the above scripts hangs for no apparent reason after submitting you AAD tenant, your security settings might be blocking one of the DLLs required for the deployment to run. To resolve this, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your RP folder, right click it, click properties and check the "unblock" box in the "General" tab.
+
+	  - In the “Deploy” tab:
         - [Deploy a VM](azure-stack-sql-rp-deploy-long.md#Deploy-the-SQL-Server-Resource-Provider-VM) that hosts both your resource provider and hosting SQL Server. This script references a JSON parameter file, which you need to update with some values before you run the script.
         - [Register a local DNS record](azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that maps to your resource provider VM.
         - [Register your resource provider](azure-stack-sql-rp-deploy-long.md#Register-the-SQL-RP-Resource-Provider) with the local Azure Resource Manager.
 
-    > [AZURE.IMPORTANT] All scripts assume the base operating system image fulfills the prerequisites (.NET 3.5, Javascript and cookies enabled on the clientVM, and a compatible version of Azure PowerShell). If you get errors running the scripts, double-check that you fulfilled the prerequisites.
+			> [AZURE.IMPORTANT] All scripts assume the base operating system image fulfills the prerequisites (.NET 3.5, Javascript and cookies enabled on the clientVM, and a compatible version of Azure PowerShell). If you get errors running the scripts, double-check that you fulfilled the prerequisites.
 
 5. [Connect the resource provider to a hosting SQL Server](#Provide-capacity-to-your-SQL-Resource-Provider-by-connecting-it-to-a-hosting-SQL-server) in the Azure Stack portal. Click **Browse** &gt; **Resource** **Providers** &gt; **SQLRP** &gt; **Go to Resource Provider** **Management** &gt; **Servers** &gt; **Add**
 
