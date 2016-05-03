@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="5/02/2016"
+	ms.date="05/02/2016"
 	ms.author="glenga"/>
 
 # Add authentication to your Windows app
