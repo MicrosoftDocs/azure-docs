@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2016"
+   ms.date="05/03/2016"
    ms.author="johns@contentmaster.com"/>
 
 # Azure blueprints: Implementing a hybrid network architecture in Azure that uses forced tunnelling to route Internet requests
@@ -35,9 +35,11 @@ Typical use cases for this architecture include:
 
 The following diagram highlights the important components in this architecture:
 
-![IaaS: multi-tier](./media/guidance-hybrid-network-forced-tunnelling/figure1.png)
+![IaaS: forced-tunnelling](./media/guidance-hybrid-network-forced-tunnelling/figure1.png)
 
 - **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
+
+- **NSA.** This is an on-premises network security appliance that inspects requests intended for the Internet. All outbound Internet requests are directed through this device.
 
 - **Azure Virtual Network (VNet).** The VNet hosts the application and other components running in the cloud.
 
@@ -57,19 +59,51 @@ The following diagram highlights the important components in this architecture:
 
 ## Implementing this architecture
 
-The following high-level steps outline a process for implementing this architecture. Detailed examples using Azure PowerShell commands are describe [later in this document][script]. Note that this process assumes that you have already created a VNet for hosting the cloud application, and that you have created the on-premises network.
+The following high-level steps outline a process for configuring forced tunnelling for an application tier hosted in an Azure subnet. Detailed examples using Azure PowerShell commands are describe [later in this document][script]. Note that this process assumes the following:
 
-1. **STEP 1**.
+- You have already created an Azure VNet for hosting the cloud application,
+
+- You have created the on-premises network,
+
+- You have connected the on-premises network to the Azure VNet through an Azure virtual network gateway, either by using a [VPN connection][guidance-vpn-connection] or [ExpressRoute][guidance-expressroute].
+
+1. Create a local network gateway for connecting to the on-premises network:
+
+2. Create an Azure virtual network gateway. Set the default site to the local network gateway for the on-premises network:
+
+	> [AZURE.NOTE] If the default site for the virtual network gateway is not specified correctly, then forced tunnelling may not work as requests will not be directed back to the on-premises network.
+
+3. Connect the local network gateway to the virtual network gateway. This can be a [site-to-site (IPsec) connection, or an ExpressRoute connection. Configure the on-premises router to direct application requests through the gateway. The procedure for doing this will vary depending on the appliance you are using. For more information, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-connection] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
+
+4. Create an Azure route table:
 
 	```powershell
-	TBD
+	azure network route-table create -n <<route-table-name>> -g <<resource-group> -l <<location>>
 	```
 
-2. **STEP 2**.
+5. Add a default route to the route table that directs IP requests through the virtual network gateway:
 
 	```powershell
-	TBD
+	azure network route-table route create -n "DefaultRoute" -g <<resource-group>> -a "0.0.0.0/0" -y VirtualNetworkGateway -r <<route-table-name>>
 	```
+
+6. Associate the route table with each of the subnets in the application tier:
+
+	> [AZURE.NOTE] You can reuse the same route table in more than one subnet.
+
+	```powershell
+	azure network vnet subnet set -e <<vnet-name>> -n <<web-tier-subnet-name>> -a <<web-tier-subnet-address-space>> -g <<resource-group>> -r <<route-table-name>>
+
+	azure network vnet subnet set -e <<vnet-name>> -n <<business-tier-subnet-name>> -a <<business-tier-subnet-address-space>> -g <<resource-group>>  -r <<route-table-name>>
+
+	azure network vnet subnet set -e <<vnet-name>> -n <<data-access-tier-subnet-name>> -a <<data-access-tier-subnet-address-space>> -g <<resource-group>>  -r <<route-table-name>>
+	```
+
+7. Configure the on-premises NSA to direct force-tunnelled traffic to the Internet. This process will vary according to the device used to implement the NSA. For example, if you are using the Routing and Remote Access Service, you can add a static route as follows:
+
+	![IaaS: rras-static-route](./media/guidance-hybrid-network-forced-tunnelling/figure2.png)
+
+> [AZURE.NOTE] For detailed information and examples on implementing forced tunnelling, see [Configure forced tunneling using PowerShell and Azure Resource Manager][azure-forced-tunnelling].
 
 ## Testing your solution
 
@@ -87,7 +121,27 @@ Once the connections are established, follow these steps to test the environment
 
 ## Security
 
+- The NVA provides protection for traffic arriving from the on-premises network. Route all traffic received through the Azure gateway through the NVA. If the NVA is implemented as an Azure VM, enable IP forwarding to enable traffic intended for the application subnets (web tier, business tier, and data access tier) to be received by the VM through the the inbound NVA subnet. You can use the following command to enable IP forwarding for a NIC:
+
+	```powershell
+	azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
+	```
+
+- Configure the NVA to inspect all requests intended for the application subnets, and only permit access to traffic if it is appropriate to do so.
+
+- Create network security groups (NSGs) for each subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled.
+
+- Do not permit outbound traffic from the application subnets to directly access external networks or the Internet. Ensure that all such traffic is force-tunnelled through the on-premises network so that it can be audited.
+
+- Carefully manage access to the system through the management subnet. Apply NSG rules to limit the traffic that can gain access through this subnet. Use Azure Role-Based Access Control (RBAC) to distinguish the operations that can be performed by different types of DevOps responsible for monitoring, configuring, and maintaining the system. For details, see [Azure Role-Based Access Control][azure-rbac].
+
+> [AZURE.NOTE] For more extensive information, examples, and scenarios about managing network security with Azure, see [Microsoft cloud services and network security][clouds-services-network-security].
+
 ## Scalability
+
+- Create a pool (availability set) of NVA devices and use a load balancer to distribute requests received through the virtual network gateway across this pool. This strategy enables you to quickly start and stop NVAs to maintain performance, according to the load.
+
+- Similarly, define availability sets for the VMs in the application tiers and direct requests for each tier through a load balancer.
 
 ## Monitoring
 
@@ -122,6 +176,7 @@ TBD
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
-
-
+[guidance-vpn-connection]: ./guidance-hybrid-network-vpn.md
 [azure-forced-tunnelling]: https://azure.microsoft.com/en-gb/documentation/articles/vpn-gateway-forced-tunneling-rm/
+[clouds-services-network-security]: https://azure.microsoft.com/documentation/articles/best-practices-network-security/
+[azure-rbac]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/
