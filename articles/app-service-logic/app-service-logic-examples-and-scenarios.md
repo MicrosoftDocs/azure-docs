@@ -24,9 +24,13 @@ This document details common scenarios and examples to help you to understand so
 
 There are several ways you can trigger a Logic app from another app. Here are some of those ways: 
 
-- [Use Web Hooks](https://azure.microsoft.com/updates/webhooks-available-for-logic-apps/)
-- [Use REST API](app-service-logic-http-endpoint.md)
+- [HTTP Request (POST)](app-service-logic-http-endpoint.md)
+- [Recieve a webhook](app-service-logic-create-api-app.md)
+- [Poll an endpoint](app-service-logic-create-api-app.md)
 
+Here are some example scenarios:
+
+- [Register for an external event](app-service-logic-
 
 We will keep adding examples and scenarios to this document. Use the comments section below to let us know what examples or scenarios you'd like to see here.
 
