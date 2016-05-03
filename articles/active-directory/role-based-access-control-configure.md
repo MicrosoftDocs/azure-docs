@@ -30,7 +30,7 @@ You can see who has access to a resource, resource group, or subscription from i
 	![Users - icon](./media/role-based-access-control-configure/users_icon.png)
 4. The **Users** blade lists all users, groups, and applications that have been granted access to the resource group.  
 
-![Users blade - inherited vs assigned access screenshot](./media/role-based-access-control-configure/view-access.png)
+	![Users blade - inherited vs assigned access screenshot](./media/role-based-access-control-configure/view-access.png)
 
 Notice that some users were **Assigned** access while others **Inherited** it. Access is either assigned specifically to the resource group or inherited from an assignment to the parent subscription.
 
