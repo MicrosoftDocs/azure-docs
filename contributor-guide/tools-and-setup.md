@@ -43,9 +43,9 @@ If you are a Microsoft contributor, you need to set up your GitHub account so yo
 
 - **Profile picture**: a picture of you (required)
 - **Name**: your first and last name (required)
-- **Email**: your Microsoft email address (required)
+- **Email**: your Microsoft email address (optional)
 - **Company**: Microsoft Corporation (required)
-- **Location**: list your location (required)
+- **Location**: list your location (optional)
 
 Your profile should resemble this profile:
 
