@@ -151,7 +151,7 @@ For additional usage information, see [Customize Linux-based HDInsight clusters 
 
 ### Examples
 
-####Create cluster
+**Create cluster**
 
 Old command (ASM): 
 
@@ -185,7 +185,7 @@ New command (ARM):
         -SshCredential $sshCredentials
 
  
-####Delete cluster
+**Delete cluster**
 
 Old command (ASM):
 
@@ -195,7 +195,7 @@ New command (ARM):
 
     Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName 
                 
-####List cluster
+**List cluster**
 
 Old command (ASM):
 
@@ -205,7 +205,7 @@ New command (ARM):
 
     Get-AzureRmHDInsightCluster 
 
-####Show cluster
+**Show cluster**
 
 Old command (ASM):
 
