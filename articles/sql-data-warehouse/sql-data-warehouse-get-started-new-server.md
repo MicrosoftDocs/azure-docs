@@ -16,7 +16,9 @@
    ms.workload="data-services"
    ms.date="05/03/2016"
    ms.author="lodipalm;"/>
-   
+
+# Create a New Logical Server
+
 In SQL Database and SQL Data Warehouse, each database is assigned to a server, and each server is assigned to a geographical location. The server is called a logical SQL server.
 
 > [AZURE.NOTE] <a name="note"></a>A logical SQL server:
