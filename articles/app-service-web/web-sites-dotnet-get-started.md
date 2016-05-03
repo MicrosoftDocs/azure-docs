@@ -39,6 +39,8 @@ At the end of the tutorial, a [Troubleshooting](#troubleshooting) section gives 
 
 As this is a getting-started tutorial, the web project it shows how to deploy is a simple one that doesn't use a database and doesn't do authentication or authorization. For links to more advanced deployment topics, see [How to deploy an Azure web app](web-sites-deploy.md).
 
+Apart from the time required to install the Azure SDK for .NET, this tutorial will take about 10-15 minutes to complete.
+
 ## Prerequisites
 
 * The tutorial assumes you have worked with ASP.NET MVC and Visual Studio. If you need an introduction, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
@@ -77,9 +79,9 @@ Your next step is to create a web project in Visual Studio and a web app in Azur
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** template, and then click **Change Authentication**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started/GS13changeauth.png)
+	For this tutorial, you deploy an ASP.NET MVC web project. If you want to learn how to deploy an ASP.NET Web API project, see the [Next steps](#next-steps) section. 
 
-	If you wanted to deploy a web API rather than a website, you would choose the **Azure API App** template at this point. The [Next steps](#next-steps) section links to a tutorial for API apps.
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started/GS13changeauth.png)
 
 6. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**.
 
@@ -103,7 +105,7 @@ Now you tell Visual Studio about the Azure resources that you want it to create.
 
 	![Sign in to Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-	If you already signed in earlier on the same computer, you might not see the **Add an account** button. In that case, you can skip this step or you might need to re-enter your credentials.
+	If you already signed in earlier on the same computer, you might not see the **Add an account** button. In that case, you can skip this step or you might need to reenter your credentials.
  
 3. Enter a **Web App Name** that is unique in the *azurewebsites.net* domain. For example, you can name it MyExample with numbers to the right to make it unique, such as MyExample810. If a default web name is created for you, it will be unique and you can use that.
 
@@ -127,7 +129,7 @@ Now you tell Visual Studio about the Azure resources that you want it to create.
 
 	![Configure App Service dialog](./media/web-sites-dotnet-get-started/configasp.png)
 
-	In the following steps, you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your web app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For more information, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	In the following steps, you configure an App Service plan for the new resource group. An App Service plan specifies the compute resources that your web app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For more information, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. In the **Configure App Service Plan** dialog, enter "MyExamplePlan" or another name if you prefer.
 
@@ -218,7 +220,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * Deploy an existing web project to a new web app, using Visual Studio
 
-	To deploy an existing web project, right-click the project in **Solution Explorer**, and then click **Publish**. Choose **Microsoft Azure App Service** as the publish target, and then click **New**. The dialogs are then the same as what you've seen in this tutorial.
+	Right-click the project in **Solution Explorer**, and then click **Publish**. Choose **Microsoft Azure App Service** as the publish target, and then click **New**. The dialogs are then the same as what you've seen in this tutorial.
 
 * Deploy a web project from source control
 
