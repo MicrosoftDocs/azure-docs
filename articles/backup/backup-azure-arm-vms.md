@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Back up Azure virtual machines | Microsoft Azure"
-	description="Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup."
+	pageTitle="Back up Azure Resource Manager virtual machines | Microsoft Azure"
+	description="Discover, register, and back up your ARM virtual machines to a recovery services vault with these procedures for Azure virtual machine backup."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
 	manager="jwhit"
 	editor=""
-	keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; vm backup"/>
+	keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup"/>
 
 <tags
 	ms.service="backup"
@@ -14,169 +14,98 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="05/04/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Back up Azure virtual machines
-This article provides the procedures for how to back up your Azure virtual machines (VMs).
+# Back up Azure Resource Manager (ARM) virtual machines
 
-First, there are a few things you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
+> [AZURE.SELECTOR]
+- [Back up ARM VMs to Azure](backup-azure-arm-vms.md)
+- [Back up Azure virtual machines](backup-azure-vms.md)
+
+This article provides the procedure for backing up Azure Resource Manager (ARM) virtual machines (VMs) to a Recovery Services vault. The majority of work for backing up an ARM VM goes into the preparation. Before you can back up or protect an Azure virtual machine, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the back up operation to take snapshots of your VM.
+
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and ARM-based VMs. See [Back up Azure virtual machines](backup-azure-vms.md) for details on working with Classic deployment model VMs.
 
 For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-Backing up Azure virtual machines involves three key steps:
+## Triggering the back up job
 
-![Three steps to back up an Azure IaaS VM](./media/backup-azure-vms/3-steps-for-backup.png)
+The back up policy associated with the Recovery Services vault, defines how often and when the backup operation runs. By default, the first scheduled backup is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
 
->[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines in one region to a backup vault in another region. So, you must create a backup vault in each Azure region, where there are VMs that will be backed up.
+![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-## Step 1 - Discover Azure virtual machines
-To ensure any new virtual machines (VMs) added to the subscription are identified before registering, run the discovery process. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
+Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. If you are not in the vault dashboard, see [Access a Recovery Services vault](backup-azure-arm-vms.md#access-a-recovery-services-vault). 
 
-1. Sign in to the [Classic portal](http://manage.windowsazure.com/)
+To run a backup job:
 
-2. In the list of Azure services , click **Recovery Services** to open the list of Backup and Site Recovery vaults.
-    ![Open vault list](./media/backup-azure-vms/choose-vault-list.png)
+1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines** <br/>
+    ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
-3. In the list of Backup vaults, select the vault to back up a VM.
+    The **Backup Items** blade opens.
 
-    If this is a new vault the portal opens to the **Quick Start** page.
+2. On the **Backup Items** blade, right-click the vault you want to back up, and click **Backup now**.
 
-    ![Open Registered items menu](./media/backup-azure-vms/vault-quick-start.png)
+    ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-now.png)
 
-    If the vault has previously been configured, the portal opens to the most recently-used menu.
+    The Backup job is triggered. <br/>
 
-4. From the vault menu (at the top of the page), click **Registered Items**.
+    ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
 
-    ![Open Registered items menu](./media/backup-azure-vms/vault-menu.png)
+3. To view that your initial backup has completed, on the vault dashboard, on the **Backup Jobs** tile, click **Azure virtual machines**.
 
-5. From the **Type** menu, select **Azure Virtual Machine**.
+    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
 
-    ![Select workload](./media/backup-azure-vms/discovery-select-workload.png)
+    The Backup Jobs blade opens.
 
-6. Click **DISCOVER** at the bottom of the page.
-    ![Discover button](./media/backup-azure-vms/discover-button-only.png)
+4. In the Backup jobs blade, you can see the status of all jobs.
 
-    The discovery process may take a few minutes while the virtual machines are being tabulated. There is a notification at the bottom of the screen that lets you know that the process is running.
+    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
 
-    ![Discover VMs](./media/backup-azure-vms/discovering-vms.png)
+    >[AZURE.NOTE] As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all writes and take a consistent snapshot.
 
-    The notification changes when the process is complete. If the discovery process did not find the virtual machines, first ensure the VMs exist. If the VMs exist, ensure the VMs are in the same region as the backup vault. If the VMs exist and are in the same region, ensure the VMs are not already registered to a backup vault. If a VMs is assigned to a backup vault it is not available to be assigned to other backup vaults.
+    When the backup job is finished, the status is *Completed*.
 
-    ![Discovery done](./media/backup-azure-vms/discovery-complete.png)
+## Access a Recovery Services vault
 
-    Once you have discovered the new items, go to Step 2 and register your VMs.
+There are two ways to quickly access your Recovery Services vaults - open the vault pinned to your dashboard, or open the list of Recovery Services vaults. By default, when you create a Recovery Services vault, it should be pinned to the Azure dashboard.
 
-##  Step 2 - Register Azure virtual machines
-You register an Azure virtual machine to associate it with the Azure Backup service. This is typically a one-time activity.
+To open a vault from the dashboard, click the Recovery Services tile.
 
-1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and then click **Registered Items**.
+![Open Recovery Services vault](./media/backup-azure-arm-vms/dashboard-rs-vault.png)
 
-2. Select **Azure Virtual Machine** from the drop-down menu.
+The vault dashboard opens.
 
-    ![Select workload](./media/backup-azure-vms/discovery-select-workload.png)
+To open a vault from the Recovery Services list
 
-3. Click **REGISTER** at the bottom of the page.
-    ![Register button](./media/backup-azure-vms/register-button-only.png)
+1. In the Azure portal, on the Hub menu, click **Browse**.
 
-4. In the **Register Items** shortcut menu, select the virtual machines that you want to register. If there are two or more virtual machines with the same name, use the cloud service to distinguish between them.
+    - In the list of resources, type **Recovery Services**.
+    - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
 
-    >[AZURE.TIP] Multiple virtual machines can be registered at one time.
+    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    A job is created for each virtual machine that you've selected.
+    The list of Recovery Services vaults appears.
 
-5. Click **View Job** in the notification to go to the **Jobs** page.
+2. From the list of Recovery Services vaults, select a vault.
 
-    ![Register job](./media/backup-azure-vms/register-create-job.png)
+    The selected vault dashboard opens.
 
-    The virtual machine also appears in the list of registered items, along with the status of the registration operation.
+    ![Open vault blade](./media/backup-azure-vms-first-look-arm/vault-settings.png)
 
-    ![Registering status 1](./media/backup-azure-vms/register-status01.png)
+2. From the vault dashboard menu click **Backup** to open the Backup blade.
 
-    When the operation completes, the status changes to reflect the *registered* state.
+    ![Open Backup blade](./media/backup-azure-vms-first-look-arm/backup-button.png)
 
-    ![Registration status 2](./media/backup-azure-vms/register-status02.png)
+    When the blade opens, the Backup service searches for any new VMs in the subscription.
 
-## Step 3 - Protect Azure virtual machines
-Now you can set up a backup and retention policy for the virtual machine. Multiple virtual machines can be protected by using a single protect action.
-
-Azure Backup vaults created after May 2015 come with a default policy built into the vault. This default policy comes with a default retention of 30 days and a once-daily backup schedule.
-
-1. Navigate to the backup vault under **Recovery Services** in the Azure portal, and then click **Registered Items**.
-2. Select **Azure Virtual Machine** from the drop-down menu.
-
-    ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
-
-3. Click **PROTECT** at the bottom of the page.
-
-    The **Protect Items wizard** appears. The wizard only lists virtual machines that are registered and not protected. Select the virtual machines that you want to protect.
-
-    If there are two or more virtual machines with the same name, use the cloud service to distinguish between the virtual machines.
-
-    >[AZURE.TIP] You can protect multiple virtual machines at one time.
-
-    ![Configure protection at scale](./media/backup-azure-vms/protect-at-scale.png)
-
-4. Choose a **backup schedule** to back up the virtual machines that you've selected. You can pick from an existing set of policies or define a new one.
-
-    Each backup policy can have multiple virtual machines associated with it. However, the virtual machine can only be associated with one policy at any given point in time.
-
-    ![Protect with new policy](./media/backup-azure-vms/policy-schedule.png)
-
-    >[AZURE.NOTE] A backup policy includes a retention scheme for the scheduled backups. If you select an existing backup policy, you cannot modify the retention options in the next step.
-
-5. Choose a **retention range** to associate with the backups.
-
-    ![Protect with flexible retention](./media/backup-azure-vms/policy-retention.png)
-
-    Retention policy specifies the length of time for storing a backup. You can specify different retention policies based on when the backup is taken. For example, a backup point taken daily (which serves as an operational recovery point) might be preserved for 90 days. In comparison, a backup point taken at the end of each quarter (for audit purposes) may need to be preserved for many months or years.
-
-    ![Virtual machine is backed up with recovery point](./media/backup-azure-vms/long-term-retention.png)
-
-    In this example image:
-
-    - **Daily retention policy**: Backups taken daily are stored for 30 days.
-    - **Weekly retention policy**: Backups taken every week on Sunday are preserved for 104 weeks.
-    - **Monthly retention policy**: Backups taken on the last Sunday of each month are preserved for 120 months.
-    - **Yearly retention policy**: Backups taken on the first Sunday of every January are preserved for 99 years.
-
-    A job is created to configure the protection policy and associate the virtual machines to that policy for each virtual machine that you've selected.
-
-6. To view the list of **Configure Protection** jobs, from the vaults menu, click **Jobs** and select **Configure Protection** from the **Operation** filter.
-
-    ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
-
-## Initial backup
-Once the virtual machine is protected with a policy, it shows up under the **Protected Items** tab with the status of *Protected - (pending initial backup)*. By default, the first scheduled backup is the *initial backup*.
-
-To trigger the initial backup immediately after configuring protection:
-
-1. At the bottom of the **Protected Items** page, click **Backup Now**.
-
-    The Azure Backup service creates a backup job for the initial backup operation.
-
-2. Click the **Jobs** tab to view the list of jobs.
-
-    ![Backup in progress](./media/backup-azure-vms/protect-inprogress.png)
-
->[AZURE.NOTE] During the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all write jobs and take a consistent snapshot.
-
-When the initial backup finishes, the status of the virtual machine in the **Protected Items** tab is *Protected*.
-
-![Virtual machine is backed up with recovery point](./media/backup-azure-vms/protect-backedupvm.png)
-
-## Viewing backup status and details
-Once protected, the virtual machine count also increases in the **Dashboard** page summary. The **Dashboard** page also shows the number of jobs from the last 24 hours that were *successful*, have *failed*, and are *in progress*. On the **Jobs** page, use the **Status**, **Operation**, or **From** and **To** menus to filter the jobs.
-
-![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
-
-Values in the dashboard are refreshed once every 24 hours.
+    ![Discover VMs](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
 
 ## Troubleshooting errors
-If you run into issues while backing up your virtual machine, look at the [VM 	troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
+If you run into issues while backing up your virtual machine, look at the [VM troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
 
 ## Next steps
 
 - [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
-- [Restore virtual machines](backup-azure-restore-vms.md)
+- [Restore virtual machines](backup-azure-arm-restore-vms.md)

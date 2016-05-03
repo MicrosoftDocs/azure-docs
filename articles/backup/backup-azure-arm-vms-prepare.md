@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/01/2016"
+	ms.date="05/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -24,39 +24,39 @@
 - [Prepare to back up ARM VMs](backup-azure-arm-vms-prepare.md)
 - [Prepare to back up Azure VMs](backup-azure-vms-prepare.md)
 
-This article provides the steps for preparing your environment to back up an Azure Resource Manager (ARM) virtual machine (VM).
+This article provides the steps for preparing your environment to back up an Azure Resource Manager (ARM) virtual machine (VM). The steps shown in the procedures use the Azure portal.  
 
 The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects both Classic-deployed or ARM-deployed VMs. You must use a Recovery Services vault to protect an ARM-deployed VM.
 
 >[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 
- Before you can back up an ARM virtual machine (VM), make sure these prerequisites exist:
+Before you can protect or back up an ARM virtual machine (VM), make sure these prerequisites exist:
 
 - Create a recovery services vault (or identify an existing recovery services vault) *in the same location as your VM*.
 - Select a scenario, define the backup policy, and define items to protect.
-- Check installation of VM Agent on virtual machine.
-- Check network
+- Check the installation of VM Agent on virtual machine.
+- Check network connectivity
 
-If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). Otherwise, read on, this article leads you through the steps to prepare your environment to back up an ARM VM.
+If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
 
 
 ## Limitations when backing up and restoring a VM
 
-Please understand the limitations before you prepare your environment.
+Before you prepare your environment, please understand the limitations.
 
 - Backing up virtual machines with more than 16 data disks is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
-- Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
+- Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup. If you attempt to restore the VM before deleting the existing VM, the restore operation fails.
 - Cross-region backup and restore is not supported.
-- Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
-- Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
+- You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
+- You can back up virtual machines only for select operating system versions:
   - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
-  - Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-  - Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
-	- Virtual machines under load balancer configuration (internal and external)
-	- Virtual machines with multiple reserved IP addresses
-	- Virtual machines with multiple network adapters
+- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
+- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
+  - Virtual machines under load balancer configuration (internal and external)
+  - Virtual machines with multiple reserved IP addresses
+  - Virtual machines with multiple network adapters
 
 ## Create a recovery services vault for a VM
 
@@ -102,7 +102,7 @@ Once your vault is created, it opens in the portal.
     After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
 
-## Select scenario set policy and define items to protect
+## Select a scenario set policy and define items to protect
 Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the the recovery points.
 
 1. If you already have a Recovery Services vault open, proceed to step 2. If you do not have a Recovery Services vault open, but are in the Azure portal,
@@ -159,9 +159,11 @@ The next phase in preparation is installing the VM Agent or making sure the VM A
 
 ## Install the VM Agent on the virtual machine
 
-This information is provided in case it is needed. The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. However, if your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed. If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you created a custom VM, [ensure that the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
+The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. This information is provided for the situations where you are *not* using a VM created from the Azure gallery - for example you migrated a VM from an on-premises datacenter. In such a case, the VM Agent needs to be installed in order to protect the virtual machine.
 
-Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install the VM Agent](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+
+If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you created a custom VM, [ensure that the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
 
 The following table provides additional information about the VM Agent for Windows and Linux VMs.
 
