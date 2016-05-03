@@ -112,7 +112,7 @@ Use a JSON template to create a new IoT hub in your resource group. You can also
 
 2. Save the template file on your local machine. This example assumes you save it in a folder called **c:\templates**.
 
-3. Run the following command to deploy your new IoT hub, passing the name of your IoT hub as a parameter. In this example, the name of the IoT hub is **abcmyiothub** (note that this name must be globally unique so it should include your name of initials):
+3. Run the following command to deploy your new IoT hub, passing the name of your IoT hub as a parameter. In this example, the name of the IoT hub is **abcmyiothub** (note that this name must be globally unique so it should include your name or initials):
 
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
