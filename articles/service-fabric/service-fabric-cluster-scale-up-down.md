@@ -20,7 +20,7 @@
 # Scale a Service Fabric cluster up or down by adding or removing virtual machines from the node types
 
 ### Relationship between Cluster node types and Virtual Machine Scale Sets 
-Virtual Machine Scale Sets (VMSS) are an azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VM Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [ Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document.
+Virtual Machine Scale Sets (VMSS) are an azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VM Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document.
 
 >[AZURE.NOTE] Your subscription must have enough cores to add the new VMs that will make up this cluster. There is no model validation currently, so you will get a deployment time failure, if any of the quota limits are hit.
 
@@ -55,7 +55,7 @@ If your cluster has multiple node types, then you will need to do this for each 
 Currently the Autoscale feature is not driven by the loads that your applications may be reporting to service fabric. That functionality is planned to be added later. So at this time the autoscale you get is purely driven by the performance counters that are emitted in each of the VMSS instances.  
 
 
-2. Follow the instructions on [how to set up autoscale for each VMSS here](virtual-machine-scale-sets-autoscale-overview.md)
+2. Follow the instructions on [how to set up autoscale for each VMSS here](..\virtual-machine-scale-sets-autoscale-overview.md)
 
    >[AZURE.NOTE] On a scale down scenario, unless your nodetype has a durability level of Gold or Silver, you will have to you will need to call the Remove-ServiceFabricNodeState cmd with the appropriate Node name : refer to [https://msdn.microsoft.com/en-us/library/mt125993.aspx](https://msdn.microsoft.com/library/mt125993.aspx) for details on the CMD.
    
@@ -72,7 +72,7 @@ In order to make sure that when a VM is removed, the Node is also gone, you have
 
 1) Choose a durability level of Gold or Silver (available soon) for the node types in your cluster, this will give you the infrastructure integration. Which will then automatically remove the Nodes from our system services (FM )state when you scaled down. Refer to [this document for details on Durability levels](service-fabric-cluster-capacity.md)
 
-2) Once the VM instance has been scaled down, you will need to call the Remove-ServiceFabricNodeState cmd with the appropriate Node name : refer to https://msdn.microsoft.com/en-us/library/mt125993.aspx for details on the CMD
+2) Once the VM instance has been scaled down, you will need to call the Remove-ServiceFabricNodeState cmd with the appropriate Node name : refer to [https://msdn.microsoft.com/library/mt125993.aspx](https://msdn.microsoft.com/library/mt125993.aspx) for details on the CMD
 
 
 

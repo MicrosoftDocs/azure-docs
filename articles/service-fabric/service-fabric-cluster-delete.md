@@ -58,7 +58,7 @@ You will get a prompt to confirm the deletion if you did not use the -Force opti
 
 If your Resource Group has only resources that are related to the Service fabric cluster you want to delete, then it is easier if you followed Option 1. If you want to selectively delete the resources one-by-one in your Resource Group, then follow the steps below.
 
-If you have deployed your cluster using the portal or using one of the Servic Fabric ARM templates from the template gallery, then all the resources that the cluster uses is tagged by the following two tags. You can use them to decide on the resources you want to delete.
+If you have deployed your cluster using the portal or using one of the Service Fabric ARM templates from the template gallery, then all the resources that the cluster uses is tagged by the following two tags. You can use them to decide on the resources you want to delete.
 
 
 ***Tag#1 :*** Key = clusterName , Value = 'name of the cluster'
@@ -75,7 +75,7 @@ If you have deployed your cluster using the portal or using one of the Servic Fa
 
 ![ResourceTags][ResourceTags]
 
-6. once you have the list of tagged resouces, click on each of the resources and delete them.
+6. once you have the list of tagged resources, click on each of the resources and delete them.
 
 ![TaggedResources][TaggedResources]
 
@@ -94,14 +94,15 @@ For each of the resources you want to delete, run the following.
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the Resource Group>" -Force
 ```
 
-To delete the cluster resource, run the following
+To delete the cluster resource, run the following. 
+
+>[AZURE.NOTE] deleting only the cluster resource, **does not** delete all the resources that your service fabric cluster was made of. 
 
 ```
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the Resource Group>" -Force
 ````
 
 
-You will get a prompt to confirm the deletion and on confirming the RG and all the resources it contains gets deleted.
 
 
 ## Next steps
