@@ -24,7 +24,7 @@ The following steps can be follwed to simply load the AdventureWorksDW dataset t
 
 You can create the AdventureWorks sample database during creation of your SQL Data Warehouse by following these steps:   
 
-1. Start the creation process by finding SQL Data Warehouse in the [Azure Classic Portal][] by clicking '+ New' and then 'Data and Storage' or in the Marketplace by searching for 'SQL Data Warehouse'.
+1. Start the creation process by finding SQL Data Warehouse in the [Azure portal][] by clicking '+ New' and then 'Data and Storage' or in the Marketplace by searching for 'SQL Data Warehouse'.
 
 2. Once the process is started, click on the 'Select source' option and set it to 'Sample'. If you are not creating a new server you will also be asked to provide the log-in for the server that you are using to create.  
 
@@ -91,7 +91,7 @@ Now that we've given you some time to warm up with the sample data check out how
 [connect and query]: ./sql-data-warehouse-get-started-connect.md
 [migrate code]: ./sql-data-warehouse-migrate-code.md
 [load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure Classic Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 

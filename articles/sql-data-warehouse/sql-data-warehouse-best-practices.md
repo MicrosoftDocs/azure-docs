@@ -119,7 +119,7 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 [Manage columnstore indexes in Azure SQL Data Warehouse]: sql-data-warehouse-manage-columnstore-indexes.md
 [Manage statistics in SQL Data Warehouse]: sql-data-warehouse-develop-statistics.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: data-factory-azure-sql-data-warehouse-connector.md
+[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [Optimizing transactions for SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
 [Pause compute resources]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
 [Resume compute resources]: sql-data-warehouse-overview-scalability.md#resume-compute-bk

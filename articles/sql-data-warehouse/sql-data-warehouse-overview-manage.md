@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="05/02/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Manage databases in Azure SQL Data Warehouse
@@ -129,7 +129,7 @@ Using good database design principles will make it easier to manage your databas
 <!--Image references-->
 
 <!--Article references-->
-[Azure storage redundancy options]: storage-redundancy.md#read-access-geo-redundant-storage
+[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md
 [Create a database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md

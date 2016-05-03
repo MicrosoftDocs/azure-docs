@@ -31,15 +31,15 @@ In this tutorial you will:
 - Create a server that will host your database.
 - Create a database that contains AdventureWorksDW sample database.
 
-If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview](./sql-data-warehouse-overview-migrate.md) or use [Migration Utility](./sql-data-warehouse-migrate-migration-utility.md).
+If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview][] or use [Migration Utility][].
 
-To load data into SQL Data Warehouse, see the [loading overview](./sql-data-warehouse-overview-load.md).
+To load data into SQL Data Warehouse, see the [loading overview][].
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Step 1: Sign in and get started
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. Sign in to the [Azure portal][].
 
 2. Click **New** > **Data + Storage** > **SQL Data Warehouse**.
 
@@ -98,13 +98,13 @@ Now that you have selected your logical SQL server, you are ready to finish crea
 
         ![Select Sample](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
-    - **Resource group**. You can keep the default values. Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups](../azure-portal/resource-group-portal.md).
+    - **Resource group**. You can keep the default values. Resource groups are containers designed to help you manage a collection of Azure resources. Learn more about [resource groups][].
 
     - **Subscription**. Select the subscription to bill for this database.
 
 1. Click **Create** to create your SQL Data Warehouse database.
 
-1. Wait for a few minutes and your database will be ready. When finished, you should be returned to the [Azure Portal](https://portal.azure.com). Notice that your SQL Data Warehouse database has been added to the dashboard.
+1. Wait for a few minutes and your database will be ready. When finished, you should be returned to the [Azure portal][]. Notice that your SQL Data Warehouse database has been added to the dashboard.
 
     ![Portal view](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -133,4 +133,19 @@ Now that you have configured the firewall you will be able to make connections f
 
 ## Next steps
 
-Now that you have created a sample database for SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-get-started-connect.md) to your database.
+Now that you have created a sample database for SQL Data Warehouse, you are ready to [Connect][] to your database.
+
+<!--Images-->
+
+
+<!--Article references-->
+[Migration overview]: ./sql-data-warehouse-overview-migrate.md
+[Migration Utility]: ./sql-data-warehouse-migrate-migration-utility.md
+[loading overview]: ./sql-data-warehouse-overview-load.md
+
+[resource groups]: ../azure-portal/resource-group-portal.md
+[Connect]: ./sql-data-warehouse-get-started-connect.md
+
+
+<!--Azure.com-->
+[Azure portal]: https://portal.azure.com/
