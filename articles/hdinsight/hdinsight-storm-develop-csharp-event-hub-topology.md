@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="05/03/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
 
 Azure Event Hubs allows you to process massive amounts of data from websites, apps, and devices. The Event Hubs spout makes it easy to use Apache Storm on HDInsight to analyze this data in real time. You can also write data to Event Hubs from Storm by using the Event Hubs bolt.
 
-In this tutorial, you will learn how to use the HDInsight Tools for Visual Studio and the Event Hubs spout and bolt to create two hybrid C#/Java topologies:
+In this tutorial, you will learn how to use the Visual Studio templates installed with HDInsight Tools for Visual Studio to create two topologies that work with Azure Event Hubs.
 
 * **EventHubWriter**: Randomly generates data and writes it to Event Hubs
 
@@ -52,25 +52,25 @@ The spout and bolt are distributed as a single Java archive (.jar) file named **
 
 ### Download the .jar file
 
-The most recent version of the **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file is included in the <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm examples</a> project under the **lib** folder. To download the file, use one of the following methods.
+The most recent version of the **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file is included in the [HDInsight Storm examples](https://github.com/hdinsight/hdinsight-storm-examples) project under the **lib** folder. To download the file, use one of the following methods.
 
-> [AZURE.NOTE] The spout and bolt have been submitted for inclusion in the Apache Storm project. For more information, see <a href="https://github.com/apache/storm/pull/336/files">STORM-583: Initial check-in for storm-event hubs</a> in GitHub.
+> [AZURE.NOTE] The spout and bolt have been submitted for inclusion in the Apache Storm project. For more information, see [STORM-583: Initial check-in for storm-event hubs](https://github.com/apache/storm/pull/336/files) in GitHub.
 
-* **Download a ZIP file**: From the <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm examples</a> site, select **Download ZIP** in the right pane to download a .zip file that contains the project.
+* **Download a ZIP file**: From the [HDInsight Storm examples](https://github.com/hdinsight/hdinsight-storm-examples) site, select **Download ZIP** in the right pane to download a .zip file that contains the project.
 
 	![download zip button](./media/hdinsight-storm-develop-csharp-event-hub-topology/download.png)
 
 	After the file is downloaded, you can extract the archive, and the file will be in the **lib** directory.
 
-* **Clone the project**: If you have <a href="http://git-scm.com/" target="_blank">Git</a> installed, use the following command to clone the repository locally, then find the file in the **lib** directory.
+* **Clone the project**: If you have [Git](http://git-scm.com/) installed, use the following command to clone the repository locally, then find the file in the **lib** directory.
 
 		git clone https://github.com/hdinsight/hdinsight-storm-examples
 
-## Configure Event Hub
+## Configure Event Hubs
 
 Event Hubs is the data source for this example. Use the following steps to create a new Event Hub.
 
-1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
+1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > __APP SERVICES__ > **Service Bus** > **Event Hub** > **Custom Create**.
 
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
 
@@ -110,15 +110,21 @@ Table storage will be used to hold the values that are read from Event Hubs beca
 
 	> [AZURE.NOTE] You should select the same **Location** as your Event Hubs and Storm on HDInsight server to reduce latency and costs.
 
-3. When the new storage account is provisioned, select the account and then use the **Manage Access Keys** link at the bottom of the page to retrieve the **Storage Account Name** and **Primary Access Key**. Save this information because it will be used later.
+3. Once the new storage account has been created, select the account and then use the **Manage Access Keys** link at the bottom of the page to retrieve the **Storage Account Name** and **Primary Access Key**. Save this information because it will be used later.
 
 	![access keys](./media/hdinsight-storm-develop-csharp-event-hub-topology/managekeys.png)
+
+4. Open Visual Studio. From the __View__ menu, select __Cloud Explorer__. In __Cloud Explorer__, expand __Storage Accounts__, and then the storage account you created earlier.
+
+    ![Cloud explorer]()
+
+5. Right click __Tables__ for your storage account, and then select __Create Table__. When prompted, enter a name for your table. Save the name as you will need it in later steps.
 
 ## Create EventHubWriter
 
 In this section, you will create a topology that writes data to Event Hubs by using the Event Hubs bolt.
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Open Visual Studio, select **File** > **New** and then **Project**.
 
@@ -157,7 +163,7 @@ In this section, you will create a topology that writes data to Event Hubs by us
 
 1. In **Solution Explorer**, right-click **Bolt.cs**, and select **Delete**. You are using the Java Event Hubs bolt, so you do not need this file.
 
-2. Open the **Program.cs** file and add the following code immediately after the `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubWriter");` line.
+2. Open the **Program.cs** file and add the following code immediately after the `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubWriter" + DateTime.Now.ToString("yyyyMMddHHmmss"));` line.
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
 		List<string> javaDeserializerInfo =
@@ -230,7 +236,7 @@ In this section, you will create a topology that writes data to Event Hubs by us
 
 At this point, you are done with the **Program.cs**. The topology has been defined, but now you must modify **Spout.cs** so that it produces data in a format that the Event Hubs bolt can use.
 
-> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should can add the following to change the number of workers:
+> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should add the following to change the number of workers:
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -263,7 +269,7 @@ The Event Hubs bolt expects a single string value, which it will route to Event 
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(null, outputSchema));
         this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer());
 
-	This changes the definition of the data created by the spout to use **string** data, and the **CustomizedInteropJSONSerializer** declared eariler in the topology (in program.cs).
+	This changes the definition of the data created by the spout to use **string** data, and the **CustomizedInteropJSONSerializer** declared earlier in the topology (in program.cs).
 
 2. Replace the **NextTuple** method with the following:
 
@@ -293,6 +299,10 @@ In this section, you will create a topology that reads data from Event Hubs by u
 
 1. In **Solution Explorer**, right-click **EventHubReader** and then select **Properties**.
 
+2. Select **Tools**, **NuGet Package Manager**, and then **Package Manager Console**. When the console appears, use the following command to install the Azure Storage packages.
+
+        NuGet install WindowsAzure.Storage
+
 2. In the project properties, select **Settings**, and then select **This project does not contain a default settings file. Click here to create one.**
 
 3. Enter the following settings. Use the information for the Event Hub and storage account you created earlier in the **Value** column.
@@ -320,7 +330,7 @@ In this section, you will create a topology that reads data from Event Hubs by u
 
 1. In **Solution Explorer**, right-click **Spout.cs** and select **Delete**. You are using the Java Event Hubs spout, so you do not need this file.
 
-2. Open the **Program.cs** file and add the following code immediately after the `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");` line:
+2. Open the **Program.cs** file and add the following code immediately after the `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader" + DateTime.Now.ToString("yyyyMMddHHmmss"));` line:
 
 		int partitionCount = Properties.Settings.Default.EventHubPartitionCount;
 		EventHubSpoutConfig ehConfig = new EventHubSpoutConfig(
@@ -396,9 +406,9 @@ At this point, you are done with **Program.cs**. The topology has been defined, 
 
 When writing data to Table storage, you must create a class that describes the data that will be written.
 
-1. In **Solution Explorer**, right-click the **EventHubReader** project, and select **Add**, then **New Class**. Name the new class **Devices.cs**.
+1. In **Solution Explorer**, right-click the **EventHubReader** project, and select **Add**, then **Class**. Name the new class **Device.cs**.
 
-2. Open **Devices.cs** and replace the default code with the following:
+2. Open **Device.cs** and replace the default code with the following:
 
 		using System;
 		using System.Collections.Generic;
@@ -462,7 +472,7 @@ When writing data to Table storage, you must create a class that describes the d
         table = tableClient.GetTableReference(Properties.Settings.Default.TableName);
         table.CreateIfNotExists();
 
-	This connects to the **events** table by using the connection string configured previously. If it does not exist, it will be created.
+	This connects to the Azure Storage table that you created earlier by using the connection string stored in `TableName`.
 
 2. Find the **Execute** method and replace it with the following:
 
