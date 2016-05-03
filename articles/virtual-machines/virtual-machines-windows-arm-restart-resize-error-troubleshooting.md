@@ -29,26 +29,22 @@ When you try to start a stopped Azure Virtual Machine (VM), or resize an existin
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Troubleshooting steps
+## Collect audit logs
 
-### Collect the audit logs
-
-Before you start troubleshooting the deployment issue, you must collect the audit logs to identify the error associated with the issue. To collect the log, follow these steps:
-
-In the Azure portal, click **Browse** > **Virtual machines** > **your Windows virtual machine** > **Settings** > **Audit logs**.
-
-See the following two articles for details:<br />
+To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process to follow:<br />
 [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)<br />[Audit operations with Resource Manager](../resource-group-audit.md)
 
-### Issue 1: You try to start a stopped VM but get an allocation failure.
+## Issue: Error when starting a stopped VM
 
-**Cause**
+You try to start a stopped VM but get an allocation failure.
+
+### Cause
 
 The request to start the stopped VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not have free space available to fulfill the request.
 
-**Resolution**
+### Resolution
 
-*	Stop all the VMs in the availability set, and then restart each VM. Follow these steps:
+*	Stop all the VMs in the availability set, and then restart each VM.
 
   1. Click **Resource groups** > _your resource group_ > **Resources** > _your availability set_ > **Virtual Machines** > _your virtual machine_ > **Stop**.
 
@@ -56,18 +52,23 @@ The request to start the stopped VM has to be attempted at the original cluster 
 
 *	Retry the restart request at a later time.
 
-### Issue 2: You try to resize an existing VM but get an allocation failure.
+## Issue: Error when restarting an existing VM
 
-**Cause**
+You try to resize an existing VM but get an allocation failure.
+
+### Cause
 
 The request to resize the VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not support the requested VM size.
 
-**Resolution**
+### Resolution
 
 * Retry the request using a smaller VM size.
 
-* If the size of the requested VM cannot be changed, stop all the VMs in the availability set, resize and start the VM, and then restart the other VMs. To do so, follow these steps:
+* If the size of the requested VM cannot be changed： Resize and start the VM, and then restart the other VMs. To do so, follow these steps:
 
-  1. Click **Resource groups** > _your resource group_ > **Resources** > _your availability set_ > **Virtual Machines** > _your virtual machine_ > **Stop**.
+  1. Stop all the VMs in the availability set.
 
-  2. After all the VMs stop, resize the desired VM to a larger size. Then start the resized VM first, and then select each of the stopped VMs and click Start.
+  2. Click **Resource groups** > _your resource group_ > **Resources** > _your availability set_ > **Virtual Machines** > _your virtual machine_ > **Stop**.
+
+  3. After all the VMs stop, resize the desired VM to a larger size. 
+  4. Select the resized VM and click **Start**, and then start each of the stopped VMs.
