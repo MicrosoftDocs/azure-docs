@@ -76,6 +76,7 @@ If you have deployed your cluster using the portal or using one of the Servic Fa
 ![ResourceTags][ResourceTags]
 
 6. once you have the list of tagged resouces, click on each of the resources and delete them.
+
 ![TaggedResources][TaggedResources]
 
 **Option 2b : Deleting the Resources Using Azure Powershell** 

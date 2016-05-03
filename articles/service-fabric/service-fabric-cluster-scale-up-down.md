@@ -55,7 +55,7 @@ If your cluster has multiple node types, then you will need to do this for each 
 Currently the Autoscale feature is not driven by the loads that your applications may be reporting to service fabric. That functionality is planned to be added later. So at this time the autoscale you get is purely driven by the performance counters that are emitted in each of the VMSS instances.  
 
 
-2. Follow the instructions on [how to set up autoscale for each VMSS here](https://azure.microsoft.com/documentation/articles/virtual-machine-scale-sets-autoscale-overview/)
+2. Follow the instructions on [how to set up autoscale for each VMSS here](virtual-machine-scale-sets-autoscale-overview.md)
 
    >[AZURE.NOTE] On a scale down scenario, unless your nodetype has a durability level of Gold or Silver, you will have to you will need to call the Remove-ServiceFabricNodeState cmd with the appropriate Node name : refer to [https://msdn.microsoft.com/en-us/library/mt125993.aspx](https://msdn.microsoft.com/library/mt125993.aspx) for details on the CMD.
    
@@ -81,7 +81,7 @@ In order to make sure that when a VM is removed, the Node is also gone, you have
 
 ## Next steps
 
-- [Learn about how to plan your cluster capacity](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-capacity/)
+- [Learn about how to plan your cluster capacity](service-fabric-cluster-capacity.md)
 - [Learn about cluster upgrades](service-fabric-cluster-upgrade.md)
 - [Learn about partitioning stateful services for maximum scale](service-fabric-concepts-partitioning.md)
 
