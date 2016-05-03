@@ -355,7 +355,7 @@ If you want to handle poison messages manually, you can get the number of times 
 The *function.json* file for a storage queue output binding specifies the following properties.
 
 - `name` : The variable name used in function code for the queue or the queue message. 
-- `queueName` : The name of the queue to poll.
+- `queueName` : The name of the queue.
 - `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
 - `type` : Must be set to *queue*.
 - `direction` : Must be set to *out*. 
@@ -420,15 +420,13 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ### <a id="storageblobtrigger"></a> Azure Storage blob trigger
 
-The *function.json* file for a storage queue trigger specifies the following properties.
+The *function.json* file for a storage blob trigger specifies the following properties.
 
 - `name` : The variable name used in function code for the blob. 
 - `path` : A path that specifies the container to monitor, and optionally a blob name pattern.
 - `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
 - `type` : Must be set to *blobTrigger*.
 - `direction` : Must be set to *in*.
-
-> [AZURE.NOTE] If the blob container that the trigger is monitoring contains more than 10,000 blobs, the Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
 
 #### *Function.json* example for a storage blob trigger
 
@@ -458,21 +456,15 @@ The blob can be deserialized to any of the following types in Node or C# functio
 
 In C# functions you can also bind to any of the following types:
 
-* `CloudQueueMessage` 
 * `TextReader`
 * `Stream`
 * `ICloudBlob`
 * `CloudBlockBlob`
 * `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* Other types deserialized by [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb) 
 
 #### Blob trigger C# code example
 
-This C# code example logs the contents of each blob that is added to the container.
+This C# code example logs the contents of each blob that is added to the monitored container.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -537,6 +529,10 @@ The queue message for poison blobs is a JSON object that contains the following 
 * BlobName
 * ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
+#### Blob polling for large containers
+
+If the blob container that the trigger is monitoring contains more than 10,000 blobs, the Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
+ 
 ### <a id="storageblobbindings"></a> Azure Storage blob input and output bindings
 
 The *function.json* file for a storage blob input or output binding specifies the following properties.
@@ -585,13 +581,13 @@ This example uses a queue trigger to copy a blob:
 The `blob` binding can serialize or deserialize the following types in Node.js or C# functions:
 
 * Object (`out T` in C# for output blob: creates a blob as null object if parameter value is null when the function ends)
-* `string` (`out string` in C# for output blob: creates a blob only if the string parameter is non-null when the function returns)
+* String (`out string` in C# for output blob: creates a blob only if the string parameter is non-null when the function returns)
 
 In C# functions, you can also bind to the following types:
 
 * `TextReader` (input only)
 * `TextWriter` (output only)
-* `Stream` (null when blob is not found for input binding)
+* `Stream`
 * `CloudBlobStream` (output only)
 * `ICloudBlob`
 * `CloudBlockBlob` 
@@ -601,7 +597,7 @@ In C# functions, you can also bind to the following types:
 
 This C# code example copies a blob whose name is received in a queue message.
 
-```CSHARP
+```csharp
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
@@ -622,19 +618,18 @@ The *function.json* for storage tables specifies the following properties.
 - `type` : Must be set to *table*.
 - `direction` : Set to *in* or *out*. 
 
-#### Table input and output supported types
+#### Storage tables input and output supported types
 
 The `table` binding can serialize or deserialize objects in Node.js or C# functions. The objects will have RowKey and PartitionKey properties. 
 
 In C# functions, you can also bind to the following types:
 
+* `T` where `T` implements `ITableEntity`
 * `IQueryable<T>` (input only)
 * `ICollector<T>` (output only)
 * `IAsyncCollector<T>` (output only)
-* `CloudBlobStream` (output only)
-* `T` where `T` implements `ITableEntity`
 
-#### Table input and output scenarios
+#### Storage tables binding scenarios
 
 The table binding supports the following scenarios:
 
@@ -654,7 +649,7 @@ The table binding supports the following scenarios:
 
 	The Functions runtime provides an `ICollector<T>` or `IAsyncCollector<T>` bound to the table, where `T` specifies the schema of the entities you want to add. Typically, type `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.
 
-#### Read a single table entity in C# or Node
+#### Storage tables example: Read a single table entity in C# or Node
 
 This *function.json* example uses a queue trigger to read a single table row, with a hard-coded partition key value and the row key provided in the queue message.
 
@@ -709,7 +704,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### Read multiple table entities in C# 
+#### Storage tables example: Read multiple table entities in C# 
 
 The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
 
@@ -756,7 +751,7 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Create table entities in C# 
+#### Storage tables example: Create table entities in C# 
 
 The following *function.json* and *run.csx* example shows how to write table entities in C#.
 
@@ -805,7 +800,7 @@ public class Person
 
 ```
 
-#### Create a table entity in Node
+#### Storage tables example: Create a table entity in Node
 
 The following *function.json* and *run.csx* example shows how to write a table entity in Node.
 
