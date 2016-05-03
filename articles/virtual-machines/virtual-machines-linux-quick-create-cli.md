@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/27/2016"
+   ms.date="04/29/2016"
    ms.author="v-livech"/>
 
 
@@ -23,9 +23,10 @@ This article shows how to quickly deploy a Linux Virtual Machine on Azure using 
 
 ## Quick Command Summary
 
+One command to deploy the VM and attach your SSH key
+
 ```
-# One command to deploy the VM and attach your SSH key
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
 ```
 
 ## Deploy the Linux VM
@@ -36,9 +37,15 @@ For the ImageURN we will use `canonical:ubuntuserver:14.04.2-LTS:latest` to depl
 
 In the following command walk through, please replace the prompts with values from your own environment, we are using "example" values.  The output should look like the following output block.  
 
+Follow the prompts and enter your own names
+
 ```bash
-# Follow the prompts and enter your own names
-ahmet@fedora$ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+```
+
+Output
+
+```bash
 info:    Executing command vm quick-create
 Resource group name: exampleRGname
 Virtual machine name: exampleVMname
@@ -48,10 +55,6 @@ ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to 
 User name: ahmet
 Password: ************************************************
 Confirm password: ************************************************
-```
-
-```bash
-########### expected output ###########
 + Looking up the VM "exampleVMname"
 info:    Verifying the public key SSH file: /home/ahmet/.ssh/azure_id_rsa.pub
 info:    Using the VM Size "Standard_D1"
@@ -130,7 +133,7 @@ info:    vm quick-create command OK
 You can now SSH into your VM on the default SSH port 22 and the Public IP address (or the fully qualified domain name -- FQDN) listed in the output above.
 
 ```
-ahmet@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.88.22.244
 ```
 
 ## Next Steps
