@@ -54,7 +54,7 @@ The following code sample shows you how to connect to Azure before you can admin
 		class Program
 		{
 			private static HDInsightManagementClient _hdiManagementClient;
-			private static Guid SubscriptionId = new Guid("65a1016d-0f67-45d2-b838-b8f373d6d52e");
+			private static Guid SubscriptionId = new Guid("<Your Azure Subscription ID>");
 
 			static void Main(string[] args)
 			{
