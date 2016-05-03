@@ -57,7 +57,7 @@ For virtual machines in a single-instance configuration, virtual machines are up
 
 This planned maintenance event will impact the availability of your application for this type of virtual machine configuration. Azure offers a 1-week advanced notification for planned maintenance of virtual machines in the single-instance configuration.
 
-### Email notification
+## Email notification
 
 For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance). This email will be sent to the account administrator and co-administrator email accounts provided in the subscription. Here is an example of this type of email:
 

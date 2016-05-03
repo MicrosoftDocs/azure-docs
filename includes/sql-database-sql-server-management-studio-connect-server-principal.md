@@ -37,3 +37,4 @@ Use the following steps to connect to Azure SQL Database with SSMS using a serve
 
 The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
 
+

@@ -41,3 +41,4 @@ In this tutorial, you'll learn how to use the Aure portal to:
 Now that you've completed this SQL Database tutorial and created a user account and granted the user account dbo permissions, you are ready to learn more about 
 [SQL Database security](sql-database-manage-logins.md).
 
+
