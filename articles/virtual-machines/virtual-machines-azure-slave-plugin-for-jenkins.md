@@ -201,7 +201,7 @@ Jenkins will then create a slave node by using the template created in the previ
 
 <!-- URL List -->
 
-[subscription profile]: https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0
+[subscription profile]: http://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

@@ -192,7 +192,7 @@ Hudson will then create a slave node using the template created in the previous 
 
 <!-- URL List -->
 
-[subscription profile]: https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0
+[subscription profile]: http://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 
