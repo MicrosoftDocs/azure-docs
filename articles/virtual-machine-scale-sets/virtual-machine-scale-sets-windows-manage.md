@@ -21,7 +21,7 @@
 
 Use the tasks in this article to manage virtual machine resources in your Virtual Machine Scale Set.
 
-All of the tasks that involve managing a virtual machine in a scale set require that you know the instance id of the machine that you want to manage. You can use [Azure Resource Explorer](https://resources.azure.com) to find the instance id of a virtual machine in a scale set. You also use Resource Explorer to verify the status of the tasks that you finish.
+All of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage. You can use [Azure Resource Explorer](https://resources.azure.com) to find the instance ID of a virtual machine in a scale set. You also use Resource Explorer to verify the status of the tasks that you finish.
 
 See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
 
@@ -75,7 +75,7 @@ It returns something like this:
         
 ## Start a virtual machine in a scale set
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *VM scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to restart, and then run it:
+In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to start, and then run it:
 
     Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
