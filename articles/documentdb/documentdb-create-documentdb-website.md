@@ -22,7 +22,7 @@ This tutorial shows you how to use an Azure Resource Manager template to deploy 
 
 Using Azure Resource Manager templates, you can easily automate the deployment and configuration of your Azure resources.  This tutorial shows how to deploy a web application and automatically configure DocumentDB account connection information.
 
-After completing this tutorial, you'll be able to answer the following questions:  
+After completing this tutorial, you will be able to answer the following questions:  
 
 -	How can I use an Azure Resource Manager template to deploy and integrate a DocumentDB account and a web app in Azure App Service?
 -	How can I use an Azure Resource Manager template to deploy and integrate a DocumentDB account, a web app in App Service Web Apps, and a Webdeploy application?
