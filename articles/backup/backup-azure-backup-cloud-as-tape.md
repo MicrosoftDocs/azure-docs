@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="02/09/2016"
+   ms.date="05/03/2016"
    ms.author="jimpark;"/>
 
 # Use Azure Backup to replace your tape infrastructure
@@ -69,4 +69,4 @@ By clicking **Modify** in the above screen, customers have further flexibility i
 For more information about Azure Backup see
 
 - [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-- [Try Azure Backup](backup-try-azure-backup-in-10-mins)
+- [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)

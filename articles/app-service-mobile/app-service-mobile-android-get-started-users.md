@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="05/03/2016"
 	ms.author="ricksal"/>
 
 # Add authentication to your Android app
