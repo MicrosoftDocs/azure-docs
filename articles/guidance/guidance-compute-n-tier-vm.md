@@ -608,7 +608,7 @@ GOTO :eof
 <!-- links -->
 
 [blueprints-3-tier]: guidance-compute-3-tier-vm.md
-[multi-dc]: guidance-compute-multi-dc.md
+[multi-dc]: guidance-compute-multiple-datacenters.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [plan-network]: ../virtual-network/virtual-network-vnet-plan-design-arm.md
 [resource-manager-overview]: ../resource-group-overview.md
