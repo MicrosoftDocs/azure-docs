@@ -15,14 +15,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/03/2016"
    ms.author="christb"/>
 
 # Azure Guidance
 
 ![patterns & practices](media/guidance/pnp-logo.png)
 
-The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals to be successful on the Microsoft Azure platform. We discover, collect, and encourage practices that lead to successful cloud solutions.
+The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals be successful on the Microsoft Azure platform. We develop guidance that shows best practices for building cloud solutions on Azure.
 
 ## Checklists
 
@@ -123,7 +123,7 @@ We're creating a new set of guidance we're calling "blueprints". Each blueprint 
 - [Running Windows VMs in multiple datacenters on Azure][blueprint-multi-dc]
 - [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn]
 - [Implementing a highly available hybrid network architecture in Azure by using failover between ExpressRoute and VPN gateway](guidance-hybrid-network-expressroute-vpn-failover.md)
-- [Implementing a hybrid network architecture with Azure ExpressRoute]guidance-hybrid-network-expressroute.md()
+- [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
