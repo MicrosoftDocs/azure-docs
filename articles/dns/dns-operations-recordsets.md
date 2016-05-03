@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/04/2016"
+   ms.date="05/03/2016"
    ms.author="cherylmc"/>
 
-# How to manage DNS records using PowerShell
+# Manage DNS records and record sets using PowerShell
 
 
 
@@ -29,7 +29,7 @@
 
 This guide will show how to manage record sets and records for your DNS zone using Azure PowerShell.
 
-It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
+It is important to understand the difference between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-portal.md).
 
 ## Create a record set
 

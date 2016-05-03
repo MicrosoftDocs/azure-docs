@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/29/2016"
+   ms.date="05/03/2016"
    ms.author="cherylmc"/>
 
-# How to create and manage DNS records and record sets using the Azure portal
+# Manage DNS records and record sets using the Azure portal
 
 
 > [AZURE.SELECTOR]
@@ -28,7 +28,7 @@
 
 This guide will show how to create and manage record sets and records for your DNS zone using the Azure portal.
 
-It is important to understand the distinction between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
+It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-portal.md).
 
 ## Create a new record set and a record
 
@@ -44,7 +44,7 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 	![search record set](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## Add a new record to an existing record set
+## Add a new record to a record set
 
 You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain, at most, one record.
 
