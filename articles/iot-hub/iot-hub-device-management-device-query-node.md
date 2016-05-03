@@ -154,9 +154,9 @@ More details on the syntax and available fields for the JSON are [available][lnk
 Once you have the JSON query expression, you can query for the device twins. Call **queryDevices** and check the **result** field for aggregate queries and the **devices** field for all other queries. **devices** contains a list of device objects, which represent the device twins that match the query. **result** contains an array of dictionaries, each containing the resulting row.
 
 ```
-var foundDevices = (await registryManager.QueryDevicesJsonAsync(query)).Result;
+var foundDevices = (await registryManager.QueryDevicesJsonAsync(query)).Result; TODO
 
-var results = (await registryManager.QueryDevicesJsonAsync(query)).AggregateResult;
+var results = (await registryManager.QueryDevicesJsonAsync(query)).AggregateResult; TODO
 ```
 
 ### Query by tags
