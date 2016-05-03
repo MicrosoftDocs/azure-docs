@@ -62,6 +62,8 @@ The performance level settings in Standard and Premium allow you to pay only for
 
 For more information about the service tiers, performance levels, and DTUs, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
+
+
 ## Reasons to use the service tiers
 
 While each workload can differ, the purpose of the service tiers is to provide high performance predictability at a variety of performance levels. They enable customers with a large scale of resource requirements for their databases to work in a more dedicated computing environment.
@@ -84,6 +86,20 @@ While each workload can differ, the purpose of the service tiers is to provide h
 The exact level you will need depends on the peak load requirements for each resource dimension. Some applications may use trivial amounts of one resource but have significant requirements in another.
 
 For more information about the service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
+
+## Billing and pricing information
+
+Elastic database pools are billed per the following characteristics:
+
+- An elastic pool is billed upon its creation, even when there are no databases in the pool.
+- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
+- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases.
+
+
+- The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the utilization of the elastic databases within it.
+- Price is computed by (number of pool eDTUs)x(unit price per eDTU).
+
+The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).  
 
 ## Service tier capabilities and limits
 Each service tier and performance level is associated with different limits and performance characteristics. The following table describes these characteristics for a single database.
