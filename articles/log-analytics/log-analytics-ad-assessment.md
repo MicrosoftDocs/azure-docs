@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Active Directory Assessment solution in Log Analytics | Microsoft Azure"
+	pageTitle="Optimize your environment with the Active Directory Assessment solution in Log Analytics | Microsoft Azure"
 	description="You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval."
 	services="log-analytics"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
-# Active Directory Assessment solution in Log Analytics
+# Optimize your environment with the Active Directory Assessment solution in Log Analytics
 
 You can use the Active Directory Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install and use the solution so that you can take corrective actions for potential problems.
 

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Analyze data usage in Log Analytics | Microsoft Azure"
-	description="You can use the Usage page to view how much data is being sent to the OMS service."
+	description="You can use the Usage page in Log Analytics to view how much data is being sent to the OMS service."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
