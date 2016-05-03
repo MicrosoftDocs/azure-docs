@@ -22,7 +22,7 @@ You can use Azure DNS to host a custom domain for your web apps. For instance, i
 
 > [AZURE.NOTE] Keep in mind that if you create an A record for a web app in Azure, the A record must be manually updated if the underlying IP address for the web app changes.
 
-Before you can create records for your custom domain, you must create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS. To create a DNS zone, follow the steps in [Get started with Azure DNS](../dns-getstarted-create-dnszone/#Create-a-DNS-zone). To delegate your DNS to Azure DNS, follow the steps in [Delegate Domain to Azure DNS](../dns-domain-delegation).
+Before you can create records for your custom domain, you must create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS. To create a DNS zone, follow the steps in [Create a DNS zone](dns-getstarted-create-dnszone.md). To delegate your DNS to Azure DNS, follow the steps in [DNS domain delegation](dns-domain-delegation.md).
  
 ## Create an A record for your custom domain
 
@@ -38,7 +38,7 @@ Create an A record and assign to a variable $rs
 
 Add IPv4 value to previously created record set "@" using the $rs variable assigned. The IPv4 value assigned will be the IP address for your web app.
 
-> [AZURE.NOTE] To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)
+> [AZURE.NOTE] To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../web-sites-custom-domain-name.md#Find-the-virtual-IP-address)
 
 	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
@@ -50,7 +50,7 @@ Commit the changes to the record set. Use Set-AzureRMDnsRecordSet to upload the 
 
 ## Creating a CNAME record for your custom domain
 
-Assuming your domain is already managed by Azure DNS (see [DNS domain delegation](../dns-domain-delegation)), you can use the following the example to create a CNAME record for contoso.azurewebsites.net:
+Assuming your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md), you can use the following the example to create a CNAME record for contoso.azurewebsites.net:
 
 ### Step 1
 
@@ -150,17 +150,16 @@ Commit the changes using the Set-AzureRMDnsRecordSet cmdlet. as shown in the com
 
 	PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
 
-Now you can continue to follow the steps in [Configuring a custom domain name for App Service](../web-sites-custom-domain-name) to configure your web app to use a custom domain.
+Now you can continue to follow the steps in [Configuring a custom domain name for App Service](../web-sites-custom-domain-name.md) to configure your web app to use a custom domain.
 
 ## See Also
 
-[Manage DNS zones](../dns-operations-dnszones)
+[Manage DNS zones](dns-operations-dnszones.md)
 
-[Manage DNS records](../dns-operations-recordsets)
+[Manage DNS records](dns-operations-recordsets.md)
 
-[Traffic Manager Overview](../traffic-manager-overview)
+[Traffic Manager Overview](../articles/traffic-manager/traffic-manager-overview.md)
 
-[Automate Azure Operations with .NET SDK](../dns-sdk)
 
 
  
