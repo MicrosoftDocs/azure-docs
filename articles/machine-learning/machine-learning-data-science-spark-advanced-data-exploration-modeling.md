@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Advanced data exploration and modeling with Spark | Microsoft Azure"
-	description="TBD."
+	description="Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-This walkthrough uses HDInsight Spark to do data exploration and binary classification and regression modeling tasks using cross-validation and hyperparameter optimization to train the models on a sample of the NYC taxi trip and fare 2013 dataset. It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. Python has been used to code the solution and to show the relevant plots. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
+This walkthrough uses HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization on a sample of the NYC taxi trip and fare 2013 dataset. It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. Python has been used to code the solution and to show the relevant plots. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
 
 - The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 - The **regression** task is to predict the amount of the tip based on other tip features. 
@@ -55,7 +55,7 @@ You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-## Setup: storage locations, libraries and Spark context
+## Setup: storage locations, libraries and the preset Spark context
 
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
@@ -74,10 +74,6 @@ The following code sample specifies the location of the data to be read and the 
 	# SET THE MODEL STORAGE DIRECTORY PATH 
 	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
 	modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
-
-TBD: Explain
-Creating SparkContext as 'sc'
-Creating HiveContext as 'sqlContext'
 
 	# PRINT START TIME
 	import datetime
@@ -107,6 +103,22 @@ Import necessary libraries with the following code.
 	import numpy as np
 	import datetime
 	
+
+### Preset Spark context and PySpark magics
+
+The PySpark kernels that are provided with Jupyter notebooks have a preset context, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
+
+- sc - for Spark 
+- contextsqlContext - for Hive context
+
+The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+
+- **%%local**  Specified that the code in subsequent lines will be executed locally. Code must be valid Python code.
+- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
+ 
+
+For more information on the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+
 
 ## Data ingestion: 
 

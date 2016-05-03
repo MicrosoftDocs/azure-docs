@@ -33,7 +33,7 @@ This topic describes how to load machine learning (ML) models that have been bui
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
  
 
-## Setup Spark and directory paths to stored data and models 
+## Setup: storage locations, libraries and the preset Spark context
 
 Spark is able to read and write to a Azure Storage Blob (WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
@@ -62,10 +62,6 @@ Here is the code to set directory paths:
 	# SET SCORDED RESULT DIRECTORY PATH
 	# NOTE THE LAST BACKSLASH IN THIS PATH IS NEEDED
 	scoredResultDir = "wasb:///user/remoteuser/NYCTaxi/ScoredResults/"; 
-
-TBD: Explain.
-Creating SparkContext as 'sc'
-Creating HiveContext as 'sqlContext'
 	
 	# FILE LOCATIONS FOR THE MODELS TO BE SCORED
 	logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-04-1817_40_35.796789"
@@ -102,6 +98,22 @@ Set spark context and import necessary libraries with the following code
 	from numpy import array
 	import numpy as np
 	import datetime
+
+
+### Preset Spark context and PySpark magics
+
+The PySpark kernels that are provided with Jupyter notebooks have a preset context, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
+
+- sc - for Spark 
+- contextsqlContext - for Hive context
+
+The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+
+- **%%local**  Specified that the code in subsequent lines will be executed locally. Code must be valid Python code.
+- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
+ 
+
+For more information on the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Ingest data and create a cleaned data frame

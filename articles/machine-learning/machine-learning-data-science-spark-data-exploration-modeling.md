@@ -45,15 +45,12 @@ You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-## Setup: storage locations, libraries and Spark context
+## Setup: storage locations, libraries and the preset Spark context
 
 Spark is able to read and write to Azure Storage Blob (also known as WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
 To save models or files in WASB, the path needs to be specified properly. The default container attached to the Spark cluster can be referenced using a path beginning with: "wasb:///". Other locations are referenced by “wasb://”.
 
-Set up also requires importing necessary libraries and set ting the spark context.
-
-TBD Explaining about pyspark magic for context.
 
 ### Set directory paths for storage locations in WASB
 
@@ -69,14 +66,10 @@ The following code sample specifies the location of the data to be read and the 
 	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
 	modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 
-TBD: Explain how:
-Creating SparkContext as 'sc'
-Creating HiveContext as 'sqlContext'
-
 
 ### Import libraries
 
-Set spark context and import necessary libraries with the following code.
+Set up also requires importing necessary libraries. Set spark context and import necessary libraries with the following code.
 
 
 	# IMPORT LIBRARIES
@@ -94,6 +87,22 @@ Set spark context and import necessary libraries with the following code.
 	import numpy as np
 	import datetime
 
+
+### Preset Spark context and PySpark magics
+
+The PySpark kernels that are provided with Jupyter notebooks have a preset context, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
+
+- sc - for Spark 
+- contextsqlContext - for Hive context
+
+The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+
+- **%%local**  Specified that the code in subsequent lines will be executed locally. Code must be valid Python code.
+- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
+ 
+
+For more information on the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+ 
 
 ## Data ingestion
 

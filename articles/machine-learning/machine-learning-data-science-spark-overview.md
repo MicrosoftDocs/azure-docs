@@ -20,17 +20,13 @@
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-This topic 
+This suite of topics show how to use HDInsight Spark to complete common data science tasks such as data ingestion, feature engineering, modeling and model evaluation. The data used is a sample of the 2013 NYC taxi trip and fare dataset. The models built include logistic and linear regression, random forests and gradient boosted trees. The topics also show how to store these models in Azure blob storage (WASB) and how to score and evaluate their predictive performance. More advanced topics cover how models can be trained using cross-validation and hyper-parameter sweeping.
 
 [Spark](http://spark.apache.org/) is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. [MLlib](http://spark.apache.org/mllib/) is Spark's scalable machine learning library that brings modeling capabilities to this distributed environment. 
 
-HDInsight Spark is the Azure hosted offering of open-source Spark. It also includes support for Jupyter PySpark notebooks on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering and visualizing data stored in Azure Blobs (WASB). 
+[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) is the Azure hosted offering of open-source Spark. It also includes support for **Jupyter PySpark notebooks** on the Spark cluster that can run Spark SQL interactive queries for transforming, filtering and visualizing data stored in Azure Blobs (WASB). PySpark is the Python API for Spark. The code snippets that provide the solutions and show the relevant plots to visualize the data here run in Jupyter notebooks installed on the Spark clusters. The modeling steps in these topics contain code that shows how to train, evaluate, save, and consume each type of model. 
 
-The collection of topics linked in the menu showcase this by working through binary classification and regression tasks on a sample of the NYC taxi trip and fare 2013 dataset and then store the  model in WASB. The models built include logistic and linear regression, random forests and gradient boosted trees. They also show how to consume these models to score and evaluate the predictive performance of the models. More advanced topics will cover how models can be trained using cross-validation and hyper-parameter sweeping.
-
-The modeling steps in these topics contain code that shows how to train, evaluate, save, and consume each type of model. PySpark is the Python API for Spark. The code snippets that provide the solutions and show the relevant plots to visualize the data here run in Jupyter notebooks installed on the Spark clusters. 
-
-The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark 1.6. However, the code here and in the notebooks is generic and should work on any Spark cluster. The cluster setup and management steps may be slightly different from what is shown here if you are not using HDInsight Spark. Links to Python 2 notebooks that run on an HDInsight 3.3 Spark 1.5.2 are also provided.
+The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark 1.6. However, the code here and in the notebooks is generic and should work on any Spark cluster. The cluster setup and management steps may be slightly different from what is shown here if you are not using HDInsight Spark.
 
 ## Prerequisites
 
@@ -41,8 +37,6 @@ The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
-
->[AZURE.NOTE] Although this walkthrough has been designed to work with the PySpark notebooks that run on the default HDInsight 3.4 Spark 1.6 cluster, Python 2 notebooks that run on a Spark 1.5.2 (HDI 3.3) cluster have also been provided. But this version must be selected when creating the cluster.
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -135,18 +129,11 @@ Now you can:
 - Click on the notebook to see the code
 - Execute each cell by pressing **SHIFT-ENTER**
 - Run the entire notebook by clicking on **Cell** -> **Run**
+- Use the automatic visualization of queries
 
+> [AZURE.TIP] The Pyspark kernel automatically visualizes the output of SQL (HiveQL) queries. You are given the option to toggle between several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook:
 
-**Upload Python Notebooks to run on the 1.5.2 Spark cluster**
-
-> [AZURE.NOTE] If you decided to create a Spark 1.5.2 (HDI 3.3) cluster, the Python notebooks are available at [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). In this case, you select **Python** and then **Upload** to navigate to and upload the Python 2 notebooks.
-
-The Python 2 notebooks to use on the Spark 1.5.2 (HDI 3.3) cluster are available here:
-
-1.	[machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-data-exploration-modeling.ipynb)
-2.	[machine-learning-data-science-spark-model-consumption.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-model-consumption.ipynb)
-3.	[machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
-
+![Logistic regression ROC curve for generic approach](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
 ## What's next?
 
