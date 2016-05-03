@@ -60,9 +60,9 @@ administrator or a co-administrator for the associated subscription.
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-5.  Select a **Pricing tier** or use the default.  For more information on pricing tiers, see [Azure Storage Pricing](../../pricing/details/storage).
+5.  Select a **Pricing tier** or use the default.  For more information on pricing tiers, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-6.  Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview/#resource-groups).
+6.  Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
 7. Select the **Subscription** that the storage account will be used with.
 
@@ -115,7 +115,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
     ![Add endpoint blade][cdn-add-endpoint]
 
-3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<EndpointName>.azureedge.net`.
+3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net`.
 
 4. In the **Origin type** dropdown, select *Storage*.  
 
@@ -147,7 +147,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 If you no longer wish to cache an object in the Azure Content
 Delivery Network (CDN), you can take one of the following steps:
 
--   You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage-manage-access-to-resources/) for more information.
+-   You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage/storage-manage-access-to-resources.md) for more information.
 -   You can disable or delete the CDN endpoint using the Management Portal.
 -   You can modify your hosted service to no longer respond to requests for the object.
 
