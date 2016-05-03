@@ -20,6 +20,8 @@
 
 This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app, and a sample web application.
 
+Using Azure Resource Manager templates, you can easily automate the deployment and configuration of your Azure resources.  This tutorial shows how to deploy a web application and automatically configure DocumentDB account connction information.
+
 After completing this tutorial, you'll be able to answer the following questions:  
 
 -	How can I use an Azure Resource Manager template to deploy and integrate a DocumentDB account and a web app in Azure App Service?
@@ -71,7 +73,7 @@ Now let's deploy our first template.
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
   
-6.  Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.
+6.  Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashhboard** so the resulting deployment is easily visible on your Azure portal home page.
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
 
 7.  When the deployment finishes, the Resource group blade will open.
@@ -81,23 +83,23 @@ Now let's deploy our first template.
 
 	![Sample Todo application](./media/documentdb-create-documentdb-website/image2.png)
 
-7. Go ahead and create a couple of tasks and then return to the Resource group blade.  Click the DocumentDB account resource in the Resources list and then click **Query Explorer**.
+9. Go ahead and create a couple of tasks in the web app and then return to the Resource group blade in the Azure portal. Click the DocumentDB account resource in the Resources list and then click **Query Explorer**.
 	![Screenshot of the Summary lens with the myotherdocumentdbwebapp web app highlighted](./media/documentdb-create-documentdb-website/TemplateDeployment8.png)  
 
-8. Run the default query, "SELECT * FROM c" and inspect the results.  Notice that the query has retrieved the JSON representation of the todo items you created in step 7 above.  Feel free to experiment with queries; for example, try running SELECT * FROM c WHERE c.isComplete = true to return all todo items which have been marked as complete.
+10. Run the default query, "SELECT * FROM c" and inspect the results.  Notice that the query has retrieved the JSON representation of the todo items you created in step 7 above.  Feel free to experiment with queries; for example, try running SELECT * FROM c WHERE c.isComplete = true to return all todo items which have been marked as complete.
 
 	![Screenshot of the Query Explorer and Results blades showing the query results](./media/documentdb-create-documentdb-website/image5.png)
 
-12. Feel free to explore the DocumentDB portal experience or modify the sample Todo application.  When you're ready, let's deploy another template.
+11. Feel free to explore the DocumentDB portal experience or modify the sample Todo application.  When you're ready, let's deploy another template.
 	
 <a id="Build"></a> 
 ## Step 3: Deploy the Document account and web app sample
 
-Now let's deploy our second template.
+Now let's deploy our second template.  This template is useful to show how you can inject DocumentDB connection information such as account endpoint and master key into a web app as application settings or as a custom connection string. For example, perhaps you have your own web application that you would like to deploy with a DocumentDB account and have the connection information automatically populated during deployment.
 
 > [AZURE.TIP] The template does not validate that the web app name and DocumentDB account name entered below are a) valid and b) available.  It is highly recommended that you verify the availability of the names you plan to supply prior to submitting the deployment.
 
-1. Login to the [Azure Portal](https://portal.azure.com), click New and search for "Template deployment".
+1. In the [Azure Portal](https://portal.azure.com), click New and search for "Template deployment".
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment1.png)
 
 2. Select the Template deployment item and click **Create**
@@ -121,19 +123,19 @@ Now let's deploy our second template.
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
   
-6.  Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.
+6.  Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashhboard** so the resulting deployment is easily visible on your Azure portal home page.
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
 
 7.  When the deployment finishes, the Resource group blade will open.
 	![Screenshot of the resource group blade](./media/documentdb-create-documentdb-website/TemplateDeployment7.png)  
 
-6. Click the Web App resource in the Resources list and then click **Application settings**
+8. Click the Web App resource in the Resources list and then click **Application settings**
 	![Screenshot of the resource group](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)  
 
-7. Note how there are application settings present for the DocumentDB endpoint and each of the DocumentDB master keys.
+9. Note how there are application settings present for the DocumentDB endpoint and each of the DocumentDB master keys.
 	![Screenshot of application settings](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
 
-8. Feel free to continue exploring the Azure Portal, or follow one of our DocumentDB [samples](http://go.microsoft.com/fwlink/?LinkID=402386) to create your own DocumentDB application.
+10. Feel free to continue exploring the Azure Portal, or follow one of our DocumentDB [samples](http://go.microsoft.com/fwlink/?LinkID=402386) to create your own DocumentDB application.
 
 	
 	
