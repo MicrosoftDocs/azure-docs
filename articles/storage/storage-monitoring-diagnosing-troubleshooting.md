@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/29/2016"
 	ms.author="jahogg"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
@@ -28,7 +28,7 @@ To manage such applications successfully you should monitor them proactively and
 
 > [AZURE.NOTE] Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. 
 
-For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting/).
+For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md).
 
 + [Introduction]
 	+ [How this guide is organized]
