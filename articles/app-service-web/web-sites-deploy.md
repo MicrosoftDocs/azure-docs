@@ -55,7 +55,7 @@ processes you can leverage, the actual DevOps functionality at your disposal dep
 specific tools you choose. For example, if you perform Web Deploy from [Visual Studio with Azure SDK](#vspros), even though you don't get automation 
 from Kudu, you do get package restore and MSBuild automation in Visual Studio. 
 
->[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](resource-group-portal) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy 
+>[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](../azure-portal/resource-group-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy 
 your code to it end-to-end. You can also find additional options for provisioning Azure resources in the 
 [Automate deployment by using command-line tools](#automate) section.
      
@@ -119,7 +119,7 @@ Pros of deploying from a cloud-based source control service are:
 
 - Version control to enable rollback.
 - Ability to configure continuous deployment for Git (and Mercurial where applicable) repositories. 
-- Branch-specific deployment, can deploy different branches to different [slots](web-sites-staged-publishing).
+- Branch-specific deployment, can deploy different branches to different [slots](web-sites-staged-publishing.md).
 - All functionality in the Kudu deployment engine is available (e.g. deployment versioning, rollback, package restore, automation).
 
 Con of deploying from a cloud-based source control service is:
@@ -137,7 +137,7 @@ If your development team uses an on-premises local source code management (SCM) 
 Pros of deploying from local Git are:
 
 - Version control to enable rollback.
-- Branch-specific deployment, can deploy different branches to different [slots](web-sites-staged-publishing).
+- Branch-specific deployment, can deploy different branches to different [slots](web-sites-staged-publishing.md).
 - All functionality in the Kudu deployment engine is available (e.g. deployment versioning, rollback, package restore, automation).
 
 Con of deploying from local Git is:
