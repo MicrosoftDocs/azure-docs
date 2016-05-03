@@ -28,37 +28,65 @@ The Microsoft patterns & practices team is part of the Azure Customer Advisory T
 
 These lists are a quick reference for reviewing the fundamental aspects of availability and scalability. 
 
-- **[Availability Checklist][AvailabilityChecklist]** summarizes recommended practices for ensuring resiliency and availability.
+- [Availability Checklist][AvailabilityChecklist] 
 
-- **[Scalability Checklist][ScalabilityChecklist]** summarizes recommended practices for designing and implementing scalable services and handling data management.
+    A summary of recommended practices for ensuring resiliency and availability.
+
+- [Scalability Checklist][ScalabilityChecklist]
+
+    A summary of recommended practices for designing and implementing scalable services and handling data management.
 
 ## Best practices articles
 
 These articles provide an in-depth discussion of important concepts commonly associated with cloud computing. 
 
-- **[API Design][APIDesign]** describes the issues that you should consider when designing a web API.
+- [API Design][APIDesign] 
 
-- **[API Implementation][APIImplementation]** focuses on recommended practices for implementing a web API and publishing it to make it available to client applications.
+    A discussion of design issues to consider when designing a web API.
 
-- [**API security guidance**](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) addresses  authentication and authorization concerns as well as design consideration such as token types, authorization protocols, authorization flows and threat mitigation.
+- [API Implementation][APIImplementation] 
 
-- **[Autoscaling guidance][AutoscalingGuidance]** summarizes considerations for taking advantage of the elasticity of cloud-hosted environments while easing management overhead by reducing the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
+    A set of recommended practices for implementing and publishing a web API .
 
-- **[Background Jobs guidance][BackgroundJobsGuidance]** describes the available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
+- [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
 
-- **[Content Delivery Network (CDN) guidance][CDNGuidance]** provides general guidance and good practice for using the CDN to minimize the load on your applications, and maximize availability and performance.
+    A discussion of authentication and authorization concerns (e.g., token types, authorization protocols, authorization flows and threat mitigation).
 
-- **[Caching guidance][CachingGuidance]** summarizes how to use caching with Azure applications and services to improve the performance and scalability of a system.
+- [Autoscaling guidance][AutoscalingGuidance] 
 
-- **[Data Partitioning guidance][DataPartitioningGuidance]** describes strategies that you can use to partition data to improve scalability, reduce contention, and optimize performance.
+    A summary of considerations for taking advantage of the elasticity of cloud-hosted environments without the need for manual intervention.
 
-- **[Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance]** provides guidance on how to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
+- [Background Jobs guidance][BackgroundJobsGuidance] 
 
-- **[Recommended naming conventions][naming-conventions]** recommends practical naming conventions for Azure resources.
+    A description og available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
 
-- **[Retry General guidance][RetryGeneralGuidance]** covers general guidance for transient fault handling in an Azure application.
+- [Content Delivery Network (CDN) guidance][CDNGuidance] 
 
-- **[Retry Service-specific guidance][RetryServiceSpecificGuidance]** summarizes the retry mechanism features for the majority of Azure services, and includes information to help you use, adapt, or extend the retry mechanism for that service.
+    General guidance and recommended practice for using the CDN to minimize the load on your applications, and maximize availability and performance.
+
+- [Caching guidance][CachingGuidance] 
+
+    A summary of how to use caching to improve the performance and scalability of a system.
+
+- [Data Partitioning guidance][DataPartitioningGuidance]
+
+    Strategies that you can use to partition data to improve scalability, reduce contention, and optimize performance.
+
+- [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
+
+    Guidance on how to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
+
+- [Recommended naming conventions][naming-conventions] 
+
+    Recommended naming conventions for Azure resources.
+
+- [Retry General guidance][RetryGeneralGuidance] 
+
+    Discussion of the general concepts for handling transient faults.
+
+- [Retry Service-specific guidance][RetryServiceSpecificGuidance]
+
+    A summary of retry features for many of Azure services, including information to help you use, adapt, or extend the retry mechanism for that service.
 
 ## Scenario guides
 
@@ -84,15 +112,16 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
     This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstratraing 8 anti-patterns as well as a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
 
-
 ## Under development
 
 We're creating a new set of guidance we're calling "blueprints". Each blueprint offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these blueprints, and some are available for preview. We're very intereseted in your feedback.
 
 - [Running a single VM on Azure][blueprint-single-vm-windows]
 - [Achieving availabitilty using multiple VM instances][blueprint-multi-vm-windows]
-- [Achieving manageability, scalability, availability, and security for a 3-tier app][blueprint-3-tier-windows]
-- [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn].
+- [Achieving manageability, scalability, availability, and security for a N-tier app][blueprint-3-tier-windows]
+- [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn]
+- [Adding reliability to an N-tier architecture on Azure (Windows VMs)][blueprint-n-tier-windows]
+- [Running Windows VMs in multiple datacenters on Azure][blueprint-multi-dc]
 
 <!--
 - Adding a network appliance and SQL AlwaysOn Availability Groups (_not yet available_)
@@ -126,4 +155,6 @@ We're creating a new set of guidance we're calling "blueprints". Each blueprint 
 [blueprint-single-vm-windows]: guidance-compute-single-vm.md
 [blueprint-multi-vm-windows]: guidance-compute-multi-vm.md
 [blueprint-3-tier-windows]: guidance-compute-3-tier-vm.md
+[blueprint-n-tier-windows]: guidance-compute-n-tier-vm.md
+[blueprint-multi-dc]: guidance-compute-multiple-datacenters.md
 [blueprint-hybrid-network-vpn]: guidance-hybrid-network-vpn.md
