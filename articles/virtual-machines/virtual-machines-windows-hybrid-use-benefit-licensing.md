@@ -23,7 +23,9 @@ For customers using Windows Server with Software Assurance, you can bring your o
 > [AZURE.NOTE] You cannot use Azure Gallery images to deploy Windows Server VMs utilizing AHUB. You must deploy your VMs using either PowerShell or Resource Manager templates in to correctly register your VMs as eligible for base compute rate discount.
 
 ## Deploy Windows Server VM via PowerShell Quick-Start
-When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. This can either be `-WindowsServer` or `-WindowsClient` depending on the OS you are deploying and appropriately licensed for. In the following quick-start example, first upload a VHD that you have [appropriately prepared via Sysprep](./virtual-machines-windows-upload-image.md#prepare-the-vhd-for-upload):
+When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. This can either be `-WindowsServer` or `-WindowsClient` depending on the OS you are deploying and appropriately licensed for. 
+
+In the following quick-start example, first upload a VHD that you have [appropriately prepared via Sysprep](./virtual-machines-windows-upload-image.md#prepare-the-vhd-for-upload):
 
 ```
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
@@ -37,7 +39,9 @@ New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
 ```
 
 ## Deploy Windows Server VM via Resource Manager
-Within your Resource Manager templates, an additional parameter for `licenseType` can be specified when declaring your VMs for either `Windows_Server` or `Windows_Client` depending on the OS you are deploying and appropriately licensed for. You can read more about [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). As with deploying from PowerShell, you first need to upload a VHD that you have [appropriately prepared via Sysprep](./virtual-machines-windows-upload-image.md#prepare-the-vhd-for-upload):
+Within your Resource Manager templates, an additional parameter for `licenseType` can be specified when declaring your VMs for either `Windows_Server` or `Windows_Client` depending on the OS you are deploying and appropriately licensed for. You can read more about [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+
+As with deploying from PowerShell, you first need to upload a VHD that you have [appropriately prepared via Sysprep](./virtual-machines-windows-upload-image.md#prepare-the-vhd-for-upload):
 
 ```
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
@@ -54,7 +58,7 @@ You now edit you Resource Manager template to include the license type as part o
 ```
  
 ## Verify your VM is utilizing AHUB
-Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, you verify the the license type with `Get-AzureRmVM` as follows:
+Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, verify the the license type with `Get-AzureRmVM` as follows:
  
 ```
 Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
@@ -78,9 +82,9 @@ LicenseType              :
  
 ## Deploy Windows Server VM via PowerShell Detailed walkthrough
 
-The following detailed PowerShell steps show a full deployment of a VM. You can read more context as to the actual cmdlets and different components being created in [Create a Windows VM using Resource Manager and PowerShell](./virtual-machine-windows-ps-create.md).
+The following detailed PowerShell steps show a full deployment of a VM. You can read more context as to the actual cmdlets and different components being created in [Create a Windows VM using Resource Manager and PowerShell](./virtual-machines-windows-ps-create.md).
  
-Securely obtain credentials and set a location and resource group name:
+Securely obtain credentials, set a location, and resource group name:
 
 ```
 $cred = Get-Credential
