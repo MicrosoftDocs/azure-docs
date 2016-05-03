@@ -73,7 +73,7 @@ Now let's deploy our first template.
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
   
-6.  Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashhboard** so the resulting deployment is easily visible on your Azure portal home page.
+6.  Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashboard** so the resulting deployment is easily visible on your Azure portal home page.
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
 
 7.  When the deployment finishes, the Resource group blade will open.
@@ -123,7 +123,7 @@ Now let's deploy our second template.  This template is useful to show how you c
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
   
-6.  Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashhboard** so the resulting deployment is easily visible on your Azure portal home page.
+6.  Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashboard** so the resulting deployment is easily visible on your Azure portal home page.
 	![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
 
 7.  When the deployment finishes, the Resource group blade will open.
