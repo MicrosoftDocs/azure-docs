@@ -18,7 +18,7 @@
 
 # Tutorial: How to use device jobs to update device firmware (preview)
 
-[AZURE.INCLUDE [iot-hub-device-management-job-selector](../../includes/iot-hub-device-management-job-selector.md)]
+[AZURE.INCLUDE [iot-hub-device-management-job-selector](../../includes/iot-hub-device-management-jobs-selector.md)]
 
 ## Introduction
 Azure IoT device management allows you to interact with physical devices using device jobs. Once you have identified the device twin (the service representation of a physical device), you can interact with its corresponding physical device using device jobs. Device jobs enable coordination of complex processes on multiple devices. This process can include multiple steps and long running operations.
