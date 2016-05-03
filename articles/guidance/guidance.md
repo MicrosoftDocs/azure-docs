@@ -116,17 +116,14 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 We're creating a new set of guidance we're calling "blueprints". Each blueprint offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these blueprints, and some are available for preview. We're very intereseted in your feedback.
 
-- [Running a single VM on Azure][blueprint-single-vm-windows]
-- [Achieving availabitilty using multiple VM instances][blueprint-multi-vm-windows]
-- [Achieving manageability, scalability, availability, and security for a N-tier app][blueprint-3-tier-windows]
-- [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn]
+- [Running a Single Windows VM on Azure][blueprint-single-vm-windows]
+- [Running multiple Windows VM instances on Azure (single tier, Internet-facing)][blueprint-multi-vm-windows]
+- [Running Windows VMs for an N-tier architecture on Azure][blueprint-3-tier-windows]
 - [Adding reliability to an N-tier architecture on Azure (Windows VMs)][blueprint-n-tier-windows]
 - [Running Windows VMs in multiple datacenters on Azure][blueprint-multi-dc]
-
-<!--
-- Adding a network appliance and SQL AlwaysOn Availability Groups (_not yet available_)
-- Deploying to multiple datacenters, routing traffic, facilitating failover(_not yet available_)
--->
+- [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn]
+- [Implementing a highly available hybrid network architecture in Azure by using failover between ExpressRoute and VPN gateway](guidance-hybrid-network-expressroute-vpn-failover.md)
+- [Implementing a hybrid network architecture with Azure ExpressRoute]guidance-hybrid-network-expressroute.md()
 
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 
