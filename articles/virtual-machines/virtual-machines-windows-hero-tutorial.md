@@ -52,7 +52,7 @@ After you select the image, you can use Azure's default settings for most of the
 	The password must be at 8-123 characters long and have at least 3 of the following: one lower case character, one upper case character, one number, and one special character. 
 
 
-3. Select an existing [Resource group](../resource-group-overview/#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
+3. Select an existing [Resource group](../resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
 
 4. When you are done, click **OK** to continue to the next section. 
 
