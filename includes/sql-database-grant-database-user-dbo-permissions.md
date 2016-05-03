@@ -1,8 +1,10 @@
 
 
-## Create new database user using SSMS
+## Grant new database user db_owner permissions
 
-The steps below assume that you are using SSMS and connected to SQL Database in Object Explorer and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to grant user permissions. Furthermore, the steps below assume that a user exists in the database to which you wish to grant dbo permissions.
+Use the following steps to grant an existing database user db_owner permissions
+
+Theses steps assume that you are connected to SQL Database in Object Explorer in SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to grant user permissions. 
 
 1. In Object Explorer, expand the Databases node and select the database with the user to which you wish to grant dbo permissions.
 

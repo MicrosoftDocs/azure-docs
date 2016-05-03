@@ -2,7 +2,9 @@
 
 ## Create new database user using SSMS
 
-The steps below assume that you are using SSMS and connected to SQL Database in Object Explorer and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to create a new user. Furthermore, the steps below assume that a user database exists within which you wish to create a user account.
+Use the following steps to create a new database user in an existing database using SSMS. 
+
+These steps assume that you are connected to SQL Database in Object Explorer using SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to create a new user. 
 
 1. In Object Explorer, expand the Databases node and select the database in which you wish to create a new user account.
 
