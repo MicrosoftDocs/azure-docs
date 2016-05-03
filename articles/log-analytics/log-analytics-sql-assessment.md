@@ -1,5 +1,5 @@
 <properties
-	pageTitle="SQL Assessment solution in Log Analytics | Microsoft Azure"
+	pageTitle="Optimize your environment with the SQL Assessment solution in Log Analytics | Microsoft Azure"
 	description="You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval."
 	services="log-analytics"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
-# SQL Assessment solution in Log Analytics
+# Optimize your environment with the SQL Assessment solution in Log Analytics
 
 
 You can use the SQL Assessment solution to assess the risk and health of your server environments on a regular interval. This article will help you install the solution so that you can take corrective actions for potential problems.
@@ -40,6 +40,7 @@ Use the following information to install and configure the solution.
 
 - The SQL Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
 - When using the Operations Manager agent with SQL Assessment, you'll need to use an Operations Manager Run-As account. See [Operations Manager run-as accounts for OMS](#operations-manager-run-as-accounts-for-oms) below for more information.
+
     >[AZURE.NOTE] The MMA agent does not support Operations Manager Run-As accounts.
 
 - Add the SQL Assessment solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). There is no further configuration required.

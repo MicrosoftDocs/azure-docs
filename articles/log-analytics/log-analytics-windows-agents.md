@@ -26,9 +26,10 @@ You can install agents using Setup, command line, or with Desired State Configur
 On computers with Internet connectivity, the agent will use the connection to the Internet to send data to OMS. For computers that do not have Internet connectivity, you can use a proxy or the OMS Log Analytics Forwarder.
 
 Connecting your Windows computers to OMS is straightforward using 3 simple steps:
-1.	Download the agent setup file
-2.	Install the agent using the method you choose
-3.	Configure the agent, if necessary
+
+1. Download the agent setup file
+2. Install the agent using the method you choose
+3. Configure the agent, if necessary
 
 The following diagram shows the relationship between your Windows computers and OMS after you’ve installed and configured agents.
 
