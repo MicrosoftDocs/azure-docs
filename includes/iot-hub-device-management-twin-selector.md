@@ -1,3 +1,3 @@
 > [AZURE.SELECTOR]
-- [Linux](../articles/iot-hub/iot-hub-device-management-get-started.md)
-- [Windows](../articles/iot-hub/iot-hub-device-management-get-started-node.md)
+- [C#](../articles/iot-hub/iot-hub-device-management-device-twin.md)
+- [Node.js](../articles/iot-hub/iot-hub-device-management-device-twin-node.md)
