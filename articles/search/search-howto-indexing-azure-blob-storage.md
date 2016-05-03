@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="03/08/2016"
+ms.date="05/03/2016"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -232,9 +232,52 @@ AzureSearch_SkipContent | "true" | Instructs the blob indexer to only index the 
 <a name="IndexerParametersConfigurationControl"></a>
 ## Using indexer parameters to control document extraction
 
-If you need to extract metadata but skip content extraction for all blobs, you can request this behavior using the indexer configuration, instead of having to add `AzureSearch_SkipContent` metadata to each blob individually. To do this, set the `skipContent` configuration property to `true` in the `parameters` object: 
+Several indexer configuration parameters are available to control which blobs, and which parts of a blob's content and metadata, will be indexed. 
 
- 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+### Index only the blobs with specific file extensions
+
+You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this: 
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
+	}
+
+### Exclude blobs with specific file extensions from indexing
+
+You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this: 
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
+	}
+
+### Index storage metadata only
+
+You can index only the storage metadata and completely skip the document extraction process using the `indexStorageMetadataOnly` configuration property. This is useful when you don't need the document content, nor do you need any of the content type-specific metadata properties. To do this, set the `indexStorageMetadataOnly` property to `true`: 
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "indexStorageMetadataOnly" : true } }
+	}
+
+### Index both storage and content type metadata, but skip content extraction
+
+If you need to extract all of the metadata but skip content extraction for all blobs, you can request this behavior using the indexer configuration, instead of having to add `AzureSearch_SkipContent` metadata to each blob individually. To do this, set the `skipContent` indexer configuration configuration property to `true`: 
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
 	api-key: [admin key]
 

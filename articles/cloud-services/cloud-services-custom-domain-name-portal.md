@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="05/02/2016"
 	ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service

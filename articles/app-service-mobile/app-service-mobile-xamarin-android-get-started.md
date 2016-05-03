@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga" />
 
 #Create a Xamarin.Android App
@@ -70,8 +70,12 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
 ##Next steps
 
-* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)
-  <br/>Learn how to authenticate users of your app with an identity provider.
+* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)  
+Learn how to authenticate users of your app with an identity provider.
+* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-android-get-started-push.md)  
+Learn how to add push notifications to your app.
+* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
+Learn how to work with the managed client SDK in your Xamarin app. 
 
 
 <!-- Images. -->
