@@ -61,8 +61,7 @@ Within the **resources** section, add an object that defines the storage account
 ]
 ```
 
-You may be wondering where these properties and values come from. The properties **type**, **name**, **apiVersion**, and **location** are standard elements that are available for all resource types. You can learn about the common elements at [Resources](../resource-group-authoring-templates/#resources). 
-You are setting **name** to a parameter value that you pass in during deployment. You are setting **location** as the location used by the resource group. We'll look at how you determine **type** and **apiVersion** in the sections below.
+You may be wondering where these properties and values come from. The properties **type**, **name**, **apiVersion**, and **location** are standard elements that are available for all resource types. You can learn about the common elements at [Resources](../resource-group-authoring-templates/#resources). **name** is set to a parameter value that you pass in during deployment and **location** as the location used by the resource group. We'll look at how you determine **type** and **apiVersion** in the sections below.
 
 The **properties** section contains all of the properties that are unique to a particular resource type. The values you specify in this section exactly match the PUT operation in the REST API for creating that resource type. When creating a storage account, you must provide an **accountType**. Notice in the [REST API for creating a Storage account](https://msdn.microsoft.com/library/azure/mt163564.aspx) that the properties section of the REST operation also contains an **accountType** property, and the permitted values are documented. In this example, the account type is set to **Standard_LRS**, but you could specify some other value or permit users to pass in the account type as a parameter.
 
@@ -79,7 +78,9 @@ You can learn more about the use of parameters at [Parameters](../resource-group
     }
 }
 ```
-## Deploying a template
+Here you defind parameter of type string that will hold the name of the storage account. The value for this parameter will be provided during template deployment.
+
+## Deploying the template
 We have a full template for creating a new storage account. As you recall, the template was saved in  **azuredeploy.json** file:
 
 ```json
