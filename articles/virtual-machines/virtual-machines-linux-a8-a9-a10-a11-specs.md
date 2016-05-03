@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="04/25/2016"
+ ms.date="05/03/2016"
  ms.author="danlep"/>
 
 # About the A8, A9, A10, and A11 compute-intensive instances 
@@ -34,14 +34,14 @@ Within a single cloud service or an availability set, clusters of size A8 and A9
 
 >[AZURE.NOTE] Currently, Azure Linux RDMA drivers are only installed when you deploy RDMA-enabled SLES 12 HPC and CentOS HPC images from the Azure Marketplace. You can't install the drivers on other Linux VMs you deploy.
 >
->The CentOS-based HPC images in the Marketplace also include Intel MPI 5. You must install Intel MPI on SLES 12 HPC VMs.
+>The CentOS-based HPC images in the Marketplace also include Intel MPI 5. On SLES 12 HPC VMs, you must separately install Intel MPI.
 
 See [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md) for deployment options and sample configuration steps.
 
 ## RDMA driver updates for SLES 12
-After you create a VM based on a SLES 12 HPC image, you might need to update the RDMA drivers on the VMs for RDMA network connectivity.
+After you create a VM based on a SLES 12 HPC image, you need to update the RDMA drivers on the VMs for RDMA network connectivity.
 
->[AZURE.IMPORTANT]Currently this step is **required** for SLES 12 HPC VM deployments in most Azure regions. **The only SLES 12 HPC VMs you should not update are those created in the following Azure regions: US West, West Europe, and Japan East.**
+>[AZURE.IMPORTANT]This step is **required** for SLES 12 HPC VM deployments in all Azure regions. 
 
 Before you update the drivers, stop all **zypper** processes or any processes that lock the SUSE repo databases on the VM. Otherwise the drivers might not update properly.  
 
