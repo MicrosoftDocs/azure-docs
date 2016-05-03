@@ -81,7 +81,7 @@ In order to make sure that when a VM is removed, the Node is also gone, you have
 
 ## Next steps
 
-- [Learn about how to plan your cluster capacity](service-fabric-cluster-capacity.md)
+- [Learn about how to plan your cluster capacity](/service-fabric-cluster-capacity.md)
 - [Learn about cluster upgrades](service-fabric-cluster-upgrade.md)
 - [Learn about partitioning stateful services for maximum scale](service-fabric-concepts-partitioning.md)
 
