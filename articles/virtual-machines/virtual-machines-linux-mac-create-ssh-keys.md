@@ -94,7 +94,7 @@ _Command explained_
 
 ## Walkthrough of ssh-keygen
 
-Create the keys:
+Each step explained in detail.  Start by running `ssh-keygen`.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -120,13 +120,11 @@ The key's randomart image is:
 +-----------------+
 ```
 
+Saved key files:
+
 `Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
 
 The key pair name for this article.  Having a key pair named **id_rsa** is the default and some tools might expect the **id_rsa** private key file name so having one is a good idea. (`~/.ssh/` is the typical default location for all of your SSH key pairs and the SSH config file.)
-
-`Enter passphrase (empty for no passphrase):`
-
-It is strongly recommended to add a password (`ssh-keygen` calls this a "passphrase") to your key pairs. Without a password protecting the key pair, anyone with a copy of the private key file can use it to login to any server -- your servers -- that have the corresponding the public key. Adding a password therefore offers much more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
 
 ```bash
 ahmet@fedora$ ls -al ~/.ssh
@@ -134,6 +132,12 @@ ahmet@fedora$ ls -al ~/.ssh
 -rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
 This shows your new key pairs and their permissions. `ssh-keygen` creates the `~/.ssh` directory if it is not present and also sets the correct ownership and file modes.
+
+Key Password:
+
+`Enter passphrase (empty for no passphrase):`
+
+It is strongly recommended to add a password (`ssh-keygen` calls this a "passphrase") to your key pairs. Without a password protecting the key pair, anyone with a copy of the private key file can use it to login to any server -- your servers -- that have the corresponding the public key. Adding a password therefore offers much more protection in case someone is able to gain access to your private key file, given you time to change the keys used to authenticate you.
 
 ## Using ssh-agent to store your private key password
 
