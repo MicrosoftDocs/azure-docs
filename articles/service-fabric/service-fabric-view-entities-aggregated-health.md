@@ -1,7 +1,7 @@
 <properties
    pageTitle="How to view Azure Service Fabric entities' aggregated health | Microsoft Azure"
    description="Describes how to query, view, and evaluate Azure Service Fabric entities' aggregated health, through health queries and general queries."
-   services="service-fabric"HealthManager
+   services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/25/2016"
    ms.author="oanapl"/>
 
 # View Service Fabric health reports
@@ -764,7 +764,7 @@ The value of the chunk query is that users can get health state for more cluster
 
 Currently, the health chunk query is exposed only for the cluster entity. It returns a cluster health chunk, which contains:
 
-- The cluster aggreagated health state.
+- The cluster aggregated health state.
 
 - The health state chunk list of nodes that respect input filters.
 

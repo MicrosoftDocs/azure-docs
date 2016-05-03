@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="05/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Manage columnstore indexes in Azure SQL Data Warehouse
@@ -123,7 +123,7 @@ Once you have run the query you can begin to look at the data and analyze your r
 | [OPEN_rowgroup_rows_MIN]           | Open groups indicate that data is either being trickle loaded into the table or that the previous load spilled over remaining rows into this rowgroup. Use the MIN, MAX, AVG columns to see how much data is sat in OPEN rowgroups. For small tables it could be 100% of all the data! In which case ALTER INDEX REBUILD to force the data to columnstore.                                                                       |
 | [OPEN_rowgroup_rows_MAX]           | As above                                                                                                                                                                                  |
 | [OPEN_rowgroup_rows_AVG]           | As above                                                                                                                                                                                  |
-| [CLOSED_rowgroup_rows]             | Look at the closed rowgroup rows as a sanity check. If there                                                                                                                              |
+| [CLOSED_rowgroup_rows]             | Look at the closed rowgroup rows as a sanity check.                                                                                                                                       |
 | [CLOSED_rowgroup_count]            | The number of closed rowgroups should be low if any are seen at all. Closed rowgroups can be converted to compressed rowgroups using the ALTER INDEX ... REORGANISE command. However, this is not normally required. Closed groups are automatically converted to columnstore rowgroups by the background "tuple mover" process.                                                                                               |
 | [CLOSED_rowgroup_rows_MIN]         | Closed rowgroups should have a very high fill rate. If the fill rate for a closed rowgroup is low then further analysis of the columnstore is required.                                   |
 | [CLOSED_rowgroup_rows_MAX]         | As above                                                                                                                                                                                  |
@@ -240,8 +240,6 @@ For more details about re-creating partitions using `CTAS`, see [Table partition
 
 ## Next Steps
 
-For more detailed advice on index management, review the [manage indexes][] article.
-
 For more management tips head over to the [management][] overview.
 
 <!--Image references-->
@@ -251,7 +249,6 @@ For more management tips head over to the [management][] overview.
 [Table partitioning]: sql-data-warehouse-develop-table-partitions.md
 [Concurrency]: sql-data-warehouse-develop-concurrency.md
 [Management]: sql-data-warehouse-manage-monitor.md
-[Manage indexes]: sql-data-warehouse-manage-indexes.md
 
 <!--MSDN references-->
 [ALTER INDEX]:https://msdn.microsoft.com/library/ms188388.aspx

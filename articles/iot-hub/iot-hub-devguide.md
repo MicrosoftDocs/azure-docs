@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub developer guide
@@ -48,7 +48,7 @@ The following is a description of the endpoints:
     - *Send device-to-cloud messages*. Use this endpoint to send device-to-cloud messages. For more information, see [Device to cloud messaging](#d2c).
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
 
-    These endpoints are exposed using HTTP, [MQTT][lnk-mqtt], and [AMQP][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
+    These endpoints are exposed using HTTP 1.1, [MQTT v3.1.1][lnk-mqtt], and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
 * **Service endpoints**: Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
     - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs] and a back-end service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
     - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
@@ -68,7 +68,7 @@ When using SDKs (or product integrations) that are unaware of IoT Hub, you must 
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Sometimes the SDK requires a **Hostname** or **Namespace** value. In this case, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] In cases when the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
 
 You can then use any shared access security policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
 
@@ -145,107 +145,17 @@ You can disable devices by updating the **status** property of an identity in th
 - During a provisioning orchestration process. For more information, see [Design your solution - Device Provisioning][lnk-guidance-provisioning].
 - If, for any reason, you consider a device is compromised or has become unauthorized.
 
-### Export device identities <a id="importexport"></a>
+### Import and export device identities <a id="importexport"></a>
 
-Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity register.
+You can export device identities in bulk from an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry: 
 
-You can export device identities in bulk from an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints).
+- For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
+- To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
 
-The following operations are possible on export jobs:
+You can import device identities in bulk to an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
 
-* Create an export job
-* Retrieve the status of a running job
-* Cancel a running job
-
-> [AZURE.NOTE] Each hub can have only a single job running at any given time.
-
-For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
-
-To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity]
-
-### Export jobs
-
-All export jobs have the following properties:
-
-| Property | Options | Description |
-| -------- | ------- | ----------- |
-| jobId | system-generated, ignored at creation | |
-| creationTime | system-generated, ignored at creation | |
-| endOfProcessingTime | system-generated, ignored at creation | |
-| type | read-only | **ExportDevices** |
-| status | system-generated, ignored at creation | **Enqueued**, **Started**, **Completed**, **Failed** |
-| progress | system-generated, ignored at creation | Integer value of the percentage of completion. |
-| outputBlobContainerURI | required for all jobs | Blob Shared Access Signature URI with write access to a blob container (see [Create and Use a SAS with the Blob Service][lnk-createuse-sas]). This is used to output the status of the job and the results. |
-| excludeKeysInExport | optional | If **false**, keys are included in export output; otherwise keys are exported as **null**. The default is **false**. |
-| failureReason | system-generated, ignored at creation | If status is **Failed**, a string containing the reason. |
-
-Export jobs take a blob Shared Access Signature URI as a parameter. This grants write access to a blob container to enable the job to output its results.
-
-The job writes the output results to the specified blob container in a file called **devices.txt**. This file contains device identities serialized as JSON, as specified in [Device identity properties](#deviceproperties). The authentication value is set to **null** for each device in the **devices.txt** file if the **excludeKeysInExport** parameter is set to **true**.
-
-**Example**:
-
-```
-{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
-```
-
-### Import device identities
-
-Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity register.
-
-You can import device identities in bulk to an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints).
-
-The following operations are possible on import jobs:
-
-* Create an import job
-* Retrieve the status of a running job
-* Cancel a running job
-
-> [AZURE.NOTE] Each hub can have only a single job running at any given time.
-
-For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
-
-To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity]
-
-### Import jobs
-
-All import jobs have the following properties:
-
-| Property | Options | Description |
-| -------- | ------- | ----------- |
-| jobId | system-generated, ignored at creation | |
-| creationTime | system-generated, ignored at creation | |
-| endOfProcessingTime | system-generated, ignored at creation | |
-| type | read-only | **ImportDevices** |
-| status | system-generated, ignored at creation | **Enqueued**, **Started**, **Completed**, **Failed** |
-| progress | system-generated, ignored at creation | Integer value of the percentage of completion. |
-| outputBlobContainerURI | required for all jobs | Blob Shared Access Signature URI with write access to a blob container (see [Create and Use a SAS with the Blob Service][lnk-createuse-sas]). This is used to output the status of the job. |
-| inputBlobContainerURI | required | Blob Shared Access Signature URI with read access to a blob container (see [Create and Use a SAS with the Blob Service][lnk-createuse-sas]). The job reads the device information to import from this blob. |
-| failureReason | system-generated, ignored at creation | If status is **Failed**, a string containing the reason. |
-
-Import jobs take two blob Shared Access Signature URIs as parameters. One grants write access to a blob container to enable the job to output its status, the other grants read access to a blob container to enable the job to read its input data.
-
-The job reads the input data from the specified blob container in a file called **devices.txt**. This file contains device identities serialized as JSON, as specified in [Device identity properties](#deviceproperties). You can override the default import behaviour for each device by adding an **importMode** property. This property can take one of the following values:
-
-| importMode |  Description |
-| -------- | ----------- |
-| **createOrUpdate** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
-| **create** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, an error is written to the log file. |
-| **update** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
-| **updateIfMatchETag** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
-| **createOrUpdateIfMatchETag** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
-| **delete** | If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
-| **deleteIfMatchETag** | If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
-
-**Example**:
-
-```
-{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"delete"}
-{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"createOrUpdate"}
-{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"create"}
-```
+- For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
+- To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
 
 ## Security <a id="security"></a>
 
@@ -334,12 +244,13 @@ This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-pu
 ## Messaging
 
 IoT Hub provides messaging primitives to communicate:
-- [Cloud-to-device](#c2d): From an application back end (*service* or *cloud*).
-- [Device-to-cloud](#d2c): From a device to an application back end.
+
+- [Cloud-to-device](#c2d) from an application back end (*service* or *cloud*).
+- [Device-to-cloud](#d2c) from a device to an application back end.
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. This enables resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 
-IoT Hub supports multiple device-facing protocols (such as AMQP and HTTP/1). In order to support seamless interoperability across protocols, IoT Hub defines a common message format that all device-facing protocols support.
+IoT Hub supports multiple device-facing protocols (such as MQTT, AMQP, and HTTP). In order to support seamless interoperability across protocols, IoT Hub defines a common message format that all device-facing protocols support.
 
 ### Message format <a id="messageformat"></a>
 
@@ -387,6 +298,8 @@ IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and s
 
   * **QoS 2 is not supported**: When a device client publishes a message with **QoS 2**, IoT Hub closes the network connection. When a device client subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet.
   * **Retain**: If a device client publishes a message with the RETAIN flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. This means that IoT Hub does not persist the retain message, but instead passes it to the back-end application.
+  
+See the article [IoT Hub MQTT support][lnk-mqtt-support] for further details.
 
 As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. The tradeoff with this approach is the requirement to self-host and operate a custom protocol gateway.
 
@@ -474,6 +387,7 @@ The following diagram shows the lifecycle state graph for a cloud-to-device mess
 When the service sends a message, it is considered *Enqueued*. When a device wants to *receive* a message, IoT Hub *locks* the message (sets the state to **Invisible**) in order to allow other threads on the same device to start receiving other messages. When a device thread completes the processing of a message, it notifies IoT Hub by *completing* the message.
 
 A device can also:
+
 - *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state.
 - *Abandon* the message which causes IoT Hub to put the message back in the queue with the state set to **Enqueued**.
 
@@ -581,6 +495,7 @@ It is important to clarify that the *device connections* throttle governs the ra
 
 For example, if you buy a single S1 unit you get a throttle of 100 connections per second. This means that to connect 100,000 devices it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your device identity registry.
 
+The blog post [IoT Hub throttling and you][lnk-throttle-blog] provides an in-depth discussion of IoT Hub throttling behavior.
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
@@ -603,8 +518,8 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-compatibility]: iot-hub-tested-configurations.md
+[lnk-apis-sdks]: iot-hub-sdks-summary.md
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
@@ -640,3 +555,5 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
+[lnk-mqtt-support]: iot-hub-mqtt-support.md
+[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/

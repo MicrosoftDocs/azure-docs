@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="02/01/2016"
+ ms.date="04/19/2016"
  ms.author="larryfr"/>
 
 # Correlate events over time with Storm and HBase on HDInsight

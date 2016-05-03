@@ -38,7 +38,7 @@ The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 1.
 
 **PortalVM** Virtual machine that hosts the Control Plane (Azure Resource Manager) and Azure portal services and various experiences (including services supporting admin experiences and tenant experiences).
 
-**ClientVM** Virtual machine that is available to developers for installing PowerShell, Visuall Studio, and other tools.
+**ClientVM** Virtual machine that is available to developers for installing PowerShell, Visual Studio, and other tools.
 
 Storage services in the operating system on the physical host include:
 

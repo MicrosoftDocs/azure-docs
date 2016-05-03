@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/22/2016"
+   ms.date="04/20/2016"
    ms.author="larryfr"/>
 
 
@@ -80,9 +80,9 @@ If you have resources on a Virtual Network that is not usable by the cluster you
 
 ###Secured Virtual Networks
 
-HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. 
+The HDInsight service is a managed service, and requires Internet access during provisioning and while running. This is so that Azure can monitor the health of the cluster, initiate failover of cluster resources, change the number of nodes in the cluster through scaling operations, and other management tasks.
 
-The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks. The following IP addresses must be allowed inbound access to the subnet that you want to install HDInsight into:
+If you need to install HDInsight into a secured Virtual Network, you must allow access from the following IP addresses, which allow Azure to manage the HDInsight cluster.
 
 * 168.61.49.99
 * 23.99.5.239
@@ -93,7 +93,7 @@ Allowing inbound access from these addresses will allow you to successfully inst
 
 The following is an example script that will create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
 
-> [AZURE.NOTE] You must have installed and configured Azure PowerShell before running this script. For more information, see [Install and Configure Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
     $vnetName = "Replace with your virtual network name"
     $resourceGroupName = "Replace with the resource group the virtual network is in"
@@ -166,6 +166,10 @@ The following is an example script that will create a new Network Security Group
         -NetworkSecurityGroupId $nsg
 
 > [AZURE.IMPORTANT] Using the above script only opens access to the HDInsight health and management service on the Azure cloud. This allows you to successfully install an HDInsight cluster into the subnet, however access to the HDInsight cluster from outside the Virtual Network is blocked by default. You will have to add additional Network Security Group rules if you wish to enable access from outside the Virtual Network.
+>
+> For example, to allow SSH access from the internet, you will need to add a rule similar to the following: 
+>
+> ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound```
 
 For more information on Network Security Groups, see [Network Security Groups overview](../virtual-network/virtual-networks-nsg.md). For information on controlling routing in an Azure Virtual Network, see [User Defined Routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 

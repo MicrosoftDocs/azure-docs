@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
- 	ms.date="04/07/2016" 
+ 	ms.date="05/02/2016" 
 	ms.author="juliako"/>
 
 
@@ -301,33 +301,30 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            return inputAsset;
 		        }
 		
-		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-		        {
-		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-		
-		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-		                                    inputAsset.Name,
-		                                    encodingPreset));
-		
-		            var mediaProcessors =
-		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-		
-		            var latestMediaProcessor =
-		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-		
-		
-		
-		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-		
-		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-		            job.Submit();
-		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
-		
-		            return job.OutputMediaAssets[0];
-		        }
+			    static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
+			    {
+			        var encodingPreset = "H264 Multiple Bitrate 720p";
+			
+			        IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
+			                                inputAsset.Name,
+			                                encodingPreset));
+			
+			        var mediaProcessors =
+			            _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder Standard")).ToList();
+			
+			        var latestMediaProcessor =
+			            mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
+			
+			        ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
+			        encodeTask.InputAssets.Add(inputAsset);
+			        encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
+			
+			        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+			        job.Submit();
+			        job.GetExecutionProgressTask(CancellationToken.None).Wait();
+			
+			        return job.OutputMediaAssets[0];
+			    }
 		
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -531,7 +528,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 			        // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
 			        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
 			        // to append /? KID =< keyId > to the end of the url when creating the manifest.
-			        // As a result Widevine license aquisition URL will have KID appended twice, 
+			        // As a result Widevine license acquisition URL will have KID appended twice, 
 			        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
 			
 		            Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);

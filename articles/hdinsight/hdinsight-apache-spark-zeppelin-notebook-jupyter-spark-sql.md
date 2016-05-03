@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Get started: create Apache Spark on Azure HDInsight and run interactive queries using Spark SQL
+# Get started: Create Apache Spark on HDInsight Windows and run interactive queries using Spark SQL (Preview)
 
 > [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to get started with Spark clusters on HDInsight Linux, see [Get started: create Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 

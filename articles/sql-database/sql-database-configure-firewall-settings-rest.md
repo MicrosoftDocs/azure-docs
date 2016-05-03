@@ -1,9 +1,9 @@
 <properties
-	pageTitle="How to: Configure firewall settings | Microsoft Azure"
+	pageTitle="How to:Configure an Azure SQL Database firewall | Microsoft Azure"
 	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
 	services="sql-database"
 	documentationCenter=""
-	authors="BYHAM"
+	authors="stevestein"
 	manager="jhubbard"
 	editor=""/>
 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="02/04/2016"
-	ms.author="rickbyh"/>
+	ms.date="05/03/2016"
+	ms.author="stevestein"/>
 
 
-# How to: Configure firewall settings on SQL Database using the REST API
+# How to: Configure an Azure SQL Database firewall using the REST API
 
 
 > [AZURE.SELECTOR]

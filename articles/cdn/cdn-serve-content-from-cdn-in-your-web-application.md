@@ -3,8 +3,8 @@
 	description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="erikre" 
 	editor="jimbe"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="cephalin"/>
+	ms.date="04/29/2016" 
+	ms.author="casoper"/>
 
 # Serve Content from Azure CDN in Your Web Application #
 
@@ -274,5 +274,5 @@ Without integration with Azure App Service Web Apps or Azure Cloud Services, it 
 - [Use Azure CDN in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [How to Map Content Delivery Network (CDN) Content to a Custom Domain](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [Using CDN for Azure](cdn-how-to-use-cdn.md)
+- [Using Azure CDN](cdn-create-new-endpoint.md)
  

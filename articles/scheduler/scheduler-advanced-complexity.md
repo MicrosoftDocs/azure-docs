@@ -1,6 +1,6 @@
 <properties
  pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
- description=""
+ description="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"

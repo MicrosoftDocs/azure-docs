@@ -32,7 +32,7 @@ The Linux Data Science Virtual Machine is an Azure virtual machine (VM) image th
     - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): a deep learning software from Microsoft Research
     - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): a fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
     - [XGBoost](https://xgboost.readthedocs.org/en/latest/): a tool providing fast and accurate boosted tree implementation
-    - [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily) : Tool that makes getting started with data mining in R very easy with a GUI based data exploration and modeling. 
+    - [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily) : Tool that makes getting started with data analytics and machine learning in R very easy with a GUI based data exploration and modeling with automatic R code generation. 
 - Azure SDK in Java, Python, node.js, Ruby, PHP
 - Libraries in R and Python for use in Azure Machine Learning and other Azure services
 - Development tools and editors (Eclipse, Emacs, gedit, vi)
@@ -123,7 +123,7 @@ Once you login to the VM using either the SSH client OR XFCE graphical desktop t
 
 Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
 
-	python.exe -c "import IPython;print IPython.lib.passwd()"
+	python -c "import IPython;print(IPython.lib.passwd())"
 
 Enter a strong password when prompted.
 

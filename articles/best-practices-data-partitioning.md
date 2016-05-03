@@ -513,7 +513,7 @@ When considering strategies for implementing data consistency, the following pat
 - The [sharding pattern] as described on the Microsoft website summarizes some common strategies for sharding data.
 - The [index table pattern] as described on the Microsoft website illustrates how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
 - The [materialized view pattern] as described on the Microsoft website describes how to generate pre-populated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
-- The [Using Content Delivery Network for Azure] article on the Microsoft website provides additional guidance on configuring and using Content Delivery Network with Azure.
+- The [Using Azure Content Delivery Network] article on the Microsoft website provides additional guidance on configuring and using Content Delivery Network with Azure.
 
 ## More information
 
@@ -523,7 +523,7 @@ When considering strategies for implementing data consistency, the following pat
 - The page [Azure storage scalability and performance targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website documents the current sizing and throughput limits of Azure Storage.
 - The page [Performing entity group transactions] on the Microsoft website provides detailed information about implementing transactional operations over entities that are stored in Azure table storage.
 - The article [Azure Storage table design guide] on the Microsoft website contains detailed information about partitioning data in Azure table storage.
-- The page [Using Content Delivery Network for Azure] on the Microsoft website describes how to replicate data that's held in Azure blob storage by using the Azure Content Delivery Network.
+- The page [Using Azure Content Delivery Network] on the Microsoft website describes how to replicate data that's held in Azure blob storage by using the Azure Content Delivery Network.
 - The page [Manage DocumentDB capacity needs] on the Microsoft website contains information about how Azure DocumentDB databases allocate resources.
 - The page [What is Azure Search?] on the Microsoft website provides a full description of the capabilities that are available in Azure Search.
 - The page [Service limits in Azure Search] on the Microsoft website contains information about the capacity of each instance of Azure Search.
@@ -554,7 +554,7 @@ When considering strategies for implementing data consistency, the following pat
 [Redis cluster tutorial]: http://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Scaling using the Elastic Database split-merge tool]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Using Content Delivery Network for Azure]: cdn/cdn-how-to-use-cdn.md
+[Using Azure Content Delivery Network]: cdn/cdn-create-new-endpoint.md
 [Service Bus quotas]: service-bus/service-bus-quotas.md
 [Service limits in Azure Search]:  search/search-limits-quotas-capacity.md
 [Sharding pattern]: http://aka.ms/Sharding-Pattern
