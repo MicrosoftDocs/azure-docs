@@ -122,7 +122,7 @@ Use the following code snippet to delete a cluster synchronously or asynchronous
 ##Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
->[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [Get familiar with the cluster portal interface](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -225,7 +225,7 @@ The following code snippet demonstrates how to get the default storage account n
 
 **To submit MapReduce jobs**
 
-See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samples.md).
+See [Run Hadoop MapReduce samples in HDInsight](hdinsight-run-samples-linux.md).
 
 **To submit Hive jobs** 
 
@@ -237,11 +237,11 @@ See [Run Pig jobs using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md).
 
 **To submit Sqoop jobs**
 
-See [Use Sqoop with HDInsight](hdinsight-use-sqoop-dotnet-sdk.md).
+See [Use Sqoop with HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md).
 
 **To submit Oozie jobs**
 
-See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie.md).
+See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ##Upload data to Azure Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
@@ -266,7 +266,7 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal-linux.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
