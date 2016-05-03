@@ -19,9 +19,9 @@
 
 # Creating multiple Azure virtual machines
 
-There are many scenarios where you need to create a large number of similar virtual machines, e.g. high-performance computing (HPC), large scale data analysis, scalable and often stateless middle-tier or backend servers (such as webservers) distributed databases. 
+There are many scenarios where you need to create a large number of similar virtual machines, e.g. high-performance computing (HPC), large scale data analysis, scalable and often stateless middle-tier or backend servers (such as webservers) and distributed databases. 
 
-This article discusses the options available to create multiple VMs in Azure which go beyond the simple cases of manually creating VMs multiple times, which would not scale well to more than a handful of VMs. 
+This article discusses the options available to create multiple VMs in Azure which go beyond the simple cases of manually creating a series of VMs, which doesn't scale well if you need to create more than a handful of VMs. You can optimize creating many VMs by using the Azure Resource Manager construct of _Resource Loops_.
 
 ## Resource loops
 
@@ -29,15 +29,15 @@ Resource loops are a syntactical shorthand in Azure Resource Manager templates w
 
 ## Challenges of Scale
 
-Though resource loops make building out cloud infrastructure at scale easier and allow for more concise templates, certain challenges remain. For example when creating 100 virtual machines using a resource loop, when defining the VMs, you would need to correlate the NICs with the VMs and storage accounts. There are likely to be a different number of VMs to storage accounts, and hence different resource loop sizes. These are solvable problems, but the complexity increases significantly with scale.
+Though resource loops make building out cloud infrastructure at scale easier and allow for more concise templates, certain challenges remain. For example when creating 100 virtual machines using a resource loop, when defining the VMs, you would need to correlate the NICs with the VMs and storage accounts. There are likely to be a different number of VMs to the number of storage accounts, and hence different resource loop sizes. These are solvable problems, but the complexity increases significantly with scale.
 
-Another challenge occurs when you need an elastically scaling infrastructure, for example autoscale - automatically increasing or decreasing the number of VMs in response to workload. VMs don't provide an integrated mechanism to vary in number (scale out and scale in). If you scale in by removing machines, ensuring high availability by making sure VMs are balanced across update and fault domains is another difficult task.
+Another challenge occurs when you need an elastically scaling infrastructure, for example autoscale - automatically increasing or decreasing the number of VMs in response to workload. VMs don't provide an integrated mechanism to vary in number (scale out and scale in). If you scale in by removing VMs, ensuring high availability by making sure VMs are balanced across update and fault domains is another difficult task.
 
-Lastly though resource loops are a syntactical shorthand, when you use one, multiple calls to create resources go to the underlying fabric. When multiple calls are creating similar resources, there is an implicit opportunity for Azure to make optimizations to improve deployment reliability and performance.
+Lastly though resource loops are a syntactical shorthand, when you use one, multiple calls to create resources go to the underlying fabric. When multiple calls are creating similar resources, there is an implicit opportunity for Azure to improve upon this design and make optimizations to improve deployment reliability and performance. This is where _Virtual Machine Scale Sets_ come in.
 
 ## Virtual machine scale sets
 
-Virtual machine scale sets are an Azure Compute resource to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets easily scale in and out, and can be configured to autoscale based on wrokload.
+Virtual Machine Scale Sets are an Azure Compute resource to deploy and manage a set of identical VMs. With all VMs configured the same, VM Scale Sets are easy to scale in and out by simply changing the number of VMs in the set, and can be configured to autoscale based on the demands of the workload.
 
 For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. 
 
