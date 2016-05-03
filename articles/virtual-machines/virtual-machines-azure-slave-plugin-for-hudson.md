@@ -1,7 +1,7 @@
 <properties
     pageTitle="How to use the Azure slave plug-in with Hudson Continuous Integration | Microsoft Azure"
     description="Describes how to use the Azure slave plug-in with Hudson Continuous Integration."
-	services="storage"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="rmcmurray"
 	manager="wpickett"
