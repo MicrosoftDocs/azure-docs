@@ -43,9 +43,10 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 
 ### Scenarios
 
-- [Convert XML to JSON](app-service-scenario-xml-json.md)
-- [Parsing JSON string](app-service-scenario-sb-json.md)
-- [Converting form encoded data](app-service-scenario-paypal-slack.md) like a Slack or Twilio webhook.
+- [Convert XML to JSON](app-service-logic-scenario-xml-json.md)
+- [Parsing JSON string](app-service-logic-scenario-sb-json.md)
+- [Converting form encoded data](app-service-logic-scenario-paypal-slack.md) like a Slack or Twilio webhook.
+- [Convert CSV to JSON]
 
 ## Exceptions, Tracking, and Error Handling
 
@@ -95,11 +96,3 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 
 
 We will keep adding examples and scenarios to this document. Use the comments section below to let us know what examples or scenarios you'd like to see here.
-
-
-
-
-
-
-
-
