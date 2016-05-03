@@ -563,9 +563,6 @@ The following example lists all databases in a pool:
 
 [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Elastic database pool reference](sql-database-elastic-pool-reference.md).
-
-
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool-csharp/aad.png
 [2]: ./media/sql-database-elastic-pool-csharp/permissions.png

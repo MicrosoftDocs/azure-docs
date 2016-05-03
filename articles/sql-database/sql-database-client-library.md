@@ -785,9 +785,6 @@ To delete a resource group:
 
 [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Elastic database pool reference](sql-database-elastic-pool-reference.md).
-
-
 <!--Image references-->
 [1]: ./media/sql-database-client-library/aad.png
 [2]: ./media/sql-database-client-library/permissions.png
