@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/21/2016"
+   ms.date="05/2/2016"
    ms.author="chackdan"/>
 
 
 # Scale a Service Fabric cluster up or down by adding or removing virtual machines from the node types
 
 ### Relationship between Cluster node types and Virtual Machine Scale Sets 
-Virtual Machine Scale Sets (VMSS) are an azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VM Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [ Service Fabric nodetypes](service-fabric-cluster-nodeypes.md) document.
+Virtual Machine Scale Sets (VMSS) are an azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VM Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [ Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document.
 
 >[AZURE.NOTE] Your subscription must have enough cores to add the new VMs that will make up this cluster. There is no model validation currently, so you will get a deployment time failure, if any of the quota limits are hit.
 
@@ -81,7 +81,7 @@ In order to make sure that when a VM is removed, the Node is also gone, you have
 
 ## Next steps
 
-- [Learn about how to plan your cluster capacity](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-capacity/)
+- [Learn about how to plan your cluster capacity](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-capacity/)
 - [Learn about cluster upgrades](service-fabric-cluster-upgrade.md)
 - [Learn about partitioning stateful services for maximum scale](service-fabric-concepts-partitioning.md)
 
