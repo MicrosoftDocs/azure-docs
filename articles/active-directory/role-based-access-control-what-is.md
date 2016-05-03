@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/26/2016"
+	ms.date="05/03/2016"
 	ms.author="kgremban"/>
 
 # Get started with access management in the Azure portal
