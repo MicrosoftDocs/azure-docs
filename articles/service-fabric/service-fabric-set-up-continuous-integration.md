@@ -102,8 +102,8 @@ If you have any previous version of Azure PowerShell installed, remove it:
 | CertificateSecretName | Any value. |
 | CertificateDnsName | Must match the DNS name of your cluster. Example: `mycluster.westus.azure.cloudapp.net` |
 | SecureCertificatePassword | Any value. This parameter is used when you import the certificate on your build machine. |
-| KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
 | KeyVaultName | Any value. |
+| KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
 | PfxFileOutputPath| Any value. This file is used to import the certificate onto your build machine. |
 
 When the script finishes, it outputs the following three values. Note these values, because they are used as build variables.
@@ -130,7 +130,7 @@ If you don't yet have a machine, you can quickly provision an Azure virtual mach
 
 5. Select **Compute** > **Virtual Machine** > **From Gallery**.
 
-6. Select the image **Visual Studio Enterprise 2015 Update 1 With Azure SDK 2.8 on Windows Server 2012 R2**.
+6. Select the image **Visual Studio Enterprise 2015 Update 2 with Universal Windows Tools and Azure SDK 2.9 on Windows Server 2012 R2**.
 
     >[AZURE.NOTE] Azure SDK isn't a required component, but there currently aren't any images available that have only Visual Studio 2015 installed.
 

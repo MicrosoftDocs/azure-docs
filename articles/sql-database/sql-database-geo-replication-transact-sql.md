@@ -161,7 +161,7 @@ Use the following steps to monitor a geo-replication partnership.
 7. Click **Execute** to run the query.
 8. Use the following statement to show the most recent geo-replication operations associated with database MyDB.
 
-        SELECT * FROM sys.dm_operation_status where major_resource_is = 'MyDB'
+        SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
 
 9. Click **Execute** to run the query.
