@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Logic apps](../articles/connectors/connectors-create-api-bingsearch.md)
 
+&nbsp;
 
 > [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
 > 
