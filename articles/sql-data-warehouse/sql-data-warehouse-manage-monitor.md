@@ -143,8 +143,8 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Next steps
-For more information on Dynamic Management Views (DMVs), see [System views][]
-For more tips on managing your SQL Data Warehouse, see [manage overview][].  
+For more information on Dynamic Management Views (DMVs), see [System views][].  
+For tips on managing your SQL Data Warehouse, see [manage overview][].  
 For best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
