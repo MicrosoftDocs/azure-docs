@@ -83,7 +83,7 @@ For more information about other tools, see the [Elastic database tools learning
 
 ## Business continuity features for databases in a pool
 
-Elastic databases generally the same [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
+Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
 
 
 ### Point in time restore
