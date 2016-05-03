@@ -57,7 +57,7 @@ All collected performance data is aggregated at 30 minute intervals.  The aggreg
 
 Performance records are created from performance data aggregated over 30 minute intervals.  The value for the record is the average value of the counter over the previous 30 minutes.  Records are not created for raw NRT data.  The raw data is only available in the **Metrics** view of the OMS console.
 
-Performance records have a type of **Perf** and have the [standard properties of all Log Analytics records](log-analytics-data-sources.md#log-analytics-events) in addition to the properties in the following table.
+Performance records have a type of **Perf** and have the properties in the following table.
 
 | Property | Description |
 |:--|:--|
@@ -67,7 +67,8 @@ Performance records have a type of **Perf** and have the [standard properties of
 | CounterValue     | Numeric value of the counter aggregated over 30 minutes.  |
 | InstanceName     | Name of the event instance.  Empty if no instance. |
 | ObjectName       | Name of the performance object |
-
+| SourceSystem  | Type of agent the data was collected from. <br> OpsManager – Windows agent, either direct connect or SCOM <br> Linux – All Linux agents  <br> AzureStorage – Azure Diagnostics |
+| TimeGenerated       | Date and time the data was sampled. |
 
 
 ## Sizing estimates

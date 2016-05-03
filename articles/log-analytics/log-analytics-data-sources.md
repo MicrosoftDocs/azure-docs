@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2016"
+   ms.date="05/02/2016"
    ms.author="bwren" />
 
 # Data sources in Log Analytics
@@ -33,7 +33,7 @@ The data sources that are currently available in Log Analytics are listed in the
 | [Windows Event logs](log-analytics-data-sources-windows-events.md) | Event | Events collected from the event log on Windows computers. |
 | [Windows Performance counters](log-analytics-data-sources-performance-counters.md) | Perf | Performance counters collected from Windows computers. |
 | [Linux Performance counters](log-analytics-data-sources-performance-counters.md) | Perf | Performance counters collected from Linux computers. |
-| IIS logs | W3CIISLog | Internet Information Services logs in W3C format. |
+| [IIS logs](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Internet Information Services logs in W3C format. |
 | Syslog | Syslog | Syslog events on Windows or Linux computers. |
 
 ## Configuring data sources
@@ -55,13 +55,8 @@ For System Center Operations Manager (SCOM) agents in a connected management gro
 
 ## Log Analytics records
 
-All data collected by Log Analytics is stored in the OMS repository as records.  All records have the properties in the following table.  Different types of records will add additional properties to this standard set.  See the documentation for each data source and solution for details.
+All data collected by Log Analytics is stored in the OMS repository as records.  Records collected by different data sources will have their own set of properties and be identified by their **Type** property.  See the documentation for each data source and solution for details on each record type.
 
-| Property | Description |
-|:--|:--|
-| Type          | Type of the record |
-| TimeGenerated | Date and time that the record was collected by Log Analytics. |
-| SourceSystem  | Type of agent the record was collected from. <br> OpsManager – Windows agent, either direct connect or SCOM <br> Linux – All Linux agents <br> AzureStorage – Azure Diagnostics. |
 
 ## Next Steps
 
