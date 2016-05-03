@@ -67,7 +67,7 @@ It is also recommended that any custom DNS servers on the vnet be setup ahead of
 ## Creating a Network Security Group ##
 For full details on how network security groups work see the following [information][NetworkSecurityGroups].  The details below touch on highlights of network security groups, with a focus on configuring and applying a network security group to a subnet that contains an App Service Environment.
 
-**Note:** Network security groups can only be configured using the Powershell cmdlets described below.  Network security groups cannot be configured graphically using the [Azure Portal](portal.azure.com) because the Azure Portal only allows graphical configuration of NSGs associated with "v2" virtual networks.  However, App Service Environments currently only work with classic "v1" virtual networks.  As a result only Powershell cmdlets can be used to configure network security groups associated with "v1" virtual networks.
+**Note:** Network security groups can only be configured using the Powershell cmdlets described below.  Network security groups cannot be configured graphically using the [Azure Portal](https://portal.azure.com) because the Azure Portal only allows graphical configuration of NSGs associated with "v2" virtual networks.  However, App Service Environments currently only work with classic "v1" virtual networks.  As a result only Powershell cmdlets can be used to configure network security groups associated with "v1" virtual networks.
 
 Network security groups are first created as a standalone entity associated with a subscription. Since network security groups are created in an Azure region, ensure that the network security group is created in the same region as the App Service Environment.
 
