@@ -2,14 +2,14 @@
     pageTitle="How to use the Azure slave plug-in with Hudson Continuous Integration | Microsoft Azure"
     description="Describes how to use the Azure slave plug-in with Hudson Continuous Integration."
 	services="storage"
-	documentationCenter="java"
+	documentationCenter=""
 	authors="rmcmurray"
 	manager="wpickett"
 	editor="" />
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="na"
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
