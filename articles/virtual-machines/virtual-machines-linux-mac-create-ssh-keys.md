@@ -177,6 +177,7 @@ vim ~/.ssh/config
 
 ### Example `~/.ssh/config` file:
 
+```bash
 # Azure Keys
 Host fedora22
   Hostname 102.160.203.241
