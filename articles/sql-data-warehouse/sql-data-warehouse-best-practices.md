@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/28/2016"
+   ms.date="04/30/2016"
    ms.author="sonyama;barbkess"/>
 
 # SQL Data Warehouse Best Practices
@@ -44,24 +44,24 @@ A one-time load to a small table with an INSERT statement or even a periodic rel
 See also [Insert (Transact-SQL)][]
  
 ## Use PolyBase to Load and Export Data Quickly
-SQL Data Warehouse supports loading and exporting data through several tools including Azure Data Factory, Polybase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.   However, when you are loading or exporting large volumes of data or fast performance is needed, Polybase is the best choice.  Polybase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Data Warehouse and will therefore load and export data magnitudes faster than any other tool.  Polybase loads can be run using CTAS or INSERT INTO.  **Using CTAS will minimize trasaction logging and is the faster way to load your data.**  Azure Data Factory also supports Polybase loads.  **Polybase supports GZip files.  However, to maximize throughput when using zip files, be sure that you 60 or more files to maximize parallelism of your load.** 
+SQL Data Warehouse supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.   However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Data Warehouse and will therefore load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.  **Using CTAS will minimize transaction logging and the fastest way to load your data.**  Azure Data Factory also supports PolyBase loads.  PolyBase supports a variety of file formats including Gzip files.  **To maximize throughput when using gzip text files, break files up into 60 or more files to maximize parallelism of your load.**  For faster total throughput, consider loading data concurrently.
 
-See also [Load data into SQL Data Warehouse][], [Load Data with Azure Data Factory][], [Move data to and from Azure SQL Data Warehouse using Azure Data Factory][], [Guide for using PolyBase in SQL Data Warehouse][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][]
+See also [Load data into SQL Data Warehouse][], [Guide for using PolyBase in SQL Data Warehouse][], [Azure SQL Data Warehouse loading patterns and strategies][], [Load Data with Azure Data Factory][], [Move data to and from Azure SQL Data Warehouse using Azure Data Factory][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][], [Create Table As Select (CTAS) in SQL Data Warehouse][]
 
 ## Hash Distribute Large Tables
-By default, tables are Round Robin distributed.  This makes it easy for users to get started creating tables without having to decide how their tables should be distributed.  Round Robin tables may perform well for some workloads, but often selecting a distribution column will perform much better.  The most common example of when a table distributed by a column will far outperform a Round Robin table is when two large fact tables are joined.  For example, if you have a an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query, which means we eliminate data movement operations.  Less steps mean a faster query.  Less data movement also makes for faster queries.  This explanation just scratches the surface.  See the below links for much more details on how selecting a distribution column can improve performance as well as how to define a distributed table in the WITH clause of your CREATE TABLES statement.
+By default, tables are Round Robin distributed.  This makes it easy for users to get started creating tables without having to decide how their tables should be distributed.  Round Robin tables may perform well for some workloads, but often selecting a distribution column will perform much better.  The most common example of when a table distributed by a column will far outperform a Round Robin table is when two large fact tables are joined.  For example, if you have an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query, which means we eliminate data movement operations.  Less steps mean a faster query.  Less data movement also makes for faster queries.  This explanation just scratches the surface. When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  See the below links for much more details on how selecting a distribution column can improve performance as well as how to define a distributed table in the WITH clause of your CREATE TABLES statement.
 
 See also [Hash distribution and its effect on query performance in SQL Data Warehouse][], [Choosing hash distributed table vs. round-robin distributed table][], [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][], [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)][]
 
 ## Do Not Over Partition
-While partitioning data can be very effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy which may work well on SQL Server may not work well on SQL Data Warehouse.  Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, SQL Data Warehouse paritions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 600 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  Do consider higher granularity than what may have worked for you in SQL Server.  For example, consider using weekly or monthly partitions rather than daily partitions.
+While partitioning data can be very effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy which may work well on SQL Server may not work well on SQL Data Warehouse.  Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, SQL Data Warehouse partitions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  Consider lower granularity than what may have worked for you in SQL Server.  For example, consider using weekly or monthly partitions rather than daily partitions.
 
 See also [Table partitions in SQL Data Warehouse][]
 
 ## Minimize Transaction Sizes
-INSERT, UPDATE, and DELETE statements run in a transaction and when they fail they must be rolled back.  To minimize the potential for a long rollback, minimize transaction sizes whenever possible.  This can be done by dividing INSERT, UPDATE, and DELETE statements into parts.  For example, if you have an INSERT which you expect to take 1 hour, if possible, break the INSERT up into 4 parts, which will each run in 15 minutes.  Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE or INSERT to empty tables, to reduce rollback risk.  Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly and then switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  
+INSERT, UPDATE, and DELETE statements run in a transaction and when they fail they must be rolled back.  To minimize the potential for a long rollback, minimize transaction sizes whenever possible.  This can be done by dividing INSERT, UPDATE, and DELETE statements into parts.  For example, if you have an INSERT which you expect to take 1 hour, if possible, break the INSERT up into 4 parts, which will each run in 15 minutes.  Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE or INSERT to empty tables, to reduce rollback risk.  Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly and then switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  For unpartitioned tables consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it is a much safer operation to run as it has very minimal transaction logging and can be canceled quickly if needed.
 
-See also [Transactions in SQL Data Warehouse][], [Optimizing transactions for SQL Data Warehouse][], [Table partitions in SQL Data Warehouse][], [TRUNCATE TABLE (Transact-SQL)][], [ALTER TABLE (Transact-SQL)][]
+See also [Transactions in SQL Data Warehouse][], [Optimizing transactions for SQL Data Warehouse][], [Table partitions in SQL Data Warehouse][], [TRUNCATE TABLE (Transact-SQL)][], [ALTER TABLE (Transact-SQL)][], [Create Table As Select (CTAS) in SQL Data Warehouse][]
 
 ## Use the Smallest Possible Column Size
 When defining your DDL, using the smallest data type which will support your data will improve query performance.  This is especially important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  In addition, define columns as VARCHAR when that is all that is needed rather than use NVARCHAR.
@@ -69,7 +69,7 @@ When defining your DDL, using the smallest data type which will support your dat
 See also [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][]
 
 ## Use Temporary Heap Tables for Transient Data
-When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  If you are loading data only to stage it before running more transformations, then loading the table to heap table will be much faster than loading the data to a clustered columnstore table.  In addition, loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session which created it, so they may not work in some scenarios.   Heap tables are defined in the WITH clause of a CREATE TABLE.
+When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table.  In addition, loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session which created it, so they may not work in some scenarios.   Heap tables are defined in the WITH clause of a CREATE TABLE.
 
 See also [Temporary tables in SQL Data Warehouse][], [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][], [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)][]
 
@@ -109,6 +109,7 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 <!--Article references-->
 [create a support ticket]:sql-data-warehouse-get-started-create-support-ticket.md
 [Concurrency and workload management in SQL Data Warehouse]: sql-data-warehouse-develop-concurrency.md
+[Create Table As Select (CTAS) in SQL Data Warehouse]: sql-data-warehouse-develop-ctas.md
 [Guide for using PolyBase in SQL Data Warehouse]: sql-data-warehouse-load-polybase-guide.md
 [Hash distribution and its effect on query performance in SQL Data Warehouse]: sql-data-warehouse-develop-hash-distribution-key.md
 [Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
@@ -120,9 +121,9 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: data-factory-azure-sql-data-warehouse-connector.md
 [Optimizing transactions for SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
-[Pause compute resources]: sql-data-warehouse-overview-scalability/#pause-compute-bk
-[Resume compute resources]: sql-data-warehouse-overview-scalability/#resume-compute-bk
-[Scale compute resources]: sql-data-warehouse-overview-scalability/#scale-performance-bk
+[Pause compute resources]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
+[Resume compute resources]: sql-data-warehouse-overview-scalability.md#resume-compute-bk
+[Scale compute resources]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
 [Table design in SQL Data Warehouse]: sql-data-warehouse-develop-table-design.md
 [Table partitions in SQL Data Warehouse]: sql-data-warehouse-develop-table-partitions.md
 [Temporary tables in SQL Data Warehouse]: sql-data-warehouse-develop-temporary-tables.md
@@ -154,3 +155,4 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 [Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
+[Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
