@@ -92,7 +92,7 @@ _Command explained_
 
 `-C "ahmet@fedoraVMAzure"` = a comment appended to the end of the public key file to easily identify it.  Normally a email is used as the comment but you can use whatever works best for your infrastructure.
 
-## Walkthrough of `ssh-keygen`
+## Walkthrough of ssh-keygen
 
 Create the keys:
 
