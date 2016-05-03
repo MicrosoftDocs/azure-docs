@@ -16,7 +16,7 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Tutorial: How to find device twins using queries with C# (preview)
+# Tutorial: How to find device twins using queries with node.js (preview)
 
 [AZURE.INCLUDE [iot-hub-device-management-query-selector](../../includes/iot-hub-device-management-query-selector.md)]
 
@@ -38,13 +38,15 @@ Before running this sample, you must have completed the steps in [Get started wi
 
 ### Starting the sample
 
-To start the sample, you need to run the **Query.exe** process. This will execute a few different queries. Follow the steps below to start the sample:
+To start the sample, you need to run `registry_queryDevices.js`. This will execute a few different queries. Follow the steps below to start the sample:
 
 1.  Let the simulated devices run for at least 1 minute. This ensures that the device properties in the twin are synchronized with the physical device. Please see [Tutorial: How to use the device twin][lnk-twin-tutorial] for more details on the synchronization.
 
-2.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks\\csharp\\service\\samples\\bin** folder.  
+2.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory.  
 
-3.  Run `Query.exe <IoT Hub Connection String>` 
+3.  Open **registry_queryDevices.js** and replace the placeholder with your IoT Hub connection string.
+
+4.  Run `node registry_queryDevices.js`.
 
 You should see output in the command line window showing the result of queries for device objects using tags, service properties and device properties.
 
@@ -54,117 +56,85 @@ Queries on device properties and service properties are executed with a JSON str
 
 - **Project**: The expression that designates the fields from the device object to include in the query result set (equivalent to SELECT in SQL):
 
-  ```
-	  var query = JsonConvert.SerializeObject(
-		  new
-		  {
-			  project = new
-			  {
-				  all = false,
-				  properties = new[]
-				  {
-					  new
-					  {
-					  name = "CustomerId",
-					  type = "service"
-					  },
-					  new
-					  {
-					  name = "Weight",
-					  type = "service"
-					  }
-				  }
-			  }
-		  }
-	  );
+	```
+	var projectQuery = {
+	    "project": {
+	        "all": false,
+	        "properties": [{
+	            "name": "CustomerId",
+	            "type": "service"
+	        }, {
+	            "name": "Weight",
+	            "type": "service"
+	        }]
+	    }
+	}
 	```
 
 - **Filter**: The expression that limits the device objects included in the query result set (equivalent to WHERE in SQL):
 
   ```
-  var query = JsonConvert.SerializeObject(
-      new
-      {
-        filter = new
-        {
-          property = new
-          {
-            name = "CustomerId",
-            type = "service"
-          },
-          value = "123456",
-          comparisonOperator = "eq",
-          type = "comparison"
-        }
-      }
-  );
+	var filterQuery = {
+	  filter: {
+	    property: {
+	      name: "CustomerId",
+	      type: "service"
+	    },
+	    value: "123456",
+	    comparisonOperator: "eq",
+	    type: "comparison"
+	  },
+	  project: null,
+	  aggregate: null,
+	  sort: null
+	};
   ```
 
 - **Aggregate**: The expression that determines how to group the query result set (equivalent to GROUPBY in SQL):
 
   ```
-  var query = JsonConvert.SerializeObject(
-      new
+  var aggregateQuery = {
+  filter: null,
+  project: null,
+  aggregate: {
+    keys: [
       {
-      filter = new
-        {
-          property = new
-          {
-            name = "CustomerId",
-            type = "service"
-          },
-          value = (string)null,
-          comparisonOperator = "ne",
-          type = "comparison"
-        },
-        aggregate = new
-        {
-          keys = new[]
-          {
-            new
-            {
-              name = "CustomerId",
-              type = "service"
-            }
-          },
-          properties = new[]
-          {
-            new
-            {
-              @operator = "avg",
-              property = new
-              {
-                name = "Weight",
-                type = "service"
-              },
-              columnName = "TotalWeight"
-            }
-          }
-        }
+        name: "CustomerId",
+        type: "service"
       }
-  );
+    ],
+    properties: [
+      {
+        operator: "sum",
+        property: {
+          name: "Weight",
+          type: "service"
+        },
+        columnName: "TotalWeight"
+      }
+    ]
+  },
+  sort: null
+};
   ```
 
 - **Sort**: The expression definition which property should be used to sort the query result set (equivalent to ORDER BY in SQL). If sort is null, **deviceID** is used by default:
 
   ```
-  var query = JsonConvert.SerializeObject(
-    new
-    {
-      sort = new[]
-      {
-        new
-        {
-          property = new
-          {
-            name = "QoS",
-            type = "service"
-          },
-          order = "asc"
-        }
-      }
-    }
-  );
+	  var sortQuery = {
+	  filter: null,
+	  project: null,
+	  aggregate: null,
+	  sort: [
+	      {
+	          order: "asc",
+	          property: {
+	              name: "QoS",
+	              type: "service"
+	          }
+	      }
+	  ]
+	};
   ```
 
 ### Limitations
@@ -181,9 +151,7 @@ More details on the syntax and available fields for the JSON are [available][lnk
 
 ### Query by device and service properties
 
-Once you have the JSON query expression, you can query for the device twins. Call **QueryDeviceJsonAsync** and check the **AggregateResult** field for aggregate queries and the **Result** field for all other queries. **Result** contains a list of device objects, which represent the device twins that match the query. **AggregateResult** contains an array of dictionaries, each containing the resulting row.
-
-These queries are used in **Program.cs** of the **Query** project.
+Once you have the JSON query expression, you can query for the device twins. Call **queryDevices** and check the **result** field for aggregate queries and the **devices** field for all other queries. **devices** contains a list of device objects, which represent the device twins that match the query. **result** contains an array of dictionaries, each containing the resulting row.
 
 ```
 var foundDevices = (await registryManager.QueryDevicesJsonAsync(query)).Result;
@@ -196,7 +164,7 @@ var results = (await registryManager.QueryDevicesJsonAsync(query)).AggregateResu
 Querying by tags enables you to find device objects without using a JSON query expression. If more than one tag is passed, only device objects with all the tags will be returned. The second parameter is **maxCount**, the maximum number of devices to be returned. The maximum value for **maxCount** is 1000.
 
 ```
-var foundDevices = await registryManager.QueryDevicesAsync(new[] { "bacon" }, 100);
+registry.queryDevicesByTags(['bacon'], 100, callback)
 ```
 
 ### Device Implementation

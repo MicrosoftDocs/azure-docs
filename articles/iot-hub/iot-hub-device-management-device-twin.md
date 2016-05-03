@@ -19,6 +19,7 @@
 # Tutorial: How to use the device twin with C# (preview)
 
 [AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
+
 ## Introduction
 
 Azure IoT Hub device management introduces the device twin, a service side representation of a physical device. Below is a diagram showing the different components of the device twin.

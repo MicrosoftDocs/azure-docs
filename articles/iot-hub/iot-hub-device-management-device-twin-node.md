@@ -73,13 +73,13 @@ You should see output in the command line window showing the use of the device t
 There is a difference between *shallow* reads and *deep* reads/writes. A shallow read returns the value of the requested property from the device twin stored in Azure IoT Hub. This will be the value from the previous notify operation. You cannot do a shallow write because the physical device is the authoritative source for device properties. A shallow read is simply reading the property from the device twin:
 
 ```
-device.DeviceProperties[DevicePropertyNames.BatteryLevel].Value.ToString();
+device.DeviceProperties[DevicePropertyNames.BatteryLevel].Value.ToString(); TODO
 ```
 
 To determine the freshness of these values, you can check the last updated time:
 
 ```
-device.DeviceProperties[DevicePropertyNames.BatteryLevel].LastUpdatedTime.ToString();
+device.DeviceProperties[DevicePropertyNames.BatteryLevel].LastUpdatedTime.ToString(); TODO
 ```
 
 You can similarly read service properties, which are only stored in the device twin. They are not synchronized to the device.
@@ -101,7 +101,7 @@ If you want to change a writeable device property, you can do this with a deep w
 The job sends a message to the physical device to update the specified property. The device twin is not immediately updated when the job completes. You must wait until the next notify interval. Once the synchronization occurs, you can see the change in the device twin with a shallow read.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue);
+JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue); TODO
 ```
 
 ### Device simulator implementation details
