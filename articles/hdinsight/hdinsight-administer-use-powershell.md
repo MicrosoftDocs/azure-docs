@@ -99,7 +99,6 @@ The impact of changing the number of data nodes for each type of cluster support
 		>hbase shell
 		>balancer
 
-	For more information on using the HBase shell, see []
 - Storm
 
 	You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.

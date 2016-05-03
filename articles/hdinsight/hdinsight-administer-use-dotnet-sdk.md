@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage Hadoop clusters in HDInsight with PowerShell | Microsoft Azure"
-	description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell."
+	pageTitle="Manage Hadoop clusters in HDInsight with .NET SDK | Microsoft Azure"
+	description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using HDInsight .NET SDK."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/02/2016"
 	ms.author="jgao"/>
 
-# Manage Hadoop clusters in HDInsight by using Azure PowerShell
+# Manage Hadoop clusters in HDInsight by using .NET SDK
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage Hadoop clusters in Azure HDInsight by using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
-
+Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).
 
 
 **Prerequisites**
@@ -34,41 +33,66 @@ Before you begin this article, you must have the following:
 
 ##Connect to Azure HDInsight
 
+You will need the following Nuget packages:
 
-        static void Main(string[] args)
-        {
-            var tokenCreds = GetTokenCloudCredentials();
-            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+	Install-Package Microsoft.Azure.Common.Authentication -Pre
+	Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
-            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+The following code sample shows you how to connect to Azure before you can administer HDInsight clusters under your Azure subscription.
 
-            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
-            
-        }
+	using System;
+	using System.Security;
+	using Microsoft.Azure;
+	using Microsoft.Azure.Common.Authentication;
+	using Microsoft.Azure.Common.Authentication.Factories;
+	using Microsoft.Azure.Common.Authentication.Models;
+	using Microsoft.Azure.Management.HDInsight;
+	using Microsoft.Azure.Management.HDInsight.Models;
 
-        public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-        {
-            var authFactory = new AuthenticationFactory();
+	namespace HDInsightManagement
+	{
+		class Program
+		{
+			private static HDInsightManagementClient _hdiManagementClient;
+			private static Guid SubscriptionId = new Guid("65a1016d-0f67-45d2-b838-b8f373d6d52e");
 
-            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+			static void Main(string[] args)
+			{
+				var tokenCreds = GetTokenCloudCredentials();
+				var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
 
-            if (username != null && password != null)
-                account.Id = username;
+				_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
-            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+				// insert code here
 
-            var accessToken =
-                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-                    .AccessToken;
+				System.Console.WriteLine("Press ENTER to continue");
+				System.Console.ReadLine();
+			}
 
-            return new TokenCloudCredentials(accessToken);
-        }
+			public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+			{
+				var authFactory = new AuthenticationFactory();
 
-        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
-        {
-            return new TokenCloudCredentials(subId.ToString(), creds.Token);
-        }        
+				var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+
+				if (username != null && password != null)
+					account.Id = username;
+
+				var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+
+				var accessToken =
+					authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+						.AccessToken;
+
+				return new TokenCloudCredentials(accessToken);
+			}
+
+			public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
+			{
+				return new TokenCloudCredentials(subId.ToString(), creds.Token);
+			}
+		}
+	}
 
 ##Create clusters
 
@@ -88,7 +112,7 @@ The following code snippet lists clusters and some properties:
 
 ##Delete clusters
 
-Use the following code snippets to delete a cluster synchronously or asynchronously: 
+Use the following code snippet to delete a cluster synchronously or asynchronously: 
 
     _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
     _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
@@ -114,7 +138,6 @@ The impact of changing the number of data nodes for each type of cluster support
 		>hbase shell
 		>balancer
 
-	For more information on using the HBase shell, see []
 - Storm
 
 	You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -138,7 +161,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
 		$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-The following code snippet shows how to resize a cluster synchronously or asynchronously::
+The following code snippet shows how to resize a cluster synchronously or asynchronously:
 
     _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
     _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
@@ -157,22 +180,24 @@ HDInsight clusters have the following HTTP web services (all of these services h
 
 By default, these services are granted for access. You can revoke/grant the access. To revoke:
 
-	Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+	var httpParams = new HttpSettingsParameters
+	{
+		HttpUserEnabled = false,
+		HttpUsername = "admin",
+		HttpPassword = "*******",
+	};
+	_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
 
 To grant:
 
-	$clusterName = "<HDInsight Cluster Name>"
+	var httpParams = new HttpSettingsParameters
+	{
+		HttpUserEnabled = enable,
+		HttpUsername = "admin",
+		HttpPassword = "*******",
+	};
+	_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
 
-	# Credential option 1
-	$hadoopUserName = "admin"
-	$hadoopUserPassword = "<Enter the Password>"
-	$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-	$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
-
-	# Credential option 2
-	#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
-	
-	Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
 >[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user name and password.
 
@@ -187,7 +212,7 @@ It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If 
 
 The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
 
-	var results = _hdiManagementClient.Clusters.GetClusterConfigurations(ResourceGroupName, ExistingClusterName, "core-site");
+	var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
 	foreach (var key in results.Configuration.Keys)
 	{
 	    Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
@@ -202,15 +227,15 @@ See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samp
 
 **To submit Hive jobs** 
 
-See [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md).
+See [Run Hive queries using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
 
 **To submit Pig jobs**
 
-See [Run Pig jobs using PowerShell](hdinsight-hadoop-use-pig-powershell.md).
+See [Run Pig jobs using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md).
 
 **To submit Sqoop jobs**
 
-See [Use Sqoop with HDInsight](hdinsight-use-sqoop.md).
+See [Use Sqoop with HDInsight](hdinsight-use-sqoop-dotnet-sdk.md).
 
 **To submit Oozie jobs**
 
@@ -221,12 +246,11 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 
 
 ## See Also
-* [HDInsight cmdlet reference documentation][hdinsight-powershell-reference]
+* [HDInsight .NET SDK reference documentation](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Get started with Azure HDInsight][hdinsight-get-started]
 
 
@@ -247,8 +271,4 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: powershell-install-configure.md
-
-[image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
