@@ -52,7 +52,7 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 	- **App Cert password ID** - The customer must upload the password similar to how they upload other AMS keys and using **ContentKeyType.FairPlayPfxPassword** enum value. In the result they will get AMS id this is what they need to use inside the key delivery policy option.
 	- **iv** -  16 bytes random value, must match the iv in the asset delivery policy. Customer generates the IV and puts it in both places: asset delivery policy and key delivery policy option. 
 	- **ASK** - ASK (Application Secret Key) is received when you generate the certification using Apple Developer portal. Each development team will receive a unique ASK. Please save a copy of the ASK and store it in a safe place. You will need to configure ASK as FairPlayAsk to Azure Media Services later. 
-	-  **ASK ID** - provided by Apple. The customer must upload the ASk similar to how they upload other AMS keys using **ContentKeyType.FairPlayASk ** enum value. In the result they will get WAMS id this is what they need to use inside the key delivery policy option.
+	-  **ASK ID** - provided by Apple. The customer must upload the ASk similar to how they upload other AMS keys using **ContentKeyType.FairPlayASk** enum value. In the result they will get WAMS id this is what they need to use inside the key delivery policy option.
 
 - The following things must be set by the FPS client side:
  	- **App Cert (AC)** - .cer/.der file containing public key which OS uses to encrypt some payload. AMS needs to know about it because it is required by the player. The key delivery service decrypts it using the corresponding private key.
