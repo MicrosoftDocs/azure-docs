@@ -206,3 +206,36 @@ This is an implicit EXIST check. If the value for the claim exists, then issue t
 In this rule you are simply checking the temporary flag ‘idflag’ and based on the value decide to issue or not issue the claim.
 
 > [AZURE.NOTE] Sequence of these rules is important.
+
+#### SSO with a sub-domain UPN
+
+You can add more than one domain to be federated using Azure AD Connect ([Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain)). The UPN claim will need to be modified so that the issuer ID correponds to the root domain and not the sub-domain because the federated root domain covers the child as well.
+
+By default, the claim rule for issuer ID is set as:
+
+	c:[Type 
+	== “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+![Default issuer id claim](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
+
+The default rule simply takes the UPN suffix and uses it in the issuer id claim. For example, John is a user in sub.contoso.com and contoso.com is federate with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD, then the default issuer id claim rule in AD FS will handle it in the following manner:
+
+c:[Type 
+== “http://schemas.xmlsoap.org/claims/UPN“]
+
+=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+**Claim value:**  http://sub.contoso.com/adfs/services/trust/
+
+In order to just have the root domain in the issuer claim value, change the claim rule to:
+
+	c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+
+## Next Steps
+
+Learn more about [user sign-in options](active-directory-aadconnect-user-signin.md)
+
