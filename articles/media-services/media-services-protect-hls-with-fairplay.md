@@ -427,8 +427,14 @@ The following sample demonstrates functionality that was introduced in Azure Med
 	            return TokenRestrictionTemplateSerializer.Serialize(template);
 	        }
 	
-	        static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+			static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 	        {
+	            var kdPolicy = _context.ContentKeyAuthorizationPolicies.Where(p => p.Id == key.AuthorizationPolicyId).Single();
+	
+	            var kdOption = kdPolicy.Options.Single(o => o.KeyDeliveryType == ContentKeyDeliveryType.FairPlay);
+	
+	            FairPlayConfiguration configFP = JsonConvert.DeserializeObject<FairPlayConfiguration>(kdOption.KeyDeliveryConfiguration);
+	
 	            // Get the FairPlay license service URL.
 	            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay);
 	
@@ -436,6 +442,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 	                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 	                {
 	                        {AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+	                        {AssetDeliveryPolicyConfigurationKey.CommonEncryptionIVForCbcs, configFP.ContentEncryptionIV}
 	                };
 	
 	            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
@@ -448,6 +455,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 	            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 	
 	        }
+	      
 	
 	        /// <summary>
 	        /// Gets the streaming origin locator.
