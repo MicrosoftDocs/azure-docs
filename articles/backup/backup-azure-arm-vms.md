@@ -36,11 +36,11 @@ The back up policy associated with the Recovery Services vault, defines how ofte
 
 ![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. If you are not in the vault dashboard, see [Access a Recovery Services vault](backup-azure-arm-vms.md#access-a-recovery-services-vault). 
+Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. If you are not in the vault dashboard, see [Access a Recovery Services vault](backup-azure-arm-vms.md#access-a-recovery-services-vault). This procedure serves for running the initial backup job after you have completed all prerequisites. If the initial backup job has already been run, this procedure is not available. The associated backup policy determines the next backup job.  
 
-To run a backup job:
+To run the initial backup job:
 
-1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines** <br/>
+1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines**. <br/>
     ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
     The **Backup Items** blade opens.
@@ -59,7 +59,7 @@ To run a backup job:
 
     The Backup Jobs blade opens.
 
-4. In the Backup jobs blade, you can see the status of all jobs.
+4. In the **Backup jobs** blade, you can see the status of all jobs.
 
     ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
 
@@ -67,45 +67,13 @@ To run a backup job:
 
     When the backup job is finished, the status is *Completed*.
 
-## Access a Recovery Services vault
-
-There are two ways to quickly access your Recovery Services vaults - open the vault pinned to your dashboard, or open the list of Recovery Services vaults. By default, when you create a Recovery Services vault, it should be pinned to the Azure dashboard.
-
-To open a vault from the dashboard, click the Recovery Services tile.
-
-![Open Recovery Services vault](./media/backup-azure-arm-vms/dashboard-rs-vault.png)
-
-The vault dashboard opens.
-
-To open a vault from the Recovery Services list
-
-1. In the Azure portal, on the Hub menu, click **Browse**.
-
-    - In the list of resources, type **Recovery Services**.
-    - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
-
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
-
-    The list of Recovery Services vaults appears.
-
-2. From the list of Recovery Services vaults, select a vault.
-
-    The selected vault dashboard opens.
-
-    ![Open vault blade](./media/backup-azure-vms-first-look-arm/vault-settings.png)
-
-2. From the vault dashboard menu click **Backup** to open the Backup blade.
-
-    ![Open Backup blade](./media/backup-azure-vms-first-look-arm/backup-button.png)
-
-    When the blade opens, the Backup service searches for any new VMs in the subscription.
-
-    ![Discover VMs](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
 
 ## Troubleshooting errors
-If you run into issues while backing up your virtual machine, look at the [VM troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
+If you run into issues while backing up your virtual machine, please see the [VM troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
 
 ## Next steps
+
+Now that you have protected your VM, check out the following articles for additional management tasks  you can do with your VMs, and how to restore VMs.
 
 - [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-arm-restore-vms.md)
