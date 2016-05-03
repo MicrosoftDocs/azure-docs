@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/31/2016" 
+	ms.date="05/03/2016" 
 	ms.author="tdykstra"/>
 
 # API Apps overview
@@ -45,9 +45,9 @@ In addition, an API app can take advantage of features offered by [Web Apps](../
 API Apps and [Azure API Management](../api-management/api-management-key-concepts.md) are complementary services:
 
 * API Management is about managing APIs. You put an API Management front end on an API to monitor and throttle usage, manipulate input and output, consolidate several APIs into one endpoint, and so forth. The APIs being managed can be hosted anywhere.
-* API Apps is about hosting APIs. The service includes features that facilitate developing and consuming APIs, but it doesn't do the kinds of monitoring, throttling, manipulating, or consolidating that API Management does. 
+* API Apps is about hosting APIs. The service includes features that facilitate developing and consuming APIs, but it doesn't do the kinds of monitoring, throttling, manipulating, or consolidating that API Management does. If you don't need API Management features, you can host APIs in API apps without using API Management.
 
-You can use API Management to manage APIs that are hosted anywhere, and you can use API Apps without API Management, as shown in the diagram:
+Here's a diagram that illustrates API Management used for APIs hosted in API apps and elsewhere.
 
 ![Azure API Management and API Apps](./media/app-service-api-apps-why-best-platform/apia-apim.png)
 
