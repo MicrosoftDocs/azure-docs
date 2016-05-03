@@ -55,7 +55,7 @@ If your cluster has multiple node types, then you will need to do this for each 
 Currently the Autoscale feature is not driven by the loads that your applications may be reporting to service fabric. That functionality is planned to be added later. So at this time the autoscale you get is purely driven by the performance counters that are emitted in each of the VMSS instances.  
 
 
-2. Follow the instructions on [how to set up autoscale for each VMSS here](..\virtual-machine-scale-sets-autoscale-overview.md)
+2. Follow the instructions on [how to set up autoscale for each VMSS here](../virtual-machine-scale-sets-autoscale-overview.md)
 
    >[AZURE.NOTE] On a scale down scenario, unless your nodetype has a durability level of Gold or Silver, you will have to you will need to call the Remove-ServiceFabricNodeState cmd with the appropriate Node name : refer to [https://msdn.microsoft.com/en-us/library/mt125993.aspx](https://msdn.microsoft.com/library/mt125993.aspx) for details on the CMD.
    
@@ -70,7 +70,8 @@ The Nodes listed /shown in Service Fabric Explorer (SFX) are a reflection of wha
 
 In order to make sure that when a VM is removed, the Node is also gone, you have two options.
 
-1) Choose a durability level of Gold or Silver (available soon) for the node types in your cluster, this will give you the infrastructure integration. Which will then automatically remove the Nodes from our system services (FM )state when you scaled down. Refer to [this document for details on Durability levels](service-fabric-cluster-capacity.md)
+1) Choose a durability level of Gold or Silver (available soon) for the node types in your cluster, this will give you the infrastructure integration. Which will then automatically remove the Nodes from our system services (FM )state when you scaled down. 
+Refer to [this document for details on Durability levels](service-fabric-cluster-capacity.md)
 
 2) Once the VM instance has been scaled down, you will need to call the Remove-ServiceFabricNodeState cmd with the appropriate Node name : refer to [https://msdn.microsoft.com/library/mt125993.aspx](https://msdn.microsoft.com/library/mt125993.aspx) for details on the CMD
 
