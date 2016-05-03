@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell
@@ -95,7 +95,7 @@ For configuration steps, the key difference between the two is whether you can c
 - [VNets that reside in different subscriptions](#difsub)
 
 
-## <a name ="samesub"/>How to connect VNets that are in the same subscription
+## <a name="samesub"></a>How to connect VNets that are in the same subscription
 
 This configuration applies to virtual networks that are in the same subscription, as shown in the diagram below:
 
@@ -107,7 +107,7 @@ This configuration applies to virtual networks that are in the same subscription
 	
 - You'll need to install the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
-### <a name ="Step1"/>Step 1 - Plan your IP address ranges
+### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
 
 It’s important to decide the ranges that you’ll use to configure your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way.
@@ -152,7 +152,7 @@ For this exercise, use the following values for the VNets:
 
 
 
-### <a name ="Step2"/>Step 2 - Create and configure TestVNet1
+### <a name="Step2"></a>Step 2 - Create and configure TestVNet1
 
 1. Declare your variables
 
@@ -312,7 +312,7 @@ Once you've configured TestVNet1, you'll repeat the steps to create TestVNet4. F
 
 	The connection should be established after a few minutes.
 
-## <a name ="Verify"/>How to verify a VNet-to-VNet connection
+## <a name="Verify"></a>How to verify a VNet-to-VNet connection
 
 The examples below will show you how to verify your connection. Please be sure to change the values to match your environment.
 
@@ -355,7 +355,7 @@ After the cmdlet has finished, scroll through to view the values. In the example
 	Name                       : VNet1toVNet4
 	Id                         : /subscriptions/<SubscriptionID>/resourceGroups/TestRG1/providers/Micr osoft.Network/connections/VNet1toVNet4
 
-## <a name ="difsub"/>How to connect VNets that are in different subscriptions
+## <a name="difsub"></a>How to connect VNets that are in different subscriptions
 
 The configuration steps below add an additional VNet-to-VNet connection to connect TestVNet1 to TestVNet5, which resides in a different subscription. The difference here is that part of the configuration steps need be performed in a separate PowerShell session in the context of the second subscription, especially when the two subscriptions belong to different organizations. Upon completing the steps below, the resulting configuration is shown in the diagram below:
 
