@@ -225,7 +225,7 @@ The following code snippet demonstrates how to get the default storage account n
 
 **To submit MapReduce jobs**
 
-See [Run Hadoop MapReduce samples in HDInsight](hdinsight-run-samples-linux.md).
+See [Run Hadoop MapReduce samples in HDInsight](hdinsight-hadoop-run-samples-linux.md).
 
 **To submit Hive jobs** 
 
@@ -266,7 +266,7 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal-linux.md
+[hdinsight-admin-portal]: hdinsight-administer-use-portal-linux.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
