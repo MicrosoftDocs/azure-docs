@@ -262,43 +262,23 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 This section contains the following subsections:
 
-* [Azure Storage connection property in function.json](#storageconnection)
 * [Azure Storage queue trigger](#storagequeuetrigger)
 * [Azure Storage queue output binding](#storagequeueoutput)
 * [Azure Storage blob trigger](#storageblobtrigger)
 * [Azure Storage blob input and output bindings](#storageblobbindings)
 * [Azure Storage tables input and output bindings](#storagetablesbindings)
 
-### <a id="storageconnection"></a> Azure Storage connection property in function.json
-
-For all Azure Storage triggers and bindings, the *function.json* file includes a `connection` property. For example:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
-            "queueName": "myqueue-items",
-            "connection":""
-        }
-    ]
-}
-```
-
-If you leave `connection` empty, the trigger or binding will work with the default storage account for the function app. If you want the trigger or binding to work with a different storage account, create an app setting in the function app that points to the storage account you want to use, and set `connection` to the app setting name. To add an app setting, follow these steps:
-
-1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
-
-2. In the **Settings** blade, click **Application Settings**.
-
-3. Scroll down to the **App settings** section, and add an entry with **Key** = *{some unique value of your choice}* and **Value** = the connection string for the storage account.
-
 ### <a id="storagequeuetrigger"></a> Azure Storage queue trigger
 
-The *function.json* file provides the name of the queue to poll and the variable name for the queue message. For example:
+The *function.json* file for a storage queue trigger specifies the following properties.
+
+- `name` : The variable name used in function code for the queue or the queue message. 
+- `queueName` : The name of the queue to poll.
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *queueTrigger*.
+- `direction` : Must be set to *in*. 
+
+#### *Function.json* example for a storage queue trigger
 
 ```json
 {
@@ -306,10 +286,10 @@ The *function.json* file provides the name of the queue to poll and the variable
     "bindings": [
         {
             "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
             "queueName": "myqueue-items",
-            "connection":""
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
         }
     ]
 }
@@ -317,12 +297,12 @@ The *function.json* file provides the name of the queue to poll and the variable
 
 #### Queue trigger supported types
 
-The queue message can be deserialized to any of these types:
+The queue message can be deserialized to any of the following types:
 
-* `string`
-* `byte[]`
-* JSON object   
-* `CloudQueueMessage`
+* Object (from JSON)
+* String
+* Byte array 
+* `CloudQueueMessage` (C#) 
 
 #### Queue trigger metadata
 
@@ -372,7 +352,17 @@ If you want to handle poison messages manually, you can get the number of times 
 
 ### <a id="storagequeueoutput"></a> Azure Storage queue output binding
 
-The *function.json* file provides the name of the output queue and a variable name for the content of the message. This example uses a queue trigger and writes a queue message.
+The *function.json* file for a storage queue output binding specifies the following properties.
+
+- `name` : The variable name used in function code for the queue or the queue message. 
+- `queueName` : The name of the queue to poll.
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *queue*.
+- `direction` : Must be set to *out*. 
+
+#### *Function.json* example for a storage queue output binding
+
+This example uses a queue trigger and writes a queue message.
 
 ```json
 {
@@ -386,9 +376,9 @@ The *function.json* file provides the name of the output queue and a variable na
     },
     {
       "name": "myQueue",
-      "type": "queue",
       "queueName": "samples-workitems-out",
       "connection": "MyStorageConnection",
+      "type": "queue",
       "direction": "out"
     }
   ],
@@ -400,12 +390,14 @@ The *function.json* file provides the name of the output queue and a variable na
 
 The `queue` binding can serialize the following types to a queue message:
 
-* `string` (creates queue message if parameter value is non-null when the function ends)
-* `byte[]` (works like string) 
-* `CloudQueueMessage` (works like string) 
-* JSON object (creates a message with a null object if the parameter is null when the function ends)
+* Object (`out T` in C#, creates a message with a null object if the parameter is null when the function ends)
+* String (`out string` in C#, creates queue message if parameter value is non-null when the function ends)
+* Byte array (`out byte[]` in C#, works like string) 
+* `out CloudQueueMessage` (C#, works like string) 
 
-#### Queue output binding code example
+In C# you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
+
+#### Queue output binding code examples
 
 This C# code example writes a single output queue message for each input queue message.
 
@@ -428,7 +420,19 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ### <a id="storageblobtrigger"></a> Azure Storage blob trigger
 
-The *function.json* provides a path that specifies the container to monitor, and optionally a blob name pattern. This example triggers on any blobs that are added to the samples-workitems container.
+The *function.json* file for a storage queue trigger specifies the following properties.
+
+- `name` : The variable name used in function code for the blob. 
+- `path` : A path that specifies the container to monitor, and optionally a blob name pattern.
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *blobTrigger*.
+- `direction` : Must be set to *in*.
+
+> [AZURE.NOTE] If the blob container that the trigger is monitoring contains more than 10,000 blobs, the Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
+
+#### *Function.json* example for a storage blob trigger
+
+This example triggers on any blobs that are added to the samples-workitems container.
 
 ```json
 {
@@ -445,13 +449,16 @@ The *function.json* provides a path that specifies the container to monitor, and
 }
 ```
 
-> [AZURE.NOTE] If the blob container that the trigger is monitoring contains more than 10,000 blobs, the Functions runtime scans log files to watch for new or changed blobs. This process is not real-time; a function might not get triggered until several minutes or longer after the blob is created. In addition, [storage logs are created on a "best efforts"](https://msdn.microsoft.com/library/azure/hh343262.aspx) basis; there is no guarantee that all events will be captured. Under some conditions, logs might be missed. If the speed and reliability limitations of blob triggers for large containers are not acceptable for your application, the recommended method is to create a queue message when you create the blob, and use a queue trigger instead of a blob trigger to process the blob.
-
 #### Blob trigger supported types
 
-Blobs can be deserialized to these types:
+The blob can be deserialized to any of the following types in Node or C# functions:
 
-* string
+* Object (from JSON)
+* String
+
+In C# functions you can also bind to any of the following types:
+
+* `CloudQueueMessage` 
 * `TextReader`
 * `Stream`
 * `ICloudBlob`
@@ -476,7 +483,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 #### Blob trigger name patterns
 
-You can specify a blob name pattern in the `path`. For example:
+You can specify a blob name pattern in the `path` property. For example:
 
 ```json
 "path": "input/original-{name}",
@@ -532,7 +539,17 @@ The queue message for poison blobs is a JSON object that contains the following 
 
 ### <a id="storageblobbindings"></a> Azure Storage blob input and output bindings
 
-The *function.json* provides the name of the container and variable names for blob name and content. This example uses a queue trigger to copy a blob:
+The *function.json* file for a storage blob input or output binding specifies the following properties.
+
+- `name` : The variable name used in function code for the blob . 
+- `path` : A path that specifies the container to read the blob from or write the blob to, and optionally a blob name pattern.
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the binding will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *blob*.
+- `direction` : Set to *in* or *out*. 
+
+#### *Function.json* example for a storage blob input or output binding
+
+This example uses a queue trigger to copy a blob:
 
 ```json
 {
@@ -565,13 +582,16 @@ The *function.json* provides the name of the container and variable names for bl
 
 #### Blob input and output supported types
 
-The `blob` binding can serialize or deserialize the following types:
+The `blob` binding can serialize or deserialize the following types in Node.js or C# functions:
 
-* `Stream`
-* `TextReader`
-* `TextWriter`
-* `string` (for output blob: creates a blob only if the string parameter is non-null when the function returns)
-* JSON object (for output blob: creates a blob as null object if parameter value is null when the function ends)
+* Object (`out T` in C# for output blob: creates a blob as null object if parameter value is null when the function ends)
+* `string` (`out string` in C# for output blob: creates a blob only if the string parameter is non-null when the function returns)
+
+In C# functions, you can also bind to the following types:
+
+* `TextReader` (input only)
+* `TextWriter` (output only)
+* `Stream` (null when blob is not found for input binding)
 * `CloudBlobStream` (output only)
 * `ICloudBlob`
 * `CloudBlockBlob` 
@@ -591,15 +611,32 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 
 ### <a id="storagetablesbindings"></a> Azure Storage tables input and output bindings
 
-The *function.json* for storage tables provides several properties:
+The *function.json* for storage tables specifies the following properties.
 
-* `name` - The name of the variable to use in code for the table binding.
-* `tableName`
-* `partitionKey` and `rowKey` - Used together to read a single entity in a C# or Node function, or to write a single entity in a Node function.
-* `take` - The maximum number of rows to read for table input in a Node function.
-* `filter` - OData filter expression for table input in a Node function.
+- `name` : The variable name used in function code for the table binding. 
+- `tableName` : The name of the table.
+- `partitionKey` and `rowKey` : Used together to read a single entity in a C# or Node function, or to write a single entity in a Node function.
+- `take` : The maximum number of rows to read for table input in a Node function.
+- `filter` : OData filter expression for table input in a Node function.
+- `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the binding will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
+- `type` : Must be set to *table*.
+- `direction` : Set to *in* or *out*. 
 
-These properties support the following scenarios:
+#### Table input and output supported types
+
+The `table` binding can serialize or deserialize objects in Node.js or C# functions. The objects will have RowKey and PartitionKey properties. 
+
+In C# functions, you can also bind to the following types:
+
+* `IQueryable<T>` (input only)
+* `ICollector<T>` (output only)
+* `IAsyncCollector<T>` (output only)
+* `CloudBlobStream` (output only)
+* `T` where `T` implements `ITableEntity`
+
+#### Table input and output scenarios
+
+The table binding supports the following scenarios:
 
 * Read a single row in a C# or Node function.
 
@@ -644,6 +681,7 @@ This *function.json* example uses a queue trigger to read a single table row, wi
   "disabled": false
 }
 ```
+
 The following C# code example works with the preceding *function.json* file to to read a single table entity. The queue message has the row key value and the table entity is read into a type that is defined in the *run.csx* file. The type includes `PartitionKey` and `RowKey` properties and does not derive from `TableEntity`. 
 
 ```csharp
