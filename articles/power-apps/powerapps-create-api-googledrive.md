@@ -19,10 +19,6 @@
 
 # Create a new Google Drive API in PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/connectors-create-api-googledrive.md)
-
-
 > [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
 > 
 > - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
