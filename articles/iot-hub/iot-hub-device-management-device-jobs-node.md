@@ -23,7 +23,7 @@
 ## Introduction
 Azure IoT device management allows you to interact with physical devices using device jobs. Once you have identified the device twin (the service representation of a physical device), you can interact with its corresponding physical device using device jobs. Device jobs enable coordination of complex processes on multiple devices. This process can include multiple steps and long running operations.
 
-There are six types of device jobs that are provided by Azure IoT Hub device management at present (we will add additional jobs as customers need them)::
+There are six types of device jobs that are provided by Azure IoT Hub device management at present (we will add additional jobs as customers need them):
 
 - **Firmware update**: Updates the firmware (or OS image) on the physical device.
 - **Reboot**: Reboots the physical device.
