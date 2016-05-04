@@ -128,17 +128,17 @@ There are a few differences between the current cloning approach versus the plat
 
 ### Cloning
 
-Pros | Cons | 
----------- | ------------ |
-Clone any VM within a cloud service | Downtime incurred for the VMs as they need to be shutdown |
-VM to be cloned can be inside a VNET or outside a VNET | Long delays in scenario where copying of disk blobs is required |
+| Pros | Cons | 
+| ---------- | ------------ |
+| Clone any VM within a cloud service | Downtime incurred for the VMs as they need to be shutdown |
+| VM to be cloned can be inside a VNET or outside a VNET | Long delays in scenario where copying of disk blobs is required |
 
 ### Platform migration
 
-Pros | Cons | 
----------- | ------------ |
-No downtime incurred for the VMs | All VMs within a cloud service are migrated |
- | VMs need to be inside a VNET |
+| Pros | Cons | 
+| ---------- | ------------ |
+| No downtime incurred for the VMs | All VMs within a cloud service are migrated |
+| | VMs need to be inside a VNET |
  
  
 ## Unsupported scenarios
