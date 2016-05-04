@@ -50,7 +50,7 @@ To set up blob indexing, do the following:
 	    "container" : { "name" : "my-container", "query" : "my-folder" }
 	}   
 
-For more on Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
+For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
 ### Create index 
 
@@ -66,7 +66,7 @@ For more on Create Datasource API, see [Create Datasource](search-api-indexers-2
   		]
 	}
 
-For more on Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
 
 ### Create indexer 
 
@@ -83,7 +83,7 @@ Finally, create an indexer that references the data source and a target index. F
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
-For more details on Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
+For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 
 ## Supported document formats
