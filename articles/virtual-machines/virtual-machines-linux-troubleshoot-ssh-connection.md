@@ -33,7 +33,7 @@ This section lists quick fixes for common SSH connection issues.
 
 ### Troubleshoot virtual machines created by using the classic deployment model
 
-Try these steps to resolve the most common SSH connection failures for virtual machines that were created by using the classic deployment model.
+Try these steps to resolve the most common SSH connection failures for virtual machines that were created by using the classic deployment model. After each step, try reconnecting to the virtual machine.
 
 1. Reset remote access from the [Azure portal](https://portal.azure.com). On the Azure portal, select **Browse** > **Virtual machines (classic)** > *your Linux virtual machine* > **Reset Remote...**. q
 
@@ -180,7 +180,7 @@ If this fails, check for these on your computer:
 - Locally installed network monitoring software that is preventing SSH connections
 - Other types of security software that either monitor traffic or allow/disallow specific types of traffic
 
-If one of these conditions apply, temporarily disable the software and try an SSH connection to an on-premises computer to find out the cause. Then work with your network administrator to correct the software settings to allow SSH connections.
+If one of these conditions apply, temporarily disable the software and try an SSH connection to an on-premises computer to find out the reason the connection is being blocked on your computer. Then work with your network administrator to correct the software settings to allow SSH connections.
 
 If you are using certificate authentication, verify that you have these permissions to the .ssh folder in your home directory:
 
