@@ -1,19 +1,19 @@
 <properties 
    pageTitle="How to connect classic VNets to ARM VNets in Azure"
    description="Learn how to create a VPN connection between classic VNets and new VNets"
-   services="virtual-network"
+   services="vpn-gateway"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="cherylmc"
    manager="carmonm"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="cherylmc" />
 
 # Connecting classic VNets to new VNets
 
@@ -44,7 +44,7 @@ To create the VPN gateway for the classic VNet, follow the instructions below.
 4. In the **CIDR (ADDRESS COUNT)** drop down, select the number of bits used for the network portion of the CIDR block used by the ARM VNet you want to connect to.
 5. In **VPN DEVICE IP ADDRESS (OPTIONAL)**, type any valid public IP address. We will change this IP address later. Then click on the checkmark button on the bottom right of the screen. The figure below shows sample settings for this page.
 
-	![Local netowrk settings](..\virtual-network\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
+	![Local netowrk settings](.\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
 
 5. On the **networks** page, click on **VIRTUAL NETWORKS**, then click on your classic VNet, and then click on **CONFIGURE**.
 6. Under **site-to-site connectivity** enable the **connect to the local network** checkbox.
@@ -71,7 +71,7 @@ To create a VPN gateway for the ARM VNet, follow the instructions below.
 4. Retrieve the subnet used for the gateway by running the command below.
 
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
-			-VirtualNetwork (Get-AzureVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
+			-VirtualNetwork (Get-AzureRMVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
 
 	>[AZURE.IMPORTANT] The gateway subnet must already exist, and it must be named GatewaySubnet.
 

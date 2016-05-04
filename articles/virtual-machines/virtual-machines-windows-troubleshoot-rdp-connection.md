@@ -14,13 +14,14 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
+	ms.topic="article"
 	ms.date="04/12/2016"
 	ms.author="iainfou"/>
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
 
 The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine can fail for various reasons. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article will help you discover and correct the reasons for the failure.  
+
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -30,6 +31,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 
 <a id="quickfixrdp"></a>
+
 ## Fix common Remote Desktop errors
 
 This section lists quick fixes for common Remote Desktop connection issues.
@@ -48,7 +50,9 @@ These steps can help resolve most Remote Desktop connection failures in Azure vi
 
 - Review your VM’s console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your Windows virtual machine* > **Settings** > **Boot diagnostics**.
 
+
 - Check the VM's Resource Health for any platform issues. Select **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Settings** > **Check Health**.
+
 
 ### Troubleshoot virtual machines created by using the Resource Manager deployment model
 
@@ -67,6 +71,10 @@ Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAcces
   ```
 Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
   ```
+
+
+	> [AZURE.NOTE] If this is your first time resetting the RDP connection, the VMAccessAgent probably doesn't exist yet. In the preceding examples, `myVMAccessExtension` or `MyVMAccess` is a name that you specify for the new extension that will be installed as part of the process. Often this is simply set to the name of the VM. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using`Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` to check  the properties of the VM. Then look under the 'Extensions' section of the output. Since only one VMAccessAgent can exist on a VM, you also need to add the `-ForceReRun` parameter when using `Set-AzureRmVMExtension.` This forces the agent to be re-registered.
+
 
 - Restart the virtual machine to address other startup issues. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Restart**.
 
