@@ -20,8 +20,6 @@
 
 One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure described in [Authoring Template article](resource-group-authoring-templates.md#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own specific scenario. 
 
->[AZURE.NOTE] [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file. 
-
 Let's take a look at a common infrastructure:
 
 * Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.
@@ -30,11 +28,9 @@ Let's take a look at a common infrastructure:
 
 ![architecture](./media/resource-group-overview/arm_arch.png)
 
-But, that's a lot to build all at once, so let's first create a storage account and deploy it, then add the other resources.
-This topic walks you through the steps of creating a Resource Manager template. You will first write a simple template that creates a storage account. Later, you will extend the template to deploy a more complex architecture.
+This topic walks you through the steps of creating a Resource Manager template for that infrastructure. The final template you create is based on a Quickstart template called [2 VMs in a Load Balancer and load balancing rules](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
-1. Basic template to deploy a Storage Account
-2. Advanced template to deploy full architecture
+But, that's a lot to build all at once, so let's first create a storage account and deploy it. After you have mastered creating the storage account, you will add the other resources and re-deploy the template to complete the infrastructure.
 
 >[AZURE.NOTE] You can use any type of editor when creating the template. Visual Studio provides tools that simplify template development, but you do not need Visual Studio to complete this tutorial. For a tutorial on using Visual Studio to create a Web App and SQL Database deployment, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
 
@@ -43,6 +39,7 @@ This topic walks you through the steps of creating a Resource Manager template. 
 The template is a JSON file that defines all of the resources you will deploy. It also permits you to define parameters that are specified during deployment, variables that constructed from other values and expressions, and outputs from the deployment. 
 
 Let's start with the simplest template:
+
 ```json
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -141,10 +138,7 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
 
 You are now the proud owner of a storage account!
 
-## Create a complete architecture template
-
-You already created a base template, with a storage account. The next steps will be to add all the resources required to deploy the  architecture described in the start of this tutorial.
-The template you will create is based on the [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) from the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates). 
+The next steps will be to add all the resources required to deploy the architecture described in the start of this tutorial. You will add these resources in the same template you have been working on.
 
 ## Availability Set
 After the definition for the storage account, add an availably set for the virtual machines. In this case, there are no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
@@ -178,13 +172,17 @@ Given that in this topic you are creating with storage accounts, virtual machine
 - Microsoft.Network
 
 To see the resource types for a particular provider, run the following PowerShell command:
+
 ```powershell
     (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
+
 Or, for Azure CLI, the following command will return the available types in JSON format and save it to a file.
+
 ```
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
+
 You should see **availabilitySets** as one of the types within **Microsoft.Compute**. The full name of the type is **Microsoft.Compute/availabilitySets**. You can determine the resource type name for any of the resources in you template.
 
 ## Public IP
@@ -576,12 +574,12 @@ In the variables section, you can define values that are used in more than one p
   }
 ```
 
-## Complete template
-The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) under [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules). 
+You have completed the template! You can compare your template against the full template in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) under [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules). Your template might be slightly different based on using different version numbers. 
+
+You can re-deploy the template by using the same commands you used when deploying the storage account. You do not need to delete the storage account before re-deploying because Resource Manager will skip re-creating resources that already exist and have not changed.
 
 ## Next steps
 
-You have finished creating your template, and it is ready for deployment.
-
+- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file.
 - To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 - To learn about deploying a template, see [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)
