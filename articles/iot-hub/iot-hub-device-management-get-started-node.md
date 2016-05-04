@@ -16,7 +16,7 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Get started with Azure IoT Hub device management using C# (preview)
+# Get started with Azure IoT Hub device management using node.js (preview)
 
 [AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
@@ -29,9 +29,10 @@ To get started with Azure IoT Hub device management, you need to create an Azure
 
 You need the following installed to complete the steps:
 
-- Microsoft Visual Studio 2015
 - Git
-- CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. For a Windows PC, please choose the Windows Installer (.msi) option. Make sure to check the box to add CMake to the current user PATH variable.
+- node
+- npm
+- CMake (version 2.8 or later). Install CMake from <https://cmake.org/download/>. Make sure to check the box to add CMake to the current user PATH variable.
 - An active Azure subscription.
 
 	If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
@@ -55,7 +56,7 @@ You need to create a device management enabled IoT Hub for your simulated device
   -   Check the box to **Enable Device Management**.
   -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview. In the future, it will be available in all regions.
 
-    > [AZURE.NOTE]  If you don't check the box to **Enable Device Management** the samples won't work.
+  > [AZURE.NOTE]  If you don't check the box to **Enable Device Management** the samples won't work.
 
 4.  When you have chosen your IoT Hub configuration options, click **Create**. It can take a few minutes for Azure to create your IoT Hub. To check the status, you can monitor the progress on the **Startboard** or in the **Notifications** panel.
 
@@ -79,7 +80,7 @@ In this section, you will run a script that builds the simulated device and the 
 
 To build the samples and provision devices in you IoT Hub, follow the steps below:
 
-1.  Open the **Developer Command Prompt for VS2015**.
+1.  Open terminal.
 
 2.  Clone the github repository. **Make sure to clone in a directory that does not have any spaces.**
 
@@ -87,7 +88,7 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
 	  ```
 
-3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **\\azure-iot-sdks\\csharp\\service\\samples** folder and run, replacing the placeholder value with your connection string from the previous section:
+3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory and run, replacing the placeholder value with your connection string from the previous section:
 
 	  ```
 	  setup.bat <IoT Hub Connection String>
@@ -95,29 +96,29 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 
 This script does the following:
 
-1.  Runs **cmake** to create a Visual Studio 2015 solution for the simulated device. This project file is **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Note that the source files are in the folder ***azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Runs **cmake** to create the necessary make files to build the simulated device. The executable is in **azure-iot-sdks/node/service/samples/cmake/iotdm\_client/samples/iotdm\_simple\_sample**. Note that the source files are in the folder **azure-iot-sdks/c/iotdm\_client/samples/iotdm\_simple\_sample**.
 
-2.  Builds the simulated device project **iotdm\_simple\_sample.vcxproj**.
+2.  Builds the simulated device executable **iotdm\_simple\_sample**.
 
-3.  Builds the device management samples **azure-iot-sdks\\csharp\\service\\samples\\GetStartedWithIoTDM\\GetStartedWithIoTDM.sln**.
+3.  Runs ``` npm install ``` to install the necessary packages.
 
-4.  Runs **GenerateDevices.exe** to provision device identities in your IoT Hub. The devices are described in **sampledevices.json** (located in the **azure-iot-sdks\\node\\service\\samples** folder) and after the devices are provisioned, the credentials are stored in the **devicecreds.txt** file (located in the **azure-iot-sdks\\csharp\\service\\samples\\bin** folder).
+4.  Runs ```node generate_devices.js``` to provision device identities in your IoT Hub. The devices are described in **sampledevices.json**. After the devices are provisioned, the credentials are stored in the **devicecreds.txt** file (located in the **azure-iot-sdks/node/service/samples** directory).
 
 ## Start your simulated devices
 
-Now that the devices have been added to the device registry, you can start simulated managed devices. One simulated device is started for each device identity provisioned in the Azure IoT Hub.
+Now that the devices have been added to the device registry, you can start simulated managed devices. One simulated device needs to be started for each device identity provisioned in the Azure IoT Hub.
 
-Using the developer command prompt, in the **\\azure-iot-sdks\\csharp\\service\\samples\\bin** folder, run:
+Using terminal, in the **azure-iot-sdks/node/service/samples** directory, run:
 
   ```
-  simulate.bat
+  simulate.sh
   ```
 
-This script runs one instance of **iotdm\_simple\_sample.exe** for each device listed in the **devicecreds.txt** file. The simulated device will continue to run until you close the command window.
+This script outputs the commands you need to run to start **iotdm\_simple\_sample** for each device listed in the **devicecreds.txt** file. Please run the commands individually from a separate terminal window for each simulated device. The simulated device will continue to run until you close the command window.
 
-The **iotdm\_simple\_sample** sample application is built using the Azure IoT Hub device management client library for C, which enables the creation of IoT devices that can be managed by Azure IoT Hub. Device makers can use this library to report device properties and implement the execute actions required by device jobs. This library is a component delivered as part of the open source Azure IoT Hub SDKs.
+The **iotdm\_simple\_sample** application is built using the Azure IoT Hub device management client library for C, which enables the creation of IoT devices that can be managed by Azure IoT Hub. Device makers can use this library to report device properties and implement the execute actions required by device jobs. This library is a component delivered as part of the open source Azure IoT Hub SDKs.
 
-When you run **simulate.bat**, you see a stream of data in the output window. This output shows the incoming and outgoing traffic as well as **printf** statements in the application specific callback functions. This allows you to see incoming and outgoing traffic along with how the sample application is handling the decoded packets. When the device connects to the IoT Hub, the service automatically starts to observe resources on the device. The IoT Hub DM client library then invokes the device callbacks to retrieve the latest values from the device.
+When you run **simulate.sh**, you see a stream of data in the output window. This output shows the incoming and outgoing traffic as well as **printf** statements in the application specific callback functions. This allows you to see incoming and outgoing traffic along with how the sample application is handling the decoded packets. When the device connects to the IoT Hub, the service automatically starts to observe resources on the device. The IoT Hub DM client library then invokes the device callbacks to retrieve the latest values from the device.
 
 Below is output from the **iotdm\_simple\_sample** sample application. At the top you see a successful **REGISTERED** message, showing the device with Id **Device11-7ce4a850** connecting to IoT Hub.
 
