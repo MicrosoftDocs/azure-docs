@@ -935,3 +935,8 @@ After you process data you can consume it with online tools like **Microsoft Pow
     -   [Create and manage Azure Batch account in the Azure Portal](../batch/batch-account-create-portal.md)
 
     -   [Get started with Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
+
+
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+
