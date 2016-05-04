@@ -20,7 +20,7 @@
 
 > [AZURE.IMPORTANT] The steps in this document use the Azure Classic Portal. Microsoft does not recommend using the classic portal when creating new services. For an explanation of the advantages of the Azure Portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 >
-> This document also includes information on using Azure PowerShell and the HDInsight .NET SDK. The snippets provided for these are based on commands that use Azure Service Management (ASM) and are __deprecated__. These commands will be removed by January 1, 2017.
+> This document also includes information on using Azure PowerShell and the HDInsight .NET SDK. The snippets provided for these are based on commands that use Azure Service Management (ASM) to work with HDInsight and are __deprecated__. These commands will be removed by January 1, 2017.
 >
 >For a version of this document that uses the Azure portal, along with PowerShell and HDInsight .NET SDK snippets that use Azure Resource Manager (ARM), see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md).
 
