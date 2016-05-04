@@ -1,4 +1,23 @@
-# Helps Secures and Protects
+<properties
+   pageTitle="Azure SQL Database Helps Secures and Protects"
+   description="Learn how SQL Database helps, secures and protects"
+   keywords=""
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="05/04/2016"
+   ms.author="carlrab"/>
+   
+# Azure SQL Databse Helps Secures and Protects
 
 ![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 

@@ -1,4 +1,23 @@
-# Learns &amp; Adapts
+<properties
+   pageTitle="Azure SQL Database Learns and Adapts"
+   description="Learn how SQL Database learns and adapts"
+   keywords=""
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="05/04/2016"
+   ms.author="carlrab"/>
+
+# Azure SQL Database Learns &amp; Adapts
 
 ![learn-and-adapt](./media/sql-database-learn-and-adapt/sql-database-learn-and-adapt.png)
 

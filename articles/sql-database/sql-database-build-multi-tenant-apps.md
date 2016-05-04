@@ -1,3 +1,22 @@
+<properties
+   pageTitle="Azure SQL Database Builds Multi-Tenant Apps"
+   description="Learn how SQL Database builds multi-tenant apps"
+   keywords=""
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="05/04/2016"
+   ms.author="carlrab"/>
+
 # Builds Multi-tenant Apps
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
@@ -22,7 +41,7 @@ Built-in sizing recommendations proactively identify databases that would benefi
 
 Basic, Standard, and Premium pools provide you a broad spectrum of performance, storage and pricing options. Pools can contain up to 400 elastic databases. Elastic databases can auto-scale up to 1000 elastic database transaction units (eDTU).
 
-[Read the documentation](https://azure.microsoft.com/en-us/pricing/details/sql-database/?b=16.50)
+[Read the documentation](https://azure.microsoft.com/pricing/details/sql-database/?b=16.50)
 
 ## Elastic tools
 

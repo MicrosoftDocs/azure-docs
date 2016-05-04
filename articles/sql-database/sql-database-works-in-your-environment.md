@@ -1,4 +1,23 @@
-# Works in your Environment
+<properties
+   pageTitle="Azure SQL Database Works in Your Environment"
+   description="Learn how SQL Database helps, secures and protects"
+   keywords=""
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="05/04/2016"
+   ms.author="carlrab"/>
+
+# Azure SQL Database Works in your Environment
 
 ![works-in-your-environment](./media/sql-database-works-in-your-environment/sql-database-works-in-your-environment.png)
 
