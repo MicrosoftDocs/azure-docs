@@ -32,7 +32,7 @@ You can use any type of editor when creating the template. Visual Studio provide
 The template is a JSON file that defines all of the resources you will deploy. It also permits you to define parameters that are specified during deployment, variables that constructed from other values and expressions, and outputs from the deployment. 
 
 Let's start with the simplest template:
-
+```json
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
@@ -41,6 +41,7 @@ Let's start with the simplest template:
       "resources": [  ],
       "outputs": {  }
     }
+ ```
 
 Save this file as **azuredeploy.json** (note that the template can have any name you want, just that it must be a json file).
 
@@ -159,12 +160,14 @@ Notice that the **name** is set to the value of a variable. For this template, t
 
 The value you specify for **type** contains both the resource provider and the resource type. For availability sets, the resource provider is **Microsoft.Compute** and the resource type is **availabilitySets**. You can get the list of available resource providers by running the following PowerShell command:
 
+```powershell
     Get-AzureRmResourceProvider -ListAvailable
+```
 
 Or, if you are using Azure CLI, you can run the following command:
-
+```
     azure provider list
-
+```
 Given that in this topic you are creating with storage accounts, virtual machines, and virtual networking, you will work with:
 
 - Microsoft.Storage
@@ -172,13 +175,13 @@ Given that in this topic you are creating with storage accounts, virtual machine
 - Microsoft.Network
 
 To see the resource types for a particular provider, run the following PowerShell command:
-
+```powershell
     (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-
+```
 Or, for Azure CLI, the following command will return the available types in JSON format and save it to a file.
-
+```
     azure provider show Microsoft.Compute --json > c:\temp.json
-
+```
 You should see **availabilitySets** as one of the types within **Microsoft.Compute**. The full name of the type is **Microsoft.Compute/availabilitySets**. You can determine the resource type name for any of the resources in you template.
 
 ## Public IP
@@ -203,8 +206,9 @@ The allocation method is set to **Dynamic** but you could set it to the value yo
 
 Now, let's look at how you determine the **apiVersion**. The value you specify simply matches the version of the REST API that you want to use when creating the resource. So, you can look at the REST API documentation for that resource type. Or, you can run the following PowerShell command for a particular type.
 
+```powershell
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
-
+```
 Which returns the following values:
 
     2015-06-15
@@ -453,7 +457,7 @@ You have finished defining the resources for your template.
 
 In the parameters section, define the values that can be specified when deploying the template. Only define parameters for values that you think should be varied during deployment. You can provide a default value for a parameter that is used if one is not provided during deployment. You can also define the allowed values as shown for the **imageSKU** parameter.
 
-```
+```json
 "parameters": {
     "storageAccountName": {
       "type": "string",
@@ -554,7 +558,7 @@ In the parameters section, define the values that can be specified when deployin
 
 In the variables section, you can define values that are used in more than one place in your template, or values that are constructed from other expressions or variables. Variables are frequently used to simplify the syntax of your template.
 
-```
+```json
 "variables": {
     "availabilitySetName": "myAvSet",
     "subnetName": "Subnet-1",
