@@ -1,6 +1,6 @@
 <properties
    pageTitle="Scale a Service Fabric cluster up or down | Microsoft Azure"
-   description="Scale a Service Fabric cluster up or down to match demand by adding or removing virtual machines."
+   description="Scale a Service Fabric cluster up or down to match demand by setting auto-scale rules for each node type/VMSS."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -17,18 +17,13 @@
    ms.author="chackdan"/>
 
 
-# Scale a Service Fabric cluster up or down by adding or removing virtual machines from a cluster node type
+# Scale a Service Fabric cluster up or down using auto-scale rules
 
-Virtual Machine Scale Sets (VMSS) are an Azure compute resource which you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VMSS. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document.
+Virtual Machine Scale Sets (VMSS) are an Azure compute resource which you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is setup as a separate VMSS. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Read more about it in the [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Since the Service Fabric node types in your cluster are made of VMSS at the backend, you will need to set up auto-scale rules for each node type/VMSS.
 
 >[AZURE.NOTE] Your subscription must have enough cores to add the new VMs that will make up this cluster. There is no model validation currently, so you will get a deployment time failure, if any of the quota limits are hit.
 
-
-## Auto-scale Service Fabric clusters
-
-Since the Service Fabric Node types in your cluster is made of VMSS at the backend, you will need to set up Auto-scale rules for each one of them.
-
-### Choose the node type/VMSS to scale
+## Choose the node type/VMSS to scale
 
 Currently, you are not able to specify the auto-scale rules for VMSS using the portal, so let us use Azure PowerShell (1.0+) to list the node types and then add auto-scale rules to them.
 
@@ -40,7 +35,7 @@ Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/
 Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <VM Scale Set name>
 ```
 
-### Set auto-scale rules for the node type/VMSS
+## Set auto-scale rules for the node type/VMSS
 
 If your cluster has multiple node types, then you will need to do this for each of the node types/VMSS that you want to scale (up or down). Take into account the number of nodes that you must have before you set up auto-scaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. Read more about [reliability levels](service-fabric-cluster-capacity.md).
 
@@ -52,7 +47,7 @@ Follow these instructions [to set up auto-scale for each VMSS](../virtual-machin
 
 >[AZURE.NOTE] In a scale down scenario, unless your node type has a durability level of Gold or Silver you will need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/azure/mt125993.aspx) with the appropriate node name.
 
-### Behaviors you may observe in Service Fabric Explorer
+## Behaviors you may observe in Service Fabric Explorer
 
 When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (VMSS instances) that are part of the cluster.  However, when you scale a cluster down you will still see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) with the appropriate node name.   
 
@@ -71,6 +66,7 @@ Refer to [the details on durability levels](service-fabric-cluster-capacity.md)
 
 ## Next steps
 Read the following to also learn about planning cluster capacity, upgrading a cluster, and partitioning services:
+
 - [Plan your cluster capacity](service-fabric-cluster-capacity.md)
 - [Cluster upgrades](service-fabric-cluster-upgrade.md)
 - [Partition stateful services for maximum scale](service-fabric-concepts-partitioning.md)
