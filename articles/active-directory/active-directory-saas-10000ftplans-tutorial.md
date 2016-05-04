@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -105,11 +105,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10000ftplans_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your 10,000ft Plans application using the following pattern: **“https://app.10000ft.com”**.<br>
+    a. In the **Sign On URL** textbox, type **“https://app.10000ft.com”**.
 
-	b. In the IDENTIFIER textbox, type the URL in the following pattern: **"https://app.10000ft.com/saml/metadata"**
+	b. In the **Identifier** textbox, type **"https://app.10000ft.com/saml/metadata"**.
 
-	c. In the REPLY URL textbox, type the URL in the following pattern: **"https://app.10000ft.com/saml/acs"**
+	c. In the **Reply URL** textbox, type **"https://app.10000ft.com/saml/acs"**.
 
 	c. Click **Next**
 
@@ -187,7 +187,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 The objective of this section is to create a user called Britta Simon in 10,000ft Plans. 10,000ft Plans supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user will be created during an attempt to access 10,000ft Plans if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+There is no action item for you in this section. A new user will be created during an attempt to access 10,000ft Plans if it doesn't exist yet. 
 
 > [AZURE.NOTE] If you need to create an user manually, you need to contact the Certify support team.
 
