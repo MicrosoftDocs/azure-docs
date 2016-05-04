@@ -23,7 +23,7 @@
 - [Classic](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 - [Resource Manager](../articles/virtual-machines/virtual-machines-windows-arm-restart-resize-error-troubleshooting.md)
 
-When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size. This article details how to troubleshoot a classic deployment Azure VM restarting or resizing issue.
+When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size. 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
@@ -31,7 +31,7 @@ When you try to start a stopped Azure Virtual Machine (VM), or resize an existin
 
 ## Collect audit logs
 
-To start troubleshooting, collect the audit logs to identify the error associated with the issue:
+To start troubleshooting, collect the audit logs to identify the error associated with the issue.
 
 In the Azure portal, click **Browse** > **Virtual machines** > _your Windows virtual machine_ > **Settings** > **Audit logs**.
 
@@ -73,6 +73,7 @@ Click **Browse all** > **Virtual machines (classic)** > _your virtual machine_ >
 
   * Create a new cloud service, ensuring it is not linked to an affinity group and not associated with a virtual network that is linked to an affinity group.
 
-  * Create the new, larger-sized VM in it.<br />
+  * Create the new, larger-sized VM in it.
+  
   You can consolidate all your VMs in the same cloud service. If your existing cloud service is associated with a region-based virtual network, you can connect the new cloud service to the existing virtual network.<br />
   If the existing cloud service is not associated with a region-based virtual network, then you have to delete the VMs in the existing cloud service, and recreate them in the new cloud service from their disks. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
