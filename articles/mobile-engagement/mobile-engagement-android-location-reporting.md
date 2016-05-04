@@ -23,6 +23,8 @@
 
 This topic describes how to do Engagement location reporting in your Android application.
 
+## Prerequisites
+
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 

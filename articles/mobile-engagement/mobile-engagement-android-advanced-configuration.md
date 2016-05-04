@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="05/04/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Advanced Configuration for Android Mobile Engagement
@@ -22,6 +22,8 @@
 - [Android](mobile-engagement-android-logging.md)
 
 This procedure describes how to configure various advanced configuration options for Engagement Android apps.
+
+## Prerequisites
 
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="05/04/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Reporting Options with Engagement on Android

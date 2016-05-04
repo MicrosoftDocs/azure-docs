@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="05/04/2016"
 	ms.author="piyushjo;ricksal" />
 
 
@@ -27,21 +27,24 @@
 
 Learn about all the advanced features of Azure Mobile Engagement you can integrate into your Android App.
 
-AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
+[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## Advanced Features
 
 ### Reporting Features
 
 You can add these features:
+
 1. [Advanced reporting options](mobile-engagement-android-basic-reporting.md)
 2. [Location Reporting](mobile-engagement-android-location-reporting.md)
 3. [Advanced Configuration](mobile-engagement-android-advanced-configuration.md)
 
 ### Notifications:
 [How to integrate Reach (Notifications) in your Android app](mobile-engagement-android-integrate-engagement-reach.md)
-	1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
-	2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](mobile-engagement-android-adm-integrate.md)
+
+1. Google Cloud Messaging (GCM): [How to Integrate GCM with Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+
+2. Amazon Device Messaging (ADM): [How to Integrate ADM with Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
 ### Tag plan implementation:
 [How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
