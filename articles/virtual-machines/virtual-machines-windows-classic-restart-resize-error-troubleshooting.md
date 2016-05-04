@@ -17,7 +17,7 @@
    ms.devlang="na"
    ms.author="delhan"/>
 
-# Troubleshoot deployment issues with restarting or resizing an existing Azure Virtual Machine
+# Troubleshoot classic deployment issues with restarting or resizing an existing Azure Virtual Machine
 
 > [AZURE.SELECTOR]
 - [Classic](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
