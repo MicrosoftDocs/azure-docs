@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/04/2016" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs - Diagnosis guidelines
@@ -78,7 +78,7 @@ Assuming the Notification Hub was configured correctly and any tags/tag expressi
 
 > [AZURE.NOTE] Since we do the processing in parallel, we don’t guarantee the order in which the notifications will be delivered. 
 
-Now Azure Notifications Hub is optimized for an "at-most once" message delivery model. This means that we attempt a de-duplication so that no notifications are delivered more than once to a device. To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS. As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely. This is especially true with APNS which uses a TCP stream protocol. Since we are optimized for at-most once delivery, it is to be noted that there is no retry for this failed batch since we do not know for sure if the PNS dropped the entire batch or partially. PNS does however tell Azure NH which registration caused the failure and based on the feedback we remove that registration from our database. This implies that it is possible that one registration batch or a subset of it may not receive a notification however since we cleaned up the bad registration, the next time a send is attempted, there is a higher chance of successful send. As the scale of number of target devices grow (some of our customers send notification to millions of devices), dropping an odd batch here and there doesn’t make much difference in the overall percentage of devices receiving notifications however if you are sending a few notifications and there are some PNS errors then you may see either all or most notifications not getting received. If you are seeing this behavior repeatedly then you must identify any bad registrations and delete them. You must definitely delete any hand-formed registrations as they are the most common cause of dropped notifications. If this is a test environment, you may also directly delete all the registrations as the apps when opened on the devices will retry and re-register with the Notification Hubs ensuring that all registrations there forth created will be valid ones. 
+Now Azure Notifications Hub is optimized for an "at-most once" message delivery model. This means that we attempt a de-duplication so that no notifications are delivered more than once to a device. To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS. As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely. This is especially true with APNS which uses a TCP stream protocol. Although we are optimized for at-most once delivery, in this case we remove the faulting registration from our database and then retry notification delivery for the rest of the devices in that batch.  
 
 ##PNS issues
 
