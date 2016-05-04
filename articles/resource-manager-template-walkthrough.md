@@ -389,8 +389,6 @@ The VM creation depends on the storage account, network interface and availabili
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
 To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
-For images published by 3rd party vendors, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
-
 
 ```json
 {
@@ -450,6 +448,9 @@ For images published by 3rd party vendors, you will need to specify another prop
      }
 }
 ```
+
+For images published by **3rd party vendors**, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
+
 
 You have finished defining the resources for your template.
 
