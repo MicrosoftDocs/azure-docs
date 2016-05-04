@@ -16,14 +16,16 @@
 	ms.date="05/04/2016" 
 	ms.author="billmath"/>
 
-## Creating an Azure Multi-Factor Auth Provider
+
+
+# Getting started with an Azure Multi-Factor Auth Provider
 Multi-factor authentication is available by default for global administrators who have Azure Active Directory and Office 365 users. However, if you wish to take advantage of [advanced features](multi-factor-authentication-whats-next.md) then you must purchase the full version of Azure MFA. 
 
 > [AZURE.NOTE]  An Azure Multi-Factor Auth Provider is used to take advantage of features provided by the full version of Azure MFA. It is for users who **do not have licenses through Azure MFA, Azure AD Premium, or EMS**.  Azure MFA, Azure AD Premium, and EMS include the full version of Azure MFA by default.  IF you have licenses then you do not need an Azure Multi-Factor Auth Provider. 
  
 Use the following steps to create an Azure Multi-Factor Auth Provider.
 
-### To create a Multi-Factor Auth Provider
+## To create a Multi-Factor Auth Provider
 --------------------------------------------------------------------------------
 
 1. Log on to the **Azure classic portal** as an Administrator.

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication User States 
+	pageTitle="Azure Multi-Factor Authentication User States" 
 	description="This is the Azure Multi-Factor authentication page that describes user states in Azure MFA." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 

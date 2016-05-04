@@ -16,11 +16,11 @@
 	ms.date="05/04/2016" 
 	ms.author="billmath"/>
 
-## Assigning an Azure MFA, Azure AD Premium, or Enterprise Mobility license to users
+# Assigning an Azure MFA, Azure AD Premium, or Enterprise Mobility license to users
 
 If you have purchased Azure MFA, Azure AD Premium, or Enterprise Mobility Suite licenses, you do not need to create a Multi-Factor Auth provider. You need to simply assign the licenses to your users and then you can begin enabling them for MFA.
 
-### To assign an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite License
+## To assign an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite License
 --------------------------------------------------------------------------------
 
 1. Sign in to the **Azure classic portal** as an Administrator.
