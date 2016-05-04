@@ -118,7 +118,7 @@ Before you start the migration experience, we highly recommend you to follow a f
 
 With the announcement of Public Preview, we have added support for triggering migration through REST APIs, PowerShell & Azure CLI. Azure Portal support for migration for you to visualize and walk through the migration from Classic to ARM Migration is currently planned.
 
-	![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-asm-arm/migration-workflow.png)
+![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-asm-arm/migration-workflow.png)
 
 1.	Prepare
 	* This is the first step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from Classic to Resource Manager resources and present this side by side for you to visualize. The detailed flow of actions are described below.
