@@ -105,7 +105,7 @@ You can now work with the virtual machine just as you would with any other serve
 
 It is a good idea to stop the VM so you don't incur charges when you aren't actually using it. Just click the **Stop** button and then click **Yes**.
 
-	![Screenshot showing the button to stop a VM.](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
+![Screenshot showing the button to stop a VM.](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
 	
 Just click the **Start** button to restart the VM when you are ready to use it again.
 
