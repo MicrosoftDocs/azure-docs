@@ -99,7 +99,7 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 
 Open up a web browser and enter the DNS name you specified during deployment to see your container in action:
 
-![Running ngnix container](./media/virtual-machines-docker-deployment-options/nginxrunning.png)
+![Running ngnix container](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
 ## Docker VM Extension JSON template reference
 
