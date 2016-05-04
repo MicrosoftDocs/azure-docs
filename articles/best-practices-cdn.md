@@ -172,7 +172,7 @@ If you deliver client-side scripts using the CDN, you may encounter issues if th
 
 + If the origin from which you are delivering content is Azure blob storage, you can add a *CorsRule* to the service properties. The rule can specify the allowed origins for CORS requests, the allowed methods such as GET, and the maximum age in seconds for the rule (the period within which the client must request the linked resources after loading the original content). For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
-+ If the origin from which you are delivering content is a folder within the application, such as the *cdn* root folder, you can configure outbound rules in the application configuration file to set an *Access-Control-Allow-Origin* header on all responses. For more information about using rewrite rules, see [URL Rewrite Module](http://www.iis.net/learn/extensions/url-rewrite-module). Note that this technique is not possible when using Azure Web Sites.
++ If the origin from which you are delivering content is a folder within the application, such as the *cdn* root folder, you can configure outbound rules in the application configuration file to set an *Access-Control-Allow-Origin* header on all responses. For more information about using rewrite rules, see [URL Rewrite Module](http://www.iis.net/learn/extensions/url-rewrite-module).
 
 ### Custom domains
 
