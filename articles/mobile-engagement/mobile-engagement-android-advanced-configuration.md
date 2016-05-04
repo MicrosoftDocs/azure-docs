@@ -45,13 +45,13 @@ These permissions are required for basic reporting fucntionality.
 
 If you want to be sure that statistics are sent in real time when using Wifi or when the screen is off, add the following optional permission:
 
-			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+		<uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 ### Background reporting
 
 By default, real time location reporting is only active when the application runs in foreground (i.e. during a session). To enable reporting also in the background, permissions are required.
 
-			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 And starting with Android M, [some permissions are managed at run time](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
 
@@ -80,7 +80,7 @@ If you want to disable crash reports, add this (between the `<application>` and 
 
 By default, the Engagement service reports logs in real time. If your application reports logs very frequently, it is better to buffer the logs and to report them all at once on a regular time base (this is called the "burst mode"). To do so, add this code between the `<application>` and `</application>` tags:
 
-			<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
+		<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 The burst mode slightly increase the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration will be rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). It is recommended to use a burst threshold no longer than 30000 (30s).
 
@@ -88,7 +88,7 @@ The burst mode slightly increase the battery life but has an impact on the Engag
 
 By default, a session is ended 10s after the end of its last activity (which usually occurs by pressing the Home or Back key, by setting the phone idle or by jumping into another application). This is to avoid a session split each time the user exit and return to the application very quickly (which can happen when he pick up a image, check a notification, etc.). You may want to modify this parameter. To do so, add this (between the `<application>` and `</application>` tags):
 
-			<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
+		<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
 ## Disable log reporting
 
