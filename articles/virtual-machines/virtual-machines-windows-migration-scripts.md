@@ -21,7 +21,7 @@
 
 This article will show you how to use the scripts located at [Azure/classic-iaas-resourcemanager-migration](https://github.com/Azure/classic-iaas-resourcemanager-migration) to clone a **single** VM from Azure Service Management stack to the Azure Resource Manager stack.
 
->[AZURE.IMPORTANT]Migrating with these scripts will cause downtime for your Virtual Machine.
+>[AZURE.IMPORTANT]Cloning with these scripts will cause downtime for your Virtual Machine.
 
 ## Getting the scripts
 
