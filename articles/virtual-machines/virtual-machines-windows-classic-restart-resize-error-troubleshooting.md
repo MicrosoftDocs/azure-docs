@@ -1,6 +1,6 @@
 <properties
    pageTitle="VM restarting or resizing issues | Microsoft Azure"
-   description="Troubleshoot classic deployment issues with restarting or resizing an existing Azure Virtual Machine"
+   description="Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="delhan"
@@ -17,7 +17,7 @@
    ms.devlang="na"
    ms.author="delhan"/>
 
-# Troubleshoot classic deployment issues with restarting or resizing an existing Azure Virtual Machine
+# Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
 
 > [AZURE.SELECTOR]
 - [Classic](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
