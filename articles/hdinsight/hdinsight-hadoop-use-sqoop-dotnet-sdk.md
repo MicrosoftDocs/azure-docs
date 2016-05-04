@@ -35,13 +35,12 @@ Before you begin this tutorial, you must have the following:
 
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. In this section, you will create a C# console application to export the hivesampletable to the SQL Database table you created earlier in this tutorials.
 
-
 **To submit a Sqoop job**
 
 1. Create a C# console application in Visual Studio.
 2. From the Visual Studio Package Manager Console, run the following Nuget command to import the package.
 
-        Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight.Job
         
 3. Use the following code in the Program.cs file:
 
