@@ -48,26 +48,27 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
 3. [Run the bootstrap.cmd and script](azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment).
 
-   A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE).
+   A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE). In each tab, you run the loaded scripts in sequence from left to right.
 
-4. Run all the loaded scripts in sequence from left to right in each tab. The scripts will:
-  - In the “Prepare” tab:
-   - Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
-   - Upload the certificates and all other artifacts to an Azure Stack storage account.
-   - Publish gallery packages to allow deployment SQL and resources through gallery.
+5. Run scripts in the "Prepare tab from left to right to:
 
-  > [AZURE.IMPORTANT] if any of the above scripts hangs for no apparent reason after submitting you AAD tenant, your security settings might be blocking one of the DLLs required for the deployment to run. To resolve this, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your RP folder, right click it, click **Properties** and check **Unblock** in the "General" tab.
+  - Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
+  - Upload the certificates and all other artifacts to an Azure Stack storage account.
+  - Publish gallery packages to allow deployment SQL and resources through gallery.
 
- - In the “Deploy” tab:
+  > [AZURE.IMPORTANT] If any of the above scripts hangs for no apparent reason after submitting your AAD tenant, your security settings might be blocking one of the DLLs required for the deployment to run. To resolve this, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your RP folder, right click it, click **Properties** and check **Unblock** in the "General" tab.
+
+6. Run scripts in the  “Deploy” tab from left to right to:
+
   - [Deploy a VM](azure-stack-sql-rp-deploy-long.md#Deploy-the-SQL-Server-Resource-Provider-VM) that hosts both your resource provider and hosting SQL Server. This script references a JSON parameter file, which you need to update with some values before you run the script.
   - [Register a local DNS record](azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that maps to your resource provider VM.
   - [Register your resource provider](azure-stack-sql-rp-deploy-long.md#Register-the-SQL-RP-Resource-Provider) with the local Azure Resource Manager.
 
-	> [AZURE.IMPORTANT] All scripts assume the base operating system image fulfills the prerequisites (.NET 3.5, Javascript and cookies enabled on the clientVM, and a compatible version of Azure PowerShell). If you get errors running the scripts, double-check that you fulfilled the prerequisites.
+  > [AZURE.IMPORTANT] All scripts assume the base operating system image fulfills the prerequisites (.NET 3.5, Javascript and cookies enabled on the clientVM, and a compatible version of Azure PowerShell). If you get errors running the scripts, double-check that you fulfilled the prerequisites.
 
 5. [Connect the resource provider to a hosting SQL Server](#Provide-capacity-to-your-SQL-Resource-Provider-by-connecting-it-to-a-hosting-SQL-server) in the Azure Stack portal. Click **Browse** &gt; **Resource** **Providers** &gt; **SQLRP** &gt; **Go to Resource Provider** **Management** &gt; **Servers** &gt; **Add**
 
-    Use “sa” for username and the password you used when you deployed the resource provider VM.
+  Use “sa” for username and the password you used when you deployed the resource provider VM.
 
 6. [Test your new SQL Server RP](/azure-stack-sql-rp-deploy-long.md#create-your-first-sql-database-to-test-your-deployment) by deploying a SQL database in the Azure Stack portal. Click **Create &gt; Custom &gt; SQL Server Database**.
 
