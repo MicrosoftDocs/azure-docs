@@ -16,9 +16,10 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Tutorial: How to use the device twin with C# (preview)
+# Tutorial: How to use the device twin with Node.js (preview)
 
 [AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
+
 ## Introduction
 
 Azure IoT Hub device management introduces the device twin, a service side representation of a physical device. Below is a diagram showing the different components of the device twin.
@@ -41,7 +42,6 @@ The complete list of device properties that are automatically observed is listed
 
 ![][img-observed]
 
-
 ## Running the device twin sample
 
 The following sample extends the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial functionality. Starting from having the different simulated devices running, it uses the device twin to read and change properties on a simulated device.
@@ -52,34 +52,40 @@ Before running this sample, you must have completed the steps in [Get started wi
 
 ### Starting the sample
 
-To start the sample, you need to run the **DeviceTwin.exe** process. This reads the device properties from the device twin and from the physical device. It also changes a device property on the physical device. Follow the steps below to start the sample:
+To start the sample, you need to run ```jobClient_devicePropertyReadWrite.js```. This reads the device properties from the device twin and from the physical device. It also changes a device property on the physical device. Follow the steps below to start the sample:
 
-1.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks\\csharp\\service\\samples\\bin** folder.  
+1.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **azure-iot-sdks/node/service/samples** directory.  
 
-2.  Run `DeviceTwin.exe <IoT Hub Connection String>`.
+2.  Open **jobClient_devicePropertyReadWrite.js** and replace the placeholder with your IoT Hub connection string.
+
+2.  Run `node jobClient_devicePropertyReadWrite.js`.
 
 You should see output in the command line window showing the use of the device twin. The sample goes through the following process:
 
-1.  Prints out all device properties on a device twin.
+1.  Shallow read: prints out the `BatteryLevel` and `Timezone` device properties on the device twin.
 
-2.  Deep read: read the battery level device property from the physical device (3 times).
+2.  Deep read: read the `Timezone` device property from the physical device.
 
-3.  Deep write: write the **Timezone** device property on the physical device.
+3. Shallow read: prints out the `BatteryLevel` and `Timezone` device properties on the device twin.
 
-4.  Deep read: read the **Timezone** device property from the physical device to see it has changed.
+4.  Deep write: write the **Timezone** device property on the physical device.
+
+5.  Deep read: read the **Timezone** device property from the physical device to see it has changed.
+
+6.  Shallow read: prints out the `BatteryLevel` and `Timezone` device properties on the device twin.
 
 ### Shallow Read
 
 There is a difference between *shallow* reads and *deep* reads/writes. A shallow read returns the value of the requested property from the device twin stored in Azure IoT Hub. This will be the value from the previous notify operation. You cannot do a shallow write because the physical device is the authoritative source for device properties. A shallow read is simply reading the property from the device twin:
 
 ```
-device.DeviceProperties[DevicePropertyNames.BatteryLevel].Value.ToString();
+deviceInfo.deviceProperties.BatteryLevel.value
 ```
 
 To determine the freshness of these values, you can check the last updated time:
 
 ```
-device.DeviceProperties[DevicePropertyNames.BatteryLevel].LastUpdatedTime.ToString();
+deviceInfo.deviceProperties.BatteryLevel.lastUpdatedTime
 ```
 
 You can similarly read service properties, which are only stored in the device twin. They are not synchronized to the device.
@@ -89,7 +95,7 @@ You can similarly read service properties, which are only stored in the device t
 A deep read starts a device job to read the value of the requested property from the physical device. Device jobs were introduced in the [Overview of Azure IoT device management][lnk-dm-overview] and are described in detail in [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs]. The deep read will give you a more up-to-date value for the device property, because the freshness is not limited by the notify interval. The job sends a message to the physical device and updates the device twin with the most recent value for only the specified property. It does not refresh the whole device twin.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyReadAsync(Guid.NewGuid().ToString(), deviceId, propertyToRead);
+scheduleDevicePropertyRead(jobId, deviceIds, propertyNames, done)
 ```
 
 You cannot do a deep read on service properties or tags because they are not synchronized to the device.
@@ -101,7 +107,7 @@ If you want to change a writeable device property, you can do this with a deep w
 The job sends a message to the physical device to update the specified property. The device twin is not immediately updated when the job completes. You must wait until the next notify interval. Once the synchronization occurs, you can see the change in the device twin with a shallow read.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue); TODO
+scheduleDevicePropertyWrite(jobId, deviceIds, properties, done)
 ```
 
 ### Device simulator implementation details
