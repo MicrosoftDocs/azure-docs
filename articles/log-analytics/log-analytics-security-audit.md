@@ -60,7 +60,7 @@ You should also enable AppLocker events, to get rich information about process e
 
 **Configure the audit level for Windows events**
 
-The Windows computing environment gives you the ability to configure the capture-level of security-related records. For example, you can configure your environment so that anytime someone accesses a file, reads a file, or opens a file, an event is generated. The level of detail that you want to collect will vary, depending on your needs. However, every option that you enable comes with some sort of cost because you need to store all the information that you collect. For this reason, in many organization’s IT environments, people decide not to enable object read or object write data collection. Every time someone accesses any file, thousands of events might be generated, some of which are useless noise. The collection level that you decide upon depends on the your best judgment.
+The Windows computing environment gives you the ability to configure the capture-level of security-related records. For example, you can configure your environment so that anytime someone accesses a file, reads a file, or opens a file, an event is generated. The level of detail that you want to collect will vary, depending on your needs. However, every option that you enable comes with some sort of cost because you need to store all the information that you collect. For this reason, in many organization’s IT environments, people decide not to enable object read or object write data collection. Every time someone accesses any file, thousands of events might be generated, some of which are useless noise. Collection level that you decide upon depends on the your best judgment.
 
 >[AZURE.NOTE] If you are using the direct agent and you have a proxy server in your organization, you should configure it to allow the agent to access OMS. For more information, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
 
@@ -137,11 +137,11 @@ In this example, we'll look at a possible malicious IP address using Windows fir
     ![Image of the Overview page](./media/log-analytics-security-audit/oms-security-audit-dash02.png)  
 3. On the **Security and Audit** page, review the summary information in the **Distinct Suspicious IP Addresses Accessed** tile.  
     ![Security and Audit page showing suspicious IP](./media/log-analytics-security-audit/oms-maliciousip-01.png)  
-4. In this example, there are 6 suspicious Ip addresses. Click the **Distinct Suspicious IP Addresses Accessed** tile.
+4. In this example, there are 6 suspicious IP addresses. Click the **Distinct Suspicious IP Addresses Accessed** tile.
 5. Search displays the query and results for the malicious IP addresses that it found. In the example, there are 6 results and the IP addresses are displayed.  
     ![search results showing suspicious IP addresses](./media/log-analytics-security-audit/oms-maliciousip-02-revised.png)  
 6. In the image above, notice the last IP address. In this example it is **94.102.56.130**. Click that address.
-7. Search displays detailed results, showing various threat indicator data. **Click show** more to see the full set of results.
+7. Search displays detailed results, showing various threat indicator data. **Click show** more to see the full set of results.  
     ![search results showing detailed threat indicator data](./media/log-analytics-security-audit/oms-maliciousip-03-revised.png)  
 8. If you want to view a list of all the servers in your environment that might be communicating with a malicious IP, you can use the following log search query.
 
@@ -160,7 +160,7 @@ If you are sure that a component or process in your network is communicating wit
 - Temporarily leave questionable software installed so that you can closely monitor its activity. After a thorough assessment, take corrective action, as necessary.
 
 
-However, if you are *not certain* that you data is being sent to a known malicious IP addresses, or if the *confidence is questionable*, then  your corrective actions are less clear. In general, you might want to investigate using some of the steps listed above. In other cases, you might not want to take any action at all. Ultimately, you’re the most familiar with the IT infrastructure in your organization and you’re in the best position to determine how potential threats are dealt with.
+However, if you are *not certain* that your data is being sent to a known malicious IP addresses, or if the *confidence is questionable*, then  your corrective actions are less clear. In general, you might want to investigate using some of the steps listed above. In other cases, you might not want to take any action at all. Ultimately, you’re the most familiar with the IT infrastructure in your organization and you’re in the best position to determine how potential threats are dealt with.
 
 
 Firewall logs show the direction that data moves. When your  firewall is configured to block outgoing (shown as send in the logs) communication to specific IPs, then attempted communication by potentially compromised software to malicious IPs appears as *blocked* in your log search results. This is a case where you should take additional action—although compromised software might be blocked to a specific IP address, the software might try to communicate with other unknown and potential malicious IP addresses in the future.  
@@ -182,20 +182,15 @@ There are 3 methods that Microsoft receives threat data, which is aggregated to 
 
 The following malicious IP address fields appear in log search results.  
 
-- **IsActive**
-    - Designates that the indicator is active and should be considered a valid hit if it matches a found IP address. MSTIC maintains this indicator.
-- **Confidence**
-    - Shows a value from 1 -100. MSTIC maintains this value and the algorithms that define it. This is a good value to filter your search results on.
-- **TLPLevel**
-    - The traffic light protocol level. Values are: Green, Amber and Red. These values correspond to low business impact, medium business impact, and high business impact, respectively.
-- **IndicatorThreatType**
-    - A brief description of the type of threat the indicator poses. Some include: Botnet, DDoS, Malware, Malicious Url, Malicious IP, Phishing, and Spam.
-- **Severity**
-    - Shows a value from 0-5. This indicate how severe the threat is.
-- **MaliciousIP**
-    - The IP address of the malicious host.
-- **CommunicationDirection**
-    - Shows the direction that IP traffic is occuring to the malicious IP address.
+|search field| description |
+|---|---|
+| **IsActive**| Designates that the indicator is active and should be considered a valid hit if it matches a found IP address. MSTIC maintains this indicator.|
+|**Confidence**| Shows a value from 1 -100. MSTIC maintains this value and the algorithms that define it. This is a good value to filter your search results on.|
+|**TLPLevel**| The traffic light protocol level. Values are: Green, Amber and Red. These values correspond to low business impact, medium business impact, and high business impact, respectively.|
+| **IndicatorThreatType** | A brief description of the type of threat the indicator poses. Some include: Botnet, DDoS, Malware, Malicious URL, Malicious IP, Phishing, and Spam.|
+| **Severity** | Shows a value from 0-5. This indicates how severe the threat is.|
+| **MaliciousIP** | The IP address of the malicious host.|
+| **CommunicationDirection** | Shows the direction that IP traffic is occurring to the malicious IP address.|
 
 ## Next steps
 
