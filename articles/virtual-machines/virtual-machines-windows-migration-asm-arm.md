@@ -155,7 +155,7 @@ No. The Virtual Machines (Classic) are fully supported GA services and you can c
 
 **What happens to my VMs if I don’t plan on migrating in the near future?**
 
-We are not deprecating the existing Classic APIs and resource model. We want to make migration extremely easy given the advanced features available in the Resource Manager Stack. Thus, we highly recommend that you review some of the advancements made as part of the IaaS stack under Resource Manager [here](../virtual-machines-windows-compare-deployment-models.md).
+We are not deprecating the existing Classic APIs and resource model. We want to make migration extremely easy given the advanced features available in the Resource Manager Stack. Thus, we highly recommend that you review some of the advancements made as part of the IaaS stack under Resource Manager [here](./virtual-machines-windows-compare-deployment-models.md).
 
 **What does this migration plan mean for my existing tooling?**
 
