@@ -51,7 +51,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 **Time**: If you are familiar with Azure, Data Factory, and Batch, and have completed the prerequisites, we estimate this solution will take 1-2 hours to complete.
 
-### Prerequisites
+## Prerequisites
 
 1.  **Azure subscription**. If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -101,7 +101,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 6.  **Microsoft Visual Studio 2012 or later** (to create the custom Batch activity to be used in the Data Factory solution).
 
-### High-level steps to create the solution
+## High-level steps to create the solution
 
 1.  Create a custom activity to use in the Data Factory solution. The custom activity contains the data processing logic.
 
@@ -893,9 +893,18 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 3.  Create a pool with higher/lower **Maximum tasks per VM**. Update the Azure Batch linked service in the Data Factory solution to use the new pool you created. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
 
-4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md).
+4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+	See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
+
+	The Azure Batch service could take 15-30 minutes to prepare the VM before running the custom activity on the VM. 
+	 
+5. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+
+ 
+
 
 ## Next steps: Consume the data
 

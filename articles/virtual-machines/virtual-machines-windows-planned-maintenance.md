@@ -22,6 +22,8 @@
 
 Understand what Azure planned maintenance is and how it can affect the availability of your Windows virtual machines. This article is also available for [Linux virtual machines](virtual-machines-linux-planned-maintenance.md). 
 
+This article provides a background as to the Azure planned maintenance process. If you are wanting to troubleshoot why your VM rebooted, you can [read this blog post detailing viewing VM reboot logs](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
