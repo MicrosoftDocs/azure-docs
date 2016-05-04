@@ -59,19 +59,20 @@ This tutorial assumes that you already have an Azure account. If you do not have
 	![Virtual Machine Gallery SQL Images](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
 
 1. 	Each template identifies a SQL Server version and an operating system. Select one of these images from the list to bring up a blade containing its details.
-1.	The details blade provides a description of this virtual machine image, and it allows you to select a deployment model. Under **Select a deployment model**, select **Resource Manager** and click **Create**.
-<br/>
-![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
-<br/>
+1.	The details blade provides a description of this virtual machine image, and it allows you to select a deployment model. Under **Select a deployment model**, verify that **Resource Manager** is selected,  and click **Create**.
+
+	![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a id="ConfigureVM"> Configure the VM
 In the Azure portal there are five blades for configuring a SQL Server virtual machine.
 
-1.	Configure basic settings
-1.	Choose virtual machine size
-1.	Configure virtual machine settings
-1.	Configure SQL Server
-1.	Review the summary
+| Blade               | Task                          |
+|---------------------|-------------------------------|
+| Basics              | [Configure basic settings](#configure-basic-settings)      |
+| Size                | [Choose virtual machine size](#choose-virtual-machine-size)   |
+| Settings            | [Configure optional features](#configure-optional-features)   |
+| SQL Server settings | [Configure SQL server settings](#configure-sql-server-settings) |
+| Summary             | [Review the summary](#review-the-summary)            |
 
 ## 1. Configure basic settings
 On the **Create Virtual Machine** blade under **Basics** provide the following information:
@@ -91,7 +92,7 @@ Verify that the **Location** is correct for your requirements.
 ## 2. Choose virtual machine size
 On the **Create Virtual Machine** blade under **Size** choose a virtual machine size. The Azure portal will display recommended sizes. Find more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-linux-sizes.md). The sizes are based on the template you selected. The size estimates the monthly cost to run the VM.  Select a VM size for your server. For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-## 3. Configure virtual machine settings
+## 3. Configure optional features
 On the **Create Virtual Machine** blade under **Settings**, configure Azure storage, networking and monitoring for the virtual machine.
 
 - Under **Storage** specify a disk type. Premium storage is recommended for production workloads.
@@ -106,7 +107,7 @@ On the **Create Virtual Machine** blade under **Settings**, configure Azure stor
 
 - Under **Availability set** specify an availability set. For the purposes of this tutorial, you can select **none**. If you plan to set up SQL AlwaysOn Availability Groups, configure the availability to avoid recreating the virtual machine.  For more information, see [Manage the Availability of Virtual Machines](virtual-machines-windows-manage-availability.md).
 
-## 4. Configure SQL Server
+## 4. Configure SQL server settings
 On the **Create Virtual Machine** blade under **Configure SQL Server** configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include:
 
 - Connectivity
