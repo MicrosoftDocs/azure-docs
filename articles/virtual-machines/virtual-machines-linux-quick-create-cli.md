@@ -37,15 +37,17 @@ Using the same command from above we will show each prompt along with the output
 
 The Azure CLI `quick-create` command has aliases mapped to the most common OS distributions.  Using this table to find the distribution you want to deploy with `quick-create`.  All deployments using `quick-create` default to SSD storage backed VMs, offering a high performance experience.
 
-| *Alias*   | *Publisher* | *Offer*      | *SKU*       | *Version* |
-|-----------|-------------|--------------|-------------|-----------|
-| CentOS    | OpenLogic   | Centos       | 7.2         | latest    |
-| CoreOS    | CoreOS      | CoreOS       | Stable      | latest    |
-| Debian    | credativ    | Debian       | 8           | latest    |
-| openSUSE  | SUSE        | openSUSE     | 13.2        | latest    |
-| RHEL      | Redhat      | RHEL         | 7.2         | latest    |
-| SLES      | SLES        | SLES         | 12-SP1      | latest    |
-| UbuntuLTS | Canonical   | UbuntuServer | 14.04.4-LTS | latest    |
+| Alias     | Publisher | Offer        | SKU         | Version |
+|:----------|:----------|:-------------|:------------|:--------|
+| CentOS    | OpenLogic | Centos       | 7.2         | latest  |
+| CoreOS    | CoreOS    | CoreOS       | Stable      | latest  |
+| Debian    | credativ  | Debian       | 8           | latest  |
+| openSUSE  | SUSE      | openSUSE     | 13.2        | latest  |
+| RHEL      | Redhat    | RHEL         | 7.2         | latest  |
+| SLES      | SLES      | SLES         | 12-SP1      | latest  |
+| UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | latest  |
+
+
 
 For the ImageURN we will use  `UbuntuLTS` to deploy a Ubuntu 14.04.4-LTS VM. These 7 aliases represent a tiny portion of the available OS on Azure.  To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md)).
 
