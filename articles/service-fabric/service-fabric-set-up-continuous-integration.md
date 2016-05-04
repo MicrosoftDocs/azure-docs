@@ -402,10 +402,12 @@ If a previous build did not clean up after itself (for example, if the build was
 5.	Save the build definition.
 
 ### Add a "Verify" step
-  1. This step is optional when you are first getting this build definition configured.  But once you've successfully run a build and ensured the correctness of the other build steps, you can insert your own verification build step here.  This would be specific to your application and is intended to verify the correctness of the application that has been deployed to the cluster.
+
+1. This step is optional when you are first getting this build definition configured.  But once you've successfully run a build and ensured the correctness of the other build steps, you can insert your own verification build step here.  This would be specific to your application and is intended to verify the correctness of the application that has been deployed to the cluster.
   
 ### Add a final "Clean-Up" step
-  1. Follow the same instructions from the [Add a "Remove cluster resource group" step](#RemoveClusterResourceGroup).  This will clean up all the provisioned Azure resources that were made during the build.
+
+1. Follow the same instructions from the [Add a "Remove cluster resource group" step](#RemoveClusterResourceGroup).  This will clean up all the provisioned Azure resources that were made during the build.
 
 ### Try it
 
