@@ -22,7 +22,7 @@
 This article will show you how to use the scripts located at [Azure/classic-iaas-resourcemanager-migration](https://github.com/Azure/classic-iaas-resourcemanager-migration) to clone a **single** classic  Virtual Machine to the Azure Resource Manager stack.
 
 >[AZURE.IMPORTANT]Cloning with these scripts will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, please visit 
-- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-migration-asm-arm/)
+- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-asm-arm.md)
 
 ## Getting the scripts
 
