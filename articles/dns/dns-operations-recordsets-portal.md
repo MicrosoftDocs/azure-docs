@@ -10,7 +10,7 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
@@ -26,7 +26,7 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-This guide will show how to create and manage record sets and records for your DNS zone using the Azure portal.
+This article shows you how to manage record sets and records for your DNS zone using the Azure Portal.
 
 It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-portal.md).
 

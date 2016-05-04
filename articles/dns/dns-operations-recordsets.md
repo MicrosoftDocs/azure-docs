@@ -9,7 +9,7 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
@@ -27,88 +27,66 @@
 
 
 
-This guide will show how to manage record sets and records for your DNS zone using Azure PowerShell.
+This article shows you how to manage record sets and records for your DNS zone using Azure PowerShell.
 
-It is important to understand the difference between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-portal.md).
+It is important to understand the difference between DNS record sets and individual DNS records. A record set is the collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-portal.md).
 
-## Create a record set
 
-Record sets are created using the New-AzureRmDnsRecordSet cmdlet.  You need to specify the record set name, the zone, the Time-to-Live (TTL) and the record type.
+## Create a new record set and a record
 
-The record set name must be a relative name, excluding the zone name.  For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.
-
-For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
-
-Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.
-
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
-
-If a record set already exists, the command will fail unless the -Overwrite switch is used.  The ‘-Overwrite’ option will trigger a confirmation prompt, which can be suppressed using the -Force switch.
-
-In the above example, the zone is specified using the zone name and resource group name.  Alternatively, you can specify a zone object, as returned by Get-AzureRmDnsZone or New-AzureRmDnsZone.
-
-	PS C:\> $zone = Get-AzureRmDnsZone -ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 –Zone $zone [-Tag $tags] [-Overwrite] [-Force]
-
-New-AzureRmDnsRecordSet returns a local object representing the record set created in Azure DNS.
-
->[AZURE.IMPORTANT] CNAME record sets cannot co-exist with other record sets with the same name.  For example, you cannot create a CNAME with the relative name ‘www’ and an A record with the relative name ‘www’ at the same time.  Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex.  These constraints arise from the DNS standards, they are not limitations of Azure DNS.
-
-### Wildcard records
-
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record).  These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set).
-
-To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
-
-Wildcard record sets are supported for all record types except NS and SOA.  
+To create a record set in the Azure portal, see [Create DNS records using the Azure portal](dns-getstarted-create-recordset.md).
 
 ## Get a record set
 
-To retrieve an existing record set, use ‘Get-AzureRmDnsRecordSet’, specifying the record set relative name, the record type, and the zone:
+To retrieve an existing record set, use `Get-AzureRmDnsRecordSet`. Specify the record set relative name, the record type, and the zone.
 
-	PS C:\> $rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	$rs = Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
-As with New-AzureRmDnsRecordSet, the record name must be a relative name, i.e. excluding the zone name.  The zone can be specified using either the zone name and resource group name, or using a zone object:
+As with `New-AzureRmDnsRecordSet`, the record name must be a relative name, i.e. excluding the zone name. 
 
-	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
-	PS C:\> $rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
+The zone can be specified using either the zone name and resource group name, or using a zone object:
+
+	$zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
+	$rs = Get-AzureRmDnsRecordSet -Name www –RecordType A -Zone $zone
 	
-Get-AzureRmDnsRecordSet returns a local object representing the record set created in Azure DNS.
+`Get-AzureRmDnsRecordSet` returns a local object representing the record set created in Azure DNS.
 
 ## List record sets
-By omitting the –Name and/or –RecordType parameters, Get-AzureRmDnsRecordSet can also be used to list record sets:
 
-### Option 1 
+`Get-AzureRmDnsRecordSet` can also be used to list record sets by omitting the *–Name* and/or *–RecordType* parameters.
 
-List all record sets.  This will return all record sets, regardless of name or record type:
+### To list all record sets 
 
-	PS C:\> $list = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+This example will return all record sets, regardless of name or record type:
 
-### Option 2 
+	$list = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
-List record sets of a given record type.  This will return all record sets matching the given record type (in this case, A records):
+### To list record sets of a given record type
 
-	PS C:\> $list = Get-AzureRmDnsRecordSet –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
+This will return all record sets matching the given record type, In this case, A records.
 
-In both options above, the zone can be specified using either the –ZoneName and –ResourceGroupName parameters (as shown) or by specifying a zone object:
+	$list = Get-AzureRmDnsRecordSet –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
 
-	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
-	PS C:\> $list = Get-AzureRmDnsRecordSet -Zone $zone
+The zone can be specified using either the *–ZoneName* and *–ResourceGroupName* parameters (as shown) or by specifying a zone object:
+
+	$zone = Get-AzureRmDnsZone -Name contoso.com -ResouceGroupName MyAzureResourceGroup
+	$list = Get-AzureRmDnsRecordSet -Zone $zone
 
 ## Add a record to a record set
 
-Records are added to record sets using the Add-AzureRmDnsRecordConfig cmdlet. This is an off-line operation—only the local object representing the record set is changed.
+Records are added to record sets using the `Add-AzureRmDnsRecordConfig` cmdlet. This is an off-line operation—only the local object representing the record set is changed.
 
-The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A' you will only be able to specify records with the parameter ‘IPv4Address’.
+The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type *A* you will only be able to specify records with the parameter *-IPv4Address*.
 
-Additional records can be added to each record set by additional calls to Add-AzureRmDnsRecordConfig.  You can add up to 20 records to any record set.  However, record sets of type CNAME can contain at most 1 record, and a record set cannot contain two identical records.  Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers.
+Additional records can be added to each record set by additional calls to `Add-AzureRmDnsRecordConfig`. You can add up to 20 records to any record set.  However, record sets of type *CNAME* can contain at most 1 record, and a record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers.
 
-Once the record set contains the desired collection of records, it needs to be committed using the Set-AzureRmDnsRecordSet cmdlet, which replaces the existing record set in Azure DNS with the record set provided.
+Once the record set contains the desired collection of records, it needs to be committed using the `Set-AzureRmDnsRecordSet` cmdlet, which replaces the existing record set in Azure DNS with the record set provided.
+
 The following examples show how to create a record set of each record type containing a single record.
 
 ### Create A record set with single record
 
-	PS C:\> $rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
+	$rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
 	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
 	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $rs
 

@@ -9,7 +9,7 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
@@ -25,33 +25,17 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-This guide will show how to manage record sets and records for your DNS zone using the cross-platform Azure CLI.
+This article shows you how to manage record sets and records for your DNS zone using the cross-platform Azure CLI.
 
->[AZURE.NOTE] Azure DNS is an Azure Resource Manager-only service. It does not have an ASM API. You will need to make sure that the Azure CLI is configured to use Resource Manager mode, using the `azure config mode arm` command.
-
->If you see "error: 'dns' is not an azure command" it is most likely because you are using Azure CLI in ASM mode, not Resource Manager mode.
 
 It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-cli.md).
 
 
-Record sets are created using the `azure network dns record-set create` command. You need to specify the record set name, the zone, the Time-to-Live (TTL) and the record type. The record set name must be a relative name, excluding the zone name.  For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.
+## Azure DNS and cross-platform Azure CLI
 
-For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
+Azure DNS is an Azure Resource Manager-only service. It does not have an ASM API. You will need to make sure that the Azure CLI is configured to use Resource Manager mode, using the `azure config mode arm` command.
 
-### Supported record types
-
-Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.  The SPF record type has been deprecated by the DNS standards in favor of creating SPF records using the TXT record type. See [this article](http://tools.ietf.org/html/rfc7208#section-3.1) for more information.
-
-### CNAME record sets
-
-CNAME record sets cannot co-exist with other record sets with the same name. For example, you cannot create a CNAME with the relative name ‘www’ and an A record with the relative name ‘www’ at the same time.  Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex.  These constraints arise from the DNS standards, they are not limitations of Azure DNS.
-
-### Wildcard records
-
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). These are returned for any query with a matching name unless there is a closer match from a non-wildcard record set. Wildcard record sets are supported for all record types except NS and SOA.  
-
-To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
-
+If you see "error: 'dns' is not an azure command" it is most likely because you are using Azure CLI in ASM mode, not Resource Manager mode.
 
 ## Create a new record set and a record
 
@@ -86,10 +70,6 @@ This will return all record sets matching the given record type (in this case, A
 
 Records are added to record sets using the `azure network dns record-set add-record`. The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A' you will only be able to specify records with the parameter `-a <IPv4 address>`.
 
-The following examples show how to create a record set of each record type containing a single record.
-
-### Create an A record set with single record
-
 To create record set, use `azure network dns record-set create`. Specify resource group, zone name, record set relative name, the record type and time to live (TTL). 
 	
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
@@ -101,50 +81,10 @@ After creating the A record set, add the IPv4 address to the record set with `az
 
 	azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1 
 
-### Create an AAAA record set with single record
 
-	azure network dns record-set create myresourcegroup contoso.com "test-aaaa" AAAA --ttl 300
+The following examples show how to create a record set of each record type containing a single record.
 
-	azure network dns record-set add-record myresourcegroup contoso.com "test-aaaa" AAAA -b "2607:f8b0:4009:1803::1005"
-
-### Create a CNAME record set with single record
-
-	azure network dns record-set create -g myresourcegroup contoso.com  "test-cname" CNAME --ttl 300
-	
-	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
-
->[AZURE.NOTE] CNAME records only allows one single string value. 
-
-### Create MX record set with single record
-
-In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com").  This is common for MX records.
-
-	azure network dns record-set create myresourcegroup contoso.com  "@"  MX --ttl 300
-
-	azure network dns record-set add-record -g myresourcegroup contoso.com  "@" MX -e "mail.contoso.com" -f 5
-
-
-### Create NS record set with single record
-
-	azure network dns record-set create myresourcegroup contoso.com test-ns  NS --ttl 300
-	
-	azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com" 
-	
-### Create SRV record set with single record
-
-If creating an SRV record in root of zone, just specify _service and _protocol in the record name. There is no need to also include ‘.@’ in the record name.
-
-	
-	azure network dns record-set create myresourcegroup contoso.com "_sip._tls" SRV --ttl 300 
-
-	azure network dns record-set add-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 - w 5 -o 8080 -u "sip.contoso.com" 
-
-### Create TXT record set with single record
-
-	azure network dns record-set create myresourcegroup contoso.com "test-TXT" TXT --ttl 300
-
-	azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record" 
-
+[AZURE.INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)] 
 
 
 ## Update a record in a record set
@@ -199,28 +139,28 @@ Removing the last record from a record set does not delete the record set. See [
 
 	azure network dns record-set delete myresourcegroup contoso.com www A
 
-### Remove AAAA record from a record set
+### Remove an AAAA record from a record set
 
 	azure network dns record-set delete-record myresourcegroup contoso.com test-aaaa  AAAA -b "2607:f8b0:4009:1803::1005"
 
-### Remove CNAME record from a record set
+### Remove a CNAME record from a record set
 
 	azure network dns record-set delete-record myresourcegroup contoso.com test-cname CNAME -c www.contoso.com
 	
 
-### Remove MX record from a record set
+### Remove an MX record from a record set
 
 	azure network dns record-set delete-record myresourcegroup contoso.com "@" MX -e "mail.contoso.com" -f 5
 
-### Remove NS record from record set
+### Remove an NS record from record set
 	
 	azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
-### Remove SRV record from a record set
+### Remove an SRV record from a record set
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com" 
 
-### Remove TXT record from a record set
+### Remove a TXT record from a record set
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "test-TXT" TXT -x "this is a TXT record"
 
@@ -234,7 +174,7 @@ In the example below, the A record set "test-a" will be removed from contoso.com
 
 	azure network dns record-set delete myresourcegroup contoso.com  "test-a" A 
 
-The optional ‘-q’ switch can be used to suppress the confirmation prompt.
+The optional *-q* switch can be used to suppress the confirmation prompt.
 
 
 ## Next steps
