@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Mobile Engagement Android SDK Integration"
+	pageTitle="Android SDK Integration for Azure Mobile Engagement"
 	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
@@ -26,6 +26,8 @@
 - [Android](mobile-engagement-android-sdk-overview.md)
 
 Learn about all the advanced features of Azure Mobile Engagement you can integrate into your Android App.
+
+## Prerequisites
 
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 

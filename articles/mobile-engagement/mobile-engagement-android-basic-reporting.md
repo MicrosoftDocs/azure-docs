@@ -23,6 +23,8 @@
 
 This topic describes additional reporting scenarios in your Android application. These are options that you can choose to apply to the app created in the [Getting Started](mobile-engagement-android-get-started.md) tutorial.
 
+## Prerequisites
+
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 The tutorial you completed was deliberately direct and simple, but there are a number of options you can choose from.

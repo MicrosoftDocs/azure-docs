@@ -34,6 +34,13 @@ A number of options require specific permissions, all of which are listed here f
 ### Basic reporting
 These permissions are required for basic reporting fucntionality.
 
+		<uses-permission android:name="android.permission.INTERNET"/>
+		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+		<uses-permission android:name="android.permission.VIBRATE" />
+		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+
 ### Wake locks
 
 If you want to be sure that statistics are sent in real time when using Wifi or when the screen is off, add the following optional permission:
