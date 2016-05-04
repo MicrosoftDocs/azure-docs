@@ -12,10 +12,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/11/2016"
+    ms.date="04/28/2016"
     ms.author="torsteng;sidneyh" />
 
-# Query across cloud databases with different schema (preview)
+# Query across cloud databases with different schemas (preview)
 
 ![Query across tables in different databases][1]
 
@@ -28,8 +28,6 @@ Vertically-partitioned databases use different sets of tables on different datab
 
 ## Overview
 
-These statements create the metadata representation of your sharded data tier in the elastic query database. 
-
 **NOTE**:  Unlike with horizontal partitioning, these DDL statements do not depend on defining a data tier with a shard map through the elastic database client library.
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
@@ -38,7 +36,7 @@ These statements create the metadata representation of your sharded data tier in
 4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 
-## 1.1 Create database scoped master key and credentials 
+## Create database scoped master key and credentials 
 
 The credential is used by the elastic query to connect to your remote databases.  
 
@@ -49,7 +47,7 @@ The credential is used by the elastic query to connect to your remote databases.
  
 **Note**    Ensure that the *<username>* does not include any *"@servername"* suffix. 
 
-## 1.2 Create external data sources
+## Create external data sources
 
 Syntax:
 
@@ -80,7 +78,7 @@ To retrieve the list of current external data sources:
 
     select * from sys.external_data_sources; 
 
-### 1.3 External Tables 
+### External Tables 
 
 Syntax:
 
@@ -126,11 +124,11 @@ Using an external data source as outlined in the previous section, the syntax to
 
 The DATA_SOURCE clause defines the external data source (i.e. the remote database in case of vertical partitioning) that is used for the external table.  
 
-The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful is you want to define an external table to a catalog view or DMV on your remote database – or any other situation where the remote table name is already taken locally.  
+The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful if you want to define an external table to a catalog view or DMV on your remote database – or any other situation where the remote table name is already taken locally.  
 
 The following DDL statement drops an existing external table definition from the local catalog. It does not impact the remote database. 
 
-	DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]  
+	DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
 **Permissions for CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed for external table DDL which is also needed to refer to the underlying data source.  
 
@@ -156,6 +154,25 @@ The following query performs a three-way join between the two local tables for o
 	ON o_id = ol_o_id and o_c_id = ol_c_id
 	WHERE c_id = 100
 
+
+## Stored procedure for remote T-SQL execution: sp\_execute_remote
+
+Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
+
+* Data source name (nvarchar): The name of the external data source of type RDBMS. 
+* Query (nvarchar): The T-SQL query to be executed on each shard. 
+* Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
+* Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql).
+
+The sp\_execute\_remote uses the external data source provided in the invocation parameters to execute the given T-SQL statement on the remote databases. It uses the credential of the external data source to connect to the shardmap manager database and the remote databases.  
+
+Example: 
+
+	EXEC sp_execute_remote
+		N'MyExtSrc',
+		N'select count(w_id) as foo from warehouse' 
+
+
   
 ## Connectivity for tools
 
@@ -170,7 +187,7 @@ You can use regular SQL Server connection strings to connect your BI and data in
 
 ## Next steps
 
-To query horizontally partitioned databases (also knonw as sharded databases), see [Queries across sharded cloud databases (horizontally partitioned)](sql-database-elastic-query-horizontal-partitioning.md).
+To query horizontally partitioned databases (also known as sharded databases), see [Queries across sharded cloud databases (horizontally partitioned)](sql-database-elastic-query-horizontal-partitioning.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

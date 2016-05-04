@@ -290,7 +290,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 5. In the **Size** drop-down, click **Free**.
 
-	For this tutorial, The free pricing tier will provide sufficient performance.
+	For this tutorial, the free pricing tier will provide sufficient performance.
 
 6. In the **Configure App Service Plan** dialog, click **OK**.
 

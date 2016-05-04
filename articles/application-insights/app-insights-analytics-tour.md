@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 
@@ -163,14 +163,14 @@ We can use the same technique to reduce ranges of strings:
 
 Notice that you can use `name=` to set the name of a result column, either in the aggregation expressions or the by-clause.
 
-### Counting data points
+## Counting sampled data
 
 `sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as a data point in Application Insights, so that for each data point you see, there are `itemCount` events. Summing up itemCount therefore gives a good estimate of the original number of events.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-There's also a `count()` aggregation, for cases where you really do want to count the number of rows in a group.
+There's also a `count()` aggregation (and a count operation), for cases where you really do want to count the number of rows in a group.
 
 
 There's a range of [aggregation functions](app-insights-analytics-aggregations.md).

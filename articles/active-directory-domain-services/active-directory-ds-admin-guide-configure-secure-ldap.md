@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="04/27/2016"
 	ms.author="maheshu"/>
 
 # Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
@@ -26,7 +26,7 @@ To perform the tasks listed in this article, you will need:
 
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
 
-3. **Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](./active-directory-ds-getting-started.md).
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](./active-directory-ds-getting-started.md).
 
 4. A **certificate to be used to enable secure LDAP**.
     - **Recommended** - Obtain a certificate from your enterprise CA or public certification authority. This is a much more secure configuration option.
@@ -201,7 +201,7 @@ Perform the following configuration steps in order to enable secure LDAP.
 ## Task 4 - Enable secure LDAP access over the internet
 **Optional task** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
 
-Before you begin gthis task, ensure you have completed the steps outlined in [Task 3](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain).
+Before you begin this task, ensure you have completed the steps outlined in [Task 3](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain).
 
 1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This will be set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
 
