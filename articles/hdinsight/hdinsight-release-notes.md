@@ -42,7 +42,7 @@ This release contains the following updates.
 | Livy Crash Recovery | Provides job status resiliency for any job submitted through Livy | Reliability | Spark on Linux| N/A
 | Jupyter Content HA | Provides the ability to save and load Jupyter notebook contents to and from the storage account associated with the cluster. For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Notebooks | Spark on Linux| N/A
 | Removal of hiveContext in Jupter Notebooks | Use `%%sql` magic instead of `%%hive` magic. SqlContext is equivalent to hiveContext. For more information, see [Kernels available for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-kernels.md)| Notebooks    | Spark clusters on Linux| N/A
-| Deprecation of older Spark versions | Older version Spark 1.3.1 will be removed from the service on 5/15 | Service | Spark clusters on Linux | N/A
+| Deprecation of older Spark versions | Older version Spark 1.3.1 will be removed from the service on 5/31 | Service | Spark clusters on Linux | N/A
 
 ## Notes for 03/29/2016 release of HDInsight
 
