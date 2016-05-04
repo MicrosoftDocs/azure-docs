@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/03/2016"
+   ms.date="05/04/2016"
    ms.author="johns@contentmaster.com"/>
 
 # Azure blueprints: Implementing a hybrid network architecture in Azure that uses forced tunnelling to route Internet requests
@@ -54,6 +54,8 @@ The following diagram highlights the important components in this architecture:
 - **User-defined routes (UDR).** Each of the application subnets defines one or more custom (user-defined) routes for directing Internet requests made by VMs running in that subnet. Each UDR redirects requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet.
 
     > [AZURE.NOTE] Any response received as a result of the request will return directly to the originator in the Web tier, Business tier, or Data tier subnets and will not pass through on-premises network.
+
+	A further UDR is defined for the Gateway subnet to ensure that all traffic from the on-premises network is routed through the NVAs.
 
 - **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authorized DevOps staff to log in, configure, and manage the network through an external IP address.
 
@@ -129,6 +131,30 @@ Once the connections are established, follow these steps to test the environment
 
 - Configure the NVA to inspect all requests intended for the application subnets, and only permit access to traffic if it is appropriate to do so.
 
+- Ensure that all inbound traffic is routed through the NVA. To do this, add a user-defined route (UDR) to the Gateway subnet that directs all requests arriving through the gateway to the NVA, (or the load balancer in front of the NVAs if you are using multiple security devices, for scalability). In the example shown in the diagram in the [Architecture blueprint][architecture] section, if the load balancer for the NVAs has the IP address 10.0.1.5 in the inbound NVA subnet, you can use the following commands to:
+
+	1. Create a route table:
+
+		```powershell
+		azure network route-table create <<resource-group>> <<route-table-name>> <<location>>
+		```
+
+	2. Add routes for each of the application subnets (10.0.3.0/24, 10.0.4.0/24, and 10.0.5.0/24) to the route table that direct requests through the NVA load balancer:
+
+		```powershell
+		azure network route-table route create -a 10.0.3.0/24 -y VirtualAppliance -p 10.0.1.5 <<resource-group>> <<route-table-name>> <<route-name>>
+
+		azure network route-table route create -a 10.0.4.0/24 -y VirtualAppliance -p 10.0.1.5 <<resource-group>> <<route-table-name>> <<route-name>>
+
+		azure network route-table route create -a 10.0.5.0/24 -y VirtualAppliance -p 10.0.1.5 <<resource-group>> <<route-table-name>> <<route-name>>
+		```
+
+	3. Associate the route table with the Gateway subnet:
+
+		```powershell
+		azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> GatewaySubnet
+		```
+
 - Create network security groups (NSGs) for each subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled.
 
 - Do not permit outbound traffic from the application subnets to directly access external networks or the Internet. Ensure that all such traffic is force-tunnelled through the on-premises network so that it can be audited.
@@ -180,3 +206,4 @@ TBD
 [azure-forced-tunnelling]: https://azure.microsoft.com/en-gb/documentation/articles/vpn-gateway-forced-tunneling-rm/
 [clouds-services-network-security]: https://azure.microsoft.com/documentation/articles/best-practices-network-security/
 [azure-rbac]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/
+[architecture]: #architecture_blueprint
