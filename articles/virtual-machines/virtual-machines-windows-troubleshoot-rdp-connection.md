@@ -110,7 +110,7 @@ As a workaround, save a local copy of the RDP file from the portal and run this 
 
 If you don't actually need more than two simultaneous Remote Desktop connections to the VM, you can use Server Manager to remove the Remote Desktop Server role.
 
-For more information, see the the blog post [Azure VM fails with "No Remote Desktop License Servers available"](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
+For more information, see the blog post [Azure VM fails with "No Remote Desktop License Servers available"](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
 
 <a id="rdpname"></a>
 ### Remote Desktop connection error: Remote Desktop can't find the computer "name".
@@ -144,7 +144,7 @@ Possible solutions:
 
 - If the account is on an Active Directory domain, check the spelling of the domain name.
 
-- If it is an Active Directory domain account and the domain name is spelled correctly, verify that a domain controller is available in that domain. This can be a common issue in an Azure virtual network that contains domain controllers, in which a domain controller computer is not started. As a workaround, you can use a local administrator account instead of a domain account.
+- If it is an Active Directory domain account and the domain name is spelled correctly, verify that a domain controller is available in that domain. It's a common issue in Azure virtual networks that contain domain controllers that a domain controller is unavailable because it hasn't been started As a workaround, you can use a local administrator account instead of a domain account.
 
 <a id="wincred"></a>
 ### Windows Security error: Your credentials did not work.
@@ -154,7 +154,7 @@ Cause: The target VM can't validate your account name and password.
 A Windows-based computer can validate the credentials of either a local account or a domain account.
 
 - For local accounts, use the *ComputerName*\\*UserName* syntax (example: SQL1\Admin4798).
-- For domain accounts, use the *DomainName*\\*UserName* syntax (example: CONTOSO\johndoe).
+- For domain accounts, use the *DomainName*\\*UserName* syntax (example: CONTOSO\peterodman).
 
 If you have promoted your VM to a domain controller in a new Active Directory forest, the local administrator account that you signed in with is converted to an equivalent account with the same password in the new forest and domain. The local account is then deleted.
 
