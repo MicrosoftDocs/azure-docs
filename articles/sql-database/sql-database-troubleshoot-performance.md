@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Troubleshoot database performance in Azure SQL Database."
-	description="Quick steps to troubleshoot database performance."
+	pageTitle="How to evaluate and improve database performance in Azure SQL Database"
+	description="Describes how to evaluate and improve database performance"
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Troubleshoot Azure SQL database permissions and access"
-	description="Quick steps to troubleshoot common permissions, access, user, and login issues"
+	pageTitle="How to perform common administrative tasks in Azure SQL Database"
+	description="Describes how to perform common administrative tasks"
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
