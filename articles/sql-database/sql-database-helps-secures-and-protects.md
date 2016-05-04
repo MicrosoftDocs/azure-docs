@@ -10,13 +10,13 @@ Azure SQL Database supports millions of mission-critical databases in the cloud&
 
 You can only hope you don't need to access yesterday's backups or recover from a disaster. But if you find yourself in this situation, SQL Database is there to help. With 99.99% availability, automatic backups, point-in-time restore, built-in geo-replication, and failover options, you'll rest easy knowing your app is safe and sound.
 
-[Read the documentation](https://azure.microsoft.com/en-us/documentation/articles/sql-database-business-continuity/)
+[Read the documentation](sql-database-business-continuity.md)
 
 ## The largest compliance portfolio
 
 SQL Database has the largest compliance portfolio in the industry. So if you need HIPPA or FERPA or even Singapore MTCS Level 3 don't worry&mdash;we got you covered.  
 
-[Read the documentation](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx)
+[Read the documentation](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 
 ## Layers of protection
 

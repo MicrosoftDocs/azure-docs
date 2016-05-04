@@ -10,7 +10,7 @@ Azure SQL Database manages billions of transactions and millions of databases pe
 ## Threat detection and alerts  
 With threat and anomaly detection, SQL Database has built-in behavioral analysis, real-time alerts, a configurable threat policy, an audit log, and intelligent ways to detect and fix unusual patterns.
 
-[Read the documentation](https://azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/)
+[Read the documentation](sql-database-threat-detection-get-started.md)
 
 ## Automatic tuning
 SQL Database is equipped to make your app run at its best performance. By continuously learning your app’s patterns, adaptively self-tuning its performance, and automatically refining without you doing anything&mdash;because we know you don’t want to anyway.

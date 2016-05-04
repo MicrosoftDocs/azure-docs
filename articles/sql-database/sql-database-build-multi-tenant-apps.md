@@ -10,7 +10,7 @@ If you're a SaaS dev writing a multi-tenant app and handling many customers, you
 
 Pools automatically scale performance and storage capacity for elastic databases on the fly. You can control the performance assigned to a pool, add or remove elastic databases on demand, and define performance of elastic databases without affecting the overall cost of the pool. This means you don't have to worry about managing the usage of individual databases.
 
-[Read the documentation](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool-guidance/)
+[Read the documentation](sql-database-elastic-pool-guidance.md)
 
 ## Intelligent management of your environment
 
@@ -29,13 +29,13 @@ Basic, Standard, and Premium pools provide you a broad spectrum of performance, 
 In addition to elastic pools, there are SQL Database features to help manage operational activities across multiple databases:
 
 ** Perform cross-database queries and reporting. **  
-[Elastic database query](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-query-overview/) enables you to run queries or reports across databases in your elastic pool and access remote data stored in many databases of your pool at once.
+[Elastic database query](sql-database-elastic-query-overview.md) enables you to run queries or reports across databases in your elastic pool and access remote data stored in many databases of your pool at once.
 
 ** Run cross database transactions. **  
-[Elastic database transactions](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-transactions-overview/) allow you to run transactions that span several databases in SQL Databases and perform operations (i.e. when processing financial transactions across databases, or when updating inventory in one database and orders).
+[Elastic database transactions](sql-database-elastic-transactions-overview.md) allow you to run transactions that span several databases in SQL Databases and perform operations (i.e. when processing financial transactions across databases, or when updating inventory in one database and orders).
 
 ** Execute the same operations on several databases. **  
-[Elastic database jobs](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-jobs-overview/) execute administrative operations such as rebuilding indexes or updating schemas across each database in your elastic pool.
+[Elastic database jobs](sql-database-elastic-jobs-overview.md) execute administrative operations such as rebuilding indexes or updating schemas across each database in your elastic pool.
 
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out]() 
