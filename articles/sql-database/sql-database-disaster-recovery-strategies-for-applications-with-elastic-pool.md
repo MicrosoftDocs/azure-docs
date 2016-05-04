@@ -24,9 +24,9 @@ For the purposes of this article we will use the canonical SaaS ISV application 
 
 <i>A modern cloud based web application provisions one SQL database for each end user. The ISV has a large number of customers and therefore uses many databases, known as tenant databases. Because the tenant databases typically have unpredictable activity patterns, the ISV uses an elastic pool to make the database cost very predictable over extended periods of time. The elastic pool also simplifies the performance management when the user activity spikes. In addition to the tenant databases the application also uses several databases to manage user profiles, security, collect usage patterns etc. Availability of the individual tenants does not impact the application’s availability as whole. However, the availability and performance of management databases is critical for the application’s function and if the management databases are offline the entire application is offline.</i>  
 
-In the rest of the paper, we will discuss several related scenarios and discuss a DR strategy for each case. 
+In the rest of the paper we will discuss the DR strategies covering a range of scenarios from the cost sensitive startup applications to the ones with stringent availability requirements.  
 
-## Scenario 1
+## Scenario 1. Cost sensitive startup
 
 <i>I am a startup business and am extremely cost sensitive.  I want to simplify deployment and management of the application and I am willing to have a limited SLA for individual customers. But I want to ensure the application as a whole is never offline.</i>
 
@@ -61,7 +61,7 @@ At this point your application will be online in the primary region with all ten
 
 The key **benefit** of this strategy is low ongoing cost for data tier redundancy. Backups are taken automatically by the SQL Database service with no application rewrite and at no additional cost.  The cost is incurred only when the elastic databases are restored. The **trade-off** is that the complete recovery of all tenant databases will take significant time. It will depend on the total number of restores you will initiate in the DR region and overall size of the tenant databases. Even if you prioritize some tenants' restores over others, you will be competing with all the other restores that are initiated in the same region as the service will arbitrate and throttle to minimize the overall impact on the existing customers' databases. In addition, the recovery of the tenant databases cannot start until the new elastic pool in the DR region is created.
 
-## Scenario 2
+## Scenario 2. Mature application with tiered service 
 
 <i>I am a mature SaaS application with tiered service offers and different SLAs for trial customers and for paying customers. For the trial customers, I have to reduce the cost as much as possible. Trial customers can take downtime but I want to reduce its likelihood. For the paying customers, any downtime is a flight risk. So I want to make sure that paying customers are always able to access their data.</i> 
 
@@ -102,7 +102,7 @@ When the primary region is recovered by Azure *after* you have restored the appl
 
 The key **benefit** of this strategy is that it provides the highest SLA for the paying customers. It also guarantees that the new trials are unblocked as soon as the trial DR pool is created. The **trade-off** is that this setup will increase the total cost of the tenant databases by the cost of the secondary DR pool for paid customers. In addition, if the secondary pool has a different size, the paying customers will experience lower performance after failover until the pool upgrade in the DR region is completed. 
 
-## Scenario 3
+## Scenario 3. Geographically distributed application with tiered service
 
 <i>I have a mature SaaS application with tiered service offers. I want to offer a very aggressive SLA to my paid customers and minimize the risk of impact when outages occur because even brief interruption can cause customer dissatisfaction. It is critical that the paying customers can always access their data. The trials are free and an SLA is not offered during the trial period. </i> 
 
@@ -157,7 +157,7 @@ The main **trade-offs** are:
 
 ## Summary
 
-This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The choice of the strategy should be based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc.. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application will likely include other Azure components. You should review their business continuity guidance and orchestrate the recovery of the database tier with other application components. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](./sql-database-designing-cloud-solutions-for-disaster-recovery.md) .  
+This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The strategy you choose should be based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc.. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application will likely include other Azure components. So you should review their business continuity guidance and orchestrate the recovery of the database tier with them. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](./sql-database-designing-cloud-solutions-for-disaster-recovery.md) .  
 
 The individual steps required for each scenario involve operations against a large number of databases. Consider using SQL Database Elastic Jobs to manage these operations at scale. For more information refer to [Managing scaled-out cloud databases](./sql-database-elastic-jobs-overview.md). The following pages will help you learn about the specific operations required to implement each of the scenarios in this article:
 
