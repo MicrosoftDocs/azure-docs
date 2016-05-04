@@ -16,9 +16,9 @@
    ms.date="05/03/2016"
    ms.author="navale;tomfitz"/>
    
-# Resource Manager Template Walkthrough
+# Resource Manager template walkthrough
 
-One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure descibed in [Authoring Template article](../resource-group-authoring-templates/#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own spepcifc scenario. [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file. 
+One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure described in [Authoring Template article](resource-group-authoring-templates.md#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own specific scenario. [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file. 
 
 This topic walks you through the steps of creating a Resource Manager template. You will first write a simple template that creates a storage account. Later, you will extend the template to deploy a more complex architecture.
 
@@ -44,7 +44,7 @@ Let's start with the simplest template:
 
 Save this file as **azuredeploy.json** (note that the template can have any name you want, just that it must be a json file).
 
-## Create a Storage Account
+## Create a storage account
 Within the **resources** section, add an object that defines the storage account, as shown below. 
 
 ```json
@@ -61,12 +61,12 @@ Within the **resources** section, add an object that defines the storage account
 ]
 ```
 
-You may be wondering where these properties and values come from. The properties **type**, **name**, **apiVersion**, and **location** are standard elements that are available for all resource types. You can learn about the common elements at [Resources](../resource-group-authoring-templates/#resources). **name** is set to a parameter value that you pass in during deployment and **location** as the location used by the resource group. We'll look at how you determine **type** and **apiVersion** in the sections below.
+You may be wondering where these properties and values come from. The properties **type**, **name**, **apiVersion**, and **location** are standard elements that are available for all resource types. You can learn about the common elements at [Resources](resource-group-authoring-templates.md#resources). **name** is set to a parameter value that you pass in during deployment and **location** as the location used by the resource group. We'll look at how you determine **type** and **apiVersion** in the sections below.
 
 The **properties** section contains all of the properties that are unique to a particular resource type. The values you specify in this section exactly match the PUT operation in the REST API for creating that resource type. When creating a storage account, you must provide an **accountType**. Notice in the [REST API for creating a Storage account](https://msdn.microsoft.com/library/azure/mt163564.aspx) that the properties section of the REST operation also contains an **accountType** property, and the permitted values are documented. In this example, the account type is set to **Standard_LRS**, but you could specify some other value or permit users to pass in the account type as a parameter.
 
 Now let's jump back to the **parameters** section, and see how you define the name of the storage account. 
-You can learn more about the use of parameters at [Parameters](../resource-group-authoring-templates/#parameters). 
+You can learn more about the use of parameters at [Parameters](resource-group-authoring-templates.md#parameters). 
 
 ```json
 "parameters" : {
@@ -78,7 +78,7 @@ You can learn more about the use of parameters at [Parameters](../resource-group
     }
 }
 ```
-Here you defind parameter of type string that will hold the name of the storage account. The value for this parameter will be provided during template deployment.
+Here you defined a parameter of type string that will hold the name of the storage account. The value for this parameter will be provided during template deployment.
 
 ## Deploying the template
 We have a full template for creating a new storage account. As you recall, the template was saved in  **azuredeploy.json** file:
@@ -109,7 +109,7 @@ We have a full template for creating a new storage account. As you recall, the t
 }
 ```
 
-There are quite a few ways to deploy a template, as you can see in the [Resource Deployment article](../resource-group-template-deploy/). Let's deploy the template using powershell:
+There are quite a few ways to deploy a template, as you can see in the [Resource Deployment article](resource-group-template-deploy.md). To deploy the template using Azure PowerShell, use:
 
 ```powershell
 # create a new resource group
@@ -119,9 +119,17 @@ New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
 ```
 
+Or, to deploy the template using Azure CLI, use:
+
+```
+azure group create -n ExampleResourceGroup -l "West Europe"
+
+azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
+```
+
 You are now the proud owner of a storage account!
 
-## Create a Complete Architecture Template
+## Create a complete architecture template
 
 Let's take a look at a common architecture:
 
@@ -207,7 +215,7 @@ To see the API versions with Azure CLI, run the same **azure provider show** com
 
 When creating a new template, pick the most recent API version.
 
-## Virtual Network and Subnet
+## Virtual network and subnet
 Create a virtual network with one subnet. Look at the [REST API for virtual networks](https://msdn.microsoft.com/library/azure/mt163661.aspx) for all the properties to set.
 
 ```json
@@ -234,7 +242,7 @@ Create a virtual network with one subnet. Look at the [REST API for virtual netw
 }
 ```
 
-## Load Balancer
+## Load balancer
 Now you will create an external facing load balancer. Because this load balancer uses the public IP address, you must declare a dependency on the public IP address in the **dependsOn** section. This means the load balancer will not get deployed until the public IP address has finished deploying. Without defining this dependency, you will receive an error because Resource Manager will attempt to deploy the resources in parallel, and will try to set the load balancer to public IP address that doesn't exist yet. 
 
 You will also create a backend address pool, a couple of inbound NAT rules to RDP into the VMs, and a load balancing rule with a tcp probe on port 80 in this resource definition. Checkout the [REST API for load balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) for all the properties.
@@ -326,7 +334,7 @@ You will also create a backend address pool, a couple of inbound NAT rules to RD
 }
 ```
 
-## Network Interface
+## Network interface
 You will create 2 network interfaces, one for each VM. Rather than having to include duplicate entries for the network interfaces, you can use the [copyIndex() function](resource-group-create-multiple.md) to iterate over the copy loop (referred to as nicLoop) and create the number network interfaces as defined in the `numberOfInstances` variables. 
 The network interface depends on creation of the virtual network and the load balancer. It uses the subnet defined in the virtual network creation, and the load balancer id to configure the load balancer address pool and the inbound NAT rules.
 Look at the [REST API for network interfaces](https://msdn.microsoft.com/library/azure/mt163668.aspx) for all the properties.
@@ -371,7 +379,7 @@ Look at the [REST API for network interfaces](https://msdn.microsoft.com/library
 }
 ```
 
-## Virtual Machine
+## Virtual machine
 You will create 2 virtual machines, using copyIndex() function, as you did in creation of the [network interfaces](#network-interface).
 The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
@@ -561,7 +569,7 @@ In the variables section, you can define values that are used in more than one p
   }
 ```
 
-## Complete Template
+## Complete template
 The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) under [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules).
 
 
