@@ -21,7 +21,8 @@
 
 This article will show you how to use the scripts located at [Azure/classic-iaas-resourcemanager-migration](https://github.com/Azure/classic-iaas-resourcemanager-migration) to clone a **single** classic  Virtual Machine to the Azure Resource Manager stack.
 
->[AZURE.IMPORTANT]Cloning with these scripts will cause downtime for your classic Virtual Machine.
+>[AZURE.IMPORTANT]Cloning with these scripts will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, please visit 
+- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-migration-asm-arm/)
 
 ## Getting the scripts
 
@@ -129,10 +130,11 @@ There are a few differences between the current cloning approach versus the plat
 ### Cloning
 
 
-| Pros                                                   |                               Cons                              |
-|--------------------------------------------------------|:---------------------------------------------------------------:|
-| Clone any Virtual Machine within a cloud service                    |    Downtime incurred for the VMs as they need to be shutdown    |
-| Virtual Machine to be cloned can be inside a VNET or outside a VNET | Long delays in scenario where copying of disk blobs is required |
+| Pros                                                   |                               Cons                               |
+|--------------------------------------------------------|:----------------------------------------------------------------:|
+| Clone any Virtual Machine within a cloud service       |    Downtime incurred for the VMs as they need to be shutdown     |
+| Clone any Virtual Machine in a VNET or outside a VNET  | Long delays in scenario where copying of disk blobs is required  |
+|                                                        | Change in network configuration for the VM - Internal IPs, VIPs. |
 
 
 ### Platform migration
@@ -140,8 +142,7 @@ There are a few differences between the current cloning approach versus the plat
 
 | Pros                             |                     Cons                    |
 |----------------------------------|:-------------------------------------------:|
-| No downtime incurred for the VMs | All VMs within a cloud service are migrated |
-|                                  |         VMs need to be inside a VNET        |
+| Majority of the VM configurations inside a Virtual Network will not incur downtime. | Either All VMs in a Cloud Service or the VNET with all the resources deployed in it has to be migrated together. |
  
  
 ## Unsupported scenarios
