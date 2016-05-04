@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Key Vault Developer's Guide | Microsoft Azure"
    description="Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment. "
    services="key-vault"
@@ -12,13 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="04/29/2016"
    ms.author="bruceper" />
 
 # Azure Key Vault Developer's Guide
-
-> [AZURE.VIDEO azure-key-vault-developer-quick-start]
-
 Using Key Vault, you will be able to securely access sensitive information from within your applications such that:
 
 - Keys and secrets will be protected, without having to write the code yourself and, you will be easily able to use them from your applications.
@@ -26,6 +23,21 @@ Using Key Vault, you will be able to securely access sensitive information from 
 - Your application can use keys for signing and encryption yet keeps the key management external from your application such that the solution is suitable for an application that is geographically distributed.
 
 For more general information on Azure Key Vault, see [What is Key Vault](key-vault-whatis.md).
+
+## Videos
+This video shows you how to create your own key vault and how to use it from the 'Hello Key Vault' sample application.
+
+Links to resources mentioned in the video:
+- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Azure Key Vault Sample Code](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+
+To learn more you can follow the [Key Vault Blog](http://aka.ms/kvblog) and participate in the [Key Vault Forum](http://aka.ms/kvforum).
+
+
+
+> [AZURE.VIDEO azure-key-vault-developer-quick-start]
+
+
 
 ## Creating and Managing Key Vaults
 
@@ -65,14 +77,20 @@ For complete examples of using Key Vault with your applications, see:
 
 ## How-tos
 
-The following articles and scenarios provide task specific guidance:
+The following articles and scenarios provide task specific guidance for working with Azure Key Vault:
 
-- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md)
-- [Pass secure values (such as passwords) during deployment](../resource-manager-keyvault-parameter.md).
-- For task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones ARM template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)
+- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md) - This will help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
+- [How to pass secure values (such as passwords) during deployment](../resource-manager-keyvault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
+- [How to use Key Vault for extensible key management with SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) - The SQL Server Connector for Azure Key Vault enables SQL Server and SQL-in-a-VM to leverage the Azure Key Vault service as an Extensible Key Management (EKM) provider to protect its encryption keys for applications link; Transparent Data Encryption, Backup Encryption, and Column Level Encryption.
+
+For more task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones ARM template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## Supporting Libraries
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) provides `IKey` and `IKeyResolver` interfaces for locating keys from identifiers and performing operations with keys.
 
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) provides extended capabilities for Azure Key Vault.
+
+## Other Key Vault resources
+- [Key Vault Blog](http://aka.ms/kvblog)
+- [Key Vault Forum](http://aka.ms/kvforum)

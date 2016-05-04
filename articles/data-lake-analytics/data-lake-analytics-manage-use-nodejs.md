@@ -3,7 +3,7 @@
    description="Learn how to manage Data Lake Analytics accounts, data sources, jobs and users using Azure SDK for Node.js"
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/11/2015"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Manage Azure Data Lake Analytics using Azure SDK for Node.js
 
@@ -42,9 +42,7 @@ Right now it supports:
 npm install azure-arm-datalake-analytics
 ```
 
-## How to Use
-
-### Authentication
+## Authenticate using Azure Active Directory
 
  ```javascript
  var msrestAzure = require('ms-rest-azure');
@@ -54,7 +52,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-### Create the Data Lake Analytics Clients
+## Create the Data Lake Analytics client
 
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
@@ -63,7 +61,8 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-### Create a Data Lake Analytics Account
+## Create a Data Lake Analytics account
+
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -112,7 +111,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-### Get a list of jobs
+## Get a list of jobs
 
 ```javascript
 var util = require('util');
@@ -126,7 +125,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-### Get a list of databases in the Data Lake Analytics Catalog
+## Get a list of databases in the Data Lake Analytics Catalog
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="05/03/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
@@ -154,7 +154,7 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 
 <!--Article references-->
 [data warehouse workload]: ./sql-data-warehouse-overview-workload.md
-[sample data]: ./sql-data-warehouse-get-started-load-samples.md
+[sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Provision]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->

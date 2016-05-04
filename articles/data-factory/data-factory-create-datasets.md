@@ -140,7 +140,7 @@ The availability section below specifies that the dataset is either produced hou
 	"availability":	
 	{	
 		"frequency": "Hour",		
-		"interval": "1",	
+		"interval": 1	
 	}
 
 The following table describes properties you can use in the availability section. 
@@ -160,7 +160,7 @@ Daily slices that start at 6 AM instead of the default midnight.
 	"availability":
 	{
 		"frequency": "Day",
-		"interval": "1",
+		"interval": 1,
 		"offset": "06:00:00"
 	}
 
@@ -176,13 +176,13 @@ For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 
 	"availability":	
 	{	
 		"frequency": "Hour",		
-		"interval": "23",	
+		"interval": 23,	
 		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
 ### offset/style Example
 
-If you need to run a pipeline on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the **offset** tag to set the date and time it should run. 
+If you need dataset on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the **offset** tag to set the date and time it should run. 
 
 	{
 	  "name": "MyDataset",
@@ -251,6 +251,8 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 
 ## Scoped datasets
 You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only used by activities within this pipeline but not by activities in other pipelines. The following example defines a pipeline with two datasets - InputDataset-rdc and OutputDataset-rdc - to be used within the pipeline.  
+
+> [AZURE.IMPORTANT] Scoped datasets are supported only with one-time pipelines (**pipelineMode** set to **OneTime**). See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details.
 
 	{
 	    "name": "CopyPipeline-rdc",

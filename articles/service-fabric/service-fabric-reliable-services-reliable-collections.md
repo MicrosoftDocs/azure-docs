@@ -36,7 +36,7 @@ Reliable Collections can be thought of as the natural evolution of the **System.
 
 Reliable Collections provide strong consistency guarantees out of the box in order to make reasoning about application state easier.
 Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction
-has been applied on a quorum of replicas, including the primary.
+has been logged on a majority quorum of replicas, including the primary.
 To achieve weaker consistency, applications can acknowledge back to the client/requester before the asynchronous commit returns.
 
 The Reliable Collections APIs are an evolution of concurrent collections APIs
@@ -60,7 +60,12 @@ Reliable Collections automatically choose the isolation level to use for a given
 There are two isolation levels that are supported in Reliable Collections:
 
 - **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Snapshot**: Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction. The transaction can recognize only data modifications that were committed before the start of the transaction. Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction. The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Snapshot**: Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction.
+The transaction can recognize only data modifications that were committed before the start of the transaction.
+Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.
+The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.
+Snapshots are consistent across Reliable Collections.
+For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
 In other words, any write within a transaction will be visible to a following read
@@ -128,22 +133,28 @@ Note that the above deadlock scenario is a great example of how an Update lock c
 
 ## Recommendations
 
-- Do not modify an object of custom type returned by read operations (e.g., `TryPeekAsync` or `TryGetAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
+- Do not modify an object of custom type returned by read operations (e.g., `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
 - Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
 - Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
 - Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
+- Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on this for merging checkpoints.
+- Consider using backup and restore functionality to have disaster recovery.
 
 Here are some things to keep in mind:
 
 - The default time-out is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
 - The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
 - The key type parameter (*TKey*) for a Reliable Dictionary must correctly implement `GetHashCode()` and `Equals()`. Keys must be immutable.
-- Enumerations are snapshot consistent within a collection. However, enumerations of multiple collections are not consistent across collections.
 - To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
+- Read operations on the secondary may read versions that are not quorum committed.
+This means that a version of data that is read from a single secondary might be false progressed.
+Of course, reads from Primary are always stable: can never be false progressed.
 
 ## Next steps
 
 - [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+- [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
+- [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 - [Getting started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
 - [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
 - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

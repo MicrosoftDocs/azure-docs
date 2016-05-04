@@ -17,7 +17,7 @@
      ms.date="03/02/2016"
      ms.author="dobett"/>
 
-# Tutorial: Get started with the IoT preconfigured solutions
+# Tutorial: Get started with the preconfigured solutions
 
 ## Introduction
 

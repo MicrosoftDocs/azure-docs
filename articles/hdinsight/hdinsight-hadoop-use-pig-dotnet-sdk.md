@@ -52,8 +52,6 @@ Save the subscription ID, as it will be used later.
 
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. 
 
-The following sample using user interactive authentication. To use the non-interactive authentication, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
 
 1. Open Visual Studio 2012 or 2013
 2. From the **File** menu, select **New** and then select **Project**.

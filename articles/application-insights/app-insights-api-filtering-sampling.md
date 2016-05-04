@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
@@ -79,7 +79,7 @@ To get fixed-rate sampling on the data from web pages, put an extra line in the 
 
 [Learn more about sampling](app-insights-sampling.md).
 
-## Filtering
+## Filtering: ITelemetryProcessor
 
 This technique gives you more direct control over what is included or excluded from the telemetry stream. You can use it in conjunction with Sampling, or separately.
 
@@ -240,7 +240,7 @@ public void Process(ITelemetry item)
 ```
 
 
-## Add properties
+## Add properties: ITelemetryInitializer
 
 Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules. 
 
@@ -367,6 +367,15 @@ For a summary of the non-custom properties available on the telemetryItem, see t
 
 You can add as many initializers as you like. 
 
+
+## ITelemetryProcessor and ITelemetryInitializer
+
+What's the difference between telemetry processors and telemetry initializers?
+
+* There are some overlaps in what you can do with them: both can be used to add properties to telemetry.
+* TelemetryInitializers always run before TelemetryProcessors.
+* TelemetryProcessors allow you to completely replace or discard a telemetry item.
+* TelemetryProcessors don't process performance counter telemetry.
 
 ## Reference docs
 
