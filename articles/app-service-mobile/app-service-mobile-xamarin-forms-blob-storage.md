@@ -140,9 +140,7 @@ Open the Xamarin.Forms quickstart project in either Visual Studio or Xamarin Stu
 - [Update TodoItemManager](#update-todoitemmanager)
 - [Add a details view](#add-details-view)
 - [Update the main view ](#update-main-view)
-- [Update the Android project](#update-android)
-- [Update the iOS project](#update-ios)
-- [Update the Windows project](#update-windows)
+- [Update the Android project](#update-android), [iOS project](#update-ios), [Windows project](#update-windows)
 
 >[AZURE.NOTE] This tutorial only contains instructions for the Android, iOS, and Windows Store platforms, not Windows Phone.
 
