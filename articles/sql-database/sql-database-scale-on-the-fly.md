@@ -1,4 +1,23 @@
-# Scales on the fly
+<properties
+   pageTitle="Azure SQL Database Scales on the Fly"
+   description="Learn how SQL Database scales on the fly"
+   keywords=""
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jhubbard"
+   editor=""/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="05/04/2016"
+   ms.author="carlrab"/>
+
+# Azure SQL Database Scales on the fly
 
 ![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
