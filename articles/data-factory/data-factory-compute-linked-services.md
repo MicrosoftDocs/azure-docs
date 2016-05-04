@@ -66,7 +66,7 @@ To use a Windows-based HDInsight cluster, set **osType** to **windows** or do no
 Property | Description | Required
 -------- | ----------- | --------
 type | The type property should be set to **HDInsightOnDemand**. | Yes
-clusterSize | The size of the on-demand cluster. Specify how many nodes you want to be in this on-demand cluster. | Yes
+clusterSize | Number of worker/data nodes in the cluster. The HDInsight cluster is created with 2 head nodes along with the number of worker nodes you specify for this property. The nodes are of size Standard_D3 that has 4 cores, so a 4 worker node cluster will take 24 cores (4*4 for worker nodes + 2*4 for head nodes). See [Create Linux-based Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) for details about the Standard_D3 tier.  | Yes
 timetolive | The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.<br/><br/>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.<br/><br/>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.<br/><br/>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.<br/><br/>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set | Yes
 version | Version of the HDInsight cluster. The default value is 3.1 for Windows cluster and 3.2 for Linux cluster. | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
@@ -137,9 +137,9 @@ You can specify the sizes of head, data, and zookeeper nodes using the following
 
 Property | Description | Required
 :-------- | :----------- | :--------
-headNodeSize | Specifies the size of the head node. The default value is: Large. See the **Specifying node sizes** section below for details. | No
-dataNodeSize | Specifies the size of the data node. The default value is: Large | No
-zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Small | No
+headNodeSize | Specifies the size of the head node. The default value is: Standard_D3. See the **Specifying node sizes** section below for details. | No
+dataNodeSize | Specifies the size of the data node. The default value is: Standard_D3. | No
+zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Standard_D3. | No
  
 #### Specifying node sizes
 Please see the [Sizes of Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) article for string values you need to specify for the above properties. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7 GB memory, which may not be good enough for your scenario. 
