@@ -47,7 +47,7 @@ This article walks you through the steps to create an Azure ExpressRoute circuit
 
 ### 2. Get the list of supported providers, locations, and bandwidths
 
-Before you create an ExpressRoute circuit, you need the list of connectivity providers, supported locations, and bandwidth options.
+Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options.
 
 The PowerShell cmdlet `Get-AzureDedicatedCircuitServiceProvider` returns this information, which you’ll use in later steps:
 
@@ -65,7 +65,7 @@ You're now ready to create an ExpressRoute circuit.
 
 ### 3. Create an ExpressRoute circuit
 
-The example below shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request.
+The following example shows how to create a 200-Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, substitute that information when you make your request.
 
 >[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 
@@ -95,7 +95,7 @@ You can run the `Get-AzureDedicatedCircuit` command to get a list of all the Exp
 
 	Get-AzureDedicatedCircuit
 
-The response will be something similar to the example below:
+The response will be something similar to the following example:
 
 	Bandwidth                        : 200
 	CircuitName                      : MyTestCircuit
@@ -147,7 +147,7 @@ An ExpressRoute circuit must be in the following state for you to be able to use
 
 ### 6. Periodically check the status and the state of the circuit key
 
-This lets you know when your provider has enabled your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
+This lets you know when your provider has enabled your circuit. After the circuit has been configured, *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the following example:
 
 	Get-AzureDedicatedCircuit
 
@@ -221,7 +221,7 @@ You can do the following with no downtime:
 - Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 - Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported.
 - Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
-- You can enable and disable "Allow Classic Operations".
+- You can enable and disable *Allow Classic Operations*.
 
 Refer to the [ExpressRoute FAQ](expressroute-faqs.md) for more information on limits and limitations.
 
