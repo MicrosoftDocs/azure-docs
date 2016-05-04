@@ -71,56 +71,56 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 7. From Solution Explorer, double-click **Program.cs** to open it. Replace the existing code with the following.
 
-    using Microsoft.Azure.Management.HDInsight.Job;
-    using Microsoft.Azure.Management.HDInsight.Job.Models;
-    using Hyak.Common;
+        using Microsoft.Azure.Management.HDInsight.Job;
+        using Microsoft.Azure.Management.HDInsight.Job.Models;
+        using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
-    {
-        class Program
+        namespace SubmitHDInsightJobDotNet
         {
-            private static HDInsightJobManagementClient _hdiJobManagementClient;
-
-            private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
-            private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-            private const string ExistingClusterUsername = "<Cluster Username>";
-            private const string ExistingClusterPassword = "<Cluster User Password>";
-
-            static void Main(string[] args)
+            class Program
             {
-                System.Console.WriteLine("The application is running ...");
+                private static HDInsightJobManagementClient _hdiJobManagementClient;
 
-                var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-                _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+                private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
+                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+                private const string ExistingClusterUsername = "<Cluster Username>";
+                private const string ExistingClusterPassword = "<Cluster User Password>";
 
-                SubmitPigJob();
-
-                System.Console.WriteLine("Press ENTER to continue ...");
-                System.Console.ReadLine();
-            }
-
-            private static void SubmitPigJob()
-            {
-                var parameters = new PigJobSubmissionParameters
+                static void Main(string[] args)
                 {
-                    Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
-                                LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-                                FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-                                GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-                                FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-                                RESULT = order FREQUENCIES by COUNT desc;
-                                DUMP RESULT;"
-                };
+                    System.Console.WriteLine("The application is running ...");
 
-                System.Console.WriteLine("Submitting the Pig job to the cluster...");
-                var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
-                System.Console.WriteLine("Validating that the response is as expected...");
-                System.Console.WriteLine("Response status code is " + response.StatusCode);
-                System.Console.WriteLine("Validating the response object...");
-                System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+                    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+
+                    SubmitPigJob();
+
+                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.ReadLine();
+                }
+
+                private static void SubmitPigJob()
+                {
+                    var parameters = new PigJobSubmissionParameters
+                    {
+                        Query = @"LOGS = LOAD 'wasb:///example/data/sample.log';
+                                    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+                                    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+                                    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+                                    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+                                    RESULT = order FREQUENCIES by COUNT desc;
+                                    DUMP RESULT;"
+                    };
+
+                    System.Console.WriteLine("Submitting the Pig job to the cluster...");
+                    var response = _hdiJobManagementClient.JobManagement.SubmitPigJob(parameters);
+                    System.Console.WriteLine("Validating that the response is as expected...");
+                    System.Console.WriteLine("Response status code is " + response.StatusCode);
+                    System.Console.WriteLine("Validating the response object...");
+                    System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+                }
             }
         }
-    }
 
 
 7. Press **F5** to start the application.
