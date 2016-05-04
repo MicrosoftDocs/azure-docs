@@ -1,6 +1,6 @@
 <properties
    pageTitle="VM restarting or resizing issues | Microsoft Azure"
-   description="Troubleshoot deployment issues with restarting or resizing an existing Azure Virtual Machine"
+   description="Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Azure Virtual Machine"
    services="virtual-machines"
    documentationCenter=""
    authors="delhan"
