@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/04/2016"
 	ms.author="anandy"/>
 
 # AD FS management and customizaton with Azure AD Connect
@@ -192,6 +192,7 @@ Also, by using ‘add’ and not ‘issue’ you avoid adding an outgoing issue 
 This rule simply defines a temporary flag “idflag” which is set to “useguid” if there is no ms-ds-concistencyguid populated for the user. The logic behind this is the fact that ADFS does not allow empty claims. So when added claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in rule 1, you will end up with msdsconsistencyguid claim ONLY if the value is populated for the user. In case it is not populated, ADFS sees that it will turn up as an empty value and drops it there and then. ObjectGuid as you know all objects will have so that claim will always be there after rule 1 is executed
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if present**
+
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
@@ -220,7 +221,7 @@ By default, the claim rule for issuer ID is set as:
 
 ![Default issuer id claim](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
 
-The default rule simply takes the UPN suffix and uses it in the issuer id claim. For example, John is a user in sub.contoso.com and contoso.com is federate with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD, then the default issuer id claim rule in AD FS will handle it in the following manner:
+The default rule simply takes the UPN suffix and uses it in the issuer id claim. For example, John is a user in sub.contoso.com and contoso.com is federated with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD, then the default issuer id claim rule in AD FS will handle it in the following manner:
 
 c:[Type 
 == “http://schemas.xmlsoap.org/claims/UPN“]
