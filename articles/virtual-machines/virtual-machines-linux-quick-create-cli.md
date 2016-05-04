@@ -35,7 +35,7 @@ Using the same command from above we will show each prompt along with the output
 
 ## ImageURN Aliases
 
-The Azure CLI `quick-create` command has aliases mapped to the most common OS distributions.  Using this table to find the distribution you want to deploy with `quick-create`.
+The Azure CLI `quick-create` command has aliases mapped to the most common OS distributions.  Using this table to find the distribution you want to deploy with `quick-create`.  All deployments using `quick-create` default to SSD storage backed VMs, offering a high performance experience.
 
 | Alias     | Publisher | Offer        | SKU         | Version |
 |-----------|-----------|--------------|-------------|---------|
