@@ -33,7 +33,7 @@ When you try to start a stopped Azure Virtual Machine (VM), or resize an existin
 
 To start troubleshooting, collect the audit logs to identify the error associated with the issue.
 
-In the Azure portal, click **Browse** > **Virtual machines** > _your Windows virtual machine_ > **Settings** > **Audit logs**.
+In the Azure portal, click **Browse** > **Virtual machines** > _your Linux virtual machine_ > **Settings** > **Audit logs**.
 
 ## Issue: Error when starting a stopped VM
 
