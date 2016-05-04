@@ -13,19 +13,30 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/03/2016"
+   ms.date="05/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Resource Manager template walkthrough
 
-One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure described in [Authoring Template article](resource-group-authoring-templates.md#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own specific scenario. [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file. 
+One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure described in [Authoring Template article](resource-group-authoring-templates.md#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own specific scenario. 
 
+>[AZURE.NOTE] [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file. 
+
+Let's take a look at a common infrastructure:
+
+* Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.
+* A single NIC and VM IP address for each virtual machine.
+* A load balancer with a load balancing rule on port 80
+
+![architecture](./media/resource-group-overview/arm_arch.png)
+
+But, that's a lot to build all at once, so let's first create a storage account and deploy it, then add the other resources.
 This topic walks you through the steps of creating a Resource Manager template. You will first write a simple template that creates a storage account. Later, you will extend the template to deploy a more complex architecture.
 
 1. Basic template to deploy a Storage Account
 2. Advanced template to deploy full architecture
 
-You can use any type of editor when creating the template. Visual Studio provides tools that simplify template development, but you do not need Visual Studio to complete this tutorial. For a tutorial on using Visual Studio to create a Web App and SQL Database deployment, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+>[AZURE.NOTE] You can use any type of editor when creating the template. Visual Studio provides tools that simplify template development, but you do not need Visual Studio to complete this tutorial. For a tutorial on using Visual Studio to create a Web App and SQL Database deployment, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
 
 ## Create the Resource Manager template
 
@@ -132,15 +143,7 @@ You are now the proud owner of a storage account!
 
 ## Create a complete architecture template
 
-Let's take a look at a common architecture:
-
-* Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.
-* A single NIC and VM IP address for each virtual machine.
-* A load balancer with a load balancing rule on port 80
-
-![architecture](./media/resource-group-overview/arm_arch.png)
-
-You already created a base template, with a storage account. The next steps will be to add all the resources required to deploy the above architecture to Azure.
+You already created a base template, with a storage account. The next steps will be to add all the resources required to deploy the  architecture described in the start of this tutorial.
 The template you will create is based on the [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) from the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates). 
 
 ## Availability Set
@@ -449,8 +452,7 @@ To find the relevant properties for a marketplace image, follow the [select Linu
 }
 ```
 
-For images published by **3rd party vendors**, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
-
+>[AZURE.NOTE] For images published by **3rd party vendors**, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
 
 You have finished defining the resources for your template.
 
@@ -575,8 +577,7 @@ In the variables section, you can define values that are used in more than one p
 ```
 
 ## Complete template
-The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) under [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules).
-
+The full template can be found in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) under [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules). 
 
 ## Next steps
 
