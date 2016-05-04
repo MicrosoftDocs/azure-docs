@@ -150,7 +150,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 The Logger module receives messages from the message bus and writes them to a file. It never publishes messages to the message bus. Therefore, the code of the logger module never calls the **MessageBus_Publish** function.
 
-The **Logger_Recieve** function in the [logger.c](../modules/logger/src/logger.c) file is the callback the message bus invokes to deliver messages to the logger module. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
+The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the message bus invokes to deliver messages to the logger module. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -201,7 +201,7 @@ To learn about how to use the Gateway SDK, see the following:
 You can find out more about device management with IoT Hub by reading [Overview of Azure IoT Hub device management][lnk-device-management].
 
 <!-- Links -->
-[lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/helloworld/src/main.c
+[lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/modules/logger/src/logger.c
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/

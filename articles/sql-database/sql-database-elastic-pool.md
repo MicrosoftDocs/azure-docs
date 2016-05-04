@@ -61,7 +61,7 @@ Databases that are great candidates for elastic database pools typically have pe
 | eDTUs per pool | The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
 | Max storage per pool (GB) | The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
 | Max number of databases per pool | The maximum number of databases allowed per pool. |
-| Max concurrent workers per pool | The maximum number of concurrent workers (also referred to as requests) available for all databases in the pool. |
+| Max concurrent workers per pool | The maximum number of concurrent workers (requests) available for all databases in the pool. |
 | Max concurrent logins per pool | The maximum number of concurrent logins for all databases in the pool. |
 | Max concurrent sessions per pool | The maximum number of sessions available for all databases in the pool. |
 
@@ -83,7 +83,7 @@ For more information about other tools, see the [Elastic database tools learning
 
 ## Business continuity features for databases in a pool
 
-Elastic databases support most [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
+Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
 
 
 ### Point in time restore

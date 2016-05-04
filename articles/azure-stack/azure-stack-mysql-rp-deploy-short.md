@@ -40,6 +40,9 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
         - Accept the MySQL EULA terms and download the MySQL binaries
         - Upload the certificates and all other artifacts to an Azure Stack storage account
         - Publish gallery packages to allow deployment MySQL resources through gallery
+        
+ > [AZURE.IMPORTANT] if any of the above scripts hangs for no apparent reason after submitting you AAD tenant, your security settings might be blocking one of the DLLs required for the deployment to run. To resolve this, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your RP folder, right click it, click properties and check the "unblock" box in the "General" tab. 
+        
     - In the “Deploy” tab:
         - [Deploy a VM](azure-stack-mysql-rp-deploy-long.md#Deploy-the-MySQLResource-Provider-VM) that will host both your resource provider and MySQL Servers and databases you will instantiate. This script references a JSON parameter file, which you need to update with some values before you run the script.
 
