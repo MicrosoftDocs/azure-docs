@@ -33,17 +33,32 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 Using the same command from above we will show each prompt along with the output you should expect to see.  
 
-For the ImageURN we will use `canonical:ubuntuserver:14.04.2-LTS:latest` to deploy a Ubuntu 14.04 VM. (To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md)).
+## ImageURN Aliases
 
-In the following command walk through, please replace the prompts with values from your own environment, we are using "example" values.  The output should look like the following output block.  
+The Azure CLI `quick-create` command has aliases mapped to the most common OS distributions.  Using this table to find the distribution you want to deploy with `quick-create`.
+
+| Alias     | Publisher | Offer        | SKU         | Version |
+|-----------|-----------|--------------|-------------|---------|
+| CentOS    | OpenLogic | Centos       | 7.2         | latest  |
+| CoreOS    | CoreOS    | CoreOS       | Stable      | latest  |
+| Debian    | credativ  | Debian       | 8           | latest  |
+| openSUSE  | SUSE      | openSUSE     | 13.2        | latest  |
+| RHEL      | Redhat    | RHEL         | 7.2         | latest  |
+| SLES      | SLES      | SLES         | 12-SP1      | latest  |
+| UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | latest  |
+
+
+For the ImageURN we will use  `UbuntuLTS` to deploy a Ubuntu 14.04.4-LTS VM. These 7 aliases represent a tiny portion of the available OS on Azure.  To locate an image in the marketplace, [search for an image](virtual-machines-linux-cli-ps-findimage.md) or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md)).
+
+In the following command walk through, please replace the prompts with values from your own environment, we are using "example" values.  
 
 Follow the prompts and enter your own names
 
 ```bash
-azure vm quick-create -M ~/.ssh/azure_id_rsa.pub
+azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q UbuntuLTS
 ```
 
-Output
+The output should look like the following output block.
 
 ```bash
 info:    Executing command vm quick-create
