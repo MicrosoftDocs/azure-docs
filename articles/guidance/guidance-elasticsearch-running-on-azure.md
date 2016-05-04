@@ -1019,7 +1019,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Azure Disk Encryption for Windows and Linux IaaS VMs Preview]: ../azure-security-disk-encryption.md
 [Azure Load Balancer]: ../load-balancer/load-balancer-overview.md
 [ExpressRoute]: ../expressroute/expressroute-introduction.md
-[internal load balancer]:  ..load-balancer//load-balancer-internal-overview.md
+[internal load balancer]:  ../load-balancer/load-balancer-internal-overview.md
 [Sizes for Virtual Machines]: ../virtual-machines/virtual-machines-linux-sizes.md
 
 [Memory Requirements]: #memory-requirements
