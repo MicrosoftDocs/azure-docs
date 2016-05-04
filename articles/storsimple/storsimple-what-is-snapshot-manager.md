@@ -38,9 +38,9 @@ StorSimple Snapshot Manager provides a central management console that you can u
 - Configure, back up, and delete volumes.
 - Configure volume groups to ensure that backed up data is application-consistent.
 - Manage backup policies so that data is backed up on a predetermined schedule.
-- Create independent copies of data, which can be stored in the cloud and used for disaster recovery.
+- Create local and cloud snapshots, which can be stored in the cloud and used for disaster recovery.
 
-With StorSimple Snapshot Manager, you mount volumes and then configure them into volume groups, typically by application. StorSimple Snapshot Manager uses these volume groups to generate backup copies that are application-consistent. (Application consistency exists when all related files and databases are synchronized and represent the true state of the application at a specific point in time.) 
+The StorSimple Snapshot Manager fetches the list of applications registered with VSS provider on the host and suggests the creating volume groups around the volumes used by an application to create application consistent backups, you can mount volumes and then configure them into volume groups, typically by application. StorSimple Snapshot Manager uses these volume groups to generate backup copies that are application-consistent. (Application consistency exists when all related files and databases are synchronized and represent the true state of the application at a specific point in time.) 
 
 StorSimple Snapshot Manager backups take the form of incremental snapshots, which capture only the changes since the last backup. As a result, backups require less storage and can be created and restored quickly. StorSimple Snapshot Manager uses the Windows Volume Shadow Copy Service (VSS) to ensure that snapshots capture application-consistent data. (For more information, go to the Integration with Windows Volume Shadow Copy Service section.) With StorSimple Snapshot Manager, you can create backup schedules or take immediate backups as needed. If you need to restore data from a backup, StorSimple Snapshot Manager lets you select from a catalog of local or cloud snapshots. Azure StorSimple restores only the data that is needed as it is needed, which prevents delays in data availability during restore operations.)
 
