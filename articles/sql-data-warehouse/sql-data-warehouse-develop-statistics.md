@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="05/04/2016"
    ms.author="jrj;barbkess;sonyama;nicw"/>
 
 # Manage statistics in SQL Data Warehouse
@@ -56,7 +56,14 @@ It is important to include updating statistics in your database management routi
 
 Therefore one of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"
 
-This question is not one that can be answered by age. An up to date statistics object could be very old. When the number of rows or there is a material change in the distribution of values for a given column *then* you need to update statistics.
+This question is not one that can be answered by age. An up to date statistics object could be very old. When the number of rows or there is a material change in the distribution of values for a given column *then* you need to update statistics.  
+
+For reference, **SQL Server** (not SQL Data Warehouse) automatically updates statistics for these situations:
+
+- If you have zero rows in the table, when you add a row(or rows), you’ll get an automatic update of statistics
+- If you have less than 500 rows in a table, when you add more than 500, and this means if you’re 499, you’d have to add rows to 999, you’ll get an automatic update 
+- Once you’re over 500 rows you will have to add 500 additional rows + 20% of the size of the table before you’ll see an automatic update on the stats
+
 
 For example, date columns in a data warehouse usually needs frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date.
 
