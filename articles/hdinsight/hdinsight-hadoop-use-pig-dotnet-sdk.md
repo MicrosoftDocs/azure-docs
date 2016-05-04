@@ -67,7 +67,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 5. From the **Tools** menu, select **Library Package Manager** or **Nuget Package Manager**, and then select **Package Manager Console**.
 6. Run the following command in the console to install the .NET SDK packages.
 
-        Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight.Job
 
 7. From Solution Explorer, double-click **Program.cs** to open it. Replace the existing code with the following.
 
