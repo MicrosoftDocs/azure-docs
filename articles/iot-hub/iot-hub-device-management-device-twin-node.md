@@ -85,7 +85,7 @@ deviceInfo.deviceProperties.BatteryLevel.value
 To determine the freshness of these values, you can check the last updated time:
 
 ```
-device.DeviceProperties[DevicePropertyNames.BatteryLevel].LastUpdatedTime.ToString(); TODO
+deviceInfo.deviceProperties.BatteryLevel.lastUpdatedTime
 ```
 
 You can similarly read service properties, which are only stored in the device twin. They are not synchronized to the device.
@@ -95,7 +95,7 @@ You can similarly read service properties, which are only stored in the device t
 A deep read starts a device job to read the value of the requested property from the physical device. Device jobs were introduced in the [Overview of Azure IoT device management][lnk-dm-overview] and are described in detail in [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs]. The deep read will give you a more up-to-date value for the device property, because the freshness is not limited by the notify interval. The job sends a message to the physical device and updates the device twin with the most recent value for only the specified property. It does not refresh the whole device twin.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyReadAsync(Guid.NewGuid().ToString(), deviceId, propertyToRead); TODO
+scheduleDevicePropertyRead(jobId, deviceIds, propertyNames, done)
 ```
 
 You cannot do a deep read on service properties or tags because they are not synchronized to the device.
@@ -107,7 +107,7 @@ If you want to change a writeable device property, you can do this with a deep w
 The job sends a message to the physical device to update the specified property. The device twin is not immediately updated when the job completes. You must wait until the next notify interval. Once the synchronization occurs, you can see the change in the device twin with a shallow read.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue); TODO
+scheduleDevicePropertyWrite(jobId, deviceIds, properties, done)
 ```
 
 ### Device simulator implementation details

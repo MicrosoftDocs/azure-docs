@@ -73,7 +73,7 @@ Queries on device properties and service properties are executed with a JSON str
 
 - **Filter**: The expression that limits the device objects included in the query result set (equivalent to WHERE in SQL):
 
-  ```
+	```
 	var filterQuery = {
 	  filter: {
 	    property: {
@@ -88,54 +88,54 @@ Queries on device properties and service properties are executed with a JSON str
 	  aggregate: null,
 	  sort: null
 	};
-  ```
+	```
 
 - **Aggregate**: The expression that determines how to group the query result set (equivalent to GROUPBY in SQL):
 
-  ```
-  var aggregateQuery = {
-  filter: null,
-  project: null,
-  aggregate: {
-    keys: [
-      {
-        name: "CustomerId",
-        type: "service"
-      }
-    ],
-    properties: [
-      {
-        operator: "sum",
-        property: {
-          name: "Weight",
-          type: "service"
-        },
-        columnName: "TotalWeight"
-      }
-    ]
-  },
-  sort: null
-};
-  ```
+	```
+	var aggregateQuery = {
+	filter: null,
+	project: null,
+	aggregate: {
+	keys: [
+	  {
+	    name: "CustomerId",
+	    type: "service"
+	  }
+	],
+	properties: [
+	  {
+	    operator: "sum",
+	    property: {
+	      name: "Weight",
+	      type: "service"
+	    },
+	    columnName: "TotalWeight"
+	  }
+	]
+	},
+	sort: null
+	};
+	```
 
 - **Sort**: The expression definition which property should be used to sort the query result set (equivalent to ORDER BY in SQL). If sort is null, **deviceID** is used by default:
 
-  ```
-	  var sortQuery = {
-	  filter: null,
-	  project: null,
-	  aggregate: null,
-	  sort: [
-	      {
-	          order: "asc",
-	          property: {
-	              name: "QoS",
-	              type: "service"
-	          }
-	      }
-	  ]
-	};
-  ```
+```
+  var sortQuery = {
+  filter: null,
+  project: null,
+  aggregate: null,
+  sort: [
+      {
+          order: "asc",
+          property: {
+              name: "QoS",
+              type: "service"
+          }
+      }
+  ]
+  };
+```
 
 ### Limitations
 
@@ -151,12 +151,10 @@ More details on the syntax and available fields for the JSON are [available][lnk
 
 ### Query by device and service properties
 
-Once you have the JSON query expression, you can query for the device twins. Call **queryDevices** and check the **result** field for aggregate queries and the **devices** field for all other queries. **devices** contains a list of device objects, which represent the device twins that match the query. **result** contains an array of dictionaries, each containing the resulting row.
+Once you have the JSON query expression, you can query for the device twins. Call **queryDevices** and check the **result** object for aggregate queries and the **devices** object for all other queries.
 
 ```
-var foundDevices = (await registryManager.QueryDevicesJsonAsync(query)).Result; TODO
-
-var results = (await registryManager.QueryDevicesJsonAsync(query)).AggregateResult; TODO
+registry.queryDevices(query, done)
 ```
 
 ### Query by tags
@@ -164,7 +162,7 @@ var results = (await registryManager.QueryDevicesJsonAsync(query)).AggregateResu
 Querying by tags enables you to find device objects without using a JSON query expression. If more than one tag is passed, only device objects with all the tags will be returned. The second parameter is **maxCount**, the maximum number of devices to be returned. The maximum value for **maxCount** is 1000.
 
 ```
-registry.queryDevicesByTags(['bacon'], 100, callback)
+registry.queryDevicesByTags(['bacon'], 100, done)
 ```
 
 ### Device Implementation
