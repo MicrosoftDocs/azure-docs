@@ -83,15 +83,15 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 
 2.  Clone the github repository. **Make sure to clone in a directory that does not have any spaces.**
 
-  ```
-  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
-  ```
+	  ```
+	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
+	  ```
 
 3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **\\azure-iot-sdks\\csharp\\service\\samples** folder and run, replacing the placeholder value with your connection string from the previous section:
 
-  ```
-  setup.bat <IoT Hub Connection String>
-  ```
+	  ```
+	  setup.bat <IoT Hub Connection String>
+	  ```
 
 This script does the following:
 
