@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="05/04/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with Pluralsight, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A Pluralsight single-sign on enabled subscription
 
 
@@ -90,10 +90,6 @@ To configure the integration of Pluralsight into Azure AD, you need to add Plura
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Pluralsight based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Pluralsight to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Pluralsight needs to be established.
-
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Pluralsight.
-
 To configure and test Azure AD single sign-on with Pluralsight, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
@@ -110,7 +106,7 @@ Your Pluralsight application expects the SAML assertions in a specific format, w
 
 ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_02.png) 
 
-You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute but can be added for identifying the unique user. 
+You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user. 
 
 **To configure Azure AD single sign-on with Pluralsight, perform the following steps:**
 
@@ -182,7 +178,7 @@ You can also add the **"Unique ID"** attribute with the appropriate value like E
     ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_04.png) 
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Pluralsight application using the following pattern: **“https://\<instance name\>.pluralsight.com/sso/\<comapny name\>”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Pluralsight application using the following pattern: **“https://\<instance name\>.pluralsight.com/sso/\<comapny name\>”**
 
     b. Click **Next**.
 
