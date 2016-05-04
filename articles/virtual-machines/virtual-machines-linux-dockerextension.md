@@ -68,7 +68,7 @@ info:    group create command OK
 
 ```
 
-## Deploy you first nginx container
+## Deploy your first nginx container
 
 Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment. The Docker tools will already be installed, so let's try to spin up an nginx container:
 
@@ -130,6 +130,6 @@ You can find more detailed walkthrough on using Resource Manager templates by re
 ## Next steps
 
 Read more detailed steps for the different deployment options:
-  1. [Use Docker Machine with the Azure driver](./virtual-machines-linux-docker-machine.md)
-  2. [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](./virtual-machines-linux-classic-cli-use-docker.md)
-  3. [Deploy an Azure Container Service cluster](../container-service/container-service-deployment.md)
+1. [Use Docker Machine with the Azure driver](./virtual-machines-linux-docker-machine.md)
+2. [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](./virtual-machines-linux-classic-cli-use-docker.md)
+3. [Deploy an Azure Container Service cluster](../container-service/container-service-deployment.md)
