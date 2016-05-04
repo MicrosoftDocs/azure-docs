@@ -47,14 +47,17 @@ This tutorial assumes that you already have an Azure account. If you do not have
 ## <a id="Provision">Provision a SQL VM image from the gallery with the resource manager deployment model
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
-1. On the Azure portal click **+New**. The portal will open the **New** blade. The SQL Server VM templates are in the **Compute** group of the Marketplace.
+1. On the Azure portal click **New**. The portal will open the **New** blade. The SQL Server VM resources are in the **Virtual Machines** group of the Marketplace.
 
-1. In the **New** blade, click **Compute**.
-1. To see all of the types of resources in the in the **Compute** blade, click **See all**.
-<br/>
-![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-<br/>
+1. In the **New** blade, click **Virtual Machines**.
+1. To see all of the available images, click **See all** on the **Virtual Machines** blade.
+
+	![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
+
 1. Under **Database servers**, click **SQL Server** to see all of the templates available for SQL Server. You might have to scroll down to locate **Database servers**.
+
+	![Virtual Machine Gallery SQL Images](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+
 1. 	Each template identifies a SQL Server version and an operating system. Select one of these images from the list to bring up a blade containing its details.
 1.	The details blade provides a description of this virtual machine image, and it allows you to select a deployment model. Under **Select a deployment model**, select **Resource Manager** and click **Create**.
 <br/>
