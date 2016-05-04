@@ -1015,7 +1015,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 
 [Apache JMeter]: http://jmeter.apache.org/
 [Apache Lucene]: https://lucene.apache.org/
-[Automatically scale machines in a Virtual Machine Scale Set]: ../virtual-machine-scale-sets /virtual-machines-vmss-walkthrough.md
+[Automatically scale machines in a Virtual Machine Scale Set]: ../virtual-machine-scale-sets/virtual-machines-vmss-walkthrough.md
 [Azure Disk Encryption for Windows and Linux IaaS VMs Preview]: ../azure-security-disk-encryption.md
 [Azure Load Balancer]: ../load-balancer/load-balancer-overview.md
 [ExpressRoute]: ../expressroute/expressroute-introduction.md
