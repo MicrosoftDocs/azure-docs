@@ -21,7 +21,7 @@
 
 Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on-premises resources such as SQL Server, or to create secure private networks between resources in the cloud.
 
-> [AZURE.NOTE] HDInsight does not support affinity-based Azure virtual networks. When using HDInsight, you must use location-based virtual networks.
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 
 ##<a id="whatis"></a>What is Azure Virtual Network?
@@ -92,8 +92,6 @@ If you need to install HDInsight into a secured Virtual Network, you must allow 
 Allowing inbound access from port 443 for these addresses will allow you to successfully install HDInsight into a secured virtual network.
 
 The following examples demonstrate how to create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
-
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 __Using Azure PowerShell__
 
