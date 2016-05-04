@@ -53,7 +53,7 @@ The outline for the steps to accomplish this is as below
 
 ## Setup Azure Automation to access your Virtual Machines
 
-The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale the VM Scale Set instances. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:
+The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale a Virtual Machine. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:
 
 * [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 

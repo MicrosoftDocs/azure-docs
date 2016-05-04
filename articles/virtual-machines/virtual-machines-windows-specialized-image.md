@@ -40,7 +40,7 @@ This article assumes the following prerequisites are met before you start the st
 
 
 
-> [AZURE.NOTE] Similar steps apply for a VM created using either of the two deployment models as the source image. We will note the the minor differences where applicable.
+> [AZURE.NOTE] Similar steps apply for a VM created using either of the two deployment models as the source image. We will note the minor differences where applicable.
 
 
 ## Copy VHDs to your Resource Manager storage account
@@ -76,7 +76,7 @@ This article assumes the following prerequisites are met before you start the st
 
 ## Create a VM using the copied VHD
 
-These steps show you how to use Azure PowerShell to create a Resource Manager based Windows VM in a new virtual network using the VHD copied in the above steps. The VHD should be present in the same storage account as the new virtual machine that will be created.
+These steps show you how to use Azure PowerShell to create a Resource Manager-based Windows VM in a new virtual network using the VHD copied in the above steps. The VHD should be present in the same storage account as the new virtual machine that will be created.
 
 
 First set up a virtual network and NIC for your new VM similar to following script. Use values for the variables (represented by the **$** sign) as appropriate to your application.

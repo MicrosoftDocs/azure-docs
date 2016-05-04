@@ -1,4 +1,4 @@
-<properties
+<properties 
    pageTitle="Link a virtual network to an ExpressRoute circuit by using PowerShell | Microsoft Azure"
    description="This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and PowerShell."
    services="expressroute"
@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
-<tags
+<tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
@@ -28,15 +28,15 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 
 **About Azure deployment models**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Configuration prerequisites
 
 - You need the latest version of the Azure PowerShell modules (at least version 1.0). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 - You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
-- You must have an active ExpressRoute circuit.
-	- Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider.
-	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions.
+- You must have an active ExpressRoute circuit. 
+	- Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
+	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
 	- Ensure that Azure private peering is configured and the BGP peering between your network and Microsoft is up so that you can enable end-to-end connectivity.
 	- Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [VPN gateway](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), but be sure to use `-GatewayType ExpressRoute`.
 
@@ -66,31 +66,31 @@ The *circuit owner* is an authorized power user of the ExpressRoute circuit reso
 
 The *circuit owner* has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
 
-### Circuit owner operations
+### Circuit owner operations 
 
 #### Creating an authorization
-
-The circuit owner creates an authorization. This results in the creation of an authorization key that a circuit user can use to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
+	
+The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
 The following cmdlet snippet shows how to create an authorization:
 
+	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
 	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
-
+		
 
 The response to this will contain the authorization key and status:
 
 	Name                   : MyAuthorization1
 	Id                     : /subscriptions/&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/CrossSubTest/authorizations/MyAuthorization1
-	Etag                   : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+	Etag                   : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
 	AuthorizationKey       : ####################################
 	AuthorizationUseStatus : Available
 	ProvisioningState      : Succeeded
 
-
+		
 
 #### Reviewing authorizations
 
@@ -98,7 +98,7 @@ The circuit owner can review all authorizations that are issued on a particular 
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
-
+	
 
 #### Adding authorizations
 
@@ -107,17 +107,17 @@ The circuit owner can add authorizations by using the following cmdlet:
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-
+	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
 
-
+	
 #### Deleting authorizations
 
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
 	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
-	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
 
 ### Circuit user operations
 
@@ -127,7 +127,7 @@ The circuit user needs the peer ID and an authorization key from the circuit own
 
 The circuit user can run the following cmdlet to redeem a link authorization:
 
-	$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"
+	$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"	
 	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
 #### Releasing connection authorizations
