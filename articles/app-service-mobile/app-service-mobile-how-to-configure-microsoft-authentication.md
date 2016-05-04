@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="05/04/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Microsoft Account login
