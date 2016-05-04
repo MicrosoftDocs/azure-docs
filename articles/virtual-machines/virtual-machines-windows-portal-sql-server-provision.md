@@ -44,7 +44,7 @@ In this tutorial, you will:
 
 This tutorial assumes that you already have an Azure account. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a id="Provision">Provision a SQL VM image from the gallery with the resource manager deployment model
+## <a id="Provision">Provision a SQL VM image from the gallery
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
 1. On the Azure portal click **New**. The portal will open the **New** blade. The SQL Server VM resources are in the **Virtual Machines** group of the Marketplace.
@@ -68,11 +68,11 @@ In the Azure portal there are five blades for configuring a SQL Server virtual m
 
 | Blade               | Task                          |
 |---------------------|-------------------------------|
-| Basics              | [Configure basic settings](#configure-basic-settings)      |
-| Size                | [Choose virtual machine size](#choose-virtual-machine-size)   |
-| Settings            | [Configure optional features](#configure-optional-features)   |
-| SQL Server settings | [Configure SQL server settings](#configure-sql-server-settings) |
-| Summary             | [Review the summary](#review-the-summary)            |
+| Basics              | [Configure basic settings](#1-configure-basic-settings)      |
+| Size                | [Choose virtual machine size](#2-choose-virtual-machine-size)   |
+| Settings            | [Configure optional features](#3-configure-optional-features)   |
+| SQL Server settings | [Configure SQL server settings](#4-configure-sql-server-settings) |
+| Summary             | [Review the summary](#5-review-the-summary)            |
 
 ## 1. Configure basic settings
 On the **Create Virtual Machine** blade under **Basics** provide the following information:
