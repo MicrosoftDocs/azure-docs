@@ -224,3 +224,11 @@ Using the solution portal you can search for devices with specific characteristi
 You can disable a device, and after it is disabled you can remove it:
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
+
+
+## Next steps
+
+The following TechNet blog posts provide additional detail about the remote monitoring preconfigured solution:
+
+- [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
