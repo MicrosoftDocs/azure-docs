@@ -804,7 +804,7 @@ In this step, you will test the pipeline by dropping files into the input folder
 
     ![](./media/data-factory-data-processing-using-batch/image14.png)
 
-	> [AZURE.NOTE] You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+	> [AZURE.NOTE] Download the source code for [Azure Batch Explorer tool][batch-explorer], compile, and use it to create and monitor Batch pools. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
 
 7.  You should see the output files in the **outputfolder** of **mycontainer** in your Azure blob storage.
 

@@ -660,7 +660,7 @@ The Data Factory service creates a job in Azure Batch with the name: **adf-<pool
 	
 ![Batch Explorer tasks](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
 
-> [AZURE.NOTE] You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+> [AZURE.NOTE] Download the source code for [Azure Batch Explorer tool][batch-explorer], compile, and use it to create and monitor Batch pools. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
 
 ![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
