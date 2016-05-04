@@ -48,7 +48,7 @@ To view or download a bill:
     ![Summary - billing history -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
 
-4. The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.  
+4. The **Billing History** section lists your statements for prior billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.  
 
     ![Summary-billing history 2](./media/billing-understand-your-bill/ContentViewaBillforMA2.png)
 
