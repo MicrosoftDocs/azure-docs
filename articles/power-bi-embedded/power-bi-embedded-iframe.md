@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Microsoft Power BI Embedded Preview - Integrate a report into your app"
-   description="Microsoft Power BI Embedded Preview - How to integrate a report into your app, how to authenticate with Power BI Embedded app token, how to get reports"
+   pageTitle="Microsoft Power BI Embedded Preview - Embed Power BI with an IFrame"
+   description="Microsoft Power BI Embedded Preview - Essential code to integrate a report into your app, how to authenticate with Power BI Embedded app token, how to get reports"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -13,15 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/28/2016"
+   ms.date="05/02/2016"
    ms.author="derrickv"/>
 
-# Integrate a report into your app
-This article shows you how to use the **Power BI Embedded** REST API, app tokens, and some JavaScript to integrate, or embed, a report into your app.
+# Embed Power BI with an IFrame
+This article shows you essential code to use the **Power BI Embedded** REST API, app tokens, an IFrame, and some JavaScript to integrate, or embed, a report into your app.
 
 In [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md), you learn how to configure a **Workspace Collection** to hold one or more **Workspaces** for your report content. Then, in [Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md) you import a report into a **Workspace**.
 
-This article shows you the steps to embed a report into your app. To follow along with this article, you can download the [Integrate a report]() sample on GitHub. This sample is a simple ASP.NET web form app intended to illustrate essential C# and JavaScript code you need to integrate a report. For a more advanced sample that uses the Model-View-Controller (MVC) design pattern to integrate a report, see the [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493) on GitHub.
+This article shows you the steps to embed a report into your app. To follow along with this article, you should download the [Integrate a report with an IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sample on GitHub. This sample is a simple ASP.NET web form app intended to illustrate essential C# and JavaScript code you need to integrate a report. For a more advanced sample that uses the Model-View-Controller (MVC) design pattern to integrate a report, see the [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493) on GitHub.
 
 Let's get started describing how to integrate a **Power BI Embedded** report into your app.
 
@@ -30,7 +30,7 @@ Here are the steps to integrate a report.
 - Step 1: [Get a report in a workspace](#GetReport). In this step, you use an app token flow to get an access token to call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation. Once you get a report from the **Get Reports** list, you embed the report into an app with an **IFrame** element.
 - Step 2: [Embed a report into an app](#EmbedReport). In this step, you use an embed token for a report, and some JavaScript to integrate, or embed, a report into a web app.
 
-If you want to run the sample to see how to integrate a report, download the [Integrate a report]() sample on GitHub, and configure three Web.Config settings:
+If you want to run the sample to see how to integrate a report, download the [Integrate a report with an IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sample on GitHub, and configure three Web.Config settings:
 
 - **AccessKey**: An **AccessKey** is used to generate a JSON Web Token (JWT) which is used to get reports and embed a report. To learn how to get an **AccessKey**, see [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
 - **WorkspaceName**: To learn how to get a **WorkspaceName**, see [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md).
@@ -135,7 +135,7 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 <a name="EmbedReportJS"/>
 ### Embed report into your app
 
-To embed a **Power BI** report into you app, you use an IFrame and some JavaScript code. The following is an example IFrame, and JavaScript code to embed a report. To see all of the sample code to embed a report, see [Integrate a report]() sample on GitHub.
+To embed a **Power BI** report into you app, you use an IFrame and some JavaScript code. The following is an example IFrame, and JavaScript code to embed a report. To see all of the sample code to embed a report, see [Integrate a report with an IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sample on GitHub.
 
 ![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
 
@@ -183,7 +183,7 @@ function postActionLoadReport() {
 
 In this article, you were introduced to the code to integrate a **Power BI** report into your app. To quickly get started integrating a report into an app, download these samples on GitHub:
 
-- [Integrate a report]()
+- [Integrate a report with an IFrame sample](https://github.com/Azure-Samples/power-bi-embedded-iframe)
 - [Sample dashboard web app](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## See Also
