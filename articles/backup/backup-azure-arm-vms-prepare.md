@@ -70,7 +70,7 @@ To create a recovery services vault:
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults are displayed.
+    The list of Recovery Services vaults is displayed.
 
 3. On the **Recovery Services vaults** menu, click **Add**.
 
@@ -103,7 +103,7 @@ Once your vault is created, it opens in the portal.
 
 
 ## Select a scenario set policy and define items to protect
-Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the the recovery points.
+Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
 
 1. If you already have a Recovery Services vault open, proceed to step 2. If you do not have a Recovery Services vault open, but are in the Azure portal,
 on the Hub menu, click **Browse**.
