@@ -109,4 +109,4 @@ Read the following to also learn about upgrading a cluster and partitioning serv
 
 [ResourceTags]: ./media/service-fabric-cluster-delete/ResourceTags.png
 
-[TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.png
+[TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
