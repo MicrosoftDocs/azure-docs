@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="05/04/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Manage databases in Azure SQL Data Warehouse
@@ -25,12 +25,14 @@ You will undoubtedly want to monitor your workload to identify your performance 
 This overview covers these aspects of managing SQL Data Warehouse.
 
 - Management tools
-- Scale-out performance
-- Query performance
+- Scale Compute
+- Pause and Resume
+- Performance Best Practices
+- Query Monitoring
 - Security
 - Backup and restore
 
-## Tools of the trade
+## Management tools
 
 You can use a variety of tools to manage databases in SQL Data Warehouse. As you manage databases, you will develop tool preferences for each type of task you need to perform.
 
@@ -47,7 +49,7 @@ SSDT includes the SQL Server Object Explorer which enables you to visualize, con
 To get started with SSDT in Visual Studio, see [Connect to Azure SQL Data Warehouse with Visual Studio][].
 
 ### Command-line tools
-One option is to use PowerShell or sqlcmd command-line tools to manage SQL Data Warehouse and to automate Azure resource deployments. We recommend these tools for managing a large number of logical servers and deploying resource changes in a production environment as the tasks necessary can be scripted and then automated.
+Command line tools are ideal for automating your workloads.  PowerShell and sqlcmd are two great ways to automate your processes.  We recommend these tools for managing a large number of logical servers and deploying resource changes in a production environment as the tasks necessary can be scripted and then automated.
 
 ### Dynamic management views 
 
@@ -55,44 +57,29 @@ DMVs are the bread and butter of managing SQL Data Warehouse. Almost all informa
 
 To get started, see [Connect and query with sqlcmd][], and [Create a database (PowerShell)][].
 
-## Scale-out performance
-
-### Scale compute
+## Scale compute
 
 In SQL Data Warehouse, you can quickly scale performance out or back by increasing or decreasing compute resources of CPU, memory, and I/O bandwidth. To scale performance, all you need to do is adjust the number of data warehouse units (DWUs) that SQL Data Warehouse allocates to your database. SQL Data Warehouse quickly makes the change and handles all the underlying changes to hardware or software.
 
 To learn more about scaling DWUs, see [Scale performance][].
 
-###  Pause and resume compute
+##  Pause and resume
 
 To save costs, you can pause and resume compute resources on-demand. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. You won't be charged for DWUs while the database is paused.
 
 For more information, see [Pause compute][], and [Resume compute][].
 
-## Query Performance
+## Performance Best Practices
 
-### Columnstore indexes
+When getting started with a new technology, discovering the tips and tricks that work best right from the start can save you lots of time.  You will find best practices throughout many of our topics.
 
-In SQL Data Warehouse, one columnstore index is really stored as 60 columnstore indexes since the data is distributed across 60 nodes. That's actually 60 columnstore indexes if the table only has one partition. It gets better! If the table has 10 partitions, that's 600 columnstore indexes. The number of actual columnstore indexes can be quite large and you might not have enough data to realize the performance benefits of columnstore indexes.
+To see many a summary of the most important considerations when developing your workload, see [SQL Data Warehouse Best Practices][].
 
-To manage columnstore indexes, you need to make sure you don't have too many partitions, and that your data is actually getting compressed into the columnstore.  
-
-To find and fix columnstore performance problems, see [Manage columnstore indexes][].
-
-### Distributed data skew
-
-In SQL Data Warehouse, you can define tables as hash distributed. This means that the database uses a hash function to figure out where to store each row. The hash functions picks one of the 60 distributed locations for each row. Note, this is a deterministic function so a specific hash key will always go to the same distributed location.
-
-What can go wrong?  Suppose you have all NULLs in your distributed key column.  Since NULL goes to the same distributed location every time, all of your rows will go to the same location. In this case, your data is skewed to only one node. When this happens queries will run serially on one node instead of in parallel across all the nodes.  This will definitely pull down query performance.
-
-To find and fix data skew, see [Manage distributed data skew][].
-
-### Long-running queries
+## Query Monitoring
 
 Sometimes a query is running too long, but you aren't sure of which one is the culprit. SQL Data Warehouse has dynamic management views (DMVs) that you can use to figure out which query is taking too long. 
 
 To find long-running queries, see [Monitor your workload using DMVs][].
-
 
 ## Security
 
@@ -109,7 +96,6 @@ SQL Data Warehouse automatically backs up your database at regular intervals.For
 ### Geo-redundant storage
 
 Since SQL Data Warehouse separates compute and storage, all your data is directly written to geo-redundant Azure Storage (RA-GRS). Geo-redundant storage replicates your data to a secondary region that is hundreds of miles away from the primary region. In both primary and secondary regions, your data is replicated three times each, across separate fault domains and upgrade domains. This ensures that your data is durable even in the case of a complete regional outage or disaster that renders one of the regions unavailable. To learn more about Read-Access Geo-Redundant Storage, read [Azure storage redundancy options][].
-
 
 ### Database Restore
 
@@ -139,13 +125,12 @@ Using good database design principles will make it easier to manage your databas
 [Geo-restore from snapshot]: sql-data-warehouse-backup-and-geo-restore-from-snapshot.md
 [High reliability]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Manage columnstore indexes]: sql-data-warehouse-manage-columnstore-indexes.md
-[Manage distributed data skew]: sql-data-warehouse-manage-distributed-data-skew.md
 [Pause compute]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
 [Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
 [Resume compute]: sql-data-warehouse-overview-scalability.md#resume-compute-performance-bk
 [Scale performance]: sql-data-warehouse-overview-scalability.md#scale-performance-bk
 [Security overview]: sql-data-warehouse-overview-security.md
+[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->

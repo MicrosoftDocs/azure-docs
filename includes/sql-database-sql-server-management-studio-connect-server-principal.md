@@ -1,3 +1,5 @@
+
+
 ## Connect to Azure SQL Database using a server-level principal login
 
 Use the following steps to connect to Azure SQL Database with SSMS using a server-level principal login.

@@ -119,7 +119,6 @@ To resume a database, use any of these individual methods.
 ## Next steps
 Please refer to the following articles to help you understand some additional key performance and scale concepts:
 
-- [performance and scale][]
 - [concurrency model][]
 - [designing tables][]
 - [choose a hash distribution key for your table][]
@@ -143,7 +142,6 @@ Please refer to the following articles to help you understand some additional ke
 [Resume compute with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
 [Resume compute with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
 
-[performance and scale]: sql-data-warehouse-performance-scale.md
 [concurrency model]: sql-data-warehouse-develop-concurrency.md
 [designing tables]: sql-data-warehouse-develop-table-design.md
 [choose a hash distribution key for your table]: sql-data-warehouse-develop-hash-distribution-key.md
