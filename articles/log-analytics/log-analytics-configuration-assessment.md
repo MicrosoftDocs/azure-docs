@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/04/2016"
 	ms.author="banders"/>
 
 # Configuration Assessment solution in Log Analytics
@@ -24,6 +24,7 @@ The Configuration Assessment solution in Log Analytics provides you with detaile
 ![Configuration Assessment tile](./media/log-analytics-configuration-assessment/oms-config-assess-tile.png)
 
 Configuration data is gathered from monitored servers and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. Processed data for the servers is shown for the following areas:
+
 - **Alerts:** Shows the configuration-related, proactive alerts that have been raised for your monitored servers. These are produced by rules authored by Microsoft Customer and Support organization (CSS) with best practices from the field.
 - **Knowledge Recommendations:** Shows the Microsoft Knowledge Base articles that are recommended for workloads that are found in your infrastructure; these are automatically suggested based on your configuration thru the use of machine learning .
 - **Servers and Workloads Analyzed:** Shows the servers and workloads that are being monitored by OMS.
