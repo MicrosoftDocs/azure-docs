@@ -30,7 +30,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications connecting to SQL Data Warehouse.
 
-> [AZURE.IMPORTANT] Azure Active Directory authentication is a preview feature and is subject to the preview terms in the license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [AZURE.IMPORTANT] Azure Active Directory authentication is a preview feature for Azure SQL Data Warehouse and is subject to the preview terms in the license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure Active Directory authentication is no longer a preview feature for Azure SQL Database.
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
@@ -43,4 +43,4 @@ The configuration steps include the following procedures to configure and use Az
 
 The detailed steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and Azure SQL Data Warehouse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
 
-The principal differences between using Azure Active Directory authentication with Azure SQL Database and Azure SQL Data Warehouse is that you must you use SQL Server Data Tools instead of SQL Server Management Studio to connect to SQL Data Warehouse.
+The principal differences between using Azure Active Directory authentication with Azure SQL Database and Azure SQL Data Warehouse is that you must you use SQL Server Data Tools instead of SQL Server Management Studio to connect to SQL Data Warehouse. SQL Data Warehouse requires at least the April 2016 (version Tools 14.0.60311.1) of the SQL Server Data Tools for Visual Studioo 2015.
