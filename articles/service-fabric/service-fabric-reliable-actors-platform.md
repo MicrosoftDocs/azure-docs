@@ -173,7 +173,20 @@ class MyActorService : ActorService, IMyActorService
 
     public Task BackupActorsAsync()
     {
-        return this.BackupAsync(new BackupDescription(...));
+        return this.BackupAsync(new BackupDescription(PerformBackupAsync));
+    }
+    
+    private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
+    {
+        try
+        {
+           // store the contents of backupInfo.Directory
+           return true;
+        }
+        finally
+        {
+           Directory.Delete(backupInfo.Directory, recursive: true);
+        }
     }
 }
 ```
