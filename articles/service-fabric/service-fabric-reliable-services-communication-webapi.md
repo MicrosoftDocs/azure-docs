@@ -430,11 +430,12 @@ You're now ready to create and return an instance of OwinCommunicationListener t
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
-    return new ServiceInstanceListener[]
-    {
-        new ServiceInstanceListener(serviceContext => 
-            new OwinCommunicationListener(Startup.ConfigureApp, serviceContext, ServiceEventSource.Current, "ServiceEndpoint"))
-    };
+    var endpoints = Context.CodePackageActivationContext.GetEndpoints()
+                           .Where(endpoint => endpoint.Protocol == EndpointProtocol.Http || endpoint.Protocol == EndpointProtocol.Https)
+                           .Select(endpoint => endpoint.Name);
+
+    return endpoints.Select(endpoint => new ServiceInstanceListener(
+        serviceContext => new OwinCommunicationListener(Startup.ConfigureApp, serviceContext, ServiceEventSource.Current, endpoint), endpoint));
 }
 ```
 
@@ -447,8 +448,11 @@ In this example, you don't need to do anything in the `RunAsync()` method, so th
 The final service implementation should be very simple. It only needs to create the communication listener:
 
 ```csharp
+using System;
 using System.Collections.Generic;
 using System.Fabric;
+using System.Fabric.Description;
+using System.Linq;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
@@ -462,11 +466,12 @@ namespace WebService
 
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new ServiceInstanceListener[]
-            {
-                new ServiceInstanceListener(serviceContext => 
-                    new OwinCommunicationListener(Startup.ConfigureApp, serviceContext, ServiceEventSource.Current, "ServiceEndpoint"))
-            };
+            var endpoints = Context.CodePackageActivationContext.GetEndpoints()
+                                   .Where(endpoint => endpoint.Protocol == EndpointProtocol.Http || endpoint.Protocol == EndpointProtocol.Https)
+                                   .Select(endpoint => endpoint.Name);
+
+            return endpoints.Select(endpoint => new ServiceInstanceListener(
+                serviceContext => new OwinCommunicationListener(Startup.ConfigureApp, serviceContext, ServiceEventSource.Current, endpoint), endpoint));
         }
     }
 }
