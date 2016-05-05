@@ -67,6 +67,14 @@ At this time, the following configurations are not supported. However, when we a
 
 >[AZURE.NOTE] In this migration scope, the ‘management plane’ may not be allowed for a certain period of time during the migration. For certain special configurations as described above will incur 'data plane' downtime.
 
+### Storage Accounts and Migration
+
+Storage account migration is currently not supported for Public Preview. However, support for storage account migration is planned and should be released very soon. There are two important aspects when it comes to migration and its storage account behavior.
+
+- Enabling Resource Manager VMs to be deployed on Classic storage account
+  To allow seamless migration, we have enabled the capability to deploy resource manager VMs in a Classic storage account. With this capability, Compute and Network resources can be migrated independent of storage accounts.
+- Best practice for storage account migration
+	When storage account migration is supported, the platform will enforce the Compute and Network resources separate from the storage accounts to enable a seamless experience. 
 ## Unsupported features & configurations
 
 At this time, we do not support a certain set of features and configurations. We are working on adding support for them, however, the following section calls out our recommendation and plans around them.
