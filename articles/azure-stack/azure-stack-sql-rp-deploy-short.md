@@ -48,7 +48,7 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
 3. [Run the bootstrap.cmd and script](azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment).
 
-	A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE). In each tab, you run the loaded scripts in sequence from left to right.
+	A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE). Run all the loaded scripts in sequence from left to right in each tab.
 
 4. Run scripts in the "Prepare tab from left to right to:
 
