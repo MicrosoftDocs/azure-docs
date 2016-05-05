@@ -20,13 +20,13 @@
 
 # Container management with Docker Swarm
 
-Docker Swarm provides an environment for deploying a containerized workload across a pooled set of Docker hosts. Docker Swarm uses the native Docker API. The workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document will provide simple examples of deploying containerized a workload in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
+Docker Swarm provides an environment for deploying a containerized workload across a pooled set of Docker hosts. Docker Swarm uses the native Docker API. The workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document will provide simple examples of deploying a containerized workload in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
 
 Prerequisites to the exercises in this document:
 
-[Create a Swarm cluster on the Azure Container Service](./container-service-deployment.md)
+[Create a Swarm cluster in Azure Container Service](./container-service-deployment.md)
 
-[Connect with the Swarm cluster on the Azure Container Service](./container-service-connect.md)
+[Connect with the Swarm cluster in Azure Container Service](./container-service-connect.md)
 
 ## Deploy a new container
 
@@ -72,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 You can use Docker Compose to automate the deployment and configuration of multiple containers. To do so, ensure that a Secure Shell (SSH) tunnel has been created and that the DOCKER_HOST variable has been set.
 
-Create a docker-compose.yml file on your local system. You can use this [sample](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+Create a docker-compose.yml file on your local system. To do this, use this [sample](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
 ```bash
 web:
@@ -105,7 +105,7 @@ swarm-agent-3B7093B8-2: Pulling adtd/web:0.1... : downloaded
 Creating compose_web_1
 ```
 
-Finally, the list of running containers will be returned, which will reflect those deployed by using Docker Compose:
+Finally, the list of running containers will be returned. This list reflects the containers that were deployed by using Docker Compose:
 
 
 ```bash
