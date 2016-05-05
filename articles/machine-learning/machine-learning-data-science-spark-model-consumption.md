@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/05/2016"
 	ms.author="deguhath;bradsev" />
 
 # Score Spark-built machine learning models 
@@ -25,7 +25,7 @@ This topic describes how to load machine learning (ML) models that have been bui
 
 ## Prerequisites
 
-1. You need an Azure account and an HDInsight Spark cluster, version Spark 1.5.2 (HDI 3.3), to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-model-consumption.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
+1. You need an Azure account and an HDInsight Spark You need an HDInsight 3.4 Spark 1.6 cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 2. You must also create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) topic.   
 
@@ -33,7 +33,7 @@ This topic describes how to load machine learning (ML) models that have been bui
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
  
 
-## Setup Spark and directory paths to stored data and models 
+## Setup: storage locations, libraries and the preset Spark context
 
 Spark is able to read and write to a Azure Storage Blob (WASB). So any of your existing data stored there can be processed using Spark and the results stored again in WASB.
 
@@ -77,10 +77,10 @@ Here is the code to set directory paths:
 
 **OUTPUT:**
 
-datetime.datetime(2016, 4, 19, 17, 21, 28, 379845)
+datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 
-### Import libraries needed and set Spark context 
+### Import libraries
 
 Set spark context and import necessary libraries with the following code
 
@@ -89,6 +89,8 @@ Set spark context and import necessary libraries with the following code
 	from pyspark import SparkConf
 	from pyspark import SparkContext
 	from pyspark.sql import SQLContext
+	import matplotlib
+	import matplotlib.pyplot as plt
 	from pyspark.sql import Row
 	from pyspark.sql.functions import UserDefinedFunction
 	from pyspark.sql.types import *
@@ -96,17 +98,22 @@ Set spark context and import necessary libraries with the following code
 	from numpy import array
 	import numpy as np
 	import datetime
-	
-	# SET SPARK CONTEXT
-	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-	sqlContext = SQLContext(sc)
-	atexit.register(lambda: sc.stop())
-	
-	sc.defaultParallelism
 
-**OUTPUT:**
 
-4
+### Preset Spark context and PySpark magics
+
+The PySpark kernels that are provided with Jupyter notebooks have a preset context, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
+
+- sc - for Spark 
+- sqlContext - for Hive
+
+The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
+
+- **%%local**  Specified that the code in subsequent lines will be executed locally. Code must be valid Python code.
+- **%%sql -o <variable name>**  Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
+ 
+
+For more information on the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Ingest data and create a cleaned data frame
@@ -175,7 +182,7 @@ The taxi trip and fare files were joined based on the procedure provided in the:
 
 **OUTPUT:**
 
-Time taken to execute above cell: 15.36 seconds
+Time taken to execute above cell: 46.37 seconds
 
 
 ## Prepare data for scoring in Spark 
@@ -196,7 +203,7 @@ The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.pre
 	timestart = datetime.datetime.now()
 	
 	# LOAD PYSPARK LIBRARIES
-	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
+	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 	
 	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
 	sqlStatement = """
@@ -250,7 +257,7 @@ The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.pre
 
 **OUTPUT:**
 
-Time taken to execute above cell: 4.88 seconds
+Time taken to execute above cell: 5.37 seconds
 
 
 ### Create RDD objects with feature arrays for input into models
@@ -327,7 +334,7 @@ It also contains code that shows how to scale data with the `StandardScalar` pro
 
 **OUTPUT:**
 
-Time taken to execute above cell: 9.94 seconds
+Time taken to execute above cell: 11.72 seconds
 
 
 ## Score with the Logistic Regression Model and save output to blob
@@ -361,7 +368,7 @@ The code in this section shows how to load a Logistic Regression Model  saved in
 
 **OUTPUT:**
 
-Time taken to execute above cell: 32.46 seconds
+Time taken to execute above cell: 19.22 seconds
 
 
 ## Score a Linear Regression Model
@@ -396,7 +403,7 @@ The code in this section shows how to load a Linear Regression Model from Azure 
 
 **OUTPUT:**
 
-Time taken to execute above cell: 25.00 seconds
+Time taken to execute above cell: 16.63 seconds
 
 
 ## Score classification and regression Random Forest Models
@@ -444,7 +451,7 @@ The code in this section shows how to load the saved classification and regressi
 
 **OUTPUT:**
 
-Time taken to execute above cell: 52.2 seconds
+Time taken to execute above cell: 31.07 seconds
 
 
 ## Score classification and regression Gradient Boosting Tree Models
@@ -464,7 +471,7 @@ The code in this section shows how to load classification and regression Gradien
 	#IMPORT MLLIB LIBRARIES
 	from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 	
-	# CLASSIFICATION:LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+	# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 
 	#LOAD AND SCORE THE MODEL
 	savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
@@ -497,7 +504,8 @@ The code in this section shows how to load classification and regression Gradien
 	
 **OUTPUT:**
 
-Time taken to execute above cell: 27.73 seconds
+Time taken to execute above cell: 14.6 seconds
+
 
 ## Cleanup objects from memory and print scored file locations
 
@@ -521,17 +529,17 @@ Time taken to execute above cell: 27.73 seconds
 
 **OUTPUT:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-04-1917_22_36.354603.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD_2016-04-1917_23_06.083178
+linearRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification_2016-04-1917_23_33.994108.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression_2016-04-1917_24_00.352683.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-04-1917_24_21.465683.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-04-1917_24_32.371641.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 
 
@@ -600,8 +608,6 @@ If you prefer a code free client experience, use the [Azure Logic Apps](https://
 ![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
 
-## What's next?
-
-The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping and model evaluation. 
+## What's next? 
 
 **Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping.
