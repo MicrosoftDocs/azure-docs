@@ -48,7 +48,7 @@ The benefits of using the CDN to cache Azure data include:
 
 The Standard CDN tier includes these features:
 
-- Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), Web Apps, and [Media Services](../media-services/media-services-manage-origins.md#enable_cdn)
+- Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md), and [Media Services](../media-services/media-services-manage-origins.md#enable_cdn)
 - HTTPS support
 - Load balancing
 - DDOS protection

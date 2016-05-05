@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Manage Key Vault using CLI | Microsoft Azure"
 	description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
 	services="key-vault"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Manage Key Vault using CLI #
@@ -31,7 +31,6 @@ Use this tutorial to help you get started with Azure Key Vault to create a harde
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites
-
 To complete this tutorial, you must have the following:
 
 - A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../pricing/free-trial).

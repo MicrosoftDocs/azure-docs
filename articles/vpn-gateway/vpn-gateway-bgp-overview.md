@@ -101,6 +101,10 @@ Yes, you can establish more than one S2S VPN tunnels between an Azure VPN gatewa
 
 No, redundant tunnels between a pair of virtual networks are not supported.
 
+#### Can I use BGP for S2S VPN in an ExpressRoute/S2S VPN co-existence configuration?
+
+Not at this time.
+
 #### What address does Azure VPN gateway use for BGP Peer IP?
 
 The Azure VPN gateway will allocate a single IP address from the GatewaySubnet range defined for the virtual network. By default, it is the second last address of the range. For example, if your GatewaySubnet is 10.12.255.0.0/27, ranging from 10.42.255.0.0 to 10.42.255.31, then the BGP Peer IP address on the Azure VPN gateway will be 10.12.255.30. You can find this information when you list the Azure VPN gateway information.

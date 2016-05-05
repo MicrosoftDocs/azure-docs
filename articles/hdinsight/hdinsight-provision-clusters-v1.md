@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #Provision Hadoop clusters in HDInsight
 
 Learn how to plan for provision HDInsight clusters.
 
-> [AZURE.WARNING] The steps in this document use the Azure classic portal, along with older versions of Azure PowerShell and the Azure CLI. Microsoft does not recommend using these steps. Instead, you should use the Azure portal and latest versions of Azure PowerShell and the Azure CLI. For a version of this document that uses the Azure Portal and latest versions of Azure PowerShell and the Azure CLI, see [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) 
+> [AZURE.IMPORTANT] The steps in this document use the Azure Classic Portal. Microsoft does not recommend using the classic portal when creating new services. For an explanation of the advantages of the Azure Portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 >
-> For an explanation of the advantages of the Azure portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+> This document also includes information on using Azure PowerShell and the Azure CLI. The snippets provided are based on commands that use Azure Service Management (ASM) to work with HDInsight and are __deprecated__. These commands will be removed by January 1, 2017.
+>
+>For a version of this document that uses the Azure portal, along with PowerShell and Azure CLI snippets that use Azure Resource Manager (ARM), see [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
 **Prerequisites:**
 
@@ -709,7 +711,6 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -723,7 +724,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 

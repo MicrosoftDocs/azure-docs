@@ -51,7 +51,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 **Time**: If you are familiar with Azure, Data Factory, and Batch, and have completed the prerequisites, we estimate this solution will take 1-2 hours to complete.
 
-### Prerequisites
+## Prerequisites
 
 1.  **Azure subscription**. If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -62,21 +62,17 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
     The sample solution uses Azure Batch (indirectly via an Azure Data Factory pipeline) to process data in a parallel manner on a pool of compute nodes, which is a managed collection of virtual machines.
 
 4.  Create an **Azure Batch pool** with at least 2 compute nodes.
-
-	 You can download the source code for the [Azure Batch Explorer tool](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), compile, and use it to create the pool (**highly recommended for this sample solution**), or use [Azure Batch Library for .NET](../batch/batch-dotnet-get-started.md) to create the pool. See [Azure Batch Explorer Sample Walkthrough](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) for step-by-step instructions for using the Azure Batch Explorer. You can also use the [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
-
-	 Use Batch Explorer to create the pool with the following setting:
-
-	-   Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution.
-
-	-   Specify **Windows Server 2012 R2** for the **Operating System Family** setting.
-
-	-   Specify **2** as value for the **Max tasks per compute node** setting.
-
-	-   Specify **2** as value for the **Number of Target Dedicated** setting.
-
-	 ![](./media/data-factory-data-processing-using-batch/image2.png)
-
+	1.  In the [Azure Portal](https://portal.azure.com), click **Browse** in the left menu, and click **Batch Accounts**. 
+	2. Select your Azure Batch account to open the **Batch Account** blade. 
+	3. Click **Pools** tile.
+	4. In the **Pools** blade, click Add button on the toolbar to add a pool.
+		1. Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
+		2. Specify **Windows Server 2012 R2** for the Operating System Family setting.
+		3. Select a **node pricing tier**. 
+		3. Enter **2** as value for the **Target Dedicated** setting.
+		4. Enter **2** as value for the **Max tasks per node** setting.
+	5. Click **OK** to create the pool. 
+ 	 
 5.  [Azure Storage Explorer 6 (tool)](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software). These are GUI tools for inspecting and altering the data in your Azure Storage projects including the logs of your cloud-hosted applications.
 
     1.  Create a container named **mycontainer** with private access (no anonymous access)
@@ -101,7 +97,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 6.  **Microsoft Visual Studio 2012 or later** (to create the custom Batch activity to be used in the Data Factory solution).
 
-### High-level steps to create the solution
+## High-level steps to create the solution
 
 1.  Create a custom activity to use in the Data Factory solution. The custom activity contains the data processing logic.
 
@@ -808,6 +804,8 @@ In this step, you will test the pipeline by dropping files into the input folder
 
     ![](./media/data-factory-data-processing-using-batch/image14.png)
 
+	> [AZURE.NOTE] Download the source code for [Azure Batch Explorer tool][batch-explorer], compile, and use it to create and monitor Batch pools. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
+
 7.  You should see the output files in the **outputfolder** of **mycontainer** in your Azure blob storage.
 
     ![](./media/data-factory-data-processing-using-batch/image15.png)
@@ -893,9 +891,18 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 3.  Create a pool with higher/lower **Maximum tasks per VM**. Update the Azure Batch linked service in the Data Factory solution to use the new pool you created. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
 
-4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md).
+4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+	See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
+
+	If the pool is using the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.  If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes. 
+	 
+5. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+
+ 
+
 
 ## Next steps: Consume the data
 
@@ -928,3 +935,8 @@ After you process data you can consume it with online tools like **Microsoft Pow
     -   [Create and manage Azure Batch account in the Azure Portal](../batch/batch-account-create-portal.md)
 
     -   [Get started with Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
+
+
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+

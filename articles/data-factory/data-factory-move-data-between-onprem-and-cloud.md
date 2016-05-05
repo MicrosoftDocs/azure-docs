@@ -268,12 +268,12 @@ In this step, you will create two linked services: **AzureStorageLinkedService**
 			1. Set the **Integrated Security** to **true**..
 			2. Specify database **server name** and **database name**. 
 			2. Remove **User ID** and **Password**. 
-		3. Specify user name and password for **userName** and **password** properties.
+		3. Specify user name and password for **userName** and **password** properties.  
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
             		"gatewayName": "adftutorialgateway",
-            		"userName": "<Specify user name if you are using Windows Authentication>",
+            		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\\<user>",
             		"password": "<Specify password for the user account>"
         		}
 

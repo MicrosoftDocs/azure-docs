@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016"
 	ms.author="juliako"/>
 
 
@@ -89,7 +89,6 @@ This article contains links to topics that show how to set up your development e
 ##Concepts
 
 For concepts related to delivering your content on demand, see [Media Services Concepts](media-services-concepts.md).
-players.md).
 
 ##Media Services learning paths
 
