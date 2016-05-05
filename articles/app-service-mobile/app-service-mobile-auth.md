@@ -18,9 +18,9 @@
 
 # Authentication and Authorization in Azure Mobile Apps
 
-> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
-
 ## What is App Service Authentication / Authorization?
+
+> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
 
 App Service Authentication / Authorization is a feature which allows your application to log in users with no code changes required on the app backend. It provides an easy way to protect your application and work with per-user data.
 
