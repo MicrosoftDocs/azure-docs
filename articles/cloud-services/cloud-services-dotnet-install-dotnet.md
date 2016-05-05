@@ -3,7 +3,7 @@
    description="This article describes how to manually install .NET framework on Cloud Service Web and Worker Roles"
    services="cloud-services"
    documentationCenter=".net"
-   authors="sbtron"
+   authors="thraka"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/17/2016"
-   ms.author="saurabh"/>
+   ms.author="adegeo"/>
 
 # Install .NET on a Cloud Service Role 
 

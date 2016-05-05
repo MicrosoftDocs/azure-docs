@@ -3,7 +3,7 @@
    description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Team Services (VSTS)."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawams"
+   authors="mthalman-msft"
    manager="timlt"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="03/29/2016"
-   ms.author="cawa" />
+   ms.author="mthalman" />
 
 # Set up continuous integration for a Service Fabric application by using Visual Studio Team Services
 
@@ -102,8 +102,8 @@ If you have any previous version of Azure PowerShell installed, remove it:
 | CertificateSecretName | Any value. |
 | CertificateDnsName | Must match the DNS name of your cluster. Example: `mycluster.westus.azure.cloudapp.net` |
 | SecureCertificatePassword | Any value. This parameter is used when you import the certificate on your build machine. |
-| KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
 | KeyVaultName | Any value. |
+| KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
 | PfxFileOutputPath| Any value. This file is used to import the certificate onto your build machine. |
 
 When the script finishes, it outputs the following three values. Note these values, because they are used as build variables.
@@ -130,7 +130,7 @@ If you don't yet have a machine, you can quickly provision an Azure virtual mach
 
 5. Select **Compute** > **Virtual Machine** > **From Gallery**.
 
-6. Select the image **Visual Studio Enterprise 2015 Update 1 With Azure SDK 2.8 on Windows Server 2012 R2**.
+6. Select the image **Visual Studio Enterprise 2015 Update 2 with Universal Windows Tools and Azure SDK 2.9 on Windows Server 2012 R2**.
 
     >[AZURE.NOTE] Azure SDK isn't a required component, but there currently aren't any images available that have only Visual Studio 2015 installed.
 
@@ -278,7 +278,9 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     e.  Verify that the right repository and branch are selected.
 
-    f.  Select the agent queue to which you registered your build agent, and then select the **Continuous Integration** check box.
+    f.  Check the **Continuous integration** check box to ensure this build is triggered whenever the branch is updated.
+
+    g.  Select the agent queue to which you registered your build agent.
 
 2.	On the **Variables** tab, create the following variables with these values.
 
@@ -338,7 +340,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 5.	Save the build definition.
 
-### Add a "Remove cluster resource group" step
+### <a name="RemoveClusterResourceGroup"></a> Add a "Remove cluster resource group" step
 
 If a previous build did not clean up after itself (for example, if the build was canceled before it could clean up), there might be an existing resource group that might conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before you create a new one.
 
@@ -398,6 +400,14 @@ If a previous build did not clean up after itself (for example, if the build was
     |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
 5.	Save the build definition.
+
+### Add a "Verify" step
+
+1. This step is optional when you are first getting this build definition configured.  But once you've successfully run a build and ensured the correctness of the other build steps, you can insert your own verification build step here.  This would be specific to your application and is intended to verify the correctness of the application that has been deployed to the cluster.
+  
+### Add a final "Clean-Up" step
+
+1. Follow the same instructions from the [Add a "Remove cluster resource group" step](#RemoveClusterResourceGroup).  This will clean up all the provisioned Azure resources that were made during the build.
 
 ### Try it
 

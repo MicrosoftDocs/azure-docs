@@ -2,9 +2,11 @@
 
 4. Clicking **Connect** creates and downloads a Remote Desktop Protocol file (.rdp file). Click **Open** to use this file.
 
-5. In the Remote Desktop window, click **Connect** to continue.
+	![Screenshot of the downloaded .rdp file.](./media/virtual-machines-log-on-win-server/open-rdp.png)
 
-	![Screenshot of a warning about an Unknown Publisher.](./media/virtual-machines-log-on-win-server/connectpublisher.png)
+5. You will get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
+
+	![Screenshot of a warning about an unknown publisher.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
 
 6. In the Windows Security window, type the credentials for an account on the virtual machine and then click **OK**.
 
@@ -16,4 +18,4 @@
 
 7.	Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
-	![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-log-on-win-server/connectverify.png)
+	![Screenshot showing a message abut verifying the identity of the VM.](./media/virtual-machines-log-on-win-server/cert-warning.png)

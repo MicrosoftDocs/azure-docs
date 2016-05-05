@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/02/2016"
    ms.author="mikewasson"/>
 
 # Running multiple Windows VM instances on Azure (single tier, Internet-facing)
@@ -277,7 +277,7 @@ goto :eof
 
 ## Next steps
 
-- With a single tier, you have most of the building blocks needed for a multi-tier deployment. For more information, see [Running Windows VMs for a 3-tier architecture on Azure][3-tier-blueprint].
+- With a single tier, you have most of the building blocks needed for a multi-tier deployment. For more information, see [Running Windows VMs for an N-tier architecture on Azure][3-tier-blueprint].
 
 <!-- Links -->
 [3-tier-blueprint]: guidance-compute-3-tier-vm.md
