@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/27/2016"
+   ms.date="05/04/2016"
    ms.author="iainfou"/>
 
 # Using the Docker VM Extension to deploy your environment
