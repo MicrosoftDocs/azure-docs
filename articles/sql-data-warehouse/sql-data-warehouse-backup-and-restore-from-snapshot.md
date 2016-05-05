@@ -32,7 +32,7 @@ Azure SQL Data Warehouse service protects all live databases with database snaps
 
 To Restore using the Azure Portal, use the following steps.
 
-1. Log in to the [Azure Portal][].
+1. Log in to the [Azure portal][].
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**.
 3. Navigate to your database and select it.
 4. At the top of the database blade, click **Restore**.
@@ -103,7 +103,7 @@ Azure SQL Data Warehouse takes a database snapshot before a database is dropped 
 
 To restore a deleted database using the Azure Portal, use the following steps.
 
-1. Log in to the [Azure Portal][].
+1. Log in to the [Azure portal][].
 2. On the left side of the screen select **BROWSE** and then select **SQL Servers**.
 3. Navigate to your server and select it.
 4. Scroll down to Operations on your server's blade, click the **Deleted Databases** tile.
@@ -163,9 +163,9 @@ To learn about the business continuity features of Azure SQL Database editions, 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
+[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
+[How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -178,5 +178,5 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [how to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
