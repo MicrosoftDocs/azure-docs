@@ -46,9 +46,9 @@ Before we drill down into the details, we’d like to briefly explain the differ
 
 ## What are the supported scopes of Migration?
 
-During public preview, we are offering two migration scopes
+During public preview, we are offering two migration scopes primarily targeting Compute and Network. Support for migration of Storage Accounts is planned and will be released very soon. However, to enable a
 
-### Migration of the Virtual Machines (Not in a Virtual Network)
+### Migration of Virtual Machines (Not in a Virtual Network)
 
 In the Resource manager stack, we enforce security of your applications by default. Hence, all VMs need to be in a Virtual Network in the Resource manager model. Hence as part of the migration, we will be restarting (Stop Deallocate and Start) the VMs as part of the migration. You will have a couple of choices when it comes to the Virtual networks:
 - You can request the platform to create a new Virtual Network and migrate the virtual machine into the new Virtual Network (or)
@@ -56,7 +56,7 @@ In the Resource manager stack, we enforce security of your applications by defau
 
 >[AZURE.NOTE] In this migration scope, both the ‘management plane’ and ‘data plane’ operations may not be allowed for a certain period of time during the migration.
 
-### Migration of the Virtual machines (in a Virtual Network)
+### Migration of Virtual machines (in a Virtual Network)
 
 In this scope, for most VM configurations, we are only migrating the metadata between the Classic and Resource Manager stack. The underlying Virtual Machines are running on the same hardware, in the same network, and with the same storage. Thus, when we refer to migration of the metadata from the Classic to Resource Manager Stack, the ‘management plane’ operations may not be allowed for a certain period of time during the migration. However, the Data plane will continue to work i.e., your applications running on top of Virtual Machines (Classic) will not incur downtime during the migration.
 
@@ -64,6 +64,8 @@ At this time, the following configurations are not supported. However, when we a
 
 -	If you have more than 1 availability set in a Single Cloud Service
 -	If you have '1 or more availability sets' & 'VMs that are not in an availability set' in a single Cloud Service
+
+>[AZURE.NOTE] In this migration scope, the ‘management plane’ may not be allowed for a certain period of time during the migration. For certain special configurations as described above will incur
 
 ## Unsupported features & configurations
 
@@ -76,7 +78,6 @@ The following list of features are not supported for Public Preview. You can opt
 Resource Provider | Feature
 ---------- | ------------
 Compute | Boot Diagnostics
-Compute | Hybrid Use Benefit
 Compute | Unassociated Virtual Machine Disks
 Compute | Virtual Machine Images
 Network | Unassociated Reserved IPs [If not attached to a Virtual Machine]. Reserved IPs attached to VMs is supported.
@@ -84,7 +85,6 @@ Network | Unassociated Network Security Groups [If not attached to a Virtual Net
 Network | Endpoint ACLs
 Network | Virtual Network Gateways (Site to Site, Express Route, Point to Site)
 Storage | Storage Accounts
-
 
 ### Unsupported configurations
 
@@ -145,7 +145,14 @@ With the announcement of Public Preview, we have added support for triggering mi
 	* If this operation fails, we recommend that you retry this a couple of times. If it continues to fail, please create a support ticket or create a forum post with ClassicIaaSMigration tag [here](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)
 	* Please note that once the migration is complete,
 
-	>[AZURE.NOTE] Please note that all the above operations are idempotent. If you run into an error with the operation, we recommend you retry the prepare, abort or commit operation and the platform will retry the action again.
+>[AZURE.NOTE] Please note that all the operations described below are idempotent. If you run into anything other than an unsupported feature or configuration error, we recommend that you retry the prepare, abort or commit operation and the platform will retry the action again.
+
+## Next steps
+Now that you have an understanding of migration of Classic IaaS resources to Resource Manager, you can start migrating the resources.
+
+	- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](virtual-machines-windows-migration-asm-arm-deepdive)
+	- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-ps-migration-asm-arm)
+	- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-cli-migration-asm-arm)
 
 ## Frequently Asked Questions
 
@@ -179,7 +186,7 @@ At this time, we are landing the first set of scenarios in H1 CY 2016. We will c
 
 **What if I had configured Role based access control policies for my Classic IaaS resources?**
 
-Please note that  
+During migration, the resources transform from Classic to Resource Manager. So we recommend that you pre-plan the RBAC policy updates that need to happen after migration.
 
 **What if I’m using Azure Site Recovery or Back up Services on Azure today?**
 
