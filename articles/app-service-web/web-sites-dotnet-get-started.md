@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a web app using Visual Studio | Microsoft Azure"
-	description="Learn how to create an ASP.NET web project in Visual Studio and deploy it to a new web app in Azure App Service."
+	pageTitle="Get started with Azure App Service and ASP.NET | Microsoft Azure"
+	description="Learn how to deploy an ASP.NET web project to a new web app in Azure App Service, using Visual Studio."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -12,15 +12,15 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="03/02/2016"
+	ms.topic="get-started-article"
+	ms.date="04/22/2016"
 	ms.author="tdykstra"/>
 
-# Create an ASP.NET web app in Azure App Service using Visual Studio
+# Get started with Web Apps in Azure App Service, using ASP.NET and Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -42,7 +42,7 @@ You'll learn:
 
 At the end of the tutorial, a [Troubleshooting](#troubleshooting) section gives ideas on what to do if something doesn't work, and a [Next steps](#next-steps) section provides links to other tutorials that go into more depth about how to use Azure App Service.
 
-> [AZURE.NOTE] Help us shape the scope and approach of this tutorial -- if there are other topics you'd like to see covered here in a getting-started tutorial, leave feedback in a [Disqus comment](#comments) at the end of the tutorial.
+## Prerequisites
 
 [AZURE.INCLUDE [prereqs](../../includes/app-service-web-dotnet-get-started-prereqs.md)]
 
@@ -277,7 +277,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * Other ways to deploy a web project
 
-	For information about other ways to deploy web projects to web apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure web app](web-sites-deploy.md).
+	For information about other ways to deploy web projects to web apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [Get started with web apps in Azure App Service](app-service-web-get-started.md) and [How to deploy an Azure web app](web-sites-deploy.md).
 
 * How to add a custom domain name and SSL
 

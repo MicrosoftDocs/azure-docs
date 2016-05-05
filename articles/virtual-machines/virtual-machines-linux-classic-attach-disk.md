@@ -3,7 +3,7 @@
 	description="Learn how to attach a data disk to an Azure virtual machine running Linux and initialize it so it's ready for use."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="dkshir"/>
+	ms.date="04/04/2016"
+	ms.author="iainfou"/>
 
 # How to Attach a Data Disk to a Linux Virtual Machine
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
+You can attach both empty disks and disks that contain data. The disks are actually .vhd files that reside in an Azure storage account. After you attach the disk, you'll need to initialize it so it's ready for use.
 
-> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
+> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store persistent data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 > The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, a data disk might be named by the Linux kernel something like `/dev/sdc`, and you'll need to partition, format, and mount this resource. See the [Azure Linux Agent User Guide][Agent] for details.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
@@ -39,7 +39,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 2. Next you need to find the device identifier for the data disk to initialize. There are two ways to do that:
 
-	a) In the SSH window, type the following command, and then enter the password for the account that you created to manage the virtual machine:
+	a) In the SSH window, type the following command:
 
 			$sudo grep SCSI /var/log/messages
 
@@ -77,11 +77,9 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 	The last number in the tuple in each row is the _lun_. See `man lsscsi` for more information.
 
-3. In the SSH window, type the following command to create a new device, and then enter the account password:
+3. In the SSH window, type the following command to create a new device:
 
 		$sudo fdisk /dev/sdc
-
-	>[AZURE.NOTE] In this example you may need to use `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
 
 4. When prompted, type **n** to create a new partition.
@@ -108,7 +106,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 	![Write the disk changes](./media/virtual-machines-linux-classic-attach-disk/DiskWrite.png)
 
-8. Make the file system on the new partition. Append the partition number (1) to the device id. For example, type the following command and then enter the account password:
+8. Make the file system on the new partition. Append the partition number (1) to the device id. For example, to create an ext4 partition on /dev/sdc1:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -117,7 +115,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 	>[AZURE.NOTE] Note that SUSE Linux Enterprise 11 systems only support read-only access for ext4 file systems.  For these systems it is recommended to format the new file system as ext3 rather than ext4.
 
 
-9. Make a directory to mount the new file system. As an example, type the following command  and then enter the account password:
+9. Make a directory to mount the new file system. As an example, type the following command:
 
 		# sudo mkdir /datadrive
 
@@ -144,7 +142,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 	>[AZURE.NOTE] Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
-	Next, open the **/etc/fstab** file in a text editor. Note that /etc/fstab is a system file, so you will need to use `sudo` to edit this file, for example:
+	Next, open the **/etc/fstab** file in a text editor:
 
 		# sudo vi /etc/fstab
 
@@ -174,7 +172,7 @@ You can use the same instructions to initialize multiple data disks, using the r
 
 [How to detach a disk from a Linux virtual machine ](virtual-machines-linux-classic-detach-disk.md)
 
-[Using the Azure CLI with the Service Management API](virtual-machines-command-line-tools.md)
+[Using the Azure CLI with the Service Management API](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -25,7 +25,7 @@ This document helps you use monitoring capabilities in Azure Security Center to 
 Security Center helps you prevent, detect, and respond to threats with increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions
 
 ##What is security health monitoring?
-We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices. 
+We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices.
 
 ##Monitoring security health
 After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  Information about your network configuration is available instantly, it may take an hour or more for information about virtual machine configuration - such as security update status and OS configuration - to become available. You can view the security state of your resources, along with any issues in the **Resource Security Health** blade. You can also view a list of those issues on the **Recommendations** blade.
@@ -34,9 +34,9 @@ For more information on how to apply recommendations read [Implementing security
 
 On the **Resources security health** tile you can to monitor the security state of your resources. In the example below, you can see a number of issues with high and medium severity that require attention. The security policies that are enabled will impact the types of controls that are monitored.
 
-![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
+![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
 
-If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here. 
+If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here.
 
 ###Monitor virtual machines
 When you click on **Virtual machines** in the **Resources security health** tile, the **Virtual machines** blade will open with more details about onboarding and prevention steps as well as a list of all VMs that are monitored by Security Center as shown below.
@@ -69,11 +69,11 @@ The **Missing system updates** blade will show a table with the following inform
 - **VIRTUAL MACHINE**: The name of the virtual machine that is missing updates.
 - **SYSTEM UPDATES**: The number of system updates that are missing.
 - **LAST SCAN TIME**: The time that Security Center last scanned the VM for updates.
-- **STATE**: The current state of the recommendation: 
+- **STATE**: The current state of the recommendation:
 	- **Open**: The recommendation has not been addressed yet
 	- **In Progress**: The recommendation is currently being applied to those resources, no action is required by you
 	- **Resolved**: The recommendation was already completed (when the issue has been resolved, the entry is grayed out).
-- **SEVERITY**: Describes the severity of that particular recommendation: 
+- **SEVERITY**: Describes the severity of that particular recommendation:
 	- **High**: A vulnerability exists with a meaningful resource (application, VM, network security group) and requires attention
 	- **Medium**: Non-critical or additional steps required to complete a process or eliminate a vulnerability
 	- **Low**: A vulnerability should be addressed but does not require immediate attention. (By default, low recommendations are not presented, but you can filter on low recommendations if you want to view them.)
@@ -89,7 +89,7 @@ The virtual machines section gives you an overview of all VMs and recommendation
 
 ![VMs](./media/security-center-monitoring/security-center-monitoring-fig7-new.png)
 
-The icon that appears under each recommendation helps you to quickly identify which VMs need attention and what type of recommendation. 
+The icon that appears under each recommendation helps you to quickly identify which VMs need attention and what type of recommendation.
 
 In the example above, one VM has a critical recommendation regarding antimalware programs. To obtain more information about the VM, click on it. A new blade open that represents this VM as shown below.
 
@@ -105,7 +105,7 @@ The prevention status section for networking lists the virtual networks that are
 Once you open this blade you will see two sections:
 - Networking recommendations
 - Networking
- 
+
 In each section you can select an individual option for more details about the recommendation. The sections below will cover these areas in more detail.
 
 ####Networking recommendations
@@ -118,9 +118,9 @@ The networking status breakdown section lists potential security issues and offe
 
 - [ACLs on endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) not enabled
 - [Network Security Groups](../virtual-network/virtual-networks-nsg.md) not enabled
-- Healthy Subnets and access in NSG not restricted are listed. 
- 
-When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below. 
+- Healthy Subnets and access in NSG not restricted are listed.
+
+When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below.
 
 ![Restrict endpoint](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
 
@@ -145,7 +145,7 @@ This blade has a summary of the network interface card and the current recommend
 On this blade, you can make changes to the public and private ports, and create an ACL for this VM.
 
 ###Monitor SQL resources
-When you click **SQL** in the **Resources security health** tile, the SQL blade will open with recommendations for issues such as auditing, transparent data encryption not being enabled. It also has recommendations for the general health state of the database. 
+When you click **SQL** in the **Resources security health** tile, the SQL blade will open with recommendations for issues such as auditing, transparent data encryption not being enabled. It also has recommendations for the general health state of the database.
 
 ![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
@@ -186,5 +186,6 @@ In this document, you learned how to use monitoring capabilities in Azure Securi
 - [Setting security policies in Azure Security Center](security-center-policies.md)
 – Learn how to configure security settings in Azure Security Center
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance

@@ -108,7 +108,7 @@ You can remove the work account you created at any time as follows:
 4. Click **OK** when the message “Are you sure you want to leave workplace” is displayed.
 5. This ensures that you have deleted your work account from your workplace.
 
->[AZURE.NOTE>
+>[AZURE.NOTE]
 >It is recommended that you do not use the Remove Account option to delete a work account as this option might not work in some earlier versions of Android.
 
 ##Uninstalling the app

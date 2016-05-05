@@ -3,7 +3,7 @@
 	description="This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine. "
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar" 
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # Use PowerShell to Create an Azure VM With a Native Mode Report Server
 
@@ -703,4 +703,4 @@ The following table summarizes some of the options available to publish existing
 
 ### Links to other resources for SQL Server in Azure VMs
 
-[SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md)

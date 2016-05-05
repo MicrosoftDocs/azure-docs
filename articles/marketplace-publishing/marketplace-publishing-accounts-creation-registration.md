@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/07/2016"
    ms.author="hascipio"/>
 
 # Create a Microsoft Developer account
@@ -163,10 +163,10 @@ Now that your account is created and registered, click the type of artifact (vir
 
 || Virtual machine image | Developer service | Data service | Solution template |
 |----|-----|-----|-----|-----|
-|**Step 2: Create your offer** |[General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
-|| [VM image technical prerequisites][link-single-vm-prereq] | Developer service technical prerequisites | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md)  | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [VM image publishing guide][link-single-vm] | Developer service publishing guide | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
-|| [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] |
+|**Step 2: Create your offer** |[General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| Private Preview | [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
+|| [VM image technical prerequisites][link-single-vm-prereq] | Private Preview | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md)  | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM image publishing guide][link-single-vm] | Private Preview | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
+|| [Azure Marketplace marketing content guide][link-pushstaging] | Private Preview | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] |
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)

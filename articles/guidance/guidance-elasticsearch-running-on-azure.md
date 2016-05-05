@@ -3,8 +3,8 @@
    description="How to install, configure, and run Elasticsearch on Azure."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
-   manager="marksou"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="masimms"/>
+   ms.date="04/15/2016"
+   ms.author="masashin"/>
 
 # Running Elasticsearch on Azure
 
@@ -445,8 +445,10 @@ must install the Java 7 (update 55 or later) or Java 8 (update 20 or later) JVM 
 
 Although it is not difficult to deploy a single instance of Elasticsearch, creating a number of nodes and
 installing and configuring Elasticsearch on each one can be a time consuming and error-prone process. If
-you are considering running Elasticsearch on Azure VMs, you have two options that can help to reduce the
+you are considering running Elasticsearch on Azure VMs, you have three options that can help to reduce the
 chances of errors.
+
+- Using Azure Resource Manager [template](https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows you to add commercial enhancements such as Shield, Marvel, and Watcher etc.
 
 - Using Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure File Storage. This template is used for the research and testing tasks in this document.
 

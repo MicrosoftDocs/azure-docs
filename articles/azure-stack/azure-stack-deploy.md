@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/30/2016"
+	ms.date="04/21/2016"
 	ms.author="erikje"/>
 
 # Before you deploy Azure Stack POC
@@ -21,14 +21,16 @@
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
 These requirements apply to the Azure Stack POC only and might change for future releases.
 
+You can also watch the [Azure Stack TP1 POC Deployment Tutorial video](https://channel9.msdn.com/Blogs/azurestack/Microsoft-Azure-Stack-TP1-POC-Deployment-Tutorial).
+
 
 ## Hardware
 
 | Component | Minimum  | Recommended |
 |---|---|---|
 | Disk drives: Operating System | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). | 4 disks. Each disk provides a minimum of 250 GB of capacity. |
-| Compute: CPU | Dual-Socket: 12 Physical Cores  | Dual-Socket: 16 Physical Cores |
+| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. | 4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used.|
+| Compute: CPU | Dual-Socket: 12 Physical Cores (total)  | Dual-Socket: 16 Physical Cores (total) |
 | Compute: Memory | 96 GB RAM  | 128 GB RAM |
 | Compute: BIOS | Hyper-V Enabled (with SLAT support)  | Hyper-V Enabled (with SLAT support) |
 | Network: NIC | Windows Server 2012 R2 Certification required for NIC; no specialized features required | Windows Server 2012 R2 Certification required for NIC; no specialized features required |
@@ -69,8 +71,8 @@ Sample OEM configurations are available.
 
 | | **Requirements**  |
 |---|---|
-| **OS Version** | [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including [KB 3124262](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=3124262).|
-| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system, updates, and KB 3124262.|
+| **OS Version** | [Windows Server 2016 Datacenter Edition **Technical Preview 4**](http://aka.ms/ReqOSforAzureStack) with the latest important updates installed.|
+| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system and all important updates.|
 | **Domain joined?** | No. |
 
 
@@ -101,6 +103,8 @@ One available port on a switch for the POC machine.  
 The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. For example:
 
 	DeployAzureStack.ps1 –Verbose –PublicVLan 305
+
+Specifying this parameter will set the VLAN ID for the host and NATVM only.
 
 ### Subnet
 

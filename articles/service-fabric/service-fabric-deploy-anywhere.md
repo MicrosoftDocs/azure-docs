@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="04/05/2016"
    ms.author="chackdan"/>
 
 # Create standalone Service Fabric clusters on Windows Server or Linux
@@ -21,15 +21,16 @@ Azure Service Fabric allows the creation of Service Fabric clusters on any VMs o
 
 **Note**: Creating a cluster on Azure should be done either via an Azure Resource Model template or the Azure portal. Read [Create a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) or [Create a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for more information.
 
-Service Fabric provides an install package for you to create these standalone Service Fabric clusters on premises. A key benefit of this is that there's no vendor lock-in when you build an application using Service Fabric, since you choose where those applications run. This also increases your ability to reach out to a broader customer base, because customers can have varying requirements for the environments where they want to run your applications. For example, customers in the healthcare and financial industries may have different needs than customers in the auto or travel industries.
+Service Fabric provides an install package for you to create these standalone Service Fabric clusters on premises. A key benefit of this is that there's no vendor lock-in when you build an application using Service Fabric, since you choose where those applications run. This also increases your ability to reach out to a broader customer base, because customers can have varying requirements for the environments where they want to run your applications. For example, customers in the healthcare and financial industries may have different needs than customers in the auto or travel industries. 
 
 ## Supported operating systems
 You will be able to create clusters on VMs or computers running these operating systems:
+
 * Windows Server 2012 R2
 * Windows Server 2016
 * Linux
 
-For more information on Windows Server read [Service Fabric cluster creation for Windows Server](service-fabric-creation-for-windows-server)
+For more information on Windows Server read [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
 ## Cluster creation and configuration
 Service Fabric provides an install package that you can download. Once you've downloaded this package, you will need to make changes to a JSON configuration file to specify the settings for your cluster. Once the cluster settings have been edited, you run a setup script that creates the cluster spanning the machines that you specified in your cluster settings. To can also run a script to remove a cluster from a set of machines.
@@ -52,6 +53,11 @@ Running Service Fabric clusters on Azure provides advantages over the on premise
 
 * **Azure Resource Manager:** Use of Azure Resource Manager allows easy management of all resources used by the cluster as a unit and simplifies cost tracking and billing.
 * **Service Fabric Cluster as an Azure Resource** A Service fabric cluster is an ARM resource, so you can model it like you do other ARM resources in Azure.
-* **Integration with Azure Infrastructure** Service Fabric coordinates with the underlying Azure infrastrure for OS, network and other upgrades to improve availability and reliability of your applications.  
+* **Integration with Azure Infrastructure** Service Fabric coordinates with the underlying Azure infrastructure for OS, network and other upgrades to improve availability and reliability of your applications.  
 * **Diagnostics:** On Azure, we provide integration with Azure diagnostics and Operational Insights.
 * **Auto-scaling:** For clusters on Azure, we provide built-in auto-scaling functionality due to Virtual Machine scale-sets. In on premises and other cloud environments you will have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
+
+## Next steps
+Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+
+Create a cluster on VMs or computers running Linux: [Service Fabric on Linux](service-fabric-linux-overview.md)

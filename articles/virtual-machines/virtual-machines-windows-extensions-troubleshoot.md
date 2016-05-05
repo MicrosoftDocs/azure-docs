@@ -11,10 +11,10 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Troubleshooting Azure Windows VM extension failures
@@ -70,4 +70,3 @@ Note: In future, this functionality would be enhanced to remove the need for uni
     Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
-

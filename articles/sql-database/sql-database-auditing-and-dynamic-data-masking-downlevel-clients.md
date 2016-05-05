@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="04/11/2016" 
 	ms.author="nadavh;ronitr"/>
  
 # SQL Database -  Downlevel clients support for Auditing

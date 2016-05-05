@@ -1,0 +1,3 @@
+##Install the newest version of SQL Server Management Studio
+
+  When working with SQL Database, you should use the most recent version of SQL Server Management Studio (SSMS) to manage SQL Database and SQL Server. The newest version of SSMS is optimized for both SQL Database and SQL Server 2016, and is also designed for use with older versions of SQL Server. To download and install the most recent version of SSMS, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Once you have a recent version, SSMS will prompt you whenever there is a new SSMS version available to download. You can also check for updates on the **Tools** menu.

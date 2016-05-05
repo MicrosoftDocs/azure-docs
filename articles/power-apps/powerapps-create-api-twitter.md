@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Create a new Twitter API in PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/create-api-twitter.md)
+- [Logic apps](../articles/connectors/connectors-create-api-twitter.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
 
 Add the Twitter API to your organization's (tenant) app service environment. 
@@ -83,7 +83,7 @@ A new Twitter app is created. You can use this app in your Twitter API configura
 
 ## See the REST APIs
 
-[Twitter REST API](../connectors/create-api-twitter.md) reference.
+[Twitter REST API](../connectors/connectors-create-api-twitter.md) reference.
 
 
 ## Summary and next steps

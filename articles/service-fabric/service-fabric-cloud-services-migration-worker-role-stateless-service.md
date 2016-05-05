@@ -138,7 +138,7 @@ Configuration settings in Cloud Services are set for a VM role and apply to all 
  - **Config:** all configuration files and settings for a service.
  - **Data:** static data files associated with the service.
 
-Each of these packages can be independently versioned and upgraded. Similar to Cloud Services, a config package can be accessed programmatically through an API and events are available to notify the service of a config package change. A Settings.xml file can be used for key-value configuration and programmatic access similar to . However, unlike Cloud Services, a Service Fabric config package can contain any configuration files in any format, whether it's XML, JSON, YAML, or a custom binary format. 
+Each of these packages can be independently versioned and upgraded. Similar to Cloud Services, a config package can be accessed programmatically through an API and events are available to notify the service of a config package change. A Settings.xml file can be used for key-value configuration and programmatic access similar to the app settings section of an App.config file. However, unlike Cloud Services, a Service Fabric config package can contain any configuration files in any format, whether it's XML, JSON, YAML, or a custom binary format. 
 
 
 ### Accessing configuration
@@ -152,7 +152,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 ```
 
-#### ServiceFabic
+#### Service Fabric
 
 Each service has its own individual configuration package. There is no built-in mechanism for global configuration settings accessible by all applications in a cluster. When using Service Fabric's special Settings.xml configuration file within a configuration package, values in Settings.xml can be overwritten at the application level, making application-level configuration settings possible.
 
@@ -196,7 +196,7 @@ foreach (var settingChange in settingChanges)
 
 ```
 
-#### ServiceFabic
+#### Service Fabric
 
 Each of the three package types in a service - Code, Config, and Data - have events that notify a service instance when a package is updated, added, or removed. A service can contain multiple packages of each type. For example, a service may have multiple config packages, each individually versioned and upgradeable. 
 

@@ -1,7 +1,5 @@
 
 
-Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – an operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
-
 ## Operating system disk
 
 Every virtual machine has one attached operating system disk. It’s registered as a SATA drive and labeled as the C: drive. This disk has a maximum capacity of 1023 gigabytes (GB). When Azure creates an operating system disk, three copies of the disk are created for high durability. Additionally, if you configure the virtual machine for geo-replication, your VHD is also replicated to different sites more than 400 miles apart.

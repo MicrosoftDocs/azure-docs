@@ -25,7 +25,7 @@ The SQL Azure API can be be used from:
 
 - Logic apps 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SQL connector](../app-service-logic/app-service-logic-connector-sql.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With SQL Azure, you can:
 

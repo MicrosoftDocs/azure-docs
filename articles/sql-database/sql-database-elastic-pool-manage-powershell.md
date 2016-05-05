@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="03/15/2016"
+    ms.date="04/01/2016"
     ms.author="sstein"/>
 
 # Monitor, manage, and size an elastic database pool with PowerShell 
@@ -22,7 +22,7 @@
 - [Azure portal](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
-
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 Learn how to manage an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
 
@@ -31,9 +31,6 @@ For common error codes, see [SQL error codes for SQL Database client application
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
 You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-
-
 
 ## Create a new elastic database in a pool
 
@@ -132,6 +129,12 @@ Export to a CSV file:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
+## Latency of elastic pool operations
+
+- Changing the guaranteed eDTUs per database (DatabaseDtuMin) or maximum eDTUs per database (DatabaseDtuMax) typically completes in 5 minutes or less.
+- Changing the eDTU / storage limit (Dtu) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
+
+
 ## Monitor and manage a pool PowerShell example
 
 
@@ -172,8 +175,3 @@ Export to a CSV file:
 ## Next steps
 
 - [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
-
-
-## Elastic database reference
-
-For more information about elastic databases and elastic database pools, including API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).

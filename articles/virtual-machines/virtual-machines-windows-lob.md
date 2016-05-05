@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: High-availability line of business application
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
 
 Set up your first or next web-based, intranet-only line of business application in Microsoft Azure and take advantage of ease of configuration and the ability to quickly expand the application to include new capacity.
  
@@ -36,11 +35,11 @@ Your next step is to set up a dev/test line of business application hosted in Az
 
 ## Create a dev/test line of business application hosted in Azure
 
-A cross-premises virtual network is connected to an on-premises network with a site-to-site VPN or ExpressRoute connection. If you want to create a dev/test environment that mimics the final configuration and experiment with accessing the application and performing remote administration over a VPN connection, see [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md). 
+A cross-premises virtual network is connected to an on-premises network with a site-to-site VPN or ExpressRoute connection. If you want to create a dev/test environment that mimics the final configuration and experiment with accessing the application and performing remote administration over a VPN connection, see [Set up a web-based LOB application in a hybrid cloud for testing](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md). 
 
 ![](./media/virtual-machines-windows-lob/CreateLOBAppHybridCloud_3.png)
  
-You can create this dev/test environment for free with your [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) or an [Azure Trial Subscription](https://azure.microsoft.com/pricing/free-trial/).
+You can create this dev/test environment for free with your [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) or an Azure subscription.
 
 Your next step is to create a high-availability line of business application in Azure.
 

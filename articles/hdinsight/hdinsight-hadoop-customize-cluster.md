@@ -31,6 +31,8 @@ in the cluster. These customizations can be done through Azure PowerShell, the A
 HDInsight .NET SDK, or the Azure Portal. For more information, see 
 [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster].
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
+
 ## Script Action in the cluster creation process
 
 Script Action is only used while a clusters is in the process of being created. The following 

@@ -17,7 +17,7 @@
    ms.author="masnider"/>
 
 # Describing a service fabric cluster
-The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During run time, the Resource Manager this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
+The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During run time, the Resource Manager uses this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
 
 ## Key concepts
 The Cluster Resource Manager features that describe a cluster are:

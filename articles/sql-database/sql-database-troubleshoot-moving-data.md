@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/06/2016"
 	ms.author="v-shysun"/>
 
 # Move databases between servers, between subscriptions, and in and out of Azure
@@ -24,7 +24,7 @@
 - In the [Azure Portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
 
 ## To migrate a SQL database into Azure
-- Determine database compatibility and then pick the right migration method based on your needs. Follow the guidelines and options in [Migrating a SQL Server database](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
+- Determine database compatibility and then pick the right migration method based on your needs. Follow the guidelines and options in [Migrating a SQL Server database](sql-database-cloud-migrate.md).
 
 ## To create a copy of a database for use outside of Azure
 - [Export a BACPAC file.](sql-database-export.md)

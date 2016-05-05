@@ -1,19 +1,15 @@
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
 
-> [AZURE.NOTE] A virtual machine in Azure uses different types of disks -- an operating system disk, a local temporary disk, and optional data disks. Data disks are the recommended way to store data for a virtual machine. For details, see [About Disks and VHDs for Virtual Machines](virtual-machines-linux-about-disks-vhds.md). It's not possible to detach an operating system disk unless you also delete the virtual machine.
+> [AZURE.NOTE] A virtual machine in Azure uses different types of disks -- an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md). It's not possible to detach an operating system disk unless you also delete the virtual machine.
 
 ## Find the disk
 
 Before you can detach a disk from a virtual machine, you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
 
-1. 	Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
-    to Azure from Azure CLI](../xplat-cli-connect.md) for more details.
+1. 	Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
-2.  Make sure you are in Azure Service Management mode, which is the default by typing `azure config
- 	mode asm`.
-
-3. 	Find out which disks are attached to your virtual machine by using `azure vm disk list
-	<virtual-machine-name>` as follows:
+2. 	Find out which disks are attached to your virtual machine by using `azure vm disk list
+	<virtual-machine-name>`:
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -27,7 +23,7 @@ Before you can detach a disk from a virtual machine, you need to find out the LU
 		data:    0    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
 		info:    vm disk list command OK
 
-4. 	Note the LUN or the **logical unit number** for the disk that you want to detach.
+3. 	Note the LUN or the **logical unit number** for the disk that you want to detach.
 
 
 ## Detach the disk
@@ -35,7 +31,7 @@ Before you can detach a disk from a virtual machine, you need to find out the LU
 After you find the LUN number of the disk, you're ready to detach it:
 
 1. 	Detach the selected disk from the virtual machine by running the command `azure vm disk detach
- 	<virtual-machine-name> <LUN>` like this:
+ 	<virtual-machine-name> <LUN>`:
 
 		$azure vm disk detach ubuntuVMasm 0
 		info:    Executing command vm disk detach

@@ -14,14 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="04/26/2016"
 	ms.author="drewm"/>
 
-# Planned maintenance for Windows virtual machines in Azure
+# Planned maintenance for virtual machines in Azure
+
+
+Understand what Azure planned maintenance is and how it can affect the availability of your Windows virtual machines. This article is also available for [Linux virtual machines](virtual-machines-linux-planned-maintenance.md). 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Understand what Azure planned maintenance is and how it can affect the availability of your Windows virtual machines. You can also read about [planned maintenance for Linux virtual machines](virtual-machines-linux-planned-maintenance.md). 
 
 ## Why Azure performs planned maintenance
 

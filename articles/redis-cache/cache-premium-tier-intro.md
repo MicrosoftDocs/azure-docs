@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Introduction to the Azure Redis Cache Premium tier

@@ -278,5 +278,3 @@ Create a console app and replace the contents of Program.cs with the following. 
 
 - [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [Elastic database pool reference](sql-database-elastic-pool-reference.md).
-

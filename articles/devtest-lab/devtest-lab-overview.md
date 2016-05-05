@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="What is the DevTest Lab service? | Microsoft Azure"
 	description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines"
 	services="devtest-lab,virtual-machines"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 #What is DevTest Lab?
@@ -52,7 +52,7 @@ The following list contains key DevTest Lab concepts and definitions:
 - Actions that you want to run on the VM - such as cloning a repo.
 - Applications that you want to test.
 
-Artifacts are Azure Resource Manager (ARM) based JSON files that contain instructions to perform deployment and apply configuration. You can read more about ARM in the [Azure Resource Manager overview](/resource-group-overview.md).
+Artifacts are Azure Resource Manager (ARM) based JSON files that contain instructions to perform deployment and apply configuration. You can read more about ARM in the [Azure Resource Manager overview](../resource-group-overview.md).
 
 **Artifact Repositories** are git repositories where artifacts are checked in. Same artifact repositories can be added to multiple labs in your organization enabling reuse and sharing.
 

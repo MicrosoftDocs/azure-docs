@@ -48,7 +48,7 @@ The following is a description of the endpoints:
     - *Send device-to-cloud messages*. Use this endpoint to send device-to-cloud messages. For more information, see [Device to cloud messaging](#d2c).
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
 
-    These endpoints are exposed using HTTP, [MQTT][lnk-mqtt], and [AMQP][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
+    These endpoints are exposed using HTTP 1.1, [MQTT v3.1.1][lnk-mqtt], and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
 * **Service endpoints**: Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
     - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs] and a back-end service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
     - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
@@ -68,7 +68,7 @@ When using SDKs (or product integrations) that are unaware of IoT Hub, you must 
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Sometimes the SDK requires a **Hostname** or **Namespace** value. In this case, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] In cases when the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
 
 You can then use any shared access security policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
 
@@ -339,7 +339,7 @@ IoT Hub provides messaging primitives to communicate:
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. This enables resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 
-IoT Hub supports multiple device-facing protocols (such as AMQP and HTTP/1). In order to support seamless interoperability across protocols, IoT Hub defines a common message format that all device-facing protocols support.
+IoT Hub supports multiple device-facing protocols (such as MQTT, AMQP, and HTTP). In order to support seamless interoperability across protocols, IoT Hub defines a common message format that all device-facing protocols support.
 
 ### Message format <a id="messageformat"></a>
 
@@ -381,6 +381,7 @@ At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible
 
 > [AZURE.NOTE] Clearly during development, it is acceptable to poll more frequently than every 25 minutes.
 
+<a id="mqtt-support">
 #### Notes on MQTT support
 IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and specific behavior:
 
@@ -413,7 +414,7 @@ Note that this does not mean that you can substitute IoT Hub for Event Hubs in a
 
 For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
-> [AZURE.NOTE] When using HTTP to send device-to-cloud messages, the following strings can contain only ASCII characters: system property values, and application property names and values.
+> [AZURE.NOTE] When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Non-telemetry traffic
 
@@ -460,7 +461,7 @@ Each cloud-to-device message is targeted at a single device, setting the **to** 
 
 **Important**: Each device queue can hold at most 50 cloud-to-device messages. Trying to send more messages to the same device will result in an error.
 
-> [AZURE.NOTE] When sending cloud-to-device messages, the following strings can contain only ASCII characters: system property values, and application property names and values.
+> [AZURE.NOTE] When sending cloud-to-device messages, property names and values can only contain ASCII alphanumeric characters plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Message lifecycle <a id="message lifecycle"></a>
 
@@ -575,6 +576,11 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1). <br/>Minimum of 100/sec. <br/> For example, two S1 units is 2\*12 = 24/sec, but you will have at least 100/sec across your units. With nine S1 units you have 108/sec (9\*12) across your units. |
 | Cloud-to-device sends | 100/min/unit |
 | Cloud-to-device receives | 1000/min/unit |
+
+It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle is dependent on the number of units that are provisioned for the hub.
+
+For example, if you buy a single S1 unit you get a throttle of 100 connections per second. This means that to connect 100,000 devices it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your device identity registry.
+
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 

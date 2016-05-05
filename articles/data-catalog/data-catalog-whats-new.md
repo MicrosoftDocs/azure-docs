@@ -1,6 +1,6 @@
 <properties
    pageTitle="What's New in Azure Data Catalog | Microsoft Azure"
-   description="Overview of new capabilities in the Azure Data Catalog preview."
+   description="This article provides an overview of new capabilities added to Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/14/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog

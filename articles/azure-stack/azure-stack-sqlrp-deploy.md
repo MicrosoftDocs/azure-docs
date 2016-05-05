@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prepare the physical machine"
-	description="Prepare the physical machine"
+	pageTitle="Add a SQL Server resource provider to Azure Stack"
+	description="Add a SQL Server resource provider to Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
 	authors="Dumagar"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/31/2016"
 	ms.author="dumagar"/>
 
 # Add a SQL Server resource provider to Azure Stack
@@ -186,11 +186,9 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 3. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
-4. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
+4. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
-5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
-
-6. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRpPassw0rd* for the manifest credentials.
+5. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRpPassw0rd* for the manifest credentials.
 
 ## Verify your resource provider exists
 

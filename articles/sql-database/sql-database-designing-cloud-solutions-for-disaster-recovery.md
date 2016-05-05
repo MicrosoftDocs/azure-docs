@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar"/>
 
 <tags
@@ -99,7 +99,7 @@ In case of an outage in one of the secondary regions traffic manager will automa
 The key **advantage** of this design pattern is that you can scale the application workload across multiple secondaries to achieve the optimal end user performance. The **tradeoffs** of this option are:
 
 + Read-write connections between the application instances and database have varying latency and cost
-+ Application performance is impacted during the outage
++ Application performance may be impacted during the outage
 + Application instances are required to dynamically change the SQL connection string after database failover.  
 
 > [AZURE.NOTE] A similar approach can be used to offload specialized workloads such as reporting jobs, business intelligence tools or backups. Typically these workloads consume significant database resources therefore it is recommended that you designate one of the secondary databases for them with the performance level matched to the anticipated workload.

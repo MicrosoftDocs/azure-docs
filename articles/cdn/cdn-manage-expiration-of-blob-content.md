@@ -1,6 +1,6 @@
 <properties
  pageTitle="How to Manage Expiration of Blob Content in the Azure Content Delivery Network (CDN)"
- description=""
+ description="Learn about the options for controlling time-to-live for blobs in Azure CDN caching."
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016" 
+ ms.date="02/25/2016"
  ms.author="casoper"/>
 
 
