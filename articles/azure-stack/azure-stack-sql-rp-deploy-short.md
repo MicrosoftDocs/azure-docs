@@ -46,11 +46,11 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
 2. [Download the SQL Server RP binaries](http://aka.ms/massqlrprfrsh) and extract the zip file to the ClientVM in your Azure Stack POC.
 
-3. [Run the bootstrap.cmd and script](azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment).
+3. [Run the bootstrap.cmd and script](azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment)
 
 	A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE). Run all the loaded scripts in sequence from left to right in each tab.
 
-4. Run scripts in the "Prepare tab from left to right to:
+4. Run scripts in the "Prepare" tab from left to right to:
 
 	- Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
 	- Upload the certificates and all other artifacts to an Azure Stack storage account.
