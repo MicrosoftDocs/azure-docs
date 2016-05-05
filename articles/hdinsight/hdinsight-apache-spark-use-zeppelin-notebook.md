@@ -226,7 +226,7 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 
 3. On the web page for the new notebook, click the heading, and change the name of the notebook if you want to. Press ENTER to save the name change. Also, make sure the notebook header shows a **Connected** status in the top-right corner.
 
-	![Zeppelin notebook status](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.newnote.connected.png "Zeppelin notebook status")
+	![Zeppelin notebook status](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Zeppelin notebook status")
 
 4. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\SensorSampleData\hvac**.
 
@@ -253,7 +253,7 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 		
 	Press **SHIFT + ENTER** or click the **Play** button for the paragraph to run the snippet. The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output shows up at the bottom of the same paragraph. The screenshot looks like the following:
 
-	![Create a temporary table from raw data](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.loaddataintotable.png "Create a temporary table from raw data")
+	![Create a temporary table from raw data](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Create a temporary table from raw data")
 
 	You can also provide a title to each paragraph. From the right-hand corner, click the **Settings** icon, and then click **Show title**.
 
@@ -268,7 +268,7 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 
 	The following screenshot shows the output.
 
-	![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery1.png "Run a Spark SQL statement using the notebook")
+	![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Run a Spark SQL statement using the notebook")
 
 	 Click the display options (highlighted in rectangle) to switch between different representations for the same output. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key and the average of **temp_diff** as the value.
 
@@ -282,13 +282,13 @@ Once you have SSH tunneling setup, you can use the following steps to access Zep
 
 	Paste this snippet in a new paragraph and press **SHIFT + ENTER**. The following screenshot shows the output.
 
-	![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "Run a Spark SQL statement using the notebook")
+	![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Run a Spark SQL statement using the notebook")
 
 	For subsequent queries, you can select a new value from the drop-down and run the query again. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key, the average of **temp_diff** as the value, and **targettemp** as the group.
 
 7. Restart the Spark SQL interpreter to exit the application. Click the **Interpreter** tab at the top, and for the Spark interpreter, click **Restart**.
 
-	![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.zeppelin.restart.interpreter.png "Restart the Zeppelin intepreter")
+	![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Restart the Zeppelin intepreter")
 
 
 ## <a name="seealso"></a>See also

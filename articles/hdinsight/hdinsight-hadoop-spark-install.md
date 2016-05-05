@@ -306,7 +306,7 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 ## See also
 
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): create HDInsight clusters.
-- [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): get started with Spark on HDInsight.
+- [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): get started with Spark on HDInsight.
 - [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: customize HDInsight clusters using Script Action.
 - [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md): develop Script Action scripts.
 - [Install R on HDInsight clusters][hdinsight-install-r] provides instructions on how to use cluster customization to install and use R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
