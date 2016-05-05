@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure reference architecture - IaaS: Implementing a highly available hybrid network architecture by using failover between ExpressRoute and VPN gateway"
+   pageTitle="Azure reference architecture - IaaS: Implementing a highly available hybrid network architecture by using failover between ExpressRoute and VPN gateway | Microsoft Azure"
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using ExpressRoute with VPN gateway failover."
    services="guidance,virtual-network,vpn-gateway,expressroute"
    documentationCenter="na"
@@ -17,7 +17,9 @@
    ms.date="05/03/2016"
    ms.author="telmos"/>
 
-# Azure reference architecture - IaaS: Implementing a highly available hybrid network architecture by using failover between ExpressRoute and VPN gateway
+# Implementing a highly available hybrid network architecture by using failover between ExpressRoute and VPN gateway
+
+[AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-include.md)]
 
 This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. The traffic flows between the on-premises network and an Azure virtual network (VNet) through an ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel. 
 
