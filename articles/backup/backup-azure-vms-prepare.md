@@ -143,10 +143,10 @@ For Linux machines:
 
 - Add the following lines to the ```/etc/waagent.conf``` file:
 
-  ```
-  HttpProxy.Host=<proxy IP>
-  HttpProxy.Port=<proxy port>
-  ```
+    ```
+    HttpProxy.Host=<proxy IP>
+    HttpProxy.Port=<proxy port>
+    ```
 
 #### Step 2. Allow incoming connections on the proxy server:
 
