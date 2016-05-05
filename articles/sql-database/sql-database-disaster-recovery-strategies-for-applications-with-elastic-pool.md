@@ -146,11 +146,13 @@ When region A is recovered you need to decide if you want to use region B for tr
 - Delete the DR pool (14) 
 
 The key **benefits** of this strategy are:
+
 - It supports the most aggressive SLA for the paying customers because it ensures that an outage cannot impact more than 50% of the tenant databases. 
 - It guarantees that the new trials are unblocked as soon as the trail DR pool is created during the recovery. 
 - It allows more efficient use of the pool capacity as 50% of secondary databases in pool 1 and pool 2 are guaranteed to be less active then the primary databases.
 
 The main **trade-offs** are:
+
 - The CRUD operations against the management database(s) will have lower latency for the end users connected to region A than for the end users connected to region B as they will be executed against the primary of the management database(s).
 - It requires more complex design of the management database. For example, each tenant record would have to have a location tag that needs to be changed during failover and failback.  
 - The paying customers may experience lower performance than usual until the pool upgrade in region B is completed. 
