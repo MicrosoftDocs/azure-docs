@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/26/2016"
     ms.author="spelluru"/>
 # HPC and data orchestration using Azure Batch and Data Factory
 
-High performance computing (HPC) has in the past been the domain of on-premises datacenters: a supercomputer working on data, but limited by the number of physical machines available. The Azure Batch service revolutionizes this by providing HPC as a service. You can configure as many machines as needed. Batch also handles the work of scheduling and coordinating the work, letting you concentrate on the algorithms to run. Azure Data Factory is a perfect complement to Batch; it simplifies the orchestration of data movement. Using Data Factory, you can specify regular movements of data for ETL, process the data, and then move the results to permanent storage. For example, data gathered from sensors are moved (by Data Factory) to a temporary location where Batch (under Data Factory’s control) processes the data and produces a new set of results. Then Data Factory moves the results to a final repository. With these two services working in tandem, you can efficiently use HPC to process large amounts of data on a regular schedule.
+This is an example solution that moves and processes large-scale datasets automatically. The solution is end-to-end and includes the architecture and code. It is based on two Azure services. Azure Batch provides HPC as a service to configure as many computers as you need, and to schedule and coordinate the work. Azure Data Factory complements Batch by simplifying the orchestration of data movement. You can specify regular movements of data for ETL, process the data, and then move the results to permanent storage.
 
-Here we provide an end-to-end solution example that moves and processes large-scale datasets automatically. The architecture is relevant to many scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis. Architects and IT decision makers will get an overview from the diagram and basic steps. Developers can use the code as a starting point for their own implementation. This article contains the entire solution.
+The architecture is relevant to many scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis. 
 
 See the [Azure Batch](../batch/batch-api-basics.md) and [Data Factory](data-factory-introduction.md) documentation if you are not familiar with these services before following the example solution.
 
@@ -51,7 +51,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 **Time**: If you are familiar with Azure, Data Factory, and Batch, and have completed the prerequisites, we estimate this solution will take 1-2 hours to complete.
 
-### Prerequisites
+## Prerequisites
 
 1.  **Azure subscription**. If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -101,7 +101,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 6.  **Microsoft Visual Studio 2012 or later** (to create the custom Batch activity to be used in the Data Factory solution).
 
-### High-level steps to create the solution
+## High-level steps to create the solution
 
 1.  Create a custom activity to use in the Data Factory solution. The custom activity contains the data processing logic.
 
@@ -893,21 +893,30 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 3.  Create a pool with higher/lower **Maximum tasks per VM**. Update the Azure Batch linked service in the Data Factory solution to use the new pool you created. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
 
-4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md).
+4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+	See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
+
+	The Azure Batch service could take 15-30 minutes to prepare the VM before running the custom activity on the VM. 
+	 
+5. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+
+ 
+
 
 ## Next steps: Consume the data
 
 After you process data you can consume it with online tools like **Microsoft Power BI**. Here are links to help you understand Power BI and how to use it in Azure:
 
--   [Explore a dataset in Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Explore a dataset in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-data/)
 
--   [Getting started with the Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Getting started with the Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
 
--   [Refresh data in Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Refresh data in Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-refresh-data/)
 
--   [Azure and Power BI - basic overview](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure and Power BI - basic overview](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)
 
 ## References
 

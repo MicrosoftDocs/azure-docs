@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
+	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -26,7 +26,7 @@ If you have not used the API and would like to learn more, you can **[learn more
 
 First, you will need to get a new API key from the **Azure Portal**:
 
-1. Navigate to the Text Analytics service through the [Cortana Analytics Gallery](//gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
+1. Navigate to the Text Analytics service through the [Cortana Intelligence Gallery](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Here, you will also find links to the documentation and code samples.
 
 1. Click **Sign Up**. This link will take you to the Azure management portal, where you can sign up for the service.
 

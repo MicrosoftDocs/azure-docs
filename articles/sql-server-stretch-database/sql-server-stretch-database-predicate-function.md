@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use a Filter Predicate to Select Rows to Migrate (Stretch Database) | Microsoft Azure"
+	pageTitle="Use a filter predicate to select rows to migrate (Stretch Database) | Microsoft Azure"
 	description="Learn how to use a filter predicate to select the rows to migrate."
 	services="sql-server-stretch-database"
 	documentationCenter=""
@@ -16,18 +16,24 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Use a Filter Predicate to Select Rows to Migrate (Stretch Database)
+# Use a filter predicate to select rows to migrate (Stretch Database)
 
-If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both historical and current data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate must call an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
-
-In CTP 3.1 through RC1, the option to specify a predicate isn't available in the Enable Database for Stretch wizard. You have to use the ALTER TABLE statement to configure Stretch Database with this option. For more info, see [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
-
-If you don't specify a filter predicate, the entire table is migrated.
+If you store historical data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both current and historical data, on the other hand, you can specify a filter predicate to select the rows to migrate. The filter predicate is an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
 
 >   [AZURE.NOTE] If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
+If you don't specify a filter predicate, the entire table is migrated.
+
+In RC3, when you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
+
+-   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate.
+
+-   Run the ALTER TABLE statement to specify a predicate after you exit the wizard.
+
+The ALTER TABLE syntax for adding a predicate is described later in this topic.
+
 ## Basic requirements for the inline table\-valued function
-The inline table\-valued function required for a Stretch Database filter function looks like the following example.
+The inline table\-valued function required for a Stretch Database filter predicate looks like the following example.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datatype1, @column2 datatype2 [, ...n])
@@ -42,7 +48,7 @@ The parameters for the function have to be identifiers for columns from the tabl
 Schema binding is required to prevent columns that are used by the filter predicate from being dropped or altered.
 
 ### Return value
-If the function returns a non\-empty result, the row is eligible to be migrated; otherwise \- that is, if the function doesn't return any rows \- the row is not eligible to be migrated.
+If the function returns a non\-empty result, the row is eligible to be migrated. Otherwise \- that is, if the function doesn't return a result \- the row is not eligible to be migrated.
 
 ### Conditions
 The &lt;*predicate*&gt; can consist of one condition, or of multiple conditions joined with the AND logical operator.
@@ -133,7 +139,117 @@ You can use the BETWEEN and NOT BETWEEN operators if the resulting predicate con
 
 You can't use subqueries or non\-deterministic functions such as RAND() or GETDATE().
 
-## Examples of valid functions
+## Add a filter predicate to a table
+Add a filter predicate to a table by running the ALTER TABLE statement and specifying an existing inline table\-valued function as the value of the FILTER\_PREDICATE parameter. For example:
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+After you bind the function to the table as a predicate, the following things are true.
+
+-   The next time data migration occurs, only the rows for which the function returns a non\-empty value are migrated.
+
+-   The columns used by the function are schema bound. You can't alter these columns as long as a table is using the function as its filter predicate.
+
+You can't drop the inline table\-valued function as long as a table is using the function as its filter predicate.
+
+## Filter rows by date
+The following example migrates rows where the **date** column contains a value earlier than January 1, 2016.
+
+```tsql
+-- Filter by date
+--
+CREATE FUNCTION dbo.fn_stretch_by_date(@date datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @date < CONVERT(datetime2, '1/1/2016', 101)
+GO
+```
+
+## Filter rows by the value in a status column
+The following example migrates rows where the **status** column contains one of the specified values.
+
+```tsql
+-- Filter by status column
+--
+CREATE FUNCTION dbo.fn_stretch_by_status(@status nvarchar(128))
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @status IN (N'Completed', N'Returned', N'Cancelled')
+GO
+```
+
+## Filter rows by using a sliding window
+To filter rows by using a sliding window, keep in mind the following requirements for the filter function.
+
+-   The function has to be deterministic. Therefore you can't create a function that automatically recalculates the sliding window as time passes.
+
+-   The function uses schema binding. Therefore you can't simply update the function "in place" every day by calling ALTER FUNCTION to move the sliding window.
+
+Start with a filter predicate like the following example, which migrates rows where the **systemEndTime** column contains a value earlier than January 1, 2016.
+
+```tsql
+CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING  
+AS  
+RETURN SELECT 1 AS is_eligible
+  WHERE @systemEndTime < CONVERT(datetime2, '2016-01-01T00:00:00', 101) ;
+```
+
+Apply the filter predicate to the table.
+
+```tsql
+ALTER TABLE <table name>
+SET (
+        REMOTE_DATA_ARCHIVE = ON
+                (
+                        FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160101 (SysEndTime)
+                                , MIGRATION_STATE = OUTBOUND
+                )
+        )
+;
+```
+
+When you want to update the sliding window, do the following things.
+
+1.  Create a new function that specifies the new sliding window. The following example selects dates earlier than January 2, 2016, instead of January 1, 2016.
+
+2.  Replace the previous filter predicate with the new one by calling ALTER TABLE, as shown in the following example.
+
+3. Optionally, drop the previous filter function that you're no longer using by calling DROP FUNCTION. (This step is not shown in the example.)
+
+```tsql
+BEGIN TRAN
+GO
+        /*(1) Create new predicate function definition */
+        CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160102(@systemEndTime datetime2)
+        RETURNS TABLE
+        WITH SCHEMABINDING
+        AS
+        RETURN SELECT 1 AS is_eligible
+               WHERE @systemEndTime < CONVERT(datetime2,'2016-01-02T00:00:00', 101)
+        GO
+
+        /*(2) Set the new function as filter predicate */
+        ALTER TABLE <table name>
+        SET
+        (
+               REMOTE_DATA_ARCHIVE = ON
+               (
+                       FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160102(SysEndTime),
+                       MIGRATION_STATE = OUTBOUND
+               )
+        )
+COMMIT ;
+```
+
+## More examples of valid filter predicates
 
 -   The following example combines two primitive conditions by using the AND logical operator.
 
@@ -200,7 +316,7 @@ You can't use subqueries or non\-deterministic functions such as RAND() or GETDA
     GO
     ```
 
-## Examples of functions that aren't valid
+## Examples of filter predicates that aren't valid
 
 -   The following function isn't valid because it contains a non\-deterministic conversion.
 
@@ -289,32 +405,6 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 If the function returns a non\-empty result for the row, the row is eligible to be migrated.
 
-## Add a filter predicate to a table
-Add a filter predicate to a table by running the ALTER TABLE statement and specifying an existing inline table\-valued function as the value of the FILTER\_PREDICATE parameter. For example:
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-After you bind the function to the table as a predicate, the following things are true.
-
--   The next time data migration occurs, only the rows for which the function returns a non\-empty value are migrated.
-
--   The columns used by the function are schema bound. You can't alter these columns as long as a table is using the function as its filter predicate.
-
-## Remove a filter predicate from a table
-To migrate the entire table instead of selected rows, remove the existing FILTER\_PREDICATE by setting it to null. For example:
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = NULL,
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-After you remove the filter predicate,  all rows in the table are eligible for migration.
-
 ## Replace an existing filter predicate
 You can replace a previously specified filter predicate by running the ALTER TABLE statement again and specifying a new value for the FILTER\_PREDICATE parameter. For example:
 
@@ -400,8 +490,16 @@ RETURN	SELECT 1 AS is_eligible
 GO
 ```
 
-## Drop a filter predicate
-You can't drop the inline table\-valued function as long as a table is using the function as its filter predicate.
+## Remove a filter predicate from a table
+To migrate the entire table instead of selected rows, remove the existing FILTER\_PREDICATE by setting it to null. For example:
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = NULL,
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+After you remove the filter predicate, all rows in the table are eligible for migration. As a result, you cannot specify a filter predicate for the same table later unless you bring back all the remote data for the table from Azure first. This restriction exists to avoid the situation where rows that are not eligible for migration when you provide a new filter predicate have already been migrated to Azure.
 
 ## Check the filter predicate applied to a table
 To check the filter predicate applied to a table, open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column. If the value is null, the entire table is eligible for archiving. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).

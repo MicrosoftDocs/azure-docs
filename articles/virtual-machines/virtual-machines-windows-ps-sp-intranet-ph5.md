@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # SharePoint Intranet Farm Workload Phase 5: Create the availability group and add the SharePoint databases

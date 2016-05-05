@@ -1,6 +1,6 @@
 <properties
 	pageTitle="What is Self-Service Signup for Azure? | Microsoft Azure"
-	description="An overview self-service signup for Azure, how to manage the sign up process and how to ."
+	description="An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
-	ms.author="stevenpo"/>
+	ms.date="04/04/2016"
+	ms.author="curtand"/>
 
 
 # What is Self-Service Signup for Azure?

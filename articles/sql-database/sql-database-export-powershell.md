@@ -1,47 +1,51 @@
 <properties 
-    pageTitle="Create and export a BACPAC of an Azure SQL database using PowerShell" 
-    description="Create and export a BACPAC of an Azure SQL database using PowerShell" 
+    pageTitle="Archive an Azure SQL database to a BACPAC file using PowerShell" 
+    description="Archive an Azure SQL database to a BACPAC file using PowerShell" 
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="04/06/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create and export a BACPAC of an Azure SQL database using PowerShell
-
+# Archive an Azure SQL database to a BACPAC file using PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-export.md)
 - [PowerShell](sql-database-export-powershell.md)
 
 
-This article provides directions for exporting a BACPAC of your Azure SQL database with PowerShell.
+This article provides directions for archiving your Azure SQL database to a BACPAC file stored in Azurte blob storage using PowerShell.
 
-A [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) is a .bacpac file that contains a database schema and data. The primary use case for a BACPAC is to move a database from one server to another, to [migrate a local database to the cloud](sql-database-cloud-migrate.md), and for archiving an existing database in an open format.
+When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of BACPAC. A BACPAC file can later be stored in Azure blob storage or in local storage in an on-premises location and later inmported back into Azure SQL Database or into a SQL Server on-premises installation. 
 
+***Considerations***
+
+- For an archive to be transactionally consistent, you must either ensure that no write activity is occurring during the export or export from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL Database
+- The mazimum size of a BACPAC file archived to Azure blob storage is 200 GB. Use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility to archive a larger BACPAC file to local storage. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
+- Archiving to Azure premium storage using a BACPAC file is not supported.
+- If the export operation goes over 20 hours it may be canceled. To increase performance during export, you can:
+ - Temporarily increase your service level 
+ - Cease all read and write activity during the export
+ - Use a clustered index on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export services needs to complete table scan to try to export entire table
+ 
 > [AZURE.NOTE] BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
-
-
-The BACPAC is exported into an Azure storage blob container that you can download once the operation successfully completes.
-
 
 To complete this article you need the following:
 
-- An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
-- An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- An [Azure Storage account](../storage/storage-create-storage-account.md) with a blob container to store the BACPAC. Currently the storage account must use the classic deployment model so choose **Classic** when creating a storage account.
+- An Azure subscription. 
+- An Azure SQL Database. 
+- An [Azure Standard Storage account](../storage/storage-create-storage-account.md) with a blob container to store the BACPAC in standard storage.
 - Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
 
 
 ## Configure your credentials and select your subscription

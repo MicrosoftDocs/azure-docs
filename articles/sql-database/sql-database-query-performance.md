@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2016"
+   ms.date="04/28/2016"
    ms.author="sstein"/>
 
 # Azure SQL Database Query Performance Insight
@@ -47,10 +47,10 @@ Query Performance Insight is easy to use:
 
 - Review the list of top resource-consuming queries. 
 - Select an individual query to view its details.
-- Click **Settings** to customize how data is displayed or to show a different time period.
-- Open [Index Advisor](sql-database-index-advisor.md) and check if any recommendations are available.
-
-
+- Open [Performance Advisor](sql-database-index-advisor.md) and check if any recommendations are available.
+- Zoom in for detailed information.
+- 
+    ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insight. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
 
@@ -60,7 +60,7 @@ Query Performance Insight is easy to use:
 
 In the [portal](http://portal.azure.com) do the following:
 
-1. Browse to a SQL database and click **Query Performance Insight**. 
+1. Browse to a SQL database and click **All settings** > **Performance** > **Queries**. 
 
     ![Query Performance Insight][1]
 
@@ -159,11 +159,9 @@ Query Performance Insight helps you understand the impact of your query workload
 
 ## Next steps
 
-Database workloads are dynamic and change continuously. Monitor your queries and continue to fine tune them to refine performance. 
+For additional recommendations for improving the performance of your SQL database click [Performance Advisor](sql-database-index-advisor.md) on the **Query Performance Insight** blade.
 
-For additional recommendations for improving the performance of your SQL database click [Index Advisor](sql-database-index-advisor.md) on the **Query Performance Insight** blade.
-
-![Index Advisor](./media/sql-database-query-performance/ia.png)
+![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
 
 <!--Image references-->

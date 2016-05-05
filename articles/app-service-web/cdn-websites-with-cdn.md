@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Use Azure CDN in Azure App Service" 
 	description="A tutorial that teaches you how to deploy a web app to Azure App Service that serves content from an integrated Azure CDN endpoint" 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -566,10 +566,9 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 ## More Information 
 - [Overview of the Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md)
-- [Serve Content from Azure CDN in Your Web Application](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Using Azure CDN](../cdn/cdn-create-new-endpoint.md)
 - [Integrate a cloud service with Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](../cdn/cdn-how-to-use-cdn.md)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

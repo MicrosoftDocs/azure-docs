@@ -4,7 +4,7 @@
     services="application-insights" 
     documentationCenter="cpp"
     authors="alancameronwills" 
-    manager="douge""/>
+    manager="douge"/>
 
 <tags 
     ms.service="application-insights" 

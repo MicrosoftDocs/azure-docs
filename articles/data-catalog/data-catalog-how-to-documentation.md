@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to document data sources"
+   pageTitle="How to document data sources | Microsoft Azure"
    description="How-to article highlighting how to document data assets in Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="04/07/2016"
    ms.author="derrickv"/>
 
 # Document data sources

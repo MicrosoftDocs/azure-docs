@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/06/2016" 
+	ms.date="04/14/2016" 
 	ms.author="awills"/>
 
 
@@ -179,7 +179,19 @@ Open Search to investigate individual requests and their associated events.
 
 Now deploy your application and watch the data accumulate.
 
-When you run in debug mode, telemetry is expedited through the pipeline, so that you should see data appearing within seconds. When you deploy your app, data accumulates more slowly.
+### Live Stream
+
+The first few minutes of a deployment tell you whether your app is working correctly. Especially when you're replacing an older version, you want to know whether performance has improved. If there's a problem, you might want to revert to the old version.
+
+Live Stream provides an immediate view of a set of key performance metrics. It's designed so that you can watch it during a redeployment or reconfiguration. 
+
+![From the overview blade, click Live Stream](./media/app-insights-asp-net/45.png)
+
+Unlike the other metrics charts, Live Stream shows data from just the past few minutes, and doesn't retain any data. The aggregation pipeline is minimal and the display refreshes every second.
+
+Live Stream requires the 2.1.0-beta1 or later version of the SDK.
+
+*Live Stream stuck on its configuration page? - Refresh your browser (F5).*  
 
 #### Trouble on your build server?
 

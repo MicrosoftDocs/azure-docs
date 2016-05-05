@@ -45,7 +45,7 @@ For information about App Service plans, see [What is an App Service Plan?](../a
 	
 	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete. 
 	
-5. In settings click on **Scale out**, select *instance count that I choose manually* in the drop down, slide the **Instance** bar from left to right to increase the number of instances, then click **Save** in the command bar. The instance size option is not available in **Shared** mode. For more information about these instance sizes, see [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes].
+5. In settings click on **Scale out**, select *instance count that I choose manually* in the drop down, slide the **Instance** bar from left to right to increase the number of instances, then click **Save** in the command bar. The instance size option is not available in **Shared** mode. For more information about these instance sizes, see [App Service Pricing][vmsizes].
 	
 	![Instance size for Basic mode][ChooseBasicInstances]
 	
@@ -180,7 +180,7 @@ Depending on the web app's mode, the following developer-oriented features are a
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- LINKS -->
-[vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169
+[vmsizes]:/pricing/details/app-service/
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/

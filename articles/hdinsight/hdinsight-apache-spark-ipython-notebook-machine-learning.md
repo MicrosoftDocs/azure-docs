@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Build Machine Learning applications using Apache Spark on Azure HDInsight (Linux)
+# Build Machine Learning applications to run on Apache Spark on HDInsight Linux (Preview)
 
 Learn how to build a machine learning application using an Apache Spark cluster in HDInsight. This article shows how to use the Jupyter notebook available with the cluster to build and test our application. The application uses the sample HVAC.csv data that is available on all clusters by default.
 
@@ -61,12 +61,12 @@ In this application we use a Spark ML pipeline to perform a document classificat
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-3. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark, SQL, and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types that are required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**. 
+3. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types that are required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**. 
 
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
 		from pyspark.ml.feature import HashingTF, Tokenizer
-		from pyspark.sql import Row, SQLContext
+		from pyspark.sql import Row
 		
 		import os
 		import sys

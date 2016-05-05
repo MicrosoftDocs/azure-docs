@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Running Windows VMs for a 3-tier architecture | Blueprint | Microsoft Azure"
+   pageTitle="Running Windows VMs for an N-tier architecture | Blueprint | Microsoft Azure"
    description="How to implement a multi-tier architecture on Azure, paying particular attention to availability, security, scalability, and manageability security."
    services=""
    documentationCenter="na"
-   authors="JohnPWSharp"
+   authors="mikewasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/21/2016"
-   ms.author="masashin"/>
+   ms.date="04/19/2016"
+   ms.author="mikewasson"/>
 
-# Running Windows VMs for a 3-tier architecture on Azure
+# Running Windows VMs for an N-tier architecture on Azure
 
-This article outlines a set of proven practices for running Windows VMs for an application with a 3-tier architecture.
+This article outlines a set of proven practices for running Windows VMs for an application with a N-tier architecture.
 
-There are variations of 3-tier architectures. For the most part, the differences shouldn't matter for the purposes of these recommendations. This article assumes a typical 3-tier web app:
+There are variations of N-tier architectures. For the most part, the differences shouldn't matter for the purposes of these recommendations. This article assumes a typical 3-tier web app:
 
 - **Web tier.** Handles incoming HTTP requests. Responses are returned through this tier.
 
@@ -121,7 +121,7 @@ The following diagram builds on the topology shown in [Running multiple Windows 
 
 ## Manageability
 
-- Individual VMs should have diagnostics enabled to provide health and performance data. Examine the [audit logs](azure-audit-logs) to view provisioning actions and other events.
+- Individual VMs should have diagnostics enabled to provide health and performance data. Examine the [audit logs][azure-audit-logs] to view provisioning actions and other events.
 
 - Simplify management of the entire system by using centralized administration tools such as [Azure Automation][azure-administration], [Microsoft Operations Management Suite][operations-management-suite], [Chef][chef], or [Puppet][puppet]. These tools can consolidate diagnostic and health information captured from multiple VMs to provide an overall view of the system.
 
@@ -131,25 +131,15 @@ The following Windows batch script executes the [Azure CLI][azure-cli] commands 
 
 The script uses the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
+One of the script parameters is the IP address range to whitelist for the jumpbox. You can specify a range using CIDR notation, or a single IP address.
+
 ```bat
 @ECHO OFF
 SETLOCAL
 
-IF "%3"=="" (
-    ECHO Usage: %0 subscription-id admin-address-whitelist-CIDR-format admin-password
-    ECHO   For example: %0 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx nnn.nnn.nnn.nnn/mm pwd
-    EXIT /B
-    )
-
-:: Explicitly set the subscription to avoid confusion as to which subscription
-:: is active/default
-
-SET SUBSCRIPTION=%1
-SET ADMIN_ADDRESS_PREFIX=%2
-SET PASSWORD=%3
-
-:: Set up variables to build out the naming conventions for deploying
-:: the cluster
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Set up variables for deploying resources to Azure.
+:: Change these variables for your own deployment
 
 :: The APP_NAME variable must not exceed 4 characters in size.
 :: If it does the 15 character size limitation of the VM name may be exceeded.
@@ -183,6 +173,21 @@ SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4
 :: To see the VM sizes available in a region:
 :: 	azure vm sizes --location <<location>>
 SET VM_SIZE=Standard_DS1
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+IF "%3"=="" (
+    ECHO Usage: %0 subscription-id admin-address-whitelist-CIDR-format admin-password
+    ECHO   For example: %0 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx nnn.nnn.nnn.nnn/mm pwd
+    EXIT /B
+    )
+
+:: Explicitly set the subscription to avoid confusion as to which subscription
+:: is active/default
+
+SET SUBSCRIPTION=%1
+SET ADMIN_ADDRESS_PREFIX=%2
+SET PASSWORD=%3
 
 :: Set up the names of things using recommended conventions
 SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
@@ -372,12 +377,12 @@ GOTO :eof
 
 :CreateCommonLBResources
 
-ECHO Creating resoures for %1
-
 SET LB_NAME=%1
 SET LB_FRONTEND_NAME=%LB_NAME%-frontend
 SET LB_BACKEND_NAME=%LB_NAME%-backend-pool
 SET LB_PROBE_NAME=%LB_NAME%-probe
+
+ECHO Creating resources for load balancer: %LB_NAME%
 
 :: Create LB back-end address pool
 CALL azure network lb address-pool create --name %LB_BACKEND_NAME% --lb-name ^
@@ -400,12 +405,13 @@ GOTO :eof
 
 :CreateVm
 
-ECHO Creating VM %1
-
 SET TIER_NAME=%2
 SET SUBNET_NAME=%3
 SET NEEDS_AVAILABILITY_SET=%4
 SET LB_NAME=%5
+
+ECHO Creating VM %1 in the %TIER_NAME% tier, in subnet %SUBNET_NAME%.
+ECHO NEEDS_AVAILABILITY_SET="%NEEDS_AVAILABILITY_SET%" and LB_NAME="%LB_NAME%"
 
 SET AVAILSET_NAME=%APP_NAME%-%TIER_NAME%-as
 SET VM_NAME=%APP_NAME%-%TIER_NAME%-vm%1
@@ -452,33 +458,39 @@ CALL azure vm disk attach-new --vm-name %VM_NAME% --size-in-gb 128 --vhd-name ^
   %VM_NAME%-data1.vhd --storage-account-name %VHD_STORAGE% %POSTFIX%
 
 goto :eof
+
 ```
 
+## Next steps
+
+- This article shows a basic N-tier architecture. For some additional considerations about reliability, see [Adding reliability to an N-tier architecture on Azure][n-tier].
 
 <!-- links -->
 
-[azure-administration]: ../automation/automation-intro/
-[azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability/#configure-each-application-tier-into-separate-availability-sets
+[azure-administration]: ../automation/automation-intro.md
+[azure-audit-logs]: ../resource-group-audit.md
+[azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md#configure-each-application-tier-into-separate-availability-sets
 [azure-cli]: ../virtual-machines-command-line-tools.md
-[azure-key-vault]: https://azure.microsoft.com/services/key-vault/
-[azure-load-balancer]: ../load-balancer/load-balancer-overview/
+[azure-key-vault]: https://azure.microsoft.com/services/key-vault.md
+[azure-load-balancer]: ../load-balancer/load-balancer-overview.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [chef]: https://www.chef.io/solutions/azure/
-[load-balancer-external]: ../load-balancer/load-balancer-internet-overview/
-[load-balancer-external-cli]: ../load-balancer/load-balancer-get-started-internet-arm-cli/
-[load-balancer-internal]: ../load-balancer/load-balancer-internal-overview/
-[load-balancer-internal-cli]: ../load-balancer/load-balancer-get-started-ilb-arm-cli/
+[load-balancer-external]: ../load-balancer/load-balancer-internet-overview.md
+[load-balancer-external-cli]: ../load-balancer/load-balancer-get-started-internet-arm-cli.md
+[load-balancer-internal]: ../load-balancer/load-balancer-internal-overview.md
+[load-balancer-internal-cli]: ../load-balancer/load-balancer-get-started-ilb-arm-cli.md
 [multi-vm]: guidance-compute-multi-vm.md
+[n-tier]: guidance-compute-n-tier-vm.md
 [naming conventions]: guidance-naming-conventions.md
-[nsg]: ../virtual-network/virtual-networks-nsg/
+[nsg]: ../virtual-network/virtual-networks-nsg.md
 [nsg-rules]: ../best-practices-resource-manager-security.md#network-security-groups
-[operations-management-suite]: https://www.microsoft.com/server-cloud/operations-management-suite/overview.aspx
-[public IP address]: ../virtual-network/virtual-network-ip-addresses-overview-arm/
+[operations-management-suite]: https://www.microsoft.com/en-us/server-cloud/operations-management-suite/overview.aspx
+[public IP address]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
 [resource-manager-overview]: ../resource-group-overview.md
 [rfc1918]: http://tools.ietf.org/html/rfc1918
 [sql-alwayson]: https://msdn.microsoft.com/en-us/library/hh510230.aspx
 [vm-planned-maintenance]: ../virtual-machines/virtual-machines-windows-planned-maintenance.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
-[vnet faq]: ../virtual-network/virtual-networks-faq/
+[vnet faq]: ../virtual-network/virtual-networks-faq.md

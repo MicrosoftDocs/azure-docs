@@ -12,22 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="04/14/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage StorSimple bandwidth templates
 
 ## Overview
 
-Bandwidth templates allow you to configure multiple time-of-day schedules to tier the data from the StorSimple device to the cloud. You can also create, modify, delete, and save these schedules as templates. These bandwidth templates can then be applied across volume containers to control the bandwidth consumed by your StorSimple device when performing operations that involve the cloud. Depending on your bandwidth usage pattern, you can also choose from a list of default templates.
+Bandwidth templates allow you to configure network bandwidth usage across multiple time-of-day schedules to tier the data from the StorSimple device to the cloud.
 
 With bandwidth throttling schedules you can:
 
-- Specify schedules that customize bandwidth usage depending on the workloads.
+- Specify customized bandwidth schedules depending on the workload network usages.
 
 - Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.
 
-This feature is available only for StorSimple physical devices and not for virtual devices. All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
+> [AZURE.NOTE] This feature is available only for StorSimple physical devices and not for virtual devices.
+   
+All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
 
 - **Name** – A unique name assigned to the bandwidth template when it was created.
 
@@ -35,13 +37,7 @@ This feature is available only for StorSimple physical devices and not for virtu
 
 - **Used by** – The number of volumes using the bandwidth templates.
 
-You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates. The most common tasks related to bandwidth templates that can be performed on this page are:
-
-- Add a bandwidth template
-- Edit a bandwidth template
-- Delete a bandwidth template
-- Use a default bandwidth template
-- Create an all-day bandwidth template that starts at a specified time
+You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates.
 
 You can also find additional information to help configure bandwidth templates in:
 

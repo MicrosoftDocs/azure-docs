@@ -28,12 +28,6 @@ In this tutorial, you will update the client project from the tutorial [Create a
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
-## Requirements
-
-* Visual Studio 2013
-* Visual Studio [Xamarin extension] **or** [Xamarin Studio]
-* Completion of the tutorial [Create a Xamarin Android app]. This tutorial uses the completed app covered in that tutorial.
-
 ## Review the client sync code
 
 The Xamarin client project that you downloaded when you completed the tutorial [Create a Xamarin Android app] already contains code supporting offline synchronization using a local SQLite database. Here is a brief overview of what is already included in the tutorial code. For a conceptual overview of the feature, see [Offline Data Sync in Azure Mobile Apps].

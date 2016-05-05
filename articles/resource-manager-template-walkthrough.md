@@ -89,7 +89,7 @@ Notice that the **name** is set to the value of a variable. For this template, t
 
 The value you specify for **type** contains both the resource provider and the resource type. For availability sets, the resource provider is **Microsoft.Compute** and the resource type is **availabilitySets**. You can get the list of available resource providers by running the following PowerShell command:
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
 
 Or, if you are using Azure CLI, you can run the following command:
 
@@ -103,7 +103,7 @@ Given that in this topic you are creating with storage accounts, virtual machine
 
 To see the resource types for a particular provider, run the following PowerShell command:
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
 Or, for Azure CLI, the following command will return the available types in JSON format and save it to a file.
 
@@ -133,7 +133,7 @@ The allocation method is set to **Dynamic** but you could set it to the value yo
 
 Now, let's look at how you determine the **apiVersion**. The value you specify simply matches the version of the REST API that you want to use when creating the resource. So, you can look at the REST API documentation for that resource type. Or, you can run the following PowerShell command for a particular type.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 
 Which returns the following values:
 

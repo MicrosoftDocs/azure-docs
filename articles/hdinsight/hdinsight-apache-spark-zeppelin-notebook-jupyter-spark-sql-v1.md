@@ -17,7 +17,7 @@
 	ms.author="nitinme"/>
 
 
-# Quick Start: create Apache Spark on HDInsight and run interactive queries using Spark SQL (Windows)
+# Quick Start: Create Apache Spark on HDInsight Windows and run interactive queries using Spark SQL (Preview)
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 

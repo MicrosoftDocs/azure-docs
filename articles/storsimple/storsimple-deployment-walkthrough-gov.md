@@ -274,7 +274,7 @@ For MPIO installation instructions for a StorSimple device connected to a Linux 
 
 ## Next steps
 
-- Configure a [virtual device](storsimple-virtual-device.md).
+- Configure a [virtual device](storsimple-virtual-device-u2.md).
 
 - Use the [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx) to manage your StorSimple device.
  

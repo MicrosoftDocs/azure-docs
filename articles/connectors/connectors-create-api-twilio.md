@@ -21,7 +21,7 @@ ms.author="mandia"/>
 
 Connect to Twilio to send and receive global SMS, MMS, and IP messages.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Twilio](../app-service-logic/app-service-logic-connector-twilio.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Twilio, you can:
 

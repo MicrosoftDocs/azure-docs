@@ -44,8 +44,6 @@ Batch can also perform parallel calculations with a reduce step at the end, as w
 
 For a comparison between Batch and other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
 
->[AZURE.NOTE] At this time, Batch supports workloads that run on Windows Server-based virtual machines only.
-
 ## Developing with Batch
 
 When you build solutions that use Azure Batch for parallel workload processing, you do so programmatically using the Batch APIs. With the Batch APIs, you create and manage pools of compute nodes (virtual machines) and schedule jobs and tasks to run on those nodes. A client application or service that you author uses the Batch APIs to communicate with the Batch service. You can efficiently process large-scale workloads for your organization, or provide a service front-end to your customers so that they can run jobs and tasks--on demand, or on a schedule--on one, hundreds, or thousands of nodes. You can also use Batch as part of a larger workflow, managed by tools such as [Azure Data Factory][data_factory].

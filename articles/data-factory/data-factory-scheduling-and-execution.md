@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Scheduling & Execution with Data Factory
@@ -629,6 +629,51 @@ Similar to datasets that are produced by data factory the data slices for extern
 	} 
 
 
+## Onetime pipeline
+You can create and schedule a pipeline to run periodically (hourly, daily, etc...) within the start and end times you specify in the pipeline definition. See [Scheduling activities](#scheduling-and-execution) for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the JSON sample below. The default value for this property is **scheduled**. 
+
+	{
+	    "name": "CopyPipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset"
+	                    }
+	                ]
+	                "name": "CopyActivity-0"
+	            }
+	        ]
+	        "pipelineMode": "OneTime"
+	    }
+	}
+
+Note the following:
+ 
+- You do not need to specify **start** and **end** times for the pipeline. 
+- You need to specify availability of input and output datasets (frequency and interval) at this time even though the values are not used by Data Factory.  
+- Diagram view does not show one-time pipelines. This is by design. 
+- One time pipelines cannot updated. You can clone an one-time pipeline, rename it, update properties, and deploy it to create another one. 
+
+  
 
 
 

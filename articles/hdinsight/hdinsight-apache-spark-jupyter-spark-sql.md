@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Get started: Create Apache Spark cluster on Azure HDInsight (Linux) and run interactive queries using Spark SQL
+# Get started: Create Apache Spark cluster on HDInsight Linux and run interactive queries using Spark SQL (Preview)
 
 Learn how to create an Apache Spark cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.
 
@@ -45,7 +45,7 @@ In this section, you create an HDInsight version 3.3 cluster (Spark version 1.5.
 
 1. Click the following image to open an ARM template in the Azure Portal.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     The ARM template is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*. 
    
@@ -79,16 +79,16 @@ In this section, you create an HDInsight version 3.3 cluster (Spark version 1.5.
 
 ## Run Spark SQL queries using a Jupyter notebook
 
-In this section, you use Jupyter notebook to run Spark SQL queries against the Spark cluster. By default Jupyter notebook comes with a **Python2** kernel. HDInsight Spark clusters provide two additional kernels that you can use with the Jupyter notebook. These are:
+In this section, you use Jupyter notebook to run Spark SQL queries against the Spark cluster. HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook. These are:
 
 * **PySpark** (for applications written in Python)
 * **Spark** (for applications written in Scala)
 
 In this article, you will use the PySpark kernel. In the article [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) you can read in detail about the benefits of using the PySpark kernel. However, couple of key benefits of using the PySpark kernel are:
 
-* You do not need to set the contexts for Spark, SQL, and Hive. These are automatically set for you.
-* You can use different cell magics (such as %%sql or %%hive) to directly run your SQL or Hive queries, without any preceding code snippets.
-* The output for SQL or Hive queries is automatically visualized.
+* You do not need to set the contexts for Spark and Hive. These are automatically set for you.
+* You can use cell magics, such as `%%sql`, to directly run your SQL or Hive queries, without any preceding code snippets.
+* The output for the SQL or Hive queries is automatically visualized.
 
 ### Create Jupyter notebook with PySpark kernel 
 
@@ -108,7 +108,7 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark, SQL, and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
+4. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, paste the following code snippet in a cell and press **SHIFT + ENTER**.
 
 		from pyspark.sql.types import *
 		

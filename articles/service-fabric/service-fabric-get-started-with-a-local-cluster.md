@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/26/2016"
+   ms.date="04/12/2016"
    ms.author="seanmck"/>
 
 # Get started with deploying and upgrading applications on your local cluster
@@ -84,7 +84,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
 
     ![Deploy an application to the local cluster][deploy-app-to-local-cluster]
 
-7. To see the application in action, launch the browser and navigate to [http://localhost:8081/wordcount/index](http://localhost:8081/wordcount/index). You should see something like this:
+7. To see the application in action, launch the browser and navigate to [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). You should see something like this:
 
     ![Deployed application UI][deployed-app-ui]
 
@@ -148,11 +148,11 @@ The new version of the application will now count only words that begin with a v
 
     ![Upgrade progress in PowerShell][ps-appupgradeprogress]
 
-3. While the upgrade is proceeding, you may find it easier to monitor its status from Service Fabric Explorer. Launch a browser window and navigate to [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Click **Applications** in the tree on the left and then choose **Upgrades in Progress**.
+3. While the upgrade is proceeding, you may find it easier to monitor its status from Service Fabric Explorer. Launch a browser window and navigate to [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expand **Applications** in the tree on the left, then choose **WordCount**, and finally **fabric:/WordCount**. In the essentials tab, you will see the status of the upgrade as it proceeds through the cluster's upgrade domains.
 
     ![Upgrade progress in Service Fabric Explorer][sfx-upgradeprogress]
 
-    Note that the Upgrade Progress indicator represents the state of the upgrade within the upgrade domains of your cluster. As the upgrade proceeds through each domain, health checks are performed to ensure that the application is behaving properly.
+    As the upgrade proceeds through each domain, health checks are performed to ensure that the application is behaving properly.
 
 4. If you rerun the earlier query for the set of services that are included in the fabric:/WordCount application, you will notice that while the version of WordCountService changed, the version of WordCountWebService did not:
 

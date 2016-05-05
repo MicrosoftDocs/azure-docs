@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Resource locks template schema
@@ -42,20 +42,21 @@ To create a lock, add the following schema to the resources section of your temp
 
 The following tables describe the values you need to set in the schema.
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | For resources: <br />**{namespace}/{type}/providers/locks**<br /><br />For resource groups:<br />**Microsoft.Authorization/locks** | The resource type to create. |
-| apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
-| name | string | Yes | For resources:<br />**{resouce}/Microsoft.Authorization/{lockname}**<br /><br />For resource groups:<br />**{lockname}**<br /><br />up to 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | A value that specifes both the resource to lock and a name for the lock. |
-| dependsOn | array | No |  A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
-| properties | object | Yes | (shown below)  | An object that identifies the type of lock, and notes about the lock. |  
+| Name | Value |
+| ---- | ---- | 
+| type | Enum<br />Required<br />**{namespace}/{type}/providers/locks** - for resources or<br />**Microsoft.Authorization/locks** - for resource groups<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-01-01**<br /><br />The API version to use for creating the resource. |  
+| name | String<br />Required<br />**{resource}/Microsoft.Authorization/{lockname}** - for resources or<br />**{lockname}** - for resource groups<br />up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the resource to lock and a name for the lock. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this lock depends on. If the resource you are locking is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the type of lock, and notes about the lock. |  
 
+<a id="properties" />
 ### properties object
 
-| Name | Type | Required | Permitted Values | Description |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| level   | enum | Yes | **CannotDelete**  | The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion. |
-| notes   | string | No | 512 characters | Description of the lock. |
+| Name | Value |
+| ------- | ---- |
+| level   | Enum<br />Required<br />**CannotDelete**<br /><br />The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion. |
+| notes   | String<br />Optional<br />up to 512 characters<br /><br />Description of the lock. |
 
 
 ## How to use the lock resource

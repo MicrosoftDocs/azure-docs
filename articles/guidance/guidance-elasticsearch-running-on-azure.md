@@ -3,8 +3,8 @@
    description="How to install, configure, and run Elasticsearch on Azure."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
-   manager="marksou"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="masimms"/>
+   ms.date="04/15/2016"
+   ms.author="masashin"/>
 
 # Running Elasticsearch on Azure
 
@@ -445,8 +445,10 @@ must install the Java 7 (update 55 or later) or Java 8 (update 20 or later) JVM 
 
 Although it is not difficult to deploy a single instance of Elasticsearch, creating a number of nodes and
 installing and configuring Elasticsearch on each one can be a time consuming and error-prone process. If
-you are considering running Elasticsearch on Azure VMs, you have two options that can help to reduce the
+you are considering running Elasticsearch on Azure VMs, you have three options that can help to reduce the
 chances of errors.
+
+- Using Azure Resource Manager [template](https://azure.microsoft.com/marketplace/partners/elastic/elasticsearchelasticsearch/) in Azure marketplace. This template is created by Elastic. It allows you to add commercial enhancements such as Shield, Marvel, and Watcher etc.
 
 - Using Azure quickstart [template](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) to build the cluster. This template can create a cluster based on Windows Server 2012 or Ubuntu Linux 14.0.4. It allows you to use experimental features such as Azure File Storage. This template is used for the research and testing tasks in this document.
 
@@ -812,7 +814,7 @@ Avoid Search requests that attempt to load very large fields into memory (if a q
 
 - Searches that query multiple indexes at the same time.
 
-- Searches that retrieve a large number of fields. These searches can exhaust memory by causing a vast amount of field data to be cached. By default, the field data cache is unlimited in size, but you can set the [indices.fielddata.cache.*](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-fielddata.html) properties in the elasticsearch.yml configuration file to limit the resources available. You can also configure the [field data circuit breaker][] to help prevent the cached data from a single field from exhausting memory, and the [request circuit breaker][] to stop individual queries from monopolizing memory. The cost of setting these parameters is the increased likelihood of some queries failing or timing out.
+- Searches that retrieve a large number of fields. These searches can exhaust memory by causing a vast amount of field data to be cached. By default, the field data cache is unlimited in size, but you can set the [indices.fielddata.cache.*](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html) properties in the elasticsearch.yml configuration file to limit the resources available. You can also configure the [field data circuit breaker][] to help prevent the cached data from a single field from exhausting memory, and the [request circuit breaker][] to stop individual queries from monopolizing memory. The cost of setting these parameters is the increased likelihood of some queries failing or timing out.
  
 > [AZURE.NOTE] Using [Doc Values][] can reduce the memory requirements of indexes by saving fielddata to
 > disk rather than loading it into memory. This can help to reduce the chances of memory exhaustion on a
@@ -1040,7 +1042,7 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Elasticsearch.Net & NEST]: http://nest.azurewebsites.net/
 [Elasticsearch Snapshot and Restore module]: https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html
 [Faking Index per User with Aliases]: https://www.elastic.co/guide/en/elasticsearch/guide/current/faking-it.html
-[field data circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-fielddata.html#fielddata-circuit-breaker
+[field data circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/circuit-breaker.html#fielddata-circuit-breaker
 [Force Merge]: https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-forcemerge.html
 [gossiping]: https://en.wikipedia.org/wiki/Gossip_protocol
 [Kibana]: https://www.elastic.co/downloads/kibana
@@ -1051,10 +1053,10 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 [Microsoft Azure Diagnostics with ELK]: https://github.com/mspnp/semantic-logging/tree/elk
 [Monitoring Individual Nodes]: https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_monitoring_individual_nodes
 [nginx]: http://nginx.org/en/
-[Node Client API]: https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/node-client.html
+[Node Client API]: https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/client.html
 [Optimize]: https://www.elastic.co/guide/en/elasticsearch/reference/1.7/indices-optimize.html
 [PubNub Changes Plugin]: http://www.pubnub.com/blog/quick-start-realtime-geo-replication-for-elasticsearch/
-[request circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-fielddata.html#request-circuit-breaker
+[request circuit breaker]: https://www.elastic.co/guide/en/elasticsearch/reference/current/circuit-breaker.html#request-circuit-breaker
 [Search Guard]: https://github.com/floragunncom/search-guard
 [Shield]: https://www.elastic.co/products/shield
 [Transport Client API]: https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/transport-client.html
