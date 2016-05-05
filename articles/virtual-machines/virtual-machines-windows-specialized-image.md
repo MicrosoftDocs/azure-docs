@@ -28,15 +28,15 @@ If you need to create mass deployments of similar Windows VMs, you need a *gener
 
 ## Check these before you begin
 
-This article assumes the following prerequisites are met before you start the steps:
+This article assumes you have:
 
-1. You have an Azure virtual machine running Windows, created using either the classic or the Resource Manager deployment model. You have configured the operating system, attached data disks as well as made other customizations like installing required applications. We will use this VM to create the copy; if you need help in creating the source VM, read [How to create a Windows VM with Resource Manager](virtual-machines-windows-ps-create.md). 
+1. An **Azure virtual machine running Windows**, in the classic or the Resource Manager deployment model, with the operating system configured, data disks attached, and your required applications installed. If you need help in creating this VM, read [Create a Windows VM with Resource Manager](virtual-machines-windows-ps-create.md). 
 
-1. You have the Azure PowerShell installed on your machine, and you are logged in to your Azure subscription. For more information, read [How to install and configure PowerShell](../powershell-install-configure.md).
+1. The **Azure PowerShell 1.0 or above** installed on your machine, and logged in to your Azure subscription. For more information, read [How to install and configure PowerShell](../powershell-install-configure.md).
 
-1. You have downloaded and installed AzCopy tool. For more information about this tool, read [Transfer data with AzCopy commandline tool](../storage/storage-use-azcopy.md).
+1. The **AzCopy tool** installed on your machine. For more information, read [Transfer data with AzCopy commandline tool](../storage/storage-use-azcopy.md).
 
-1. You have a resource group, and a storage account as well as a blob container created in that resource group to copy the VHDs to. Read the section [Create or find an Azure storage account](virtual-machines-windows-upload-image.md#createstorage) for steps to use an existing storage account or create a new one.
+1. A **resource group** with a **storage account** and a **blob container** created in it to copy the VHDs to. Read the section [Create or find an Azure storage account](virtual-machines-windows-upload-image.md#createstorage) for steps to use an existing storage account or create a new one.
 
 
 
