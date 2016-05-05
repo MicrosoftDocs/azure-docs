@@ -67,7 +67,7 @@ After successfully running **Select-AzureSubscription** you are returned to the 
 
 There are a few variables where you need to replace the example values with the specific values for your database and your storage account.
 
-The server name needs to be a server that currently exists in the subscription selected in the previous step and is the server you want the database to be created in.
+The server name needs to be a server that currently exists in the subscription selected in the previous step and is the server you want the database to be created in. Note that importing a database directly into an elastic pool is not supported, but you can first import into a single database and then move the database into a pool.
 
 The database name is the name you want for the new database.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/01/2016"   
+ 	ms.date="05/03/2016"    
 	ms.author="juliako"/>
 
 
@@ -689,7 +689,7 @@ The example defines the UpdatePlayReadyConfigurationXMLFile method that you can 
 
 ## Using Static Encryption to Protect HLSv3 with AES-128
 
-If you want to encrypt your HLS with AES-128, you have a choice of using dynamic encryption (the recommended option) or static encryption (as shown in this section). If you decide to use dynamic encryption, see [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128).
+If you want to encrypt your HLS with AES-128, you have a choice of using dynamic encryption (the recommended option) or static encryption (as shown in this section). If you decide to use dynamic encryption, see [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md).
 
 >[AZURE.NOTE]In order to convert your content into HLS, you must first convert/encode your content into Smooth Streaming.
 >Also, for the HLS to get encrypted with AES make sure to set the following properties in your MediaPackager_SmoothToHLS.xml file: set the encrypt property to true, set the key value, and the keyuri value to point to your authentication\authorization server.

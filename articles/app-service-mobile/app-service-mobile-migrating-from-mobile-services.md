@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/26/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrate your existing Azure Mobile Service to Azure App Service
@@ -366,6 +366,33 @@ If you clone your migrated mobile service using Azure PowerShell then delete the
 
 Resolution:  We are working on this issue.  If you wish to clone your site, please do so through the portal.
 
+### Changing web.config does not work
+
+If you have an ASP.NET site, changes to the `Web.config` file will not work.  The Azure App Service builds a suitable `Web.config` file during startup to support the Mobile Services runtime.  You can override certain settings (such as custom headers) by using an XML transform file.  Create a file in called `applicationHost.xdt` - this file must end up in the `D:\home\site` directory on the Azure Service.  This can be achieved via a custom deployment script or directly using Kudu.  An example document is shown below:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="X-Frame-Options" value="DENY" xdt:Transform="Replace" />
+        <remove name="X-Powered-By" xdt:Transform="Insert" />
+      </customHeaders>
+    </httpProtocol>
+    <security>
+      <requestFiltering removeServerHeader="true" xdt:Transform="SetAttributes(removeServerHeader)" />
+    </security>
+  </system.webServer>
+</configuration>
+```
+
+For more information, consult the [XDT Transform Samples] documentation on GitHub.
+
+### Migrated Mobile Services cannot be added to Traffic Manager
+
+When you create a Traffic Manager profile, you cannot directly choose a migrated mobile servie to the profile.  You need to use an "external endpoint".  The external endpoint can only be added through PowerShell.  Refer to the [Traffic Manager tutorial](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) for more information.
+
 ## <a name="next-steps"></a>Next Steps
 
 Not that your application is migrated to App Service, there are even more features you can leverage:
@@ -414,3 +441,4 @@ Not that your application is migrated to App Service, there are even more featur
 [staging slots]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
+[XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples

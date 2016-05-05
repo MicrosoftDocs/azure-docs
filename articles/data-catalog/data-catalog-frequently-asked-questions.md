@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Data Catalog frequently asked questions | Microsoft Azure"
    description="Frequently asked questions about Azure Data Catalog, including capabilities for data source discovery, annotation, and management."
    services="data-catalog"
@@ -64,7 +64,7 @@ Feature requests and other feedback can be submitted in the [Azure Data Catalog 
 
 ## Q: How do I get started with Azure Data Catalog?
 
-The best place to get started is by following the instructions in [Getting Started with Data Catalog](../data-catalog-get-started/). This article is an end-to-end overview of the capabilities in the service.
+The best place to get started is by following the instructions in [Getting Started with Data Catalog](data-catalog-get-started.md). This article is an end-to-end overview of the capabilities in the service.
 
 ## Q: How do I register my data?
 
