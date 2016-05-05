@@ -49,6 +49,7 @@ Now switch CLI to the asm mode
 
 	azure config mode asm
 
+## Step 3: Commands to migrate your IaaS resources
 
 >[AZURE.NOTE] Please note that all the operations described below are idempotent. If you run into anything other than an unsupported feature or configuration error, we recommend that you retry the prepare, abort or commit operation and the platform will retry the action again.
 
@@ -106,3 +107,6 @@ If the prepared configuration looks good, you can move forward and Commit the re
 
 ## References
 
+- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-asm-arm)
+- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](./virtual-machines-windows-migration-asm-arm-deepdive)
+- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](./virtual-machines-windows-migration-scripts)
