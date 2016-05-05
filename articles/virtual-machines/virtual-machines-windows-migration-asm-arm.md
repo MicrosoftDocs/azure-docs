@@ -65,7 +65,7 @@ At this time, the following configurations are not supported. However, when we a
 -	If you have more than 1 availability set in a Single Cloud Service
 -	If you have '1 or more availability sets' & 'VMs that are not in an availability set' in a single Cloud Service
 
->[AZURE.NOTE] In this migration scope, the ‘management plane’ may not be allowed for a certain period of time during the migration. For certain special configurations as described above will incur
+>[AZURE.NOTE] In this migration scope, the ‘management plane’ may not be allowed for a certain period of time during the migration. For certain special configurations as described above will incur 'data plane' downtime.
 
 ## Unsupported features & configurations
 
@@ -124,10 +124,10 @@ With the announcement of Public Preview, we have added support for triggering mi
 	* This is the first step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from Classic to Resource Manager resources and present this side by side for you to visualize. The detailed flow of actions are described below.
   * You will select the Virtual Network or the Hosted Service (if it’s not a VNET) that you want to prepare for migration.
   *	At first, the platform will always do data analysis in the background for the resource(s) under migration and return back success/failure if the resource(s) are capable of migration.
-	*	If the resource is not capable of migration, we will list out the reasons for why it’s not supported for migration.*
+	*	If the resource is not capable of migration, we will list out the reasons for why it’s not supported for migration.
 	* If the resource is capable of migration, the platform first locks down the management plane operations for the resource(s) under migration. For example: you will not able to add a data disk to a VM under migration.
   *	The platform will then start the migration of metadata from the Classic to Resource Manager Stack for the migrating resource(s).  
-  *	Once the prepare operation is complete, you will have the option of visualizing the resources in both Classic and Resource Manager Stack. For every Cloud Service in the Classic Stack, we will create a resource group name which has a pattern <cloud-service-name>-migrated.
+  *	Once the prepare operation is complete, you will have the option of visualizing the resources in both Classic and Resource Manager Stack. For every Cloud Service in the Classic Stack, we will create a resource group name which has a pattern `cloud-service-name>-migrated`.
 
 2.	Manual or Scripted Check
   * In this step, you can optionally use the configuration that you downloaded earlier to validate that the migration looks correct. Alternatively, you can also log into the portal and spot check the properties and resources to validate that metadata migration looks good.
@@ -138,12 +138,11 @@ With the announcement of Public Preview, we have added support for triggering mi
 
 3. Abort
   * This is an optional step that allows you to revert back your changes to the Classic Stack and abort the migration.
-	Please note that this operation cannot be executed once you have triggered the 'Commit' Operation. 	*
+	Please note that this operation cannot be executed once you have triggered the 'Commit' Operation. 	
 
 4.	Commit
   * Once you are done with the validation, you can ‘commit’ the migration and the resources will not appear anymore in Classic but will be available only in the Resource Manager Stack. This also means the migrated resources can only be managed in the new portal.
 	* If this operation fails, we recommend that you retry this a couple of times. If it continues to fail, please create a support ticket or create a forum post with ClassicIaaSMigration tag [here](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)
-	* Please note that once the migration is complete,
 
 >[AZURE.NOTE] Please note that all the operations described below are idempotent. If you run into anything other than an unsupported feature or configuration error, we recommend that you retry the prepare, abort or commit operation and the platform will retry the action again.
 
@@ -173,13 +172,17 @@ As stated above, updating your tooling to the Azure Resource Manager stack would
 
 It depends on the number of resources that are being migrated. For smaller deployments (a few 10s of VMs), the whole migration end to end should take less than an hour. However, for large scale deployments (100s of VMs), it can run into a few hours. Given the service is in Public Preview, we highly recommend that you run this on your Development or Test subscription to evaluate the impact.
 
-**Can I roll back my migration if something goes wrong?**
+**Can I roll back after my migration is committed in the Resource Manager Stack?**
 
-You can abort your migration as long as you haven’t ‘Committed’ your changes into the Resource manager stack. The prepare operation provides an implicit option to validate your migration to ensure that everything works as expected before completing the migration.
+You can abort your migration as long as the resources are in the 'Prepared' state. Rollback is not supported after the resources have been successfully migrated using the Commit operation.
+
+**Can I roll back my migration if the Commit Operations fails?**
+
+You cannot abort migration if the Commit operation fails. All migration operations including the commit operation is idempotent. So we recommend that you retry the operation after a short time window. If you still face an error, please create a support ticket or create a forum post with ClassicIaaSMigration tag [here](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)
 
 **Do I have to buy another express route circuit if I have to leverage the IaaS stack under Resource manager?**
 
-No. We recently enabled coexistence of an Express Route Circuit across Classic and Resource Manager Stack. You don’t have to buy a new express route circuit if you already have one.
+No. We recently enabled [coexistence of an Express Route Circuit across Classic and Resource Manager Stack](././expressroute-howto-coexist-resource-manager). You don’t have to buy a new express route circuit if you already have one.
 
 **Do you have a roadmap for when you will add the unsupported scenarios into the migration list?**
 
