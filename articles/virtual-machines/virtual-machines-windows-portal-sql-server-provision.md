@@ -22,8 +22,6 @@
 - [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 - [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
-## Overview
-
 This end-to-end tutorial shows you how to use the Azure Portal to provision a virtual machine running SQL Server.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
