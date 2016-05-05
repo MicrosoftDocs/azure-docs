@@ -22,6 +22,8 @@
 
 Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
+> [AZURE.NOTE] Elastic database pools are only available with SQL Database V12 servers and in general availability (GA) all regions except North Central US, Brazil South, West India, India South and China North. Elastic database pools are available in preview mode in these regionss and GA availability in these regions will be provided as soon as possible.
+
 ## How it works
 
 A common SaaS application pattern is the single-tenant database model: each customer is given a database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic database pools solve this problem by ensuring that databases get the performance resources they need, when they need it, while  providing a simple resource allocation mechanism within a predictable budget.
