@@ -93,11 +93,11 @@ On the **Size** step, choose a virtual machine size in the **Choose a size** bla
 
 ![SQL ARM Basics](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-For production workloads, we recommend selecting a virtual machine size that supports premium storage. If you do not require that level of performance, use the **View all** button to see all of the machine size options. For example, you might use a smaller machine size for a development or test environment.
-
-Select your machine size, and then click **Select**.
+For production workloads, we recommend selecting a virtual machine size that supports [Premium Storage](../storage/storage-premium-storage.md). If you do not require that level of performance, use the **View all** button to see all of the machine size options. For example, you might use a smaller machine size for a development or test environment.
 
 >[AZURE.NOTE] For more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-windows-sizes.md). For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+
+Choose your machine size, and then click **Select**.
 
 ## 3. Configure optional features
 On the **Settings** blade, configure Azure storage, networking, and monitoring for the virtual machine.
@@ -150,9 +150,9 @@ For more information, see [Connect to a SQL Server Virtual Machine (Resource Man
 ### Authentication
 If you require SQL Server Authentication, click **Enable** under **SQL authentication**.
 
->[AZURE.NOTE] If you plan to access SQL Server over the internet (i.e. the Public connectivity option), you must enable SQL authentication here. Public access to the SQL Server requires the use of SQL Authentication.
-
 ![SQL ARM Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
+
+>[AZURE.NOTE] If you plan to access SQL Server over the internet (i.e. the Public connectivity option), you must enable SQL authentication here. Public access to the SQL Server requires the use of SQL Authentication.
 
 If you enable SQL Server Authentication specify a **Login name** and **Password**. This user name will be a SQL Server Authentication login and member of the sysadmin fixed server role. See [Choose an Authentication Mode](http://msdn.microsoft.com/library/ms144284.aspx) for more information about Authentication Modes.
 
@@ -161,9 +161,9 @@ If you do not enable SQL Server Authentication, then you can use the local Admin
 ### Storage configuration
 Click **Storage configuration** in order to specify the storage requirements.
 
->[AZURE.NOTE] If you select Standard storage, this option is not available. Automatic storage optimization is available only for Premium Storage.
-
 ![SQL ARM Storage](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
+
+>[AZURE.NOTE] If you select Standard storage, this option is not available. Automatic storage optimization is available only for Premium Storage.
 
 You can specify requirements as input/output operations per second (IOPs), throughput in MB/s, and total storage size. Configure these by using the sliding scales. The portal automatically calculates the number of disks based on these requirements.
 
@@ -219,6 +219,8 @@ When you are finished configuring SQL Server settings, click **OK**.
 On the **Summary** blade, review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
 
 You can monitor the deployment from the azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
+
+>[AZURE.NOTE] In order to give you an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings. 
 
 ##<a id="Open"> Open the virtual machine using Remote Desktop and complete setup
 Follow these steps to use Remote Desktop to open the virtual machine:
