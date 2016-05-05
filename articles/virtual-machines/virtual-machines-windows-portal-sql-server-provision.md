@@ -218,7 +218,7 @@ You can monitor the deployment from the azure portal. The **Notifications** butt
 
 ## Open the VM with Remote Desktop
 
-Follow these steps to use Remote Desktop to open the virtual machine:
+Use the following steps to connect to the virtual machine with Remote Desktop:
 
 1. After the Azure VM is built, the icon for the VM appears on your Azure dashboard. You can also find it by browsing your existing virtual machines. Click on your new SQL virtual machine to see its details.
 1. At the top of the **Virtual machine** blade, click **Connect**.
