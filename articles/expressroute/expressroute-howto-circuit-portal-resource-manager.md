@@ -60,19 +60,19 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 	![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
 
-### 3. View circuits and properties
+### 3. View the circuits and properties
 
 **View all the circuits**
 
 You can view all the circuits that you created by selecting **All resources** on the left-side menu.
 
-	![View circuits](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
+![View circuits](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
 
 **View the properties**
 
 You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
 
-	![View properties](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
+![View properties](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 
 ### 4. Send the service key to your connectivity provider for provisioning
