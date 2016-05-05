@@ -209,7 +209,7 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 When you are finished configuring SQL Server settings, click **OK**.
 
-## 5. Review the Summary
+## 5. Review the summary
 On the **Summary** blade, review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
 
 You can monitor the deployment from the azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
@@ -224,7 +224,7 @@ Follow these steps to use Remote Desktop to open the virtual machine:
 1. At the top of the **Virtual machine** blade, click **Connect**.
 1. The browser will download an .rdp file for the VM. Open the .rdp file.
 	![Remote Desktop to SQL VM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
-1. The Remote Desktop Connection will notify you that the publisher of this remote connection can’t be identified and ask if you want to connect anyway. Click **Connect**.
+1. The Remote Desktop Connection will notify you that the publisher of this remote connection cannot be identified. Click **Connect** to continue.
 1. In the **Windows Security** dialog, click **Use another account**.
 1. For **User name** type **\<user name>**, where <user name> is the user name that you specified when you configured the VM. Note that you have to add an initial backslash.
 1. Type the **Password** that you previously configured for this VM, and then click **OK** to connect.
@@ -238,7 +238,7 @@ Access to the machine enables you to directly change machine and SQL Server sett
 
 In this tutorial, we selected **Public** access for the virtual machine and **SQL Server Authentication**. These settings automatically configured the virtual machine to allow SQL Server connections from any client over the internet (assuming they have the correct SQL login).
 
->[AZURE.NOTE] If you did not select Public during provisioning, then additional steps are required to access your SQL Server instance over the internet. For more information, see  [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
+>[AZURE.NOTE] If you did not select Public during provisioning, then additional steps are required to access your SQL Server instance over the internet. For more information, see  [Connect to a SQL Server Virtual Machine](virtual-machines-windows-sql-connect.md).
 
 The following sections show how to connect to your SQL Server instance on your VM from a different computer over the internet.
 
