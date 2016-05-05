@@ -30,7 +30,7 @@ In the event a database is deleted, Azure SQL Database allows you to restore the
 
 The retention period of a deleted database is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less. To learn more about database retention read our [Business Continuity Overview](sql-database-business-continuity.md).
 
-[AZURE.INCLUDE [Sign in to Azure with PowerShell](../../includes/sql-database-powershell-sign-in.md)]
+
 
 ## Restore your deleted database into a standalone database
 

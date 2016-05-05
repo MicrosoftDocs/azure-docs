@@ -26,7 +26,6 @@ This article shows you how to restore your database to a point in time using Pow
 
 Point-in-time restore is a self-service capability, allowing you to restore a database the automatic backups we take for all database to any point within your database retention period. To learn more about automatic backups and database retention period please see our [Business Continuity Overview](sql-database-business-continuity.md).
 
-[AZURE.INCLUDE [Sign in to Azure with PowerShell](../../includes/sql-database-powershell-sign-in.md)]
 
 ## Restore your database to a point in time as a standalone database
 

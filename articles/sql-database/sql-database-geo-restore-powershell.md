@@ -26,7 +26,7 @@ This article shows you how to restore your database into a new server using geo-
 
 Geo-restore provides the ability to restore a database from a geo-redundant backup to create a new database. The database can be created on any server in any Azure region. Because it uses a geo-redundant backup as its source it can be used to recover a database even if the database is inaccessible due to an outage. Geo-restore is automatically enabled for all service tiers at no extra cost.
 
-[AZURE.INCLUDE [Sign in to Azure with PowerShell](../../includes/sql-database-powershell-sign-in.md)]
+
 
 ## Geo-Restore your database into a standalone database
 
