@@ -23,6 +23,16 @@ For customers using Windows Server with Software Assurance, you can bring your o
 > [AZURE.NOTE] You cannot use Azure Marketplace images to deploy Windows Server VMs utilizing AHUB. You must deploy your VMs using either PowerShell or Resource Manager templates in to correctly register your VMs as eligible for base compute rate discount.
 
 ## Pre-requisites
+There a couple of pre-requisites in order to utilize AHUB for Windows Server VMs in Azure:
+
+- Install Azure PowerShell module installed
+- A Windows Server VHD you upload to Azure Storage
+
+### Install Azure PowerShell
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account. Even if you are going to deploy your VMs using Resource Manager templates, you will still need Azure PowerShell installed in order to upload your Windows Server VHD (see the next step below).
+
+### Upload a Windows Server VHD
+
 In order to deploy a Windows Server VM in Azure you first need to create a VHD that contains your base Windows Server build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](./virtual-machines-windows-upload-image.md). Once you have prepared your VHD, you upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
 ```
