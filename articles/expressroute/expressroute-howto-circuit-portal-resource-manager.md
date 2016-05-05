@@ -47,30 +47,30 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 >[AZURE.IMPORTANT] Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 
-- **Step 1.** You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **New** > **Networking** > **ExpressRoute**, as shown in the following image:
+1. You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **New** > **Networking** > **ExpressRoute**, as shown in the following image:
 
 	![Create an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 
-- **Step 2.** After you click **ExpressRoute**, you'll see the **Create ExpressRoute circuit** blade. When you're filling in the values on this blade, make sure that you specify the correct SKU tier and data metering.
+2. After you click **ExpressRoute**, you'll see the **Create ExpressRoute circuit** blade. When you're filling in the values on this blade, make sure that you specify the correct SKU tier and data metering.
 
-	- **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify "Standard" to get the standard SKU or "Premium" for the premium add-on.
+	- **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify **Standard** to get the standard SKU or **Premium** for the premium add-on.
 
-	- **Data metering** determines the billing type. You can specify "Metered" for a metered data plan and "Unlimited" for an unlimited data plan. **Note:** You can change the billing type from "Metered" to "Unlimited", but you can't change the type from "Unlimited" to "Metered".
+	- **Data metering** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**, but you can't change the type from **Unlimited** to **Metered**.
 
 	![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
 
 ### 3. View circuits and properties
 
-- **To view all the circuits**
+**View all the circuits**
 
-	You can view all the circuits that you created by selecting **All resources** on the left-side menu.
+You can view all the circuits that you created by selecting **All resources** on the left-side menu.
 
 	![View circuits](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
 
-- **To view properties**
+**View the properties**
 
-	You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
+You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
 
 	![View properties](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
@@ -81,20 +81,20 @@ On this blade, **Provider status** provides information on the current state of 
 
 When you create a new ExpressRoute circuit, the circuit will be in the following state:
 
-Provider status : Not provisioned<BR>
-Circuit status	: Enabled
+Provider status: Not provisioned<BR>
+Circuit status: Enabled
 
 ![Initiate provisioning process](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
 The circuit will change to the following state when the connectivity provider is in the process of enabling it for you:
 
-Provider status : Provisioning<BR>
-Circuit status	: Enabled
+Provider status: Provisioning<BR>
+Circuit status: Enabled
 
 For you to be able to use an ExpressRoute circuit, it must be in the following state:
 
-Provider status : Provisioned<BR>
-Circuit status	: Enabled
+Provider status: Provisioned<BR>
+Circuit status: Enabled
 
 
 ### 5. Periodically check the status and the state of the circuit key
@@ -124,7 +124,7 @@ You can view the status of a circuit by selecting it.
 
 ## Modifying an ExpressRoute circuit
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity. At this time, you cannot modify ExpressRoute circuit properties by using the Azure portal. However, you can use PowerShell to modify circuit properties. For more information, see the section "[Modifying an ExpressRoute circuit by using PowerShell](expressroute-howto-circuit-arm.md#modify)."
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity. At this time, you cannot modify ExpressRoute circuit properties by using the Azure portal. However, you can use PowerShell to modify circuit properties. For more information, see the section [Modifying an ExpressRoute circuit by using PowerShell](expressroute-howto-circuit-arm.md#modify).
 
 You can do the following with no downtime:
 
@@ -134,7 +134,7 @@ You can do the following with no downtime:
 
 - Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
 
--  You can enable and disable "Allow Classic Operations".
+-  You can enable and disable **Allow Classic Operations**.
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
 
@@ -145,9 +145,9 @@ You can delete your ExpressRoute circuit by selecting the **delete** icon. Note 
 
 - You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check to see whether any virtual networks are linked to the circuit.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to "Disabling" from an enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to **Disabling** from an enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to "Not provisioned") before you run the previous cmdlet, we will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) before you run the previous cmdlet, we will deprovision the circuit and stop billing you.
 
 ## Next steps
 
