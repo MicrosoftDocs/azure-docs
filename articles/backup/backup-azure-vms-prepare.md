@@ -45,11 +45,11 @@ If you know these conditions already exist in your environment then proceed to t
 - Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
   - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
-	- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-	- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
-		- Virtual machines under load balancer configuration (internal and external)
-		- Virtual machines with multiple reserved IP addresses
-		- Virtual machines with multiple network adapters
+- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
+- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
+    - Virtual machines under load balancer configuration (internal and external)
+    - Virtual machines with multiple reserved IP addresses
+    - Virtual machines with multiple network adapters
 
 ## Create a backup vault for a VM
 
@@ -91,56 +91,64 @@ To create a backup vault:
 
 ## Network connectivity
 
-The backup extension needs connectivity to the Azure public IP addresses to function correctly because it sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. Without the right Internet connectivity, these HTTP requests from the VM will time out and the backup operation will fail.
+In order to manage the VM snapshots, the backup extension needs connectivity to the Azure public IP addresses. Without the right Internet connectivity, the virtual machine's HTTP requests time out and the backup operation fails. If your deployment has access restrictions in place (through a network security group (NSG), for example), then choose one of these options for providing a clear path for backup traffic:
 
-### Network restrictions with NSGs
+- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653) - see the article for instructions on how to whitelist the IP addresses.
+- Deploy an HTTP proxy server for routing traffic.
 
-If your deployment has access restrictions in place (through a network security group (NSG), for example), then you need to take additional steps to ensure that backup traffic to the backup vault remains unaffected.
-
-There are two ways to provide a path for the backup traffic:
-
-1. Whitelist the [Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
-2. Deploy an HTTP proxy to route the traffic.
-
-The trade-off is between manageability, granular control, and cost.
+When deciding which option to use, the trade-offs are between manageability, granular control, and cost.
 
 |Option|Advantages|Disadvantages|
 |------|----------|-------------|
-|OPTION 1: Whitelist IP ranges| No additional costs.<br><br>For opening access in an NSG, use the <i>Set-AzureNetworkSecurityRule</i> cmdlet. | Complex to manage as the impacted IP ranges change over time.<br>Provides access to the whole of Azure, and not just Storage.|
-|OPTION 2: HTTP proxy| Granular control in the proxy over the storage URLs allowed.<br>Single point of Internet access to VMs.<br>Not subject to Azure IP address changes.| Additional costs for running a VM with the proxy software.|
+|Whitelist IP ranges| No additional costs.<br><br>For opening access in an NSG, use the <i>Set-AzureNetworkSecurityRule</i> cmdlet. | Complex to manage as the impacted IP ranges change over time.<br><br>Provides access to the whole of Azure, and not just Storage.|
+|HTTP proxy| Granular control in the proxy over the storage URLs allowed.<br>Single point of Internet access to VMs.<br>Not subject to Azure IP address changes.| Additional costs for running a VM with the proxy software.|
+
+### Whitelist the Azure datacenter IP ranges
+
+To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
 
 ### Using an HTTP proxy for VM backups
-When backing up a VM, the snapshot management commands are sent from the backup extension to Azure Storage using an HTTPS API. This traffic must be routed from the extension through the proxy, since only the proxy will be configured to have access to the public Internet.
+When backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage using an HTTPS API. Route the backup extension traffic through the HTTP proxy since it is the only component configured for access to the public Internet.
 
 >[AZURE.NOTE] There is no recommendation for the proxy software that should be used. Ensure that you pick a proxy that is compatible with the configuration steps below.
 
-In the example below, the App VM needs to be configured to use the Proxy VM for all HTTP traffic bound for the public Internet. The Proxy VM needs to be configured to allow incoming traffic from VMs in the virtual network. And finally, the NSG (named *NSG-lockdown*) needs a new security rule that allows outbound Internet traffic from the Proxy VM.
+The example image below shows the three configuration steps necessary to use an HTTP proxy:
+
+- App VM routes all HTTP traffic bound for the public Internet through Proxy VM.
+- Proxy VM allows incoming traffic from VMs in the virtual network.
+- The Network Security Group (NSG) named NSF-lockdown needs a security rule allowing outbound Internet traffic from Proxy VM.
 
 ![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-**A) Allow outgoing network connections:**
+To use an HTTP proxy to communicating to the public Internet, follow these steps:
 
-1. For Windows machines, run the following command in an elevated command prompt:
+#### Step 1. Configure outgoing network connections
 
-    ```
-    netsh winhttp set proxy http://<proxy IP>:<proxy port>
-    ```
-    This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+To establish a machine-wide proxy configuration for any outgoing HTTP/HTTPS traffic, follow the instructions for the appropriate VM platform.
 
-2. For Linux machines, add the following line to the ```/etc/environment``` file:
+For Windows machines run the following command in an elevated command prompt:
 
-    ```
-    http_proxy=http://<proxy IP>:<proxy port>
-    ```
+```
+netsh winhttp set proxy http://<proxy IP>:<proxy port>
+```
 
-  Add the following lines to the ```/etc/waagent.conf``` file:
 
-    ```
-    HttpProxy.Host=<proxy IP>
-    HttpProxy.Port=<proxy port>
-    ```
+For Linux machines:
 
-**B) Allow incoming connections on the proxy server:**
+- Add the following line to the ```/etc/environment``` file:
+
+  ```
+  http_proxy=http://<proxy IP>:<proxy port>
+  ```
+
+- Add the following lines to the ```/etc/waagent.conf``` file:
+
+  ```
+  HttpProxy.Host=<proxy IP>
+  HttpProxy.Port=<proxy port>
+  ```
+
+#### Step 2. Allow incoming connections on the proxy server:
 
 1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
 
@@ -163,16 +171,16 @@ In the example below, the App VM needs to be configured to use the Proxy VM for 
 
     For the rest of the wizard, click all the way to the end and give this rule a name.
 
-**C) Add an exception rule to the NSG:**
+#### Step 3. Add an exception rule to the NSG:
 
-In an Azure PowerShell command prompt, type out the following command:
+In an Azure PowerShell command prompt, enter the following command:
+
+The following command adds an exception to the NSG. This exception allows TCP traffic from any port on 10.0.0.5 to any Internet address on port 80 (HTTP) or 443 (HTTPS). If you require a specific port in the public Internet, be sure to add that port to the ```-DestinationPortRange``` as well.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
-
-This command adds an exception to the NSG, which allows TCP traffic from any port on 10.0.0.5 to any Internet address on port 80 (HTTP) or 443 (HTTPS). If you need to hit a specific port in the public Internet, make sure that you add that to the ```-DestinationPortRange``` as well.
 
 *Ensure that you replace the names in the example with the details appropriate to your deployment.*
 

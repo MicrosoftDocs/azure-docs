@@ -225,7 +225,7 @@ netsh winhttp set proxy http://<proxy IP>:<proxy port>
 ```
 
 
-For Linux machines:
+For Linux machines: <br/>
 - Add the following line to the ```/etc/environment``` file:
 
   ```
