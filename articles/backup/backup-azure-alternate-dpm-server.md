@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="5/5/2016"
+	ms.date="05/05/2016"
 	ms.author="giridham;jimpark"/>
 
 # Recovering data from another DPM server in the backup vault
