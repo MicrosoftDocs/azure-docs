@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Provision a SQL Server virtual machine in the Azure Portal | Microsoft Azure"
-	description="Create an SQL Server virtual machine in Azure Resource Manager mode. This tutorial primarily uses the user interface and tools rather than scripting."
+	description="Create a SQL Server virtual machine in Azure Resource Manager mode. This tutorial primarily uses the Azure portal and tools rather than scripting."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -24,29 +24,25 @@
 
 ## Overview
 
-This end-to-end tutorial shows you how to provision an Azure virtual machine in the portal using Azure Resource Manager model and configure SQL Server from a template in the Azure gallery.
+This end-to-end tutorial shows you how to use the Azure Portal to provision a virtual machine running SQL Server.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. You can select one of the VM images form the gallery, and with a few clicks provision the VM to your Azure environment.
+The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. With a few clicks, you can select one of the SQL VM images from the gallery and provision it in your Azure environment.
 
 In this tutorial, you will:
 
-- [Connect to the Azure portal and provision a SQL VM image from the gallery with the resource manager deployment model](#Provision)
+- [Select a SQL VM image from the gallery](#select-a-sql-vm-image-from-the-gallery)
+- [Configure and create the VM](#configure-the-vm)
+- [Open the VM with Remote Desktop](#open-the-vm-with-remote-desktop)
+- [Connect to SQL Server remotely](#connect-to-sql-server-remotely)
 
-- [Configure the virtual machine and SQL Server settings](#ConfigureVM)
-
-- [Open the virtual machine using Remote Desktop](#Open)
-
-- [Connect to the SQL Server instance using SQL Server Management Studio on another computer](#Connect)
-
-- [Next steps](#Next)
-
-This tutorial assumes that you already have an Azure account. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a id="Provision">Provision a SQL VM image from the gallery
+## Select a SQL VM image from the gallery
 
 1. Log in to the [Azure portal](https://portal.azure.com) using your account.
+
+	>[AZURE.NOTE] If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
 1. On the Azure portal click **New**. The portal will open the **New** blade. The SQL Server VM resources are in the **Virtual Machines** group of the Marketplace.
 
 1. In the **New** blade, click **Virtual Machines**.
@@ -63,7 +59,7 @@ This tutorial assumes that you already have an Azure account. If you do not have
 
 	![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a id="ConfigureVM"> Configure the VM
+## Configure the VM
 In the Azure portal there are five blades for configuring a SQL Server virtual machine.
 
 | Step               | Description                          |
@@ -220,23 +216,33 @@ On the **Summary** blade, review the summary and click **OK** to create SQL Serv
 
 You can monitor the deployment from the azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
->[AZURE.NOTE] In order to give you an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings. 
+>[AZURE.NOTE] In order to give you an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
 
-##<a id="Open"> Open the virtual machine using Remote Desktop and complete setup
+## Open the VM with Remote Desktop
+
 Follow these steps to use Remote Desktop to open the virtual machine:
 
-1.	After the Azure VM is built, and icon for the VM will appear on the Azure dashboard. Click the icon to see information about the VM.
-1.	At the top of the VM blade click **Connect**. The browser will download an .rdp file for the VM. Open the .rdp file.
-1.	The Remote Desktop Connection will notify you that the publisher of this remote connection can’t be identified and ask if you want to connect anyway. Click **Connect**.
-1.	In the **Windows Security** dialog click **Use another account**. For **User name** type <machine name>\<user name> that you specified when you configured the VM.
+1. After the Azure VM is built, the icon for the VM appears on your Azure dashboard. You can also find it by browsing your existing virtual machines. Click on your new SQL virtual machine to see its details.
+1. At the top of the **Virtual machine** blade, click **Connect**.
+1. The browser will download an .rdp file for the VM. Open the .rdp file.
+	![Remote Desktop to SQL VM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
+1. The Remote Desktop Connection will notify you that the publisher of this remote connection can’t be identified and ask if you want to connect anyway. Click **Connect**.
+1. In the **Windows Security** dialog, click **Use another account**.
+1. For **User name** type **\<user name>**, where <user name> is the user name that you specified when you configured the VM. Note that you have to add an initial backslash.
+1. Type the **Password** that you previously configured for this VM, and then click **OK** to connect.
+1. If another **Remote Desktop Connection** dialog asks you whether to connect, click **Yes**.
 
-Once you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. This also enables you to change firewall settings or SQL Server configuration settings post-provisioning if necessary.
+After you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. If you enabled SQL Server Authentication, you can also connect with SQL Authentication using the SQL login and password you configured during provisioning.
 
-##<a id="Connect"> Connect to SQL Server over the internet
+Access to the machine enables you to directly change machine and SQL Server settings based on your requirements. For example, you could configure the firewall settings or change SQL Server configuration settings.
 
-In this tutorial, we selected **Public** access for the virtual machine and **SQL Server Authentication**. These settings automatically configured the virtual machine to allow SQL Server connections from any client over the internet (assuming they have the correct SQL login). In the next sections, you'll connect to your SQL Server instance on your VM from a different computer over the internet.
+## Connect to SQL Server remotely
+
+In this tutorial, we selected **Public** access for the virtual machine and **SQL Server Authentication**. These settings automatically configured the virtual machine to allow SQL Server connections from any client over the internet (assuming they have the correct SQL login).
 
 >[AZURE.NOTE] If you did not select Public during provisioning, then additional steps are required to access your SQL Server instance over the internet. For more information, see  [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
+
+The following sections show how to connect to your SQL Server instance on your VM from a different computer over the internet.
 
 > [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
