@@ -28,7 +28,7 @@ Let's get started describing how to integrate a **Power BI Embedded** report int
 Here are the steps to integrate a report.
 
 - Step 1: [Get a report in a workspace](#GetReport). In this step, you use an app token flow to get an access token to call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation. Once you get a report from the **Get Reports** list, you embed the report into an app with an **IFrame** element.
-- Step 2: [Embed a report into an app](#EmbedReport). In this step, you use an embed token for a report, and some JavaScript to integrate, or embed, a report into a web app.
+- Step 2: [Embed a report into an app](#EmbedReport). In this step, you use an embed token for a report, some JavaScript, and an IFrame to integrate, or embed, a report into a web app.
 
 If you want to run the sample to see how to integrate a report, download the [Integrate a report with an IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) sample on GitHub, and configure three Web.Config settings:
 
