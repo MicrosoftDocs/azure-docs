@@ -7,5 +7,9 @@
 	Accept the acknowledgment and click **Create TodoItem table**. This creates a new *TodoItem* table in your database. Remember that switching an existing backend to Node.js will overwrite all contents!
 
 	+ **C# (.NET Backend)**:  
-	Click **Download**, open the extracted solution in Visual Studio, build the project to restore the NuGet packages, and deploy the project to Azure. For step-by-step instructions, see [How to: Publish server project](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project). 
+		1. Click **Download**,
+		2. Open the extracted solution in Visual Studio,
+		3. Build the project to restore the NuGet packages, and 
+		4. Deploy the project to Azure. 
+	**For step-by-step instructions on how to deploy to Azure using Visual Studio, see [How to: Publish server project](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project)**. 
 
