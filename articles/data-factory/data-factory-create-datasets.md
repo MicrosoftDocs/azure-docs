@@ -252,6 +252,8 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 ## Scoped datasets
 You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only used by activities within this pipeline but not by activities in other pipelines. The following example defines a pipeline with two datasets - InputDataset-rdc and OutputDataset-rdc - to be used within the pipeline.  
 
+> [AZURE.IMPORTANT] Scoped datasets are supported only with one-time pipelines (**pipelineMode** set to **OneTime**). See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details.
+
 	{
 	    "name": "CopyPipeline-rdc",
 	    "properties": {

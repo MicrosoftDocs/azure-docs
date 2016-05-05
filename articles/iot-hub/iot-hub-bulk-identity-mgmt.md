@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Bulk management of IoT Hub device identities
@@ -77,7 +77,7 @@ The **ExportDevicesAsync** method requires two parameters:
 
 *  A *boolean* that indicates if you want to exclude authentication keys from your export data. If **false**, authentication keys are included in export output; otherwise, keys are exported as **null**.
 
-The following C# code snippet shows how to initiate an export job and then poll for completion:
+The following C# code snippet shows how to initiate an export job that includes device authentication keys in the export data and then poll for completion:
 
 ```
 // Call an export job on the IoT Hub to retrieve all devices
@@ -131,15 +131,15 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 ## Import devices
 
-The **ImportDevicesAsync** method in the **RegistryManager** class enables you to perform bulk import and synchronization operations in an IoT hub device registry. Like the **ExportDevicesAsync** method, the **ImportDevicesAsync** method uses the Job framework.
+The **ImportDevicesAsync** method in the **RegistryManager** class enables you to perform bulk import and synchronization operations in an IoT hub device registry. Like the **ExportDevicesAsync** method, the **ImportDevicesAsync** method uses the **Job** framework.
 
 You should take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your device identity registry, it can also update and delete existing devices.
 
 > [AZURE.WARNING]  An import operation cannot be undone. You should always backup your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your device identity registry.
 
-The **ImportDevicesAsync** method requires two parameters:
+The **ImportDevicesAsync** method takes two parameters:
 
-*  A *string* that contains a URI of an [Azure storage](https://azure.microsoft.com/documentation/services/storage/) blob container to as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must include a blob with the name **devices.txt** that contains the serialized device data to import into your device identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job creates. The SAS token must include these permissions:
+*  A *string* that contains a URI of an [Azure storage](https://azure.microsoft.com/documentation/services/storage/) blob container to as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your device identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
 
     ```
     SharedAccessBlobPermissions.Read
