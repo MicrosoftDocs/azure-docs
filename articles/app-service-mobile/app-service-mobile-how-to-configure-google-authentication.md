@@ -1,10 +1,10 @@
 <properties
 	pageTitle="How to configure Google authentication for your App Services application"
 	description="Learn how to configure Google authentication for your App Services application."
-    services="app-service\mobile"
+    services="app-service"
 	documentationCenter=""
 	authors="mattchenderson"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Google login
@@ -24,28 +24,19 @@ This topic shows you how to configure Azure App Service to use Google as an auth
 
 To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-> [AZURE.NOTE]
-This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
-
-
 ## <a name="register"> </a>Register your application with Google
 
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Google app.
 
 2. Navigate to the [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign-in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 
-3. In the left navigation bar, click **API & Auth**, then under **Social APIs** click **Google+ API** > **Enable API**.
+3. Under **Social APIs** click **Google+ API** and then **Enable**.
 
-4. Click **API & Auth** > **Credentials** > **OAuth consent screen**, then select your **Email address**,  enter a **Product Name**, and click **Save**.
+4. In the left navigation, **Credentials** > **OAuth consent screen**, then select your **Email address**,  enter a **Product Name**, and click **Save**.
 
-5. In the **Credentials** tab, click **Add credentials** > **OAuth 2.0 client ID**, then select **Web application**.
+5. In the **Credentials** tab, click **Create credentials** > **OAuth client ID**, then select **Web application**.
 
-6. Paste the App Service **URL** you copied earlier into **Authorized JavaScript Origins**, then paste the **Redirect URI** you copied earlier into **Authorized Redirect URI**. The redirect URI is the URL of your application appended with the path, _/.auth/login/google/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/google/callback`. Make sure that you are using the HTTPS scheme. Then click **Create**.
-
-
-	> [AZURE.NOTE]
-	If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-google_ path.
-
+6. Paste the App Service **URL** you copied earlier into **Authorized JavaScript Origins**, then paste your redirect URI into **Authorized Redirect URI**. The redirect URI is the URL of your application appended with the path, _/.auth/login/google/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/google/callback`. Make sure that you are using the HTTPS scheme. Then click **Create**.
 
 7. On the next screen, make a note of the values of the client ID and client secret.
 
@@ -55,10 +46,6 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 
 ## <a name="secrets"> </a>Add Google information to your application
-
-> [AZURE.NOTE]
-If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Google**. Paste in the values you obtained earlier and click **Save**.
-
 
 8. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
 
