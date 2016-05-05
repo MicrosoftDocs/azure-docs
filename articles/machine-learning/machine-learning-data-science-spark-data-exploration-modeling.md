@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="05/05/2016"
 	ms.author="deguhath;bradsev" />
 
 # Data exploration and modeling with Spark
@@ -93,7 +93,7 @@ Set up also requires importing necessary libraries. Set spark context and import
 The PySpark kernels that are provided with Jupyter notebooks have a preset context, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
 
 - sc - for Spark 
-- contextsqlContext - for Hive context
+- sqlContext - for Hive
 
 The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
@@ -104,7 +104,7 @@ The PySpark kernel provides some predefined “magics”, which are special comm
 For more information on the kernels for Jupyter notebooks and the predefined "magics" called with %% (e.g. %%local) that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
  
 
-## Data ingestion
+## Data ingestion from public blob
 
 This section contains the code for a series of tasks required to ingest the data sample to be modeled. Read in a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file), format and clean the data, create and cache a data frame in memory, and then register it as a temp-table in SQL-context.
 
@@ -145,7 +145,7 @@ Here is the code for data ingestion.
 	fields[26].dataType = IntegerType() # Tip class
 	taxi_schema = StructType(fields)
 	
-	## PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
+	# PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
 	taxi_header = taxi_train_file.filter(lambda l: "medallion" in l)
 	taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
 	        .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
@@ -153,10 +153,10 @@ Here is the code for data ingestion.
 	                        float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 	
 	
-	## CREATE DATA FRAME
+	# CREATE DATA FRAME
 	taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 	
-	## CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
+	# CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
 	taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
 	    .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
 	    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
@@ -164,14 +164,14 @@ Here is the code for data ingestion.
 	    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
 
 	
-	## CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
 	taxi_df_train_cleaned.cache()
 	taxi_df_train_cleaned.count()
 	
-	## REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
+	# REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
 	taxi_df_train_cleaned.registerTempTable("taxi_train")
 	
-	## PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+	# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
 	timeend = datetime.datetime.now()
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds";
@@ -192,7 +192,9 @@ This code and subsequent snippets use SQL magic to query the sample and local ma
 - **SQL magic (`%%sql`)** The HDInsight PySpark kernel supports easy inline HiveQL queries against the sqlContext. The (-o VARIABLE_NAME) argument persists the output of the SQL query as a Pandas dataframe on the Jupyter server. This means it'll be available in the local mode.
 - The **`%%local` magic** is used to run code locally on the Jupyter server, which is the headnode of the HDInsight cluster. Typically, you use `%%local` magic in conjunction with the `%%sql` magic with -o parameter. The -o parameter would persist the output of the SQL query locally and then %%local magic would trigger the next set of code snippet to run locally against the output of the SQL queries that is persisted locally
 
-The output will be automatically visualized after you run the code. 
+The output will be automatically visualized after you run the code.
+
+This query retrieves the trips by passenger count. 
 
 	# PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
@@ -203,13 +205,20 @@ The output will be automatically visualized after you run the code.
 	WHERE passenger_count > 0 and passenger_count < 7 
 	GROUP BY passenger_count 
 
-	
+This code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib. 
+
+>[AZURE.NOTE] This PySpark magic is used multiple times in this walkthrough. If the amount of data is large, you should sample to create a data-frame that can fit in local memory.
+
 	#CREATE LOCAL DATA-FRAME AND USE FOR MATPLOTLIB PLOTTING
+
+	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
 	%%local
 	
-	## USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
-	## CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+	# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
+	# CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
 	sqlResults
+
+Here is the code to plot the trips by passenger counts
 
 	# PLOT PASSENGER NUMBER VS. TRIP COUNTS
 	%%local
@@ -232,7 +241,7 @@ You can select among several different types of visualizations (Table, Pie, Line
 	
 ### Plot a histogram of tip amounts and how tip amount varies by passenger count and fare amounts.
 
-The code uses a SQL squery to sample and plot the data.
+Use a SQL query to sample data.
 
 	#PLOT HISTOGRAM OF TIP AMOUNTS AND VARIATION BY PASSENGER COUNT AND PAYMENT TYPE
 	
@@ -248,6 +257,11 @@ The code uses a SQL squery to sample and plot the data.
 	AND tip_amount > 0 
 	AND tip_amount < 25
 
+
+This code cell uses the SQL query to create three plots the data.
+
+	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+	%%local
 	
 	# HISTOGRAM OF TIP AMOUNTS AND PASSENGER COUNT
 	ax1 = sqlResults[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
@@ -282,8 +296,6 @@ The code uses a SQL squery to sample and plot the data.
 
 ![Tip amount by fare amount](./media/machine-learning-data-science-spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
-Time taken to execute above cell: 10.61 seconds
-
 
 ## Feature engineering, transformation and data preparation for modeling
 This section describes and provides the code for procedures used to prepare data for use in ML modeling. It shows how to do the following tasks:
@@ -300,7 +312,7 @@ This section describes and provides the code for procedures used to prepare data
 
 This code shows how to create a new feature by binning hours into traffic time buckets and then how to cache the resulting data frame in memory. Where Resilient Distributed Datasets (RDDs) and data-frames are used repeatedly, caching leads to improved execution times. Accordingly, we cache RDDs and data-frames at several stages in the walkthrough. 
 
-	## CREATE FOUR BUCKETS FOR TRAFFIC TIMES
+	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
 	sqlStatement = """
 	    SELECT *,
 	    CASE
@@ -313,7 +325,9 @@ This code shows how to create a new feature by binning hours into traffic time b
 	"""
 	taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
 	
-	## CACHE DATA FRAME IN MEMORY & MATERIALIZE IT IN MEMORY
+	# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+	# THE .COUNT() GOES THROUGH THE ENTIRE DATA-FRAME,
+	# MATERIALIZES IT IN MEMORY, AND GIVES THE COUNT OF ROWS.
 	taxi_df_train_with_newFeatures.cache()
 	taxi_df_train_with_newFeatures.count()
 
@@ -383,10 +397,11 @@ This section contains code that shows how to index categorical text data as a la
 
 This section contains code that shows how to index categorical text data as a [labeled point](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) data type and encode it so that it can be used to train and test MLlib logistic regression and other classification models. Labeled point objects are Resilient Distributed Datasets (RDD) consisting of a label (target/response variable) and feature vector. This format is needed as input by many ML algorithms in MLlib.
 
+Here is the code to index and encode text features for binary classification.
 
 	# FUNCTIONS FOR BINARY CLASSIFICATION
 
-	# LOAD PYSPARK LIBRARIES
+	# LOAD LIBRARIES
 	from pyspark.mllib.regression import LabeledPoint
 	from numpy import array
 
@@ -407,6 +422,8 @@ This section contains code that shows how to index categorical text data as a [l
 	    labPt = LabeledPoint(line.tipped, features)
 	    return  labPt
 
+
+Here is the code to encode and index categorical text features for linear regression analysis.
 
 	# FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
 
@@ -566,14 +583,16 @@ Each model building code section will be split into steps:
 
 The code in this section shows how to train evaluate, and save a logistic regression model with [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
-**Train**
+**Train the logistic regression model using CV and hyperparameter sweeping**
 
-	#PREDICT WHETHER A TIP IS PAID OR NOT USING LOGISTIC REGRESSION WITH LBFGS
+	# LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
+
+	# GET ACCURACY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
 	
-	# LOAD PYSPARK LIBRARIES
+	# LOAD LIBRARIES
 	from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
 	from sklearn.metrics import roc_curve,auc
 	from pyspark.mllib.evaluation import BinaryClassificationMetrics
@@ -599,13 +618,13 @@ The code in this section shows how to train evaluate, and save a logistic regres
 
 **OUTPUT:** 
 
-Coefficients: [0.0082065285375,-0.0223675576104,-0.0183812028036,-3.48124578069e-05,-0.00247646947233,-0.00165897881503,0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354,0.591088507921,-0.664263411392,-1.00439726852,3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294,0.000243375810385,0.054518719222]
+Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
 Intercept: -0.0111216486893
 
 Time taken to execute above cell: 14.43 seconds
 
-**Evaluate**
+**Evaluate the binary classification model with standard metrics**
 
 	#EVALUATE LOGISTIC REGRESSION MODEL WITH LBFGS
 
@@ -667,17 +686,21 @@ F1 Score = 0.984304060189
 
 Time taken to execute above cell: 57.61 seconds
 
-**Plot**
+**Plot the ROC curve.**
 
-The *predictionAndLabelsDF* is registered as a table, *tmp_results*, in the previous cell. *tmp_results* can be used to do queries and output results into the sqlResults data-frame for plotting
+The *predictionAndLabelsDF* is registered as a table, *tmp_results*, in the previous cell. *tmp_results* can be used to do queries and output results into the sqlResults data-frame for plotting. Here is the code.
 
-	# MAKE PREDICTIONS AND PLOT ROC-CURVE
 
 	# QUERY RESULTS                              
 	%%sql -q -o sqlResults
 	SELECT * from tmp_results
 
-	# LOCAL MAGIC AND IMPORT LIBRARIES
+
+Here is the code to make predictions and plot the ROC-curve.
+
+	# MAKE PREDICTIONS AND PLOT ROC-CURVE
+
+	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
 	%%local
 	%matplotlib inline
 	from sklearn.metrics import roc_curve,auc
@@ -800,11 +823,13 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 	timedelta = round((timeend-timestart).total_seconds(), 2) 
 	print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
+
 **OUTPUT:**
 
 Area under ROC = 0.985297691373
 
 Time taken to execute above cell: 19.76 seconds
+
 
 ## Predict tip amounts for taxi trips with regression models
 
@@ -824,7 +849,7 @@ These models were described in the introduction. Each model building code sectio
 
 The code in this section shows how to use scaled features to train a linear regression that uses stochastic gradient descent (SGD) for optimization, and how to score, evaluate, and save the model in Azure Blob Storage (WASB).
 
-In our experience, there can be issues with the convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. 
+>[AZURE.TIP] In our experience, there can be issues with the convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. 
 
 
 	#PREDICT TIP AMOUNTS USING LINEAR REGRESSION WITH SGD
@@ -832,7 +857,7 @@ In our experience, there can be issues with the convergence of LinearRegressionW
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
 	
-	# LOAD PYSPARK LIBRARIES
+	# LOAD LIBRARIES
 	from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel
 	from pyspark.mllib.evaluation import RegressionMetrics
 	from scipy import stats
@@ -868,7 +893,7 @@ In our experience, there can be issues with the convergence of LinearRegressionW
 
 **OUTPUT:**
 
-Coefficients: [0.00457675809917,-0.0226314167349,-0.0191910355236,0.246793409578,0.312047890459,0.359634405999,0.00928692253981,-0.000987181489428,-0.0888306617845,0.0569376211553,0.115519551711,0.149250164995,-0.00990211159703,-0.00637410344522,0.545083566179,-0.536756072402,0.0105762393099,-0.0130117577055,0.0129304737772,-0.00171065945959]
+Coefficients: [0.00457675809917, -0.0226314167349, -0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981, -0.000987181489428, -0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995, -0.00990211159703, -0.00637410344522, 0.545083566179, -0.536756072402, 0.0105762393099, -0.0130117577055, 0.0129304737772, -0.00171065945959]
 
 Intercept: 0.853872718283
 
@@ -938,7 +963,7 @@ Time taken to execute above cell: 49.21 seconds
 
 The code in this section shows how to train evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
-**Evaluate and save the model**
+**Train and evaluate **
 
 	#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -988,7 +1013,7 @@ Time taken to execute above cell: 34.52 seconds
 
 **Plot**
 
-*tmp_results* is registered as a Hive table in the previous cell. Results from the table is output into the *sqlResults* data-frame for plotting
+*tmp_results* is registered as a Hive table in the previous cell. Results from the table is output into the *sqlResults* data-frame for plotting. Here is the code
 
 	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -996,7 +1021,9 @@ Time taken to execute above cell: 34.52 seconds
 	%%sql -q -o sqlResults
 	SELECT * from tmp_results
 
-	# LOCAL MAGIC AND IMPORT NUMPY
+Here is the code to plot the data using the Jupyter server.
+
+	# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
 	%%local
 	%matplotlib inline
 	import numpy as np

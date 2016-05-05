@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="05/05/2016"
 	ms.author="deguhath;bradsev" />
 
 # Score Spark-built machine learning models 
@@ -105,7 +105,7 @@ Set spark context and import necessary libraries with the following code
 The PySpark kernels that are provided with Jupyter notebooks have a preset context, so you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
 
 - sc - for Spark 
-- contextsqlContext - for Hive context
+- sqlContext - for Hive
 
 The PySpark kernel provides some predefined “magics”, which are special commands that you can call with %%. There are two such commands that are used in these code samples.
 
@@ -182,7 +182,7 @@ The taxi trip and fare files were joined based on the procedure provided in the:
 
 **OUTPUT:**
 
-Time taken to execute above cell: 41.89 seconds
+Time taken to execute above cell: 46.37 seconds
 
 
 ## Prepare data for scoring in Spark 
@@ -203,7 +203,7 @@ The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.pre
 	timestart = datetime.datetime.now()
 	
 	# LOAD PYSPARK LIBRARIES
-	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
+	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 	
 	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
 	sqlStatement = """
@@ -257,7 +257,7 @@ The [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.pre
 
 **OUTPUT:**
 
-Time taken to execute above cell: 5.67 seconds
+Time taken to execute above cell: 5.37 seconds
 
 
 ### Create RDD objects with feature arrays for input into models
@@ -334,7 +334,7 @@ It also contains code that shows how to scale data with the `StandardScalar` pro
 
 **OUTPUT:**
 
-Time taken to execute above cell: 11.19 seconds
+Time taken to execute above cell: 11.72 seconds
 
 
 ## Score with the Logistic Regression Model and save output to blob
@@ -368,7 +368,7 @@ The code in this section shows how to load a Logistic Regression Model  saved in
 
 **OUTPUT:**
 
-Time taken to execute above cell: 18.24 seconds
+Time taken to execute above cell: 19.22 seconds
 
 
 ## Score a Linear Regression Model
@@ -403,7 +403,7 @@ The code in this section shows how to load a Linear Regression Model from Azure 
 
 **OUTPUT:**
 
-Time taken to execute above cell: 14.37 seconds
+Time taken to execute above cell: 16.63 seconds
 
 
 ## Score classification and regression Random Forest Models
@@ -451,7 +451,7 @@ The code in this section shows how to load the saved classification and regressi
 
 **OUTPUT:**
 
-Time taken to execute above cell: 27.73 seconds
+Time taken to execute above cell: 31.07 seconds
 
 
 ## Score classification and regression Gradient Boosting Tree Models
@@ -471,7 +471,7 @@ The code in this section shows how to load classification and regression Gradien
 	#IMPORT MLLIB LIBRARIES
 	from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 	
-	# CLASSIFICATION:LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+	# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 
 	#LOAD AND SCORE THE MODEL
 	savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
@@ -504,7 +504,7 @@ The code in this section shows how to load classification and regression Gradien
 	
 **OUTPUT:**
 
-Time taken to execute above cell: 8.14 seconds
+Time taken to execute above cell: 14.6 seconds
 
 
 ## Cleanup objects from memory and print scored file locations
@@ -529,17 +529,17 @@ Time taken to execute above cell: 8.14 seconds
 
 **OUTPUT:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-04-2523_57_25.716141.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD_2016-04-2523_57_44.240388
+linearRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification_2016-04-2523_57_59.161879.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression_2016-04-2523_58_13.226642.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-04-2523_58_28.273022.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-04-2523_58_32.570847.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 
 

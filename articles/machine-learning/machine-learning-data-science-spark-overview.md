@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="05/05/2016"
 	ms.author="bradsev" />
 
 # Overview of Data Science using Spark on Azure HDInsight
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-This suite of topics show how to use HDInsight Spark to complete common data science tasks such as data ingestion, feature engineering, modeling and model evaluation. The data used is a sample of the 2013 NYC taxi trip and fare dataset. The models built include logistic and linear regression, random forests and gradient boosted trees. The topics also show how to store these models in Azure blob storage (WASB) and how to score and evaluate their predictive performance. More advanced topics cover how models can be trained using cross-validation and hyper-parameter sweeping.
+This suite of topics show how to use HDInsight Spark to complete common data science tasks such as data ingestion, feature engineering, modeling and model evaluation. The data used is a sample of the 2013 NYC taxi trip and fare dataset. The models built include logistic and linear regression, random forests and gradient boosted trees. The topics also show how to store these models in Azure blob storage (WASB) and how to score and evaluate their predictive performance. More advanced topics cover how models can be trained using cross-validation and hyper-parameter sweeping. This overview topic also describes how get set up with a Spark cluster that you need to complete the steps in the three walkthroughs provided. 
 
 [Spark](http://spark.apache.org/) is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. [MLlib](http://spark.apache.org/mllib/) is Spark's scalable machine learning library that brings modeling capabilities to this distributed environment. 
 
@@ -131,7 +131,7 @@ Now you can:
 - Run the entire notebook by clicking on **Cell** -> **Run**
 - Use the automatic visualization of queries
 
-> [AZURE.TIP] The Pyspark kernel automatically visualizes the output of SQL (HiveQL) queries. You are given the option to select among several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook:
+> [AZURE.TIP] The PySpark kernel automatically visualizes the output of SQL (HiveQL) queries. You are given the option to select among several different types of visualizations (Table, Pie, Line, Area, or Bar) by using the **Type** menu buttons in the notebook:
 
 ![Logistic regression ROC curve for generic approach](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
