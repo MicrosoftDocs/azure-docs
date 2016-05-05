@@ -278,7 +278,9 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     e.  Verify that the right repository and branch are selected.
 
-    f.  Select the agent queue to which you registered your build agent, and then select the **Continuous Integration** check box.
+    f.  Check the **Continuous integration** check box to ensure this build is triggered whenever the branch is updated.
+
+    g.  Select the agent queue to which you registered your build agent.
 
 2.	On the **Variables** tab, create the following variables with these values.
 
@@ -338,7 +340,7 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
 5.	Save the build definition.
 
-### Add a "Remove cluster resource group" step
+### <a name="RemoveClusterResourceGroup"></a> Add a "Remove cluster resource group" step
 
 If a previous build did not clean up after itself (for example, if the build was canceled before it could clean up), there might be an existing resource group that might conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before you create a new one.
 
@@ -398,6 +400,14 @@ If a previous build did not clean up after itself (for example, if the build was
     |Arguments|`-PublishProfileFile path/to/MySolution/MyApplicationProject/PublishProfiles/MyPublishProfile.xml -ApplicationPackagePath path/to/MySolution/MyApplicationProject/pkg/$(BuildConfiguration)`|
 
 5.	Save the build definition.
+
+### Add a "Verify" step
+
+1. This step is optional when you are first getting this build definition configured.  But once you've successfully run a build and ensured the correctness of the other build steps, you can insert your own verification build step here.  This would be specific to your application and is intended to verify the correctness of the application that has been deployed to the cluster.
+  
+### Add a final "Clean-Up" step
+
+1. Follow the same instructions from the [Add a "Remove cluster resource group" step](#RemoveClusterResourceGroup).  This will clean up all the provisioned Azure resources that were made during the build.
 
 ### Try it
 
