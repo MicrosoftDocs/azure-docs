@@ -144,11 +144,11 @@ In the [Azure portal](https://portal.azure.com):
 
 	-OR-
 
-	For virtual machines created by using the Resource Manager model, click **Browse** > **Virtual machines** > *VM name*.
+	For virtual machines created by using the Resource Manager model, select **Browse** > **Virtual machines** > *VM name*.
 
 	The status pane for the virtual machine should show **Running**. Scroll down to show recent activity for compute, storage, and network resources.
 
-2. Click **Settings** to examine endpoints, IP addresses, and other settings.
+2. Select **Settings** to examine endpoints, IP addresses, and other settings.
 
 	To identify endpoints in virtual machines that were created by using Resource Manager, verify that a [network security group](../virtual-network/virtual-networks-nsg.md) has been defined. Also verify that the rules have been applied to the network security group and that they're referenced in the subnet.
 
