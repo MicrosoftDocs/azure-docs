@@ -28,7 +28,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - Customers can manage database permissions using external (AAD) groups.
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
-- Azure Active Directory supports [token-based authentication for applications](../sql-database/sql-database-aad-authentication-csharp.md) token-based authentication for applications connecting to SQL Data Warehouse.
+- Azure Active Directory supports token-based authentication for applications connecting to SQL Data Warehouse.
 
 > [AZURE.IMPORTANT] Azure Active Directory authentication is a preview feature and is subject to the preview terms in the license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
