@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/18/2016"
+   ms.date="05/05/2016"
    ms.author="telmos" />
 
 # Virtual appliance scenario
@@ -29,7 +29,7 @@ This is a standard DMZ scenario with a DMZ and a protected network. Such scenari
 
 ||Pros|Cons|
 |---|---|---|
-|NSG|No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in ARM templates.|Harder to maintain due to lack of unified interface. <br/>No data plane logging.|
+|NSG|No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in ARM templates.|Harder to maintain due to lack of unified interface. |
 |Firewall|Full control over data plane. <br/>Central management through firewall console.|Cost of firewall appliance. <br/>Not integrated with Azure RBAC.|
 
 The solution below uses firewall virtual appliances to implement a DMZ/protected network scenario.
