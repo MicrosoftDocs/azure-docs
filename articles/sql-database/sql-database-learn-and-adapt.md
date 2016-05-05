@@ -35,17 +35,17 @@ With threat and anomaly detection, SQL Database has built-in behavioral analysis
 SQL Database is equipped to make your app run at its best performance. By continuously learning your app’s patterns, adaptively self-tuning its performance, and automatically refining without you doing anything&mdash;because we know you don’t want to anyway.
 
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787566&clcid=0x409)
+[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787566)
 
 ## Insights when you need them
 SQL Database is able to track each query and its duration, frequency, and resource utilization. Based on this telemetry, automatic algorithms optimally tune your databases exactly to your queries. Additionally, SQL Database provides insights to help minimize time tuning queries and troubleshooting performance issues. That means you gain direct insight into resource consumption, top performing queries, and the ability to drill down for more details.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787567&clcid=0x409)
+[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787567)
 
 ## No administration required
 SQL Database provides the automatic administration and data protection your app needs so you can go back to doing what you do best&mdash;coding. You automatically get back-ups, disaster recovery failover, infrastructure maintenance, security and software patches, and feature updates. You’ll not only save money and time as SQL Database works behind the scenes, but you’ll also never have to worry about that dreaded app downtime.
 
-[Read the documentation](Read the documentation (http://go.microsoft.com/fwlink/?LinkID=787568)
+[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787568)
 
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 

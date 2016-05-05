@@ -41,7 +41,7 @@ SQL Database has the largest compliance portfolio in the industry. So if you nee
 
 SQL Database provides multiple layers of data protection. Your data is protected by encrypting data while at rest, in motion or in use, authenticating only authorized users against the database or application, and limiting user access to the appropriate subset of the data. Additionally, SQL Database provides continuous monitoring and auditing of activities to help detect potential threats and provide a record of critical events in case of a breach. These features are balanced by the ability to quickly implement features and mitigate security risk without compromising developer productivity or a customer’s experience.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787593&clcid=0x409)
+[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787593)
 
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 
