@@ -17,7 +17,7 @@
 	ms.date="05/05/2016"
 	ms.author="larryfr"/>
 
-# Develop Java MapReduce programs for Hadoop on HDInsight
+# Develop Java MapReduce programs for Hadoop on HDInsight Linux
 
 This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
 
