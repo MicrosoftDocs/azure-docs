@@ -89,7 +89,7 @@ The following examples show how to create a record set of each record type conta
 
 ## Update a record in a record set
 
-To add another IP address (1.2.3.4) to an existing A record set (www): 
+### To add another IP address (1.2.3.4) to an existing A record set (www): 
 
 	azure network dns record-set add-record  myresourcegroup contoso.com  A
 	-a 1.2.3.4
@@ -109,7 +109,7 @@ To add another IP address (1.2.3.4) to an existing A record set (www):
 	data:
 	info:    network dns record-set add-record command OK
 
-To remove an existing value from a record set use `azure network dns record-set delete-record`.
+### To remove an existing value from a record set use `azure network dns record-set delete-record`.
  
 	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
 	info:    Executing command network dns record-set delete-record
@@ -122,7 +122,7 @@ To remove an existing value from a record set use `azure network dns record-set 
 	data:    Location                        : global
 	data:    TTL                             : 4
 	data:    A records:
-	data:        IPv4 address                : 192.168.1.1
+	data:    IPv4 address                    : 192.168.1.1
 	data:
 	info:    network dns record-set delete-record command OK
 
@@ -132,8 +132,7 @@ To remove an existing value from a record set use `azure network dns record-set 
 
 Records can be removed from a record set using `azure network dns record-set delete-record`. The record that is being removed must be an exact match with an existing record across all parameters.
 
-Removing the last record from a record set does not delete the record set. See [Delete a record set](#delete) below for more.
-
+Removing the last record from a record set does not delete the record set. See the [delete a record set](#delete) section of this article for more information.
 
 	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
 
@@ -166,9 +165,7 @@ Removing the last record from a record set does not delete the record set. See [
 
 ## <a name="delete"></a>Delete a record set
 
-Record sets can be deleted using the `Remove-AzureDnsRecordSet` cmdlet.
-
->[AZURE.NOTE] You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that are created automatically when the zone is created.  They will be deleted automatically when deleting the zone.
+Record sets can be deleted using the `Remove-AzureRmDnsRecordSet` cmdlet. You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that were created automatically when the zone was created. They will be deleted automatically if the zone is deleted.
 
 In the example below, the A record set "test-a" will be removed from contoso.com DNS zone:
 
