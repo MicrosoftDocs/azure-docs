@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/04/2016"
+   ms.date="05/05/2016"
    ms.author="jrj;barbkess;sonyama;nicw"/>
 
 # Manage statistics in SQL Data Warehouse
@@ -64,12 +64,7 @@ For reference, **SQL Server** (not SQL Data Warehouse) automatically updates sta
 - If you have less than 500 rows in a table, when you add more than 500, and this means if you’re 499, you’d have to add rows to 999, you’ll get an automatic update 
 - Once you’re over 500 rows you will have to add 500 additional rows + 20% of the size of the table before you’ll see an automatic update on the stats
 
-
-For example, date columns in a data warehouse usually needs frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date.
-
-Conversely, statistics on a gender column on a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one gender and a new requirement results in multiple genders then you definitely need to update statistics on the gender column.
-
-As there is no DMV to determine if data within the table has changed since the last time statistics were updated, knowing the age of your statistics can provide you with part of the picture.  You can use the following query determine the last time your statistics where updated on each table.  
+As there is no DMV to determine if data within the table has changed since the last time statistics were updated, knowing the age of your statistics can provide you with part of the picture.  You can use the following query to determine the last time your statistics where updated on each table.  
 
 > [AZURE.NOTE] Remember if there is a material change in the distribution of values for a given column, you should update statistics regardless of the last time they were updated.  
 
@@ -99,6 +94,8 @@ FROM
 WHERE
     st.[user_created] = 1;
 ```
+
+Date columns in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date.  Conversely, statistics on a gender column on a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one gender and a new requirement results in multiple genders then you definitely need to update statistics on the gender column.
 
 For further explanation, see [Statistics][] on MSDN.
 
