@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="04/26/2016"
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
@@ -23,7 +23,7 @@ To deploy the Azure Stack POC, you'll first need to [prepare the deployment mach
 
 1. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md).
 
-2.  [Install](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+2.  [Install](http://aka.ms/ReqOSforAzureStack) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
 3.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
@@ -146,13 +146,13 @@ Microsoft Azure Stack Technical Preview 1 includes a set of validation tests use
 
 **To turn off TiP automated tests**
 
-1. On the ClientVM, run the following cmdlet:
+  - On the ClientVM, run the following cmdlet:
 
   `Disable-ScheduledTask -TaskName AzureStackSystemvalidationTask`
 
 **To view the test results**
 
-1. On the ClientVM, run the following cmdlet:
+  - On the ClientVM, run the following cmdlet:
 
   `Get-AzureStackTiPTestsResult`
 

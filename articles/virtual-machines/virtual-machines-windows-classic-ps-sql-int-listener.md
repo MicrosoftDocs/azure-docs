@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/28/2016"
 	ms.author="mikeray" />
 
 # Configure an ILB listener for AlwaysOn Availability Groups in Azure
@@ -26,7 +26,7 @@
 
 This topic shows you how to configure a listener for an AlwaysOn Availability Group by using an **Internal Load Balancer (ILB)**.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. To configure an ILB listener for an AlwaysOn availability group in Resource Manager model, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 
 Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) but have not configured a listener.

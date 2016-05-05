@@ -48,7 +48,7 @@ premium storage is not supported.
 
 ## Select the server that will contain the database
 
-Open the SQL Server blade for the database you want to import:
+Open the SQL Server blade:
 
 1.	Go to the [Azure portal](https://portal.azure.com).
 2.	Click **SQL servers**.
@@ -61,7 +61,7 @@ Open the SQL Server blade for the database you want to import:
 
     ![configure storage options][2]
 
-1.  Select the pricing tier for the new database and click **Select**.
+1.  Select the pricing tier for the new database and click **Select**. Importing a database directly into an elastic pool is not supported, but you can first import into a single database and then move the database into a pool.
 
     ![select pricing tier][3]
 

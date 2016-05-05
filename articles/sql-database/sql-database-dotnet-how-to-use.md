@@ -3,7 +3,7 @@
 	description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="stevestein" 
+	authors="annemill" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/14/2016" 
-	ms.author="sstein"/>
+	ms.author="annemill"/>
 
 
 # How to use Azure SQL Database in .NET applications

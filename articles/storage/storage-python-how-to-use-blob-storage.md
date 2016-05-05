@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use Azure Blob storage from Python | Microsoft Azure"
-	description="Learn how to use the Azure Blob storage from Python to upload, list, download, and delete blobs."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/29/2016"
+    ms.date="04/29/2016"
 	ms.author="jehine"/>
 
 # How to use Azure Blob storage from Python

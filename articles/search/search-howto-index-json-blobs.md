@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/14/2016"
+ms.date="04/20/2016"
 ms.author="eugenesh" />
 
 # Indexing JSON blobs with Azure Search blob indexer 
@@ -43,13 +43,13 @@ To index JSON blobs, use the blob indexer in "JSON parsing" mode. Enable the `us
 	  "parameters" : { "configuration" : { "useJsonParser" : true } }
 	}
 
-If needed, use **field mappings** to construct a search document by picking the desired properties of the source JSON document.  This is described in detail below. 
+If needed, use **field mappings** to pick the properties of the source JSON document used to populate your target search index.  This is described in detail below. 
 
-> [AZURE.IMPORTANT] JSON parsing mode applies to all blobs in your data source. If the data source includes a mix of JSON blobs and blobs with other content formats, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+> [AZURE.IMPORTANT] When you use JSON parsing mode, Azure Search assumes that all blobs in your data source will be JSON. If you need to support a mix of JSON and non-JSON blobs in the same data source, please let us know on [our UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
 
 ## Using field mappings to build search documents 
 
-Currently, Azure Search cannot index arbitrary JSON documents directly, because it supports only primitive data types, string arrays, and GeoJSON points. However, you can use **field mappings** to pick parts of your JSON document and "lift" them into top-level fields of the search document. To learn about field mappings basics, see [Azure Search Indexer Customization](search-indexers-customization.md).
+Currently, Azure Search cannot index arbitrary JSON documents directly, because it supports only primitive data types, string arrays, and GeoJSON points. However, you can use **field mappings** to pick parts of your JSON document and "lift" them into top-level fields of the search document. To learn about field mappings basics, see [Azure Search indexer field mappings bridge the differences between data sources and search indexes](search-indexer-field-mappings.md).
 
 Coming back to our example JSON document: 
 
@@ -75,7 +75,7 @@ You can also refer to individual array elements by using a zero-based index. For
 
 	{ "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
-> [AZURE.NOTE] If a source field name in a field mapping path refers to a property that doesn't exist in the document, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). This does mean, however, that you need to take care to avoid typos in your field mapping specification. 
+> [AZURE.NOTE] If a source field name in a field mapping path refers to a property that doesn't exist in JSON, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). Because there is no validation, you need to take care to avoid typos in your field mapping specification. 
 
 If your JSON documents only contain simple top-level properties, you may not need field mappings at all. For example, if your JSON looks like this, the top-level properties "text", "datePublished" and "tags" will directly map to the corresponding fields in the search index: 
  

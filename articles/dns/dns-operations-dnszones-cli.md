@@ -3,8 +3,8 @@
    description="You can manage DNS zones using Azure CLI. How to update, delete and create DNS zones on Azure DNS" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # How to manage DNS Zones using CLI
 
@@ -30,9 +30,9 @@ This guide will show how to manage your DNS zone resources using the cross-platf
  
 ## Create a new DNS zone
 
-To create a new DNS zone to host your domain, use the `azure network dns zone create`:
+To create a new DNS zone to host your domain, use `azure network dns zone create`:
 
-	azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	azure network dns zone create myresourcegroup contoso.com
 
 The operation creates a new DNS zone in Azure DNS. You can optionally specify an array of Azure Resource Manager tags, for more information see [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
@@ -42,7 +42,7 @@ The same zone name can be re-used in a different resource group or a different A
 
 ## Get a DNS zone
 
-To retrieve a DNS zone, use the `azure network dns zone show`:
+To retrieve a DNS zone, use `azure network dns zone show`:
 
 	azure network dns zone show myresourcegroup contoso.com
 
@@ -55,7 +55,6 @@ To retrieve DNS zones within a resource group, use `azure network dns zone list`
 
 	azure network dns zone list myresourcegroup
 
-
 ## Update a DNS zone
 
 Changes to a DNS zone resource can be made using `azure network dns zone set`.  This does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It is only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
@@ -64,7 +63,7 @@ Changes to a DNS zone resource can be made using `azure network dns zone set`.  
 
 ## Delete a DNS Zone
 
-DNS zones can be deleted using the `azure network dns zone delete`.
+DNS zones can be deleted using `azure network dns zone delete`.
  
 Before deleting a DNS zone in Azure DNS, you will need to delete all records sets, except for the NS and SOA records at the root of the zone that were created automatically when the zone was created.  
 
