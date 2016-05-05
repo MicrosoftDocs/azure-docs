@@ -137,9 +137,9 @@ For Linux machines:
 
 - Add the following line to the ```/etc/environment``` file:
 
-  ```
-  http_proxy=http://<proxy IP>:<proxy port>
-  ```
+    ```
+    http_proxy=http://<proxy IP>:<proxy port>
+    ```
 
 - Add the following lines to the ```/etc/waagent.conf``` file:
 
@@ -159,6 +159,7 @@ For Linux machines:
     ![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
 
 3. In the **New Inbound Rule Wizard**, choose the **Custom** option for the **Rule Type** and click **Next**.
+
 4. On the page to select the **Program**, choose **All Programs** and click **Next**.
 
 5. On the **Protocol and Ports** page, enter the following information and click **Next**:
