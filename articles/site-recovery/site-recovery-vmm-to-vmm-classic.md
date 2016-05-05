@@ -18,10 +18,7 @@
 
 # Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site
 
-> [AZURE.SELECTOR]
-- [Azure Classic Portal](site-recovery-vmm-to-vmm-classic.md)
-
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
 ## Overview
 
@@ -313,9 +310,6 @@ Run this sample script to update DNS, specifying the IP address you retrieved us
 		$newrecord.RecordData[0].IPv4Address  =  $IP
 		Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-## Next steps
-
-After you've run a test failover to check your environment is working as expected, [learn about](site-recovery-failover.md) different types of failovers.
 
 
 ## Privacy information for Site Recovery
@@ -380,3 +374,8 @@ The Provider on the VMM server gets notified of the event from the Service, and 
 	- Cloud names from the VMM server—The cloud name is required when using the Service cloud pairing/unpairing feature described below. When you decide to pair your cloud from a primary data center with another cloud in the recovery data center, the names of all the clouds from the recovery data center are presented.
 
 - **Choice**: This is an essential part of the service and can’t be turned off. If you don’t want this information sent to the Service, don’t use this Service.
+ 
+## Next steps
+
+After you've run a test failover to check your environment is working as expected, [learn about](site-recovery-failover.md) different types of failovers.
+
