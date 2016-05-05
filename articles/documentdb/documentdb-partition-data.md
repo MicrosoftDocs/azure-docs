@@ -36,7 +36,7 @@ How does this work? When you create a collection in DocumentDB, you'll notice th
 For example, consider an application that stores data about employees and their departments in DocumentDB. Let's choose `"department"` as the partition key property, in order to scale out data by department. Every document in DocumentDB must contain a mandatory `"id"` property that must be unique for every document with the same partition key value, e.g. `"Marketing`". Every document stored in a collection must have a unique combination of partition key and id, e.g. `{ "Department": "Marketing", "id": "0001" }`, `{ "Department": "Marketing", "id": "0002" }`, and `{ "Department": "Sales", "id": "0001" }`. In other words, the compound property of (partition key, id) is the primary key for your collection.
 
 ### Partition keys
-The choice of the partition key is an important decision that you’ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. The partition key is specified as a JSON path, e.g. `/department` represents the property department. 
+The choice of the partition key is an important decision that youâ€™ll have to make at design time. You must pick a JSON property name that has a wide range of values and is likely to have evenly distributed access patterns. The partition key is specified as a JSON path, e.g. `/department` represents the property department. 
 
 The following table shows examples of partition key definitions and the JSON values corresponding to each.
 
@@ -252,7 +252,7 @@ You can also execute atomic transactions against documents with the same device 
 
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
         UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") },
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
         "XMS-001-FE24C");
 
 In the next section, we look at how you can move to partitioned collections from single-partition collections.
@@ -273,7 +273,7 @@ To migrate from a single-partition collection to a partitioned collection
 Now that we've completed the basics, let's look at a few important design considerations when working with partition keys in DocumentDB.
 
 ## Designing for partitioning
-The choice of the partition key is an important decision that you’ll have to make at design time. This section describes some of the tradeoffs involved in selecting a partition key for your collection.
+The choice of the partition key is an important decision that youâ€™ll have to make at design time. This section describes some of the tradeoffs involved in selecting a partition key for your collection.
 
 ### Partition key as the transaction boundary
 Your choice of partition key should balance the need to enable the use of transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you could set the same partition key for all your documents, but this may limit the scalability of your solution. At the other extreme, you could assign a unique partition key for each document, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers. An ideal partition key is one that enables you to use efficient queries and that has sufficient cardinality to ensure your solution is scalable. 
@@ -284,22 +284,22 @@ It is also important to pick a property which allows writes to be distributed ac
 ### Examples of good partition keys
 Here are a few examples for how to pick the partition key for your application:
 
-* If you’re implementing a user profile backend, then the user ID is a good choice for partition key.
-* If you’re storing IoT data e.g. device state, a device ID is a good choice for partition key.
-* If you’re using DocumentDB for logging time-series data, then the hostname or process ID is a good choice for partition key.
+* If youâ€™re implementing a user profile backend, then the user ID is a good choice for partition key.
+* If youâ€™re storing IoT data e.g. device state, a device ID is a good choice for partition key.
+* If youâ€™re using DocumentDB for logging time-series data, then the hostname or process ID is a good choice for partition key.
 * If you have a multi-tenant architecture, the tenant ID is a good choice for partition key.
 
-Note that in some use cases (like the IoT and user profiles described above), the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key that’s different than the id.
+Note that in some use cases (like the IoT and user profiles described above), the partition key might be the same as your id (document key). In others like the time series data, you might have a partition key thatâ€™s different than the id.
 
 ### Partitioning and logging/time-series data
 One of the most common use cases of DocumentDB is for logging and telemetry. It is important to pick a good partition key since you might need to read/write vast volumes of data. The choice will depend on your read and write rates and kinds of queries you expect to run. Here are some tips on how to choose a good partition key.
 
 - If your use case involves a small rate of writes acculumating over a long period of time, and need to query by ranges of timestamps and other filters, then using a rollup of the timestamp e.g. date as a partition key is a good approach. This allows you to query over all the data for a date from a single partition. 
-- If your workload is write heavy, which is generally more common, you should use a partition key that’s not based on timestamp so that DocumentDB can distribute writes evenly across a number of partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
+- If your workload is write heavy, which is generally more common, you should use a partition key thatâ€™s not based on timestamp so that DocumentDB can distribute writes evenly across a number of partitions. Here a hostname, process ID, activity ID, or another property with high cardinality is a good choice. 
 - A third approach is a hybrid one where you have multiple collections, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different performance levels based on the time window, e.g. the collection for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
 
 ### Partitioning and multi-tenancy
-If you are implementing a multi-tenant application using DocumentDB, there are two major patterns for implementing tenancy with DocumentDB – one partition key per tenant, and one collection per tenant. Here are the pros and cons for each:
+If you are implementing a multi-tenant application using DocumentDB, there are two major patterns for implementing tenancy with DocumentDB â€“ one partition key per tenant, and one collection per tenant. Here are the pros and cons for each:
 
 * One Partition Key per tenant: In this model, tenants are collocated within a single collection. But queries and inserts for documents within a single tenant can be performed against a single partition. You can also implement transactional logic across all documents within a tenant. Since multiple tenants share a collection, you can save storage and throughput costs by pooling resources for tenants within a single collection rather than provisioning extra headroom for each tenant. The drawback is that you do not have performance isolation per tenant. Performance/throughput increases apply to the entire collection vs targeted increases for tenants.
 * One Collection per tenant: Each tenant has its own collection. In this model, you can reserve performance per tenant. With DocumentDB's new consumption based pricing model, this model is more cost-effective for multi-tenant applications with a small number of tenants.
