@@ -18,13 +18,7 @@
 
 # Get started with Node.js web apps in Azure App Service
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 This tutorial shows how to create a simple [Node.js](http://nodejs.org) application and deploy it to a [web app](app-service-web-overview.md) in 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md) from a command line such as cmd.exe or bash. The instructions in this tutorial can 
@@ -75,7 +69,7 @@ be followed on any operating system that is capable of running Node.js.
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
 2. Make sure you're still in the root directory of your app. Create the App Service app resource in Azure with a unique
-app name with the next command. Your web app's URL will be http://&lt;appname>.azurewebsites.net.
+app name with the next command. Your web app's URL is http://&lt;appname>.azurewebsites.net.
 
         azure site create --git <appname>
 
@@ -127,7 +121,7 @@ root directory. You can use this file to customize iisnode.
 - At `git push azure master`, Kudu automates the following deployment tasks:
 
     - If package.json is in the repository root, run `npm install --production`.
-    - Generate a Web.config for iisnode that points to your in the start script in package.json (e.g. server.js or app.js).
+    - Generate a Web.config for iisnode that points to your start script in package.json (e.g. server.js or app.js).
     - Customize Web.config to ready your app for debugging with Node-Inspector.
     
 ## Use a Node.js framework

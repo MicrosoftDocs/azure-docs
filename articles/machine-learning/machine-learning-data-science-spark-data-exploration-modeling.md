@@ -3,7 +3,7 @@
 	description="Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="04/26/2016"
 	ms.author="deguhath;bradsev" />
 
 # Data exploration and modeling with Spark
@@ -25,8 +25,6 @@ This walkthrough uses HDInsight Spark to do data exploration and binary classifi
 - The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 - The **regression** task is to predict the amount of the tip based on other tip features. 
 
-The modeling steps also contain code showing how to train, evaluate and save each type of model. Python has been used to code the solution and to show the relevant plots.
-
 The models we use include logistic and linear regression, random forests and gradient boosted trees:
 
 - [Linear regression with SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) is a linear regression model that uses a Stochastic Gradient Descent (SGD) method and for optimization and feature scaling to predict the tip amounts paid. 
@@ -34,12 +32,14 @@ The models we use include logistic and linear regression, random forests and gra
 - [Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees in order to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features, extend to the multiclass classification setting, do not require feature scaling, and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
 - [Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
+The modeling steps also contain code showing how to train, evaluate and save each type of model. Python has been used to code the solution and to show the relevant plots.   
 
->AZURE.NOTE: Although the Spark MLlib toolkit is designed to work on large datasets, for purposes of demonstrating its modeling capabilities, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used, for convenience. The exercise given here runs efficiently on an HDInsight cluster with 2 worker nodes (in about 10 mins). The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory or changing the cluster size.
+
+>[AZURE.NOTE] Although the Spark MLlib toolkit is designed to work on large datasets, for purposes of demonstrating its modeling capabilities, a relatively small sample (~30 Mb using 170K rows, about 0.1% of the original NYC dataset) is used, for convenience. The exercise given here runs efficiently on an HDInsight cluster with 2 worker nodes (in about 10 mins). The same code, with minor modifications, can be used to process larger data-sets, with appropriate modifications for caching data in memory or changing the cluster size.
 
 ## Prerequisites
 
-You need an Azure account and an HDInsight Spark cluster to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
+You need an Azure account and an HDInsight Spark cluster, version Spark 1.5.2 (HDI 3.3), to begin this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) for these requirements, for a description of the NYC 2013 Taxi data used here, and for instructions on how execute code from a Jupyter notebook on the Spark cluster. The **machine-learning-data-science-spark-data-exploration-modeling.ipynb** notebook that contains the code samples in this topic are available in [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python). 
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -64,7 +64,7 @@ The following code sample specifies the location of the data to be read and the 
 	taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
 
 	# SET THE MODEL STORAGE DIRECTORY PATH 
-	# Note that the final backslash in the path is needed.
+	# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
 	modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/" 
 
 
@@ -213,7 +213,7 @@ The code uses a SQL squery to sample the data and converts the results to a Pand
 ![Trip frequency by passenger count](./media/machine-learning-data-science-spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
 
 	
-### Plot a histogram of tip amount and how tip amount varies with payment amount and type.
+### Plot a histogram of tip amounts and how tip amount varies by passenger count and fare amounts.
 
 The code uses a SQL squery to sample the data and converts the results to a Pandas data frame to plot.
 
@@ -319,7 +319,7 @@ This section shows how to index or encode categorical features for input into th
 
 - **Tree based modeling** requires categories to be encoded as numerical values (e.g. a feature with 3 categories may be encoded with 0, 1, 2). This is provided by MLlib’s [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Note that although indexed with numerical values for input and data handling, the tree based algorithms can be specified to treat them appropriately as categories. 
 
-- **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect continuous valued features, such as logistic regression, to be applied to categorical features.
+- **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with 3 categories can be expanded into 3 feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms which expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
 Here is the code to index and encode categorical features:
 
@@ -469,8 +469,11 @@ Time taken to execute above cell: 0.26 seconds
 
 Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. The code for feature scaling uses the [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) to scale the features to unit variance. It is provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of other machine learning models such as regularized regressions or support vector machines (SVM).
 
->AZURE.NOTE: We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.
+>[AZURE.NOTE] We have found the LinearRegressionWithSGD algorithm to be sensitive to feature scaling.
 
+Here is the code to scale to scale variables for use with the regularized linear SGD algorithm.
+
+	# FEATURE SCALING
 
 	# RECORD START TIME
 	timestart = datetime.datetime.now()
@@ -642,7 +645,7 @@ F1 Score = 0.984187223276
 
 Time taken to execute above cell: 26.63 seconds
 
-### Random forest model classification
+### Random forest classification
 
 The code in this section shows how to train evaluate, and save a random forest model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 	
@@ -743,7 +746,7 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 This section shows how use three models for the regression task of predicting the amount of the tip paid for a taxi trip based on other tip features. The models presented are:
 
 - Regularized linear regression
-- Random forest model
+- Random forest
 - Gradient Boosting Trees
 
 These models were described in the introduction. Each model building code section will be split into steps: 
@@ -756,7 +759,8 @@ These models were described in the introduction. Each model building code sectio
 
 The code in this section shows how to use scaled features to train a linear regression that uses stochastic gradient descent (SGD) for optimization, and how to score, evaluate, and save the model in Azure Blob Storage (WASB).
 
->AZURE NOTE: In our experience, there can be frequent issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps (shown below). 
+In our experience, there can be issues with the convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. 
+
 
 	#PREDICT TIP AMOUNTS USING LINEAR REGRESSION WITH SGD
 
@@ -794,7 +798,7 @@ The code in this section shows how to use scaled features to train a linear regr
 
 ### Random Forest regression
 
-The code in this section shows how to train evaluate, and save a random forest model that predicts tip amount for the NYC taxi trip data.
+The code in this section shows how to train evaluate, and save a random forest regression that predicts tip amount for the NYC taxi trip data.
 
 
 	#PREDICT TIP AMOUNTS USING RANDOM FOREST
@@ -868,7 +872,7 @@ The code in this section shows how to train evaluate, and save a gradient boosti
 	print("R-sqr = %s" % testMetrics.r2)
 	
 	# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
-	test_predictions = sqlContext.createDataFrame(predictionAndLabels)
+	test_predictions= sqlContext.createDataFrame(predictionAndLabels)
 	test_predictions_pddf = test_predictions.toPandas()
 	
 	ax = test_predictions_pddf.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
@@ -941,9 +945,11 @@ For the consumption and scoring an independent dataset described in the [Score a
 
 ## What's next?
 
-Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models.
+Now that you have created regression and classification models with the Spark MlLib, you are ready to learn how to score and evaluate these models. The advanced data exploration and modeling notebook dives deeper into including cross-validation, hyper-parameter sweeping and model evaluation. 
 
 **Model consumption:** To learn how to score and evaluate the classification and regression models created in this topic, see [Score and evaluate Spark-built machine learning models](machine-learning-data-science-spark-model-consumption.md).
+
+**Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping
 
 
 

@@ -3,7 +3,7 @@
    description="Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting."
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 
 # Delegate domain to Azure DNS

@@ -34,7 +34,7 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 
 For additional information oh how it works see the following video.
 
-[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+>[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ##Methods available for multi-factor authentication
 When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification. 

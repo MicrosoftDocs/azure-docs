@@ -59,8 +59,8 @@ First, we'll start off with creating a Java project.
 As soon as you have a Java web application ready to test, you can use the following shortcut to try it out directly on the Azure cloud.
 
 1. In Eclipse's Project Explorer, click **MyHelloWorld**.
-1. In the Eclipse toolbar, click the **Publish to Azure Cloud** button,
-    ![][ic710882]
+1. In the Eclipse toolbar, click the **Publish** drop down button and then click **Publish As Azure Cloud Service**
+    ![][publishDropdownButton]
 1. If you are publishing this application to Azure for the first time and you have not created an Azure deployment project for this application before, an Azure deployment project be created for you automatically. You should see the following prompt, which also lists the JDK package and application server that will be automatically deployed to run your application.
     ![][ic789598]
     This shortcut approach enables a quick and easy way to test your application in Azure without having to configure a specific server or JDK that is different from the defaults. If you are satisfied with the defaults, you can click **OK** to continue with the following steps.
@@ -192,3 +192,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic719490]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719490.png
 [ic719491]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic719491.png
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
+[publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png

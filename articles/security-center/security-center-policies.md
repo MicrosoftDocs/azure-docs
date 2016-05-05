@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
 
 # Setting security policies in Azure Security Center
@@ -82,10 +82,10 @@ If you prefer to configure your security policies per resource group, the steps 
 
 ![Resource group selection](./media/security-center-policies/security-center-policies-fig4.png)
 
-After you select the resource group, the **Security policy** blade will open. By default, the option **Inheritance** is enabled, which means all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy per resource group. If that's the case, you need to select **Unique** and make the changes under **Show recommendations for** option. 
+After you select the resource group, the **Security policy** blade will open. By default, the option **Inheritance** is enabled, which means all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy per resource group. If that's the case, you need to select **Unique** and make the changes under **Show recommendations for** option.
 
 
-![Security policy per resource group](./media/security-center-policies/security-center-policies-fig5.png) 
+![Security policy per resource group](./media/security-center-policies/security-center-policies-fig5.png)
 
 > [AZURE.NOTE] In case of a conflict between subscription level policy and resource group level policy, the resource level policy takes precedence.
 
@@ -96,5 +96,6 @@ In this document, you learned how to configure security policies in Azure Securi
 
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md) – Learn how to monitor the health of your Azure resources
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance

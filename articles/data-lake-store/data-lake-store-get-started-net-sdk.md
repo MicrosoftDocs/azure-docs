@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
@@ -34,11 +34,17 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 * Visual Studio 2013 or 2015. The instructions below use Visual Studio 2015.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-* **Create an Azure Active Directory Application**. See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). For a .NET console application that you create in this article, you must create a **Native Client application** (and not a Web application, as demonstrated in the link). Once you have created the application, retrieve the following values related to the application.
-	- Get **client ID** and **redirect URI** for the application
-	- Set delegated permissions
+* **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Direcotry - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
+	* **For interactive authentication** (used in this article) - In Azure Active Directory, you must create a **Native Client application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID** and **redirect URI** for the application
+		- Set delegated permissions
 
-	Instructions on how to retrieve these values and set the permissions are available in the link provided above.
+	* **For non-interactive authentication** - In Azure Active Directory, you must create a **Web application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID**, **client secret**,  and **redirect URI** for the application
+		- Set delegated permissions
+		- Assign the Azure Active Directory application to a role. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group. 
+
+	See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) for instructions on how to retrieve these values, set the permissions, and assign roles.
 
 ## Create a .NET application
 
@@ -109,7 +115,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
                     _location = "East US 2";
 
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
+                    string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
 				}
@@ -199,7 +205,7 @@ The following snippet shows a `CreateDirectory` method that you can use to creat
 	// Create a directory
     public static void CreateDirectory(string path)
     {
-        _adlsFileSystemClient.FileSystem.Mkdirs(path, _adlsAccountName);
+        _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
     }
 
 ## Upload a file to Data Lake Store
@@ -222,7 +228,7 @@ The following snippet shows a `GetItemInfo` method that you can use to retrieve 
 	// Get file or directory info
     public static FileStatusProperties GetItemInfo(string path)
     {
-        return _adlsFileSystemClient.FileSystem.GetFileStatus(path, _adlsAccountName).FileStatus;
+        return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
     }
 
 ## List file or directories
@@ -232,7 +238,7 @@ The following snippet shows a `ListItem` method that can use to list the file an
 	// List files and directories
     public static List<FileStatusProperties> ListItems(string directoryPath)
     {
-        return _adlsFileSystemClient.FileSystem.ListFileStatus(directoryPath, _adlsAccountName).FileStatuses.FileStatus.ToList();
+        return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
     }
 
 ## Concatenate files
@@ -242,7 +248,7 @@ The following snippet shows a `ConcatenateFiles` method that you use to concaten
 	// Concatenate files
     public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
     {
-        _adlsFileSystemClient.FileSystem.Concat(destFilePath, srcFilePaths, _adlsAccountName);
+        _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
     }
 
 ## Append to a file
@@ -254,7 +260,7 @@ The following snippet shows a `AppendToFile` method that you use append data to 
     {
         var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
 
-        _adlsFileSystemClient.FileSystem.Append(path, stream, _adlsAccountName);
+        _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
     }
 
 ## Download a file
@@ -264,7 +270,7 @@ The following snippet shows a `DownloadFile` method that you use to download a f
 	// Download file
     public static void DownloadFile(string srcPath, string destPath)
     {
-        var stream = _adlsFileSystemClient.FileSystem.Open(srcPath, _adlsAccountName);
+        var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
         var fileStream = new FileStream(destPath, FileMode.Create);
 
         stream.CopyTo(fileStream);
@@ -325,7 +331,7 @@ Finally, make sure the local path and file name you provide here must exist on t
                 _location = "East US 2";
 
                 string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
+                string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
                 string remoteFolderPath = "/data_lake_path/";
                 string remoteFilePath = remoteFolderPath + "file.txt";
 
@@ -428,7 +434,6 @@ Finally, make sure the local path and file name you provide here must exist on t
                 _adlsClient.SubscriptionId = subscriptionId;
 
                 _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(tokenCreds);
-                _adlsFileSystemClient.SubscriptionId = subscriptionId;
             }
 
             // Create account
@@ -472,25 +477,25 @@ Finally, make sure the local path and file name you provide here must exist on t
             // Concatenate files
             public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
             {
-                _adlsFileSystemClient.FileSystem.Concat(destFilePath, srcFilePaths, _adlsAccountName);
+                _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
             }
 
             // Get file or directory info
             public static FileStatusProperties GetItemInfo(string path)
             {
-                return _adlsFileSystemClient.FileSystem.GetFileStatus(path, _adlsAccountName).FileStatus;
+                return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
             }
 
             // List files and directories
             public static List<FileStatusProperties> ListItems(string directoryPath)
             {
-                return _adlsFileSystemClient.FileSystem.ListFileStatus(directoryPath, _adlsAccountName).FileStatuses.FileStatus.ToList();
+                return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
             }
 
             // Download file
             public static void DownloadFile(string srcPath, string destPath)
             {
-                var stream = _adlsFileSystemClient.FileSystem.Open(srcPath, _adlsAccountName);
+                var stream = _adlsFileSystemClient.FileSystem.Open(_adlsAccountName, srcPath);
                 var fileStream = new FileStream(destPath, FileMode.Create);
 
                 stream.CopyTo(fileStream);
@@ -503,13 +508,13 @@ Finally, make sure the local path and file name you provide here must exist on t
             {
                 var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
 
-                _adlsFileSystemClient.FileSystem.Append(path, stream, _adlsAccountName);
+                _adlsFileSystemClient.FileSystem.Append(_adlsAccountName, path, stream);
             }
 
             // Create a directory
             public static void CreateDirectory(string path)
             {
-                _adlsFileSystemClient.FileSystem.Mkdirs(path, _adlsAccountName);
+                _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
             }
         }
     }
