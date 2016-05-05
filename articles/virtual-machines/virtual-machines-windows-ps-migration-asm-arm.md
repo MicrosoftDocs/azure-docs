@@ -135,6 +135,6 @@ If the prepared configuration looks good, you can move forward and Commit the re
 
 ## References
 
-- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](virtual-machines-windows-migration-asm-arm)
-- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](virtual-machines-windows-migration-asm-arm-deepdive)
-- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-cli-migration-asm-arm)
+- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-asm-arm)
+- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](./virtual-machines-windows-migration-asm-arm-deepdive)
+- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](./virtual-machines-windows-migration-scripts)

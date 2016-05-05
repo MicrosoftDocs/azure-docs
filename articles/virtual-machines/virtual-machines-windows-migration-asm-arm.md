@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack"
-	description="This article walks through the platform supported migration service capabilities Service Management to Azure Resource Manager using PowerShell scripts"
+	description="This article walks through the platform supported migration service capabilities Service Management to Azure Resource Manager"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="mahthi"
@@ -150,9 +150,10 @@ With the announcement of Public Preview, we have added support for triggering mi
 ## Next steps
 Now that you have an understanding of migration of Classic IaaS resources to Resource Manager, you can start migrating the resources.
 
-	- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](virtual-machines-windows-migration-asm-arm-deepdive)
-	- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-ps-migration-asm-arm)
-	- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-cli-migration-asm-arm)
+- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](./virtual-machines-windows-migration-asm-arm-deepdive)
+- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](./virtual-machines-windows-ps-migration-asm-arm)
+- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](./virtual-machines-windows-cli-migration-asm-arm)
+- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](./virtual-machines-windows-migration-scripts)
 
 ## Frequently Asked Questions
 
