@@ -40,15 +40,15 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
 1.  Make sure you fulfill all [set up steps before you deploy](azure-stack-sql-rp-deploy-long.md#set-up-steps-before-you-deploy):
 
-    - .NET 3.5 framework already set up in the base Windows Server image (if you downloaded the Azure Stack bits after 2/23/2016, you can skip this step)
-    - [Azure-Stack-Compatible PowerShell release](http://aka.ms/azStackPsh)
-    - IE security settings configured properly on the ClientVM ([Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#Turn-off-IE-enhanced-security-and-enable-cookies))
+  - .NET 3.5 framework already set up in the base Windows Server image (if you downloaded the Azure Stack bits after 2/23/2016, you can skip this step)
+  - [Azure-Stack-Compatible PowerShell release](http://aka.ms/azStackPsh)
+  - IE security settings configured properly on the ClientVM ([Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#Turn-off-IE-enhanced-security-and-enable-cookies))
 
 2. [Download the SQL Server RP binaries](http://aka.ms/massqlrprfrsh) and extract the zip file to the ClientVM in your Azure Stack POC.
 
 3. [Run the bootstrap.cmd and script](azure-stack-sql-rp-deploy-long.md#Bootstrap-the-resource-provider-deployment-PowerShell-and-Prepare-for-deployment).
 
-   A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE). In each tab, you run the loaded scripts in sequence from left to right.
+  A set of scripts grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE). In each tab, you run the loaded scripts in sequence from left to right.
 
 5. Run scripts in the "Prepare tab from left to right to:
 
@@ -66,10 +66,10 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
   > [AZURE.IMPORTANT] All scripts assume the base operating system image fulfills the prerequisites (.NET 3.5, Javascript and cookies enabled on the clientVM, and a compatible version of Azure PowerShell). If you get errors running the scripts, double-check that you fulfilled the prerequisites.
 
-5. [Connect the resource provider to a hosting SQL Server](#Provide-capacity-to-your-SQL-Resource-Provider-by-connecting-it-to-a-hosting-SQL-server) in the Azure Stack portal. Click **Browse** &gt; **Resource** **Providers** &gt; **SQLRP** &gt; **Go to Resource Provider** **Management** &gt; **Servers** &gt; **Add**
+7. [Connect the resource provider to a hosting SQL Server](#Provide-capacity-to-your-SQL-Resource-Provider-by-connecting-it-to-a-hosting-SQL-server) in the Azure Stack portal. Click **Browse** &gt; **Resource** **Providers** &gt; **SQLRP** &gt; **Go to Resource Provider** **Management** &gt; **Servers** &gt; **Add**
 
   Use “sa” for username and the password you used when you deployed the resource provider VM.
 
-6. [Test your new SQL Server RP](/azure-stack-sql-rp-deploy-long.md#create-your-first-sql-database-to-test-your-deployment) by deploying a SQL database in the Azure Stack portal. Click **Create &gt; Custom &gt; SQL Server Database**.
+8. [Test your new SQL Server RP](/azure-stack-sql-rp-deploy-long.md#create-your-first-sql-database-to-test-your-deployment) by deploying a SQL database in the Azure Stack portal. Click **Create &gt; Custom &gt; SQL Server Database**.
 
 This should get your SQL Server Resource Provider up and running in about 45 minutes (depending on your hardware).
