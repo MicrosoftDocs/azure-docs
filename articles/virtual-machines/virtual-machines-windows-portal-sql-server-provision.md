@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Provision a SQL Server virtual machine in the Azure Portal | Microsoft Azure"
-	description="Create a SQL Server virtual machine in Azure Resource Manager mode. This tutorial primarily uses the Azure portal and tools rather than scripting."
+	pageTitle="Provision a SQL Server Virtual Machine | Microsoft Azure"
+	description="Create and connect to a SQL Server virtual machine in Azure using the Portal. This tutorial uses the Resource Manager mode."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -246,7 +246,7 @@ The following sections show how to connect to your SQL Server instance on your V
 
 > [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-##<a id="Next"> Next Steps
+## Next Steps
 For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) and the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
 For a video overview of SQL Server on Azure Virtual Machines, watch [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
