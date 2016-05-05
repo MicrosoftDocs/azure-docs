@@ -160,7 +160,7 @@ Query Performance Insight helps you understand the impact of your query workload
 
 ## Next steps
 
-For additional recommendations for improving the performance of your SQL database click [Performance Advisor](sql-database-index-advisor.md) on the **Query Performance Insight** blade.
+For additional recommendations for improving the performance of your SQL database click [SQL Database Advisor](sql-database-index-advisor.md) on the **Query Performance Insight** blade.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
