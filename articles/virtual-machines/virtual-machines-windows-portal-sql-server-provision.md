@@ -48,7 +48,7 @@ In this tutorial, you will:
 1. In the **New** blade, click **Virtual Machines**.
 1. To see all of the available images, click **See all** on the **Virtual Machines** blade.
 
-	![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
+	![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
 
 1. Under **Database servers**, click **SQL Server** to see all of the templates available for SQL Server. You might have to scroll down to locate **Database servers**.
 
@@ -57,7 +57,7 @@ In this tutorial, you will:
 1. 	Each template identifies a SQL Server version and an operating system. Select one of these images from the list to bring up a blade containing its details.
 1.	The details blade provides a description of this virtual machine image, and it allows you to select a deployment model. Under **Select a deployment model**, verify that **Resource Manager** is selected,  and click **Create**.
 
-	![Azure Compute Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
+	![Create SQL VM with Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## Configure the VM
 In the Azure portal there are five blades for configuring a SQL Server virtual machine.
@@ -82,12 +82,12 @@ On the **Basics** blade, provide the following information:
 * Select a **Location** for this deployment.
 * Click **OK** to save the settings.
 
-	![SQL ARM Basics](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png)
+	![SQL Basics Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png)
 
 ## 2. Choose virtual machine size
 On the **Size** step, choose a virtual machine size in the **Choose a size** blade. This initially presents you with recommended machine sizes. The sizes are based on the template you selected. It also estimates the monthly cost to run the VM.
 
-![SQL ARM Basics](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
+![SQL VM Size Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
 For production workloads, we recommend selecting a virtual machine size that supports [Premium Storage](../storage/storage-premium-storage.md). If you do not require that level of performance, use the **View all** button to see all of the machine size options. For example, you might use a smaller machine size for a development or test environment.
 
@@ -127,7 +127,7 @@ On the **SQL Server settings** blade, configure specific settings and optimizati
 ### Connectivity
 Under **SQL connectivity**, specify the type of access you want to the SQL Server instance on this VM. For the purposes of this tutorial, select **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure will automatically configure the firewall and the network security group to allow traffic on port 1433.  
 
-![SQL ARM Connectivity](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
+![SQL Connectivity Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
 
 In order to connect to SQL Server via the internet, you also must enable SQL Server Authentication, which is described in the next section.
 
@@ -146,7 +146,7 @@ For more information, see [Connect to a SQL Server Virtual Machine (Resource Man
 ### Authentication
 If you require SQL Server Authentication, click **Enable** under **SQL authentication**.
 
-![SQL ARM Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
+![SQL Server Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
 
 >[AZURE.NOTE] If you plan to access SQL Server over the internet (i.e. the Public connectivity option), you must enable SQL authentication here. Public access to the SQL Server requires the use of SQL Authentication.
 
@@ -157,7 +157,7 @@ If you do not enable SQL Server Authentication, then you can use the local Admin
 ### Storage configuration
 Click **Storage configuration** in order to specify the storage requirements.
 
-![SQL ARM Storage](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
+![SQL Storage Configuration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
 
 >[AZURE.NOTE] If you select Standard storage, this option is not available. Automatic storage optimization is available only for Premium Storage.
 
@@ -174,7 +174,7 @@ By default, Azure optimizes the storage for 5000 IOPs, 200 MBs, and 1 TB of stor
 ### Automated patching
 **Automated patching** is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. Specify a day of the week, time, and duration for a maintenance window. Azure will perform patching in the maintenance window. The maintenance window schedule uses the VM locale for time. If you do not want Azure to automatically patch SQL Server and the operating system click **Disable**.  
 
-![SQL ARM Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
+![SQL Automated Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
 For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md).
 
@@ -189,14 +189,14 @@ When you enable SQL automated backup you can configure the following:
 
 To encrypt the backup, click **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate.
 
-![SQL ARM Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![SQL Automated Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
  For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ### Azure Key Vault integration
 To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
 
-![SQL ARM Azure Key Vault Integration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
+![SQL Azure Key Vault Integration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
 
 The following table lists the parameters required to configure Azure Key Vault Integration.
 
