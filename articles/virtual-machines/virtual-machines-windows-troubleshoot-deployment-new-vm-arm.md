@@ -1,20 +1,20 @@
 <properties
    pageTitle="Troubleshoot Windows VM deployment-RM | Microsoft Azure"
-   description="Troubleshoot Resource Manager deployment issues when you create a new virtual machine in Azure"
-   services="virtual-machines, azure-RM"
+   description="Troubleshoot Resource Manager deployment issues when you create a new Windows virtual machine in Azure"
+   services="virtual-machines-windows, azure-resource-manager"
    documentationCenter=""
    authors="jiangchen79"
    manager="felixwu"
    editor=""
-   tags="top-support-issue"/>
+   tags="top-support-issue, azure-resource-manager"/>
 
 <tags
-  ms.service="virtual-machines"
+  ms.service="virtual-machines-windows"
   ms.workload="na"
-  ms.tgt_pltfrm="vm"
+  ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/04/2016"
+  ms.date="05/05/2016"
   ms.author="cjiang"/>
 
 # Troubleshoot Resource Manager deployment issues with creating a new Windows virtual machine in Azure
@@ -42,7 +42,7 @@ To start troubleshooting, collect the audit logs to identify the error associate
 | Windows Generalized       | <strong>Error:</strong> Provisioning timeout<br /><strong>Resolution</strong>: Use the original VHD that’s available on-prem, run sysprep, and then <a href="https://msdn.microsoft.com/library/mt603554.aspx/">use Add-AzureRMVhd to upload</a> as generalized.      | No error                                                                                                                                                                                                                                               | <strong>Error</strong>: Provisioning timeout, because the original VM is not usable as it is marked as generalized.<br /><strong>Resolution:</strong> Delete the current image from the portal, and <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-windows-capture-image/">recapture it from the current VHDs</a> with the generalized setting. | No error                                                                                                                                                                                                                                                                                                   |
 | Windows Specialized       | No error                                                                                                                                 | <strong>Error</strong>: Provisioning failure, because the new VM is running with the original computer name, username and password.<br /><strong>Resolution:</strong> Use the original VHD that’s available on-prem and <a href="https://msdn.microsoft.com/library/mt603554.aspx/">use Add-AzureRMVhd to upload</a> as specialized, or run sysprep to make the OS generalized.      | No error                                                                                                                                                                                                                     | <strong>Error</strong>: Provisioning failure, because the new VM is running with the original computer name, username and password. The original VM is not usable as it is marked as specialized.<br /><strong>Resolution:</strong> Delete the current image from the portal, and <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-windows-capture-image/">recapture it from the current VHDs</a> with the specialized setting. |
 
-## Issue: Custom/gallery/marketplace image; allocation failure
+## Issue: Custom/ gallery/ marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.
 
 **Cause 1:** The cluster cannot support the requested VM size.

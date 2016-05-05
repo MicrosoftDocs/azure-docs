@@ -1,7 +1,7 @@
 <properties
    pageTitle="Troubleshoot Linux VM deployment-Classic | Microsoft Azure"
-   description="Troubleshoot classic deployment issues when you create a new virtual machine in Azure"
-   services="virtual-machines, azure-classic"
+   description="Troubleshoot classic deployment issues when you create a new Linux virtual machine in Azure"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="jiangchen79"
    manager="felixwu"
@@ -9,13 +9,13 @@
    tags="top-support-issue"/>
 
 <tags
-  ms.service="virtual-machines"
+  ms.service="virtual-machines-linux"
   ms.workload="na"
-  ms.tgt_pltfrm="vm"
+  ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="article"
-   ms.date="05/04/2016"
-   ms.author="cjiang"/>
+  ms.date="05/05/2016"
+  ms.author="cjiang"/>
 
 # Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure
 
@@ -40,7 +40,7 @@ In the Azure portal, click **Browse** > **Virtual machines** > *your Windows vir
 | Linux Generalized         | <strong>Error</strong>: Provisioning timeout<br /><strong>Resolution:</strong> Use the original VHD that’s available on-prem, run -deprovision, and then upload as generalized. See <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-create-upload-vhd/">Create and Upload a Virtual Hard Disk that Contains the Linux Operating System</a> for more information. | No error                                                                                                                                                                                                                                               | <strong>Error</strong>: Provisioning timeout, because the original VM is not usable as it is marked as generalized.<br /><strong>Resolution:</strong> Delete the current image from the portal, and <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-capture-image/">recapture it from the current VHDs</a> with the generalized setting. | No error                                                                                                                                                                                                                                                                                                   |
 | Linux Specialized         | No error                                                                                                                                 | <strong>Error</strong>: Provisioning failure, because the new VM is running with the original computer name, username and password.<br /><strong>Resolution:</strong> Use the original VHD that’s available on-prem to upload as specialized, or run -deprovision to make the OS generalized. See <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-create-upload-vhd/">Create and upload a Windows Server VHD to Azure</a> for more information. | No error                                                                                                                                                                                                                     | <strong>Error</strong>: Provisioning failure, because the new VM is running with the original computer name, username and password. The original VM is not usable as it is marked as specialized.<br /><strong>Resolution:</strong> Delete the current image from the portal, and <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-capture-image/">recapture it from the current VHDs</a> with the specialized setting. |
 
-## Issue: Custom/gallery/marketplace image; allocation failure
+## Issue: Custom/ gallery/ marketplace image; allocation failure
 This error arises in situations when the new VM request is sent to a cluster that either does not have available free space to accommodate the request, or cannot support the VM size being requested. It is not possible to mix different series of VMs in the same cloud service. So if you want to create a new VM of a different size than what your cloud service can support, the compute request will fail.
 
 Depending on the constraints of the cloud service you use to create the new VM, you might encounter an error caused by one of two situations.
