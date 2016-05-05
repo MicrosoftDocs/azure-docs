@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create your first Windows VM | Microsoft Azure"
-	description="Learn how to create your first Windows virtual machine using the Azure portal"
+	pageTitle="Create a Windows VM in the Azure portal | Microsoft Azure"
+	description="Learn how to create a Windows virtual machine using the Azure portal"
 	keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="04/28/2016"
 	ms.author="cynthn"/>
 
-# Create your first Windows virtual machine using the Azure portal
+# Create a Windows virtual machine in the Azure portal
 
 This tutorial shows you how easy it is to create a Windows VM in just a few minutes using the Azure portal. We use a Windows Server 2012 R2 Datacenter image as an example, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to [MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connect to a Windows Server VM | Microsoft Azure"
-	description="Learn how to connect and log on to a Windows VM using the Azure portal and the Resource Manager deployment model."
+	description="Learn how to connect and log on to a Windows Server VM using the Azure portal and the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/05/2016"
+	ms.date="04/28/2016"
 	ms.author="cynthn"/>
 
-# How to connect and log on to an Azure virtual machine running Windows 
+# How to connect and log on to an Azure virtual machine running Windows Server 
 
 
-Use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session to your Windows VM. First you connect to the virtual machine, then you log on.
+You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session. First you connect to the virtual machine, then you log on.
 
 ## Connect to the virtual machine
 
