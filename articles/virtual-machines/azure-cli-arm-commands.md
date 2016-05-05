@@ -1803,7 +1803,7 @@ Parameter options:
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
     
->[AZURE.TIP]Starting with CLI version 0.10, you can provide a short alias such as `UbuntuLTS` or `Win2012R2Datacenter` for some popular Marketplace images. Run `azure help vm quick-create` for options. Additionally, starting with version 0.10, `azure vm quick-create` uses premium storage by default if it's available in the selected region.
+>[AZURE.TIP]Starting with CLI version 0.10, you can provide a short alias such as "UbuntuLTS" or "Win2012R2Datacenter" as the `image-urn` for some popular Marketplace images. Run `azure help vm quick-create` for options. Additionally, starting with version 0.10, `azure vm quick-create` uses premium storage by default if it's available in the selected region.
 
 **List the virtual machines within an account**
 
