@@ -134,7 +134,7 @@ JavaScript
     }
     catch (ex)
     {
-      appInsights.TrackException(ex, "handler loc",
+      appInsights.trackException(ex, "handler loc",
         {Game: currentGame.Name, 
          State: currentGame.State.ToString()});
     }
