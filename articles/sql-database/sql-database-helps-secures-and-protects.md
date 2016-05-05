@@ -17,7 +17,7 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
    
-# Azure SQL Databse Helps Secures and Protects
+# Azure SQL Database Helps Secures and Protects
 
 ## Keep your app’s data safe and secure
 

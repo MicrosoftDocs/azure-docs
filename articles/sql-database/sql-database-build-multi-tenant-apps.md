@@ -29,13 +29,13 @@ If you're a SaaS dev writing a multi-tenant app and handling many customers, you
 
 Pools automatically scale performance and storage capacity for elastic databases on the fly. You can control the performance assigned to a pool, add or remove elastic databases on demand, and define performance of elastic databases without affecting the overall cost of the pool. This means you don't have to worry about managing the usage of individual databases.
 
-[Read the documentation](sql-database-elastic-pool-guidance.md)
+[Read the documentation](sql-database-elastic-pool.md)
 
 ## Intelligent management of your environment
 
 Built-in sizing recommendations proactively identify databases that would benefit from pools. These recommendations allow "what-if" analysis for quick optimization to meet your performance goals. Rich performance monitoring and troubleshooting dashboards help you visualize historical pool utilization.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787583&clcid=0x409)
+[Read the documentation](sql-database-elastic-pool-guidance.md)
 
 ## Performance and price to meet your needs
 

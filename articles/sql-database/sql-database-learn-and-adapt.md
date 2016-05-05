@@ -45,7 +45,7 @@ SQL Database is able to track each query and its duration, frequency, and resour
 ## No administration required
 SQL Database provides the automatic administration and data protection your app needs so you can go back to doing what you do best&mdash;coding. You automatically get back-ups, disaster recovery failover, infrastructure maintenance, security and software patches, and feature updates. You’ll not only save money and time as SQL Database works behind the scenes, but you’ll also never have to worry about that dreaded app downtime.
 
-[Read the documentation](Read the documentation (http://go.microsoft.com/fwlink/?LinkID=787568&clcid=0x409)
+[Read the documentation](Read the documentation (http://go.microsoft.com/fwlink/?LinkID=787568)
 
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 
