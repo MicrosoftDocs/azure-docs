@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="05/04/2016"
 	ms.author="juliako"/>
 
 #Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay 
@@ -281,7 +281,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		
 		        static public IContentKey CreateCommonCBCTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            // Create HLS SAMPLE AES encryption content key
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		

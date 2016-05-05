@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use Table storage from Java | Microsoft Azure"
-	description="Learn how to use the table storage service in Azure. Code samples are written in Java code."
+	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
