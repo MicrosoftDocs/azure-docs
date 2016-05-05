@@ -19,12 +19,11 @@
 
 # Azure SQL Database Works in your Environment
 
-![works-in-your-environment](./media/sql-database-works-in-your-environment/sql-database-works-in-your-environment.png)
-
-
 ## Connect with what you already know
 
-The last thing a dev wants to do is learn something new just to connect with a database. Azure SQL Database makes it easy with a variety of languages and platforms you’re used to working with
+The last thing a dev wants to do is learn something new just to connect with a database. Azure SQL Database makes it easy with a variety of languages and platforms you’re used to working with.
+
+![works-in-your-environment](./media/sql-database-works-in-your-environment/sql-database-works-in-your-environment.png)
 
 ## JavaScript, Node.JS, and Python just to name a few
 
@@ -43,4 +42,4 @@ With guaranteed resources, tutorials on creating your first SQL Database, troubl
 [Read the documentation](sql-database-connect-central-recommendations.md)
 
 Go to the homepage to see what else SQL Database has to offer.
-[Check it out]()  
+[Check it out](https://azure.microsoft.com/services/sql-database/) 

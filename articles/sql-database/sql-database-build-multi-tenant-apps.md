@@ -17,13 +17,13 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Builds Multi-tenant Apps
-
-![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
+# Azure SQL Database Builds Multi-tenant Apps
 
 ## Leverage elastic pools and build more efficient multi-tenant apps
 
 If you're a SaaS dev writing a multi-tenant app and handling many customers, you often make tradeoffs in customer performance, management, and security. With Azure SQL Database Elastic Database Pools, you no longer have to make that compromise. These Pools help you manage and monitor multi-tenant apps and gain isolation benefits of one-customer-per-database.
+
+![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
 ## Auto-scaling you control
 
@@ -57,4 +57,4 @@ In addition to elastic pools, there are SQL Database features to help manage ope
 [Elastic database jobs](sql-database-elastic-jobs-overview.md) execute administrative operations such as rebuilding indexes or updating schemas across each database in your elastic pool.
 
 Go to the homepage to see what else SQL Database has to offer.
-[Check it out]() 
+[Check it out](https://azure.microsoft.com/services/sql-database/) 

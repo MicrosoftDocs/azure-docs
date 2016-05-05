@@ -19,12 +19,12 @@
 
 # Azure SQL Database Learns &amp; Adapts
 
-![learn-and-adapt](./media/sql-database-learn-and-adapt/sql-database-learn-and-adapt.png)
-
 
 ## How Azure SQL Database learns, adapts, and grows with your application
 
 Azure SQL Database manages billions of transactions and millions of databases per day. And one of its key features is that SQL Database is always learning and adapting with your app. That way you can dynamically maximize performance, reliability, and data security&mdash;with little effort on your part.
+
+![learn-and-adapt](./media/sql-database-learn-and-adapt/sql-database-learn-and-adapt.png)
 
 ## Threat detection and alerts  
 With threat and anomaly detection, SQL Database has built-in behavioral analysis, real-time alerts, a configurable threat policy, an audit log, and intelligent ways to detect and fix unusual patterns.
@@ -48,4 +48,4 @@ SQL Database provides the automatic administration and data protection your app 
 [Read the documentation](Read the documentation (http://go.microsoft.com/fwlink/?LinkID=787568&clcid=0x409)
 
 Go to the homepage to see what else SQL Database has to offer.
-[Check it out]()
+[Check it out](https://azure.microsoft.com/services/sql-database/) 

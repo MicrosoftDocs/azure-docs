@@ -19,11 +19,11 @@
    
 # Azure SQL Databse Helps Secures and Protects
 
-![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
-
 ## Keep your app’s data safe and secure
 
 Azure SQL Database supports millions of mission-critical databases in the cloud&mdash;where they all benefit from high availability, security, compliance, and high performance. From the smallest startup to the largest enterprise, data security is increasingly top of mind for all businesses, and SQL Database supports everyone.
+
+![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
 ## In case of emergency
 
@@ -44,4 +44,4 @@ SQL Database provides multiple layers of data protection. Your data is protected
 [Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787593&clcid=0x409)
 
 Go to the homepage to see what else SQL Database has to offer.
-[Check it out]() 
+[Check it out](https://azure.microsoft.com/services/sql-database/) 

@@ -19,12 +19,11 @@
 
 # Azure SQL Database Scales on the fly
 
-![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
-
-
 ## When your app grows from a small number of customers to just about everyone, Azure SQL Database can scale on the fly without app downtime
 
 One of the advantages of running SQL Database on Microsoft Azure is being able to scale performance up or down, and on the fly to quickly adapt to changing workload demands.  SQL Database offers a broad spectrum of performance levels to meet the specific needs of your application. And each level guarantees performance, so your app users have a predictable performance experience.
+
+![scale-on-the-fly](./media/sql-database-scale-on-the-fly/sql-database-scale-on-the-fly.png)
 
 ## When your app is an overnight success
 SQL Database makes it easy to scale at a moment's notice. So if your app becomes an overnight success, it's just one click to accommodate the new performance needs. Plus, without any downtime, you won't have to worry about your app taking a hit when the time comes to scale up or down.
@@ -44,4 +43,4 @@ SQL Database includes cutting edge in-memory technology to execute extremely fas
 [Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787580&clcid=0x409)
 
 Go to the homepage to see what else SQL Database has to offer.
-[Check it out]() 
+[Check it out](https://azure.microsoft.com/services/sql-database/) 
