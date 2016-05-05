@@ -85,9 +85,7 @@ Additional records can be added to each record set by additional calls to `Add-A
 
 Once the record set contains the desired collection of records, it needs to be committed using the `Set-AzureRmDnsRecordSet` cmdlet. Once a record set is committed, it will replace the existing record set in Azure DNS with the record set provided.
 
-The following examples show how to create a record set of each record type, each containing a single record.
-
-### Create an A record set with a single record
+### To create an A record set with a single record
 
 	$rs = New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup 
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
@@ -96,6 +94,8 @@ The following examples show how to create a record set of each record type, each
 The sequence of operations to create a record can also be ‘piped’, passing the record set object using the pipe rather than as a parameter.  For example:
 
 	New-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Add-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
+
+### Additional record type examples
 
 [AZURE.INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)] 
 

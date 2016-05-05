@@ -1,14 +1,10 @@
 ## About records
 
-Each DNS record has a name and a type.
-
-A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name "www.contoso.com".
-
->[AZURE.NOTE] In Azure DNS, records are specified using relative names.
-
-Records come in various types according to the data they contain. The most common type is an "A" record, which maps a name to an IPv4 address. Another type is an "MX" record, which maps a name to a mail server.
+Each DNS record has a name and a type. Records come in various types according to the data they contain. The most common type is an "A" record, which maps a name to an IPv4 address. Another type is an "MX" record, which maps a name to a mail server.
 
 Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT. Record sets of type SOA are created automatically with each zone, they cannot be created separately. Note that SPF records should be created using the TXT record type. See [this page](http://tools.ietf.org/html/rfc7208#section-3.1) for more information.
+
+In Azure DNS, records are specified using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name "www.contoso.com".
 
 ## About record sets
 

@@ -42,7 +42,7 @@ If you see "error: 'dns' is not an azure command" it is most likely because you 
 To create a record set in the Azure portal, see [Create a record set and records](dns-getstarted-create-recordset-cli.md).
 
 
-## Get a record set
+## Retrieve a record set
 
 To retrieve an existing record set, use `azure network dns record-set show`, specifying resource group, zone name, record set relative name and the record type. Use the example below, replacing the values with your own.
 
@@ -70,14 +70,12 @@ This will return all record sets matching the given record type (in this case, A
 
 Records are added to record sets using the `azure network dns record-set add-record`. The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A' you will only be able to specify records with the parameter `-a <IPv4 address>`.
 
-To create record set, use `azure network dns record-set create`. Specify resource group, zone name, record set relative name, the record type and time to live (TTL). 
+To create record set, use `azure network dns record-set create`. Specify resource group, zone name, record set relative name, the record type and time to live (TTL). If the --ttl parameter is not defined, the value defaults to 4 (in seconds).
 	
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
->[AZURE.NOTE] If --ttl parameter is not defined, the value defaults to 4 (in seconds).
 
-
-After creating the A record set, add the IPv4 address to the record set with `azure network dns record-set add-record`.
+After creating the A record set, add the IPv4 address by using `azure network dns record-set add-record`.
 
 	azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1 
 

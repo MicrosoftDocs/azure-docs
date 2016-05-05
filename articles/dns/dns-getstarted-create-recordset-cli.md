@@ -28,13 +28,11 @@ This article will walk you through creating records and records sets by using CL
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)] 
 
-
 ## Create a record set and a record
 
 In this section, we will show you how to create a record set and records. In this example, you will create a record set has relative name *www* in the DNS Zone *contoso.com*. The fully-qualified name of the records will be *www.contoso.com*. The record type is *A* and the TTL is 60 seconds. After completing this step, you will have created an empty record set.
 
 To create a record set in the apex of the zone (in this case, 'contoso.com'), use the record name "@", including the quotation marks. This is a common DNS convention.
-
 
 ### 1. Create a record set
 
@@ -46,16 +44,15 @@ To create record set, use `azure network dns record-set create`. Specify the res
 
 ### 2. Add records
 
-In order to be able to use the newly created "www" record set, you'll need to add records to it. Records are added to record sets using the `azure network dns record-set add-record`. 
+In order to be able to use the newly created *www* record set, you'll need to add records to it. Records are added to record sets using the `azure network dns record-set add-record`. 
 
 The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type *A*, you will only be able to specify records with the parameter `-a <IPv4 address>`. 
 
-You can add IPv4 *A* records to the "www" record set using the following command:
+You can add IPv4 *A* records to the *www* record set using the following command:
 
 *Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
-
 
 ## Additional record type examples
 

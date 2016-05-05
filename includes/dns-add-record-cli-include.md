@@ -1,4 +1,4 @@
-### Create an A record set with single record
+#### Create an A record set with single record
 
 To create record set, use `azure network dns record-set create`. Specify the resource group, zone name, record set relative name, the record type and time to live (TTL). 
 	
@@ -24,7 +24,6 @@ CNAME records only allow one single string value.
 	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
 
 
-
 #### Create an MX record set with a single record
 
 In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com").  This is common for MX records.
@@ -42,7 +41,7 @@ In this example, we use the record set name "@" to create the MX record at the z
 	
 #### Create an SRV record set with a single record
 
-If you are creating an SRV record in the root of the zone, just specify *_service* and *_protocol* in the record name. There is no need to also include ‘.@’ in the record name.
+If you are creating an SRV record in the root of the zone, you can specify "_service" and "_protocol" in the record name. There is no need to also include ‘.@’ in the record name.
 
 	
 	azure network dns record-set create myresourcegroup contoso.com "_sip._tls" SRV --ttl 300 
