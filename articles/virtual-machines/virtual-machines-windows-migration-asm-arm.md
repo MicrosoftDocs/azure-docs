@@ -182,7 +182,7 @@ You cannot abort migration if the Commit operation fails. All migration operatio
 
 **Do I have to buy another express route circuit if I have to leverage the IaaS stack under Resource manager?**
 
-No. We recently enabled [coexistence of an Express Route Circuit across Classic and Resource Manager Stack](././expressroute-howto-coexist-resource-manager). You don’t have to buy a new express route circuit if you already have one.
+No. We recently enabled [coexistence of an Express Route Circuit across Classic and Resource Manager Stack](././expressroute/expressroute-howto-coexist-resource-manager). You don’t have to buy a new express route circuit if you already have one.
 
 **Do you have a roadmap for when you will add the unsupported scenarios into the migration list?**
 
