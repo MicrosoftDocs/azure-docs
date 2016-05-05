@@ -41,7 +41,13 @@ The Data Catalog Business Glossary allows organizations to document key business
 
 The business glossary can be accessed via the "Glossary" option in the Data Catalog portal's navigation menu.  
 
+![Accessing the business glossary](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+
+
 Data Catalog administrators can create, edit and delete glossary terms in the business glossary. All Data Catalog users can view the term definitions, and can tag assets with glossary terms.
+
+![Adding a new glossary term](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+
 
 ## Creating glossary terms
 
@@ -65,6 +71,9 @@ The use of hierarchies in the business glossary is optional. Leaving the parent 
 
 Once glossary terms have been defined within the catalog, the experience of tagging assets is optimized to search the glossary as the user types their tag. The Data Catalog portal displays a list of matching glossary terms for the user to choose from. If the user selects a glossary term from the list it is added to the asset as a tag (a.k.a. glossary tag). The user can also choose to create a new tag by typing a term which is not in the glossary (a.k.a. user tag).
 
+![Data asset tagged with one user tag and two glossary tags](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
+
+
 > [AZURE.NOTE] User Tags are the only type of tag supported in the Free Edition of Data Catalog.
 
 ### Hover behavior on tags
@@ -75,22 +84,3 @@ Both glossary tags and user tags are searchable, and can be applied as filters i
 
 ## Summary
 The business glossary in Azure Data Catalog, and the governed tagging it enables, allow data assets to be identified, managed, and discovered in a consistent manner. The business glossary can promote learning of the business vocabulary amongst users of an organization and supports meaningful meta-data to be captured, making asset discovery and understanding a breeze.
-
------
-
-
-
-
-![Pinning a data asset](./media/data-catalog-how-to-save-pin/05-pinning.png)
-
-Unpinning an asset is equally straightforward – users simply click the “pin” icon again to toggle the setting for the selected asset.
-
-![Unpinning a data asset](./media/data-catalog-how-to-save-pin/06-unpinning.png)
-
-## “My Assets”
-The Azure Data Catalog portal home page includes a “My Assets” section that displays assets of interest to the current user. This section includes both pinned assets and saved searches.
-
-!['My Assets' on the home page](./media/data-catalog-how-to-save-pin/07-my-assets.png)
-
-## Summary
-Azure Data Catalog provides capabilities that make it easier for users to discover the data sources they need, so they can spend less time looking for data and more time working with it. Saved searches and pinned data assets build on these core capabilities so users can easily identify data sources with which they will work repeatedly.
