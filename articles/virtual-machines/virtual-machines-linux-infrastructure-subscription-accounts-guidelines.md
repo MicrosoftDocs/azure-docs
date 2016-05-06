@@ -21,7 +21,7 @@
 
 This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
 
-## 2. Subscriptions and accounts
+## Subscriptions and accounts
 
 In order to work with Azure, you need one or more Azure subscriptions. Resources, like cloud services or virtual machines, exist in the context of those subscriptions.
 
@@ -47,7 +47,7 @@ The organization could look like this.
 
 Microsoft provides detailed billing via a downloadable file for a single account or for all accounts in an enterprise agreement. You can process this file, for example, by using Microsoft Excel. This process would ingest the data, partition the resources that encode more than one level of the hierarchy into separate columns, and use a pivot table or PowerPivot to provide dynamic reporting capabilities.
 
-### Implementation guidelines recap for subscriptions and accounts
+## Implementation guidelines recap for subscriptions and accounts
 
 Decision:
 
