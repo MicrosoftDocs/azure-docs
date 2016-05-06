@@ -54,7 +54,7 @@ Security and Compliance helps you identify, assess, and mitigate security risks 
 
 - The [Security and Audit solution](log-analytics-security-audit.md ) collects and analyzes security events on managed systems to identify suspicious activity.
 - The [Antimalware solution](log-analytics-malware.md ) reports on the status of antimalware protection on managed systems.  
-- The [System Updates solution](../log-analytics/log-analytics-system-update.md) performs an analysis of the security updates and other updates on your managed systems so that you easily identify systems requiring patching.
+- The System Updates solution performs an analysis of the security updates and other updates on your managed systems so that you easily identify systems requiring patching.
 
 ## Where is OMS Available?
 OMS is hosted in the United States. Although the language of OMS is English, the service is available in a number of additional markets. For information, see [International Availability](http://go.microsoft.com/fwlink/?LinkId=229842).
