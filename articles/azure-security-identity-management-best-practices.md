@@ -16,7 +16,7 @@
    ms.date="05/06/2016"
    ms.author="yuridio"/>
 
-# Azure Identity Management and Access Control Security Best Practices
+# Azure Identity Management and access control security best practices
 
 Many consider identity to be the new boundary layer for security, taking over that role from the traditional network-centric perspective. This evolution of the primary pivot for security attention and investments come from the fact that network perimeters have become increasingly porous and that perimeter defense cannot be as effective as they once were prior to the explosion of [BYOD](http://aka.ms/byodcg) devices and cloud applications.
 
