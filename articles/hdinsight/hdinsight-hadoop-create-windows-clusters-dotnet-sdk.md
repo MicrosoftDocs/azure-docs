@@ -35,9 +35,10 @@ Before you begin the instructions in this article, you must have the following:
 - Visual Studio 2013 or 2015.
 
 ## Create clusters
+
 The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. Follow the instructions below to create a Visual Studio console application and paste the code for creating a cluster.
 
-The application requires an Azure resource group, and the default storage account.  The [Appendix A](#appx-a-create-dependent-components) provices a PowerShell script to create the dependent components.
+The application requires an Azure resource group, and the default storage account.  The [Appendix A](#appx-a-create-dependent-components) provides a PowerShell script to create the dependent components.
 
 **To create a Visual Studio console application**
 
@@ -46,7 +47,6 @@ The application requires an Azure resource group, and the default storage accoun
 
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
-		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
 
@@ -75,8 +75,8 @@ The application requires an Azure resource group, and the default storage accoun
 				private const int NewClusterNumNodes = 1;
 				private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
 				private const OSType NewClusterOsType = OSType.Windows;
-				private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-				private const string NewClusterVersion = "3.2";
+                private const string NewClusterType = "Hadoop";
+                private const string NewClusterVersion = "3.2";
 				private const string NewClusterUsername = "admin";
 				private const string NewClusterPassword = "<HTTP User password>";
 		
@@ -163,6 +163,8 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 ##Appx-A Create dependent components
 
 The following Azure PowerShell script can be use to create the dependent components needed by the .NET application in this tutorial.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
     ####################################
     # Set these variables

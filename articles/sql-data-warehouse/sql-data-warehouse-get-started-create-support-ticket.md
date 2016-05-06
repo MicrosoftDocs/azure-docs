@@ -22,7 +22,7 @@
 
 ## How to create a support ticket
 
-1. Open the [Azure Portal][].
+1. Open the [Azure portal][].
 2. On the Home screen, click the **Help + support** tile.
 
     ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -78,7 +78,7 @@ Additionally, you can connect with the SQL Data Warehouse community using the a
 
 <!-- External links -->
 
-[Azure Portal]:https://portal.azure.com/
+[Azure portal]:https://portal.azure.com/
 [Azure support plans]:http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [Microsoft Premier online portal]:https://premier.microsoft.com/
 [Stack Overflow]:http://stackoverflow.com/questions/tagged/azure-sqldw/

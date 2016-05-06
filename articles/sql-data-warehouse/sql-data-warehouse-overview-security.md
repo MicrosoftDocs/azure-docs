@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/02/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -24,7 +24,9 @@ This article walks through the basics of securing your Azure SQL Data Warehouse 
 
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
-Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow your application or client machine's public IP address to attempt connecting to a new database, you must first create a server-level firewall rule using the Azure Classic Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible. For more information, see [Azure SQL Database firewall][].
+Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure Classic Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access Azure SQL Data Warehouse from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  For more information, see [Azure SQL Database firewall][].
+
+Connections to your SQL Data Warehouse can be encrypted by setting the encryption mode in your connection string.  The syntax for turning on encryption for the connection varies by protocol.  To help you set up your connection string, navigate to your database on the Azure Portal.  Under *Essentials* click on *Show database connection strings*.
 
 
 ## Authentication
@@ -43,7 +45,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 ```
 
-Then, connect to your SQL Data Warhouse database with your server admin login and create a database user based on the server login you just created.
+Then, connect to your SQL Data Warehouse database with your server admin login and create a database user based on the server login you just created.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -67,7 +69,7 @@ The server admin account you are connecting with is a member of db_owner, which 
 
 There are ways to further limit what a user can do with Azure SQL Database:
 
-- Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database. Use granular permissions to have the most control and grant the mimimum permissions necessary. The granular permission system is somewhat complicated and will require some study to use effectively.
+- Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database. Use granular permissions to have the most control and grant the minimum permissions necessary. The granular permission system is somewhat complicated and will require some study to use effectively.
 - [Database roles][] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
 - [Stored procedures][] can be used to limit the actions that can be taken on the database.
 
@@ -84,21 +86,20 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-You can also enable Transparent Data Encryption from database settings in the [Azure Classic Portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
+You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Auditing
 
 Auditing and tracking database events can help you maintain regulatory compliance and identify suspicious activity. SQL Data Warehouse Auditing allows you to record events in your database to an audit log in your Azure Storage account. SQL Data Warehouse Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses. For more information, see [Get started with SQL Database Auditing][].
 
 ## Next steps
-For more development tips, see [development overview][].
-
+For details and examples on connecting to your SQL Data Warehouse with different protocols, see [Connect to SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
+[Connect to SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
+[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -107,8 +108,7 @@ For more development tips, see [development overview][].
 [Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
-[Azure Classic Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Role-based access control in Azure Portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx

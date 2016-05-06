@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Classic Portal
@@ -26,6 +26,7 @@ Using the [Azure Classic Portal](https://manage.windowsazure.com), you can provi
 
 ## Other tools for administering HDInsight
 There are also other tools available for administering HDInsight in addition to the Azure Classic Portal.
+
 
 - For more information on administering HDInsight by using Azure PowerShell, see [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md).
 

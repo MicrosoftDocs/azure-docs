@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/06/2016"
+   ms.date="04/22/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database By Using Azure Active Directory Authentication
@@ -28,6 +28,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 - Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
 - Azure Active Directory supports token-based authentication for applications token-based authentication for applications connecting to SQL Database.
+- Azure Active Directory authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
 
 > [AZURE.IMPORTANT] Azure Active Directory authentication is a preview feature and is subject to the preview terms in the license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -44,11 +45,11 @@ The configuration steps include the following procedures to configure and use Az
 
 ## Trust architecture
 
-The following high level diagram summarizes the solution architecture of using Azure AD authentication with Azure SQL Database. The arrows indicate communication pathways.
+The following high level diagram summarizes the solution architecture of using Azure AD authentication with Azure SQL Database. To support Azure Active Directory native user password, only the Cloud portion and Azure AD/Azure SQL Database is considered. To support Federated authentication (or user/password for Windows credentials) the communication with ADFS block is required. The arrows indicate communication pathways.
 
 ![aad auth diagram][1]
 
-The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token that was authenticated by an Azure AD, and which is trusted by the database. It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure Active Directory.
+The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token that was authenticated by an Azure AD, and which is trusted by the database. Customer 1 can represent an Azure Active Directory with native users or an Azure Active Directory with federated users. Customer 2 represents a possible solution including imported users; in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure Active Directory.
 
 ![subscription relationship][2]
 

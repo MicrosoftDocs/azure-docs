@@ -288,6 +288,18 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 23. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
+
+If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
+
+- In Azure PowerShell, run the following command to register the Data Factory provider. 
+		
+		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+	You can run the following command to confirm that the Data Factory provider is registerd. 
+	
+		Get-AzureRmResourceProvider
+- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This automatically registers the provider for you.
+
  
 ## Monitor pipeline
 

@@ -252,8 +252,8 @@ You can also execute atomic transactions against documents with the same device 
 
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
         UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        "XMS-001-FE24C",
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") });
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
+        "XMS-001-FE24C");
 
 In the next section, we look at how you can move to partitioned collections from single-partition collections.
 
