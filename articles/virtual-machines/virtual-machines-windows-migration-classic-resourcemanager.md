@@ -27,7 +27,7 @@ We are really excited about the power and capability offered by the new experien
 
 From a feature standpoint, almost all the features are supported for Compute, Network & Storage under Azure Resource Manager with a few exceptions which we are aggressively trying to finish in the coming months. In addition, we are continuously improving the user experience and adding more features to the azure portal to bridge the experiences.
 
-Because of this new capability and growing deployment base in the new Azure Resource Manager, we want to enable customers to be able to migrate existing deployments in Classic as fast as possible.
+Because of this new capability and growing deployment base in the new Azure Resource Manager, we want to enable customers to be able to migrate existing deployments in Classic.
 
 >[AZURE.NOTE] With this announcement, we are launching the public preview of the migration service. During public preview, we only recommend migration of your Dev/Test workloads in your Azure subscription.
 
@@ -46,7 +46,7 @@ Before we drill down into the details, we’d like to briefly explain the differ
 
 ## What are the supported scopes of Migration?
 
-During public preview, we are offering two migration scopes primarily targeting Compute and Network. Support for migration of Storage Accounts is planned and will be released very soon. However, to enable a
+During public preview, we are offering two migration scopes primarily targeting Compute and Network. Support for migration of Storage Accounts is planned and will be released very soon. However, to allow seamless migration, we have enable the classic storage accounts to contain disks for Resource Manager VMs. You can find more details on this below.  
 
 ### Migration of Virtual Machines (Not in a Virtual Network)
 
@@ -75,6 +75,7 @@ Storage account migration is currently not supported for Public Preview. However
   To allow seamless migration, we have enabled the capability to deploy resource manager VMs in a Classic storage account. With this capability, Compute and Network resources can be migrated independent of storage accounts.
 - Best practice for storage account migration
 	When storage account migration is supported, the platform will enforce the Compute and Network resources separate from the storage accounts to enable a seamless experience.
+
 ## Unsupported features & configurations
 
 At this time, we do not support a certain set of features and configurations. We are working on adding support for them, however, the following section calls out our recommendation and plans around them.
@@ -174,7 +175,7 @@ We are not deprecating the existing Classic APIs and resource model. We want to 
 
 **What does this migration plan mean for my existing tooling?**
 
-As stated above, updating your tooling to the Resource Manager deployment model would be one of the most important changes that you have to account for in your migration plans.
+Updating your tooling to the Resource Manager deployment model would be one of the most important changes that you have to account for in your migration plans.
 
 **How long will the management plane downtime be?**
 
