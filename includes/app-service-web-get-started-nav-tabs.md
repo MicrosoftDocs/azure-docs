@@ -3,4 +3,4 @@
 - [Node.js](app-service-web-nodejs-get-started.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 - [Java](web-sites-java-get-started.md)
-- [WordPress](web-sites-php-web-site-gallery.md)
+- [Gallery app](web-sites-php-web-site-gallery.md)
