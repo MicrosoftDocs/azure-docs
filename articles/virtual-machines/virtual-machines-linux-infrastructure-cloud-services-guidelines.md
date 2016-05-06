@@ -21,7 +21,7 @@
 
 This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
 
-## 4. Cloud services
+## Cloud services
 
 Cloud services are a fundamental building block in Azure service management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
 
@@ -39,7 +39,7 @@ One important limitation of cloud services to consider is that only one virtual 
 
 Azure subscriptions can support a maximum of 200 cloud services.
 
-### Implementation guidelines recap for cloud services
+## Implementation guidelines recap for cloud services
 
 Decision:
 
