@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-point-in-time-restore-portal.md)
-- [PowerShell](sql-database-point-in-time-restore-portal-powershell.md)
+- [PowerShell](sql-database-point-in-time-restore-powershell.md)
 
 This article shows you how to restore your database to an earlier point in time using the Azure Portal.
 
