@@ -2,18 +2,17 @@
 For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
-## How to: Attach an empty disk
+## Attach an empty disk
 
 1.  Open Azure CLI and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
 
-2.  Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following. Replace _TestVM_ with the name of your Linux Virtual Machine. Then specify the size of the disk in GB, which is 100GB in this example.
+2.  Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following. Replace _TestVM_ with the name of your Linux Virtual Machine and specify the size of the disk in GB, which is 100GB in this example:
 
         azure vm disk attach-new TestVM 100
 
-3.	After the data disk is created and attached, it's listed in the output of `azure vm disk list
-    <virtual-machine-name>`:
+3.	After the data disk is created and attached, it's listed in the output of `azure vm disk list <virtual-machine-name>` as shown in the following:
 
-        $ azure vm disk list ubuntuVMasm
+        $ azure vm disk list TestVM
         info:    Executing command vm disk list
         + Fetching disk images
         + Getting virtual machines
@@ -25,7 +24,7 @@ For more details about disks, see [About Disks and VHDs for Virtual Machines](..
         info:    vm disk list command OK
 
 <a id="attachexisting"></a>
-## How to: Attach an existing disk
+## Attach an existing disk
 
 Attaching an existing disk requires that you have a .vhd available in a storage account.
 
@@ -44,7 +43,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     	info:    vm disk list command OK
 
 3.  If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using
-    `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be:
+    `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following:
 
         $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
 		info:    Executing command vm disk create
@@ -53,7 +52,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 		info:    Uploading 10485760.5 KB
 		Requested:100.0% Completed:100.0% Running:   0 Time:   25s Speed:    82 KB/s
 		info:    Finishing computing MD5 hash, 16% is complete.
-		info:    https://portalvhdsq1s6mc7mqf4gn.blob.core.windows.net/disks/test.VHD was
+		info:    https://mystorageaccount.blob.core.windows.net/disks/test.VHD was
 		uploaded successfully
 		info:    vm disk create command OK
 
@@ -69,8 +68,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
 	Make sure to replace _TestVM_ with the name of your virtual machine, and _myTestVhd_ with your desired VHD.
 
-5.	You can verify the disk is attached to the virtual machine with `azure vm disk list
- 	<virtual-machine-name>`:
+5.	You can verify the disk is attached to the virtual machine with `azure vm disk list <virtual-machine-name>`:
 
 		$azure vm disk list TestVM
 		info:    Executing command vm disk list
@@ -86,4 +84,4 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
 
 > [AZURE.NOTE]
-> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage.
+> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the steps below for more information on how to do this).

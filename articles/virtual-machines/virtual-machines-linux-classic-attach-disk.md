@@ -28,7 +28,7 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
-## How to: Initialize a new data disk in Linux
+## Initialize a new data disk in Linux
 
 1. SSH to your VM. For further details, see [How to log on to a virtual machine running Linux][Logon].
 
