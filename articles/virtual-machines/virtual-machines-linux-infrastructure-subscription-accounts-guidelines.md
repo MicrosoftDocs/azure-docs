@@ -16,3 +16,5 @@
 	ms.topic="article"
 	ms.date="05/05/2016"
 	ms.author="v-livech"/>
+
+# Azure Subscription and Accounts Guidelines
