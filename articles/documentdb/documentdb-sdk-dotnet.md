@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/06/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB SDK
@@ -36,6 +36,9 @@
 
 ## Release Notes
 
+### <a name="1.7.1"/>[1.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
+  - Added an overload to Uri based ExecuteStoredProcedureAsync method that takes RequestOptions as a parameter.
+  
 ### <a name="1.7.0"/>[1.7.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.0)
   - Added time to live (TTL) support for documents.
 
@@ -131,6 +134,7 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.7.1](#1.7.1) | May 06, 2016 |---
 | [1.7.0](#1.7.0) | April 26, 2016 |---
 | [1.6.3](#1.6.3) | April 08, 2016 |---
 | [1.6.2](#1.6.2) | March 29, 2016 |---

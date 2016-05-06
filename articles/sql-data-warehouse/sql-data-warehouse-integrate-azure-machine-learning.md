@@ -44,7 +44,7 @@ Look for the Reader module in the palette of datasets and modules on the left of
 Select the Reader module and fill out the properties pane.
 
 1. Select Azure SQL Database as the Data Source.
-2. Database server name: Type the server name. You can use the [Azure Classic Portal][] to find this.
+2. Database server name: Type the server name. You can use the [Azure portal][] to find this.
 
 ![][server_name]
 
@@ -102,7 +102,7 @@ Look for the Writer module in the palette of datasets and modules on the left of
 Select the Writer module and fill out the properties pane.
 
 1. Select Azure SQL Database as the Data Destination.
-2. Database server name: Type the server name. You can use the [Azure Classic Portal][] to find this.
+2. Database server name: Type the server name. You can use the [Azure portal][] to find this.
 3. Database name: Type the name of a database on the server you just specified.
 4. Server user account name:  Type the user name of an account that has write permissions for the database.
 5. Server user account password: Provide the password for the specified user account.
@@ -142,7 +142,7 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [Create experiment tutorial]: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/
 [Introduction to machine learning on Azure]: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
-[Azure Classic Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 <!--MSDN references-->
 

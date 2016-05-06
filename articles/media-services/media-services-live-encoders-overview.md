@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuring on-premises live encoders" 
+	pageTitle="How to configure on-premise encoders when using Azure Media Services to create multi-bitrate streams" 
 	description="This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS channels (that are live encoding enabled) for further processing. The topic links to tutorials that show how to configure listed encoders." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="05/05/2016"
 	ms.author="juliako"/>
 
 
 
-#Configuring on-premises live encoders
+#How to configure on-premise encoders when using Azure Media Services to create multi-bitrate streams
 
 This topic lists on-premises live encoders that you can use to capture your live events and send a single bitrate live stream to AMS channels (that are live encoding enabled) for further processing. The topic also links to tutorials that show how to configure listed encoders.
 

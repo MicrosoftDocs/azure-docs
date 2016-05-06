@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/07/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 #Choose the multi-factor security solution for you
@@ -73,7 +73,7 @@ One-Time Bypass |  | ●
 Custom greetings for phone calls | ● | ● 
 Customizable caller ID for phone calls | ● | ● 
 Trusted IPs | ● | ● 
-Remember MFA for trusted devices (Public Preview) | ● |  
+Remember MFA for trusted devices  | ● |  
 Conditional access | ● | ● 
 Cache |  | ● 
 
