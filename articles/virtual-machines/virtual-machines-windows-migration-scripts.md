@@ -116,7 +116,7 @@ The template creates files depending on the existence of classic Virtual Machine
 If the -Deploy flag is set, after generating the files, the cmdlet then deploys the <ServiceName>-<VMName>-setup.json template, copies the source Virtual Machine disk blobs if the DiskAction parameter is set to CopyDisks and then deploys the <ServiceName>-<VMName>-deploy.json template, using the <ServiceName>-<VMName>-parameters.json file for parameters. Once the deployment of the Virtual Machine is done, if there is an imperative script (for Virtual Machine agent extensions), or a script for copying the disks, they are executed.
 
 ### Network details
-The cmdlet's intent is not to clone the ASM network settings to ARM. It utilizes the networking facilities in a way that is the most convenient for cloning the Virtual Machine itself. Here is what happens on different conditions:
+The cmdlet's intent is not to clone the classic network settings to Resource Manager. It utilizes the networking facilities in a way that is the most convenient for cloning the Virtual Machine itself. Here is what happens on different conditions:
 
 1.  No virtual network on the target resource group
     - Source Virtual Machine is not on a subnet: A default virtual network with 10.0.0.0/16 is created along with a subnet, with 10.0.0.0/22 address space.
