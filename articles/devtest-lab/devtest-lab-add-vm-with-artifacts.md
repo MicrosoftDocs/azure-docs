@@ -151,4 +151,4 @@ Once saved, you can use the ARM template to [deploy new VMs with Azure PowerShel
 
 - Once the VM has been created, you can connect to the VM by tapping **Connect** on the VM's blade.
 - Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
-- Explore the [ARM QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+- Explore the [DevTest Labs ARM QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
