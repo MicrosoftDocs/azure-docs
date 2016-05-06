@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/07/2016"
 	ms.author="anhoh"/>
 
 # Request increased DocumentDB account limits
@@ -25,9 +25,9 @@ After reading this article, you'll be able to answer the following questions:
 -	Which DocumentDB account quotas can be adjusted by contacting Azure support?
 -	How can I request a DocumentDB account quota adjustment?
 
-##<a id="AdjustableQuotas"></a> Adjustable DocumentDB account quotas
+##<a id="Quotas"></a> DocumentDB account quotas
 
-The following table describes the DocumentDB quotas that can be adjusted by contacting Azure support:   
+The following table describes the DocumentDB quotas. The quotas that have an asterisk (*) can be adjusted by contacting Azure support: 
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 

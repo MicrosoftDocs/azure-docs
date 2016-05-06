@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/14/2016"
 	ms.author="guybo"/>
 
 # Virtual Machine Scale Sets Overview
 
 Virtual machine scale sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs are required – and as such make it easier to build large-scale services targeting big compute, big data, and containerized workloads.
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/).
+For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
 Take a look at these videos for more about VM scale sets:
 
@@ -33,7 +33,7 @@ Take a look at these videos for more about VM scale sets:
 
 VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-A set of example templates for VM scale sets can be found in the Azure Quickstart teamplates GitHub repository here:
+A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository here:
 
 [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) - look for templates with _vmss_ in the title.
 
@@ -59,7 +59,7 @@ It is currently recommended you use the [Azure Resource Explorer](https://resour
 
 This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
 
- - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
+ - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
 
  - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. E.g.
 
@@ -87,22 +87,22 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 ## VM scale set performance and scale guidance
 
-- During the public preview, do not create more than 500 VMs in multiple VM Scale Sets at a time.
-- Plan for no more than 40 VMs per storage account.
+- Do not create more than 500 VMs in multiple VM Scale Sets at a time.
+- Plan for no more than 20 VMs per storage account (unless you set the _overprovision_ property to "false", in which case you can go up to 40).
 - Spread out the first letters of storage account names as much as possible.  The example VMSS templates in [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/) provide examples of how to do this.
 - If using custom VMs, plan for no more than 40 VMs per VM scale set, in a single storage account.  You will need the image pre-copied into the storage account before you can begin VM scale set deployment. See the FAQ for more information.
 - Plan for no more than 2048 VMs per VNET.  This limit will be increased in the future.
-- The number of VMs you can create is limited by your Compute core quota in any region. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: _azure vm list-usage_, and the following PowerShell command: _Get-AzureRmVMUsage_ (if using a version of PowerShell below 1.0 use _Get-AzureVMUsage_).
+- The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: `azure vm list-usage`, and the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
 
 ## VM scale set frequently asked questions
 
 **Q.** How many VMs can you have in a VM scale set?
 
-**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40, since custom images are limited to a single storage account during preview.
+**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40 (if the _overprovision_ property is set to "false", 20 by default), since custom images are limited to a single storage account during preview.
 
 **Q** What other resource limits exist for VM scale sets?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during the preview period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
 
 **Q.** Are Data Disks Supported within VM scale sets?
 
@@ -114,13 +114,15 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 - Temp drive (local, not backed by Azure storage)
 
-- External data service (e.g. remote DB, Azure tables, Azure blobs)
+- Azure data service (e.g. Azure tables, Azure blobs)
 
-**Q.** Which Azure regions support for VM scale sets?
+- External data service (e.g. remote DB)
+
+**Q.** Which Azure regions support VM scale sets?
 
 **A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
 
-**Q.** How do you create a VM scale sets using a custom image?
+**Q.** How do you create a VM scale set using a custom image?
 
 **A.** Leave the vhdContainers property blank, for example:
 
@@ -130,7 +132,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 			"caching": "ReadOnly",
 			"createOption": "FromImage",
 			"image": {
-				"uri": [https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd](https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd)
+				"uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
 			},
 			"osType": "Windows"
 		}
@@ -151,4 +153,4 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q.** Do VM scale sets work with Azure availability sets?
 
-**A.** Yes. A VM scale set is an implicit availability set with 3 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, VM scale sets are likely to span multiple tenants but for now a scale set is a single availability set.
+**A.** Yes. A VM scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, VM scale sets are likely to span multiple tenants but for now a scale set is a single availability set.

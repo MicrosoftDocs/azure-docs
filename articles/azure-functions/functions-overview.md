@@ -15,15 +15,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/09/2016"
+   ms.date="04/21/2016"
    ms.author="cfowler;mahender"/>
    
    
 # Azure Functions Overview
 
+This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Azure Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
+
 ## A faster way to functions
 
-Write any function under a minute - either when you need a simple job to cleanse a database or to build functionality that processes millions of messages from connected devices. Use your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
+Write any function under a minute - either when you need a simple job to clean a database or to build functionality that processes millions of messages from connected devices. Use your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
 
 Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can [get started with your first function](functions-create-first-azure-function.md) in just minutes.
 
@@ -64,6 +66,23 @@ Azure Functions supports a variety of integrations with Azure and 3rd-party serv
 
 There are two ways to run Azure Functions: using a Dynamic App Service Plan and using a Classic App Service plan.
 
-In a **Dynamic App Service Plan**, you don't have to worry about resource management. Whenever your function is run, Azure will provide all of the necessary computational resources. You only pay for the time that your code spends running. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions).
+In a **Dynamic App Service Plan**, you don't have to worry about resource management. Whenever your function is run, Azure will provide all of the necessary computational resources. You only pay for the time that your code spends running. Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
-A **Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. This is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
+A **Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. This is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](https://azure.microsoft.com/pricing/details/app-service/).
+
+## Reporting Issues
+
+[AZURE.INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
+
+##Next Steps
+
++ [Create your first Azure Function](functions-create-first-azure-function.md)  
+Jump right in and create your first function using the Azure Functions quickstart. 
++ [Azure Functions developer reference](functions-reference.md)  
+Provides more technical information about the Azure Functions runtime and a reference for coding functions and defining triggers and bindings.
++ [Testing Azure Functions](functions-test-a-function.md)  
+Describes various tools and techniques for testing your functions.
++ [How to scale Azure Functions](functions-scale.md)  
+Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan. 
++ [What is Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
+Azure Functions leverages the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to use Azure Blob storage from Java | Microsoft Azure"
-	description="Learn how to use Azure Blob storage to upload, download, list, and delete blob content. Samples written in Java."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # How to use Blob storage from Java

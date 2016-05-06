@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Windows Universal Apps
@@ -36,7 +36,7 @@ This tutorial requires the following:
 
 ##<a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
 
-This tutorial presents a "basic integration," which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Windows Universal SDK integration](../mobile-engagement-windows-store-sdk-overview/).
+This tutorial presents a "basic integration," which is the minimal set required to collect data and send a push notification. The complete integration documentation can be found in the [Mobile Engagement Windows Universal SDK integration](mobile-engagement-windows-store-sdk-overview.md).
 
 We will create a basic app with Visual Studio to demonstrate the integration.
 

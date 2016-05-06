@@ -3,7 +3,7 @@
 	description="If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -13,11 +13,11 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/21/2016"
+	ms.author="iainfou"/>
 
-# Troubleshoot Access to an Application Running on an Azure Virtual Machine
+# Troubleshoot access to an application running on an Azure virtual machine
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

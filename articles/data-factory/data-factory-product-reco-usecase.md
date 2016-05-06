@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Use Case - Product Recommendations 
@@ -52,7 +52,7 @@ Finally, the result set of personalized product recommendations is moved to a re
 
 ## Benefits
 
-By optimizing their product recommendation strategy and aligning it with business goals, the solution met the online retailer’s merchandising and marketing objectives. Additionally they were able to operationalize and manage the product recommendation workflow in an efficient, reliable, and cost effective manner, making it easy for them to update their model and fine-tune its effectiveness based on the measures of sales click-to-conversion successes. By using Azure Data Factory, they were able to abandon their time consuming and expensive manual cloud resource management and move to on-demand cloud resource management, saving them time, money, and reducing their time to solution deployment. Data lineage views and operational service health became easy to visualize and troubleshoot with the intuitive Data Factory monitoring and management UI available from the Azure Classic Portal. Their solution can now be scheduled and managed so that finished data is reliably produced and delivered to their users, and data and processing dependencies are automatically managed without human intervention.
+By optimizing their product recommendation strategy and aligning it with business goals, the solution met the online retailer’s merchandising and marketing objectives. Additionally they were able to operationalize and manage the product recommendation workflow in an efficient, reliable, and cost effective manner, making it easy for them to update their model and fine-tune its effectiveness based on the measures of sales click-to-conversion successes. By using Azure Data Factory, they were able to abandon their time consuming and expensive manual cloud resource management and move to on-demand cloud resource management, saving them time, money, and reducing their time to solution deployment. Data lineage views and operational service health became easy to visualize and troubleshoot with the intuitive Data Factory monitoring and management UI available from the Azure Portal. Their solution can now be scheduled and managed so that finished data is reliably produced and delivered to their users, and data and processing dependencies are automatically managed without human intervention.
 
 By providing this personalized shopping experience, the online retailer created a more competitive, engaging customer experience and consequently increase sales and overall customer satisfaction.
 

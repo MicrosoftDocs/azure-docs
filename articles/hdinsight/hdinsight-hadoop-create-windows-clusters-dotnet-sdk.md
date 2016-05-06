@@ -35,9 +35,10 @@ Before you begin the instructions in this article, you must have the following:
 - Visual Studio 2013 or 2015.
 
 ## Create clusters
+
 The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. Follow the instructions below to create a Visual Studio console application and paste the code for creating a cluster.
 
-The application requires an Azure resource group, and the default storage account.  The [Appendix A](#appx-a-create-dependent-components) provices a PowerShell script to create the dependent components.
+The application requires an Azure resource group, and the default storage account.  The [Appendix A](#appx-a-create-dependent-components) provides a PowerShell script to create the dependent components.
 
 **To create a Visual Studio console application**
 
@@ -45,8 +46,8 @@ The application requires an Azure resource group, and the default storage accoun
 2. Run the following Nuget command in the Nuget Package Management console.
 
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
-		Install-Package Microsoft.Azure.Management.Resources -Pre
+		Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+		Install-Package Microsoft.Azure.Management.HDInsight
 
 6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
 
@@ -58,7 +59,7 @@ The application requires an Azure resource group, and the default storage accoun
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.ResourceManager;
 		
 		namespace CreateHDInsightCluster
 		{
@@ -75,7 +76,7 @@ The application requires an Azure resource group, and the default storage accoun
 				private const int NewClusterNumNodes = 1;
 				private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
 				private const OSType NewClusterOsType = OSType.Windows;
-				private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+				private const string NewClusterType = "Hadoop";
 				private const string NewClusterVersion = "3.2";
 				private const string NewClusterUsername = "admin";
 				private const string NewClusterPassword = "<HTTP User password>";
@@ -87,8 +88,9 @@ The application requires an Azure resource group, and the default storage accoun
 					var tokenCreds = GetTokenCloudCredentials();
 					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
 					
-					var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-					resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+					var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+					var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+					var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 					
 					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 				
@@ -107,9 +109,8 @@ The application requires an Azure resource group, and the default storage accoun
 		
 					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
 
-                    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
-                    System.Console.ReadLine();
-                    
+					System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+					System.Console.ReadLine();
 				}
 
 				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
@@ -145,10 +146,12 @@ The application requires an Azure resource group, and the default storage accoun
 ##Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
-* [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
-* [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
-
+- [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
+- [Run Hive jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [Run Pig jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [Run Oozie jobs in HDInsight](hdinsight-use-oozie.md)
+- [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -161,6 +164,8 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 ##Appx-A Create dependent components
 
 The following Azure PowerShell script can be use to create the dependent components needed by the .NET application in this tutorial.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
     ####################################
     # Set these variables

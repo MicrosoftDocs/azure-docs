@@ -119,7 +119,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Ultipro support team via [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com) and provide them with the following:
+5. To get SSO configured for your application, contact your UltiPro Account Manager and provide them with the following:
 
     - The downloaded certificate file
 

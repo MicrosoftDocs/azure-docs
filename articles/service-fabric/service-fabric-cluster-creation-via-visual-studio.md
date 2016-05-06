@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/11/2016"
+   ms.date="04/04/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Set up a Service Fabric cluster by using Visual Studio
@@ -39,7 +39,6 @@ Before the template is deployed to create the cluster, you must provide values f
 
 |Parameter name           |Description|
 |-----------------------  |--------------------------|
-|clusterLocation          |The name of the **Azure region** where the Service Fabric cluster will be located. For example, "East US."|
 |certificateThumbprint    |The thumbprint of the certificate that will secure the cluster.|
 |sourceVaultResourceId    |The *resource ID* of the key vault where the certificate that secures the cluster is stored.|
 |certificateUrlValue      |The URL of the cluster security certificate.|

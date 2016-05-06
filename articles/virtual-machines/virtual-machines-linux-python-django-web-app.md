@@ -6,7 +6,7 @@
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""
-	tags=“azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 

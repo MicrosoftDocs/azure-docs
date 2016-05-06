@@ -46,7 +46,7 @@ A sample script to install Solr on an HDInsight cluster is available at the foll
 
 This section provides instructions on how to use the sample script when creating a new cluster by using the Azure portal. 
 
-> [AZURE.NOTE] Azure PowerShell, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal), but do not complete provisioning.
 

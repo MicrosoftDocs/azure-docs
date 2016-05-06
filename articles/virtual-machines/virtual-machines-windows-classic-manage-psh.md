@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/31/2016"
    ms.author="kasing"/>
 
 # Manage your virtual machines by using Azure PowerShell
@@ -94,14 +94,6 @@ To create a new Windows-based virtual machine in Azure, use the instructions in
 [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md). This topic steps you through the creation of an Azure PowerShell command set that creates a Windows-based VM that can be preconfigured:
 
 - With Active Directory domain membership.
-- With additional disks.
-- As a member of an existing load-balanced set.
-- With a static IP address.
-
-## Create a Linux-based VM
-
-Use the instructions in [Create and preconfigure a Linux virtual machine using Azure Powershell](virtual-machines-linux-classic-createpowershell.md) to create a new Linux-based virtual machine in Azure that is preconfigured:
-
 - With additional disks.
 - As a member of an existing load-balanced set.
 - With a static IP address.

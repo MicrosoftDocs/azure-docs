@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
@@ -48,6 +48,8 @@ Before you start:
 
 From the Settings bar, open the Quotas and Pricing blade. Click Sampling and select a sampling ratio.
 
+Ingestion doesn't operate if the SDK is performing fixed or adaptive sampling. While the sampling rate at the SDK is less than 100%, the ingestion sampling setting is ignored.
+
 ### To enable adaptive sampling
 
 **Update your project's NuGet** packages to the latest *pre-release* version of Application Insights: Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
@@ -77,7 +79,8 @@ To get fixed-rate sampling on the data from web pages, put an extra line in the 
 
 [Learn more about sampling](app-insights-sampling.md).
 
-## Filtering
+<a name="filtering"></a>
+## Filtering: ITelemetryProcessor
 
 This technique gives you more direct control over what is included or excluded from the telemetry stream. You can use it in conjunction with Sampling, or separately.
 
@@ -237,8 +240,8 @@ public void Process(ITelemetry item)
 
 ```
 
-
-## Add properties
+<a name="add-properties"></a>
+## Add properties: ITelemetryInitializer
 
 Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules. 
 
@@ -365,6 +368,15 @@ For a summary of the non-custom properties available on the telemetryItem, see t
 
 You can add as many initializers as you like. 
 
+
+## ITelemetryProcessor and ITelemetryInitializer
+
+What's the difference between telemetry processors and telemetry initializers?
+
+* There are some overlaps in what you can do with them: both can be used to add properties to telemetry.
+* TelemetryInitializers always run before TelemetryProcessors.
+* TelemetryProcessors allow you to completely replace or discard a telemetry item.
+* TelemetryProcessors don't process performance counter telemetry.
 
 ## Reference docs
 

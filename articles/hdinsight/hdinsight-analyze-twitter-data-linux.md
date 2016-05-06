@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/22/2016"
 	ms.author="larryfr"/>
 
 # Analyze Twitter data using Hive in HDInsight
@@ -36,8 +36,6 @@ Before you begin this tutorial, you must have the following:
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 - __Python__ and [pip](https://pypi.python.org/pypi/pip)
-
-- The __Azure CLI__. For more information, see [Install and configure the Azure CLI](../xplat-cli-install.md)
 
 ##Get a Twitter feed
 

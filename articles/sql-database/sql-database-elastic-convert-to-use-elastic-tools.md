@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Convert existing databases to use elastic database tools"
+   pageTitle="Migrate existing databases to scale-out | Microsoft Azure"
    description="Convert sharded databases to use elastic database tools by creating a shard map manager"
    services="sql-database"
    documentationCenter=""
@@ -13,29 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/26/2016"
    ms.author="SilviaDoomra"/>
 
-# Convert existing databases to use elastic database tools
+# Migrate existing databases to scale-out
 
-If you have an existing scaled-out, sharded solution, you can take advantage of the Elastic database tools by using the techniques described here. After conversion, you can use the [Elastic Database client library](sql-database-elastic-database-client-library.md) and the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md). 
+Easily manage your existing scaled-out sharded databases using Azure SQL Database database tools (such as the [Elastic Database client library](sql-database-elastic-database-client-library.md)). You must first convert an existing set of databases to use the [shard map manager](sql-database-elastic-scale-shard-map-management.md). 
+
+## Overview
+To migrate an existing sharded database: 
+
+1. Prepare the [shard map manager database](sql-database-elastic-scale-shard-map-management.md).
+2. Create the shard map.
+3. Prepare the individual shards.  
+2. Add mappings to the shard map.
 
 These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
-There are four steps:
-
-1. Prepare the shard map manager database.
-2. Create the shard map.
-3. Prepare the individual shards.  
-2. Add the mappings to the shard map.
-
 For more information about the ShardMapManager, see [Shard map management](sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
 
-## Preparation of the shard map manager database
-You can use a new or existing database as the shard map manager. This is a one-time operation. 
+## Prepare the shard map manager database
+
+The shard map manager is a special database that contains the data to manage scaled-out databases. You can use an existing database, or create a new database. Note that a database acting as shard map manager should not be the same database as a shard. Also note that the PowerShell script does not create the database for you. 
 
 ## Step 1: create a shard map manager
-Note that a database acting as shard map manager shouldn’t be the same database as a shard. 
 
 	# Create a shard map manager. 
 	New-ShardMapManager -UserName '<user_name>' 
@@ -57,31 +58,32 @@ After creation, you can retrieve the shard map manager with this cmdlet. This st
 	-SqlDatabaseName '<smm_db_name>' 
 
   
-## Step 2: create a shard map
+## Step 2: create the shard map
 
-The choice is to create one of the following models: 
+You must select the type of shard map to create. The choice depends on the database architecture: 
 
-1. Single tenant per database 
+1. Single tenant per database (For terms, see the [glossary](sql-database-elastic-scale-glossary.md).) 
 2. Multiple tenants per database (two types):
-	3. Range mapping
-	4. List mapping
+	3. List mapping
+	4. Range mapping
  
 
-If you are using a single-tenant database model, use the list mapping. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
+For a single-tenant model, create a **list mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
 
 ![List mapping][1]
 
-In contrast, the multi-tenant database model assigns several tenants to a single database (and you can distribute groups of tenants across multiple databases). This is a viable model when the amount of data per tenant is expected to be small. In this model, we assign a range of tenants to a database using *range mapping*. 
+The multi-tenant model assigns several tenants to a single database (and you can distribute groups of tenants across multiple databases). Use this model when you expect each tenant to have small data needs. In this model, we assign a range of tenants to a database using **range mapping**. 
  
 
 ![Range mapping][2]
 
-You can also implement a multi-tenant database model using a list mapping to assign multiple tenants to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
+Or you can implement a multi-tenant database model using a *list mapping* to assign multiple tenants to a single database. For example, DB1 is used to store information about tenant id 1 and 5, and DB2 stores data for tenant 7 and tenant 10. 
 
 ![Muliple tenants on single DB][3] 
 
+**Based on your choice, choose one of these options:**
 
-## Step 2, option 1: create a shard map for a list mapping
+### Option 1: create a shard map for a list mapping
 Create a shard map using the ShardMapManager object. 
 
 	# $ShardMapManager is the shard map manager object. 
@@ -90,7 +92,7 @@ Create a shard map using the ShardMapManager object.
 	-ShardMapManager $ShardMapManager 
  
  
-## Step 2, option 2: create a shard map for a range mapping
+### Option 2: create a shard map for a range mapping
 
 Note that to utilize this mapping pattern, tenant id values needs to be continuous ranges, and it is acceptable to have gap in the ranges by simply skipping the range when creating the databases.
 
@@ -101,7 +103,7 @@ Note that to utilize this mapping pattern, tenant id values needs to be continuo
 	-RangeShardMapName 'RangeShardMap' 
 	-ShardMapManager $ShardMapManager 
 
-## Step 2, option 3: List mappings on a single database
+### Option 3: List mappings on a single database
 Setting up this pattern also requires creation of a list map as shown in step 2, option 1.
 
 ## Step 3: Prepare individual shards
@@ -115,11 +117,11 @@ Add each shard (database) to the shard map manager. This prepares the individual
 	# The $ShardMap is the shard map created in step 2.
  
 
-## Step 4: add mappings
+## Step 4: Add mappings
 
 The addition of mappings depends on the kind of shard map you created. If you created a list map, you add list mappings. If you created a range map, you add range mappings.
 
-### Step 4 option 1: map the data for a list mapping
+### Option 1: map the data for a list mapping
 
 Map the data by adding a list mapping for each tenant.  
 
@@ -131,7 +133,7 @@ Map the data by adding a list mapping for each tenant.
 	-SqlServerName '<shard_server_name>' 
 	-SqlDatabaseName '<shard_database_name>' 
 
-### Step 4 option 2: map the data for a range mapping
+### Option 2: map the data for a range mapping
 
 Add the range mappings for all the tenant id range – database associations:
 

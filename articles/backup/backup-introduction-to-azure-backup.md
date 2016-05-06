@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/28/2016"
+	ms.date="04/13/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # What is Azure Backup?
@@ -57,7 +57,7 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Azure Backup (MARS) agent | <li>Can backup files and folders on a Windows OS machine, be it physical or virtual (VMs can be anywhere on-premises or Azure)<li>No separate backup server required<li>Uses Azure Backup Vault | <li>Three times a day backup/file level restore<li>File/folder/volume level restore only, not application aware<li>No support for Linux | files/folders/volumes |
 | System Center Data Protection Manager | <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V) | <li>Lack of heterogeneous support (VMware VM back up, Oracle workload back up).  | files/folders/volumes<br>/VMs/applications |
 | Microsoft Azure Backup Server | <li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V)<li>Does not require a System Center license | <li>Lack of heterogeneous support (VMware VM back up, Oracle workload back up).<li>Always requires live Azure subscription<li>No support for tape backup | files/folders/volumes<br>/VMs/applications |
-| Azure IaaS VM Backup | <li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric level backup with no backup infrastructure needed<li>Uses Azure Backup vault | <li>Once a day back up/disk level restore<li>Cannot back up on-premises | VMs<br>Individual disks |
+| Azure IaaS VM Backup | <li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric level backup with no backup infrastructure needed | <li>Once a day back up/disk level restore<li>Cannot back up on-premises | VMs<br>All disks(using PowerShell) |
 
 ## Which applications and workloads can be backed up?
 
@@ -80,9 +80,33 @@ Because Backup is a hybrid backup solution, it consists of multiple components t
 | Azure Backup (MARS) agent | Yes | No (Only Windows based agent) |
 | System Center Data Protection Manager | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible |
 | Azure Backup Server (MABS) | Yes (Agent in guest) | Only Hyper-V (Not Azure VM) Only file-consistent backup is possible (Same as DPM) |
-| Azure IaaS VM Backup | Coming soon | Coming soon - V2 Linux VMs <br><br>(File system level consistency) |
+| Azure IaaS VM Backup | In Public Preview | In Public Preview - Linux VMs in Resource Manager deployment model <br>(File system level consistency)<br><br>Yes for Linux VMs in classic deployment model |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+
+## Back up and Restore Premium Storage VMs
+
+The Azure Backup service now protects Premium Storage VMs.
+
+### Back up Premium Storage VMs
+
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM.
+
+>[AZURE.NOTE] Do not modify or edit the staging location.
+
+Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
+
+### Restore Premium Storage VMs
+
+Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
+
+The steps to restore a Premium Storage VM recovery point to Premium Storage are:
+
+1. [Restore the VM recovery point to standard storage.](backup-azure-restore-vms.md)
+2. [Copy the disks to premium storage.](../storage/storage-use-azcopy.md)
+3. [Create the Azure IaaS VM.](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+
 
 ## Functionality
 These five tables summarize how backup functionality is handled in each component.

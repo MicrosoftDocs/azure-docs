@@ -21,6 +21,11 @@
 
 # Restore virtual machines in Azure
 
+> [AZURE.SELECTOR]
+- [Restore VMs in Azure portal](backup-azure-arm-restore-vms.md)
+- [Restore VMs in Classic portal](backup-azure-restore-vms.md)
+
+
 Restore a virtual machine to a new VM from the backups stored in an Azure backup vault with the following steps.
 
 ## Restore workflow

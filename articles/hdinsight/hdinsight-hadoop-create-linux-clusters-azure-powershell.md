@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight using the Azure CLI | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using the Azure CLI."
+   	pageTitle="Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight using Azure PowerShell | Microsoft Azure"
+   	description="Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using Azure PowerShell."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/09/2016"
+   	ms.date="04/05/2016"
    	ms.author="nitinme"/>
 
 #Create Linux-based clusters in HDInsight using Azure PowerShell
@@ -29,7 +29,11 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Azure PowerSHell__. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+- __Azure PowerSHell__.
+
+    For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+    
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Create clusters
 
@@ -57,7 +61,7 @@ The following script demonstrates how to create a new cluster:
     ###########################################
 
     # Sign in
-    Add-AzureRmAccount
+    Login-AzureRmAccount
 
     # Select the subscription to use
     $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
@@ -75,8 +79,8 @@ The following script demonstrates how to create a new cluster:
     # Create an Azure Blob Storage container
     $containerName = "<ContainerName>"              # Provide a container name
     $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-    $destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-    New-AzureRmStorageContainer -Name $containerName -Context $destContext
+    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    New-AzureStorageContainer -Name $containerName -Context $destContext
 
     ###########################################
     # Create an HDInsight Cluster
@@ -91,8 +95,8 @@ The following script demonstrates how to create a new cluster:
     # Set these variables
     $clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
     $clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
-    $credentials = Get-Credential
-    $sshCredentials = Get-Credential
+    $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
 
     # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
     $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}

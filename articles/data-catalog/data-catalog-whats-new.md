@@ -184,7 +184,7 @@ As of the week of September 18, 2015, the following capabilities have been added
 As of the week of September 11, 2015, the following capabilities have been added to **Azure Data Catalog**:
 
 - Support for registering and discovering SQL Server Analysis Services objects via HTTP/HTTPS. Users can now connect to SSAS servers using a URL (such as https://servername/olap/msmdpump.dll) rather than a server name, and can use Basic authentication and Anonymous connections in addition to Windows authentication. For additional information on HTTP/HTTPS connections to SSAS, see [Configure HTTP Access to Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-- Support for Hive data sources on HDInsight. Users can now register and discover Hive tables for Apache Hive in Hadoop on HDInsight data sources. For additional information on Hive on HDInsight, see the [HDInsight documentation center](../hdinsight-use-hive/).
+- Support for Hive data sources on HDInsight. Users can now register and discover Hive tables for Apache Hive in Hadoop on HDInsight data sources. For additional information on Hive on HDInsight, see the [HDInsight documentation center](../hdinsight/hdinsight-use-hive.md).
 - Support for registering and discovering Oracle databases and HDFS clusters as containers. When registering Oracle tables and views or HDFS , **Azure Data Catalog** will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the **Azure Data Catalog** portal. Users can also search and filter the contents of a database or cluster in addition to searching and filtering the contents of the catalog.
 
 

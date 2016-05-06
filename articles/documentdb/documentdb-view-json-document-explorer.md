@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
@@ -31,7 +31,7 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
  	>[AZURE.NOTE] Query Explorer also appears on the database and collection blades.
 
-    In the **Document Explorer** blade, the **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launched Query Explorer. 
+    In the **Document Explorer** blade, the **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launched Document Explorer. 
 
 	![Screenshot of the Document Explorer blade](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 

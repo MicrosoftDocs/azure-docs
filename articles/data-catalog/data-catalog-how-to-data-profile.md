@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="04/07/2016"
    ms.author="derrickv"/>
 
 # Data profile data sources

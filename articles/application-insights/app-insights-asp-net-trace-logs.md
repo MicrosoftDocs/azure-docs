@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="03/30/2016" 
 	ms.author="awills"/>
  
 # Explore .NET trace logs in Application Insights  

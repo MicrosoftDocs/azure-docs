@@ -23,7 +23,7 @@
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 
-The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create an internet facing load balancer are configured individually and then put together to create a resource. 
+The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create an internet facing load balancer are configured individually and then put together to create a resource.
 
 We will cover in this page the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.
 
@@ -32,9 +32,9 @@ We will cover in this page the sequence of individual tasks it has to be done to
 
 The following items need to be configured before creating a load balancer:
 
-- Front end IP configuration - will add a public IP address to front end IP pool for incoming network traffic to load balance. 
+- Front end IP configuration - will add a public IP address to front end IP pool for incoming network traffic to load balance.
 
-- Backend address pool - will configure the network interfaces which will receive the load balanced traffic coming from front end IP pool. 
+- Backend address pool - will configure the network interfaces which will receive the load balanced traffic coming from front end IP pool.
 
 - Load balancing rules - source and local port configuration for the load balancer.
 
@@ -54,7 +54,7 @@ The following steps will show how to configure a load balancer between 2 virtual
 
 
 ### Step 1
-Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at Using [Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).
+Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at Using [Windows Powershell with Resource Manager](../powershell-azure-resource-manager.md).
 
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
@@ -71,7 +71,7 @@ You will be prompted to Authenticate with your credentials.
 
 ### Step 3
 
-Choose which of your Azure subscriptions to use. 
+Choose which of your Azure subscriptions to use.
 
     PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
@@ -86,7 +86,7 @@ Create a new resource group (skip this step if using an existing resource group)
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create a load balancer will use the same resource group.
 
-In the example above we created a resource group called "NRP-RG" and location "West US". 
+In the example above we created a resource group called "NRP-RG" and location "West US".
 
 ## Create Virtual Network and a public IP address for front end IP pool
 
@@ -101,28 +101,28 @@ Creates a subnet for the virtual network and assigns to $backendSubnet
 
 	New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
-Creates the virtual network and adds the subnet lb-subnet-be to the virtual network NRPVNet. 
+Creates the virtual network and adds the subnet lb-subnet-be to the virtual network NRPVNet.
 
 ### Step 2
 
 Create a public IP address to be used by frontend IP pool:
 
-	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
+	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip
 
->[AZURE.NOTE]The public IP address domain name label property will be the prefix for the FQDN of the load balancer. 
+>[AZURE.NOTE]The public IP address domain name label property will be the prefix for the FQDN of the load balancer.
 
 ## Create Front end IP pool and backend address pool
 
 Setting up a front end IP pool for the incoming load balancer network traffic and backend address pool to receive the load balanced traffic.
 
-### Step 1 
+### Step 1
 
 Using public IP variable ($publicIP), create the front end IP pool.
 
-	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
+	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP
 
 
-### step 2 
+### step 2
 
 Set up a back end address pool used to receive incoming traffic from front end IP pool:
 
@@ -157,33 +157,33 @@ The example above is creating the following items:
 
 Create the load balancer adding all objects (NAT rules, Load balancer rules, probe configurations) together:
 
-	$NRPLB = New-AzureLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe 
+	$NRPLB = New-AzureLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 
 
 ## Create network interfaces
 
-After creating the load balancer, you need define which network interfaces will be receiving the incoming load balanced network traffic, NAT rules and probe. The network interface in this case is configured individually and can be assigned to a virtual machine later on. 
+After creating the load balancer, you need define which network interfaces will be receiving the incoming load balanced network traffic, NAT rules and probe. The network interface in this case is configured individually and can be assigned to a virtual machine later on.
 
 
-### Step 1 
+### Step 1
 
 
 Get the resource virtual network and subnet to create network interfaces:
 
 	$vnet = Get-AzureVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 
-	$backendSubnet = Get-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
+	$backendSubnet = Get-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 
 
 In this step, we are creating a network interface which will belong to the load balancer back end pool and associate the first NAT rule for RDP for this network interface:
-	
+
 	$backendnic1= New-AzureNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
 ### Step 2
 
 Create a second network interface called LB-Nic2-BE:
 
-In this step, we are creating a second network interface, assigning to the same load balancer back end pool and associating the second NAT rule created for RDP: 
+In this step, we are creating a second network interface, assigning to the same load balancer back end pool and associating the second NAT rule created for RDP:
 
  	$backendnic2= New-AzureNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
@@ -238,7 +238,7 @@ PS C:\> $backendnic1
 
 
 
-### Step 3 
+### Step 3
 
 Use the command Add-AzureVMNetworkInterface to assign the NIC to a virtual Machine.
 
@@ -262,13 +262,13 @@ In the following example, you will add a new Inbound NAT rule using port 81 in t
 
 ### Step 3
 
-Save the new configuration using Set-AzureLoadBalancer 
+Save the new configuration using Set-AzureLoadBalancer
 
 	$slb | Set-AzureLoadBalancer
 
 ## Remove a load balancer
 
-Use the command Remove-AzureLoadBalancer to delete a previously created load balancer named "NRP-LB"  in a resource group called "NRP-RG" 
+Use the command Remove-AzureLoadBalancer to delete a previously created load balancer named "NRP-LB"  in a resource group called "NRP-RG"
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
@@ -280,4 +280,3 @@ Use the command Remove-AzureLoadBalancer to delete a previously created load bal
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
- 

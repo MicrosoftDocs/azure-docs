@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Deploy a line of business application | Microsoft Azure" 
 	description="Deploy a web-based, highly-available, line of business application with SQL Server AlwaysOn Availability Groups in Azure in five phases." 
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="04/25/2016" 
 	ms.author="josephd"/>
 
 # Deploy a high-availability line of business application in Azure
@@ -85,11 +85,11 @@ This is a prescriptive, pre-defined architecture. Keep the following in mind:
 - If you already have an existing Azure hybrid cloud implementation, please feel free to adapt or skip the instructions in Phases 1 and 2 to host the virtual machines for the new application on the appropriate subnet.
 - All of the servers are located on a single subnet in the Azure virtual network. If you want to provide additional security equivalent to subnet isolation, you can use [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
-To build a dev/test environment or a proof-of-concept of this configuration, see [Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+To build a dev/test environment or a proof-of-concept of this configuration, see [Set up a web-based LOB application in a hybrid cloud for testing](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md).
 
 For additional information about designing IT workloads for Azure, see [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-service-guidelines.md).
 
 ## Next step
 
-To start the configuration of this workload, go to [Phase 1: Configure Azure](virtual-machines-windows-ps-lob-ph1.md).
+- Start the configuration of this workload with [Phase 1](virtual-machines-windows-ps-lob-ph1.md).
 

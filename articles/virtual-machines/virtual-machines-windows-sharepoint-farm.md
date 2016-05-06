@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/04/2016"
 	ms.author="josephd"/>
 
 # Create SharePoint server farms
@@ -36,20 +36,24 @@ To create the basic (three-server) SharePoint farm:
 1. Click [here](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/).
 2. Click **Deploy**.
 3. On the **SharePoint 2013 non-HA Farm** pane, click **Create**.
-4. Specify settings on the 7 steps of the **Create SharePoint 2013 non-HA Farm** pane, and then click **Create**.
+4. Specify settings on the seven steps of the **Create SharePoint 2013 non-HA Farm** pane, and then click **Create**.
 
 The high-availability SharePoint farm consists of nine virtual machines in this configuration.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
+You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server Always On for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
 
 To create the high-availability (nine-server) SharePoint farm:
 
 1. Click [here](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/).
 2. Click **Deploy**.
 3. On the **SharePoint 2013 HA Farm** pane, click **Create**.
-4. Specify settings on the 7 steps of the **Create SharePoint 2013 HA Farm** pane, and then click **Create**.
+4. Specify settings on the seven steps of the **Create SharePoint 2013 HA Farm** pane, and then click **Create**.
+
+> [AZURE.NOTE] You cannot create the **SharePoint 2013 non-HA Farm** or **SharePoint 2013 HA Farm** with an Azure Free Trial.
+
+The Azure portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
 
 ## Managing the SharePoint farms
 
@@ -57,8 +61,8 @@ You can administer the servers of these farms through Remote Desktop connections
 
 From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE] The Azure portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
+> [AZURE.NOTE] With the [SharePoint Server 2016 Trial image](https://azure.microsoft.com/blog/test-sharepoint-server-2016/), you can create a virtual machine running SharePoint Server 2016.
 
-## Next Step
+## Next steps
 
 - Discover additional [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) configurations in Azure infrastructure services.

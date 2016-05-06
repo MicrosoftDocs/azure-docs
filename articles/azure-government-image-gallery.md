@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Government Image Gallery" 
-   description="This article provides an overview of the Azure Government Image Gallery and the images included" 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
+<properties
+   pageTitle="Azure Government Image Gallery"
+   description="This article provides an overview of the Azure Government Image Gallery and the images included"
+   services="Azure-Government"
+   documentationCenter=""
+   authors="joharve2"
+   manager="chrisnie"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government" 
+   ms.workload="azure-government"
    ms.date="05/20/2015"
    ms.author="jharve"/>
 
@@ -91,15 +91,15 @@ SUSE|SUSE Linux Enterprise Server 12|Confidently run your production workloads o
 
 The below resources should provide more information on deploying from the image gallery or creating your own VHD.  Please reference the <a href="../azure-government-developer-guide">Azure Government Developer Guide</a> to uncover an programmatic differences with endpoints when working with Azure Government.
 
-###Other Resources: 
+###Other Resources:
 
-- [Deploying a Windows Virtual Machine](virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- [Deploying a Windows Virtual Machine](./virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Deploying a Linux Virtual Machine](virtual-machines/virtual-machines-linux-cli-create.md)
+- [Deploying a Linux Virtual Machine](./virtual-machines/virtual-machines-linux-create-cli-complete.md)
 
-- [Virtual Machine FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+- [Virtual Machine FAQ](./virtual-machines/virtual-machines-linux-classic-faq.md)
 
-- [Create and upload your own VHD](virtual-machines-create-upload-vhd-windows-server/)
+- [Create and upload your own VHD](./virtual-machines/virtual-machines-linux-about-disks-vhds.md/)
 
 - [Capture Linux VM Image](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
@@ -114,6 +114,6 @@ The below resources should provide more information on deploying from the image 
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: ./virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ./app-service-web/web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ./storage/storage-whatis-account.md

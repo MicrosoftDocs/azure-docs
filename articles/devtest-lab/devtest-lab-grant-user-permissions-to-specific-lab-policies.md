@@ -24,13 +24,13 @@ This article illustrates how to use PowerShell to grant users permissions to a p
 
 ## Policies as resources
 
-As discussed in the [Azure Role-based Access Control](/role-based-access-control-configure.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. 
+As discussed in the [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
 
-In DevTest Lab, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each DevTest Lab policy is a resource in the Policy resource type, and can be assigned as a scope to an RBAC role. 
+In DevTest Lab, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each DevTest Lab policy is a resource in the Policy resource type, and can be assigned as a scope to an RBAC role.
 
 For example, in order to grant users read/write permission to the **Allowed VM Sizes** policy, you would create a custom role that works with the **Microsoft.DevTestLab/labs/policySets/policies/*** action, and then assign the appropriate users to this custom role in the scope of **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-To learn more about custom roles in RBAC, see the [Custom Roles in Azure RBAC](/role-based-access-control-configure.md#custom-roles-in-azure-rbac) section of the [Azure Role-Based Access Control](/role-based-access-control-configure.md) article.
+To learn more about custom roles in RBAC, see the [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) section of the [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) article.
 
 ##Creating a DevTest Lab custom role using PowerShell
 In order to get started, you’ll need to read the following article, which will explain how to install and configure the Azure PowerShell cmdlets: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).

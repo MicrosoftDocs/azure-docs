@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Protect ARM VMs in Azure with Azure Backup | Microsoft Azure"
-	description="Protect ARM VMs with Azure Backup service. Back up IaaS v.2 VMs to Recovery Services vault. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
+	pageTitle="Protect ARM VMs with Azure Backup | Microsoft Azure"
+	description="Protect ARM VMs with Azure Backup service. Use backups of ARM VMs and Premium Storage VMs to protect your data. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keyword="backups; vm backup"/>
 
 <tags
 	ms.service="backup"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/30/2016"
+	ms.date="03/31/2016"
 	ms.author="markgal; jimpark"/>
 
 
@@ -23,7 +24,14 @@
 - [Back up ARM VMs](backup-azure-vms-first-look-arm.md)
 - [Back up Classic mode VMs](backup-azure-vms-first-look.md)
 
-This tutorial takes you through the set of steps for creating a Recovery Services vault and backing up an Azure virtual machine (VM). This tutorial is for use with Recovery Services vaults which can be used to protect IaaS v.2 or Azure Resource Manager (ARM)-based VMs.
+This tutorial takes you through the steps for creating a Recovery Services vault and backing up an Azure virtual machine (VM). Recovery Services vaults protect:
+
+- Azure Resource Manager (ARM) VMs
+- Classic VMs
+- Standard storage VMs
+- Premium storage VMs
+
+For additional information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
 >[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM. Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and ARM-based VMs.
 
@@ -176,17 +184,21 @@ To run **Back up Now**:
 
 A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
 
-![Backup policy](./media/backup-azure-vms-first-look-arm/backup-policy.png)
+![Backup policy](./media/backup-azure-vms-first-look-arm/backup-policy-daily-raw.png)
 
 To create a policy:
 
 1. For **Policy Name** give the Policy a name.
 
-2. For **Backup Frequency**, Daily is the default. Use the drop-down menu to choose whether data snapshots are taken Daily or Weekly.
+2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
 
-    ![Backup policy](./media/backup-azure-vms-first-look-arm/specify-daily-time.png)
+    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
 
-    Snapshots can be taken at Daily or Weekly intervals. If you choose a Daily interval, then use the highlighted control to select the time of the day for the snapshot. If you choose Weekly intervals, an additional control appears which you use to select the days of the week to take the snapshot.
+    ![Daily backup policy](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png) <br/>
+
+    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
+
+    ![Weekly backup policy](./media/backup-azure-vms-first-look-arm/backup-policy-weekly.png)
 
 3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use.
 
@@ -194,7 +206,7 @@ To create a policy:
 
     In the corresponding controls, specify the interval(s) to use. Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
 
-4. After setting all options for the policy, click **OK**.
+4. After setting all options for the policy, at the bottom of the blade click **OK**.
 
     The new policy is set to be applied to the vault once the Recovery Services vault settings are completed. Return to step 6 of the section, [Select scenario set policy and define items to protect](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect)
 
@@ -218,8 +230,6 @@ The following table provides additional information about the VM Agent for Windo
 Once the VM Agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
 
 The backup extension is installed by the Backup service whether or not the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service will continue to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
-
-
 
 ## Troubleshooting information
 If you have issues accomplishing some of the tasks in this article, please consult the

@@ -3,7 +3,7 @@
 	description="Learn how to create a custom virtual machine with the classic deployment model running the Linux operating system."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>

@@ -15,6 +15,6 @@ Premium Storage Disk Type | P10 | P20 | P30
 Disk size | 128 GiB | 512 GiB | 1024 GiB (1 TB)
 Max IOPS per disk | 500 | 2300 | 5000
 Max throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second
-Max number of highly utilized disks | 62 | 41 | 31
+Max number of disks per storage account | 280 | 140 | 35
 
 

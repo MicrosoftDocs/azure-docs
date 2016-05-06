@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to use Azure Table storage from Node.js | Microsoft Azure"
-	description="Learn how to use Azure Table storage. Code samples are written using the Node.js API."
+	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/29/2016"
 	ms.author="micurd"/>
 
 

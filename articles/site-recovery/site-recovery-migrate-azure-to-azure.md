@@ -33,7 +33,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 
 Here's what you need for this deployment:
 
-- **Management server**: An on-premises VM running Windows Server 2012 R2 that acts as the management server. You install the Site Recovery components (including the configuration server and process server) on this server. Read more in [management server considerations](site-recovery-vmware-to-azure-classic.md#management-server-considerations) and [on-premises prerequisites](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
+- **Management server**: A VM running Windows Server 2012 R2 that acts as the management server. You install the Site Recovery components (including the configuration server and process server) on this server. Read more in [management server considerations](site-recovery-vmware-to-azure-classic.md#management-server-considerations) and [source prerequisites](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
 - **IaaS virtual machines**: The VMs you want to migrate.
 
 ## Deployment steps
