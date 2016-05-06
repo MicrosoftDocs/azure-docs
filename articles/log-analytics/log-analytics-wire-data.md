@@ -25,6 +25,7 @@ By default, OMS collects logged data for CPU, memory, disk, and network performa
 If you’ve used [sFlow](http://www.sflow.org/) or other software with [Cisco’s NetFlow protocol](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), then the statistics and data you’ll see from wire data will be familiar to you.
 
 Some of the types of built-in Log search queries include:
+
 - Agents that provide wire data
 - IP address of agents providing wire data
 - Outbound communications by IP addresses
@@ -94,6 +95,7 @@ Requirements: In order to use the following example, you’ll need to have the S
    ```
    Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
+
     ![wiredata results showing account data](./media/log-analytics-wire-data/oms-wiredata-05.png)
 
 
