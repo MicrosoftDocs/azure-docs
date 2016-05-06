@@ -112,7 +112,7 @@ Assuming the custom domain name is ‘contoso.com’, this would create the foll
 - **contoso.com** mapped to 168.62.48.183.
 - **www.contoso.com** mapped to **contoso.azurewebsites.net**.
 
->[AZURE.NOTE] You can use Azure DNS to host the necessary domain records for your web app. To configure your custom domain, and create your records, in Azure DNS, see [Create custom DNS records for a web app](../dns/dns-web-sites-custom-domain).
+>[AZURE.NOTE] You can use Azure DNS to host the necessary domain records for your web app. To configure your custom domain, and create your records, in Azure DNS, see [Create custom DNS records for a web app](../dns/dns-web-sites-custom-domain.md).
 
 <a name="awverify" />
 ## Create an awverify record (A records only)

@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Get started with Azure IoT Hub device management (preview)
+# Get started with Azure IoT Hub device management using C# (preview)
+
+[AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Introduction
 To get started with Azure IoT Hub device management, you need to create an Azure IoT Hub, provision devices in the IoT Hub, and start multiple simulated devices. This tutorial walks you through these steps.
@@ -51,7 +53,9 @@ You need to create a device management enabled IoT Hub for your simulated device
   -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
   -   In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources].
   -   Check the box to **Enable Device Management**.
-  -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia.
+  -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview. In the future, it will be available in all regions.
+
+    > [AZURE.NOTE]  If you don't check the box to **Enable Device Management** the samples won't work.
 
 4.  When you have chosen your IoT Hub configuration options, click **Create**. It can take a few minutes for Azure to create your IoT Hub. To check the status, you can monitor the progress on the **Startboard** or in the **Notifications** panel.
 
@@ -79,15 +83,15 @@ To build the samples and provision devices in you IoT Hub, follow the steps belo
 
 2.  Clone the github repository. **Make sure to clone in a directory that does not have any spaces.**
 
-  ```
-  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
-  ```
+	  ```
+	  git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
+	  ```
 
 3.  From the root folder where you cloned the **azure-iot-sdks** repository, navigate to the **\\azure-iot-sdks\\csharp\\service\\samples** folder and run, replacing the placeholder value with your connection string from the previous section:
 
-  ```
-  setup.bat <IoT Hub Connection String>
-  ```
+	  ```
+	  setup.bat <IoT Hub Connection String>
+	  ```
 
 This script does the following:
 

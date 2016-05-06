@@ -20,7 +20,7 @@
 
 ## Overview
 
-The Azure IoT Hub DM client library enables you to manage your IoT devices with Azure IoT Hub. “Manage” includes actions such as rebooting, factory resetting, and updating firmware.  Today, we provide a platform-independent C library, but we will add support for other languages soon.  As described in the [Azure IoT Hub device management overview][lnk-dm-overview], there are three key concepts in IoT Hub device management:
+The Azure IoT Hub device management client library enables you to manage your IoT devices with Azure IoT Hub. “Manage” includes actions such as rebooting, factory resetting, and updating firmware.  Today, we provide a platform-independent C library, but we will add support for other languages soon.  As described in the [Azure IoT Hub device management overview][lnk-dm-overview], there are three key concepts in IoT Hub device management:
 
 - Device twins
 - Device jobs
@@ -46,13 +46,13 @@ The primary way the service interacts with the physical device is through device
 
 The following sections will walk you through the client library architecture as well as provide you with guidelines on how to implement the different device objects on your device.
 
-## DM client library design principles and functional concepts
+## Device management client library design principles and functional concepts
 The DM client library has been designed thinking of portability and cross-platform integration. This was achieved by the following design decisions:
 
 1.	Built on LWM2M over COAP standard protocol to accommodate extensibility for a range of diverse devices.
 2.	Written in ANSI C99 to facilitate portability to a wide variety of platforms.
 3.	Secured through TCP/TLS and Azure IoT Hub authentication (SAS tokens) so it can be used in high security scenarios.
-4.	Based on the [Eclipse Wakaama][lnk-Wakaama] OSS project to leverage existing and contribute back to the community.
+4.	Based on the [Eclipse Wakaama][lnk-Wakaama] OSS project to leverage existing code and contribute back to the community.
 
 ### Relevant LWM2M concepts
 We chose LWM2M standard to accommodate extensibility for a range of diverse devices. To simplify the development experience, we have abstracted most of the protocol. However, it is important to understand the foundational principles of the library, mainly its data model and how data is transmitted.
@@ -69,7 +69,7 @@ Notice that there are two “1: many” relationships in this model:
 - **Objects and resources**: each object can have multiple resources. For example, an object can contain the Contoso device firmware update resources such as the package URI where the new image is stored.
 
 #### Observe/notify pattern: how data is transmitted in LWM2M
-In addition to these concepts, it’s important to understand how data flows from the device to the service. To do this, LWM2M defines the “observe/notify” pattern. When the physical device connects to the service, it initiates “observes” on the selected device properties. Then, the physical device “notifies” the service of changes to the device properties.  
+In addition to these concepts, it’s important to understand how data flows from the device to the service. To do this, LWM2M defines the “observe/notify” pattern. When the physical device connects to the service, IoT Hub initiates “observes” on the selected device properties. Then, the physical device “notifies” the service of changes to the device properties.  
 
 In our client library, we have implemented the observe/notify pattern as the way to send device management data from the device to IoT Hub. The pattern is controlled by two parameters:
 

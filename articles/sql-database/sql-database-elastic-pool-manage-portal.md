@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/28/2016"
+	ms.date="05/02/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -31,7 +31,7 @@ You can use the Azure portal to monitor, manage, and configure an elastic databa
 
 The portal lets you change pool and database settings, preview the changes, then commit all changes simultaneously. You can preview changes such as adding and removing databases. The potential effect on performance and pricing will also be displayed. 
 
-To work through the steps in this article, you'll need a few databases and a pool. If you have existing databases, see [create a pool](sql-database-elastic-pool-create-portal.md); if you don't have a database, see the [SQL database tutorial](sql-database-get-started). 
+To work through the steps in this article, you'll need a few databases and a pool. If you have existing databases, see [create a pool](sql-database-elastic-pool-create-portal.md); if you don't have a database, see the [SQL database tutorial](sql-database-get-started.md). 
 
 ## Select a pool to work with
 
