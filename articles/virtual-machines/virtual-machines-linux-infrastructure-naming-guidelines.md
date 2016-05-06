@@ -45,13 +45,15 @@ For instance, here are two possible names for a resource group that hosts a calc
 
 Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
 
-Aspect | Examples | Notes
---- | --- | ---
-Environment | dev, stg, prod | Depending on the purpose and name of each environment.
-Location | usw (West US), use (East US 2) | Depending on the region of the datacenter or the region of the organization.
-Azure component, service, or product | Rg for resource group, Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.
-Role | sql, ora, sp, iis | Depending on the role of the virtual machine.
-Instance | 01, 02, 03, etc. | For resources that have more than one instance. For example, load balanced web servers in a cloud service.
+| Aspect                               | Examples                                                               | Notes                                                                                                      |
+|:-------------------------------------|:-----------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| Environment                          | dev, stg, prod                                                         | Depending on the purpose and name of each environment.                                                     |
+| Location                             | usw (West US), use (East US 2)                                         | Depending on the region of the datacenter or the region of the organization.                               |
+| Azure component, service, or product | Rg for resource group, Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.                                          |
+| Role                                 | sql, ora, sp, iis                                                      | Depending on the role of the virtual machine.                                                              |
+| Instance                             | 01, 02, 03, etc.                                                       | For resources that have more than one instance. For example, load balanced web servers in a cloud service. |
+
+
 
 When establishing your naming conventions, make sure that they clearly state which affixes to use for each type of resource, and in which position (prefix vs suffix).
 
