@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/05/2015" 
+	ms.date="05/06/2016" 
 	ms.author="mbaldwin"/>
 
 
@@ -24,6 +24,9 @@
 
 This guide shows you how to use Azure Active Directory Access Control (also known as Access Control Service or ACS) to authenticate users from identity providers such as Microsoft, Google, Yahoo, and Facebook when they try to gain access to a web application.
 
+> [AZURE.IMPORTANT]  As we make progress on our [plans to bring ACS-like functionality to Azure Active Directory (AD)](https://blogs.technet.microsoft.com/ad/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/), please note that ACS remains fully functional and supported. We will continue to maintain and service ACS, but all new engineering investments are going into Azure AD.
+>
+> At some point in the future when we are ready to announce deprecation of ACS, we will provide details on the [Azure AD Team blog](https://blogs.technet.microsoft.com/ad/).
 
 ## What is ACS?
 
