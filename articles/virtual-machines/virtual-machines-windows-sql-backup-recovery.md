@@ -43,7 +43,7 @@ When your SQL Server instance is running on an Azure Virtual Machine, your datab
 
 - You can store the backup file directly in Azure. For more information, see the following sections that provide guidance for the different versions of SQL Server.
 
-## Microsoft SQL Server 2016 Release Candidate (RC3)
+## SQL Server 2016 Release Candidate
 
 Microsoft SQL Server 2016 Release Candidate (RC3) supports the [backup and restore with Azure blobs](https://msdn.microsoft.com/library/jj919148.aspx) features found in SQL Server 2014. But it also includes the following enhancements:
 
