@@ -26,7 +26,7 @@
 
 This article shows you how to restore your database to an earlier point in time using the Azure Portal.
 
-Point-in-time restore is a self-service capability, allowing you to restore a database from the automatic backups we take for all databases to any point within your database's retention period. To learn more about automatic backups and database retention periods, see [Business Continuity Overview](sql-database-business-continuity.md).
+[**Point-in-Time Restore**](sql-database-point-in-time-restore.md) is a self-service capability, allowing you to restore a database from the automatic backups we take for all databases to any point within your database's retention period. To learn more about automatic backups and database retention periods, see [Business Continuity Overview](sql-database-business-continuity.md).
 
 ## Select a database to restore to a previous point in time
 
