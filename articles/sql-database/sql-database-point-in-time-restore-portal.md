@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/01/2016"
+	ms.date="05/05/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -24,15 +24,15 @@
 - [Azure Portal](sql-database-point-in-time-restore-portal.md)
 - [PowerShell](sql-database-point-in-time-restore-portal-powershell.md)
 
-This article shows you how to restore your database to a point in time using the Azure Portal.
+This article shows you how to restore your database to an earlier point in time using the Azure Portal.
 
-Point-in-time restore is a self-service capability, allowing you to restore a database the automatic backups we take for all database to any point within your database retention period. To learn more about automatic backups and database retention period please see our [Business Continuity Overview](sql-database-business-continuity.md).
+Point-in-time restore is a self-service capability, allowing you to restore a database from the automatic backups we take for all databases to any point within your database's retention period. To learn more about automatic backups and database retention periods, see [Business Continuity Overview](sql-database-business-continuity.md).
 
-## Select the database to restore to a previous point in time
+## Select a database to restore to a previous point in time
 
 To restore a database in the Azure Portal do the following:
 
-1.	Open the [Azure portal](https://portal.azure.com).
+1.	Open the [Azure Portal](https://portal.azure.com).
 2.  On the left side of the screen select **BROWSE** > **SQL databases**.
 3.  Navigate to the database you want to restore and select it.
 4.  At the top of your database's blade, select **Restore**:
@@ -46,6 +46,7 @@ To restore a database in the Azure Portal do the following:
 
 ## Next steps
 
+- [Finalize your recovered Azure SQL Database](sql-database-recovered-finalize.md)
 - [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 
