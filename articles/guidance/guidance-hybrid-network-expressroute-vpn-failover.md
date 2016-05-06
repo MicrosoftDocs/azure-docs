@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure reference architecture - IaaS: Implementing a highly available hybrid network architecture by using failover between ExpressRoute and VPN gateway | Microsoft Azure"
+   pageTitle="Azure reference architecture - IaaS: Implementing a highly available hybrid network architecture | Microsoft Azure"
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using ExpressRoute with VPN gateway failover."
    services="guidance,virtual-network,vpn-gateway,expressroute"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="05/03/2016"
    ms.author="telmos"/>
 
-# Implementing a highly available hybrid network architecture by using failover between ExpressRoute and VPN gateway
+# Implementing a highly available hybrid network architecture
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-include.md)]
 
