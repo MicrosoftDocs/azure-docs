@@ -35,7 +35,7 @@ Your database is associated with an Azure SQL server. To connect to your databas
 
 To find the fully qualified server name.
 
-1. Go to the [Azure Portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 2. Click **SQL databases** and click the database you want to connect to. This example uses the AdventureWorksDW sample database.
 3. Locate the full server name.
 

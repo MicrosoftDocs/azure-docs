@@ -13,10 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
+
+## Notes for the May 6, 2016 release of Azure Data Catalog
+
+### Limitations in defining business glossary terms and hierarchies
+
+For this release, the Data Catalog business glossary supports term hierarchies with a maximum depth of three levels. In addition, using special characters in the properties of a glossary term may cause the term to be displayed improperly in the Data Catalog portal. These issues will be addressed in a future release.
 
 ## Notes for the November 20, 2015 release of Azure Data Catalog
 

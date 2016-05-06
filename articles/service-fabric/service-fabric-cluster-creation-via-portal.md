@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -209,9 +209,9 @@ Now that you are connected, run the following commands to deploy your applicatio
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## Remote connect to a Virtual Machine Scale Set (VMSS) instance or a cluster node
+## Remote connect to a Virtual Machine Scale Set instance or a cluster node
 
-Each of the NodeTypes you specify in your cluster results in a VMSS getting set up. Refer to [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md) for details.
+Each of the NodeTypes you specify in your cluster results in a VM Scale Set getting set up. Refer to [Remote connect to a VM Scale Set instance](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node) for details.
 
 ## Next steps
 

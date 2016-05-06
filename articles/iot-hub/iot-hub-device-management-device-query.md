@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Tutorial: How to find device twins using queries (preview)
+# Tutorial: How to find device twins using queries with C# (preview)
+
+[AZURE.INCLUDE [iot-hub-device-management-query-selector](../../includes/iot-hub-device-management-query-selector.md)]
 
 Azure IoT device management enables you to find device twins, the service representation of a physical device, with queries. You can query based on device properties, service properties or tags in the device twin. You can query using tags and properties:
 
@@ -53,26 +55,29 @@ Queries on device properties and service properties are executed with a JSON str
 - **Project**: The expression that designates the fields from the device object to include in the query result set (equivalent to SELECT in SQL):
 
   ```
-  var query = JsonConvert.SerializeObject(
-      project = new
-      {
-        all = false,
-        properties = new []
-        {
-          new
-          {
-            name = "CustomerId",
-            type = "service"
-          },
-          new
-          {
-            name = "Weight",
-            type = "service"
-          }
-        }
-      }
-  );
-```
+	  var query = JsonConvert.SerializeObject(
+		  new
+		  {
+			  project = new
+			  {
+				  all = false,
+				  properties = new[]
+				  {
+					  new
+					  {
+					  name = "CustomerId",
+					  type = "service"
+					  },
+					  new
+					  {
+					  name = "Weight",
+					  type = "service"
+					  }
+				  }
+			  }
+		  }
+	  );
+	```
 
 - **Filter**: The expression that limits the device objects included in the query result set (equivalent to WHERE in SQL):
 
