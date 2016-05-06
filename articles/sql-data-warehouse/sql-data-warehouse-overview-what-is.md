@@ -148,14 +148,14 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 
 ## SQL Data Warehouse Resources
 
-[Blogs][]
-[Feature Requests][]
-[Videos][]
-[CAT Team Blogs][]
-[Create Support Ticket][]
-[MSDN Forum][]
-[Stack Overflow Forum][]
-[Twitter][]
+[Blogs][]  
+[Feature Requests][]  
+[Videos][]  
+[CAT Team Blogs][]  
+[Create Support Ticket][]  
+[MSDN Forum][]  
+[Stack Overflow Forum][]  
+[Twitter][]  
 
 
 >[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
