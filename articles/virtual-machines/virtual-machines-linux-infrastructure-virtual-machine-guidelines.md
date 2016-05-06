@@ -16,3 +16,7 @@
 	ms.topic="article"
 	ms.date="05/05/2016"
 	ms.author="v-livech"/>
+
+# Azure Virtual Machines Guidelines
+
+This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
