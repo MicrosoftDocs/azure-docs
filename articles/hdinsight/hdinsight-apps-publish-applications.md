@@ -33,7 +33,6 @@ Other HDInsight application related articles:
 
 In order to submit your custom application to the marketplace, you must have created and tested your custom application. See the following articles:
 
-- [Define custom HDInsight applications](hdinsight-apps-define-applications.md): Learn how to define your custom HDInsight applications.
 - [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to install and test custom HDInsight applications.
 
 You must also have register your developer account. See [publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md) and [Create a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md).
@@ -61,21 +60,15 @@ There are two steps involved for publishing applications to the Azure Marketplac
 
 ## Package application
 
-Create a zip file that contains all required files for installing your HDInsight applications on an existing HDInsight cluster.
+Create a zip file that contains all required files for installing your HDInsight applications. You will need the zip file in [Publish application](#publish-application).
 
 - [createUiDefinition.json](#define-application).
-- mainTemplate.json and any linked templates. See a sample at [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+- mainTemplate.json. See a sample at [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 - All required scripts.
 
-[jgao: do I have to use the file name "mainTemplate.json"?]
+[jgao: is it a requirement to use the file name "mainTemplate.json"?]
 
-[jgao: I assume the mainTemplate is the template for install HDInsight applications on an existing HDInsight application.  If yes, what is the suggested approach for ISVs to distribute the template for installing applications during cluster creation?]
-
-[jgao: I don't believe installing HDI application requires any linked templates.  Please confirm.]
-
-[jgao: I assume the required script is the Bash script.  How about the application files?  For the hue application, this is a compressed file for Hue and another compressed file for installing a web application.  Are these two compressed file needed to be provided?]
-
-
+[AZURE.NOTE] The application files (including web appliation files if there is any) can be located on any publicly accessible endpoint.
 
 ## Publish application
 
@@ -97,6 +90,6 @@ Following the instructions found at [Install HDInsight application](hdinsight-ap
 ## Next steps
 
 - [Install HDInsight applications](hdinsight-apps-install-applications.md): learn how to deploy a published HDInsight application from the Azure portal.
-- [Define HDInsight applications](hdinsight-apps-define-applications.md): learn how to develop ARM templates for deploying HDInsight applications.
+- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
 - [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
 - [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call ARM templates to create HDInsight clusters.
