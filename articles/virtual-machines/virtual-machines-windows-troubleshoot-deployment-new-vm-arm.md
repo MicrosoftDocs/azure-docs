@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/05/2016"
+  ms.date="05/06/2016"
   ms.author="cjiang"/>
 
 # Troubleshoot Resource Manager deployment issues with creating a new Windows virtual machine in Azure
@@ -37,10 +37,23 @@ To start troubleshooting, collect the audit logs to identify the error associate
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-| OS status | If Uploaded as Specialized                                                                                                               | If Uploaded as Generalized                                                                                                                                                                                                                             | If Captured as Specialized                                                                                                                                                                                                   | If Captured as Generalized                                                                                                                                                                                                                                                                                 |
-|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Windows Generalized       | <strong>Error:</strong> Provisioning timeout<br /><strong>Resolution</strong>: Use the original VHD that’s available on-prem, run sysprep, and then <a href="https://msdn.microsoft.com/library/mt603554.aspx/">use Add-AzureRMVhd to upload</a> as generalized.      | No error                                                                                                                                                                                                                                               | <strong>Error</strong>: Provisioning timeout, because the original VM is not usable as it is marked as generalized.<br /><strong>Resolution:</strong> Delete the current image from the portal, and <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-windows-capture-image/">recapture it from the current VHDs</a> with the generalized setting. | No error                                                                                                                                                                                                                                                                                                   |
-| Windows Specialized       | No error                                                                                                                                 | <strong>Error</strong>: Provisioning failure, because the new VM is running with the original computer name, username and password.<br /><strong>Resolution:</strong> Use the original VHD that’s available on-prem and <a href="https://msdn.microsoft.com/library/mt603554.aspx/">use Add-AzureRMVhd to upload</a> as specialized, or run sysprep to make the OS generalized.      | No error                                                                                                                                                                                                                     | <strong>Error</strong>: Provisioning failure, because the new VM is running with the original computer name, username and password. The original VM is not usable as it is marked as specialized.<br /><strong>Resolution:</strong> Delete the current image from the portal, and <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-windows-capture-image/">recapture it from the current VHDs</a> with the specialized setting. |
+[AZURE.INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
+
+Y: If the OS is Windows generalized, and it is uploaded and/or captured with the generalized setting, then there won’t be any errors. Similarly, if the OS is Windows specialized, and it is uploaded and/or captured with the specialized setting, then there won’t be any errors.
+
+**Upload Errors:**
+N<sup>1</sup>: If the OS is Windows generalized, and it is uploaded as specialized, you will get a provisioning timeout error with the VM stuck at the OOBE screen.
+N<sup>2</sup>: If the OS is Windows specialized, and it is uploaded as generalized, you will get a provisioning failure error with the VM stuck at the OOBE screen because the new VM is running with the original computer name, username and password.
+
+**Resolution:**
+To resolve both these errors, use [Add-AzureRMVhd to upload the original VHD](https://msdn.microsoft.com/en-us/library/mt603554.aspx), available on-prem, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
+
+**Capture Errors:**
+N<sup>3</sup>: If the OS is Windows generalized, and it is captured as specialized, you will get a provisioning timeout error because the original VM is not usable as it is marked as generalized.
+N<sup>4</sup>: If the OS is Windows specialized, and it is captured as generalized, you will get a provisioning failure error because the new VM is running with the original computer name, username and password. Also, the original VM is not usable because it is marked as specialized.
+
+**Resolution:**
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](virtual-machines-windows-capture-image.md) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/ gallery/ marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.
