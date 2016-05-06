@@ -1,6 +1,6 @@
 <properties
    pageTitle="Getting started with Azure Automation DSC"
-   description="Article description that will be displayed on landing pages and in most search results"
+   description="Explanation and examples of the most common tasks in Azure Automation Desired State Configuration (DSC)"
    services="automation" 
    documentationCenter="na" 
    authors="eslesar" 
@@ -37,7 +37,7 @@ To complete the examples in this topic, the following are required:
 
 ## Creating a DSC configuration
 
-We will create a simple [DSC configuration](https://msdn.microsoft.com/en-us/powershell/dsc/configurations) that ensures the presence of the **Web-Server** Windows Feature (IIS). 
+We will create a simple [DSC configuration](https://msdn.microsoft.com/powershell/dsc/configurations) that ensures the presence of the **Web-Server** Windows Feature (IIS). 
 
 1. Start the Windows PowerShell ISE (or any text editor).
 
@@ -59,7 +59,7 @@ configuration WebServer
 ```
 3. Save the file as `TestConfig.psm1`.
 
-This configuration calls one resource, the [WindowsFeature resource](https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource), that ensures the presence of the 
+This configuration calls one resource, the [WindowsFeature resource](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), that ensures the presence of the 
 **Web-Server** feature.
 
 ## Importing a configuration into Azure Automation
@@ -102,8 +102,9 @@ After you have imported a configuration, you can view it in the Azure portal.
     
 ## Compiling a configuration in Azure Automation
 
-Before you can apply a configuration to a node, it has to be compiled into a node configuration (MOF document), and placed on the Pull server. For more information about compiling 
-configurations, see [DSC Configurations](https://msdn.microsoft.com/en-us/PowerShell/DSC/configurations).
+Before you can apply a configuration to a node, it has to be compiled into a node configuration (MOF document), and placed on the Pull server. For a more detailed description of 
+compiling configurations in Azure Automation DSC, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md). For more information about compiling 
+configurations, see [DSC Configurations](https://msdn.microsoft.com/PowerShell/DSC/configurations).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -170,7 +171,7 @@ Azure Resource Manager VMs. For information about onboarding other types of comp
 
     ![Screenshot of the DSC Nodes blade highlighting the Add Azure VM button](./media/automation-dsc-getting-started/OnboardVM.png)
 
-5. In the **Add Azure VMs** blade, clidk **Select virtual machines to onboard**.
+5. In the **Add Azure VMs** blade, click **Select virtual machines to onboard**.
 
 6. In the **Select VMs** blade, select the VM you want to onboard, and click **OK**.
 
@@ -200,19 +201,73 @@ You can view the list of all computers that have been onboarded for management i
 
 3. On the **Automation account** blade, click **DSC Nodes**.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
+## Viewing reports for DSC nodes
 
-Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic](storage-whatis-account.md).
+Each time Azure Automation DSC attempts to apply a configuration to a managed node, the node sends a status report back to the pull server. You can view these reports on the blade
+for that node.
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+2. On the Hub menu, click **All resources** and then the name of your Automation account.
+
+3. On the **Automation account** blade, click **DSC Nodes**.
+
+4. On the **Reports** tile, click on any of the reports in the list.
+
+    ![Screenshot of the Report blade](./media/automation-dsc-getting-started/NodeReport.png)
+
+On the blade for an individual report, you can see the following status information for the corresponding configuration:
+- The report status--whether the node is "Compliant" or the configuration "Failed".
+- The start time for the configuration.
+- The total runtime for the configuration.
+- The configuration type.
+- Any errors, including the error code and error message. 
+- Any DSC resources used in the configuration, and the state of each resource--you can click on each resource to get more detailed information for that resource.
+- The name, IP address, and configuration mode of the node.
+
+You can also click **View raw report** to see the actual data that the node sends to the server. For more information about using that data, see 
+[Using a DSC report server](https://msdn.microsoft.com/powershell/dsc/reportserver).
+
+## Reassigning a node to a different configuration
+
+You can assign a node to use a different node configuration than the one you initially assigned. The node configuration must already exist in your Automation account.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. On the Hub menu, click **All resources** and then the name of your Automation account.
+
+3. On the **Automation account** blade, click **DSC Nodes**.
+
+4. On the **DSC Nodes** blade, click on the name of the node you want to reassign.
+
+5. On the blade for that node, click **Assign node**.
+
+    ![Screenshot of the Node blade highlighting the Assign Node button](./media/automation-dsc-getting-started/AssignNode.png)
+
+6. On the **Assign Node Configuration** blade, select the node configuration to which you want to assign the node, and then click **OK**.
+
+    ![Screenshot of the Assign Node Configuration blade](./media/automation-dsc-getting-started/AssignNodeConfig.png)
+    
+## Unregistering a node
+
+If you no longer want a node to be managed by Azure Automation DSC, you can unregister it.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. On the Hub menu, click **All resources** and then the name of your Automation account.
+
+3. On the **Automation account** blade, click **DSC Nodes**.
+
+4. On the **DSC Nodes** blade, click on the name of the node you want to reassign.
+
+5. On the blade for that node, click **Unregister**.
+
+    ![Screenshot of the Node blade highlighting the Unregister button](./media/automation-dsc-getting-started/UnregisterNode.png)
+
+## Related Articles
+* [Azure Automation DSC overview](automation-dsc-overview.md)
+* [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
+* [Windows PowerShell Desired State Configuration Overview](https://msdn.microsoft.com/powershell/dsc/overview)
+* [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
 
