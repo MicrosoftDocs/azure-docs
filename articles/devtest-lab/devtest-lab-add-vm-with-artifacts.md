@@ -148,4 +148,5 @@ The following steps explain how to save the ARM template for the VM being create
 ## Next steps
 
 - Once the VM has been created, you can connect to the VM by tapping **Connect** on the VM's blade.
-- Discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
+- Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
+- Explore the [ARM QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
