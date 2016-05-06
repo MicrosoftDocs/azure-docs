@@ -39,11 +39,11 @@ You have two options for exporting a template:
 
 1. In the [Azure Portal](https://portal.azure.com), select **New**, **Data + Storage**, and **Storage account**.
 
-   ![create storage](./media/resource-manager-export-template/create-storage.png)
+      ![create storage](./media/resource-manager-export-template/create-storage.png)
 
 2. Provide values to set up your storage account. You must give the storage account a name that is unique across Azure. Create a new resource group named **ExampleStorageGroup**. You can use the default values for the other properties.
 
-   ![provide values for storage](./media/resource-manager-export-template/provide-storage-values.png)
+      ![provide values for storage](./media/resource-manager-export-template/provide-storage-values.png)
 
 After the deployment completes, your subscription contains the storage account. In the next section, you will export the template.
 
@@ -51,15 +51,15 @@ After the deployment completes, your subscription contains the storage account. 
    
 1. Navigate to the resource group blade for your new resource group. You will notice the result of the last deployment is listed. Select this link.
 
-   ![resource group blade](./media/resource-manager-export-template/resource-group-blade.png)
+      ![resource group blade](./media/resource-manager-export-template/resource-group-blade.png)
    
 2. You will see a history of deployments for the group. In your case, there is probably only one deployment listed. Select this deployment.
 
-   ![last deployment](./media/resource-manager-export-template/last-deployment.png)
+     ![last deployment](./media/resource-manager-export-template/last-deployment.png)
 
 3. A summary of the deployment is displayed. The summary includes the status of the deployment and its operations, and the values you provided for parameters. To see the template that was used for the deployment, select **View template**.
 
-   ![view deployment summary](./media/resource-manager-export-template/deployment-summary.png)
+     ![view deployment summary](./media/resource-manager-export-template/deployment-summary.png)
 
 4. Resource Manager generates 5 files for you. They are:
 
@@ -73,49 +73,49 @@ After the deployment completes, your subscription contains the storage account. 
    
    5. A .NET class that you can use to deploy the template.
 
-   Let's pay particular attention to the template. Your template should look similar to:
+     Let's pay particular attention to the template. Your template should look similar to:
    
-       {
-         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-           "name": {
-             "type": "String"
-           },
-           "accountType": {
-             "type": "String"
-           },
-           "location": {
-             "type": "String"
-           },
-           "encryptionEnabled": {
-             "defaultValue": false,
-             "type": "Bool"
-           }
-         },
-         "resources": [
-           {
-             "type": "Microsoft.Storage/storageAccounts",
-             "sku": {
-               "name": "[parameters('accountType')]"
-             },
-             "kind": "Storage",
-             "name": "[parameters('name')]",
-             "apiVersion": "2016-01-01",
-             "location": "[parameters('location')]",
-             "properties": {
-               "encryption": {
-                 "services": {
-                   "blob": {
-                     "enabled": "[parameters('encryptionEnabled')]"
-                   }
-                 },
-                 "keySource": "Microsoft.Storage"
-               }
-             }
-           } 
-         ]
-       }
+          {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+              "name": {
+                "type": "String"
+              },
+              "accountType": {
+                "type": "String"
+              },
+              "location": {
+                "type": "String"
+              },
+              "encryptionEnabled": {
+                "defaultValue": false,
+                "type": "Bool"
+              }
+            },
+            "resources": [
+              {
+                "type": "Microsoft.Storage/storageAccounts",
+                "sku": {
+                  "name": "[parameters('accountType')]"
+                },
+                "kind": "Storage",
+                "name": "[parameters('name')]",
+                "apiVersion": "2016-01-01",
+                "location": "[parameters('location')]",
+                "properties": {
+                  "encryption": {
+                    "services": {
+                      "blob": {
+                        "enabled": "[parameters('encryptionEnabled')]"
+                      }
+                    },
+                    "keySource": "Microsoft.Storage"
+                  }
+                }
+              } 
+            ]
+          }
    
    Notice that it defines parameters for the storage account name, type, location, and whether encryption is enabled (which has a default value of **false**). Within 
    the **resources** section, you will see the definition for the storage account to deploy.  
@@ -191,44 +191,44 @@ will create a unique name. Second, you will specify the the permitted values for
 
 3. To enable passing the values you might want to specify during deployment, replace the **parameters** section with the following parameter definitions. Notice that the allowed values for **storageAccount_accountType**. If you accidentally provide an invalid value, that error is recognized before the deployment starts. Also, notice that you are only providing a prefix for the storage account name, and the prefix is limited to 11 characters. You will see how to create a unique name in the next step.
 
-       "parameters": {
-         "storageAccount_prefix": {
-           "type": "string",
-           "maxLength": 11
-         },
-         "storageAccount_accountType": {
-           "defaultValue": "Standard_RAGRS",
-           "type": "string",
-           "allowedValues": [
-             "Standard_LRS",
-             "Standard_ZRS",
-             "Standard_GRS",
-             "Standard_RAGRS",
-             "Premium_LRS"
-           ]
-         },
-         "virtualNetwork_name": {
-           "type": "string"
-         },
-         "addressPrefix": {
-           "defaultValue": "10.0.0.0/16",
-           "type": "string"
-         },
-         "subnetName": {
-           "defaultValue": "subnet-1",
-           "type": "string"
-         },
-         "subnetAddressPrefix": {
-           "defaultValue": "10.0.0.0/24",
-           "type": "string"
-         }
-       },
+        "parameters": {
+          "storageAccount_prefix": {
+            "type": "string",
+            "maxLength": 11
+          },
+          "storageAccount_accountType": {
+            "defaultValue": "Standard_RAGRS",
+            "type": "string",
+            "allowedValues": [
+              "Standard_LRS",
+              "Standard_ZRS",
+              "Standard_GRS",
+              "Standard_RAGRS",
+              "Premium_LRS"
+            ]
+          },
+          "virtualNetwork_name": {
+            "type": "string"
+          },
+          "addressPrefix": {
+            "defaultValue": "10.0.0.0/16",
+            "type": "string"
+          },
+          "subnetName": {
+            "defaultValue": "subnet-1",
+            "type": "string"
+          },
+          "subnetAddressPrefix": {
+            "defaultValue": "10.0.0.0/24",
+            "type": "string"
+          }
+        },
        
 4. Below the **parameters** section, add a **variables** section with the following code. The **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group.
 
-       "variables": {
-         "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-       },
+        "variables": {
+          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+        },
 
 5. To use the parameters and variable in the resource definitions, replace the **resources** section with the following definitions. Notice that the location of the resources is set to use the same location as the resource group through the **resourceGroup().location** expression.
 
