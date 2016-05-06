@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="05/10/2016"
 	ms.author="daleche"/>
 
 # Troubleshoot common connection issues to Azure SQL Database
