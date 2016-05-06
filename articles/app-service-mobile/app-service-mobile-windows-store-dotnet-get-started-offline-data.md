@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Enable offline sync for your Windows app
@@ -52,7 +52,17 @@ Azure Mobile App offline features allow you to interact with a local database wh
 
     >[AZURE.NOTE] If the installation creates an additional reference to a different version of SQLite than you have installed, you will get a compilation error. You should resolve this error by removing the duplicate in the **References** node in your projects.
 
-3. In Solution Explorer, right click **References** for the Windows 8.1 Runtime and Windows Phone 8.1 platform projects and ensure there is a reference to SQLite, which is located in the **Extensions** section.
+3. SQLite is a native library and requires that you choose a platform-specific architecture such as **x86**, **x64**, or **ARM**. **Any CPU** is not supported. In Solution Explorer, click the Solution at the top, then change the processor architecture drop down box to one of the supported settings that you want to test.
+
+    >[AZURE.NOTE] If you are using Visual Studio 2015, right click the solution and then click **Properties** to open configuration manager to set the platform for the Windows and Windows Phone Projects.
+
+    ![][13]
+
+
+4. In Solution Explorer, right click **References** for the Windows 8.1 Runtime and Windows Phone 8.1 platform projects. Ensure there is a reference to SQLite, which is located in the **Extensions** section.
+
+    >[AZURE.NOTE] If you are using Visual Studio 2015, right click the **References** node for the Windows 8.1 Runtime and Windows Phone 8.1 platform projects and click **Add a reference** to open Reference Manager.
+
 
     ![][1]
     </br>
@@ -64,9 +74,6 @@ Azure Mobile App offline features allow you to interact with a local database wh
 
     **Windows Phone 8.1**
 
-4. SQLite is a native library and requires that you choose a platform-specific architecture such as **x86**, **x64**, or **ARM**. **Any CPU** is not supported. In Solution Explorer, click the Solution at the top, then change the processor architecture drop down box to one of the supported settings that you want to test.
-
-    ![][13]
 
 5. In Solution Explorer, in the shared project, open the MainPage.cs file. Uncomment the following using statements at the top of the file:
 
@@ -208,7 +215,7 @@ In this section you reconnect the app to the mobile app backend. This simulates 
 
 4. In the app, click the check box beside a few items to complete them in the local store.
 
-  `UpdateCheckedTodoItem` calls `SyncAsync` to sync the complete each item with the Mobile App backend. `SyncAsync` calls both push and pull. However, you should note that **whenever you execute a pull against a table that the client has made changes to, a push on the client sync context will always be executed first automatically**. This is to ensure all tables in the local store, along with relationships remain consistent. So in this case we could have removed the call to `PushAsync` because it is executed automatically when executing a pull. This behavior may result in an unexpected push if you are not aware of it. For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
+  `UpdateCheckedTodoItem` calls `SyncAsync` to sync each completed item with the Mobile App backend. `SyncAsync` calls both push and pull. However, you should note that **whenever you execute a pull against a table that the client has made changes to, a push on the client sync context will always be executed first automatically**. This is to ensure all tables in the local store, along with relationships remain consistent. So in this case we could have removed the call to `PushAsync` because it is executed automatically when executing a pull. This behavior may result in an unexpected push if you are not aware of it. For more information on this behavior, see [Offline Data Sync in Azure Mobile Apps].
 
 
 ##Summary
@@ -261,8 +268,8 @@ When we want to synchronize the local store with the server, we used the `IMobil
 
 
 <!-- URLs. -->
-[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
-[create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
