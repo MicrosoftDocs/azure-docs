@@ -1,15 +1,15 @@
 <properties
 pageTitle="Create multiple Azure Machine Learning trained models and web service endpoints from a single experiment using PowerShell"
 description="Create multiple Azure Machine Learning trained models and web service endpoints from a single experiment using PowerShell"
-services="machine learning"
+services="machine-learning"
 documentationCenter=""
 authors="garyericson"
 manager="paulettm"
 editor="cgronlun"/>
 
 <tags
-ms.service="machine learning"
-ms.workload="data services"
+ms.service="machine-learning"
+ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
@@ -26,7 +26,7 @@ You could train your model once using a merged version of all the datasets acros
 
 That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning with each one representing a unique location. Besides being an overwhelming task, it's also seems pretty inefficient since each experiment would have all the same components except for the training dataset. 
 
-Fortunately, we can accomplish this by using the [Azure Machine Learning retraining API](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-retrain-models-programmatically/) and automating the task with [Azure Machine Learning PowerShell](https://github.com/hning86/azuremlps).
+Fortunately, we can accomplish this by using the [Azure Machine Learning retraining API](machine-learning-retrain-models-programmatically.md) and automating the task with [Azure Machine Learning PowerShell](https://blogs.technet.microsoft.com/machinelearning/2016/05/04/announcing-the-powershell-module-for-azure-ml/).
 
 > [AZURE.NOTE] To make our sample run faster, we'll reduce the number of locations from 1,000 to 10. But the same principles and procedures apply to 1,000 locations. The only difference is that if you want to train from 1,000 datasets you probably want to think of running the following PowerShell scripts in parallel. How to do that is beyond the scope of this article, but you can find examples of PowerShell multi-threading on the Internet.   
 
