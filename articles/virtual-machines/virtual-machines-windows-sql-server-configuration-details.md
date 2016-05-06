@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL Server VM image configuration details | Microsoft Azure"
-	description="This topic describes what gets installed on a SQL Server virtual machine gallery image on Azure. This includes the installed SQL Server features."
+	description="This topic describes how Microsoft configures the SQL Server virtual machine gallery images in Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -19,9 +19,9 @@
 
 # SQL Server VM image configuration details
 
-This topic describes what gets installed and configured for a SQL Server virtual machine gallery image. After installation, you can make additional configuration changes to the virtual machine and SQL Server. This can be done with remote desktop and the SQL Server setup media on the C: drive of each VM. For more information, see the section in this topic, [Customize the SQL VM after provisioning](#customize-the-sql-vm-after provisioning).
+This topic describes how Microsoft configures the SQL Server virtual machine gallery images. It also explains how to [make additional customizations to the virtual machine and SQL Server](#customize-the-sql-vm-after provisioning).
 
->[AZURE.NOTE]For a tutorial on how to provision a SQL Server virtual machine image, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+>[AZURE.NOTE] This topic provides configuration details on the SQL Server gallery images. For a tutorial on how to provision a SQL Server virtual machine image, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 ## Windows Server configuration
 

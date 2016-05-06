@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="05/06/2016"
 	ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
@@ -46,7 +46,9 @@ The following table provides a matrix of available SQL Server images in the virt
 |SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
-|SQL Server 2016 CTP|Windows Server 2012 R2|Evaluation|
+|SQL Server 2016 RC|Windows Server 2012 R2|Evaluation|
+
+For details on the configuration of these images, see [SQL Server VM image configuration details](virtual-machines-windows-sql-server-configuration-details.md).
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-hero-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](https://azure.microsoft.com/pricing/details/virtual-machines/) associated with the virtual machine.
 
@@ -78,10 +80,10 @@ For on-premises databases, Azure can act as a secondary data center to store SQL
 
 [SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx) stores Azure backup files in Azure blob storage. [SQL Server Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) allows you to schedule backup and retention in Azure. These services can be used with either on-premises SQL Server instances or SQL Server running on Azure VMs. Azure VMs can also take advantage of [Automated Backup](virtual-machines-windows-classic-sql-automated-backup.md) and [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md) for SQL Server.
 
-## Resources
+## Next steps
 
-- [Provisioning a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-portal-sql-server-provision.md)
-- [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
-- [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
-- [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
-- [Azure Virtual Machines](virtual-machines-linux-about.md)
+First, [create your own SQL Server VM in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+
+Then review [performance best practices](virtual-machines-windows-sql-performance.md) and [migration techniques](virtual-machines-windows-migrate-sql.md) as you consider moving your SQL Server workloads to Azure VMs.
+
+If you have more questions about SQL Server on Azure virtual machines, see the [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md).
