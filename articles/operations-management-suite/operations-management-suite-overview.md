@@ -60,7 +60,6 @@ Security and Compliance helps you identify, assess, and mitigate security risks 
 OMS is hosted in the United States. Although the language of OMS is English, the service is available in a number of additional markets. For information, see [International Availability](http://go.microsoft.com/fwlink/?LinkId=229842).
 
 ## Next steps
-- Get a high level view of the [architecture of OMS services](operations-management-suite-architecture.md).
 - Learn about [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics).
 - Learn about [Azure Automation](../automation/automation-intro).
 - Learn about [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
