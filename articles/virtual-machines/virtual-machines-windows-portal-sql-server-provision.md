@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/05/2016"
+	ms.date="05/06/2016"
 	ms.author="jroth" />
 
 # Provision a SQL Server virtual machine in the Azure Portal
