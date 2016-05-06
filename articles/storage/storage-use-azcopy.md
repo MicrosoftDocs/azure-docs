@@ -583,7 +583,7 @@ AzCopy always sets the Content-MD5 property for an Azure blob or file after uplo
 
 Indicates whether to transfer snapshots. This option is only valid when the source is a blob.
 
-The transferred blob snapshots are renamed in this format: [blob-name] (snapshot-time)[extension].
+The transferred blob snapshots are renamed in this format: blob-name (snapshot-time).extension
 
 By default, snapshots are not copied.
 
