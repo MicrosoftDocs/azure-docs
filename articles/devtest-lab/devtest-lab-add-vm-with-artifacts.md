@@ -129,7 +129,9 @@ The following steps illustrate how to view or modify the parameters of an artifa
 
 ## Save ARM template
 
-The following steps explain how to save the ARM template for the VM being created:
+An ARM template provides a declarative way to define a repeatable deployment. 
+The following steps explain how to save the ARM template for the VM being created.
+Once saved, you can use the ARM template to [deploy new VMs with Azure PowerShell](../resource-group-overview/#template-deployment.md).
 
 1. On the **Lab VM** blade, tap **View ARM Template**.
 
