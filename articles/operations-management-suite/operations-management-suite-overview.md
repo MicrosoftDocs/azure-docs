@@ -21,7 +21,7 @@ Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT manage
 
 In addition to providing valuable services on its own, OMS can integrate with System Center components such as System Center Operations Manger to extend your existing management investments into the cloud.  System Center and OMS can work together to provide a full hybrid management experience.
 
-The following sections provide a high level description of the different value areas of OMS and the services that implement them.  You can refer to [OMS architecture](operations-management-suite-architecture.md) for an overview of the different OMS components before reviewing the detailed documentation for each.
+The following sections provide a high level description of the different value areas of OMS and the services that implement them.  You can refer to OMS architecture for an overview of the different OMS components before reviewing the detailed documentation for each.
 
 
 ## ![Log Analytics](media/operations-management-suite-overview/icon-analytics.png) Log Analytics 
