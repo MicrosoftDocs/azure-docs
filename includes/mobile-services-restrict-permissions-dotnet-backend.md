@@ -6,14 +6,20 @@ By default, all requests to mobile service resources are restricted to clients t
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-2. Apply the following _AuthorizeLevel_ attribute to the **TodoItemController** class. This ensures that all operations against the _TodoItem_ table require an authenticated user.
+2. Apply the following _AuthorizeLevel_ attribute to the **TodoItemController** class. 
 
 		[AuthorizeLevel(AuthorizationLevel.User)]
 
-	>[AZURE.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
+	This makes sure that all operations against the _TodoItem_ table require an authenticated user. You can also apply the *AuthorizeLevel* attribute at the method level.
 
-3. If you wish to debug authentication locally, expand the App_Start folder, open **WebApiConfig.cs**, and add the following code to the **Register** method. This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the _AuthorizeLevel_ settings. Without this setting, all HTTP requests to *localhost* are permitted without authentication despite the _AuthorizeLevel_ setting.  
+3. (Optional) If you wish to debug authentication locally, expand the `App_Start` folder, open **WebApiConfig.cs**, and add the following code to the **Register** method.  
 
 		config.SetIsHosted(true);
 
+	This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the *AuthorizeLevel* settings. Without this setting, all HTTP requests to localhost are permitted without authentication despite the *AuthorizeLevel* setting. When you enable self-hosted mode, you also need to set a value for the local application key.
+
+4. (Optional) In the web.config project file, set a string value for the `MS_ApplicationKey` app setting. 
+
+	This is the password that you use (with no username) to test the API help pages when you run the service locally.  This string value is not used by the live site in Azure, and you do not need to use the actual application key; any valid string value will work.
+ 
 4. Republish your project.

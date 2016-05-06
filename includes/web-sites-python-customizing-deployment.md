@@ -16,10 +16,6 @@ If you want to skip all Python specific deployment steps, you can create this em
 
     \.skipPythonDeployment
 
-If you want to skip collection of static files for your Django application:
-
-    \.skipDjango 
-
 For more control over deployment, you can override the default deployment script by creating the following files:
 
     \.deployment
@@ -31,4 +27,4 @@ You can use the [Azure command-line interface][] to create the files.  Use this 
 
 When these files don't exist, Azure creates a temporary deployment script and runs it.  It is identical to the one you create with the command above.
 
-[Azure command-line interface]: http://azure.microsoft.com/en-us/downloads/
+[Azure command-line interface]: http://azure.microsoft.com/downloads/

@@ -1,3 +1,3 @@
 > [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. You can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A85619ABF" target="_blank">sign up for a free trial</a>.
+> To complete this tutorial, you need an Azure account. You can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 

@@ -1,19 +1,13 @@
-#How to Create a MySQL Database in Azure
-
 This guide will show you how to use [ClearDB] to create a MySQL database from the [Azure Store] and  how to create a MySQL database as a linked resource when you create a [Azure Web Site][waws] . [ClearDB] is a fault-tolerant database-as-a-service provider that allows you to run and manage MySQL databases in Azure datacenters and connect to them from any application.  
-
-##Table of Contents
-* [How to: Create a MySQL database from the Azure Store](#CreateFromStore)
-* [How to: Create a MySQL database as a linked resource for Azure Web Site](#CreateForWebSite)
 
 > [AZURE.NOTE] When you create a MySQL database as part of the Website creation process, you can only create a free database. Creating a MySQL database from the Azure Store allows you to create a free database or choose from paid options.
 
-<h2><a id="CreateFromStore"></a>How to: Create a MySQL database from the Azure Store</h2>
+## How to: Create a MySQL database from the Azure Store
 
 To create a MySQL database from the [Azure Store], do the following:
 
 1. Log in to the [Azure Management Portal][portal].
-2. Click **+NEW** at the bottom of the page, then select **STORE**.
+2. Click **+NEW** at the bottom of the page, then select **MARKETPLACE**.
 
 	![Select add-on from store](./media/create-mysql-db/select-store.png)
 
@@ -38,7 +32,7 @@ To create a MySQL database from the [Azure Store], do the following:
 	![MySql connection information](./media/create-mysql-db/mysql-conn-info.png) 
 
 
-<h2><a id="CreateForWebSite"></a>How to: Create a MySQL database as a linked resource for Azure Website</h2>
+## How to: Create a MySQL database as a linked resource for Azure Website
 
 To create a MySQL database as a linked resource when you create a [Azure Web Site][waws], do the following:
 
@@ -74,7 +68,7 @@ To create a MySQL database as a linked resource when you create a [Azure Web Sit
 > [AZURE.NOTE] Connection strings are accessible to your website application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see [How to Configure Web Sites][configure].
 
 [ClearDB]: http://www.cleardb.com/
-[waws]: /en-us/documentation/services/web-sites/
-[Azure Store]: /en-us/gallery/store/
+[waws]: /documentation/services/web-sites/
+[Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../web-sites-configure/
+[configure]: ../article/app-service-web/web-sites-configure.md

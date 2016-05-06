@@ -5,8 +5,6 @@ Next, you need to change the way that push notifications are registered to make 
 
 In this method, the wizard generated new push.register.js and service.js files in your project.
 
->[AZURE.NOTE]The Add Push Notification Wizard is currently only supported for a .NET backend mobile service.
-
 1. In Visual Studio in Solution Explorer, open the push.register.js project file and comment-out or delete the call to **addEventListener**. 
 
 2. In the default.js project file, replace the existing **login** function, with the following code:

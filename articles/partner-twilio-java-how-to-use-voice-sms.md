@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" 
+	pageTitle="How to Use Twilio for Voice and SMS (Java) | Microsoft Azure" 
 	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." 
 	services="" 
 	documentationCenter="java" 
@@ -20,34 +20,20 @@
 
 This guide demonstrates how to perform common programming tasks with the Twilio API service on Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next Steps](#NextSteps) section.
 
-## Table of Contents
-* [What is Twilio?](#WhatIs)
-* [Twilio Pricing](#Pricing)
-* [Concepts](#Concepts)
-* [Create a Twilio Account](#CreateAccount)
-* [Verify Phone Numbers](#VerifyPhoneNumbers)
-* [Create a Java Application](#create_app)
-* [Configure Your Application to Use Twilio Libraries](#configure_app)
-* [How to: Make an outgoing call](#howto_make_call)
-* [How to: Send an SMS message](#howto_send_sms)
-* [How to: Provide TwiML Responses from your own Web site](#howto_provide_twiml_responses)
-* [How to: Use Additional Twilio Services](#AdditionalServices)
-* [Next Steps](#NextSteps)
-
-<h2><a id="WhatIs"></a>What is Twilio?</h2>
+## <a id="WhatIs"></a>What is Twilio?
 Twilio is a telephony web-service API that lets you use your existing web languages and skills to build voice and SMS applications. Twilio is a third-party service (not an Azure feature and not a Microsoft product).
 
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** allows your applications to make and receive SMS messages. **Twilio Client** allows your applications to enable voice communication using existing Internet connections, including mobile connections.
 
-<h2><a id="Pricing"></a>Twilio Pricing and Special Offers</h2>
+## <a id="Pricing"></a>Twilio Pricing and Special Offers
 Information about Twilio pricing is available at [Twilio Pricing] [twilio_pricing]. Azure customers receive a [special offer][special_offer]: a free credit of 1000 texts or 1000 inbound minutes. To sign up for this offer or get more information, please visit [http://ahoy.twilio.com/azure][special_offer].  
 
-<h2><a id="Concepts"></a>Concepts</h2>
+## <a id="Concepts"></a>Concepts
 The Twilio API is a RESTful API that provides voice and SMS functionality for applications. Client libraries are available in multiple languages; for a list, see [Twilio API Libraries] [twilio_libraries].
 
 Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML).
 
-<h3><a id="Verbs"></a>Twilio Verbs</h3>
+### <a id="Verbs"></a>Twilio Verbs
 The API makes use of Twilio verbs; for example, the **&lt;Say&gt;** verb instructs Twilio to audibly deliver a message on a call. 
 
 The following is a list of Twilio verbs.
@@ -63,7 +49,7 @@ The following is a list of Twilio verbs.
 * **&lt;Say&gt;**: Converts text to speech that is made on a call.
 * **&lt;Sms&gt;**: Sends an SMS message.
 
-<h3><a id="TwiML"></a>TwiML</h3>
+### <a id="TwiML"></a>TwiML
 TwiML is a set of XML-based instructions based on the Twilio verbs that inform Twilio of how to process a call or SMS.
 
 As an example, the following TwiML would convert the text **Hello World** to speech.
@@ -77,18 +63,18 @@ When your application calls the Twilio API, one of the API parameters is the URL
 
 For more information about Twilio verbs, their attributes, and TwiML, see [TwiML] [twiml]. For additional information about the Twilio API, see [Twilio API] [twilio_api].
 
-<h2><a id="CreateAccount"></a>Create a Twilio Account</h2>
+## <a id="CreateAccount"></a>Create a Twilio Account
 When you're ready to get a Twilio account, sign up at [Try Twilio] [try_twilio]. You can start with a free account, and upgrade your account later.
 
 When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page] [twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
-<h2><a id="create_app"></a>Create a Java Application</h2>
+## <a id="create_app"></a>Create a Java Application
 1. Obtain the Twilio JAR and add it to your Java build path and your WAR deployment assembly. At [https://github.com/twilio/twilio-java][twilio_java], you can download the GitHub sources and create your own JAR, or download a pre-built JAR (with or without dependencies).
 2. Ensure your JDK's **cacerts** keystore contains the Equifax Secure Certificate Authority certificate with MD5 fingerprint 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (the serial number is 35:DE:F4:CF and the SHA1 fingerprint is D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). This is the certificate authority (CA) certificate for the [https://api.twilio.com][twilio_api_service] service, which is called when you use Twilio APIs. For information about ensuring your JDK's **cacerts** keystore contains the correct CA certificate, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
 
 Detailed instructions for using the Twilio client library for Java are available at [How to Make a Phone Call Using Twilio in a Java Application on Azure][howto_phonecall_java].
 
-<h2><a id="configure_app"></a>Configure Your Application to Use Twilio Libraries</h2>
+## <a id="configure_app"></a>Configure Your Application to Use Twilio Libraries
 Within your code, you can add **import** statements at the top of your source files for the Twilio packages or classes you want to use in your application. 
 
 For Java source files:
@@ -106,7 +92,7 @@ For Java Server Page (JSP) source files:
     import="com.twilio.sdk.resource.instance.*"
 Depending on which Twilio packages or classes you want to use, your **import** statements may be different.
 
-<h2><a id="howto_make_call"></a>How to: Make an outgoing call</h2>
+## <a id="howto_make_call"></a>How to: Make an outgoing call
 The following shows how to make an outgoing call using the **CallFactory** class. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
 
     // Use your account SID and authentication token instead
@@ -141,7 +127,7 @@ For more information about the parameters passed in to the **CallFactory.create*
 
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses in a Java Application on Azure](#howto_provide_twiml_responses).
 
-<h2><a id="howto_send_sms"></a>How to: Send an SMS message</h2>
+## <a id="howto_send_sms"></a>How to: Send an SMS message
 The following shows how to send an SMS message using the **SmsFactory** class. The **From** number, **4155992671**, is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
 
     // Use your account SID and authentication token instead
@@ -168,7 +154,7 @@ The following shows how to send an SMS message using the **SmsFactory** class. T
         
 For more information about the parameters passed in to the **SmsFactory.create** method, see [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
-<h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own Website</h2>
+## <a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own Website
 When your application initiates a call to the Twilio API, for example via the **CallFactory.create** method, Twilio will send your request to a URL that is expected to return a TwiML response. The example above uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url]. (While TwiML is designed for use by Web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty **&lt;Response&gt;** element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a **&lt;Response&gt;** element that contains a **&lt;Say&gt;** element.)
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses; this topic assumes you'll be hosting the URL in a JSP page.
@@ -210,10 +196,10 @@ Another option for responding with TwiML is via the **TwiMLResponse** class, whi
 
 For additional information about using Twilio in Azure with Java, see [How to Make a Phone Call Using Twilio in a Java Application on Azure][howto_phonecall_java].
 
-<h2><a id="AdditionalServices"></a>How to: Use Additional Twilio Services</h2>
+## <a id="AdditionalServices"></a>How to: Use Additional Twilio Services
 In addition to the examples shown here, Twilio offers web-based APIs that you can use to leverage additional Twilio functionality from your Azure application. For full details, see the [Twilio API documentation] [twilio_api_documentation].
 
-<h2><a id="NextSteps"></a>Next Steps</h2>
+## <a id="NextSteps"></a>Next Steps
 Now that you've learned the basics of the Twilio service, follow these links to learn more:
 
 * [Twilio Security Guidelines] [twilio_security_guidelines]
@@ -224,9 +210,9 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: ../java-add-certificate-ca-store
-[howto_phonecall_java]: ../partner-twilio-java-phone-call-example
-[misc_role_config_settings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690945.aspx
+[add_ca_cert]: java-add-certificate-ca-store.md
+[howto_phonecall_java]: partner-twilio-java-phone-call-example.md
+[misc_role_config_settings]: http://msdn.microsoft.com/library/windowsazure/hh690945.aspx
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls

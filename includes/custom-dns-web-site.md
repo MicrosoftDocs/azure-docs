@@ -4,9 +4,9 @@ When you create a website, Azure provides a friendly subdomain on the azurewebsi
 
 Optionally, you can use Azure Traffic Manager to load balance incoming traffic to your website. For more information on how Traffic Manager works with Websites, see [Controlling Azure Web Sites Traffic with Azure Traffic Manager][trafficmanager].
 
-> [AZURE.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
+> [AZURE.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
 
-> [AZURE.NOTE] The steps in this task require you to configure your websites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="/en-us/pricing/details/web-sites/">Websites Pricing Details</a> for more information.
+> [AZURE.NOTE] The steps in this task require you to configure your websites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="/pricing/details/web-sites/">Websites Pricing Details</a> for more information.
 
 In this article:
 
@@ -33,7 +33,7 @@ An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a
 > [AZURE.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your website. An IP address for use with A records is provided when you configure custom domain name settings for your website; however, this value may change if you delete and recreate your website, or change the website mode to back to free.
 
 > [AZURE.NOTE] A records cannot be used for load balancing with Traffic Manager. For more information, see [Controlling Azure Web Sites Traffic with Azure Traffic Manager][trafficmanager].
- 
+
 <a name="bkmk_configsharedmode"></a><h2>Configure your websites for shared or standard mode</h2>
 
 Setting a custom domain name on a website is only available for the Shared and Standard modes for Azure websites. Before switching a website from the Free website mode to the Shared or Standard website mode, you must first remove spending caps in place for your Website subscription. For more information on Shared and Standard mode pricing, see [Pricing Details][PricingDetails].
@@ -47,7 +47,7 @@ Setting a custom domain name on a website is only available for the Shared and S
 
 	![][standardmode2]
 
-	
+
 4. In the **general** section, set the website mode by clicking **SHARED**.
 
 	![][standardmode3]
@@ -59,8 +59,8 @@ Setting a custom domain name on a website is only available for the Shared and S
 
 	<!--![][standardmode4]-->
 
-	**Note**<br /> 
-	If you receive a "Configuring scale for website 'website name' failed" error, you can use the details button to get more information. 
+	**Note**<br />
+	If you receive a "Configuring scale for website 'website name' failed" error, you can use the details button to get more information.
 
 <a name="trafficmanager"></a><h2>(Optional) Add your websites to Traffic Manager</h2>
 
@@ -106,11 +106,11 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
 	* Login to the [Azure Management Portal][portal], select your website, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
 
-	* Install and configure [Azure Powershell](/en-us/manage/install-and-configure-windows-powershell/), and then use the following command:
+	* Install and configure [Azure Powershell](/manage/install-and-configure-windows-powershell/), and then use the following command:
 
 			get-azurewebsite yoursitename | select hostnames
 
-	* Install and configure the [Azure Cross-Platform Command Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
+	* Install and configure the [Azure Command Line Interface](/manage/install-and-configure-cli/), and then use the following command:
 
 			azure site domain list yoursitename
 
@@ -147,11 +147,11 @@ end user.
 
 ###Add the domain name to your website
 
-After the CNAME record for domain name has propagated, you must associate it with your website. You can add the custom domain name defined by the CNAME record to your website by using either the Azure Cross-Platform Command-Line Interface or by using the Azure Management Portal.
+After the CNAME record for domain name has propagated, you must associate it with your website. You can add the custom domain name defined by the CNAME record to your website by using either the Azure Command-Line Interface (Azure CLI) or by using the Azure Management Portal.
 
 **To add a domain name using the command-line tools**
 
-Install and configure the [Azure Cross-Platform Command-Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure Command-Line Interface](/manage/install-and-configure-cli/), and then use the following command:
 
 	azure site domain add customdomain yoursitename
 
@@ -173,13 +173,13 @@ The list returned by this command should contain the custom domain name, as well
 
 	![][setcname2]
 
-6. In the **DOMAIN NAMES** text box, type the domain name that you have configured. 
+6. In the **DOMAIN NAMES** text box, type the domain name that you have configured.
 
 	![][setcname3]
 
 6. Click the check mark to accept the domain name.
 
-Once configuration has completed, the custom domain name will be listed in the **domain names** section of the **Configure** page of your website. 
+Once configuration has completed, the custom domain name will be listed in the **domain names** section of the **Configure** page of your website.
 
 <a name="bkmk_configurearecord"></a><h2>Add an A Record for your custom domain</h2>
 
@@ -243,11 +243,11 @@ To create an A record, you must first find the IP address of your website. Then 
 
 ###Add the domain name to your website
 
-After the **awverify** CNAME record for domain name has propagated, you can then associate the custom domain defined by the A record with your website. You can add the custom domain name defined by the A record to your website by using either the Azure Cross-Platform Command-Line Interface or by using the Azure Management Portal.
+After the **awverify** CNAME record for domain name has propagated, you can then associate the custom domain defined by the A record with your website. You can add the custom domain name defined by the A record to your website by using either the Azure CLI or by using the Azure Management Portal.
 
-**To add a domain name using the command-line tools**
+**To add a domain name using the Azure Command-Line Interface (Azure CLI)**
 
-Install and configure the [Azure Cross-Platform Command-Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure CLI](/manage/install-and-configure-cli/), and then use the following command:
 
 	azure site domain add customdomain yoursitename
 
@@ -269,7 +269,7 @@ The list returned by this command should contain the custom domain name, as well
 
 	![][setcname2]
 
-6. In the **DOMAIN NAMES** text box, type the domain name that you have configured. 
+6. In the **DOMAIN NAMES** text box, type the domain name that you have configured.
 
 	![][setcname3]
 
@@ -281,9 +281,9 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 ## Next steps
 
--   [How to manage web sites](/en-us/manage/services/web-sites/how-to-manage-websites/)
+-   [How to manage web sites](/manage/services/web-sites/how-to-manage-websites/)
 
--   [Configure an SSL certificate for Web Sites](/en-us/develop/net/common-tasks/enable-ssl-web-site/)
+-   [Configure an SSL certificate for Web Sites](/develop/net/common-tasks/enable-ssl-web-site/)
 
 
 <!-- Bookmarks -->
@@ -296,13 +296,13 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 <!-- Links -->
 
-[PricingDetails]: /en-us/pricing/details/
+[PricingDetails]: /pricing/details/
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
-[cloudservicedns]: ../custom-dns/
-[trafficmanager]: /en-us/documentation/articles/web-sites-traffic-manager/
-[addendpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
-[createprofile]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
+[cloudservicedns]: ../articles/custom-dns.md
+[trafficmanager]: ../articles/app-service-web/web-sites-traffic-manager.md
+[addendpoint]: ../articles/traffic-manager/traffic-manager-endpoints.md
+[createprofile]: ../articles/traffic-manager/traffic-manager-manage-profiles.md
 
 <!-- images -->
 
@@ -313,7 +313,7 @@ Once configuration has completed, the custom domain name will be listed in the *
 [standardmode1]: ./media/custom-dns-web-site/dncmntask-cname-1.png
 [standardmode2]: ./media/custom-dns-web-site/dncmntask-cname-2.png
 [standardmode3]: ./media/custom-dns-web-site/dncmntask-cname-3.png
-[standardmode4]: ./media/custom-dns-web-site/dncmntask-cname-4.png 
+[standardmode4]: ./media/custom-dns-web-site/dncmntask-cname-4.png
 
 
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png

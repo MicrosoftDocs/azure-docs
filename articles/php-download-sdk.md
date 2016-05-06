@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Download the Azure SDK for PHP" 
-	description="Learn how to download and install the Azure SDK for PHP." 
-	documentationCenter="php" 
-	services="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Download the Azure SDK for PHP"
+	description="Learn how to download and install the Azure SDK for PHP."
+	documentationCenter="php"
+	services="app-service\web"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="2/5/2015" 
-	ms.author="tomfitz"/>
+<tags
+	ms.service="app-service-web"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="12/16/2015"
+	ms.author="robmcm"/>
 
 #Download the Azure SDK for PHP
 
@@ -23,16 +23,15 @@
 The Azure SDK for PHP includes components that allow you to develop, deploy, and manage PHP applications for Azure. Specifically, the Azure SDK for PHP includes the following:
 
 * **The PHP client libraries for Azure**. These class libraries provide an interface for accessing Azure features, such as data management services and cloud services.  
-* **The Azure Command-Line Tools for Mac and Linux**. This is a set of command-line tools for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. These tools work on any platform, including Mac, Linux, and Windows.
+* **The Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)**. This is a set of commands for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. The Azure CLI work on any platform, including Mac, Linux, and Windows.
 * **Azure PowerShell (Windows Only)**. This is a set of PowerShell cmdlets for deploying and managing Azure Services, such as Cloud Services and Virtual Machines.
 * **The Azure Emulators (Windows Only)**. The compute and storage emulators are local emulators of cloud services and data management services that allow you to test an application locally. The Azure Emulators run on Windows only.
 
-The sections below describe how to download and install the components described above. 
+The sections below describe how to download and install the components described above.
 
 The instructions in this topic assume that you have [PHP][install-php] installed.
 
-> [AZURE.NOTE] 
-> You must have PHP 5.3 or higher to use the PHP client libraries for Azure. 
+> [AZURE.NOTE] You must have PHP 5.3 or higher to use the PHP client libraries for Azure.
 
 ##PHP client libraries for Azure
 
@@ -42,26 +41,27 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 
 ###Install via Composer
 
-1. [Install Git][install-git]. 
+1. [Install Git][install-git].
 
 
-	> [AZURE.NOTE] 
-	> On Windows, you will also need to add the Git executable to your PATH environment variable.
+	> [AZURE.NOTE] On Windows, you will also need to add the Git executable to your PATH environment variable.
 
 2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+        {
+            "repositories": [
+                {
+                    "type": "pear",
+                    "url": "http://pear.php.net"
+                }
+            ],
+            "require": {
+                "pear-pear.php.net/mail_mime" : "*",
+                "pear-pear.php.net/http_request2" : "*",
+                "pear-pear.php.net/mail_mimedecode" : "*",
+                "microsoft/windowsazure": "*"
+            }
+        }
 
 3. Download **[composer.phar][composer-phar]** in your project root.
 
@@ -79,7 +79,7 @@ To install the PHP Client Libraries for Azure as a PEAR package, follow these st
 		pear channel-discover pear.windowsazure.com
 3. Install the PEAR package:
 
-		pear install pear.windowsazure.com/WindowsAzure-0.4.0
+		pear install pear.windowsazure.com/WindowsAzure-0.4.1
 
 After the installation completes, you can reference class libraries from your application.
 
@@ -89,8 +89,7 @@ To download and install the PHP Client Libraries for Azure manually, follow thes
 
 1. Download a .zip archive that contains the libraries from [GitHub][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a GitHub account and having Git installed locally.)
 
-	> [AZURE.NOTE] 
-	> The PHP Client Libraries for Azure have a dependency on the [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime), and [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager](http://pear.php.net/manual/en/installation.php)
+	> [AZURE.NOTE] The PHP Client Libraries for Azure have a dependency on the [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime), and [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager](http://pear.php.net/manual/en/installation.php)
 
 2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application.
 
@@ -102,21 +101,14 @@ The recommended way to install Azure PowerShell and the Azure Emulators is to us
 
 For information about how to use Azure PowerShell, see [How to Use Azure PowerShell][powershell-tools].
 
-##Azure Command-Line Tools for Mac and Linux
+##Azure CLI
 
-The Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. The following list describes how to install the tools, depending on your operating system:
+The Azure CLI is a set of commands for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. For information about installing Azure CLI, see [Install the Azure CLI](xplat-cli-install.md).
 
-* **Mac**: Download the Azure SDK Installer here: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Open the downloaded .pkg file and complete the installation steps as your are prompted.
+## Next steps
 
-* **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
+For more information, see the [PHP Developer Center](/develop/php/).
 
-		npm install azure-cli -g
-
-	> [AZURE.NOTE] 
-	> You may need to run this command with elevated privileges:  `sudo npm install azure-cli -g`
-
-
-For information about how to use the Azure Command-Line Tools for Mac and Linux, see [How to Use the Command-Line Tools for Mac and Linux][crossplat-tools].
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
@@ -133,7 +125,7 @@ For information about how to use the Azure Command-Line Tools for Mac and Linux,
 [blob-service]: http://go.microsoft.com/fwlink/?LinkId=252714
 [table-service]: http://go.microsoft.com/fwlink/?LinkId=252715
 [queue-service]: http://go.microsoft.com/fwlink/?LinkId=252716
-[crossplat-tools]: http://go.microsoft.com/fwlink/?LinkId=252717
+[azure cli]: http://go.microsoft.com/fwlink/?LinkId=252717
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

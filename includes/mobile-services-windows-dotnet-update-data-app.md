@@ -1,8 +1,4 @@
 
-1. In the file MainPage.xaml.cs, add or uncomment the following using statements: 
-
-		using Microsoft.WindowsAzure.MobileServices;
-
 2. Replace the TodoItem class definition with the following code: 
 
 	    public class TodoItem
@@ -20,13 +16,19 @@
 
 	>[AZURE.NOTE] In a universal Windows app project, the TodoItem class is defined in the seperate code file in the shared DataModel folder.
 
-3. In MainPage.xaml.cs, comment-out or delete the line that defines the existing items collection, then uncomment or add the following lines, replacing _&lt;yourClient&gt;_ with the `MobileServiceClient` field added to the App.xaml.cs file when you connected your project to the mobile service: 
+1. In the file MainPage.cs, add or uncomment the following using statements: 
+
+		using Microsoft.WindowsAzure.MobileServices;
+
+
+4. Comment-out or delete the line that defines the existing items collection, then uncomment or add the following lines, replacing _&lt;yourClient&gt;_ with the `MobileServiceClient` field added to the App.xaml.cs file when you connected your project to the mobile service: 
 
 		private MobileServiceCollection<TodoItem, TodoItem> items;
 		private IMobileServiceTable<TodoItem> todoTable = 
 		    App.<yourClient>.GetTable<TodoItem>();
 		  
 	This code creates a mobile services-aware binding collection (items) and a proxy class for the database table (todoTable). 
+
 
 4. In the **InsertTodoItem** method, remove the line of code that sets the **TodoItem.Id** property, add the **async** modifier to the method, and uncomment the following line of code: 
 

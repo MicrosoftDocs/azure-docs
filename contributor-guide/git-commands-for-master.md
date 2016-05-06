@@ -2,14 +2,15 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/16/2015" ms.author="tysonn" />
 
-#Git commands for creating a new article or updating an existing article
-Follow the steps in this article to create a local working branch on your computer so that you can create a new article for the technical documentation section of azure.microsoft.com or update an existing article.
+# Git commands for creating a new article or updating an existing article
 
-![](./media/git-commands-for-master/githubcommands1.png)
+
+## Standard process (working from master)
+Follow the steps in this article to create a local working branch on your computer so that you can create a new article for the technical documentation section of azure.microsoft.com or update an existing article.
 
 1. Start Git Bash (or the command-line tool you use for Git).
 
- [AZURE.TIP] If you are working in the public repository, change azure-content-pr to azure-content in all the commands.
+ **Note:** If you are working in the public repository, change azure-content-pr to azure-content in all the commands.
 
 2. Change to azure-content-pr:
 
@@ -22,6 +23,7 @@ Follow the steps in this article to create a local working branch on your comput
 
         git pull upstream master:<working branch>
 
+
 5. Move into the new working branch:
 
         git checkout <working branch>
@@ -30,7 +32,7 @@ Follow the steps in this article to create a local working branch on your comput
 
         git push origin <working branch>
 
-7. Create your new article or make changes to an existing article.
+7. Create your new article or make changes to an existing article. Use Windows Explorer to open and create new markdown files, and use Atom (http://atom.io) as your markdown editor. After you created or modified your article and images, go to the next step.
 
 8. Add and commit the changes you made:
 
@@ -42,25 +44,35 @@ Follow the steps in this article to create a local working branch on your comput
         git add <file path>
         git commit –m "<comment>"
 
-9. Periodically, update your local working branch with changes from upstream:
+9. Update your local working branch with changes from upstream:
 
         git pull upstream master
 
-10. Daily at least, push the changes to your fork on GitHub for safe keeping:
+10. Push the changes to your fork on GitHub:
 
         git push origin <working branch>
 
-11. Stage the article if you wish; see [GitHub commands for staging an article](./git-commands-for-sandbox.md). (Internal contributors only)
+12. When you are ready to submit your content to the upstream master branch for staging, validation, and/or publishing, in the GitHub UI, create a pull request from your fork to the master branch.
 
-12. When you are ready to publish the article live, create a pull request that moves your changes from the working branch in your fork to the master branch of the upstream repository.
+13. If you are an employee working in the private repository, the changes you submit are automatically staged and a staging link is written to the pull request. Please review your staged content and sign off in the pull request comments by adding the **#sign-off** comment.  This indicates the changes are ready to be pushed live.  If you don't want the pull request to be accepted - if you are just staging the changes - add the **#hold-off** note to the pull request.
 
-13. The pull request acceptor reviews and accepts your pull request. 
+14. The pull request acceptor reviews your pull request, provides feedback, and/or accepts your pull request. 
 
-14. Review your content at
+15. Optionally verify your published article or changes at
 
- http://azure.Microsoft.com/en-us/documentation/articles/*name-of-your-article-without-the-MD-extension*
+ http://azure.microsoft.com/documentation/articles/*name-of-your-article-without-the-MD-extension*
 
- At this time, technical articles are published once daily around 10 AM Pacific Standard Time (PST), Monday-Friday. Remember, your pull request has to be accepted before changes are included in the next scheduled publishing run.
+## Publishing
 
+- Articles are published at approximately 10:00 AM and 3:00 PM Pacific Time, Monday-Friday. It can take up to 30 minutes for articles to appear online after publishing. Remember your pull request has to be merged by a pull request reviewer before the changes can be included in the next scheduled publishing run. You need to work with your pull request reviewer ahead of time to ensure a pull request is merged for a specific publishing run. Otherwise, PRs are reviewed in the order they were submitted.
 
+- If you are an employee working in the private repository, all pull requests are subject to validation rules that need to be addressed before the pull request can be merged. 
+
+## Working with release branches
+
+When you are working with a release branch, the best way to create a local working branch from the release branch is to use this command syntax:
+
+    git checkout upstream/<upstream branch name> -b <local working branch name>
+
+This creates the local branch directly from the upstream branch, avoiding any local merging.
 
