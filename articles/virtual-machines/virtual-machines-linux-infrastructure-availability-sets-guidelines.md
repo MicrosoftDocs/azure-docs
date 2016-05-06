@@ -21,7 +21,7 @@
 
 This guidance identifies many areas for which planning is vital to the success of an IT workload in Azure. In addition, planning provides an order to the creation of the necessary resources. Although there is some flexibility, we recommend that you apply the order in this article to your planning and decision-making.
 
-## 6. Availability sets
+## Availability sets
 
 In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
 
@@ -29,7 +29,7 @@ In Azure IaaS, the concept of role is not significant, because each IaaS virtual
 
 Availability sets must be part of the high-availability planning of the solution. An availability set is defined as the set of virtual machines within a single cloud service that have the same availability set name. You can create availability sets after you create cloud services.
 
-### Implementation guidelines recap for availability sets
+## Implementation guidelines recap for availability sets
 
 Decision:
 
