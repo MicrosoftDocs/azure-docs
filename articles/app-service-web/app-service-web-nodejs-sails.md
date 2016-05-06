@@ -60,7 +60,7 @@ Next, create the App service app resource. You're going to deploy your Sails.js 
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
 2. Make sure you're still in the root directory of your Sails.js project. Create the App Service app resource in Azure with a unique
-app name with the next command. Your web app's URL will be http://&lt;appname>.azurewebsites.net.
+app name with the next command. Your web app's URL is http://&lt;appname>.azurewebsites.net.
 
         azure site create --git <appname>
 

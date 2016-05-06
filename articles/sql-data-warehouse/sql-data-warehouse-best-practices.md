@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/30/2016"
+   ms.date="05/02/2016"
    ms.author="sonyama;barbkess"/>
 
 # SQL Data Warehouse Best Practices
@@ -69,7 +69,7 @@ When defining your DDL, using the smallest data type which will support your dat
 See also [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][]
 
 ## Use Temporary Heap Tables for Transient Data
-When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table.  In addition, loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session which created it, so they may not work in some scenarios.   Heap tables are defined in the WITH clause of a CREATE TABLE.
+When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table.  In addition, loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session which created it, so they may not work in some scenarios.   Heap tables are defined in the WITH clause of a CREATE TABLE.  If you do use a temporary table, remember to create statistics on that temporary table too.
 
 See also [Temporary tables in SQL Data Warehouse][], [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][], [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)][]
 
@@ -107,7 +107,7 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 <!--Image references-->
 
 <!--Article references-->
-[create a support ticket]:sql-data-warehouse-get-started-create-support-ticket.md
+[create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Concurrency and workload management in SQL Data Warehouse]: sql-data-warehouse-develop-concurrency.md
 [Create Table As Select (CTAS) in SQL Data Warehouse]: sql-data-warehouse-develop-ctas.md
 [Guide for using PolyBase in SQL Data Warehouse]: sql-data-warehouse-load-polybase-guide.md
@@ -119,7 +119,7 @@ The [Azure SQL Data Warehouse MSDN Forum][] was create as a place for you to ask
 [Manage columnstore indexes in Azure SQL Data Warehouse]: sql-data-warehouse-manage-columnstore-indexes.md
 [Manage statistics in SQL Data Warehouse]: sql-data-warehouse-develop-statistics.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: data-factory-azure-sql-data-warehouse-connector.md
+[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [Optimizing transactions for SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
 [Pause compute resources]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
 [Resume compute resources]: sql-data-warehouse-overview-scalability.md#resume-compute-bk

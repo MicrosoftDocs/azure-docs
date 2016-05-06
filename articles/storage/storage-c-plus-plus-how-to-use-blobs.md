@@ -1,6 +1,6 @@
 <properties
     pageTitle="How to use blob storage  (C++) | Microsoft Azure"
-    description="Learn how to use the blob storage service in Azure. Samples are written in C++."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+    ms.date="04/29/2016"
     ms.author="dineshm"/>
 
 # How to use Blob Storage from C++  
