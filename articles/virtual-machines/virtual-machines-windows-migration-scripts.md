@@ -28,7 +28,7 @@ This article will show you how to use the scripts located at [Azure/classic-iaas
 
 ## Getting the scripts
 
->[AZURE.NOTE]The PowerShell scripts are open sourced on Github and we're happy to accept PRs for fixes or additional scenarios.
+>[AZURE.NOTE]The PowerShell scripts are not officially supported by Microsoft Support. Therefore they are open sourced on Github and we're happy to accept PRs for fixes or additional scenarios.
 
 You can either get the scripts by downloading the zip file from the above specified repo or clone the repo using the **either** of the commands below
 
