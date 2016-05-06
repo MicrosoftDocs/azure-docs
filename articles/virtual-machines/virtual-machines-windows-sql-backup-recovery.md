@@ -78,7 +78,7 @@ Some of the benefits of using the Azure Blob storage service include the ability
 
 For Best Practice recommendations and troubleshooting information, see [Backup and Restore Best Practices (Azure Blob Storage Service)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx).
 
-## Backup and restore in other versions of SQL Server supported in an Azure Virtual Machine
+## SQL Server 2008
 
 For SQL Server Backup and Restore in SQL Server 2008 R2, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx).
 
