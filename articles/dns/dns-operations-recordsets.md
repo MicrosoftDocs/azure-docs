@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/03/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
 # Manage DNS records and record sets using PowerShell
@@ -79,9 +79,9 @@ The zone can be specified using either the *–ZoneName* and *–ResourceGroupNa
 
 Records are added to record sets using the `Add-AzureRmDnsRecordConfig` cmdlet. This is an off-line operation—only the local object representing the record set is changed. 
 
-The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type *A* you will only be able to specify records with the parameter *-IPv4Address*.
+The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type *A*, you will only be able to specify records with the parameter *-IPv4Address*.
 
-Additional records can be added to each record set by additional calls to `Add-AzureRmDnsRecordConfig`. You can add up to 20 records to any record set.  However, record sets of type *CNAME* can contain at most 1 record, and a record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers.
+Additional records can be added to each record set by additional calls to `Add-AzureRmDnsRecordConfig`. You can add up to 20 records to any record set. However, record sets of type *CNAME* can contain at most 1 record, and a record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers.
 
 Once the record set contains the desired collection of records, it needs to be committed using the `Set-AzureRmDnsRecordSet` cmdlet. Once a record set is committed, it will replace the existing record set in Azure DNS with the record set provided.
 
@@ -101,7 +101,7 @@ The sequence of operations to create a record can also be ‘piped’, passing t
 
 ## Modify existing record sets
 
-Modifying existing record sets follows a similar pattern to creating records. The sequence of operations is as follows:
+Modifying existing record sets follows a similar pattern as creating records. The sequence of operations is as follows:
 
 1.	Retrieve the existing record set using `Get-AzureRmDnsRecordSet`.
 
@@ -112,17 +112,17 @@ Modifying existing record sets follows a similar pattern to creating records. Th
 
 ### To update a record in an existing record set
 
-For this example we will change the IP address of an existing A record:
+In this example, we will change the IP address of an existing A record:
 
 	$rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	$rs.Records[0].Ipv4Address = "134.170.185.46"
 	Set-AzureRmDnsRecordSet -RecordSet $rs 
 
-The `Set-AzureRmDnsRecordSet` cmdlet uses ‘etag’ checks to ensure concurrent changes are not overwritten.  Use the *-Overwrite* flag to suppress these checks.  See [About Etags and Tags](dns-getstarted-creatednszone.md#tagetag) for more information.
+The `Set-AzureRmDnsRecordSet` cmdlet uses *etag* checks to ensure concurrent changes are not overwritten. Use the *-Overwrite* flag to suppress these checks. See [About Etags and Tags](dns-getstarted-creatednszone.md#tagetag) for more information.
 
 ### To modify an SOA record
 
->[AZURE.NOTE] You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL.
+You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’), but you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL.
 
 The following example shows how to change the *Email* property of the SOA record:
 
@@ -132,7 +132,7 @@ The following example shows how to change the *Email* property of the SOA record
 
 ### To modify NS records at the zone apex
 
->[AZURE.NOTE] You cannot add to, remove or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’). The only change permitted is to modify the record set TTL.
+You cannot add to, remove, or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’). The only change permitted is to modify the record set TTL.
 
 The following example shows how to change the TTL property of the NS record set:
 
@@ -151,16 +151,16 @@ In this example we will add two additional MX records to the existing record set
 
 ## Remove a record from an existing record set
 
-Records can be removed from a record set using `Remove-AzureRmDnsRecordConfig`.  Note that the record being removed must be an exact match with an existing record, across all parameters.  Changes must be committed using Set-AzureRmDnsRecordSet.
+Records can be removed from a record set using `Remove-AzureRmDnsRecordConfig`. Note that the record being removed must be an exact match with an existing record across all parameters. Changes must be committed using `Set-AzureRmDnsRecordSet`.
 
-Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete-a-record-set) below for more.
+Removing the last record from a record set does not delete the record set. See [Delete a record set](#delete-a-record-set) below for more information.
 
 
 	$rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Remove-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-The sequence of operations to remove a record from a record set can also be ‘piped’, passing the record set object using the pipe rather than as a parameter.  For example:
+The sequence of operations to remove a record from a record set can also be ‘piped’, passing the record set object using the pipe rather than as a parameter. For example:
 
 	Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureRmDnsRecordSet
 
@@ -225,7 +225,7 @@ The optional *-Force* switch can be used to suppress the confirmation prompt.
 	$rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Remove-AzureRmDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
 
-Specifying the record set using an object enables ‘etag’ checks to ensure concurrent changes are not deleted. The optional ‘-Overwrite’ flag suppresses these checks. See [Etags and tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
+Specifying the record set using an object enables etag checks to ensure concurrent changes are not deleted. The optional *-Overwrite* flag suppresses these checks. See [Etags and tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
 
 The record set object can also be piped instead of being passed as a parameter:
 
@@ -234,4 +234,6 @@ The record set object can also be piped instead of being passed as a parameter:
 ## Next steps
 
 For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
+
+If you want to work with reverse DNS records, see [How to manage reverse DNS records](dns-reverse-dns-record-operations-ps.md).
  

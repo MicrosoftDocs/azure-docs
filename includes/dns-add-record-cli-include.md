@@ -26,7 +26,7 @@ CNAME records only allow one single string value.
 
 #### Create an MX record set with a single record
 
-In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com").  This is common for MX records.
+In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com"). This is common for MX records.
 
 	azure network dns record-set create myresourcegroup contoso.com  "@"  MX --ttl 300
 

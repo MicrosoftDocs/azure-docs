@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
 
@@ -37,7 +37,7 @@ This article will walk you through creating records and records sets by using th
 
 The following example will walk you through how to create a record set and records by using the Azure portal. We'll use the DNS 'A' record type.
 
-1. Log in to the Azure Portal.
+1. Log in to the Azure portal.
 
 2. Navigate to the **DNS zone** blade in which you want to create a record set.
 

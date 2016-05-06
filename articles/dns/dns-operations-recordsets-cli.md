@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/03/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
 # Manage DNS records and record sets using CLI
@@ -26,7 +26,6 @@
 
 
 This article shows you how to manage record sets and records for your DNS zone using the cross-platform Azure CLI.
-
 
 It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-cli.md).
 
@@ -44,7 +43,7 @@ To create a record set in the Azure portal, see [Create a record set and records
 
 ## Retrieve a record set
 
-To retrieve an existing record set, use `azure network dns record-set show`, specifying resource group, zone name, record set relative name and the record type. Use the example below, replacing the values with your own.
+To retrieve an existing record set, use `azure network dns record-set show`. Specify the resource group, zone name, record set relative name, and the record type. Use the example below, replacing the values with your own.
 
 	azure network dns record-set show myresourcegroup contoso.com www A
 
@@ -55,20 +54,20 @@ You can list all records in a DNS Zone using `azure network dns record-set list`
 
 ### To list all record sets
 
-This will return all record sets, regardless of name or record type:
+This example returns all record sets, regardless of name or record type:
 
 	azure network dns record-set list myresourcegroup contoso.com
 
 ### To list record sets of a given type
 
-This will return all record sets matching the given record type (in this case, A records):
+This example returns all record sets matching the given record type (in this case, A records).
 
 	azure network dns record-set list myresourcegroup contoso.com A 
 
 
 ## Add a record to a record set
 
-Records are added to record sets using the `azure network dns record-set add-record`. The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A' you will only be able to specify records with the parameter `-a <IPv4 address>`.
+Records are added to record sets using the `azure network dns record-set add-record`. The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type *A*, you will only be able to specify records with the parameter `-a <IPv4 address>`.
 
 To create record set, use `azure network dns record-set create`. Specify resource group, zone name, record set relative name, the record type and time to live (TTL). If the --ttl parameter is not defined, the value defaults to 4 (in seconds).
 	
@@ -175,6 +174,10 @@ The optional *-q* switch can be used to suppress the confirmation prompt.
 ## Next steps
 
 For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
+
+If you want to work with reverse DNS records, see [How to manage reverse DNS records](dns-reverse-dns-record-operations-cli.md).
+
+
 
 
  
