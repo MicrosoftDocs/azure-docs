@@ -1,5 +1,5 @@
 
-## Sign in to Azure and set the subscription for your PowerShell session
+## Start your PowerShell session
 
 First you need to have [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 or later) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
@@ -15,4 +15,3 @@ If you have multiple subscriptions use the [**Set-AzureRmContext**](https://msdn
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
-After successfully signing in you're ready to proceed.
