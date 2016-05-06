@@ -43,7 +43,9 @@ The commands below should be performed using the Node.js command line. By using 
 
 		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
 
-2. Navigate to the *start* folder, and then execute the `yo swaggerize` command to scaffold the API based on the **api.json** file included with the source code. Name the project "contactlist", and select the **express** view engine.
+2. Navigate to the *start* folder, and then execute the `yo swaggerize` command to scaffold the API based on the **api.json** file included with the source code. When you're asked for a project name, enter "contactlist", and when you're asked to select a view engine, select "express".
+
+	**Note**: if you encounter an error in this step, the next step explains how to fix it.
 
 		yo swaggerize
 
@@ -51,7 +53,7 @@ The commands below should be performed using the Node.js command line. By using 
     
 	The **api.json** file contains Swagger JSON that represents the actual API that will be hosted by the API app. Swaggerize will scaffold the handlers and config based on the Swagger metadata included in **api.json**. Swaggerize generates a **package.json** file in your application's folder.  This sample will make use of the express view engine to generate the Swagger help page later when your API app is running in Azure (or locally).  
 
-3. When the swaggerize command fails, correct the cause of the error by editing the generated *package.json* file so that the `regenerate` line under `scripts` looks like the following example:
+3. If the swaggerize command fails with an "unexpected token" or "invalid escape sequence" error, correct the cause of the error by editing the generated *package.json* file. In the `regenerate` line under `scripts`, change the back slash that precedes *api.json* to a forward slash, so that the line looks like the following example:
 
  		"regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
 
