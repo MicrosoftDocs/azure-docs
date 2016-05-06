@@ -58,7 +58,7 @@ The pool's pricing tier determines the features available to the elastic databas
 
 To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier your want, and then click **Select**.
 
-    > [AZURE.IMPORTANT] After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool create a new elastic pool in the desired pricing tier and migrate the elastic databases to this new pool.
+> [AZURE.IMPORTANT] After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool create a new elastic pool in the desired pricing tier and migrate the elastic databases to this new pool.
 
 ![Select a pricing tier](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
@@ -86,7 +86,7 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
 The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
 
-[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
 The pool recommendation comprises:
 
