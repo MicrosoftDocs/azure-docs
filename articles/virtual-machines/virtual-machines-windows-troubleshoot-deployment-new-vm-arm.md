@@ -46,7 +46,7 @@ N<sup>1</sup>: If the OS is Windows generalized, and it is uploaded as specializ
 N<sup>2</sup>: If the OS is Windows specialized, and it is uploaded as generalized, you will get a provisioning failure error with the VM stuck at the OOBE screen because the new VM is running with the original computer name, username and password.
 
 **Resolution:**
-To resolve both these errors, use [Add-AzureRMVhd to upload the original VHD](https://msdn.microsoft.com/library/mt603554.aspx), available on-prem, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
+To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](https://msdn.microsoft.com/library/mt603554.aspx), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
 
 **Capture Errors:**
 N<sup>3</sup>: If the OS is Windows generalized, and it is captured as specialized, you will get a provisioning timeout error because the original VM is not usable as it is marked as generalized.
