@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
@@ -42,6 +42,8 @@ A volume consists of a series of attributes:
 - **Status** – Can be online or offline. If a volume if offline, it is not visible to initiators (servers) that are allowed access to use the volume.
 
 - **Capacity** – Specifies how large the volume is, as perceived by the initiator (server). Capacity specifies the total amount of data that can be stored by the initiator (server). Volumes are thinly provisioned, and data is deduplicated. This implies that your device doesn’t pre-allocate physical storage capacity internally or on the cloud according to configured volume capacity. The volume capacity is allocated and consumed on demand.
+
+- **Type** – The volume type can be tiered or archival (a sub-type of tiered) 
 
 - **Access** – Specifies the initiators (servers) that are allowed access to this volume. Initiators that are not members of access control record (ACR) that is associated with the volume will not see the volume.
 
@@ -73,7 +75,7 @@ You [created a volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-v
 
   1. Supply a **Name** for your volume.
   2. Specify the **Provisioned Capacity** for your volume in GB or TB. The capacity must be between 1 GB and 64 TB for a physical device. The maximum capacity that can be provisioned for a volume on a StorSimple virtual device is 30 TB.
-  3. From the drop-down list, select the **Usage Type** for your volume. If you are using this volume for archival data, select the **Use this volume for less frequently accessed archival data** check box. For all other use cases, simply select **Tiered Volume**. (Tiered volumes were formerly called primary volumes.)
+  3. Select the **Usage Type** for your volume. If you are using the tiered volume for archival data, selecting the **Use this volume for less frequently accessed archival data** check box changes the deduplication chunk size for your volume to 512 KB. If you do not select this option, the corresponding tiered volume will use a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.(Tiered volumes were formerly called primary volumes.)
   5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)to go to the **Additional Settings** page.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
@@ -105,7 +107,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
 4. In the Modify volume wizard, under **Basic Settings**, you can do the following:
 
-  - Edit the **Name** and **Application Type**.
+  - Edit the **Name** and **Type** if you wish to modify a tiered volume to an archival volume by selecting the **Use this volume for less frequently accessed archival data** check box to change the deduplication chunk size for your volume to 512 KB.
   - Increase the **Provisioned Capacity**. The **Provisioned Capacity** can only be increased. You cannot shrink a volume after it is created.
 
     > [AZURE.NOTE] You cannot change the volume container after it is assigned to a volume.
