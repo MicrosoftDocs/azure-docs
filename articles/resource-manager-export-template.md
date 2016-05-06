@@ -75,59 +75,55 @@ After the deployment completes, your subscription contains the storage account. 
 
      Let's pay particular attention to the template. Your template should look similar to:
    
-          {
-            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-              "name": {
-                "type": "String"
-              },
-              "accountType": {
-                "type": "String"
-              },
-              "location": {
-                "type": "String"
-              },
-              "encryptionEnabled": {
-                "defaultValue": false,
-                "type": "Bool"
-              }
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "name": {
+              "type": "String"
             },
-            "resources": [
-              {
-                "type": "Microsoft.Storage/storageAccounts",
-                "sku": {
-                  "name": "[parameters('accountType')]"
-                },
-                "kind": "Storage",
-                "name": "[parameters('name')]",
-                "apiVersion": "2016-01-01",
-                "location": "[parameters('location')]",
-                "properties": {
-                  "encryption": {
-                    "services": {
-                      "blob": {
-                        "enabled": "[parameters('encryptionEnabled')]"
-                      }
-                    },
-                    "keySource": "Microsoft.Storage"
-                  }
+            "accountType": {
+              "type": "String"
+            },
+            "location": {
+              "type": "String"
+            },
+            "encryptionEnabled": {
+              "defaultValue": false,
+              "type": "Bool"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "sku": {
+                "name": "[parameters('accountType')]"
+              },
+              "kind": "Storage",
+              "name": "[parameters('name')]",
+              "apiVersion": "2016-01-01",
+              "location": "[parameters('location')]",
+              "properties": {
+                "encryption": {
+                  "services": {
+                    "blob": {
+                      "enabled": "[parameters('encryptionEnabled')]"
+                    }
+                  },
+                  "keySource": "Microsoft.Storage"
                 }
-              } 
-            ]
-          }
+              }
+            } 
+          ]
+        }
    
-   Notice that it defines parameters for the storage account name, type, location, and whether encryption is enabled (which has a default value of **false**). Within 
-   the **resources** section, you will see the definition for the storage account to deploy.  
-   Wherever you see brackets, you will find an expression that is evaluated during deployment. The bracketed expressions shown above are used to get parameter values during deployment. 
-   Therefore, the values of the parameters are used to set properties on the storage account. There are many more expressions you can use, and you will see examples of another expressions 
-   later in this topic. For the complete list, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+     Notice that it defines parameters for the storage account name, type, location, and whether encryption is enabled (which has a default value of **false**). Within the **resources** section, you will see the definition for the storage account to deploy. Wherever you see brackets, you will find an expression that is evaluated during deployment. The bracketed expressions shown above are used to get parameter values during deployment. Therefore, the values of the parameters are used to set properties on the storage account. There are many more expressions you can use, and you will see examples of other expressions later in this topic. For the complete list, see [Azure Resource Manager template functions](resource-group-template-functions.md).
    
-   To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). For step-by-step guidance on creating a template and figuring out the properties to set, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
+     To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). For step-by-step guidance on creating a template and figuring out the properties to set, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
 
-5. The portal offers three options for working with this template. You can re-deploy the template right now, download all of the files locally, or save the files to your Azure account for later use through the portal. Select **Download** to save a .zip file that contains all of the exported files.
+6. The portal offers three options for working with this template. You can re-deploy the template right now, download all of the files locally, or save the files to your Azure account for later use through the portal. Select **Download** to save a .zip file that contains all of the exported files.
 
-   ![download template](./media/resource-manager-export-template/download-template.png)
+      ![download template](./media/resource-manager-export-template/download-template.png)
 
 You now have a local copy of the template that was used to deploy your solution through the portal. 
 
@@ -140,11 +136,11 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
    
 2. Provide values when creating your virtual network, and select **Create**.
 
-   ![set alert](./media/resource-manager-export-template/create-vnet.png)
+      ![set alert](./media/resource-manager-export-template/create-vnet.png)
    
 3. After the virtual network has successfully deployed to your resource group, look again at the deployment history. You will now see two deployments. Select the most recent deployment.
 
-   ![deployment history](./media/resource-manager-export-template/deployment-history.png)
+      ![deployment history](./media/resource-manager-export-template/deployment-history.png)
    
 4. Look at the template for that deployment. Notice that it only defines the virtual network. To re-deploy the entire infrastructure to a new environment would require deploying both templates, which is not convenient or reliable. Instead, you want all of your infrastructure defined within a single template. In the next section, you will generate a new template that represents the current state of the resource group.
 
@@ -152,7 +148,7 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 
 1. From the resource group blade, you can export the template that represents the current state of the resource group. To view the template for a resource group, select **Export template**.
 
-   ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
+      ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
 
 2. You will again see the 5 files generated by Resource Manager, but this time the template is a little different from the earlier templates. The template generated from the resource group only has 2 parameters (one for the storage account name, and one for the virtual network name).
 
@@ -183,7 +179,7 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 In this section, you will modify the generated template so you can re-use the template when deploying these resources to other environments. In particular, you may like that Resource Manager generated the template 
 for you but you wish to pass in more values as parameters during deployment. The parameters give you more flexibility to specify different settings based on your scenario. 
 When customizing the template, you will provide two conveniences that simplify deploying your template. First, you will no longer have to guess a unique name for your storage account. Instead, the template 
-will create a unique name. Second, you will specify the the permitted values for the storage account types right in the template. 
+will create a unique name. Second, you will specify the permitted values for the storage account types right in the template. 
 
 1. Find the .zip file that you downloaded and extract the contents.
 
