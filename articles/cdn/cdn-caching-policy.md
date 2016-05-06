@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="05/11/2016"
 	ms.author="juliako"/>
  
 #CDN Caching Policy in Media Services Extension

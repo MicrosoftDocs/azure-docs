@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Content Delivery Network (CDN) POP Locations"
-	description="This topic lists Azure Content Delivery Network (CDN) POP locations."
+	pageTitle="Azure CDN from Verizon POP Locations"
+	description="This topic lists Azure CDN from Verizon POP Locations."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -12,14 +12,14 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="04/15/2016" 
+	ms.topic="article"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
-# Azure Content Delivery Network (CDN) POP Locations
+# Azure CDN from Verizon POP Locations
 
-This topic lists current Microsoft Azure CDN point of presence (POP) locations.
+This topic lists current **Microsoft Azure CDN from Verizon** point of presence (POP) locations.
 
 ![CDN POP Locations](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
@@ -80,7 +80,3 @@ This topic lists current Microsoft Azure CDN point of presence (POP) locations.
 
 - Melbourne
 - Sydney
-
-## Coming Soon
-
-You may have heard that Microsoft has [partnered with Akamai](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/). In the months ahead, we'll be using this partnership to greatly increase the reach of Azure CDN all over the world.

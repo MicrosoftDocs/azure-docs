@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Serve Content from Azure CDN in Your Web Application #
