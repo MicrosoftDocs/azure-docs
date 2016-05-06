@@ -312,7 +312,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 ### Run an unplanned failover
 
-1. Start the planned failover by running the following command:
+1. Start the unplanned failover by running the following command:
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
