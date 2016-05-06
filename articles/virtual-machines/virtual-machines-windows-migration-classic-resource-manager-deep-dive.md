@@ -53,14 +53,14 @@ You can find the classic and resource manager representation of the resources be
 
 In the sample screenshots shown below, you can see the representation of a Cloud Service with a VM (Not in a VNET) after the Prepare phase.
 
-![Screenshot that shows the Classic representation after prepare](./media/virtual-machines-windows-migration-classic-resourcemanager/classic-migration-prepare-portal.png)
-![Screenshot that shows the Resource Manager representation after prepare](./media/virtual-machines-windows-migration-classic-resourcemanager/resourcemanager-migration-prepare-portal.png)
+![Screenshot that shows the Classic representation after prepare](./media/virtual-machines-windows-migration-classic-resource-manager/classic-migration-prepare-portal.png)
+![Screenshot that shows the Resource Manager representation after prepare](./media/virtual-machines-windows-migration-classic-resource-manager/resourcemanager-migration-prepare-portal.png)
 
 ## Next steps
 
 Now that you have an understanding of migration of Classic IaaS resources to Resource Manager, you can start migrating the resources.
 
-- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resourcemanager)
-- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-cli-migration-classic-resourcemanager)
-- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resourcemanager)
-- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](virtual-machines-windows-migration-scripts)
+- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
+- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-cli-migration-classic-resource-manager.md)
+- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
+- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](virtual-machines-windows-migration-scripts.md)

@@ -127,7 +127,7 @@ Before you start the migration experience, we highly recommend you to follow a f
 
 With the announcement of Public Preview, we have added support for triggering migration through REST APIs, PowerShell & Azure CLI. Azure Portal support for migration for you to visualize and walk through the migration from Classic to ARM Migration is currently planned.
 
-![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-classic-resourcemanager/migration-workflow.png)
+![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
 
 1.	Prepare
 	* This is the first step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from Classic to Resource Manager resources and present this side by side for you to visualize. The detailed flow of actions are described below.
@@ -158,10 +158,10 @@ With the announcement of Public Preview, we have added support for triggering mi
 ## Next steps
 Now that you have an understanding of migration of Classic IaaS resources to Resource Manager, you can start migrating the resources.
 
-- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resourcemanager-deepdive)
-- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resourcemanager)
-- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-cli-migration-classic-resourcemanager)
-- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](virtual-machines-windows-migration-scripts)
+- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
+- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-cli-migration-classic-resource-manager.md)
+- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](virtual-machines-windows-migration-scripts.md)
 
 ## Frequently Asked Questions
 
@@ -191,7 +191,7 @@ You cannot abort migration if the Commit operation fails. All migration operatio
 
 **Do I have to buy another express route circuit if I have to leverage the IaaS under Resource manager?**
 
-No. We recently enabled [coexistence of an Express Route Circuit across Classic and Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager). You don’t have to buy a new express route circuit if you already have one.
+No. We recently enabled [coexistence of an Express Route Circuit across Classic and Resource Manager](../expressroute/expressroute-howto-coexist-resource-manager.md). You don’t have to buy a new express route circuit if you already have one.
 
 **Do you have a roadmap for when you will add the unsupported scenarios into the migration list?**
 
