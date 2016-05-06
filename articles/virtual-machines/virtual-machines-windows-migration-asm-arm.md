@@ -157,10 +157,10 @@ With the announcement of Public Preview, we have added support for triggering mi
 ## Next steps
 Now that you have an understanding of migration of Classic IaaS resources to Resource Manager, you can start migrating the resources.
 
-- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](./virtual-machines-windows-migration-asm-arm-deepdive)
-- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](./virtual-machines-windows-ps-migration-asm-arm)
-- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](./virtual-machines-windows-cli-migration-asm-arm)
-- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](./virtual-machines-windows-migration-scripts)
+- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](virtual-machines-windows-migration-asm-arm-deepdive)
+- [Use PowerShell to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-ps-migration-asm-arm)
+- [Use CLI to migrate IaaS resources from Classic to Azure Resource Manager](virtual-machines-windows-cli-migration-asm-arm)
+- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](virtual-machines-windows-migration-scripts)
 
 ## Frequently Asked Questions
 
@@ -170,7 +170,7 @@ No. The Virtual Machines (Classic) are fully supported GA services and you can c
 
 **What happens to my VMs if I don’t plan on migrating in the near future?**
 
-We are not deprecating the existing Classic APIs and resource model. We want to make migration extremely easy given the advanced features available in the Resource Manager Stack. Thus, we highly recommend that you review some of the advancements made as part of the IaaS stack under Resource Manager [here](./virtual-machines-windows-compare-deployment-models.md).
+We are not deprecating the existing Classic APIs and resource model. We want to make migration extremely easy given the advanced features available in the Resource Manager Stack. Thus, we highly recommend that you review some of the advancements made as part of the IaaS stack under Resource Manager [here](virtual-machines-windows-compare-deployment-models.md).
 
 **What does this migration plan mean for my existing tooling?**
 
@@ -190,7 +190,7 @@ You cannot abort migration if the Commit operation fails. All migration operatio
 
 **Do I have to buy another express route circuit if I have to leverage the IaaS stack under Resource manager?**
 
-No. We recently enabled [coexistence of an Express Route Circuit across Classic and Resource Manager Stack](././expressroute/expressroute-howto-coexist-resource-manager). You don’t have to buy a new express route circuit if you already have one.
+No. We recently enabled [coexistence of an Express Route Circuit across Classic and Resource Manager Stack](../expressroute/expressroute-howto-coexist-resource-manager). You don’t have to buy a new express route circuit if you already have one.
 
 **Do you have a roadmap for when you will add the unsupported scenarios into the migration list?**
 

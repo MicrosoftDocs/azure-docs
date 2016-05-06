@@ -19,19 +19,19 @@
 
 # Migrate IaaS resources from Classic to Azure Resource Manager stack using Azure CLI
 
-These steps show you how to use Azure CLI commands to migrate IaaS resources from Classic to Resource Manager Stack. The article requires [the Azure CLI](././xplat-cli-install.md) logged in (`azure login`).
+These steps show you how to use Azure CLI commands to migrate IaaS resources from Classic to Resource Manager Stack. The article requires [the Azure CLI](../xplat-cli-install.md) logged in (`azure login`).
 
 ## Step 1: Preparing for migration
 
 Here are a few best practices recommended as you evaluate migrating IaaS resources from Classic to Resource Manager stack
 
-- Read through the list of unsupported configurations or features [here](./virtual-machines-windows-migration-asm-arm.md). If you have Virtual Machines that uses unsupported configurations or features, then we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
+- Read through the list of unsupported configurations or features [here](virtual-machines-windows-migration-asm-arm.md). If you have Virtual Machines that uses unsupported configurations or features, then we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 -	If you have automated scripts that deploys your infrastructure and applications today. Try to create a similar test setup using those scripts for migration. Alternatively, you can also setup sample environments using Azure Portal as well.
 - Since the service is in Public Preview, please make sure that your test environment for migration is isolated from your production environment. Do not mix storage accounts, VNETs or other resources between the test and production environments.
 
 ## Step 2: Set your subscription and sign-up for Migration Public Preview
 
-For migration scenarios, you need to set your environment up for both Classic and Resource Manager. [Install Azure CLI](././xplat-cli-install.md) and [select your subscription](././xplat-cli-connect.md).
+For migration scenarios, you need to set your environment up for both Classic and Resource Manager. [Install Azure CLI](../xplat-cli-install.md) and [select your subscription](../xplat-cli-connect.md).
 
 Select the Azure subscription using the following command
 
@@ -107,6 +107,6 @@ If the prepared configuration looks good, you can move forward and Commit the re
 
 ## References
 
-- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-asm-arm)
-- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](./virtual-machines-windows-migration-asm-arm-deepdive)
-- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](./virtual-machines-windows-migration-scripts)
+- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](virtual-machines-windows-migration-asm-arm)
+- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](virtual-machines-windows-migration-asm-arm-deepdive)
+- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](virtual-machines-windows-migration-scripts)
