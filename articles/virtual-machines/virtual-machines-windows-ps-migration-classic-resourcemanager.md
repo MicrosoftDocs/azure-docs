@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Migrate IaaS resources from Classic to Azure Resource Manager stack using Azure PowerShell"
+	pageTitle="Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell"
 	description="This article walks through the platform supported migration service capabilities Service Management to Azure Resource Manager using PowerShell scripts"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -17,13 +17,13 @@
 	ms.date="05/04/2016"
 	ms.author="mahthi"/>
 
-# Migrate IaaS resources from Classic to Azure Resource Manager stack using Azure PowerShell
+# Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell
 
-These steps show you how to use Azure PowerShell commands to migrate IaaS resources from Classic to Resource Manager Stack. These steps follow a fill-in-the-blanks approach for migrating your custom environment. You just need to take the commands and substitute your own values for the variables (the lines beginning with "$")
+These steps show you how to use Azure PowerShell commands to migrate IaaS resources from Classic to Resource Manager. These steps follow a fill-in-the-blanks approach for migrating your custom environment. You just need to take the commands and substitute your own values for the variables (the lines beginning with "$")
 
 ## Step 1: Preparing for migration
 
-Here are a few best practices recommended as you evaluate migrating IaaS resources from Classic to Resource Manager stack
+Here are a few best practices recommended as you evaluate migrating IaaS resources from Classic to Resource Manager
 
 - Read through the list of unsupported configurations or features [here](virtual-machines-windows-migration-asm-arm.md). If you have Virtual Machines that uses unsupported configurations or features, then we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 -	If you have automated scripts that deploys your infrastructure and applications today. Try to create a similar test setup using those scripts for migration. Alternatively, you can also setup sample environments using Azure Portal as well.
@@ -95,7 +95,7 @@ If you want to migrate the VMs to a platform created Virtual Network, use the co
 
 	Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 
-If you want to migrate into an existing Virtual Network in the Resource Manager stack, use the command below.
+If you want to migrate into an existing Virtual Network in the Resource Manager deployment model, use the command below.
 
 	$existingVnetRGName = "<Existing VNET's Resource Group Name>"
 	$vnetName = "<Virtual Network Name>"
@@ -135,6 +135,6 @@ If the prepared configuration looks good, you can move forward and Commit the re
 
 ## References
 
-- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](virtual-machines-windows-migration-asm-arm)
-- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](virtual-machines-windows-migration-asm-arm-deepdive)
+- [Platform supported migration of IaaS resources from Classic to Resource Manager](virtual-machines-windows-migration-asm-arm)
+- [Technical Deep Dive on Platform supported migration from Classic to Resource Manager](virtual-machines-windows-migration-asm-arm-deepdive)
 - [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](virtual-machines-windows-migration-scripts)
