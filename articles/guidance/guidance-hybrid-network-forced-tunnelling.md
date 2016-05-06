@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Implementing a hybrid network architecture in Azure that uses forced tunnelling to route Internet requests | Blueprint | Microsoft Azure"
-   description="How to implement a hybrid network architecture in Azure that uses forced tunnelling to route Internet requests."
-   services="guidance"
+   pageTitle="Azure Architecture Reference - IaaS: Implementing a secure hybrid network architecture in Azure | Microsoft Azure"
+   description="How to implement a secure hybrid network architecture in Azure."
+   services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network"
    documentationCenter="na"
    authors="JohnPWSharp"
    manager="masashin"
    editor=""
-   tags=""/>
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="guidance"
@@ -17,33 +17,39 @@
    ms.date="05/05/2016"
    ms.author="johns@contentmaster.com"/>
 
-# Azure blueprints: Implementing a hybrid network architecture in Azure that uses forced tunnelling to route Internet requests
+# Implementing a secure hybrid network architecture in Azure
 
-This article describes best practices for implementing a hybrid network that spans the on-premises/Azure virtual network (VNet) boundary, and that uses forced tunnelling to route Internet requests made by components running in the VNet through the on-premises network. You can achieve connectivity between the on-premises network and the VNet by using an IPSec VPN tunnel or an ExpressRoute peering.
+![INCLUDE FOR BRANDING]
 
-Tunnelling only applies to outgoing traffic. For example, a web application running within the VNet may still be able to accept incoming requests directly from the Internet.
+This article describes best practices for implementing a secure hybrid network the extends your on-premises network to Azure. In this reference architecture, you will learn how to use user defined routes (UDRs) to route incoming traffic on a virtual network to a set of highly available network virtual appliances. These appliances can run different types of security software, such as firewalls, packet inspection, among others. You will also learn how to enable forced tunneling, to have all outgoing traffic to the Internet be routed to your on-premises data center. This architecture uses a connection to your on-premises datacenter using either a [VPN gateway][ra-vpn], or [ExpressRoute][ra-expressroute] connection. 
 
-> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
 Typical use cases for this architecture include:
 
-- Hybrid applications where workloads run partly on-premises and partly in a VNet in the cloud.
+- Hybrid applications where workloads run partly on-premises and partly in Azure.
+
+- Infrastructure that requires a more granular control over traffic coming into Azure from an on-premises datacenter.
 
 - Auditing outgoing traffic from the VNet. On-premises components can inspect and log all Internet requests. This is often a regulatory requirement of many commercial systems and can help to prevent public disclosure of private information.
 
-## Architecture blueprint
+## Architecture diagram
 
 The following diagram highlights the important components in this architecture:
 
 ![IaaS: forced-tunnelling](./media/guidance-hybrid-network-forced-tunnelling/figure1.png)
+<!-- [TELMO] We want to take out the PIP in the jumpbox, it should only be accessible from on-prem. We also want to force Internet traffic traffic through on-prem ONLY for the business layer. All other layers should have an NSG that denies outgoing Internet traffic. The only issue here is access to the diagnostic logging storage account, but let me worry about that for now. -->
+
+<!-- [TELMO] Can we try to introduce these components in the same order as the previous documents? And reusing the content from those as much as possible?  -->
 
 - **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
 - **Network security appliance (NSA).** This is an on-premises network security appliance that inspects requests intended for the Internet. All outbound Internet requests are directed through this device.
+<!-- [TELMO] I have seen NSA used in the name of network security appliance products, but never as a generic term  -->
 
 - **Azure virtual network (VNet).** The VNet hosts the application and other resources running in the cloud.
 
-- **Gateway.** The gateway provides the connectivity between routers in the on-premises network and the VNet. You can implement the gateway using an [Azure VPN Gateway][guidance-vpn-gateway] or by using [Azure ExpressRoute][guidance-expressroute]. The gateway uses its own gateway subnet.
+- **Gateway.** The gateway provides the connectivity between routers in the on-premises network and the VNet. You can use an [Azure VPN gateway][guidance-vpn-gateway] or an [Azure ExpressRoute gateway][guidance-expressroute]. The gateway uses its own gateway subnet.
 
 - **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, implementing access security, WAN optimization (including network compression), custom routing, or a variety of other operations. The diagram depicts the NVA as a collection of load-balanced VMs, accepting incoming requests on the inbound NVA subnet (acting as a security perimeter subnet) before validating them and forwarding the requests to the Web tier through the outbound NVA subnet.
 
@@ -60,6 +66,7 @@ The following diagram highlights the important components in this architecture:
 - **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authorized DevOps staff to log in, configure, and manage the network through an external IP address.
 
 ## Implementing this architecture
+<!-- [TELMO] This topic should be replaced with "Recommendations" and we should recommend best practices for some of the resources being used. For instance, we should talk about the GatewaySubnet mask being /27 (and why), the use of multiple NVAs for availability and load balancing, the use of NSGs to filter outgoign traffic from subnets, the use a jumpbox accessible only through the on-prem network to avoid having any public endpoint, the possibility of using ExpressRoute and VPN gateway for failover, etc.  -->
 
 The following high-level steps outline a process for configuring forced tunnelling for an application tier hosted in an Azure subnet. Detailed examples using Azure PowerShell commands are describe [later in this document][script]. Note that this process assumes the following:
 
@@ -111,7 +118,9 @@ The following high-level steps outline a process for configuring forced tunnelli
 
 > [AZURE.NOTE] For detailed information and examples on implementing forced tunnelling, see [Configure forced tunneling using PowerShell and Azure Resource Manager][azure-forced-tunnelling].
 
-## Testing your solution
+## Solution components
+<!-- [TELMO] This topic will describe how each component, or set of components for this architecture will be configured, from a ARM template or script perspective. We will fill these in next week.  -->
+
 
 Once the connections are established, follow these steps to test the environment:
 
@@ -130,14 +139,18 @@ Once the connections are established, follow these steps to test the environment
 ## Security
 
 - The NVA provides protection for traffic arriving from the on-premises network. Route all traffic received through the Azure gateway through the NVA. If the NVA is implemented as an Azure VM, enable IP forwarding to enable traffic intended for the web tier application subnet to be received by the VM through the inbound NVA subnet. You can use the following command to enable IP forwarding for a NIC:
+<!-- [TELMO] ThNVAs can only be implemented as VMs.  -->
 
 	```powershell
 	azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
 	```
 
 - Configure the NVA to inspect all requests intended for the web tier application subnet, and only permit access to traffic if it is appropriate to do so.
+<!-- [TELMO] We might want to provide a list of NVAs available from the marketplace.  -->
 
 - Ensure that inbound traffic cannot bypass the NVA. To do this, add a user-defined route (UDR) to the Gateway subnet that directs all requests arriving through the gateway to the NVA, (or the load balancer in front of the NVAs if you are using multiple security devices, for scalability). In the example shown in the diagram in the [Architecture blueprint][architecture] section, if the load balancer for the NVAs has the IP address 10.0.1.5 in the inbound NVA subnet, you can use the following commands to:
+
+<!-- [TELMO] I'm not too concerned about HOW here. Tell them what to do, have links to the docs that show how it is done. If there are no docs, then, well, add the HOW :)  -->
 
 	1. Create a route table:
 
@@ -218,7 +231,7 @@ For detailed information about protecting resources in the cloud, see [Getting s
 
 ## Scalability
 
-> [AZURE.NOTE] The articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute] describe issues surrounding the scalability of Azure gateways. ExpressRoute provides a much higher network capacity than a VPN connection, but the cost is higher and the configuration effort greater.
+> [AZURE.NOTE] The articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute] describe issues surrounding the scalability of Azure gateways. ExpressRoute provides a much higher network bandwidth and lower latency than a VPN connection, but the cost is higher and the configuration effort greater.
 
 - Create a pool (availability set) of NVA devices and use a load balancer to distribute requests received through the virtual network gateway across this pool. This strategy enables you to quickly start and stop NVAs to maintain performance, according to the load.
 
@@ -256,6 +269,8 @@ The deployment steps above use the following sample script.
 ```powershell
 TBD
 ```
+
+## Next steps
 
 <!-- links -->
 
