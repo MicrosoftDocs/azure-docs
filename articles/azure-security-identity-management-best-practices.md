@@ -76,7 +76,7 @@ It is particularly important to obtain feedback from these users and learn from 
 
 Organizations that want to avoid password change support calls but do enable users to reset their own passwords are more susceptible to a higher call volume to the service desk due to password issues. In organizations that have multiple tenants, it is imperative that you implement this type of capability and enable users to perform password reset within security boundaries that were established in the security policy.
 
-You can learn more about password reset by reading the article [Deploying Password Management and training users to use it](../active-directory/active-directory-passwords-best-practices.md).
+You can learn more about password reset by reading the article [Deploying Password Management and training users to use it](./active-directory/active-directory-passwords-best-practices.md).
 
 ## Enforce multi-factor authentication (MFA) for users
 
