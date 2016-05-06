@@ -133,7 +133,7 @@ The following steps explain how to save the ARM template for the VM being create
 
 1. On the **Lab VM** blade, tap **View ARM Template**.
 
-1. On the **View Azure Resource Manager Template blade**, manually select all of the the template text.
+1. On the **View Azure Resource Manager Template blade**, select all of the template text.
 
 1. Copy the selected text to the clipboard.
 
