@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="05/06/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to a DevTest Lab
@@ -42,18 +42,13 @@ This article shows you how to create a VM in your lab with artifacts.
 1. From the list of labs, tap the lab in which you want to create the new VM.  
 
 1. On the lab's blade, tap **+ Lab VM** as shown in the following figure.  
-    ![DevTest lab home blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+    ![Add Lab VM button](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+
+1. On the **Choose a base** blade, select a base for the VM.
 
 1. On the **Lab VM** blade, enter a name for the new virtual machine in the **Lab VM Name** text box.
 
-1. Tap **Base / Configure required settings** and select a base image for the VM.
-
-    ![Lab VM settings](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-1.png)  
-
-1. After selecting a base image and tapping **OK**, the **Lab VM** blade will expand to include UI elements for specifying user account information, including 
-**User Name**, **Authentication Type** (if the OS type for the selected base is Linux), and **Password** (assuming an authentication type of *Password*).
-
-    ![Expanded Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-2.png)
+	![Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
 
 1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
@@ -73,6 +68,8 @@ selecting either **Yes** or **No**. Otherwise, this option is disabled and selec
 1. Tap **Artifacts** and, from the list of artifacts, select and configure the artifacts that you want to add to the base image. 
 **Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, 
 and then return here when finished.
+
+1. If you want to view or copy the ARM template, skip to the [Save ARM template](#save-arm-template) section, and return here when finished.
 
 1. Tap **Create** to add the specified VM to the lab.
 
@@ -129,6 +126,24 @@ The following steps illustrate how to view or modify the parameters of an artifa
 1. On the **Add Artifact** blade, make any needed changes, and tap **OK** to close the **Add Artifact** blade.
 
 1. Tap **OK** to close the **Selected Artifacts** blade.
+
+## Save ARM template
+
+The following steps explain how to save the ARM template for the VM being created:
+
+1. On the **Lab VM** blade, tap **View ARM Template**.
+
+1. On the **View Azure Resource Manager Template blade**, manually select all of the the template text.
+
+1. Copy the selected text to the clipboard.
+
+1. Tap **OK** to close the **View Azure Resource Manager Template blade**.
+
+1. Open a text editor.
+
+1. Paste in the template text from the clipboard.
+
+1. Save the file for later use.
 
 ## Next steps
 
