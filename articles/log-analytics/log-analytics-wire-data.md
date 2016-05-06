@@ -92,8 +92,8 @@ Requirements: In order to use the following example, you’ll need to have the S
     ![wiredata results showing combined data](./media/log-analytics-wire-data/oms-wiredata-04.png)
 6. In the results above, you’ll see that account information is shown. Now you can refine your search query to find out how often the account, showing Security and Audit data, was used by the process with a query resembling:        
 
-   ```
-   Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
+    ```
+    Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
 
     ![wiredata results showing account data](./media/log-analytics-wire-data/oms-wiredata-05.png)
