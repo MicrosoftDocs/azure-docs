@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="06/05/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Manage and monitor Azure virtual machine backups
@@ -42,7 +42,9 @@ To manage protected virtual machines:
     ![Jobs](./media/backup-azure-manage-vms/backup-job.png)
 
 ## On-demand backup of a virtual machine
-You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault.
+You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault i.e. it is always incremental. 
+
+    >[AZURE.NOTE] Retention range of On-demand backup job is set to retention value specified for Daily retention in Backup Policy. 
 
 To take an on-demand backup of a virtual machine:
 
@@ -198,59 +200,38 @@ To view operation logs corresponding to a backup vault:
     ![Operation Details](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## Alert notifications
-You can get custom alert notifications for the jobs in portal. This is achieved by defining PowerShell based alert rules on operational logs events.
-
-Event based alerts work in Azure resource mode. Switch to Azure Resource mode by executing following cmdlet in elevated command mode:
-
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+You can get custom alert notifications for the jobs in portal. This is achieved by defining PowerShell based alert rules on operational logs events. We recommend using *PowerShell version 1.3.0 or above*.
 
 To define a custom notification to alert for backup failures, a sample command will look like:
 
 ```
-PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
 **ResourceId**: You can get this from Operations Logs popup as described in above section. ResourceUri in details popup window of an operation is the ResourceId to besupplied for this cmdlet.
 
-**EventName**: For alerts on IaaS VM backup, supported values are - Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**OperationName**: This will be of the format "Microsoft.Backup/backupvault/<EventName>" where EventName is one of Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Level**: Supported values are - Informational, Error. For alerts on failed action use Error and for alerts on successful jobs use Informational.
+**Status**: Supported values are- Started, Succeeded and Failed. 
 
-**OperationName**: This will be of the format "Microsoft.Backup/backupvault/<EventName>" where EventName is as described above.
-
-**Status**: Supported values are- Started, Succeeded and Failed. It is advisable to keep Informational as level for Succeeded status.
-
-**SubStatus**: Same as status for backup operations
-
-**RuleType**: Keep it as *Event* as backup alerts are based on events.
 
 **ResourceGroup**:ResourceGroup of the resource on which operation is triggered. You can obtain this from ResourceId value. Value between fields */resourceGroups/* and */providers/* in ResourceId value is the value for ResourceGroup.
 
 **Name**: Name of the Alert Rule.
 
-**Description**: Description of the alert rule.
+**CustomEmail**: Specify the custom email address to which you want to send alert notification
 
-**CustomEmails**: Specify the custom email address to which you want to send alert notification
-
-**SendToServiceOwners**: This option sends alert notification to all administrators and co-administrators of the subscription.
+**SendToServiceOwners**: This option sends alert notification to all administrators and co-administrators of the subscription. It can be used in **New-AzureRmAlertRuleEmail** cmdlet
 
 A sample alert mail looks similar to this:
-
-Sample Header:
-
-![Alert Header](./media/backup-azure-manage-vms/alert-header.png)
-
-Sample body of the alert mail:
-
-![Alert Body](./media/backup-azure-manage-vms/alert-body.png)
 
 ### Limitations on Alerts
 Event based alerts are subjected to following limitations:
 
 1. Alerts are triggered on all Virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
-2. Alerts are auto resolved if there is no alert matching event triggered in next alert duration. Use *WindowSize* parameter in Add-AlertRule cmdlet to set alert triggering duration.
+2. This feature in in Preview. [Learn more](https://azure.microsoft.com/en-us/documentation/articles/insights-powershell-samples/#create-alert-rules)
+3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender. 
 
 ## Next steps
 
