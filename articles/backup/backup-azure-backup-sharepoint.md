@@ -31,7 +31,7 @@ Azure Backup for DPM supports the following scenarios.
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.
 
 ### Prerequisites
-Before you proceed, make sure that you have met all the [prerequisites for using Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites.md) to protect workloads. Some tasks for prerequisites include: create a backup vault, download vault credentials, install Azure Backup Agent, and register DPM/Azure Backup Server with the vault.
+Before you proceed, make sure that you have met all the [prerequisites for using Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites) to protect workloads. Some tasks for prerequisites include: create a backup vault, download vault credentials, install Azure Backup Agent, and register DPM/Azure Backup Server with the vault.
 
 ### DPM agent
 The DPM agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://technet.microsoft.com/library/hh758034(v=sc.12).aspx).  The one exception is that you install the agent only on a single web front end (WFE) server. DPM needs the agent on one WFE server only to serve as the entry point for protection.
