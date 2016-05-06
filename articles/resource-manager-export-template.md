@@ -19,19 +19,13 @@
 # Learn Azure Resource Manager templates by exporting a template from existing resources
 
 Understanding how to construct Azure Resource Manager templates can be daunting, but Resource Manager helps you with that task by
-enabling you to export a template from existing resources in your subscription. It doesn't matter how you created the resources, 
-or how you have modified them, Resource Manager can generate a template from those resources, 
-and you can use that generated template to learn about the template syntax. You can also use this template to automate the re-deploy of your 
-infrastructure as needed.
+enabling you to export a template from existing resources in your subscription. You may find it easier to create and configure resources through the portal, and 
+let Resource Manager generate a template from those resources. You can use that generated template to learn about the template syntax, or to automate the re-deployment of your 
+solution as needed.
 
-In this tutorial, you will create a storage account through the portal, and export the template for that storage account. Then, you will modify the resource group containing the 
-storage account by adding a virtual network to it, and export a new template that represents its current state. Although this topic focuses on a simplified infrastructure, you could use these same steps 
-to export a template for more complicated solutions.
-
-You have two options for exporting a template:
-
-1. **Generate a template that represents the current state of your resource group** - This is helpful when you have made changes to a resource group, and need to retrieve the JSON representation of its current state. However, the generated template contains only a minimal number of parameters and no variables. Most of the values in the template are hard-coded. Before deploying the generated template, you may wish to convert more of the values into parameters so you can customize the deployment for different environments.
-2. **Retrieve the template that was used for a particular deployment** - This is helpful when you need to view the actual template that was used to deploy resources. Suppose you have deployed a solution through the Marketplace and now want to see the actual template used for the deployment. The template will include all of the parameters and variables defined for the original deployment. However, if someone in your organization has made changes to the resource group outside of what is defined in the template, this template will not represent the current state of the resource group.
+In this tutorial, you will create a storage account through the portal, and export the template for that storage account. Then, you will modify the resource group  
+by adding a virtual network to it, and export a new template that represents its current state. Although this topic focuses on a simplified infrastructure, you could use these same steps 
+to export a template for a more complicated solution.
 
 > [AZURE.NOTE] The export template feature is in preview, and not all resource types currently support exporting a template. When attempting to export a template, you may see an error that states some resources were not exported. If needed, you can manually add these resources to your template.
 
@@ -61,9 +55,9 @@ After the deployment completes, your subscription contains the storage account. 
 
      ![view deployment summary](./media/resource-manager-export-template/deployment-summary.png)
 
-4. Resource Manager generates 5 files for you. They are:
+4. Resource Manager retrieves 5 files for you. They are:
 
-   1. The template that defines the infrastructure for your solution. It contains all of the parameters and variables as originally defined by the template creator. 
+   1. The template that defines the infrastructure for your solution. It contains all of the parameters and variables as originally defined by the template creator. When you created the storage account through the portal, Resource Manager used a template to deploy it, and saved that template for future reference. 
 
    2. A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment, but you can change any of these values when re-deploying the template.
 
@@ -117,15 +111,17 @@ After the deployment completes, your subscription contains the storage account. 
           ]
         }
    
-     Notice that it defines parameters for the storage account name, type, location, and whether encryption is enabled (which has a default value of **false**). Within the **resources** section, you will see the definition for the storage account to deploy. Wherever you see brackets, you will find an expression that is evaluated during deployment. The bracketed expressions shown above are used to get parameter values during deployment. Therefore, the values of the parameters are used to set properties on the storage account. There are many more expressions you can use, and you will see examples of other expressions later in this topic. For the complete list, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+     Notice that it defines parameters for the storage account name, type, location, and whether encryption is enabled (which has a default value of **false**). Within the **resources** section, you will see the definition for the storage account to deploy. 
+     
+     The square brackets contain an expression that is evaluated during deployment. The bracketed expressions shown above are used to get parameter values during deployment. There are many more expressions you can use, and you will see examples of other expressions later in this topic. For the complete list, see [Azure Resource Manager template functions](resource-group-template-functions.md).
    
-     To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). For step-by-step guidance on creating a template and figuring out the properties to set, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md).
+     To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 6. The portal offers three options for working with this template. You can re-deploy the template right now, download all of the files locally, or save the files to your Azure account for later use through the portal. Select **Download** to save a .zip file that contains all of the exported files.
 
       ![download template](./media/resource-manager-export-template/download-template.png)
 
-You now have a local copy of the template that was used to deploy your solution through the portal. 
+You now have local copies of the template, parameter file, PowerShell script, Azure CLI script, and .NET code to re-deploy the solution. 
 
 ## Add a virtual network
 
@@ -142,7 +138,7 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 
       ![deployment history](./media/resource-manager-export-template/deployment-history.png)
    
-4. Look at the template for that deployment. Notice that it only defines the virtual network. To re-deploy the entire infrastructure to a new environment would require deploying both templates, which is not convenient or reliable. Instead, you want all of your infrastructure defined within a single template. In the next section, you will generate a new template that represents the current state of the resource group.
+4. Look at the template for that deployment. Notice that it defines only the virtual network. It is generally best practice to work with a template the deploys all of the infrastructure for your solution in a single operation, rather than remembering many different templates to deploy. In the next section, you will generate a new template that represents the current state of the resource group.
 
 ## Export template for a resource group
 
@@ -150,7 +146,7 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 
       ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
 
-2. You will again see the 5 files generated by Resource Manager, but this time the template is a little different from the earlier templates. The template generated from the resource group only has 2 parameters (one for the storage account name, and one for the virtual network name).
+2. You will again see the 5 files you can use to re-deploy the solution, but this time the template is a little different. This template has only 2 parameters (one for the storage account name, and one for the virtual network name).
 
         "parameters": {
           "virtualNetworks_ExampleVNET_name": {
@@ -163,8 +159,8 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
           }
         },
         
-     In this case, Resource Manager is not retrieving the actual template used during deployment. Instead, it creates a template based on the current resources. Resource Manager does know which values 
-     you want to pass in as parameters, so it hard-codes most values based on the current value in the resource group. For example, the storage account location and replication value are set to:
+     Resource Manager did not retrieve the actual template used during deployment. Instead, it generated a template based on the current configuration of the resources. Resource Manager does know which values 
+     you want to pass in as parameters, so it hard-codes most values based on the value in the resource group. For example, the storage account location and replication value are set to:
      
         "location": "northeurope",
         "tags": {},
@@ -177,8 +173,8 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 ## Customize the template
 
 In this section, you will modify the generated template so you can re-use the template when deploying these resources to other environments. In particular, you may like that Resource Manager generated the template 
-for you but you wish to pass in more values as parameters during deployment. The parameters give you more flexibility to specify different settings based on your scenario. 
-When customizing the template, you will provide two conveniences that simplify deploying your template. First, you will no longer have to guess a unique name for your storage account. Instead, the template 
+for you, but you need more flexibility when deploying the solution to specify different values for the storage account and virtual network.  
+You will also provide two conveniences that simplify deploying your template. First, you will no longer have to guess a unique name for your storage account. Instead, the template 
 will create a unique name. Second, you will specify the permitted values for the storage account types right in the template. 
 
 1. Find the .zip file that you downloaded and extract the contents.
@@ -220,13 +216,13 @@ will create a unique name. Second, you will specify the permitted values for the
           }
         },
        
-4. Below the **parameters** section, add a **variables** section with the following code. The **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group.
+4. Below the **parameters** section, add a **variables** section with the following code. The **variables** section enables you as the template author to create values that simplify the syntax for the rest of your template. The **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group.
 
         "variables": {
           "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
         },
 
-5. To use the parameters and variable in the resource definitions, replace the **resources** section with the following definitions. Notice that the location of the resources is set to use the same location as the resource group through the **resourceGroup().location** expression.
+5. To use the parameters and variable in the resource definitions, replace the **resources** section with the following definitions. Notice that the location of the resources is set to use the same location as the resource group through the **resourceGroup().location** expression, and the variable you created is referenced through the **variables** expression.
 
         "resources": [
           {
@@ -264,7 +260,7 @@ will create a unique name. Second, you will specify the permitted values for the
           }
         ]
 
-6. Deploy your customized template to your Azure subscription. If needed, install either [Azure PowerShell](powershell-install-configure.md) or [Azure CLI](xplat-cli-install.md).
+6. Deploy your customized template to your Azure subscription. If needed, install either [Azure PowerShell](powershell-install-configure.md) or [Azure CLI](xplat-cli-install.md). You can use the downloaded scripts or use the examples below.
 
      For PowerShell, run:
    
@@ -284,8 +280,8 @@ will create a unique name. Second, you will specify the permitted values for the
 
 Congratulations! You have learned how to export a template from resources you created in the portal, and customize that template to use in future deployments.
 
-- To learn about how templates are structured, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-- For a walkthrough of creating a template that defines a more complicated solution, see [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md). 
+- The [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md) builds upon your knowledge of templates by creating a template for a more complicated solution. 
 - To see how to export a template through PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 - To see how to export a template through Azure CLI, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md). 
+- To learn about how templates are structured, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
