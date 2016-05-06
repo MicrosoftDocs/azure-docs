@@ -73,9 +73,13 @@ The following high-level steps outline a process for configuring forced tunnelli
 
 2. Create an Azure virtual network gateway. Set the default site to the local network gateway for the on-premises network:
 
-	> [AZURE.NOTE] If the default site for the virtual network gateway is not specified correctly, then forced tunnelling may not work as requests will not be directed back to the on-premises network.
+	```powershell
+	azure network vpn-gateway create -g <<resource-group>> -n <<gateway-name>> -l <<location>> -m <<vnet-name>> -d <<name-of-local-network-gateway>> -b false -p <<pip-name>>
+	```
 
-3. Connect the local network gateway to the virtual network gateway. This can be a [site-to-site (IPsec) connection, or an ExpressRoute connection. Configure the on-premises router to direct application requests through the gateway. The procedure for doing this will vary depending on the appliance you are using. For more information, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
+	> [AZURE.NOTE] If the default site for the virtual network gateway is not specified correctly, then forced tunnelling may not work as requests will not be directed back to the on-premises network. If the local network gateway is in a different resource group than the virtual network gateway, use the -i flag and specify the resource id of the local network gateway rather then providing the name.
+
+3. Connect the local network gateway to the virtual network gateway. This can be a site-to-site (IPsec) connection, or an ExpressRoute connection. Configure the on-premises router to direct application requests through the gateway. The procedure for doing this will vary depending on the appliance you are using. For more information, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
 
 4. Create an Azure route table:
 
@@ -125,7 +129,7 @@ Once the connections are established, follow these steps to test the environment
 
 ## Security
 
-- The NVA provides protection for traffic arriving from the on-premises network. Route all traffic received through the Azure gateway through the NVA. If the NVA is implemented as an Azure VM, enable IP forwarding to enable traffic intended for the web tier application subnet to be received by the VM through the the inbound NVA subnet only. You can use the following command to enable IP forwarding for a NIC:
+- The NVA provides protection for traffic arriving from the on-premises network. Route all traffic received through the Azure gateway through the NVA. If the NVA is implemented as an Azure VM, enable IP forwarding to enable traffic intended for the web tier application subnet to be received by the VM through the inbound NVA subnet. You can use the following command to enable IP forwarding for a NIC:
 
 	```powershell
 	azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
@@ -153,7 +157,7 @@ Once the connections are established, follow these steps to test the environment
 		azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> GatewaySubnet
 		```
 
-- The gateway subnet exposes a public IP address for handling the connection to the on-premises network. There is a small risk that this endpoint could be compromised. Create a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that has not originated from the on-premises network (192.168.0.0/16 in the diagram in the [Architecture blueprint][architecture]):
+- The gateway subnet exposes a public IP address for handling the connection to the on-premises network. There is a risk that this endpoint could be be used as a point of attack. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Create a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that has not originated from the on-premises network (192.168.0.0/16 in the diagram in the [Architecture blueprint][architecture]):
 
 	
 	```powershell
