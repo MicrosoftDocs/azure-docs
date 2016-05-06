@@ -104,13 +104,13 @@ To resume a database:
 For more information, see [Management overview][].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-manage-compute-tasks-portal/click-scale.png
-[2]: ./media/sql-data-warehouse-manage-compute-tasks-portal/move-slider.png
-[3]: ./media/sql-data-warehouse-manage-compute-tasks-portal/click-save.png
-[4]: ./media/sql-data-warehouse-manage-compute-tasks-portal/resume-database.png
-[5]: ./media/sql-data-warehouse-manage-compute-tasks-portal/resume-confirm.png
-[6]: ./media/sql-data-warehouse-manage-compute-tasks-portal/pause-database.png
-[7]: ./media/sql-data-warehouse-manage-compute-tasks-portal/pause-confirm.png
+[1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
+[2]: ./media/sql-data-warehouse-manage-compute-portal/move-slider.png
+[3]: ./media/sql-data-warehouse-manage-compute-portal/click-save.png
+[4]: ./media/sql-data-warehouse-manage-compute-portal/resume-database.png
+[5]: ./media/sql-data-warehouse-manage-compute-portal/resume-confirm.png
+[6]: ./media/sql-data-warehouse-manage-compute-portal/pause-database.png
+[7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
