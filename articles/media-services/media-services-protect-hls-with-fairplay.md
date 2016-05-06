@@ -41,6 +41,9 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 
 	- An Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F).
 	- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
+	- Sign up with [Apple Development Program](https://developer.apple.com/).
+	- Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). Please state the request you already implemented KSM (Key Security Module) with Azure Media Services and that you are requesting the final FPS package. There will be instructions in the final FPS package to generate certification and obtain ASK, which you will be using to configure FairPlay. 
+
 	- Azure Media Services .NET SDK version **3.6.0** or later.
 
 - The following things must be set on AMS key delivery side:
@@ -75,7 +78,9 @@ The following are general steps that you would need to perform when protecting y
 1. Configure the content key’s authorization policy. When creating the content key authorization policy, you need to specify the following: 
 	
 	- delivery method (in this case, FairPlay), 
-	- FairPlay policy options configuration. For details on how to configure FairPlay, see ConfigureFairPlayPolicyOptions() method below.
+	- FairPlay policy options configuration. For details on how to configure FairPlay, see ConfigureFairPlayPolicyOptions() method in the sample below.
+	
+		>[AZURE.NOTE] In most cases, you would want to configure FairPlay policy options only once, since you will only have one set of certification and ASK.
 	- restrictions (open or token), 
 	- and information specific to the key delivery type that defines how the key is delivered to the client. 
 	
@@ -91,6 +96,11 @@ The following are general steps that you would need to perform when protecting y
 	>- Another IAssetDeliveryPolicy  to configure FairPlay for HLS
 
 1. Create an OnDemand locator in order to get a streaming URL.
+
+>[AZURE.NOTE] Azure Media Player doesn’t support FairPlay playback out of the box. You need to obtain the sample player from Apple developer account in order to get FairPlay playback on MAC OSX. 
+>
+>You could also develop apps using iOS SDK. 
+
 
 ##.NET example
 
@@ -439,6 +449,13 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            // Get the FairPlay license service URL.
 		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay);
 		
+					// The reason the below code replaces "https://" with "skd://" is because
+					// in the IOS player sample code which you obtained in Apple developer account, 
+					// the player only recognizes a Key URL that starts with skd://. 
+					// However, if you are using a customized player, 
+					// you can choose whatever protocol you want. 
+					// For example, "https". 
+
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
