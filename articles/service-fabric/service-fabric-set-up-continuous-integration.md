@@ -45,7 +45,7 @@ Before you can set up the build machine, you need to create a [service principal
 
     a. If you are running Windows 10 with the latest updates, you can skip this step (PowerShellGet is already installed).
 
-    b. If not, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
+    b. If not, install [Windows Management Framework 5.0](https://aka.ms/wmf5download), which includes PowerShellGet.
 
 2.	Install and update the AzureRM module.
 If you have any previous version of Azure PowerShell installed, remove it:
