@@ -142,10 +142,21 @@ Polybase is easy to use and allows you to leverage your data from different sour
 
 - PolyBase can be used to access blob storage that is also being used as storage for an HD Insight cluster, giving you cutting edge access to the same data with relational and non-relational tools.
 
-
 ## Next steps
 
 Now that you know a bit about SQL Data Warehouse, learn about the [data warehouse workload], [provision], and load [sample data] to get started.
+
+## SQL Data Warehouse Resources
+
+[Blogs][]
+[Feature Requests][]
+[Videos][]
+[CAT Team Blogs][]
+[Create Support Ticket][]
+[MSDN Forum][]
+[Stack Overflow Forum][]
+[Twitter][]
+
 
 >[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
@@ -153,6 +164,7 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
+[Create Support Ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [data warehouse workload]: ./sql-data-warehouse-overview-workload.md
 [sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Provision]: ./sql-data-warehouse-get-started-provision.md
@@ -160,3 +172,10 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[CAT Team Blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Feature Requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[MSDN Forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+[Stack Overflow Forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
