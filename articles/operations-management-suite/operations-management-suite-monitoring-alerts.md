@@ -67,7 +67,7 @@ Both recoveries in SCOM and runbooks in OMS can contain PowerShell scripts, but 
 
 If you use SCOM as a data source for Log Analytics, you could create a Log Analytics alert using a log query to retrieve SCOM alerts stored in the OMS repository.  This would allow you to run an Azure Automation runbook in response to a SCOM alert.  Of course, since the runbook will run in Azure, this would not be a viable strategy for recoveries of on-premise issues.
 
-# Next steps
+## Next steps
 
 - Learn the details of [alerts in System Center Operations Manager SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
 - Learn the details of [alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).

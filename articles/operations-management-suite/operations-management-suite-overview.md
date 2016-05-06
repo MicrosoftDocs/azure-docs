@@ -33,7 +33,7 @@ You can easily add solutions to OMS that define data to be collected and the log
 
 ## ![Azure Automation](media/operations-management-suite-overview/icon-automation.png) IT Automation
 
-IT Automation in OMS is implemented with [Azure Automation](https://azure.microsoft.com/documentation/articles/automation-intro) which provides both process automation and configuration management.
+IT Automation in OMS is implemented with [Azure Automation](../automation/automation-intro.md) which provides both process automation and configuration management.
 
 Azure Automation automates administrative processes with [runbooks](../automation/automation-runbook-types) that are based on PowerShell and run in the Azure cloud.  Runbooks can access any product or service that can be managed with PowerShell including resources in other clouds such as Amazon Web Services (AWS).  Runbooks can also be executed on a server in your local data center to manage local resources.
   
@@ -42,7 +42,7 @@ Azure Automation provides configuration management with [PowerShell DSC](../auto
 
 ## ![OMS Backup and Disaster Recovery](media/operations-management-suite-overview/icon-backup.png) Backup and Disaster Recovery
 
-[Backup and Disaster Recovery](Backup%20and%20disaster%20recovery%20solution.md) helps you protect your data and ensure the availability of your servers and applications.  Backup and recovery solutions are implemented with Azure Site Backup and Azure Site Recovery.
+Backup and Disaster Recovery helps you protect your data and ensure the availability of your servers and applications.  Backup and recovery solutions are implemented with Azure Site Backup and Azure Site Recovery.
  
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup) protects your application data and retains it for years without any capital investment and with minimal operating costs.  It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint.  It can also be used by System Center Data Protection Manager (DPM) to replicate protected data to Azure for redundancy and long term storage.
 
@@ -52,16 +52,16 @@ Azure Automation provides configuration management with [PowerShell DSC](../auto
 ## ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security.png) Security and Compliance 
 Security and Compliance helps you identify, assess, and mitigate security risks to your infrastructure.  These features of OMS are implemented through multiple OMS solutions that analyze log data and configuration from agent systems to assist you in ensuring the ongoing security of your environment.
 
-- The [Security and Audit solution](../log-analytics/log-analytics-solution-security-audit.md) collects and analyzes security events on managed systems to identify suspicious activity.
-- The [Antimalware solution](../log-analytics/log-analytics-solution-antimalware.md) reports on the status of antimalware protection on managed systems.  
-- The [System Updates solution](../log-analytics/log-analytics-solution-system-updates.md) performs an analysis of the security updates and other updates on your managed systems so that you easily identify systems requiring patching.
+- The [Security and Audit solution](log-analytics-security-audit.md ) collects and analyzes security events on managed systems to identify suspicious activity.
+- The [Antimalware solution](log-analytics-malware.md ) reports on the status of antimalware protection on managed systems.  
+- The [System Updates solution](log-analytics-system-update.md) performs an analysis of the security updates and other updates on your managed systems so that you easily identify systems requiring patching.
 
 ## Where is OMS Available?
 OMS is hosted in the United States. Although the language of OMS is English, the service is available in a number of additional markets. For information, see [International Availability](http://go.microsoft.com/fwlink/?LinkId=229842).
 
 ## Next steps
-- Get a high level view of the [architecture of OMS services](oms-architecture.md).
+- Get a high level view of the [architecture of OMS services](operations-management-suite-architecture.md).
 - Learn about [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics).
-- Learn about [Azure Automation](https://azure.microsoft.com/documentation/articles/automation-intro).
+- Learn about [Azure Automation](../automation/automation-intro).
 - Learn about [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 - Learn about [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).

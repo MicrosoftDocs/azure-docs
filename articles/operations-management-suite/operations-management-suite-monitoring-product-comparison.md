@@ -39,7 +39,7 @@ Most OMS components are in the Azure cloud so you can deploy and manage it with 
 Log Analytics can collect data from one of three sources:
 
 - Physical and virtual machines running Windows and the [Microsoft Management Agent (MMA)](https://technet.microsoft.com/library/mt484108.aspx) or Linux and the [Operations Management Suite Agent for Linux](https://technet.microsoft.com/library/mt622052.aspx).  These machines can be on-premise or virtual machines in Azure or another cloud.
-- An Azure Storage account with [Azure Diagnostics](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-diagnostics/) data collected by Azure worker role, web role, or virtual machine.
+- An Azure Storage account with [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) data collected by Azure worker role, web role, or virtual machine.
 - [Connection to a SCOM management group](https://technet.microsoft.com/library/mt484104.aspx).  In this configuration, the agents communicate with SCOM management servers which deliver the data to the SCOM database where it is then delivered to the OMS data store.
 Administrators analyze collected data and configure Log Analytics with the OMS portal which is hosted in Azure and can be accessed from any browser.  Mobile apps to access this data are available for the standard platforms.
 
@@ -171,5 +171,5 @@ In addition to providing ad hoc analysis, queries in Log Analytics can be saved 
 
 ## Next Steps
 
-- Deploy [System Center Operations Manager (SCOM)](https://technet.microsoft.com/en-us/library/hh205987.aspx).
-- Sign up for [Log Analytics](https://azure.microsoft.com/en-us/documentation/services/log-analytics).  
+- Deploy [System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh205987.aspx).
+- Sign up for [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics).  
