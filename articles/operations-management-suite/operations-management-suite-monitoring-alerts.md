@@ -70,5 +70,3 @@ If you use SCOM as a data source for Log Analytics, you could create a Log Analy
 ## Next steps
 
 - Learn the details of [alerts in System Center Operations Manager SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
-- Learn the details of [alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).
-- Install and configure the [Alert Management solution](../log-analytics/log-analytics-solution-alert-management.md) in Log Analytics.
