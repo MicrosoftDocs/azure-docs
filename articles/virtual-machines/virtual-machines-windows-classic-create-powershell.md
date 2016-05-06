@@ -17,12 +17,11 @@
 	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
-# Create Windows virtual machines with PowerShell and the classic deployment model 
+# Create a Windows virtual machine with PowerShell and the classic deployment model 
 
 > [AZURE.SELECTOR]
 - [Azure classic portal - Windows](virtual-machines-windows-classic-tutorial.md)
 - [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
-
 
 <br>
 
