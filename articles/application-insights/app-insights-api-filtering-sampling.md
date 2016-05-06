@@ -79,6 +79,7 @@ To get fixed-rate sampling on the data from web pages, put an extra line in the 
 
 [Learn more about sampling](app-insights-sampling.md).
 
+<a name="filtering"></a>
 ## Filtering: ITelemetryProcessor
 
 This technique gives you more direct control over what is included or excluded from the telemetry stream. You can use it in conjunction with Sampling, or separately.
@@ -239,7 +240,7 @@ public void Process(ITelemetry item)
 
 ```
 
-
+<a name="add-properties"></a>
 ## Add properties: ITelemetryInitializer
 
 Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules. 

@@ -36,7 +36,7 @@ This walkthrough shows you how to connect and query an Azure SQL Data Warehouse 
 
 To connect to your database you need the full name  of the server (***servername**.database.windows.net*) that contains the database you want to connect to.
 
-1. Go to the [Azure Portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 2. Browse to the database you want to connect to.
 3. Locate the full server name (we'll use this in the steps below):
 

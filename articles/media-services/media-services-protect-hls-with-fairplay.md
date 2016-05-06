@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/26/2016"
+ 	ms.date="05/04/2016"
 	ms.author="juliako"/>
 
 #Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay 
@@ -124,6 +124,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
 1. Overwrite the code in your Program.cs file with the code shown in this section.
 			
+		
 		using System;
 		using System.Collections.Generic;
 		using System.Configuration;
@@ -269,18 +270,18 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		
 		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
 		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
+		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), 	AssetCreationOptions.StorageEncrypted);
 		
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
 		            job.Submit();
 		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
 		
 		            return job.OutputMediaAssets[0];
-		        }	
-
+		        }
+		
 		        static public IContentKey CreateCommonCBCTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            // Create HLS SAMPLE AES encryption content key
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -296,21 +297,21 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            return key;
 		        }
 		
-		       
+		
 		        static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
 		        {
 		            // Create ContentKeyAuthorizationPolicy with Open restrictions 
 		            // and create authorization policy          
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		                {
-		                    new ContentKeyAuthorizationPolicyRestriction
 		                    {
-		                        Name = "Open",
-		                        KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-		                        Requirements = null
-		                    }
-		                };
+		                        new ContentKeyAuthorizationPolicyRestriction
+		                        {
+		                            Name = "Open",
+		                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+		                            Requirements = null
+		                        }
+		                    };
 		
 		
 		            // Configure FairPlay policy option.
@@ -340,14 +341,14 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            string tokenTemplateString = GenerateTokenRequirements();
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		                {
-		                    new ContentKeyAuthorizationPolicyRestriction
 		                    {
-		                        Name = "Token Authorization Policy",
-		                        KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-		                        Requirements = tokenTemplateString,
-		                    }
-		                };
+		                        new ContentKeyAuthorizationPolicyRestriction
+		                        {
+		                            Name = "Token Authorization Policy",
+		                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+		                            Requirements = tokenTemplateString,
+		                        }
+		                    };
 		
 		            // Configure FairPlay policy option.
 		            string FairPlayConfiguration = ConfigureFairPlayPolicyOptions();
@@ -403,7 +404,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            //Specify the .pfx file created by the customer.
 		            var appCert = new X509Certificate2("path to the .pfx file created by the customer", pfxPassword, X509KeyStorageFlags.Exportable);
 		
-		            string FairPlayConfiguration = 
+		            string FairPlayConfiguration =
 		                Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
 		                    appCert,
 		                    pfxPassword,
@@ -413,7 +414,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		
 		            return FairPlayConfiguration;
 		        }
-	
+		
 		        static private string GenerateTokenRequirements()
 		        {
 		            TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
@@ -427,7 +428,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            return TokenRestrictionTemplateSerializer.Serialize(template);
 		        }
 		
-				static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+		        static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 		        {
 		            var kdPolicy = _context.ContentKeyAuthorizationPolicies.Where(p => p.Id == key.AuthorizationPolicyId).Single();
 		
@@ -441,8 +442,8 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
-		                        {AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		                        {AssetDeliveryPolicyConfigurationKey.CommonEncryptionIVForCbcs, configFP.ContentEncryptionIV}
+		                    {AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl, acquisitionUrl.ToString().Replace("https://", "skd://")},
+		                    {AssetDeliveryPolicyConfigurationKey.CommonEncryptionIVForCbcs, configFP.ContentEncryptionIV}
 		                };
 		
 		            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
@@ -455,7 +456,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 		
 		        }
-		      
+		
 		
 		        /// <summary>
 		        /// Gets the streaming origin locator.
@@ -508,6 +509,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		        }
 		    }
 		}
+
 
 ##Next Steps: Media Services learning paths
 
