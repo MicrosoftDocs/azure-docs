@@ -45,7 +45,7 @@ N<sup>1</sup>: If the OS is Linux generalized, and it is uploaded as specialized
 N<sup>2</sup>: If the OS is Linux specialized, and it is uploaded as generalized, you will get a provisioning failure error because the new VM is running with the original computer name, username and password.
 
 **Resolution:**
-To resolve both these errors, upload the original VHD, available on-prem, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run -deprovision first. See Create and Upload a Virtual Hard Disk that Contains the Linux Operating System for more information.
+To resolve both these errors, upload the original VHD, available on-prem, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run -deprovision first. See [Create and Upload a Virtual Hard Disk that Contains the Linux Operating System](virtual-machines-linux-classic-create-upload-vhd.md) for more information.
 
 **Capture Errors:**
 N<sup>3</sup>: If the OS is Linux generalized, and it is captured as specialized, you will get a provisioning timeout error because the original VM is not usable as it is marked as generalized.
@@ -53,7 +53,7 @@ N<sup>3</sup>: If the OS is Linux generalized, and it is captured as specialized
 N<sup>4</sup>: If the OS is Linux specialized, and it is captured as generalized, you will get a provisioning failure error because the new VM is running with the original computer name, username and password. Also, the original VM is not usable because it is marked as specialized.
 
 **Resolution:**
-To resolve both these errors, delete the current image from the portal, and recapture it from the current VHDs with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](virtual-machines-linux-classic-capture-image.md) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/ gallery/ marketplace image; allocation failure
 This error arises in situations when the new VM request is sent to a cluster that either does not have available free space to accommodate the request, or cannot support the VM size being requested. It is not possible to mix different series of VMs in the same cloud service. So if you want to create a new VM of a different size than what your cloud service can support, the compute request will fail.
