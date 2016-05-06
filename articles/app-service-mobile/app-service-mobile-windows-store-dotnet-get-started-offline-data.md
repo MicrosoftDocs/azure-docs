@@ -268,8 +268,8 @@ When we want to synchronize the local store with the server, we used the `IMobil
 
 
 <!-- URLs. -->
-[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
-[create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
