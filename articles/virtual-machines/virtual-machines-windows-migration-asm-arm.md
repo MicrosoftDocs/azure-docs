@@ -74,7 +74,7 @@ Storage account migration is currently not supported for Public Preview. However
 - Enabling Resource Manager VMs to be deployed on Classic storage account
   To allow seamless migration, we have enabled the capability to deploy resource manager VMs in a Classic storage account. With this capability, Compute and Network resources can be migrated independent of storage accounts.
 - Best practice for storage account migration
-	When storage account migration is supported, the platform will enforce the Compute and Network resources separate from the storage accounts to enable a seamless experience. 
+	When storage account migration is supported, the platform will enforce the Compute and Network resources separate from the storage accounts to enable a seamless experience.
 ## Unsupported features & configurations
 
 At this time, we do not support a certain set of features and configurations. We are working on adding support for them, however, the following section calls out our recommendation and plans around them.
@@ -101,7 +101,7 @@ The following list of configurations are not supported for Public Preview. You c
 Service | Configuration | Recommendation
 ---------- | ------------ | ------------
 Resource Manager | Role Based Access Control for Classic Resources | Since the URI of the resources are modified after migration. We recommend that you pre-plan the RBAC policy updates that need to happen after migration.
-Compute | Multiple Subnets associated with a VM | You can optionally delete the VM to enable migration. This feature support is currently planned.
+Compute | Multiple Subnets associated with a VM | You should update the subnet configuration to reference only Subnet.
 Compute | Virtual Machines that belong to a Virtual Network but doesn't have an explicit subnet assigned. | You can optionally delete the VM. This feature support is currently planned.
 Compute | Virtual Machines that has Alerts, AutoScale Policies | At this time, the migration will go through and these settings will be dropped. So we highly recommend you to evaluate your environment before doing migration. Alternatively, you can also reconfigure the Alert settings after migration is complete.
 Compute | XML VM Extensions [VS Debugger, WebDeploy & RemoteDebug] | This will not be supported. We recommend that you remove these extensions from the Virtual Machine continue migration.
