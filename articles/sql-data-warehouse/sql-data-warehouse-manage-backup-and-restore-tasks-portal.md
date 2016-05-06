@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Backup and restore tasks in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
-   description="Azure portal tasks for restoring a database from an Azure Storage snapshot in Azure SQL Data Warehouse."
+   pageTitle="Backup and restore in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
+   description="Azure portal tasks for restoring a live, deleted, or inaccessible database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -16,30 +16,30 @@
    ms.date="05/05/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Backup and restore tasks in Azure SQL Data Warehouse (PowerShell)
+# Backup and restore a database in Azure SQL Data Warehouse (PowerShell)
 
+> [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-manage-backup-and-restore.md)
 - [Portal](sql-data-warehouse-manage-backup-and-restore-tasks-portal.md)
 - [PowerShell](sql-data-warehouse-manage-backup-and-restore-tasks-powershell.md)
 - [REST](sql-data-warehouse-manage-backup-and-restore-tasks-rest-api.md)
 
-Tasks for backing up and restoring a database from an Azure Storage Snapshot. Include restoring a live database, a deleted database, and restoring a database when there is an Azure regional outage.
-
-[AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
-
+How to backup and restore a database in SQL Data Warehouse by using the Azure portal. 
 
 Tasks in this topic:
 
 - Restore a live database
 - Restore a deleted database
-- Restore from a geographical region
+- Restore an inaccessible database from a different Azure geographical region
+
+[AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
 
 ## Before you begin
 
 Verify your SQL Database DTU capacity. Since SQL Data Warehouse restores to a new database on your logical SQL server, it is important to make sure the SQL server you are restoring to has enough DTU capacity for the new database. See this blog post for more information on [how to view and increase DTU quota][].
 
-## Restore a live database from snapshot
+## Restore a live database
 
 To restore a database from a snapshot:
 

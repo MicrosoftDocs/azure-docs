@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Database backup and restore in Azure SQL Data Warehouse | Microsoft Azure"
-   description="Overview of the backup and restore options for recovering a database snapshot in Azure SQL Data Warehouse."
+   pageTitle="Database backup and restore in Azure SQL Data Warehouse (Overview) | Microsoft Azure"
+   description="Overview of the backup and restore options for recovering a database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -17,7 +17,7 @@
    ms.author="elfish;barbkess;sonyama"/>
 
 
-# Database backup and restore in Azure SQL Data Warehouse
+# Database backup and restore in Azure SQL Data Warehouse (Overview)
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-manage-backup-and-restore.md)

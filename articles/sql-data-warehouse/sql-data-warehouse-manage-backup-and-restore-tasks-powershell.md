@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Backup and restore tasks in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
-   description="Steps for recovering a database from user error in SQL Data Warehouse. "
+   pageTitle="Backup and restore in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
+   description="PowerShell tasks for restoring a live, deleted, or inaccessible database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="elfisher"
@@ -16,19 +16,21 @@
    ms.date="05/05/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Backup and restore tasks in Azure SQL Data Warehouse (PowerShell)
+# Backup and restore a database in Azure SQL Data Warehouse (PowerShell)
 
+> [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-manage-backup-and-restore.md)
 - [Portal](sql-data-warehouse-manage-backup-and-restore-tasks-portal.md)
 - [PowerShell](sql-data-warehouse-manage-backup-and-restore-tasks-powershell.md)
 - [REST](sql-data-warehouse-manage-backup-and-restore-tasks-rest-api.md)
 
-Tasks for backing up and restoring a database from an Azure Storage Snapshot. Include restoring a live database, a deleted database, and restoring a database when there is an Azure regional outage.
+How to backup and restore a database in SQL Data Warehouse by using PowerShell. 
 
 Tasks in this topic:
+
 - Restore a live database
 - Restore a deleted database
-- Restore from a geographical region
+- Restore an inaccessible database from a different Azure geographical region
 
 [AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
@@ -42,7 +44,7 @@ Since SQL Data Warehouse restores to a new database on your logical SQL server, 
 
 In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
-## Restore a live database from snapshot
+## Restore a live database
 
 To restore a database from a snapshot use the [Restore-AzureRmSqlDatabase][] PowerShell cmdlet.
 
