@@ -19,7 +19,7 @@
 
 # Migrate IaaS resources from Classic to Azure Resource Manager stack using Azure CLI
 
-These steps show you how to use Azure CLI commands to migrate IaaS resources from Classic to Resource Manager Stack. The article requires [the Azure CLI](../xplat-cli-install.md) logged in (`azure login`).
+These steps show you how to use Azure CLI commands to migrate IaaS resources from Classic to Resource Manager Stack. The article requires [the Azure CLI](././xplat-cli-install.md) logged in (`azure login`).
 
 ## Step 1: Preparing for migration
 
@@ -31,7 +31,7 @@ Here are a few best practices recommended as you evaluate migrating IaaS resourc
 
 ## Step 2: Set your subscription and sign-up for Migration Public Preview
 
-For migration scenarios, you need to set your environment up for both Classic and Resource Manager. [Install Azure CLI](./xplat-cli-install.md) and [select your subscription](./xplat-cli-connect.md).
+For migration scenarios, you need to set your environment up for both Classic and Resource Manager. [Install Azure CLI](././xplat-cli-install.md) and [select your subscription](././xplat-cli-connect.md).
 
 Select the Azure subscription using the following command
 
