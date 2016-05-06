@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD .NET Protocol Overview | Microsoft Azure"
-	description="How to use HTTP messages to authorize access to web applications and web APIs in yoru tenant using Azure AD."
+	description="How to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure AD."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -142,7 +142,7 @@ The JWT token in the value of the `id_token` parameter can be decoded into the f
 }.
 ```
 
-The `id_token` parameter includes the following claim types. For more information about JSON web tokens, please see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344).
+The `id_token` parameter includes the following claim types. For more information about JSON web tokens, please see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344). For more information about the token types and claims, please read [Supported Token and Claim Types](active-directory-token-and-claims)
 
 | Claim type | Description |
 |------------|-------------|

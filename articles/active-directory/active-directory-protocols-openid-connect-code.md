@@ -115,7 +115,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 - Ensuring the user has proper authorization/privileges
 - Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorizations, etc.
+Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorizations, etc. For more information about the token types and claims, please read [Supported Token and Claim Types](active-directory-token-and-claims).
 
 ## Send a sign out request
 
