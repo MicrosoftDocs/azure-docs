@@ -58,7 +58,7 @@ To control access to these resources it's therefore recommended to:
 
 You must have Owner rights to the subscription or the resource group.
 
-The user must have a [Microsoft Account][account]. You can provide access to individuals, and also to user groups defined in Azure Active Directory.
+The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
 
 #### Navigate to the resource group
 
