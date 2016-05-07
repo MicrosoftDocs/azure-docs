@@ -20,7 +20,7 @@
 
 # Container management with Docker Swarm
 
-Docker Swarm provides an environment for deploying a containerized workload across a pooled set of Docker hosts. Docker Swarm uses the native Docker API. The workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document will provide simple examples of deploying a containerized workload in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
+Docker Swarm provides an environment for deploying containerized workloads across a pooled set of Docker hosts. Docker Swarm uses the native Docker API. The workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document provides simple examples of deploying containerized workloads in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
 
 Prerequisites to the exercises in this document:
 
@@ -56,7 +56,7 @@ You can now access the application that is running in this container through the
 
 ## Deploy multiple containers
 
-As multiple containers are started on the Docker Swarm cluster, you can use the `docker ps` command to see what host the containers are running on. In this example, three containers are spread evenly across the three Swarm agents:  
+As multiple containers are started on the Docker Swarm cluster, you can use the `docker ps` command to see which hosts the containers are running on. In this example, three containers are spread evenly across the three Swarm agents:  
 
 
 ```bash
