@@ -30,11 +30,7 @@ There are 3 types of triggers that can receive requests:
 For the remainder of the article, we will use **manual** as the example, but all of the principles apply identically to the other 2 types of triggers.
 
 ## Adding a trigger to your definition
-<<<<<<< HEAD
-The first step is to add a trigger to your Logic app definition that can receive incoming requests.  You can search in the designer for "HTTP Request" to add the trigger card. You can define a request body JSON Schema and the designer will generate tokens to help you parse and pass data from the manual trigger through the workflow.  I recommend using a tool like http://jsonschema.net to generate a JSON schema from a sample body payload.
-=======
 The first step is to add a trigger to your Logic app definition that can receive incoming requests.  You can search in the designer for "HTTP Request" to add the trigger card. You can define a request body JSON Schema and the designer will generate tokens to help you parse and pass data from the manual trigger through the workflow.  I recommend using a tool like [jsonschema.net](http://jsonschema.net) to generate a JSON schema from a sample body payload.
->>>>>>> master
 
 ![][2]
 
@@ -153,8 +149,4 @@ This functionality is available through **API management**:
 
 [1]: ./media/app-service-logic-http-endpoint/manualtriggerurl.png
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
-<<<<<<< HEAD
 [3]: ./media/app-service-logic-http-endpoint/response.png
-=======
-[3]: ./media/app-service-logic-http-endpoint/response.png
->>>>>>> master
