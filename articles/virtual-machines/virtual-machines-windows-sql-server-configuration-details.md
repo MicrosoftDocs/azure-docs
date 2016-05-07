@@ -89,7 +89,7 @@ When you use the Azure Portal to provision a SQL Server virtual machine, there a
 | Automated Backup             |
 | Azure Key Vault Integration             |
 
-A description of these settings is described more fully in the provisioning tutorial. For more information, see the [Configure SQL server settings](virtual-machines-windows-portal-sql-server-provision.md#4-configure-sql-server-settings.md) section of the provisioning tutorial.
+A description of these settings is described more fully in the provisioning tutorial. For more information, see the [Configure SQL server settings](virtual-machines-windows-portal-sql-server-provision.md#4-configure-sql-server-settings) section of the provisioning tutorial.
 
 ## Customize the SQL VM after provisioning
 
