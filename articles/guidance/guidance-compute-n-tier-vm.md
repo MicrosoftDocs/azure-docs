@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/02/2016"
    ms.author="mikewasson"/>
 
 
 # Adding reliability to an N-tier architecture on Azure (Windows VMs)
 
-This article builds on the [3-tier architecture][blueprints-3-tier] blueprint by including some additional components that can increase the reliability of the application, specifically:
+This article outlines a set of proven practices for running a reliable N-tier architecture in Microsoft Azure. This article builds on a previous article that shows a basic [N-tier architecture on Azure][blueprints-3-tier]. In this article, we include some additional components that can increase the reliability of the application:
 
 - A virtual network appliance for greater network security.
 - SQL Server AlwaysOn Availability Groups for high availability in the data tier.
@@ -601,10 +601,14 @@ IF %ERRORLEVEL% NEQ 0 (
 GOTO :eof
 ```
 
+## Next steps
+
+- If you need higher availability than the SLAs provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Running Windows VMs in multiple datacenters on Azure][multi-dc].    
 
 <!-- links -->
 
 [blueprints-3-tier]: guidance-compute-3-tier-vm.md
+[multi-dc]: guidance-compute-multiple-datacenters.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [plan-network]: ../virtual-network/virtual-network-vnet-plan-design-arm.md
 [resource-manager-overview]: ../resource-group-overview.md
@@ -612,7 +616,7 @@ GOTO :eof
 [sql-alwayson-ag-listeners]: https://msdn.microsoft.com/en-us/library/hh213417.aspx
 [sql-always-on-force-failover]: https://msdn.microsoft.com/en-us/library/ff877957.aspx
 [sql-alwayson-getting-started]: https://msdn.microsoft.com/en-us/library/gg509118.aspx
-[sql-alwayson-ilb]: ../load-balancer/load-balancer-configure-sqlao.md
+[sql-alwayson-ilb]: https://blogs.msdn.microsoft.com/igorpag/2016/01/25/configure-an-ilb-listener-for-sql-server-alwayson-availability-groups-in-azure-arm/
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/en-us/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson-arm-template]: https://azure.microsoft.com/en-us/documentation/templates/sql-server-2014-alwayson-dsc/
 [udr]: ../virtual-network/virtual-networks-udr-overview.md

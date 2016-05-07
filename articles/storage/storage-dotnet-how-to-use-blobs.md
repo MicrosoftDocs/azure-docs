@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Azure Blob storage using .NET | Microsoft Azure"
-	description="Store file data in the cloud with Azure Blob storage (object storage). Get started with simple Blob storage operations, including creating a container and uploading, downloading, listing, and deleting blob content."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/25/2016"
 	ms.author="tamram"/>
 
 
@@ -363,22 +363,40 @@ The example below creates a new append blob and appends some data to it, simulat
 
 See [Understanding Block Blobs, Page Blobs, and Append Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx) for more information about the differences between the three types of blobs.
 
+## Managing security for blobs
+
+By default, Azure Storage keeps your data secure by limiting access to the account owner, who is in possession of the account access keys. When you need to share blob data in your storage account, it is important to do so without compromising the security of your account access keys. Additionally, you can encrypt blob data to ensure that it is secure going over the wire and in Azure Storage.
+
+[AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
+
+### Controlling access to blob data
+
+By default, the blob data in your storage account is accessible only to storage account owner. Authenticating requests against Blob storage requires the account access key by default. However, you may wish to make certain blob data available to other users. You have two options:
+
+- **Anonymous access:** You can make a container or its blobs publicly available for anonymous access. See [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) for more information.
+- **Shared access signatures:** You can provide clients with a shared access signature (SAS), which provides delegated access to a resource in your storage account, with permissions that you specify and over an interval that you specify. See [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md) for more information.
+
+### Encrypting blob data
+
+Azure Storage supports encrypting blob data both at the client and on the server:
+
+- **Client-side encryption:** The Storage Client Library for .NET supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with Azure Key Vault for storage account key management. See [Client-Side Encryption with .NET for Microsoft Azure Storage](storage-client-side-encryption.md) for more information. Also see [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
+- **Server-side encryption**: Azure Storage now supports server-side encryption. See [Azure Storage Service Encryption for Data at Rest (Preview)](storage-service-encryption.md). 
+
 ## Next steps
 
 Now that you've learned the basics of Blob storage, follow these links
 to learn more.
 
-### Blob storage reference documentation
+### Blob storage reference
 
 - [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
 
-### Additional feature guides
+### Conceptual guides
 
-- [Get started with Table storage for .NET](storage-dotnet-how-to-use-tables.md)
-- [Get started with Queue storage for .NET](storage-dotnet-how-to-use-queues.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 - [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 - [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png

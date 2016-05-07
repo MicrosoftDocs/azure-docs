@@ -181,7 +181,7 @@ Azure should set up the resources in strict order. To make sure one setup comple
 
 ## Define metric alerts
 
-There is a [PowerShell method of setting alerts](app-insights-alerts.md/#set-alerts-by-using-powershell).
+There is a [PowerShell method of setting alerts](app-insights-alerts.md#set-alerts-by-using-powershell).
 
 
 ## An example
