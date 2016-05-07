@@ -19,9 +19,9 @@
 
 # SQL Server VM image configuration details
 
-This topic describes how Microsoft configures the SQL Server virtual machine gallery images. It also explains how to [make additional customizations to the virtual machine and SQL Server](#customize-the-sql-vm-after provisioning).
+This topic describes how Microsoft configures the SQL Server virtual machine gallery images. It also explains how to [make additional customizations to the virtual machine and SQL Server](#customize-the-sql-vm-after-provisioning).
 
->[AZURE.NOTE] This topic provides configuration details on the SQL Server gallery images. For a tutorial on how to provision a SQL Server virtual machine image, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+>[AZURE.NOTE] This topic does not explain how to create a SQL Server virtual machine. It only provides a reference for how the gallery images are configured and how to customize your VM post-provisioning. For a tutorial on how to provision a SQL Server virtual machine image, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 ## Windows Server configuration
 
@@ -76,13 +76,28 @@ The following database engine settings are configured. For more settings, examin
 
 The [Customer Experience Improvement Program (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) is enabled. You can disable the CEIP by using the SQL Server Error and Usage Reporting utility. To launch the SQL Server Error and Usage Reporting utility; on the Start menu, click All Programs, click Microsoft SQL Server version, click Configuration Tools, and then click SQL Server Error and Usage Reporting. If you do not want to use an instance of SQL Server with CEIP enabled, you might also consider deploying your own virtual machine image to Azure.  For more information, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](virtual-machines-windows-classic-createupload-vhd.md).
 
+## Optional SQL Server settings
+
+When you use the Azure Portal to provision a SQL Server virtual machine, there are several optional configuration settings.
+
+| Setting               |
+|---------------------|
+| Connectivity          |
+| Authentication               |
+| Storage configuration            |
+| Automated Patching |
+| Automated Backup             |
+| Azure Key Vault Integration             |
+
+A description of these settings is described more fully in the provisioning tutorial. For more information, see the [Configure SQL server settings](virtual-machines-windows-portal-sql-server-provision.md#4-configure-sql-server-settings.md) section of the provisioning tutorial.
+
 ## Customize the SQL VM after provisioning
 
 After provisioning a platform-provided SQL Server image, you can customize it in several ways:
 
 | Customization               | Details                          |
 |---------------------|-------------------------------|
-| Machine configuration | You can customize the virtual machine itself using remote desktop. This could include administrative tasks, such as changing the firewall settings. For details on how to connect to your SQL VM using remote desktop, see [the remote desktop section of the provisioning topic](virtual-machines-windows-portal-sql-server-provision#open-the-vm-with-remote-desktop). |
+| Machine configuration | You can customize the virtual machine itself using remote desktop. This could include administrative tasks, such as changing the firewall settings. For details on how to connect to your SQL VM using remote desktop, see [the remote desktop section of the provisioning topic](virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop). |
 | Connectivity | Although connectivity can be configured during provisioning, you can also configure connectivity after provisioning. For more details, see [Set up connectivity](virtual-machines-windows-sql-connect.md).|
 | SQL Server features | You can customize the features on your SQL Server instance by running SQL Server setup from the virtual machine. This also enables you to install additional SQL Server instances on the same VM. The SQL Server setup media is located on the virtual machine in the **C:\SqlServer_SQLMajorVersion.SQLMinorVersion_Full** directory. |
 
