@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Monitor your workload using DMVs | Microsoft Azure"
-   description="Learn how to monitor your workload using DMVs."
+   pageTitle="Find long-running user queries in Azure SQL Data Warehouse | Microsoft Azure"
+   description="Learn how to monitor your workload and find long-running queries in Azure SQL Data Warehouse by using dynamic management views (DMVs)."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,7 +16,7 @@
    ms.date="05/03/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
-# Monitor your workload using DMVs
+# Find long-running queries
 
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload and investigate query execution in Azure SQL Data Warehouse.
 
