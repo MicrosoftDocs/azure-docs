@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/04/2016"
    ms.author="bwren" />
 
 # Custom logs in Log Analytics
@@ -72,8 +72,8 @@ The following table provides examples of valid patterns to specify different log
 |:--|:--|
 | All files in *C:\Logs* with .txt extension on Windows agent | C:\Logs\\\*.txt |
 | All files in *C:\Logs* with a name starting with log and a .txt extension on Windows agent | C:\Logs\log\*.txt |
-| All files in */var/log/audit* with .txt extension on Windows agent | /var/log/audit/*.txt |
-| All files in */var/log/audit* with a name starting with log and a .txt extension on Windows agent | /var/log/audit/log\*.txt |
+| All files in */var/log/audit* with .txt extension on Linux agent | /var/log/audit/*.txt |
+| All files in */var/log/audit* with a name starting with log and a .txt extension on Linux agent | /var/log/audit/log\*.txt |
   
 
 1.	Select Windows or Linux to specify which path format you are adding.

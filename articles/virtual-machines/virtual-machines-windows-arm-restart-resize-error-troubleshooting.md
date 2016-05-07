@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="virtual-machines"
    ms.devlang="na"
    ms.workload="required"
