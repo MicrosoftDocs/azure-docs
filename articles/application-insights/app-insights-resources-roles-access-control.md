@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="05/07/2016"
 	ms.author="awills"/>
 
 # Resources, roles, and access control in Application Insights
@@ -58,7 +58,7 @@ To control access to these resources it's therefore recommended to:
 
 You must have Owner rights to the subscription or the resource group.
 
-The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
+The user must have a [Microsoft Account][account], or access to their [organizational Microsoft Account](..\active-directory\sign-up-organization.md). You can provide access to individuals, and also to user groups defined in Azure Active Directory.
 
 #### Navigate to the resource group
 
@@ -105,6 +105,6 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../azure-preview-portal-using-resource-groups.md
-[portal]: http://portal.azure.com/
+[group]: ../azure-portal/resource-group-portal.md
+[portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
