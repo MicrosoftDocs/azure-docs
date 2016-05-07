@@ -24,7 +24,7 @@ This page lists the articles, or update to articles, that we plan to publish for
 
 Area   |Topic | Priority | Status | Assigned To | Requested By 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-Administration | Adminsiter HDInsight clusers using .NET SDK | 1 | Writing | [@mumian](https://github.com/mumian) | - |
+Administration | Administer HDInsight clusers using .NET SDK | 1 | Writing | [@mumian](https://github.com/mumian) | - |
 Administration | Use Azure Data Factory to provision HDInsight clusters		 | 2 | [Completed](hdinsight-hadoop-create-linux-clusters-adf.md) |  [@mumian](https://github.com/mumian) | - |
 Automation  | Update the article on [how to create a Spark cluster](hdinsight-apache-spark-jupyter-spark-sql.md) to use an ARM template		| 1 |  [Completed](hdinsight-apache-spark-jupyter-spark-sql.md#create-spark-cluster) | [@mumian](https://github.com/mumian) | -
 Automation  | Update the article on [how to create a Storm cluster and run Storm starter samples](hdinsight-apache-storm-tutorial-get-started-linux.md) to use an ARM template		| 1 |  [Completed](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) | -
