@@ -26,10 +26,10 @@ This guide shows you how to use Azure Active Directory Access Control (also know
 
 > [AZURE.IMPORTANT]  As we make progress on our [plans to bring ACS-like functionality to Azure Active Directory (AD)](https://blogs.technet.microsoft.com/ad/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/), please note that ACS remains fully functional and supported. We will continue to maintain and service ACS, but all new engineering investments are going into Azure AD. At some point in the future when we are ready to announce deprecation of ACS, we will provide details on the [Azure AD Team blog](https://blogs.technet.microsoft.com/ad/).
 >
-> As such, if you have not made an investment in ACS already, and considering adding SSO to your application, we recommend using the following resources:  
+> As such, if you have not already made an investment in ACS and are considering adding SSO to your application, we recommend using Azure AD. Please see the following resource for more information:  
 > 
-> - If your users/customers are currently using or planning to use Azure AD for identity management, please visit the [Azure AD Developer's Guide](active-directory-developers-guide.md)
-> - If your users/customers use consumer or social Identity Providers, please visit the [Preview: How to build apps that sign up & sign in consumers](active-directory-developers-guide.md#how-tos) in the HowTo sectioni of the Azure AD Developer's Guide.
+> - If your users/customers use Azure AD for identity management, please visit the [Azure AD Developer's Guide](active-directory-developers-guide.md)
+> - If your users/customers use consumer or social Identity Providers, please visit the [Preview: How to build apps that sign up & sign in consumers](active-directory-developers-guide.md#how-tos) article in the HowTos section of the Azure AD Developer's Guide.
 >
 >
 
