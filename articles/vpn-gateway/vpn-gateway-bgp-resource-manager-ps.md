@@ -187,7 +187,7 @@ Be sure to create the resource group if it is not created, before you create the
 #### 1. Get the two gateways
 
 		$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
-		$lng5gw  = Get-AzureRmVirtualNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
+		$lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
 
 #### 2. Create the TestVNet1 to Site5 connection
 
@@ -278,7 +278,7 @@ In this example, both gateways are in the same subscription. You can complete th
 Make sure you login and connect to Subscription 1.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-	$vnet2gw = Get-AzureRmLocalNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
 #### 2. Create both connections
 

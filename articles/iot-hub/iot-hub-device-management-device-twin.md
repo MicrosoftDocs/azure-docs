@@ -16,7 +16,10 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Tutorial: How to use the device twin (preview)
+# Tutorial: How to use the device twin with C# (preview)
+
+[AZURE.INCLUDE [iot-hub-device-management-twin-selector](../../includes/iot-hub-device-management-twin-selector.md)]
+## Introduction
 
 Azure IoT Hub device management introduces the device twin, a service side representation of a physical device. Below is a diagram showing the different components of the device twin.
 
@@ -28,7 +31,7 @@ Device properties are a predefined dictionary of properties that describe the ph
 
 ## Device properties synchronization
 
-The physical device is the authoritative source for device properties. Selected values on the physical device are automatically synchronized to the device twin in IoT Hub through the *observe/notify* pattern described by LWM2M.
+The physical device is the authoritative source for device properties. Selected values on the physical device are automatically synchronized to the device twin in IoT Hub through the *observe/notify* pattern described by [LWM2M][lnk-lwm2m].
 
 When the physical device connects to IoT Hub, the service initiates *observes* on the selected device properties. Then, the physical device *notifies* IoT Hub of changes to the device properties. To implement hysteresis, **pmin** (the minimum time between notifies) is set to 5 minutes. This means that for each property the physical device does not notify IoT Hub more often than once per 5 minutes, even if there is a change. To ensure freshness, **pmax** (the maximum time between notifies) is set to 6 hours. This means that for each property the physical device notifies IoT Hub at least once per 6 hours even if the property has not changed in that period.
 
@@ -37,6 +40,7 @@ When the physical device disconnects, the synchronization stops. Synchronization
 The complete list of device properties that are automatically observed is listed below:
 
 ![][img-observed]
+
 
 ## Running the device twin sample
 
@@ -97,7 +101,7 @@ If you want to change a writeable device property, you can do this with a deep w
 The job sends a message to the physical device to update the specified property. The device twin is not immediately updated when the job completes. You must wait until the next notify interval. Once the synchronization occurs, you can see the change in the device twin with a shallow read.
 
 ```
-JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue);
+JobResponse jobResponse = await deviceJobClient.ScheduleDevicePropertyWriteAsync(Guid.NewGuid().ToString(), deviceId, propertyToSet, setValue); TODO
 ```
 
 ### Device simulator implementation details
@@ -127,6 +131,7 @@ To learn more about the Azure IoT Hub device management features you can go thro
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
 [img-observed]: media/iot-hub-device-management-device-twin/image2.png
 
+[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-dm-library]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md

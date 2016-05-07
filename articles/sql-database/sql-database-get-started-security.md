@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/13/2016"
+	ms.date="05/03/2016"
 	ms.author="carlrab"/>
 
 # SQL Database tutorial: Create SQL database user accounts to access and manage a database using the Azure portal
@@ -29,13 +29,18 @@ In this tutorial, you'll learn how to use the Aure portal to:
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
+
 [AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
+
 
 [AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-database-user.md)]
 
+
 [AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
 
+
 [AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
+
 
 ## Next steps
 Now that you've completed this SQL Database tutorial and created a user account and granted the user account dbo permissions, you are ready to learn more about 

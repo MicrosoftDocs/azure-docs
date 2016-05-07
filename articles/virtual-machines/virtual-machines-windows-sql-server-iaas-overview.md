@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="rothja"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -14,13 +14,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
+	ms.date="05/04/2016"
 	ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
 
 ## Getting started
-You can host [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using AlwaysOn Availability Groups and an Azure Virtual Network.
+You can host [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using Always On Availability Groups and an Azure Virtual Network.
 
 >[AZURE.NOTE] Running SQL Server on an Azure VM is one option for storing relational data in Azure. You can also use the Azure SQL Database service. For more information, see [Understanding Azure SQL Database and SQL Server in Azure VMs](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
@@ -34,7 +34,7 @@ After signing up for a subscription, the easiest way to deploy a SQL Server virt
 
 It is important to note that there are two models for creating and managing Azure virtual machines: classic and Resource Manager. Microsoft recommends that most new deployments use the Resource Manager model. Some of the SQL Server documentation for Azure VMs still refers exclusively to the classic model. These topics are being updated over time to use the new Azure portal and the Resource Manager model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
 
->[AZURE.NOTE] When possible, use the latest [Azure portal](https://portal.azure.com/) to provision and manage SQL Server Virtual Machines. It defaults to using Premium Storage and offers Automated Patching, Automated Backup, and AlwaysOn configurations.
+>[AZURE.NOTE] When possible, use the latest [Azure portal](https://portal.azure.com/) to provision and manage SQL Server Virtual Machines. It defaults to using Premium Storage and offers Automated Patching, Automated Backup, and Always On configurations.
 
 The following table provides a matrix of available SQL Server images in the virtual machine gallery.
 
@@ -63,13 +63,13 @@ After your SQL Server virtual machine is up and running, you might want to migra
 
 ## High availability
 
-If you require high availability, consider configuring SQL Server AlwaysOn Availability Groups. This involves multiple Azure VMs in a virtual network. The Azure portal has a template that sets up this configuration for you. For more information, see [SQL Server AlwaysOn Offering in Azure Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+If you require high availability, consider configuring SQL Server Always On Availability Groups. This involves multiple Azure VMs in a virtual network. The Azure portal has a template that sets up this configuration for you. For more information, see [SQL Server Always On Offering in Azure Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 If you want to manually configure your Availability Group and associated listener, see the following articles based on the Classic deployment model:
 
-- [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md)
-- [Extend on-premises AlwaysOn Availability Groups to Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
+- [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [Configure an ILB listener for Always On Availability Groups in Azure](virtual-machines-windows-classic-ps-sql-int-listener.md)
+- [Extend on-premises Always On Availability Groups to Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
 
 For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -107,7 +107,7 @@ The SQL Server installation in the platform image contains the following configu
 |Analysis Services|Installed|
 |Integration Services|Installed|
 |Reporting Services|Configured in Native mode|
-|AlwaysOn Availability Groups|Available in SQL Server 2012 or later. Requires [additional configuration](virtual-machines-windows-sql-high-availability-dr.md)
+|Always On Availability Groups|Available in SQL Server 2012 or later. Requires [additional configuration](virtual-machines-windows-sql-high-availability-dr.md)
 |Replication|Installed|
 |Full-Text and Semantic Extractions for Search|Installed (Semantic Extractions in SQL Server 2012 or later only)|
 |Data Quality Services|Installed (SQL Server 2012 or later only)|
