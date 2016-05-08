@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Load Data with SQL Server Integration Services (SSIS) | Microsoft Azure"
+   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Microsoft Azure"
    description="Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,9 +16,9 @@
    ms.date="04/28/2016"
    ms.author="sonyama;barbkess"/>
 
-# Load Data with SQL Server Integration Services (SSIS)
+# Load data from SQL Server into Azure SQL Data Warehouse (SSIS)
 
-This tutorial shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse. You can optionally restructure, transform, and cleanse the data as it passes through the SSIS data flow.
+Create a SQL Server Integration Services (SSIS) package to load data from SQL Server into Azure SQL Data Warehouse. You can optionally restructure, transform, and cleanse the data as it passes through the SSIS data flow.
 
 After you finish this tutorial, you’ll know how to do the following things.
 
@@ -185,22 +185,22 @@ Congratulations! You’ve successfully used SQL Server Integration Services to l
 - Learn how to deploy your SSIS projects and packages to Integration Services Server or to another storage location. Start here: [Deployment of Projects and Packages][].
 
 <!-- Image references -->
-[01]: ./media/sql-data-warehouse-load-with-ssis/ssis-designer-01.png
-[02]: ./media/sql-data-warehouse-load-with-ssis/ssis-data-flow-task-02.png
-[03]: ./media/sql-data-warehouse-load-with-ssis/ado-net-source-03.png
-[04]: ./media/sql-data-warehouse-load-with-ssis/ado-net-connection-manager-04.png
-[05]: ./media/sql-data-warehouse-load-with-ssis/ado-net-connection-05.png
-[06]: ./media/sql-data-warehouse-load-with-ssis/test-connection-06.png
-[07]: ./media/sql-data-warehouse-load-with-ssis/ado-net-source-07.png
-[08]: ./media/sql-data-warehouse-load-with-ssis/preview-data-08.png
-[09]: ./media/sql-data-warehouse-load-with-ssis/source-destination-09.png
-[10]: ./media/sql-data-warehouse-load-with-ssis/connect-source-destination-10.png
-[11]: ./media/sql-data-warehouse-load-with-ssis/ado-net-destination-11.png
-[12a]: ./media/sql-data-warehouse-load-with-ssis/destination-query-before-12a.png
-[12b]: ./media/sql-data-warehouse-load-with-ssis/destination-query-after-12b.png
-[13]: ./media/sql-data-warehouse-load-with-ssis/column-mapping-13.png
-[14]: ./media/sql-data-warehouse-load-with-ssis/package-running-14.png
-[15]: ./media/sql-data-warehouse-load-with-ssis/package-success-15.png
+[01]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
+[02]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-data-flow-task-02.png
+[03]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-03.png
+[04]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-connection-manager-04.png
+[05]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-connection-05.png
+[06]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/test-connection-06.png
+[07]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-07.png
+[08]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/preview-data-08.png
+[09]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/source-destination-09.png
+[10]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/connect-source-destination-10.png
+[11]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-destination-11.png
+[12a]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/destination-query-before-12a.png
+[12b]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/destination-query-after-12b.png
+[13]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/column-mapping-13.png
+[14]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/package-running-14.png
+[15]:  ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/package-success-15.png
 
 <!-- Article references -->
 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use bcp to load data into SQL Data Warehouse | Microsoft Azure"
-   description="Learn what bcp is and how to use it for data warehousing scenarios."
+   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (AZCopy) | Microsoft Azure"
+   description="Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
