@@ -17,7 +17,7 @@
    ms.author="jrj;barbkess;sonyama"/>
 
 
-# Load with PolyBase
+# Load data from Azure blob storage into SQL Data Warehouse (PolyBase)
 
 Learn how to use PolyBase to load data from Azure blob storage. 
 
