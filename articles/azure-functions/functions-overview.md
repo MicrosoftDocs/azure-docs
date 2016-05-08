@@ -15,30 +15,35 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/21/2016"
-   ms.author="cfowler;mahender"/>
+   ms.date="05/08/2016"
+   ms.author="cfowler;mahender;glenga"/>
    
    
 # Azure Functions Overview
 
-Azure functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can [get started with your first function](functions-create-first-azure-function.md) in just minutes.
-
-Write any function under a minute - either when you need a simple job to clean a database or to build functionality that processes millions of messages from connected devices. Use your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
+Azure functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can [get started with your first function](functions-create-first-azure-function.md) in just minutes. Use your development language of choice, such as C#, Node.js, Python or PHP. Pay only for the time your code runs and trust Azure to scale as needed.
 
 This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Azure Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
 
 ## What can I do with Functions?
 
-Azure Functions is a great solution for processing data, and integrating systems, working with the internet-of-things (IoT), and building simple APIs and microservices.
+Azure Functions is a great solution for processing data, and integrating systems, working with the internet-of-things (IoT), and building simple APIs and microservices. Consider Functions for tasks like image or order processing and file maintenance, long-running tasks that you want to run in a background thread or for any tasks that you want to run on a schedule. 
 
-Functions includes a gallery of templates for common scenarios, such as:
+Functions provides the following set of templates to get you started with key scenarios:
 
-<<Add content from WebJobs overview.>>
+* **BlobTrigger** - Process images or perform other actions when files are added to Azure Storage.
+* **Empty** - Customize your function trigger and input and output bindings.
+* **EventHubTrigger** -  Respond events occurring in your IoT devices.
+* **Generic webhook** - Connect your code to any service that supports webhooks.
+* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a webhook or API function](functions-create-a-web-hook-or-api-function.md).
+* **HTTPTrigger** - Execute your code from remote over HTTP.
+* **ManualTrigger** - Your code can only be executed from the portal.
+* **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create an Azure Function which binds to an Azure service](functions-create-an-azure-connected-function.md).
+* **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premise services by listening to message queues. 
+* **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premise services by subscribing to topics. 
+* **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create an event processing function](functions-create-an-event-processing-function.md).
 
-* Responding to a GitHub webhook request.
-* Resizing an image that was uploaded to Azure Storage.
-* Working with order processing queues.
-
+For a detailed description of triggers and bindings, see [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md).
 
 ## Features
 
@@ -49,24 +54,32 @@ Here are some key features of Azure Functions:
 * **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
 * **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
 * **Simplified integration** - Easily leverage Azure services and software-as-a-service (SaaS) offerings. See the [integrations section](#integrations) below for some examples.  
-* **Flexible development** - Modify your functions with an in-portal editor, or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and other <<<fix this>>>  
+* **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and other [supported development tools](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
 * **Open-source** - The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
-### <a name="integrations"></a>Integrations
+## <a name="integrations"></a>Integrations
 
-Azure Functions supports a variety of integrations with Azure and 3rd-party services. You can use these to trigger your function and start execution or to serve as input and output for your code. The table below shows some example integrations supported by Azure Functions. <<List services here>>
+Azure Functions integrates with a variety of Azure and 3rd-party services. You can use these to trigger your function and start execution or to serve as input and output for your code. The following service integrations are supported by Azure Functions. 
 
-[AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+* Azure DocumentDB
+* Azure Event Hubs
+* Azure Mobile Apps (tables)
+* Azure Service Bus
+* Azure Storage (blob, queues, and tables)
+* Azure Notification Hubs
+* Azure Service Bus
+* GitHub (webhooks)
+* On-premises (using Service Bus)
 
 ## <a name="pricing"></a>How much does Functions cost?
 
-There are two pricing plans that you can choose for your Azure Functions: 
+Azure Functions has two kinds of pricing plans, choose the one that best fits your needs: 
 
-**Dynamic App Service Plan** - you don't have to worry about resource management. Whenever your function is run, Azure will provide all of the necessary computational resources. You only pay for the time that your code spends running. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions). 
+* **Dynamic App Service Plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions). 
 
-**Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. This is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
+* **Classic App Service Plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
 
-<<Link to scale page and pricing plan>>
+For more information about scaling your functions, see [How to scale Azure Functions](functions-scale.md).
 
 ##Next Steps
 
