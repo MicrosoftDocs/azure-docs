@@ -46,7 +46,7 @@ To see the complete list of ports and the failback architechture diagram refer t
 Here’s how failback works:
 
 - After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
-	- **Stage 1**: You reprotect the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. Enabling reprotection moves the VM into a failback protection group that was created automatically when you originally created the failover protection group. If you added your failover protection group to a recovery plan then the failback protection group was also automatically added to the plan.  During reprotect you specify how to plan to fail back.
+	- **Stage 1**: You reprotect the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. 
 	- **Stage 2**: After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
 	- **Stage 3**: After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
@@ -136,7 +136,8 @@ If you have protected your machines as classic resources (that is the VM recover
 
 7. At the end, the process sever should be listed in the configuration servers page, under the associated servers section, in Process Servers
 
-        ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
+
+		![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
 	
 	>[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
@@ -210,7 +211,6 @@ If you want to recover to an alternate location, select the retention drive and 
 
 6.	After you click **OK** to begin reprotection a job begins to replicate the VM from Azure to the on-premises site. You can track the progress on the **Jobs** tab.
 
-	![](./media/site-recovery-failback-azure-to-vmware-classic/failback2.png)
 
 ### Run a failover to the on-premises site
 
