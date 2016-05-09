@@ -23,12 +23,12 @@
 
 Running SQL Server on an Azure VM is one option for storing relational data in Azure. The following table summarizes the different offerings.
 
-| SQL offering | Description |
-|---|---|
-|![SQL Server on Azure Virtual Machines](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)[SQL Server running on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|This is the description|
-|![SQL Database](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)SQL Database|TBD|
-|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)SQL Data Warehouse|TBD|
-|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)SQL Server Stretch Database|TBD|
+|| SQL offering | Description |
+|---:|---|---|
+|![SQL Server on Azure Virtual Machines](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[SQL Server running on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|This is the description|
+|![SQL Database](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|SQL Database|TBD|
+|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|SQL Data Warehouse|TBD|
+|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|SQL Server Stretch Database|TBD|
 
 >[AZURE.NOTE] Running SQL Server on an Azure VM is one option for storing relational data in Azure. You can also use the Azure SQL Database service. For more information, see [Understanding Azure SQL Database and SQL Server in Azure VMs](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
