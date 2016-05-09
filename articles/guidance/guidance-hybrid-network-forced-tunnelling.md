@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="05/09/2016"
    ms.author="johns@contentmaster.com"/>
 
 # Implementing a secure hybrid network architecture in Azure
@@ -38,14 +38,10 @@ Typical use cases for this architecture include:
 The following diagram highlights the important components in this architecture:
 
 ![IaaS: forced-tunnelling](./media/guidance-hybrid-network-forced-tunnelling/figure1.png)
-<!-- [TELMO] We want to take out the PIP in the jumpbox, it should only be accessible from on-prem. We also want to force Internet traffic traffic through on-prem ONLY for the business layer. All other layers should have an NSG that denies outgoing Internet traffic. The only issue here is access to the diagnostic logging storage account, but let me worry about that for now. -->
-
-<!-- [TELMO] Can we try to introduce these components in the same order as the previous documents? And reusing the content from those as much as possible?  -->
 
 - **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **Network security appliance (NSA).** This is an on-premises network security appliance that inspects requests intended for the Internet. All outbound Internet requests are directed through this device.
-<!-- [TELMO] I have seen NSA used in the name of network security appliance products, but never as a generic term  -->
+- **Network security appliance.** This is an on-premises appliance that inspects requests intended for the Internet. All outbound Internet requests are directed through this device.
 
 - **Azure virtual network (VNet).** The VNet hosts the application and other resources running in the cloud.
 
@@ -53,19 +49,19 @@ The following diagram highlights the important components in this architecture:
 
 - **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, implementing access security, WAN optimization (including network compression), custom routing, or a variety of other operations. The diagram depicts the NVA as a collection of load-balanced VMs, accepting incoming requests on the inbound NVA subnet (acting as a security perimeter subnet) before validating them and forwarding the requests to the Web tier through the outbound NVA subnet.
 
-- **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud; see [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details. You can deploy an internal load balancer in each tier to improve scalability. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs) to limit the source of requests and the destinations of any results. The For more information, see the [Security][security] section of this document.
+- **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud; see [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details. You can deploy an internal load balancer in each tier to improve scalability. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs) to limit the source of requests and the destinations of any results. In this example, NSGs are also designed to block outbound traffic heading for the Internet from the web and data access tiers (only the business tier is allowed to submit Internet requests). For more information, see the [Security][security] section of this document.
 
     > [AZURE.NOTE] This article describes the cloud application as a single entity. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
 
-- **User-defined routes (UDR).** Each of the application subnets defines one or more custom (user-defined) routes for directing Internet requests made by VMs running in that subnet. Each UDR redirects requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet.
+- **User-defined routes (UDR).** Each of the application subnets defines one or more custom (user-defined) routes for directing Internet requests made by VMs running in that subnet. In this examople, the UDR for the business tier redirects requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet. The UDRs for the web and data access tier provide an additional layer of security above those of the NSGs for these tiers; these UDRs prevent outbound Internet requests by discarding them.
 
     > [AZURE.NOTE] Any response received as a result of the request will return directly to the originator in the Web tier, Business tier, or Data tier subnets and will not pass through on-premises network.
 
-	A further UDR is defined for the Gateway subnet to ensure that all traffic from the on-premises network is routed through the NVAs.
+	A further UDR is defined for the Gateway subnet to ensure that all application traffic from the on-premises network is routed through the NVAs.
 
 - **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authorized DevOps staff to log in, configure, and manage the network through an external IP address.
 
-## Implementing this architecture
+## Recommendations
 <!-- [TELMO] This topic should be replaced with "Recommendations" and we should recommend best practices for some of the resources being used. For instance, we should talk about the GatewaySubnet mask being /27 (and why), the use of multiple NVAs for availability and load balancing, the use of NSGs to filter outgoign traffic from subnets, the use a jumpbox accessible only through the on-prem network to avoid having any public endpoint, the possibility of using ExpressRoute and VPN gateway for failover, etc.  -->
 
 The following high-level steps outline a process for configuring forced tunnelling for an application tier hosted in an Azure subnet. Detailed examples using Azure PowerShell commands are describe [later in this document][script]. Note that this process assumes the following:
@@ -112,7 +108,7 @@ The following high-level steps outline a process for configuring forced tunnelli
 	azure network vnet subnet set -e <<vnet-name>> -n <<data-access-tier-subnet-name>> -a <<data-access-tier-subnet-address-space>> -g <<resource-group>>  -r <<route-table-name>>
 	```
 
-7. Configure the on-premises NSA to direct force-tunnelled traffic to the Internet. This process will vary according to the device used to implement the NSA. For example, if you are using the Routing and Remote Access Service, you can add a static route as follows:
+7. Configure the on-premises network security appliance to direct force-tunnelled traffic to the Internet. This process will vary according to the device used to implement the appliance. For example, if you are using the Routing and Remote Access Service, you can add a static route as follows:
 
 	![IaaS: rras-static-route](./media/guidance-hybrid-network-forced-tunnelling/figure2.png)
 
@@ -138,15 +134,25 @@ Once the connections are established, follow these steps to test the environment
 
 ## Security
 
-- The NVA provides protection for traffic arriving from the on-premises network. Route all traffic received through the Azure gateway through the NVA. If the NVA is implemented as an Azure VM, enable IP forwarding to enable traffic intended for the web tier application subnet to be received by the VM through the inbound NVA subnet. You can use the following command to enable IP forwarding for a NIC:
-<!-- [TELMO] ThNVAs can only be implemented as VMs.  -->
+This architecture applies security at several points described in the following sections.
+
+> [AZURE.NOTE] For more extensive information, examples, and scenarios about managing network security with Azure, see [Microsoft cloud services and network security][clouds-services-network-security]. For detailed information about protecting resources in the cloud, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. 
+
+### The NVA
+
+The NVA provides protection for traffic arriving from the on-premises network. Route all traffic received through the Azure gateway through the NVA. The Azure marketplace provides many NVAs available from third-party vendors, but you can also implement an NVA by using your own custom VMs.
+<!-- [TELMO] We might want to provide a list of NVAs available from the marketplace.  -->
+
+The following list summarizes best practices for configuring an NVA
+
+- If you are implementing the NVA as a custom Azure VM, enable IP forwarding to enable traffic intended for the web tier application subnet to be received by the VM through the inbound NVA subnet. You can use the following command to enable IP forwarding for a NIC:
 
 	```powershell
 	azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
 	```
 
 - Configure the NVA to inspect all requests intended for the web tier application subnet, and only permit access to traffic if it is appropriate to do so.
-<!-- [TELMO] We might want to provide a list of NVAs available from the marketplace.  -->
+
 
 - Ensure that inbound traffic cannot bypass the NVA. To do this, add a user-defined route (UDR) to the Gateway subnet that directs all requests arriving through the gateway to the NVA, (or the load balancer in front of the NVAs if you are using multiple security devices, for scalability). In the example shown in the diagram in the [Architecture blueprint][architecture] section, if the load balancer for the NVAs has the IP address 10.0.1.5 in the inbound NVA subnet, you can use the following commands to:
 
@@ -170,82 +176,82 @@ Once the connections are established, follow these steps to test the environment
 		azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> GatewaySubnet
 		```
 
-- The gateway subnet exposes a public IP address for handling the connection to the on-premises network. There is a risk that this endpoint could be be used as a point of attack. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Create a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that has not originated from the on-premises network (192.168.0.0/16 in the diagram in the [Architecture blueprint][architecture]):
+### NSG rules
+
+The gateway subnet exposes a public IP address for handling the connection to the on-premises network. There is a risk that this endpoint could be be used as a point of attack. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Create a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that has not originated from the on-premises network (192.168.0.0/16 in the diagram in the [Architecture blueprint][architecture]):
 
 	
-	```powershell
-	azure network nsg create <<resource-group>> nva-nsg <<location>>
+```powershell
+azure network nsg create <<resource-group>> nva-nsg <<location>>
 
-	azure network vnet subnet set --network-security-group-name nva-nsg <<resource-group>> <<vnet-name>> <<inbound-nva-subnet-name>>
+azure network vnet subnet set --network-security-group-name nva-nsg <<resource-group>> <<vnet-name>> <<inbound-nva-subnet-name>>
 
-	azure network nsg rule create --protocol * --source-address-prefix 192.168.0.0/16 --source-port-range * --destination-port-range * --access Allow --priority 200 --direction Inbound <<resource-group>> nva-nsg allow-traffic-from-on-prem
+azure network nsg rule create --protocol * --source-address-prefix 192.168.0.0/16 --source-port-range * --destination-port-range * --access Allow --priority 200 --direction Inbound <<resource-group>> nva-nsg allow-traffic-from-on-prem
 
-	azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 300 --direction Inbound <<resource-group>> nva-nsg deny-other-traffic
+azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 300 --direction Inbound <<resource-group>> nva-nsg deny-other-traffic
 	```
 
-- Create NSGs for each subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled. The example shown in the diagram in the [Architecture blueprint][architecture] section uses the following NSGs:
+Create NSGs for each subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled. For example, the web tier subnet shown in the [Architecture blueprint][architecture] diagram defines an NSG with rules that block all requests other than those for port 80 that have been received from the on-premises network (192.168.0.0/16):
 
-	1. In the web tier subnet (10.0.3.0/24), an NSG named `web-nsg` contains rules that block all requests other than those for port 80 that have been received from the on-premises network (192.168.0.0/16):
+```powershell
+	azure network nsg create <<resource-group>> web-tier-nsg <<location>>
 
-		```powershell
-		azure network nsg create <<resource-group>> web-tier-nsg <<location>>
+	azure network vnet subnet set --network-security-group-name web-tier-nsg <<resource-group>> <<vnet-name>> <<vnet-web-tier-subnet-name>>
 
-		azure network vnet subnet set --network-security-group-name web-tier-nsg <<resource-group>> <<vnet-name>> <<vnet-web-tier-subnet-name>>
+	azure network nsg rule create --protocol * --source-address-prefix 192.168.0.0/16 --source-port-range * --destination-port-range 80 --access Allow --priority 200 --direction Inbound <<resource-group>> web-tier-nsg allow-http-traffic-from-on-prem
 
-		azure network nsg rule create --protocol * --source-address-prefix 192.168.0.0/16 --source-port-range * --destination-port-range 80 --access Allow --priority 200 --direction Inbound <<resource-group>> web-tier-nsg allow-http-traffic-from-on-prem
-
-		azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 300 --direction Inbound <<resource-group>> web-tier-nsg deny-other-traffic
+	azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 300 --direction Inbound <<resource-group>> web-tier-nsg deny-other-traffic
 		```
 
-	2. In the business tier subnet (10.0.4.0/24), an NSG named `business-nsg` contains rules that block all requests other than those for port 80 that have been received from the web tier subnet (10.0.3.0/24):
+Similarly, the  NSG for the business tier subnet (10.0.4.0/24) contains rules that block all requests other than those for port 80 that have been received from the web tier subnet (10.0.3.0/24):
 
-		```powershell
-		azure network nsg create <<resource-group>> business-tier-nsg <<location>>
+	```powershell
+	azure network nsg create <<resource-group>> business-tier-nsg <<location>>
 
-		azure network vnet subnet set --network-security-group-name business-tier-nsg <<resource-group>> <<vnet-name>> <<vnet-business-tier-subnet-name>>
+	azure network vnet subnet set --network-security-group-name business-tier-nsg <<resource-group>> <<vnet-name>> <<vnet-business-tier-subnet-name>>
 
-		azure network nsg rule create --protocol * --source-address-prefix 10.0.3.0/24 --source-port-range * --destination-port-range 80 --access Allow --priority 200 --direction Inbound <<resource-group>> business-tier-nsg allow-http-traffic-from-web-tier
+	azure network nsg rule create --protocol * --source-address-prefix 10.0.3.0/24 --source-port-range * --destination-port-range 80 --access Allow --priority 200 --direction Inbound <<resource-group>> business-tier-nsg allow-http-traffic-from-web-tier
 
-		azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 300 --direction Inbound <<resource-group>> business-tier-nsg deny-other-traffic
-		```
+	azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 300 --direction Inbound <<resource-group>> business-tier-nsg deny-other-traffic
+	```
 
-	3. In the data tier subnet (10.0.5.0/24), an NSG named `business-nsg` contains rules that block all requests other than those for port 80 that have been received from the business tier subnet (10.0.4.0/24):
+### Blocking or tunnelling Internet traffic
 
-		```powershell
-		azure network nsg create <<resource-group>> data-tier-nsg <<location>>
+Control outbound traffic from the web, business, and data access tiers to prevent accidental disclosure of confidential information. In the example, the web and data access tiers are prevented from sending information directly to the Internet by using NSG rules that block such requests:
 
-		azure network vnet subnet set --network-security-group-name data-tier-nsg <<resource-group>> <<vnet-name>> <<vnet-data-tier-subnet-name>>
-		
-		azure network nsg rule create --protocol * --source-address-prefix 10.0.4.0/24 --source-port-range * --destination-port-range 80 --access Allow --priority 200 --direction Inbound <<resource-group>> data-tier-nsg allow-http-traffic-from-business-tier
+```powershell
+TBD - show NSG rule
+```
 
-		azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 300 --direction Inbound <<resource-group>> data-tier-nsg deny-other-traffic
-		```
+Additionally, UDRs for these tiers cause traffic routed to the Internet to be dropped. This provides an additional layer of security:
 
-- Do not permit outbound traffic from the application subnets to directly access external networks or the Internet. Ensure that all such traffic is force-tunnelled through the on-premises network (as described in the [Implementing this architecture][implementing] section) so that it can be audited.
+```powershell
+TBD - show UDR
+```
 
-- Use Azure Role-Based Access Control (RBAC) to distinguish the operations that can be performed by different types of DevOps responsible for monitoring, configuring, and maintaining the system. For details, see [Azure Role-Based Access Control][azure-rbac].
+The business tier is allowed access to the Internet, but you should ensure that all such traffic is force-tunnelled through the on-premises network (as described in the [Recommendations][recommendations] section) so that it can be audited.
 
-> [AZURE.NOTE] For more extensive information, examples, and scenarios about managing network security with Azure, see [Microsoft cloud services and network security][clouds-services-network-security].
+### Controlling DevOps functions
 
-For detailed information about protecting resources in the cloud, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. 
+Use Azure Role-Based Access Control (RBAC) to distinguish the operations that can be performed by different types of DevOps responsible for monitoring, configuring, and maintaining the system. For details, see [Azure Role-Based Access Control][azure-rbac].
 
 ## Scalability
 
 > [AZURE.NOTE] The articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute] describe issues surrounding the scalability of Azure gateways. ExpressRoute provides a much higher network bandwidth and lower latency than a VPN connection, but the cost is higher and the configuration effort greater.
 
-- Create a pool (availability set) of NVA devices and use a load balancer to distribute requests received through the virtual network gateway across this pool. This strategy enables you to quickly start and stop NVAs to maintain performance, according to the load.
+To maximize scalability, create a pool (availability set) of NVA devices and use a load balancer to distribute requests received through the virtual network gateway across this pool. This strategy enables you to quickly start and stop NVAs to maintain performance, according to the load.
 
-- Similarly, define availability sets for the VMs in the application tiers and direct requests for each tier through a load balancer.
+Similarly, define availability sets for the VMs in the application tiers and direct requests for each tier through a load balancer.
 
 ## Monitoring
 
-- Use the resources in the management subnet to connect to the VMs in the system and perform monitoring. The example in the [Architecture blueprint][architecture] section depicts a jump box which provides access to DevOps staff, and a separate monitoring server. Depending on the size of the network, the jump box and monitoring server could be combined into a single machine, or monitoring functions could be spread across several VMs.
+Use the resources in the management subnet to connect to the VMs in the system and perform monitoring. The example in the [Architecture blueprint][architecture] section depicts a jump box which provides access to DevOps staff, and a separate monitoring server. Depending on the size of the network, the jump box and monitoring server could be combined into a single machine, or monitoring functions could be spread across several VMs.
 
-- Carefully manage access by DevOps staff to the system through the management subnet. Apply NSG rules to to the management subnet to limit the sources of traffic that can gain access.
+Carefully manage access by DevOps staff to the system through the management subnet. Apply NSG rules to to the management subnet to limit the sources of traffic that can gain access.
 
-- If each tier in the system is protected by using NSG rules, it may also be necessary to open port 3389 (for RDP access), port 22 (for SSH access), or any other ports used by management and monitoring tools to enable requests from the data management subnet.
+If each tier in the system is protected by using NSG rules, it may also be necessary to open port 3389 (for RDP access), port 22 (for SSH access), or any other ports used by management and monitoring tools to enable requests from the data management subnet.
 
- - Use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor connectivity between your on-premises datacenter and Azure.
+If you are using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troublshoot connection issues.
 
 ## Troubleshooting
 
@@ -287,5 +293,5 @@ TBD
 [azure-rbac]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/
 [architecture]: #architecture_blueprint
 [security]: #security
-[implementing]: #implementing_this_architecture
+[recommendations]: #recommendations
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
