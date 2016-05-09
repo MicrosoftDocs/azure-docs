@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Manage DevTest Labs Formulas to create VMs
@@ -46,7 +46,7 @@ There are two ways to create formulas:
 ### Create a new Formula from scratch
 The following steps guide you through the process of creating a new Formula from scratch.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -79,7 +79,7 @@ The following steps guide you through the process of creating a new Formula from
 
     	![Create formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
-1. Tap **Create** to create the Formula. When the portal has created the Formula, it will be listed on the **Lab formulas** blade.
+1. Tap **Create** to create the Formula. When the Formula has been successfully created, it will be listed on the **Lab formulas** blade.
 
 	![Newly created formula](./media/devtest-lab-manage-formulas/newly-created-formula.png)
 
@@ -88,7 +88,7 @@ The following steps guide you through the process of creating a Formula based on
 
 > [AZURE.NOTE] Only VMs created after March 30, 2016 support creating a new Formula from a lab VM. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -102,14 +102,14 @@ The following steps guide you through the process of creating a Formula based on
 
 	![Create Formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
 
-1. On the **Create formula** blade, enter a **Name** and **Description** for your new Formula, and tap **OK**. When the portal has created the Formula, it will be listed on the **Lab formulas** blade.
+1. On the **Create formula** blade, enter a **Name** and **Description** for your new Formula, and tap **OK**. When the Formula has been successfully created, it will be listed on the **Lab formulas** blade.
 
 	![Create Formula blade](./media/devtest-lab-manage-formulas/create-formula-blade.png)
 
 ## Modify a Formula
 To modify a Formula, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -126,7 +126,7 @@ To modify a Formula, follow these steps:
 ## Delete a Formula 
 To delete a Formula, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -149,4 +149,4 @@ To delete a Formula, follow these steps:
     ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
 ## Next steps
-Once you have created a Formula for use when creating a VM, the next step is to [add a VM to your DevTest Lab](./devtest-lab-add-vm-with-artifacts.md).
+Once you have created a Formula for use when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).

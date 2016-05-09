@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configure Azure Marketplace image settings in a DevTest Lab | Microsoft Azure"
-	description="Configure which Azure Marketplace images can be used when creating a VM in a DevTest Lab"
+	pageTitle="Configure Azure Marketplace image settings in a lab | Microsoft Azure"
+	description="Configure which Azure Marketplace images can be used when creating a VM in DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Configure Azure Marketplace image settings in a DevTest Lab
+# Configure Azure Marketplace image settings in a lab
 
 ## Overview
 
@@ -27,7 +27,7 @@ creating new VMs in a DevTest Lab.
 
 ## Select which Azure Marketplace images are allowed when creating a VM
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -59,4 +59,4 @@ Select nothing from the list if you don't want to allow any Azure Marketplace im
 
 ## Next steps
 
-Once you have configured how Azure Marketplace images are allowed when creating a VM, the next step is to [add a VM to your DevTest Lab](./devtest-lab-add-vm-with-artifacts.md).
+Once you have configured how Azure Marketplace images are allowed when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).
