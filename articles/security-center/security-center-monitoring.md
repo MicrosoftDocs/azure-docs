@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/09/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
