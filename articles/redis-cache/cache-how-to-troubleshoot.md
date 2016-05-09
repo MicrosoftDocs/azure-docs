@@ -136,8 +136,8 @@ Server side delays can be caused by several things like:
 
 `Resolution:` There are several possible changes that you can make to help keep memory usage healthy:
 
- 1. [Configure a memory policy](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys.  Note that this may not be sufficient if you have fragmentation.
- 2. [Configure a maxmemory-reserved value](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
+ 1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys.  Note that this may not be sufficient if you have fragmentation.
+ 2. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
  3. Break up your large cached objects into smaller related objects.
  4. Upgrade to a larger cache size.
 
