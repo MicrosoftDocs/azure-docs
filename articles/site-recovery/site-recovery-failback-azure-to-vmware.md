@@ -106,9 +106,31 @@ If you have protected your machines as classic resources (that is the VM recover
 
 4. Next select the Azure network in which you have the recovered machines. Process server needs to be in the same network so that the recovered VMs and the process server can communicate.
 
-5. If you have selected a classic deployment network - you will be asked to create a new VM via the Azure gallery and install the process sever in it. The step to install the process server in the virtual machine are here
+5. If you have selected a *classic deployment* network - you will be asked to create a new VM via the Azure gallery and install the process sever in it.
 
 	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
+	
+	1. Name of the image is *Microsoft Azure Site Recovery Process Server V2*. make sure you select *Classic* as the deployment model.
+	
+		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
+	
+	2. Install the Process server as per the steps given here *TODO Need to add the link here*
+	
+6. If you select the *Resource Manager* Azure network, you will need to give the following inputs to deploy the server.
+
+    1. Resource Group to which you want to deploy the server
+	
+	2. Give the server a name
+	
+	3. Give it a username password so that you can log in
+	
+	4. Choose the storage account to which you want to deploy the server
+	
+	5. Choose the specific Subnet and the Network Interface to connect to it.
+	
+		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
+	
+	6. Click OK. This will trigger a job that will create a Resource Manager deployment type virtual machine with process server setup. You need to run the setup inside the VM to register the server to the configuration server. You can do this by following these steps *todo link to install PS*
 
 	2.  Specify a process server name, and enter a name and password you'll use to connect to the Azure VM as an administrator. In **Configuration Server** select the on-premises management server, and specify the Azure network in which the process server should be deployed. This should be the network in which the Azure VMs are located. Specify a unique IP address from the select subnet and begin deployment.
 
