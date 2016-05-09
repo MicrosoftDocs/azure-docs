@@ -18,6 +18,11 @@
 
 
 # Deploy and manage backup for Azure VMs using PowerShell
+
+> [AZURE.SELECTOR]
+- [ARM VM PowerShell](backup-azure-vms-automation.md)
+- [Classic VM PowerShell](backup-azure-vms-classic-automation.md)
+
 This article shows you how to use Azure PowerShell for backup and recovery of Azure IaaS VMs.
 
 ## Concepts
