@@ -32,7 +32,7 @@ We've heard the following questions about Azure RemoteApp. Have others? Visit th
 
 - **What are the service limits?** You can learn about the default settings and service limits of Azure RemoteApp in [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md). Let us know if you have more questions.
 - **How many users do I have to have?** There's a minimum of 20 users. Let me repeat that to be super clear - the MINIMUM is 20. You will be billed for 20. 
-- **How much does RemoteApp cost?** Check out [Azure RemoteApp Pricing Details ](https://azure.microsoft.com/services/remoteapp).
+- **How much does RemoteApp cost?** Check out [Azure RemoteApp Pricing Details ](https://azure.microsoft.com/pricing/details/remoteapp/).
 - **Does one type of collection cost more than another?** 
 Yes, it can, depending on your collection requirements. A hybrid collection requires a connection from Azure RemoteApp to your on-premises network. If you use an existing VNET/Express Route, there is no additional cost. But if you use a new Azure VNET and either a gateway or Express Route, you will be charged for the [VPN gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) or [Express Route](../../../pricing/details/expressroute/). This cost (detailed in the links) is on top of your monthly Azure RemoteApp cost.
 
