@@ -3,7 +3,7 @@ pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services u
 description="How to configure your azure cloud service application using PowerShell to allow remote desktop connections" 
 services="cloud-services" 
 documentationCenter="" 
-authors="sbtron" 
+authors="thraka" 
 manager="timlt" 
 editor=""/>
 <tags 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm="na"
 ms.devlang="na" 
 ms.topic="article" 
 ms.date="01/19/2016" 
-ms.author="saurabh"/>
+ms.author="adegeo"/>
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell
 

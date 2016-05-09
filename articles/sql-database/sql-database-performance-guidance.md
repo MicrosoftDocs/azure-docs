@@ -62,6 +62,8 @@ The performance level settings in Standard and Premium allow you to pay only for
 
 For more information about the service tiers, performance levels, and DTUs, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
+
+
 ## Reasons to use the service tiers
 
 While each workload can differ, the purpose of the service tiers is to provide high performance predictability at a variety of performance levels. They enable customers with a large scale of resource requirements for their databases to work in a more dedicated computing environment.
@@ -84,6 +86,20 @@ While each workload can differ, the purpose of the service tiers is to provide h
 The exact level you will need depends on the peak load requirements for each resource dimension. Some applications may use trivial amounts of one resource but have significant requirements in another.
 
 For more information about the service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
+
+## Billing and pricing information
+
+Elastic database pools are billed per the following characteristics:
+
+- An elastic pool is billed upon its creation, even when there are no databases in the pool.
+- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
+- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases.
+
+
+- The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the utilization of the elastic databases within it.
+- Price is computed by (number of pool eDTUs)x(unit price per eDTU).
+
+The unit eDTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).  
 
 ## Service tier capabilities and limits
 Each service tier and performance level is associated with different limits and performance characteristics. The following table describes these characteristics for a single database.
@@ -291,11 +307,11 @@ While the service tiers are designed to improve performance stability and predic
 ## Tuning techniques
 This section explains some techniques that you can use to tune Azure SQL Database to gain the best performance out of your application and be able to run in the smallest possible performance level. A number of the techniques match traditional SQL Server tuning best practices, but some techniques are specific to Azure SQL Database. In some cases, traditional SQL Server techniques can be extended to also work on Azure SQL Database by examining the consumed resources for a database to find areas to further tune.
 
-### Query Performance Insight and Index Advisor
-SQL Database provides two tools in the Azure Classic Portal for analyzing and fixing performance issues with your database:
+### Query Performance Insight and SQL Database Advisor
+SQL Database provides two tools in the Azure Portal for analyzing and fixing performance issues with your database:
 
 - [Query Performance Insight](sql-database-query-performance.md)
-- [Index Advisor](sql-database-index-advisor.md)
+- [SQL Database Advisor](sql-database-index-advisor.md)
 
 Refer to the previous links for more information about each tool and how to use them. The two following sections on missing indexes and query tuning provide other ways to manually find and correct similar performance issues. We recommend that you first try the tools in the portal to more efficiently diagnose and correct problems. Use the manual tuning approach for special cases.
 
@@ -324,7 +340,7 @@ The following example creates a case where the selected query plan contains a sc
 
 Azure SQL Database contains functionality to help hint database administrators on how to find and fix common missing index conditions. Dynamic management views (DMVs) built into Azure SQL Database look at query compilation where an index would significantly reduce the estimated cost to run a query. During query execution, it tracks how often each query plan is executed as well as the estimated gap between the executing query plan and the imagined one where that index existed. This allows a database administrator to quickly guess which physical database design changes might improve the overall workload cost for a given database and its real workload.
 
->[AZURE.NOTE] Before using the DMVs to find missing indexes, first review the section on [Query Performance Insight and Index Advisor](#query-performance-insight-and-index-advisor).
+>[AZURE.NOTE] Before using the DMVs to find missing indexes, first review the section on [Query Performance Insight and SQL Database Advisor](#query-performance-insight-and-index-advisor).
 
 The following query can be used to evaluate potential missing indexes.
 

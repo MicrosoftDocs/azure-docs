@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use Azure Table Storage from Ruby | Microsoft Azure"
-	description="Learn how to use Azure Table Storage in Azure. Code samples are written using the Ruby API."
+	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter="ruby"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/10/2016"
+	ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 
