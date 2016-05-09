@@ -13,16 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/21/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="05/08/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 
-# Load data with bcp
+# Load data from SQL Server into Azure SQL Data Warehouse (AZCopy)
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-- [BCP](sql-data-warehouse-load-with-bcp.md)
+- [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+- [AZCopy](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+
+Use bcp and AZCopy command-line utilities to load data from SQL Server to Azure blob storage. Then use PolyBase or Azure Data Factory to load the data into Azure SQL Data Warehouse. 
 
 
 **[bcp][]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL.
