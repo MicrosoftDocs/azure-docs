@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to change the credit card that you use to pay for an Azure bill | Microsoft Azure"
-	description="Describes how to change the credit card that you use to pay for an Azure bill"
+	pageTitle="How to change the credit card used to pay for an Azure subscription | Microsoft Azure"
+	description="Describes how to How to change the credit card used to pay for an Azure subscription"
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
