@@ -25,7 +25,7 @@ When you create a VM, you specify a *base*, which can be either a *custom image*
 In this article, you'll see how to create a custom image from a VHD file.
 Note that you'll need access to a valid VHD file to perform all the steps in this article.   
 
-## Create a Custom Image
+## Create a custom image
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -35,11 +35,11 @@ Note that you'll need access to a valid VHD file to perform all the steps in thi
 
 1. The selected lab's **Settings** blade will be displayed. 
 
-1. On the lab **Settings** blade, tap **Custom Images**.
+1. On the lab **Settings** blade, tap **Custom images**.
 
-    ![Custom Images option](./media/devtest-lab-create-template/lab-settings-custom-images.png)
+    ![Custom images option](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-1. On the **Custom images** blade, tap **+ Custom Image**.
+1. On the **Custom images** blade, tap **+ Custom image**.
 
     ![Add Custom image](./media/devtest-lab-create-template/add-custom-image.png)
 

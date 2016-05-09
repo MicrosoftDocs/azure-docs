@@ -58,9 +58,9 @@ Artifacts are Azure Resource Manager (ARM) based JSON files that contain instruc
 
 **Base** is a VM image with all the tools and settings preinstalled and configured to quickly create a VM. You can provision a VM by picking an existing base and adding an artifact to install your test agent. You can then save the provisioned VM as a base so that the base can be used without having to reinstall the test agent for each provisioning of the VM.
 
-**Formulas**, in addition to base images, provide a mechanism for fast VM provisioning. A Formula in DevTest Labs is a list of default property values used to create a lab VM. 
-With Formulas, VMs with the same set of properties - such as base image, VM size, virtual network, and artifacts - can be created without needing to specify those 
-properties each time. When creating a VM from a Formula, the default values can be used as-is or modified.
+**Formulas**, in addition to base images, provide a mechanism for fast VM provisioning. A formula in DevTest Labs is a list of default property values used to create a lab VM. 
+With formulas, VMs with the same set of properties - such as base image, VM size, virtual network, and artifacts - can be created without needing to specify those 
+properties each time. When creating a VM from a formula, the default values can be used as-is or modified.
 
 **Caps** is a mechanism to minimize waste in your lab. For example, you can set a cap to restrict the number of VMs that can be created per user, or in a lab.
 

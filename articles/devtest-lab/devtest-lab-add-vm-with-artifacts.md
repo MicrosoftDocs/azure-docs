@@ -23,7 +23,7 @@ video: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-
 
 ## Overview
 
-You create a VM in a lab from a *base* that is either a [Custom Image](./devtest-lab-create-template.md), [Formula](./devtest-lab-manage-formulas.md), or [Marketplace image](./devtest-lab-configure-marketplace-images.md).
+You create a VM in a lab from a *base* that is either a [custom image](./devtest-lab-create-template.md), [formula](./devtest-lab-manage-formulas.md), or [Marketplace image](./devtest-lab-configure-marketplace-images.md).
 
 DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is created. 
 
