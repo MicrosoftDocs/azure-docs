@@ -16,7 +16,7 @@
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
 
-# Active Directory Authentication protocols
+# Active Directory Authentication Protocols
 
 Azure AD supports several of the most widely used authentication and authorization protocols.
 
