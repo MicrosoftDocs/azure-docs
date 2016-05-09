@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add a Git artifact repository to a DevTest Lab | Microsoft Azure"
+	pageTitle="Add a Git artifact repository to a lab | Microsoft Azure"
 	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts in DevTest Labs"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
@@ -16,7 +16,7 @@
 	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Add a Git artifact repository to in a lab
+# Add a Git artifact repository to a lab
 
 > [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to add your private artifacts repository to a lab in DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab) 
 

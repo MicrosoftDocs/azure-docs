@@ -129,7 +129,7 @@ The following procedure assumes that you are using the **Publish Azure Applicati
 
       Your browser will prompt you to download an .RDP file.
 
-  1. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** dropdown list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the Azure management portal. For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
+  1. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** dropdown list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
 
       >[AZURE.NOTE] If you add a trusted SSL certificate, the yellow warning triangle no longer appears in the **Publish Wizard**.
 
