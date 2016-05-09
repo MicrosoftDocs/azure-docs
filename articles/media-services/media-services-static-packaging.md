@@ -98,7 +98,7 @@ The following code sample uses Azure Media Services .NET SDK Extensions.  Make s
 	            Path.Combine(_mediaFiles, @"MultibitrateMP4Files");
 	
 	        // XML Configruation files path.
-	        private static readonly string _configurationXMLFiles = @"../..\Configurations\";
+	        private static readonly string _configurationXMLFiles = @"../..\Configurations";
 	
 	        private static MediaServicesCredentials _cachedCredentials = null;
 	        private static CloudMediaContext _context = null;
