@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure App Service Environment" 
-	description="Learn how App Service work" 
-	keywords="app service environment, azure app service environment"
+	pageTitle="App Service Environment | Microsoft Azure" 
+	description="What is an Azure App Service Environment? An introduction to App Service Environment." 
+	keywords="azure app service environment, virtual network, secure networking"
 	services="app-service" 
 	documentationCenter="" 
 	authors="yochay" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/10/2016" 
 	ms.author="stefsch"/>
 
-# Overview
+# App Service Environment Documentation
 
 An App Service Environment is a [Premium][PremiumTier] service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including [Web Apps][WebApps], [Mobile Apps][MobileApps], and [API Apps][APIApps].  
 
