@@ -18,8 +18,6 @@
 
 # Define lab policies
 
-> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to author custom artifacts](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab) 
-
 ## Overview
 
 DevTest Labs allows you to specify key policies that govern how your lab and its VMs are used. 
