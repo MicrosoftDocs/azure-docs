@@ -45,7 +45,7 @@ First, we should verify the that the file we want cached is available on our ori
 
 ![Success!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
-> [AZURE.WARNING] While this is the quickest and easiest way to verify your file is publicly available, some network configurations in your organization could give you the illusion that this file is publicly available when they is, in fact, only visible to users of your network (even if it's hosted in Azure).  If you have an external browser from which you can test, such as a mobile device that is not connected to your organization's network, or a virtual machine in Azure, that would be best.
+> [AZURE.WARNING] While this is the quickest and easiest way to verify your file is publicly available, some network configurations in your organization could give you the illusion that this file is publicly available when it is, in fact, only visible to users of your network (even if it's hosted in Azure).  If you have an external browser from which you can test, such as a mobile device that is not connected to your organization's network, or a virtual machine in Azure, that would be best.
 
 ### Check the origin settings
 
@@ -59,11 +59,11 @@ The **Origin** blade appears.
 
 #### Origin type and hostname
 
-Verify the **Origin type** is correct, and verify the **Origin hostname**.  In my example, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, the hostname portion of the URL is `cdndocdemo.blob.core.windows.net`.  As you can see in the screenshot, this is correct.  For Azure Storage, Web App, and Cloud Service origins, the **Origin hostname** field is a dropdown, so we don't need to worry about spelling it correctly.  However, if you're using a custom origin, it is *absolutely critical* your hostname is spelled correctly.
+Verify the **Origin type** is correct, and verify the **Origin hostname**.  In my example, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, the hostname portion of the URL is `cdndocdemo.blob.core.windows.net`.  As you can see in the screenshot, this is correct.  For Azure Storage, Web App, and Cloud Service origins, the **Origin hostname** field is a dropdown, so we don't need to worry about spelling it correctly.  However, if you're using a custom origin, it is *absolutely critical* your hostname is spelled correctly!
 
 #### HTTP and HTTPS ports
 
-The other thing to check here is your **HTTP** and **HTTPS ports**.  In most cases, 80 and 443 are correct, and you will require no changes.  However, if the origin server is listening on a different port, that will need to be represented here.  If you're not sure, just look at the URL for your origin file.  The HTTP and HTTPS specifications specify ports 80 and 443 as the defaults, so in my URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, a port is not specified, so the default of 443 is assumed and my settings are correct.  
+The other thing to check here is your **HTTP** and **HTTPS ports**.  In most cases, 80 and 443 are correct, and you will require no changes.  However, if the origin server is listening on a different port, that will need to be represented here.  If you're not sure, just look at the URL for your origin file.  The HTTP and HTTPS specifications specify ports 80 and 443 as the defaults. In my URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, a port is not specified, so the default of 443 is assumed and my settings are correct.  
 
 However, say the URL for your origin file that you tested earlier is `http://www.contoso.com:8080/file.txt`.  Note the `:8080` at the end of the hostname segment.  That tells the browser to use port `8080` to connect to the web server at `www.contoso.com`, so you'll need to enter 8080 in the **HTTP port** field.  It's important to note that these port settings only affect what port the endpoint uses to retrieve information from the origin.
   

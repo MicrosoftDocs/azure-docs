@@ -18,6 +18,8 @@
 
 # Create a WordPress web app in Azure App Service
 
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
+
 This tutorial shows how to deploy a WordPress blog site from the Azure Marketplace.
 
 When you're done with the tutorial you'll have your own WordPress blog site up and running in the cloud.

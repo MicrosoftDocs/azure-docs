@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Multi-tenant applications with elastic database tools and row-level security 
@@ -58,7 +58,7 @@ After connecting to a shard database using the elastic database client libraryâ€
 
 ### Entity Framework
 
-For applications using Entity Framework, the easiest approach is to set the SESSION_CONTEXT within the ElasticScaleContext override described in [Data Dependent Routing using EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Before returning the connection brokered through data dependent routing, simply create and execute a SqlCommand that sets 'TenantId' in the SESSION_CONTEXT to the shardingKey specified for that connection. This way, you only need to write code once to set the SESSION_CONTEXT. 
+For applications using Entity Framework, the easiest approach is to set the SESSION_CONTEXT within the ElasticScaleContext override described in [Data Dependent Routing using EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Before returning the connection brokered through data dependent routing, simply create and execute a SqlCommand that sets 'TenantId' in the SESSION_CONTEXT to the shardingKey specified for that connection. This way, you only need to write code once to set the SESSION_CONTEXT. 
 
 ```
 // ElasticScaleContext.cs 

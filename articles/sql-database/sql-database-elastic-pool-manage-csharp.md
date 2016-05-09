@@ -428,6 +428,7 @@ Create a console app and replace the contents of Program.cs with the following. 
 
 - [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [Elastic database pool reference](sql-database-elastic-pool-reference.md)
+- [Create a new elastic database pool with C#](sql-database-elastic-pool-create-csharp.md)
+- [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
 - See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic database tools to scale-out, move data, query, or create transactions.
 
