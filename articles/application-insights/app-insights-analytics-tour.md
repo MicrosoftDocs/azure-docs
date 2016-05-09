@@ -154,7 +154,6 @@ You can flatten it by choosing the properties you're interested in:
 
 ## Custom properties and measurements
 
-
 If your application attaches [custom dimensions (properties) and custom measurements](app-insights-api-custom-events-metrics.md#properties) to events, then you will see them in the `customDimensions` and `customMeasurements` objects.
 
 
@@ -174,7 +173,8 @@ To extract these values in Analytics:
 ```AIQL
 
     customEvents
-    | extend p1 = customDimensions.p1, m1 = customMeasurements.m1
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast numerics
 
 ``` 
 
