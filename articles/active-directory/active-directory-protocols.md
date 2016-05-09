@@ -24,7 +24,7 @@ In this set of articles, we'll look at the supported protocols and their impleme
 
 - [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md): Learn about the OAuth2.0 authorization grant flow and it's implementation in Azure AD.
 - [Open ID Connect 1.0](active-directory-protocols-openid-connect-code.md): Learn how to use OpenID Connect authentication protocol in Azure AD.
-- [SAML Protocol Reference](active-directory-saml-protocol-reference,md): Learn how to use the SAML protocol to support Single Sign-On and Single Sign-Out in Azure AD.
+- [SAML Protocol Reference](active-directory-saml-protocol-reference.md): Learn how to use the SAML protocol to support [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) and [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) in Azure AD.
 
 
 ## Troubleshooting Azure AD Authentication Protocols
@@ -35,4 +35,4 @@ This set of articles provides additional information that could be useful for tr
 - [Supported Token and Claim Types](active-directory-token-and-claims.md): Learn about the different claims in the tokens that Azure AD issues.
 - [Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md): Learn about Azure AD’s signing key rollover cadence and how to update the key for the most common application scenarios.
 - [Troubleshooting Authentication Protocols](active-directory-error-handling.md): Learn how to interpret and resolve the most common errors when using OAuth 2.0 and Azure AD.
-- [Best Practices for OAuth 2.0 in Azure AD](active-directory-oauth-best-practices,md): Learn about the best practices when using OAuth 2.0 in Azure AD and avoid common pitfalls. 
+- [Best Practices for OAuth 2.0 in Azure AD](active-directory-oauth-best-practices,md): Learn about the best practices when using OAuth 2.0 in Azure AD and avoid common pitfalls.
