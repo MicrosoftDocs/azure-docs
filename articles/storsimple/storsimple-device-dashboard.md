@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/02/2016"
+   ms.date="05/09/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager device dashboard
