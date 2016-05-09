@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What is the DevTest Labs service? | Microsoft Azure"
+	pageTitle="What is DevTest Labs? | Microsoft Azure"
 	description="Learn how DevTest Labs can make it easy to create, manage, and monitor Azure virtual machines"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
