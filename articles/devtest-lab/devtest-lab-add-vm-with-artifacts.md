@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
-	description="Learn how to add a VM with artifacts to a DevTest Lab"
+	pageTitle="Add a VM with artifacts to a lab | Microsoft Azure"
+	description="Learn how to add a VM with artifacts in DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Add a VM with artifacts to a DevTest Lab
+# Add a VM with artifacts to a lab
 
 > [AZURE.NOTE] Click the following link to view this article's accompanying 
-video: [How to create VMs with artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
+video: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
 
 ## Overview
 
-You create a VM in a DevTest Lab from a base image that is either a [Custom Image](./devtest-lab-create-template.md), [Formula](./devtest-lab-manage-formulas.md), or [Marketplace image](./devtest-lab-configure-marketplace-images.md).
+You create a VM in a lab from a *base* that is either a [custom image](./devtest-lab-create-template.md), [formula](./devtest-lab-manage-formulas.md), or [Marketplace image](./devtest-lab-configure-marketplace-images.md).
 
-DevTest Lab *artifacts* let you specify *actions* that are performed when the VM is created. 
+DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is created. 
 
 Artifact actions can perform procedures such as running Windows PowerShell scripts, running Bash commands, and installing software. 
 
@@ -35,7 +35,7 @@ This article shows you how to create a VM in your lab with artifacts.
 
 ## Add a VM with artifacts
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -79,7 +79,7 @@ and then return here when finished.
 
 ## Add an existing artifact to a VM
 
-While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Lab Artifact Repository as 
+While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Labs Artifact Repository as 
 well as artifacts that you've created and added to your own Artifact Repository.
 To discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
 
