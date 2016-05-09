@@ -19,7 +19,7 @@
 
 # Azure CDN POP Locations
 
-This topic lists current CDN POP locations.
+This topic lists current POP locations for **Azure CDN from Verizon** and **Azure CDN from Akamai**.
 
 >[AZURE.NOTE] **Azure CDN from Akamai** POP locations are not individually disclosed by Akamai, only countries.  
  
