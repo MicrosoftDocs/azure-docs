@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
-# Create Windows virtual machines with PowerShell and the classic deployment model 
+# Create a Windows virtual machine with PowerShell and the classic deployment model 
 
 > [AZURE.SELECTOR]
 - [Azure classic portal - Windows](virtual-machines-windows-classic-tutorial.md)
 - [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
-- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
 
