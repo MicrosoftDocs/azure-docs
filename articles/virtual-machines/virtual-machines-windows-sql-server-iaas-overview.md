@@ -14,13 +14,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/06/2016"
+	ms.date="05/9/2016"
 	ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
 
-## Getting started
-You can host [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using Always On Availability Groups and an Azure Virtual Network.
+[SQL Server running on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you host your SQL Server databases in the Cloud. For example, you can migrate an on-premises database to an Azure VM preconfigured with Windows Server 2012 R2 and SQL Server 2014 Enterprise edition. But there are many other possible scenarios, such as multi-machine configurations that support high availability or hybrid architectures with connectivity to on-premises networks.
+
+Running SQL Server on an Azure VM is one option for storing relational data in Azure. The following table summarizes the different offerings.
+
+| SQL offering | Description |
+|---|---|
+|![SQL Server on Azure Virtual Machines](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)[SQL Server running on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|This is the description|
+|![SQL Database](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)SQL Database|TBD|
+|![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)SQL Data Warehouse|TBD|
+|![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)SQL Server Stretch Database|TBD|
 
 >[AZURE.NOTE] Running SQL Server on an Azure VM is one option for storing relational data in Azure. You can also use the Azure SQL Database service. For more information, see [Understanding Azure SQL Database and SQL Server in Azure VMs](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
