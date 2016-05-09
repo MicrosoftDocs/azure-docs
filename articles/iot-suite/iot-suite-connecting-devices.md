@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/09/2016"
    ms.author="dobett"/>
 
 
-# Connect your device to the IoT Suite remote monitoring preconfigured solution
+# Connect your device to the remote monitoring preconfigured solution (Windows)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -54,7 +54,6 @@ The IoT Hub client libraries use a model to specify the format of messages the d
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
-    #include "threadapi.h"
     ```
 
 2. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values for your device from the remote monitoring solution dashboard. Use the IoT Hub Hostname from the dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with contoso:

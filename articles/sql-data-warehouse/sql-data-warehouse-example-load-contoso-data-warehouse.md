@@ -1248,8 +1248,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [label]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/en-us/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/en-us/library/ms188388.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433

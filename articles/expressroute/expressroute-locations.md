@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
 
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
-## ExpressRoute connectivity providers
+## <a name="partners"></a>ExpressRoute connectivity providers
 
 ExpressRoute is supported across all Azure regions and locations. The following map provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
 
@@ -64,7 +64,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 |**China Telecom Global** | Supported | Not Supported | Hong Kong |
 |**Cologix** | Supported | Coming soon | Montreal+, Toronto |
 | **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Supported | Amsterdam, Dublin, London |
-| **Comcast** | Supported | Not Supported | Silicon Valley, Washington DC |
+| **Comcast** | Supported | Supported | Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Supported | Supported | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |  Supported | Supported | Amsterdam |
@@ -77,7 +77,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **MTN** | Supported | Supported | London |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
 | **NTT Communications** | Supported | Supported | London, Osaka, Tokyo |
-| **[Orange]( http://www.orange-business.com/)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
+| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supported | Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
 | **Softbank** | Supported | Supported | Osaka, Tokyo | 
@@ -118,7 +118,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **e-shelter** | Coming soon | Not Supported | Berlin+|
 | **Interxion** | Supported | Not Supported | Frankfurt|
 
-## Connectivity through service providers not listed
+## <a name="nonpartners"></a>Connectivity through service providers not listed
 
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 

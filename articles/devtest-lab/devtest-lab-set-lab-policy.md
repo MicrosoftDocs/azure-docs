@@ -13,23 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Define lab policies
 
-> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to author custom artifacts](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab) 
-
 ## Overview
 
-DevTest Lab allows you to specify key policies that govern how your lab and its VMs are used. 
+DevTest Labs allows you to specify key policies that govern how your lab and its VMs are used. 
 For example, you can set the rules for the VM sizes allowed to create VMs, the threshold for the number of VMs that can be created, and schedule jobs to automatically start/stop the lab VMs. 
 
 ## Accessing a lab's policies
 
 In order to view (and change) the policies for a lab, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -137,9 +135,11 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 
 Once you've defined and applied the various VM policy settings for your lab, here are some things to try next:
 
+- [Configure cost management](./devtest-lab-configure-cost-management.md) - Illustrates how to use the **Monthly Estimated Cost Trend** chart  
+to view the current month's estimated cost-to-date as well as the projected end-of-month cost.
 - [Create custom image](./devtest-lab-create-template.md) - When you create a VM, you specify a base, which can be either a custom image or a Marketplace image. This article illustrates
 how to create a custom image from a VHD file.
 - [Configure Marketplace images](./devtest-lab-configure-marketplace-images.md) - DevTest Labs supports creating new VMs based on Azure Marketplace images. This article
 illustrates how to specify which, if any, Azure Marketplace images can be used when creating new VMs in a lab.
-- [Create a VM in a lab](./devtest-lab-add-vm-with-artifacts.md) - This article illustrates how to create a new VM from a base image (either custom or Marketplace), and how to work with
+- [Create a VM in a lab](./devtest-lab-add-vm-with-artifacts.md) - Illustrates how to create a new VM from a base image (either custom or Marketplace), and how to work with
 artifacts in your VM.
