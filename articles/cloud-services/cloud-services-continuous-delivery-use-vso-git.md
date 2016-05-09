@@ -185,7 +185,7 @@ When you are ready, you can promote the Staging environment to the Production en
 
 ![][35]
 
-## 6: Deploy from a working branch.
+## 7: Deploy from a working branch.
 
 When you use Git, you usually make changes in a working branch and integrate into the master branch when your development reaches a finished state. During the development phase of a project, you'll want to build and deploy the working branch to Azure.
 
