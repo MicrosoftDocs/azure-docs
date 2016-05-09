@@ -132,17 +132,12 @@ If you have protected your machines as classic resources (that is the VM recover
 	
 	6. Click OK. This will trigger a job that will create a Resource Manager deployment type virtual machine with process server setup. You need to run the setup inside the VM to register the server to the configuration server. You can do this by following these steps *todo link to install PS*
 
-	2.  Specify a process server name, and enter a name and password you'll use to connect to the Azure VM as an administrator. In **Configuration Server** select the on-premises management server, and specify the Azure network in which the process server should be deployed. This should be the network in which the Azure VMs are located. Specify a unique IP address from the select subnet and begin deployment.
-
-	![](./media/site-recovery-failback-azure-to-vmware-classic/ps2.png)
-
 	A job to deploy the process server will be triggered
 
-	![](./media/site-recovery-failback-azure-to-vmware-classic/ps3.png)
-
-	After the process server is deployed in Azure you can log onto it
-	using the credentials you specified. The first time you log in the process server dialog will run. Type in the IP address of the on-premises management server and its passphrase. Leave the default port 443 setting. You can also leave the default 9443 port for data replication unless you specifically modified this setting when you set up the on-premises management server. 
-
+7. At the end, the process sever should be listed in the configuration servers page, under the associated servers section, in Process Servers
+		
+		![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
+	
 	>[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
 
