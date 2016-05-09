@@ -114,7 +114,7 @@ If you have protected your machines as classic resources (that is the VM recover
 	
 		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
 	
-	2. Install the Process server as per the steps given here *TODO Need to add the link here*
+	2. Install the Process server as per the steps [given here](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server)
 	
 6. If you select the *Resource Manager* Azure network, you will need to give the following inputs to deploy the server.
 
@@ -126,11 +126,11 @@ If you have protected your machines as classic resources (that is the VM recover
 	
 	4. Choose the storage account to which you want to deploy the server
 	
-	5. Choose the specific Subnet and the Network Interface to connect to it.
+	5. Choose the specific Subnet and the Network Interface to connect to it. Note - you need to create your own []Network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while deploying.
 	
 		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
 	
-	6. Click OK. This will trigger a job that will create a Resource Manager deployment type virtual machine with process server setup. You need to run the setup inside the VM to register the server to the configuration server. You can do this by following these steps *todo link to install PS*
+	6. Click OK. This will trigger a job that will create a Resource Manager deployment type virtual machine with process server setup. You need to run the setup inside the VM to register the server to the configuration server. You can do this by following [these steps](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
 	7. A job to deploy the process server will be triggered
 
@@ -228,16 +228,23 @@ You can also reprotect at a recovery plan level. If you have a replication group
 
 After reprotection the VM you can initiate a failover from Azure to On-premises. 
 
-1.	In the **Recovery Plans** page select the recovery plan containing the failback group and click **Failover** > **Unplanned Failover**.
-2.	In **Confirm Failover** verify the failover direction (to Azure) and select the recovery point you want to use for the failover (latest). If you enabled **Multi-VM** when you configured replication properties you can recover to the latest app or crash-consistent recovery point. Click the check mark to start the failover.
+1.	In the replicated items page select the virtual machine containing the right click to **Unplanned Failover**.
+2.	In **Confirm Failover** verify the failover direction (from Azure) and select the recovery point you want to use for the failover (latest, or the latest app consistent). App consistent point would be behind the latest point in time and will cause some data loss.
 3.	During failover Site Recovery will shut down the Azure VMs. After you check that failback has completed as expected you can you can check that the Azure VMs have been shut down as expected.
 
-### Reprotect the  on-premises site
+### Reprotect the on-premises site
 
-After failback completes your data will be back on the on-premises site, but won’t be protected. To start replicating to Azure again do the following:
+After failback completes, you will need to commit the virtual machine to ensure the VMs recovered in Azure are deleted.
 
-1.	In the Site Recovery portal > **Machines** tab select the VMs that have failed back and click **Re-Protect**. 
-2.	After you verify that replication to Azure is working as expected, in Azure you can delete the Azure VMs (currently not running) that were failed back.
+1. Right click on the protected item and click Commit. A job will trigger that will remove the former recovered virtual machines in Azure.
+
+After commit completes your data will be back on the on-premises site, but won’t be protected. To start replicating to Azure again do the following:
+
+1.	In the Vault > Setting > Replicated items, select the VMs that have failed back and click **Re-Protect**. 
+2.  Give the value of Process server that needs to be used to send data back to Azure.
+3.	Click OK to begin the re-protect job.
+
+Once the reprotect completes, the VM will be replicating back to Azure and you can do a failover.
 
 
 ### Common Issues in failback
