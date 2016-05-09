@@ -86,8 +86,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Article references-->
 
-[Introduction to Azure Stream Analytics]: stream-analytics-introductiond.md
-[Get started using Azure Stream Analytics]: stream-analytics-get-started.md
+[Introduction to Azure Stream Analytics]: ../stream-analytics/stream-analytics-introductiond.md
+[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
 [SQL Data Warehouse development overview]:  sql-data-warehouse-overview-develop.md
 [SQL Data Warehouse integration overview]:  sql-data-warehouse-overview-integrate.md
 

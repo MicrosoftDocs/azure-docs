@@ -121,4 +121,4 @@ Follow these links to learn more about Azure IoT Hub:
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [IoT Hub Quotas and Throttles]: iot-hub-devguide.md#throttling
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-field-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk

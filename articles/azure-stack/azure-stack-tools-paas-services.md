@@ -25,7 +25,7 @@ In Technical Preview 1, three PaaS resource providers are now available.
 
 [Add a SQL Server resource provider to Azure Stack](azure-stack-sql-rp-deploy-short.md)
 
-[Add a MySQL resource provider to Azure Stack](azure-stack-mysqlrp-deploy-short.md)
+[Add a MySQL resource provider to Azure Stack](azure-stack-mysql-rp-deploy-short.md)
 
 [Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
 

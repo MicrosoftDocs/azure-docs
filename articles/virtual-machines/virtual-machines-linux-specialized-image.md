@@ -29,13 +29,14 @@ If you need to create mass deployments of similar Linux VMs, you need a *general
 
 ## Check these before you begin
 
-This article assumes the following prerequisites are met before you start the steps:
+This article assumes you have:
 
-1. You have an Azure virtual machine running Linux, created using either the classic or the Resource Manager deployment model. You have configured the operating system, attached data disks as well as made other customizations like installing required applications. We will use this VM to create the copy; if you need help in creating the source VM, read [Create a Linux VM in Azure](virtual-machines-linux-quick-create-cli.md). 
+1. An **Azure virtual machine running Linux**, in the classic or the Resource Manager deployment model, with the operating system configured, data disks attached, and your required applications installed. If you need help in creating this VM, read [Create a Linux VM in Azure](virtual-machines-linux-quick-create-cli.md). 
 
-1. You have the Azure CLI downloaded and installed on your machine, and you have logged in to your Azure subscription. For more information, read [How to install Azure CLI](../xplat-cli-install.md).
+1. The **Azure CLI** installed on your machine, and logged in to your Azure subscription. For more information, read [How to install Azure CLI](../xplat-cli-install.md).
 
-1. You have a resource group, and a storage account as well as a blob container created in that resource group to copy the VHDs to. Read [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md) for more information on creating storage accounts and blob containers using the Azure CLI.
+1. A **resource group** with a **storage account** and a **blob container** created in it to copy the VHDs to. Read [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md) for more information.
+
 
 
 > [AZURE.NOTE] Similar steps apply for a VM created using either of the two deployment models as the source image. We will note the the minor differences where applicable.  
