@@ -41,7 +41,7 @@ The next sections shows you code you need to integrate a report.
 <a name="GetReport"/>
 ## Get a report in a workspace
 
-To integrate a report into an app, you need a report **ID** and **embedUrl**. To get a report **ID** and **embedUrl**, you call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, and choose a report from the JSON list. In the [Embed a report into an app](#EmbedReport) you use a report **ID** and **embedUrl** to embed the report into your app.
+To integrate a report into an app, you need a report **ID** and **embedUrl**. To get a report **ID** and **embedUrl**, you call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, and choose a report from the JSON list. In [Embed a report into an app](#EmbedReport), you use a report **ID** and **embedUrl** to embed the report into your app.
 
 ### Get reports JSON response
 ```
