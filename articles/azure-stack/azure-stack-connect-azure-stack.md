@@ -18,8 +18,6 @@
 
 # Log in to Azure Stack POC virtual machine
 
-The Azure Stack POC virtual machine is where you can access the [portal](azure-stack-key-features.md#portal) to manage resources (as a service administrator) or to subscribe to and access your services (as a tenant).
-
 You can log in to the Azure Stack POC virtual machine as a
 
 - [**service administrator**](#log-in-as-a-service-administrator) to manage resource providers, tenant offers, plans, services, quotas, and pricing.
@@ -38,7 +36,7 @@ or
     
     This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/).
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
     ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
 
@@ -57,7 +55,7 @@ If you don’t already have one, [Create a tenant account](azure-stack-add-new-u
 
     This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/).
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
     ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
 
