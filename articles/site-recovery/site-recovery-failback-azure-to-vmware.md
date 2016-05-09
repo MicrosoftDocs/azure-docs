@@ -198,13 +198,15 @@ Do the following to apply custom changes after you’ve complete the post-instal
 
 ### Reprotect the Azure VMs
 
-1.	In the Site Recovery  portal > **Machines** tab select the VM that's been failed over and click **Re-Protect**.
-2.	In **Master Target Server** and **Process Server** select the on-premises master target server, and the Azure VM process server.
-3.	Select the account you configured for connecting to the VM.
-4.	Select the failback version of the protection group. For example if the VM is protected in PG1 then you'll need to select PG1_Failback.
-5.	If you want to recover to an alternate location, select the retention drive and datastore configured for the master target server. When you fail back to the on-premises site the VMware VMs in the failback protection plan will use the same datastore as the master target server. If you want to recover the replica Azure VM to the same on-premises VM then the on-premises VM should already be in the same datastore as the master target server. If there's no VM on-premises a new one will be created during reprotection.
+1.	In the Vault > replicated items > select the VM that's been failed over and right click to **Re-Protect**. You can also click the machine and select the reprotect from the command buttons.
+2.	In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
+3.  In **Master Target Server** and **Process Server** select the on-premises master target server, and the Azure VM process server.
+4.  Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exists, but you still need to specify a value. 
+5.	The failback policy will be auto selected.
 
-	![](./media/site-recovery-failback-azure-to-vmware-classic/failback1.png)
+If you want to recover to an alternate location, select the retention drive and datastore configured for the master target server. When you fail back to the on-premises site the VMware VMs in the failback protection plan will use the same datastore as the master target server. If you want to recover the replica Azure VM to the same on-premises VM then the on-premises VM should already be in the same datastore as the master target server. If there's no VM on-premises a new one will be created during reprotection.
+
+	![](./media/site-recovery-failback-azure-to-vmware-classic-new/reprotectinputs.png)
 
 6.	After you click **OK** to begin reprotection a job begins to replicate the VM from Azure to the on-premises site. You can track the progress on the **Jobs** tab.
 
