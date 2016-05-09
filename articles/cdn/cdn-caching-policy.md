@@ -1,19 +1,19 @@
 <properties
 	pageTitle="CDN Caching Policy in Media Services Extension"
-	description="This topic gives an overview of a CDM caching policy in Media Services Extension."
-	services="cdn"
+	description="This topic gives an overview of a CDN caching policy in Media Services Extension."
+	services="media-services,cdn"
 	documentationCenter=".NET"
 	authors="juliako"
 	manager="erikre"
 	editor=""/>
 
 <tags
-	ms.service="cdn"
+	ms.service="media-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="04/25/2016"
 	ms.author="juliako"/>
  
 #CDN Caching Policy in Media Services Extension

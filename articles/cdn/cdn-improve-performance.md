@@ -18,12 +18,12 @@
 
 # Improve performance by compressing files
 
-This topic discusses how to improve file transfer speed and increase page load performance by compressing your files.
+Compression is a simple and effective method to improve file transfer speed and increase page load performance by reducing file size before it is sent from the server. It reduces bandwidth costs and provides a more responsive experience for your users.
 
-There are two ways CDN can support compression:
+There are two ways to enable compression:
 
-- You can enable compression on your origin server, in which case the CDN will support compression by default and deliver compressed files to clients.
-- You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users.
+- You can enable compression on your origin server, in which case the CDN will pass through the compressed files and deliver compressed files to clients that request them.
+- You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users, even if they are not compressed by the origin server.
 
 ## Enabling compression
 
