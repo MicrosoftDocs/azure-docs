@@ -38,7 +38,7 @@ Clients can see connectivity issues or timeouts for several reason, here are som
 
 ---------------
 
-### Memory pressure on the client
+## Memory pressure on the client
 
 `Problem:` Memory pressure on the client machine leads to all kinds of performance problems that can delay processing of data that was sent by the Redis instance without any delay.  When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk.  This *page faulting* causes the system to slow down significantly.
 
@@ -51,7 +51,7 @@ Clients can see connectivity issues or timeouts for several reason, here are som
 
 ----------
 
-### Burst of traffic
+## Burst of traffic
 
 `Problem:` Bursts of traffic combined with poor ThreadPool settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
 
@@ -69,7 +69,7 @@ In the above message, there are several issues that are interesting:
 
 ----------
 
-### High CPU usage
+## High CPU usage
 
 `Problem:` High CPU usage on the client is an indication that the system cannot keep up with the work that it has been asked to perform.  This means that the client may fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
 
@@ -79,7 +79,7 @@ In the above message, there are several issues that are interesting:
 
 ----------
 
-### Client Side Bandwidth Exceeded
+## Client Side Bandwidth Exceeded
 
 `Problem:` Different sized client machines have limitations on how much network bandwidth they have available.  If the client exceeds the available bandwidth, then data will not be processed on the client side as quickly as the server is sending it.  This can lead to timeouts.
 
@@ -89,7 +89,7 @@ In the above message, there are several issues that are interesting:
 
 ----------
 
-### Large Request/Response Size
+## Large Request/Response Size
 
 `Problem:` A large request/response can cause timeouts.  As an example, Suppose your timeout value configured on your client is 1 second.  Your application requests two keys (e.g. 'A' and 'B') at the same time (using the same physical network connection).  Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses.  The server will send the responses back in the same order.  If response 'A' is large enough it can eat up most of the timeout for subsequent requests.  
 
@@ -125,7 +125,7 @@ Customers periodically ask "Why am I getting errors when talking to Redis".  The
 
 Server side delays can be caused by several things like:
 
-### Memory Pressure on the server
+## Memory Pressure on the server
 
 `Problem:` Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests.  When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk.  This *page faulting* causes the system to slow down significantly.  There are several possible causes of this memory pressure: 
 
@@ -141,7 +141,7 @@ Server side delays can be caused by several things like:
  3. Break up your large cached objects into smaller related objects.
  4. Upgrade to a larger cache size.
 
-### High CPU usage / Server Load
+## High CPU usage / Server Load
 
 `Problem:` High CPU usage can mean that the client side can fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
 
@@ -149,7 +149,7 @@ Server side delays can be caused by several things like:
 
 `Resolution:` Upgrade to a larger VM size with more CPU capacity or investigate what is causing CPU spikes.  
 
-###Server Side Bandwidth Exceeded
+##Server Side Bandwidth Exceeded
 
 `Problem:` Different sized cache instances have limitations on how much network bandwidth they have available.  If the server exceeds the available bandwidth, then data will not be sent to the client as quickly.  This can lead to timeouts.
 
@@ -158,7 +158,7 @@ Server side delays can be caused by several things like:
 `Resolution:` Coming soon...
 
 
-###Running Expensive Operations/Scripts
+##Running Expensive Operations/Scripts
 
 `Problem:` [See SLOWLOG](http://redis.io/commands/slowlog).  More coming soon...
 
