@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Build and deploy a Node.js API app in Azure App Service"
-	description="Learn how to create a Node.js API app package and deploy it to Azure App Service."
+	description="Learn how to create a RESTful API using Node.js API and deploy it to an API app in Azure App Service."
 	services="app-service\api"
 	documentationCenter="node"
 	authors="bradygaster"
@@ -16,21 +16,34 @@
 	ms.date="05/06/2015"
 	ms.author="bradygaster"/>
 
-# Build and deploy a Node.js API app in Azure App Service
+# Build a Node.js RESTful API and deploy it to an API app in Azure
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and deploy it to an [API app](app-service-api-apps-why-best-platform.md) in 
-[Azure App Service](../app-service/app-service-value-prop-what-is.md) from a command line such as cmd.exe or bash. The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
+[Azure App Service](../app-service/app-service-value-prop-what-is.md). You'll do all your work using command line tools such as cmd.exe or bash, and you can use any operating system that is capable of running Node.js.
 
 ## Prerequisites
 
-1. [Node.js](http://nodejs.org) running on development machine, with npm installed (this sample assumes Node.js version 4.2.2 is installed)
+1. [Node.js](http://nodejs.org) installed (this sample assumes you have Node.js version 4.2.2)
+2. [Git](https://git-scm.com/) installed
 1. [GitHub](https://github.com/) account
 1. Microsoft Azure [free trial account](https://azure.microsoft.com/pricing/free-trial/)
-1. Git installed on your local development workstation
 
-## Setup Instructions
+## API development workflow overview
+
+The API development workflow modeled by this tutorial involves creating a Swagger metadata JSON file and using that to scaffold server code for the API. 
+
+You would typically use a tool such as the [Swagger editor](http://swagger.io/swagger-editor/) to create the metadata file, but for this tutorial you'll download a sample Swagger metadata for a simple contact list API. Then you'll do the following steps:
+
+* Use Yeoman to scaffold Node.js code for the contact list API.
+* Customize the scaffolded code.
+* Test the API as it runs locally.
+* Create an API app in Azure.
+* Deploy your Node.js code to the new API app.
+* Test the API in Azure.
+
+## Set up the development environment and get the sample code
 
 The commands below should be performed using the Node.js command line. By using the Swaggerize Yo generator, you can scaffold the baseline Node.js code you'll need to service HTTP requests defined in a Swagger JSON file. 
  
@@ -38,10 +51,12 @@ The commands below should be performed using the Node.js command line. By using 
 
 		npm install -g yo
 		npm install -g generator-swaggerize
-		
+
 1. Clone the [GitHub repository containing the sample code](https://github.com/Azure-Samples/app-service-api-node-contact-list).
 
 		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
+
+## Scaffold Node.js code based on Swagger metadata
 
 2. Navigate to the *start* folder, and then execute the `yo swaggerize` command to scaffold the API based on the **api.json** file included with the source code. When you're asked for a project name, enter "contactlist", and when you're asked to select a view engine, select "express".
 
@@ -78,6 +93,8 @@ The commands below should be performed using the Node.js command line. By using 
     You will see the results of the installation in the command-line experience. 
 
     ![Swaggerize Ui Install](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
+
+## Customize the scaffolded code
 
 1. Copy the **lib** folder from the **start** folder into the **ContactList** folder created by the scaffolder. 
 
@@ -137,6 +154,8 @@ The commands below should be performed using the Node.js command line. By using 
 
         server.listen(port, function () { // fifth and final change
         });
+
+## Test the API locally
 
 1. Activate the server using the Node.js command-line executable. 
 
@@ -200,7 +219,8 @@ The GitHub repository from which you cloned the source code is not the same repo
 
 Now that you have a new API App with a Git repository backing it up, you can push code into the repository and utilize the continuous deployment features of Azure to automatically deploy your changes. 
 
-## Deploy Your API App Code to Azure
+## Deploy your API code to Azure
+
 Using the built-in continuous delivery features Azure App Service provides, you can simply commit your code to a Git repository associated with your App Service, and Azure will pick up your source code and deploy it to your API App. 
 
 1. Copy the **src/end/ContactList** folder created by the swaggerize scaffolder to your desktop or some other folder, as you'll be creating a new local Git repository for the code that should live outside the main repository you cloned from GitHub containing the getting-started code. 
@@ -252,8 +272,10 @@ Using the built-in continuous delivery features Azure App Service provides, you 
 
     ![Postman Hitting Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
+Now that you have the Continuous Deployment wired up, changing your API App's functionality and deploying the changes is as easy as making commits in your local Git repository and pushing them to your Azure Git repository.
+
 ## Next steps
 
 At this point you've successfully created and deployed your first API App using Node.js. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
 
-To build on this sample, you could add code to the handlers to store your data in a database or on the disk of your API App instance. Now that you have the Continuous Deployment wired up, changing your API App's functionality and extending it is as easy as changing and pushing your code to your Git repository. 
+ 
