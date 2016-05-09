@@ -26,10 +26,10 @@ DNS domains in Azure DNS are hosted on Azure’s global network of DNS name serv
 
 The Azure DNS service is based on Azure Resource Manager (ARM). As such, it benefits from ARM features such as role-based access control, audit logs, and resource locking. Your domains and records can be managed via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications requiring automatic DNS management can integrate with the service via the REST API and SDKs.
 
-Azure DNS does not currently support purchasing of domain names. To purchase domains you should use a third-party domain name registrar, who will typically charge a small annual fee. These domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
+Azure DNS does not currently support purchasing of domain names. If you want to purchase domains, you'll need to use a third-party domain name registrar. The registrar will typically charge a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
 
 
-## Next Steps
+## Next steps
 
 [Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
 
