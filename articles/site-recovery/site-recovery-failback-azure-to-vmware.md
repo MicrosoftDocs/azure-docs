@@ -51,8 +51,6 @@ Here’s how failback works:
 	- **Stage 2**: After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
 	- **Stage 3**: After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
-> [AZURE.VIDEO enhanced-vmware-to-azure-failback]
-
 
 ### Failback to the original or alternate location
 
