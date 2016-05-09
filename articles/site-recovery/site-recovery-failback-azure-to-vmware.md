@@ -126,7 +126,7 @@ If you have protected your machines as classic resources (that is the VM recover
 	
 	4. Choose the storage account to which you want to deploy the server
 	
-	5. Choose the specific Subnet and the Network Interface to connect to it. Note - you need to create your own []Network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while deploying.
+	5. Choose the specific Subnet and the Network Interface to connect to it. Note - you need to create your own [Network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while deploying.
 	
 		![](./media/site-recovery-failback-azure-to-vmware-new/PSinputsadd.PNG)
 	
