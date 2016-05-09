@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="04/22/2016"
+  ms.date="05/09/2016"
   ms.author="araguila"/>
    
 # Frequently asked questions for IoT Suite
@@ -51,6 +51,8 @@ Two. You can create only two Free Bing Maps APIs in a subscription. The remote m
    
   `<setting name="MapApiQueryKey" value="" />`
 
+### Can I create a preconfigured solution if I have Microsoft Azure for DreamSpark?
+At this time, you cannot create a preconfigured solution. Microsoft Azure for DreamSpark is limited, as seen at [Microsoft Azure for DreamSpark][lnk-dreamspark]. However, you can create a free Azure trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-30daytrial].
 
 ### How do I delete an AAD tenant?
 
@@ -61,4 +63,6 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-dele
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
+[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
+[lnk-30daytrial]: https://azure.microsoft.com/en-us/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
