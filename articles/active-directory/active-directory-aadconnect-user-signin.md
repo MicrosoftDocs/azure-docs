@@ -142,6 +142,8 @@ On the **User sign-in** page, select **Password Synchronization**. This will cha
 >[AZURE.NOTE] If you are making only a temporary switch to password synchronization, then check the **Do not convert user accounts**. Not checking on the option will lead to conversion of each user to federated and it can take
   
 ## Next steps
-Learn more about [Azure AD Connect: Design concepts](active-directory-aadconnect-design-concepts.md)
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+Learn more about [Azure AD Connect: Design concepts](active-directory-aadconnect-design-concepts.md)
+
 
