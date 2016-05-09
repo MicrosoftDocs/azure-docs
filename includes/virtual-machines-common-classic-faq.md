@@ -13,12 +13,13 @@ All subscribers can run server software on an Azure virtual machine. You can run
 
 For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
-## Why are Affinity Groups being deprecated?
+## Why are affinity groups being deprecated?
 
-Affinity Groups are a legacy concept which was originally provided to improve VM-to-VM network performance in the early Azure network designs and to support the initial release of virtual networks (VNets) which were limited to a small set of hardware in a region. The current Azure network within a region is designed such that affinity groups are no longer required. VNets are also at a regional scope, so an affinity group is no longer required when using a VNet. Due to these improvements we no longer recommend that customers use affinity groups because they can be limiting in some scenarios. Using affinity groups will unnecessarily associate your VMs to specific hardware which will limit the choice of VM sizes available to you. It may also lead to capacity related errors when attempting to add new VMs if the specific hardware associated with the affinity group is near capacity.
+Affinity groups are a legacy concept for a geographical grouping of a customer’s cloud service deployments and storage accounts within Azure. They were originally provided to improve VM-to-VM network performance in the early Azure network designs. They also supported the initial release of virtual networks (VNets), which were limited to a small set of hardware in a region.
 
-Affinity Group features are already deprecated in the Azure Resource Manager deployment model and in the portal. We are deprecating the support for creating affinity groups and creating storage resources pinned to an affinity group, from classic portal. Existing cloud services which are using an affinity group do not need to be modified. New cloud services should not use affinity groups unless recommended by an Azure support professional.
+The current Azure network within a region is designed so that affinity groups are no longer required. Virtual networks are also at a regional scope, so an affinity group is no longer required when you use a virtual network. Due to these improvements, we no longer recommend that customers use affinity groups because they can be limiting in some scenarios. Using affinity groups will unnecessarily associate your VMs to specific hardware that limits the choice of VM sizes that are available to you. It might also lead to capacity-related errors when you attempt to add new VMs if the specific hardware associated with the affinity group is near capacity.
 
+Affinity group features are already deprecated in the Azure Resource Manager deployment model and in the Azure portal. For the classic Azure portal, we are deprecating support for creating affinity groups and creating storage resources that are pinned to an affinity group. You do not need to modify existing cloud services that are using an affinity group. You should not use affinity groups for new cloud services unless an Azure support professional recommends them.
 
 ## How much storage can I use with a virtual machine?
 
@@ -28,7 +29,7 @@ An Azure storage account provides storage for the operating system disk and any 
 
 ## Which virtual hard disk types can I use?
 
-Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDXyou want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
+Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
 
 - For Linux instructions, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
 
