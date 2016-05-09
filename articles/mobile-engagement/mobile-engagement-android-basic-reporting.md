@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Advanced Reporting Options for Android Azure Mobile Engagement"
-	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+	pageTitle="Advanced Reporting Options for Android Azure Mobile Engagement SDK"
+	description="Advanced Reporting options for Android for Azure Mobile Engagement SDK"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"

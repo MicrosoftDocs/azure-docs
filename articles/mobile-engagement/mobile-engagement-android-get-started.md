@@ -168,6 +168,10 @@ The following sections sets up your app to receive them.
 
 [AZURE.INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
+## More resources
+
+[Advanced Android Integration](mobile-engagement-android-integrate-engagement.md)
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png

@@ -51,22 +51,12 @@ You can add these features:
 ### Tag plan implementation:
 [How to use the advanced Mobile Engagement tagging API in your Android app](mobile-engagement-android-use-engagement-api.md)
 
-## SDK Content
-Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
-
 ## Release notes
 
 ### 4.2.0 (03/11/2016)
 
 - The SDK is now licensed under MIT.
 - Allow specifying a custom device identifier at SDK initialization time.
-
-### 4.1.0 (08/25/2015)
-
-- Handle new permission model for Android M.
-- Can now configure location features at runtime instead of using  `AndroidManifest.xml`.
-- Fix a permission bug: if you use `ACCESS_FINE_LOCATION`, then `ACCESS_COARSE_LOCATION` is not needed anymore.
-- Stability improvements.
 
 For all versions, please see the [complete release notes](mobile-engagement-android-release-notes.md).
 

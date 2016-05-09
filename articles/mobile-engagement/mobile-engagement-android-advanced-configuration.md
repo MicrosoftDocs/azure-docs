@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Advanced Configuration for Android Mobile Engagement"
-	description="Advanced configuration options for Android for Azure Mobile Engagement"
+	pageTitle="Advanced Configuration with the Android Mobile Engagement SDK "
+	description="Advanced configuration options for Android using the Azure Mobile Engagement SDK"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/09/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Advanced Configuration for Android Mobile Engagement
+# Advanced Configuration with the Android Mobile Engagement SDK
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-logging.md)
@@ -39,13 +39,17 @@ These permissions are required for basic reporting fucntionality.
 		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 		<uses-permission android:name="android.permission.VIBRATE" />
+
+### Big Picture notification
+Using [BigPictureStyle](http://developer.android.com/reference/android/app/Notification.BigPictureStyle.html) notifications requires the following permission.
+
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
 ### Wake locks
 
 If you want to be sure that statistics are sent in real time when using Wifi or when the screen is off, add the following optional permission:
 
-		<uses-permission android:name="android.permission.WAKE_LOCK"/>
+			<uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 ### Background reporting
 
@@ -58,14 +62,14 @@ And starting with Android M, [some permissions are managed at run time](mobile-e
 ### Real-time location reporting
 You must ensure that this permission is present:
 
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
 
 ### GPS Based Reporting
 You must ensure that this permission is present:
 
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 
 ## Manifest file configuration options
@@ -92,8 +96,6 @@ By default, a session is ended 10s after the end of its last activity (which usu
 
 ## Disable log reporting
 
-### Using a method call
-
 If you want Engagement to stop sending logs, you can call:
 
 			EngagementAgent.getInstance(context).setEnabled(false);
@@ -104,9 +106,9 @@ If Engagement is active when you call this function, it may take 1 minute for th
 
 You can enable log reporting again by calling the same function with `true`.
 
-### Integration in your own `PreferenceActivity`
-
 Instead of calling this function, you can also integrate this setting directly in your existing `PreferenceActivity`.
+
+## Integration in your own `PreferenceActivity`
 
 You can configure Engagement to use your preferences file (with the desired mode) in the `AndroidManifest.xml` file with `application meta-data`:
 
