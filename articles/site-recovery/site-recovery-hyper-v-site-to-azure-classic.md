@@ -20,8 +20,9 @@
 # Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Azure Site Recovery
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](site-recovery-hyper-v-site-to-azure-classic.md)
+- [Azure - Portal](site-recovery-hyper-v-site-to-azure.md)
 - [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+- [Azure Classic Portal](site-recovery-hyper-v-site-to-azure-classic.md)
 
 Read this article to learn about deploying Site Recovery to replicate Hyper-V virtual machines to Azure when Hyper-V hosts aren't managed in System Center Virtual Machine Manager (VMM) clouds. 
 
