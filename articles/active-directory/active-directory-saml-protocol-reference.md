@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Federation Metadata | Microsoft Azure"
+	pageTitle="Azure AD SAML Protocol Reference | Microsoft Azure"
 	description="Azure Active Directory SAML Protocol Reference."
 	services="active-directory"
 	documentationCenter=".net"
@@ -16,7 +16,7 @@
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
 
-# SAML Protocol reference
+# How Azure AD uses the SAML protocol
 
 Azure Active Directory uses the SAML 2.0 protocol to enable applications to provide a single sign-on experience to their users. The [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) and [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) SAML profiles of Azure AD explain how SAML assertions, protocols and bindings are used in the identity provider service.
 

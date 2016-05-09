@@ -22,7 +22,7 @@ In this article, we will learn the SAML 2.0 authentication requests and response
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
 
-<!--TODO: Protocol Diagram -->
+![Single Sign On Workflow](../media/active-directory-authentication-protocols/Active-Directory-SAML-Single-Sign-On-Workflow.png)
 
 ## AuthnRequest
 
@@ -39,8 +39,8 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
 
 
-| Parameter | | Description |
-| ------------------------------- | --------------- |
+| Parameter |   | Description |
+| --------- | - | ----------- |
 | ID | required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
 | Version | required | This should be **2.0**.|
 | IssueInstant | required | This is a DateTime string with a UTC value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a DateTime value of this type, but does not evaluate or use the value. |
