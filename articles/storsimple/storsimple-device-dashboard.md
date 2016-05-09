@@ -31,7 +31,7 @@ The dashboard contains the following information:
 
 	 You can configure the chart as follows:
 
-	 - To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY TIERED STORAGE USED** and **PRIMARY LOCALLY PINNED STORAGE USED ** options. In the illustration, both options are selected; therefore, the chart shows storage amounts for both cloud and primary storage. Note that any primary storage use prior to installing Update 2 is represented by the **PRIMARY TIERED STORAGE USED** line.
+	 - To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY TIERED STORAGE USED** and **PRIMARY LOCALLY PINNED STORAGE USED** options. In the illustration, both options are selected; therefore, the chart shows storage amounts for both cloud and primary storage. Note that any primary storage use prior to installing Update 2 is represented by the **PRIMARY TIERED STORAGE USED** line.
 	 - Use the drop-down menu in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time period. Note that the top-level chart is refreshed only one time per day, and therefore will reflect the previous day's totals.
 
      For more information, see [Use the StorSimple Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
