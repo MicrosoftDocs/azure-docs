@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Operations Management Suite (OMS) overview"
-   description="Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premise and cloud infrastructure.  This article identifies the different services included in OMS and provides links to their detailed content."
+   pageTitle="Operations Management Suite (OMS) overview | Microsoft Azure"
+   description="Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  This article identifies the different services included in OMS and provides links to their detailed content."
    services="operations-management-suite"
    documentationCenter=""
    authors="bwren"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="05/09/2016"
    ms.author="bwren" />
 
 # Operations Management Suite (OMS) overview
 
-Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premise and cloud infrastructure.  Since OMS is implemented as a cloud based service, you can have it up and running quickly with minimal investment in infrastructure services.  New features are delivered automatically, saving you ongoing maintenance and upgrade costs.
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  Since OMS is implemented as a cloud based service, you can have it up and running quickly with minimal investment in infrastructure services.  New features are delivered automatically, saving you ongoing maintenance and upgrade costs.
 
 In addition to providing valuable services on its own, OMS can integrate with System Center components such as System Center Operations Manger to extend your existing management investments into the cloud.  System Center and OMS can work together to provide a full hybrid management experience.
 
@@ -37,7 +37,7 @@ IT Automation in OMS is implemented with [Azure Automation](../automation/automa
 
 Azure Automation automates administrative processes with [runbooks](../automation/automation-runbook-types) that are based on PowerShell and run in the Azure cloud.  Runbooks can access any product or service that can be managed with PowerShell including resources in other clouds such as Amazon Web Services (AWS).  Runbooks can also be executed on a server in your local data center to manage local resources.
   
-Azure Automation provides configuration management with [PowerShell DSC](../automation/automation-dsc-overview).  You can create and manage DSC resources hosted in Azure and apply them to cloud and on-premise systems to define and automatically enforce their configuration.
+Azure Automation provides configuration management with [PowerShell DSC](../automation/automation-dsc-overview).  You can create and manage DSC resources hosted in Azure and apply them to cloud and on-premises systems to define and automatically enforce their configuration.
 
 
 ## ![OMS Backup and Disaster Recovery](media/operations-management-suite-overview/icon-backup.png) Backup and Disaster Recovery
