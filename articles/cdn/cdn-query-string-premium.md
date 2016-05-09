@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Standard](cdn-query-string.md)
-- [Premium](cdn-query-string-premium.md)
+- [Azure CDN Premium from Verizon](cdn-query-string-premium.md)
 
 ##Overview
 
