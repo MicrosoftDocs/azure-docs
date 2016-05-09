@@ -16,7 +16,7 @@
 	ms.date="04/26/2016"
 	ms.author="erikje"/>
 
-# Log in to Azure Stack POC virtual machine
+# Log in to the Azure Stack POC virtual machine
 
 You can log in to the Azure Stack POC virtual machine as a
 
