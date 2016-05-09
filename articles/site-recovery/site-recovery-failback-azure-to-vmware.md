@@ -134,10 +134,10 @@ If you have protected your machines as classic resources (that is the VM recover
 
 	7. A job to deploy the process server will be triggered
 
-7. At the end, the process sever should be listed in the configuration servers page, under the associated servers section, in Process Servers
+7. At the end, the process sever should be listed in the configuration servers page, under the associated servers section, in Process Servers tab.
+	![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
 
-        ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
-	
+		
 	>[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
 
