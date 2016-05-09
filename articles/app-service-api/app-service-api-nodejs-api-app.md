@@ -5,7 +5,7 @@
 	documentationCenter="node"
 	authors="bradygaster"
 	manager="mohisri"
-	editor="tdykstra "/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -13,44 +13,59 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="02/25/2015"
+	ms.date="05/06/2015"
 	ms.author="bradygaster"/>
 
 # Build and deploy a Node.js API app in Azure App Service
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
+This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and deploy it to an [API app](app-service-api-apps-why-best-platform.md) in 
+[Azure App Service](../app-service/app-service-value-prop-what-is.md) from a command line such as cmd.exe or bash. The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
+
 ## Prerequisites
-1. [Node.js](http://nodejs.org) running on development machine (this sample assumes Node.js version 4.2.2 is installed)
+
+1. [Node.js](http://nodejs.org) running on development machine, with npm installed (this sample assumes Node.js version 4.2.2 is installed)
 1. [GitHub](https://github.com/) account
 1. Microsoft Azure [free trial account](https://azure.microsoft.com/pricing/free-trial/)
 1. Git installed on your local development workstation
 
 ## Setup Instructions
+
 The commands below should be performed using the Node.js command line. By using the Swaggerize Yo generator, you can scaffold the baseline Node.js code you'll need to service HTTP requests defined in a Swagger JSON file. 
  
 1. Install **yo** and the **generator-swaggerize** NPM modules globally.
 
-        npm install -g yo
-	    npm install -g generator-swaggerize
+		npm install -g yo
+		npm install -g generator-swaggerize
 		
 1. Clone the [GitHub repository containing the sample code](https://github.com/Azure-Samples/app-service-api-node-contact-list).
 
 		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
-				
-1. Execute the command to scaffold the API based on the **api.json** file included with the source code. The **api.json** file is a Swagger file representing the actual API you will scaffold using the "yo swaggerize" command during the next step. 
 
-        yo swaggerize
-        
-    **Note:** API.json is not the same thing as the *apiapp.json* file from the API Apps preview time frame.
+2. Navigate to the *start* folder, and then execute the `yo swaggerize` command to scaffold the API based on the **api.json** file included with the source code. When you're asked for a project name, enter "contactlist", and when you're asked to select a view engine, select "express".
 
-1. Swaggerize will scaffold the handlers and config for the Swagger metadata included in **api.json**. During the scaffolding proces you will be asked a variety of questions, like your GitHub username and email address. This information is used to generate the **package.json** file in your application's folder. Of all the questions asked during the scaffolding process, the most important is that you select **express** when asked, as this sample will make use of the express view engine to generate the Swagger help page later when your API App is running in Azure (or locally).  
+	**Note**: if you encounter an error in this step, the next step explains how to fix it.
+
+		yo swaggerize
 
 	![Swaggerize Command Line](media/app-service-api-nodejs-api-app/swaggerize-command-line.png)
     
-1. Move into the folder containing the scaffolded code (in this case, the *ContactList* subfolder). Then, install the **jsonpath** NPM module. 
+	The **api.json** file contains Swagger JSON that represents the actual API that will be hosted by the API app. Swaggerize will scaffold the handlers and config based on the Swagger metadata included in **api.json**. Swaggerize generates a **package.json** file in your application's folder.  This sample will make use of the express view engine to generate the Swagger help page later when your API app is running in Azure (or locally).  
 
-        npm install --save jsonpath
+3. If the swaggerize command fails with an "unexpected token" or "invalid escape sequence" error, correct the cause of the error by editing the generated *package.json* file. In the `regenerate` line under `scripts`, change the back slash that precedes *api.json* to a forward slash, so that the line looks like the following example:
+
+ 		"regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
+
+1. Move into the folder containing the scaffolded code (in this case, the *ContactList* subfolder).
+
+1. Run `npm install`.
+	
+		npm install
+		
+2. Install the **jsonpath** NPM module. 
+
+		npm install --save jsonpath
         
     You will see the results of the installation in the command-line experience. 
 
@@ -58,7 +73,7 @@ The commands below should be performed using the Node.js command line. By using 
 
 1. Install the **swaggerize-ui** NPM module. 
 
-        npm install --save swaggerize-ui
+		npm install --save swaggerize-ui
         
     You will see the results of the installation in the command-line experience. 
 
@@ -120,8 +135,7 @@ The commands below should be performed using the Node.js command line. By using 
           docs: '/swagger'  
         }));
 
-        server.listen(port, function () { // fifth change
-            app.setHost(undefined); // sixth and final change
+        server.listen(port, function () { // fifth and final change
         });
 
 1. Activate the server using the Node.js command-line executable. 
@@ -147,6 +161,7 @@ The commands below should be performed using the Node.js command line. By using 
     ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
 ## Create a new API App in the Azure Portal
+
 In this section you'll walk through the process of creating a new, empty API App in Azure. Then, you'll wire up the app to a Git repository so you can enable continuous delivery of your code changes. 
 
 The GitHub repository from which you cloned the source code is not the same repository you'll be pushing the code into for deployment. The sample GitHub repository contained the "Start" state of the code, and now that you've scaffolded the "end" state of the code you'll need to push that code only into the Git repository associated with your API App. The first step will be to create your API App using the Azure Portal, then you'll 
