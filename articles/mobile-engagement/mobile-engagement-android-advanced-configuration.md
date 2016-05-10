@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Advanced Configuration with the Android Mobile Engagement SDK
@@ -48,6 +48,8 @@ The permission code needs to look like the following, where you fill in the appr
 | RECEIVE_BOOT_COMPLETED | enable background reporting |
 | ACCESS_COARSE_LOCATION | real-time location reporting |
 | ACCESS_FINE_LOCATION | GPS-based reporting |
+
+
 
 Starting with Android M, [some permissions are managed at run time](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
 
