@@ -77,7 +77,7 @@ Here's what you'll need in Azure to deploy this scenario.
 **Prerequisite** | **Details**
 --- | ---
 **Azure account**| You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. 
-**Azure storage** | You'll need a [standard Azure storage account](../storage/storage-redundancy.md) to store replicated data. The account must be in the same region as the Recovery Services vault. Premium storage isn't supported. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>[Read about](../storage/storage-introduction.md) Azure storage.
+**Azure storage** | You'll need a standard Azure storage account to store replicated data. You can use an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. [Learn more](../storage/storage-redundancy.md). The account must be in the same region as the Recovery Services vault.<br/><br/>Premium storage isn't supported.<br/><br/> Replicated data is stored in Azure storage and Azure VMs are created when failover occurs. <br/><br/> [Read about](../storage/storage-introduction.md) Azure storage.
 **Azure network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The network must be in the same region as the Recovery Services vault.
 
 ## On-premises prerequisites
