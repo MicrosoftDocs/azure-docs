@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/21/2016"
+   ms.date="05/05/2016"
    ms.author="glenga"/>
 
 # Create your first Azure Function
@@ -29,7 +29,7 @@ This topic shows you how to use the Azure Functions quickstart in the Azure Func
 
 The following video show how to perform the basic steps in this tutorial. 
 
-[AZURE.VIDEO create-your-first-azure-function]
+[AZURE.VIDEO create-your-first-azure-function-simple]
 
 ##Create a function from the quickstart
 
