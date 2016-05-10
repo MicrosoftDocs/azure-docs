@@ -43,12 +43,29 @@ Connected Sources generate data collected into the OMS repository.  There are cu
 
 ### Agents
 
-An agent is a Windows or Linux computer connected directly to OMS.  Agents download configurations for data sources and solutions and deliver their data to Log Analytics to be stored in the OMS repository.  [Windows computers](log-analytics-windows-agents.md) connect directly to Log Analytics by installing the Microsoft Management Agent (MMA) which is the same agent used to connect System Center Operations Manager (SCOM).  [Linux computers](log-analytics-Linux-gents.md) can connect with the Operations Management Suite Agent for Linux which is currently in public preview.
+An agent is a Windows or Linux computer connected directly to OMS.  Agents download configurations for data sources and solutions and deliver their data to Log Analytics to be stored in the OMS repository.  [Windows computers](../log-analytics/log-analytics-windows-agents.md) connect directly to Log Analytics by installing the Microsoft Management Agent (MMA) which is the same agent used to connect System Center Operations Manager (SCOM).  [Linux computers](../log-analytics/log-analytics-linux-gents.md) can connect with the Operations Management Suite Agent for Linux which is currently in public preview.
 
+### System Center Operations Manager
+
+A System Center Operations Manager (SCOM) management group can be [connected to Log Analytics](../log-analytics/log-analytics-om-agents.md) so that data can be collected from the SCOM agents.  Agents continue to communicate with SCOM management servers which forward events and performance data to OMS along with management group data such as alerts.  Some solutions send data directly to OMS from the SCOM agent.
+
+### Azure storage account
+
+[Azure Diagnostics](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics) allows you to collect diagnostics data from a worker role, web role, or virtual machine in Azure.  This data is stored in an Azure storage account that can be [used as a data source by OMS](../log-analytics/log-analytics-azure-storage.md).
+
+## Data sources and solutions
+
+Data sources define the data that Log Analytics collects from connected sources including event logs and performance counters.  Solutions add functionality to OMS and can easily be added to your workspace from the [OMS Solutions Gallery](../log-analytics/log-analytics-add-solutions.md).  New solutions are continuously added to OMS which allows you to further increase the value of your investment.  Some solutions, such as [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) and [Capacity Management](../log-analytics/log-analytics-solution-capacity-management.md), may require a connection to SCOM.  Other solutions may require an additional agent to be installed.
+
+## Log searches
+
+[Log Searches](../log-analytics/log-analytics-log-searches.md) allow you to build your own logic to retrieve and analyze data from the OMS repository.  This allows you to perform custom analysis and relate information across data sources and solutions.  Log queries also provide the basis of other functionality such as generating an alert or may be exported to other analysis tools such as Power BI.
+
+Solutions will typically provide components in the OMS Dashboard for accessing and analyzing data that they collect.  For example, the [Security and Audit](../log-analytics/log-analytics-solution-security-audit.md) solution provides several views that provide quick summaries of such information as the count of specific notable issues in the managed environment.  You can click on any of the summaries to view the detailed information behind them.
 
 ## Next steps
 
 - Learn about [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics).
-- Learn about [Azure Automation](https://azure.microsoft.com/documentation/articles/automation-intro).
+- Learn about [Azure Automation](https://azure.microsoft.com/documentation/services/automation).
 - Learn about [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 - Learn about [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
