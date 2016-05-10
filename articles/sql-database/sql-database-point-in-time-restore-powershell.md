@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/05/2016"
+    ms.date="05/10/2016"
     ms.author="sstein"/>
 
 # Restore an Azure SQL Database to a previous point in time with PowerShell

@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/05/2016"
+	ms.date="05/10/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-restore-deleted-database-azure-portal.md)
+- [Azure Portal](sql-database-restore-deleted-database-portal.md)
 - [PowerShell](sql-database-restore-deleted-database-powershell.md)
 
 This article shows you how to restore a deleted Azure SQL database.

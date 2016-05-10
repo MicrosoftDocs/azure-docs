@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/01/2016"
+   ms.date="05/10/2016"
    ms.author="sstein"/>
 
 # Overview: SQL Database Geo-Restore
@@ -41,7 +41,7 @@ Geo-restore uses the same technology as point in time restore with one important
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
 
 
-If a large scale incident in a region results in unavailability of your database application you can use geo-restore to restore a database from the most recent backup to a server in any other region. The backups are geo-replicated and can have a delay between when the backup is taken and geo-replicated to the Azure blob in different geo. For large scale incident, there can be up to 1 hour data loss, i.e., RPO of up to 1 hour. The following shows restore of the database from the last daily backup.
+If a large scale incident in a region results in unavailability of your database application, you can use geo-restore to restore a database from the most recent backup to a server in any other region. All backups are geo-replicated and can have a delay between when the backup is taken and geo-replicated to the Azure blob in a different region. This delay can be up to an hour so in the event of a disaster there can be up to 1 hour data loss, i.e., RPO of up to 1 hour. The following shows restore of the database from the last daily backup.
 
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
@@ -50,7 +50,7 @@ If a large scale incident in a region results in unavailability of your database
 
 ## Recovery time for a Geo-Restore
 
-Recovery time is impacted by several factors: the size of the database and the performance level of the database, and the number of concurrent restore requests being processed in the target region. If there is prolonged outage in a region it is possible that there will be large numbers of geo-restore requests being processed by other regions. The service will if necessary limit the resources used by restore operations to ensure that existing workloads in that region are not adversely impacted. If there are a large number of requests this may increase the recovery time for databases in that region.
+Recovery time is impacted by several factors: the size of the database and the performance level of the database, and the number of concurrent restore requests being processed in the target region. If there is prolonged outage in a region it is possible that there will be large numbers of geo-restore requests being processed by other regions. If there are a large number of requests this may increase the recovery time for databases in that region.
 
 
 ## Summary

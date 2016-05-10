@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/01/2016"
+   ms.date="05/10/2016"
    ms.author="sstein"/>
 
 # Overview: SQL Database Point-in-Time Restore
@@ -29,7 +29,7 @@ The database backups are taken automatically with no need to opt-in and no addit
 |Task (Portal) | PowerShell | REST |
 |:--|:--|:--|
 | [Restore a SQL database to a previous point in time](sql-database-point-in-time-restore-portal.md) |  [PowerShell](sql-database-point-in-time-restore-powershell.md) | [REST (createMode=PointInTimeRestore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |
-| [Restore a deleted SQL database](sql-database-restore-deleted-databaase-portal.md) |  [PowerShell](sql-database-restore-deleted-database-powershell.md) | [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|
+| [Restore a deleted SQL database](sql-database-restore-deleted-database-portal.md) |  [PowerShell](sql-database-restore-deleted-database-powershell.md) | [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|
 
 
 
@@ -40,7 +40,10 @@ All Basic, Standard, and Premium databases are protected by automatic backups. F
 
 ## Recovery time for a point-in-time restore
 
-The time taken to restore a database depends on many factors, including the size of the database, the time point selected, and the amount of activity that needs to be replayed to reconstruct the state at the selected point. For a very large and/or active database the restore may take several hours. Restoring a database always creates a new database on the same server as the original database, so the restored database must be given a new name. The database is restored using the service tier that was applicable at the restore point with its default performance level. You need to ensure you have sufficient DTU quota on the server keeping in mind that the restore creates a new database and that the service tier and performance level of the restored database may be different than the current state of the live database. Once complete, the restored database is a normal fully accessible online database charged at normal rates based on its service tier and performance level. If you are restoring the database for recovery purposes you can treat the restored database as a replacement for the original database, or use it to retrieve data from and then update the original database. If the restored database is intended as a replacement for the original database you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. If you plan to retrieve data from the restored database you will separately need to write and execute whatever data recovery scripts you need. Although the restore operation may take a long time to complete the database will be visible in the database list throughout. If you delete the database during the restore it will cancel the operation and you will not be charged. 
+The time taken to restore a database depends on many factors, including the size of the database, the time point selected, and the amount of activity that needs to be replayed to reconstruct the state at the selected point. For a very large and/or active database the restore may take several hours. Restoring a database always creates a new database on the same server as the original database, so the restored database must be given a new name. 
+
+
+The database can be restored to any performance level or elastic pool. You need to ensure you have sufficient DTU quota on the server or pool keeping in mind that the restore creates a new database and that the service tier and performance level of the restored database may be different than the current state of the live database. Once complete, the restored database is a normal fully accessible online database charged at normal rates based on its service tier and performance level. If you are restoring the database for recovery purposes you can treat the restored database as a replacement for the original database, or use it to retrieve data from and then update the original database. If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. If you plan to retrieve data from the restored database, you will separately need to write and execute whatever data recovery scripts you need. Although the restore operation may take a long time to complete the database will be visible in the database list throughout. If you delete the database during the restore it will cancel the operation and you will not be charged. 
 
 
 

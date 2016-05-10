@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="05/01/2016"
+   ms.date="05/10/2016"
    ms.author="elfish"/>
 
 # Restore an Azure SQL Database or failover to a secondary

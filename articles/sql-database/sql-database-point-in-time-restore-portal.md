@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/05/2016"
+	ms.date="05/10/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
