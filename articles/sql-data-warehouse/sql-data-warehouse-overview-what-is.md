@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/03/2016"
+   ms.date="05/10/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
@@ -144,18 +144,16 @@ Polybase is easy to use and allows you to leverage your data from different sour
 
 ## Next steps
 
-Now that you know a bit about SQL Data Warehouse, learn about the [data warehouse workload], [provision], and load [sample data] to get started.
+Now that you know a bit about SQL Data Warehouse, learn about the [data warehouse workload], [provision], and load [sample data] to get started.  Or take a look at some of these other SQL Data Warehouse Resources.  
 
-## SQL Data Warehouse Resources
-
-[Blogs][]  
-[Feature Requests][]  
-[Videos][]  
-[CAT Team Blogs][]  
-[Create Support Ticket][]  
-[MSDN Forum][]  
-[Stack Overflow Forum][]  
-[Twitter][]  
+- [Blogs][]  
+- [Feature Requests][]  
+- [Videos][]  
+- [CAT Team Blogs][]  
+- [Create Support Ticket][]  
+- [MSDN Forum][]  
+- [Stack Overflow Forum][]  
+- [Twitter][]  
 
 
 >[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
