@@ -72,7 +72,20 @@ Yes, you can manage it using the [API Management REST API](https://msdn.microsof
 
 ### How can I add a user to the Administrators group?
 
-At this time, administrators are limited to users that log in through the Azure Classic Portal as administrators or co-administrators on the Azure subscription that contains the API Management instance. Users created in the publisher portal cannot be designated as administrators or added to the administrators group.
+It can be achieved by following below steps: 
+
+1. Login to the new [Azure Portal](https://portal.azure.com) 
+2. Navigate to the resource group which contains the desired API Management instance
+3. Add the desired user to "Api Management Contributor" role
+
+Once that is done, the newly added contributor can use Azure PowerShell [cmdlets](https://msdn.microsoft.com/en-us/library/mt613507.aspx) to login as an administrator:
+
+1. Use `Login-AzureRmAccount` cmdlet to login
+2. Set the context to the subscription which contains the service using 
+ 	`Set-AzureRmContext -SubscriptionID <subscriptionGUID>`
+3. Get SSO token using
+   	`Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
+4. Copy paste the URL in browser and the user should have admin portal access
 
 
 ### Why is the policy that I want to add not enabled in the policy editor?
