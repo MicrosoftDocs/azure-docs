@@ -150,6 +150,7 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_DS12_v2 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  192 MB per second | high |
 |Standard_DS13_v2 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  384 MB per second | high |
 |Standard_DS14_v2 |16|112|8|Local SSD disk = 224 GB |32|576| 50,000  768 MB per second | very high |
+|Standard_DS15_v2 |20|140 GB|10|Local SSD disk = 1000 GB |40|40x500| very high |
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
