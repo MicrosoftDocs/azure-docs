@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
+    ms.date="05/10/2016"
     ms.author="sidneyh"/>
 
 # Monitor and manage an elastic database pool with PowerShell 
@@ -31,6 +31,7 @@ For common error codes, see [SQL error codes for SQL Database client application
 Values for pools can be found in [eDTU and storage limits](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases). 
 
 ## Prerequisites
+
 * Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 * Elastic database pools are only available with SQL Database V12 servers. If you have a SQL Database V11 server, [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
@@ -101,6 +102,26 @@ For this API, metrics retrieved are expressed as a percentage of the per max eDT
 To retrieve the metrics:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+## Collect and monitor resource usage data across multiple pools in a subscription
+
+When you have a large number of databases in a subscription, it is cumbersome to monitor each elastic pool separately. Instead, SQL database PowerShell cmdlets and T-SQL queries can be combined to collect resource usage data from multiple pools and their databases for monitoring and analysis of resource usage. A [sample implementation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) of such a set of powershell scripts can be found in the GitHub SQL Server samples repository along with documentation on what it does and how to use it.
+
+To use this sample implementation follow these steps listed below.
+
+
+1. Download the [scripts and documentation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
+2. Modify the scripts for your environment. Specify one or more servers on which elastic pools are hosted.
+3. Specify a telemetry database where the collected metrics are to be stored. 
+4. Customize the script to specify the duration of the scripts' execution.
+
+At a high level, the scripts do the following:
+
+*	Enumerates all servers in a given Azure subscription (or a specified list of servers).
+*	Runs a background job for each server. The job runs in a loop at regular intervals and collects telemetry data for all the pools in the server. It then loads the collected data into the specified telemetry database.
+*	Enumerates a list of databases in each pool to collect the database resource usage data. It then loads the collected data into the telemetry database.
+
+The collected metrics in the telemetry database can be analyzed to monitor the health of elastic pools and the databases in it. The script also installs a pre-defined Table-Value function (TVF) in the telemetry database to help aggregate the metrics for a specified time window. For example, results of the TVF can be used to show “top N elastic pools with the maximum eDTU utilization in a given time window.” Optionally, use analytic tools like Excel or Power BI to query and analyze the collected data.
 
 ## Example: retrieve resource consumption metrics for a pool and its databases
 

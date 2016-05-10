@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 #Controlling caching behavior of CDN requests with query strings
 
 > [AZURE.SELECTOR]
 - [Standard](cdn-query-string.md)
-- [Premium](cdn-query-string-premium.md)
+- [Azure CDN Premium from Verizon](cdn-query-string-premium.md)
 
 ##Overview
 
 Query string caching controls how files are to be cached when they contain query strings.
 
-> [AZURE.IMPORTANT] The Standard and Premium CDN tiers provide the same query string caching functionality, but the user interface differs.  This document describes the **Standard** tier user interface.  For the Premium tier, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
+> [AZURE.IMPORTANT] The Standard and Premium CDN products provide the same query string caching functionality, but the user interface differs.  This document describes the interface for **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon**.  For query string caching with **Azure CDN Premium from Verizon**, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
 
 Three modes are available:
 
