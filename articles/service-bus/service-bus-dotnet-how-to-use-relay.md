@@ -86,10 +86,7 @@ In order to perform management operations, such as creating a relay connection, 
 
 ## Get the Service Bus NuGet package
 
-The [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express. The Service Bus NuGet package is the easiest way
-to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
-
-To install the NuGet package in your application, do the following:
+The [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. To install the NuGet package in your application, do the following:
 
 1.  In Solution Explorer, right-click **References**, then click **Manage NuGet Packages**.
 2.  Search for "Service Bus" and select the **Microsoft Azure

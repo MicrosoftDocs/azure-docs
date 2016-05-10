@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/09/2016"
+	ms.date="05/10/2016"
 	ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
@@ -29,7 +29,7 @@ Running SQL Server on an Azure VM is one option for storing relational data in A
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| SQL offering | Description |
 |---:|---|---|
-|![SQL Server on Azure Virtual Machines](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[SQL Server running on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Run SQL Server on Azure Virtual Machines. Directly manage the virtual machine and run your database on retail versions of SQL Server. |
+|![SQL Server on Azure Virtual Machines](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-virtual-machine.png)|[SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)|Run SQL Server on Azure Virtual Machines. Directly manage the virtual machine and run your database on retail versions of SQL Server. |
 |![SQL Database](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-database.png)|[SQL Database](https://azure.microsoft.com/services/sql-database/)|Use the SQL Database service to access and scale your database without having to manage the underlying infrastructure.|
 |![SQL Data Warehouse](./media/virtual-machines-windows-sql-server-iaas-overview/azure-sql-data-warehouse.png)|[SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/)|Use Azure SQL Data Warehouse to process large amounts of relational and non-relational data. Provides scalable data warehousing capabilities as a service.|
 |![SQL Server Stretch Database](./media/virtual-machines-windows-sql-server-iaas-overview/sql-server-stretch-database.png)|[SQL Server Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/)|Dynamically stretch on-premises transactional data from Microsoft SQL Server 2016 to Azure.|
@@ -45,17 +45,19 @@ After signing up for a subscription, the easiest way to deploy a SQL Server virt
 It is important to note that there are two models for creating and managing Azure virtual machines: classic and Resource Manager. Microsoft recommends that most new deployments use the Resource Manager model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md). Each topic should clearly state its targeted model, unless it applies to both classic and Resource Manager, such as this article.
 
 ## Choose a SQL VM image
-The following table provides a matrix of available SQL Server images in the virtual machine gallery.
+The following table provides a matrix of available SQL Server images in the virtual machine gallery. Click on any of the links in the table to create a VM for that version, edition, and operating system.
 
 |SQL Server version|Operating system|SQL Server edition|
 |---|---|---|
-|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard, Web|
-|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard, Web|
-|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web|
-|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web|
-|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web|
-|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
-|SQL Server 2016 RC|Windows Server 2012 R2|Evaluation|
+|SQL Server 2016 RC|Windows Server 2012 R2|[Evaluation](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rc0evaluationwindowsserver2012r2)|
+|SQL Server 2014 SP1|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014sp1enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014sp1standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014sp1webwindowsserver2012r2/), [Express](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014sp1expresswindowsserver2012r2/)|
+|SQL Server 2014|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/)|
+|SQL Server 2012 SP2|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012r2/), [Web](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012r2/)|
+|SQL Server 2012 SP2|Windows Server 2012|[Enterprise](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/), [Standard](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/), [Web](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/), [Express](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2012sp2expresswindowsserver2012/)|
+|SQL Server 2008 R2 SP3|Windows Server 2008 R2|[Enterprise](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2008r2sp3enterprisewindowsserver2008r2/), [Standard](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2008r2sp3standardwindowsserver2008r2/), [Web](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2008r2sp3webwindowsserver2008r2/)|
+|SQL Server 2008 R2 SP3|Windows Server 2012|[Express](https://azure.microsoft.com/en-us/marketplace/partners/microsoft/sqlserver2008r2sp3expresswindowsserver2012/)|
+
+>[AZURE.NOTE] The Customer Experience Improvement Program (CEIP) is enabled by default. If necessary, you can customize or disable the CEIP after provisioning the virtual machine. Connect to the VM with remote desktop, and run the **SQL Server Error and Usage Reporting** utility.
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-hero-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](https://azure.microsoft.com/pricing/details/virtual-machines/) associated with the virtual machine.
 
