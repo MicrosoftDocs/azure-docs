@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Fail back VMware virtual machines and physical servers from Azure to VMware (legacy) | Microsoft Azure" 
    description="This article describes how to fail back a VMware virtual machine that's been replicated to Azure with Azure Site Recovery." 
    services="site-recovery" 
@@ -19,8 +19,10 @@
 # Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery (legacy)
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Azure Portal](site-recovery-failback-azure-to-vmware.md)
+- [Azure Classic Portal](site-recovery-failback-azure-to-vmware-classic.md)
+- [Azure Classic Portal (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
