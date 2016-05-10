@@ -299,6 +299,9 @@ To create a contained database user representing an application that will connec
 
 For more information about creating contained database users based on Azure Active Directory identities, see [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
+
+> [AZURE.NOTE] Removing the Azure Active Directory administrator for Azure SQL Server prevents any Azure AD authentication user from connecting to the server. If required, unusable Azure AD users can be dropped manually by a SQL Database administrator.
+
 When you create a database user, that user receives the **CONNECT** permission and can connect to that database as a member of the **PUBLIC** role. Initially the only permissions available to the user are any permissions granted to the **PUBLIC** role, or any permissions granted to any Windows groups that they are a member of. Once you provision an Azure AD-based contained database user, you can grant the user additional permissions, the same way as you grant permission to any other type of user. Typically grant permissions to database roles, and add users to roles. For more information, see [Database Engine Permission Basics](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). For more information about special SQL Database roles, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
 A federated domain user that is imported into a manage domain, must use the managed domain identity.
 
