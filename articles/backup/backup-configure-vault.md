@@ -17,7 +17,7 @@
 	ms.date="05/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Back up a Windows Server or client to Azure using Resource Manager
+# Back up a Windows Server or client to Azure with Azure Backup using Resource Manager
 
 > [AZURE.SELECTOR]
 - [Resource Manager](backup-configure-vault.md)
