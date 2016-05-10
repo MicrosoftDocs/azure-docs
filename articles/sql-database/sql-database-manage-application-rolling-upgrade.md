@@ -44,7 +44,7 @@ If your application relies on automatic database backups and geo-restore for dis
 
 > [AZURE.NOTE] Note the preparation steps will not impact the normal function of the web site <i>contoso-1.azurewebsites.net</i> and it can continue to operate with full access enabled.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
 Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. Those steps are:
 
@@ -53,14 +53,14 @@ Once the preparation steps are completed the application is ready for the actual
 2. Disconnect the secondary database using the planned termination mode (5). It will create a fully synchronized independent copy of the primary database. You will use this copy in case the upgrade fails.
 3. Turn the primary database back to read-write mode and run the upgrade script against the primary web site (7).     
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the newly upgraded instance of the application. This involves a few more steps as illustrated on the following diagram.
 
 1. Switch the online endpoint in the WATM profile back to <i>contoso-1.azurewebsites.net</i>, which now points to the V2 version of the web site (8). At this point user traffic will switch to the V2 functionality.  
 2. You no longer need the V1 application components so you can safely remove them (9).   
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the primary web site <i>contoso-1.azurewebsites.net</i> should be considered compromised. To rollback the application to the pre-upgrade state you simply switch your backup application deployment to the full read-write mode. The steps involved are shown on the next diagram.    
 
@@ -71,7 +71,7 @@ At this point the application is fully functional and the upgrade steps could be
 
 > [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to <i>contoso-2.azurewebsites.net</i> as the online endpoint.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
 The key **advantage** of this option is that you can upgrade a application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.   
 
@@ -90,7 +90,7 @@ To achieve these goals you will leverage Azure Traffic Manager (WATM) using the 
 
 > [AZURE.NOTE] Note the preparation steps will not impact the normal function of the web site <i>contoso-1.azurewebsites.net</i> and it can continue to operate in full access mode.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
 Once the preparation steps are completed, the application is ready for the upgrade. The following diagram illustrates the steps involved in the actual upgrade process.
 
@@ -100,7 +100,7 @@ Once the preparation steps are completed, the application is ready for the upgra
 3. Turn the primary database back to read-write mode and run the upgrade script against the main application deployment (9). All the DML and DDL database operations will be automatically replicated to the secondary database in the backup region.    
 4. Run the upgrade script against the web site V1 in the backup region (10).
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. This involves a few more steps as illustrated on the following diagram.
 
@@ -124,7 +124,7 @@ At this point the application is fully functional and the upgrade steps can be c
 
 > [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to <i>contoso-2.azurewebsites.net</i> as online endpoint.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
 The key **advantage** of this option is that you can upgrade a application and its standby copy in parallel without compromising your business continuity during the upgrade. The main **tradeoff** is that it requires additional redundancy of the application components and therefore incurs a higher dollar cost. It also involves a more complicated workflow. 
 
