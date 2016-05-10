@@ -28,7 +28,7 @@ Azure AD Connect provides various AD FS related tasks that can be performed usin
 
 Azure AD Connect can check for the current health of the AD FS and Azure ADtrust and take appropriate actions to repair the trust. Follow the below steps to repair your Azure AD and AD FS trust.
 
-Select **Repair Azure AD and ADFS trust** from the list of tasks available.
+Select **Repair AAD and ADFS trust** from the list of tasks available.
 
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
