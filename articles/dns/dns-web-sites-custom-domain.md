@@ -20,7 +20,7 @@
 
 You can use Azure DNS to host a custom domain for your web apps. For example, you are creating an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN. 
 
-In order for this to work, you would have to create two records:
+To do this, you have to create two records:
 
 - A root "A" record pointing to contoso.com
 - A "CNAME" record for the www name that points to the A record
@@ -37,7 +37,7 @@ Before you begin, you must first create a DNS zone in Azure DNS, and delegate th
 After creating a zone and delegating it to Azure DNS, you can then create records for your custom domain.
 
  
-## Create an A record for your custom domain
+## 1. Create an A record for your custom domain
 
 An A record is used to map a name to its IP address. In the following example we will assign @ as an A record to an IPv4 address:
 
@@ -61,7 +61,7 @@ Commit the changes to the record set. Use `Set-AzureRMDnsRecordSet` to upload th
 
 	Set-AzureRMDnsRecordSet -RecordSet $rs
 
-## Create a CNAME record for your custom domain
+## 2. Create a CNAME record for your custom domain
 
 If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md), you can use the following the example to create a CNAME record for contoso.azurewebsites.net.
 
@@ -121,7 +121,7 @@ You can validate the record was created correctly by querying the "www.contoso.c
     contoso.azurewebsites.net
     <instance of web app service>.vip.azurewebsites.windows.net
 
-## Create an "awverify" record for web apps (A records only)
+## 3. Create an "awverify" record for web apps (A records only)
 
 If you decide to use an A record for your web app, you must go through a verification process to ensure you own the custom domain. This verification step is done by creating a special CNAME record named "awverify".
 
