@@ -6,7 +6,7 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-	keywords="service principal name, setspn, service principal, azure authentication"/>
+	keywords="service principal name, setspn, azure authentication"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
