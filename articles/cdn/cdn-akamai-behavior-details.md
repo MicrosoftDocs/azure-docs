@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure CDN from Akamai Behavior Details"
-	description="This topic lists behavior details specific Azure CDN from Akamai."
+	pageTitle="Azure CDN from Akamai Allowed Origin Ports"
+	description="This topic lists allowed origin ports specific Azure CDN from Akamai."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -18,7 +18,7 @@
     
 # Azure CDN from Akamai Behavior Details
 
-This article discusses behaviors specific to **Azure CDN from Akamai**.
+This article discusses allowed origin ports specific to **Azure CDN from Akamai**.
 
 > [AZURE.IMPORTANT] The information in this article does not apply to Azure CDN from Verizon endpoints.
 

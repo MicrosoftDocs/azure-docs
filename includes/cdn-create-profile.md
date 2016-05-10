@@ -13,6 +13,8 @@
 4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
 5. Select a **Pricing tier**.  See the [CDN Overview](cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers.
+    
+    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku.png)
 
 6. Select the **Subscription** for this CDN profile.
 
