@@ -43,7 +43,7 @@ Connected Sources generate data collected into the OMS repository.  There are cu
 
 ### Agents
 
-An agent is a Windows or Linux computer connected directly to OMS.  Agents download configurations for data sources and solutions and deliver their data to Log Analytics to be stored in the OMS repository.  [Windows computers](../log-analytics/log-analytics-windows-agents.md) connect directly to Log Analytics by installing the Microsoft Management Agent (MMA) which is the same agent used to connect System Center Operations Manager (SCOM).  [Linux computers](../log-analytics/log-analytics-linux-gents.md) can connect with the Operations Management Suite Agent for Linux which is currently in public preview.
+An agent is a Windows or Linux computer connected directly to OMS.  Agents download configurations for data sources and solutions and deliver their data to Log Analytics to be stored in the OMS repository.  [Windows computers](../log-analytics/log-analytics-windows-agents.md) connect directly to Log Analytics by installing the Microsoft Management Agent (MMA) which is the same agent used to connect System Center Operations Manager (SCOM).  [Linux computers](../log-analytics/log-analytics-linux-agents.md) can connect with the Operations Management Suite Agent for Linux which is currently in public preview.
 
 ### System Center Operations Manager
 
@@ -51,7 +51,7 @@ A System Center Operations Manager (SCOM) management group can be [connected to 
 
 ### Azure storage account
 
-[Azure Diagnostics](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics) allows you to collect diagnostics data from a worker role, web role, or virtual machine in Azure.  This data is stored in an Azure storage account that can be [used as a data source by OMS](../log-analytics/log-analytics-azure-storage.md).
+[Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) allows you to collect diagnostics data from a worker role, web role, or virtual machine in Azure.  This data is stored in an Azure storage account that can be [used as a data source by OMS](../log-analytics/log-analytics-azure-storage.md).
 
 ## Data sources and solutions
 
@@ -61,7 +61,54 @@ Data sources define the data that Log Analytics collects from connected sources 
 
 [Log Searches](../log-analytics/log-analytics-log-searches.md) allow you to build your own logic to retrieve and analyze data from the OMS repository.  This allows you to perform custom analysis and relate information across data sources and solutions.  Log queries also provide the basis of other functionality such as generating an alert or may be exported to other analysis tools such as Power BI.
 
-Solutions will typically provide components in the OMS Dashboard for accessing and analyzing data that they collect.  For example, the [Security and Audit](../log-analytics/log-analytics-solution-security-audit.md) solution provides several views that provide quick summaries of such information as the count of specific notable issues in the managed environment.  You can click on any of the summaries to view the detailed information behind them.
+Solutions will typically provide components in the OMS Dashboard for accessing and analyzing data that they collect.  For example, the [Security and Audit](../log-analytics/log-analytics-security-audit.md) solution provides several views that provide quick summaries of such information as the count of specific notable issues in the managed environment.  You can click on any of the summaries to view the detailed information behind them.
+
+# Azure services
+
+OMS includes some Azure services that do not currently write data to the OMS repository.  Each of these services has an OMS solution that provides some information through the OMS portal, but you must use the Azure portal to perform most management functions.  The following sections describes the high level implementation of these services.  You can refer to their documentation for further details.
+
+## Azure Automation
+
+[Azure Automation runbooks](http://azure.microsoft.com/documentation/services/automation) are executed in the Azure cloud and can access resources that are in Azure, in other cloud services, or accessible from the public Internet.  You can also designate on-premise machines in your local data center using [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) so that runbooks can access local resources.
+
+[DSC configurations](http://azure.microsoft.com/documentation/articles/automation-dsc-overview) stored in Azure Automation can be directly applied to Azure virtual machines.  Other physical and virtual machines can request configurations from the Azure Automation DSC pull server.
+
+Azure Automation has an OMS solution that displays statistics and links to launch the Azure portal for any operations.
+
+![Azure Automation high level architecture](media/operations-management-suite-architecture/automation.png)
+
+## Azure Backup
+
+Protected data in [Azure Backup](http://azure.microsoft.com/documentation/services/backup) is stored in a backup vault located in a particular geographic region.  The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further redundancy.
+
+Azure Backup has three fundamental scenarios.
+
+- Windows machine with Azure Backup agent.  This allows you to backup files and folders from any Windows server or client directly to your Azure backup vault.  
+- System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server.  Server. This allows you to leverage DPM or Microsoft Azure Backup Server to backup files and folders in addition to application workloads such as SQL and SharePoint to local storage and then replicate to your Azure backup vault.
+- Azure Virtual Machine Extensions.  This allows you to backup Azure virtual machines to your Azure backup vault.
+
+Azure Backup has an OMS solution that displays statistics and links to launch the Azure portal for any operations.
+
+![Azure Backup high level architecture](media/operations-management-suite-architecture/backup.png)
+
+## Azure Site Recovery
+
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) orchestrates replication, failover, and failback of virtual machines and physical servers. Replication data is exchanged between Hyper-V hosts, VMware hypervisors, and physical servers in primary and secondary datacenters, or between the datacenter and Azure storage.  Site Recovery stores metadata in vaults located in a particular geographic Azure region. No replicated data is stored by the Site Recovery service.
+
+Azure Site Recovery has three fundamental replication scenarios.
+
+**Replication of Hyper-V virtual machines**
+- If Hyper-V virtual machines are managed in VMM clouds, you can replicate to a secondary data center or to Azure storage.  Replication to Azure is over a secure internet connection.  Replication to a secondary datacenter is over the LAN.
+- If Hyper-V virtual machines aren’t managed by VMM, you can replicate to Azure storage only.  Replication to Azure is over a secure internet connection.
+ 
+**Replication of VMWare virtual machines**
+- You can replicate VMware virtual machines to a secondary datacenter running VMware or to Azure storage.  Replication to Azure can occur over a site-to-site VPN or Azure ExpressRoute or over a secure Internet connection. Replication to a secondary datacenter occurs over the InMage Scout data channel.
+ 
+**Replication of physical Windows and Linux servers** 
+- You can replicate physical servers to a secondary datacenter or to Azure storage. Replication to Azure can occur over a site-to-site VPN or Azure ExpressRoute or over a secure Internet connection. Replication to a secondary datacenter occurs over the InMage Scout data channel.  Azure Site Recovery has an OMS solution that displays some statistics, but you must use the Azure portal for any operations.
+
+![Azure Site Recovery high level architecture](media/operations-management-suite-architecture/site-recovery.png)
+
 
 ## Next steps
 
