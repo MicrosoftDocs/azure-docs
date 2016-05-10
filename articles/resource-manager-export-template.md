@@ -16,15 +16,13 @@
 	ms.date="05/10/2016" 
 	ms.author="tomfitz"/>
 
-# Learn Azure Resource Manager templates by exporting a template from existing resources
+# Export Azure Resource Manager template from existing resources
 
 Understanding how to construct Azure Resource Manager templates can be daunting, but Resource Manager helps you with that task by
 enabling you to export a template from existing resources in your subscription. You can use that generated template to learn about the template syntax, or to automate the re-deployment of your 
 solution as needed.
 
-In this tutorial, you will create a storage account through the portal and export the template for that storage account. You will then modify the resource group  
-by adding a virtual network to it and export a new template that represents its current state. Although this topic focuses on a simplified infrastructure, you could use these same steps 
-to export a template for a more complicated solution.
+In this tutorial, you will create a storage account through the portal and export the template for that storage account. You will then modify the resource group by adding a virtual network to it and export a new template that represents its current state. Although this topic focuses on a simplified infrastructure, you could use these same steps to export a template for a more complicated solution.
 
 ## Create the storage account
 
@@ -166,7 +164,7 @@ Although each deployment only shows the changes you have made to your resource g
         "tags": {},
           "properties": {
             "accountType": "Standard_RAGRS"
-        },
+          },
 
 3. Download the template so you can work on it locally.
 

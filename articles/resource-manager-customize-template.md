@@ -129,7 +129,7 @@ template will create a unique name. You will restrict which values can be specif
           }
         },
        
-2. Below the **parameters** section, add a **variables** section with the following code. The **variables** section enables you as the template author to create values that simplify the syntax for the rest of your template. The **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group.
+2. The **variables** section of your template is currently empty. Replace this section with the following code. The **variables** section enables you as the template author to create values that simplify the syntax for the rest of your template. The **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group.
 
         "variables": {
           "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
@@ -176,7 +176,7 @@ template will create a unique name. You will restrict which values can be specif
 ## Fix the parameters file
 
 The downloaded parameter file no longer matches the parameters in your template. You do not have to use a parameter file, but it can simplify re-deploying an environment. You will use the 
-default values defined in the template for many of the parameters so your parameter files only needs two values.
+default values defined in the template for many of the parameters so your parameter file only needs two values.
 
 Replace the contents of the parameters.json file with:
 
