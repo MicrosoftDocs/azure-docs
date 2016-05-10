@@ -121,9 +121,10 @@ You can validate the record was created correctly by querying the "www.contoso.c
     contoso.azurewebsites.net
     <instance of web app service>.vip.azurewebsites.windows.net
 
-## 3. Create an "awverify" record for web apps (A records only)
+## Create an "awverify" record for web apps
 
-If you decide to use an A record for your web app, you must go through a verification process to ensure you own the custom domain. This verification step is done by creating a special CNAME record named "awverify".
+
+If you decide to use an A record for your web app, you must go through a verification process to ensure you own the custom domain. This verification step is done by creating a special CNAME record named "awverify". This section applies to A records only.
 
 In the example below, the "awverify" record will be created for contoso.com to verify ownership for the custom domain:
 
