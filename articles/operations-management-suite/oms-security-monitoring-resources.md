@@ -97,7 +97,7 @@ As part of your regular monitoring strategy, you must include identity monitorin
 
 This dashboard enable IT to quickly identify potential threats related to identity and access to company’s resources. It is particular important to also identify potential trends, for example in the Logons Over Time tile, you can see over period of time how many times a failed logon attempt was performed. In this case the computer **FileServer** received 35 logon attempts. You can explore more details about this computer by clicking on it. 
 
-![more details](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig7.png)
+![more details](./media/oms-security-monitoring-resources/oms-security-monitoring-resources-fig7-new.png)
 
 The report generated for this computer brings valuable details about this pattern. Noticed that the **ACCOUNT** column gives you the user account that was used to try to access the system, the **TIMEGENERATED** column gives you the time interval in which the attempt was done and the **LOGONTYPENAME** column gives you the location where this attempt was done. If these attempts were performed locally in the system by a program, the **PROCESS** column would be showing the process’s name. In scenarios where the logon attempt is coming from a program, you already have the process name available and now you can perform further investigation in the target system.
 
