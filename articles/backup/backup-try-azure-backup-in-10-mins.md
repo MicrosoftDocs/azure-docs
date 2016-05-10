@@ -185,26 +185,6 @@ To complete the initial backup, you use the Microsoft Azure Recovery Services ag
 
 11. After the wizard finishes creating the backup schedule, click **Close**.
 
-### Enable network throttling (optional)
-
-The Recovery Services agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
-
-**To enable network throttling**
-
-1. In the Recovery Services agent, click **Change Properties**.
-
-    ![Change properties](./media/backup-try-azure-backup-in-10-mins/change-properties.png)
-
-2. On the **Throttling** tab, select the **Enable internet bandwidth usage throttling for backup operations** check box.
-
-    ![Network throttling](./media/backup-try-azure-backup-in-10-mins/throttling-dialog.png)
-
-3. After you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**.
-
-    The bandwidth values begin at 512 kilobits per second (Kbps) and can go up to 1,023 megabytes per second (MBps). You can also designate the start and finish for **Work hours**, and which days of the week are considered work days. Hours outside of designated work hours are considered non-work hours.
-
-4. Click **OK**.
-
 ### To back up files and folders for the first time
 
 1. In the Recovery Services agent, click **Back Up Now** to complete the initial seeding over the network.
