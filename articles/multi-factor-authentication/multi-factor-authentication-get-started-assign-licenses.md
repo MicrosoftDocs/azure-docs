@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Assigning Licenses for Azure Multi-Factor Authentication" 
-	description="This is the Azure Multi-Factor Authentication page that describes how to assign user licenses for Azure Multi-Factor Authentication." 
+	pageTitle="Assigning Licenses for Microsoft Azure Multi-Factor Authentication" 
+	description="Learn  how to assign user licenses for Microsoft Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="billmath"/>
 
 # Assigning an Azure MFA, Azure AD Premium, or Enterprise Mobility license to users

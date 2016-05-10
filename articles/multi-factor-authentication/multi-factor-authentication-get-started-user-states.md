@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication User States" 
-	description="This is the Azure Multi-Factor authentication page that describes user states in Azure MFA." 
+	pageTitle="Microsoft Azure Multi-Factor Authentication User States" 
+	description="Learn about user states in Azure MFA." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="billmath"/>
 
 # User States in Azure Multi-Factor Authentication
@@ -29,7 +29,7 @@ Enforced|The user has been enrolled and has completed the registration process f
 ## Changing a user state
 A users state changes depending on whether or not it has been setup for MFA and whether the user has completed the process.  When you turn MFA on for a user, the users state will change from disabled to enabled.  Once the user, whose state has been changed to enabled, signs in and completes the process, their state will change to enforced.  
 
-### To view a users state
+### To view a user's state
 --------------------------------------------------------------------------------
 1.  Sign in to the **Azure classic portal** as an Administrator.
 2.  On the left, click **Active Directory**.

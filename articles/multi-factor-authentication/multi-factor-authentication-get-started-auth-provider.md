@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Getting started with Azure Multi-Factor Auth Provider" 
-	description="This is the Azure Multi-Factor authentication page that describes how to create an Azure Multi-Factor Auth Provider." 
+	pageTitle="Getting started with Microsoft Azure Multi-Factor Auth Provider" 
+	description="Learn how to create an Azure Multi-Factor Auth Provider." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="billmath"/>
 
 

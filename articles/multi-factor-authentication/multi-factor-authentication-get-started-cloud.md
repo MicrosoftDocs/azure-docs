@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Getting started with Azure Multi-Factor Authentication in the cloud" 
-	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA in the cloud." 
+	pageTitle="Getting started with Microsoft Azure Multi-Factor Authentication in the cloud" 
+	description="This is the Microsoft Azure Multi-Factor authentication page that describes how to get started with Azure MFA in the cloud." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,17 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="billmath"/>
 
 # Getting started with Azure Multi-Factor Authentication in the cloud
+In the following article you will learn how to get started using Azure Multi-Factor Authentication in the cloud.
 
 > [AZURE.NOTE]  The following documentation provides information on how to enable users using the **Azure Classic Portal**. If you are looking for information on how to setup Azure Multi-Factor Authentication for O365 users see [Setup multi-factor authentication for Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
 
-![MFA in the Cloud](./media/multi-factor-authentication-how-it-works/howitworks.png)
+![MFA in the Cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## Pre-requisites
-The following pre-requisites are required before you can enable Azure Multi-Factor Authentication for your users. 
+## Prerequisites
+The following prerequisites are required before you can enable Azure Multi-Factor Authentication for your users. 
 
 
 
@@ -34,8 +35,8 @@ The following pre-requisites are required before you can enable Azure Multi-Fact
 > [AZURE.NOTE]  Licenses are available for users who have Azure MFA, Azure AD Premium, or Enterprise Mobility Suite (EMS).  MFA is included in Azure AD Premium and the EMS. If you have enough licenses, you do not need to create an Auth Provider. 
 		
 
-## Turn-on multi-factor authentication for users
-To turn multi-factor authentciatoin on for a user, you simply change the user's state from disabled to enabled.  For more information on user states see [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+## Turn on multi-factor authentication for users
+To turn multi-factor authentication on for a user, you simply change the user's state from disabled to enabled.  For more information on user states see [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 Use the following procedure to enable MFA for your users.
 
@@ -62,13 +63,30 @@ Use the following procedure to enable MFA for your users.
 
 ### Automate turning on multi-factor authentication using PowerShell
 
-To change the state using Windows PowerShell, you can use the following.  You can change `$st.State` to equal one of the states mentioned.  
+To change the state using [Azure AD PowerShell](powershell-install-configuremd), you can use the following.  You can change `$st.State` to equal one of the following states:
+
+
+- Enabled
+- Enforced
+- Disabled  
 
 		$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
 		$st.RelyingParty = "*"
 		$st.State = “Enabled”
 		$sta = @($st)
 		Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+
+Using PowerShell would be an option for bulk enabling users.  Currently there is no bulk enable feature in the Azure portal and you need to select each user individually.  This can be quite a task if you have a lot of users.  By creating a PowerShell script using the above, you can loop through a list of users and enable them.  Here is an example:
+    
+    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+    foreach ($user in $users)
+    {
+    	$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+    	$st.RelyingParty = "*"
+    	$st.State = “Enabled”
+    	$sta = @($st)
+    	Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+    }
 
 
 
