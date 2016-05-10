@@ -22,7 +22,7 @@ This document helps you get started quickly with Operations Management Suite (OM
 ## What is OMS?
 Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-## OMS Security and Audit Dashboard
+## OMS Security and Audit dashboard
 
 The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, seven days or any other custom time frame. To access the **Security and Audit** dashboard, follow the steps below:
 
@@ -45,7 +45,7 @@ The OMS Security and Audit dashboard is organized in four major categories:
 
 > [AZURE.NOTE] for more information on how OMS keeps your data secure, read How OMS secures your data.
 
-## Security Domains
+## Security domains
 
 When monitoring resources, it is important to be able to quickly access the current state of your environment. However it is also important to be able to track back events that occurred in the past that can lead to a better understanding of what’s happening in your environment at certain point in time. 
 
@@ -63,7 +63,7 @@ The search result is divided in two panes: the left pane gives you a breakdown o
 
 > [AZURE.NOTE] for more information about OMS search query, read [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx).
 
-### Malware Assessment
+### Malware assessment
 
 This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Malware Assessment** tile. 
 
@@ -77,7 +77,7 @@ Just like any other live tile available in OMS Dashboard  , when you click on it
 
 If you click in the computer’s name, you will have the chronological view of the protection status for this computer. This is very useful for scenarios in which you need to understand if the antimalware was once installed and at some point it was removed.   
 
-### Update Assessment 
+### Update assessment 
 
 This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provides the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
 
@@ -115,7 +115,7 @@ You can continue your investigation by clicking on each computer and review the 
 
 This tile is basically a shortcut to access Azure Security Center dashboard. Read [Getting started with Azure Security Center](../security-center/security-center-get-started.md) for more information about this solution.
 
-## Notable Issues
+## Notable issues
 
 The main intent of this group of options is to provide a quick view of the issues that you have in your environment, by categorizing them in Critical, Warning and Informational. The Active issue type tile it’s a visualization of these issues, but it doesn’t allow you to explore more details about them, for that you need to use the lower part of this tile that has the name of the issue (NAME), how many objects had this happen (COUNT) and how critical it is (SEVERITY).
 
@@ -131,7 +131,7 @@ Yellow pushpins on the map indicate incoming traffic from malicious IPs. It is n
 
 ![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11.JPG)
 
-## Common Security Queries
+## Common security queries
 
 The list of common security queries available can be useful for you to rapidly access resource’s information and customize it based on your environment’s needs. These common queries are:
 
@@ -146,7 +146,7 @@ The list of common security queries available can be useful for you to rapidly a
 - Logon Activity by Account
 - Accounts who remotely logged on the computer "computer01.contoso.com" (replace with your own computer name)
 
-## Next Steps
+## Next steps
 
 In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
 

@@ -16,7 +16,7 @@
    ms.date="05/10/2016"
    ms.author="yurid"/>
 
-# Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution
+# Monitoring and responding to security alerts in Operations Management Suite Security and Audit Solution
 
 This document helps you use the threat intelligence option available in OMS Security and Audit to monitor and respond to security alerts.
 
@@ -24,7 +24,7 @@ This document helps you use the threat intelligence option available in OMS Secu
 
 Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-## Threat Intelligence
+## Threat intelligence
 
 In an enterprise environment where users have broad access to the network and use a variety of devices to connect to corporate data, it is imperative that you can actively monitor your resources and quickly respond to security incidents. This is particular important from the security lifecycle perspective because some cybersecurity threats may not raise alerts or suspicious activities that can be identified by traditional security technical controls. 
 
@@ -75,7 +75,7 @@ The **threat intelligence map** will help you to identify the current locations 
 
 ![threat intel map](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
-## Next Steps
+## Next steps
 
 In this document, you learned how to use the **Threat Intelligence** option in OMS Security and Audit solution to respond to security alerts. To learn more about OMS Security, see the following articles:
 

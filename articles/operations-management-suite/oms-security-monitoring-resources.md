@@ -16,7 +16,7 @@
    ms.date="05/10/2016"
    ms.author="yurid"/>
 
-# Monitoring Resources in Operations Management Suite Security and Audit Solution
+# Monitoring resources in Operations Management Suite Security and Audit Solution
 
 This document helps you use OMS Security and Audit capabilities to monitor your resources and identify security issues.
 
@@ -24,7 +24,7 @@ This document helps you use OMS Security and Audit capabilities to monitor your 
 
 Microsoft Operations Management Suite (OMS) is Microsoft's cloud based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-## Monitoring Resources
+## Monitoring resources
 
 Whenever is possible, you will want to prevent security incidents from happening in the first place. However, it is impossible to prevent all security incidents. When a security incident does happen, you will need to ensure that its impact is minimized.  There are three critical recommendations that can be used to minimize the number and the impact of security incidents:
 
@@ -101,7 +101,7 @@ This dashboard enable IT to quickly identify potential threats related to identi
 
 The report generated for this computer brings valuable details about this pattern. Noticed that the **ACCOUNT** column gives you the user account that was used to try to access the system, the **TIMEGENERATED** column gives you the time interval in which the attempt was done and the **LOGONTYPENAME** column gives you the location where this attempt was done. If these attempts were performed locally in the system by a program, the **PROCESS** column would be showing the process’s name. In scenarios where the logon attempt is coming from a program, you already have the process name available and now you can perform further investigation in the target system.
 
-## Next Steps
+## Next steps
 
 In this document, you learned how to use OMS Security and Audit solution to monitor your resources. To learn more about OMS Security, see the following articles:
 
