@@ -6,14 +6,14 @@
    authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn"
-   keywords="rbac, role based access control, access control models, role based access, azure rbac" />
+   keywords="automation rbac, role based access control, azure rbac" />
 <tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/10/2016"
    ms.author="magoedte;sngun"/>
 
 # Role-based access control in Azure Automation
