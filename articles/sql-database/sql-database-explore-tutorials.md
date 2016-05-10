@@ -49,6 +49,6 @@ The links below take you to an overview of each listed feature area and a quick 
 | [Data Masking](sql-database-dynamic-data-masking-get-started.md/#overview) | [Set up dynamic data masking](sql-database-dynamic-data-masking-get-started.md/#set-up-dynamic-data-masking-for-your-database-using-the-azure-portal)  | In this tutorial, you learn how to set up dynamic data masking for your Azure SQL database. |
 | Data Sync ||| 
 ||||
-| [Data Sync]((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)  | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
+| [Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)  | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
 |||||
 
