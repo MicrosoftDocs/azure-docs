@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Power BI Embedded Preview - Embed Power BI with an IFrame"
+   pageTitle="Microsoft Power BI Embedded Preview - Embed a Power BI report with an IFrame"
    description="Microsoft Power BI Embedded Preview - Essential code to integrate a report into your app, how to authenticate with Power BI Embedded app token, how to get reports"
    services="power-bi-embedded"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/02/2016"
+   ms.date="05/06/2016"
    ms.author="derrickv"/>
 
-# Embed Power BI with an IFrame
+# Embed a Power BI report with an IFrame
 This article shows you essential code to use the **Power BI Embedded** REST API, app tokens, an IFrame, and some JavaScript to integrate, or embed, a report into your app.
 
 In [Get started with Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md), you learn how to configure a **Workspace Collection** to hold one or more **Workspaces** for your report content. Then, in [Get started with Microsoft Power BI Embedded sample](power-bi-embedded-get-started-sample.md) you import a report into a **Workspace**.
@@ -41,7 +41,7 @@ The next sections shows you code you need to integrate a report.
 <a name="GetReport"/>
 ## Get a report in a workspace
 
-To integrate a report into an app, you need a report **ID** and **embedUrl**. To get a report **ID** and **embedUrl**, you call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, and choose a report from the JSON list. In the [Embed a report into an app](#EmbedReport) you use a report **ID** and **embedUrl** to embed the report into your app.
+To integrate a report into an app, you need a report **ID** and **embedUrl**. To get a report **ID** and **embedUrl**, you call the [Get Reports](https://msdn.microsoft.com/library/mt711510.aspx) REST operation, and choose a report from the JSON list. In [Embed a report into an app](#EmbedReport), you use a report **ID** and **embedUrl** to embed the report into your app.
 
 ### Get reports JSON response
 ```

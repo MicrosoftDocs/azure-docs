@@ -27,7 +27,7 @@ This topic provides a high-level overview of Azure Functions. If you want to jum
 
 Write any function under a minute - either when you need a simple job to clean a database or to build functionality that processes millions of messages from connected devices. Use your development language of choice (C#, Node.JS, Python and more). Pay only for the time your code runs and trust Azure to scale as needed.
 
-Azure functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can [get started with your first function](functions-create-first-azure-function.md) in just minutes.
+Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can [get started with your first function](functions-create-first-azure-function.md) in just minutes.
 
 ## What can I do with Functions?
 
@@ -66,9 +66,9 @@ Azure Functions supports a variety of integrations with Azure and 3rd-party serv
 
 There are two ways to run Azure Functions: using a Dynamic App Service Plan and using a Classic App Service plan.
 
-In a **Dynamic App Service Plan**, you don't have to worry about resource management. Whenever your function is run, Azure will provide all of the necessary computational resources. You only pay for the time that your code spends running. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions).
+In a **Dynamic App Service Plan**, you don't have to worry about resource management. Whenever your function is run, Azure will provide all of the necessary computational resources. You only pay for the time that your code spends running. Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
-A **Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. This is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
+A **Classic App Service Plan** allows you to run functions just like your web, mobile, and API apps. This is a great solution if you are already using App Service for other applications - your functions can run on the same plan for no additional cost. Full details can be found on the [App Service Pricing page](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## Reporting Issues
 
