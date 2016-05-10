@@ -23,7 +23,7 @@ It’s been almost a year since we announced the support for Virtual Machines un
 
 ## What is our goal with migration?
 
-We are really excited about the power and capability offered by the new experience and APIs available on Virtual Machines. We think this is really going to change the way you can use the cloud in a lot of ways. With the release of the new model, it allows you to deploy, manage, and monitor related services in a resource group. Resource Manager enables deploying complex applications using templates, configures virtual machines using VM extensions, and incorporates access management and tagging. It also includes scalable, parallel deployment for virtual machines into availability sets. In addition, the new model provides lifecycle management of Compute, Network and Storage independently. And there’s a focus of enabling security by default with the enforcement of virtual machines in a Virtual Network.
+We are really excited about the power and capability offered by the new experience and APIs available on Virtual Machines. We think this is really going to change the way you can use the cloud in a lot of ways. With the release of the new model, it allows you to deploy, manage, and monitor related services in a resource group. Resource Manager enables deploying complex applications using templates, configures Virtual Machines using VM extensions, and incorporates access management and tagging. It also includes scalable, parallel deployment for Virtual Machines into availability sets. In addition, the new model provides lifecycle management of Compute, Network and Storage independently. And there’s a focus of enabling security by default with the enforcement of virtual machines in a Virtual Network.
 
 From a feature standpoint, almost all the features are supported for Compute, Network & Storage under Azure Resource Manager with a few exceptions which we are aggressively trying to finish in the coming months. In addition, we are continuously improving the user experience and adding more features to the azure portal to bridge the experiences.
 
@@ -51,7 +51,7 @@ During public preview, we are offering two migration scopes primarily targeting 
 ### Migration of Virtual Machines (Not in a Virtual Network)
 
 In the Resource manager deployment model, we enforce security of your applications by default. Hence, all VMs need to be in a Virtual Network in the Resource Manager model. Hence, as part of the migration, we will be restarting (Stop Deallocate and Start) the VMs as part of the migration. You will have a couple of choices when it comes to the Virtual Networks:
-- You can request the platform to create a new Virtual Network and migrate the virtual Machine into the new Virtual Network (or)
+- You can request the platform to create a new Virtual Network and migrate the Virtual Machine into the new Virtual Network (or)
 - Migrate the Virtual Machine into an existing Virtual Network in Resource Manager
 
 >[AZURE.NOTE] In this migration scope, both the ‘management plane’ and ‘data plane’ operations may not be allowed for a certain period of time during the migration.
@@ -140,7 +140,7 @@ With the announcement of Public Preview, we have added support for triggering mi
 
 2.	Manual or Scripted Check
   * In this step, you can optionally use the configuration that you downloaded earlier to validate that the migration looks correct. Alternatively, you can also log into the portal and spot check the properties and resources to validate that metadata migration looks good.
-	* If you are migrating a Virtual Network, most configuration of virtual machines will not be restarted. For applications on those VMs, you can validate that the application is still up and running.
+	* If you are migrating a Virtual Network, most configuration of Virtual Machines will not be restarted. For applications on those VMs, you can validate that the application is still up and running.
 	* You can test your monitoring/automation and operational scripts to see if the VMs are working as expected and if your updated scripts work correctly. Please note that only GET operations will be supported when the resources are in the Prepared state.
   * There will no set time window before which you need to ‘commit’ the migration. You can take as much time as you want in this state. However, please note that the Management plane will be locked for these resources until you either ‘abort’ or ‘commit’.
   * If you see any issues, you can always ‘abort’ the migration and go back to the ‘Classic’ deployment model. Once you go back, we will open up the management plane operations on the resources so you can resume normal operations on those VMs in the Classic deployment model.
