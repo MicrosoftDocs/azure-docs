@@ -55,7 +55,7 @@ A System Center Operations Manager (SCOM) management group can be [connected to 
 
 ## Data sources and solutions
 
-Data sources define the data that Log Analytics collects from connected sources including event logs and performance counters.  Solutions add functionality to OMS and can easily be added to your workspace from the [OMS Solutions Gallery](../log-analytics/log-analytics-add-solutions.md).  New solutions are continuously added to OMS which allows you to further increase the value of your investment.  Some solutions, such as [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) and [Capacity Management](../log-analytics/log-analytics-solution-capacity-management.md), may require a connection to SCOM.  Other solutions may require an additional agent to be installed.
+Data sources define the data that Log Analytics collects from connected sources including event logs and performance counters.  Solutions add functionality to OMS and can easily be added to your workspace from the [OMS Solutions Gallery](../log-analytics/log-analytics-add-solutions.md).  New solutions are continuously added to OMS which allows you to further increase the value of your investment.  Some solutions, such as Alert Management and [Capacity Management](../log-analytics/log-analytics-capacity.md), may require a connection to SCOM.  Other solutions may require an additional agent to be installed.
 
 ## Log searches
 
@@ -63,21 +63,21 @@ Data sources define the data that Log Analytics collects from connected sources 
 
 Solutions will typically provide components in the OMS Dashboard for accessing and analyzing data that they collect.  For example, the [Security and Audit](../log-analytics/log-analytics-security-audit.md) solution provides several views that provide quick summaries of such information as the count of specific notable issues in the managed environment.  You can click on any of the summaries to view the detailed information behind them.
 
-# Azure services
+## Azure services
 
 OMS includes some Azure services that do not currently write data to the OMS repository.  Each of these services has an OMS solution that provides some information through the OMS portal, but you must use the Azure portal to perform most management functions.  The following sections describes the high level implementation of these services.  You can refer to their documentation for further details.
 
-## Azure Automation
+### Azure Automation
 
 [Azure Automation runbooks](http://azure.microsoft.com/documentation/services/automation) are executed in the Azure cloud and can access resources that are in Azure, in other cloud services, or accessible from the public Internet.  You can also designate on-premise machines in your local data center using [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) so that runbooks can access local resources.
 
-[DSC configurations](http://azure.microsoft.com/documentation/articles/automation-dsc-overview) stored in Azure Automation can be directly applied to Azure virtual machines.  Other physical and virtual machines can request configurations from the Azure Automation DSC pull server.
+[DSC configurations](../automation/automation-dsc-overview.md) stored in Azure Automation can be directly applied to Azure virtual machines.  Other physical and virtual machines can request configurations from the Azure Automation DSC pull server.
 
 Azure Automation has an OMS solution that displays statistics and links to launch the Azure portal for any operations.
 
 ![Azure Automation high level architecture](media/operations-management-suite-architecture/automation.png)
 
-## Azure Backup
+### Azure Backup
 
 Protected data in [Azure Backup](http://azure.microsoft.com/documentation/services/backup) is stored in a backup vault located in a particular geographic region.  The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further redundancy.
 
@@ -91,7 +91,7 @@ Azure Backup has an OMS solution that displays statistics and links to launch th
 
 ![Azure Backup high level architecture](media/operations-management-suite-architecture/backup.png)
 
-## Azure Site Recovery
+### Azure Site Recovery
 
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) orchestrates replication, failover, and failback of virtual machines and physical servers. Replication data is exchanged between Hyper-V hosts, VMware hypervisors, and physical servers in primary and secondary datacenters, or between the datacenter and Azure storage.  Site Recovery stores metadata in vaults located in a particular geographic Azure region. No replicated data is stored by the Site Recovery service.
 
