@@ -194,7 +194,7 @@ This section starts with a blog entry containing a series of videos on [Video: A
 
 1. Microsoft support documentation
 	- [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
-2. [Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure](./virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)
-3. [Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](./virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
+2. [Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure](virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)
+3. [Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
 
 
