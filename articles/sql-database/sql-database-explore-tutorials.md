@@ -30,7 +30,6 @@ The links below take you to an overview of each listed feature area and a quick 
 | [Manage elastic pools](sql-database-elastic-pool-manage-portal.md) | [Move a database into an elastic pool](sql-database-elastic-pool-manage-portal.md/#move-a-database-into-an-elastic-pool) | In this tutorial, you learn how to move a database into an elastic pool. |
 | [Manage elastic pools](sql-database-elastic-pool-manage-portal.md) | [Move a database out of an elastic pool](sql-database-elastic-pool-manage-portal.md/#move-a-database-out-of-an-elastic-pool) | In this tutorial, you learn how to move a database out of an elastic pool. |
 | [Manage elastic pools](sql-database-elastic-pool-manage-portal.md) | [Change performance settings of a pool](sql-database-elastic-pool-manage-portal.md/#change-performance-settings-of-a-pool) | In this tutorial, you learn how to adjust the performance and storage limits for a pool. |
-| [Horizontal partitioning]() |||
 | Tools for scaling out |||
 |||||
 | [Elastic tools](sql-database-elastic-scale-introduction.md) | [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md) | In this tutorial, you learn how to use the capabilities of elastic database tools using a simple sharded application. |
