@@ -30,7 +30,7 @@ URLs to open in proxy server |
 \*.windows.net |
 +Certificate Revocation Lists |
 
-The windows.net URL is shared with world-wide. This endpoint is only used to detect that your Azure AD directory is located in Germany and no customer data is transferred to the world-wide instance.
+When you sign in to your Azure AD directory you must use an account in the onmicrosoft.de domain.
 
 Features currently not present in the Microsoft Cloud in Germany:
 
