@@ -49,7 +49,7 @@ Using [BigPictureStyle](http://developer.android.com/reference/android/app/Notif
 
 If you want to be sure that statistics are sent in real time when using Wifi or when the screen is off, add the following optional permission:
 
-			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+		<uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 ### Background reporting
 
@@ -78,7 +78,7 @@ You must ensure that this permission is present:
 
 If you want to disable crash reports, add this (between the `<application>` and `</application>` tags):
 
-			<meta-data android:name="engagement:reportCrash" android:value="false"/>
+		<meta-data android:name="engagement:reportCrash" android:value="false"/>
 
 ### Burst threshold
 

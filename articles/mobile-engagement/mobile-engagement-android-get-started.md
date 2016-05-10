@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Get started with Azure Mobile Engagement for Android apps
@@ -134,7 +134,7 @@ Go to **MainActivity.java** and add the following to replace the base class of *
 	public class MainActivity extends EngagementActivity {
 
 > [AZURE.NOTE] If your base class is not *Activity*, consult
-[Advanced Android Reporting](mobile-engagement-android-integrate-engagement.md) for how to inherit from different classes.
+[Advanced Android Reporting](mobile-engagement-android-advanced-reporting/?rnd=1#alternate-method-call-codestartactivitycode-and-codeendactivitycode-manually) for how to inherit from different classes.
 
 
 You should comment out (exclude) the following line for this simple sample scenario:

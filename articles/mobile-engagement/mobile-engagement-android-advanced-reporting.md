@@ -19,7 +19,7 @@
 # Reporting Options with Engagement on Android
 
 > [AZURE.SELECTOR]
-- [Android](mobile-engagement-android-basic-reporting.md)
+- [Android](mobile-engagement-android-advanced-reporting.md)
 
 This topic describes additional reporting scenarios in your Android application. These are options that you can choose to apply to the app created in the [Getting Started](mobile-engagement-android-get-started.md) tutorial.
 

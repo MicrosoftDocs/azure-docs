@@ -37,7 +37,7 @@ Learn about all the advanced features of Azure Mobile Engagement you can integra
 
 You can add these features:
 
-1. [Advanced reporting options](mobile-engagement-android-basic-reporting.md)
+1. [Advanced reporting options](mobile-engagement-android-advanced-reporting.md)
 2. [Location Reporting](mobile-engagement-android-location-reporting.md)
 3. [Advanced Configuration](mobile-engagement-android-advanced-configuration.md)
 
