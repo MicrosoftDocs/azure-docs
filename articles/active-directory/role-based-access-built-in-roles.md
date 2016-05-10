@@ -158,17 +158,19 @@ Can view everything and connect, start, restart, and shutdown virtual machines
 | **Actions** ||
 | ------- | ------ |
 | */read | Read resources of all types |
-| Microsoft.DevTestLab/labs/labStats/action | Read lab stats |
-| Microsoft.DevTestLab/Environments/* | Create and manage environments |
 | Microsoft.DevTestLab/labs/createEnvironment/action | Create a lab environment |
+| Microsoft.DevTestLab/labs/formulas/delete | Delete formulas |
+| Microsoft.DevTestLab/labs/formulas/write | Add or modify forumulas |
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluate lab policies |
 | Microsoft.Compute/virtualMachines/start/action | Start virtual machines |
 | Microsoft.Compute/virtualMachines/restart/action | Restart virtual machines |
 | Microsoft.Compute/virtualMachines/deallocate/action | Deallocate virtual machines |
 | Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
-| Microsoft.Network/virtualNetworks/join/action | Join virtual networks |
-| Microsoft.Network/loadBalancers/join/action | Join load balancers |
-| Microsoft.Network/publicIPAddresses/link/action | Link to publisc IP addresses |
-| Microsoft.Network/networkInterfaces/link/action | Link to network interfaces |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Join a virtual network |
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Join a load balancer backend address pool |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Join a load balancer inbound nat rule |
+| Microsoft.Network/publicIPAddresses/join/action | Join a public IP address |
+| Microsoft.Network/networkInterfaces/join/action | Join a Virtual Machine to a network interface |
 | Microsoft.Network/networkInterfaces/write | Write network interfaces |
 
 ### Document DB Account Contributor
