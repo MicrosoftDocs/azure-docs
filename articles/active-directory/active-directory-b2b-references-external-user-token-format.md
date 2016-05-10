@@ -29,7 +29,7 @@ The claims that are different for an authenticated B2B collaboration external us
 - **AltSecId**: this is the alternative security ID, which is opaque to you<br/>
 
 ## Related articles
-Browse our other articles on Azure B2B collaboration:
+Browse our other articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [How it works](active-directory-b2b-how-it-works.md)
@@ -38,4 +38,3 @@ Browse our other articles on Azure B2B collaboration:
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-

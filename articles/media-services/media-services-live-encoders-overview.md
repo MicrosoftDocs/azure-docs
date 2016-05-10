@@ -51,4 +51,4 @@ For information on how to configure the [Tricaster](http://newtek.com/products/t
 
 ## See also
 
-[Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+[Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
