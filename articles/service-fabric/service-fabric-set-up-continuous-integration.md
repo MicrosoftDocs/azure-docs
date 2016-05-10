@@ -54,11 +54,9 @@ If you have any previous version of Azure PowerShell installed, remove it:
 
     b. Search for "Azure PowerShell" and uninstall it.
 
-    c.  Open a PowerShell command prompt.
+    c. Open a PowerShell command prompt as an administrator.
 
-    d.	Install the AzureRM module by using the command `Install-Module AzureRM`.
-
-    e.	Update the AzureRM module by using the command `Update-AzureRM`.
+    d. Install the AzureRM module by using the command `Install-Module AzureRM`.
 
 3.	Disable (or enable) Azure data collection.
 
