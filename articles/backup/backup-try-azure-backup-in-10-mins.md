@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Learn to back up files and folders from Windows to Azure with Azure Backup using Resource Manager | Microsoft Azure"
+   pageTitle="Learn to back up files and folders from Windows to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Azure"
    description="Learn how to backup Windows Server data by creating a vault, installing the Recovery Services agent, and backing up your files and folders to Azure."
    services="backup"
    documentationCenter=""
@@ -17,7 +17,7 @@
    ms.date="05/10/2016"
    ms.author="jimpark;"/>
 
-# First look: back up files and folders from Windows Server or client to Azure
+# First look: back up files and folders from Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model
 
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using Resource Manager. It's a tutorial intended to walk you through the basics. If you want to get started using Azure Backup, you're in the right place.
 
@@ -122,7 +122,7 @@ Now that you've created a vault, you prepare your infrastructure to back up file
 
 ## Step 4 -Install and register the agent
 
->[AZURE.NOTE] Enabling backup through the portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
+>[AZURE.NOTE] Enabling backup through the Azure portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
 
 1. Locate and double click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
 
