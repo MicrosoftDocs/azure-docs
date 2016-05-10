@@ -89,6 +89,8 @@ The fifth command displays all of the tags on the resource. As you can see, *Loc
 
 To learn more about tagging through PowerShell, check out the [Azure Resource Cmdlets][].
 
+[AZURE.INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
+
 ## Next steps
 
 * To learn more about tagging your Azure resources, see [Azure Resource Manager Overview][] and [Using Tags to organize your Azure Resources][].

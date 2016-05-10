@@ -42,8 +42,7 @@ To remove all tags, you can use the **–T** parameter in the `azure vm set` com
 
 Now that we have applied tags to our resources Azure CLI and the Portal, let’s take a look at the usage details to see the tags in the billing portal.
 
-
-
+[AZURE.INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## Next steps
 
