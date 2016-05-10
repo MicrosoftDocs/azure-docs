@@ -43,15 +43,7 @@ If you start the **sync service manager** you will see that many more Connectors
 **This feature is only in private preview and is not generally supported. You should not try to add any of these Connectors to your environment.**
 
 ## User writeback
-> [AZURE.IMPORTANT] The user writeback preview feature was temporarily removed in the August 2015 update to Azure AD Connect. If you have enabled it, then you should disable this feature.
-
-User writeback is in early preview. It can only be used when Azure AD is the source for all user objects and on-premises Active Directory is empty before you enable the feature (greenfield deployment).
-
->[AZURE.WARNING] This feature should only be evaluated in a test environment and should not be used in an Azure AD directory used for production usage.
-
-.
-
->[AZURE.NOTE] A subscription to Azure AD Premium is required for user writeback.
+> [AZURE.IMPORTANT] The user writeback preview feature was removed in the August 2015 update to Azure AD Connect. If you have enabled it, then you should disable this feature.
 
 ## Next steps
 Continue your [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
