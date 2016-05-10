@@ -20,8 +20,8 @@
 # Load data from Azure blob storage into SQL Data Warehouse (PolyBase)
 
 > [AZURE.SELECTOR]
-- [PolyBase][]
-- [Data Factory][]
+- [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
 Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse. 
 
