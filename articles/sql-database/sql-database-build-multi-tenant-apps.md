@@ -17,7 +17,7 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Azure SQL Database Builds Multi-tenant Apps
+# Builds Multi-tenant Apps with Azure SQL Database
 
 ## Leverage elastic pools and build more efficient multi-tenant apps
 
