@@ -21,8 +21,8 @@
 # Back up a Windows server or client to Azure using the classic deployment model
 
 > [AZURE.SELECTOR]
-- [Classic](backup-configure-vault-classic.md)
-- [Resource Manager](backup-configure-vault.md)
+- [Classic portal](backup-configure-vault-classic.md)
+- [Azure portal](backup-configure-vault.md)
 
 This article covers the procedures that you need to follow to prepare your environment and back up a Windows server (or client) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article quickly walks you through the process.
 
