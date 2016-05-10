@@ -23,7 +23,7 @@ This topic lists current POP locations for **Azure CDN from Verizon** and **Azur
 
 >[AZURE.IMPORTANT] \***Azure CDN from Akamai** POP locations are not individually disclosed.  
 >
->Both providers have distinct ways of building their CDN infrastructures.  We recommend against using the location of POPs to decide which Azure CDN product to use, and instead consider features and end-user performance.  Test the performance with both providers to choose the right Azure CDN product for your users. 
+>Both providers have distinct ways of building their CDN infrastructures.  We recommend against using POP locations to decide which Azure CDN product to use, and instead consider features and end-user performance.  Test the performance with both providers to choose the right Azure CDN product for your users. 
  
 | Region | Verizon | Akamai |
 |--------|---------|--------|
