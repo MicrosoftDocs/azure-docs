@@ -356,6 +356,7 @@ If a previous build did not clean up after itself (for example, if the build was
     |Azure RM Subscription|Select the connection endpoint that you created in the **Create a Service Principal** section.|
     |Action|**Delete Resource Group**|
     |Resource Group|Enter any unused name. You must use the same name in the next step.|
+    |Continue on error|This step will fail if the resource group does not exist. Enable **Continue on error** in the **Control Options** section to avoid this.|
 
 5.	Save the build definition.
 
