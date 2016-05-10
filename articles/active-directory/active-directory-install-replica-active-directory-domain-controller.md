@@ -121,4 +121,4 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 -  [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841)
 
 <!--Image references-->
-[1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
+[1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
