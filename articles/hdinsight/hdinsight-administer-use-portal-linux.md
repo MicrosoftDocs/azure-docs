@@ -224,7 +224,7 @@ Ambari then changes the password on all nodes in the cluster.
 
         usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 
-2. Upload the file to a storage location that can be accessed from HDInsight. For example, a public file storage such as OneDrive or the default container for your HDInsight cluster. Save the URI to the file, as this is needed in the next step.
+2. Upload the file to a storage location that can be accessed from HDInsight using an HTTP or HTTPS address. For example, a public file store such as OneDrive or Azure Blob storage. Save the URI (HTTP or HTTPS address,) to the file, as this is needed in the next step.
 
 3. From the Azure portal, select your HDInsight cluster and then select __All settings__. From the __Settings__ blade, select __Script Actions__.
 
@@ -232,11 +232,11 @@ Ambari then changes the password on all nodes in the cluster.
 
     | Field | Value |
     | ----- | ----- |
-    | Name | change ssh password |
-    | Bash script URI | the URI to the changepassword.sh file |
-    | Nodes (Head|Worker|Nimbus|Supervisor|Zookeeper|etc.) | ✓ for all node types listed |
-    | Parameters | enter the SSH user name and then the new password. There should be one space between the user name and the password.
-    | Persist this script action ... | leave this field unchecked.
+    | Name | Change ssh password |
+    | Bash script URI | The URI to the changepassword.sh file |
+    | Nodes (Head, Worker, Nimbus, Supervisor, Zookeeper, etc.) | ✓ for all node types listed |
+    | Parameters | Enter the SSH user name and then the new password. There should be one space between the user name and the password.
+    | Persist this script action ... | Leave this field unchecked.
 
 5. Select __Create__ to apply the script. Once the script finishes, you will be able to connect to the cluster using SSH with the new password.
 
