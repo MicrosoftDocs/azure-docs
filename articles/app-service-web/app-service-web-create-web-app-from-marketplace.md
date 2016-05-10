@@ -11,7 +11,7 @@
 	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang=""
+	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/08/2016"
 	ms.author="robmcm"/>
