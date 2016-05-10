@@ -70,7 +70,7 @@ info:    group create command OK
 
 ## Deploy your first nginx container
 
-Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment. The Docker tools will already be installed, so let's try to deploy an nginx container:
+Once the deployment has finished, SSH to your new Docker host using the DNS name you provided during deployment. The Docker tools will already be installed, so let's try to run an nginx container:
 
 ```
 docker run -d -p 80:80 nginx
