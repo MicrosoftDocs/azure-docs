@@ -53,7 +53,7 @@ The following diagram highlights the components in this architecture:
 
 - **[Virtual network (VNet)][azure-virtual-network].** The cloud application and the Azure VPN Gateway are placed into the same VNet.
 
-- **[Azure VPN Gateway][azure-vpn-gateway].** The VPN gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
+- **[Azure VPN Gateway][azure-vpn-gateway].** The VPN gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-azure-vnet].
 
 - **Gateway subnet.** The Azure VPN Gateway is held in its own subnet, which is subject to various requirements.
 
@@ -632,10 +632,10 @@ GOTO :eof
 [implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
 [resource-manager-overview]: ../resource-group-overview.md
 [arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
-[azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
+[azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-portal]: ../azure-portal/resource-group-portal.md
 [azure-powershell]: ../powershell-azure-resource-manager.md
-[azure-virtual-network]: ../virtual-networks-overview.md
+[azure-virtual-network]: ../virtual-network/virtual-networks-overview.md
 [vpn-appliance]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
