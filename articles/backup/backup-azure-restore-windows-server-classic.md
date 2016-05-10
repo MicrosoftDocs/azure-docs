@@ -19,8 +19,8 @@
 # Restore files to a Windows server or Windows client machine using the classic deployment model
 
 > [AZURE.SELECTOR]
-- [Classic](backup-azure-restore-windows-server-classic.md)
-- [Resource Manager](backup-azure-restore-windows-server.md)
+- [Classic portal](backup-azure-restore-windows-server-classic.md)
+- [Azure portal](backup-azure-restore-windows-server.md)
 
 This article covers the steps required to perform two types of restore operations:
 
