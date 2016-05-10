@@ -5,8 +5,8 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="runbook, runbook template, runbook automation, runbook example, azure runbook"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"

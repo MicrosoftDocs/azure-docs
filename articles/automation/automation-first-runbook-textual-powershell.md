@@ -5,8 +5,8 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor="tysonn"/>
-
+    editor="jwhit"
+	keywords="azure powershell, powershell script tutorial, powershell automation"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
