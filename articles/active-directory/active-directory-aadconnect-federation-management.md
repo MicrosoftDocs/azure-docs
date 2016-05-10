@@ -1,5 +1,5 @@
 <properties
-	pageTitle="AD FS Management and customization with Azure AD Connect | Microsoft Azure"
+	pageTitle="Active Directory Federation Services Management and customization with Azure AD Connect | Microsoft Azure"
 	description="AD FS management using Azure AD Connect and customization of user AD FS sign-in experience using Azure AD Connect and Powershell."
 	services="active-directory"
 	documentationCenter=""
@@ -138,7 +138,7 @@ On the next page the wizard will provide a list of Azure AD domains with which y
 
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain which is not yet verified in Azure AD the wizard will provide you with information to help you verify the domain. See [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md) for more details on how to verify your domain.
+After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain which is not yet verified in Azure AD the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details on how to verify your domain.
 
 Click on next and **Ready to configure** page will show the list of actions that Azure AD Connect will be performing. Click on Install to finish the configuration.
 
