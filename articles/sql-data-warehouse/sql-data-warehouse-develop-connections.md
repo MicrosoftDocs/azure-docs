@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Connect to SQL Data Warehouse
-To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.
+To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.  You may also want to review the article [Secure a database in SQL Data Warehouse][] for more information on security and how to enable connections to your SQL Data Warehouse.
 
-This article details the following aspects of connecting to SQL Data warehouse:
+This article details the following aspects of connecting to SQL Data Warehouse:
 
 - Authentication
 - Connection Settings
@@ -52,7 +52,9 @@ You can connect to SQL Data Warehouse using any of the following protocols:
 - ADO.NET
 - ODBC
 - PHP
-- JDBC
+- JDBC 
+
+Below are some examples of connections strings for each protocol.  You can also use the Azure Portal to help you set up your connection string.  Simply navigate to your database on the Azure Portal.  Under *Essentials* click on *Show database connection strings*. 
 
 ### Sample ADO.NET connection string
 
@@ -95,7 +97,7 @@ Once a connection has been made and a session has been established you are ready
 
 Each query will be represented by one or more request identifiers. All queries submitted on that connection are part of a single session and will therefore be represented by a single session id.
 
-However, as SQL Data Warehouse is a distributed MPP system both session and request identifiers are exposed a little differently when compared to SQL Server.
+However, as SQL Data Warehouse is a distributed MPP (Massively Parallel Processing) system both session and request identifiers are exposed a little differently when compared to SQL Server.
 
 Sessions and requests are logically represented by their respective identifiers.
 
@@ -153,6 +155,7 @@ Once connected you can begin designing your tables. Please refer to the [table d
 <!--Azure.com references-->
 [connect and query]: ./sql-data-warehouse-get-started-connect.md
 [table design]: ./sql-data-warehouse-develop-table-design.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-security.md
 
 <!--MSDN references-->
 

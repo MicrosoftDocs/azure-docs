@@ -9,16 +9,16 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Create a new Aure SQL Database server-level firewall
+## Create a new Azure SQL server-level firewall
 
-Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer) or an entire IP address range to a SQL Database logical server. 
+Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer) or an entire IP address range to a SQL logical server. 
 
 1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
 2. In the default blade, click **SQL Server**.
 
   	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 
-2. In the SQL Server blade, click the SQL Database server on which to create the firewall rule. 
+2. In the SQL Server blade, click the SQL server on which to create the firewall rule. 
 
  	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
            

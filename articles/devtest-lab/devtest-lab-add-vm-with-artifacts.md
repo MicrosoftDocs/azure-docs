@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
-	description="Learn how to add a VM with artifacts to a DevTest Lab"
+	pageTitle="Add a VM with artifacts to a lab | Microsoft Azure"
+	description="Learn how to add a VM with artifacts in DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Add a VM with artifacts to a DevTest Lab
+# Add a VM with artifacts to a lab
 
 > [AZURE.NOTE] Click the following link to view this article's accompanying 
-video: [How to create VMs with artifacts in a DevTest Lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
+video: [How to create VMs with artifacts in a lab](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab) 
 
 ## Overview
 
-You create a VM in a DevTest Lab from a base image that is either a [custom image](./devtest-lab-create-template.md) or a Marketplace image.
+You create a VM in a lab from a *base* that is either a [custom image](./devtest-lab-create-template.md), [formula](./devtest-lab-manage-formulas.md), or [Marketplace image](./devtest-lab-configure-marketplace-images.md).
 
-DevTest Lab *artifacts* let you specify *actions* that are performed when the VM is created. 
+DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is created. 
 
 Artifact actions can perform procedures such as running Windows PowerShell scripts, running Bash commands, and installing software. 
 
@@ -35,25 +35,20 @@ This article shows you how to create a VM in your lab with artifacts.
 
 ## Add a VM with artifacts
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
 1. From the list of labs, tap the lab in which you want to create the new VM.  
 
 1. On the lab's blade, tap **+ Lab VM** as shown in the following figure.  
-    ![DevTest lab home blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+    ![Add Lab VM button](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+
+1. On the **Choose a base** blade, select a base for the VM.
 
 1. On the **Lab VM** blade, enter a name for the new virtual machine in the **Lab VM Name** text box.
 
-1. Tap **Base / Configure required settings** and select a base image for the VM.
-
-    ![Lab VM settings](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-1.png)  
-
-1. After selecting a base image and tapping **OK**, the **Lab VM** blade will expand to include UI elements for specifying user account information, including 
-**User Name**, **Authentication Type** (if the OS type for the selected base is Linux), and **Password** (assuming an authentication type of *Password*).
-
-    ![Expanded Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-lab-vm-blade-2.png)
+	![Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
 
 1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
@@ -74,6 +69,8 @@ selecting either **Yes** or **No**. Otherwise, this option is disabled and selec
 **Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, 
 and then return here when finished.
 
+1. If you want to view or copy the ARM template, skip to the [Save ARM template](#save-arm-template) section, and return here when finished.
+
 1. Tap **Create** to add the specified VM to the lab.
 
 1. The lab blade displays the status of the VM's creation; first as **Creating**, then as **Running** after the VM has been started.
@@ -82,7 +79,7 @@ and then return here when finished.
 
 ## Add an existing artifact to a VM
 
-While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Lab Artifact Repository as 
+While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Labs Artifact Repository as 
 well as artifacts that you've created and added to your own Artifact Repository.
 To discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
 
@@ -130,7 +127,28 @@ The following steps illustrate how to view or modify the parameters of an artifa
 
 1. Tap **OK** to close the **Selected Artifacts** blade.
 
+## Save ARM template
+
+An ARM template provides a declarative way to define a repeatable deployment. 
+The following steps explain how to save the ARM template for the VM being created.
+Once saved, you can use the ARM template to [deploy new VMs with Azure PowerShell](../resource-group-overview/#template-deployment).
+
+1. On the **Lab VM** blade, tap **View ARM Template**.
+
+1. On the **View Azure Resource Manager Template blade**, select all of the template text.
+
+1. Copy the selected text to the clipboard.
+
+1. Tap **OK** to close the **View Azure Resource Manager Template blade**.
+
+1. Open a text editor.
+
+1. Paste in the template text from the clipboard.
+
+1. Save the file for later use.
+
 ## Next steps
 
 - Once the VM has been created, you can connect to the VM by tapping **Connect** on the VM's blade.
-- Discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
+- Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
+- Explore the [DevTest Labs ARM QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)

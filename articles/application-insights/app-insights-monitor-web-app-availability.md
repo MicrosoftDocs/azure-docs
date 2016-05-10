@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/01/2016"
+	ms.date="04/18/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -65,6 +65,8 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
 
 - **Alerts** are, by default, sent to you if there are failures in three locations over five minutes. A failure in one location is likely to be a network problem, and not a problem with your site. But you can change the threshold to be more or less sensitive, and you can also change who the emails should be sent to.
+
+    You can set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 #### Test more URLs
 
@@ -236,7 +238,8 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## Automation
 
-You can [use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically. 
+* [Use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically. 
+* Set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## Questions? Problems?
 

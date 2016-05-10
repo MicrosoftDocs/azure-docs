@@ -1,11 +1,13 @@
 <properties
 	pageTitle="Set up billing alerts for your Microsoft Azure subscriptions | Microsoft Azure"
 	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
-	services=""
+	services="billing"
 	documentationCenter=""
 	authors="vikdesai"
 	manager="msmbaldwin"
-	editor=""/>
+	editor=""
+	tags="billing"
+	/>
 
 <tags
 	ms.service="multiple"
@@ -13,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015" 
+	ms.date="04/17/2016"
 	ms.author="vikdesai"/>
 
 # Set up billing alerts for your Microsoft Azure subscriptions

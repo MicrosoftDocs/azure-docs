@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -76,7 +76,7 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 	b. Select the VM size/pricing tier. The default is D4 Standard, but if you are just going to use this cluster for testing your application, you can select D2 or any smaller VM.
 
-	c. The minumum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-reliability-and-durability.md) document.
+	c. The minumum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
 
 	c. Choose the number of VMs for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minumum is driven by the reliablity level that you have choosen. Other node types can have a minumum of 1 VM.
 
@@ -209,9 +209,9 @@ Now that you are connected, run the following commands to deploy your applicatio
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## Remote connect to a Virtual Machine Scale Set (VMSS) instance or a cluster node
+## Remote connect to a Virtual Machine Scale Set instance or a cluster node
 
-Each of the NodeTypes you specify in your cluster results in a VMSS getting set up. Refer to [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md) for details.
+Each of the NodeTypes you specify in your cluster results in a VM Scale Set getting set up. Refer to [Remote connect to a VM Scale Set instance](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node) for details.
 
 ## Next steps
 
