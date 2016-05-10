@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Content Delivery Network (CDN) POP Locations"
-	description="This topic lists Azure Content Delivery Network (CDN) POP locations."
+	pageTitle="Azure CDN POP Locations"
+	description="This topic lists Azure CDN POP Locations."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -12,75 +12,28 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="04/15/2016" 
+	ms.topic="article"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
-# Azure Content Delivery Network (CDN) POP Locations
+# Azure CDN POP Locations
 
-This topic lists current Microsoft Azure CDN point of presence (POP) locations.
+This topic lists current POP locations for **Azure CDN from Verizon** and **Azure CDN from Akamai**.
 
-![CDN POP Locations](./media/cdn-pop-locations/CDN_POP_locations_update.png)
-
-## North America
-
-- Atlanta
-- Chicago
-- Dallas
-- Philadelphia
-- Los Angeles
-- Miami
-- New York
-- San Jose
-- Seattle
-- Washington DC
-- Boston
-
-## South America
-
-- São Paulo
-- Rio de Janeiro
-- Quito
-- Medellin
-- Buenos Aires
-
-
-## Europe
-
-- Amsterdam
-- Copenhagen
-- Frankfurt
-- Helsinki
-- London
-- Madrid
-- Milan
-- Paris
-- Stockholm
-- Vienna
-- Warsaw
-
-## Asia
-
-- Batam
-- Hong Kong
-- Jakarta
-- Kaohsiung
-- Osaka
-- Seoul
-- Singapore
-- Tokyo
-- Bangalore
-- Chennai
-- Delhi
-- Mumbai
-- Muscat
-
-## Australia
-
-- Melbourne
-- Sydney
-
-## Coming Soon
-
-You may have heard that Microsoft has [partnered with Akamai](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/). In the months ahead, we'll be using this partnership to greatly increase the reach of Azure CDN all over the world.
+>[AZURE.IMPORTANT] \***Azure CDN from Akamai** POP locations are not individually disclosed.  
+>
+>Both providers have distinct ways of building their CDN infrastructures.  We recommend against using POP locations to decide which Azure CDN product to use, and instead consider features and end-user performance.  Test the performance with both providers to choose the right Azure CDN product for your users. 
+ 
+| Region | Verizon | Akamai |
+|--------|---------|--------|
+| North America | Atlanta, GA<br />Philadelphia, PA<br />New York, NY<br />Miami, FL<br />Washington DC<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Los Angeles, CA<br />San Jose, CA<br />Seattle, WA | **&#x2713;**\* |
+| South America | São Paulo, Brazil<br />Rio de Janeiro, Brazil<br />Quito, Ecuador<br />Medellin, Colombia<br/>Buenos Aires, Argentina| **&#x2713;**\* | 
+| North and East Europe| Copenhagen, Denmark<br />Helsinki, Finland<br />London, UK<br />Stockholm, Sweden<br />Warsaw, Poland | **&#x2713;**\* |
+| West Europe | Amsterdam, Netherlands<br />Frankfurt, Germany<br />Paris, France<br />Vienna, Austria | **&#x2713;**\* |
+| South Europe | Madrid, Spain<br />Milan, Italy | **&#x2713;**\* |
+| East Asia | Tokyo, Japan<br />Osaka, Japan<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seoul, South Korea<br />Singapore| **&#x2713;**\* |
+| South and Central Asia | Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India | **&#x2713;**\* |
+| Middle East/West Asia | Muscat, Oman | **&#x2713;**\* |
+| Africa | | **&#x2713;**\* |
+| Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia | **&#x2713;**\* |
