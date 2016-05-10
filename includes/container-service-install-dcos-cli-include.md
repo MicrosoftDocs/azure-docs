@@ -15,10 +15,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/08/2016"
+   ms.date="05/10/2016"
    ms.author="rogardle"/>
-
-
 
 # Install the DC/OS CLI
 

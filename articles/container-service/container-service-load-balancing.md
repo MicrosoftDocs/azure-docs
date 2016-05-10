@@ -25,7 +25,7 @@ In this article, we will set up a web front end which can be scaled up to delive
 
 ## Prerequisites
 
-[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DCOS, [ensure your client can connect to your cluster](container-service-connect.md), and [install the DC/OS CLI](container-service-install-dcos-cli.md).
+[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DCOS, [ensure your client can connect to your cluster](container-service-connect.md), and [AZURE.INCLUDE [install the DC/OS CLI](container-service-install-dcos-cli.md)].
 
 
 ## Load balancing
@@ -97,7 +97,7 @@ dcos marathon app add hello-web.json
 By default the Azure LB exposes ports 80, 8080 and 443. If you are using one of these three ports (as we do in the above example), then there is nothing you need to do: you should be able to hit your agent LB's FQDN, and each time you refresh you will hit one of your three web servers in a round-robin fashion. If, however, you use a different port, you need to add a round-robin rule and a probe on the Azure LB for the port you used. This can be done from the [Azure XPLAT CLI](../xplat-cli-azure-resource-manager.md) with the commands `azure lb rule create` and `azure lb probe create`.
 
 
-## Additional Scenarios
+## Additional scenarios
 
 You could have a scenario where you use different domains to expose different services. For example: 
 
@@ -112,6 +112,6 @@ Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423
 Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432 
  
 
-## Further Reading 
+## Next steps
 
 Check out [this blog post](https://mesosphere.com/blog/2015/12/04/dcos-marathon-lb/) for more information about Marathon LB.

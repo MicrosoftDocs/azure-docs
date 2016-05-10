@@ -20,13 +20,13 @@
 
 # Create an application or user specific marathon service
 
-Azure Container Service provides a set of masters on which we preconfigure Apache Mesos and Marathon. These can be used to orchestrate your applications on the cluster, but it is best not to use the Masters for this purpose. For example, tweaking the configuration of Marathon requires logging into the masters themselves and making changes; this encourages "snowflake" master servers that are a little different from the "standard" and need to be cared for and managed independently. Furthermore, the configuration required by one team may not be the optimal configuration for another team. In this post we'll explain how to add a user or application specific Marathon service.
+Azure Container Service provides a set of master servers on which we preconfigure Apache Mesos and Marathon. These can be used to orchestrate your applications on the cluster, but it is best not to use the Masters for this purpose. For example, tweaking the configuration of Marathon requires logging into the masters themselves and making changes; this encourages unique master servers that are a little different from the standard and need to be cared for and managed independently. Furthermore, the configuration required by one team may not be the optimal configuration for another team. In this article we'll explain how to add a user or application specific Marathon service.
 
 Since this service will belong to a single user or team, they are free to configure it in any way they desire. Furthermore, Azure Container Service will ensure that the service continues to run; should the service fail, Azure Container Service will restart it for you. Most of the time you won't even notice it had downtime.
 
 ## Prerequisites
 
-[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DCOS, [ensure your client can connect to your cluster](container-service-connect.md), and [install the DC/OS CLI](container-service-install-dcos-cli.md).
+[Deploy an instance of Azure Container Service](container-service-deployment.md) with orchestrator type DCOS, [ensure your client can connect to your cluster](container-service-connect.md), and [AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)].
 
 ## Creating an application or user specific Marathon service.
 
