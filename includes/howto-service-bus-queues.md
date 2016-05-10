@@ -16,7 +16,7 @@ Using queues enables you to scale your applications more easily, and enable more
 
 To begin using Service Bus queues in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
-To create a service namespace:
+To create a namespace:
 
 1.  Log on to the [Azure classic portal][].
 

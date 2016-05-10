@@ -18,7 +18,7 @@
 
 9. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
 
-10. You can select **Pin to dashboard** if you want your gateway to appear on the dashboard. Click **Create** to being creating the gateway. You'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. There is a lot going on in the background. You may need to refresh your portal page to see the completed status.
+10. You can select **Pin to dashboard** if you want your gateway to appear on the dashboard. Click **Create** to begin creating the gateway. You'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. There is a lot going on in the background. You may need to refresh your portal page to see the completed status.
 
 	
 	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)

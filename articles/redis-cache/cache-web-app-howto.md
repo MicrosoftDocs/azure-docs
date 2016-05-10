@@ -12,8 +12,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/28/2016" 
+	ms.topic="hero-article" 
+	ms.date="05/05/2016" 
 	ms.author="sdanie"/>
 
 # How to create a Web App with Redis Cache
