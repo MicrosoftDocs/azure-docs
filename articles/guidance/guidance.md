@@ -142,7 +142,7 @@ We're creating a new set of guidance we're calling "blueprints". Each blueprint 
 [RetryPolicies]: Retry-Policies.md
 [ScalabilityChecklist]: ../best-practices-scalability-checklist/
 [AvailabilityChecklist]: ../best-practices-availability-checklist/
-[naming-conventions]: ./guidance-naming-conventions/
+[naming-conventions]: ../guidance-naming-conventions/
 
 <!-- guidance projects -->
 [elasticsearch]: guidance-elasticsearch.md
