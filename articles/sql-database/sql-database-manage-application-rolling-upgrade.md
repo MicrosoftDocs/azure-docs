@@ -27,26 +27,26 @@ Learn how to use [geo-replication](sql-database-geo-replication-overview.md) in 
 
 For the purposes of this article we will use a simple application that consist of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact of the end user experience. Further in the article we will use the term <i>application</i> to refer to all components it consists of, such as web site and the database. 
 
-When evaluating the specific upgrade pattern you should consider the following factors:
+When evaluating the upgrade options you should consider the following factors:
 
 + Impact on application availability during upgrade. How long the application function may be limited or degraded.
 + Vulnerability of the application during upgrade if an unrelated failure occurs 
 + Ability to roll back in case of any errors during upgrade.
-+ Total dollar cost.  This includes additional redundancy and incremental cost and incremental costs for temporary deployments used by the upgrade process. 
++ Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
 
 
 ## Upgrade pattern 1: Upgrading applications that rely on database backups for disaster recovery 
 
-If your application relies on automatic database backups and geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.azurewebsites.net</i> represents the active application web site, which will be upgraded. To enable the ability to rollback the upgrade, a fully synchronized copy of it needs to be created. The following steps are required to prepare the application for the upgrade:
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.azurewebsites.net</i> represents the active application web site, which will be upgraded. To enable the ability to rollback the upgrade, you need to create a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
 
 1.  Create a secondary database (1) and deploy a standby copy of the web site in the primary region. Monitor the secondary to see if the seeding process is completed.
 3.  Create a failover profile in WATM with <i>contoso-1.azurewebsites.net</i> as online endpoint and <i>contoso-2.azurewebsites.net</i> as offline. 
 
-> [AZURE.NOTE] Note the preparation steps will not impact the normal function of the web site <i>contoso-1.azurewebsites.net</i> and it can continue to operate with full access enabled.
+> [AZURE.NOTE] The preparation steps will not impact the normal function of the web site <i>contoso-1.azurewebsites.net</i> and it can continue to operate with full access enabled.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
-Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. Those steps are:
+Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. 
 
 1. Set the primary database to read-only mode (3). This will guarantee that the V1 copy of the application will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database versions.  
 2. Set the main active endpoint <i>contoso-1.azurewebsites.net</i> to offline in the WATM profile (4). At this point the end users will only be able to perform read-only operations on the web site <i>contoso-2.azurewebsites.net</i>.
@@ -129,9 +129,11 @@ At this point the application is fully functional and the upgrade steps can be c
 The key **advantage** of this option is that you can upgrade a application and its standby copy in parallel without compromising your business continuity during the upgrade. The main **tradeoff** is that it requires additional redundancy of the application components and therefore incurs a higher dollar cost. It also involves a more complicated workflow. 
 
 
-## Alternative upgrade options
+## Summary
 
-The described upgrade work flows represent the optimistic upgrade strategy. They assume that the upgrade failures are rare. You should use your judgment and experience to validate that approach in your specific case. If it is more practical for your application to optimize for upgrade failures you should consider an approach where the upgrade script runs against the backup application instance and only if successful the end-user traffic would be switched to it.
+The described workflows differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to the read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the normal application function. The efficiency of the upgrade script is a critical factor that determines end-user impact. By focusing your efforts on making that script as efficient as possible you will improve the end user experience during the upgrades.  
+
+Finally, the presented options assume that the upgrade failures are rare. You should validate that assertion in your particular case. If it is more practical for your application to optimize for upgrade failures instead you should consider an approach where the upgrade script is run against the backup application instance. Only if the upgrade is successful the end-user traffic would switch to that instance. The steps required to implement this alternative are very similar to the ones described in the previous sections.
 
 ## Additional resources
  The following pages will help you learn about the specific operations required to implement the upgrade workflow:
