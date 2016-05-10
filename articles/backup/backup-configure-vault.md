@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Back up a Windows Server or client to Azure with Azure Backup using Resource Manager | Microsoft Azure"
+	pageTitle="Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Azure"
 	description="Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
 	services="backup"
 	documentationCenter=""
@@ -17,13 +17,13 @@
 	ms.date="05/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Back up a Windows Server or client to Azure with Azure Backup using Resource Manager
+# Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model
 
 > [AZURE.SELECTOR]
 - [Resource Manager](backup-configure-vault.md)
 - [Classic](backup-configure-vault-classic.md)
 
-This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using Resource Manager.
+This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
 
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -85,7 +85,7 @@ Now that you've created a vault, you prepare your infrastructure to back up file
 
 ## Step 2 - Download files
 
->[AZURE.NOTE] Enabling backup through the portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
+>[AZURE.NOTE] Enabling backup through the Azure portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
 
 1. Click **Settings** on the Recovery Services vault dashboard.
 

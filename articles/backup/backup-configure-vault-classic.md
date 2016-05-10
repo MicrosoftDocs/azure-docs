@@ -38,7 +38,7 @@ To back up files and folders from a server or client, you need to create a backu
 
 ### To create a backup vault
 
-1. Sign in to [the Azure portal](https://manage.windowsazure.com/).
+1. Sign in to [the classic portal](https://manage.windowsazure.com/).
 
 2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault**, and then choose **Quick Create**.
 
@@ -50,7 +50,7 @@ To back up files and folders from a server or client, you need to create a backu
 
     ![Create a backup vault](./media/backup-configure-vault-classic/demo-vault-name.png)
 
-    It can take a while for the backup vault to be created. To check the status, monitor the notifications at the bottom of the portal.
+    It can take a while for the backup vault to be created. To check the status, monitor the notifications at the bottom of the classic portal.
 
     After the backup vault has been created, you'll see a message saying that the vault has been successfully created. It also appears as **Active** in the **Recovery Services** resource list.
 
@@ -79,7 +79,7 @@ To back up files and folders from a server or client, you need to create a backu
     d. In the left navigation pane, click **Recovery Services** to return to the list of resources for Recovery Services.
 
 ## Step 2: Download the vault credential file
-The on-premises machine needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved through *vault credentials*. The vault credential file is downloaded through a secure channel from the Azure portal. The certificate private key does not persist in the portal or the service.
+The on-premises machine needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved through *vault credentials*. The vault credential file is downloaded through a secure channel from the classic portal. The certificate private key does not persist in the portal or the service.
 
 Learn more about [using vault credentials to authenticate with the Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
@@ -91,7 +91,7 @@ Learn more about [using vault credentials to authenticate with the Backup servic
 
 2.  On the Quick Start page, click **Download vault credentials**.
 
-    The portal generates a vault credential by using a combination of the vault name and the current date. The vault credentials file is used only during the registration workflow and expires after 48 hours.
+    The classic portal generates a vault credential by using a combination of the vault name and the current date. The vault credentials file is used only during the registration workflow and expires after 48 hours.
 
     The vault credential file can be downloaded from the portal.
 
