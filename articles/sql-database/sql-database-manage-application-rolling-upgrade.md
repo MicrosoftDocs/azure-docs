@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/09/2016"
+   ms.date="05/10/2016"
    ms.author="sashan"/>
 
 # Managing rolling upgrades of cloud applications using Active Geo-Replication in SQL Database
