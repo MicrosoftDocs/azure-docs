@@ -130,9 +130,9 @@ In the **Networking** section, there is a hierarchical view of the resources as 
 ![Network tree](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
 
 This table is sorted (VMs and Subnets) by severity, as described below:
-- Red (on top)
-- Orange 
-- Green (last one)
+- Red (on top): high priority and should be addressed immediately 
+- Orange: medium priority and should be addressed as soon as possible
+- Green (last one): health state
 
 In this hierarchy, the first level has [Virtual Networks](../virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md) and [Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets and the third level has the VMs that belongs to those subnets. The right column has the current status of the Network Security Group (NSG) for those resources. The example below is the result of selecting the VM VM-CL-W1:
 

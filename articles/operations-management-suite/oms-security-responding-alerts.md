@@ -79,7 +79,6 @@ The **threat intelligence map** will help you to identify the current locations 
 
 In this document, you learned how to use the **Threat Intelligence** option in OMS Security and Audit solution to respond to security alerts. To learn more about OMS Security, see the following articles:
 
-[Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
-[Getting started with Operations Management Suite Security and Audit Solution](oms-security-getting-started.md)
-[Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
-
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Getting started with Operations Management Suite Security and Audit Solution](oms-security-getting-started.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)

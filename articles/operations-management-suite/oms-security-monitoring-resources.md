@@ -105,6 +105,6 @@ The report generated for this computer brings valuable details about this patter
 
 In this document, you learned how to use OMS Security and Audit solution to monitor your resources. To learn more about OMS Security, see the following articles:
 
-[Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
-[Getting started with Operations Management Suite Security and Audit Solution](oms-security-getting-started.md)
-[Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Getting started with Operations Management Suite Security and Audit Solution](oms-security-getting-started.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)

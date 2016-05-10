@@ -150,6 +150,6 @@ The list of common security queries available can be useful for you to rapidly a
 
 In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
 
-[Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
-[Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
-[Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
