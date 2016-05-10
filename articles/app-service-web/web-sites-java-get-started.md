@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service
@@ -167,7 +167,11 @@ At this point, you have a Java application server running in your web app in Azu
 
 For more information about developing Java applications in Azure, see the [Java Developer Center](/develop/java/).
 
-<!-- External Links -->
+<!-- URL List -->
+
 [activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
 [sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+
+<!-- IMG List -->
+
