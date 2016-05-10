@@ -78,9 +78,7 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
 	> [AZURE.NOTE] You should select the same **Location** as your Storm on HDInsight server to reduce latency and costs.
 
-2. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values. For this example, use a partition count of 10 and a message retention of 1. Note the partition count because you will need this value later.
-
-	![wizard page 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
+2. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values. For this example, use a partition count of 8 and a message retention of 1. Note the partition count because you will need this value later.
 
 3. After the event hub has been created, select the namespace, select **Event Hubs**, and then select the event hub that you created earlier.
 
