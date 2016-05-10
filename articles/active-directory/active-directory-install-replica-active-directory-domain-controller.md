@@ -87,7 +87,7 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 
 ## Reconfigure DNS server for the virtual network
 
-1. In the Azure classic portal, click the name of the virtual network, and then click the **Configure** tab to [reconfigure the DNS server IP addresses for your virtual network](virtual-networks-manage-dns-in-vnet.md) to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers.
+1. In the Azure classic portal, click the name of the virtual network, and then click the **Configure** tab to [reconfigure the DNS server IP addresses for your virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers.
 
 2. To ensure that all the replica DC VMs on the virtual network are configured with to use DNS servers on the virtual network, click **Virtual Machines**, click the status column for each VM, and then click **Restart**. Wait until the VM shows **Running** state before you try to sign into it.
 
