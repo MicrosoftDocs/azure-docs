@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Built-in roles
@@ -34,7 +34,7 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) | Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) | Can manage everything except access. |
 | [Data Factory Contributor](#data-factory-contributor) | Can manage data factories |
-| [DevTest Lab User](#devtest-lab-user) | Can view everything and connect, start, restart, and shutdown virtual machines |
+| [DevTest Labs User](#devtest-labs-user) | Can view everything and connect, start, restart, and shutdown virtual machines |
 | [Document DB Account Contributor](#document-db-account-contributor) | Can manage Document DB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Can manage Intelligent Systems accounts |
 | [Network Contributor](#network-contributor) | Can manage all network resources |
@@ -152,7 +152,7 @@ Can manage data factories
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.Support/* | Create and manage support tickets  |
 
-### DevTest Lab User
+### DevTest Labs User
 Can view everything and connect, start, restart, and shutdown virtual machines
 
 | **Actions** ||
