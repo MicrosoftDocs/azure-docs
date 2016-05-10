@@ -20,7 +20,7 @@
 
 >[AZURE.NOTE] This is for working with DC/OS-based ACS clusters. There is no need to do this for Swarm-based ACS clusters.
 
-First, [connect to your DC/OS-based ACS cluster](container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
+First, [connect to your DC/OS-based ACS cluster](../articles/container-service/container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
 
 ```bash
 sudo pip install virtualenv
