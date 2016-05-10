@@ -96,6 +96,8 @@ The remote monitoring preconfigured solution has two rules set up by default whe
 
 The Temperature rule triggers the Raise Alarm actionId while the Humidity rule triggers the SendMessage actionId. Assuming you pasted the same ```<URL>``` in ActionProcessor.cs for both, your logic app will trigger for either.
 
+> [AZURE.NOTE] The Logic App will continue to trigger for every instance of a threshold being met, so to avoid unnecessary emails, you can either disable the rules in your solution portal or disable the Logic App in the [Azure Portal][lnk-azureportal].
+
 [lnk-internetofyourthings]: http://www.microsoft.com/en-us/server-cloud/internet-of-things/azure-iot-suite.aspx
 [lnk-getstarted]:https://azure.microsoft.com/en-us/documentation/articles/iot-suite-getstarted-preconfigured-solutions/
 [lnk-azureportal]: https://portal.azure.com
