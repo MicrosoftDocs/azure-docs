@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B collaboration
@@ -47,7 +47,7 @@ Invitations to consumer email addresses (for example, Gmail or [*comcast.net*](
 For more on how B2B collaboration works, check out [this video](http://aka.ms/aadshowb2b).
 
 ## Next steps
-Browse our other articles on Azure B2B collaboration.
+Browse our other articles on Azure AD B2B collaboration.
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [How it works](active-directory-b2b-how-it-works.md)
