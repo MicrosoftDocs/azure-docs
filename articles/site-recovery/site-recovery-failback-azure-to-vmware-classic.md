@@ -39,7 +39,7 @@ Use this architecture when the process server is on-premises and you are using a
 
 Use this architecture when the process server is on Azure and you have either a VPN or an ExpressRoute connection.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 To see the complete list of ports and the failback architechture diagram refer to the image below
 
