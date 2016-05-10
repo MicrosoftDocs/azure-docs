@@ -61,7 +61,7 @@ Use the following procedure to enable MFA for your users.
 10.  After you have enabled your users, it is recommended that you notify them via email.  It should also inform them how they can use their non-browser apps to avoid being locked out.
 
 
-### Automate turning on multi-factor authentication using PowerShell
+## Automate turning on multi-factor authentication using PowerShell
 
 To change the state using [Azure AD PowerShell](powershell-install-configuremd), you can use the following.  You can change `$st.State` to equal one of the following states:
 
