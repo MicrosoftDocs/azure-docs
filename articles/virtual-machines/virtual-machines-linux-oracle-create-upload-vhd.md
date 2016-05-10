@@ -19,10 +19,6 @@
 
 # Prepare an Oracle Linux virtual machine for Azure
 
-
-- [Prepare an Oracle Linux 6.4+ virtual machine for Azure](#oracle-linux-6.4+)
-- [Prepare an Oracle Linux 7.0+ virtual machine for Azure](#oracle-linux-7.0+)
-
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Prerequisites ##
@@ -30,7 +26,7 @@
 This article assumes that you have already installed an Oracle Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 
-**Oracle Linux installation notes**
+### Oracle Linux installation notes
 
 - Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 
