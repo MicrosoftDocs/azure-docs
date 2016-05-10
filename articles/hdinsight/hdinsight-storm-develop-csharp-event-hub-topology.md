@@ -114,7 +114,7 @@ Table storage will be used to hold the values that are read from Event Hubs beca
 
 4. Open Visual Studio. From the __View__ menu, select __Cloud Explorer__. In __Cloud Explorer__, expand __Storage Accounts__, and then the storage account you created earlier.
 
-    ![Cloud explorer]()
+    ![Cloud explorer](./media/hdinsight-storm-develop-csharp-event-hub-topology/createtablestorage.png)
 
 5. Right click __Tables__ for your storage account, and then select __Create Table__. When prompted, enter a **events** as the name of your table. Save the name as you will need it in later steps.
 
