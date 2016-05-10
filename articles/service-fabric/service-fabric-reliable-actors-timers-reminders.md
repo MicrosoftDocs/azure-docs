@@ -18,7 +18,7 @@
 
 
 # Actor timers and reminders
-Actors can schedule periodic work on themselves by register either timers or reminders. This article shows how to use timers and reminders and explains the differences between them.
+Actors can schedule periodic work on themselves by registering either timers or reminders. This article shows how to use timers and reminders and explains the differences between them.
 
 ## Actor timers
 Actor timers provide a simple wrapper around .NET timer to ensure that the callback methods respect the turn-based concurrency guarantees that the Actors runtime provides.

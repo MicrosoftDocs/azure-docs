@@ -34,7 +34,7 @@ Reliable Services can be stateless, similar to most service platforms, such as w
 
 Reliable Services can also be stateful, exclusive to Service Fabric, where state is persisted directly in the service itself using Reliable Collections. State is made highly-available through replication and distributed through partitioning, all managed automatically by Service Fabric.
 
-[Learn more about Reliable Services](service-fabric-reliable-services-introduction) or get started by [writing your first Reliable Service](service-fabric-reliable-services-quick-start.md).
+[Learn more about Reliable Services](service-fabric-reliable-services-introduction.md) or get started by [writing your first Reliable Service](service-fabric-reliable-services-quick-start.md).
 
 ## Reliable Actors
 

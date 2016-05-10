@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/24/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configure the Roles for an Azure Cloud Service with Visual Studio
@@ -279,8 +279,8 @@ You can collect diagnostics data for your Azure cloud service. This data is adde
 
 1. Choose the storage account you want to use in **Account name**.
 
-    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the Azure Management Portal. To copy this key, following these steps from the **Storage Accounts** view in the Azure Management Portal:
-
+    If you are manually entering your storage account credentials, copy or type your primary key in **Account key**. This key can be copied from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). To copy this key, following these steps from the **Storage Accounts** view in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885):
+    
   1. Select the storage account that you want to use for your cloud service.
 
   1. Choose the **Manage Access Keys** button located at the bottom of the screen. The **Manage Access Keys** dialog box appears.
@@ -319,7 +319,7 @@ You can also add endpoints that can be used internally or externally. External e
 
 If you add HTTPS endpoints, you need to use an SSL certificate. To do this you can associate certificates with your role for all service configurations and use these for your endpoints.
 
->[AZURE.IMPORTANT] These certificates are not packaged with your service. You must upload your certificates separately to Azure through the Azure Platform Management portal
+>[AZURE.IMPORTANT] These certificates are not packaged with your service. You must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Any management certificates that you associate with your service configurations apply only when your cloud service runs in Azure. When your cloud service runs in the local development environment, a standard certificate that is managed by the Azure compute emulator is used.
 
