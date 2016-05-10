@@ -30,47 +30,28 @@ This procedure describes how to configure various advanced configuration options
 ## Permission Requirements
 A number of options require specific permissions, all of which are listed here for reference, as well as in-line in the specific feature. Add these permissions to the AndroidManifest.xml of your project immediately before or after the `<application>` tag.
 
+The permission code needs to look like the following, where you fill in the appropiate permission from the table below.
 
-### Basic reporting
-These permissions are required for basic reporting fucntionality.
+		<uses-permission android:name="android.permission.[specific permission]"/>
 
-		<uses-permission android:name="android.permission.INTERNET"/>
-		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-		<uses-permission android:name="android.permission.VIBRATE" />
 
-### Big Picture notification
-Using [BigPictureStyle](http://developer.android.com/reference/android/app/Notification.BigPictureStyle.html) notifications requires the following permission.
 
-		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+| Permission | When used |
+| ---------- | --------- |
+| INTERNET | Basic reporting |
+| ACCESS_NETWORK_STATE" | Basic reporting |
+| WRITE_EXTERNAL_STORAGE | Basic reporting |
+| RECEIVE_BOOT_COMPLETED | Basic reporting |
+| VIBRATE | Basic reporting |
+| DOWNLOAD_WITHOUT_NOTIFICATION | Big Picture Notification |
+| WAKE_LOCK | Collect stats when using wifi or screen is off |
+| RECEIVE_BOOT_COMPLETED | enable background reporting |
+| ACCESS_COARSE_LOCATION | real-time location reporting |
+| ACCESS_FINE_LOCATION | GPS-based reporting |
 
-### Wake locks
+Starting with Android M, [some permissions are managed at run time](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
 
-If you want to be sure that statistics are sent in real time when using Wifi or when the screen is off, add the following optional permission:
-
-		<uses-permission android:name="android.permission.WAKE_LOCK"/>
-
-### Background reporting
-
-By default, real time location reporting is only active when the application runs in foreground (i.e. during a session). To enable reporting also in the background, permissions are required.
-
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
-And starting with Android M, [some permissions are managed at run time](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
-
-### Real-time location reporting
-You must ensure that this permission is present:
-
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
-Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
-
-### GPS Based Reporting
-You must ensure that this permission is present:
-
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+If you are already using ``ACCESS_FINE_LOCATION`` then you don't need to also use ``ACCESS_COARSE_LOCATION``.
 
 ## Manifest file configuration options
 
@@ -96,6 +77,8 @@ By default, a session is ended 10s after the end of its last activity (which usu
 
 ## Disable log reporting
 
+### Using a method call
+
 If you want Engagement to stop sending logs, you can call:
 
 			EngagementAgent.getInstance(context).setEnabled(false);
@@ -106,9 +89,10 @@ If Engagement is active when you call this function, it may take 1 minute for th
 
 You can enable log reporting again by calling the same function with `true`.
 
+### Integration in your own `PreferenceActivity`
+
 Instead of calling this function, you can also integrate this setting directly in your existing `PreferenceActivity`.
 
-## Integration in your own `PreferenceActivity`
 
 You can configure Engagement to use your preferences file (with the desired mode) in the `AndroidManifest.xml` file with `application meta-data`:
 

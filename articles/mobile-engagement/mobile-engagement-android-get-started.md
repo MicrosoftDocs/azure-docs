@@ -134,7 +134,7 @@ Go to **MainActivity.java** and add the following to replace the base class of *
 	public class MainActivity extends EngagementActivity {
 
 > [AZURE.NOTE] If your base class is not *Activity*, consult
-[Advanced Android Reporting](mobile-engagement-android-advanced-reporting/?rnd=1#alternate-method-call-codestartactivitycode-and-codeendactivitycode-manually) for how to inherit from different classes.
+[Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#alternate-method-call-codestartactivitycode-and-codeendactivitycode-manually) for how to inherit from different classes.
 
 
 You should comment out (exclude) the following line for this simple sample scenario:
@@ -170,7 +170,7 @@ The following sections sets up your app to receive them.
 
 ## More resources
 
-[Advanced Android Integration](mobile-engagement-android-integrate-engagement.md)
+Go to [Android SDK](mobile-engagement-android-sdk-overview.md) to get detailed knowlege about the SDK integration.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png

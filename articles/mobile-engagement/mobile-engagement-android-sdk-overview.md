@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 
@@ -38,8 +38,8 @@ Learn about all the advanced features of Azure Mobile Engagement you can integra
 You can add these features:
 
 1. [Advanced reporting options](mobile-engagement-android-advanced-reporting.md)
-2. [Location Reporting](mobile-engagement-android-location-reporting.md)
-3. [Advanced Configuration](mobile-engagement-android-advanced-configuration.md)
+2. [Location Reporting options](mobile-engagement-android-location-reporting.md)
+3. [Advanced Configuration options](mobile-engagement-android-advanced-configuration.md)
 
 ### Notifications:
 [How to integrate Reach (Notifications) in your Android app](mobile-engagement-android-integrate-engagement-reach.md)
