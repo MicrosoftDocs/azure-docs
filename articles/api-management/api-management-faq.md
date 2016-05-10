@@ -78,7 +78,7 @@ It can be achieved by following below steps:
 2. Navigate to the resource group which contains the desired API Management instance
 3. Add the desired user to "Api Management Contributor" role
 
-Once that is done, the newly added contributor can use Azure PowerShell [cmdlets](https://msdn.microsoft.com/en-us/library/mt613507.aspx) to login as an administrator:
+Once that is done, the newly added contributor can use Azure PowerShell [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx) to login as an administrator:
 
 1. Use `Login-AzureRmAccount` cmdlet to login
 2. Set the context to the subscription which contains the service using 
