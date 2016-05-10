@@ -1,5 +1,5 @@
 <properties
-	pageTitle="AD FS Management and customizaton with Azure AD Connect | Microsoft Azure"
+	pageTitle="AD FS Management and customization with Azure AD Connect | Microsoft Azure"
 	description="AD FS management using Azure AD Connect and customization of user AD FS sign-in experience using Azure AD Connect and Powershell."
 	services="active-directory"
 	documentationCenter=""
@@ -16,11 +16,11 @@
 	ms.date="05/04/2016"
 	ms.author="anandy"/>
 
-# AD FS management and customizaton with Azure AD Connect
+# Active Directory Federation Services management and customization with Azure AD Connect
 
-This article details the various AD FS related tasks that can be performed using Azure AD Connect and other common AD FS tasks that may be required for a complete configuration of an AD FS farm.
+This article details the various Active Directory Federation Services (AD FS) related tasks that can be performed using Azure AD Connect and other common AD FS tasks that may be required for a complete configuration of an AD FS farm.
 
-## AD FS managemet
+## AD FS management
 
 Azure AD Connect provides various AD FS related tasks that can be performed using the Azure AD Connect wizard with minimal user intervention. After you have finished installing Azure AD Connect by running the wizard, you can run the wizard again to perform additional tasks.
 
@@ -84,9 +84,9 @@ Click on Next and go through the final Configure page. After Azure AD Connect ha
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Adding a new AD FS WAP server
+### Adding a new AD FS web application proxy server
 
-> [AZURE.NOTE] Azure AD Connect requires the PFX certifcate file to add WAP server. Therefore, you will be able to perform this operation only if you configured the AD FS farm using Azure AD Connect.
+> [AZURE.NOTE] Azure AD Connect requires the PFX certifcate file to add a web application proxy server. Therefore, you will be able to perform this operation only if you configured the AD FS farm using Azure AD Connect.
 
 Select **Deploy Web Application Proxy** from the list of available tasks.
 
@@ -102,7 +102,7 @@ Next, you will be presented with the **Specify SSL certificate** page where you 
 
 ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
-On the next page, add the server to be added as WAP. Since WAP server may or may not be joined to the domain, the wizard will ask for administrative credentials to the server being added.
+On the next page, add the server to be added as a web application proxy. Since the web application proxy server may or may not be joined to the domain, the wizard will ask for administrative credentials to the server being added.
 
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
 
