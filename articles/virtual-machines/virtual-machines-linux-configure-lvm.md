@@ -44,9 +44,17 @@ One will usually want to start with two or more empty data disks when using LVM.
 
 		# sudo yum install lvm2
 
-- **SLES12 and openSUSE**
+- **SLES 12 and openSUSE**
 
 		# sudo zypper install lvm2
+
+- **SLES 11**
+
+		# sudo zypper install lvm2
+
+	On SLES11 you must also edit /etc/sysconfig/lvm and set `LVM_ACTIVATED_ON_DISCOVERED` to "enable":
+
+		LVM_ACTIVATED_ON_DISCOVERED="enable" 
 
 
 ## Configure LVM
@@ -68,7 +76,7 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
 3. Create the logical volume(s). The command below we will create a single logical volume called "data-lv01" to span the entire volume group, but note that it is also feasible to create multiple logical volumes in the volume group.
 
-    # sudo lvcreate --extents 100%FREE --stripes 3 --stripesize 256 --name data-lv01 data-vg01
+    # sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
       Logical volume "data-lv01" created.
 
 
@@ -76,7 +84,7 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
     # sudo mkfs -t ext4 /dev/data-vg01/data-lv01
 
-  >[AZURE.NOTE] With SLES 11 use "-t ext3" instead of ext4. SLE11 only supports read-only access to ext4 filesystems.
+  >[AZURE.NOTE] With SLES 11 use "-t ext3" instead of ext4. SLES 11 only supports read-only access to ext4 filesystems.
 
 
 ## Add the new file system to /etc/fstab
