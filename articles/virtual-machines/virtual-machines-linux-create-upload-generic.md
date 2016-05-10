@@ -193,6 +193,6 @@ The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) (waagent) is
 		# export HISTSIZE=0
 		# logout
 
-	>[AZURE.NOTE] On Virtualbox you may see the following error: `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
+	>[AZURE.NOTE] On Virtualbox you may see the following error after running 'waagent -force -deprovision': `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
 
 - You will then need to shut down the virtual machine and upload the VHD to Azure.
