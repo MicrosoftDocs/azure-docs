@@ -46,7 +46,9 @@ Perform the following series of steps to configure your Operations Manager manag
 3. Click the **Register to Operations Management Suite** link.
 4. On the **Operations Management Suite Onboarding Wizard: Authentication** page, enter the email address or phone number and password of the administrator account that is associated with your OMS subscription, and click **Sign in**.
 5. After you are successfully authenticated, on the **Operations Management Suite Onboarding Wizard: Select Workspace** page, you will be prompted to select your OMS workspace.  If you have more than one workspace, select the workspace you want to register with the Operations Manager management group from the drop-down list, and then click **Next**.
+
     >[AZURE.NOTE] Operations Manager only supports one OMS workspace at a time. The connection and the computers that were registered to OMS with the previous workspace are removed from OMS.
+
 6. On the **Operations Manager Suite Onboarding Wizard: Summary** page, confirm your settings and if they are correct, click **Create**.
 7. On the **Operations Management Suite Onboarding Wizard: Finish** page, click **Close**.
 
