@@ -1,7 +1,6 @@
 <properties
    pageTitle="Cloud business continuity - Point-in-Time Restore | Microsoft Azure"
    description="Learn about Point-in-Time Restore, that enables you to roll back an Azure SQL Database to a previous point in time (up to 35 days)."
-   keywords="business continuity,cloud business continuity,database disaster recovery,database recovery"
    services="sql-database"
    documentationCenter=""
    authors="stevestein"
