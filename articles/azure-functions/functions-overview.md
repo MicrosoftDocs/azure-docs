@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Functions Overview | Microsoft Azure"
-   description="Understand how Azure Functions can optimize asynchronous workloads by creating simple functions that can be written in minutes."
+   description="Understand how to use Azure Functions to optimize asynchronous workloads in minutes."
    services="functions"
    documentationCenter="na"
    authors="mattchenderson"
@@ -21,29 +21,9 @@
    
 # Azure Functions Overview
 
-Azure functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can [get started with your first function](functions-create-first-azure-function.md) in just minutes. Use your development language of choice, such as C#, Node.js, Python or PHP. Pay only for the time your code runs and trust Azure to scale as needed.
+Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. This can make development even more productive, and you can use your development language of choice, such as C#, Node.js, Python or PHP. Pay only for the time your code runs and trust Azure to scale as needed.
 
 This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Azure Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
-
-## What can I do with Functions?
-
-Azure Functions is a great solution for processing data, and integrating systems, working with the internet-of-things (IoT), and building simple APIs and microservices. Consider Functions for tasks like image or order processing and file maintenance, long-running tasks that you want to run in a background thread or for any tasks that you want to run on a schedule. 
-
-Functions provides the following set of templates to get you started with key scenarios:
-
-* **BlobTrigger** - Process images or perform other actions when files are added to Azure Storage.
-* **Empty** - Customize your function trigger and input and output bindings.
-* **EventHubTrigger** -  Respond events occurring in your IoT devices.
-* **Generic webhook** - Connect your code to any service that supports webhooks.
-* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a webhook or API function](functions-create-a-web-hook-or-api-function.md).
-* **HTTPTrigger** - Execute your code from remote over HTTP.
-* **ManualTrigger** - Your code can only be executed from the portal.
-* **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create an Azure Function which binds to an Azure service](functions-create-an-azure-connected-function.md).
-* **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premise services by listening to message queues. 
-* **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premise services by subscribing to topics. 
-* **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create an event processing function](functions-create-an-event-processing-function.md).
-
-For a detailed description of triggers and bindings, see [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md).
 
 ## Features
 
@@ -57,17 +37,35 @@ Here are some key features of Azure Functions:
 * **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through GitHub, Visual Studio Team Services, and other [supported development tools](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
 * **Open-source** - The Functions runtime is open-source and [available on GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
+## What can I do with Functions?
+
+Azure Functions is a great solution for processing data, integrating systems, working with the internet-of-things (IoT), and building simple APIs and microservices. Consider Functions for tasks like image or order processing, file maintenance, long-running tasks that you want to run in a background thread, or for any tasks that you want to run on a schedule. 
+
+Functions provides templates to get you started with key scenarios, including the following:
+
+* **BlobTrigger** - Process Azure Storage blobs when they are added to containers. You might use this for image resizing.
+* **EventHubTrigger** -  Respond to events occurring in your IoT devices.
+* **Generic webhook** - Process webhook HTTP requests from any service that supports webhooks.
+* **GitHub webhook** - Respond to events that occur in your GitHub repositories. For an example, see [Create a webhook or API function](functions-create-a-web-hook-or-api-function.md).
+* **HTTPTrigger** - Trigger the execution of your code by using an HTTP request.
+* **QueueTrigger** - Respond to messages as they arrive in an Azure Storage queue. For an example, see [Create an Azure Function which binds to an Azure service](functions-create-an-azure-connected-function.md).
+* **ServiceBusQueueTrigger** - Connect your code to other Azure services or on-premise services by listening to message queues. 
+* **ServiceBusTopicTrigger** - Connect your code to other Azure services or on-premise services by subscribing to topics. 
+* **TimerTrigger** - Execute cleanup or other batch tasks on a predefined schedule. For an example, see [Create an event processing function](functions-create-an-event-processing-function.md).
+
+Azure Functions supports *triggers*, which are ways to start execution of your code, and *bindings*, which are ways to simplifying coding for input and output data. For a detailed description of the triggers and bindings that Azure Functions provides, see [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md).
+
+
 ## <a name="integrations"></a>Integrations
 
 Azure Functions integrates with a variety of Azure and 3rd-party services. You can use these to trigger your function and start execution or to serve as input and output for your code. The following service integrations are supported by Azure Functions. 
 
 * Azure DocumentDB
-* Azure Event Hubs
+* Azure Event Hubs 
 * Azure Mobile Apps (tables)
-* Azure Service Bus
-* Azure Storage (blob, queues, and tables)
 * Azure Notification Hubs
-* Azure Service Bus
+* Azure Service Bus (queues and topics)
+* Azure Storage (blob, queues, and tables) 
 * GitHub (webhooks)
 * On-premises (using Service Bus)
 
