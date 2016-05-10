@@ -107,7 +107,7 @@ If the upgrade completed successfully you are now ready to switch the end users 
 1. Switch the online endpoint in the WATM profile back to <i>contoso-1.azurewebsites.net</i>, which now points to the V2 version of the web site (10). At this point the users will have access to the V2 functionality of the web site.  
 2. You no longer need the backup application deployment so you can safely remove them from the backup region first (11) and then from the primary region (12). From now on your bill will be reduced to two application instances in two regions. 
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
 In case the upgrade encountered an error you should rollback the application to V1 and retry the upgrade later after the upgrade script was fixed. The rollback involves additional steps as shown on the following diagram.
 
