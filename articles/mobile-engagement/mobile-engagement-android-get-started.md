@@ -134,14 +134,14 @@ Go to **MainActivity.java** and add the following to replace the base class of *
 	public class MainActivity extends EngagementActivity {
 
 > [AZURE.NOTE] If your base class is not *Activity*, consult
-[Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#alternate-method-call-codestartactivitycode-and-codeendactivitycode-manually) for how to inherit from different classes.
+[Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) for how to inherit from different classes.
 
 
 You should comment out (exclude) the following line for this simple sample scenario:
 
     // setSupportActionBar(toolbar);
 
-If you want to keep this around then you should check out the "Basic Reporting" scenario in our [Advanced Android Integration](mobile-engagement-android-integrate-engagement.md/#basic-reporting)
+If you want to keep this around then you should check out [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Connect app with real-time monitoring
 
