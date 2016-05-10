@@ -63,13 +63,15 @@ Use the following procedure to enable MFA for your users.
 
 ## Automate turning on multi-factor authentication using PowerShell
 
-To change the state using [Azure AD PowerShell](powershell-install-configuremd), you can use the following.  You can change `$st.State` to equal one of the following states:
+To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](powershell-install-configuremd), you can use the following.  You can change `$st.State` to equal one of the following states:
 
 
 - Enabled
 - Enforced
 - Disabled  
 
+> [AZURE.IMPORTANT]  Please be aware that if you go directly from the Disable state to the Enforced state, non-modern auth clients will stop working because the user has not gone through MFA registration and obtained an [app password](multi-factor-authentication-whats-next.md#app-passwords).  If you have non-modern auth clients and require app passwords then it is recommended that you go from a Disabled state to Enabled.  This will allow users to register and obtain their app passwords.   
+		
 		$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
 		$st.RelyingParty = "*"
 		$st.State = “Enabled”
@@ -89,7 +91,7 @@ Using PowerShell would be an option for bulk enabling users.  Currently there is
     }
 
 
-
+For more information on user states see [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 ## Next Steps
-Now that you have setup multi-factor authentication in the cloud, you can configure and setup your deployment.  See [Configuring Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md)
+Now that you have setup multi-factor authentication in the cloud, you can configure and setup your deployment.  See [Configuring Azure Multi-Factor Authentication.]
