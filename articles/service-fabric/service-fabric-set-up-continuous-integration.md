@@ -98,7 +98,7 @@ If you have any previous version of Azure PowerShell installed, remove it:
 | --- | --- |
 | KeyVaultLocation | Any value. This parameter must match the location in which you plan to create the cluster. |
 | CertificateSecretName | Any value. |
-| CertificateDnsName | Must match the DNS name of your cluster. Example: `mycluster.westus.azure.cloudapp.net` |
+| CertificateDnsName | Must match the DNS name of your cluster. Example: `mycluster.westus.cloudapp.azure.com` |
 | SecureCertificatePassword | Any value. This parameter is used when you import the certificate on your build machine. |
 | KeyVaultName | Any value. |
 | KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
