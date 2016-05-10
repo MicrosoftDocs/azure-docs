@@ -13,21 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/05/2016" 
+	ms.date="05/10/2016" 
 	ms.author="tomfitz"/>
 
 # Learn Azure Resource Manager templates by exporting a template from existing resources
 
 Understanding how to construct Azure Resource Manager templates can be daunting, but Resource Manager helps you with that task by
-enabling you to export a template from existing resources in your subscription. You may find it easier to create and configure resources through the portal, and 
-let Resource Manager generate a template from those resources. You can use that generated template to learn about the template syntax, or to automate the re-deployment of your 
+enabling you to export a template from existing resources in your subscription. You can use that generated template to learn about the template syntax, or to automate the re-deployment of your 
 solution as needed.
 
-In this tutorial, you will create a storage account through the portal, and export the template for that storage account. Then, you will modify the resource group  
-by adding a virtual network to it, and export a new template that represents its current state. Although this topic focuses on a simplified infrastructure, you could use these same steps 
+In this tutorial, you will create a storage account through the portal and export the template for that storage account. You will then modify the resource group  
+by adding a virtual network to it and export a new template that represents its current state. Although this topic focuses on a simplified infrastructure, you could use these same steps 
 to export a template for a more complicated solution.
-
-> [AZURE.NOTE] The export template feature is in preview, and not all resource types currently support exporting a template. When attempting to export a template, you may see an error that states some resources were not exported. If needed, you can manually add these resources to your template.
 
 ## Create the storage account
 
@@ -35,11 +32,11 @@ to export a template for a more complicated solution.
 
       ![create storage](./media/resource-manager-export-template/create-storage.png)
 
-2. Provide values to set up your storage account. You must give the storage account a name that is unique across Azure. Create a new resource group named **ExampleStorageGroup**. You can use the default values for the other properties.
+2. Create a storage account with the name **storage**, your initials and the date. The storage account name must be unique across Azure so if the name is already in use, try a variation. For resource group, use **ExportGroup**. You can use the default values for the other properties. Select **Create**.
 
       ![provide values for storage](./media/resource-manager-export-template/provide-storage-values.png)
 
-After the deployment completes, your subscription contains the storage account. In the next section, you will export the template.
+After the deployment completes, your subscription contains the storage account.
 
 ## Export template for a deployment
    
@@ -57,7 +54,7 @@ After the deployment completes, your subscription contains the storage account. 
 
 4. Resource Manager retrieves 5 files for you. They are:
 
-   1. The template that defines the infrastructure for your solution. It contains all of the parameters and variables as originally defined by the template creator. When you created the storage account through the portal, Resource Manager used a template to deploy it, and saved that template for future reference. 
+   1. The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference. 
 
    2. A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment, but you can change any of these values when re-deploying the template.
 
@@ -67,6 +64,10 @@ After the deployment completes, your subscription contains the storage account. 
    
    5. A .NET class that you can use to deploy the template.
 
+     The files are available through links across the blade. By default, the template is selected.
+     
+       ![view template](./media/resource-manager-export-template/view-template.png)
+     
      Let's pay particular attention to the template. Your template should look similar to:
    
         {
@@ -117,12 +118,6 @@ After the deployment completes, your subscription contains the storage account. 
    
      To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-6. The portal offers three options for working with this template. You can re-deploy the template right now, download all of the files locally, or save the files to your Azure account for later use through the portal. Select **Download** to save a .zip file that contains all of the exported files.
-
-      ![download template](./media/resource-manager-export-template/download-template.png)
-
-You now have local copies of the template, parameter file, PowerShell script, Azure CLI script, and .NET code to re-deploy the solution. 
-
 ## Add a virtual network
 
 The template you downloaded in the previous section represented the infrastructure for that original deployment, but it will not account for any changes you make after the deployment.
@@ -130,7 +125,7 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 
 1. In the resource group blade, select **Add** and pick **virtual network** from the available resources.
    
-2. Provide values when creating your virtual network, and select **Create**.
+2. Name your virtual network **VNET**, and use the default values for the other properties. Select **Create**.
 
       ![set alert](./media/resource-manager-export-template/create-vnet.png)
    
@@ -138,28 +133,33 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 
       ![deployment history](./media/resource-manager-export-template/deployment-history.png)
    
-4. Look at the template for that deployment. Notice that it defines only the virtual network. It is generally best practice to work with a template the deploys all of the infrastructure for your solution in a single operation, rather than remembering many different templates to deploy. In the next section, you will generate a new template that represents the current state of the resource group.
+4. Look at the template for that deployment. Notice that it defines only the changes you have made to add the virtual network. 
+
+It is generally best practice to work with a template which deploys all of the infrastructure for your solution in a single operation, rather than remembering many different templates to deploy.
+
 
 ## Export template for a resource group
 
-1. From the resource group blade, you can export the template that represents the current state of the resource group. To view the template for a resource group, select **Export template**.
+Although each deployment only shows the changes you have made to your resource group, at any time you can export a template to show the attributes of your entire resource group.  
+
+1. To view the template for a resource group, select **Export template**.
 
       ![export resource group](./media/resource-manager-export-template/export-resource-group.png)
 
 2. You will again see the 5 files you can use to re-deploy the solution, but this time the template is a little different. This template has only 2 parameters (one for the storage account name, and one for the virtual network name).
 
         "parameters": {
-          "virtualNetworks_ExampleVNET_name": {
-            "defaultValue": "ExampleVNET",
+          "virtualNetworks_VNET_name": {
+            "defaultValue": "VNET",
             "type": "String"
           },
-          "storageAccounts_storagedemoexport_name": {
-            "defaultValue": "storagedemoexport",
+          "storageAccounts_storagetf05092016_name": {
+            "defaultValue": "storagetf05092016",
             "type": "String"
           }
         },
         
-     Resource Manager did not retrieve the actual template used during deployment. Instead, it generated a template based on the current configuration of the resources. Resource Manager does know which values 
+     Resource Manager did not retrieve the templates used during deployment. Instead, it generated a new template based on the current configuration of the resources. Resource Manager does not know which values 
      you want to pass in as parameters, so it hard-codes most values based on the value in the resource group. For example, the storage account location and replication value are set to:
      
         "location": "northeurope",
@@ -170,118 +170,15 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 
 3. Download the template so you can work on it locally.
 
-## Customize the template
+      ![download template](./media/resource-manager-export-template/download-template.png)
 
-In this section, you will modify the generated template so you can re-use the template when deploying these resources to other environments. In particular, you may like that Resource Manager generated the template 
-for you, but you need more flexibility when deploying the solution to specify different values for the storage account and virtual network.  
-You will also provide two conveniences that simplify deploying your template. First, you will no longer have to guess a unique name for your storage account. Instead, the template 
-will create a unique name. Second, you will specify the permitted values for the storage account types right in the template. 
-
-1. Find the .zip file that you downloaded and extract the contents.
-
-2. Open the template.json file from the extracted files. If you have Visual Studio or Visual Code, you can use either one for editing the template. Otherwise, you can use any json editor or text editor. 
-
-3. To enable passing the values you might want to specify during deployment, replace the **parameters** section with the following parameter definitions. Notice that the allowed values for **storageAccount_accountType**. If you accidentally provide an invalid value, that error is recognized before the deployment starts. Also, notice that you are only providing a prefix for the storage account name, and the prefix is limited to 11 characters. You will see how to create a unique name in the next step.
-
-        "parameters": {
-          "storageAccount_prefix": {
-            "type": "string",
-            "maxLength": 11
-          },
-          "storageAccount_accountType": {
-            "defaultValue": "Standard_RAGRS",
-            "type": "string",
-            "allowedValues": [
-              "Standard_LRS",
-              "Standard_ZRS",
-              "Standard_GRS",
-              "Standard_RAGRS",
-              "Premium_LRS"
-            ]
-          },
-          "virtualNetwork_name": {
-            "type": "string"
-          },
-          "addressPrefix": {
-            "defaultValue": "10.0.0.0/16",
-            "type": "string"
-          },
-          "subnetName": {
-            "defaultValue": "subnet-1",
-            "type": "string"
-          },
-          "subnetAddressPrefix": {
-            "defaultValue": "10.0.0.0/24",
-            "type": "string"
-          }
-        },
-       
-4. Below the **parameters** section, add a **variables** section with the following code. The **variables** section enables you as the template author to create values that simplify the syntax for the rest of your template. The **storageAccount_name** variable concatenates the prefix from the parameter to a unique string that is generated based on the identifier of the resource group.
-
-        "variables": {
-          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
-        },
-
-5. To use the parameters and variable in the resource definitions, replace the **resources** section with the following definitions. Notice that the location of the resources is set to use the same location as the resource group through the **resourceGroup().location** expression, and the variable you created is referenced through the **variables** expression.
-
-        "resources": [
-          {
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetwork_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
-            "properties": {
-              "addressSpace": {
-                "addressPrefixes": [
-                  "[parameters('addressPrefix')]"
-                ]
-              },
-              "subnets": [
-                {
-                  "name": "[parameters('subnetName')]",
-                  "properties": {
-                    "addressPrefix": "[parameters('subnetAddressPrefix')]"
-                  }
-                }
-              ]
-            },
-            "dependsOn": []
-          },
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccount_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "properties": {
-                "accountType": "[parameters('storageAccount_accountType')]"
-            },
-            "dependsOn": []
-          }
-        ]
-
-6. Deploy your customized template to your Azure subscription. If needed, install either [Azure PowerShell](powershell-install-configure.md) or [Azure CLI](xplat-cli-install.md). You can use the downloaded scripts or use the examples below.
-
-     For PowerShell, run:
-   
-        # create a new resource group
-        New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
-
-        # deploy the template to the resource group
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile {path-to-file}\template.json
-        
-     For CLI, run:
-   
-        azure group create -n ExampleResourceGroup -l "West Europe"
-
-        azure group deployment create -f {path-to-file}\azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
+4. Find the .zip file that you downloaded and extract the contents. You can use this downloaded template to re-deploy your infrastructure.
 
 ## Next steps
 
-Congratulations! You have learned how to export a template from resources you created in the portal, and customize that template to use in future deployments.
+Congratulations! You have learned how to export a template from resources you created in the portal.
 
-- The [Resource Manager Template Walkthrough](resource-manager-template-walkthrough.md) builds upon your knowledge of templates by creating a template for a more complicated solution. 
+- In the second part of this tutorial, you will customize the template you just downloaded by adding more parameters and re-deploy it through script. See [Customize and re-deploy exported template](resource-manager-customize-template.md).
 - To see how to export a template through PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 - To see how to export a template through Azure CLI, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md). 
-- To learn about how templates are structured, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
