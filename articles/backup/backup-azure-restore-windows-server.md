@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restore  data to a Windows Server or Windows Client from Azure using Resource Manager | Microsoft Azure"
+   pageTitle="Restore data to a Windows Server or Windows Client from Azure using the Resource Manager deployment model | Microsoft Azure"
    description="Learn how to restore from a Windows Server or Windows Client."
    services="backup"
    documentationCenter=""
@@ -16,7 +16,7 @@
 	 ms.date="05/10/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
-# Restore files to a Windows server or Windows client machine using Resource Manager
+# Restore files to a Windows server or Windows client machine using Resource Manager deployment model
 
 > [AZURE.SELECTOR]
 - [Resource Manager](backup-azure-restore-windows-server.md)
