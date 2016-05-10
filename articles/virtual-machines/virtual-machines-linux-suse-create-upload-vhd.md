@@ -34,7 +34,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 - As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
 
 
-**SLES / openSUSE installation notes**
+### SLES / openSUSE installation notes
 
 - Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 
@@ -47,7 +47,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
 
-## Prepare SUSE Linux Enterprise Server 11 SP3 ##
+## Prepare SUSE Linux Enterprise Server 11 SP4 ##
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
