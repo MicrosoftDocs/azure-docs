@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/19/2015"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to clone a volume

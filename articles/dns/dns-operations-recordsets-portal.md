@@ -10,14 +10,14 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/29/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-# How to create and manage DNS records and record sets using the Azure portal
+# Manage DNS records and record sets using the Azure portal
 
 
 > [AZURE.SELECTOR]
@@ -26,9 +26,9 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-This guide will show how to create and manage record sets and records for your DNS zone using the Azure portal.
+This article shows you how to manage record sets and records for your DNS zone using the Azure portal.
 
-It is important to understand the distinction between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
+It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-portal.md).
 
 ## Create a new record set and a record
 
@@ -44,7 +44,7 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 	![search record set](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## Add a new record to an existing record set
+## Add a new record to a record set
 
 You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain, at most, one record.
 
@@ -77,14 +77,11 @@ When updating a record in an existing record set, the available fields you can u
 	![modify record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
 3. Click **Save** at the top of the blade to save your settings. You'll see the notification that the record has been saved in the upper right corner.
-
 	
 	![save record](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-
 3. Once the record has been saved, the values for the record set on the DNS blade will reflect the updated record.
-
 
 
 ## Remove a record from a record set
@@ -125,7 +122,7 @@ You cannot add or remove records from the automatically-created SOA record set a
 
 ### Modifying NS records at zone apex
 
-You cannot add to, remove or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’).  The only change permitted is to modify the record set TTL.
+You cannot add to, remove or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’). The only change permitted is to modify the record set TTL.
 
 ### Deleting SOA or NS record sets
 
@@ -134,3 +131,7 @@ You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) t
 ## Next steps
 
 For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
+
+
+If you want to work with reverse DNS records, see [How to manage reverse DNS records](dns-reverse-dns-record-operations-ps.md).
+ 
