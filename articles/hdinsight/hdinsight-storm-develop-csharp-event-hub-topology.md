@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/03/2016"
+   ms.date="05/10/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -40,7 +40,7 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 
 ## Completed project
 
-You can download a complete version of the project created in this tutorial from GitHub: [eventhub-storm-hybrid](https://github.com/Blackmist/eventhub-storm-hybrid). However, you still need to provide configuration settings by following the steps in this tutorial.
+You can download a complete version of the project created in this tutorial from GitHub: [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). However, you still need to provide configuration settings by following the steps in this tutorial.
 
 > [AZURE.NOTE] When you use the completed project, you must use the **NuGet Package Manager** to restore the packages that are required by this solution.
 
@@ -70,7 +70,7 @@ The most recent version of the **eventhubs-storm-spout-0.9-jar-with-dependencies
 
 Event Hubs is the data source for this example. Use the following steps to create a new Event Hub.
 
-1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > __APP SERVICES__ > **Service Bus** > **Event Hub** > **Custom Create**.
+1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > __APP SERVICES__ > **SERVICE BUS** > **EVENT HUB** > **CUSTOM CREATE**.
 
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
 
@@ -118,7 +118,7 @@ Table storage will be used to hold the values that are read from Event Hubs beca
 
     ![Cloud explorer]()
 
-5. Right click __Tables__ for your storage account, and then select __Create Table__. When prompted, enter a name for your table. Save the name as you will need it in later steps.
+5. Right click __Tables__ for your storage account, and then select __Create Table__. When prompted, enter a **events** as the name of your table. Save the name as you will need it in later steps.
 
 ## Create EventHubWriter
 
@@ -500,7 +500,7 @@ When writing data to Table storage, you must create a class that describes the d
 
     > [AZURE.IMPORTANT] The EventHubSpout component expects an ACK for each tuple from downstream components such as this bolt. If ACKS are not received, the EventHubSpout will assume processing for the tuple has failed.
 
-At this point, you have a complete topology that will read data from Event Hub, and store it in Table Storage in a table named **events**.
+At this point, you have a complete topology that will read data from Event Hub, and store it in Table Storage in the table you created earlier.
 
 ## Deploy the topologies
 
