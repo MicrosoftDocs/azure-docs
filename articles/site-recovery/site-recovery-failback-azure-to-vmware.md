@@ -4,7 +4,7 @@
    services="site-recovery" 
    documentationCenter="" 
    authors="ruturaj" 
-   manager="jwhit" 
+   manager="mkjain" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="01/11/2015"
+   ms.date="05/10/2016"
    ms.author="ruturajd"/>
 
 # Fail back VMware virtual machines and physical servers to the on-premises site
@@ -34,15 +34,15 @@ This diagram shows the failback architecture for this scenario.
 
 Use this architecture when the process server is on-premises and you are using an ExpressRoute.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+![Architecture Diagram for Expressroute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
 Use this architecture when the process server is on Azure and you have either a VPN or an ExpressRoute connection.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![Architecture Diagram for VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
-To see the complete list of ports and the failback architechture diagram refer to the image below
+To see the complete list of ports and the failback architecture diagram refer to the image below
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
+![Failover-Failback all ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
 
 Here’s how failback works:
 
@@ -59,7 +59,7 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 - If you failed over physical servers then failback is always to a new VMware VM.
 	- Before failing back a Physical machine note that
 	- Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware
-	- Ensure that you discover atleast one Master Target sever along with the necessary ESX/ESXi hosts to which you need to failback.
+	- Ensure that you discover at least one Master Target sever along with the necessary ESX/ESXi hosts to which you need to failback.
 - If you fail back to the original VM the following is required:
 	- If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
 	- If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
@@ -151,12 +151,12 @@ The master target server receives the failback data. A master target server is a
 3. Complete the wizard in the same way you did when you [set up the management server](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). On the **Configuration Server Details** page, specify the IP address of this master target server, and a passphrase to access the VM.
 
 ### Set up a Linux VM as the master target server
-To set up the management server running the master target server as a Linux VM you'll need to install the Cent)S 6.6 minimal operating system, retrieve the SCSI IDs for each SCSI hard disk, install some additional packages, and apply some custom changes.
+To set up the management server running the master target server as a Linux VM you'll need to install the CentOS 6.6 minimal operating system, retrieve the SCSI IDs for each SCSI hard disk, install some additional packages, and apply some custom changes.
 
 #### Install CentOS 6.6
 
 1.	Install the CentOS 6.6 minimal operating system on the management server VM. Keep the ISO in a DVD drive and boot the system. Skip the media testing, select US English at the language, select **Basic Storage Devices**, check that the hard drive doesn’t have any important data and click **Yes**, discard any data. Enter the host name of the management server and select the server network adapter.  In the **Editing System** dialog select** Connect automatically** and add a static IP address, network, and DNS settings. Specify a time zone, and a root password to access the management server. 
-2.	When you asked the type of installation you’d like select **Create Custom Layout** as the partition. After you click **Next** select **Free** and click Create. Create **/**,  **/var/crash** and **/home partitions** with **FS Type:** **ext4**. Create the swap partion as **FS Type: swap**.
+2.	When you asked the type of installation you’d like select **Create Custom Layout** as the partition. After you click **Next** select **Free** and click Create. Create **/**,  **/var/crash** and **/home partitions** with **FS Type:** **ext4**. Create the swap partition as **FS Type: swap**.
 3.	If pre-existing devices are found a warning message will appear. Click **Format** to format the drive with the partition settings. Click **Write change to disk** to apply the partition changes.
 4.	Select **Install boot loader** > **Next** to install the boot loader on the root partition.
 5.	When installation is complete click **Reboot**.
@@ -201,7 +201,7 @@ Do the following to apply custom changes after you’ve complete the post-instal
 2.	In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
 3.  In **Master Target Server** and **Process Server** select the on-premises master target server, and the Azure VM process server.
 4.  Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exists, but you still need to specify a value. 
-5.	Retention Drive is used for stoping the points in time when the VM replicated back to on-premises. Some of the criterias of a retention drive are as below, without which the drive will not be listed for the master target server.
+5.	Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
 	a. Volume shouldn't be in use for any other purpose(target of replication etc.)
 	b. Volume shouldn't be in lock mode.
 	c. Volume shouldn't be cache volume. ( MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT. )
@@ -249,9 +249,9 @@ Once the reprotect completes, the VM will be replicating back to Azure and you c
 ### Common Issues in failback
 
 1. If you perform Read-Only User vCenter discovery and protect virtual machines, it succeeds and failover works. At the time of Reprotect, it will fail since the datastores cannot be discovered. As a symptom you will not see the datastores listed while re-protecting. To resolve this, you can update the vCenter credential with appropriate account that has permissions and retry the job. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
-2. When you failback a Linux VM and run it on-prem, you will see that the Network Manager package is uninstalled from the machine. This is because when the VM is recovered in Azure, the Network Manager package is removed.
+2. When you failback a Linux VM and run it on-premises, you will see that the Network Manager package is uninstalled from the machine. This is because when the VM is recovered in Azure, the Network Manager package is removed.
 3. When a VM is configured with Static IP address and is failed over to Azure, the IP address is acquired via DHCP. When you fail over back to On-prem, the VM continues to use DHCP to acquire the IP address. You will need to manually login into the machine and set the IP address back to Static address if required.
-4. If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback will not succeed. You will ned to upgrade to either Evaluation License to enable failback.
+4. If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback will not succeed. You will need to upgrade to either Evaluation License to enable failback.
 
 ## Failing back with ExpressRoute
 
