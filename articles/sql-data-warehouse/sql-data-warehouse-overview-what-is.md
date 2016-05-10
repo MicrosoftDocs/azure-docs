@@ -108,7 +108,7 @@ Overall, we want DWUs to be simple. When you need faster results, increase your 
 
 - In order to understand what your ideal DWU value is try scaling up and down and running a few queries after loading your data. Since scaling is quick, you can try a number of different levels of performance without committing to more than an hour.
 
-> [AZURE.NOTE] Please note that due to the architecture or SQL Data Warehouse you may not see expected performance scaling at lower data volumes.  We recommend starting with data volumes at or above 1 TB in order to get accurate performance testing results.
+> [AZURE.NOTE] Please note that due to the architecture of SQL Data Warehouse you may not see expected performance capabilities at lower data volumes.  We recommend starting with data volumes at or above 1 TB in order to get a true indication of performance benefits.
 
 ## Integrated
 
