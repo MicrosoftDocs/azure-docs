@@ -44,7 +44,9 @@ You can help make the pull request queue work better by following these best pra
 
 ## In a hurry? Submit PRs that can be accepted automatically
 
-Your PR can be accepted automatically by PRMerger, if:
+Use the PRMerger automation rules to get more of your day-to-day PRs merged automatically.
+
+PRMerger can accept your PR automatically, if:
 * It affects 10 files or fewer.
 * It contains 15 commits or fewer.
 * Less than 20% of text changes.
@@ -52,7 +54,9 @@ Your PR can be accepted automatically by PRMerger, if:
 * No files are deleted or added.
 * No images are new, changed, or deleted.
 
-### Got a lot of little changes to make?
-* Submit PRs in small batches.
-* Separate out any articles in which images or selectors change. This requires human review.
-* Create separate PRs for new or deleted articles. This requires human review.
+### Need to make a lot of little changes?
+
+Take your cue from the PRMerger automation rules above, and do the following:
+* Submit articles with light changes together in a PR with 10 or fewer files.
+* Create a separate PR for articles in which images or selectors change. This requires human review.
+* Create a separate PR for new or deleted articles. This requires human review.
