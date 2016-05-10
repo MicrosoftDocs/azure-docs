@@ -42,7 +42,7 @@ hosting environment by using open-source tools and technologies that are popular
 Creating a Docker cluster by using Azure Container Service
 -------------------------------------------------------
 
-To begin using Azure Container Service, you deploy an Azure Container Service cluster by using an Azure Resource Manager template. You can configure this deployment with different size and availability options, by using either DC/OS or Docker Swarm. You can deploy Azure Resource Manager templates through the Azure portal by using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](./container-service-deployment.md).
+To begin using Azure Container Service, you deploy an Azure Container Service cluster by using an Azure Resource Manager template. You can configure this deployment with different size and availability options, by using either DC/OS or Docker Swarm. You can deploy Azure Resource Manager templates through the Azure portal by using the Azure CLI, or with PowerShell. The templates can also be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
 
 Deploying an application
 ------------------------
@@ -86,10 +86,10 @@ cgroups--or, in the case of Azure Container Service, Docker-formatted containers
 
 Marathon and Chronos provide a web UI from which you can deploy your applications. You can access this at a URL that looks something like
 `http://DNS\_PREFIX.REGION.cloudapp.azure.com`
-where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](./container-service-mesos-marathon-ui.md).
+where DNS\_PREFIX and REGION are both defined at deployment time. Of course, you can also provide your own DNS name. For more information on running a container using the Marathon web UI, see [Container management through the web UI](container-service-mesos-marathon-ui.md).
 
 You can also use the REST APIs for communicating with Marathon and
-Chronos. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for these schedulers. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](./container-service-mesos-marathon-rest.md).
+Chronos. There are a number of client libraries that are available for each tool. They cover a variety of languages--and, of course, you can use the HTTP protocol in any language. In addition, many popular DevOps tools provide support for these schedulers. This provides maximum flexibility for your operations team when you are working with an Azure Container Service cluster. For more information on running a container by using the Marathon REST API, see [Container management with the REST API](container-service-mesos-marathon-rest.md).
 
 ### Using Docker Swarm
 
