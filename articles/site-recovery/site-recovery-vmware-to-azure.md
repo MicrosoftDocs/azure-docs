@@ -819,7 +819,7 @@ vCenter user role | Failover and failback | Assign these privileges for the v-Ce
 ## Next steps
 
 - [Learn more](site-recovery-failover.md) about different types of failover.
-- [Learn more about failback](site-recovery-failback-azure-to-vmware-classic.md) to bring your failed over machines running in Azure back to your on-premises environment.
+- [Learn more about failback](site-recovery-failback-azure-to-vmware.md) to bring your failed over machines running in Azure back to your on-premises environment.
 
 ## Third-party software notices and information
 
