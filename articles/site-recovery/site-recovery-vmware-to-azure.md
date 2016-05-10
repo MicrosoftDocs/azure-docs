@@ -20,8 +20,8 @@
 
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-vmware-to-azure.md)
-- [Azure Classic Portal](site-recovery-vmware-to-azure-classic.md)
-- [Azure Classic Portal (legacy)](site-recovery-vmware-to-azure-classic.md)
+- [Azure Classic](site-recovery-vmware-to-azure-classic.md)
+- [Azure Classic (legacy)](site-recovery-vmware-to-azure-classic.md)
 
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises VMware virtual machines or Windows/Linux physical servers to Azure using Azure Site Recovery in the Azure portal.
 
