@@ -1236,7 +1236,7 @@ In this tutorial, you learned how to get tweets, analyze the sentiment of tweets
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started-linux.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
 
 
@@ -1250,7 +1250,6 @@ In this tutorial, you learned how to get tweets, analyze the sentiment of tweets
 
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 
 
 
