@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage data in Azure SQL Data Warehouse | Microsoft Azure"
-   description="Overview of the considerations, best practices, and tasks for managing your data in Azure SQL Data Warehouse"
+   pageTitle="Manage tables and indexes in Azure SQL Data Warehouse | Microsoft Azure"
+   description="Overview of the considerations, best practices, and tasks for managing tables and indexes in Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,9 +16,9 @@
    ms.date="05/02/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Manage data in Azure SQL Data Warehouse
+# Manage tables and indexes in Azure SQL Data Warehouse
 
-Overview of the considerations, best practices, and tasks for managing your data in SQL Data Warehouse.
+Overview of the considerations, best practices, and tasks for managing tables and indexes in SQL Data Warehouse.
 
 
 

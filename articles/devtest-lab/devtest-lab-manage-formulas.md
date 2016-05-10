@@ -20,7 +20,7 @@
 
 ## Overview
 
-Formulas - like [custom images](./devtest-lab-create-template.md) and [Marketplace Images](./devtest-lab-configure-marketplace-images.md) -
+Formulas - like [custom images](./devtest-lab-create-template.md) and [Marketplace images](./devtest-lab-configure-marketplace-images.md) -
 provide a mechanism for fast VM provisioning. A formula in DevTest Labs is a list of default property values used to create a lab VM. When creating a VM
 from a formula, the default values can be used as-is, or modified. 
 
@@ -62,7 +62,7 @@ The following steps guide you through the process of creating a new formula from
 
     ![Add a new formula](./media/devtest-lab-manage-formulas/add-formula.png)
 
-1. On the **Choose a base** blade, tap the custom image or Marketplace Image from which you want to create the formula.
+1. On the **Choose a base** blade, tap the custom image or Marketplace image from which you want to create the formula.
 
     ![Base list](./media/devtest-lab-manage-formulas/base-list.png)
 
