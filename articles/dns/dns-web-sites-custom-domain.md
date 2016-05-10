@@ -18,11 +18,18 @@
 
 # Create DNS records for web app in a custom domain
 
-You can use Azure DNS to host a custom domain for your web apps. For example, you are creating an Azure web app and you want your users to access it by either using contoso.com or www.contoso.com as an FQDN. In order for this to work, you would have to create two records: a root A record pointing to contoso.com, and a CNAME record for the www name that points to the A record. 
+You can use Azure DNS to host a custom domain for your web apps. For example, you are creating an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN. 
 
-> [AZURE.NOTE] Keep in mind that if you create an A record for a web app in Azure, the A record must be manually updated if the underlying IP address for the web app changes.
+In order for this to work, you would have to create two records:
 
-To begin, you must create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.
+- A root "A" record pointing to contoso.com
+- A "CNAME" record for the www name that points to the A record
+
+Keep in mind that if you create an A record for a web app in Azure, the A record must be manually updated if the underlying IP address for the web app changes.
+
+## Before you begin
+
+Before you begin, you must first create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.
  
 1. To create a DNS zone, follow the steps in [Create a DNS zone](dns-getstarted-create-dnszone.md). 
 2. To delegate your DNS to Azure DNS, follow the steps in [DNS domain delegation](dns-domain-delegation.md). 
