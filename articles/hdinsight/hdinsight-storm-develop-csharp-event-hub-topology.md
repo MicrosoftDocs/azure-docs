@@ -26,7 +26,7 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 
 * **EventHubReader**: Reads data from Event Hubs and stores it in Azure Table storage
 
-[AZURE.NOTE] The steps in this document only work with a Windows-based HDInsight cluster. For a Java version of this project, which will work with either a Linux-based or Windows-based cluster, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+> [AZURE.NOTE] The steps in this document only work with a Windows-based HDInsight cluster. For a Java version of this project, which will work with either a Linux-based or Windows-based cluster, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Prerequisites
 
@@ -84,11 +84,10 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
 4. Select **Configure**, then create two new access policies by using the following information.
 
-	<table>
-	<tr><th>Name</th><th>Permissions</th></tr>
-	<tr><td>Writer</td><td>Send</td></tr>
-	<tr><td>Reader</td><td>Listen</td></tr>
-	</table>
+	| Name | Permissions |
+    | ----- | ----- |
+	| Writer | Send |
+	| Reader | Listen |
 
 	After You create the permissions, select the **Save** icon at the bottom of the page. This creates the shared access policies that will be used to send (writer) and listen (reader) to this Event Hub.
 
@@ -146,14 +145,13 @@ In this section, you will create a topology that writes data to Event Hubs by us
 
 3. Enter the following settings. Use the information for the Event Hub you created earlier in the **Value** column.
 
-	<table>
-	<tr><th style="text-align:left">Name</th><th style="text-align:left">Type</th><th style="text-align:left">Scope</th></tr>
-	<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">string</td><td style="text-align:left">Application</td></tr>
-	<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">string</td><td style="text-align:left">Application</td></tr>
-	<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">string</td><td style="text-align:left">Application</td></tr>
-	<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">string</td><td style="text-align:left">Application</td></tr>
-	<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">Application</td></tr>
-	</table>
+	| Name | Type | Scope |
+    | ----- | ----- | ----- |
+	| EventHubPolicyName | string | Application |
+	| EventHubPolicyKey | string | Application |
+	| EventHubNamespace | string | Application |
+	| EventHubName | string | Application |
+	| EventHubPartitionCount | int | Application |
 
 4. Save and close the **Properties** page.
 
@@ -305,16 +303,15 @@ In this section, you will create a topology that reads data from Event Hubs by u
 
 3. Enter the following settings. Use the information for the Event Hub and storage account you created earlier in the **Value** column.
 
-	<table>
-	<tr><th style="text-align:left">Name</th><th style="text-align:left">Type</th><th style="text-align:left">Scope</th></tr>
-	<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
-	<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
-	<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
-	<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
-	<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">Application</th></tr>
-	<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(Connection String)</th><th style="text-align:left">Application</th></tr>
-	<tr><th style="text-align:left">TableName</th><th style="text-align:left">string</th><th style="text-align:left">Application</th></tr>
-	</table>
+	| Name | Type | Scope |
+    | ----- | ----- | ----- |
+	| EventHubPolicyName | string | Application |
+	| EventHubPolicyKey | string | Application |
+	| EventHubNamespace | string | Application |
+	| EventHubName | string | Application |
+	| EventHubPartitionCount | int | Application |
+	| StorageConnection | (Connection String) | Application |
+	| TableName | string | Application |
 
 	For **TableName**, enter the name of the table that you want events to be stored in.
 
