@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="05/10/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -98,51 +98,47 @@ In the example above, one VM has a critical recommendation regarding antimalware
 This blade has the security details for the VM. At the bottom of this blade you can see the recommended action and the severity of each issue.
 
 ###Monitor virtual networks
-The prevention status section for networking lists the virtual networks that are monitored by Security Center. When you click on **Networking** in the **Resources security health** tile, the **Networking** blade will open with more details as shown below:
+When you click on **Networking** in the **Resources security health** tile, the **Networking** blade will open with more details as shown below:
 
 ![Networking](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
-
-Once you open this blade you will see two sections:
-- Networking recommendations
-- Networking
-
-In each section you can select an individual option for more details about the recommendation. The sections below will cover these areas in more detail.
 
 ####Networking recommendations
 
 Similar to the virtual machines resource health information, this blade provides a summarized list of issues at the top of the blade and a list of monitored networks on the bottom.
 
-![Endpoint](./media/security-center-monitoring/security-center-monitoring-fig10-new.png)
+![Networking blade](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
 
 The networking status breakdown section lists potential security issues and offers recommendations. Possible issues can include:
 
-- [ACLs on endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) not enabled
-- [Network Security Groups](../virtual-network/virtual-networks-nsg.md) not enabled
-- Healthy Subnets and access in NSG not restricted are listed.
+- Network Security Groups (NSGs) on subnets not enabled
+- NSGs on VMs not enabled
+- Restrict external access through public external endpoint
+- Healthy Subnets
 
 When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below.
 
-![Restrict endpoint](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
+![Restrict endpoint](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-In this example the **Restrict access through public external endpoint** blade has a list of network security groups (NSGs) that are part of this alert, the subnet and network with which this NSG is associated, the current state of this recommendation and the severity of the issue. If you click on the network security group, another blade will open as shown below.
+In this example the **Configure Missing Network Security Groups for Subnets** blade has a list of subnets and virtual machines with which are missing NSG protection. If you click on the subnet that you want to apply the NSG, another blade will open.
 
-This blade has the network security group information and location. It also has the list of inbound rules that are currently enabled. The bottom part of this blade has the VM that is associated with this network security group. If you want to enable the inbound rules to block an undesired port that is currently opened or change source of the current inbound rule, click the **Edit inbound rule** button at the top of the blade.
+In the **Choose network security group** blade you will select the most appropriate Network Security Group for the subnet or your can create a new Network Security Group. 
 
 ####Networking section
 
-In the **Networking** section, there is a hierarchical view of the resource group, subnet and network interface that's associated with your VM as shown below.
+In the **Networking** section, there is a hierarchical view of the resources as shown below:
 
-![Network tree](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
+![Network tree](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
 
-This section divides [Resource Manager-based VMs from classic VMs](../resource-manager-deployment-model.md). This helps you to quickly identify whether Azure Service Management or Azure Resource Management networking capabilities are available to the virtual machine. If you decide to access the properties of a network interface card from this location, you will need to expand the subnet and click on the VM name. If you perform this action for a Resource Manager-based VM, a new blade similar to the one below will appear.
+This table is sorted (VMs and Subnets) by severity, as described below:
+- Red (on top)
+- Orange 
+- Green (last one)
 
-![Network tree](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
+In this hierarchy, the first level has [Virtual Networks](./virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](./vpn-gateway/vpn-gateway-site-to-site-create.md) and [Virtual Network (classic)](./virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets and the third level has the VMs that belongs to those subnets. The right column has the current status of the Network Security Group (NSG) for those resources. The example below is the result of selecting the VM VM-CL-W1:
 
-This blade has a summary of the network interface card and the current recommendations for it. If the VM that you selected is a classic VM, a new blade with different options will appear as shown below.
+![Network tree](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
-![ACL](./media/security-center-monitoring/security-center-monitoring-fig14-new.png)
-
-On this blade, you can make changes to the public and private ports, and create an ACL for this VM.
+The bottom part of this blade has the recommendations for this VM, similar to what is described above. You can click on a recommendation to learn more or apply the needed security control/configuration.
 
 ###Monitor SQL resources
 When you click **SQL** in the **Resources security health** tile, the SQL blade will open with recommendations for issues such as auditing, transparent data encryption not being enabled. It also has recommendations for the general health state of the database.
