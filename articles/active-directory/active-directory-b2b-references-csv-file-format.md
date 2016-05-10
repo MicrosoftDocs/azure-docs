@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B collaboration preview: CSV file format
@@ -63,7 +63,7 @@ bsmith@contoso.com,Ben Smith,Hi Ben! I hope you’ve been doing well.,,cd3ed3de-
 ```
 
 ## Related articles
-Browse our other articles on Azure B2B collaboration
+Browse our other articles on Azure AD B2B collaboration
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [How it works](active-directory-b2b-how-it-works.md)

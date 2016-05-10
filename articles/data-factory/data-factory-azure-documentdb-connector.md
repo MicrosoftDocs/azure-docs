@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="05/09/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
