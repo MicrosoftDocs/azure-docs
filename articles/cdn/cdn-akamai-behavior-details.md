@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure CDN from Akamai Behavior Details"
+	pageTitle="Azure CDN from Akamai Allowed Behavior Details"
 	description="This topic lists behavior details specific Azure CDN from Akamai."
 	services="cdn"
 	documentationCenter=""
@@ -18,7 +18,7 @@
     
 # Azure CDN from Akamai Behavior Details
 
-This article discusses behaviors specific to **Azure CDN from Akamai**.
+This article discusses allowed behavior details specific to **Azure CDN from Akamai**.
 
 > [AZURE.IMPORTANT] The information in this article does not apply to Azure CDN from Verizon endpoints.
 
