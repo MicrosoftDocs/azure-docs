@@ -24,7 +24,7 @@ solution as needed.
 
 In this tutorial, you will create a storage account through the portal and export the template for that storage account. You will then modify the resource group by adding a virtual network to it and export a new template that represents its current state. Although this topic focuses on a simplified infrastructure, you could use these same steps to export a template for a more complicated solution.
 
-## Create the storage account
+## Create storage account
 
 1. In the [Azure Portal](https://portal.azure.com), select **New**, **Data + Storage**, and **Storage account**.
 
@@ -36,7 +36,7 @@ In this tutorial, you will create a storage account through the portal and expor
 
 After the deployment completes, your subscription contains the storage account.
 
-## Export template for a deployment
+## Export template for deployment
    
 1. Navigate to the resource group blade for your new resource group. You will notice the result of the last deployment is listed. Select this link.
 
@@ -112,11 +112,11 @@ After the deployment completes, your subscription contains the storage account.
    
      Notice that it defines parameters for the storage account name, type, location, and whether encryption is enabled (which has a default value of **false**). Within the **resources** section, you will see the definition for the storage account to deploy. 
      
-     The square brackets contain an expression that is evaluated during deployment. The bracketed expressions shown above are used to get parameter values during deployment. There are many more expressions you can use, and you will see examples of other expressions later in this topic. For the complete list, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+Square brackets contain an expression that is evaluated during deployment. The bracketed expressions shown above are used to get parameter values during deployment. There are many more expressions you can use, and you will see examples of other expressions later in this topic. For the complete list, see [Azure Resource Manager template functions](resource-group-template-functions.md).
    
-     To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-## Add a virtual network
+## Add virtual network
 
 The template you downloaded in the previous section represented the infrastructure for that original deployment, but it will not account for any changes you make after the deployment.
 To illustrate this issue, let's modify the resource group by adding a virtual network through the portal.
@@ -136,7 +136,7 @@ To illustrate this issue, let's modify the resource group by adding a virtual ne
 It is generally best practice to work with a template which deploys all of the infrastructure for your solution in a single operation, rather than remembering many different templates to deploy.
 
 
-## Export template for a resource group
+## Export template for resource group
 
 Although each deployment only shows the changes you have made to your resource group, at any time you can export a template to show the attributes of your entire resource group.  
 
@@ -162,9 +162,9 @@ Although each deployment only shows the changes you have made to your resource g
      
         "location": "northeurope",
         "tags": {},
-          "properties": {
+        "properties": {
             "accountType": "Standard_RAGRS"
-          },
+        },
 
 3. Download the template so you can work on it locally.
 

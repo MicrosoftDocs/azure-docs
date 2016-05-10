@@ -16,13 +16,13 @@
 	ms.date="05/10/2016" 
 	ms.author="tomfitz"/>
 
-# Customize exported Resource Manager template and re-deploy with PowerShell or CLI 
+# Customize exported Resource Manager template
 
 This topic shows you how to modify an exported template to permit passing in additional values as parameters. It builds on the steps performed in the 
 [Export Resource Manager template](resource-manager-export-template.md) topic, but it is not essential that you complete that topic first. You can find the required 
 template and scripts in this topic.
 
-## Exported template
+## View exported template
 
 If you have completed [Export Resource Manager template](resource-manager-export-template.md), open the template that you downloaded. The template is named **template.json**. 
 If you have Visual Studio or Visual Code, you can use either one for editing the template. Otherwise, you can use any json editor or text editor. 
@@ -88,7 +88,7 @@ The template shown above works fine if you want to create the same type of stora
 same subnet prefix for every deployment. However, Resource Manager enables you to deploy templates with a lot more flexibility than that. For example, during deployment, you might want to specify 
 the type of storage account to create, or what values to use for the virtual network address prefix and subnet prefix.
 
-## Customize the template
+## Customize template
 
 In this section, you will add parameters to the exported template so you can re-use the template when deploying these resources to other environments. You will also add some features to 
 your template that decrease the likelihood of encountering an error when deploying your template. You will no longer have to guess a unique name for your storage account. Instead, the 
@@ -173,7 +173,7 @@ template will create a unique name. You will restrict which values can be specif
           }
         ]
 
-## Fix the parameters file
+## Fix parameters file
 
 The downloaded parameter file no longer matches the parameters in your template. You do not have to use a parameter file, but it can simplify re-deploying an environment. You will use the 
 default values defined in the template for many of the parameters so your parameter file only needs two values.
