@@ -144,19 +144,17 @@ Polybase is easy to use and allows you to leverage your data from different sour
 
 ## Next steps
 
-Now that you know a bit about SQL Data Warehouse, learn about the [data warehouse workload], [provision], and load [sample data] to get started.  Or take a look at some of these other SQL Data Warehouse Resources.  
+Now that you know a bit about SQL Data Warehouse, learn about the [data warehouse workload], [how to provision] a SQL Data Warehouse, and [how to load sample data].  Or, take a look at some of these other SQL Data Warehouse Resources.  
 
-- [Blogs][]  
-- [Feature Requests][]  
-- [Videos][]  
-- [CAT Team Blogs][]  
-- [Create Support Ticket][]  
-- [MSDN Forum][]  
-- [Stack Overflow Forum][]  
-- [Twitter][]  
+- [Blogs] 
+- [Feature Requests]
+- [Videos]
+- [CAT Team Blogs]
+- [Create Support Ticket]
+- [MSDN Forum]
+- [Stack Overflow Forum]
+- [Twitter]
 
-
->[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -164,8 +162,8 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 <!--Article references-->
 [Create Support Ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [data warehouse workload]: ./sql-data-warehouse-overview-workload.md
-[sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Provision]: ./sql-data-warehouse-get-started-provision.md
+[how to load sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[how to provision]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
