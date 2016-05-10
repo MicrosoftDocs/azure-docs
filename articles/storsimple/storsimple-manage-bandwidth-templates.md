@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="05/09/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage StorSimple bandwidth templates
