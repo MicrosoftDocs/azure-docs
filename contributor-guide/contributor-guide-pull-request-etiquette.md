@@ -4,7 +4,7 @@ To publish changes to documentation, you submit pull requests from your fork. Ev
 
 ## Working with pull request reviewers
 
-Here's the basics you need to know about working with pull request reviewers. 
+Here's the basics you need to know about working with pull request reviewers.
 
 - <b>Understand the role of the pull request reviewer. The reviewer:</b>
   - Ensures the basic quality of the content
@@ -20,24 +20,39 @@ Here's the basics you need to know about working with pull request reviewers.
 
 - <b>Pull requests may take a few days to be merged</b>
 
-  While pull request reviewers try to review PRs at least twice daily, all the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests. 
+  While pull request reviewers try to review PRs at least twice daily, all the pull request reviewers have other work to do, and some of that work might be higher priority than reviewing pull requests.
 
 
 ## Make the pull request queue work better for everyone
 
 There are two basic realities in the PR queue:
 
-- Pull requests that are small in scope and that contain very similar changes take less time to review. 
+- Pull requests that are small in scope and that contain very similar changes take less time to review.
 - Pull requests that are large in scope or that contain different, mixed kinds of changes take more time to review.
 
 You can help make the pull request queue work better by following these best practices:
 
-- Separate minor updates to existing articles from new articles or major rewrites. Work on these changes in separate working branches. 
+- Separate minor updates to existing articles from new articles or major rewrites. Work on these changes in separate working branches.
 
 - When you delete articles or images, don't mix the deletions with new content additions or updates. Handle the changes/new content in a separate working branch.
 
-- Contact your pull request reviewer to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, and security issues; for truly broken customer experiences; and for executive escalations. 
+- Contact your pull request reviewer to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, and security issues; for truly broken customer experiences; and for executive escalations.
 
 - For releases or refactoring of content, plan ahead with your PR reviewer. You may need his or her help to create a release branch or to coordinate merge times with publishing times so your content is published at the right time.
 
 - If you are trying to coordinate updates made in the ACOM repo (ie, changes to left navigation, landing pages, redirects, or learning maps) with changes you are making in the azure-content-pr repository, you must coordinate that work ahead of time with your PR reviewer. Otherwise, you risk having a lot of broken links.
+
+## In a hurry? Submit PRs that can be accepted automatically
+
+Your PR can be accepted automatically by PRMerger, if:
+* It affects 10 files or fewer.
+* It contains 15 commits or fewer.
+* Less than 20% of text changes.
+* Selectors/switchers aren't updated.
+* No files are deleted or added.
+* No images are new, changed, or deleted.
+
+### Got a lot of little changes to make?
+* Submit PRs in small batches.
+* Separate out any articles in which images or selectors change. This requires human review.
+* Create separate PRs for new or deleted articles. This requires human review.
