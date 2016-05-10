@@ -124,7 +124,7 @@ Table storage will be used to hold the values that are read from Event Hubs beca
 
 In this section, you will create a topology that writes data to Event Hubs by using the Event Hubs bolt.
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](../hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Open Visual Studio, select **File** > **New** and then **Project**.
 
