@@ -94,7 +94,7 @@ To create a recovery services vault:
 
     ![List of backup vaults](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
-    Now that you've created your vault, learn how to set the storage redundancy.
+    Now that you've created your vault, learn how to set the storage replication.
 
 ## Set Storage Replication
 
