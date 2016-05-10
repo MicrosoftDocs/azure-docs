@@ -162,11 +162,11 @@ Commit the changes using the `Set-AzureRMDnsRecordSet cmdlet` as shown in the co
 
 	Set-AzureRMDnsRecordSet -RecordSet $rs
 
-Now you can continue to follow the steps in [Configuring a custom domain name for App Service](../app-service-web/web-sites-custom-domain-name.md) to configure your web app to use a custom domain.
+
 
 ## Next steps
 
-See [Manage DNS zones](dns-operations-dnszones.md) and [Manage DNS records](dns-operations-recordsets.md) in order to manage your zones and record sets.
+Follow the steps in [Configuring a custom domain name for App Service](../app-service-web/web-sites-custom-domain-name.md) to configure your web app to use a custom domain.
 
 
 
