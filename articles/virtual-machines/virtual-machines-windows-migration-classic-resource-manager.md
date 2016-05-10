@@ -42,7 +42,7 @@ Before we drill down into the details, we’d like to briefly explain the differ
 - Management Plane - This describes the calls that comes into the management plane or the API for modifying resources. For example – Creating a VM, Restarting a VM, Update a Virtual Network with a new subnet, etc. All of these operations manage the resources running but doesn't directly impact connecting to the instances.
 - Data Plane (Application) – This describes the “runtime” of the application itself and involve interaction with instances that don’t go through the Azure API. Accessing your website or pulling data from a running SQL Server or MongoDB server would all be considered data plane or application interaction. Copying a blob from a storage account and accessing a Public IP address to RDP or SSH into the Virtual Machine also are data plane. These operations keep the application running across compute, networking, and storage.
 
->[AZURE.NOTE] In some migration scenarios (more details in the unsupported configurations), we will stop deallocate & restart your virtual Machines which will incur a short data plane downtime.
+>[AZURE.NOTE] In some migration scenarios (more details in the unsupported configurations), we will stop deallocate & restart your Virtual Machines which will incur a short data plane downtime.
 
 ## What are the supported scopes of Migration?
 
