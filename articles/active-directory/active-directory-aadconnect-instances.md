@@ -53,9 +53,9 @@ provisioningapi.gov.us.microsoftonline.com |
 Azure AD Connect will not be able to automatically detect that your Azure AD directory is located in the Government cloud. Instead you need to take the following actions when you install Azure AD Connect.
 
 1. Start the Azure AD Connect installation.
-2. As soon as you see the first page where you are supposed to accept the EULA, close the wizard (do not accept the EULA and do not advance to the next step in the installation wizard).
+2. As soon as you see the first page where you are supposed to accept the EULA, do not continue but leave the installation wizard running.
 3. Start regedit and change the registry key `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` to the value `2`.
-4. Start the Azure AD Connect installation wizard again. During installation, make sure to use the **custom configuration** installation path (and not Express installation). Then continue the installation as usual.
+4. Go back to the Azure AD Connect installation wizard, accept the EULA and continue. During installation, make sure to use the **custom configuration** installation path (and not Express installation). Then continue the installation as usual.
 
 Features currently not present in the Microsoft Azure Government cloud:
 
