@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-	keywords="powershell workflow, powershell workflow examples, powershell workflows, workflow powershell"/>
+	keywords="powershell workflow, powershell workflow examples, powershell workflows" />
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/02/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
 
 # My first PowerShell Workflow runbook
