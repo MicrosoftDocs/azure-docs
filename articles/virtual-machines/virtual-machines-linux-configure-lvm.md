@@ -58,33 +58,33 @@ One will usually want to start with two or more empty data disks when using LVM.
 
 
 ## Configure LVM
-In this guide we will assume you have attached three data disks, which we'll refer to as /dev/sdc, /dev/sdd and /dev/sde. Note that these may not always be the same path names in your VM. You can run 'sudo fdisk -l' or similar command to list your available disks.
+In this guide we will assume you have attached three data disks, which we'll refer to as `/dev/sdc`, `/dev/sdd` and `/dev/sde`. Note that these may not always be the same path names in your VM. You can run '`sudo fdisk -l`' or similar command to list your available disks.
 
 1. Prepare the physical volumes:
 
-    # sudo pvcreate /dev/sd[cde]
-      Physical volume "/dev/sdc" successfully created
-      Physical volume "/dev/sdd" successfully created
-      Physical volume "/dev/sde" successfully created
+		# sudo pvcreate /dev/sd[cde]
+		  Physical volume "/dev/sdc" successfully created
+		  Physical volume "/dev/sdd" successfully created
+		  Physical volume "/dev/sde" successfully created
 
 
 2.  Create a volume group. In this example we are calling the volume group "data-vg01":
 
-    # sudo vgcreate data-vg01 /dev/sd[cde]
-      Volume group "data-vg01" successfully created
+		# sudo vgcreate data-vg01 /dev/sd[cde]
+		  Volume group "data-vg01" successfully created
 
 
 3. Create the logical volume(s). The command below we will create a single logical volume called "data-lv01" to span the entire volume group, but note that it is also feasible to create multiple logical volumes in the volume group.
 
-    # sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
-      Logical volume "data-lv01" created.
+		# sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
+		  Logical volume "data-lv01" created.
 
 
 4. Format the logical volume
 
-    # sudo mkfs -t ext4 /dev/data-vg01/data-lv01
+		# sudo mkfs -t ext4 /dev/data-vg01/data-lv01
 
-  >[AZURE.NOTE] With SLES 11 use "-t ext3" instead of ext4. SLES 11 only supports read-only access to ext4 filesystems.
+  >[AZURE.NOTE] With SLES11 use "-t ext3" instead of ext4. SLES11 only supports read-only access to ext4 filesystems.
 
 
 ## Add the new file system to /etc/fstab
@@ -98,10 +98,10 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
 2. Locate the logical volume path
 
-    # lvdisplay
-    --- Logical volume ---
-    LV Path                /dev/data-vg01/data-lv01
-    ....
+		# lvdisplay
+		--- Logical volume ---
+		LV Path                /dev/data-vg01/data-lv01
+		....
 
 
 3. Open /etc/fstab in a text editor and add an entry for the new file system, for example:
@@ -124,9 +124,7 @@ In this guide we will assume you have attached three data disks, which we'll ref
 		/dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
 
 
-5. (Optional) Failsafe Boot Parameters
-
-	**fstab configuration**
+5. (Optional) Failsafe boot parameters in /etc/fstab
 
 	Many distributions include either the `nobootwait` or `nofail` mount parameters that may be added to the /etc/fstab file. These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system. Please refer to your distribution's documentation for more information on these parameters.
 
