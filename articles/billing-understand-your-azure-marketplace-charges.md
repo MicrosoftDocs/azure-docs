@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="05/10/2016"
 	ms.author="cjiang"/>
 
 # Understand your Azure Marketplace charges
@@ -91,7 +91,7 @@ To view actual charges, follow these steps:
 
 	A new tab will open showing the [order history](https://account.microsoft.com/billing/orders#/).
 
-    Please note that if you are trying to access pull your raw usage in the Billing and Account Management Portal you’ll need to call support by clicking on the support link at the bottom of the page.)
+    Please note that if you are trying to access your raw usage in the Billing and Account Management Portal you’ll need to call support by clicking on the support link at the bottom of the page.)
 
     ![Order history](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 
