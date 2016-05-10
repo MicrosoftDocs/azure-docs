@@ -168,7 +168,7 @@ During the authentication process, the OpenID Connect middleware raises a series
 
 - **TokenResponseReceived**. Called after the middleware gets an access token from the IDP. Applies only to authorization code flow.
 
-- **AuthenticationValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about th euser. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](guidance-multitenant-identity-claims.md).
+- **AuthenticationValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about the user. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](guidance-multitenant-identity-claims.md).
 
 - **UserInformationReceived**. Called if the middleware gets the user profile from the user info endpoint. Applies only to authorization code flow, and only when `GetClaimsFromUserInfoEndpoint = true` in the middleware options.
 

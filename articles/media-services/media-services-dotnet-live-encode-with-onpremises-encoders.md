@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to perform live encoding with on-premises encoders" 
+	pageTitle="How to perform live streaming with on-premise encoders" 
 	description="This topic shows how to use .NET to perform live encoding with on-premises encoders." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"  
+ 	ms.date="05/05/2016"  
 	ms.author="cenkdin;juliako"/>
 
-#How to perform live encoding with on-premises encoders
+#How to perform live streaming with on-premise encoders
 
 ##Prerequisites
 
@@ -30,7 +30,7 @@ The following are required to complete the tutorial:
 Recommended to review the following articles: 
 
 - [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
-- [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md)
+- [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-manage-channels-overview.md)
  
 
 ##Example

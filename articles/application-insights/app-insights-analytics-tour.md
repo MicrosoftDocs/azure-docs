@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/04/2016" 
 	ms.author="awills"/>
 
 
@@ -122,6 +122,8 @@ In the scalar expression:
 
 [Expressions](app-insights-analytics-scalars.md) can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
 
+    
+
 ## [Extend](app-insights-analytics-aggregations.md#extend): compute columns
 
 If you just want to add columns to the existing ones, use [`extend`](app-insights-analytics-aggregations.md#extend):
@@ -134,6 +136,50 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
 ```
 
 Using [`extend`](app-insights-analytics-aggregations.md#extend) is less verbose than [`project`](app-insights-analytics-aggregations.md#project) if you want to keep all the existing columns.
+
+
+## Accessing nested objects
+
+Nested objects can be accessed easily. For example, in the exceptions stream you'll see structured objects like this:
+
+![result](./media/app-insights-analytics-tour/520.png)
+
+You can flatten it by choosing the properties you're interested in:
+
+```AIQL
+
+    exceptions | take 10
+    | extend method1 = details[0].parsedStack[1].method
+```
+
+## Custom properties and measurements
+
+If your application attaches [custom dimensions (properties) and custom measurements](app-insights-api-custom-events-metrics.md#properties) to events, then you will see them in the `customDimensions` and `customMeasurements` objects.
+
+
+For example, if your app includes:
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+To extract these values in Analytics:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast numerics
+
+``` 
+
+> [AZURE.NOTE] In [Metrics Explorer](app-insights-metrics-explorer.md), all custom measurements attached to any type of telemetry appear together in the metrics blade along with metrics sent using `TrackMetric()`. But in Analytics, custom measurements are still attached to whichever type of telemetry they were carried on, and metrics appear in their own `metrics` stream.
+
 
 ## [Summarize](app-insights-analytics-aggregations.md#summarize): aggregate groups of rows
 
