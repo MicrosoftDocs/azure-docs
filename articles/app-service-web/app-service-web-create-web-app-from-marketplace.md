@@ -145,7 +145,7 @@ For a guide to the change from Websites to App Service, see [Azure App Service a
 
 <!-- URL List -->
 
-[PHP]: https://azure.microsoft.com/develop/nodejs/
+[PHP]: https://azure.microsoft.com/develop/php/
 [.NET]: https://azure.microsoft.com/develop/net/
 [Node.js]: https://azure.microsoft.com/develop/nodejs/
 [Java]: https://azure.microsoft.com/develop/java/
