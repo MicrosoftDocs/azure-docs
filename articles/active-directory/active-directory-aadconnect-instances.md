@@ -19,8 +19,8 @@
 # Azure AD Connect: Special considerations for instances
 Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Office 365. But there are also other instances and these have different requirements for URLs and other special considerations.
 
-## Microsoft Cloud in Germany
-The [Microsoft Cloud in Germany](http://www.microsoft.de/cloud-deutschland) is a sovereign cloud operated by T-systems.
+## Microsoft Cloud Germany
+The [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) is a sovereign cloud operated by a German data trustee.
 
 This cloud is currently in preview. Many of the scenarios you normally can do by yourself, such as verify domains, must be done by the operator. Please contact your local Microsoft representative for more information on how to participate in the preview.
 
@@ -32,7 +32,7 @@ URLs to open in proxy server |
 
 When you sign in to your Azure AD directory you must use an account in the onmicrosoft.de domain.
 
-Features currently not present in the Microsoft Cloud in Germany:
+Features currently not present in the Microsoft Cloud Germany:
 
 - Azure AD Connect Health is not available.
 - Automatic updates is not available.
@@ -45,9 +45,8 @@ This cloud has been supported by earlier releases of DirSync. From build 1.1.180
 
 URLs to open in proxy server |
 --- |
-login-us.microsoftonline.com |
-adminwebservice.gov.us.microsoftonline.com |
-provisioningapi.gov.us.microsoftonline.com |
+\*.microsoftonline.com |
+\*.gov.us.microsoftonline.com |
 +Certificate Revocation Lists |
 
 Azure AD Connect will not be able to automatically detect that your Azure AD directory is located in the Government cloud. Instead you need to take the following actions when you install Azure AD Connect.

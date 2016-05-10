@@ -36,7 +36,7 @@ Released: 2016 May
 **New features:**
 
 - Warns and helps you verifying domains if you didn’t do it before running Azure AD Connect.
-- Added support for [Microsoft Cloud in Germany](active-directory-aadconnect-instances.md#microsoft-cloud-in-germany).
+- Added support for [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
 - Added support for the latest [Microsoft Azure Government cloud](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) infrastructure with new URL requirements.
 
 **Fixed issues and improvements:**
