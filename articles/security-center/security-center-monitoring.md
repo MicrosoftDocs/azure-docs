@@ -134,7 +134,7 @@ This table is sorted (VMs and Subnets) by severity, as described below:
 - Orange 
 - Green (last one)
 
-In this hierarchy, the first level has [Virtual Networks](./virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](./vpn-gateway/vpn-gateway-site-to-site-create.md) and [Virtual Network (classic)](./virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets and the third level has the VMs that belongs to those subnets. The right column has the current status of the Network Security Group (NSG) for those resources. The example below is the result of selecting the VM VM-CL-W1:
+In this hierarchy, the first level has [Virtual Networks](../virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md) and [Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets and the third level has the VMs that belongs to those subnets. The right column has the current status of the Network Security Group (NSG) for those resources. The example below is the result of selecting the VM VM-CL-W1:
 
 ![Network tree](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
