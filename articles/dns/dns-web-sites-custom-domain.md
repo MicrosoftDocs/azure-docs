@@ -126,9 +126,10 @@ You can validate the record was created correctly by querying the "www.contoso.c
 
 If you decide to use an A record for your web app, you must go through a verification process to ensure you own the custom domain. This verification step is done by creating a special CNAME record named "awverify". This section applies to A records only.
 
-In the example below, the "awverify" record will be created for contoso.com to verify ownership for the custom domain:
 
 ### Step 1
+
+Create the "awverify" record. In the example below, we will create the "aweverify" record for contoso.com to verify ownership for the custom domain. 
 
 	$rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
  
@@ -144,7 +145,7 @@ In the example below, the "awverify" record will be created for contoso.com to v
 
 ### Step 2
 
-Once the record set "awverify" is created, assign the CNAME record set alias to awverify.contoso.azurewebsites.net, as shown in the command below: 
+Once the record set "awverify" is created, assign the CNAME record set alias. In the example below, we will assign the CNAMe record set alias to awverify.contoso.azurewebsites.net.
 
 	Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
  
@@ -159,7 +160,7 @@ Once the record set "awverify" is created, assign the CNAME record set alias to 
 
 ### Step 3
 
-Commit the changes using the `Set-AzureRMDnsRecordSet cmdlet` as shown in the command below.
+Commit the changes using the `Set-AzureRMDnsRecordSet cmdlet`, as shown in the command below.
 
 	Set-AzureRMDnsRecordSet -RecordSet $rs
 
