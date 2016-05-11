@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/08/2016"
+	ms.date="05/10/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -139,10 +139,6 @@ In this tutorial you've seen how to create and deploy an example web app from th
 
 For more information about how to work with App Service Web Apps, see the links on the left side of the page (for wide browser windows) or at the top of the page (for narrow browser windows).
 
-## What's changed
-
-For a guide to the change from Websites to App Service, see [Azure App Service and existing Azure services][AzureAppServiceChanges].
-
 <!-- URL List -->
 
 [PHP]: https://azure.microsoft.com/develop/php/
@@ -156,7 +152,6 @@ For a guide to the change from Websites to App Service, see [Azure App Service a
 [ResourceGroups]: ../azure-portal/resource-group-portal.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
-[AzureAppServiceChanges]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Azure Portal]: https://portal.azure.com/
 [Project Nami]: http://projectnami.org/
 
