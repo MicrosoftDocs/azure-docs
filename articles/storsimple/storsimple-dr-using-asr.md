@@ -21,7 +21,7 @@
 
 Microsoft Azure StorSimple is a hybrid cloud storage solution that addresses the complexities of unstructured data commonly associated with file shares. StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and cloud storage. Integrated data protection, with local and cloud snapshots, eliminates the need for a sprawling storage infrastructure.
 
-[Azure Site Recovery](https://azure.microsoft.com/en-us/documentation/services/site-recovery/) is an Azure-based service that provides disaster recovery (DR) capabilities by orchestrating replication, failover, and recovery of virtual machines. Azure Site Recovery supports a number of replication technologies to consistently replicate, protect, and seamlessly fail over virtual machines and applications to private/public or hosted clouds.
+[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/) is an Azure-based service that provides disaster recovery (DR) capabilities by orchestrating replication, failover, and recovery of virtual machines. Azure Site Recovery supports a number of replication technologies to consistently replicate, protect, and seamlessly fail over virtual machines and applications to private/public or hosted clouds.
 
 Using Azure Site Recovery, virtual machine replication, and StorSimple cloud snapshot capabilities, you can protect the complete file server environment. In the event of a disruption, you can use a single click to bring your file shares online in Azure in just a few minutes.
 
@@ -110,7 +110,7 @@ This step requires that you prepare the on-premises file server environment, cre
 3.  Click **Finish**.
 
 
-1.  Create file shares using volumes carved out of StorSimple storage. For more information, see [Use the StorSimple Manager service to manage volumes](https://azure.microsoft.com/en-us/documentation/articles/storsimple-manage-volumes/).
+1.  Create file shares using volumes carved out of StorSimple storage. For more information, see [Use the StorSimple Manager service to manage volumes](https://azure.microsoft.com/documentation/articles/storsimple-manage-volumes/).
 
     1.  On your on-premises VMs, press the Windows key +Q and search for **iSCSI**.
 
