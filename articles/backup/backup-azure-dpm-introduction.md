@@ -116,7 +116,7 @@ The vault credential file is downloaded through a secure channel from the Azure 
 
 3. Settings blade opens up by default. If it is closed, click on **Settings** on vault dashboard to open the settings blade. In Settings blade, click on **Properties**.
 
-	![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings.png)
+	![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
 4. On the Properties page, click **Download** under **Backup Credentials**. The  portal generates the vault credential file, which is made available for download.
 
@@ -139,7 +139,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 2. Settings blade opens up by default. If it is closed, click on **Settings** to open the settings blade. In Settings blade, click on **Properties**.
 
-	![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings.png)
+	![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
 3. On the Settings page, click **Download** under **Azure Backup Agent**.
 
@@ -153,11 +153,11 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 6.	Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
 
-    ![Register](./media/backup-install-agent/register.png)
+    ![Register](../../includes/media/backup-install-agent/register.png)
 
 7. In the vault credentials screen, browse to and select the vault credentials file which was previously downloaded.
 
-    ![Vault credentials](./media/backup-install-agent/vc.png)
+    ![Vault credentials](../../includes/media/backup-install-agent/vc.png)
 
     The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal). If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.
 
@@ -167,7 +167,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 8. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
 
-    ![Encryption](./media/backup-install-agent/encryption.png)
+    ![Encryption](../../includes/media/backup-install-agent/encryption.png)
 
     > [AZURE.WARNING] If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
 
@@ -175,11 +175,11 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 10. When using Microsoft Azure Backup standalone you can modify the settings specified during the registration workflow by clicking on the **Change Properties** option in the Azure Backup mmc snap in.
 
-    ![Change Properties](./media/backup-install-agent/change.png)
+    ![Change Properties](../../includes/media/backup-install-agent/change.png)
 
     Alternatively, when using Data Protection Manager, you can modify the settings specified  during the registration workflow by clicking the **Configure** option by selecting **Online** under the **Management** Tab.
 
-    ![Configure Azure Backup](./media/backup-install-agent/configure.png)
+    ![Configure Azure Backup](../../includes/media/backup-install-agent/configure.png)
 
 ## Requirements (and limitations)
 
