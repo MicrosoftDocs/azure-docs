@@ -43,7 +43,7 @@ Implementing a one-click disaster recovery solution that uses Azure Site Recover
 
 -   File shares hosted on the volumes configured on the StorSimple storage device
 
--   [Azure Site Recovery services vault](../site-recovery/site-recovery-vmm-to-vmm/) created in a Microsoft Azure subscription
+-   [Azure Site Recovery services vault](../site-recovery/site-recovery-vmm-to-vmm.md) created in a Microsoft Azure subscription
 
 In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
 
@@ -142,7 +142,7 @@ This step requires that you prepare the on-premises file server environment, cre
 
 #### To create and prepare an Azure Site Recovery vault
 
-Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-hyper-v-site-to-azure/) to get started with Azure Site Recovery before protecting the file server VM.
+Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-hyper-v-site-to-azure.md) to get started with Azure Site Recovery before protecting the file server VM.
 
 #### To enable protection
 
