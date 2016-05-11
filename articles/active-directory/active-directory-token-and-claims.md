@@ -18,7 +18,7 @@
 
 # Supported Token and Claim Types
 
-[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 This topic is designed to help you understand and evaluate the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens that Azure Active Directory (Azure AD) issues.
 

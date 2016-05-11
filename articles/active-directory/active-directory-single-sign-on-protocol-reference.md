@@ -18,7 +18,7 @@
 
 # Single Sign-On (SAML Protocol)
 
-[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 In this article, we will learn the SAML 2.0 authentication requests and responses that Azure AD supports for Single Sign-On.
 

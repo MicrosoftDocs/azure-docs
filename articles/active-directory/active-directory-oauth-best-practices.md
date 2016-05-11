@@ -19,7 +19,7 @@
 
 # Best Practices for OAuth 2.0 in Azure AD
 
-[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 ## Use the State Parameter
 

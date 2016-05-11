@@ -18,7 +18,7 @@
 
 # Error Handling in OAuth 2.0
 
-[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 In this article, we will learn some best practices for handling common classes of errors that you may encounter when authorizing your application with Azure AD.
 
