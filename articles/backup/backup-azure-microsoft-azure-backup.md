@@ -52,17 +52,17 @@ To create a recovery services vault:
 
 2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
     The list of Recovery Services vaults are displayed.
 
 3. On the **Recovery Services vaults** menu, click **Add**.
 
-    ![Create Recovery Services Vault step 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+    ![Create Recovery Services Vault step 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
 
     The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
 
-    ![Create Recovery Services vault step 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Create Recovery Services vault step 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
 
 4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 
@@ -75,12 +75,19 @@ To create a recovery services vault:
 8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal.
 Once your vault is created, it opens in the portal.
 
-9. In your vault, click **All settings** > **Backup Configuration** to view the **Storage replication type**. Choose the storage replication option for your vault.
+### Set Storage Replication
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration.png)
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
 
-    By default, your vault has geo-redundant storage. If you are using Azure as a primary backup storage endpoint, it is recommended that you continue using geo-redundant storage. If you are using Azure as  non-primary backup storage endpoint, then you can consider choosing locally redundant storage, which will reduce the cost of storing data in Azure. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
+To edit the storage replication setting:
 
+1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
+
+2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
+
+    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+
+    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
 ## 3. Software package
 
@@ -93,7 +100,7 @@ on the Hub menu, click **Browse**.
     - In the list of resources, type **Recovery Services**.
     - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
     The list of Recovery Services vaults appears.
 
@@ -101,18 +108,18 @@ on the Hub menu, click **Browse**.
 
     The selected vault dashboard opens.
 
-    ![Open vault blade](./media/backup-download-credentials/vault-dashboard.png)
+    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
 3. Settings blade opens up by default. If it is closed, click on **Setings** to open the settings blade.
 
-    ![Open vault blade](./media/backup-download-credentials/vault-settings.png)
+    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-settings.png)
 
 4. Click on **Backup** in **Getting Started** to open the Getting Started wizard.
 
-    ![Backup getting started](./media/backup-download-credentials/getting-started-backup.png)
+    ![Backup getting started](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
 5. In the Getting Started that opens, Backup Goals screen will be auto-selected.
-    ![Backup-goals-default-opened](./media/backup-download-credentials/getting-started.png)
+    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backups/getting-started.png)
 
     In the **Backup goals** section, select *on-premises* for *where is your workload running*.
 
@@ -123,9 +130,9 @@ on the Hub menu, click **Browse**.
 
   This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
 
-  ![Getting Started wizard change](./media/backup-download-credentials/getting-started-prep-infra.png)
+  ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 7. In the **Prepare infrastructure** blade that opens, click on **Download Azure Backup Server** and Vault credentials which you use during registration of Azure Backup Server to recovery services vault. This will take you to the Download Center page from where the software package can be downloaded.
-   ![Prepare infrastructure for Azure Backup Server](./media/backup-download-credentials/azure-backup-server-prep-infra.png)
+   ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
 8. Select all the files and click **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
 ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
