@@ -206,7 +206,7 @@ WorkloadName     Operation            Status               StartTime            
 V2VM        Backup               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Instead of polling these jobs for completion - which is unnecessary, additional code - it is simpler to use the Wait-AzureRmBackupJob Wait-AzureRmRecoveryServicesBackupJob cmdlet. When used in a script, the cmdlet will pause the execution until either the job completes or the specified timeout value is reached.
+Instead of polling these jobs for completion - which is unnecessary, additional code - it is simpler to use the  Wait-AzureRmRecoveryServicesBackupJob cmdlet. When used in a script, the cmdlet will pause the execution until either the job completes or the specified timeout value is reached.
 
 ```
 PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
