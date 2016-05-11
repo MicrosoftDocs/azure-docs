@@ -76,10 +76,11 @@ The following steps guide you through the installation stages:
 7.	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
 **Note:** This is the Azure Active Directory account that you provided when you deployed Azure Stack.
 	- Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
-![Azure Stack App Service Technical Preview 1 AAD Login][5]
+
+![Azure Stack App Service Technical Preview 1 Subscription Selection][5]
+
 8.	Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
 	- Select **Local**.
-
 9. Enter the **Name** for your administrator.
 10.	Enter a **Password** for the administrator.
 11.	Review the **SQL Server details** and make changes if required.
