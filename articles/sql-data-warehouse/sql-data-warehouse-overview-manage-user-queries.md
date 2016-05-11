@@ -39,7 +39,7 @@ For more management tips head over to the [Management overview][].
 <!--Image references-->
 
 <!--Article references-->
-[Find long-running queries]: sql-data-warehouse-manage-find-long-running-query.md
+[Find long-running queries]: sql-data-warehouse-manage-find-long-running-queries.md
 [Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
 [Management overview]: sql-data-warehouse-overview-manage.md
 

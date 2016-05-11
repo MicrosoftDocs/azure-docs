@@ -19,9 +19,8 @@
 # Load data from Azure blob storage into Azure SQL Data Warehouse (Azure Data Factory)
 
 > [AZURE.SELECTOR]
-- [Data Factory][]
-- [PolyBase][]
-- [BCP][]
+- [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
  This tutorial shows you how to create a pipeline in Azure Data Factory to move data from Azure Storage Blob to SQL Data Warehouse. With the following steps you will:
 
