@@ -34,7 +34,7 @@ To understand how things work when you add a subscription to an account, see the
 ### Scenario 1: Office 365 users plan to buy Azure
 In this scenario, we assume Kelley Wall is a user who has an Office 365 subscription, and is planning to subscribe to Azure. There are two additional active users, Jane and Tricia. Kelley’s account is admin@contoso.onmicrosoft.com.
 
-![office365-users-admin-center.png](.\media\billing-add-office-365-existing-azure-account\1-office365-users-admin-center.png)
+![office365-users-admin-center.png](..\media\billing-add-office-365-existing-azure-account\1-office365-users-admin-center.png)
 
 To sign up for Azure, follow these steps:
 
