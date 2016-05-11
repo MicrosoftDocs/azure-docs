@@ -66,7 +66,7 @@ Before you begin configuration, verify that you have the following:
 
 
 
-## 1. Create a Site-to-Site VPN and a gateway
+## 1. Create a Site-to-Site VPN
 
 If you already have a Site-to-Site VPN with a dynamic routing gateway, great! You can proceed to [Export the virtual network configuration settings](#export). If not, do the following:
 
@@ -74,19 +74,19 @@ If you already have a Site-to-Site VPN with a dynamic routing gateway, great! Yo
 
 1. Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic (also known as route-based) routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one. For instructions, see [Change a VPN Gateway Routing Type](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type).  
 
-2. Configure your new gateway and create your VPN tunnel. For instructions, see [Configure a VPN Gateway in the Azure Classic Portal](vpn-gateway-configure-vpn-gateway-mp.md).First, Change your gateway type to dynamic routing. 
+2. Configure your new gateway and create your VPN tunnel. For instructions, see [Configure a VPN Gateway in the Azure Classic Portal](vpn-gateway-configure-vpn-gateway-mp.md). First, change your gateway type to dynamic routing. 
 
-### If you don't have a site-to-site virtual network:
+### If you don't have a Site-to-Site virtual network:
 
 1. Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection in the Azure Classic Portal](vpn-gateway-site-to-site-create.md).  
 
 2. Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
 
-## <a name="export"></a>2. Export the virtual network configuration settings 
+## <a name="export"></a>2. Export the network configuration file 
 
 Export your network configuration file. The file that you export will be used to configure your new multi-site settings. If you need instructions on how to export a file, see [To export your network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure). 
 
-## 3. Open your network configuration file.
+## 3. Open the network configuration file
 
 Open the network configuration file that you downloaded in the last step. Use any xml editor that you like. The file should look similar to the following:
 
@@ -139,7 +139,7 @@ Open the network configuration file that you downloaded in the last step. Use an
 
 ## 4. Add multiple site references to the network configuration file
 
-When you add or remove site reference information, you'll make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef. Adding a new local site reference triggers Azure to create a new tunnel. In the example below, the network configuration is for a single-site connection.
+When you add or remove site reference information, you'll make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef. Adding a new local site reference triggers Azure to create a new tunnel. In the example below, the network configuration is for a single-site connection. Save the file once you have finished making your changes.
 
 		<Gateway>
           <ConnectionsToLocalNetwork>
@@ -156,11 +156,11 @@ When you add or remove site reference information, you'll make configuration cha
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-## 5. Save the network configuration file and import it
+## 5. Import the network configuration file
 
 Import the network configuration file. When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier. If you need instructions on how to import the file, see [To import your network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure). 
 
-## 6. Download the pre-shared keys for the VPN tunnels
+## 6. Download keys
 
 Once your new tunnels have been added, use the PowerShell cmdlet `Get-AzureVNetGatewayKey` to get the IPsec/IKE pre-shared keys for each tunnel.
 
