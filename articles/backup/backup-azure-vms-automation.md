@@ -19,8 +19,8 @@
 # Deploy and manage backup for ARM VMs using PowerShell
 
 > [AZURE.SELECTOR]
-- [ARM VM PowerShell](backup-azure-vms-automation.md)
-- [Classic VM PowerShell](backup-azure-vms-classic-automation.md)
+- [Resource Manager PowerShell](backup-azure-vms-automation.md)
+- [Classic PowerShell](backup-azure-vms-classic-automation.md)
 
 This article shows you how to use Azure PowerShell to back up and recover an Azure virtual machine (VM) from a Recovery Services vault. A Recovery Services vault is an Azure Resource Manager (ARM) resource and is used to protect data and assets in both Azure Backup and Azure Site Recovery services. Use a Recovery Services vault when working in an ARM deployment. You can use a Recovery Services vault to protect Azure Service Manager (ASM)-deployed VMs, as well as ARM VMs.
 
