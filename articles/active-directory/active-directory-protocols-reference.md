@@ -18,6 +18,9 @@
 
 # Azure AD Protocols Reference
 
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
+
 ## Request to Authorize Endpoint
 
 ```

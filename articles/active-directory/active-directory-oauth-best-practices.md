@@ -19,6 +19,8 @@
 
 # Best Practices for OAuth 2.0 in Azure AD
 
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 ## Use the State Parameter
 
 The `state` parameter is optional but recommended in requests for the authorization code. Typically, the `state` parameter is a GUID, that the client sends in the request. The response also includes the same `state` value, and the application must verify that the state values are identical before using the response.
