@@ -1,6 +1,6 @@
 <properties
    pageTitle="Data Classification for Azure | Microsoft Azure"
-   description="This article provides an introduction to the fundamentals of data classification and highlights some Microsoft Azure capabilities to handle data classification"
+   description="This article provides an introduction to the fundamentals of data classification, and highlights its value, specifically in the context of cloud computing and using Microsoft Azure"
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
    authors="YuriDio"
