@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/06/2016"
+   	ms.date="05/11/2016"
    	ms.author="jgao"/>
 
 # Install custom HDInsight applications
@@ -23,7 +23,6 @@ An HDInsight application is an application that users can install on a Linux-bas
 
 Other related articles:
 
-- [Install HDInsight applications](hdinsight-apps-install-applications.md): General information on install published HDInsight applications.
 - [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
 - [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.
 
@@ -87,7 +86,6 @@ You can check the application status on the Azure portal to validate the applica
  
 ## Next steps
 
-- [Install HDInsight applications](hdinsight-apps-install-applications.md): learn how to deploy a published HDInsight application from the Azure portal.
 - [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): learn how to develop ARM templates for deploying HDInsight applications.
 - [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
 - [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.

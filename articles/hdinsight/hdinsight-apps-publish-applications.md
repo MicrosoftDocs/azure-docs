@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/02/2016"
+   	ms.date="05/11/2016"
    	ms.author="jgao"/>
 
 # Publish HDInsight applications into the Azure Marketplace
@@ -23,9 +23,8 @@ An HDInsight application is an application that users can install on a Linux-bas
 
 HDInsight applications use the *Bring Your Own License (BYOL)* model, where application provider is responsible for licensing the application to end-users, and end-users are only charged by Azure for the resources they create, such as the HDInsight cluster and its VMs/nodes. At this time, billing for the application itself is not done through Azure.
 
-Other HDInsight application related articles:
+Other HDInsight application related article:
 
-- [Install HDInsight application](hdinsight-apps-install-applications.md): General information on install published HDInsight applications.
 - [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to install and test custom HDInsight applications.
 
  
@@ -81,15 +80,9 @@ Follow the following steps to publish an HDInsight application:
 5. Add a new version.
 6. Upload the zip file prepared in [Package application](#package-application).  
 7. Click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
- 
- 
-## Validate application
-
-Following the instructions found at [Install HDInsight application](hdinsight-apps-install-applications.md) to validate your application.
 
 ## Next steps
 
-- [Install HDInsight applications](hdinsight-apps-install-applications.md): learn how to deploy a published HDInsight application from the Azure portal.
 - [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
 - [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
 - [Create Linux-based Hadoop clusters in HDInsight using ARM templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call ARM templates to create HDInsight clusters.
