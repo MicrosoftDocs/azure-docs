@@ -110,20 +110,20 @@ on the Hub menu, click **Browse**.
 
     ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
-3. Settings blade opens up by default. If it is closed, click on **Setings** to open the settings blade.
+3. Settings blade opens up by default. If it is closed, click on **Settings** to open the settings blade.
 
-    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-settings.png)
+    ![Open vault blade](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
 
 4. Click on **Backup** in **Getting Started** to open the Getting Started wizard.
 
     ![Backup getting started](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
 5. In the Getting Started that opens, Backup Goals screen will be auto-selected.
-    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backups/getting-started.png)
+    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
     In the **Backup goals** section, select *on-premises* for *where is your workload running*.
 
-    ![on-premises and workloads as goals](./media/backup-download-credentials/backup-goals-azure-backup-server.png)
+    ![on-premises and workloads as goals](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
 6. Select the workloads you want to protect using Azure Backup Server in *what workloads you want to protect* and click on **OK**.
 > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
