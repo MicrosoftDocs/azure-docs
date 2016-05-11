@@ -34,7 +34,7 @@ This topic covers the following:
 - [Common live streaming scenario](media-services-manage-channels-overview.md#scenario)
 - [Description of a Channel and its related components](media-services-manage-channels-overview.md#channel)
 - [Considerations](media-services-manage-channels-overview.md#considerations)
-- [Tasks related to Live Streaming](media-services-manage-channels-overview.md#tasks)
+
 
 ##<a id="scenario"></a>Common live streaming scenario
 The following steps describe tasks involved in creating common live streaming applications.
@@ -63,8 +63,6 @@ The following steps describe tasks involved in creating common live streaming ap
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
 1. Delete the Program (and optionally delete the asset).     
-
-The [live streaming tasks](media-services-manage-channels-overview.md#tasks) section links to topics that demonstrate how to achieve tasks described above.
 
 ##<a id="channel"></a>Description of a Channel and its related components
 

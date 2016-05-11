@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -67,8 +67,7 @@ communicate with the Service Bus REST services.
 
 ### Import the module
 
-Using Notepad or another text editor, add the following to the top of
-the **server.js** file of the application:
+Using Notepad or another text editor, add the following to the top of the **server.js** file of the application:
 
 ```
 var azure = require('azure');
@@ -139,7 +138,7 @@ After performing preprocessing on the request options, the method calls `next` p
 function (returnObject, finalCallback, next)
 ```
 
-In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end up the service invocation.
+In this callback, and after processing the **returnObject** (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke **finalCallback** otherwise to end up the service invocation.
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
@@ -433,7 +432,7 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 -   Visit the [Azure SDK for Node][] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-  [Azure classic portal]: http://manage.windowsazure.com
+  [Azure classic portal]: https://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
