@@ -42,6 +42,8 @@ If you start the **sync service manager** you will see that many more Connectors
 
 **This feature is only in private preview and is not generally supported. You should not try to add any of these Connectors to your environment.**
 
+For technical reasons we need to make these Connectors visible for a very limited private preview with a few selected customers. We are preparing a broader public preview later with detailed documentation on how to use these Connectors.
+
 ## User writeback
 > [AZURE.IMPORTANT] The user writeback preview feature was removed in the August 2015 update to Azure AD Connect. If you have enabled it, then you should disable this feature.
 
