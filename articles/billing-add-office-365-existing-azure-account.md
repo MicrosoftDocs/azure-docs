@@ -26,6 +26,7 @@ Scenario: If you already have an Office 365 subscription and are ready for an Az
 
 - If you already have an Office 365 subscription and want to sign up for Azure, use the **Sign in with your organizational account** option and continue the Azure sign up with your Office 365 account. See [detailed steps](#detailed-steps).
 - If you already have an Azure subscription and want to get an Office 365 subscription, sign in to Office 365 with your Azure account and proceed with the sign up steps. Once completed, the Office 365 subscription is added to the same Azure Active Directory that your Azure subscription belongs to. See [detailed steps](#detailed-steps).
+
   **Note:** To get an Office 365 subscription, you must be a global admin or billing admin of your Azure Active Directory. [Learn how to know the role of your Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory)
 
 To understand how things work when you add a subscription to an account, see the complementary [background information](#background-information) later in the article.
