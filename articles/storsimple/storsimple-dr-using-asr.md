@@ -21,7 +21,7 @@
 
 Microsoft Azure StorSimple is a hybrid cloud storage solution that addresses the complexities of unstructured data commonly associated with file shares. StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and cloud storage. Integrated data protection, with local and cloud snapshots, eliminates the need for a sprawling storage infrastructure.
 
-[Azure Site Recovery](../site-recovery/) is an Azure-based service that provides disaster recovery (DR) capabilities by orchestrating replication, failover, and recovery of virtual machines. Azure Site Recovery supports a number of replication technologies to consistently replicate, protect, and seamlessly fail over virtual machines and applications to private/public or hosted clouds.
+[Azure Site Recovery](../site-recovery/site-recovery.md) is an Azure-based service that provides disaster recovery (DR) capabilities by orchestrating replication, failover, and recovery of virtual machines. Azure Site Recovery supports a number of replication technologies to consistently replicate, protect, and seamlessly fail over virtual machines and applications to private/public or hosted clouds.
 
 Using Azure Site Recovery, virtual machine replication, and StorSimple cloud snapshot capabilities, you can protect the complete file server environment. In the event of a disruption, you can use a single click to bring your file shares online in Azure in just a few minutes.
 
@@ -43,7 +43,7 @@ Implementing a one-click disaster recovery solution that uses Azure Site Recover
 
 -   File shares hosted on the volumes configured on the StorSimple storage device
 
--   [Azure Site Recovery services vault](../site-recovery-vmm-to-vmm/) created in a Microsoft Azure subscription
+-   [Azure Site Recovery services vault](../site-recovery/site-recovery-vmm-to-vmm/) created in a Microsoft Azure subscription
 
 In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
 
@@ -73,7 +73,7 @@ If the customer has a small number of applications, a single domain controller f
 
 If the customer has a large number of applications, is running an Active Directory forest, and will be failing over a few applications at a time, then we recommend setting up an additional domain controller on the DR site (either a secondary site or in Azure).
 
-Please refer to [Automated DR solution for Active Directory and DNS using ASR](../site-recovery-active-directory/) for instructions when making a domain controller available on the DR site. For the remainder of this document, we will assume a domain controller is available on the DR site.
+Please refer to [Automated DR solution for Active Directory and DNS using ASR](../site-recovery/site-recovery-active-directory.md) for instructions when making a domain controller available on the DR site. For the remainder of this document, we will assume a domain controller is available on the DR site.
 
 ### Use Azure Site Recovery to enable protection of the file server VM
 
@@ -142,7 +142,7 @@ This step requires that you prepare the on-premises file server environment, cre
 
 #### To create and prepare an Azure Site Recovery vault
 
-Refer to the [Azure Site Recovery documentation](../site-recovery-hyper-v-site-to-azure/) to get started with Azure Site Recovery before protecting the file server VM.
+Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-hyper-v-site-to-azure/) to get started with Azure Site Recovery before protecting the file server VM.
 
 #### To enable protection
 
@@ -156,7 +156,7 @@ Refer to the [Azure Site Recovery documentation](../site-recovery-hyper-v-site-t
 
 	> [AZURE.NOTE] This will cause the file shares to be temporarily unavailable
 
-1.  [Enable virtual machine protection](../site-recovery-hyper-v-site-to-azure.md#step-6-enable-virtual-machine-protection) of the file server VM from the Azure Site Recovery portal.
+1.  [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-virtual-machine-protection) of the file server VM from the Azure Site Recovery portal.
 
 2.  When the initial synchronization begins, you can reconnect the target again. Go to the iSCSI initiator, select the StorSimple device, and click **Connect**.
 
@@ -276,7 +276,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 ## Perform a test failover
 
-Refer to the [Active Directory DR Solution](../site-recovery-active-directory.md) companion guide for considerations specific to Active Directory during the test failover. The on-premises setup is not disturbed at all when the test failover occurs. The StorSimple volumes that were attached to the on-premises VM are cloned to the StorSimple Cloud Appliance on Azure. A VM for test purposes is brought up in Azure and the cloned volumes are attached to the VM.
+Refer to the [Active Directory DR Solution](../site-recovery/site-recovery-active-directory.md) companion guide for considerations specific to Active Directory during the test failover. The on-premises setup is not disturbed at all when the test failover occurs. The StorSimple volumes that were attached to the on-premises VM are cloned to the StorSimple Cloud Appliance on Azure. A VM for test purposes is brought up in Azure and the cloned volumes are attached to the VM.
 
 #### To perform the test failover
 
