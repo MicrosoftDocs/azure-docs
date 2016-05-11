@@ -3,8 +3,8 @@
 	description="An introduction to backing up DPM servers using the Azure Backup service"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="jwhit"
+	authors="trinadhk"
+	manager="shreeshd"
 	editor=""
 	keywords="System Center Data Protection Manager, data protection manager, dpm backup"/>
 
@@ -14,14 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
-	ms.author="giridham;jimpark"/>
+	ms.date="05/10/2016"
+	ms.author="trinadhk;giridham;jimpark"/>
 
 # Preparing to back up workloads to Azure with DPM
 
 > [AZURE.SELECTOR]
 - [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
-- [System Center DPM](backup-azure-dpm-introduction.md)
+- [SCDPM](backup-azure-dpm-introduction.md)
+- [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
+- [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
 This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you’ll understand:
 
@@ -29,6 +31,8 @@ This article provides an introduction to using Microsoft Azure Backup to protect
 - The prerequisites to achieve a smooth backup experience
 - The typical errors encountered and how to deal with them
 - Supported scenarios
+
+> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 
 System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup. DPM interacts with Azure Backup as follows:
 
