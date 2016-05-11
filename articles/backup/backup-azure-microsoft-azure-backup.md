@@ -131,7 +131,7 @@ on the Hub menu, click **Browse**.
 
 6. Select the workloads you want to protect using Azure Backup Server in *what workloads you want to protect* and click on **OK**.
 
-> [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
+  > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
 
   This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
 
