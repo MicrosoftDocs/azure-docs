@@ -4,7 +4,7 @@
   services="app-service\mobile"
   documentationCenter=""
   authors="lindydonna"
-  manager="ericre"
+  manager="erikre"
   editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="05/04/2016"
+  ms.date="05/10/2016"
   ms.author="donnam"/>
 
 # Client and server versioning in Mobile Apps and Mobile Services

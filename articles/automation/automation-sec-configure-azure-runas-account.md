@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="service principal name, setspn, azure authentication"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/20/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
