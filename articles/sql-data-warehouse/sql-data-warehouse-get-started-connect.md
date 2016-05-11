@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/10/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
@@ -62,6 +62,8 @@ For the best experience, use Visual Studio 2015 with the [latest SQL Server Data
     - **User Name** and **Password**. Enter user name and password for the Azure SQL server.
     - **Database Name**.  Enter the database name for the SQL DW database.
     - Click **Connect**.
+
+[AZURE.NOTE] Connecting to the SQL Data Warehouse database is important for the navigation of the object tree to work properly.  Connecting to the default database, which is the **master** database, may not work if some of the databases on your logical server are paused.  This limitation will eventually be resolved, but in the meantime, connecting to the SQL Data Warehouse database will ensure proper function of the object explorer tree.
 
 1. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
 
