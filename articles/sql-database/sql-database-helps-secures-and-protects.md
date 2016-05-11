@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Helps Secures and Protects"
-   description="Learn how SQL Database helps, secures and protects"
+   pageTitle="Azure SQL Database Helps Secure and Protect"
+   description="Learn how SQL Database helps secure and protect"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,7 +17,7 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
    
-# Azure SQL Database Helps Secures and Protects
+# Azure SQL Database Helps Secure and Protect
 
 ## Keep your app’s data safe and secure
 
