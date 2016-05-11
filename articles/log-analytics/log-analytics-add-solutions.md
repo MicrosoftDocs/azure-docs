@@ -21,14 +21,15 @@
 Log Analytics solutions are a collection of **logic**, **visualization** and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists solutions supported Log Analytics and tells you how to add and remove them using the Solutions Gallery.
 
 Solutions allow deeper insights to:
+
 - help investigate and resolve operational issues faster
 - collect and correlate various types of machine data
 - help you be proactive with activities such as capacity planning, patch status reporting and security auditing.
 
 
->[AZURE.NOTE] OMS includes base Log Search functionality, so you don't need to install a solution to enable it. However, you can get additional functionality by adding solutions to it from the Solution Gallery page.
+>[AZURE.NOTE] Log Analytics includes Log Search functionality, so you don't need to install a solution to enable it. However, you can get data visualizations, suggested searches and insights by adding solutions from the Solution Gallery.
 
-After you've added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service can take from a few minutes to several hours. After the service processes the data, you can view it in OMS.
+After you've added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service typically takes a few minutes to an hour. After the service processes the data, you can view it in OMS.
 
 You can easily remove a solution when it is no longer needed. When you remove a solution, its data is not sent to OMS, which can reduce the amount of data used by your daily quota, if you have one.
 
@@ -111,7 +112,9 @@ The following table shows data collection methods and other details about how da
 By running a service and following devops practices we are able to share features and solutions with customers during the development process.
 
 We start by working with a small group of customers (called a cohort) to get requirements and review designs. We then start a private preview where we give the cohort access to an early implementation of the feature or solution to gain feedback and make improvements.
+
 This early implementation will have minimal features and operational capabilities. 
+
 Our goal is to try things quickly so we can find what works, and what doesn’t work. We iterate through this process until the feedback from the cohort informs us that we’re ready for a public preview. Customers need to work with us to get access to private preview features and solutions.
 
 During the public preview, we make the feature or solution available for all users to get more feedback and validate our scaling and efficiency. During this phase:
@@ -123,14 +126,14 @@ During the public preview, we make the feature or solution available for all use
 
 We’re excited about new features and solutions and we love working with you to develop them.
 
-Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with a service that is under development and are aware that:
+Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with a service that is under development and be aware that:
 
 - Things may not always work correctly. This is especially true during private preview but also applies to public preview. 
   - Issues can range from being a minor annoyance through to the feature not working at all, or potentially having a negative impact on your systems / environment
   - Data loss / corruption may occur
   - We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur. 
 - The feature or solution may be removed (either temporarily or permanently)
-  - Based on our learnings during preview we may decide to not release the feature or solution
+  - Based on our learnings during the preview we may decide to not release the feature or solution
 - Private previews may require a Non-Disclosure Agreement (NDA) for participation or include confidential content
   - Before blogging, tweeting or otherwise communicating with third parties please check with the Program Manager responsible for the preview to understand any restrictions on disclosure  
 - Private previews should not be run on production / critical systems
