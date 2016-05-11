@@ -105,12 +105,10 @@ Now that you have selected the restore point, choose a configuration for your re
     - **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for an ARM VM) or cloud service (for a Classic VM). Replacing the virtual machine when virtual machine is exists in teh subscription is not supported..
     - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. When creating a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
     - **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription. Resource group of the VM is displayed in parenthesis. 
-
-    > [AZURE.NOTE] You must select a VNET when restoring an ARM-based VM. A VNET is optional for a Classic VM.
-    
-    
     - **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
     - **Storage account** - This open the list of storage accounts in the same location as the Recovery Services vault. When choosing a storage account, you must choose from accounts that share the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. Replication type of storage account is mentioned in parenthesis. 
+    
+    > [AZURE.NOTE] You must select a VNET when restoring an ARM-based VM. A VNET is optional for a Classic VM.
 
 3. On the **Restore configuration** blade, click **OK** to finalize the restore configuration.
 
