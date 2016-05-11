@@ -59,7 +59,7 @@ The following steps facilitate sending events:
 1.	Include JQuery library in your code. You can download it from nuget in the following URL.
 
 		http://www.nuget.org/packages/jQuery/1.8.2
-2.	Include the Recommendations Java Script library from the following URL: http://1drv.ms/1Aoa1Zp
+2.	Include the Recommendations Java Script library from the following URL: http://aka.ms/RecoJSLib1
 
 3.	Initialize Azure ML Recommendations library with the appropriate parameters.
 
