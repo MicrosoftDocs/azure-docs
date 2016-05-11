@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/11/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
@@ -53,7 +53,15 @@ In this section, you will perform the following steps to create a new Azure Auto
 
 7. While Azure creates the Automation account, you can track the progress under **Notifications** from the menu.
 
-When complete, the Automation account is created with a Certificate asset named **AzureRunAsCertificate** that has a one year lifespan, and a Connection asset named **AzureRunAsConnection**.  
+### Resources included
+When the creation of the automation account is complete, several resources are automatically created for you. They are summarized in the table below.
+
+Resource|Description 
+----|----
+AzureAutomationTutorial Runbook|An example runbook that demonstrates how to authenticate using the Run As account and display the first 10 Azure VMs in your subscription.
+AzureRunAsCertificate|Certificate asset created if you either selected to have Run As account created during Automation account creation or using the PowerShell script below for an existing account.  This certificate has a one-year lifespan. 
+AzureRunAsConnection|Connection asset created if you either selected to have Run As account created during Automation account creation or using the PowerShell script below for an existing account.
+Modules|15 modules with cmdlets for Azure, PowerShell, and Automation to start using in your runbooks immediately.  
 
 ## Update an Automation Account using PowerShell
 The procedure below updates an existing Automation account and creates the service principal using PowerShell.  This procedure is necessary if you created an account but declined to create the Run As account.
@@ -92,6 +100,9 @@ The PowerShell script will configure the following:
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
+    [String] $SubscriptionName,
+
+    [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
 
     [Parameter(Mandatory=$false)]
@@ -100,6 +111,7 @@ The PowerShell script will configure the following:
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -156,12 +168,13 @@ The PowerShell script will configure the following:
     ```
 <br>
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, and *-CertPlainPassword*.<br>
+3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName*, and *-CertPlainPassword*.<br>
 
     ```
     .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
+     -SubscriptionName <SubscriptionName> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
@@ -183,7 +196,7 @@ Next we will perform a small test to confirm you are able to successfully authen
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   ```  
+    ```  
 <br>
 6. Save the runbook by clicking **Save**.
 7. Click **Test pane** to open the **Test** blade.
@@ -195,7 +208,39 @@ Next we will perform a small test to confirm you are able to successfully authen
 13. Close the **Edit PowerShell Runbook** blade.
 14. Close the **Test-SecPrin-Runbook** blade.
 
-The above code used to verify if the new account is setup correctly, is what you will use in your PowerShell runbooks to authenticate in Azure Automation to manage ARM resources. Of course, you can continue to authenticate with the Automation account you've currently been using.  
+You can use the updated sample code below, taken from the AzureAutomationTutorial example runbook that is included when you create the Automation Run As account, to authenticate with Azure Automation to manage ARM resources. 
+
+   ```
+   connectionName = "AzureRunAsConnection"
+   try
+   {
+      # Get the connection "AzureRunAsConnection "
+      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+      "Logging in to Azure..."
+      Add-AzureRmAccount `
+         -ServicePrincipal `
+         -TenantId $servicePrincipalConnection.TenantId `
+         -ApplicationId $servicePrincipalConnection.ApplicationId `
+         -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+
+      $SubscriptionId = Get-AutomationVariable -Name 'SubscriptionId'
+      Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+   }
+   catch {
+       if (!$servicePrincipalConnection)
+       {
+           $ErrorMessage = "Connection $connectionName not found."
+           throw $ErrorMessage
+       } else{
+           Write-Error -Message $_.Exception
+           throw $_.Exception
+       }
+   } 
+   ```
+
+The script includes two additional lines of code to support referencing the subscription context so you can easily work between multiple subscriptions. A variable asset named **SubscriptionId** contains the ID of the subscription and because that's too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easy to identify for your purposes.  Alternatively, you can also use the argument *SubscriptionName* instead of *SubscriptionId*.
+
 
 ## Next Steps
 - For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
