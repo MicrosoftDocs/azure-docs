@@ -52,7 +52,7 @@ Two. You can create only two Free Bing Maps APIs in a subscription. The remote m
   `<setting name="MapApiQueryKey" value="" />`
 
 ### Can I create a preconfigured solution if I have Microsoft Azure for DreamSpark?
-At this time, you cannot create a preconfigured solution. Microsoft Azure for DreamSpark is limited, as seen at [Microsoft Azure for DreamSpark][lnk-dreamspark]. However, you can create a free Azure trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-30daytrial].
+At this time, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark][lnk-dreamspark] account. However, you can create a [free trial account for Azure][lnk-30daytrial] in just a couple of minutes that will enable you create a preconfigured solution.
 
 ### How do I delete an AAD tenant?
 
@@ -64,5 +64,5 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-dele
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 
-[lnk-30daytrial]: https://azure.microsoft.com/en-us/free/
+[lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
