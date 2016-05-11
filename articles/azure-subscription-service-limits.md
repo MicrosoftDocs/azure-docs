@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/10/2016"
 	ms.author="jroth"/>
 
 # Azure subscription and service limits, quotas, and constraints
@@ -41,7 +41,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
 - [Application Insights](#application-insights-limits)
-- [Azure Automation](#azure-automation-limits)
+- [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
@@ -273,8 +273,8 @@ To learn more about other limits, such as document size, keys, requests, and res
 ### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
-### Azure Automation limits
-[AZURE.INCLUDE [azure-automation-limits](../includes/azure-automation-service-limits.md)]
+### Automation limits
+[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
 ### SQL Database limits
 
