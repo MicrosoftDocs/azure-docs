@@ -50,7 +50,7 @@ The gateway contains the following modules:
 
 The following block diagram illustrates the telemetry upload data flow pipeline:
 
-![](media/iot-hub-linux-gateway-sdk-physical-device/gateway_ble_upload_data_flow.png)
+![](media/iot-hub-gateway-sdk-physical-device/gateway_ble_upload_data_flow.png)
 
 Here are the steps in the journey that an item of telemetry takes from a BLE
 device to IoT Hub.
@@ -63,7 +63,7 @@ device to IoT Hub.
 
 The following block diagram illustrates the device command data flow pipeline:
 
-![](media/iot-hub-linux-gateway-sdk-physical-device/gateway_ble_command_data_flow.png)
+![](media/iot-hub-gateway-sdk-physical-device/gateway_ble_command_data_flow.png)
 
 1. The IoT Hub HTTP module periodically polls the IoT hub for new command messages.
 2. When the IoT Hub HTTP module receives a new command message, it publishes it to the message bus.
