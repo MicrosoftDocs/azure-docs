@@ -261,17 +261,16 @@ If you have setup a proxy server on a current user account(not a Local System Ac
 
 Add the following line to the ```/etc/environment``` file:
 
-    ```
-    http_proxy=http://<proxy IP>:<proxy port>
-    ```
- 
- Add the following lines to the ```/etc/waagent.conf``` file:
+```
+http_proxy=http://<proxy IP>:<proxy port>
+```
 
-    ```
-    HttpProxy.Host=<proxy IP>
-    HttpProxy.Port=<proxy port>
-    ```
-
+Add the following lines to the ```/etc/waagent.conf``` file:
+   
+```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
 
 #### Step 2. Allow incoming connections on the proxy server:
 
