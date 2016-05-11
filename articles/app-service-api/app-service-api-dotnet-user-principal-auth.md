@@ -18,13 +18,12 @@
 
 # User authentication for API Apps in Azure App Service
 
-[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
-
 ## Overview
 
-This is the fourth article in the getting started series for App Service API apps. In this article you'll learn:
+This article shows how to protect an Azure API app so that only authenticated users can call it. The article assumes that have read the [Azure App Service authentication overview](../app-service/app-service-authentication-overview.md).
 
-* How to protect an App Service API app so that only authenticated users can call it.
+You'll learn:
+
 * How to configure an authentication provider, with details for Azure Active Directory (Azure AD).
 * How to consume a protected API app by using the [Active Directory Authentication Library (ADAL) for JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
@@ -32,7 +31,7 @@ The article contains two sections:
 
 * The [How to configure user authentication in Azure App Service](#authconfig) section explains in general how to configure user authentication for any API app and applies equally to all frameworks supported by App Service, including .NET, Node.js, and Java.
 
-* Starting with the [Continuing the .NET getting-started tutorials](#tutorialstart) section, the article guides you through configuring a sample application with a .NET back end and an AngularJS front end so that it uses Azure Active Directory for user authentication. 
+* Starting with the [Continuing the .NET API Apps tutorials](#tutorialstart) section, the article guides you through configuring a sample application with a .NET back end and an AngularJS front end so that it uses Azure Active Directory for user authentication. 
 
 ## <a id="authconfig"></a> How to configure user authentication in Azure App Service
 
@@ -70,7 +69,7 @@ When this is done, App Service authenticates all API calls before they reach the
 
 To make authenticated API calls, the caller includes the authentication provider's OAuth 2.0 bearer token in the Authorization header of HTTP requests. The token can be acquired by using the authentication provider's SDK.
 
-## <a id="tutorialstart"></a> Continuing the .NET getting-started tutorials
+## <a id="tutorialstart"></a> Continuing the .NET API Apps tutorials
 
 If you are following the Node.js or Java getting-started series for API apps, skip to the next article, [service principal authentication for API apps](app-service-api-dotnet-service-principal-auth.md). 
 
