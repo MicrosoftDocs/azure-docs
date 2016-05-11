@@ -348,6 +348,12 @@ During a failback, StorSimple volume containers are failed over back to the phys
 
 ### Capacity planning and readiness assessment
 
+Capacity planning is made up of at least two important processes:
+
+-   Mapping on-premises Hyper-V VMs to Azure VM sizes (such as A6, A7, A8, and A9).
+
+-   Determining the required Internet bandwidth.
+
 #### Hyper-V site
 
 Use the [User Capacity planner tool](http://www.microsoft.com/download/details.aspx?id=39057) to design the server, storage, and network infrastructure for your Hyper-V replica environment.
@@ -356,16 +362,10 @@ Use the [User Capacity planner tool](http://www.microsoft.com/download/details.a
 
 You can run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery Services. The Readiness Assessment Tool checks VM configurations and warns when configurations are incompatible with Azure. For example, it issues a warning if a C: drive is larger than 127 GB.
 
-Capacity planning is made up of at least two important processes:
-
--   Mapping on-premises Hyper-V VMs to Azure VM sizes (such as A6, A7, A8, and A9).
-
--   Determining the required Internet bandwidth.
 
 ## Limitations
 
 1.  Currently, only 1 StorSimple device can be failed over (to a single StorSimple Cloud Appliance). The scenario of a file server that spans several StorSimple devices is not yet supported.
-
 
 1.  If you get an error while enabling protection for a VM, make sure that you have disconnected the iSCSI targets.
 
@@ -379,23 +379,25 @@ Capacity planning is made up of at least two important processes:
 
 6.  After a failover, if you are not able to see the volumes, go to the VMs, open Disk Management, rescan the disks, and then bring them online.
 
-7.  Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
-
 8.  In some instances, the drive letters in the DR site might be different than the letters on-premises. If this occurs, you will need to manually correct the problem after the failover is finished.
 
-9.  Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+
+2.  Multi-factor authentication should be disabled for the Azure credential that is entered in the automation account as an asset. If this authentication is not disabled, scripts will not be allowed to run automatically and the recovery plan will fail.
+
+7.  Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+ 
+  
+10. Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 
 	> [AZURE.IMPORTANT] Run the backup manually from the Azure portal and then run the recovery plan again.
 
 1.  Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 
-2.  Multi-factor authentication should be disabled for the Azure credential that is entered in the automation account as an asset. If this authentication is not disabled, scripts will not be allowed to run automatically and the recovery plan will fail.
-
 3.  Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
 
 	> [AZURE.IMPORTANT] Sync the appliance time with the current time in the time zone.
 
-1.  Appliance failover: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
+1.  Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
 
 	> [AZURE.IMPORTANT] Rerun the recovery plan after the appliance failover is complete.
 
