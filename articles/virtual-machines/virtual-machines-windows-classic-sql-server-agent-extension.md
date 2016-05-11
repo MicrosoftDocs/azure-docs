@@ -50,7 +50,7 @@ The SqlIaaSAgent is automatically installed when you provision one of the SQL Se
 
 If you create an OS-only Windows Server virtual machine, you can install the extension manually by using the **Set-AzureVMSqlServerExtension** PowerShell cmdlet. Use the command to configure one of the agent's services, such as Automated Patching. The VM installs the SqlIaaSAgent if it is not installed.
 
->[AZURE.NOTE] For instructions on using the **Set-AzureVMSqlServerExtension** PowerShell, see the individual topics in the [Services supported](#services-supported) section of this article.
+>[AZURE.NOTE] For instructions on using the **Set-AzureVMSqlServerExtension** PowerShell, see the individual topics in the [Supported services](#supported-services) section of this article.
 
 ## Status
 
@@ -74,6 +74,6 @@ You can also use the **Remove-AzureVMSqlServerExtension** Powershell cmdlet.
 
 ## Next Steps
 
-Begin using one of the services supported by the extension. For more details, see the topics referenced in the [Services supported](#services-supported) section of this article.
+Begin using one of the services supported by the extension. For more details, see the topics referenced in the [Supported services](#supported-services) section of this article.
 
 For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
