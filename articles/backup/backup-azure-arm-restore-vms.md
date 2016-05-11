@@ -72,7 +72,7 @@ You protect your data with the Backup service by taking snapshots of your data a
 
     ![restore blade](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
-    By default, the dialog displays all restore points from the last 30 days. Use the **Filter** on to of the blade to alter the time range of the restore points displayed. By default , restore points of all consistency are displayed. Modify **All Restore points** filter to select a specific consistency of restore points. For more information about each type of restoration point, see the explanation of [Data consistency](./backup-azure-vms-introduction.md#data-consistency).  
+    By default, the dialog displays all restore points from the last 30 days. Use the **Filter** on top of the blade to alter the time range of the restore points displayed. By default, restore points of all consistency are displayed. Modify **All Restore points** filter to select a specific consistency of restore points. For more information about each type of restoration point, see the explanation of [Data consistency](./backup-azure-vms-introduction.md#data-consistency).  
     - **Restore point consistency** from this list choose:
         - Crash consistent restore points,
         - Application consistent restore points,
@@ -102,7 +102,7 @@ Now that you have selected the restore point, choose a configuration for your re
     ![recovery configuration wizard is set](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
 2. On the **Restore configuration** blade, enter or select values for each of the following fields:
-    - **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for an ARM VM) or cloud service (for a Classic VM). Replacing the virtual machine when virtual machine is exists in teh subscription is not supported..
+    - **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for an ARM VM) or cloud service (for a Classic VM). Replacing the virtual machine when virtual machine is exists in the subscription is not supported..
     - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. When creating a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
     - **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription. Resource group of the VM is displayed in parenthesis. 
     - **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
@@ -118,7 +118,7 @@ Now that you have selected the restore point, choose a configuration for your re
 
 ## Track the restore operation
 
-Once you trigger the restore operation, the Backup service creates a job for tracking the restore operation. The Backup service also creates and temporarily displays the notification in Notifications area of portal.If you do not see the notification, you can always click the Notifications icon to view your notifications.
+Once you trigger the restore operation, the Backup service creates a job for tracking the restore operation. The Backup service also creates and temporarily displays the notification in Notifications area of portal. If you do not see the notification, you can always click the Notifications icon to view your notifications.
 
 ![Restore triggered](./media/backup-azure-arm-restore-vms/restore-notification.png)
 
