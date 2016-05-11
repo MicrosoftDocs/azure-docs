@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -82,12 +82,26 @@ The services that currently do not support moving a resource are:
 
 When working with App Service apps, you cannot move only an App Service plan. To move App Service apps, your options are:
 
-- Move the App Service plan and its apps in the same operation to a new resource group that does not already have Microsoft.Web resources.
-- Move the apps to a different resource group, but keep the App Service plan in the original resource group.
+- Move the App Service plan and all other App Service resources in that resource group to a new resource group that does not already have App Service resources. This means moving even the resources that are not associated with the App Service plan. 
+- Move the apps to a different resource group, but keep all App Service plans in the original resource group.
 
 If your original resource group also includes an Application Insights resource, you cannot move that resource because Application Insights does not currently support the move operation. If you 
 include the Application Insights resource when moving App Service apps, the entire move operation will fail. However, the Application Insights and App Service plan do not need to 
 reside in the same resource group as the app for the app to function correctly.
+
+For example, if your resource group contains:
+
+- **web-app-a** which is associated with **app-service-plan-a** and **app-insights-a**
+- **web-app-b** which is associated with **app-service-plan-b** and **app-insights-b**
+
+Your options are:
+
+- Move **web-app-a**, **app-service-plan-a**, **web-app-b**, and **app-service-plan-b**
+- Move **web-app-a** and **web-app-b**
+- Move **web-app-a**
+- Move **web-app-b**
+
+All other combinations involve either moving a resource type that can't move (Application Insights) or leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
 
 ## SQL Database limitations
 
