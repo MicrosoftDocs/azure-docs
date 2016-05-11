@@ -133,11 +133,15 @@ Go to **MainActivity.java** and add the following to replace the base class of *
 
 	public class MainActivity extends EngagementActivity {
 
+> [AZURE.NOTE] If your base class is not *Activity*, consult
+[Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) for how to inherit from different classes.
+
+
 You should comment out (exclude) the following line for this simple sample scenario:
 
     // setSupportActionBar(toolbar);
 
-If you want to keep this around then you should check out the "Basic Reporting" scenario in our [Advanced Android Integration](mobile-engagement-android-integrate-engagement.md/#basic-reporting)
+If you want to keep this around then you should check out [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Connect app with real-time monitoring
 
@@ -163,6 +167,10 @@ The following sections sets up your app to receive them.
 [AZURE.INCLUDE [Enable in-app messaging](../../includes/mobile-engagement-android-send-push.md)]
 
 [AZURE.INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
+
+## More resources
+
+Go to [Android SDK](mobile-engagement-android-sdk-overview.md) to get detailed knowlege about the SDK integration.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
