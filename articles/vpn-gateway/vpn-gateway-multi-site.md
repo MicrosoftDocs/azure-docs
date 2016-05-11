@@ -137,7 +137,7 @@ Open the network configuration file that you downloaded in the last step. Use an
 		  </VirtualNetworkConfiguration>
 		</NetworkConfiguration>
 
-## 4. Add multiple site references to the network configuration file
+## 4. Add multiple site references
 
 When you add or remove site reference information, you'll make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef. Adding a new local site reference triggers Azure to create a new tunnel. In the example below, the network configuration is for a single-site connection. Save the file once you have finished making your changes.
 
