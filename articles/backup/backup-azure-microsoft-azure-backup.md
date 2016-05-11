@@ -131,18 +131,19 @@ on the Hub menu, click **Browse**.
 
 6. Select the workloads you want to protect using Azure Backup Server in *what workloads you want to protect* and click on **OK**.
 
-  > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
+    > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
 
-  This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
+    This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
 
-  ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
+    ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
   
 7. In the **Prepare infrastructure** blade that opens, click on **Download Azure Backup Server** and Vault credentials which you use during registration of Azure Backup Server to recovery services vault. This will take you to the Download Center page from where the software package can be downloaded.
 
    ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
 8. Select all the files and click **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
-![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+
+  ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
 
