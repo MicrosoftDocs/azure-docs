@@ -16,7 +16,7 @@
 	ms.date="05/05/2016"
 	ms.author="anwestg"/>
 	
-## Installation Prerequisites
+# Before you get started with Azure Stack Web Apps
 
 You will need a few items to install Azure Stack Web Apps:
 
