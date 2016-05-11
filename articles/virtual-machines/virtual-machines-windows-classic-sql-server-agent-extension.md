@@ -34,27 +34,28 @@ The SQL Server IaaS Agent Extension supports the following administration tasks:
 | **Azure Key Vault Integration** | Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)](virtual-machines-windows-classic-ps-sql-keyvault.md).|
 
 ## Prerequisites
-Requirements to use the extension on your VM:
 
-- Azure VM Guest Agent (BGInfo extension automatically installed on new Azure VMs)
-- Windows Server 2012, Windows Server 2012 R2, or later
-- SQL Server 2012, SQL Server 2014, or later
+Requirements to use the SQL Server IaaS Agent Extension on your VM:
+
+- Azure VM Guest Agent (BGInfo extension automatically installed on new Azure VMs).
+- Windows Server 2012, Windows Server 2012 R2, or later.
+- SQL Server 2012, SQL Server 2014, or later.
 
 Requirements for using Powershell cmdlets:
 
-- Latest Azure PowerShell [available here](../powershell-install-configure.md)
+- Latest Azure PowerShell [available here](../powershell-install-configure.md).
 
 ## Installation
 
-The SqlIaaSAgent is automatically installed when you provision one of the SQL Server virtual machine gallery images.
+The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images.
 
-If you create an OS-only Windows Server virtual machine, you can install the extension manually by using the **Set-AzureVMSqlServerExtension** PowerShell cmdlet. Use the command to configure one of the agent's services, such as Automated Patching. The VM installs the SqlIaaSAgent if it is not installed.
+If you create an OS-only Windows Server virtual machine, you can install the extension manually by using the **Set-AzureVMSqlServerExtension** PowerShell cmdlet. Use the command to configure one of the agent's services, such as Automated Patching. The VM installs the agent if it is not installed.
 
 >[AZURE.NOTE] For instructions on using the **Set-AzureVMSqlServerExtension** PowerShell, see the individual topics in the [Supported services](#supported-services) section of this article.
 
 ## Status
 
-One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select **All settings** in the virtual machine blade, and then click on **Extensions**. You should see the SQLIaaSAgent extension listed.
+One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select **All settings** in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSAgent** extension listed.
 
 ![SQL Server IaaS Agent Extension in Azure Portal](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
