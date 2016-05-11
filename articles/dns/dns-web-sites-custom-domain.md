@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/10/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc"/>
 
-# Create DNS records for web app in a custom domain
+# Create DNS records for a web app in a custom domain
 
 You can use Azure DNS to host a custom domain for your web apps. For example, you are creating an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN. 
 

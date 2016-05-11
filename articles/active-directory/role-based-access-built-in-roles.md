@@ -373,17 +373,17 @@ Can manage classic storage accounts
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Storage Account Contributor
-Can manage storage accounts
+Can manage storage accounts, but not acccess to them.
 
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
 | Microsoft.Authorization/*/read | Read all authorization |
-| Microsoft.Resources/subscriptions/resources/read | Read subscription resources |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read subscription resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read subscription resource groups resources |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage subscription resource group deployments |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+| Microsoft.Insights/diagnosticSettings/* | Manage diagnostic settings |
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### User Access Administrator
