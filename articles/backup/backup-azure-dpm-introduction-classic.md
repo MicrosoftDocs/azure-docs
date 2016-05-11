@@ -22,8 +22,8 @@
 > [AZURE.SELECTOR]
 - [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [SCDPM](backup-azure-dpm-introduction.md)
-- [Azure Backup Server(Classic)](backup-azure-microsoft-azure-backup-classic.md)
-- [System Center DPM(Classic)](backup-azure-dpm-introduction-classic.md)
+- [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
+- [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
 
 This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you’ll understand:
