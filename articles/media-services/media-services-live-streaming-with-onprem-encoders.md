@@ -33,7 +33,7 @@ This topic covers the following:
 
 - [Common live streaming scenario](media-services-live-streaming-with-onprem-encoders.md#scenario)
 - [Description of a Channel and its related components](media-services-live-streaming-with-onprem-encoders.md#channel)
-- [Considerations]media-services-live-streaming-with-onprem-encoders.md#considerations)
+- [Considerations](media-services-live-streaming-with-onprem-encoders.md#considerations)
 
 ##<a id="scenario"></a>Common live streaming scenario
 The following steps describe tasks involved in creating common live streaming applications.
