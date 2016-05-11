@@ -97,8 +97,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- URLs. -->
 [Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[Get started with authentication]: ../mobile-services-windows-store-dotnet-get-started-users.md
-[Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
+[Get started with authentication]: mobile-services-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure classic portal]: https://manage.windowsazure.com/

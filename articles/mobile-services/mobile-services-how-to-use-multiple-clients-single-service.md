@@ -167,7 +167,7 @@ Cross-platform tools are available that provide a richer native experience on a 
 [TemplatePushMessage]:http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
 [Sencha]: partner-sencha-mobile-services-get-started.md
-[Appcelerator]: ../partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+[Appcelerator]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
