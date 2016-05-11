@@ -45,8 +45,6 @@ Here's a look at the process:
 - Review your data usage and performance as you add solutions and features to Log Analytics. This includes event collection, log collection, performance data collection, etc. It is better to start with minimal collection until data usage or performance impact has been identified.
 - Verify that Windows agents are not also managed using Operations Manager, otherwise duplicate data will result. This also applies to Azure-based-agents that have Azure Diagnostics enabled.
 - After you install agents, verify that the agent is working properly. If not, check to ensure that Cryptography API: Next Generation (CNG) Key Isolation is not disabled using Group Policy.
-
-
 - Some Log Analytics solutions have additional requirements
 
 
