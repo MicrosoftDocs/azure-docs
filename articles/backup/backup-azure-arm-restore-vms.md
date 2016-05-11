@@ -56,11 +56,7 @@ You protect your data with the Backup service by taking snapshots of your data a
 
     ![list of VMs in vault](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
 
-5. From the list, select a VM to open the dashboard.
-
-    ![list of VMs in vault](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault-selected.png)
-
-    The VM dashboard opens to the Monitoring area which contains the Restore points tile.
+5. From the list, select a VM to open the dashboard. The VM dashboard opens to the Monitoring area which contains the Restore points tile.
 
     ![list of VMs in vault](./media/backup-azure-arm-restore-vms/vm-blade.png)
 
@@ -99,7 +95,7 @@ You protect your data with the Backup service by taking snapshots of your data a
 
 Now that you have selected the restore point, choose a configuration for your restore VM. Your choices for configuring the restored VM are to use: Azure portal or PowerShell. 
 
-> [AZURE>NOTE] Portal provides a Quick Create option for restored VM. If you want to customize the VM configuration of the to-be restored VM, use PowerShell to restore backed up disks and attach them to choice of VM configuration. See [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations). 
+> [AZURE.NOTE] Portal provides a Quick Create option for restored VM. If you want to customize the VM configuration of the to-be restored VM, use PowerShell to restore backed up disks and attach them to choice of VM configuration. See [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations). 
 
 1. If you are not already there, go to the **Restore** blade. Ensure a **Restore point** has been selected, and click **Restore configuration** to open the **Recovery configuration** blade.
 
@@ -111,7 +107,7 @@ Now that you have selected the restore point, choose a configuration for your re
     - **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription.
 
     > [AZURE.NOTE] You must select a VNET when restoring an ARM-based VM. A VNET is optional for a Classic VM.
-
+    
     - **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
     - **Storage account** - This open the list of storage accounts in the same location as the Recovery Services vault. When choosing a storage account, you must choose from accounts that share the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. Replication type of storage account is mentioned in parenthesis. 
 
