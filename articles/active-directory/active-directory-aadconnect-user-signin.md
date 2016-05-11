@@ -127,7 +127,7 @@ If you selected User sign-in option as "Federation with AD FS", then you must ha
 
 ## Changing user sign-in method
 
-You can change the user sign-in method from Federation to Password Sync using the tasks avaialble in Azure AD Connect after the initial configuration of Azure AD Connect using the wizard. Run the Azure AD Connect wizard again and you will be presented with a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
+You can change the user sign-in method from Federation to Password Sync using the tasks avaialble in Azure AD Connect after the initial configuration of Azure AD Connect using the wizard. Run the Azure AD Connect wizard again and you will be presented with a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks. 
 
 ![Change user sign-in"](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
