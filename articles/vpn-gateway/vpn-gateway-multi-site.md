@@ -34,7 +34,7 @@ This article applies to connecting multiple on-premises sites to a VNet created 
 
 You can connect multiple on-premises sites to a single virtual network. This is especially attractive for building hybrid cloud solutions. Creating a multi-site connection to your Azure virtual network gateway is very similar to creating other Site-to-Site connections. In fact, you can use an existing Azure VPN gateway, as long as the gateway is dynamic (route-based).
 
-If already have a static gateway connected to your virtual network, you can change the gateway type to dynamic without needing to rebuild the virtual network in order to accommodate multi-site. Before changing the routing type, make sure that your on-premises VPN gateway supports route-based VPN configurations. 
+If you already have a static gateway connected to your virtual network, you can change the gateway type to dynamic without needing to rebuild the virtual network in order to accommodate multi-site. Before changing the routing type, make sure that your on-premises VPN gateway supports route-based VPN configurations. 
 
 ![multi-site diagram](./media/vpn-gateway-multi-site/multisite.png "multi-site")
 
@@ -64,15 +64,15 @@ Before you begin configuration, verify that you have the following:
 
 	For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping. To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.
 
-### To create your virtual network and gateway
 
-## 1. Create a Site-to-Site VPN with a dynamic (route-based) routing gateway
 
-If you already have one, great! You can proceed to [Export the virtual network configuration settings](#export). If not, do the following:
+## 1. Create a Site-to-Site VPN and a gateway
+
+If you already have a Site-to-Site VPN with a dynamic routing gateway, great! You can proceed to [Export the virtual network configuration settings](#export). If not, do the following:
 
 ### If you already have a Site-to-Site virtual network, but it has a static (policy-based) routing gateway:
 
-1. Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one. For instructions, see [Change a VPN Gateway Routing Type](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type).  
+1. Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic (also known as route-based) routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one. For instructions, see [Change a VPN Gateway Routing Type](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type).  
 
 2. Configure your new gateway and create your VPN tunnel. For instructions, see [Configure a VPN Gateway in the Azure Classic Portal](vpn-gateway-configure-vpn-gateway-mp.md).First, Change your gateway type to dynamic routing. 
 
@@ -84,7 +84,7 @@ If you already have one, great! You can proceed to [Export the virtual network c
 
 ## <a name="export"></a>2. Export the virtual network configuration settings 
 
-To export your network configuration file, see [To export your network settings](../virtual-network/virtual-networks-using-network-configuration-file.md). The file that you export will be used to configure your new multi-site settings.
+Export your network configuration file. The file that you export will be used to configure your new multi-site settings. If you need instructions on how to export a file, see [To export your network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure). 
 
 ## 3. Open your network configuration file.
 
@@ -158,7 +158,7 @@ When you add or remove site reference information, you'll make configuration cha
 
 ## 5. Save the network configuration file and import it
 
-To import the network configuration file, see [To import your network settings](../virtual-network/../virtual-network/virtual-networks-using-network-configuration-file.md#export-and-import-virtual-network-settings-using-the-management-portal). When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier.
+Import the network configuration file. When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier. If you need instructions on how to import the file, see [To import your network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure). 
 
 ## 6. Download the pre-shared keys for the VPN tunnels
 
