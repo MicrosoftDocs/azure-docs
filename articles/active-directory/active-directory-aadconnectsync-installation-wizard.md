@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Azure AD Connect sync: Running the installation wizard a second time | Microsoft Azure"
 	description="Explains how the installation wizard works the second time you run it."
+	keywords="The Azure AD Connect installation wizard lets you configure maintenance settings the second time you run it"
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
