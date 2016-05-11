@@ -79,7 +79,7 @@ Summary of loading process:
 2. Use the AZCopy command-line utility to copy data from flat files to Azure blob storage.
 3. Use PolyBase to load into SQL Data Warehouse.
 
-For a tutorial, see [Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)][].
+For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][].
 
 ### Use bcp
 If you have a small amount of data you can use bcp to load directly into Azure SQL Data Warehouse.

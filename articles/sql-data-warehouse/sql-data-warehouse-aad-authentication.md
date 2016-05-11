@@ -1,7 +1,7 @@
 <properties
    pageTitle="Connect to SQL Data Warehouse By Using Azure Active Directory Authentication | Microsoft Azure"
    description="Learn how to connect to SQL Data Warehouse by using Azure Active Directory Authentication."
-   services="sql-database"
+   services="sql-data-warehouse"
    documentationCenter=""
    authors="BYHAM"
    manager="jhubbard"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/05/2016"
+   ms.date="05/11/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication
