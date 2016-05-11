@@ -55,7 +55,7 @@ Based on the above characteristics, you may want to create multiple workspaces i
 
 When using agents to collect data you can configure each agent to report to the required workspace.
 
-If you are using System Center Operations manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Anaytics workspace.
+If you are using System Center Operations manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
 ## Manage accounts and users
 
@@ -188,7 +188,7 @@ There are three workspace data plan types for OMS: **Free**, **Standard** and **
 
 The OMS Add On for System Center provides an entitlement for the Premium plan of OMS Log Analytics, described at [OMS Pricing](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
-When you purchase the OMS add-on for System Center, the OMS add-on is added as an entitlement on your System Ceter agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
+When you purchase the OMS add-on for System Center, the OMS add-on is added as an entitlement on your System Center agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
 
 To ensure that usage of an OMS workspace is applied to your entitlements from the OMS add-on, you'll need to:
 
