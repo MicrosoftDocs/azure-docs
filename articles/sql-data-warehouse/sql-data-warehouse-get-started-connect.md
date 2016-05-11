@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/10/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
@@ -53,7 +53,7 @@ For the best experience, use Visual Studio 2015 with the [latest SQL Server Data
 
     ![Add SQL Server][3]
 
-1. Fill in the fields in the Connect to Server window.
+4. Fill in the fields in the Connect to Server window.
 
     ![Connect to Server][4]
 
@@ -63,10 +63,11 @@ For the best experience, use Visual Studio 2015 with the [latest SQL Server Data
     - **Database Name**.  Enter the database name for the SQL DW database.
     - Click **Connect**.
 
-1. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
+5. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
 
     ![Explore AdventureWorksDW][5]
 
+> [AZURE.NOTE] Specifying the SQL Data Warehouse database in the **Database Name** field at connection time (step 4) is important in order for the object tree to work properly.  Leaving this option blank and connecting to the default database, **master**, may not work if some of the databases on your logical server are paused.  This limitation will eventually be resolved, but in the meantime, connecting to the SQL Data Warehouse database will ensure proper function of the object explorer tree as seen above.
 
 ## Step 3: Run a sample query
 
@@ -88,7 +89,7 @@ Now that a connection has been established to your database, let's go ahead and 
 
     ![Run query][7]
 
-1. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
+5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
 
     ![Query results][8]
 
