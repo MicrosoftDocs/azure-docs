@@ -23,13 +23,13 @@ The links below take you to an overview of each listed feature area and a quick 
 
 | Feature Area  | Tutorial  | Description  |
 |---|---|---|
-| Elastic pools |||
-| [Create elastic pools](sql-database-elastic-pool-create-portal.md) | [Create an elastic pool](sql-database-elastic-pool-create-portal.md) | In this tutorial, you learn how to create a scalable pool of Azure SQL databases. |
-| [Monitor elastic pools](sql-database-elastic-pool-manage-portal.md) | [Monitor an elastic database](sql-database-elastic-pool-manage-portal.md/#elastic-database-monitoring) | In this tutorial, you learn how to monitor an individual elastic database for potential trouble. |
-| [Elastic pool alerts](sql-database-elastic-pool-manage-portal.md) |  [Add an alert to a pool resource](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool-manage-portal.md/#add-an-alert-to-a-pool-resource) | In this tutorial, you learn how to add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up. |
-| [Manage elastic pools](sql-database-elastic-pool-manage-portal.md) | [Move a database into an elastic pool](sql-database-elastic-pool-manage-portal.md/#move-a-database-into-an-elastic-pool) | In this tutorial, you learn how to move a database into an elastic pool. |
-| [Manage elastic pools](sql-database-elastic-pool-manage-portal.md) | [Move a database out of an elastic pool](sql-database-elastic-pool-manage-portal.md/#move-a-database-out-of-an-elastic-pool) | In this tutorial, you learn how to move a database out of an elastic pool. |
-| [Manage elastic pools](sql-database-elastic-pool-manage-portal.md) | [Change performance settings of a pool](sql-database-elastic-pool-manage-portal.md/#change-performance-settings-of-a-pool) | In this tutorial, you learn how to adjust the performance and storage limits for a pool. |
+| [Elastic pools](sql-database-elastic-pool.md) |||
+|  | [Create an elastic pool](sql-database-elastic-pool-create-portal.md) | In this tutorial, you learn how to create a scalable pool of Azure SQL databases. |
+|  | [Monitor an elastic database](sql-database-elastic-pool-manage-portal.md/#elastic-database-monitoring) | In this tutorial, you learn how to monitor an individual elastic database for potential trouble. |
+|  |  [Add an alert to a pool resource](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool-manage-portal.md/#add-an-alert-to-a-pool-resource) | In this tutorial, you learn how to add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up. |
+|  | [Move a database into an elastic pool](sql-database-elastic-pool-manage-portal.md/#move-a-database-into-an-elastic-pool) | In this tutorial, you learn how to move a database into an elastic pool. |
+|  | [Move a database out of an elastic pool](sql-database-elastic-pool-manage-portal.md/#move-a-database-out-of-an-elastic-pool) | In this tutorial, you learn how to move a database out of an elastic pool. |
+|  | [Change performance settings of a pool](sql-database-elastic-pool-manage-portal.md/#change-performance-settings-of-a-pool) | In this tutorial, you learn how to adjust the performance and storage limits for a pool. |
 | Tools for scaling out |||
 |||||
 | [Elastic tools](sql-database-elastic-scale-introduction.md) | [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md) | In this tutorial, you learn how to use the capabilities of elastic database tools using a simple sharded application. |
@@ -46,7 +46,7 @@ The links below take you to an overview of each listed feature area and a quick 
 | [SQL Database Firewall](sql-database-configure-firewall-settings.md)  | [Configure an Azure SQL Database firewall ](sql-database-configure-firewall-settings.md)  | In this tutorial, you learn how to configure a SQL Database server-level firewall.  |
 | [SQL Database User Accounts](sql-database-security.md/#authentication)  | [Create and Connect Using an Azure SQL Database user account](sql-database-get-started-security.md)  | In this tutorial, you log in as a server-level principal and learn how to create a contained user in a user database, grant that user dbo permissions in a user database and log in to a user database using a database user account.|
 | [Threat Detection](sql-database-threat-detection-get-started.md/#overview)  | [Enable Azure SQL Database Auditing](sql-database-auditing-get-started.md#set-up-threat-detection-for-your-database) | In this tutorial, you learn how to set up threat detection for your Azure SQL database. |
-| [Data Masking](sql-database-dynamic-data-masking-get-started.md/#overview) | [Set up dynamic data masking](sql-database-dynamic-data-masking-get-started.md/#set-up-dynamic-data-masking-for-your-database-using-the-azure-portal)  | In this tutorial, you learn how to set up dynamic data masking for your Azure SQL database. |
+| [Data Masking](sql-database-dynamic-data-masking-get-started.md) | [Set up dynamic data masking](sql-database-dynamic-data-masking-get-started.md/#set-up-dynamic-data-masking-for-your-database-using-the-azure-portal)  | In this tutorial, you learn how to set up dynamic data masking for your Azure SQL database. |
 | Data Sync ||| 
 ||||
 | [Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)  | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
