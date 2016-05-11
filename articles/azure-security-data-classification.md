@@ -3,7 +3,7 @@
    description="This article provides an introduction to the fundamentals of data classification and highlights some Microsoft Azure capabilities to handle data classification"
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="YuriD"
+   authors="YuriDio"
    manager="swadhwa"
    editor=""
    tags="azure-service-management,azure-resource-manager"/>
