@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="05/11/2016"
    ms.author="johns@contentmaster.com"/>
 
 # Implementing a secure hybrid network architecture in Azure
@@ -63,15 +63,55 @@ The following diagram highlights the important components in this architecture:
 
 ## Recommendations
 
-This section provides a list of recommendations based on the essential components required to implement the basic architecture. You may have additional or differing requirements from those described here. You can use the items in this section as a starting point for customizing your own system.
+This section provides a list of recommendations based on the essential components required to implement the basic architecture. These recommendations cover:
+
+- The use of resource groups, 
+
+- Role-based access control for resource groups, 
+
+- Virtual network gateway configuration, 
+
+- NVA configuration,
+
+- Defining NSGs and NSG rules,
+
+- Implementing forced tunnelling, and
+
+- Controlling access to the management subnet.
+
+You may have additional or differing requirements from those described here. You can use the items in this section as a starting point for customizing your own system.
 
 ### Resource group recommendations
 
-Create each subnet and its resources (including VMs) in a separate resource group. This approach enables you to control access to these resources in each resource group by using [Role-Based Access Control (RBAC)][rbac]. Using RBAC enables you to grant varying levels of control over different resource groups to individual members of groups of DevOps staff.
+Create each subnet and its resources (including VMs) in a separate resource group. This approach enables you to control access to these resources in each resource group by using [Role-Based Access Control (RBAC)][rbac]. Using RBAC enables you to grant varying levels of control over different resource groups to individual members or groups of DevOps staff. For example, staff who can control the gateway subnet could be a different set from the staff that maintain the Web tier, or staff that control access to the business logic or data used by the application.
+
+### RBAC recommendations
+
+within a resource group, create separate RBAC roles for users who can be system administrators (create and administer VMs) and users who can administer the network (assign a public IP address to a network interface, change NSG rules on the network, create VPN connections, and so on). Segregating users across roles in this way allows a the network administrator to change NSG rules and assign public IP addresses to VMs. A system administrator will be unable to perform these tasks, but can manage VMs. To implement this scheme:
+
+- The system administrators role should include the Virtual Machine Contributor role and Storage account contributor role (to enable system administrators to create and attach disks to VMs), as well as the Reader role on the resource group. For example:
+
+    ```powershell
+    azure role assignment create -o "Virtual Machine Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName sysadmin@contoso.com
+
+    azure role assignment create -o "Storage Account Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName sysadmin@contoso.com
+
+    azure role assignment create -o "Reader" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName sysadmin@contoso.com
+    ```
+
+- The network administrators role should include the Network Contributor role and Reader role on the resource group. For example:
+
+    ```powershell
+    azure role assignment create -o "Network Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName networkadmin@contoso.com
+
+    azure role assignment create -o "Reader" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName sysadmin@contoso.com
+    ```
 
 ### Virtual network gateway recommendations
 
-Access to the VNet is through a virtual network gateway. You can use an [Azure VPN gateway][guidance-vpn-gateway] or an [Azure ExpressRoute gateway][guidance-expressroute] to connect to the on-premises network. The gateway requires its own subnet named `GatewaySubnet`. Create this subnet with an address range of /27. This address range gives you the flexibility to establish the connection using ExpressRoute. It is recommended to use this range even if you are only currently using a VPN connection as it gives you the flexibility to upgrade later without disrupting the address structure of your network. Avoid placing the gateway subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space.
+Access to the VNet is through a virtual network gateway. You can use an [Azure VPN gateway][guidance-vpn-gateway] or an [Azure ExpressRoute gateway][guidance-expressroute] to connect to the on-premises network. The gateway requires its own subnet named `GatewaySubnet`. Create this subnet with an address range of /27. This address range gives you the space to establish the connection using ExpressRoute. It is recommended to use this range even if you are only currently using a VPN connection as it gives you the flexibility to upgrade later without disrupting the address structure of your network. 
+
+Avoid placing the gateway subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space.
 
 ### NVA recommendations
 
@@ -91,38 +131,36 @@ The NVA provides protection for traffic arriving from the on-premises network. R
 
 You can also create an NVA by using your own custom VMs; this is the approach taken by the sample templates that implement this architecture.
 
-The following list summarizes best practices for configuring an NVA
+If you are implementing the NVA as a custom Azure VM, enable IP forwarding to enable traffic intended for the web tier application subnet to be received by the VM through the inbound NVA subnet. You can use the following command to enable IP forwarding for a NIC:
 
-- If you are implementing the NVA as a custom Azure VM, enable IP forwarding to enable traffic intended for the web tier application subnet to be received by the VM through the inbound NVA subnet. You can use the following command to enable IP forwarding for a NIC:
+```powershell
+azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
+```
 
-	```powershell
-	azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
-	```
+Configure the NVA to inspect all requests intended for the web tier application subnet, and permit traffic to pass through only if it is appropriate to do so. The steps for performing this task will vary, depending on the NVA and your security requirements.
 
-- Configure the NVA to inspect all requests intended for the web tier application subnet, and only permit access to traffic if it is appropriate to do so. The steps for performing this task will vary, depending on the NVA and your security requirements. 
+> [AZURE.NOTE] For a simple configuration that you can use for testing, install the Microsoft Routing and Remote Access Service (RRAS), enable routing, and add a static route for traffic intended for the web tier to network interface *Ethernet2* (inbound requests arrive on network interface *Ethernet*).
 
-	> [AZURE.NOTE] The NVA created by sample template simply forwards requests to the web tier of the application, but you can add custom logic that examines requests and decides whether it is safe or appropriate to allow them through.
+Ensure that inbound traffic cannot bypass the NVA. To do this, add a UDR to the gateway subnet that directs all requests made to the application arriving through the gateway to the NVA. The following example shows a UDR that forces requests intended for the web tier through the NVA:
 
-- Ensure that inbound traffic cannot bypass the NVA. To do this, add a UDR to the gateway subnet that directs all requests made to the application arriving through the gateway to the NVA. The following example shows a UDR that forces requests intended for the web tier through the NVA:
+```powershell
+<# Create a new route table: #>
+azure network route-table route create -a 10.0.3.0/24 -y VirtualAppliance -p 10.0.1.5 <<resource-group>> <<route-table-name>> <<route-name>>
 
-    ```powershell
-    <# Create a new route table: #>
-    azure network route-table route create -a 10.0.3.0/24 -y VirtualAppliance -p 10.0.1.5 <<resource-group>> <<route-table-name>> <<route-name>>
+<# Add a route for the web tier application subnet (10.0.3.0/24) to the route table that directs requests through the NVA load balancer: #>
+azure network route-table route create -a 10.0.3.0/24 -y VirtualAppliance -p 10.0.1.5 <<resource-group>> <<route-table-name>> <<route-name>>
 
-    <# Add a route for the web tier application subnet (10.0.3.0/24) to the route table that directs requests through the NVA load balancer: #>
-    azure network route-table route create -a 10.0.3.0/24 -y VirtualAppliance -p 10.0.1.5 <<resource-group>> <<route-table-name>> <<route-name>>
+<# Associate the route table with the gateway subnet: #>
+azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> GatewaySubnet
+```
 
-    <# Associate the route table with the gateway subnet: #>
-    azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> GatewaySubnet
-    ```
+Always verify that UDR routing operates as expected by using a tool such as [tracert][tracert] to trace the request path from on-premises to VMs in the web tier of the application.
 
-- Always verify that UDR routing operates as expected by using a tool such as [tracert][tracert] to trace the request path from on-premises to VMs in the web tier of the application.
+```
+Example?
+```
 
-    ```
-    Example?
-    ```
-
-- To maximize scalability, create a pool (availability set) of NVA devices and use a load balancer to distribute requests received through the virtual network gateway across this pool. This strategy enables you to quickly start and stop NVAs to maintain performance, according to the load. Point the UDR that directs requests to the NVAs to this load balancer.
+To maximize scalability, create a pool (availability set) of NVA devices and use a load balancer to distribute requests received through the virtual network gateway across this pool. This strategy enables you to quickly start and stop NVAs to maintain performance, according to the load. Point the UDR that directs requests to the NVAs to this load balancer.
 
 ### NSG recommendations
 
@@ -222,7 +260,7 @@ The example architecture uses NSG rules in the business tier to block all traffi
 
 ### DevOps access
 
-DevOps staff access the system through the jump box in the management subnet. You can control the operations that they can perform on each of the tiers by using [RBAC][rbac]. Assign roles to DevOps staff carefully, and only grant the necessary privileges. If possible, audit all administrative operations to keep a record of how the configuration has changed over time (and who changed it), and to enable any configuration changes to be undone if necessary.
+DevOps staff access the system through the jump box in the management subnet. You can control the operations that they can perform on each of the tiers by using [RBAC][rbac]; see [RBAC recommendations][rbac-recommendations] for details. Assign roles to DevOps staff carefully, and only grant the necessary privileges. If possible, audit all administrative operations to keep a record of how the configuration has changed over time (and who changed it), and to enable any configuration changes to be undone if necessary.
 
 Apply NSG rules to to the management subnet to limit the sources of traffic that can gain access. Only permit requests that have originated from the on-premises network.
 
@@ -248,28 +286,20 @@ If you are using ExpressRoute to provide the connectivity between your on-premis
 
 ## Troubleshooting
 
-**TBD**
+**TBD - Logging on NVAs, Manual troubleshooting from jump box**
 
 > [AZURE.NOTE] You can find specific information about troubleshooting VPN and ExpressRoute connections in the articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
 > 
 ## Deploying the sample solution
 
-The Azure PowerShell commands in this section show how to **... << TBD >**.
+The Azure PowerShell commands in this section show how to **... TBD**.
 
 To use the script below, execute the following steps:
 
 1. Copy the [sample script][script] and paste it into a new file.
 2. Save the file as a .ps1 file.
 3. Open a PowerShell command shell.
-4. **... << TBD >>**
-
-## Sample solution script
-
-The deployment steps above use the following sample script.
-
-```powershell
-TBD
-```
+4. **... TBD **
 
 ## Next steps
 
@@ -299,3 +329,4 @@ TBD
 [denyall]: https://azure.microsoft.com/marketplace/partners/denyall/denyall-web-application-firewall/
 [vpn-failover]: ../guidance-hybrid-network-expressroute-vpn-failover.md
 [wireshark]: https://www.wireshark.org/
+[rbac-recommendations]: #rbac_recommendations
