@@ -179,7 +179,7 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -Retenti
 
 ## Run an initial backup
 
-The backup schedule triggers a full back up on the initial back up for the item. On subsequent back ups, the back up is an incremental copy. If you want to force the initial backup to happen at a certain time or even immediately then use the Backup-AzureRmBackupItem cmdlet:
+The backup schedule triggers a full back up on the initial back up for the item. On subsequent back ups, the back up is an incremental copy. If you want to force the initial backup to happen at a certain time or even immediately then use the Backup-AzureRmRecoveryServicesBackupItem cmdlet:
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -Name "V2VM";
@@ -196,7 +196,7 @@ V2VM        Backup               InProgress            4/23/2016 5:00:30 PM     
 
 Most long-running operations in Azure Backup are modelled as a job. This makes it easy to track progress without having to keep the Azure portal open at all times.
 
-To get the latest status of an in-progress job, use the Get-AzureRMRecoveryservicesBackupJob Get-AzureRmBackupJob cmdlet.
+To get the latest status of an in-progress job, use the Get-AzureRMRecoveryservicesBackupJob cmdlet.
 
 ```
 PS C:\ > $joblist = Get-AzureRMRecoveryservicesBackupJob –Status InProgress
@@ -218,7 +218,7 @@ In order to restore backup data, you need to identify the backed-up item and the
 
 ### Select the VM
 
-To get the PowerShell object that identifies the right backup item, start from the container in the vault, and work your way down the object hierarchy. To select the container that represents the VM, use the Get-AzureRmRecoveryServicesBackupContainer Get-AzureRmBackupContainer cmdlet and pipe that to the Get-AzureRmRecoveryServicesBackupItem Get-AzureRmBackupItem cmdlet.
+To get the PowerShell object that identifies the right backup item, start from the container in the vault, and work your way down the object hierarchy. To select the container that represents the VM, use the Get-AzureRmRecoveryServicesBackupContainer cmdlet and pipe that to the Get-AzureRmRecoveryServicesBackupItem cmdlet.
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType AzureVM –Status Registered -Name 'V2VM'
@@ -254,7 +254,7 @@ The variable $rp is an array of recovery points for the selected backup item, so
 
 There is a key difference between the restore operations done through the Azure portal and through Azure PowerShell. With PowerShell, the restore operation stops at restoring the disks and configuration information from the recovery point. It does not create a virtual machine.
 
-> [AZURE.WARNING] The Restore-AzureRmBackupItem does not create a VM, it only restores the disks to the specified storage account. This is different than what occurs in the Azure portal.
+> [AZURE.WARNING] The Restore-AzureRMRecoveryServicesBackupItem does not create a VM, it only restores the disks to the specified storage account. This is different than what occurs in the Azure portal.
 
 ```
 PS C:\> $restorejob = Restore-AzureRMRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName DestAccount
