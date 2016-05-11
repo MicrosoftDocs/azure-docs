@@ -25,16 +25,15 @@ In Azure Media Services, a **Channel** represents a pipeline for processing live
 An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel** without any further processing. Your live encoder can lso send a single bitrate stream, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
 
-The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams. 
+The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams.
 
 ![Live workflow][live-overview]
 
 This topic covers the following:
 
-- [Common live streaming scenario](media-services-manage-channels-overview.md#scenario)
-- [Description of a Channel and its related components](media-services-manage-channels-overview.md#channel)
-- [Considerations](media-services-manage-channels-overview.md#considerations)
-- [Tasks related to Live Streaming](media-services-manage-channels-overview.md#tasks)
+- [Common live streaming scenario](media-services-live-streaming-with-onprem-encoders.md#scenario)
+- [Description of a Channel and its related components](media-services-live-streaming-with-onprem-encoders.md#channel)
+- [Considerations]media-services-live-streaming-with-onprem-encoders.md#considerations)
 
 ##<a id="scenario"></a>Common live streaming scenario
 The following steps describe tasks involved in creating common live streaming applications.
@@ -63,8 +62,6 @@ The following steps describe tasks involved in creating common live streaming ap
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
 1. Delete the Program (and optionally delete the asset).     
-
-The [live streaming tasks](media-services-manage-channels-overview.md#tasks) section links to topics that demonstrate how to achieve tasks described above.
 
 ##<a id="channel"></a>Description of a Channel and its related components
 
@@ -221,50 +218,50 @@ SCTE-35|Digital signaling system used to cue advertising insertion. Downstream r
 
 ##<a id="Considerations"></a>Considerations
 
-When using an on-premises live encoder to send a multi-bitrate stream into a Channel, the following constraints apply:
+  When using an on-premises live encoder to send a multi-bitrate stream into a Channel, the following constraints apply:
 
-- Make sure you have sufficient free internet connectivity to send data to the ingest points. 
-- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (10 layers), and maximum of 5 audio tracks.
-- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps
-- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
-
-
-Other considerations related to working with channels and related components:
-
-- Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
-- A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
-- By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
-- You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-channels-overview.md#states) section.
-
-##How to create channels that receive multi-bitrate live stream from on-premises encoders
-
-For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
-
-Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
-
-[AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
+  - Make sure you have sufficient free internet connectivity to send data to the ingest points.
+  - The incoming multi-bitrate stream can have a maximum of 10 video quality levels (10 layers), and maximum of 5 audio tracks.
+  - The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps
+  - The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps
+  - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 
 
+  Other considerations related to working with channels and related components:
 
-##Media Services learning paths
+  - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
+  - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
+  - By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
+  - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+  - You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-live-streaming-with-onprem-encoders.md#states) section.
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+  ##How to create channels that receive multi-bitrate live stream from on-premises encoders
 
-##Provide feedback
+  For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+  Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
+
+  [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
 
-##Related topics
+  ##Media Services learning paths
 
-[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+  [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
+  ##Provide feedback
 
-[Media Services Concepts](media-services-concepts.md)
+  [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
- 
+
+
+  ##Related topics
+
+  [Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
+
+  [Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
+
+  [Media Services Concepts](media-services-concepts.md)
+
+  [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
+

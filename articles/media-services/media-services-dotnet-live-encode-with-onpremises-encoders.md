@@ -25,16 +25,16 @@ The following are required to complete the tutorial:
 - An Azure account.
 - A Media Services account.	To create a Media Services account, see [How to Create a Media Services Account](media-services-create-account.md).
 - Set up your dev environment. For more information, see [Set up your environment](media-services-set-up-computer.md).
-- A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm). 
+- A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
 
-Recommended to review the following articles: 
+Recommended to review the following articles:
 
 - [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
-- [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-manage-channels-overview.md)
- 
+- [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)
+
 
 ##Example
-	
+
 The following code example demonstrates how to achieve the following tasks:
 
 - Connect to Media Services
@@ -48,94 +48,94 @@ The following code example demonstrates how to achieve the following tasks:
 - Update the streaming endpoint
 - Get locators for all your streaming endpoints
 - Shut down resources
-	
+
 For information on how to configure a live encoder, see [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
-	
-		using System;
-		using System.Collections.Generic;
-		using System.Configuration;
-		using System.IO;
-		using System.Linq;
-		using System.Net;
-		using System.Security.Cryptography;
-		using System.Text;
-		using System.Threading.Tasks;
-		using Microsoft.WindowsAzure.MediaServices.Client;
-		using Newtonsoft.Json.Linq;
-		
-		namespace AMSLiveTest
-		{
-		    class Program
-		    {
-		        private const string StreamingEndpointName = "streamingendpoint001";
-		        private const string ChannelName = "channel001";
-		        private const string AssetlName = "asset001";
-		        private const string ProgramlName = "program001";
-		
-		        // Read values from the App.config file.
-		        private static readonly string _mediaServicesAccountName =
-		            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-		        private static readonly string _mediaServicesAccountKey =
-		            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-		
-		        // Field for service context.
-		        private static CloudMediaContext _context = null;
-		        private static MediaServicesCredentials _cachedCredentials = null;
-		
-		        static void Main(string[] args)
-		        {
-		            // Create and cache the Media Services credentials in a static class variable.
-		            _cachedCredentials = new MediaServicesCredentials(
-		                            _mediaServicesAccountName,
-		                            _mediaServicesAccountKey);
-		            // Used the cached credentials to create CloudMediaContext.
-		            _context = new CloudMediaContext(_cachedCredentials);
-		
-		            IChannel channel = CreateAndStartChannel();
-		
-		            // Set the Live Encoder to point to the channel's input endpoint:
-		            string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
-		
-		            // Use the previewEndpoint to preview and verify 
-		            // that the input from the encoder is actually reaching the Channel. 
-		            string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
-		
-		            IProgram program = CreateAndStartProgram(channel);
-		            ILocator locator = CreateLocatorForAsset(program.Asset, program.ArchiveWindowLength);
-		            IStreamingEndpoint streamingEndpoint = CreateAndStartStreamingEndpoint();
-		            GetLocatorsInAllStreamingEndpoints(program.Asset);
-		
-		            // Once you are done streaming, clean up your resources.
-		            Cleanup(streamingEndpoint, channel);
-		        }
-		
-		        public static IChannel CreateAndStartChannel()
-		        {
-					//If you want to change the Smooth fragments to HLS segment ratio, you would set the ChannelCreationOptions’s Output property.
-	
-		            IChannel channel = _context.Channels.Create(
-		                new ChannelCreationOptions
-		                {
-		                    Name = ChannelName,
-		                    Input = CreateChannelInput(),
-		                    Preview = CreateChannelPreview()
-		                });
-		
-					//Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
-	
-		            channel.Start();
-		
-		            return channel;
-		        }
-		
-		        private static ChannelInput CreateChannelInput()
-		        {
-		            return new ChannelInput
-		            {
-		                StreamingProtocol = StreamingProtocol.RTMP,
-		                AccessControl = new ChannelAccessControl
-		                {
-		                    IPAllowList = new List<IPRange>
+
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Newtonsoft.Json.Linq;
+
+namespace AMSLiveTest
+{
+class Program
+{
+private const string StreamingEndpointName = "streamingendpoint001";
+private const string ChannelName = "channel001";
+private const string AssetlName = "asset001";
+private const string ProgramlName = "program001";
+
+// Read values from the App.config file.
+private static readonly string _mediaServicesAccountName =
+ConfigurationManager.AppSettings["MediaServicesAccountName"];
+private static readonly string _mediaServicesAccountKey =
+ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+
+// Field for service context.
+private static CloudMediaContext _context = null;
+private static MediaServicesCredentials _cachedCredentials = null;
+
+static void Main(string[] args)
+{
+// Create and cache the Media Services credentials in a static class variable.
+_cachedCredentials = new MediaServicesCredentials(
+_mediaServicesAccountName,
+_mediaServicesAccountKey);
+// Used the cached credentials to create CloudMediaContext.
+_context = new CloudMediaContext(_cachedCredentials);
+
+IChannel channel = CreateAndStartChannel();
+
+// Set the Live Encoder to point to the channel's input endpoint:
+string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
+
+// Use the previewEndpoint to preview and verify
+// that the input from the encoder is actually reaching the Channel.
+string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
+
+IProgram program = CreateAndStartProgram(channel);
+ILocator locator = CreateLocatorForAsset(program.Asset, program.ArchiveWindowLength);
+IStreamingEndpoint streamingEndpoint = CreateAndStartStreamingEndpoint();
+GetLocatorsInAllStreamingEndpoints(program.Asset);
+
+// Once you are done streaming, clean up your resources.
+Cleanup(streamingEndpoint, channel);
+}
+
+public static IChannel CreateAndStartChannel()
+{
+//If you want to change the Smooth fragments to HLS segment ratio, you would set the ChannelCreationOptions’s Output property.
+
+IChannel channel = _context.Channels.Create(
+new ChannelCreationOptions
+{
+Name = ChannelName,
+Input = CreateChannelInput(),
+Preview = CreateChannelPreview()
+});
+
+//Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
+
+channel.Start();
+
+return channel;
+}
+
+private static ChannelInput CreateChannelInput()
+{
+return new ChannelInput
+{
+StreamingProtocol = StreamingProtocol.RTMP,
+AccessControl = new ChannelAccessControl
+{
+IPAllowList = new List<IPRange>
 		                    {
 		                        new IPRange
 		                        {
