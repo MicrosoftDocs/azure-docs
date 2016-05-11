@@ -114,11 +114,7 @@ Use the following tips to help you optimize and scale your deployment.
 
 ##Service URLs
 Make sure these URLs are accessible from the server
-| **URLs** | **VMM to VMM** | **VMM to Azure** | **Hyper-V Site to Azure** | **VMware to Azure** |
-|------------------------------------------|-----------------|-----------------|-----------------------|-----------------|
-| *.accesscontrol.windows.net | Access required | Access required | Access required | Access required |
-| *.backup.windowsazure.com |  | Access required | Access required | Access required |
-| *.hypervrecoverymanager.windowsazure.com | Access required | Access required | Access required | Access required |
+
 
 **URLs** | **VMM to VMM** | **VMM to Azure** | **Hyper-V Site to Azure** | **VMware to Azure**
 ---|---|---|---|---
