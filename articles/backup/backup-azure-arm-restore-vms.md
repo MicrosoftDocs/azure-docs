@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/10/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
@@ -108,6 +108,7 @@ Now that you have selected the restore point, choose a configuration for your re
 
     > [AZURE.NOTE] You must select a VNET when restoring an ARM-based VM. A VNET is optional for a Classic VM.
     
+    
     - **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
     - **Storage account** - This open the list of storage accounts in the same location as the Recovery Services vault. When choosing a storage account, you must choose from accounts that share the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. Replication type of storage account is mentioned in parenthesis. 
 
@@ -134,8 +135,6 @@ To view the operation while it is processing, or to view when it completed, open
     ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 
 2. From the list, select the vault associated with the VM you restored. When you click the vault, its dashboard opens.
-
-    ![List of Recovery Services vaults](./media/backup-azure-arm-restore-vms/select-vault-open-vault-jobs.png)
 
 3. In the vault dashboard on the **Backup Jobs** tile, click **Azure Virtual Machines** to display the jobs associated with the vault.
 
