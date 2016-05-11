@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
+   ms.date="05/10/2016"
    ms.author="trhabe"/>
 
 # Azure Data Catalog supported data sources
@@ -415,7 +415,7 @@ If you need support for additional sources, please submit a feature request usin
 <br>
 <br>
 ## Data source reference specification
-
+> [AZURE.NOTE] "DSL Structure" column in the table below only lists connection properties for "address" property bag which are used by Azure Data Catalog (i.e. "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.)
 <table>
     <tr>
        <td><b>Source Type</b></td>

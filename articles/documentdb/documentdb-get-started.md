@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/25/2016"
+	ms.date="05/11/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -453,7 +453,7 @@ Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyD
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
-			foreach (Family family in familyQuery)
+			foreach (Family family in familyQueryInSql)
 			{
 					Console.WriteLine("\tRead {0}", family);
 			}

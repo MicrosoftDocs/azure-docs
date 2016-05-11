@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 # Using Azure PowerShell with Azure Storage
@@ -668,13 +668,17 @@ To use Azure Storage with AzureChinaCloud, you need to create a storage context 
 
 To use Azure Storage with [U.S. Azure Government](https://azure.microsoft.com/features/gov/), you should define a new environment and then create a new storage context with this environment:
 
-1. Call the [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) cmdlet to create a new Azure environment for your private datacenter.
+1.	Run the [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) cmdlet to see the available Azure environments:
 
-    	Add-AzureEnvironment -Name $EnvironmentName -PublishSettingsFileUrl $publishSettingsFileUrl -ServiceEndpoint $serviceEndpoint -ManagementPortalUrl $managementPortalUrl -StorageEndpoint $storageEndpoint -ActiveDirectoryEndpoint $activeDirectoryEndpoint -ResourceManagerEndpoint $resourceManagerEndpoint -GalleryEndpoint $galleryEndpoint -ActiveDirectoryServiceEndpointResourceId $activeDirectoryServiceEndpointResourceId -GraphEndpoint $graphEndpoint -SubscriptionDataFile $subscriptionDataFile
+    `Get-AzureEnvironment`
 
-2. Run the [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) cmdlet to create a new storage context for this new environment as shown below.
+2.	Add an Azure US Government account to Windows PowerShell:
 
-	    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment $EnvironmentName
+    `Add-AzureAccount –Environment AzureUSGovernment`
+
+3.	Create a storage context for an AzureUSGovernment account:
+
+    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
 
 For more information, see:
 
