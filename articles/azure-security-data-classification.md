@@ -95,7 +95,7 @@ This article introduces two generalized terminology models that are based on wel
 
 > [AZURE.NOTE] when classifying a file or resource that combines data that would typically be classified at differing levels, the highest level of classification present should establish the overall classification. For example, a file containing sensitive and restricted data should be classified as restricted.  
 
-| **Sensitivity **   | **Terminology model 1**   | **Terminology model 2** |
+| **Sensitivity**   | **Terminology model 1**   | **Terminology model 2** |
 |--------------------|---------------------------|-------------------------|
 | High               | Confidential              | Restricted              |
 | Medium             | For internal use only     | Sensitive               |
@@ -130,7 +130,7 @@ Information that is classified as public includes data and files that are not cr
  
 It’s important to establish a clear custodial chain of ownership for all data assets. The following table identifies different data ownership roles in data classification efforts and their respective rights.  
 
-| **Role **       | **Create **   | **Modify/delete**   | **Delegate ** | **Read **   | **Archive/restore**   |
+| **Role**        | **Create**    | **Modify/delete**   | **Delegate**  | **Read**    | **Archive/restore**   |
 |-----------------|---------------|---------------------|---------------|-------------|-----------------------|
 | Owner           | X             | X                   | X             | X           | X                     |
 | Custodian       |               |                     | X             |             |                       |
