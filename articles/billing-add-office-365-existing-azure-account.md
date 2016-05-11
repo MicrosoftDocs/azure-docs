@@ -39,7 +39,7 @@ In this scenario, we assume Kelley Wall is a user who has an Office 365 subscrip
 
 To sign up for Azure, follow these steps:
 
-1. Sign up for Azure at [Azure.com](https://azure.microsoft.com/). Click on **Try for free*. On the next page, click **Start now**.
+1. Sign up for Azure at [Azure.com](https://azure.microsoft.com/). Click on **Try for free**. On the next page, click **Start now**.
 
 	![azure-signup-try-free](./media/billing-add-office-365-existing-azure-account/2-azure-signup-try-free.png)
 
