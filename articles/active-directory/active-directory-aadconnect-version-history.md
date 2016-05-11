@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure AD Connect: Version Release History | Microsoft Azure"
    description="This topic lists all releases of Azure AD Connect and Azure AD Sync"
    services="active-directory"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/10/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -45,10 +45,6 @@ Released: 2016 May
 - Improved performance when deleting a connector space.
 - Fixed an issues when the same object was both deleted and added in the same run (called delete/add).
 - A disabled Sync Rule will no longer re-enable included objects and attributes on upgrade or directory schema refresh.
-
-**New private preview feature:**
-
-- [Non-AD Connectors](active-directory-aadconnect-feature-preview.md#non-ad-connectors) shipped out-of-box.
 
 ## 1.1.130.0
 Released: 2016 April

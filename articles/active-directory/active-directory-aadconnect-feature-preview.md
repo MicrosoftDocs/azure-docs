@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/10/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell;billmath"/>
 
 # More details about features in preview
@@ -34,15 +34,6 @@ This group will be represented as a distribution group in on-premises AD DS. You
 - The Group writeback feature does not currently handle security groups or distribution groups.
 
 >[AZURE.NOTE] A subscription to Azure AD Premium is required for group writeback.
-
-## Non-AD Connectors
-If you start the **sync service manager** you will see that many more Connectors are available in the drop-down when you try to create a new Connector.
-
-![Create Connector](./media/active-directory-aadconnect-feature-preview/createconnector.png)
-
-**This feature is only in private preview and is not generally supported. You should not try to add any of these Connectors to your environment.**
-
-For technical reasons we need to make these Connectors visible for a very limited private preview with a few selected customers. We are preparing a broader public preview later with detailed documentation on how to use these Connectors.
 
 ## User writeback
 > [AZURE.IMPORTANT] The user writeback preview feature was removed in the August 2015 update to Azure AD Connect. If you have enabled it, then you should disable this feature.
