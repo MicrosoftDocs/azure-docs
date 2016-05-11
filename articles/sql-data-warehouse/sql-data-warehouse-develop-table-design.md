@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/19/2016"
+   ms.date="05/10/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
@@ -75,12 +75,9 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
 
@@ -92,9 +89,7 @@ OR  y.[is_user_defined] = 1
 
 ```
 
-The query includes any user-defined data types, which are not supported.
-
-below are some alternatives you can use in place of unsupported data types.
+The query includes any user-defined data types, which are not supported.  Below are some alternatives you can use in place of unsupported data types.
 
 Instead of:
 
@@ -102,22 +97,22 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, CLR type not native
 - **image**, **text**, **ntext** when text based use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
-- **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
-- **sysname**, use nvarchar(128)
 - **table**, convert to temporary tables
 - **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use BINARY(8) or VARBINARY(8) for NOT NULL or NULL row version values.
-- **varchar(max)**, use varchar(8000) or smaller for better performance
-- **uniqueidentifier**, use varbinary(8)
 - **user defined types**, convert back to their native types where possible
-- **xml**, use a varchar(8000) or smaller for better performance - split across columns if needed
+- **xml**, use a varchar(max) or smaller for better performance
+
+For better performance, instead of:
+
+- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
+- **varchar(max)**, use varchar(8000) or smaller for better performance
 
 Partial support:
 
 - Default constraints support literals and constants only. Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.
 
-> [AZURE.NOTE] Define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, you will not be be able to insert data into the table. Also, try to limit the size of your variable length columns for even better throughput for running queries.
+> [AZURE.NOTE] If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, and load rows with BCP, you will not be be able to us Polybase to load this data quite yet.  Polybase support for wide rows will be added soon. Also, try to limit the size of your variable length columns for even better throughput for running queries.
 
 ## Principles of data distribution
 
