@@ -139,7 +139,7 @@ azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
 
 Configure the NVA to inspect all requests intended for the web tier application subnet, and permit traffic to pass through only if it is appropriate to do so. The steps for performing this task will vary, depending on the NVA and your security requirements.
 
-> [AZURE.NOTE] For a simple configuration that you can use for testing, install the Microsoft Routing and Remote Access Service (RRAS), enable routing, and add a static route for traffic intended for the web tier to network interface *Ethernet2* (inbound requests arrive on network interface *Ethernet*).
+> [AZURE.NOTE] BY default, the sample configuration created by the templates does not include routing in the NVA. For a simple configuration that you can use for testing, on each NVA VM install the Microsoft Routing and Remote Access Service (RRAS), enable routing, and add a static route for traffic intended for the web tier to network interface *Ethernet 2* (inbound requests arrive on network interface *Ethernet*).
 
 Ensure that inbound traffic cannot bypass the NVA. To do this, add a UDR to the gateway subnet that directs all requests made to the application arriving through the gateway to the NVA. The following example shows a UDR that forces requests intended for the web tier through the NVA:
 
