@@ -21,9 +21,9 @@
 
 > [AZURE.SELECTOR]
 - [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
-- [System Center DPM](backup-azure-dpm-introduction.md)
-- [Azure Backup Server(Classic)](backup-azure-microsoft-azure-backup-classic.md)
-- [System Center DPM(Classic)](backup-azure-dpm-introduction-classic.md)
+- [SCDPM](backup-azure-dpm-introduction.md)
+- [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
+- [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
 
 This article is about preparing your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console.
