@@ -37,7 +37,7 @@ Data can also be either structured or unstructured. Typical classification proce
 
 > [AZURE.TIP] for more information regarding Azure capabilities and best practices for data encryption read [Azure Data Encryption Best Practices](azure-security-data-encryption-best-practices.md)
 
-In general, organizations will have more unstructured data than structured data. Regardless of whether data is structured or unstructured, it is important for your to manage data sensitivity. When properly implemented, data classification helps ensure that sensitive or confidential data assets are managed with greater oversight than data assets that are considered public or free to distribute. 
+In general, organizations will have more unstructured data than structured data. Regardless of whether data is structured or unstructured, it is important for you to manage data sensitivity. When properly implemented, data classification helps ensure that sensitive or confidential data assets are managed with greater oversight than data assets that are considered public or free to distribute. 
 
 ### Controlling access to data 
 
@@ -48,6 +48,8 @@ Authentication and authorization are often confused with each other and their ro
 ### Authentication 
 
 Authentication typically consists of at least two parts: a username or user ID to identify a user and a token, such as a password, to confirm that the username credential is valid. The process does not provide the authenticated user with access to any items or services; it verifies that the user is who they say they are.   
+
+> [AZURE.TIP] [Azure Active Directory](./active-directory/active-directory-whatis.md) provides cloud-based identity services that allow you to authenticate and authorize users. 
 
 ### Authorization
  
@@ -68,7 +70,7 @@ Data classification responsibilities will vary based on which cloud service mode
 
 Although you are responsible for classifying your data, cloud providers should make written commitments about how they will secure and maintain the privacy of the customer data stored within their cloud.  
 
-- **IaaS providers** requirements are limited to ensuring that the virtual environment can accommodate data classification capabilities and customer compliance requirements. IaaS providers have a smaller role in data classification because they only need to ensure that customer data addresses compliance requirements.However, providers must still ensure that their virtual environments address data classification requirements in addition to securing their data centers.
+- **IaaS providers** requirements are limited to ensuring that the virtual environment can accommodate data classification capabilities and customer compliance requirements. IaaS providers have a smaller role in data classification because they only need to ensure that customer data addresses compliance requirements. However, providers must still ensure that their virtual environments address data classification requirements in addition to securing their data centers.
 - **PaaS providers** responsibilities may be mixed, because the platform could be used in a layered approach to provide security for a classification tool. PaaS providers may be responsible for authentication and possibly some authorization rules, and must provide security and data classification capabilities to their application layer. Much like IaaS providers, PaaS providers need to ensure that their platform complies with any relevant data classification requirements.
 - **SaaS providers** will frequently be considered as part of an authorization chain, and will need to ensure that the data stored in the SaaS application can be controlled by classification type. SaaS applications can be used for LOB applications, and by their very nature need to provide the means to authenticate and authorize data that is used and stored. 
 
@@ -159,7 +161,7 @@ Management considerations apply to all classification methodologies. These consi
  
 Reclassifying or changing the classification state of a data asset needs to be done when a user or system determines that the data asset’s importance or risk profile has changed. This effort is important for ensuring that the classification status continues to be current and valid. Most content that is not classified manually can be classified automatically or based on usage by a data custodian or data owner. 
 
-### Manual data reclassification.
+### Manual data reclassification
  
 Ideally, this effort would ensure that the details of a change are captured and audited. The most likely reason for manual reclassification would be for reasons of sensitivity, or for records kept in paper format, or a requirement to review data that was originally misclassified. Because this paper considers data classification and moving data to the cloud, manual reclassification efforts would require attention on a case-by-case basis and a risk management review would be ideal to address classification requirements. Generally, such an effort would consider the organization’s policy about what needs to be classified, the default classification state (all data and files being sensitive but not confidential), and take exceptions for high-risk data. 
 
@@ -176,9 +178,11 @@ Data recovery and disposal, like data reclassification, is an essential aspect o
 
 Failure to have a data retention policy could mean data loss or failure to comply with regulatory and legal discovery requirements. Most organizations that do not have a clearly defined data retention policy tend to use a default “keep everything” retention policy. However, such a retention policy has additional risks in cloud services scenarios. 
 
-For example, a data retention policy for cloud service providers can be considered as” for the duration of the subscription” (as long as the service is paid for, the data is retained). Such a pay-for-retention agreement may not address corporate or regulatory retention policies. Defining a policy for confidential data can ensure that data is stored and removed based on best practices. In addition, an archival policy can be created to formalize an understanding about what data should be disposed of and when. 
+For example, a data retention policy for cloud service providers can be considered as for "the duration of the subscription” (as long as the service is paid for, the data is retained). Such a pay-for-retention agreement may not address corporate or regulatory retention policies. Defining a policy for confidential data can ensure that data is stored and removed based on best practices. In addition, an archival policy can be created to formalize an understanding about what data should be disposed of and when. 
 
 Data retention policy should address the required regulatory and compliance requirements, as well as corporate legal retention requirements. Classified data might provoke questions about retention duration and exceptions for data that has been stored with a provider; such questions are more likely for data that has not been classified correctly. 
+
+> [AZURE.TIP] learn more about Azure Data Retention policies and more by reading the [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/)
 
 ## Protecting confidential data
   
@@ -194,13 +198,15 @@ As the following figure shows, these technologies can be deployed as on-premises
 
 One solution for preventing data loss is rights management software. Unlike approaches that attempt to interrupt the flow of information at exit points in an organization, rights management software works at deep levels within data storage technologies. Documents are encrypted, and control over who can decrypt them uses access controls that are defined in an authentication control solution such as a directory service.  
 
-> [AZURE.TIP] you can use Azure Rights Management (Azure RMS) as the information protection solution to protect data in diferent scenarios. Read [What is Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) for more information about this Azure solution.
+> [AZURE.TIP] you can use Azure Rights Management (Azure RMS) as the information protection solution to protect data in different scenarios. Read [What is Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) for more information about this Azure solution.
 
 Some of the benefits of rights management software include: 
 
 - Safeguarded sensitive information. Users can protect their data directly using rights management-enabled applications. No additional steps are required—authoring documents, sending email, and publishing data offer a consistent data protection experience. 
 - Protection travels with the data. Customers remain in control of who has access to their data, whether in the cloud, existing IT infrastructure, or at the user’s desktop. Organizations can choose to encrypt their data and restrict access according to their business requirements. 
 - Default information protection policies. Administrators and users can use standard policies for many common business scenarios, such as "Company Confidential–Read Only" and "Do Not Forward." A rich set of usage rights are supported such as read, copy, print, save, edit, and forward to allow flexibility in defining custom usage rights. 
+
+> [AZURE.TIP] you can protect data in Azure Storage by using [Azure Storage Service Encryption](./storage/storage-service-encryption.md) for Data at Rest. You can also use [Azure Disk Encryption](azure-security-disk-encryption.md) to help protect data contained on virtual disks used for Azure Virtual Machines.
 
 ### Encryption gateways
 
@@ -210,7 +216,7 @@ Encryption gateways can provide a means to manage and secure data that has been 
  
 Encryption gateways are placed into the data flow between user devices and application data centers to provide encryption/decryption services. These solutions, like VPNs, are predominantly on-premises solutions. They are designed to provide a third party with control over encryption keys, which helps reduce the risk of placing both the data and key management with one provider. Such solutions are designed, much like encryption, to work seamlessly and transparently between users and the service. 
 
-> [AZURE.TIP] you can use Azure ExpressRoute to extend your on-premises networks into the Microsoft cloud over a dedicated private connection. Read [ExpressRoute technical overview](./expressroute/expressroute-introduction.md) for more information about this capability.
+> [AZURE.TIP] you can use Azure ExpressRoute to extend your on-premises networks into the Microsoft cloud over a dedicated private connection. Read [ExpressRoute technical overview](./expressroute/expressroute-introduction.md) for more information about this capability. Another options for cross premises connectivity between your on-premises network and [Azure is a site-to-site VPN](./vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 ### Data loss prevention 
 Data loss (sometimes referred to as data leakage) is an important consideration, and the prevention of external data loss via malicious and accidental insiders is paramount for many organizations.  
@@ -227,18 +233,6 @@ DLP technologies can perform deep content analysis through keyword matches, dict
 Some DLP technologies also provide the ability to override the DLP configuration (for example, if an organization needs to transmit Social Security number information to a payroll processor). In addition, it’s possible to configure DLP so that users are notified before they even attempt to send sensitive information that should not be transmitted. 
 
 > [AZURE.TIP] you can use Office 365 DLP capabilities to protect your documents. Read [Office 365 compliance controls: Data Loss Prevention](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) for more information.
-
-
-## Next steps
-
-Generally, the topic of data classification does not generate as much interest as other, more exciting technology topics. However, data classification can yield significant benefits, such as compliance efficiencies, improved ways to manage the organization’s resources, and facilitation of migration to the cloud. Although data classification efforts can be complex undertakings and require risk assessment for successful implementation, quicker and simpler efforts can also yield benefits. Any data classification effort should endeavor to understand the needs of the organization and be aware how data is stored, processing capabilities, and how data is transmitted throughout the organization. 
- 
-It’s important for management to support data classification efforts, and for IT to be involved as well. The concept of classification may seem primarily to be an auditing function, but many technology solutions are available that can reduce the amount of effort that is required to successfully implement a data classification model. 
- 
-It’s also worth noting that data classification rules that pertain to data retention must be addressed when moving to the cloud, and that cloud solutions can help mitigate risk. Some data protection technologies such as encryption, rights management, and data loss prevention solutions have moved to the cloud and can help mitigate cloud risks. 
- 
-Although this article did not specifically discuss hybrid environments, a mixture of on-premises and cloud-based data classification technologies can help effectively reduce risk for organizations of any size by providing more control about where data is stored, which gives customers the option to keep highly sensitive data on-premises and under a different set of controls than data stored in the cloud. Indeed, hybrid environments are likely to be the way of the future, and the key to effective data management may well depend on effective data classification.
-
 
 ## See also
 
