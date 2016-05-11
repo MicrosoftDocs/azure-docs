@@ -18,7 +18,7 @@
 	ms.author="szark"/>
 
 
-# Configure LVM on Linux
+# Configure LVM on a Linux VM in Azure
 
 This document will discuss how to configure LVM in your Azure virtual machine. While it is feasible to configure LVM on any disk attached to the virtual machine, by default most cloud images will not have LVM configured on the OS disk. This is to prevent problems with duplicate volume groups if the OS disk is ever attached to another VM of the same distribution and type, i.e. during a recovery scenario. Therefore it is recommended only to use LVM on the data disks.
 
