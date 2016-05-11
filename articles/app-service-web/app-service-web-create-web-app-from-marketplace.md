@@ -22,9 +22,7 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-This tutorial shows how to create a new web app from the Azure Marketplace. For the purpose of this tutorial, you will deploy a WordPress blog site from the Azure Marketplace. When you have completed the steps in this tutorial, you'll have your own WordPress site up and running in the cloud.
-
-![Example WordPress wep app dashboard][WordPressDashboard]
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. For example, WordPress, Umbraco CMS, Drupal, etc. These web apps are built on a wide range of popular frameworks, such as [PHP] in this WordPress example, [.NET], [Node.js], [Java], and [Python], to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal].
 
 In this tutorial you'll learn how to:
 
@@ -32,7 +30,9 @@ In this tutorial you'll learn how to:
 * Create a web app in Azure App Service that is based on the template.
 * Configure Azure App Service settings for the new web app and database.
 
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. For example, WordPress, Umbraco CMS, Drupal, etc. These web apps are built on a wide range of popular frameworks, such as [PHP] in this WordPress example, [.NET], [Node.js], [Java], and [Python], to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal].
+For the purpose of this tutorial, you will deploy a WordPress blog site from the Azure Marketplace. When you have completed the steps in this tutorial, you'll have your own WordPress site up and running in the cloud.
+
+![Example WordPress wep app dashboard][WordPressDashboard]
 
 The WordPress site that you'll deploy in this tutorial uses MySQL for the database. If you wish to instead use SQL Database for the database, see [Project Nami], which is also available through the Azure Marketplace.
 
