@@ -41,7 +41,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
 - [Application Insights](#application-insights-limits)
-- [Azure Automation](#azure-automation-service-limits)
+- [Azure Automation](#azure-automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
@@ -273,8 +273,8 @@ To learn more about other limits, such as document size, keys, requests, and res
 ### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
-### Azure Automation
-[AZURE.INCLUDE [azure-automation-service-limits](../includes/azure-automation-service-limits.md)]
+### Azure Automation limits
+[AZURE.INCLUDE [azure-automation-limits](../includes/azure-automation-service-limits.md)]
 
 ### SQL Database limits
 
