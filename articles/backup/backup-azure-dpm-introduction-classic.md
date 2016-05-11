@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
-- [System Center DPM](backup-azure-dpm-introduction.md)
+- [SCDPM](backup-azure-dpm-introduction.md)
 - [Azure Backup Server(Classic)](backup-azure-microsoft-azure-backup-classic.md)
 - [System Center DPM(Classic)](backup-azure-dpm-introduction-classic.md)
 
