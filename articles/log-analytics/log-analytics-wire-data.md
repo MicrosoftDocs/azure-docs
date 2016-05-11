@@ -20,6 +20,8 @@
 
 Wire data is consolidated network and performance data from computers with OMS agents, including Operations Manager and Windows-connected agents. Network data is combined with your log data to help you correlate data. OMS agents installed on computers in your IT infrastructure monitor network data sent to and from those computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model) including the various protocols and ports used.
 
+>[AZURE.NOTE] The Wire Data solution is not currently available to be added to workspaces as we are aware of an issue where in certain circumstances the Wire Data solution can cause high CPU utilization. Customers who already have the Wire Data solution enabled can continue to use the Wire Data solution. 
+
 By default, OMS collects logged data for CPU, memory, disk, and network performance data from counters built into Windows. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer. You can add other performance counters on the Settings page on the Logs tab.
 
 If you’ve used [sFlow](http://www.sflow.org/) or other software with [Cisco’s NetFlow protocol](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), then the statistics and data you’ll see from wire data will be familiar to you.
