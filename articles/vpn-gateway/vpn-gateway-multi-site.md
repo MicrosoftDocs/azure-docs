@@ -84,7 +84,7 @@ If you already have a Site-to-Site VPN with a dynamic routing gateway, great! Yo
 
 ## <a name="export"></a>2. Export the network configuration file 
 
-Export your network configuration file. The file that you export will be used to configure your new multi-site settings. If you need instructions on how to export a file, see [To export your network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure). 
+Export your network configuration file. The file that you export will be used to configure your new multi-site settings. If you need instructions on how to export a file, see the section in the article: [How to create a VNet using a network configuration file in the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). 
 
 ## 3. Open the network configuration file
 
@@ -158,7 +158,7 @@ When you add or remove site reference information, you'll make configuration cha
 
 ## 5. Import the network configuration file
 
-Import the network configuration file. When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier. If you need instructions on how to import the file, see [To import your network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure). 
+Import the network configuration file. When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier. If you need instructions on how to import the file, see the section in the article: [How to create a VNet using a network configuration file in the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). 
 
 ## 6. Download keys
 
