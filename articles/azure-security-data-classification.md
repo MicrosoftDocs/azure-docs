@@ -208,7 +208,7 @@ Encryption gateways can provide a means to manage and secure data that has been 
  
 Encryption gateways are placed into the data flow between user devices and application data centers to provide encryption/decryption services. These solutions, like VPNs, are predominantly on-premises solutions. They are designed to provide a third party with control over encryption keys, which helps reduce the risk of placing both the data and key management with one provider. Such solutions are designed, much like encryption, to work seamlessly and transparently between users and the service. 
 
-[AZURE.TIP] you can use Azure ExpressRoute to extend your on-premises networks into the Microsoft cloud over a dedicated private connection. Read [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) for more information about this capability.
+[AZURE.TIP] you can use Azure ExpressRoute to extend your on-premises networks into the Microsoft cloud over a dedicated private connection. Read [ExpressRoute technical overview](./expressroute/expressroute-introduction.md) for more information about this capability.
 
 ### Data loss prevention 
 Data loss (sometimes referred to as data leakage) is an important consideration, and the prevention of external data loss via malicious and accidental insiders is paramount for many organizations.  
