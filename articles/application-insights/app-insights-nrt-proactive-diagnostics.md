@@ -23,24 +23,21 @@ This feature works for Java and ASP.NET web apps, hosted in the cloud or on your
 
 After setting up [Application Insights for your project](app-insights-get-started.md), and provided your app generates a certain minimum amount of telemetry, NRT Proactive Diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
 
-Here's a sample alert:
+Here's a sample alert. 
 
 ![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-nrt-proactive-diagnostics/010.png)
+
+> [AZURE.NOTE] By default, you get a shorter format mail than this example. But you can [switch to this detailed format](#configure-alerts).
 
 Notice that it tells you:
 
 * The failure rate compared to normal app behavior.
 * How many users are affected – so you know how much to worry.
-
-## Diagnose the problem
-
-In addition, if you click the link, you'll be able to see:
-
 * A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
 * The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
 * Links directly to relevant searches on the telemetry in Application Insights.
 
-You can opt to get this additional diagnostic information directly in the email.
+## Benefits of proactive alerts
 
 Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
@@ -73,8 +70,8 @@ Click the alert to configure it.
 
 ![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
-Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
 
+Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
 
 #### Detailed alerts
 
@@ -82,9 +79,6 @@ If you select "Receive detailed analysis" then the email will contain more diagn
 
 There's a slight risk that the more detailed alert could contain sensitive information, because it includes exception and trace messages. However, this would only happen if your code could allow sensitive information into those messages. 
 
-Here's a sample detailed alert:
-
-![Configuration](./media/app-insights-nrt-proactive-diagnostics/060.png)
 
 ## Triaging and diagnosing an alert
 
@@ -107,9 +101,15 @@ In this example, clicking the 'View dependency failures details' link opens Appl
 
 To review alerts in the portal, open **Settings, Audit logs**.
 
-![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/040.png)
+![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/041.png)
+
 
 Click any alert to see its full detail.
+
+Or click **Proactive detection** to get straight to the most recent alert:
+
+![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/070.png)
+
 
 
 
