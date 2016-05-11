@@ -215,7 +215,7 @@ A: When did you create the storage account? During the preview, you will need to
 
 **Q: Is the SSE Preview only permitted in specific regions?**
 
-A: The SSE Preview is available in East Asia for Standard storage and Japan East for Premium Storage. As we roll this out to additional regions in the following months, we will update this document.
+A: The SSE Preview is available in East Asia and West Europe for Standard storage and Japan East for Premium Storage. As we roll this out to additional regions in the following months, we will update this document.
 
 **Q: How do I contact someone if I have any issues or want to provide feedback?**
 
