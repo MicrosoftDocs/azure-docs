@@ -135,7 +135,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 
 > [AZURE.NOTE] The timezone of the BackupTime field in PowerShell is UTC. However, when the backup time is shown in the Azure portal, the time is adjusted to your local timezone.
 
-A backup protection policy is associated with at least one retention policy.  Retention policy defines how long a recovery point is kept with Azure Backup. Use Get-AzureRmRecoveryServicesBackupRetentionPolicyObject to view the default retention policy.  Similarly you can obtain the default schedule policy using Get-AzureRmRecoveryServicesBackupSchedulePolicyObject. The schedule and retention policy objects are used as inputs to the New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet, New-AzureRmBackupProtectionPolicy cmdlet, or directly with the Enable-AzureRmBackupProtection cmdlet.
+A backup protection policy is associated with at least one retention policy.  Retention policy defines how long a recovery point is kept with Azure Backup. Use Get-AzureRmRecoveryServicesBackupRetentionPolicyObject to view the default retention policy.  Similarly you can obtain the default schedule policy using Get-AzureRmRecoveryServicesBackupSchedulePolicyObject. The schedule and retention policy objects are used as inputs to the New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet. 
 
 A backup protection policy defines when and how often the backup of an item is done. The New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet creates a PowerShell object that holds backup policy information. The backup policy is used as an input to the Enable-AzureRmRecoveryServicesBackupProtection cmdlet or Enable-AzureRmBackupProtection cmdlet.
 
