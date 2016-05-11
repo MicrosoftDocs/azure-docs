@@ -198,17 +198,47 @@ There are many ways you can program the process:
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
-##Change cluster username
+##Change passwords
 
-An HDInsight cluster can have two user accounts. The HDInsight cluster user account (A.K.A. HTTP user account) and the SSH user account are created during the creation process. You can the Ambari web UI to change the cluster user account username and password:
+An HDInsight cluster can have two user accounts. The HDInsight cluster user account (A.K.A. HTTP user account) and the SSH user account are created during the creation process. You can the Ambari web UI to change the cluster user account username and password, and script actions to change the SSH user account
 
-**To change the HDInsight cluster user password**
+###Change the cluster user password
 
 1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://<HDInsight Cluster Name>azurehdinsight.net**.
 2. Click **Admin** from the top menu, and then click "Manage Ambari". 
 3. From the left menu, click **Users**.
 4. Click **Admin**.
 5. Click **Change Password**.
+
+Ambari then changes the password on all nodes in the cluster.
+
+###Change the SSH user password
+
+1. Using a text editor, save the following as a file named __changepassword.sh__.
+
+    > [AZURE.IMPORTANT] You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script will not work.
+    
+        #! /bin/bash
+        USER=$1
+        PASS=$2
+
+        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+
+2. Upload the file to a storage location that can be accessed from HDInsight using an HTTP or HTTPS address. For example, a public file store such as OneDrive or Azure Blob storage. Save the URI (HTTP or HTTPS address,) to the file, as this is needed in the next step.
+
+3. From the Azure portal, select your HDInsight cluster and then select __All settings__. From the __Settings__ blade, select __Script Actions__.
+
+4. From the __Script Actions__ blade, select __Submit New__. When the __Submit script action__ blade appears, enter the following information.
+
+    | Field | Value |
+    | ----- | ----- |
+    | Name | Change ssh password |
+    | Bash script URI | The URI to the changepassword.sh file |
+    | Nodes (Head, Worker, Nimbus, Supervisor, Zookeeper, etc.) | ✓ for all node types listed |
+    | Parameters | Enter the SSH user name and then the new password. There should be one space between the user name and the password.
+    | Persist this script action ... | Leave this field unchecked.
+
+5. Select __Create__ to apply the script. Once the script finishes, you will be able to connect to the cluster using SSH with the new password.
 
 ##Grant/revoke access
 
