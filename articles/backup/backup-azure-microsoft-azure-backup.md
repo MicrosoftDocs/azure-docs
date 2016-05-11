@@ -25,7 +25,11 @@
 - [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
 - [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
-This article is about preparing your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console.
+This article is about preparing your environment to back up workloads using Azure Backup Server. 
+
+> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+
+With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console.
 
 >[AZURE.WARNING] Azure Backup Server inherits the functionality of Data Protection Manager (DPM) for workload backup. You will find pointers to DPM documentation for some of these capabilities. However Azure Backup Server does not provide protection on tape or integrate with System Center.
 
@@ -100,10 +104,10 @@ on the Hub menu, click **Browse**.
     - In the list of resources, type **Recovery Services**.
     - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) 
 
     The list of Recovery Services vaults appears.
-
+    
     - From the list of Recovery Services vaults, select a vault.
 
     The selected vault dashboard opens.
@@ -126,12 +130,15 @@ on the Hub menu, click **Browse**.
     ![on-premises and workloads as goals](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
 6. Select the workloads you want to protect using Azure Backup Server in *what workloads you want to protect* and click on **OK**.
+
 > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
 
   This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
 
   ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
+  
 7. In the **Prepare infrastructure** blade that opens, click on **Download Azure Backup Server** and Vault credentials which you use during registration of Azure Backup Server to recovery services vault. This will take you to the Download Center page from where the software package can be downloaded.
+
    ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
 8. Select all the files and click **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
@@ -209,8 +216,6 @@ The first backup copy is kept on storage attached to the Azure Backup Server mac
 > [AZURE.NOTE] You need to add backup storage even if you plan to send data to Azure. In the current architecture of Azure Backup Server, the Azure Backup vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
 
 ## 4. Network connectivity
-
-![step4](./media/backup-azure-microsoft-azure-backup/step4.png)
 
 Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` commandlet in the Azure Backup Server PowerShell console. If the output of the commandlet is TRUE then connectivity exists, else there is no connectivity.
 
