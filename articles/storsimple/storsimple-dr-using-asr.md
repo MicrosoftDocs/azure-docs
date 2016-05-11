@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/09/2016"
+   ms.date="05/10/2016"
    ms.author="vidarmsft" />
 
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
@@ -91,7 +91,7 @@ This step requires that you prepare the on-premises file server environment, cre
 
     4.  Click **OK** and then select **Yes** when prompted.
 
-		![](./media/storsimple-using-asr/image1.png)
+		![](../media/storsimple-using-asr/image1.png)
 
 1.  Install the VM Agent on each of the file server VMs. This is required so that you can run Azure automation scripts on the failed over VMs.
 
