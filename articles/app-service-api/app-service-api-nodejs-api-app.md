@@ -40,26 +40,20 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 
 	The sample API provides two endpoints: a Get request to `/contacts` returns a list of names and email addresses in JSON format, while `/contacts/{id}` returns only the selected contact.
 
-## Set up for Swagger-first API development workflow
+## Scaffold Node.js code based on Swagger metadata
 
-[Swagger](http://swagger.io/) is a JSON file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md).
+[Swagger](http://swagger.io/) is a JSON file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md). In this part of the tutorial, you scaffold server code for a sample API based on a Swagger metadata file. 
 
-In the first part of the tutorial, you scaffold server code based on a Swagger metadata file. In the second part, you create an API app in Azure and deploy your code to it. 
-
-If you don't want to learn how to scaffold a Swagger file, skip ahead directly to the [Create an API app in Azure](#createapiapp) section. Otherwise, begin by installing the tools you need to scaffold the code.
+>[AZURE.NOTE] If you don't want to learn how to scaffold a Swagger file, you can do only the tutorial steps that deploy sample code to a new API app. Skip ahead directly to the [Create an API app in Azure](#createapiapp) section. 
 
 1. Execute the following commands to install the **yo** and **generator-swaggerize** NPM modules globally.
 
 		npm install -g yo
 		npm install -g generator-swaggerize
 
-## Scaffold Node.js code based on Swagger metadata
+	Swaggerize is a tool that generates server code for an API described by a Swagger metadata file. The Swagger file that you'll use is named *api.json* and is located in the *start* folder of the repository you cloned.
 
-In this section you use the Swaggerize command to scaffold server code for the API. The source data for the scaffolded code is in a Swagger metadata file named *api.json*, located in the *start* folder of the repository you cloned.
-
-2. Navigate to the *start* folder, and then execute the `yo swaggerize` command.
-
-	Swaggerize will ask a series of questions.  For **what to call this project**, enter "contactlist", for **path to swagger document**, enter "api.json", and for **Express, Hapi, or Restify** enter "express".
+2. Navigate to the *start* folder, and then execute the `yo swaggerize` command. Swaggerize will ask a series of questions.  For **what to call this project**, enter "contactlist", for **path to swagger document**, enter "api.json", and for **Express, Hapi, or Restify**, enter "express".
 
 		yo swaggerize
 
@@ -67,7 +61,7 @@ In this section you use the Swaggerize command to scaffold server code for the A
     
 	**Note**: if you encounter an error in this step, the next step explains how to fix it.
 
-	Swaggerize creates an application folder, scaffolds handlers and configuration files, and generates a **package.json** file. The express view engine will be used to generate the Swagger help page.  
+	Swaggerize creates an application folder, scaffolds handlers and configuration files, and generates a **package.json** file. The express view engine is used to generate the Swagger help page.  
 
 3. If the `swaggerize` command fails with an "unexpected token" or "invalid escape sequence" error, correct the cause of the error by editing the generated *package.json* file. In the `regenerate` line under `scripts`, change the back slash that precedes *api.json* to a forward slash, so that the line looks like the following example:
 
@@ -317,7 +311,7 @@ The built-in continuous delivery features of Azure App Service enable you to dep
 
     ![Postman Hitting Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-2. In a browser, go to the `/swagger` endpoint to try out the Swagger UI as it runs in Azure.
+2. In a browser, go to the `/docs` endpoint to try out the Swagger UI as it runs in Azure.
 
 Now that you have continuous delivery wired up, you can make code changes and deploy them to Azure simply by pushing commits to your Azure Git repository.
 
