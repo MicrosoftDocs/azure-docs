@@ -127,7 +127,7 @@ When you create a new vault, it comes with a default policy. This  policy trigge
 To view the available list of the policies in the vault use the Get-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet:
 
 ```
-PS C:\WINDOWS\system32> get-AzureRMRecoveryServicesBackupProtectionPolicy -WorkloadTypeAzureVM
+PS C:\WINDOWS\system32> get-AzureRMRecoveryServicesBackupProtectionPolicy -WorkloadType AzureVM
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
 DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 PM
@@ -137,7 +137,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 
 A backup protection policy is associated with at least one retention policy.  Retention policy defines how long a recovery point is kept with Azure Backup. Use Get-AzureRmRecoveryServicesBackupRetentionPolicyObject to view the default retention policy.  Similarly you can obtain the default schedule policy using Get-AzureRmRecoveryServicesBackupSchedulePolicyObject. The schedule and retention policy objects are used as inputs to the New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet, New-AzureRmBackupProtectionPolicy cmdlet, or directly with the Enable-AzureRmBackupProtection cmdlet.
 
-A backup protection policy defines when and how often the backup of an item is done. The New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet or New-AzureRmBackupProtectionPolicy cmdlet creates a PowerShell object that holds backup policy information. The backup policy is used as an input to the Enable-AzureRmRecoveryServicesBackupProtection cmdlet or Enable-AzureRmBackupProtection cmdlet.
+A backup protection policy defines when and how often the backup of an item is done. The New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet creates a PowerShell object that holds backup policy information. The backup policy is used as an input to the Enable-AzureRmRecoveryServicesBackupProtection cmdlet or Enable-AzureRmBackupProtection cmdlet.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -258,22 +258,19 @@ There is a key difference between the restore operations done through the Azure 
 
 ```
 PS C:\> $restorejob = Restore-AzureRMRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName DestAccount
-StorageAccountResourceGroupName DestRG
+ -StorageAccountResourceGroupName DestRG
 PS C:\> $restorejob
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
 V2VM        Restore               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-You can get the details of the restore operation using the Get-AzureRmRecoveryServicesBackupJobDetails Get-AzureRmBackupJobDetails cmdlet once the Restore job has completed. The ErrorDetails property will have the information needed to rebuild the VM.
+You can get the details of the restore operation using the Get-AzureRmRecoveryServicesBackupJobDetails cmdlet once the Restore job has completed. The JobDetails property will have the information needed to rebuild the VM.
 
 ```
 PS C:\> $restorejob = Get-AzureRmRecoveryServicesBackupJob -Job $restorejob
 PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
-PS C:\> $restorejob = Get-AzureRmBackupJob -Job $restorejob
-PS C:\> $details = Get-AzureRmBackupJobDetails
 ```
-
 
 ## Registering Windows Server or DPM to a Recovery Services Vault
 
