@@ -40,11 +40,13 @@ A workspace is an Azure resource and is a container where data is collected, agg
 It is possible to create multiple OMS Log Analytics workspaces and for users to have access to one or more workspaces. In general you want to minimize the number of workspaces as this will allow you to query and correlate across the most data. This section describes when it can be helpful to create more than one workspace.
 
 Today a log analytics workspace provides:
+
 - A geographic location for data to be stored. 
 - Granularity for billing 
 - Data isolation 
 
 Based on the above characteristics, you may want to create multiple workspaces if:
+
 - You are a global company and you need data stored in specific regions for data sovereignty / compliance reasons. 
 - You are using Azure and you want to avoid outbound data transfer charges by having a Log Analytics workspace in the same region as the Azure resources it manages.
 - You want to allocate charges to different departments/business groups based on their usage. By creating a workspace for each department/business group your Azure bill and usage statement will show the charges for each workspace separately.
