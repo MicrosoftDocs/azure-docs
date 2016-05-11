@@ -30,24 +30,7 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 1. [GitHub](https://github.com/) account
 1. Microsoft Azure [free trial account](https://azure.microsoft.com/pricing/free-trial/)
 
-## Swagger-first API development workflow
-
-[Swagger](http://swagger.io/) is a JSON file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md).
-
-The API development workflow modeled by this tutorial involves designing the API first and using a tool such as the [Swagger editor](http://swagger.io/swagger-editor/) to create the metadata file. Then you use a tool to scaffold server code for the API based on the metadata. 
-
-For this tutorial the first step of designing the API and creating the Swagger file is done. You'll download a sample Swagger metadata for a simple contact list API. Then you'll do the following steps:
-
-* Use Yeoman to scaffold Node.js code for the contact list API.
-* Customize the scaffolded code.
-* Test the API as it runs locally.
-* Create an API app in Azure.
-* Deploy your Node.js code to the new API app.
-* Test the API as it runs in Azure.
-
-## Get the sample code and set up the development environment
-
-In this section you download the sample code and install the tools you need to scaffold code from a Swagger file. 
+## Get the sample code
 
 1. Open a command line interface that can run Node.js and Git commands.
 
@@ -55,7 +38,17 @@ In this section you download the sample code and install the tools you need to s
 
 		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
 
-1. Install **yo** and the **generator-swaggerize** NPM modules globally.
+	The sample API provides two endpoints: `/contacts` returns a list of names and email addresses in JSON format, while `/contacts/{id}` returns only the selected contact.
+
+## Set up for Swagger-first API development workflow
+
+[Swagger](http://swagger.io/) is a JSON file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md).
+
+In the first part of the tutorial, you scaffold server code based on a Swagger metadata file. In the second part, you create an API app in Azure and deploy your code to it. 
+
+If you don't want to learn how to scaffold a Swagger file, skip ahead directly to the [Create an API app in Azure](#createapiapp) section. Otherwise, begin by installing the tools you need to scaffold the code.
+
+1. Execute the following commands to install the **yo** and **generator-swaggerize** NPM modules globally.
 
 		npm install -g yo
 		npm install -g generator-swaggerize
@@ -185,7 +178,7 @@ In this section you use the Swaggerize command to scaffold server code for the A
 
     ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## Create a new API App in the Azure Portal
+## <a id="createapiapp"></a> Create a new API App in the Azure Portal
 
 In this section you'll walk through the process of creating a new, empty API App in Azure. Then in the following section you wire up the app to a Git repository so you can enable continuous delivery of your code changes. 
 
@@ -265,19 +258,23 @@ Now that you have a new API App with a Git repository backing it up, you can pus
 
 ## Deploy your API code to Azure
 
-Using the built-in continuous delivery features Azure App Service provides, you can simply push commits to the Git repository associated with your API app, and Azure will pick up your source code and deploy it to your API app. 
+Using the built-in continuous delivery features Azure App Service provides, you can simply push commits to the Git repository associated with your API app, and Azure will pick up your source code and deploy it to your API app.
 
-1. Copy the **ContactList** folder created by the swaggerize scaffolder to some other folder. as you'll be creating a new local Git repository for the code. 
+In this section you do the following steps:
 
-2. Open your command line interface.
+* Create a local Git repository that contains your server code for the API.
+* Create a remote that points to the Git repository in Azure that is associated with your API app.
+* Push your code from the local repository to the remote repository. 
 
-1. Navigate to the new folder, then execute the following command to create a new local Git repository. 
+1. Copy the `start\ContactList` folder that you created by using the swaggerize scaffolder to some other folder. If you didn't do the first part of the tutorial, copy the `end\ContactList` folder instead.
+
+1. In your command line tool, navigate to the new folder, then execute the following command to create a new local Git repository. 
 
         git init
 
      ![New Local Git Repo](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
 
-1. Execute the following command, which will add a Git remote to your local repository. The remote repository will be the one you just created and associated with your API app running in Azure. 
+1. Execute the following command to add a Git remote for your API app's repository. 
 
         git remote add azure YOUR_GIT_CLONE_URL_HERE
 
@@ -290,19 +287,21 @@ Using the built-in continuous delivery features Azure App Service provides, you 
 
     ![Git Commit Output](media/app-service-api-nodejs-api-app/git-commit-output.png)
 
-1. To push your code to Azure, which will trigger a deployment to your API app, execute the following command. When you're prompted for a password, enter the one that you created earlier in the Azure portal. 
+1. Execute the command to push your code to Azure. When you're prompted for a password, enter the one that you created earlier in the Azure portal.
 
         git push azure master
 
-1. If you navigate back to the **Deployments** blade for your API app, you'll see the deployment is occurring. 
+	This will trigger a deployment to your API app.  
+
+1. In your browser, navigate back to the **Deployments** blade for your API app, and you'll see the deployment is occurring. 
 
     ![Deployment Happening](media/app-service-api-nodejs-api-app/deployment-happening.png)
 
-    Simultaneously, the Node.js command line will reflect the status of your deployment while it is happening. 
+    Simultaneously, the command line interface will reflect the status of your deployment while it is happening. 
 
     ![Node Js Deployment Happening](media/app-service-api-nodejs-api-app/node-js-deployment-happening.png)
 
-1. Once the deployment has completed, the **Deployments** blade will reflect the successful deployment of your code changes to your API App. 
+	Once the deployment has completed, the **Deployments** blade will reflect the successful deployment of your code changes to your API App. 
 
 ## Test with the API running in Azure
  
