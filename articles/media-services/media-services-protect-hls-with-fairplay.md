@@ -97,10 +97,13 @@ The following are general steps that you would need to perform when protecting y
 
 1. Create an OnDemand locator in order to get a streaming URL.
 
->[AZURE.NOTE] Azure Media Player doesn’t support FairPlay playback out of the box. You need to obtain the sample player from Apple developer account in order to get FairPlay playback on MAC OSX. 
->
->You could also develop apps using iOS SDK. 
+##Using FairPlay key delivery by player/client apps
 
+Customers could develop player apps using iOS SDK. In order to be able to play FairPlay content customers have to implement license exchange protocol. The license exchange protocol is not specified by Apple, it is up to each app how to send key delivery requests. The AMS FairPlay key delivery servces expects the SPC to come as www-form-url encoded post message in the following form:
+spc=<Base64 encoded SPC>.
+
+>[AZURE.NOTE] Azure Media Player doesn’t support FairPlay playback out of the box. Customers need to obtain the sample player from Apple developer account in order to get FairPlay playback on MAC OSX. 
+ 
 
 ##.NET example
 
