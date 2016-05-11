@@ -33,7 +33,7 @@ Site Recovery is an Azure service that contributes to your BCDR strategy by orch
 
 **Component** | **Replicate to Azure (with VMM)** | **Replicate to Azure (without VMM)** | **Replicate to secondary site (with VMM)**
 ---|---|---|---
-**VMM** | One or more VMM servers running on System Center 2012 R2. The VMM server should have at least one cloud containing one or more VMM host groups. | Not applicable | At least one VMM server running on System Center 2012 R2. We recommend a VMM server in each site. The VMM server should have at least one cloud containing one or more VMM host groups. Clouds should have the Hyper-V capability profile set. 
+**VMM** | One or more VMM servers running on System Center 2012 R2. The VMM server should have at least one cloud containing one or more VMM host groups. | Not applicable | At least one VMM server running on System Center 2012 R2. We recommend a VMM server in each site. The VMM server should have at least one cloud containing one or more VMM host groups. Clouds should have the Hyper-V capability profile set.
 **Hyper-V** | One or more Hyper-V host servers in the on-premises datacenter running at least Windows Server 2012 R2. The Hyper-V server must be located in a host group in a VMM cloud. | One or more Hyper-V servers in the source and target sites running at least Windows Server 2012 R2. | One or more Hyper-V servers in the source and target sites running at least Windows Server 2012 with the latest updates. The Hyper-V server must be located in a host group in a VMM cloud.
 **Virtual machines** | You'll need at least one VM on the source Hyper-V server. VMs replicating to Azure must conform with [Azure virtual machine prerequisites](#azure-virtual-machine-requirements). <br> Install or upgrade [Integration Services](https://technet.microsoft.com/library/dn798297.aspx) in the VM using the steps given [here](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4). | At least one VM on the source Hyper-V server. VMs replicating to Azure must conform with [Azure virtual machine prerequisites](#azure-virtual-machine-requirements). <br> Install or upgrade [Integration Services](https://technet.microsoft.com/library/dn798297.aspx) in the VM using the steps given [here](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4). | At least one VM in the source VMM cloud.  <br> Install or upgrade [Integration Services](https://technet.microsoft.com/library/dn798297.aspx) in the VM using the steps given [here](https://technet.microsoft.com/library/hh846766.aspx#BKMK_step4).
 **Azure account** | You'll need an [Azure](https://azure.microsoft.com/) account and subscription. | Not applicable | You'll need an [Azure](https://azure.microsoft.com/) account and subscription.
@@ -57,9 +57,9 @@ The table summarizes the requirements for replicating VMware VMs and Windows/Lin
 
 **Component** | **Replicate to Azure (enhanced)** | **Replicate to secondary site**
 ---|---|---
-**On-premises primary site** | You install a management server that runs all of the Site Recovery components (configuration, process, master target). | You install a process server  for caching, compressing and encrypting replication data before sending it to the secondary site. You can install additional process servers for load balancing or for fault tolerance. 
-**On-premises secondary site** | Not applicable | You install a single configuration server that's used for configuring, managing and monitoring the deployment.<br/><br>We recommend you install a vContinuum server for easy configuration server management.<br/><br/>You'll need to set up the master target server as a VM running on the secondary vSphere server. 
-**VMware vCenter/ESXi** | If you're replicating VMware VMs (or want to fail back physical servers) in your primary site you'll need a vSphere ESX/ESXi in your primary site. We also recommend a vCenter server to manage your ESXi hosts. | In your primary and secondary site you'll need one or more VMware ESXi hosts (and optionally a vCenter server). 
+**On-premises primary site** | You install a management server that runs all of the Site Recovery components (configuration, process, master target). | You install a process server  for caching, compressing and encrypting replication data before sending it to the secondary site. You can install additional process servers for load balancing or for fault tolerance.
+**On-premises secondary site** | Not applicable | You install a single configuration server that's used for configuring, managing and monitoring the deployment.<br/><br>We recommend you install a vContinuum server for easy configuration server management.<br/><br/>You'll need to set up the master target server as a VM running on the secondary vSphere server.
+**VMware vCenter/ESXi** | If you're replicating VMware VMs (or want to fail back physical servers) in your primary site you'll need a vSphere ESX/ESXi in your primary site. We also recommend a vCenter server to manage your ESXi hosts. | In your primary and secondary site you'll need one or more VMware ESXi hosts (and optionally a vCenter server).
 **Failback** | You need a VMware environment to fail back from Azure, even if you're replicating physical servers.<br/><br/>You'll need to set up a process server as an Azure VM <br/><br/>The configuration server acts as a master target server, but if you're failing back large traffic volumes you might want to set up an additional on-premises master target server. [Learn more](site-recovery-failback-azure-to-vmware-classic.md)| Failback from the secondary site to the primary site is to VMware only, even if you failed over a physical machine. For failback you'll need to set up a master target server as a VM on the primary vSphere server.
 **Azure account** | You'll need an [Azure](https://azure.microsoft.com/) account and subscription. | Not applicable
 **Azure storage** | You'll need an [Azure storage account](../storage/storage-redundancy.md#geo-redundant-storage) to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. | Not applicable
@@ -85,7 +85,7 @@ Operating system disk count | 1 | Prerequisites check will fail if unsupported.
 Data disk count | 16 or less (maximum value is a function of the size of the virtual machine being created. 16 = XL) | Prerequisites check will fail if unsupported
 Data disk VHD size | Upto 1023 GB | Prerequisites check will fail if unsupported
 Network adapters | Multiple adapters are supported |
-Static IP address | Supported | If the primary virtual machine is using a static IP address you can specify the static IP address for the virtual machine that will be created in Azure. Note that static IP address for a linux virtual machine running on Hyper-v is not supported. 
+Static IP address | Supported | If the primary virtual machine is using a static IP address you can specify the static IP address for the virtual machine that will be created in Azure. Note that static IP address for a linux virtual machine running on Hyper-v is not supported.
 iSCSI disk | Not supported | Prerequisites check will fail if unsupported
 Shared VHD | Not supported | Prerequisites check will fail if unsupported
 FC disk | Not supported | Prerequisites check will fail if unsupported
@@ -112,7 +112,19 @@ Use the following tips to help you optimize and scale your deployment.
 - **RPO**: Site Recovery supports a near-synchronous recovery point objective (RPO) when you replicate to Azure. This assumes sufficient bandwith between your datacenter and Azure.
 
 
+##Service URLs
+Make sure these URLs are accessible from the server
 
+
+**URLs** | **VMM to VMM** | **VMM to Azure** | **Hyper-V Site to Azure** | **VMware to Azure**
+---|---|---|---|---
+ \*.accesscontrol.windows.net | Access required  | Access required  | Access required  | Access required
+ \*.backup.windowsazure.com |  | Access required  | Access required  | Access required
+ \*.hypervrecoverymanager.windowsazure.com | Access required  | Access required  | Access required  | Access required
+ \*.store.core.windows.net | Access required  | Access required  | Access required  | Access required
+ \*.blob.core.windows.net |  | Access required  | Access required  | Access required
+ https://www.msftncsi.com/ncsi.txt | Access required  | Access required  | Access required  | Access required
+ https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi | | | | Access required
 
 
 ## Next steps
