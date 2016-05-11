@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/05/2016"
-	ms.author="ccompy, anwestg"/>
+	ms.author="anwestg"/>
 
 # Add a Web Apps resource provider to Azure Stack
 
