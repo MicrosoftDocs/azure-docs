@@ -29,8 +29,22 @@ In a modern cloud environment, we take remote access to the next level using App
 Application Proxy provides single sign-on (SSO) and secure remote access for web applications hosted on-premises, such as SharePoint sites and Outlook Web Access. Your on-premises web applications can now be accessed the same way as your SaaS apps in Azure Active Directory, without the need for a VPN or changing the network infrastructure. Application Proxy lets you publish applications, and then employees can log into your apps from home or on their own devices, and authenticate through this cloud-based proxy.
 
 ## How does it work?
+
+App Proxy works with three basic steps. First, Connectors are deployed on the on-premises network. Then, the connector connects to the cloud service.
+Finally, the connector and cloud service route user traffic to applications.
+
+ ![AzureAD App Proxy diagram](./media/active-directory-appssoaccess-whatis/azureappproxxy.png)
+
+1. The user accesses the application through the application proxy and will be directed to the Azure AD logon page to authenticate.
+2. After a successful logon, a token is generated and sent to the user.
+3. The user sends the token to the application proxy which retrieves the user principal name (UPN) and security principal name (SPN) from the token then directs the request to the connector.
+4. On behalf of the user, the connector requests a Kerberos ticket that can be used for internal (Windows) authentication. This is known as Kerberos Constrained Delegation.
+5. A Kerberos ticket is retrieved from Active Directory.
+6. The ticket is sent to the application server and verified.
+7. The response is sent through the application proxy to the user.
+
 ### Enabling Access
-Application Proxy works by installing a slim Windows Server service called the Connector inside your network. The Connector doesn’t necessitate opening any inbound ports and you don’t have to put anything in the DMZ. If you have a lot of traffic to your apps you can add more Connectors, and the service will take care of the load balancing. The Connectors are stateless and pull everything from the cloud as necessary.
+Application Proxy works by installing a slim Windows Server service called the connector inside your network. The connector doesn’t necessitate opening any inbound ports and you don’t have to put anything in the DMZ. If you have a lot of traffic to your apps you can add more connectors, and the service will take care of the load balancing. The connectors are stateless and pull everything from the cloud as necessary.
 When a user accesses applications remotely, from any device, he’s authenticated by Azure Active Directory and gets access to the application.
 
 ### Single sign-on
