@@ -139,11 +139,11 @@ on the Hub menu, click **Browse**.
   
 7. In the **Prepare infrastructure** blade that opens, click on **Download Azure Backup Server** and Vault credentials which you use during registration of Azure Backup Server to recovery services vault. This will take you to the Download Center page from where the software package can be downloaded.
 
-   ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
+    ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
 8. Select all the files and click **Next**. Download all the files coming in from the Microsoft Azure Backup download page, and place all the files in the same folder.
 
-  ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+    ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
 
