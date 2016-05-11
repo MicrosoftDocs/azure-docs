@@ -208,7 +208,9 @@ Next we will perform a small test to confirm you are able to successfully authen
 13. Close the **Edit PowerShell Runbook** blade.
 14. Close the **Test-SecPrin-Runbook** blade.
 
-You can use the updated sample code below, taken from the AzureAutomationTutorial example runbook that is included when you create the Automation Run As account, to authenticate with Azure Automation to manage ARM resources. 
+## Sample code to authenticate with ARM resources
+
+You can use the updated sample code below, taken from the AzureAutomationTutorial example runbook, to authenticate using the Run As account to manage ARM resources with your runbooks. 
 
    ```
    connectionName = "AzureRunAsConnection"
@@ -239,7 +241,7 @@ You can use the updated sample code below, taken from the AzureAutomationTutoria
    } 
    ```
 
-The script includes two additional lines of code to support referencing the subscription context so you can easily work between multiple subscriptions. A variable asset named **SubscriptionId** contains the ID of the subscription and because that's too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easy to identify for your purposes.  Alternatively, you can also use the argument *SubscriptionName* instead of *SubscriptionId*.
+The script includes two additional lines of code to support referencing the subscription context so you can easily work between multiple subscriptions. A variable asset named **SubscriptionId** contains the ID of the subscription and if that's too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easier to identify for your purposes.  Alternatively, you can also use the argument *SubscriptionName* instead of *SubscriptionId* with a corresponding variable asset.
 
 
 ## Next Steps
