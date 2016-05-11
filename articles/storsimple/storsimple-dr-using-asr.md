@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/10/2016"
+   ms.date="05/11/2016"
    ms.author="vidarmsft" />
 
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
@@ -43,9 +43,9 @@ Implementing a one-click disaster recovery solution that uses Azure Site Recover
 
 -   File shares hosted on the volumes configured on the StorSimple storage device
 
--   [Azure Site Recovery services vault](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-vmm-to-vmm/) created in a Microsoft Azure subscription
+-   [Azure Site Recovery services vault](https://azure.microsoft.com/documentation/articles/site-recovery-vmm-to-vmm/) created in a Microsoft Azure subscription
 
-In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/en-us/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
+In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
 
 To avoid latency issues (which might result in higher costs), make sure that you create your StorSimple Cloud Appliance, automation account, and storage account(s) in the same region.
 
@@ -73,7 +73,7 @@ If the customer has a small number of applications, a single domain controller f
 
 If the customer has a large number of applications, is running an Active Directory forest, and will be failing over a few applications at a time, then we recommend setting up an additional domain controller on the DR site (either a secondary site or in Azure).
 
-Please refer to [Automated DR solution for Active Directory and DNS using ASR](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-active-directory/) for instructions when making a domain controller available on the DR site. For the remainder of this document, we will assume a domain controller is available on the DR site*.*
+Please refer to [Automated DR solution for Active Directory and DNS using ASR](https://azure.microsoft.com/documentation/articles/site-recovery-active-directory/) for instructions when making a domain controller available on the DR site. For the remainder of this document, we will assume a domain controller is available on the DR site.
 
 ### Use Azure Site Recovery to enable protection of the file server VM
 
@@ -91,7 +91,7 @@ This step requires that you prepare the on-premises file server environment, cre
 
     4.  Click **OK** and then select **Yes** when prompted.
 
-		![](../media/storsimple-using-asr/image1.png)
+		![](./media/storsimple-dr-using-asr/image1.png)
 
 1.  Install the VM Agent on each of the file server VMs. This is required so that you can run Azure automation scripts on the failed over VMs.
 
@@ -142,7 +142,7 @@ This step requires that you prepare the on-premises file server environment, cre
 
 #### To create and prepare an Azure Site Recovery vault
 
-Refer to the [Azure Site Recovery documentation](https://azure.microsoft.com/en-in/documentation/articles/site-recovery-hyper-v-site-to-azure/) to get started with Azure Site Recovery before protecting the file server VM.
+Refer to the [Azure Site Recovery documentation](https://azure.microsoft.com/documentation/articles/site-recovery-hyper-v-site-to-azure/) to get started with Azure Site Recovery before protecting the file server VM.
 
 #### To enable protection
 
@@ -156,7 +156,7 @@ Refer to the [Azure Site Recovery documentation](https://azure.microsoft.com/en-
 
 	> [AZURE.NOTE] This will cause the file shares to be temporarily unavailable
 
-1.  [Enable virtual machine protection](https://azure.microsoft.com/en-in/documentation/articles/site-recovery-hyper-v-site-to-azure/#step-6-enable-virtual-machine-protection) of the file server VM from the Azure Site Recovery portal.
+1.  [Enable virtual machine protection](https://azure.microsoft.com/documentation/articles/site-recovery-hyper-v-site-to-azure/#step-6-enable-virtual-machine-protection) of the file server VM from the Azure Site Recovery portal.
 
 2.  When the initial synchronization begins, you can reconnect the target again. Go to the iSCSI initiator, select the StorSimple device, and click **Connect**.
 
@@ -172,7 +172,7 @@ For the file server VM, configure network settings in Azure Site Recovery so tha
 
 You can select the VM in the **VMM Cloud** or the **Protection Group** to configure the network settings, as shown in the following illustration.
 
-![](./media/image2.png)
+![](./media/storsimple-dr-using-asr/image2.png)
 
 ## Create a recovery plan
 
@@ -186,7 +186,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 2.  Click **New** &gt; **App Services** &gt; **Automation** &gt; **Runbook** &gt; **From Gallery** to import all the required runbooks into the automation account.
 
-	![](./media/storsimple-using-asr/image3.png)
+	![](./media/storsimple-dr-using-asr/image3.png)
 
 1.  Add the following runbooks from the **Disaster Recovery** pane in the gallery:
 
@@ -200,11 +200,11 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 	-   Uninstall custom script extension in Azure VM
 
-	![](./media/storsimple-using-asr/image4.png)
+	![](./media/storsimple-dr-using-asr/image4.png)
 
 1.  Publish all the scripts by selecting the runbook in the automation account and going to **Author** tab. After this step, the **Runbooks** tab will appear as follows:
 
-	 ![](./media/storsimple-using-asr/image5.png)
+	 ![](./media/storsimple-dr-using-asr/image5.png)
 
 1.  In the automation account go to the **Assets** tab, click **Add Setting** &gt; **Add Credential**, and add your Azure credentials – name the asset AzureCredential.
 
@@ -238,7 +238,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 	For example, if the name of the recovery plan is fileServerpredayRP, then your **Assets** tab should appear as follows after you add all the assets.
 
-	![](./media/image6.png)
+	![](./media/storsimple-dr-using-asr/image6.png)
 
 	1.  Go to the **Recovery Services** section and select the Azure Site Recovery vault that you created earlier.
 
@@ -272,11 +272,11 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 		> [AZURE.NOTE] When running a test failover, you should verify everything at the manual action step because the StorSimple volumes that had been cloned on the target device will be deleted as a part of the cleanup after the manual action is completed.
 
-		![](./media/image7.png)
+		![](./media/storsimple-dr-using-asr/image7.png)
 
 ## Perform a test failover
 
-Refer to the [Active Directory DR Solution](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-active-directory/) companion guide for considerations specific to Active Directory during the test failover. The on-premises setup is not disturbed at all when the test failover occurs. The StorSimple volumes that were attached to the on-premises VM are cloned to the StorSimple Cloud Appliance on Azure. A VM for test purposes is brought up in Azure and the cloned volumes are attached to the VM.
+Refer to the [Active Directory DR Solution](https://azure.microsoft.com/documentation/articles/site-recovery-active-directory/) companion guide for considerations specific to Active Directory during the test failover. The on-premises setup is not disturbed at all when the test failover occurs. The StorSimple volumes that were attached to the on-premises VM are cloned to the StorSimple Cloud Appliance on Azure. A VM for test purposes is brought up in Azure and the cloned volumes are attached to the VM.
 
 #### To perform the test failover
 
@@ -288,7 +288,7 @@ Refer to the [Active Directory DR Solution](https://azure.microsoft.com/en-us/do
 
 3.  Select the virtual network to start the test failover process.
 
-![](./media/image8.png)
+![](./media/storsimple-dr-using-asr/image8.png)
 
 1.  When the secondary environment is up, you can perform your validations.
 
@@ -306,7 +306,7 @@ During an unplanned failover, the StorSimple volumes are failed over to the virt
 
 2.  Click **Failover** and then select **Unplanned Failover**.
 
-	![](./media/image9.png)
+	![](./media/storsimple-dr-using-asr/image9.png)
 
 1.  Select the target network and then click the check icon ✓ to start the failover process.
 
@@ -342,7 +342,7 @@ During a failback, StorSimple volume containers are failed over back to the phys
 
 5.  Click the check icon ✓ to start the failback process.
 
-	![](./media/image10.png)
+	![](./media/storsimple-dr-using-asr/image10.png)
 
 ## Best Practices
 
@@ -350,11 +350,11 @@ During a failback, StorSimple volume containers are failed over back to the phys
 
 #### Hyper-V site
 
-Use the [User Capacity planner tool](http://www.microsoft.com/en-us/download/details.aspx?id=39057) to design the server, storage, and network infrastructure for your Hyper-V replica environment.
+Use the [User Capacity planner tool](http://www.microsoft.com/download/details.aspx?id=39057) to design the server, storage, and network infrastructure for your Hyper-V replica environment.
 
 #### Azure
 
-You can run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/en-us/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery Services. The Readiness Assessment Tool checks VM configurations and warns when configurations are incompatible with Azure. For example, it issues a warning if a C: drive is larger than 127 GB.
+You can run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery Services. The Readiness Assessment Tool checks VM configurations and warns when configurations are incompatible with Azure. For example, it issues a warning if a C: drive is larger than 127 GB.
 
 Capacity planning is made up of at least two important processes:
 
