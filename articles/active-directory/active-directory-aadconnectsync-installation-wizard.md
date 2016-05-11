@@ -37,6 +37,10 @@ Select one of the tasks and click on **Next** to continue.
 ## View current configuration
 This option gives you a quick view of your currently configured options.
 
+![Page with a list of all options and their state](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
+
+Click on **Previous** to go back. If you select **Exit**, you will close the installation wizard.
+
 ## Customize synchronization options
 This option is used to make changes to the sync configuration. You will see a subset of options from the custom configuration installation path. You will see this even if you used express installation initially.
 
