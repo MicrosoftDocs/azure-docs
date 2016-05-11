@@ -139,6 +139,8 @@ In this tutorial you've seen how to create and deploy an example web app from th
 
 For more information about how to work with App Service Web Apps, see the links on the left side of the page (for wide browser windows) or at the top of the page (for narrow browser windows).
 
+For more information about developing WordPress web apps on Azure, see [Developing WordPress on Azure App Service][WordPressOnAzure]. 
+
 <!-- URL List -->
 
 [PHP]: https://azure.microsoft.com/develop/php/
@@ -154,6 +156,7 @@ For more information about how to work with App Service Web Apps, see the links 
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/
 [Project Nami]: http://projectnami.org/
+[WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
 
 <!-- IMG List -->
 
