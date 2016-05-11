@@ -192,7 +192,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 	-   Fail over StorSimple volume containers
 
-	-   Cleanup of StorSimple volumes after Test Failover (TFO)
+	-   Clean up of StorSimple volumes after Test Failover (TFO)
 
 	-   Mount volumes on StorSimple device after failover
 
