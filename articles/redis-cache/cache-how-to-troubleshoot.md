@@ -25,7 +25,66 @@
 -	Include tools that a customer can run such as slowlog/ monitor.
 -	Goal: Make it readable and actionable.
 
-## Timeout exceptions
+## StackExchange.Redis timeout exceptions
+
+StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations which has a default value  of 1000 ms. If a synchronous call doesn’t complete in the stipulated time, it will throw a timeout error. The error thrown looks something like this: System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0
+ IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+
+Below is an explanation of the error codes:
+
+| Error code | Details                                                                                                                                                                                                                                          |
+|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| inst       | in the last time slice: 0 commands have been issued                                                                                                                                                                                              |
+| mgr        | the socket manager is performing "socket.select", which means it is asking the OS to indicate a socket that has something to do; basically: the reader is not actively reading from the network because it doesn't think there is anything to do |
+| queue      | there are 73 total in-progress operations                                                                                                                                                                                                        |
+| qu         | 6 of those are in unsent queue: they have not yet been written to the outbound network                                                                                                                                                           |
+| qs         | 67 of those have been sent to the server but a response is not yet available.  The response could be `Not yet sent by the server` or `sent by the server but not yet processed by the client.`                                                   |
+| qc         | 0 of those have seen replies but have not yet been marked as complete due to waiting on the completion loop                                                                                                                                      |
+| wr         | there is an active writer (meaning - those 6 unsent are not being ignored) bytes/activewriters                                                                                                                                                   |
+| in         | there are no active readers and zero bytes are available to be read on the NIC bytes/activereaders                                                                                                                                               |
+
+
+### Steps to investigate
+
+As a best practice make sure you are using the following pattern to connect using StackExhange Redis client 
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() => { return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,ssl=true,abortConnect=false,password=password"); });
+
+public static ConnectionMultiplexer Connection { get { return lazyConnection.Value; } }
+
+2.Check if you your Azure Redis Cache and the Client in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete in synctimeout time or you might be getting timeouts when you are debugging from your local development machinex. a.It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario to do a cross region calls, you would want to set the synctimeout to a higher value.
+
+3.Are you using the latest version of the StackExchange.Redis NuGet package? Check here to verify if you are using latest version of StackExchange.Redis https://www.nuget.org/packages/StackExchange.Redis/.There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version would help.
+4.Are you getting network bound on the server? Following are the max bandwidth we got while testing various sizes of Redis cache. (Following numbers are not guaranteed and is what we got while testing using redis-benchmark.exe running from an Iaas VM against the Azure Redis Cache endpoint)If there are requests that are getting bound by bandwidth, it will take longer for them to complete and thereby cause timeouts. It is recommended to move to a higher cache size to get more bandwidth. Go here for more information on the bandwidth numbers. 
+
+Are you getting network bound on the client? Verify you are not getting network bound on you client. Getting Network bound on the client would create a bottleneck and cause timeouts. Moving to a higher VM size on the client to be lined up with the size/speed of the cache would give you the optimal results.You can use the Bandwidth Monitor program to check the bandwidth that you are getting on the client.
+6.Are you getting CPU bound on the server or on the client? Check if you are getting bound by CPU on your client which could cause the request to not be processed under the syntimeout setting, thus causing a timeout. Moving to a higher machine size or distributing your load would help to control this.Check if you are getting CPU bound on the server from the portal. Requests coming in while Redis is CPU bound would cause those requests to timeout. One thing you could do is to split your data across multiple caches to distribute the load.
+7.Are there commands taking long time to process on the server? There can be commands that are taking long time to process on the redis-server causing the request to timeout. Few examples of long running commands are mget with large number of keys, keys * or poorly written lua script.You can connect to the Azure Redis Cache using the redis-cli client and run the SlowLog command to see if there are requests taking longer than expected. More details regarding the command can be found here http://redis.io/commands/slowlogRedis Server and StackExchange.Redis are optimized for many small requests rather than fewer large requests.  Splitting your data into smaller chunks may improve things here. Check this blog post here on how to use redis-cli.exe with stunnel to connect to the SSL endpoint.
+
+Is there a high Redis-server server load ? Using the Redis-cli client tool, you can connect to your Redis endpoint and run "INFO CPU" to check the value of server_load. A server load of 100 (maximum value) signifies that the redis server has been busy all the time (has not been idle) processing the requests.Run Slowlog from redis-cli to see if there are any requests that are taking more time to process causing server load to max out.
+9.Was there any other event on the client side that could have caused a network blip? Check on the client (web, worker role or an Iaas VM) if there was an event like scaling the number of client instances up or down, or deploying a new version of the client or auto-scale is enabled?In our testing we have found that autoscale or scaling up/down can cause outbound network connectivity can be lost for several seconds. StackExchange.Redis code is resilient to such events and will reconnect. During this time of reconnection any requests in the queue can time out.
+10.Was there a big request preceding several small requests to the Redis Cache that timed out? The parameter “qs” in the error message tells you how many requests were sent from the client to the server, but have not yet processed a response.  This value keeps growing because StackExchange.Redis uses a single TCP connection and can only read one response at a time.  Even though the first operation timed out, it does not stop the data being sent to/from the server, and other requests are blocked until this is finished. Thereby, causing time outs. One solution is to minimize the chance of timeouts by ensuring that your cache is large enough for your workload and splitting large values into smaller chunks.Another possible solution is to use a pool of ConnectionMultiplexer objects in your client, and choose the "least loaded" ConnectionMultiplexer when sending a new request.  This should prevent a single timeout from causing other requests to also timeout.
+
+11. Are you using RedisSessionStateprovider and have set the retry timeout correctly? Following are the settings for RedisSessionStateProvider. retrytimeoutInMilliseconds should be higher that operationTimeoutinMilliseonds, otherwise it won't retry.For example, for the following setting, it would at least retry 3 times before timing out. More details about the setting can be found here. 
+
+
+	<add
+	  name="AFRedisCacheSessionStateProvider"
+	  type="Microsoft.Web.Redis.RedisSessionStateProvider"
+	  host="enbwcache.redis.cache.windows.net"
+	  port="6380"
+	  accessKey="…"
+	  ssl="true"
+	  databaseId="0"
+	  applicationName="AFRedisCacheSessionState"
+	  connectionTimeoutInMilliseconds = "5000"
+	  operationTimeoutInMilliseconds = "1000"
+	  retryTimeoutInMilliseconds="3000"/>
+
+
+12. Is used_memory_rss higher than used_memory? Using redis-cli.exe you can connect to the cache and run the redis INFO command that outputs the following related to memory allocationused_memory_rss: Number of bytes that Redis allocated as seen by the operating system (a.k.a resident set size).used_memory: total number of bytes allocated by Redis using its allocator (either standard libc, malloc, jemalloc etc.) cache size: size of the cache created (26 GB in this case). With an eviction policy set, Redis will start evicting keys when Used_Memory hits cache size. Ideally, the used_memory_rss value should be only slightly higher than used_memory. When rss >> used, a large difference means there is memory fragmentation (internal or external. When used >> rss, it means part of Redis memory has been swapped off by the operating system: expect some significant latencies. Because Redis does not have control over how its allocations are mapped to memory pages, high used_memory_rss is often the result of a spike in memory usage. When Redis frees memory, the memory is given back to the allocator, and the allocator may or may not give the memory back to the system. There may be a discrepancy between the used_memory value and memory consumption as reported by the operating system. It may be due to the fact memory has been used and released by Redis, but not given back to the system. More details can be found at http://www.redis.io/commands/info We are currently testing some changes on our end that make it so that the system has better behavior when there is fragmentation and is not rolled out yet. Meanwhile, there are following things that you can do to mitigate it: •Upgrade the cache to a larger size so that you are not running up against memory limitations on the system.
+•Set expiration times on the keys so that older values are evicted proactively.
+•Monitor the Redis “info” command, especially the used_memory_rss value.  When that value approaches the size of their cache, you are likely to start seeing performance issues. Shard the data across multiple cache to be at a lower utilization of memory or upgrading to a larger cache can help.
+
 
 
 ## Client side troubleshooting
