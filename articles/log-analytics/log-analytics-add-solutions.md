@@ -37,17 +37,18 @@ You can easily remove a solution when it is no longer needed. When you remove a 
 
 At this time, servers that are connected to OMS using the Microsoft Monitoring Agent can use most of the solutions available, including:
 
-- System Updates
-- Antimalware
-- Change Tracking
-- SQL Assessment
 - Active Directory Assessment
 - Alert Management (without SCOM alerts)
+- Antimalware
+- Change Tracking
+- Security
+- SQL Assessment
+- System Updates
 
 However, the following solutions are *not* supported with the Microsoft Monitoring Agent and require System Center Operations Manager (SCOM) agent.
 
-- Capacity Management
 - Alert Management (including SCOM alerts)
+- Capacity Management
 - Configuration Assessment
 
 Refer to [Connecting Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting the SCOM agent to Log Analytics.
@@ -104,6 +105,60 @@ The following table shows data collection methods and other details about how da
 |Windows firewall logs|Windows|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)| on arrival|
 |Windows event logs|Windows|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)| for Azure storage: 1 min; for the agent: on arrival|
 |Wire Data|Windows (2012 R2 / 8.1 or later)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)| every 1 minute|
+
+## Preview Solutions and Features
+
+By running a service and following devops practices we are able to share features and solutions with customers during the development process.
+
+We start by working with a small group of customers (called a cohort) to get requirements and review designs. We then start a private preview where we give the cohort access to an early implementation of the feature or solution to gain feedback and make improvements.
+This early implementation will have minimal features and operational capabilities. 
+Our goal is to try things quickly so we can find what works, and what doesn’t work. We iterate through this process until the feedback from the cohort informs us that we’re ready for a public preview. Customers need to work with us to get access to private preview features and solutions.
+
+During the public preview, we make the feature or solution available for all users to get more feedback and validate our scaling and efficiency. During this phase:
+
+- Preview features will appear in the Settings tab and can be enabled by any user
+- Preview solutions can be added through the gallery or using a published script
+
+### What should I know about Preview Features and Solutions?
+
+We’re excited about new features and solutions and we love working with you to develop them.
+
+Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with a service that is under development and are aware that:
+
+- Things may not always work correctly. This is especially true during private preview but also applies to public preview. 
+  - Issues can range from being a minor annoyance through to the feature not working at all, or potentially having a negative impact on your systems / environment
+  - Data loss / corruption may occur
+  - We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur. 
+- The feature or solution may be removed (either temporarily or permanently)
+  - Based on our learnings during preview we may decide to not release the feature or solution
+- Private previews may require a Non-Disclosure Agreement (NDA) for participation or include confidential content
+  - Before blogging, tweeting or otherwise communicating with third parties please check with the Program Manager responsible for the preview to understand any restrictions on disclosure  
+- Private previews should not be run on production / critical systems
+- Public previews may not be appropriate for your production / critical systems
+- Previews may not work or have been tested with all configurations, this may include:
+  - Limitations on the operating systems that can be used
+  - Limitations on the type of agent (MMA, SCOM) that can be used 
+- Previews are not covered by the Service Level Agreement
+- Usage of preview features will incur usage charges
+- Features / capabilities that you need for the feature or solution to be useful may be missing or incomplete
+- Features / solutions may not be available in all regions
+- Features / solutions may not be localized
+- Features / solutions may have a limit on the number of customers or devices that can use it
+- You may need to use scripts to perform configuration and to enable the solution/feature
+- The user interface (UI) will be incomplete and may change from day to day
+- During private preview we expect you to provide us with feedback on your experience so that we can make the feature/solution better
+  - Examples of how we collect feedback are surveys, phone calls and e-mail
+- We may ask you to collect diagnostic logs or other data to help troubleshoot issues
+
+When enabling a preview feature through the portal you will be see a warning reminding you that the feature is in preview. 
+
+
+### How do I get access to private preview features and solutions?
+
+We build the cohort for a private preview through several different ways depending on the preview. One of the main ways is based on the results of the monthly customer survey. Answering the survey and giving us permission to follow up with you improves your chances of being invited to a private preview.
+
+We also post details on twitter (https://twitter.com/msopsmgmt) and reach out through other communities – look for us at meet ups, conferences and in online communities. 
+
 
 
 ## Next steps
