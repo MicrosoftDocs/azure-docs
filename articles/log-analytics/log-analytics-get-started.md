@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="05/11/2016"
 	ms.author="banders"/>
 
 
@@ -24,11 +24,32 @@ You can get up and running with Log Analytics in the Microsoft Operations Manage
 - Microsoft Operations Management Suite website
 - Microsoft Azure subscription
 
-You can create an OMS workspace using the OMS website. Or, you can use a Microsoft Azure subscription to create an OMS workspace. Both workspaces are functionally equivalent. If you use an Azure subscription, you can also use that subscription to access other Azure services. Regardless of the method that you use to create the workspace, you'll create the workspace with either a Microsoft account or organizational account.
+You can create an free OMS workspace using the OMS website. Or, you can use a Microsoft Azure subscription to create an OMS workspace. Both workspaces are functionally equivalent, except that a free OMS workspace can only send 500 MB of data daily to the OMS service. If you use an Azure subscription, you can also use that subscription to access other Azure services. Regardless of the method that you use to create the workspace, you'll create the workspace with either a Microsoft account or organizational account.
 
 Here's a look at the process:
 
 ![onboarding diagram](./media/log-analytics-get-started/oms-onboard-diagram.png)
+
+## Log Analytics prerequisites and deployment considerations
+
+- You need a paid Microsoft Azure subscription to fully use Log Analytics. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service. Or, you can create a free OMS account at the [Operations Management Suite](http://microsoft.com/oms) website and click **Try for free**.
+- An OMS workspace
+- Each Windows computer that you want to gather data from must run Windows Server 2008 SP1, or above
+- [Firewall](log-analytics-proxy-firewall) access to the OMS web service's addresses
+- An [OMS Log Analytics Forwarder](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) (Gateway) server to forward traffic from servers to OMS, if Internet access is not available from computers
+- If you use Operations Manager, Log Analytics supports Operations Manager 2012 SP1 UR6 and above and Operations Manager 2012 R2 UR2 and above. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3. Determine how it will be integrated with OMS.
+- Determine if your computers have direct Internet access. If not, they require a gateway server to access the OMS web service sites. All access is via HTTPS.
+- Determine which technologies and servers will send data to OMS. For example, domain controllers, SQL Server, etc.
+- Grant permission to users in OMS and Azure.
+- If you're concerned about data usage, deploy each solution individually and test the performance impact before adding additional solutions.
+- Review your data usage and performance as you add solutions and features to Log Analytics. This includes event collection, log collection, performance data collection, etc. It is better to start with minimal collection until data usage or performance impact has been identified.
+- Verify that Windows agents are not also managed using Operations Manager, otherwise duplicate data will result. This also applies to Azure-based-agents that have Azure Diagnostics enabled.
+- After you install agents, verify that the agent is working properly. If not, check to ensure that Cryptography API: Next Generation (CNG) Key Isolation is not disabled using Group Policy.
+
+
+- Some Log Analytics solutions have additional requirements
+
+
 
 ## Sign up in 3 steps using the Operations Management Suite
 

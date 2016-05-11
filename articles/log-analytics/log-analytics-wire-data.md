@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/11/2016"
 	ms.author="banders"/>
 
 # Wire Data solution in Log Analytics
@@ -48,6 +48,7 @@ In contrast, you don’t have complete visibility of what occurs on the network 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
+- The Wire Data solution acquires data from computers running Windows Server 2012 R2, Windows 8.1, and later operating systems.
 - Add the Wire Data solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 - If you want to view wire data for a specific solution, you'll need to have the solution already added to your OMS workspace.
 

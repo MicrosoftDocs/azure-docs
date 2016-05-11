@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="05/11/2016"
 	ms.author="banders"/>
 
 # Capacity Management solution in Log Analytics
@@ -29,6 +29,7 @@ Before you can use the Capacity Management dashboard in Log Analytics, you must 
 Use the following information to install and configure the solution.
 
 - Operations Manager is required for the Capacity Management solution.
+- You must enable the Operations Manager connector with Virtual Machine Manager (VMM).
 - You must have an Operations Manager agent on each computer where you want to monitor capacity.
 - Add the Capacity Management solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
