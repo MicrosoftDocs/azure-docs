@@ -19,21 +19,19 @@
 
 # SQL Server Agent Extension for SQL Server VMs (Classic)
 
-This topic provides an overview of the SQL Server IaaS Agent Extension (SqlIaaSAgent).
+The SQL Server IaaS Agent Extension (SQLIaaSAgent) runs on Azure virtual machines to automate administration tasks. This topic provides an overview of the services supported by the extension as well as instructions for installation, status, and removal.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 ## Supported services
 
-This extension runs on your SQL Server virtual machine to automate the following administration tasks:
+The SQL Server IaaS Agent Extension supports the following administration tasks:
 
 | Administration feature | Description |
 |---------------------|-------------------------------|
 | **SQL Automated Backup** | Automates the scheduling of backups for all databases for the default instance of SQL Server in the VM. For more information, see [Automated backup for SQL Server in Azure Virtual Machines (Classic)](virtual-machines-windows-classic-sql-automated-backup.md).|
 | **SQL Automated Patching** | Configures a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure Virtual Machines (Classic)](virtual-machines-windows-classic-sql-automated-patching.md).|
 | **Azure Key Vault Integration** | Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)](virtual-machines-windows-classic-ps-sql-keyvault.md).|
-
-The sections of this topic describe how to install, examine, and remove the extension from your SQL Server virtual machine.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 ## Prerequisites
 Requirements to use the extension on your VM:
@@ -46,7 +44,7 @@ Requirements for using Powershell cmdlets:
 
 - Latest Azure PowerShell [available here](../powershell-install-configure.md)
 
-## Install
+## Installation
 
 The SqlIaaSAgent is automatically installed when you provision one of the SQL Server virtual machine gallery images.
 
@@ -54,7 +52,7 @@ If you create an OS-only Windows Server virtual machine, you can install the ext
 
 >[AZURE.NOTE] For instructions on using the **Set-AzureVMSqlServerExtension** PowerShell, see the individual topics in the [Services supported](#services-supported) section of this article.
 
-## View extension status
+## Status
 
 One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select **All settings** in the virtual machine blade, and then click on **Extensions**. You should see the SQLIaaSAgent extension listed.
 
@@ -64,9 +62,9 @@ You can also use the **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet.
 
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
-## Uninstall   
+## Removal   
 
-In the Azure Portal, you can remove the extension by clicking the ellipsis on the **Extensions** blade of your virtual machine properties. Then click **Delete**.
+In the Azure Portal, you can uninstall the extension by clicking the ellipsis on the **Extensions** blade of your virtual machine properties. Then click **Delete**.
 
 ![Uninstall the SQL Server IaaS Agent Extension in Azure Portal](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 
@@ -76,4 +74,6 @@ You can also use the **Remove-AzureVMSqlServerExtension** Powershell cmdlet.
 
 ## Next Steps
 
-TBD
+Begin using one of the services supported by the extension. For more details, see the topics referenced in the [Services supported](#services-supported) section of this article.
+
+For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
