@@ -28,16 +28,16 @@ For example, a projection might identify when additional processor cores or addi
 The capacity planning solution is in the process of being updated to address the following customer reported challenges:
 
 - Requirement to use Virtual Machine Manager and Operations Manager
-- Inability to customize\filter based on groups
-- Hourly data aggregation (data lag)
+- Inability to customize/filter based on groups
+- Hourly data aggregation not frequent enough
 - No VM level insights
 - Data reliability
 
 Benefits of the new capacity solution:
-- Support granular data collection (improved reliability and accuracy)
-- Support for Hyper-V
+
+- Support granular data collection with improved reliability and accuracy
+- Support for Hyper-V without requring VMM
 - Visualization of metrics in PowerBI
-- Customizability using the Solution Designer
 - Insights on VM level utilization
 
 
