@@ -53,13 +53,13 @@ To avoid latency issues (which might result in higher costs), make sure that you
 
 Each component of the on-premises environment needs to be protected to enable complete replication and recovery. This section describes how to:
 
--   [Set up Active Directory and DNS replication (optional)](#set_up_active_directory_and_dns_replication)
+-   Set up Active Directory and DNS replication (optional)
 
--   [Use Azure Site Recovery to enable protection of the file server VM](#use_azure_site_recovery_to_enable_protection_of_the_file_server_vm)
+-   Use Azure Site Recovery to enable protection of the file server VM
 
--   [Enable protection of StorSimple volumes](#enable_protection_of_storsimple_volumes)
+-   Enable protection of StorSimple volumes
 
--   [Configure the network](#configure_the_network)
+-   Configure the network
 
 ### Set up Active Directory and DNS replication (optional)
 
@@ -156,7 +156,7 @@ Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-
 
 	> [AZURE.NOTE] This will cause the file shares to be temporarily unavailable
 
-1.  [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-virtual-machine-protection) of the file server VM from the Azure Site Recovery portal.
+1.  [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md##step-6-enable-replication) of the file server VM from the Azure Site Recovery portal.
 
 2.  When the initial synchronization begins, you can reconnect the target again. Go to the iSCSI initiator, select the StorSimple device, and click **Connect**.
 
