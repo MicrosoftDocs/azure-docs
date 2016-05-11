@@ -38,7 +38,7 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 
 		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
 
-	The sample API provides two endpoints: `/contacts` returns a list of names and email addresses in JSON format, while `/contacts/{id}` returns only the selected contact.
+	The sample API provides two endpoints: a Get request to `/contacts` returns a list of names and email addresses in JSON format, while `/contacts/{id}` returns only the selected contact.
 
 ## Set up for Swagger-first API development workflow
 
@@ -258,15 +258,15 @@ Now that you have a new API App with a Git repository backing it up, you can pus
 
 ## Deploy your API code to Azure
 
-Using the built-in continuous delivery features Azure App Service provides, you can simply push commits to the Git repository associated with your API app, and Azure will pick up your source code and deploy it to your API app.
-
 In this section you do the following steps:
 
 * Create a local Git repository that contains your server code for the API.
-* Create a remote that points to the Git repository in Azure that is associated with your API app.
+* In that repository create a remote that points to the repository that you created for your API app in Azure.
 * Push your code from the local repository to the remote repository. 
 
-1. Copy the `start\ContactList` folder that you created by using the swaggerize scaffolder to some other folder. If you didn't do the first part of the tutorial, copy the `end\ContactList` folder instead.
+The built-in continuous delivery features of Azure App Service enable you to deploy code simply by pushing commits to a Git repository associated with your API app.
+
+1. If you did the first part of the tutorial, copy the `start\ContactList` folder that you created by using the swaggerize scaffolder to some other folder. Otherwise, copy the `end\ContactList` folder to some other folder.
 
 1. In your command line tool, navigate to the new folder, then execute the following command to create a new local Git repository. 
 
