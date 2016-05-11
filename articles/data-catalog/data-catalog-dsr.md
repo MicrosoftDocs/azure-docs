@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Data Catalog supported data sources | Microsoft Azure"
    description="Specification of the currently supported data sources."
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
+   ms.date="05/10/2016"
    ms.author="trhabe"/>
 
 # Azure Data Catalog supported data sources

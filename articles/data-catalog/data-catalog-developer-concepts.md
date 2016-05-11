@@ -1,10 +1,10 @@
-﻿<properties
+<properties
    pageTitle="Azure Data Catalog developer concepts"
    description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="spelluru"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/27/2015"
-   ms.author="derrickv"/>  
+   ms.date="05/10/2016"
+   ms.author="spelluru"/>  
 
 # Azure Data Catalog developer concepts
 
