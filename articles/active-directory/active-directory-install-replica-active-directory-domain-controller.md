@@ -27,14 +27,14 @@ You might also be interested in these related topics:
 -  For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 
-## Scenario Diagram
+## Scenario diagram
 
 In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connection, as shown in the following diagram, or you can use [ExpressRoute](../../services/expressroute/) for a faster connection.
 
 The application servers and the DCs are deployed within separate cloud services to distribute compute processing and within [availability sets](../virtual-machines/virtual-machines-windows-manage-availability.md) for improved fault tolerance.
 The DCs replicate with each other and with on-premises DCs by using Active Directory replication. No synchronization tools are needed.
 
-![][1]
+![Diagram pf replica Active Directory domain controller an Azure vnet][1]
 
 ## Create an Active Directory site for the Azure virtual network
 
@@ -46,7 +46,7 @@ It’s a good idea to create a site in Active Directory that represents the netw
 
 ## Create an Azure virtual network
 
-1. In the Azure classic portal, click **New** > **Network Services** > **Virtual Network** > **Custom Create** and use the following values to complete the wizard.
+1. In the [Azure classic portal](https://manage.windowsazure.com), click **New** > **Network Services** > **Virtual Network** > **Custom Create** and use the following values to complete the wizard.
 
     On this wizard page…  | Specify these values
 	------------- | -------------
@@ -59,13 +59,12 @@ It’s a good idea to create a site in Active Directory that represents the netw
 3. Create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. See [Configure a Virtual Network Gateway](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
 
 
-
 ## Create Azure VMs for the DC roles
 
 Repeat the following steps to create VMs to host the DC role as needed. You should deploy at least two virtual DCs to provide fault tolerance and redundancy. If the Azure virtual network includes at least two DCs that are similarly configured (that is, they are both GCs, run DNS server, and neither holds any FSMO role, and so on) then place the VMs that run those DCs in an availability set for improved fault tolerance.
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
 
-1. In the Azure classic portal, click **New** > **Compute** > **Virtual Machine** > **From Gallery**. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
+1. In the [Azure classic portal](https://manage.windowsazure.com), click **New** > **Compute** > **Virtual Machine** > **From Gallery**. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
 
     On this wizard page…  | Specify these values
 	------------- | -------------
@@ -87,14 +86,13 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 
 ## Reconfigure DNS server for the virtual network
 
-1. In the Azure classic portal, click the name of the virtual network, and then click the **Configure** tab to [reconfigure the DNS server IP addresses for your virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers.
+1. In the [Azure classic portal](https://manage.windowsazure.com), click the name of the virtual network, and then click the **Configure** tab to [reconfigure the DNS server IP addresses for your virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) to use the static IP addresses assigned to the replica DCs instead of the IP addresses of an on-premises DNS servers.
 
 2. To ensure that all the replica DC VMs on the virtual network are configured with to use DNS servers on the virtual network, click **Virtual Machines**, click the status column for each VM, and then click **Restart**. Wait until the VM shows **Running** state before you try to sign into it.
 
 ## Create VMs for application servers
 
 1. Repeat the following steps to create VMs to run as application servers. Accept the default value for a setting unless another value is suggested or required.
-
 
 	On this wizard page…  | Specify these values
 	------------- | -------------
@@ -109,7 +107,7 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
 
 For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx) and [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 
-## Additional Resources
+## Additional resources
 
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [How to upload existing on-premises Hyper-V domain controllers to Azure by using Azure PowerShell](http://support.microsoft.com/kb/2904015)
