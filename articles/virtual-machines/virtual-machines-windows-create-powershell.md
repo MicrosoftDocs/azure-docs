@@ -17,7 +17,7 @@
 	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
-# Create and configure a Windows Virtual Machine with Resource Manager and Azure PowerShell
+# Create and configure a Windows Virtual Machine using Azure PowerShell in the Resource Manager deployment model
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-hero-tutorial.md)
@@ -28,13 +28,11 @@
 
 <br>
 
-
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-create-powershell.md).
-
 These steps show you how to construct a set of Azure PowerShell commands to create and configure an Azure virtual machine. You can use this building block process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment. You can also use it to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. If you are an advanced PowerShell user, you can take the commands and substitute your own values for the variables (the lines beginning with "$")
+
+> [AZURE.IMPORTANT] If you want your VM to be part of an availability set, you need to add it to the set when you create the VM. There currently isn't a way to add a VM to an availability set after it has been created.
 
 ## Step 1: Install Azure PowerShell
 
@@ -113,6 +111,7 @@ To test whether a chosen domain name label is globally unique, use these command
 If DNSNameAvailability is "True", your proposed name is globally unique.
 
 ### Availability set
+
 
 
 If needed, create a new availability set for the new virtual machine with these commands.
