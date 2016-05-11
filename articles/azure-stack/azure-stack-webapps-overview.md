@@ -44,4 +44,4 @@ As is also true with the back end, Azure Stack Web Apps uses the same UI that Az
 You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
 
 <!--Image references-->
-[1]: ./media/azure-stack-webapps-overview/AppService_portal.png
+[1]: ./media/azure-stack-webapps-overview/AppService_Portal.png
