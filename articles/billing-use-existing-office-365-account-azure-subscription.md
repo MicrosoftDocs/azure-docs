@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="05/12/2016"
 	ms.author="cjiang"/>
 
 # Use your existing Office 365 account with your Azure subscription, or vice versa
@@ -24,14 +24,15 @@ Scenario: If you already have an Office 365 subscription and are ready for an Az
 
 ## Quick guidance
 
-- If you already have an Office 365 subscription and want to sign up for Azure, use the **Sign in with your organizational account** option and continue the Azure sign up with your Office 365 account. See [detailed steps](#detailed-steps).
-- If you already have an Azure subscription and want to get an Office 365 subscription, sign in to Office 365 with your Azure account and proceed with the sign up steps. Once completed, the Office 365 subscription is added to the same Azure Active Directory that your Azure subscription belongs to. See [detailed steps](#detailed-steps).
+- If you already have an Office 365 subscription and want to sign up for Azure, use the **Sign in with your organizational account** option and continue the Azure sign up with your Office 365 account. See [detailed steps](#s1).
+- If you already have an Azure subscription and want to get an Office 365 subscription, sign in to Office 365 with your Azure account and proceed with the sign up steps. Once completed, the Office 365 subscription is added to the same Azure Active Directory that your Azure subscription belongs to. See [detailed steps](#s2).
 
 >[AZURE.NOTE] To get an Office 365 subscription, you must be a global admin or billing admin of your Azure Active Directory. [Learn how to know the role of your Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory)
 
 To understand how things work when you add a subscription to an account, see the complementary [background information](#background-information) later in the article.
 
 ## Detailed steps
+<a id="s1"></a>
 ### Scenario 1: Office 365 users plan to buy Azure
 In this scenario, we assume Kelley Wall is a user who has an Office 365 subscription, and is planning to subscribe to Azure. There are two additional active users, Jane and Tricia. Kelley’s account is admin@contoso.onmicrosoft.com.
 
@@ -74,6 +75,7 @@ Now you are all set. In the Azure portal, you will see the same users showing up
 
 	![azure-portal-ad-users](./media/billing-use-existing-office-365-account-azure-subscription/9-azure-portal-ad-users.png)
 
+<a id="s2"></a>
 ### Scenario 2: Azure users plan to buy Office 365
 
 In this scenario, Kelley Wall is a user who has an Azure subscription under the account admin@contoso.onmicrosoft.com. Kelley wants to subscribe to Office 365 and use the same directory she already has with Azure.
