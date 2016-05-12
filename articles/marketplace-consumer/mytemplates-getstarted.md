@@ -70,7 +70,7 @@ You can also add a new `Template` from scratch using the +Add command button in 
 
 ## View Template resources
 
-The list all `Templates` you can be seen at `Browse > Templates`. This includes `Templates` with varying levels of permissions. More details in the [access control](# Access control for a Tenant Resource Provider) section below.
+The list all `Templates` you can be seen at `Browse > Templates`. This includes `Templates` with varying levels of permissions. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
 ![View Template](media/view-template-portal.PNG)  <br />
 
@@ -106,7 +106,7 @@ Select **Share** on the browse item by right clicking or on the view blade of a 
 
 ![Share Template](media/share-template-portal.PNG)  <br />
 
- You can now choose a role and a user or group to provide access to a particular `Template`. The available roles are Owner, Reader & Contributor. More details in the [access control](#Access control for a Tenant Resource Provider) section below.
+ You can now choose a role and a user or group to provide access to a particular `Template`. The available roles are Owner, Reader & Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
 ![Share Template](media/share-template-portal2.PNG)  <br />
 
