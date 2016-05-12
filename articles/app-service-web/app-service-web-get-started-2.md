@@ -30,16 +30,18 @@ great functionalities to your deployed web app. In a few minutes, you will:
 
 Regardless of which sample app you deployed in the previous article, you can follow along in the tutorial.
 
-These are only three examples of the many useful features you get when you put your web app in App Service. Many of the features are 
+The three activities in this tutorial are only a few examples of the many useful features you get when you put your web app in App Service. Many of the features are 
 available in the **Free** tier (which is what your first web app is running on), and you can use your trial credits to try out features
 that require higher pricing tiers. Rest assured that your web app remains in **Free** tier unless you explicitly changes it to a different
 pricing tier.
 
+>[AZURE.NOTE] The web app you created with Azure CLI runs in **Free** tier, which only allows one shared VM instance with resource quotas. For more
+information on what you get with **Free** tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
+
 ## Authenticate your users
 
-Now, let's see how easy it is to add authentication to your app (see 
-[App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
-for more information).
+Now, let's see how easy it is to add authentication to your app (further reading at 
+[App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)).
 
 1. In the portal blade for your app, which you just opened, click **Settings** > **Authentication / Authorization**.  
     ![Authenticate - settings blade](./media/app-service-web-get-started/aad-login-settings.png)
@@ -82,8 +84,9 @@ For more information, see [App Service Authentication/Authorization](https://azu
 
 ## Scale your app automatically based on demand
 
-Next, let's autoscale your app so that it always has the adequate capacity to respond to user demand (see [Scale pricing tier in Azure App Service](app-service-scale) and 
-[Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md) for more information). 
+Next, let's autoscale your app so that it will automatically adjust it capacity to respond to user demand (further reading at 
+[Scale pricing tier in Azure App Service](app-service-scale) and 
+[Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md)). 
 
 Briefly, you scale your web app in two ways:
 
@@ -92,9 +95,6 @@ like dedicated VMs, custom domains and certificates, staging slots, autoscaling,
 App Service plan your app belongs to.
 - [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increasing the number VM instances that run your app.
 You can scale out to as many as 50 instances, depending on your pricing tier.
-
->[AZURE.NOTE] The web app you created with Azure CLI runs in **Free** tier by default, which only allows one shared VM instance with resource quotas. For more
-information on what you get with **Free** tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
 
 Without further ado, let's set up autoscaling.
 
@@ -135,7 +135,7 @@ scaling out, see [Scale instance count manually or automatically](../azure-porta
 ## Receive alerts for your app
 
 Now that your app is autoscaling, what happens when it reaches the maximum instance count (2) and CPU is above desired utilization (80%)? 
-You can set up an alert (see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md) for more information) 
+You can set up an alert (further reading at [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)) 
 to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
 
 1. In the portal blade of your app, click **Tools** > **Alerts**.  
@@ -184,5 +184,5 @@ Azure with every commit.
 stream, download them, or port them into [Application Insights](../application-insights/app-insights-overview.md) for turn-key analysis.
 - [Scan your app for vulnerabilities](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
 Scan your web app against modern threats using service provided by [Tinfoil Security](https://www.tinfoilsecurity.com/).
-- [Run background jobs](../azure-functions/functions-overview.md) - Run background jobs for data processing, reporting, etc.
+- [Run background jobs](../azure-functions/functions-overview.md) - Run jobs for data processing, reporting, etc.
 - [Learn how App Service works](../app-service/app-service-how-works-readme.md) 
