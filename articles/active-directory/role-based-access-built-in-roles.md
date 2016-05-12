@@ -27,7 +27,7 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 
 | Role name | Description |
 | --------- | ----------- |
-| [API-Management Service Contributor](#api-management-service-contributor) | Can manage API Management services |
+| [API Management Service Contributor](#api-management-service-contributor) | Can manage API Management services |
 | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components |
 | [Automation Operator](#automation-operator) | Able to start, stop, suspend, and resume jobs |
 | [BizTalk Contributor](#biztalk-contributor) | Can manage BizTalk services |
@@ -35,7 +35,7 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 | [Contributor](#contributor) | Can manage everything except access. |
 | [Data Factory Contributor](#data-factory-contributor) | Can manage data factories |
 | [DevTest Labs User](#devtest-labs-user) | Can view everything and connect, start, restart, and shutdown virtual machines |
-| [Document DB Account Contributor](#document-db-account-contributor) | Can manage Document DB accounts |
+| [DocumentDB Account Contributor](#documentdb-account-contributor) | Can manage DocumentDB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Can manage Intelligent Systems accounts |
 | [Network Contributor](#network-contributor) | Can manage all network resources |
 | [NewRelic APM Account Contributor](#newrelic-apm-account-contributor) | Can manage NewRelic Application Performance Management accounts and applications |
@@ -62,12 +62,12 @@ Can manage API Management services
 
 | **Actions** | |
 | ------- | ------ |
-| Microsoft.ApiManagement/Services/* | Create and manage API Management Services |
+| Microsoft.ApiManagement/Service/* | Create and manage API Management Services |
 | Microsoft.Authorization/*/read | Read authorization |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Application Insights Component Contributor
@@ -75,13 +75,13 @@ Can manage Application Insights components
 
 | **Actions** | |
 | ------- | ------ |
+| Microsoft.Authorization/*/read | Read roles and role assignments |
+| Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.Insights/components/* | Create and manage Insights components |
 | Microsoft.Insights/webtests/* | Create and manage web tests |
-| Microsoft.Authorization/*/read | Read roles and role assignments |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read subscription resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments  |
-| Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Automation Operator
@@ -89,29 +89,36 @@ Able to start, stop, suspend, and resume jobs
 
 | **Actions** ||
 | ------- | ------ |
+| Microsoft.Authorization/*/read | Read roles and role assignments |
+| Microsoft.Automation/automationAccounts/jobs/read | Read automation account jobs |
+| Microsoft.Automation/automationAccounts/jobs/resume/action | Resume an automation account job |
+| Microsoft.Automation/automationAccounts/jobs/stop/action | Stop an automation account job |
+| Microsoft.Automation/automationAccounts/jobs/streams/read |  |
+| Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspend an automation account job |
+| Microsoft.Automation/automationAccounts/jobs/write | Write automation account jobs |
+| Microsoft.Automation/automationAccounts/jobSchedules/read | Read an automation account job schedule |
+| Microsoft.Automation/automationAccounts/jobSchedules/write | Read an automation account job schedule |
 | Microsoft.Automation/automationAccounts/read | Read automation accounts |
 | Microsoft.Automation/automationAccounts/runbooks/read | Read automation runbooks |
 | Microsoft.Automation/automationAccounts/schedules/read | Read automation account schedules |
 | Microsoft.Automation/automationAccounts/schedules/write | Write automation account schedules |
-| Microsoft.Automation/automationAccounts/jobs/read | Read automation account jobs |
-| Microsoft.Automation/automationAccounts/jobs/write | Write automation account jobs |
-| Microsoft.Automation/automationAccounts/jobs/stop/action | Stop an automation account job |
-| Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspend an automation account job |
-| Microsoft.Automation/automationAccounts/jobs/resume/action | Resume an automation account job |
-| Microsoft.Automation/automationAccounts/jobSchedules/read | Read an automation account job schedule |
-| Microsoft.Automation/automationAccounts/jobSchedules/write | Read an automation account job schedule |
+| Microsoft.Insights/components/* | Create and manage Insights components |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### BizTalk Contributor
 Can manage BizTalk services
 
 | **Actions** ||
 | ------- | ------ |
-| Microsoft.BizTalkServices/BizTalk/* | Create and manage BizTalk services |
 | Microsoft.Authorization/*/read | Read roles and role assignments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource group resources |
-| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
+| Microsoft.BizTalkServices/BizTalk/* | Create and manage BizTalk services |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### ClearDB MySQL DB Contributor
@@ -119,13 +126,13 @@ Can manage ClearDB MySQL databases
 
 | **Actions** ||
 | ------- | ------ |
-| successbricks.cleardb/databases/* | Create and manage ClearDB MySQL databases |
 | Microsoft.Authorization/*/read | Read roles and role assignments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource group resources |
-| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
+| successbricks.cleardb/databases/* | Create and manage ClearDB MySQL databases |
 
 ### Contributor
 Can manage everything except access
@@ -144,73 +151,86 @@ Can manage data factories
 
 | **Actions** ||
 | ------- | ------ |
-| Microsoft.DataFactory/dataFactories/* | Create and manage data factories |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource group resources |
-| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
+| Microsoft.DataFactory/dataFactories/* | Create and manage data factories |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
-| Microsoft.Support/* | Create and manage support tickets  |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### DevTest Labs User
 Can view everything and connect, start, restart, and shutdown virtual machines
 
 | **Actions** ||
 | ------- | ------ |
-| */read | Read resources of all types |
+| Microsoft.Authorization/*/read | Read roles and role Assignments |
+| Microsoft.Compute/availabilitySets/read |  |
+| Microsoft.Compute/virtualMachines/*/read |  |
+| Microsoft.Compute/virtualMachines/deallocate/action | Deallocate virtual machines |
+| Microsoft.Compute/virtualMachines/read |  |
+| Microsoft.Compute/virtualMachines/restart/action | Restart virtual machines |
+| Microsoft.Compute/virtualMachines/start/action | Start virtual machines |
+| Microsoft.DevTestLab/*/read |  |
+| Microsoft.DevTestLab/Environments/* |  |
 | Microsoft.DevTestLab/labs/createEnvironment/action | Create a lab environment |
 | Microsoft.DevTestLab/labs/formulas/delete | Delete formulas |
+| Microsoft.DevTestLab/labs/formulas/read | Read formulas |
 | Microsoft.DevTestLab/labs/formulas/write | Add or modify forumulas |
 | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluate lab policies |
-| Microsoft.Compute/virtualMachines/start/action | Start virtual machines |
-| Microsoft.Compute/virtualMachines/restart/action | Restart virtual machines |
-| Microsoft.Compute/virtualMachines/deallocate/action | Deallocate virtual machines |
-| Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
-| Microsoft.Network/virtualNetworks/subnets/join/action | Join a virtual network |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Join a load balancer backend address pool |
-| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Join a load balancer inbound nat rule |
-| Microsoft.Network/publicIPAddresses/join/action | Join a public IP address |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Join a load balancer inbound NAT rule |
+| Microsoft.Network/networkInterfaces/*/read |  |
 | Microsoft.Network/networkInterfaces/join/action | Join a Virtual Machine to a network interface |
+| Microsoft.Network/networkInterfaces/read | Read network interfaces |
 | Microsoft.Network/networkInterfaces/write | Write network interfaces |
+| Microsoft.Network/publicIPAddresses/*/read |  |
+| Microsoft.Network/publicIPAddresses/join/action | Join a public IP address |
+| Microsoft.Network/publicIPAddresses/read |  |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Join a virtual network |
+| Microsoft.Resources/deployments/operations/read |  |
+| Microsoft.Resources/deployments/read |  |
+| Microsoft.Resources/subscriptions/resourceGroups/read |  |
+| Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
 
-### Document DB Account Contributor
-Can manage Document DB accounts
+### DocumentDB Account Contributor
+Can manage DocumentDB accounts
 
 | **Actions** ||
 | ------- | ------ |
-| Microsoft.DocumentDb/databaseAccounts/* | Create and manage DocumentDB accounts |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource group resources |
-| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
+| Microsoft.DocumentDb/databaseAccounts/* | Create and manage DocumentDB accounts |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
-| Microsoft.Support/* | Create and manage support tickets  |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### Intelligent Systems Account Contributor
 Can manage Intelligent Systems accounts
 
 | **Actions** ||
 | ------- | ------ |
-| Microsoft.IntelligentSystems/accounts/* | Create and manage intelligent systems accounts |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource group resources |
-| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
-| Microsoft.Support/* | Create and manage support tickets  |
+| Microsoft.IntelligentSystems/accounts/* | Create and manage intelligent systems accounts |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### Network Contributor
 Can manage all network resources
 
 | **Actions** ||
 | ------- | ------ |
-| Microsoft.Network/* | Create and manage networks |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read resource group resources |
-| Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
-| Microsoft.Support/* | Create and manage support tickets  |
+| Microsoft.Network/* | Create and manage networks |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Support/* | Create and manage support tickets |
 
 ### NewRelic APM Account Contributor
 Can manage NewRelic Application Performance Management accounts and applications
