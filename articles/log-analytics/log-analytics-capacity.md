@@ -45,7 +45,6 @@ Benefits of the new capacity solution:
 Use the following information to install and configure the solution.
 
 - Operations Manager is required for the Capacity Management solution.
-- You must enable the Operations Manager connector with Virtual Machine Manager (VMM).
 - Virtual Machine Manager is required for the Capacity Management solution.
 - Operations Manager connectivity with Virtual Machine Manager (VMM) is required. For additional information about connecting the systems, see [How to connect VMM with Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
 - Operations Manager must be connected to Log Analytics.
