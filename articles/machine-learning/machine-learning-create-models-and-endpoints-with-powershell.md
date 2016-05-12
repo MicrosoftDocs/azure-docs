@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="05/11/2016"
+ms.date="05/12/2016"
 ms.author="garye"/>
 
 # Create many Machine Learning models and web service endpoints from one experiment using PowerShell
@@ -28,7 +28,9 @@ That may be the best approach, but you don't want to create 1,000 training exper
 
 Fortunately, we can accomplish this by using the [Azure Machine Learning retraining API](machine-learning-retrain-models-programmatically.md) and automating the task with [Azure Machine Learning PowerShell](https://blogs.technet.microsoft.com/machinelearning/2016/05/04/announcing-the-powershell-module-for-azure-ml/).
 
-> [AZURE.NOTE] To make our sample run faster, we'll reduce the number of locations from 1,000 to 10. But the same principles and procedures apply to 1,000 locations. The only difference is that if you want to train from 1,000 datasets you probably want to think of running the following PowerShell scripts in parallel. How to do that is beyond the scope of this article, but you can find examples of PowerShell multi-threading on the Internet.   
+> [AZURE.NOTE] To make our sample run faster, we'll reduce the number of locations from 1,000 to 10. But the same principles and procedures apply to 1,000 locations. The only difference is that if you want to train from 1,000 datasets you probably want to think of running the following PowerShell scripts in parallel. How to do that is beyond the scope of this article, but you can find examples of PowerShell multi-threading on the Internet.  
+
+## Set up the training experiment
 
 We're going to use an example [training experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) that we've already created in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace. 
 
@@ -48,6 +50,8 @@ There are other ways we could have done this, such as using a SQL query with a w
 
 Now, let's run this training experiment using the default value *rental001.csv* as the training dataset. If you view the output of the **Evaluate** module (click the output and select **Visualize**), you can see we get a decent performance of *AUC* = 0.91. At this point, we're ready to deploy a web service out of this training experiment. 
 
+## Deploy the training and scoring web services
+
 To deploy the training web service, click the **Set Up Web Service** button below the experiment canvas and select **Deploy Web Service**. Call this web service ""Bike Rental Training".
 
 Now we need to deploy the scoring web service.
@@ -57,6 +61,8 @@ We'll need to make a few minor adjustments to make it work as a web service, suc
 To save yourself that work, you can simply open the [predictive experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) in the Gallery that's already been prepared. 
 
 To deploy the web service, run the predictive experiment, then click the **Deploy Web Service** button below the canvas. Name the scoring web service "Bike Rental Scoring"". 
+
+## Create 10 identical web service endpoints with PowerShell
 
 This web service comes with a default endpoint. But we're not as interested in the default endpoint since it can't be updated. What we need to do is to create 10 additional endpoints, one for each location. We'll do this with PowerShell.
 
@@ -80,6 +86,8 @@ Then, run the following PowerShell command:
 Now we've created 10 endpoints and they all contain the same trained model trained on *customer001.csv*. You can view them in the Azure Management Portal. 
 
 ![image](./media/machine-learning-create-models-and-endpoints-with-powershell/created-endpoints.png)
+
+## Update the endpoints to use separate training datasets using PowerShell
 
 The next step is to update the endpoints with models uniquely trained on each customer's individual data. But first we need to produce these models from the **Bike Rental Training** web service. Let's go back to the **Bike Rental Training** web service. We need to call its BES endpoint 10 times with 10 different training datasets in order to produce 10 different models. We'll use the **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet to do this.
 
@@ -114,6 +122,8 @@ If everything goes well, after a while you should see 10 .ilearner files, from *
 	}
 
 This should run fairly quickly. When the execution finishes, we'll have successfully created 10 predictive web service endpoints, each containing a trained model uniquely trained on the dataset specific to a rental location, all from a single training experiment. To verify this, you can try calling these endpoints using the **InvokeAmlWebServiceRRSEndpoint** cmdlet, providing them with the same input data, and you should expect to see different prediction results since the models are trained with different training sets.
+
+## Full PowerShell script
 
 Here's the listing of the full source code:
 	
