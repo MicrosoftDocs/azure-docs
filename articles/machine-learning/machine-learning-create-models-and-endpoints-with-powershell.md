@@ -1,6 +1,6 @@
 <properties
-pageTitle="Create multiple Azure Machine Learning trained models and web service endpoints from a single experiment using PowerShell"
-description="Create multiple Azure Machine Learning trained models and web service endpoints from a single experiment using PowerShell"
+pageTitle="Create multiple models from one experiment | Microsoft Azure"
+description="Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets."
 services="machine-learning"
 documentationCenter=""
 authors="garyericson"
@@ -16,7 +16,7 @@ ms.topic="article"
 ms.date="05/11/2016"
 ms.author="garye"/>
 
-# Create multiple Azure Machine Learning trained models and web service endpoints from a single experiment using PowerShell
+# Create many Machine Learning models and web service endpoints from one experiment using PowerShell
 
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm, but have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio using just a single experiment.
 
