@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/10/2016"
+	ms.author="andkjell;markvi"/>
 
 # Azure AD Connect sync service features
 
@@ -73,12 +73,12 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ## Synchronize userPrincipalName updates
 Historically, updates to the UserPrincipalName attribute using the sync service from on-premises has been blocked, unless both of these conditions are true:
 
-- The user is managed (non-federated)
+- The user is managed (non-federated).
 - The user has not been assigned a license.
 
 For more details, see [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192).
 
-Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises, unless if you use federated domains.
+Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password sync. If you use federation, this feature will not work.
 
 This feature is on by default for newly created Azure AD directories. You can see if this is enabled for you by running:  
 ```

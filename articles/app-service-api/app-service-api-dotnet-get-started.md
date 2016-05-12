@@ -531,4 +531,4 @@ After you have your ASP.NET API app running in Azure App Service, you may want t
 
 ## Next steps
 
-In this tutorial, you've seen how to create API apps, deploy code to them, generate client code for them, and consume them from .NET clients. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md). Later tutorials in the series show how to implement authentication and authorization.
+In this tutorial, you've seen how to create API apps, deploy code to them, generate client code for them, and consume them from .NET clients. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md). Later tutorials in the series show how to implement authentication and authorization.

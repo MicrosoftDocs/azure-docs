@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo" />
 
 #How to Integrate Engagement Reach on Android
