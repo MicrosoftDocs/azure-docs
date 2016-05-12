@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="05/12/2016"
    ms.author="cherylmc" />
 
 # About VPN gateways
@@ -39,9 +39,7 @@ The example below shows a gateway subnet named GatewaySubnet. You can see the CI
 
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 
-It is important to ensure that the GatewaySubnet does not have a Network Security Group applied to it, as this will cause future connections to fail. From [the Network Security Gateway overview](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/#design-considerations)'s "Subnets" section,
-
-> If you need to implement a subnet for a VPN gateway, or ExpressRoute circuit, make sure you do NOT apply an NSG to that subnet. If you do so, your cross VNet or cross premises connectivity will not work.
+>[AZURE.IMPORTANT] Ensure that the GatewaySubnet does not have a Network Security Group (NSG) applied to it, as this may cause connections to fail.
 
 ## <a name="gwtype"></a>Gateway types
 
