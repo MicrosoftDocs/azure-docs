@@ -19,7 +19,7 @@
 
 # Platform supported migration of IaaS resources from Classic to Azure Resource Manager
 
-It’s been almost a year since we announced the support for Virtual Machines (VMs) under Azure Resource Manager. You can read more about the [advancements and the additional capabilities that Azure Resource Manager supports](../resource-group-overview.md). In addition, we also gave guidance around how to best connect and have resources from the two deployment models co-exist in your subscription using [Virtual Network Site-Site Gateways](../virtual-networks/virtual-networks-arm-asm-s2s.md). This article details how we are enabling migration of IaaS resources from the Classic to Resource Manager deployment model.
+It’s been almost a year since we announced the support for Virtual Machines (VMs) under Azure Resource Manager. You can read more about the [advancements and the additional capabilities that Azure Resource Manager supports](../resource-group-overview.md). In addition, we also gave guidance around how to best connect and have resources from the two deployment models co-exist in your subscription using [Virtual Network Site-Site Gateways](../virtual-network/virtual-networks-arm-asm-s2s.md). This article details how we are enabling migration of IaaS resources from the Classic to Resource Manager deployment model.
 
 ## What is our goal with migration?
 
