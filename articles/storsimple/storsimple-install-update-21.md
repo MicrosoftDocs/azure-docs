@@ -21,7 +21,7 @@
 
 This tutorial explains how to install Update 2.1 on a StorSimple device running an earlier software version via the Azure classic portal. The tutorial also covers the steps required for the update when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 2.1 includes device software updates, WMI updates, iSCSI updates, and LSI driver updates. If moving from a pre-Update 2 version, you will also be required to apply disk firmware updates. The device software, WMI, iSCSI, and LSI updates are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
+Update 2.1 includes device software updates, WMI updates, and iSCSI updates. If moving from a pre-Update 2 version, you will also be required to apply LSI driver, Spaceport, Storport, and disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport updates are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
 
 > [AZURE.IMPORTANT]
 
@@ -42,7 +42,7 @@ If you are applying Update 2 or later (including Update 2.1), Microsoft will be 
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17698)**. The **Last updated date** should also be modified. 
+12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17702)**. The **Last updated date** should also be modified. 
 
 	If you are running a version prior to Update 2, you will also see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
 
@@ -66,7 +66,7 @@ The software versions that can be upgraded using the hotfix method are Update 0.
 - Install and verify the regular mode hotfixes.
 - Install and verify the maintenance mode hotfix.
 
-#### Updates for a device running Update 2
+#### Download updates for a device running Update 2 software
 
 If your device is running Update 2, you must download and install the following hotfixes in the prescribed order:
 
@@ -76,9 +76,9 @@ If your device is running Update 2, you must download and install the following 
 | 2      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
 | 3      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
 
-#### Updates for a device running Update 0.2, Update 0.3, Update 1, Update 1.1, Update 1.2
+#### Download updates for a device running pre-Update 2 software
 
-If your device is running a version prior to Update 2, you must download and install the following hotfixes in the prescribed order: 
+If your device is running a version prior to Update 2 (including Update 0.2, 0.3, 1.0, 1.1, 1.2), you must download and install the following hotfixes in the prescribed order: 
  
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -86,6 +86,12 @@ If your device is running a version prior to Update 2, you must download and ins
 | 5      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
 | 6      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
 
+You may also need to install disk firmware updates:
+
+| Order  | KB        | Description                    | Update type  | Install time |
+|--------|-----------|-------------------------|------------- |-------------|
+| 7      | KB3121899 | Disk firmware              |  Maintenance     | ~ 30 mins |
+ 
 > [AZURE.IMPORTANT]
 >
 > - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update.
@@ -95,7 +101,7 @@ If your device is running a version prior to Update 2, you must download and ins
 
 Perform the following steps to apply this update as a hotfix.
 
-[AZURE.INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update2-hotfix.md)]
+[AZURE.INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update21-hotfix.md)]
 
 [AZURE.INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
