@@ -45,11 +45,11 @@ There are two ways to create a `Template` resource in the Azure portal.
 
 Log into the Azure portal. Click the **Resource groups** and select a existing resource group. Select **Export template** in **Settings**. Once the template is exported, you can choose to save it to `Templates` repository. Find complete details for Export Template [here](https://azure.microsoft.com/en-us/blog/export-template/).
 
-![Resource group export](media/rg-export-portal.png)  <br />
+![Resource group export](media/rg-export-portal.PNG)  <br />
 
 Select the **Save to Template** command button.
 
-![Save Template](media/save-template-portal.png)  <br />
+![Save Template](media/save-template-portal.PNG)  <br />
 
 Enter the following information:
 
@@ -70,33 +70,33 @@ You can also add a new `Template` from scratch using the +Add command button in 
 
 ## View Template resources
 
-The list all `Templates` you can be seen at `Browse > Templates`. This includes `Templates` with varying levels of permissions. More details in the [access control](## Access control for a Tenant Resource Provider) section below.
+The list all `Templates` you can be seen at `Browse > Templates`. This includes `Templates` with varying levels of permissions. More details in the [access control](# Access control for a Tenant Resource Provider) section below.
 
-![View Template](media/view-template-portal.png)  <br />
+![View Template](media/view-template-portal.PNG)  <br />
 
 You can view the details of a `Template` by clicking into an item in the list.
 
-![View Template](media/view-template-portal2a.png)  <br />
+![View Template](media/view-template-portal2a.PNG)  <br />
 
 ## Edit a Template resource
 
 You can initiate the edit flow for a `Template` by right clicking the item on the Browse list or by choosing the Edit command button.
 
-![Edit Template](media/edit-template-portal.png)  <br />
+![Edit Template](media/edit-template-portal.PNG)  <br />
 
 You can edit the description or ARM template text for the item. You currently cannot edit the name since it is an ARM resource name. When you edit the ARM template text the blade will perform a quite validation to ensure that it is valid JSON. You would need to choose ok and then the Save command button.
 
-![Edit Template](media/edit-template-portal2.png)  <br />
+![Edit Template](media/edit-template-portal2.PNG)  <br />
 
 Once the `Template` is saved it will pop a confirmation notification.
 
-![Edit Template](media/edit-template-portal3.png)  <br />
+![Edit Template](media/edit-template-portal3.PNG)  <br />
 
 ## Deploy a Template resource
 
 You can deploy a `Template` that you Read and Execute permissions on. The deployment flow launches the standard Azure Template deployment blade. You will need to fill out the parameters set up in the ARM template and proceed with the deployment.
 
-![Deploy Template](media/deploy-template-portal.png)  <br />
+![Deploy Template](media/deploy-template-portal.PNG)  <br />
 
 ## Share a Template resource
 
@@ -104,17 +104,17 @@ A `Template` resource can be shared with your peers. Sharing behaves very simila
 
 Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience.
 
-![Share Template](media/share-template-portal.png)  <br />
+![Share Template](media/share-template-portal.PNG)  <br />
 
- You can now choose a role and a user or group to provide access to a particular `Template`. The available roles are Owner, Reader & Contributor. More details in the [access control](## Access control for a Tenant Resource Provider) section below.
+ You can now choose a role and a user or group to provide access to a particular `Template`. The available roles are Owner, Reader & Contributor. More details in the [access control](#Access control for a Tenant Resource Provider) section below.
 
-![Share Template](media/share-template-portal2.png)  <br />
+![Share Template](media/share-template-portal2.PNG)  <br />
 
-![Share Template](media/share-template-portal3.png)  <br />
+![Share Template](media/share-template-portal3.PNG)  <br />
 
 Click **Select** and **Ok**. You can now see the users or groups you added to the resource.
 
-![Share Template](media/share-template-portal4.png)  <br />
+![Share Template](media/share-template-portal4.PNG)  <br />
 
 ## Access control for a Tenant Resource Provider
 
