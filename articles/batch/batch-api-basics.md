@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="03/11/2016"
+	ms.date="05/12/2016"
 	ms.author="yidingz;marsma"/>
 
 # Overview of Azure Batch features
@@ -38,7 +38,7 @@ The following high-level workflow is typical of that used by nearly all distribu
 
 6. Monitor job progress and retrieve the results.
 
-> [AZURE.NOTE] You will need a [Batch account](batch-account-create-portal.md) to use the Batch service, and nearly all solutions will use an [Azure Storage][azure_storage] account for file storage and retrieval.
+> [AZURE.NOTE] You will need a [Batch account](batch-account-create-portal.md) to use the Batch service, and nearly all solutions will use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 In the sections below, you'll learn about each of the resources mentioned in the above workflow, as well as many other features of Batch that will enable your distributed computational scenario.
 
@@ -130,7 +130,7 @@ A task is a unit of computation that is associated with a job and runs on a node
 
 - The application specified in the **command line** of the task.
 
-- **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in an Azure Storage account. For more information, see [Files and directories](#files) below.
+- **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in a **General purpose** Azure Storage account. For more information, see *Start task* and [Files and directories](#files) below.
 
 - The **environment variables** that are required by the application. For more information, see [Environment settings for tasks](#environment) below.
 
@@ -149,6 +149,8 @@ In addition to tasks that you define to perform computation on a node, the follo
 By associating a **start task** with a pool, you can configure the operating environment of its nodes, performing actions such as installing software or starting background processes. The start task runs every time a node starts for as long as it remains in the pool, including when the node is first added to the pool. A primary benefit of the start task is that it contains all of the information necessary to configure compute nodes and install applications necessary for job task execution. Thus, increasing the number of nodes in a pool is as simple as specifying the new target node count - Batch already has all of the information needed to configure the new nodes and get them ready for accepting tasks.
 
 As with any Batch task, a list of **resource files** in [Azure Storage][azure_storage] can be specified, in addition to a **command line** to be executed. Azure Batch will first copy the files from Azure Storage, then run the command line. For a pool start task, the file list usually contains the application package or files, but it could also include reference data to be used by all tasks running on the compute nodes. The start task's command line could execute a PowerShell script or perform a `robocopy` operation, for example, to copy application files to the "shared" folder, then subsequently run an MSI or `setup.exe`.
+
+> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). Your Batch tasks (including standard tasks, start tasks, job preparation, and job release tasks) must specify resource files that reside *only* in **General purpose** storage accounts.
 
 It is typically desirable for the Batch service to wait for the start task to complete before considering the node ready to be assigned tasks, but this is configurable.
 

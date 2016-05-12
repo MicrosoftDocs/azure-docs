@@ -190,7 +190,7 @@ Edit the PowerShell command as follows:
 
 Remove the rest of the parameters. You will be prompted for the remaining items. Running the command this way avoids a few issues. When you do run the command, you will be prompted for the following information:
 
-- storageAccountNameParameter: Enter the storage account name that matches the storage account that you created earlier.
+- storageAccountNameParameter: Enter a new storage account name that does not matches the storage account that you created earlier.
 - adminUsername: Enter your administrator account name.
 - adminPassword: Enter your administrator account password.
 - sqlservername: The SQL Server name defaults to the name of the SQL Server resource provider server. If you are using that, there is no need to make a change. If you are using something else, then specify your SQL Server instance here.
