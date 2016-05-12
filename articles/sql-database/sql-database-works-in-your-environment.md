@@ -43,3 +43,11 @@ With guaranteed resources, tutorials on creating your first SQL Database, troubl
 
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 
+
+## Next Steps
+
+Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+
+## Learn More
+
+Learn about [SQL Database](sql-database-technical-overview.md) and what it offers.

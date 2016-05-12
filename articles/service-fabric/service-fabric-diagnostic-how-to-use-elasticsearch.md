@@ -43,7 +43,7 @@ The easiest way to use the ES-MultiNode template is through a provided Azure Pow
 
 Note that the `CreateElasticSearchCluster` script is designed for ease of use with the ES-MultiNode template from a Windows machine. It is possible to use the template on a non-Windows machine, but that scenario is beyond the scope of this article.
 
-1. If you haven't installed them already, install [**Azure PowerShell modules**](http://aka.ms/webpi-azps). When prompted, click **Run**, then **Install**.
+1. If you haven't installed them already, install [**Azure PowerShell modules**](http://aka.ms/webpi-azps). When prompted, click **Run**, then **Install**. Azure PowerShell 1.3 or newer is required.
 
 2. The **openssl** tool is included in the distribution of [**Git for Windows**](http://www.git-scm.com/downloads). If you have not done so already, please install [Git for Windows](http://www.git-scm.com/downloads) now. (The default installation options are OK.)
 
@@ -71,12 +71,12 @@ Before you run the script, open the `azuredeploy-parameters.json` file and verif
 |dataDiskSize            |The size of data disks (in GB) that will be allocated for each data node. Each node will receive 4 data disks, exclusively dedicated to Elastic Search service.|
 |region                  |The name of Azure region where the Elastic Search cluster should be located.|
 |esUserName              |The user name of the user that will be configured to have access to ES cluster (subject to HTTP basic authentication). The password is not part of parameters file and must be provided when `CreateElasticSearchCluster` script is invoked.|
-|vmSizeDataNodes         |The Azure virtual machine size for Elastic Search cluster nodes. Defaults to Standard_D1.|
+|vmSizeDataNodes         |The Azure virtual machine size for Elastic Search cluster nodes. Defaults to Standard_D2.|
 
 Now you are ready to run the script. Issue the following command:
 
 ```powershell
-CreateElasticSearchCluster -ResourceGroupName <es-group-name>
+CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-region> -EsPassword <es-password>
 ```
 
 where 

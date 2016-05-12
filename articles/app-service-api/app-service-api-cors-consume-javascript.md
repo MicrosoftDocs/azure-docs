@@ -279,4 +279,4 @@ To learn more about Visual Studio features that simplify troubleshooting, see [T
 
 ## Next steps 
 
-In this article, you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. In the next article in the API Apps getting started series, you learn about [authentication for App Service API apps](app-service-api-authentication.md).
+In this article, you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. To learn more about API apps, read the [introduction to authentication in App Service](../app-service/app-service-authentication-overview.md), and then go to the next tutorial in this series: [user authentication for API apps](app-service-api-dotnet-user-principal-auth.md).

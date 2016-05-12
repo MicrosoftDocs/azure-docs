@@ -53,6 +53,12 @@ You can add these features:
 
 ## Release notes
 
+###4.2.1 (05/10/2016)
+
+- Security: disable web view local file access.
+- Security: remove `EngagementPreferenceActivity` class that extends obsolete and unsecure `PreferenceActivity` class.
+- Security: reach activities are now documented to use `exported="false"`, this flag can also be used in previous SDK versions.
+
 ### 4.2.0 (03/11/2016)
 
 - The SDK is now licensed under MIT.
