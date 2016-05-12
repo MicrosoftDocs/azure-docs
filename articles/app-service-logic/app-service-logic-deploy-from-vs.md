@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="Deploy from Visual Studio | Microsoft Azure" 
+	pageTitle="Deploy Logic app from Visual Studio | Microsoft Azure" 
 	description="Create a project in Visual Studio to manage your Logic app." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="05/03/2016"
 	ms.author="stepsic"/> 
 	
 # Deploy from Visual Studio
@@ -38,14 +38,14 @@ You have to have the Azure SDK 2.7 or later installed in order to follow the ste
 
 4. Once you have selected your **Template**, hit **OK**.
 
-Now your Logic app project is added to your solution. You should see the deployment in the Solution Explorer:
+Now your Logic app project is added to your solution. You should see the deployment file in the Solution Explorer:
 ![Deployment](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Configuring your Logic app
 
 Once you have a project you can edit the definition of your Logic app inside Visual Studio. Click on the JSON file in the Solution Explorer. You see a placeholder definition that you can fill in with your application's logic.
 
-It's recommended to use **parameters** throughout your definition. This is useful if you want to deploy to both a development and production environment. In that case, you should put all environment-specific configuration in the `*.parameters.json` file, and the parameters instead of the actual strings.
+We recommend that you use **parameters** throughout your definition. This is useful if you want to deploy to both a development and production environment. In that case, you should put all environment-specific configuration in the `*.parameters.json` file, and use the parameters instead of the actual strings.
 
 Today, Visual Studio does not have a built-in JSON designer, so if you'd like to use a graphical interface (as opposed to writing JSON), use the Azure Portal. 
 
@@ -69,8 +69,11 @@ Finally, after you have configured your app, you can deploy directly from Visual
 
      > [AZURE.NOTE]    Be sure to select the right template and parameters files for the resource group (for example if you are deploying to a production environment you'll want to choose the production parameters file). 
 4.  Select the Deploy button
+5. You'll be prompted to fix any errors that we detect. For example:
+     ![Deploy to resource group](./media/app-service-logic-deploy-from-vs/deploytoresourcegrouperror.png)
+ 
     
-5. The status of the deployment appears in the **Output** window (you may need to choose **Azure Provisioning**. 
+6. The status of the deployment appears in the **Output** window (you may need to choose **Azure Provisioning**. 
     ![Output](./media/app-service-logic-deploy-from-vs/output.png)
 
 In the future, you can revise your Logic app in source control and use Visual Studio to deploy new versions. 

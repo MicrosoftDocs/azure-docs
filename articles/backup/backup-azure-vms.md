@@ -19,6 +19,11 @@
 
 
 # Back up Azure virtual machines
+
+> [AZURE.SELECTOR]
+- [Back up ARM VMs to Azure](backup-azure-arm-vms.md)
+- [Back up Azure virtual machines](backup-azure-vms.md)
+
 This article provides the procedures for how to back up your Azure virtual machines (VMs).
 
 First, there are a few things you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.

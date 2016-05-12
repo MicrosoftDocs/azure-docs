@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/12/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
@@ -35,7 +35,7 @@ Your database is associated with an Azure SQL server. To connect to your databas
 
 To find the fully qualified server name.
 
-1. Go to the [Azure Portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 2. Click **SQL databases** and click the database you want to connect to. This example uses the AdventureWorksDW sample database.
 3. Locate the full server name.
 
@@ -53,7 +53,7 @@ For the best experience, use Visual Studio 2015 with the [latest SQL Server Data
 
     ![Add SQL Server][3]
 
-1. Fill in the fields in the Connect to Server window.
+4. Fill in the fields in the Connect to Server window.
 
     ![Connect to Server][4]
 
@@ -63,10 +63,9 @@ For the best experience, use Visual Studio 2015 with the [latest SQL Server Data
     - **Database Name**.  Enter the database name for the SQL DW database.
     - Click **Connect**.
 
-1. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
+5. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
 
     ![Explore AdventureWorksDW][5]
-
 
 ## Step 3: Run a sample query
 
@@ -88,7 +87,7 @@ Now that a connection has been established to your database, let's go ahead and 
 
     ![Run query][7]
 
-1. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
+5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
 
     ![Query results][8]
 

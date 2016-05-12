@@ -22,6 +22,12 @@ Learn how to customize Windows based HDInsight cluster with Giraph using Script 
  
 You can install Giraph on any type of cluster (Hadoop, Storm, HBase, Spark) on Azure HDInsight by using *Script Action*. A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). The sample script works only with HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
+> [AZURE.IMPORTANT] The steps in this document use the Azure Classic Portal. Microsoft does not recommend using the classic portal when creating new services. For an explanation of the advantages of the Azure Portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+>
+> This document also includes information on using Azure PowerShell. The snippets provided are based on commands that use Azure Service Management (ASM) to work with HDInsight and are __deprecated__. These commands will be removed by January 1, 2017.
+>
+>For a version of this document that uses the Azure portal, along with PowerShell snippets that use Azure Resource Manager (ARM), see [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
+
 **Related articles**
 
 - [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md): install Giraph using the Azure Portal
@@ -40,10 +46,6 @@ You can install Giraph on any type of cluster (Hadoop, Storm, HBase, Spark) on A
 - Calculating the page rank of webpages.
    
 ## Install Giraph using portal
-
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md)
 
 1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md#portal). 
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the script action, as shown below:

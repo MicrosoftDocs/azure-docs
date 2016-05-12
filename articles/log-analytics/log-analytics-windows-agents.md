@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connect Windows computers to Log Analytics | Microsoft Azure"
-	description="This article covers the steps needed for you to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA)."
+	description="This article shows the steps to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA)."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -19,11 +19,11 @@
 
 # Connect Windows computers to Log Analytics
 
-This article covers the steps needed for you to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA). You need to install and connect agents for all of the computers that you want to on board to OMS in order for them to send data to OMS and to view and act on that data in the OMS portal.
+This article shows the steps to connect the Windows computers in your on-premises infrastructure directly to OMS by using a customized version of the Microsoft Monitoring Agent (MMA). You need to install and connect agents for all of the computers that you want to onboard to OMS in order for them to send data to OMS and to view and act on that data in the OMS portal.
 
 You can install agents using Setup, command line, or with Desired State Configuration (DSC) in Azure Automation.  
 
-On computers with Internet connectivity, the agent will use the connection to the Internet to send data to OMS. For computers that do not have Internet connectivity, you can use a proxy or the OMS Log Analytics Forwarder.
+On computers with internet connectivity, the agent will use the connection to the internet to send data to OMS. For computers that do not have internet connectivity, you can use a proxy or the OMS Log Analytics Forwarder.
 
 Connecting your Windows computers to OMS is straightforward using 3 simple steps:
 
@@ -41,7 +41,7 @@ Before you install or deploy agents, review the following details to ensure you 
 
 - You can only install the OMS MMA on computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later.
 - You'll need an OMS subscription.  For additional information, see [Get started with Log Analytics](log-analytics-get-started.md).
-- Each Windows computer must be able to connect to the Internet. This connection can be via a proxy or through the  OMS Log Analytics Forwarder.
+- Each Windows computer must be able to connect to the Internet using HTTPS. This connection can be direct, via a proxy, or through the  OMS Log Analytics Forwarder.
 - You can install the OMS MMA on stand-alone computers, servers, and virtual machines. If you want to connect Azure-hosted virtual machines to OMS, see [Connect Azure storage to Log Analytics](log-analytics-azure-storage.md).
 - The agent needs to use TCP port 443 for various resources. For more information, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
 
@@ -50,7 +50,7 @@ Before you install or deploy agents, review the following details to ensure you 
     ![Connected Sources tab](./media/log-analytics-windows-agents/oms-direct-agent-connected-sources.png)
 2. Under **Attach Computers Directly**, click **Download Windows Agent** applicable to your computer processor type to download the setup file.
 3. On the right of  **Workspace ID**, click the copy icon and paste the ID into Notepad.
-4. On the right of  **Primary Key**, click the copy icon and paste the ID into Notepad.     
+4. On the right of  **Primary Key**, click the copy icon and paste the key into Notepad.     
     ![copy Workspace ID and Primary Key](./media/log-analytics-windows-agents/oms-direct-agent-primary-key.png)
 
 ## Install the agent using setup
@@ -76,15 +76,15 @@ Before you install or deploy agents, review the following details to ensure you 
     ```
 
 ## Install the agent using DSC in Azure Automation
-1. Import the Azure Automation DSC module by installing the xPSDesiredStateConfiguration Azure PowerShell DSC Module from [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) into Azure Automation.  
+1. Import the xPSDesiredStateConfiguration DSC Module from [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) into Azure Automation.  
 
-2.	Create Azure Automation variables for *OPSINSIGHTS_WS_ID* and *OPSINSIGHTS_WS_KEY*. Set *OPSINSIGHTS_WS_ID* to your OMS Log Analytics workspace ID and set *OPSINSIGHTS_WS_KEY* to the primary key of your workspace.
-3.	Use the script below and save it as DSC-HRfrontend.PS1
-4.	Modify and then use the following example to install the agent using DSC in Azure Automation. Import  DSC-HRfrontend.PS1 into Azure Automation by using the Azure Automation interface or cmdlet.
+2.	Create Azure Automation variable assets for *OPSINSIGHTS_WS_ID* and *OPSINSIGHTS_WS_KEY*. Set *OPSINSIGHTS_WS_ID* to your OMS Log Analytics workspace ID and set *OPSINSIGHTS_WS_KEY* to the primary key of your workspace.
+3.	Use the script below and save it as MMAgent.ps1
+4.	Modify and then use the following example to install the agent using DSC in Azure Automation. Import MMAgent.ps1 into Azure Automation by using the Azure Automation interface or cmdlet.
 5.	Assign a node to the configuration. Within 15 minutes the node will check its configuration and the MMA will be pushed to the node.
 
 ```
-Configuration HRfrontend
+Configuration MMAgent
 {
     $OIPackageLocalPath = "C:\MMASetup-AMD64.exe"
     $OPSINSIGHTS_WS_ID = Get-AutomationVariable -Name "OPSINSIGHTS_WS_ID"
@@ -93,7 +93,7 @@ Configuration HRfrontend
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-    Node HRfrontend {
+    Node OMSnode {
         Service OIService
         {
             Name = "HealthService"
@@ -124,7 +124,7 @@ Configuration HRfrontend
 If you've installed agents but did not configure them or if you've made a configuration change, you can use the following information to enable or reconfigure them. After you've configured the agent, it will register with the agent service and will get necessary configuration information and management packs that contain solution information.
 
 1. After you've installed the Microsoft Monitoring Agent, open **Control Panel**.
-2. Open **Microsoft Monitoring Agent** and then click **Connect to Azure Operational Insights** (OMS).   
+2. Open **Microsoft Monitoring Agent** and then click **Connect to Azure Operational Insights (OMS)**.   
 3. Paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in a previous procedure and then click **OK**.  
     ![configure Operational Insights](./media/log-analytics-windows-agents/oms-mma-aoi.png)
 
@@ -164,14 +164,14 @@ If you use Operations Manager in your IT infrastructure, you can also use the MM
 
 ## Optionally, configure agents to use the OMS Log Analytics Forwarder
 
-If you have servers or clients that do not have a connection to the Internet, you can still have them send data to OMS by using the OMS Log Analytics Forwarder.  When you use the forwarder, all data from agents is sent through a single server that has access to the Internet. The Forwarder transfers data from the agents to OMS directly without analyzing any of the data that is transferred.
+If you have servers or clients that do not have a connection to the internet, you can still have them send data to OMS by using the OMS Log Analytics Forwarder.  When you use the forwarder, all data from agents is sent through a single server that has access to the internet. The Forwarder transfers data from the agents to OMS directly without analyzing any of the data that is transferred.
 
-See [OMS Log Analytics Forwarder](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) to learn more about the forwarder, including set up and configuration.
+See [OMS Log Analytics Forwarder](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) to learn more about the forwarder, including setup, and configuration.
 
 For information about how to configure your agents to use a proxy server, which in this case is the OMS Forwarder, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
 
 ## Optionally, configure proxy and firewall settings
-If you have proxy servers or firewalls in your environment that restrict access to the Internet, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) to enable your agents to communicate to the OMS service.
+If you have proxy servers or firewalls in your environment that restrict access to the internet, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) to enable your agents to communicate to the OMS service.
 
 ## Next steps
 

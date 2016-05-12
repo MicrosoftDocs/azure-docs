@@ -37,7 +37,6 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 - You have a resource group, a storage account, and a blob container created in that resource group to copy the VHDs to. For more information about creating storage accounts and blob containers, see: [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
-
 > [AZURE.NOTE] Similar steps apply for a VM created using either of the two deployment models as the source image. Where applicable, minor differences are noted.  
 
 
