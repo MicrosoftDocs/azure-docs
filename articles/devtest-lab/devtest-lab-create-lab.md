@@ -1,4 +1,4 @@
-    <properties
+<properties
 	pageTitle="Create a lab in DevTest Labs | Microsoft Azure"
 	description="Create a new lab in DevTest Labs for virtual machines"
 	services="devtest-lab,virtual-machines"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Create a lab in Azure DevTest Labs
@@ -27,7 +27,7 @@ To create a lab, you will need:
 
 ## Create a lab
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**.
 
@@ -50,7 +50,7 @@ To create a lab, you will need:
 
 Once you've created your lab, here are some next steps to consider:
 
-- [Secure access to a DevTest Lab](devtest-lab-add-devtest-user.md).
+- [Secure access to a lab](devtest-lab-add-devtest-user.md).
 
 - [Set lab policies](devtest-lab-set-lab-policy.md).
 
@@ -58,4 +58,4 @@ Once you've created your lab, here are some next steps to consider:
 
 - [Create custom artifacts for your VMs](devtest-lab-artifact-author.md).
 
-- [Add a VM with artifacts to an Azure DevTest Lab](devtest-lab-add-vm-with-artifacts.md).
+- [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md).

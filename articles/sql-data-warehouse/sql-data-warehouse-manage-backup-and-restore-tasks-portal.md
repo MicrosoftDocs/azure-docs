@@ -64,7 +64,7 @@ To restore a deleted database:
 6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
 
 
-## Restore from an Azure geographical region
+## Geo-Restore a data warehouse from a geo-redundant backup
 
 To perform a geo-restore:
 

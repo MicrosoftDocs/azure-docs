@@ -104,5 +104,6 @@ After you've run a query, you can download a .csv file. Click **Export, to Excel
 
 
 
+
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 

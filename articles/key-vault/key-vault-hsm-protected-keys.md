@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 #How to generate and transfer HSM-protected keys for Azure Key Vault
 
@@ -151,7 +151,7 @@ KeyVault-BYOK-Tools-Australia.zip
 
 ---
 
-[**Azure Government:**](../../../../features/gov/)
+[**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 

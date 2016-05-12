@@ -3,7 +3,7 @@
    description="Management features for the Azure load balancer distribution mode"
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    />
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/07/2015"
-   ms.author="telmos"
+   ms.author="jdial"
    />
 
 # Manage virtual network: Load balancer distribution mode (Source IP Affinity)
