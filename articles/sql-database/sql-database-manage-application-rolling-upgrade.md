@@ -63,7 +63,7 @@ If the upgrade process is unsuccessful, for example due to an error in the upgra
 1. Set the database copy to read-write mode (9). This will re-enable read-write access to the database and will make the full functionality of the web site available to the end user.
 2. Perform the root cause analysis and remove the compromised components in the stage slot (10). 
 
-At this point the application is fully functional and the upgrade steps could be repeated.
+At this point the application is fully functional and the upgrade steps can be repeated.
 
 > [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 
@@ -109,14 +109,13 @@ If the upgrade process is unsuccessful, for example due to an error in the upgra
 1. Set the primary database copy in the production slot to read-write mode (12). This will re-enable read-write access to the database and will make the full functionality of the web site available to the end user.
 2. Perform the root cause analysis and remove the compromised components in the stage slot (13 and 14). 
 
-At this point the application is fully functional and the upgrade steps could be repeated.
+At this point the application is fully functional and the upgrade steps can be repeated.
 
 > [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to  <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
 The key **advantage** of this option is that you can upgrade both the application and its geo-redundant copy in parallel without compromising your business continuity during the upgrade. The main **tradeoff** is that it requires double redundancy of each application component and therefore incurs higher dollar cost. It also involves a more complicated workflow. 
-
 
 ## Summary
 
