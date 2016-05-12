@@ -1,7 +1,7 @@
 <properties
    pageTitle="VM restarting or resizing issues | Microsoft Azure"
    description="Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
    authors="delhan"
    manager="felixwu"
@@ -9,11 +9,11 @@
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-linux"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
