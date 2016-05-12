@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add the Twitter API in PowerApps Enterprise and Logic Apps | Microsoft Azure"
-	description="Overview of Twitter API with REST API parameters"
+	pageTitle="Add the Twitter connector in PowerApps Enterprise and Logic Apps | Microsoft Azure"
+	description="Overview of Twitter connector with REST API parameters"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/12/2016"
    ms.author="mandia"/>
 
 
-# Get started with the Twitter API
+# Get started with the Twitter connector
 Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter API can be be used from:
 
 - Logic apps 
@@ -61,7 +61,7 @@ When you add this API to your logic apps, you must authorize logic apps to conne
 1. Sign in to your Twitter account.
 2. Select **Authorize**, and allow your logic apps to connect and use your Twitter account. 
 
-After you create the connection, you enter the Twitter properties, like the tweet text. The **REST API reference** in this topic describes these properties.
+>[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
 
 >[AZURE.TIP] You can use this same Twitter connection in other logic apps.
 
