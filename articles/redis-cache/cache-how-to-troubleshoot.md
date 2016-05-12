@@ -89,24 +89,29 @@ Is there a high Redis-server server load ? Using the Redis-cli client tool, you 
 
 ## Client side troubleshooting
 
-Diagnosing Redis errors on the *client side*
----------------
-Customers periodically ask "Why am I getting errors when talking to Redis".  The answer is complicated - it could be a client or server side problem.  In this article, I am going to talk about client side issues.  For server side issues, [see here](https://gist.github.com/JonCole/9225f783a40564c9879d)
 
-Clients can see connectivity issues or timeouts for several reason, here are some of the common ones I see:
+This section discusses troubleshooting issues that occur because of a condition on the cache client.
 
----------------
+-	[Memory pressure on the client](#memory-pressure-on-the-client)
+-	[Burst of traffic](#burst-of-traffic)
+-	[High client CPU usage](#high-client-cpu-usage)
+-	[Client Side Bandwidth Exceeded](#client-side-bandwidth-exceeded)
+-	[Large Request/Response Size](#large-requestresponse-size)
 
-## Memory pressure on the client
+### Memory pressure on the client
 
-`Problem:` Memory pressure on the client machine leads to all kinds of performance problems that can delay processing of data that was sent by the Redis instance without any delay.  When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk.  This *page faulting* causes the system to slow down significantly.
+#### Problem
 
-`Measurement:` 
+Memory pressure on the client machine leads to all kinds of performance problems that can delay processing of data that was sent by the Redis instance without any delay.  When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk. This *page faulting* causes the system to slow down significantly.
 
- 1. Monitory memory usage on machine to make sure that it does not exceed available memory.  
- 2. Monitor the *Page Faults/Sec* perf counter.  Most systems will have some page faults even during normal operation, so watch for spikes in this page faults perf counter which correspond with timeouts.
+#### Measurement 
 
-`Resolution:` Upgrade to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consuption.
+1.	Monitory memory usage on machine to make sure that it does not exceed available memory.  
+2.	Monitor the `Page Faults/Sec` performance counter. Most systems will have some page faults even during normal operation, so watch for spikes in this page faults performance counter which correspond with timeouts.
+
+#### Resolution
+
+Upgrade to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consuption.
 
 ----------
 
@@ -128,7 +133,7 @@ In the above message, there are several issues that are interesting:
 
 ----------
 
-## High CPU usage
+## High client CPU usage
 
 `Problem:` High CPU usage on the client is an indication that the system cannot keep up with the work that it has been asked to perform.  This means that the client may fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
 
