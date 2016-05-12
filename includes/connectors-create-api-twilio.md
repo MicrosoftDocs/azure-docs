@@ -3,7 +3,7 @@
 - A verified Twilio phone number that can receive SMS
 - A verified Twilio phone number that can send SMS
 
->[Azure.NOTE If you are using a Twilio trial account, you can only send SMS to **verified** phone numbers.]  
+>[Azure.NOTE] If you are using a Twilio trial account, you can only send SMS to **verified** phone numbers.  
 
 Before you can use your Twilio account in a Logic app, you must authorize the Logic app to connect to your Twilio account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
 
