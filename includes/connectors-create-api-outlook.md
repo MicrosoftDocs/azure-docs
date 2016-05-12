@@ -10,7 +10,6 @@ Here are the steps to authorize your Logic app to connect to your Outlook.com ac
 1. All Logic apps need to be started by a trigger so after you create your Logic app, the designer opens and displays a list of triggers that you can use to start your Logic app:
 
   ![](./media/connectors-create-api-outlook/office365-outlook-0.png)
-
 2. Enter "outlook" in the search box. Notice the list is filtered to list all the triggers with "Outlook" in the name:
   ![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
 3. Select **Office 365 Outlook - On new email**.   
