@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="05/06/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -228,15 +228,15 @@ The next example shows how to combine two arrays.
 <a id="padleft" />
 ### padLeft
 
-**padLeft(stringToPad, totalLength, paddingCharacter)**
+**padLeft(valueToPad, totalLength, paddingCharacter)**
 
 Returns a right-aligned string by adding characters to the left until reaching the total specified length.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| stringToPad                        |   Yes    | The string to right-align.
+| valueToPad                         |   Yes    | The string or int to right-align.
 | totalLength                        |   Yes    | The total number of characters in the returned string.
-| paddingCharacter                   |   Yes    | The character to use for left-padding until the total length is reached.
+| paddingCharacter                   |   No     | The character to use for left-padding until the total length is reached. The default value is a space.
 
 The following example shows how to pad the user-provided parameter value by adding the zero character until the string reaches 10 characters. If the original parameter value is longer than 10 characters, no characters are added.
 
@@ -726,7 +726,7 @@ The following example uses the resource group location to assign the location fo
 <a id="resourceid" />
 ### resourceId
 
-**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
 
@@ -734,6 +734,7 @@ Returns the unique identifier of a resource. You use this function when the reso
       
 | Parameter         | Required | Description
 | :---------------: | :------: | :----------
+| subscriptionId    |   No     | Optional subscription id. Default value is the current subscription. Specify this value when you are retrieving a resource in another subscription.
 | resourceGroupName |   No     | Optional resource group name. Default value is current resource group. Specify this value when you retrieving a resource in another resource group.
 | resourceType      |   Yes    | Type of resource including resource provider namespace.
 | resourceName1     |   Yes    | Name of resource.
@@ -742,7 +743,7 @@ Returns the unique identifier of a resource. You use this function when the reso
 The following example shows how to retrieve the resource ids for a web site and a database. The web site exists in a resource group named **myWebsitesGroup** and the database exists in the current resource group for this template.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
 

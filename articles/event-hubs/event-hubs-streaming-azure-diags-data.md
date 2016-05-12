@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Streaming Azure diagnostics data in the hot path using Event Hubs
@@ -51,7 +51,7 @@ Azure diagnostics always sinks logs and metrics, by default, to an Azure Storage
 
 In this example, the event hub URL is set to the fully qualified namespace of the event hub (ServiceBus namespace  + “/” + event hub name).  
 
-The event hub URL is displayed in the [classic Azure portal](https://manage.windowsazure.com) on the Event Hubs dashboard.  
+The event hub URL is displayed in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
 
 The **Sink** name can be set to any valid string as long as the same value is used consistently throughout the config file. 
 

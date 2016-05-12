@@ -1,5 +1,5 @@
 <properties
-	pageTitle="AD FS Management and customizaton with Azure AD Connect | Microsoft Azure"
+	pageTitle="Active Directory Federation Services Management and customization with Azure AD Connect | Microsoft Azure"
 	description="AD FS management using Azure AD Connect and customization of user AD FS sign-in experience using Azure AD Connect and Powershell."
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/04/2016"
 	ms.author="anandy"/>
 
-# AD FS management and customizaton with Azure AD Connect
+# Active Directory Federation Services management and customization with Azure AD Connect
 
-This article details the various AD FS related tasks that can be performed using Azure AD Connect and other common AD FS tasks that may be required for a complete configuration of an AD FS farm.
+This article details the various Active Directory Federation Services (AD FS) related tasks that can be performed using Azure AD Connect and other common AD FS tasks that may be required for a complete configuration of an AD FS farm.
 
-## AD FS managemet
+## AD FS management
 
 Azure AD Connect provides various AD FS related tasks that can be performed using the Azure AD Connect wizard with minimal user intervention. After you have finished installing Azure AD Connect by running the wizard, you can run the wizard again to perform additional tasks.
 
@@ -28,7 +28,7 @@ Azure AD Connect provides various AD FS related tasks that can be performed usin
 
 Azure AD Connect can check for the current health of the AD FS and Azure ADtrust and take appropriate actions to repair the trust. Follow the below steps to repair your Azure AD and AD FS trust.
 
-Select **Repair Azure AD and ADFS trust** from the list of tasks available.
+Select **Repair AAD and ADFS trust** from the list of tasks available.
 
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
@@ -84,9 +84,9 @@ Click on Next and go through the final Configure page. After Azure AD Connect ha
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Adding a new AD FS WAP server
+### Adding a new AD FS web application proxy server
 
-> [AZURE.NOTE] Azure AD Connect requires the PFX certifcate file to add WAP server. Therefore, you will be able to perform this operation only if you configured the AD FS farm using Azure AD Connect.
+> [AZURE.NOTE] Azure AD Connect requires the PFX certifcate file to add a web application proxy server. Therefore, you will be able to perform this operation only if you configured the AD FS farm using Azure AD Connect.
 
 Select **Deploy Web Application Proxy** from the list of available tasks.
 
@@ -102,7 +102,7 @@ Next, you will be presented with the **Specify SSL certificate** page where you 
 
 ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
-On the next page, add the server to be added as WAP. Since WAP server may or may not be joined to the domain, the wizard will ask for administrative credentials to the server being added.
+On the next page, add the server to be added as a web application proxy. Since the web application proxy server may or may not be joined to the domain, the wizard will ask for administrative credentials to the server being added.
 
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
 
@@ -138,7 +138,7 @@ On the next page the wizard will provide a list of Azure AD domains with which y
 
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain which is not yet verified in Azure AD the wizard will provide you with information to help you verify the domain. See [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md) for more details on how to verify your domain.
+After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain which is not yet verified in Azure AD the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details on how to verify your domain.
 
 Click on next and **Ready to configure** page will show the list of actions that Azure AD Connect will be performing. Click on Install to finish the configuration.
 
@@ -192,6 +192,7 @@ Also, by using ‘add’ and not ‘issue’ you avoid adding an outgoing issue 
 This rule simply defines a temporary flag “idflag” which is set to “useguid” if there is no ms-ds-concistencyguid populated for the user. The logic behind this is the fact that ADFS does not allow empty claims. So when added claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid in rule 1, you will end up with msdsconsistencyguid claim ONLY if the value is populated for the user. In case it is not populated, ADFS sees that it will turn up as an empty value and drops it there and then. ObjectGuid as you know all objects will have so that claim will always be there after rule 1 is executed
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if present**
+
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
@@ -206,3 +207,36 @@ This is an implicit EXIST check. If the value for the claim exists, then issue t
 In this rule you are simply checking the temporary flag ‘idflag’ and based on the value decide to issue or not issue the claim.
 
 > [AZURE.NOTE] Sequence of these rules is important.
+
+#### SSO with a sub-domain UPN
+
+You can add more than one domain to be federated using Azure AD Connect ([Add a new federated domain](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain)). The UPN claim will need to be modified so that the issuer ID correponds to the root domain and not the sub-domain because the federated root domain covers the child as well.
+
+By default, the claim rule for issuer ID is set as:
+
+	c:[Type 
+	== “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+![Default issuer id claim](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
+
+The default rule simply takes the UPN suffix and uses it in the issuer id claim. For example, John is a user in sub.contoso.com and contoso.com is federated with Azure AD. John enters john@sub.contoso.com as the username while signing in to Azure AD, then the default issuer id claim rule in AD FS will handle it in the following manner:
+
+c:[Type 
+== “http://schemas.xmlsoap.org/claims/UPN“]
+
+=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+**Claim value:**  http://sub.contoso.com/adfs/services/trust/
+
+In order to just have the root domain in the issuer claim value, change the claim rule to:
+
+	c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+
+## Next Steps
+
+Learn more about [user sign-in options](active-directory-aadconnect-user-signin.md)
+
