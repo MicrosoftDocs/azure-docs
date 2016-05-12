@@ -19,7 +19,7 @@
 
 # Publish HDInsight applications into the Azure Marketplace
 
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to publish an HDInsight application into the Azure Marketplace.  For general information about publishing into the Azure Marketplace, see [publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to publish an HDInsight application into the Azure Marketplace.  For general information about publishing into the Azure Marketplace, see [publish an offer to the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
 HDInsight applications use the *Bring Your Own License (BYOL)* model, where application provider is responsible for licensing the application to end-users, and end-users are only charged by Azure for the resources they create, such as the HDInsight cluster and its VMs/nodes. At this time, billing for the application itself is not done through Azure.
 
@@ -34,7 +34,7 @@ In order to submit your custom application to the marketplace, you must have cre
 
 - [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to install and test custom HDInsight applications.
 
-You must also have register your developer account. See [publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md) and [Create a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md).
+You must also have register your developer account. See [publish an offer to the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) and [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 
 ## Define application
 
@@ -73,7 +73,7 @@ Follow the following steps to publish an HDInsight application:
 
 1. Sign on to the [Azure Publishing portal](https://publish.windowsazure.com/).
 2. Click **Solution templates** to create a new solution template.
-3. Click **Create Dev Center account and join the Azure program** to register your company if you haven't done so.  See [Create a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md).
+3. Click **Create Dev Center account and join the Azure program** to register your company if you haven't done so.  See [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 4. Click **Define some Topologies to get Started**. A solution template is a "parent" to all of its topologies. You can define multiple topologies in one offer/solution template. When an offer is pushed to staging, it is pushed with all of its topologies. 
 5. Add a new version.
 6. Upload the zip file prepared in [Package application](#package-application).  
