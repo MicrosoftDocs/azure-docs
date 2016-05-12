@@ -71,7 +71,7 @@ For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/
 
 ### Create indexer 
 
-Finally, create the indexer that references the data source and a target index. For example:
+Finally, create the indexer that references the data source and the target index. For example:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
