@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma"/>
 
 # Create and manage an Azure Batch account in the Azure portal
@@ -84,9 +84,11 @@ The Batch account blade displays several properties for the account, as well as 
 
 * If you're running several large-scale Batch workloads, be aware of certain [Batch service quotas and limits](batch-quota-limit.md) that apply to your Azure subscription and each Batch account. Current quotas on a Batch account appear in the portal in the account properties.
 
-* If you associate a storage account with your Batch account, take care when regenerating the storage account access keys. You should regenerate only a single storage account key, click **Sync Keys** on the linked storage account blade, wait 5 minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the storage account.
+* If you associate (link) a storage account with your Batch account, take care when regenerating the storage account access keys. You should regenerate only a single storage account key, click **Sync Keys** on the linked storage account blade, wait 5 minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the storage account.
 
   ![Regenerating storage account keys][4]
+
+> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, link *only* a **General purpose** storage account.
 
 ## Next steps
 
