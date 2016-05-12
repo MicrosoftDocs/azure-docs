@@ -97,7 +97,7 @@ You can get additional user data maintained by the identity provider in your mob
 [Get started with data]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
-[Authorize users with scripts]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure classic portal]: https://manage.windowsazure.com/
