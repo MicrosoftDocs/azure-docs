@@ -133,8 +133,8 @@ A21. Absolutely. Azure Backup provides VM-level backup for Azure VMs using the V
 **Q22. Can I install the Azure Backup agent on an Azure VM to back up files and folders present on temporary storage provided by the Azure VM?** <br/>
 A22. You can install the Azure Backup agent on the Guest Windows OS and back up files and folders to temporary storage. However, please note that backups fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
-**Q23. I have installed Azure Backup Agent to protect my files and folders. Can I now install SCDPM to work with Azure Backup Agent to protect on-premises application/VM workloads to Azure?** <br/>
-A23. To use Azure Backup with SCDPM, it is advised to install SCDPM first and only then to install Azure Backup Agent. This ensures seamless integration of the Azure Backup Agent with SCDPM and allows protecting files/folders, application-workloads and VMs to Azure, directly from the management console of SCDPM. Installing SCDPM after installing Azure Backup Agent for purposes mentioned above is neither advised nor supported.
+**Q23. I have installed Azure Backup agent to protect my files and folders. Can I now install SCDPM to work with Azure Backup agent to protect on-premises application/VM workloads to Azure?** <br/>
+A23. To use Azure Backup with SCDPM, it is advised to install SCDPM first and only then to install Azure Backup agent. This ensures seamless integration of the Azure Backup agent with SCDPM and allows protecting files/folders, application-workloads and VMs to Azure, directly from the management console of SCDPM. Installing SCDPM after installing Azure Backup agent for purposes mentioned above is neither advised nor supported.
 
 **Q24. What is the length of file path that can be specified as part of Azure Backup policy using Azure Backup agent?** <br/>  
 A24. Azure Backup agent relies on NTFS. The [filepath length specification is limited by Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). In case of backing up files with file path length greater than the ones specified by Windows API, customers can choose to backup the parent folder or the disk drive of backup files.  
@@ -259,7 +259,7 @@ A1. Go sequentially through the bullet list below to change the cache location.
 **Q2. Where can I put the cache-folder for the Azure Backup Agent to work as expected?**<br/>
 A2. The following locations for the cache-folder are not recommended:
 
-- Network share or Removable Media: The cache-folder must be local to the server to be backed up using online backup. Network locations or removable media like USB drives are not supported.
+- Network share or Removable Media: The cache-folder must be local to the server that needs backing up using online backup. Network locations or removable media like USB drives are not supported.
 - Offline Volumes: The cache-folder must be online for expected backup using Azure Backup Agent.
 
 **Q3. Are there any attributes of the cache-folder that are not supported?**<br/>
@@ -271,4 +271,4 @@ A3. The following attributes or their combinations are not supported for the cac
 - Sparse
 - Reparse-Point
 
-It is recommended that neither the cache-folder nor the metadata VHD have the attributes above for the expected functioning of the Azure Backup Agent.
+It is recommended that neither the cache-folder nor the metadata VHD have the attributes above for expected functioning of the Azure Backup agent.
