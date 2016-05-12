@@ -133,8 +133,7 @@ To install the disk firmware updates, follow the instructions below.
 
 		-----------------------MAINTENANCE MODE------------------------
 		Microsoft Azure StorSimple Appliance Model 8100
-		Name: Update2-8100-SHG0997879L76YD
-		Software Version: 6.3.9600.17702
+		Name: Update2-8100-SHG0997879L76673
 		Copyright (C) 2014 Microsoft Corporation. All rights reserved.
 		You are connected to Controller0 - Passive
 		---------------------------------------------------------------
