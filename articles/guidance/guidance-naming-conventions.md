@@ -3,7 +3,7 @@
    description="Recommended naming conventions for Azure resources. How to name virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities"
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>

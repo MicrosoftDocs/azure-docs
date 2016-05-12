@@ -43,7 +43,7 @@ The easiest way to use the ES-MultiNode template is through a provided Azure Pow
 
 Note that the `CreateElasticSearchCluster` script is designed for ease of use with the ES-MultiNode template from a Windows machine. It is possible to use the template on a non-Windows machine, but that scenario is beyond the scope of this article.
 
-1. If you haven't installed them already, install [**Azure PowerShell modules**](http://aka.ms/webpi-azps). When prompted, click **Run**, then **Install**.
+1. If you haven't installed them already, install [**Azure PowerShell modules**](http://aka.ms/webpi-azps). When prompted, click **Run**, then **Install**. Azure PowerShell 1.3 or newer is required.
 
 2. The **openssl** tool is included in the distribution of [**Git for Windows**](http://www.git-scm.com/downloads). If you have not done so already, please install [Git for Windows](http://www.git-scm.com/downloads) now. (The default installation options are OK.)
 
