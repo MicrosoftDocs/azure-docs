@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/10/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Java
@@ -296,6 +296,10 @@ You will need to give your application permission to create resources in Azure f
 
 
 6. Run the application. Follow the prompts to run and complete the application.
+
+## Source code for the Java SDK
+
+The source code for the Java SDK for Data Lake Store is available on [GitHub](https://github.com/Azure/azure-sdk-for-java).
 
 ## Next steps
 
