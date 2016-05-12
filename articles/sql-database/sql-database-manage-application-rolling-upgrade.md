@@ -54,13 +54,13 @@ Once the preparation steps are completed the application is ready for the actual
 If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
 
 1. Switch the online endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end user traffic is directed to it.  
-2. You no longer need the V1 application components so you can safely remove them (7).   
+2. If you no longer need the V1 application components so you can safely remove them (7).   
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
 
-1. Set the database copy to read-write mode (8). This will make the full functionality of the web site available to the end user.
+1. Set the database copy to read-write mode (8). This will restore the full V1 functionally in the production slot.
 2. Perform the root cause analysis and remove the compromised components in the stage slot (9). 
 
 At this point the application is fully functional and the upgrade steps can be repeated.
@@ -73,10 +73,10 @@ The key **advantage** of this option is that you can upgrade a application in a 
 
 ## Upgrading applications that rely on database geo-replication for disaster recovery
 
-If your application leverages geo-replication for business continuity, it is deployed  to at least two different regions with an active deployment Primary region and a standby deployment in backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
+If your application leverages geo-replication for business continuity, it is deployed  to at least two different regions with an active deployment in Primary region and a standby deployment in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
 
-+ The applications remains protected from catastrophic failures at all times during the upgrade process
-+ The standby application deployment is upgraded in parallel with the active deployment 
++ The application remains protected from catastrophic failures at all times during the upgrade process
++ The geo-redundant components of the application are upgraded in parallel with the active components
 
 To achieve these goals you will leverage Azure Traffic Manager (WATM) using the failover profile with one active and three backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites <i>contoso-1.azurewebsites.net</i> and <i>contoso-dr.azurewebsites.net</i> represent a production slot of the application with full geographic redundancy. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. Because you you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process the stage slot needs to be geo-redundant as well. The following steps are required to prepare the application for the upgrade:
 
@@ -106,7 +106,7 @@ If the upgrade completed successfully you are now ready to switch the end users 
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert to using the application in the production slot with full access. The steps involved are shown on the next diagram.    
 
-1. Set the primary database copy in the production slot to read-write mode (12). This will make the full functionality of the web site available to the end user.
+1. Set the primary database copy in the production slot to read-write mode (12). This will restore the full V1 functionally in the production slot.
 2. Perform the root cause analysis and remove the compromised components in the stage slot (13 and 14). 
 
 At this point the application is fully functional and the upgrade steps can be repeated.
