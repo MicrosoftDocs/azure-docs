@@ -21,11 +21,11 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and deploy it to an [API app](app-service-api-apps-why-best-platform.md) in 
-[Azure App Service](../app-service/app-service-value-prop-what-is.md). You can use any operating system that is capable of running Node.js, and you'll do all your work using command line tools such as cmd.exe or bash.
+[Azure App Service](../app-service/app-service-value-prop-what-is.md). You can use any operating system that can run Node.js, and you'll do all your work using command line tools such as cmd.exe or bash.
 
 ## Prerequisites
 
-1. [Node.js](http://nodejs.org) installed (this sample assumes you have Node.js version 4.2.2)
+1. [Node.js](http://nodejs.org) installed (this sample assumes that you have Node.js version 4.2.2)
 2. [Git](https://git-scm.com/) installed
 1. [GitHub](https://github.com/) account
 1. Microsoft Azure [free trial account](https://azure.microsoft.com/pricing/free-trial/)
@@ -89,9 +89,9 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 
 1. Copy the **lib** folder from the **start** folder into the **ContactList** folder created by the scaffolder. 
 
-1. Replace the code in the **handlers/contacts.js** file with the code below. 
+1. Replace the code in the **handlers/contacts.js** file with the following code. 
 
-	This code uses the JSON data stored in the **lib/contacts.json** file that is served by **lib/contactRepository.js**. The new contacts.js code shown below will respond to HTTP requests to get all of the contacts and return them as a JSON payload. 
+	This code uses the JSON data stored in the **lib/contacts.json** file that is served by **lib/contactRepository.js**. The new contacts.js code responds to HTTP requests to get all of the contacts and return them as a JSON payload. 
 
         'use strict';
         
@@ -103,7 +103,7 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
             }
         };
 
-1. Replace the code in the **handlers/contacts/{id}.js** file with the code below. 
+1. Replace the code in the **handlers/contacts/{id}.js** file with the fofllowing code. 
 
         'use strict';
 
@@ -115,7 +115,7 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
             }    
         };
 
-1. Replace the code in **server.js** with the code below. 
+1. Replace the code in **server.js** with the following code. 
 
 	The changes made to the server.js file are called out by using comments so you can see the changes being made. 
 
@@ -156,11 +156,11 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 
         node server.js
 
-1. When you browse to **http://localhost:8000/contacts** you will see the JSON output of the contact list (or be prompted to download it, depending on your browser). 
+1. When you browse to **http://localhost:8000/contacts**, you see the JSON output of the contact list (or you're prompted to download it, depending on your browser). 
 
     ![All Contacts Api Call](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. When you browse to **http://localhost:8000/contacts/2** you'll see the contact represented by that id value.
+1. When you browse to **http://localhost:8000/contacts/2**, you'll see the contact represented by that id value.
 
     ![Specific Contact Api Call](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
@@ -168,13 +168,13 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 
     ![Contacts Swagger Json](media/app-service-api-nodejs-api-app/contacts-swagger-json.png)
 
-1. The Swagger UI is served via the **/docs** endpoint. In the Swagger UI you can use the rich HTML client features to test out your API.
+1. The Swagger UI is served via the **/docs** endpoint. In the Swagger UI, you can use the rich HTML client features to test out your API.
 
     ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
 ## <a id="createapiapp"></a> Create a new API App in the Azure Portal
 
-In this section you'll walk through the process of creating a new, empty API App in Azure. Then in the following section you wire up the app to a Git repository so you can enable continuous delivery of your code changes. 
+In this section you walk through the process of creating a new, empty API App in Azure. Then in the following section you wire up the app to a Git repository so you can enable continuous delivery of your code changes. 
 
 1. Browse to the [Azure Portal](https://portal.azure.com/). 
 
@@ -190,19 +190,19 @@ In this section you'll walk through the process of creating a new, empty API App
 
 6. In the **Resource Group** drop-down, click **New**, and then in **New resource group name** enter "NodejsAPIAppGroup" or another name if you prefer. 
 
-	A [resource group](../azure-portal/resource-group-portal.md) is a collection of Azure resources such as API apps, databases, VMs, and so forth.	For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
+	A [resource group](../azure-portal/resource-group-portal.md) is a collection of Azure resources such as API apps, databases, and VMs. For this tutorial, it's best to create a new resource group because that makes it easy to delete in one step all the Azure resources that you create for the tutorial.
 
 4. Click **App Service plan/Location**, and then click **Create New**.
 
 	![Create App Service plan](./media/app-service-api-nodejs-api-app/newappserviceplan.png)
 
-	In the following steps you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your API app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For information about App Service plans, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	In the following steps, you create an App Service plan for the new resource group. An App Service plan specifies the compute resources that your API app runs on. For example, if you choose the free tier, your API app runs on shared VMs, while for some paid tiers it runs on dedicated VMs. For information about App Service plans, see [App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 5. In the **App Service Plan** blade, enter "NodejsAPIAppPlan" or another name if you prefer.
 
 5. In the **Location** drop-down list, choose the location that is closest to you.
 
-	This setting specifies which Azure datacenter your app will run in. For this tutorial, you can select any region and it won't make a noticeable difference. But for a production app, you want your server to be as close as possible to the clients that are accessing it in order to minimize [latency](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	This setting specifies which Azure datacenter your app will run in. For this tutorial, you can select any region and it won't make a noticeable difference. But for a production app, you want your server to be as close as possible to the clients that are accessing it to minimize [latency](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. Click **Pricing tier > View All > F1 Free**.
 
@@ -216,7 +216,7 @@ In this section you'll walk through the process of creating a new, empty API App
 
 ## Set up your new API app for Git deployment
 
-In this section of the tutorial you create credentials you'll use for deployment, and a Git repository for the API app in Azure App Service. You'll deploy your code to the API app by pushing commits to this repository in Azure App Service. 
+In this section of the tutorial, you create credentials you'll use for deployment, and a Git repository for the API app in Azure App Service. You deploy your code to the API app by pushing commits to this repository in Azure App Service. 
 
 1. After your API app has been created, click **App Services > {your API app}** from the portal home page. 
 
@@ -230,7 +230,7 @@ In this section of the tutorial you create credentials you'll use for deployment
  
 3. In the **Set deployment credentials** blade, enter a user name and password, and then click **Save**.
 
-	You'll use these credentials for publishing your Node.js code to your API app. In the next step you create the Azure Git repository that is associated with your API app.  
+	You'll use these credentials for publishing your Node.js code to your API app. In the next step, you create the Azure Git repository that is associated with your API app.  
 
     ![Deployment Credentials](media/app-service-api-nodejs-api-app/deployment-credentials.png)
 
@@ -238,17 +238,17 @@ In this section of the tutorial you create credentials you'll use for deployment
 
     ![Create Git Repo](media/app-service-api-nodejs-api-app/create-git-repo.png)
 
-1. Once your Git repository has been created the blade will change and show you your active deployments. Since the repository is new, you have no active deployments in the list. 
+1. Once your Git repository has been created the blade changes to show you your active deployments. Since the repository is new, you have no active deployments in the list. 
 
     ![No Active Deployments](media/app-service-api-nodejs-api-app/no-active-deployments.png)
 
-1. Copy the Git repository URL. To do this, navigate to the blade for your new API App and look at the **Essentials** section of the blade. You'll see the **Git clone URL** in the **Essentials** section. When you hover over this URL, you'll see an icon on the right that will copy the URL to your clipboard. Click this icon to copy the URL.
+1. Copy the Git repository URL. To do this, navigate to the blade for your new API App and look at the **Essentials** section of the blade. Notice the **Git clone URL** in the **Essentials** section. When you hover over this URL, you see an icon on the right that will copy the URL to your clipboard. Click this icon to copy the URL.
 
     ![Get The Git Url From The Portal](media/app-service-api-nodejs-api-app/get-the-git-url-from-the-portal.png)
 
     **Note**: You will need the Git clone URL in the next step so make sure to save it somewhere for the moment.
 
-Now that you have a new API App with a Git repository backing it up, you can push code into the repository and utilize the continuous deployment features of Azure to automatically deploy your changes. 
+Now that you have an API App with a Git repository backing it up, you can push code into the repository to deploy the code to the API app. 
 
 ## Deploy your API code to Azure
 
@@ -274,7 +274,7 @@ The built-in continuous delivery features of Azure App Service enable you to dep
 
     **Note**: Replace the string "YOUR_GIT_CLONE_URL_HERE" with your own Git clone URL that you copied earlier. 
 
-1. Execute the two commands below to create a commit that contains all of your code. 
+1. Execute the following commands to create a commit that contains all of your code. 
 
         git add .
         git commit -m "initial revision"
@@ -285,17 +285,17 @@ The built-in continuous delivery features of Azure App Service enable you to dep
 
         git push azure master
 
-	This will trigger a deployment to your API app.  
+	This triggers a deployment to your API app.  
 
-1. In your browser, navigate back to the **Deployments** blade for your API app, and you'll see the deployment is occurring. 
+1. In your browser, navigate back to the **Deployments** blade for your API app, and you see that the deployment is occurring. 
 
     ![Deployment Happening](media/app-service-api-nodejs-api-app/deployment-happening.png)
 
-    Simultaneously, the command line interface will reflect the status of your deployment while it is happening. 
+    Simultaneously, the command line interface reflects the status of your deployment while it is happening. 
 
     ![Node Js Deployment Happening](media/app-service-api-nodejs-api-app/node-js-deployment-happening.png)
 
-	Once the deployment has completed, the **Deployments** blade will reflect the successful deployment of your code changes to your API App. 
+	Once the deployment has completed, the **Deployments** blade reflects the successful deployment of your code changes to your API App. 
 
 ## Test with the API running in Azure
  
@@ -307,7 +307,7 @@ The built-in continuous delivery features of Azure App Service enable you to dep
 
     **Note:** The URL will be `https://{your API app name}.azurewebsites.net/contacts`
 
-    When you issue a GET request to this endpoint you get the JSON output of your API app.
+    When you issue a GET request to this endpoint, you get the JSON output of your API app.
 
     ![Postman Hitting Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
