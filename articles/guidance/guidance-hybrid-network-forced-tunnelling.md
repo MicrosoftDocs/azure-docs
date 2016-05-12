@@ -131,13 +131,13 @@ The NVA provides protection for traffic arriving from the on-premises network. R
 
 You can also create an NVA by using your own custom VMs; this is the approach taken by the sample templates that implement this architecture.
 
-If you are implementing the NVA as a custom Azure VM, enable IP forwarding to enable traffic intended for the web tier application subnet to be received by the VM through the inbound NVA subnet. You can use the following command to enable IP forwarding for a NIC:
+The sample template enables IP forwarding for the NICs used by the NVAs to allow traffic intended for the web tier application subnet to be received by the VM through the inbound NVA subnet. If you are creating your own VMs manually, you can use the following command to enable IP forwarding for a NIC:
 
 ```powershell
 azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
 ```
 
-Configure the NVA to inspect all requests intended for the web tier application subnet, and permit traffic to pass through only if it is appropriate to do so. The steps for performing this task will vary, depending on the NVA and your security requirements.
+Configure the NVA to inspect all requests intended for the web tier application subnet, and permit traffic to pass through only if it is appropriate to do so. This will most likely involve installing additional services and software on the NVA. The steps for performing this task will vary depending on the NVA and your security requirements.
 
 > [AZURE.NOTE] BY default, the sample configuration created by the templates does not include routing in the NVA. For a simple configuration that you can use for testing, on each NVA VM install the Microsoft Routing and Remote Access Service (RRAS), enable routing, and add a static route for traffic intended for the web tier to network interface *Ethernet 2* (inbound requests arrive on network interface *Ethernet*).
 
@@ -234,9 +234,8 @@ Do not expose this subnet to the outside world. For example, do not create a pub
 Do not force DevOps requests through the NVA; the UDR that intercepts application traffic and redirects it to the NVA should not capture traffic for the management subnet. This is to help prevent lockout, where a poorly configured NVA blocks all administrative requests, making it impossible for DevOps staff to reconfigure the system.
 
 ## Solution components
-<!-- [TELMO] This topic will describe how each component, or set of components for this architecture will be configured, from a ARM template or script perspective. We will fill these in next week.  -->
 
-**TBD**
+The sample solution provided for this architecture includes an Azure Resource Manager [template][template].
 
 ## Availability
 
@@ -330,3 +329,4 @@ To use the script below, execute the following steps:
 [vpn-failover]: ../guidance-hybrid-network-expressroute-vpn-failover.md
 [wireshark]: https://www.wireshark.org/
 [rbac-recommendations]: #rbac_recommendations
+[template]: 
