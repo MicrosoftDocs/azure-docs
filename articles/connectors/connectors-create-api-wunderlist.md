@@ -88,6 +88,10 @@ To create Logic apps with Wunderlist, you must first create a **connection** the
 |Token|Yes|Provide Wunderlist Credentials|
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
 
+
+>[AZURE.INCLUDE [Steps to create a connection to Wunderlist](../../includes/connectors-create-api-wunderlist.md)] 
+
+
 >[AZURE.TIP] You can use this connection in other logic apps.
 
 ## Reference for Wunderlist
