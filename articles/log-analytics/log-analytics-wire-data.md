@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="05/12/2016"
 	ms.author="banders"/>
 
 # Wire Data solution in Log Analytics
 
 Wire data is consolidated network and performance data from computers with OMS agents, including Operations Manager and Windows-connected agents. Network data is combined with your log data to help you correlate data. OMS agents installed on computers in your IT infrastructure monitor network data sent to and from those computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model) including the various protocols and ports used.
 
->[AZURE.NOTE] The Wire Data solution is not currently available to be added to workspaces. Customers who already have the Wire Data solution enabled can continue to use the Wire Data solution. 
+>[AZURE.NOTE] The Wire Data solution is not currently available to be added to workspaces. Customers who already have the Wire Data solution enabled can continue to use the Wire Data solution.
 
 By default, OMS collects logged data for CPU, memory, disk, and network performance data from counters built into Windows. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer. You can add other performance counters on the Settings page on the Logs tab.
 
@@ -51,6 +51,7 @@ In contrast, you don’t have complete visibility of what occurs on the network 
 Use the following information to install and configure the solution.
 
 - The Wire Data solution acquires data from computers running Windows Server 2012 R2, Windows 8.1, and later operating systems.
+- Microsoft .NET Framework 4.0 or later is required on computers where you want to acquire wire data from.
 - Add the Wire Data solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 - If you want to view wire data for a specific solution, you'll need to have the solution already added to your OMS workspace.
 
