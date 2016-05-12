@@ -163,7 +163,7 @@ In the above message, there are several issues that are interesting:
 Configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your threadpool will scale up quickly under burst scenarios.
 
 
-## High client CPU usage
+### High client CPU usage
 
 #### Problem
 
@@ -179,7 +179,7 @@ Upgrade to a larger VM size with more CPU capacity or investigate what is causin
 
 
 
-#### Client side bandwidth exceeded
+### Client side bandwidth exceeded
 
 #### Problem
 
@@ -194,7 +194,7 @@ Monitor how your Bandwidth usage change over time using code [like this](https:/
 Increase Client VM size or reduce network bandwidth consumption.
 
 
-## Large Request/Response Size
+### Large Request/Response Size
 
 #### Problem
 
@@ -230,7 +230,7 @@ This section discusses troubleshooting issues that occur because of a condition 
 -	[High CPU usage / Server Load](#high-cpu-usage-server-load)
 -	[Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded)
 
-## Memory Pressure on the server
+### Memory Pressure on the server
 
 #### Problem
 
@@ -252,7 +252,7 @@ There are several possible changes that you can make to help keep memory usage h
 3. Break up your large cached objects into smaller related objects.
 4. Upgrade to a larger cache size.
 
-## High CPU usage / Server Load
+### High CPU usage / Server Load
 
 #### Problem
 
@@ -266,7 +266,7 @@ Monitor the System Wide CPU usage through the azure portal or through the associ
 
 Upgrade to a larger VM size with more CPU capacity or investigate what is causing CPU spikes. 
 
-## Server Side Bandwidth Exceeded
+### Server Side Bandwidth Exceeded
 
 #### Problem
 
@@ -281,7 +281,7 @@ You can monitor the `Cache Read` metric, which is the amount of data read from t
 If you are consistently near the observed maximum bandwidth for your pricing tier and cache size, consider moving to a pricing tier or size that has greater network bandwidth, using the values n [this table](cache-faq.md#cache-performance) as a guide.
 
 
-##Running Expensive Operations/Scripts
+### Running Expensive Operations/Scripts
 
 `Problem:` [See SLOWLOG](http://redis.io/commands/slowlog). More coming soon...
 
