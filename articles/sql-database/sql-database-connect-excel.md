@@ -22,7 +22,7 @@
 # SQL Database tutorial: Connect Excel to an Azure SQL database and create a report
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-database-connect-query.md)
+- [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
