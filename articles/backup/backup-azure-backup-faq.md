@@ -258,15 +258,15 @@ A1. Go sequentially through the bullet list below to change the cache location.
   
 **Q2. Where can I put the cache-folder for the Azure Backup Agent to work as expected?**<br/>
 A2. The following locations for the cache-folder are not recommended:
-+	Network share or Removable Media: The cache-folder must be local to the server to be backed up using online backup. Network locations or removable media like USB drives are not supported.
-+ Offline Volumes: The cache-folder must be online for expected backup using Azure Backup Agent.
+- Network share or Removable Media: The cache-folder must be local to the server to be backed up using online backup. Network locations or removable media like USB drives are not supported.
+- Offline Volumes: The cache-folder must be online for expected backup using Azure Backup Agent.
 
 **Q3. Are there any attributes of the cache-folder that are not supported?**<br/>
 A3. The following attributes or their combinations are not supported for the cache-folder:
-+ Encrypted
-+ De-duplicated
-+ Compressed
-+ Sparse
-+ Reparse-Point
+- Encrypted
+- De-duplicated
+- Compressed
+- Sparse
+- Reparse-Point
 
 It is recommended that neither the cache-folder nor the metadata VHD have the attributes above for the expected functioning of the Azure Backup Agent.
