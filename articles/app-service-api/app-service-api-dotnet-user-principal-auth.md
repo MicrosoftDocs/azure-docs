@@ -71,9 +71,9 @@ To make authenticated API calls, the caller includes the authentication provider
 
 ## <a id="tutorialstart"></a> Continuing the .NET API Apps tutorials
 
-If you are following the Node.js or Java getting-started series for API apps, skip to the next article, [service principal authentication for API apps](app-service-api-dotnet-service-principal-auth.md). 
+If you are following the Node.js or Java tutorials for API apps, skip to the next article, [service principal authentication for API apps](app-service-api-dotnet-service-principal-auth.md). 
 
-If you are following the .NET getting-started series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Set up authentication in App Service and Azure AD](#azureauth) section.
+If you are following the .NET tutorial series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Set up authentication in App Service and Azure AD](#azureauth) section.
 
 If you want to follow this tutorial without going through the first and second tutorials, do the following steps:
 

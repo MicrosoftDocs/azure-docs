@@ -94,7 +94,7 @@ If you don't validate claims in code in the protected API app, and if you use a 
 
 ## <a id="tutorialstart"></a> Continuing the .NET API Apps tutorial series
 
-If you are following the Node.js or Java getting-started series for API apps, skip to the [Next steps](#next-steps) section. 
+If you are following the Node.js or Java tutorial series for API apps, skip to the [Next steps](#next-steps) section. 
 
 The remainder of this article continues the .NET API Apps tutorial series and assumes that you have completed the [user authentication tutorial](app-service-api-dotnet-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
 
