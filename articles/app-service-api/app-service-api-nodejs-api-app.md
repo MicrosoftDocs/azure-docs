@@ -317,4 +317,4 @@ Now that you have continuous delivery wired up, you can make code changes and de
 
 ## Next steps
 
-At this point you've successfully created and deployed your first API App using Node.js. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
+At this point you've successfully created and deployed your first API App using Node.js. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md). Later tutorials in the series show how to implement authentication and authorization.
