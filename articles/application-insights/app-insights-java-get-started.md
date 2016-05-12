@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="05/12/2016"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -214,35 +214,38 @@ Either run it in debug mode on your development machine, or publish to your serv
 
 ## 6. View your telemetry in Application Insights
 
+
 Return to your Application Insights resource in [Microsoft Azure Portal](https://portal.azure.com).
 
 HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
+[Learn more about metrics.][metrics]
 
-Click through any chart to see more detailed metrics.
+Click through any chart to see more detailed aggregated metrics.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
+> Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` will be grouped into `GET Home/Product`. This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 
 
-And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
+### Instance data 
+
+Click through a specific request type to see individual instances. 
+
+Two kinds of data are displayed in Application Insights: aggregated data, stored and displayed as averages, counts, and sums; and instance data - individual reports of HTTP requests, exceptions, page views, or custom events.
+
+When viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
+### Analytics: Powerful query language
 
-[Learn more about metrics.][metrics]
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics]() is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
-#### Smart address name calculation
-
-Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`
-
-
-For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` will be grouped into `GET Home/Product`.
-
-This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
+![Example of Analytics](./media/app-insights-asp-net/025.png)
 
 
 ## 5. Install your app on the server
