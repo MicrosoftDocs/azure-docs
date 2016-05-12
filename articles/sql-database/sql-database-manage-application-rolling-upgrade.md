@@ -28,12 +28,12 @@ Learn how to use [geo-replication](sql-database-geo-replication-overview.md) in 
 When evaluating the upgrade options you should consider the following factors:
 
 + Impact on application availability during upgrade. How long the application function may be limited or degraded.
-+ Vulnerability of the application during upgrade if an unrelated failure occurs 
-+ Ability to roll back in case of any errors during upgrade.
++ Vulnerability of the application if an unrelated catastrophic failure occurs during the upgrade.
++ Ability to roll back in case of any errors during the upgrade.
 + Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
 
 
-## Upgrade pattern 1: Upgrading applications that rely on database backups for disaster recovery 
+## Upgrading applications that rely on database backups for disaster recovery 
 
 If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.azurewebsites.net</i> represents a production slot of the application that needs to be upgraded. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
 
@@ -72,7 +72,7 @@ At this point the application is fully functional and the upgrade steps could be
 
 The key **advantage** of this option is that you can upgrade a application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.   
 
-## Upgrade pattern 2: Upgrading applications that rely on database geo-replication for disaster recovery
+## Upgrading applications that rely on database geo-replication for disaster recovery
 
 If your application leverages geo-replication for business continuity, it is deployed  to at least two different regions with an active deployment Primary region and a standby deployment in backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
 
