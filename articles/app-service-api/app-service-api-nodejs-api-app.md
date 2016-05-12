@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and deploy it to an [API app](app-service-api-apps-why-best-platform.md) in 
-[Azure App Service](../app-service/app-service-value-prop-what-is.md). You can use any operating system that can run Node.js, and you'll do all your work using command line tools such as cmd.exe or bash.
+[Azure App Service](../app-service/app-service-value-prop-what-is.md) by using [Git](http://git-scm.com). You can use any operating system that can run Node.js, and you'll do all your work using command line tools such as cmd.exe or bash.
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 
 ## Scaffold Node.js code based on Swagger metadata
 
-[Swagger](http://swagger.io/) is a JSON file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md). In this part of the tutorial, you scaffold server code for a sample API based on a Swagger metadata file. 
+[Swagger](http://swagger.io/) is a file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md). This tutorial models an API development workflow that proceeds by creating the Swagger metadata first and using that to scaffold server code for the API. In this part of the tutorial, you learn how to scaffold Node.js server code based on a Swagger metadata file. 
 
->[AZURE.NOTE] If you don't want to learn how to scaffold a Swagger file, you can do only the tutorial steps that deploy sample code to a new API app. Skip ahead directly to the [Create an API app in Azure](#createapiapp) section. 
+>[AZURE.NOTE] If you don't want to go through the scaffolding steps, you can just deploy sample code to a new API app by going directly to the [Create an API app in Azure](#createapiapp) section.
 
 1. Execute the following commands to install the **yo** and **generator-swaggerize** NPM modules globally.
 
