@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Live streaming with on-premise encoders that create multi-bitrate streams" 
-	description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
+	pageTitle="Overview of Live Steaming using Azure Media Services" 
+	description="This topic gives an overview of live steaming using Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -14,9 +14,9 @@
 	ms.devlang="ne" 
 	ms.topic="article" 
 	ms.date="05/03/2016"
-	ms.author="cenkdin;juliako"/>
+	ms.author="juliako"/>
 
-#Live streaming with on-premise encoders that create multi-bitrate streams
+#Overview of Live Steaming using Azure Media Services
 
 ##Overview
 
