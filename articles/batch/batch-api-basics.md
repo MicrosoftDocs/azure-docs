@@ -130,7 +130,7 @@ A task is a unit of computation that is associated with a job and runs on a node
 
 - The application specified in the **command line** of the task.
 
-- **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in an Azure Storage account. For more information, see [Files and directories](#files) below.
+- **Resource files** that contain the data to be processed. These files are automatically copied to the node from blob storage in a **General purpose** Azure Storage account. For more information, see [Start task](#start-task) and [Files and directories](#files) below.
 
 - The **environment variables** that are required by the application. For more information, see [Environment settings for tasks](#environment) below.
 

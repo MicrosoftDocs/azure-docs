@@ -50,7 +50,7 @@ The [Azure portal][azure_portal] provides you with the tools you need to create 
 
 	d. **Location** -- Select an Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group will be displayed as options.
 
-    e. **Storage Account** (optional) -- You can associate (link) a storage account to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch will use the linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
+    e. **Storage Account** (optional) -- You can associate (link) a **General purpose** storage account to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch will use the linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
 
      > [AZURE.TIP] Regenerating keys in a linked Storage account requires special considerations. See [Considerations for Batch accounts](#considerations-for-batch-accounts) below for more details.
 
