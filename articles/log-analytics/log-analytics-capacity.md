@@ -36,7 +36,7 @@ The capacity planning solution is in the process of being updated to address the
 Benefits of the new capacity solution:
 
 - Support granular data collection with improved reliability and accuracy
-- Support for Hyper-V without requring VMM
+- Support for Hyper-V without requiring VMM
 - Visualization of metrics in PowerBI
 - Insights on VM level utilization
 
