@@ -85,9 +85,6 @@ After you create the connection, you can use it to execute the actions and liste
 
 >[AZURE.TIP] You can use this connection in other logic apps.  
 
-## Example use
->[AZURE.INCLUDE [Outlook and Wunderlist example](../../includes/connectors-create-api-outlook-example.md)]
-
 ## Reference for Outlook.com
 Applies to version: 1.0
 
