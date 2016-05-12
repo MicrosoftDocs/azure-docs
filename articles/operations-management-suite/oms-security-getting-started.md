@@ -1,19 +1,19 @@
 <properties
    pageTitle="Getting started with Operations Management Suite Security and Audit Solution | Microsoft Azure"
    description="This document helps you to get started with Operations Management Suite Security and Audit solution capabilities."
-   services="log-analytics"
+   services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor=""/>
 
 <tags
-   ms.service="log-analytics"
+   ms.service="operations-management-suite"
    ms.topic="article" 
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="05/11/2016"
    ms.author="yurid"/>
  
 # Getting started with Operations Management Suite Security and Audit Solution
