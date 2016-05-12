@@ -37,6 +37,7 @@ If you have created an OMS workspace, but not yet linked it to an Azure subscrip
 ## Create a Log Analytics Workspace, add solutions and saved searches
 
 The following script sample illustrates how to:
+
 1.	Create a Workspace
 2.	List the available solutions
 3.	Add solutions to the workspace
@@ -109,6 +110,7 @@ For agentless monitoring of Azure resources, including as web and worker roles, 
 You can also use PowerShell to configure a Log Analytics workspace in one Azure subscription to collect logs from different Azure subscriptions.
 
 The following example shows how to:
+
 1.	List the existing storage accounts and locations that Log Analytics will index data from
 2.	Create a new configuration to read from a storage account
 3.	Update the newly created configuration to index data from additional locations
