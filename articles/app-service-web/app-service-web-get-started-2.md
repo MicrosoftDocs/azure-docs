@@ -38,7 +38,7 @@ pricing tier.
 ## Authenticate your users
 
 Now, let's see how easy it is to add authentication to your app (see 
-[App Service Authentication/Authorization](https://azure.microsoft.com/en-us/blog/announcing-app-service-authentication-authorization/)
+[App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
 for more information).
 
 1. In the portal blade for your app, which you just opened, click **Settings** > **Authentication / Authorization**.  

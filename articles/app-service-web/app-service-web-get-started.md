@@ -52,7 +52,7 @@ Let's deploy a web app to Azure App Service.
 1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI 
 are installed on your machine. 
 
-    ![Test installation of CLI tools](./media/app-service-web-get-started/1-test-tools.png)
+    ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools.png)
 
     If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
 
@@ -60,7 +60,7 @@ are installed on your machine.
 
         git clone <github_sample_url>
 
-    ![Clone the app sample](./media/app-service-web-get-started/2-clone-sample.png)
+    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started/2-clone-sample.png)
 
     For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework you like: 
 
@@ -81,13 +81,13 @@ are installed on your machine.
     
     Follow the help message to continue the login process.
     
-    ![Log in to Azure](./media/app-service-web-get-started/3-azure-login.png)
+    ![Log in to Azure to create your first web app](./media/app-service-web-get-started/3-azure-login.png)
 
 4. Create the App Service app resource in Azure with a unique app name with the next command. When prompted, specify the number of the desired region.
 
         azure site create --git <app_name>
     
-    ![Create Azure app](./media/app-service-web-get-started/4-create-site.png)
+    ![Create the Azure resource for your first web app in Azure](./media/app-service-web-get-started/4-create-site.png)
     
     >[AZURE.NOTE] If you've never set up deployment credentials for your Azure subscription, you'll be prompted to create them. These credentials, not your
     Azure account credentials, are used by App Service only for Git deployments and FTP logins. 
@@ -98,10 +98,11 @@ are installed on your machine.
 4. Now, deploy your sample code to the new App Service app like you would push any code with Git:
 
         git push azure master 
+
+    ![Push code to your first web app in Azure](./media/app-service-web-get-started/5-push-code.png)    
     
-    >[AZURE.NOTE] You'll be asked for your deployment password. If you're new to App Service, give the deployment password you just created and you're on your way.
-    
-    `git push` not only puts code in Azure, but also triggers deployment tasks in the deployment engine. If you have any package.json 
+    If you used one of the language frameworks, you will see different output than shown above. This is because `git push` not only puts code in Azure, but also triggers deployment tasks 
+    in the deployment engine. If you have any package.json 
     (Node.js) or requirements.txt (Python) in your project (repository) root, or if you have a packages.config in your ASP.NET project, the deployment 
     scripts restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
     in your PHP app.
@@ -134,10 +135,10 @@ Now, let's go to the Azure portal to see what you created:
 
 3. Click the app that you just created to open its page in the portal (called a [blade](../azure-portal-overview.md)). The **Settings** blade is also opened by default for your convenience.
 
-    ![Portal view of first app in Azure App Service](./media/app-service-web-get-started/portal-view.png) 
+    ![Portal view of your first web app in Azure](./media/app-service-web-get-started/portal-view.png) 
 
 The portal blade of your App Service app surfaces a rich set of settings and tools for you to configure, monitor, and secure, and troubleshoot your app. Take a moment to 
-familiarize yourself with this interface by performing some simple tasks:
+familiarize yourself with this interface by performing some simple tasks (the number of the task corresponds to the number in the screenshot):
 
 1. stop the app
 2. restart the app
@@ -150,4 +151,4 @@ familiarize yourself with this interface by performing some simple tasks:
 - Take your Azure app to the next level. Secure it with authentication. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
 [Add functionality to your first web app](app-service-web-get-started-2.md).
 - Apart from Git and Azure CLI, there are other ways to deploy web apps to Azure (see [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md)).
-Find development and deployment steps specific to your language framework by selecting your framework at the top of the article.
+Find the preferred development and deployment steps for your language framework by selecting your framework at the top of the article.
