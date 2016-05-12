@@ -29,6 +29,11 @@
 
 Learn how to use the Azure Data Lake Store Java SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake, see [Azure Data Lake Store](data-lake-store-overview.md).
 
+## Azure Data Lake Store Java SDK
+
+* The source code for the Java SDK for Data Lake Store is available on [GitHub](https://github.com/Azure/azure-sdk-for-java).
+* Java SDK Reference for Data Lake Store is available at [https://azure.github.io/azure-sdk-for-java/](https://azure.github.io/azure-sdk-for-java/).
+
 ## Prerequisites
 
 * Java Development Kit (JDK) 8 (using Java version 1.8).
@@ -296,10 +301,6 @@ You will need to give your application permission to create resources in Azure f
 
 
 6. Run the application. Follow the prompts to run and complete the application.
-
-## Source code for the Java SDK
-
-The source code for the Java SDK for Data Lake Store is available on [GitHub](https://github.com/Azure/azure-sdk-for-java).
 
 ## Next steps
 
