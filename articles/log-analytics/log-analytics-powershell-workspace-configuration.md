@@ -140,5 +140,5 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 ## Next steps
 
-- [Review Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/en-us/library/mt188224.aspx) for additional information on using PowerShell for configuration of Log Analytics.
+- [Review Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/library/mt188224.aspx) for additional information on using PowerShell for configuration of Log Analytics.
 
