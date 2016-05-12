@@ -18,6 +18,11 @@
 
 
 # Troubleshoot Azure virtual machine backup
+
+> [AZURE.SELECTOR]
+- [Recovery services vault](backup-azure-vms-troubleshoot.md)
+- [Backup vault](backup-azure-vms-troubleshoot-classic.md)
+
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
 ## Discovery
