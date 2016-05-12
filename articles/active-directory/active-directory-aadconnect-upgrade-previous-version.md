@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/14/2016"
+   ms.date="05/12/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Upgrade from a previous version to the latest
@@ -34,7 +34,7 @@ For required permissions, see [permissions required for upgrade](active-director
 ## In-place upgrade
 An in-place upgrade will work for moving from Azure AD Sync or Azure AD Connect. It will not work for DirSync or for a solution with FIM + Azure AD Connector.
 
-This method is preferred if you have a single server and less than about 100,000 objects. After the upgrade, a full import and full synchronization will occur. This will ensure that the new configuration will be applied to all existing objects in the system. This might take a few hours depending on the number of objects in scope of the sync engine. The normal delta synchronization scheduled, by default every 30 minutes, is suspended but password synchronization will continue. You might consider to do the in-place upgrade during a weekend.
+This method is preferred if you have a single server and less than about 100,000 objects. After the upgrade, a full import and full synchronization will occur if there are any changes to the out-of-box sync rules. This will ensure that the new configuration will be applied to all existing objects in the system. This might take a few hours depending on the number of objects in scope of the sync engine. The normal delta synchronization scheduled, by default every 30 minutes, is suspended but password synchronization will continue. You might consider to do the in-place upgrade during a weekend. If there are no changes to the out-of-box configuration with the new Azure AD Connect release, then a normal delta import/sync will start instead.  
 
 ![In-Place Upgrade](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 

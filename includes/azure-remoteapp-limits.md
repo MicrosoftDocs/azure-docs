@@ -7,13 +7,13 @@
 |Trial collections| 2 per subscription|
 |Users per trial collection| 10|
 |Trial template images|	25|
-|Paid collections| 3 (you can request an increase)|
+|Paid collections| 3 |
 |Paid template images| 25|
 |Users - basic tier*| 400 (default)/ 800 (maximum)|
 |Users - standard tier*| 250 (default)/ 500 (maximum)|
-|Users- premium tier| 100 default. You can request an increase.|
-|Users - premium plus tier | 50 default. You can request an increase.|
-|Concurrent connections across all collections in a subscription| 5000 (you can request an increase)|
+|Users- premium tier| 100 default.|
+|Users - premium plus tier | 50 default.|
+|Concurrent connections across all collections in a subscription| 5000|
 |User data storage (UPD) per user per collection| 50 GB|
 |Idle timeout| 4 hours|
 |Disconnected timeout| 4 hours|
@@ -26,5 +26,3 @@ The number of users is determined by the number of VMs used for your collection:
 - Standard = 10 users per VM
 - Premium = 4 users per VM
 - Premium plus = 2 users per VM
-
-To request an increase for number of paid collections or concurrent connections, send an email to [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) with details of what you need, including your subscription ID. 

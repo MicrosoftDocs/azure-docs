@@ -23,7 +23,7 @@
 
 ## Overview
 
-In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media. Once a video has been encoded it can be placed into different file containers. The process of placing encoded media into a container is called packaging. For example, you can take an MP4 file and convert it into Smooth Streaming or HLS content by using the Azure Media Packager. For more information, see [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media. Once a video has been encoded it can be placed into different file containers. The process of placing encoded media into a container is called packaging. For example, you can take an MP4 file and convert it into Smooth Streaming or HLS content by using the Azure Media Packager. 
 
 Media Services supports dynamic and static packaging. When using static packaging you need to create a copy of your content in each format required by your customers. With dynamic packaging all you need is to create an asset that contains a set of adaptive bitrate MP4 or Smooth Streaming files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that your users receive the stream in the protocol they have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
@@ -98,7 +98,7 @@ The following code sample uses Azure Media Services .NET SDK Extensions.  Make s
 	            Path.Combine(_mediaFiles, @"MultibitrateMP4Files");
 	
 	        // XML Configruation files path.
-	        private static readonly string _configurationXMLFiles = @"../..\Configurations\";
+	        private static readonly string _configurationXMLFiles = @"../..\Configurations";
 	
 	        private static MediaServicesCredentials _cachedCredentials = null;
 	        private static CloudMediaContext _context = null;

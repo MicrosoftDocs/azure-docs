@@ -71,7 +71,7 @@ After the VM is provisioned and running, you might want to attach and mount a da
 
 7. Stop the VM which you already deprovisioned by using the following command:
 
-	`azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. Generalize the VM with the following command:
 
