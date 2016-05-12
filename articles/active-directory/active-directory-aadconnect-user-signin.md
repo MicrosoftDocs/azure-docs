@@ -72,7 +72,7 @@ If you have already configured cloud sign on using an earlier version of AD FS (
 
 In Active Directory, the default UPN suffix is the DNS name of the domain in which user account created. In most cases, this is the domain name registered as the enterprise domain on the Internet. However, you can add more UPN suffixes using Active Directory Domains and Trusts.
 
-The UPN of the user is of the format username@domain, for e.g. for an active directory contoso.com user John might have UPN john@contoso.com. The UPN of the user is based on RFC 822. Although UPN and email share the same format, the value of UPN for a user may or may not be equal to the email address of the user.
+The UPN of the user is of the format username@domai. For example, for an active directory contoso.com user John might have UPN john@contoso.com. The UPN of the user is based on RFC 822. Although UPN and email share the same format, the value of UPN for a user may or may not be equal to the email address of the user.
 
 ### User principal name in Azure AD
 
@@ -105,17 +105,17 @@ UserPrincipalName - The attribute userPrincipalName is the attribute users will 
 #### Different custom domain states and effect on Azure sign-in experience
 It is very important to understand the relationship between the custom domain states in your Azure AD directory and the UPN suffixes defined on-premises. Let us go through the different possible Azure sign-in experiences when you are setting up sycnhronization using Azure AD Connnect.
 
-For the information below, let us assume that we are concerned with the UPN suffix contoso.com which is used in the on-premises directory as part of UPN, for e.g. user@contoso.com.
+For the information below, let us assume that we are concerned with the UPN suffix contoso.com which is used in the on-premises directory as part of UPN, for example user@contoso.com.
 
 ###### Express Settings / Password Synchronization
 | State         | Effect on user Azure sign-in experience |
 |:-------------:|:----------------------------------------|
-| Not added | In this case no custom domain for contoso.com has been added in Azure AD directory. Users who have UPN on-premises with suffix @contoso.com, will not be able to use their on-premises UPN to sign-in to Azure. They will instead have to use a new UPN provided to them by Azure AD by adding the suffix for default Azure AD directory. For e.g. if you are syncing users to Azure AD directory azurecontoso.onmicrosoft.com then the on-premises user user@contoso.com will be given a UPN of user@azurecontoso.onmicrosoft.com|
+| Not added | In this case no custom domain for contoso.com has been added in Azure AD directory. Users who have UPN on-premises with suffix @contoso.com, will not be able to use their on-premises UPN to sign-in to Azure. They will instead have to use a new UPN provided to them by Azure AD by adding the suffix for default Azure AD directory. For example, if you are syncing users to Azure AD directory azurecontoso.onmicrosoft.com then the on-premises user user@contoso.com will be given a UPN of user@azurecontoso.onmicrosoft.com|
 | Not verified | In this case we have a custom domain contoso.com added in Azure AD directory, however it is not yet verified. If you go ahead with syncing users without verifying the domain, then the users will be assigned a new UPN by Azure AD just like it did in the 'Not added' scenario.|
 | Verified | In this case we have a custom domain contoso.com already added and verified in Azure AD for the UPN suffix. Users will be able to use their on-premises user principal name, e.g. user@contoso.com, to sign-in to Azure after they are synced to Azure AD|
 
 ###### AD FS Federation
-You cannot create a federation with the default .onmcirosoft.com domain in Azure AD, or an unverified custom domain in Azure AD. When you are running the Azure AD Connect wizard, if you select an unverified domain to create a federation with then Azure AD Connect will prompt you with necessary records to be created where your DNS is hosted for the domain. For more information see [here](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
+You cannot create a federation with the default .onmicrosoft.com domain in Azure AD, or an unverified custom domain in Azure AD. When you are running the Azure AD Connect wizard, if you select an unverified domain to create a federation with then Azure AD Connect will prompt you with necessary records to be created where your DNS is hosted for the domain. For more information see [here](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 If you selected User sign-in option as "Federation with AD FS", then you must have a custom domain to continue with creating a federation in Azure AD. For our discussion, this means that we should have a custom domain contoso.com added in Azure AD directory.
 
