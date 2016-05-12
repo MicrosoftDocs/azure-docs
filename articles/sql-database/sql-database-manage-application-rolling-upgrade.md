@@ -53,15 +53,15 @@ Once the preparation steps are completed the application is ready for the actual
 
 If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
 
-1. Switch the online endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (7). It now becomes the production slot with the V2 application and end user traffic is directed to it.  
-2. You no longer need the V1 application components so you can safely remove them (8).   
+1. Switch the online endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end user traffic is directed to it.  
+2. You no longer need the V1 application components so you can safely remove them (7).   
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
 
-1. Set the database copy to read-write mode (9). This will re-enable read-write access to the database and will make the full functionality of the web site available to the end user.
-2. Perform the root cause analysis and remove the compromised components in the stage slot (10). 
+1. Set the database copy to read-write mode (8). This will make the full functionality of the web site available to the end user.
+2. Perform the root cause analysis and remove the compromised components in the stage slot (9). 
 
 At this point the application is fully functional and the upgrade steps can be repeated.
 
@@ -99,14 +99,14 @@ Once the preparation steps are completed, the stage slot is ready for the upgrad
 
 If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
-1. Switch the active endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which now points to the V2 version of the web site (10). It now becomes a production slot with the V2 application and end user traffic is directed to it. 
+1. Switch the active endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which now points to the V2 version of the web site (9). It now becomes a production slot with the V2 application and end user traffic is directed to it. 
 2. If you no longer need the V1 application so you can safely remove it (10 and 11).  
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert to using the application in the production slot with full access. The steps involved are shown on the next diagram.    
 
-1. Set the primary database copy in the production slot to read-write mode (12). This will re-enable read-write access to the database and will make the full functionality of the web site available to the end user.
+1. Set the primary database copy in the production slot to read-write mode (12). This will make the full functionality of the web site available to the end user.
 2. Perform the root cause analysis and remove the compromised components in the stage slot (13 and 14). 
 
 At this point the application is fully functional and the upgrade steps can be repeated.
@@ -119,7 +119,7 @@ The key **advantage** of this option is that you can upgrade both the applicatio
 
 ## Summary
 
-The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines end-user impact. By focusing your efforts on making that script as efficient as possible you will improve the end user experience during the upgrades.  
+The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines the end-user experience during upgrades. So the best way you can improve it is by focusing your efforts on making the upgrade script as efficient as possible.  
 
 ## Additional resources
  The following pages will help you learn about the specific operations required to implement the upgrade workflow:
