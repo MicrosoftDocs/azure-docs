@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="04/14/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -111,7 +111,7 @@ Follow the steps in [Azure Invoicing](https://azure.microsoft.com//pricing/invoi
 
 ### How do I check the status of a payment made by credit card?
 
-If your credit card gets renewed and the number remains the same, you can simply update the details of the existing credit card, such as expiration date. If your card number changes or you would like to use a different card, you will need to add the new card. You can find instructions to update or add a credit card here: [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
+You must submit a support ticket to request assistance. To create a support ticket to check the status of a payment made by credit card see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 
 ### How do I get a copy of my invoice?
 
@@ -123,7 +123,7 @@ You must submit a support ticket to request assistance. To create a support tick
 
 ### How can I update or change my credit card information?
 
-For instructions about how to use a different credit card as a payment method, or how to add a new credit card see [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
+If your credit card gets renewed and the number remains the same, you can simply update the details of the existing credit card, such as expiration date. If your card number changes or you’d like to use a different card, you’ll need to add the new card. You can find instructions to update or add a credit card here: [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 
 ### How do we know in advance about service downtime for planned maintenance?
 
