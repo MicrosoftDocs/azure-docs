@@ -249,8 +249,8 @@ of activity then I/O requests may be throttled. To help prevent this, tune your 
 document size in Elasticsearch against the volume of requests likely to be received by each disk.
 
 Disks based on standard storage support a maximum request rate of 500 IOPS whereas disks based on premium
-storage can operate at up to 5,000 IOPS. Premium storage disks are only available for the DS and GS
-series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](virtual-machines-linux-sizes/).
+storage can operate at up to 5,000 IOPS, depending on data disks sizes. Premium storage disks are only available for the DS and GS
+series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](virtual-machines-linux-sizes/). Consider that performance on premium storage will be determined also by the VM size together with disk size allocation. Premium storage performance is documented (storage-premium-storage/)
 
 **Persistent Data Disks**
 
