@@ -127,11 +127,11 @@ We’re excited about new features and solutions and we love working with you to
 Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with a service that is under development and be aware that:
 
 - During private preview we expect you to provide us with feedback on your experience so that we can make the feature/solution better
-  - Examples of how we collect feedback are surveys, phone calls and e-mail
-- Things may not always work correctly. This is especially true during private preview but also applies to public preview. 
+  - We may contact you for feedback using surveys, phone calls or e-mail
+- Things may not always work correctly. This is especially true during private preview but also applies to public preview 
   - Issues can range from being a minor annoyance through to the feature not working at all, or potentially having a negative impact on your systems / environment
   - Data loss / corruption may occur
-  - We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur. 
+  - We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur 
 - We may ask you to collect diagnostic logs or other data to help troubleshoot issues
 - The feature or solution may be removed (either temporarily or permanently)
   - Based on our learnings during the preview we may decide to not release the feature or solution
@@ -139,12 +139,12 @@ Preview features and solutions aren’t right for everyone though, so before ask
   - Before blogging, tweeting or otherwise communicating with third parties please check with the Program Manager responsible for the preview to understand any restrictions on disclosure  
 - Private previews should not be run on production / critical systems
 - Public previews may not be appropriate for your production / critical systems
-- Previews may not work or have been tested with all configurations, this may include:
-  - Limitations on the operating systems that can be used
-  - Limitations on the type of agent (MMA, SCOM) that can be used 
+- Previews may not work or may not have been tested with all configurations, and we may limit:
+  - The operating systems that can be used (e.g. a feature may only apply to Linux while in preview)
+  - The type of agent (MMA, SCOM) that can be used (e.g. a feature may not work with SCOM while in preview)  
 - Preview solutions and features are not covered by the Service Level Agreement
 - Usage of preview features will incur usage charges
-- Features / capabilities that you need for the feature or solution to be useful may be missing or incomplete
+- Features or capabilities that you need for the feature / solution to be useful may be missing or incomplete
 - Features / solutions may not be available in all regions
 - Features / solutions may not be localized
 - Features / solutions may have a limit on the number of customers or devices that can use it
