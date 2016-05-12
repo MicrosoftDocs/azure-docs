@@ -124,21 +124,22 @@ During the public preview, we make the feature or solution available for all use
 
 We’re excited about new features and solutions and we love working with you to develop them.
 
-Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with a service that is under development and be aware that:
+Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with something that is under development. 
 
-- During private preview we expect you to provide us with feedback on your experience so that we can make the feature/solution better
-  - We may contact you for feedback using surveys, phone calls or e-mail
-- Things may not always work correctly. This is especially true during private preview but also applies to public preview 
-  - Issues can range from being a minor annoyance through to the feature not working at all, or potentially having a negative impact on your systems / environment
-  - Data loss / corruption may occur
-  - We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur 
+When enabling a preview feature through the portal you will be see a warning reminding you that the feature is in preview. 
+
+#### For both *private* and *public* preview
+
+The following applies to both public and private previews:
+
+- Things may not always work correctly. 
+  - Issues range from being a minor annoyance through to something not working at all
+- There is potential for the preview to have a negative impact on your systems / environment
+  - We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur
+- Data loss / corruption may occur
 - We may ask you to collect diagnostic logs or other data to help troubleshoot issues
 - The feature or solution may be removed (either temporarily or permanently)
   - Based on our learnings during the preview we may decide to not release the feature or solution
-- Private previews may require a Non-Disclosure Agreement (NDA) for participation or include confidential content
-  - Before blogging, tweeting or otherwise communicating with third parties please check with the Program Manager responsible for the preview to understand any restrictions on disclosure  
-- Private previews should not be run on production / critical systems
-- Public previews may not be appropriate for your production / critical systems
 - Previews may not work or may not have been tested with all configurations, and we may limit:
   - The operating systems that can be used (e.g. a feature may only apply to Linux while in preview)
   - The type of agent (MMA, SCOM) that can be used (e.g. a feature may not work with SCOM while in preview)  
@@ -150,18 +151,28 @@ Preview features and solutions aren’t right for everyone though, so before ask
 - Features / solutions may have a limit on the number of customers or devices that can use it
 - You may need to use scripts to perform configuration and to enable the solution/feature
 - The user interface (UI) will be incomplete and may change from day to day
+- Public previews may not be appropriate for your production / critical systems
 
-When enabling a preview feature through the portal you will be see a warning reminding you that the feature is in preview. 
+#### For *private* preview
+
+In addition to the items above, the following is specific to private previews:
+
+- We expect you to provide us with feedback on your experience so that we can make the feature/solution better
+- We may contact you for feedback using surveys, phone calls or e-mail
+- Things won't always work correctly
+- We may require a Non-Disclosure Agreement (NDA) for participation or may include confidential content
+  - Before blogging, tweeting or otherwise communicating with third parties please check with the Program Manager responsible for the preview to understand any restrictions on disclosure
+- Do not run on production / critical systems
 
 
 ### How do I get access to private preview features and solutions?
 
-We invite customers to private previews through several different ways depending on the preview. One of the main ways is based on the results of the monthly customer survey. Answering the survey and giving us permission to follow up with you improves your chances of being invited to a private preview.
+We invite customers to private previews through several different ways depending on the preview. 
 
-You can ask your Microsoft account team to nominate you.
-
-We also post details on twitter [msopsmgmt](https://twitter.com/msopsmgmt) and reach out through other communities – look for us at meet ups, conferences and in online communities. 
-
+- Answering the monthly customer survey and giving us permission to follow up with you improves your chances of being invited to a private preview.
+- Your Microsoft account team can nominate you.
+- You can sign up based on details posted on twitter [msopsmgmt](https://twitter.com/msopsmgmt) 
+- You can sign up based on details shared community events – look for us at meet ups, conferences and in online communities. 
 
 
 ## Next steps
