@@ -27,11 +27,10 @@ Learn how to use [geo-replication](sql-database-geo-replication-overview.md) in 
 
 When evaluating the upgrade options you should consider the following factors:
 
-+ Impact on application availability during upgrade. How long the application function may be limited or degraded.
++ Impact on application availability during upgrades. How long the application function may be limited or degraded.
++ Ability to roll back in case of an upgrade failure.
 + Vulnerability of the application if an unrelated catastrophic failure occurs during the upgrade.
-+ Ability to roll back in case of any errors during the upgrade.
 + Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
-
 
 ## Upgrading applications that rely on database backups for disaster recovery 
 
