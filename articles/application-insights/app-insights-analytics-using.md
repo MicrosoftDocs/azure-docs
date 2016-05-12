@@ -32,7 +32,7 @@
 
 From your app's home resource in Application Insights, click Analytics.
 
-![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
+![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-using/001.png)
 
 The inline tutorial will give you some ideas about what you can do.
 
