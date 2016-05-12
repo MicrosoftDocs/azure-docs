@@ -19,8 +19,9 @@
 # Replicate between on-premises Hyper-V virtual machines and Azure by using PowerShell and Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+- [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell - ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [Classic Portal](site-recovery-hyper-v-site-to-azure-classic.md)
 
 
 

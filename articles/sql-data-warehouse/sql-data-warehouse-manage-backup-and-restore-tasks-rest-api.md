@@ -59,7 +59,7 @@ To restore a deleted database
 
 >[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
-## Restore from an Azure geographical region
+## Geo-Restore a data warehouse from a geo-redundant backup
 
 To perform a geo-restore:
 

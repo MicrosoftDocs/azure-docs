@@ -32,9 +32,7 @@ When you create an application that uses Service Bus, you must add a reference t
 
 ## Get the Service Bus NuGet package
 
-The [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the necessary Service Bus dependencies. The NuGet Visual Studio extension makes it easy to install and update libraries and tools in Visual Studio and Visual Studio Express.
-
-To install the NuGet package in your application, do the following:
+The [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the necessary Service Bus dependencies. To install the NuGet package in your application, do the following:
 
 1.  In Solution Explorer, right-click **References**, then click
     **Manage NuGet Packages**.
@@ -50,14 +48,14 @@ You are now ready to write code for Service Bus.
 
 Service Bus uses a connection string to store endpoints and credentials. You can put your connection string in a configuration file, rather than hard-coding it:
 
-- When using Azure Cloud Services, it is recommended that you store your connection string using the Azure service configuration system (.csdef and .cscfg files).
+- When using Azure services, it is recommended that you store your connection string using the Azure service configuration system (.csdef and .cscfg files).
 - When using Azure websites or Azure Virtual Machines, it is recommended that you store your connection string using the .NET configuration system (for example, the Web.config file).
 
 In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method, as shown later in this article.
 
-### Configure your connection string when using Cloud Services
+### Configure your connection string
 
-The service configuration mechanism is unique to Azure projects and enables you to dynamically change configuration settings from the [Azure classic portal][] without redeploying your application. For example, add a `Setting` label to your service definition (***.csdef**) file, as shown in the next example.
+The service configuration mechanism enables you to dynamically change configuration settings from the [Azure classic portal][] without redeploying your application. For example, add a `Setting` label to your service definition (***.csdef**) file, as shown in the next example.
 
 ```
 <ServiceDefinition name="Azure1">

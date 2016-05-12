@@ -89,7 +89,7 @@ This section compares some of the fundamental queuing capabilities provided by A
 |---|---|---|
 |Ordering guarantee|**No** <br/><br>For more information, see the first note in the “Additional Information” section.</br>|**Yes - First-In-First-Out (FIFO)**<br/><br>(through the use of messaging sessions)|
 |Delivery guarantee|**At-Least-Once**|**At-Least-Once**<br/><br/>**At-Most-Once**|
-|Atomic opperation support|**No**|**Yes**<br/><br/>(through the use of send-via feature)|
+|Atomic operation support|**No**|**Yes**<br/><br/>|
 |Receive behavior|**Non-blocking**<br/><br/>(completes immediately if no new message is found)|**Blocking with/without timeout**<br/><br/>(offers long polling, or the ["Comet technique"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only)|
 |Push-style API|**No**|**Yes**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) and **OnMessage** sessions .NET API.|
 |Receive mode|**Peek & Lease**|**Peek & Lock**<br/><br/>**Receive & Delete**|
@@ -178,7 +178,7 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 |Comparison Criteria|Azure Queues|Service Bus Queues|
 |---|---|---|
 |Maximum queue size|**200 TB**<br/><br/>(limited to a single storage account capacity)|**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section)|
-|Maximum message size|**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item.|**256 KB** or **1MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the service tier.|
+|Maximum message size|**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item.|**256 KB** or **1 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md).|
 |Maximum message TTL|**7 days**|**Unlimited**|
 |Maximum number of queues|**Unlimited**|**10,000**<br/><br/>(per service namespace, can be increased)|
 |Maximum number of concurrent clients|**Unlimited**|**Unlimited**<br/><br/>(100 concurrent connection limit only applies to TCP protocol-based communication)|
@@ -191,7 +191,7 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 
 - With Azure Queues, if the content of the message is not XML-safe, then it must be **Base64** encoded. If you **Base64**-encode the message, the user payload can be up to 48 KB, instead of 64 KB.
 
-- With Service Bus queues, each message stored in a queue is comprised of two parts: a header and a body. The total size of the message cannot exceed maximum message size allowed by the service tier.
+- With Service Bus queues, each message stored in a queue is comprised of two parts: a header and a body. The total size of the message cannot exceed the maximum message size supported by the service tier.
 
 - When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, subsequent requests for additional connections will be rejected and an exception will be received by the calling code. This limit is not imposed on clients connecting to the queues using REST-based API.
 
@@ -223,7 +223,7 @@ This section compares the management features provided by Azure Queues and Servi
 
 - The Service Bus .NET brokered messaging APIs leverage full-duplex TCP connections for improved performance when compared to REST over HTTP, and they support the AMQP 1.0 standard protocol.
 
-- Azure Queues queue names can be 3-63 characters long, can contain lowercase letters, numbers, and hyphens. For more information, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- Names of Azure queues can be 3-63 characters long, can contain lowercase letters, numbers, and hyphens. For more information, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Service Bus queue names can be up to 260 characters long and have less restrictive naming rules. Service Bus queue names can contain letters, numbers, periods (.), hyphens (-), and underscores (_).
 
@@ -310,7 +310,6 @@ The following articles provide more guidance and information about using Azure Q
 - [Azure Storage Architecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Using the Queuing Service in Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
-
 
 [Azure classic portal]: http://manage.windowsazure.com
  

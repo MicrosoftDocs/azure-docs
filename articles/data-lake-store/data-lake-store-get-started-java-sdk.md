@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Java
@@ -35,7 +35,17 @@ Learn how to use the Azure Data Lake Store Java SDK to create an Azure Data Lake
 * IntelliJ or another suitable Java development environment. This is optional but recommended. The instructions below use IntelliJ.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Reply URI**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). The Reply URI and Key will also be available from the portal once you have the application created and key generated.
+* **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Direcotry - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
+	* **For interactive authentication** - In Azure Active Directory, you must create a **Native Client application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID** and **redirect URI** for the application
+		- Set delegated permissions
+
+	* **For non-interactive authentication** (used in this article) - In Azure Active Directory, you must create a **Web application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID**, **client secret**,  and **redirect URI** for the application
+		- Set delegated permissions
+		- Assign the Azure Active Directory application to a role. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group. 
+
+	See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) for instructions on how to retrieve these values, set the permissions, and assign roles.
 
 ## How do I authenticate using Azure Active Directory?
 
@@ -45,13 +55,13 @@ You will need to give your application permission to create resources in Azure f
 
 ## Create a Java aplication
 
-1. Open IntelliJ and create a new Java project using the **Command Line App** template.
+1. Open IntelliJ and create a new Java project using the **Command Line App** template. Complete the wizard to create the project.
 
 2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
 
 3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
 
-    NOTE: This step is temporary until the Azure Data Lake Store SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
+    >[AZURE.NOTE] This step is temporary until the Azure Data Lake Store SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
 
         <repositories>
         	<repository>
@@ -88,9 +98,9 @@ You will need to give your application permission to create resources in Azure f
     	</dependencies>
 
 
-4. Go to **File**, then **Settings**, then **Build**, **Execution**, **Deployment**. Select **Build Tools**, **Maven**, **Importing**. Then check **Import Maven projects automatically**.
+4. Go to **File**, then **Settings**, then **Build, Execution, and Deployment**. Expand **Build Tools**, **Maven**, and then expand **Importing**. Select the check box for **Import Maven projects automatically**. Click **Apply** and then click **OK**.
 
-5. Open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.
+5. From the left pane, navigate to **src**, **main**, **java**, **\<package name>**, and then open **Main.java** and replace the existing code block with the following code. Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.
 
     This code goes through the process of creating a Data Lake Store account, creating files in the store, concatenating files, downloading a file, and finally deleting the account.
 
@@ -286,6 +296,10 @@ You will need to give your application permission to create resources in Azure f
 
 
 6. Run the application. Follow the prompts to run and complete the application.
+
+## Source code for the Java SDK
+
+The source code for the Java SDK for Data Lake Store is available on [GitHub](https://github.com/Azure/azure-sdk-for-java).
 
 ## Next steps
 

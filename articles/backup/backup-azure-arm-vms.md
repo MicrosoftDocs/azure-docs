@@ -36,7 +36,7 @@ The back up policy associated with the Recovery Services vault, defines how ofte
 
 ![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. If you are not in the vault dashboard, see [Access a Recovery Services vault](backup-azure-arm-vms.md#access-a-recovery-services-vault). This procedure serves for running the initial backup job after you have completed all prerequisites. If the initial backup job has already been run, this procedure is not available. The associated backup policy determines the next backup job.  
+Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. This procedure serves for running the initial backup job after you have completed all prerequisites. If the initial backup job has already been run, this procedure is not available. The associated backup policy determines the next backup job.  
 
 To run the initial backup job:
 
