@@ -26,6 +26,7 @@ If you need to create mass deployments of similar Windows VMs, you should use a 
 
 
 
+<<<<<<< HEAD
 ## Before you begin
 
 Ensure that you meet the following prerequisites before you start the steps:
@@ -37,6 +38,19 @@ Ensure that you meet the following prerequisites before you start the steps:
 - You have downloaded and installed AzCopy tool. For more information about this tool, see [Transfer data with AzCopy commandline tool](../storage/storage-use-azcopy.md).
 
 - You have a resource group, a storage account, and a blob container created in that resource group to copy the VHDs to. For steps to use an existing storage account or create a new one, see [Create or find an Azure storage account](virtual-machines-windows-upload-image.md#createstorage).
+=======
+## Check these before you begin
+
+This article assumes you have:
+
+1. An **Azure virtual machine running Windows**, in the classic or the Resource Manager deployment model, with the operating system configured, data disks attached, and your required applications installed. If you need help in creating this VM, read [Create a Windows VM with Resource Manager](virtual-machines-windows-ps-create.md). 
+
+1. The **Azure PowerShell 1.0 or above** installed on your machine, and logged in to your Azure subscription. For more information, read [How to install and configure PowerShell](../powershell-install-configure.md).
+
+1. The **AzCopy tool** installed on your machine. For more information, read [Transfer data with AzCopy commandline tool](../storage/storage-use-azcopy.md).
+
+1. A **resource group** with a **storage account** and a **blob container** created in it to copy the VHDs to. Read the section [Create or find an Azure storage account](virtual-machines-windows-upload-image.md#createstorage) for steps to use an existing storage account or create a new one.
+>>>>>>> ecf83f2de85792a13f6f3c6e48ebf56b38c0bab4
 
 
 

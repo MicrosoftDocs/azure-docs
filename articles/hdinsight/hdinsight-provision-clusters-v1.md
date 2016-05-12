@@ -20,9 +20,11 @@
 
 Learn how to plan for provision HDInsight clusters.
 
-> [AZURE.WARNING] The steps in this document use the Azure classic portal, along with older versions of Azure PowerShell and the Azure CLI. Microsoft does not recommend using these steps. Instead, you should use the Azure portal and latest versions of Azure PowerShell and the Azure CLI. For a version of this document that uses the Azure Portal and latest versions of Azure PowerShell and the Azure CLI, see [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) 
+> [AZURE.IMPORTANT] The steps in this document use the Azure Classic Portal. Microsoft does not recommend using the classic portal when creating new services. For an explanation of the advantages of the Azure Portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 >
-> For an explanation of the advantages of the Azure portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+> This document also includes information on using Azure PowerShell and the Azure CLI. The snippets provided are based on commands that use Azure Service Management (ASM) to work with HDInsight and are __deprecated__. These commands will be removed by January 1, 2017.
+>
+>For a version of this document that uses the Azure portal, along with PowerShell and Azure CLI snippets that use Azure Resource Manager (ARM), see [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
 **Prerequisites:**
 

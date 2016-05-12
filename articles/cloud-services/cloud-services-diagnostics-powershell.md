@@ -4,7 +4,7 @@
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="Thraka"
-	manager=""
+	manager="timlt"
 	editor=""/>
 
 <tags

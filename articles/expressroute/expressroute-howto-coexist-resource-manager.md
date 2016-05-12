@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="05/04/2016"
    ms.author="charleywen"/>
 
 # Configure ExpressRoute and Site-to-Site coexisting connections for the Resource Manager deployment model
@@ -115,7 +115,7 @@ This procedure will walk you through creating a VNet and create Site-to-Site and
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
 		New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
 
-6. Next, create your Site-to-Site VPN gateway. For more information about the VPN gateway configuration, see [Configure a VNet to VNet connection](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). The GatewaySKU must be *Standard* or *HighPerformance*. The VpnType must *RouteBased*.
+6. <a name="vpngw"></a>Next, create your Site-to-Site VPN gateway. For more information about the VPN gateway configuration, see [Configure a VNet to VNet connection](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). The GatewaySKU must be *Standard* or *HighPerformance*. The VpnType must *RouteBased*.
 
 		$gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 		$gwIP = New-AzureRmPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
@@ -137,9 +137,11 @@ This procedure will walk you through creating a VNet and create Site-to-Site and
 
 ## <a name="add"></a>To configure coexsiting connections for an already existing VNet
 
-If you have an existing virtual network connected via either ExpressRoute or Site-to-Site VPN connection, in order to enable both connections to connect to the existing virtual network, you must first delete the existing gateway. This means your local premises will lose the connection to your virtual network over the gateway while you are working on this configuration. 
+If you have an existing virtual network, check the gateway subnet size. If the gateway subnet is /28 or /29, you must first delete the virtual network gateway and increase the gateway subnet size. The steps in this section will show you how to do that.
 
-**Before you begin configuration:** Verify that you have enough IP addresses left in your virtual network so that you can increase the gateway subnet size. Note that you will have to delete the gateway and recreate it even if you have enough IP addresses. This is because the gateway must be recreated in order to accommodate the coexisting connections.
+If the gateway subnet is /27 or larger and the virtual network is connected via ExpressRoute, you can skip the steps below and proceed to ["Step 6 - Create a Site-to-Site VPN gateway"](#vpngw) in the previous section. 
+
+>[AZURE.NOTE] When you delete the existing gateway, your local premises will lose the connection to your virtual network while you are working on this configuration. 
 
 1. You'll need to install the latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. Note that the cmdlets that you'll use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
 
@@ -149,12 +151,13 @@ If you have an existing virtual network connected via either ExpressRoute or Sit
 
 3. Delete Gateway Subnet.
 		
-		$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
+		$vnet = Get-AzureRmVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> 
 		Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
 
 4. Add a Gateway Subnet that is /27 or larger.
+	>[AZURE.NOTE] If you don't have enough IP addresses left in your virtual network to increase the gateway subnet size, you need to add more IP address space.
 
-		$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+		$vnet = Get-AzureRmVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
 		Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
 
 	Save the VNet configuration.
