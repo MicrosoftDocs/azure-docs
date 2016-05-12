@@ -158,7 +158,9 @@ When enabling a preview feature through the portal you will be see a warning rem
 
 We invite customers to private previews through several different ways depending on the preview. One of the main ways is based on the results of the monthly customer survey. Answering the survey and giving us permission to follow up with you improves your chances of being invited to a private preview.
 
-We also post details on twitter (https://twitter.com/msopsmgmt) and reach out through other communities – look for us at meet ups, conferences and in online communities. 
+You can ask your Microsoft account team to nominate you.
+
+We also post details on twitter [msopsmgmt](https://twitter.com/msopsmgmt) and reach out through other communities – look for us at meet ups, conferences and in online communities. 
 
 
 
