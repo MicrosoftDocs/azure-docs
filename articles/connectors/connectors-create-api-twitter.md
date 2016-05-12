@@ -19,7 +19,7 @@
 
 
 # Get started with the Twitter connector
-Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter API can be be used from:
+Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter connector can be be used from:
 
 - Logic apps 
 - PowerApps
@@ -37,9 +37,9 @@ With Twitter, you can:
 - Build your business flow based on the data you get from Twitter. 
 - Use triggers for when there is a new tweet.
 - Use actions to post a tweet, search tweets, and more. These actions get a response, and then make the output available for other actions. For example, when a new tweet appears, you can post this tweet on Facebook.
-- Add the Twitter API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Twitter connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+For information on how to add connector in PowerApps Enterprise, go to [Register connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,12 +51,12 @@ Trigger | Actions
 --- | ---
 <ul><li>When a new tweet appears</li></ul>| <ul><li>Post a new tweet</li><li>When a new tweet appears</li><li>Get home timeline</li><li>Get user</li><li>Get user timeline</li><li>Search tweet</li><li>Get followers</li><li>Get my followers</li><li>Get following</li><li>Get my following</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 
 ## Create the connection to Twitter
 
-When you add this API to your logic apps, you must authorize logic apps to connect to your Twitter account.
+When you add this connector to your logic apps, you must authorize logic apps to connect to your Twitter account.
 
 1. Sign in to your Twitter account.
 2. Select **Authorize**, and allow your logic apps to connect and use your Twitter account. 
