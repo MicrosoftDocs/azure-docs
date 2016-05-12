@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/12/2016"
+ms.date="05/12/2016"
 ms.author="eugenesh" />
 
 # Indexing Azure Table Storage with Azure Search
@@ -29,15 +29,16 @@ A data source specifies which data to index, credentials needed to access the da
 
 An indexer reads data from a data source and loads it into a target search index.
 
-To set up a table indexer:
+To set up table indexing:
 
 1. Create a data source of type `azuretable` that references a table (and optionally, a query) in an Azure storage account
 	- Pass in your storage account connection string as the `credentials.connectionString` parameter
 	- Specify the table name using the `container.name` parameter
 	- Optionally, specify a query using the `container.query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables.
-2. Create the indexer by connecting your data source to an existing target index (create the index if you don't already have one)
+2. Create a search index with the schema that corresponds to the columns in the table that you want to index. 
+3. Create the indexer by connecting your data source to an existing target index.
 
-The following example provides an illustration:
+### Create data source
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -50,7 +51,27 @@ The following example provides an illustration:
 	    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
 	}   
 
-Next, create an indexer that references the data source and a target index. For example:
+For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
+
+### Create index 
+
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+  		]
+	}
+
+For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+
+### Create indexer 
+
+Finally, create the indexer that references the data source and a target index. For example:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -63,7 +84,13 @@ Next, create an indexer that references the data source and a target index. For 
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
+For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
+
 That's all there is to it - happy indexing!
+
+## Dealing with different field names
+
+Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search indexer field mappings bridge the differences between data sources and search indexes](search-indexer-field-mappings.md).
 
 ## Handling document keys
 
@@ -71,11 +98,7 @@ In Azure Search, the document key uniquely identifies a document. Every search i
 
 Since table rows have a compound key, Azure Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then `Key` field's value will be `PK1RK1`. 
 
-> [AZURE.NOTE] The `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
-
-## Dealing with different field names
-
-Often, the field names in your existing index will be different from the property names in your table. You can use **field mappings** to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search Indexer Customization](search-indexers-customization.md).
+> [AZURE.NOTE] The `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also use URL-safe Base64 encoding when passing document keys in API calls such as Lookup.
 
 ## Incremental indexing and deletion detection
  
