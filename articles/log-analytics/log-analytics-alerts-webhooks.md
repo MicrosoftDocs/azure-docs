@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="05/12/2016"
    ms.author="bwren" />
 
 # Webhooks in Log Analytics alerts
@@ -63,12 +63,13 @@ In this article, we’ll walk through an example of creating a webhook action in
 9.	Click **Save** to save the alert rule.
     
 10. Wait sufficient time for an alert to be created and then check Slack for a message which will be similar to the following. 
-    ![example webhook in Slack](media/log-analytics-alerts-webhooks/oms-webhooks08.png)	
+    
+	![example webhook in Slack](media/log-analytics-alerts-webhooks/oms-webhooks08.png)	
 
 
 ### Advanced webhook payload for Slack
 
-You can extensively customize inbound messages with Slack. For more information, see [Incoming Webhooks](https://api.slack.com/incoming-webhooks) on the Slack website. Following is a more complex payload to create a rich messages with formatting:
+You can extensively customize inbound messages with Slack. For more information, see [Incoming Webhooks](https://api.slack.com/incoming-webhooks) on the Slack website. Following is a more complex payload to create a rich message with formatting:
 
 	{
 		"attachments": [
@@ -101,7 +102,11 @@ This would generate a message in Slack similar to the following.
 
 ![example message in Slack](media/log-analytics-alerts-webhooks/oms-webhooks09.png)	
 
+## Summary
 
+With this alert rule in place, you would have a message sent to Slack every time the criteria is met.  
+
+This is only one example of an action that you can create in response to an alert.  You could create a webhook action that calls another external service, a runbook action to start a runbook in Azure Automation, or an email action to send a mail to yourself or other recipients.   
 
 ## Next Steps
 

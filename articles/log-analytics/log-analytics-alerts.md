@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="05/12/2016"
    ms.author="bwren" />
 
 # Alerts in Log Analytics
@@ -50,18 +50,35 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | SearchIntervalInSeconds | #searchinterval | Time window for the alert rule. |
 | SearchIntervalStartTimeUtc  | #searchintervalstarttimeutc | Start time for the query in UTC format. |
 | SearchQuery | #searchquery | Log search query used by the alert rule. |
-| SearchResults | #searchresults | Records returned by the query in JSON format.  Limited to the first 5,000 records. |
+| SearchResults | See below | Records returned by the query in JSON format.  Limited to the first 5,000 records. |
 | WorkspaceID | #workspaceid | ID of your OMS workspace. |
+
 
 For example, you might specify the following custom payload that includes a single parameter called *text*.  The service that this webhook calls would be expecting this parameter.
 
-	{"text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue ."}
+	{
+		"text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
+	}
 
 This example payload would resolve to something like the following when sent to the webhook.
 
-	{"text":"My Alert Rule fired with 18 records over threshold of 10 ."}
+	{
+		"text":"My Alert Rule fired with 18 records over threshold of 10 ."
+	}
 
-You can walk though a complete example of creating an alert rule with a webhook to start an external service at [Log Analytics alert webhook sample](log-analytics-alerts-webhooks.md).
+To include search results in a custom payload, add the following line as a top level property in the json payload.  
+
+	"IncludeSearchResults":true
+
+For example, to create a custom payload that includes just the alert name and the search results, you could use the following. 
+
+	{
+	   "alertname":"#alertrulename",
+	   "IncludeSearchResults":true
+	}
+
+
+You can walk through a complete example of creating an alert rule with a webhook to start an external service at [Log Analytics alert webhook sample](log-analytics-alerts-webhooks.md).
 
 ### Runbook actions
 
