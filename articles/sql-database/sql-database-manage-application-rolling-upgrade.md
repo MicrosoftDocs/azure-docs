@@ -40,7 +40,7 @@ If your application relies on automatic database backups and uses geo-restore fo
 1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
 3.  Create a failover profile in WATM with <i>contoso-1.azurewebsites.net</i> as online endpoint and <i>contoso-2.azurewebsites.net</i> as offline. 
 
-> [AZURE.NOTE] The preparation steps will not impact the normal function of the web site <i>contoso-1.azurewebsites.net</i> and it can continue to operate with full access.
+> [AZURE.NOTE] Note the preparation steps will not impact the operations in the production slot and the application can function in full access mode.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
