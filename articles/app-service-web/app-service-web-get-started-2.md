@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with web apps in Azure App Service - Part 2" 
-	description="Add crucial operational capabilities to your web app in App Service in a few clicks." 
+	pageTitle="Add functionality to your first web app" 
+	description="Add cool features to your first web app in a few minutes." 
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin" 
@@ -14,33 +14,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="05/12/2016" 
 	ms.author="cephalin"
 />
 
-# Get started with Azure App Service - Part 2
+# Add functionality to your first web app
 
-In [Get started with Azure App Service](app-service-web-get-started.md), you deployed a web app to Azure App Service.
-In this article, you'll quickly add some crucial functionality to your deployed app. App Service brings enterprise-class 
-capabilities to your great app to meet the real-world demands of security, scalability, performance, management, etc.
-
-In a few clicks, you'll learn how to:
+In [Deploy a web app to Azure in 5 minutes](app-service-web-get-started.md), you deployed a sample web app to 
+[Azure App Service](../app-service/app-service-value-prop-what-is.md). In this article, you'll quickly add some 
+great functionalities to your deployed web app. In a few minutes, you will:
 
 - enforce authentication for your users
-- autoscale your app
+- scale your app automatically
 - receive alerts on the performance of your app
 
 Regardless of which sample app you deployed in the previous article, you can follow along in the tutorial.
 
+These are only three examples of the many useful features you get when you put your web app in App Service. Many of the features are 
+available in the **Free** tier (which is what your first web app is running on), and you can use your trial credits to try out features
+that require higher pricing tiers. Rest assured that your web app remains in **Free** tier unless you explicitly changes it to a different
+pricing tier.
+
 ## Authenticate your users
 
-Now, let's see how easy it is to add authentication to your app.  
+Now, let's see how easy it is to add authentication to your app (see 
+[App Service Authentication/Authorization](https://azure.microsoft.com/en-us/blog/announcing-app-service-authentication-authorization/)
+for more information).
 
 1. In the portal blade for your app, which you just opened, click **Settings** > **Authentication / Authorization**.  
     ![Authenticate - settings blade](./media/app-service-web-get-started/aad-login-settings.png)
     
 2. Click **On** to turn on authentication.  
-    ![Authenticate - turn on](./media/app-service-web-get-started/aad-login-auth-on.png)
     
 4. In **Authentication Providers**, click **Azure Active Directory**.  
     ![Authenticate - select Azure AD](./media/app-service-web-get-started/aad-login-config.png)
@@ -59,13 +63,13 @@ your default directory.
     But once it opens the app in a new tab, the URL box redirects several times and finishes on your app with an HTTPS address. What you're seeing is that
     you're already logged in to your Azure subscription, and you're automatically authenticated in the app.  
     ![Authenticate - logged in](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
-    So if you now open an unauthenticated session in a different browser, you'll see a login screen when you navigate to the same URL:  
-    ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  
+    So if you now open an unauthenticated session in a different browser, you'll see a login screen when you navigate to the same URL.  
+    <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     If you've never done anything with Azure Active Directory, your default directory might not have any Azure AD users. In that case, probably the only account
     in there is the Microsoft account with your Azure subscription. That's why you were automatically logged in to the app in the same browser earlier. 
     You can use that same Microsoft account to log in on this login page as well.
 
-Congratulations, you are authenticating all traffic to your site.
+Congratulations, you are authenticating all traffic to your web app.
 
 You may have noticed in the **Authentication / Authorization** blade that you can do a lot more, such as:
 
@@ -74,21 +78,25 @@ You may have noticed in the **Authentication / Authorization** blade that you ca
 - Change the default behavior when people first navigate to your app
 
 App Service provides a turn-key solution for some of the common authentication needs so you don't need to provide the authentication logic yourself. 
-For more information, see [App Service Authentication/Authorization](/blog/announcing-app-service-authentication-authorization/).
+For more information, see [App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
 
-## Scale your app up and out
+## Scale your app automatically based on demand
 
-Next, let's scale your app. You scale your App Service app in two ways:
+Next, let's autoscale your app so that it always has the adequate capacity to respond to user demand (see [Scale pricing tier in Azure App Service](app-service-scale) and 
+[Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md) for more information). 
 
-- [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): When you scale up an App Service app, you change the pricing
-tier of the App Service plan the app belongs to. Scaling up gives you more CPU, memory, disk space. It also gives you extra features like
-dedicated VMs, autoscaling, 99.95% availability, custom domains and certificates, deployment slots, backup, etc. 
-Higher tiers provide more features to your App Service app.  
-- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): When you scale out an App Service app, you change the number 
-of VM instances your app (or apps in the same App Service plan) runs on. With Standard tier or above, you can enable autoscaling of VM instances based
-on performance metrics. 
+Briefly, you scale your web app in two ways:
 
-Without further ado, let's set up autoscaling for your app.
+- [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features
+like dedicated VMs, custom domains and certificates, staging slots, autoscaling, and more. You scale out by changing the pricing tier of the 
+App Service plan your app belongs to.
+- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increasing the number VM instances that run your app.
+You can scale out to as many as 50 instances, depending on your pricing tier.
+
+>[AZURE.NOTE] The web app you created with Azure CLI runs in **Free** tier by default, which only allows one shared VM instance with resource quotas. For more
+information on what you get with **Free** tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
+
+Without further ado, let's set up autoscaling.
 
 1. First, let's scale up to enable autoscaling. In the portal blade of your app, click **Settings** > **Scale Up (App Service Plan)**.  
     ![Scale up - settings blade](./media/app-service-web-get-started/scale-up-settings.png)
@@ -127,7 +135,8 @@ scaling out, see [Scale instance count manually or automatically](../azure-porta
 ## Receive alerts for your app
 
 Now that your app is autoscaling, what happens when it reaches the maximum instance count (2) and CPU is above desired utilization (80%)? 
-You can set up an alert to inform you of this situation so you can further scale up your app, for example. Let's quickly set up an alert for this scenario.
+You can set up an alert (see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md) for more information) 
+to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
 
 1. In the portal blade of your app, click **Tools** > **Alerts**.  
     ![Alerts - settings blade](./media/app-service-web-get-started/alert-settings.png)
@@ -153,18 +162,27 @@ You should see that **Subscription admins** are already the **Owner** of the app
 Azure subscription (e.g. your trial subscription). For more information on Azure role-based access control, see 
 [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
+> [AZURE.NOTE] Alert rules is an Azure feature. For more information, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md). 
+
 ## Next Steps
 
 On your way to configure the alert, you may have noticed a rich set of tools in the **Tools** blade. Here, you can troubleshoot issues, 
 monitor performance, test for vulnerabilities, manage resources, interact with the VM console, and add useful extensions. We invite you to click on 
 each one of these tools to discover the simple yet powerful tools at your finger tips. 
 
-Find out how to do more with your deployed app. Here's a partial list:
+Find out how to do more with your deployed app. Here's only a partial list:
 
-- [Buy and configure a custom domain name](custom-dns-web-site-buydomains-web-app.md)
-- [Set up staging environments](web-sites-staged-publishing.md)
-- [Set up continuous deployment](web-sites-publish-source-control.md)
-- [Back up your app](web-sites-backup.md)
-- [Enable diagnostic logs](web-sites-enable-diagnostic-log.md)
-- [Access on-premises resources](web-sites-hybrid-connection-get-started.md)
+- [Buy and configure a custom domain name](custom-dns-web-site-buydomains-web-app.md) - Buy an attractive domain for your web app instead of the 
+*.azurewebsites.net domain. Or use a domain that you already have.
+- [Set up staging environments](web-sites-staged-publishing.md) - Deploy your app to a staging URL before putting it into production. Update your live
+web app with confidence. Set up an elaborate DevOps solution with multiple deployment slots. 
+- [Set up continuous deployment](web-sites-publish-source-control.md) - Integrate app deployment into your source control system. Deploy to 
+Azure with every commit.
+- [Access on-premises resources](web-sites-hybrid-connection-get-started.md) - Access an existing on-premises database or CRM system.
+- [Back up your app](web-sites-backup.md) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.
+- [Enable diagnostic logs](web-sites-enable-diagnostic-log.md) - Read the IIS logs from Azure or application traces. Read them in a 
+stream, download them, or port them into [Application Insights](../application-insights/app-insights-overview.md) for turn-key analysis.
+- [Scan your app for vulnerabilities](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
+Scan your web app against modern threats using service provided by [Tinfoil Security](https://www.tinfoilsecurity.com/).
+- [Run background jobs](../azure-functions/functions-overview.md) - Run background jobs for data processing, reporting, etc.
 - [Learn how App Service works](../app-service/app-service-how-works-readme.md) 
