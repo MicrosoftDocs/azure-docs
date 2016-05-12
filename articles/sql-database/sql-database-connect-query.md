@@ -18,7 +18,7 @@
 	ms.author="annemill"/>
 
 
-# Write a program in C&#x23; to query and connect to a SQL Database
+# Connect to a SQL Database with Visual Studio
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-database-connect-query.md)
