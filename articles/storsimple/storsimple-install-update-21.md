@@ -19,7 +19,7 @@
 
 ## Overview
 
-This tutorial explains how to install Update 2.1 on a StorSimple device running an earlier software version via the Azure classic portal and also using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
+This tutorial explains how to install Update 2.1 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
 Update 2.1 includes device software, WMI, and iSCSI updates. If moving from a pre-Update 2 version, you will also be required to apply LSI driver, Spaceport, Storport, and disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive and can only be applied via the Windows PowerShell interface of the device. 
 
@@ -27,7 +27,7 @@ Update 2.1 includes device software, WMI, and iSCSI updates. If moving from a pr
 
 > -  You may not see Update 2.1 immediately because we do a phased rollout of the updates. Scan for updates in a few days again as this Update will become available soon.
 > - A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal.
-> - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. The updates may take X-Y hours to install (including the Windows Updates). The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
+> - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 1.5-2.5 hours to install. The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
 > - If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 2.1 prior to updating the device.
 
 [AZURE.INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
@@ -64,7 +64,7 @@ The software versions that can be upgraded using the hotfix method are Update 0.
 
 - Download the hotfixes from the Microsoft Update Catalog.
 - Install and verify the regular mode hotfixes.
-- Install and verify the maintenance mode hotfix.
+- Install and verify the maintenance mode hotfix (only when updating from pre-Update 2 software).
 
 #### Download updates for a device running Update 2 software
 
@@ -104,7 +104,7 @@ You may also need to install disk firmware updates:
 
 Perform the following steps to apply this update as a hotfix.
 
-[AZURE.INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update21-hotfix.md)]
+[AZURE.INCLUDE [storsimple-install-update21-hotfix](../../includes/storsimple-install-update21-hotfix.md)]
 
 [AZURE.INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
