@@ -29,7 +29,9 @@ This article will walk you through creating a virtual network and a Site-to-Site
 
 **About Azure deployment models**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Connection diagram 
 
 ![Site-to-Site diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site2site.png "site-to-site")
 

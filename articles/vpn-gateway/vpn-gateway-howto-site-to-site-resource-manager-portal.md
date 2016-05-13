@@ -33,6 +33,8 @@ This article will walk you through creating a virtual network and a Site-to-Site
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
+## Connection diagram
+
 ![Site-to-Site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
 
 **Deployment models and tools for Site-to-Site connections**
