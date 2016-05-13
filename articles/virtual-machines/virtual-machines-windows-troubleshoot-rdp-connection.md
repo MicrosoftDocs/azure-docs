@@ -65,17 +65,15 @@ These steps can help resolve most Remote Desktop connection failures in Azure vi
 	- Reset your RDP connection by using either of the following PowerShell commands. Replace the `myRG`, `myVM`, `myVMAccessExtension`, and location with values that are relevant to your setup.
 
 	```
-Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
+	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 	```
 	OR
 
-  ```
-Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
-  ```
-
+  	```
+	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
+	```
 
 	> [AZURE.NOTE] If this is your first time resetting the RDP connection, the VMAccessAgent probably doesn't exist yet. In the preceding examples, `myVMAccessExtension` or `MyVMAccess` is a name that you specify for the new extension that will be installed as part of the process. Often this is simply set to the name of the VM. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using`Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` to check  the properties of the VM. Then look under the 'Extensions' section of the output. Since only one VMAccessAgent can exist on a VM, you also need to add the `-ForceReRun` parameter when using `Set-AzureRmVMExtension.` This forces the agent to be re-registered.
-
 
 - Restart the virtual machine to address other startup issues. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Restart**.
 
