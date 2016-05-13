@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a VM with Powershell | Microsoft Azure"
-	description="Create and configure an Azure virtual machine with the Powershell and the Resource Manager deployment model."
+	pageTitle="Create a VM with PowerShell | Microsoft Azure"
+	description="Create and configure an Azure virtual machine with the PowerShell and the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="03/04/2016"
 	ms.author="cynthn"/>
 
-# Create and configure a Windows Virtual Machine with Resource Manager and Azure PowerShell
+# Create and configure a Windows Virtual Machine using Azure PowerShell in the Resource Manager deployment model
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-hero-tutorial.md)
@@ -28,19 +28,17 @@
 
 <br>
 
-
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-create-powershell.md).
-
 These steps show you how to construct a set of Azure PowerShell commands to create and configure an Azure virtual machine. You can use this building block process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment. You can also use it to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. If you are an advanced PowerShell user, you can take the commands and substitute your own values for the variables (the lines beginning with "$")
+
+> [AZURE.IMPORTANT] If you want your VM to be part of an availability set, you need to add it to the set when you create the VM. There currently isn't a way to add a VM to an availability set after it has been created.
 
 ## Step 1: Install Azure PowerShell
 
 There are two main options for installation, [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) and [WebPI](http://aka.ms/webpi-azps). WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. 
 
-For more information, see [Azure Powershell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
+For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
 
 ## Step 2: Set your subscription
 
@@ -52,7 +50,7 @@ Login to your account.
 
 Get the available subscriptions by using the following command.
 
-	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+	Get-AzureRmSubscription | Sort SubscriptionName | Select SubscriptionName
 
 Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct names.
 
@@ -113,6 +111,7 @@ To test whether a chosen domain name label is globally unique, use these command
 If DNSNameAvailability is "True", your proposed name is globally unique.
 
 ### Availability set
+
 
 
 If needed, create a new availability set for the new virtual machine with these commands.
@@ -317,7 +316,7 @@ Finally, copy these commands to your command set and fill in the name identifier
 
 Review the Azure PowerShell command set you built in Step 4 in your text editor or the PowerShell ISE. Make sure you have specified all the variables and that they have the correct values. Also make sure that you have removed all the < and > characters.
 
-If you have your commands in a text editor, copy the set to the clipboard and then right-click in your Azure PowerShell prompt. This will send the command set as a series of PowerShell commands and create your Azure virtual machine. Alternately, run the command set from the Azure PowerShell ISE.
+If you have your commands in a text editor, copy the set to the clipboard and then right-click in your Windows PowerShell prompt. This will send the command set as a series of PowerShell commands and create your Azure virtual machine. Alternately, run the command set from the PowerShell ISE.
 
 If you want to reuse this information to create additional VMs, you can save this command set as a PowerShell script file (*.ps1).
 
@@ -341,7 +340,7 @@ Here is the Azure PowerShell command set to create this virtual machine.
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
-	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$vnet=Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
 	$nicName="LOB07-NIC"

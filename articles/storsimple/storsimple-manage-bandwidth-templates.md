@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Manage your StorSimple bandwidth templates | Microsoft Azure"
    description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/09/2016"
+   ms.date="05/10/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage StorSimple bandwidth templates
@@ -28,7 +28,7 @@ With bandwidth throttling schedules you can:
 - Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.
 
 > [AZURE.NOTE] This feature is available only for StorSimple physical devices and not for virtual devices.
-   
+
 All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
 
 - **Name** – A unique name assigned to the bandwidth template when it was created.
@@ -63,11 +63,11 @@ Perform the following steps to create a new bandwidth template.
    2. Select the **All Day** option if the schedule is enforced for the entire day. When this option is checked, you can no longer specify a **Start Time** or an **End Time**. The schedule runs from 12:00 AM to 11:59 PM.
    3. From the drop-down list, select a **Start Time**. This is when the schedule will begin.
    4. From the drop-down list, select an **End Time**. This is when the schedule will stop.
-   
+
          > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
-   5. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud. Supply a number between 1 and 1,000 for this field.
-   
+   5. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field.
+
    6. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). The template that you have created will be added to the list of bandwidth templates on the service **Configure** page.
 
     ![Create new bandwidth template](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
@@ -118,7 +118,7 @@ The default template can be edited. The usage of this template (including edited
 
 ## Create an all-day bandwidth template that starts at a specified time
 
-Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example). 
+Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example).
 
 #### To create an all-day bandwidth template
 

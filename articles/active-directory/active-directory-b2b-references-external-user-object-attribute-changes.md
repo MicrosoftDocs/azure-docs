@@ -27,7 +27,7 @@ Each user in an Azure AD directory is represented by a user object. The user obj
 Tracking these attributes in Azure AD can help you troubleshoot whether or not a partner user has redeemed their B2B collaboration invitation.
 
 ## Related articles
-Browse our other articles on Azure B2B collaboration:
+Browse our other articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [How it works](active-directory-b2b-how-it-works.md)
@@ -36,4 +36,3 @@ Browse our other articles on Azure B2B collaboration:
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-

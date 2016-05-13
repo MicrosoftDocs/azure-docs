@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="05/12/2016"
    ms.author="v-sharos" />
 
 # Update your StorSimple 8000 Series device
