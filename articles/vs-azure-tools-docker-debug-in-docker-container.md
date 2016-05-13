@@ -108,8 +108,8 @@ with the production realism of developing within a Docker container.
 - [Docker Tools for Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
 - [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - Language services for editing docker files, with more e2e scenarios coming
 - [Windows Container Information](http://aka.ms/containers)- Windows Server and Nano Server information
-- [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service Content](http://aka.ms/AzureContainerService)
-- [Service Fabric](https://azure.microsoft.com/services/service-fabric/)
+- [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) - [Azure Container Service Content](http://aka.ms/AzureContainerService)
+- [Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
 
 ## Various Docker tools
 
