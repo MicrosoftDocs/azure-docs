@@ -29,7 +29,7 @@ Use Microsoft Azure Virtual Machines, Storage, and Networking together to provid
 1. A free trial account. [Go get one](https://azure.microsoft.com/pricing/free-trial/).
 2. The Azure Command-line Interface for Linux, Mac, and Windows (the Azure CLI). [Install it](../xplat-cli-install.md).
 3. A Linux VM. [Create it](virtual-machines-linux-quick-create-cli.md).
-4. More information about Linux and Azure, including how to qualify for the [Service Level Agreement (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/). **Read this document, even if you hate legal documents**.
+4. More information about Linux and Azure, including how to qualify for the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/). **Read this document, even if you hate legal documents**.
 
 ## Logistics: Regions, Distributions, Availability, VM Sizes and Quotas
 ### Regions
