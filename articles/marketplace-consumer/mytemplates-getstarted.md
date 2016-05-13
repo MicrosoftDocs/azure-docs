@@ -20,7 +20,7 @@
 
 # Get Started with private Templates
 
-The [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+The [Azure Resource Manager](resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
 At //build/ 2016, we announced a new `Templates` capability in the [Azure Portal](https://portal.azure.com) along with the `Microsoft.Gallery` (resource provider) service as an extension of the [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/) to enable users to create, manage and deploy private templates from a personal library.
 
@@ -41,28 +41,29 @@ The following suggestions will help you take full advantage of `Templates` when 
 
 There are two ways to create a `Template` resource in the Azure portal.
 
-### Create a new Template resource from a running resource group
+### A. Create a new Template resource from a running resource group
 
-Log into the Azure portal. Click the **Resource groups** and select a existing resource group. Select **Export template** in **Settings**. Once the template is exported, you can choose to save it to `Templates` repository. Find complete details for Export Template [here](https://azure.microsoft.com/en-us/blog/export-template/).
-
+1. Log into the Azure portal. Click the **Resource groups** and select a existing resource group. Select **Export template** in **Settings**.
+2. Once the template is exported, you can choose to save it to `Templates` repository. Find complete details for Export Template [here](https://azure.microsoft.com/en-us/blog/export-template/).
+<br /><br />
 ![Resource group export](media/rg-export-portal.PNG)  <br />
 
-Select the **Save to Template** command button.
-
+3. Select the **Save to Template** command button.
+<br /><br />
 ![Save Template](media/save-template-portal.PNG)  <br />
 
-Enter the following information:
+4. Enter the following information:
 
-- Name – Name of the template object (NOTE: This is an ARM based name. All naming restrictions apply and it cannot be changed once created).
-- Description – Quick summary about the template.
+    - Name – Name of the template object (NOTE: This is an ARM based name. All naming restrictions apply and it cannot be changed once created).
+    - Description – Quick summary about the template.
 
-Click **Save**.
+5. Click **Save**.
 
-> [AZURE.NOTE] The Export template blade shows notifications when the exported ARM template has errors. You will still be able to save this ARM template to the Templates library. Ensure that you check and fix the template issues before redeploying a new instance.
+    > [AZURE.NOTE] The Export template blade shows notifications when the exported ARM template has errors. You will still be able to save this ARM template to the Templates library. Ensure that you check and fix the template issues before redeploying a new instance.
 
-> [AZURE.NOTE] The Templates service is a Tenant based azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. The ARM template is associated with a subscription only during deployment time.
+    > [AZURE.NOTE] The Templates service is a Tenant based azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. The ARM template is associated with a subscription only during deployment time.
 
-### Add a new Template resource from browse
+### B. Add a new Template resource from browse
 
 You can also add a new `Template` from scratch using the +Add command button in `Browse > Templates`. You would need to provide a Name, Description and the ARM template text.
 
@@ -131,12 +132,12 @@ Role | Permissions
 `Reader` | `Allows Read and Execute(Deploy) on the Template resource`
 `Contributor` | `Allows Edit and Delete permission on the Template resource. User cannot Share the Template with others`
 
-### Using Microsoft IDs vs. Org IDs  
+### Using Microsoft Accounts vs. Org IDs  
 
-You can use the private `Templates` capability with your organization ID or a standard Microsoft Account. Remember though that sharing is only allowed for users within your Active Directory Tenant. If you attempt to Share a Template with someone outside your Tenant, it will send them an invitation similar to standard Azure AD functioning.
+You can use the private `Templates` capability with your Organization ID or a standard Microsoft Account. Remember though that sharing is only allowed for users within your Active Directory Tenant. If you attempt to Share a Template with someone outside your Tenant, it will send them an invitation similar to standard Azure AD functioning.
 
 ## Next steps
 
-- To learn about creating ARM templates, see [Authoring templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)
-- To understand the functions you can use in a ARM template, see [Template functions](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/)
-- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](https://azure.microsoft.com/en-us/documentation/articles/best-practices-resource-manager-design-templates/)
+- To learn about creating ARM templates, see [Authoring templates](resource-group-authoring-templates.md)
+- To understand the functions you can use in a ARM template, see [Template functions](resource-group-template-functions.md)
+- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md)
