@@ -541,7 +541,9 @@ In this step, you will create a linked service for your **Azure Batch** account 
 
     3.  Enter the ID of the pool for the **poolName** property**.** For this property, you can specify either pool name or pool ID.
 
-    4.  Enter the batch URI for the **batchUri** JSON property. The **URL** from the **Azure Batch account blade** is in the following format: \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL. Example: "batchUri": "https://eastus.batch.azure.com".
+    4.  Enter the batch URI for the **batchUri** JSON property. 
+    
+		> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL. Example: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 
