@@ -71,10 +71,9 @@ The following block diagram illustrates the device command data flow pipeline:
 4. The BLE module picks up this message and executes the I/O instruction by communicating with the BLE device.
 5. The logger module logs all messages from the message bus into a disk file.
 
-Building the sample
--------------------
+## Building the sample
 
-At this point, gateways containing BLE modules are only supported on Linux. The
+At the time of writing, the Gateway SDK only supports gateways that contain BLE modules on Linux. The
 sample gets built when you build the SDK by running `tools/build.sh`.  The
 [devbox setup](devbox_setup.md) guide has information on how you can build the
 SDK.
