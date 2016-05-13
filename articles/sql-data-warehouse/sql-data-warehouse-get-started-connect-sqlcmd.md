@@ -3,7 +3,7 @@
    description="Get started with connecting to SQL Data Warehouse and running some queries."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/12/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Connect and query with SQLCMD
@@ -36,7 +36,7 @@ This walkthrough shows you how to connect and query an Azure SQL Data Warehouse 
 
 To connect to your database you need the full name  of the server (***servername**.database.windows.net*) that contains the database you want to connect to.
 
-1. Go to the [Azure Portal](https://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 2. Browse to the database you want to connect to.
 3. Locate the full server name (we'll use this in the steps below):
 
@@ -45,12 +45,12 @@ To connect to your database you need the full name  of the server (***servername
 
 ## Connect to SQL Data Warehouse with sqlcmd
 
-To connect to a specific instance of SQL Data Warehouse when using sqlcmd you will need to open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string will need to contain the following parameters:
+To connect to a specific instance of SQL Data Warehouse when using sqlcmd you will need to open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string will need following required parameters:
 
++ **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
++ **Database (-d):** Database name.
 + **User (-U):** Server user in the form `<`User`>`
 + **Password (-P):** Password associated with the user.
-+ **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
-+ **Database (-D):** Database name.
 + **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled in order to connect to a SQL Data Warehouse instance.
 
 Therefore, to connect to a SQL Data Warehouse instance, you would enter the following:
@@ -65,7 +65,7 @@ After connection, you can issue any supported Transact-SQL statements against th
 
 ```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-1> SELECT COUNT(*) FROM dbo.FactInternetSales;
+1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
@@ -76,6 +76,8 @@ For additional information about sqlcmd refer to the [sqlcmd documentation](http
 ## Next steps
 
 Now that you can connect and query, try [connecting with PowerBI][].
+
+To configure your environment for Windows authentication, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
 
 [connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
 

@@ -3,7 +3,7 @@
 	description="Basic explanation of elastic database tools feature of Azure SQL Database, including easy to run sample app." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor="sidneyh"/>
 

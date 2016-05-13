@@ -115,6 +115,8 @@ In this preconfigured solution, the solution portal forms part of the **IoT solu
 
 ## Next steps
 
+For more information about IoT solution architectures, see [Microsoft Azure IoT services: Reference Architecture][lnk-refarch].
+
 Explore these resources to learn more about IoT preconfigured solutions:
 
 - [Get started with the IoT preconfigured solutions][lnk-preconf-get-started]
@@ -133,3 +135,4 @@ Explore these resources to learn more about IoT preconfigured solutions:
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

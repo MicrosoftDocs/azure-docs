@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 
@@ -38,7 +38,7 @@ In this walkthrough, you will perform the following steps:
 2. [Create SQL Server linked service](#create-sql-server-linked-service). In this step, you first create a database and a table on your on-premises SQL Server computer and then create the linked service: **OnPremSqlLinkedService**.  
 3. [Create datset and pipeline](#create-dataset-and-pipeline). In this step, you will create a table **MarketingCampaignEffectivenessOnPremSQLTable** and pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Monitor pipeline](#monitor-pipeline). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
+4. [Monitor pipeline](#monitor-pipeline). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Portal.
 
 
 ## Create Data Management Gateway

@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Service Bus](../app-service-logic/app-service-logic-connector-azureservicebus.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Azure Service Bus, you can:
 

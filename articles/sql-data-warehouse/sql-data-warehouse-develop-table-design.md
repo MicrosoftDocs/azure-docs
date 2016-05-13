@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/10/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
@@ -75,12 +75,9 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
 
@@ -92,9 +89,7 @@ OR  y.[is_user_defined] = 1
 
 ```
 
-The query includes any user-defined data types, which are not supported.
-
-below are some alternatives you can use in place of unsupported data types.
+The query includes any user-defined data types, which are not supported.  Below are some alternatives you can use in place of unsupported data types.
 
 Instead of:
 
@@ -102,22 +97,22 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, CLR type not native
 - **image**, **text**, **ntext** when text based use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
-- **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
-- **sysname**, use nvarchar(128)
 - **table**, convert to temporary tables
 - **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use BINARY(8) or VARBINARY(8) for NOT NULL or NULL row version values.
-- **varchar(max)**, use varchar(8000) or smaller for better performance
-- **uniqueidentifier**, use varbinary(8)
 - **user defined types**, convert back to their native types where possible
-- **xml**, use a varchar(8000) or smaller for better performance - split across columns if needed
+- **xml**, use a varchar(max) or smaller for better performance
+
+For better performance, instead of:
+
+- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
+- **varchar(max)**, use varchar(8000) or smaller for better performance
 
 Partial support:
 
 - Default constraints support literals and constants only. Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.
 
-> [AZURE.NOTE] Define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, you will not be be able to insert data into the table. Also, try to limit the size of your variable length columns for even better throughput for running queries.
+> [AZURE.NOTE] If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, and load rows with BCP, you will not be be able to us Polybase to load this data quite yet.  Polybase support for wide rows will be added soon. Also, try to limit the size of your variable length columns for even better throughput for running queries.
 
 ## Principles of data distribution
 
@@ -179,7 +174,7 @@ WITH
 
 This table type is commonly used when there is no obvious key column to hash the data by. It can also be used by smaller or less significant tables where the movement cost may not be so great.
 
-Loading data into a round robin distributed table tends to be faster than loading into a hash distributed table. With a round-robin distributed table there is no need to understand the data or perform the hash prior to loading. For this reason Round-Robin tables often make good good loading targets.
+Loading data into a round robin distributed table tends to be faster than loading into a hash distributed table. With a round-robin distributed table there is no need to understand the data or perform the hash prior to loading. For this reason Round-Robin tables often make good loading targets.
 
 > [AZURE.NOTE] When data is round robin distributed the data is allocated to the distribution at the *buffer* level.
 
@@ -279,20 +274,21 @@ Apply the following recommendations for generating statistics:
 ## Unsupported features
 SQL Data Warehouse does not use or support these features:
 
-- primary keys
-- foreign keys
-- check constraints
-- unique constraints
-- unique indexes
-- computed columns
-- sparse columns
-- user-defined types
-- indexed views
-- identities
-- sequences
-- triggers
-- synonyms
-
+| Feature | Workaround |
+| --- | --- |
+| identities | [Assigning Surrogate Keys]  |
+| primary keys | N/A |
+| foreign keys | N/A |
+| check constraints | N/A |
+| unique constraints | N/A |
+| unique indexes | N/A |
+| computed columns | N/A |
+| sparse columns | N/A |
+| user-defined types | N/A |
+| indexed views | N/A |
+| sequences | N/A |
+| triggers | N/A |
+| synonyms | N/A |
 
 ## Next steps
 For more development tips, see [development overview][].
@@ -301,6 +297,7 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
+[Assigning Surrogate Keys]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 
 <!--MSDN references-->
 

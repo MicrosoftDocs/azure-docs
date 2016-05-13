@@ -34,7 +34,7 @@ For this example, first create two Azure VMs running Ubuntu 14.04 or later. The 
 
 You also need an Azure Storage account and a key to access it (you can get this from the Azure classic portal).
 
-If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](virtual-machines-linux-cli-create.md).
+If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](virtual-machines-linux-classic-createportal.md).
 
 The install commands assume Ubuntu, but you can adapt the installation for any supported Linux distro.
 

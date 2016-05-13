@@ -5,15 +5,15 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="hero-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
+   ms.tgt_pltfrm="csharp"
+   ms.workload="data-management"
    ms.date="03/24/2016"
    ms.author="sstein"/>
 
@@ -26,13 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-
-
-Learn how to use C# commands to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-
-You'll try SQL Database by creating a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-portal.md).
-
-Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
+Learn how to use C# commands to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). You'll try SQL Database by creating a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-portal.md). Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
 The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
@@ -48,7 +42,7 @@ To complete the steps in this article you need the following:
 - Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 
-## Installing the required libraries
+## Install the required libraries
 
 To set up a SQL database with C#, get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 

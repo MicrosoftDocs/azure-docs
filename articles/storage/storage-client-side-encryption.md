@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
-	ms.author="lakasa"/>
+	ms.date="05/09/2016"
+	ms.author="robinsh"/>
 
 
 # Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage
@@ -24,6 +24,8 @@
 ## Overview
 
 The [Azure Storage Client Library for .NET Nuget package](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
+
+For a step-by-step tutorial that leads you through the process of encrypting blobs using client-side encryption and Azure Key Vault, see [Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
 
 For client-side encryption with Java, see [Client-Side Encryption with Java for Microsoft Azure Storage](storage-client-side-encryption-java.md).
 
@@ -244,8 +246,8 @@ Note that encrypting your storage data results in additional performance overhea
 
 ## Next steps
 
+- [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 - Download the [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
-- Download the [Azure Storage Client Library for .NET Source Code](https://github.com/Azure/azure-storage-net) from GitHub
 - Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
 - Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)
 

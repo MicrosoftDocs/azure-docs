@@ -18,13 +18,12 @@
 
 # User authentication for API Apps in Azure App Service
 
-[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
-
 ## Overview
 
-This is the fourth article in the getting started series for App Service API apps. In this article you'll learn:
+This article shows how to protect an Azure API app so that only authenticated users can call it. The article assumes that have read the [Azure App Service authentication overview](../app-service/app-service-authentication-overview.md).
 
-* How to protect an App Service API app so that only authenticated users can call it.
+You'll learn:
+
 * How to configure an authentication provider, with details for Azure Active Directory (Azure AD).
 * How to consume a protected API app by using the [Active Directory Authentication Library (ADAL) for JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
@@ -32,7 +31,7 @@ The article contains two sections:
 
 * The [How to configure user authentication in Azure App Service](#authconfig) section explains in general how to configure user authentication for any API app and applies equally to all frameworks supported by App Service, including .NET, Node.js, and Java.
 
-* Starting with the [Continuing the .NET getting-started tutorials](#tutorialstart) section, the article guides you through configuring a sample application with a .NET back end and an AngularJS front end so that it uses Azure Active Directory for user authentication. 
+* Starting with the [Continuing the .NET API Apps tutorials](#tutorialstart) section, the article guides you through configuring a sample application with a .NET back end and an AngularJS front end so that it uses Azure Active Directory for user authentication. 
 
 ## <a id="authconfig"></a> How to configure user authentication in Azure App Service
 
@@ -70,15 +69,21 @@ When this is done, App Service authenticates all API calls before they reach the
 
 To make authenticated API calls, the caller includes the authentication provider's OAuth 2.0 bearer token in the Authorization header of HTTP requests. The token can be acquired by using the authentication provider's SDK.
 
-## <a id="tutorialstart"></a> Continuing the .NET getting-started tutorials
+## <a id="tutorialstart"></a> Continuing the .NET API Apps tutorials
 
-If you are following the Node.js or Java getting-started series for API apps, skip to the next article, [service principal authentication for API apps](app-service-api-dotnet-service-principal-auth.md). 
+If you are following the Node.js or Java tutorials for API apps, skip to the next article, [service principal authentication for API apps](app-service-api-dotnet-service-principal-auth.md). 
 
-If you are following the .NET getting-started series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Configure authentication](#azureauth) section.
+If you are following the .NET tutorial series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Set up authentication in App Service and Azure AD](#azureauth) section.
 
-If you didn't do the the first and second tutorials and you want to follow this one, check the prerequisites listed in the [first tutorial](app-service-api-dotnet-get-started.md), and then use the **Deploy to Azure** button in the [To Do List sample repository readme file](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) to deploy the API apps and the web app.
+If you want to follow this tutorial without going through the first and second tutorials, do the following steps:
 
-When deployment is finished, an HTTP link to the web app is shown.  To run the application and verify that it's operational, change that URL to HTTPS. 
+1. Make sure that you have all of the prerequisites listed in the [first tutorial](app-service-api-dotnet-get-started.md). In addition to the prerequisites listed, these authentication tutorials assume that you have worked with App Service web apps and API apps in Visual Studio and the Azure portal.
+
+2. Click the **Deploy to Azure** button in the [To Do List sample repository readme file](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) to deploy the API apps and the web app. Make a note of the Azure resource group that gets created, as you can use this later to look up web app and API app names.
+ 
+3. Download or clone the [To Do List sample repository](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) to get the code that you'll work with locally in Visual Studio.
+
+These steps get you to the same starting point as if you did the first two tutorials, with one exception: Visual Studio won't already know which web app or API app that each project gets deployed to. When you deploy a project, you'll have to select the the Azure web app or API app to deploy to. To get the web app and API app names, open the Azure portal and browse to the resource group blade for the resource group that you created when you clicked the **Deploy to Azure** button.
 
 ## <a id="azureauth"></a> Set up authentication in App Service and Azure AD
 

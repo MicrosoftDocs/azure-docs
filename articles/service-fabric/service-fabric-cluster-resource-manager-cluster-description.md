@@ -17,7 +17,7 @@
    ms.author="masnider"/>
 
 # Describing a service fabric cluster
-The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During run time, the Resource Manager this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
+The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During run time, the Resource Manager uses this information to ensure high availability of the services running in the cluster while also ensuring that the resources in the cluster are being used appropriately.
 
 ## Key concepts
 The Cluster Resource Manager features that describe a cluster are:
@@ -217,10 +217,10 @@ Another thing we did that helped people manage overall cluster capacity was to a
 ClusterManifest.xml
 
 ```xml
-        <Section Name=" NodeBufferPercentage">
-            <Parameter Name="DiskSpace" Value="10" />
-            <Parameter Name="Memory" Value="15" />
-            <Parameter Name="SomeOtherMetric" Value="20" />
+        <Section Name="NodeBufferPercentage">
+            <Parameter Name="DiskSpace" Value="0.10" />
+            <Parameter Name="Memory" Value="0.15" />
+            <Parameter Name="SomeOtherMetric" Value="0.20" />
         </Section>
 ```
 Creation calls resulting in new services fail when the cluster is out of buffered capacity, ensuring that the cluster retains enough spare overhead such that upgrades and failures don’t result in nodes being actually over capacity. The Resource Manager exposes a lot of this information via PowerShell and the Query APIs, letting you see the buffered capacity settings, the total capacity, and the current consumption for every given metric. Here we see an example of that output:

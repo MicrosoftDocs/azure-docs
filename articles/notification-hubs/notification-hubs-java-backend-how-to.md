@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Java

@@ -1,6 +1,6 @@
 <properties
- pageTitle="How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)"
- description=""
+ pageTitle="How to manage expiration of cloud service content in Azure CDN | Microsoft Azure"
+ description="Describes how to manage the expiration of cloud service content in Azure CDN"
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
@@ -12,10 +12,10 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016" 
+ ms.date="05/11/2016"
  ms.author="casoper"/>
 
-#How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)
+# How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)
 
 Objects that benefit the most from Azure CDN caching are those that are accessed frequently during their time-to-live (TTL) period. An object stays in the cache for the TTL period and then is refreshed from the cloud service after that time is elapsed. Then the process repeats.  
 

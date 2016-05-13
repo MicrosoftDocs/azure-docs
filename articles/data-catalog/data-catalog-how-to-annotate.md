@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="How to annotate data sources | Microsoft Azure"
    description="How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts."
    services="data-catalog"
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 
@@ -35,13 +35,14 @@ Everyone has an opinion. And this is a good thing.
 Each of these perspectives is valuable, and **Azure Data Catalog** uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources. Using the **Azure Data Catalog** portal, each user can add and edit his own annotations, while being able to view annotations provided by other users.
 
 ## Different types of annotations
-During the **Azure Data Catalog** preview, the following types of annotations are supported:
+**Azure Data Catalog** supports the following types of annotations:
 
 | Annotation     | Notes                                                                                                                                                                                                                                                                                                                                                           |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Friendly name  | Friendly names can be supplied at the data asset level, to make the data assets more easily understood. Friendly names are most useful when the underlying object name is cryptic, abbreviated or otherwise not meaningful to users.                                                                                                                            |
 | Description    | Descriptions can be supplied at the data asset and attribute / column levels. Descriptions are free-form short text annotations that describe the user’s perspective on the data asset or its use.                                                                                                                                                              |
-| Tags           | Tags can be supplied at the data asset and attribute / column levels. Tags are user-defined labels that can be used to categorize data assets or attributes.                                                                                                                                                                                                    |
+| Tags (user tags)          | Tags can be supplied at the data asset and attribute / column levels. User tags are user-defined labels that can be used to categorize data assets or attributes.                                                                                                                                                                                                    |
+| Tags (glossary tags)          | Tags can be supplied at the data asset and attribute / column levels. Glossary tags are centrally-defined glossary terms that can be used to categorize data assets or attributes using a common business taxonomy. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)                                                                                                                                                                                                    |
 | Experts        | Experts can be supplied at the data asset level. Experts identify users or groups with expert perspectives on the data and can serve as points of contact for users who discover the registered data sources and have questions that are not answered by the existing annotations.  |
 | Request access | Request access information can be supplied at the data asset level. This information is for users who discover a data source that they do not yet have permissions to access. Users can enter the email address of the user or group who grants access, the URL of the process or tool that users need to gain access, or can enter the process itself as text. |
 

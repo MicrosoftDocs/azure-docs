@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="meet-bhagdev"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -26,19 +26,20 @@
 
 This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.
 
+## Step 1:  Configure Development Environment
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### A SQL database
+## Step 2: Create a SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
 
-## Step 1: Get Connection Details
+## Step 3: Get Connection Details
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Step 2:  Connect and Query
+## Step 4:  Connect and Query
 
 The demo program is designed so that a transient error during an attempt to connect leads to a retry. But a transient error during query command causes the program to discard the connection and create a new connection, before retrying the query command. We neither recommend nor disrecommend this design choice. The demo program illustrates some of the design flexibility that is available to you.
 
@@ -139,3 +140,4 @@ The [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) functio
 ## Next steps
 
 For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://technet.microsoft.com/library/cc793139.aspx).
+

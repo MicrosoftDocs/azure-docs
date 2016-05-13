@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="04/19/2016"
    ms.author="mikewasson"/>
 
 # Running a Single Windows VM on Azure
@@ -23,7 +23,7 @@ This article outlines a set of proven practices for running a single Windows VM 
 
 > [AZURE.WARNING] There is no up-time SLA for single VMs on Azure. Use this configuration for development and test, but not as a production deployment.
 
-Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments. There are several ways to use Resource Manager, including the [Azure Portal][azure-portal], [Azure PowerShell][azure-powershell], [Azure CLI][azure-cli] commands, or [Resource Manager templates][arm-templates]. This article includes an example using the Azure CLI.
+Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
 Provisioning a single VM in Azure involves more moving parts than the core VM itself. There are compute, networking, and storage elements.  
 
@@ -55,29 +55,27 @@ Provisioning a single VM in Azure involves more moving parts than the core VM it
 
 ## VM recommendations
 
-- When moving an existing workload to Azure, choose the [VM size][virtual-machine-sizes] that most closely matches your on-premise servers. We recommend the DS- and GS-series, which can use Premium Storage for I/O intensive workloads. .
+- When moving an existing workload to Azure, choose the [VM size][virtual-machine-sizes] that most closely matches your on-premise servers. We recommend the DS- and GS-series, which can use Premium Storage for I/O intensive workloads.
 
-    - If your workload does not require high-performance, low-latency disk access, consider the other Standard tier VM sizes, such as A-series or D-series.
+- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure CLI command:
 
-- When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region].
+    ```
+    azure vm sizes --location <location>
+    ```
 
 - For information about choosing a published VM image, see [Navigate and select Azure virtual machine images][select-vm-image].
 
 ## Disk and storage recommendations
 
-We recommend [Premium Storage][premium-storage], for the best disk I/O performance. However, note that Premium Storage requires DS- or GS-series VMs.
-
-- For Premium Storage, cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). .
-
-- For Standard Storage, cost is based on the amount of data written to disk. Therefore, it is a good practice to provision the maximum size (1023 GB). However, make sure to use quick format when formatting the disks. A full disk format writes zeroes to the disk, which results in actual storage being used. See [Azure Storage Pricing][storage-price].
-
-- If you select Standard storage, we recommend Geo-Redundant Storage (GRS), because it is durable even in the case of a complete regional outage, or a disaster in which the primary region is not recoverable.  
+- For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
 - Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk.
 
 - If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [Virtual Machine Disk Limits][vm-disk-limits].
 
 - For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
+
+- When possible, install applications on a data disk, not the OS disk. However, some legacy applications might need to install components on the C: drive. In that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
 
 ## Network recommendations
 
@@ -87,7 +85,7 @@ We recommend [Premium Storage][premium-storage], for the best disk I/O performan
 
     - Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be whitelisted.
 
-    - By default, the IP address does not have a fully qualified domain name (FQDN). For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
+    - You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a Fully Qualified Domain Name in the Azure portal][fqdn].
 
 - Allocate a NIC and associate it with the IP address, subnet, and NSG.
 
@@ -99,32 +97,30 @@ You can scale a VM up or down by changing the VM size. In some cases, you will n
 
 To resize a VM:
 
-1. Go to the [Azure Regions web page][services-by-region], and verify that the desired VM size is supported in the location where you deployed the VM.
-
-2. If the VM size is supported in that location, run the following CLI command. This command lists the sizes that are available on the hardware cluster.
+1. Run the following CLI command. This command lists the VM sizes that are available on the hardware cluster where the VM is hosted.
 
     ```text
-    azure vm sizes -g <<resource-group>> --vm-name <<vm-name>>
+    azure vm sizes -g <resource-group> --vm-name <vm-name>
     ```
 
-3. If the desired size is listed, run the following command to resize the VM.
+2. If the desired size is listed, run the following command to resize the VM.
 
     ```text
-    azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
-        --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
+    azure vm set -g <resource-group> --vm-size <new-vm-size>
+        --boot-diagnostics-storage-uri <storage-account-uri> <vm-name>
     ```
 
     The VM will restart during this process. After the restart, your existing OS and data disks will be remapped, but anything on the temporary disk will be lost.
 
     The `--boot-diagnostics-storage-uri` option enables [boot diagnostics][boot-diagnostics] to log any errors related to startup.
 
-4. Otherwise, if the desired size is not listed, run the following commands to deallocate the VM, resize it, and then restart the VM.
+3. Otherwise, if the desired size is not listed, run the following commands to deallocate the VM, resize it, and then restart the VM.
 
     ```text
-    azure vm deallocate -g <<resource-group>> <<vm-name>>
-    azure vm set -g <<resource-group>> --vm-size <<new-vm-size>
-        --boot-diagnostics-storage-uri <<storage-account-uri>> <<vm-name>>
-    azure vm start -g <<resource-group>> <<vm-name>>
+    azure vm deallocate -g <resource-group> <vm-name>
+    azure vm set -g <resource-group> --vm-size <new-vm-size>
+        --boot-diagnostics-storage-uri <storage-account-uri> <vm-name>
+    azure vm start -g <resource-group> <vm-name>
     ```
 
    > [AZURE.WARNING] Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
@@ -135,7 +131,7 @@ To resize a VM:
 
 - Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
-- Do not put a single VM into an availability set. Putting the VM into an availability set tells Azure to treat the VM as part of a multi-instance set, and you will receive no advanced warning or notification about planned maintenance reboots.
+- Do not put a single VM into an availability set. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. (You will get an email notification before a planned maintenance event.)
 
 - VHDs are backed by [Azure Storage][azure-storage], which is replicated for durability and availability.
 
@@ -150,19 +146,19 @@ To resize a VM:
 - **VM diagnostics.** Run the following CLI command to enable diagnostics:
 
     ```text
-    azure vm enable-diag <<resource-group>> <<vm-name>>
+    azure vm enable-diag <resource-group> <vm-name>
     ```
 
     This command enables basic health metrics, diagnostics infrastructure logs, and boot diagnostics. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
 
     Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.
 
-- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated. (See the [Azure VM FAQ][vm-faq].)
+- **Stopping a VM.** Azure makes a distinction between "Stopped" and "De-allocated" states. You are charged when the VM status is "Stopped". You are not charged when the VM de-allocated.
 
     Use the following CLI command to de-allocate a VM:
 
     ```text
-    azure vm deallocate <<resource-group>> <<vm-name>>
+    azure vm deallocate <resource-group> <vm-name>
     ```
 
     Note: The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down from inside Windows (via RDP), the VM is stopped but _not_ de-allocated, so you will still be charged.
@@ -190,14 +186,14 @@ To resize a VM:
 - To reset the local admin password, run the `vm reset-access` Azure CLI command.
 
     ```text
-    azure vm reset-access -u <<user>> -p <<new-password>> <<resource-group>> <<vm-name>>
+    azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
     ```
 
 - If your VM gets into a non-bootable state, use [Boot Diagnostics][boot-diagnostics] to diagnose boot failures.
 
 - Look at [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-## Azure CLI commands (example)
+## Example deployment script
 
 The following Windows batch script executes the [Azure CLI][azure-cli] commands to deploy a single VM instance and the related network and storage resources, as shown in the previous diagram.
 
@@ -207,23 +203,40 @@ The script uses the naming conventions described in [Recommended Naming Conventi
 ECHO OFF
 SETLOCAL
 
-IF "%~1"=="" (
-    ECHO Usage: %0 subscription-id
-    EXIT /B
-    )
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Set up variables for deploying resources to Azure.
+:: Change these variables for your own deployment.
 
-:: Set up variables to build out the naming conventions for deploying
-:: the cluster
+:: The APP_NAME variable must not exceed 4 characters in size.
+:: If it does the 15 character size limitation of the VM name may be exceeded.
 
-SET LOCATION=eastus2
 SET APP_NAME=app1
+SET LOCATION=eastus2
 SET ENVIRONMENT=dev
 SET USERNAME=testuser
-SET PASSWORD=AweS0me@PW
+
+
+:: For Windows, use the following command to get the list of URNs:
+:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
+SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
+
+:: For a list of VM sizes see:
+::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
+:: To see the VM sizes available in a region:
+:: 	azure vm sizes --location <location>
+SET VM_SIZE=Standard_DS1
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+IF "%2"=="" (
+    ECHO Usage: %0 subscription-id admin-password
+    EXIT /B
+    )
 
 :: Explicitly set the subscription to avoid confusion as to which subscription
 :: is active/default
 SET SUBSCRIPTION=%1
+SET PASSWORD=%2
 
 :: Set up the names of things using recommended conventions
 SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
@@ -237,16 +250,8 @@ SET VNET_NAME=%APP_NAME%-vnet
 SET VHD_STORAGE=%VM_NAME:-=%st0
 SET DIAGNOSTICS_STORAGE=%VM_NAME:-=%diag
 
-:: For Windows, use the following command to get the list of URNs:
-:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
-SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
-
-:: For a list of VM sizes see...
-SET VM_SIZE=Standard_DS1
-
 :: Set up the postfix variables attached to most CLI commands
-SET POSTFIX=--resource-group %RESOURCE_GROUP% --location %LOCATION% ^
-  --subscription %SUBSCRIPTION%
+SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
 
 CALL azure config mode arm
 
@@ -254,32 +259,36 @@ CALL azure config mode arm
 :: Create resources
 
 :: Create the enclosing resource group
-CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION%
+CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION% ^
+  --subscription %SUBSCRIPTION%
 
 :: Create the VNet
 CALL azure network vnet create --address-prefixes 172.17.0.0/16 ^
-  --name %VNET_NAME% %POSTFIX%
+  --name %VNET_NAME% --location %LOCATION% %POSTFIX%
 
 :: Create the network security group
-CALL azure network nsg create --name %NSG_NAME% %POSTFIX%
+CALL azure network nsg create --name %NSG_NAME% --location %LOCATION% %POSTFIX%
 
 :: Create the subnet
 CALL azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
   172.17.0.0/24 --name %SUBNET_NAME% --network-security-group-name %NSG_NAME% ^
-  --resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
+  %POSTFIX%
 
 :: Create the public IP address (dynamic)
-CALL azure network public-ip create --name %IP_NAME% %POSTFIX%
+CALL azure network public-ip create --name %IP_NAME% --location %LOCATION% %POSTFIX%
 
 :: Create the NIC
 CALL azure network nic create --public-ip-name %IP_NAME% --subnet-name ^
-  %SUBNET_NAME% --subnet-vnet-name %VNET_NAME%  --name %NIC_NAME% %POSTFIX%
+  %SUBNET_NAME% --subnet-vnet-name %VNET_NAME%  --name %NIC_NAME% --location ^
+  %LOCATION% %POSTFIX%
 
 :: Create the storage account for the OS VHD
-CALL azure storage account create --type PLRS %POSTFIX% %VHD_STORAGE%
+CALL azure storage account create --type PLRS --location %LOCATION% %POSTFIX% ^
+  %VHD_STORAGE%
 
 :: Create the storage account for diagnostics logs
-CALL azure storage account create --type LRS %POSTFIX% %DIAGNOSTICS_STORAGE%
+CALL azure storage account create --type LRS --location %LOCATION% %POSTFIX% ^
+  %DIAGNOSTICS_STORAGE%
 
 :: Create the VM
 CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
@@ -287,16 +296,17 @@ CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
   --vnet-name %VNET_NAME% --nic-name %NIC_NAME% --storage-account-name ^
   %VHD_STORAGE% --os-disk-vhd "%VM_NAME%-osdisk.vhd" --admin-username ^
   "%USERNAME%" --admin-password "%PASSWORD%" --boot-diagnostics-storage-uri ^
-  "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" %POSTFIX%
+  "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" --location %LOCATION% ^
+  %POSTFIX%
 
 :: Attach a data disk
-CALL azure vm disk attach-new -g %RESOURCE_GROUP% --vm-name %VM_NAME% ^
-  --size-in-gb 128 --vhd-name data1.vhd --storage-account-name %VHD_STORAGE%
+CALL azure vm disk attach-new --vm-name %VM_NAME% --size-in-gb 128 --vhd-name ^
+  data1.vhd --storage-account-name %VHD_STORAGE% %POSTFIX%
 
 :: Allow RDP
-CALL azure network nsg rule create -g %RESOURCE_GROUP% --nsg-name %NSG_NAME% ^
-  --direction Inbound --protocol Tcp --destination-port-range 3389 ^
-  --source-port-range * --priority 100 --access Allow RDPAllow
+CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
+  --protocol Tcp --destination-port-range 3389 --source-port-range * ^
+  --priority 100 --access Allow RDPAllow %POSTFIX%
 ```
 
 ## Next steps
@@ -305,41 +315,38 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 
 <!-- links -->
 
-[arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
+[arm-templates]: ../virtual-machines/virtual-machines-windows-cli-deploy-templates.md
 [audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
-[azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
-[azure-portal]: ../azure-portal/resource-group-portal.md
-[azure-powershell]: ../powershell-azure-resource-manager.md
+[azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-storage]: ../storage/storage-introduction.md
 [blob-snapshot]: ../storage/storage-blob-snapshots.md
 [blob-storage]: ../storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
-[data-disk]: ../virtual-machines/virtual-machines-disks-vhds.md
+[cname-record]: https://en.wikipedia.org/wiki/CNAME_record
+[data-disk]: ../virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../azure-security-disk-encryption.md
 [enable-monitoring]: ../azure-portal/insights-how-to-use-diagnostics.md
-[fqdn]: ../virtual-machines/virtual-machines-create-fqdn-on-portal.md
+[fqdn]: ../virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/en-us/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
-[manage-vm-availability]: ../virtual-machines/virtual-machines-manage-availability.md
+[manage-vm-availability]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: guidance-compute-multi-vm.md
 [naming conventions]: guidance-naming-conventions.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
-[password-reset]: ../virtual-machines/virtual-machines-windows-reset-password.md
-[planned-maintenance]: ../virtual-machines/virtual-machines-planned-maintenance.md
+[planned-maintenance]: ../virtual-machines/virtual-machines-windows-planned-maintenance.md
 [premium-storage]: ../storage/storage-premium-storage.md
 [rbac]: ../active-directory/role-based-access-control-configure.md
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
+[resize-os-disk]: ../virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
 [resource-manager-overview]: ../resource-group-overview.md
 [security-center]: https://azure.microsoft.com/en-us/services/security-center/
-[security-extensions]: ../virtual-machines/virtual-machines-extensions-features.md#security-and-protection
-[select-vm-image]: ../virtual-machines/virtual-machines-linux-cli-ps-findimage.md
+[select-vm-image]: ../virtual-machines/virtual-machines-windows-cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [static-ip]: ../virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Use Security Center]: ../security-center/security-center-get-started.md#use-security-center
-[virtual-machine-sizes]: ../virtual-machines/virtual-machines-linux-sizes.md
+[virtual-machine-sizes]: ../virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
-[vm-faq]: ../virtual-machines/virtual-machines-questions.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Service Fabric testability scenarios: Service communication

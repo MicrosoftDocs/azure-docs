@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Accessing private Azure clouds with Visual Studio
@@ -23,7 +23,7 @@ By default, Visual Studio supports public Azure cloud REST endpoints. This can b
 
 ## To access a private Azure cloud in Visual Studio
 
-1. In the management portal for the private cloud, download your publish settings file, or contact your administrator for a publish settings file. On the public version of Azure, the link to download this is [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (The file you download should have a .publishsettings extension.)
+1. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) for the private cloud, download your publish settings file, or contact your administrator for a publish settings file. On the public version of Azure, the link to download this is [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (The file you download should have a .publishsettings extension.)
 
 1. In **Server Explorer** in Visual Studio, choose the **Azure** node and, on the shortcut menu, choose the **Manage Subscriptions** command.
 

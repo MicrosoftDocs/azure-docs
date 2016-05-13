@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use blob storage from PHP | Microsoft Azure"
-	description="Learn how to use the Azure blob service to upload, list, download, and delete blobs. Code samples are written in PHP."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	documentationCenter="php"
 	services="storage"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/17/2016"
+    ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 # How to use blob storage from PHP

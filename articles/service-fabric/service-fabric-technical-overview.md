@@ -3,7 +3,7 @@
    description="A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation."
    services="service-fabric"
    documentationCenter=".net"
-   authors="msfussell"
+   authors="rwike77"
    manager="timlt"
    editor="chackdan;subramar"/>
 
@@ -13,22 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/24/2016"
-   ms.author="msfussell"/>
+   ms.date="04/05/2016"
+   ms.author="ryanwi"/>
 
 # Service Fabric terminology overview
 
 Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This topic details the terminology used by Service Fabric in order to understand the terms used elsewhere in the documentation.
 
-## Terminology concepts
-
-### Infrastructure concepts
+## Infrastructure concepts
 **Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.
 
 **Node**: A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe` which starts running upon boot and then this service starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single PC, VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
-### Application concepts
-**Application Type**: The name/version assigned to a collection of service types. This information is defined in an `ApplicationManifest.xml` file, embedded in an application package directory which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster. 
+## Application concepts
+**Application Type**: The name/version assigned to a collection of service types. This information is defined in an `ApplicationManifest.xml` file, embedded in an application package directory which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
 Read the [Application Model](service-fabric-application-model.md) article for more information.
 
@@ -64,18 +62,18 @@ There are two types of services:
 
 Read the [Partition Service Fabric reliable services](service-fabric-concepts-partitioning.md) article for more information.
 
-### System services
+## System services
 There are system services that are created in every cluster that provide the platform capabilites of Service Fabric.
 
-**Naming Service**: Each Service Fabric cluster has a naming service which resolves service names to a location in the cluster and enables you to manage the service names and properties. This is just like an internet Domain Name Service (DNS) for the cluster. Using the naming service, clients can securely communicate with any node in the cluster to resolve a service name and its location (i.e. get hold of the actual machine IP address and port where is is currently running). Using a the communication client APIs, you can develop services and clients capable of resolving the current network location despite applications being moved within the cluster (due to failures or resource balancing) or te re-sizing of the cluster.
+**Naming Service**: Each Service Fabric cluster has a Naming service which resolves service names to a location in the cluster and enables you to manage the service names and properties. This is just like an internet Domain Name Service (DNS) for the cluster. Using the Naming service, clients can securely communicate with any node in the cluster to resolve a service name and its location (i.e. get hold of the actual machine IP address and port where it is currently running). Using the communication client APIs, you can develop services and clients capable of resolving the current network location despite applications being moved within the cluster for example due to failures, resource balancing or the re-sizing of the cluster.
 
-Read the [Communicate with services](service-fabric-connect-and-communicate-with-services.md) article for more information on using the client and serivce communication API that work in conjunction with the Naming service.
+Read the [Communicate with services](service-fabric-connect-and-communicate-with-services.md) article for more information on using the client and service communication API that work in conjunction with the Naming service.
 
-**Image Store Service**: Each Service Fabric cluster has an image store service where deployed, versioned application packages are kept. You must copy the contents of an application package to the image store and then register the application type within that application package. After the application type has been provisioned, you can create named applications of it. You can unregister an application type from the image store only after all its named applications have been deleted. 
+**Image Store Service**: Each Service Fabric cluster has an Image store service where deployed, versioned application packages are kept. You must copy the contents of an application package to the image store service and then register the application type contained within that application package. Then, after the application type has been provisioned, you can create named applications of it. You can unregister an application type from the Image store service after all its named applications have been deleted.
 
-Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the image store.
+Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
 
-### Built-in programming models
+## Built-in programming models
 There are .NET Framework programming models available for you to build Service Fabric services:
 
 **Reliable Services**: An API to build stateless and stateful services based. Stateful service store their state in Reliable Collections (such as a dictionary or a queue). You also get to plug in a variety of communication stacks such as Web API and Windows Communication Foundation (WCF).

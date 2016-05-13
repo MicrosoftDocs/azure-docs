@@ -3,7 +3,7 @@
    description="Get started with connecting to SQL Data Warehouse and running some queries."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="05/12/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Connect and query with Visual Studio
 
@@ -80,6 +80,8 @@ Now that we have registered our server let's go ahead and write a query.
 ## Next steps
 
 Now that you can connect and query, try [connecting with PowerBI][].
+
+To configure your environment for Windows authentication, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
 
 [connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md  
 

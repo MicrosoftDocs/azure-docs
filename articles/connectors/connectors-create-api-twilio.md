@@ -14,14 +14,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Get started with the Twilio API
 
 Connect to Twilio to send and receive global SMS, MMS, and IP messages.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Twilio](../app-service-logic/app-service-logic-connector-twilio.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Twilio, you can:
 
@@ -47,11 +47,12 @@ When you add this API to your logic apps, enter the following Twilio values:
 |Account ID|Yes|Enter your Twilio account ID|
 |Access Token|Yes|Enter your Twilio access token|
 
-See [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) to create an access token.
+>[AZURE.INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)] 
 
-After you create the connection, you enter the Twilio properties. The **REST API reference** in this topic describes these properties.
+If you don't have one, see [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) to create an access token.
 
->[AZURE.TIP] You can use this same Twilio connection in other logic apps.
+
+>[AZURE.TIP] You can use this same Twilio connection in other Logic apps.
 
 ## Swagger REST API reference
 #### This documentation is for version: 1.0

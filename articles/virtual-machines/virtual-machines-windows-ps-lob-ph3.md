@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 3: Configure SQL Server infrastructure
@@ -180,7 +180,7 @@ The SQL Server service requires a port that clients use to access the database s
 
 For each of the SQL Server virtual machines, sign out as the local administrator. 
 
-For information about optimizing SQL Server performance in Azure, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-perf.md). You can also disable Geo Redundant Storage (GRS) for the line of business application storage account and use storage spaces to optimize IOPs.
+For information about optimizing SQL Server performance in Azure, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md). You can also disable Geo Redundant Storage (GRS) for the line of business application storage account and use storage spaces to optimize IOPs.
 
 ## Configure the cluster majority node server
 

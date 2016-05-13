@@ -22,7 +22,7 @@ Connect to an Azure Blob to manage files in a blob container, such as creating f
 
 - Logic apps 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Azure Storage Blob connector](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Azure blob storage, you can:
 

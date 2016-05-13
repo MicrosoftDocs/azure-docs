@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cortana Analytics Competitions FAQ | Microsoft Azure"
-	description="Frequently asked questions about Microsoft Cortana Analytics Competitions."
+	pageTitle="Cortana Intelligence Competitions FAQ | Microsoft Azure"
+	description="Frequently asked questions about Microsoft Cortana Intelligence Competitions."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,11 +16,11 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Microsoft Cortana Analytics Competitions FAQ
+# Microsoft Cortana Intelligence Competitions FAQ
 
-**What is Cortana Analytics Competitions?**
+**What is Cortana Intelligence Competitions?**
 
-Microsoft is announcing Cortana Analytics Competitions. Cortana Analytics Competitions allows us to unite a global community of data enthusiasts by collectively solving some of world’s most complex data science problems. Cortana Analytics Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. Our hosted competitions are based on unique data sets that have been made available publically for the first time. Participants can win rewards or get recognition via our top 10 public leaderboard. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.
+Microsoft is announcing Cortana Intelligence Competitions. Cortana Intelligence Competitions allows us to unite a global community of data enthusiasts by collectively solving some of world’s most complex data science problems. Cortana Intelligence Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. Our hosted competitions are based on unique data sets that have been made available publically for the first time. Participants can win rewards or get recognition via our top 10 public leaderboard. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.
 
 **How often will Microsoft release new competitions?**
 
@@ -33,16 +33,16 @@ forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
 
 **How do I enter a competition?**
 
-Access the Competitions home page Competitions home page via the Cortana Analytics Gallery. This page contains all competitions that are running. Each competition will have detailed instructions and participation rules, prizes, and duration on its sign up page. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.  
+Access the Competitions home page Competitions home page via the Cortana Intelligence Gallery. This page contains all competitions that are running. Each competition will have detailed instructions and participation rules, prizes, and duration on its sign up page. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.  
 
-1. Find the competition you’d like to participate in Cortana Analytics Gallery, read all the instructions and watch the tutorial video, then click on the “Enter Competition” button to copy the Starter Experiment into your existing Azure Machine Learning workspace. If you don’t already have access to a workspace, you must create one beforehand. Run the Starter Experiment, observe the performance metric, then use your creativity to improve the performance of the model. You will likely spend majority of your time in this step.   
+1. Find the competition you’d like to participate in Cortana Intelligence Gallery, read all the instructions and watch the tutorial video, then click on the “Enter Competition” button to copy the Starter Experiment into your existing Azure Machine Learning workspace. If you don’t already have access to a workspace, you must create one beforehand. Run the Starter Experiment, observe the performance metric, then use your creativity to improve the performance of the model. You will likely spend majority of your time in this step.   
 
-2. Create a Predicative Experiment with the trained model out of your Starter Experiment. Then carefully adjust the input and output schema of the web service to ensure they conform to the requirement specified in the Competition documentation. The tutorial document generally will have detailed instruction on how to accomplish this. You can also watch the tutorial video if available.   
+2. Create a Predictive Experiment with the trained model out of your Starter Experiment. Then carefully adjust the input and output schema of the web service to ensure they conform to the requirement specified in the Competition documentation. The tutorial document generally will have detailed instruction on how to accomplish this. You can also watch the tutorial video if available.   
 
-3. Deploy a web service out of your Predicative Experiment. Test your web service using the Test button or the Excel template automatically created for you to ensure it is working properly.   
+3. Deploy a web service out of your Predictive Experiment. Test your web service using the Test button or the Excel template automatically created for you to ensure it is working properly.   
 
 4. Submit your web service as the competition entry, and see your public score in the Cortana Intelligence Gallery competition page. And celebrate if you make into the leaderboard!  
-After you successfully submit an entry, you can go back to the copied Starter Experiment, iterate, and update your Predicative Experiment, update the web service, and submit an new entry.   
+After you successfully submit an entry, you can go back to the copied Starter Experiment, iterate, and update your Predictive Experiment, update the web service, and submit an new entry.   
 
 **Can I use open source tools for participating in these Competitions?**
 
@@ -50,9 +50,12 @@ The competition participants leverage Azure Machine Learning Studio, a cloud-bas
 
 **Do I need to be a data scientist to enter?**
 
-No. In fact, we encourage data enthusiasts, those curious about data science, and other aspiring data scientists to enter our contest. We have designed supporting documents to allow everyone to compete. Our target audience is:   
+No. In fact, we encourage data enthusiasts, those curious about data science, and other aspiring data scientists to enter our contest. We have designed supporting documents to allow everyone to compete. Our target audience is:
+
 * Data Developers, Data Scientists, BI and Analytics Professionals: those who are responsible for producing data and analytics content for others to consume.
+
 * Data Stewards: those who have the knowledge about the data, what it means, and how it is intended to be used and for which purpose.
+
 * Students & Researchers: those who are learning and gaining data related skills via academic programs in universities or participants of Massively Open Online Courses (MOOCs)
 
 
@@ -62,7 +65,7 @@ The Competition platform currently does not support team participation. Each com
 
 **Do I need to pay to participate in a competition?**
 
-Competitions are free to participate in. You do, however, need access to an Azure Machine Learning workspace to participate. You can create a Free workspace without a credit card by simply logging in with a valid Microsoft account, or an Office 365 account. If you are already an Azure or Cortana Analytics Suite customer, you can create and use a Standard workspace under the same Azure subscription. If you would like to purchase an Azure subscription you can go [here] (https://azure.microsoft.com/pricing). Note the standard rates will apply when using a Standard workspace to construct experiments. See Azure Machine Learning pricing information [here](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Competitions are free to participate in. You do, however, need access to an Azure Machine Learning workspace to participate. You can create a Free workspace without a credit card by simply logging in with a valid Microsoft account, or an Office 365 account. If you are already an Azure or Cortana Intelligence Suite customer, you can create and use a Standard workspace under the same Azure subscription. If you would like to purchase an Azure subscription you can go [here] (https://azure.microsoft.com/pricing). Note the standard rates will apply when using a Standard workspace to construct experiments. See Azure Machine Learning pricing information [here](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

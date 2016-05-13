@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Advanced HTTP reports in Microsoft Azure CDN
@@ -22,7 +22,7 @@
 
 This document explains advanced HTTP reporting in Microsoft Azure CDN. These reports provide detailed information on CDN activity.
 
-> [AZURE.NOTE] Advanced HTTP reports is a feature of the Premium CDN tier.  For a comparison of Standard and Premium CDN features, see [Azure CDN Overview](cdn-overview.md).
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## Accessing advanced HTTP reports
 

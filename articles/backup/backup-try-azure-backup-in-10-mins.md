@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Back up files and folders from Windows to Azure | Microsoft Azure"
-   description="Learn how to backup Windows Server data by creating a vault, installing the backup agent, and backing up your files and folders to Azure."
+   pageTitle="Learn to back up files and folders from Windows to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Azure"
+   description="Learn how to backup Windows Server data by creating a vault, installing the Recovery Services agent, and backing up your files and folders to Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
@@ -11,220 +11,198 @@
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="hero-article"
-	 ms.date="03/23/2016"
-	 ms.author="jimpark;"/>
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.date="05/10/2016"
+   ms.author="jimpark;"/>
 
-# First look: back up files and folders from Windows Server or client to Azure
+# First look: back up files and folders from Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model
 
-This article explains how to back up your Windows machine (Windows Server or Windows client) to Azure. So, if you're interested in using Azure Backup and want to see how simple it is to protect your data to the cloud you're in the right place.
+This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using Resource Manager. It's a tutorial intended to walk you through the basics. If you want to get started using Azure Backup, you're in the right place.
 
-It only requires these steps:
+If you want to know more about Azure Backup, read this [overview](backup-introduction-to-azure-backup.md).
 
-![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if necessary).<br>
-![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a backup vault and download the necessary components.<br>
-![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Prepare your Windows Server or client by installing and registering those components.<br>
-![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Back up your data.
+Backing up files and folders to Azure requires these activities:
 
+![Step 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Get an Azure subscription (if you don't already have one).<br>
+![Step 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Create a Recovery Services vault.<br>
+![Step 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Download the necessary files.<br>
+![Step 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Install and register the Recovery Services agent.<br>
+![Step 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Back up your files and folders.
 
-![How to back up your Windows machine with Azure Backup](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
+![How to back up your Windows machine with Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ## Step 1: Get an Azure subscription
 
-If you do not have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
 
->[AZURE.NOTE] You can skip this step if you already have an Azure subscription.
+## Step 2: Create a Recovery Services vault
 
-## Step 2: Create a backup vault and download the necessary components
+To back up your files and folders, you need to create a Recovery Services vault in the region where you want to store the data. You also need to determine how you want your storage replicated.
 
-To back up files and data from a Windows machine to Azure, you need to create a backup vault in the geographic region where you want to store the data.
+### To create a Recovery Services vault
 
 1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
 
-2. Click **New > Hybrid Integration > Backup**.
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
 
-    ![Begin preparing to back up your files and folders](./media/backup-try-azure-backup-in-10-mins/second-blade-backup.png)
+    ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/browse-to-rs-vaults.png) <br/>
 
-    a. On the resulting screen, for **Name**, enter a friendly name to identify the backup vault. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers and hyphens.
+3. On the **Recovery Services vaults** menu, click **Add**.
 
-    b. For **Region**, select the geographic region for the backup vault. By choosing a geographic region close to your location, you can reduce network latency when backing up to Azure.
+    ![Create Recovery Services Vault step 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    c. Click **Create Vault**.
+    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
 
-    ![Create a vault](./media/backup-try-azure-backup-in-10-mins/demo-vault-name.png)
+    ![Create Recovery Services vault step 5](./media/backup-try-azure-backup-in-10-mins/rs-vault-attributes.png)
 
-    For status, you can monitor the notifications at the bottom of the portal.
+4. For **Name**, enter a friendly name to identify the vault.
 
-    ![Vault process](./media/backup-try-azure-backup-in-10-mins/creatingvault1.png)
+5. Click **Subscription** to see the available list of subscriptions.
 
-    Once the backup vault is created, you'll see it listed in the resources for Recovery Services as **Active**.
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group.
 
-    ![Vault status is active](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
+7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
 
-3. Select **storage redundancy** options.
+8. Click **Create**.
 
-    The best time to select the storage redundancy option is right after creating a vault and before any machines are registered to it. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+    If you don't see your vault listed after it has been completed, click **Refresh**. When the list refreshes, click the name of the vault.
 
-    If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) [Geo-Redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) option.
+### To determine storage redundancy
+When you first create a Recovery Services vault you determine how storage is replicated.
 
-    If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing [Locally Redundant Storage](../storage/storage-redundancy.md#locally-redundant-storage). This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
+1. Click on the new vault to open the dashboard.
 
-    a. Click on the vault you just created.
+2. In the **Settings** blade, which opens automatically with your vault dashboard, click **Backup Infrastructure**.
 
-    b. On the Quick Start page, select **Configure**.
+3. In the Backup Infrastructure blade, click **Backup Configuration** to view the **Storage replication type**.
 
-    ![Configure vault](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
+    ![Create Recovery Services vault step 5](./media/backup-try-azure-backup-in-10-mins/backup-infrastructure.png)
 
-    c. Choose the appropriate storage redundancy option.
+4. Choose the appropriate storage replication option for your vault.
 
-    You will need to click **Save** if you've selected **Locally Redundant**, since **Geo Redundant** is the default option.
+    ![List of recovery services vaults](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    ![Choose storage redundancy option](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
+    By default, your vault has geo-redundant storage. If you are using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you are using Azure as a non-primary backup storage endpoint, then choose locally redundant storage, which will reduce the cost of storing data in Azure. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
 
-    d. Click **Recovery Services**, in the left navigation pane to return to the list of resources for **Recovery Services**.
+Now that you've created a vault, you prepare your infrastructure to back up files and folders by downloading the Microsoft Azure Recovery Services agent and vault credentials.
 
-    ![Recovery services](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
+## Step 3 - Download files
 
-    Your Windows machine now needs to be authenticated with the backup vault you just created. The authentication is achieved using vault credentials.
+1. Click **Settings** on the Recovery Services vault dashboard.
 
-4.  Click the vault you just created.
+    ![Open backup goal blade](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
 
-    ![Select your new vault](./media/backup-try-azure-backup-in-10-mins/demo-vault-active-full-screen.png)
+2. Click **Getting Started > Backup** on the Settings blade.
 
-5. From the **Quick Start** page, click **Download vault credentials**.
+    ![Open backup goal blade](./media/backup-try-azure-backup-in-10-mins/getting-started-backup.png)
 
-    ![Download the vault credentials](./media/backup-try-azure-backup-in-10-mins/downloadvc.png)
+3. Click **Backup goal** on the Backup blade.
 
-    The portal will generate a vault credential using a combination of the vault name and the current date.
+    ![Open backup goal blade](./media/backup-try-azure-backup-in-10-mins/backup-goal.png)
 
-    >[AZURE.NOTE] The vault credentials file is used only during the registration workflow and expires after 48hrs.
+4. Select **On-premises** from the Where is your workload running? menu.
 
-6. Click **Save** to download the vault credentials to the local account's **Downloads** folder, or select **Save As** from the **Save** menu to specify a location for the vault credentials.
+5. Select **Files and folders** from the What do you want to backup? menu, and click **OK**.
 
-    Ensure that the vault credentials are saved in a location that can be accessed from your machine. If the file is stored in a file share/SMB, check for the access permissions.
+### Download the Recovery Services agent
 
-    >[AZURE.NOTE] You don't need to open the vault credentials at this time.
+1. Click **Download Agent for Windows Server or Windows Client** in the **Prepare infrastructure** blade.
 
-    Next, you need to download the backup agent
+    ![prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 
-7. Click **Recovery Services**, in the left navigation pane and then click the backup vault that you want to register with a server.
+2. Click **Save** in the download pop-up. By default, the **MARSagentinstaller.exe** file is saved to your Downloads folder.
 
-    ![Select the backup vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
+### Download vault credentials
 
-8. On the Quick Start page, click **Agent for Windows Server or System Center Data Protection Manager or Windows Client > Save** (or select **Save As** from the **Save** menu to specify a location for the agent).
+1. Click **Download > Save** on the Prepare infrastructure blade.
 
-    ![Save the backup agent](./media/backup-try-azure-backup-in-10-mins/agent.png)
+    ![prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-At this point, you've finished creating a backup vault and downloading the necessary components. Now you'll install the backup agent.
+## Step 4 -Install and register the agent
 
-## Step 3: Prepare your Windows Server or client by installing and registering the backup components
+>[AZURE.NOTE] Enabling backup through the Azure portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
 
-1. After the download finishes, double click the **MARSagentinstaller.exe** from the saved location (or you could click **Run** instead of saving the file in the previous step).
+1. Locate and double click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
 
-2. Choose the **Installation folder** and **Cache folder** required for the agent.
+2. Complete the Microsoft Azure Recovery Services Agent Setup Wizard. To complete the wizard, you need to:
 
-    The cache location you specify must have free space equal to at least 5% of the backup data.
+    - Choose a location for the installation and cache folder.
+    - Provide your proxy server info if you use a proxy server to connect to the internet.
+    - Provide your user name and password details if you use an authenticated proxy.
+    - Provide the downloaded vault credentials
+    - Save the encryption passphrase in a secure location.
 
-    Click **Next**.
+    >[AZURE.NOTE] If you lose or forget the passphrase, Microsoft cannot help recover the backup data. Please save the file in a secure location. It is required to restore a backup.
 
-    ![Installation and cache folder](./media/backup-try-azure-backup-in-10-mins/recovery-services-agent-setup-wizard-1.png)
+The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
-3. You can continue to connect to the internet through the default proxy settings, or if you use a proxy server to connect to the internet, in the **Proxy configuration** screen, check the **Use custom proxy settings** box and enter the proxy server details.
+## Step 5: Back up your files and folders
 
-    If you use an authenticated proxy, enter the user name and password details.
+The initial backup includes two key tasks:
 
-    Click **Next**.
+- Schedule the backup
+- Back up files and folders for the first time
 
-    ![Proxy configuration](./media/backup-try-azure-backup-in-10-mins/proxy-configuration.png)
+To complete the initial backup, you use the Microsoft Azure Recovery Services agent.
 
-4. Click **Install**.
+### To schedule the backup
 
-    The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if they are not already installed) to complete the installation.
+1. Open the Microsoft Azure Recovery Services agent. You can find it by searching your machine for **Microsoft Azure Backup**.
 
-5. Once the agent is installed, click **Proceed to Registration** to continue with the workflow.
+    ![Launch the Azure Recovery Services agent](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-    ![Register](./media/backup-try-azure-backup-in-10-mins/register.png)
+2. In the Recovery Services agent, click **Schedule Backup**.
 
-6. In the **Vault Identification** screen, browse to and select the **vault credentials file** you previously downloaded. Ensure that the vault credentials file is available in a location that can be accessed by the setup application.
+    ![Schedule a Windows Server backup](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
-    Click **Next**.
+3. On the Getting started page of the Schedule Backup Wizard, click **Next**.
 
-    ![Identify the vault](./media/backup-try-azure-backup-in-10-mins/vault-identification-with-creds.png)
+4. On the Select Items to Backup page, click **Add Items**.
 
-7. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
+5. Select the files and folders that you want to back up, and then click **Okay**.
 
-    > [AZURE.WARNING] If the passphrase is lost or forgotten Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
+6. Click **Next**.
 
-    Click **Finish**.
+7. On the **Specify Backup Schedule** page, specify the **backup schedule** and click **Next**.
 
-    ![Encryption setting](./media/backup-try-azure-backup-in-10-mins/encryption.png)
+    You can schedule daily (at a maximum rate of three times per day) or weekly backups.
 
-    The **Register Server Wizard** registers the server with Microsoft Azure Backup.
+    ![Items for Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
 
-8. Once the **encryption key** is set, leave the **Launch Microsoft Azure Recovery Services Agent** checkbox checked and click **Close**.
+    >[AZURE.NOTE] For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
 
-    The machine is now registered successfully to the vault and you are ready to configure and schedule your backup options.
+8. On the **Select Retention Policy** page, select the **Retention Policy** for the backup copy.
 
-## Step 4: Back up your data
+    The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
 
-1. In the **Backup agent** (which opened automatically if you left the **Launch Microsoft Azure Recovery Services Agent** checkbox checked) click **Schedule Backup**.
+9. On the Choose Initial Backup Type page, choose the initial backup type. Leave the option **Automatically over the network** selected, and then click **Next**.
 
-    ![Schedule a Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup-closeup.png)
+    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md) for additional information.
 
-2. On the **Getting started** screen, click **Next**.
+10. On the Confirmation page, review the information, and then click **Finish**.
 
-3. On the **Select Items to Backup** screen, click **Add Items**. Azure Backup on a Windows Server or Windows client allows you to protect files and folders.
+11. After the wizard finishes creating the backup schedule, click **Close**.
 
-    ![Schedule a Windows Server Backup](./media/backup-try-azure-backup-in-10-mins/add-items.png)
+### To back up files and folders for the first time
 
-    Select the items you wish to back up and click **Okay**.
+1. In the Recovery Services agent, click **Back Up Now** to complete the initial seeding over the network.
 
-    Click **Next**.
+    ![Windows Server backup now](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-4. Specify the **backup schedule** and click **Next**.
+2. On the Confirmation page, review the settings that the Back Up Now Wizard will use to back up the machine. Then click **Back Up**.
 
-    You can schedule daily (at a maximum of 3 times per day) or weekly backups.
+3. Click **Close** to close the wizard. If you do this before the backup process finishes, the wizard continues to run in the background.
 
-    ![Specify the backup schedule](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule.png)
+After the initial backup is completed, the **Job completed** status appears in the Backup console.
 
-5. Select the **Retention Policy** for the backup copy. You can modify the daily, weekly, monthly, and yearly retention policy to meet your needs.
+![IR complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-    >[AZURE.NOTE] The backup schedule is explained in detail in this [article](backup-azure-backup-cloud-as-tape.md).
-
-     Click **Next**
-
-    ![Select the retention policy](./media/backup-try-azure-backup-in-10-mins/select-retention-policy.png)
-
-6. Choose the initial backup type.
-
-    You can back up automatically over the network, or you can back up offline. The remainder of this article follows the automatic backup process. If you prefer to do an offline backup, review this article for additional information on the [offline back up workflow in Azure Backup](backup-azure-backup-import-export.md).
-
-    Click **Next**
-
-    ![Initial backup type](./media/backup-try-azure-backup-in-10-mins/choose-initial-backup-type.png)
-
-7. On the **Confirmation** screen review the information and click **Finish**.
-
-8. Once the wizard finishes creating the **backup schedule**, click **Close**.
-
-9. In the **Backup agent** click **Back up Now** to complete the initial seeding over the network.
-
-    ![Windows Server backup now](./media/backup-try-azure-backup-in-10-mins/snap-in-backup-now.png)
-
-10. On the **Confirmation** screen, review the settings the wizard will use to back up the machine and click **Back Up**.
-
-11. Click **Close** to close the wizard. You can do this before the **backup process** completes and it will continue to run in the background.
-
-12. After the initial backup is completed, the **Jobs** view in the Azure Backup console indicates the "Job completed" status.
-
-    ![Initial backup complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-Congratulations, you've successfully backed up your files and folders to Azure Backup.
+## Questions?
+If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
 ## Next steps
-- To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md).
-- Get more details about [preparing your environment and backing up Windows machines](backup-configure-vault.md).
-- Learn how to backup up Azure VMs with this [First look article](backup-azure-vms-first-look.md).
-- Read the latest discussions about Azure Backup in the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Get more details about [backing up Windows machines](backup-configure-vault.md).
+- Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
+- If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).

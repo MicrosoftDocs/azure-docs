@@ -19,9 +19,11 @@
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using PowerShell and Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](site-recovery-vmm-to-azure.md)
+- [Azure Portal](site-recovery-vmm-to-azure.md)
+- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Classic Portal](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
-- [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 
 ## Overview
@@ -121,7 +123,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 
-## Step 2: Create a Recovery Services vault
+## Step 2: Create a Recovery Services vault 
 
 1. Create an ARM resource group if you don't have one already
 
@@ -131,19 +133,11 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
 		$vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location 
 
-## Step 3: Generate a vault registration key
+## Step 3: Set the Recovery Services Vault context
 
-Generate a registration key in the vault. After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.
+1.  Set the vault context by running the below command.
 
-1.	Get the vault setting file and set the context:
-	
-
-		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault vaultname -Path #VaultSettingFilePath
-	
-	
-2.	Set the vault context by running the following commands:
-	
-		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath
+		Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## Step 4: Install the Azure Site Recovery Provider
 
@@ -320,7 +314,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 ### Run an unplanned failover
 
-1. Start the planned failover by running the following command:
+1. Start the unplanned failover by running the following command:
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 

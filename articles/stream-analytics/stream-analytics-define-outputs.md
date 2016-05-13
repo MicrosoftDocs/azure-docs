@@ -5,7 +5,7 @@
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/16/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Target Stream Analytics data transformation outputs to analysis tools and data storage options
@@ -169,8 +169,6 @@ There are a few parameters that are needed to configure Event Hub data streams a
 
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation and metric driven reporting.
 
-> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is supported only in the Azure Classic Portal.
-
 ### Authorize a Power BI account
 
 1.	When Power BI is selected as an output in the Azure Management portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
@@ -200,7 +198,7 @@ For a walk-through of configuring a Power BI output and dashboard, please see th
 
 ### Renew Power BI Authorization
 
-There is a temporary limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Power BI output.  You will also need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated.  A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
+You will need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
 
   ![Power BI refresh token error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 

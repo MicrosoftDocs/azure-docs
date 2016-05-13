@@ -14,14 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="05/05/2016"
 	ms.author="larryfr"/>
 
-# Develop Java MapReduce programs for Hadoop on HDInsight
+# Develop Java MapReduce programs for Hadoop on HDInsight Linux
 
-[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
-
-This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster. For information on using a Windows-based Hadoop on HDInsight cluster, see [Develop Java MapReduce programs for Hadoop on HDInsight (Windows)](hdinsight-develop-deploy-java-mapreduce.md)
+This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
 
 ##<a name="prerequisites"></a>Prerequisites
 
@@ -33,7 +31,9 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**
 
-- **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli-install.md)
+- **Azure CLI**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Configure environment variables
 

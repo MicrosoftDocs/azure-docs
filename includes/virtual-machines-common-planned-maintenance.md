@@ -1,13 +1,5 @@
 
 
-## Why Azure performs planned maintenance
-
-Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.
-
-However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure. The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.
-
-Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned. This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned maintenance, see [Understand planned versus unplanned maintenance](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
-
 ## Memory-preserving updates
 
 For a class of updates in Microsoft Azure, customers will not see any impact to their running virtual machines. Many of these updates are to components or services that can be updated without interfering with the running instance. Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.
@@ -24,7 +16,7 @@ There are two kinds of virtual machine configurations: multi-instance and single
 
 The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
 
-For more information about configuring your virtual machines for high availability, refer to [Manage the Availability of your Virtual Machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
+For more information about configuring your virtual machines for high availability, refer to [Manage the availability of your Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) or [Manage the availability of your Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-manage-availability.md).
 
 By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.
 
@@ -65,9 +57,9 @@ For virtual machines in a single-instance configuration, virtual machines are up
 
 This planned maintenance event will impact the availability of your application for this type of virtual machine configuration. Azure offers a 1-week advanced notification for planned maintenance of virtual machines in the single-instance configuration.
 
-### Email notification
+## Email notification
 
-For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance). This email will be sent to the account administrator and co-administrator email accounts provided in the subscription. Here is an example of this type of email:
+For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance). This email will be sent to the subscription administrator and co-administrator email accounts. Here is an example of this type of email:
 
 <!--Image reference-->
 ![][image1]

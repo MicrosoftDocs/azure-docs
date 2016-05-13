@@ -80,4 +80,3 @@ check out [the types of apps you can build with the v2.0](active-directory-v2-fl
 - Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow (coming soon)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->

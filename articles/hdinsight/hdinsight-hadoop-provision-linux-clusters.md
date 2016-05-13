@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/21/2016"
+   	ms.date="05/02/2016"
    	ms.author="jgao"/>
 
 
@@ -26,14 +26,15 @@ A Hadoop cluster consists of several virtual machines (nodes) which are used for
 
 ##Cluster types
 
-Currently, HDInsight provides 4 different types of clusters, each with a set of components to provide certain functionalities: 
+Currently, HDInsight provides 5 different types of clusters, each with a set of components to provide certain functionalities: 
 
 | Cluster type | Use this if you need... |
 | ------------ | ----------------------------- |
-| Hadoop       | query and analysis (batch jobs)     |
-| HBase        | NoSQL data storage            |
-| Storm        | Real-time event processing |
-| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing |
+| Hadoop       | Query and analysis (batch jobs).     |
+| HBase        | NoSQL data storage.            |
+| Storm        | Real-time event processing. |
+| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing. |
+| R Server on Spark | R supports a variety of big data statistics, predictive modeling, and machine learning capabilities. |
 
 Each cluster type has its own terminology for nodes within the cluster, as well as the number of nodes and the default VM size for each node type:
 
@@ -44,11 +45,45 @@ Each cluster type has its own terminology for nodes within the cluster, as well 
 |Storm|Nimbus node (2), Supervisor server (1+), Zookeeper node (3)|![HDInsight Storm cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|Head node (2), Worker node (1+), Zookeeper node (3) (Free for A1 Zookeepers VM size)|![HDInsight Spark cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* In parentheses are the number of nodes for each node type.
+Note: In parentheses are the number of nodes for each node type.
+
+The following table lists the default VM sizes for HDInsight:
+
+|Cluster Type|	Hadoop|	HBase|	Storm|	Spark|
+|------------|--------|------|-------|-------|
+|Head – Default VM size|	D3	|A3|	A3|	D12|
+|Head – Recommended VM sizes|	D3, D4, D12	|A3, A4, A5	|A3, A4, A5|	D12, D13, D14|
+|Worker – Default VM size|	D3|	D3|	D3|	D12|
+|Worker – Recommended VM sizes |	D3, D4, D12|	D3, D4, D12	|D3, D4, D12|	D12, D13, D14|
+|Zookeeper – Default VM size|	|	A2|	A2	| |
+|Zookeeper – Recommended VM sizes |		|A2, A3, A4	|A2, A3, A4	| |
+
+Note: Head is known as Nimbus for the Storm cluster type. Worker is known as Region for the HBase cluster type, and  as Supervisor for the Storm cluster type.
+
+
 
 > [AZURE.IMPORTANT] If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
 
 You can add other components such as Hue or R to these basic types by using [Script Actions](#customize-clusters-using-script-action).
+
+## Cluster tiers
+
+Azure HDInsight provides the big data cloud offerings in two categories: Standard and [Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). HDInsight Premium includes R and other additional components. HDInsight Premium is only supported on HDInsight version 3.4. 
+
+The following table lists the HDInsight cluster type and HDInsight Premium support matrix.
+
+| Cluster type | Standard | Premium  |
+|--------------|---------------|--------------|
+| Hadoop       | Yes           | Yes          |
+| Spark        | Yes           | Yes          |
+| HBase        | Yes           | No           |
+| Storm        | Yes           | No           |
+| R Server on Spark | No | Yes |
+
+This table will be updated as more cluster types are included in the HDInsight Premium. The following screenshot shows the Azure portal information for choosing cluster types:
+
+![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+
 
 ## Basic configuration options
 
@@ -63,7 +98,7 @@ The following are the basic configuration options for creating an HDInsight clus
 
 - **Cluster type** 
 
-    See [Cluster types](#cluster-types).
+    See [Cluster types](#cluster-types) and [Cluster tiers](#cluster-tiers).
 
 - **Operating system**
 
@@ -88,7 +123,7 @@ The following are the basic configuration options for creating an HDInsight clus
 	The HDInsight clusters allow you to configure two user accounts during cluster creation:
 
 	- HTTP user. The default user name is admin using the basic configuration on the Azure Portal. Sometimes, it is called "Cluster user".
-	- SSH User (Linux clusters): Is used to connect to the cluster using SSH. You can create additional SSH user accounts after the cluster is created by following the steps in [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+	- SSH User (Linux clusters): Is used to connect to the cluster using SSH. You can create additional SSH user accounts after the cluster is created by following the steps in [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     >[AZURE.NOTE] For Windows-based cluster, you can ccreate an RDP user used to connect to the cluster using RDP. 
 
@@ -228,9 +263,13 @@ see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/ar
 
 ## Customize clusters using Script action
 
-You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
+You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
+Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
+>[AZURE.NOTE] If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
+
+> Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
 
 ## Cluster creation methods
 

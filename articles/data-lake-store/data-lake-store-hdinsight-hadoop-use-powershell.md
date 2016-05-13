@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/21/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Create an HDInsight cluster with Data Lake Store using Azure PowerShell
@@ -28,6 +28,8 @@ Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBa
 * **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
 
 * **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
+
+> [AZURE.NOTE] Option to create HDInsight clusters with access to Data Lake Store is available only for HDInsight version 3.2 (for Windows as well as Linux).
 
 
 In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.

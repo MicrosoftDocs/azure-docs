@@ -29,7 +29,7 @@ Connect to Salesforce and create objects, get objects, and more. The Salesforce 
 
 &nbsp; 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Salesforce connector](../app-service-logic/app-service-logic-connector-salesforce.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Salesforce, you can:
 

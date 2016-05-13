@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="05/02/2016"
    ms.author="mikewasson"/>
 
 # Running multiple Windows VM instances on Azure (single tier, Internet-facing)
@@ -27,35 +27,37 @@ The following diagram builds on the topology shown in [Running a Single Windows 
 
 ![IaaS: multiple VMs](media/blueprints/compute-multi-vm.png)
 
-- **Availability Set.** Put the VM instances into an [Availability Set][availability set]. This makes the VMs eligible for the [SLA][vm-sla] for virtual machines. (For the SLA to apply, you need a minimum of two VMs in the same availability set.)
+- **Availability Set.** Put the VMs into an [Availability Set][availability set]. This makes the VMs eligible for the [SLA][vm-sla] for virtual machines. (For the SLA to apply, you need a minimum of two VMs in the same availability set.)
 
-- **VNet**. Every VM in Azure is deployed into a virtual network (VNet), which is further divided into **subnets**. For this scenario, you can place the VMs into the same subnet.
+- **VNet**. Every VM in Azure is deployed into a virtual network (VNet), which is further divided into **subnets**. For this scenario, place the VMs on the same subnet.
 
-- **Load Balancer.** Use a public-facing [load balancer] to distribute incoming Internet requests to the VM instances. The load balancer includes some related resources:
+- **Azure Load Balancer.** Use an Internet-facing [load balancer] to distribute incoming Internet requests to the VM instances. The load balancer includes some related resources:
 
     - **Public IP address.** A public IP address is needed for the load balancer to receive Internet traffic.
-    - **Front-end configuration.** Associates the IP address with the load balancer.
-    - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs.
+    - **Front-end configuration.** Associates the public IP address with the load balancer.
+    - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 
-- Create **load balancer rules** for the network traffic that should be distributed among the VMs. For example, to enable HTTP, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
+- Create **load balancer rules** for the network traffic that should be distributed across the VMs. For example, for HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
 
-- Create **NAT rules** when you need to route traffic to a specific VM &mdash; for example, to enable remote desktop into a VM instance. When you create a NAT rule, associate it with the NIC for the VM insance.
+- Create **NAT rules** when you need to route traffic to a specific VM &mdash; for example, to allow remote desktop to a VM instance. When you create a NAT rule, associate it with the NIC for the VM instance.
 
-    - Example: To enable **remote desktop (RDP)** to the VMs, create a separate NAT rule for each VM, mapping a distinct port number to port 3389. (RDP uses port 3389.) For example, use port 50001 for "VM1", port 50002 for "VM2", and so on. Then assign the NAT rules to the NICs on the VMs. Log into the VM by using the _external_ port number (50001, 50002, etc).
+    - Example: To enable **remote desktop (RDP)** to the VMs, create a separate NAT rule for each VM, mapping a distinct port number to port 3389. (RDP uses port 3389.) For example, use port 50001 for "VM1", port 50002 for "VM2", and so on. Then assign the NAT rules to the NICs on the VMs. Connect to the VM by using the _external_ port number (50001, 50002, etc).
 
-- **Network interfaces (NICs)**. Provision a network interface (NIC) for each VM. The NIC provides network connectivity to the VM. Associate the NIC with the subnet and also with the back-end address pool of the load balancer.
+- **Network interfaces (NICs)**. Provision a NIC for each VM. The NIC provides network connectivity to the VM. Associate the NIC with the subnet and also with the back-end address pool of the load balancer.
 
-- **Storage.** Create separate Azure storage accounts for each VM to hold the VHDs for that VM. Create one storage account for diagnostic logs. That account can be shared by all the VMs.
+- **Storage.** Create separate Azure storage accounts for each VM to hold the VHDs, in order to avoid hitting the [IOPS limits][vm-disk-limits] for storage accounts. Create one storage account for diagnostic logs. That account can be shared by all the VMs.
 
 ## Scalability
 
-The load balancer takes incoming network requests and distributes them across the VMs in the back-end address pool. To scale horizontally, add more VM instances to the Availability Set (or deallocate VMs to scale down).
+The load balancer takes incoming network requests and distributes them across the NICs in the back-end address pool. To scale horizontally, add more VM instances to the Availability Set (or deallocate VMs to scale down).
 
 For example, suppose you're running a web server. You would add a load balancer rule for port 80 and/or port 443 (for SSL). When a client sends an HTTP request, the load balancer picks a back-end IP address by using a [hashing algorithm][load balancer hashing] that includes the source IP address. In that way, client requests are distributed across all the VMs.
 
 It's important that any VM instance can handle any request that is routed through the load balancer.
 
-> [AZURE.TIP] When you add a new VM instance to an Availability Set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, network traffic won't be routed to the new VM.
+> [AZURE.TIP] When you add a new VM to an Availability Set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, Internet traffic won't be routed to the new VM.
+
+The Azure load balancer is a layer-4 load balancer, meaning it distributes traffic based on TCP/UDP port numbers. Another option is [Azure Application Gateway][app-gateway], which is a layer-7 load balancer (HTTP/HTTPS) that supports URL-based routing and SSL offload. For a comparison of the two, see [Load Balancer differences][load balancer differences].
 
 ## Availability
 
@@ -69,7 +71,7 @@ For more information, see [Manage the availability of virtual machines][availabi
 
 > [AZURE.WARNING]  Make sure to configure the Availability Set when you provision the VM. Currently, there is no way to add a Resource Manager VM to an Availability Set after the VM is provisioned.
 
-The load balancer uses [health probes] to monitor the availability of VM instances. If a probe cannot reach an instance, the load balancer stops sending traffic to that instance. However, it will continue to probe, and if the instance becomes available again, the load balancer resumes sending traffic to that instance.
+The load balancer uses [health probes] to monitor the availability of VM instances. If a probe cannot reach an instance within a timeout period, the load balancer stops sending traffic to that VM. However, the load balancer will continue to probe, and if the VM becomes available again, the load balancer resumes sending traffic to that VM.
 
 Here are some recommendations on load balancer health probes:
 
@@ -77,9 +79,9 @@ Here are some recommendations on load balancer health probes:
 
 - For an HTTP probe, specify the path to the HTTP endpoint. The probe checks for an HTTP 200 response from this path. Use a path that best represents the health of the VM instance. This can be the root path ("/"), or you might implement a specific health-monitoring endpoint that has some custom logic. The endpoint must allow anonymous HTTP requests.
 
-- The probe is sent from a [known][health-probe-ip] IP address, 168.63.129.16. Make sure you don't block traffic from this IP in any firewall policies or network security group (NSG) rules.
+- The probe is sent from a [known][health-probe-ip] IP address, 168.63.129.16. Make sure you don't block traffic to or from this IP in any firewall policies or network security group (NSG) rules.
 
-- Use [health probe logs][health probe log] to view the status of the health probes. Enable logging in the Azure portal for each load balancer. Logs are written to Azure blob storage. The logs show how many instances on the back-end are not receiving network traffic due to failed probe responses.
+- Use [health probe logs][health probe log] to view the status of the health probes. Enable logging in the Azure portal for each load balancer. Logs are written to Azure blob storage. The logs show how many VMs on the back-end are not receiving network traffic due to failed probe responses.
 
 ## Manageability
 
@@ -114,31 +116,43 @@ The following Windows batch script executes the [Azure CLI][azure-cli] commands 
 
 The script uses the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-> [AZURE.NOTE] This script requires Azure CLI version 0.9.16 (pre-release), which you can install by cloning the Azure CLI repo and using npm. For more information, see [Setting up the Xplat CLI repo](https://github.com/Azure/azure-xplat-cli/blob/dev/Documentation/SetupRepo.md).
-
 ```bat
 ECHO OFF
 SETLOCAL
 
-IF "%~1"=="" (
-    ECHO Usage: %0 subscription-id
-    EXIT /B
-    )
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Set up variables for deploying resources to Azure.
+:: Change these variables for your own deployment.
 
-:: Set up variables to build out the naming conventions for deploying
-:: the cluster
-
-SET LOCATION=eastus2
+:: The APP_NAME variable must not exceed 4 characters in size.
+:: If it does the 15 character size limitation of the VM name may be exceeded.
 SET APP_NAME=app1
+SET LOCATION=eastus2
 SET ENVIRONMENT=dev
 SET USERNAME=testuser
-SET PASSWORD=AweS0me@PW
-
 SET NUM_VM_INSTANCES=2
+
+:: For Windows, use the following command to get the list of URNs:
+:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
+SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
+
+:: For a list of VM sizes see:
+::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
+:: To see the VM sizes available in a region:
+:: 	azure vm sizes --location <location>
+SET VM_SIZE=Standard_DS1
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+IF "%~2"=="" (
+    ECHO Usage: %0 subscription-id admin-password
+    EXIT /B
+    )
 
 :: Explicitly set the subscription to avoid confusion as to which subscription
 :: is active/default
 SET SUBSCRIPTION=%1
+SET PASSWORD=%2
 
 :: Set up the names of things using recommended conventions
 SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
@@ -152,13 +166,6 @@ SET IP_NAME=%APP_NAME%-pip
 SET SUBNET_NAME=%APP_NAME%-subnet
 SET VNET_NAME=%APP_NAME%-vnet
 SET DIAGNOSTICS_STORAGE=%APP_NAME:-=%diag
-
-:: For Windows, use the following command to get the list of URNs:
-:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
-SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
-
-:: For a list of VM sizes see...
-SET VM_SIZE=Standard_DS1
 
 :: Set up the postfix variables attached to most CLI commands
 SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
@@ -227,9 +234,9 @@ GOTO :eof
 ECHO Creating VM %1
 
 SET VM_NAME=%APP_NAME%-vm%1
-SET NIC_NAME=%VM_NAME%-0nic
-SET VHD_STORAGE=%VM_NAME:-=%st0
-SET /a RDP_PORT=50001 + %1
+SET NIC_NAME=%VM_NAME%-nic1
+SET VHD_STORAGE=%VM_NAME:-=%st1
+SET /a RDP_PORT=50000 + %1
 
 :: Create NIC for VM1
 CALL azure network nic create --name %NIC_NAME% --subnet-name %SUBNET_NAME% ^
@@ -268,21 +275,28 @@ CALL azure vm disk attach-new --vm-name %VM_NAME% --size-in-gb 128 --vhd-name ^
 goto :eof
 ```
 
+## Next steps
+
+- With a single tier, you have most of the building blocks needed for a multi-tier deployment. For more information, see [Running Windows VMs for an N-tier architecture on Azure][3-tier-blueprint].
+
 <!-- Links -->
-[availability set]: ../virtual-machines/virtual-machines-manage-availability.md
+[3-tier-blueprint]: guidance-compute-3-tier-vm.md
+[availability set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
-[app gateway]: ../application-gateway/application-gateway-ssl-arm.md
+[app-gateway]: ../application-gateway/application-gateway-ssl-arm.md
 [azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
-[azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
+[azure-cli]: ../virtual-machines-command-line-tools.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [health probe log]: ../load-balancer/load-balancer-monitor-log.md
 [health probes]: ../load-balancer/load-balancer-overview.md#service-monitoring
 [health-probe-ip]: ../virtual-network/virtual-networks-nsg.md#special-rules
 [load balancer]: ../load-balancer/load-balancer-get-started-internet-arm-cli.md
+[load balancer differences]: ../load-balancer/load-balancer-overview.md#load-balancer-differences
 [load balancer hashing]: ../load-balancer/load-balancer-overview.md#hash-based-distribution
 [naming conventions]: guidance-naming-conventions.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [oms]: https://www.microsoft.com/en-us/server-cloud/operations-management-suite/overview.aspx
 [Runbook Gallery]: ../automation/automation-runbook-gallery.md#runbooks-in-runbook-gallery
 [single vm]: guidance-compute-single-vm.md
+[vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/

@@ -1,8 +1,5 @@
 
  
-
-Set up your first or next dev/test or production Oracle database running on a virtual machine in Azure infrastructure services. Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity.
-
 ## Oracle virtual machine images
 
 See [List of Oracle virtual machine images](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md) for the latest set of Windows-based and Linux-based virtual machine images.

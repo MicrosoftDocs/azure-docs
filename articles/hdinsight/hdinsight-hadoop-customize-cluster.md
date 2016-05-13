@@ -31,6 +31,8 @@ in the cluster. These customizations can be done through Azure PowerShell, the A
 HDInsight .NET SDK, or the Azure Portal. For more information, see 
 [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster].
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
+
 ## Script Action in the cluster creation process
 
 Script Action is only used while a clusters is in the process of being created. The following 
@@ -193,9 +195,9 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
 
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
-		Install-Package Microsoft.Azure.Management.Resources -Pre
+		Install-Package Microsoft.Azure.Management.ResourceManager -Pre 
+		Install-Package Microsoft.Azure.Management.HDInsight
 
 2. Use the following using statements in the Program.cs file:
 
@@ -208,7 +210,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.ResourceManager;
 
 3. Place the code in the class with the following:
 
@@ -223,7 +225,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
         private const string ExistingStorageName = "<ExistingAzureStorageAccountName>";
         private const string ExistingStorageKey = "<ExistingAzureStorageAccountKey>";
         private const string ExistingContainer = "<ExistingAzureBlobStorageContainer>";
-        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+        private const string NewClusterType = "Hadoop";
         private const OSType NewClusterOSType = OSType.Windows;
         private const string NewClusterUsername = "<HttpUserName>";
         private const string NewClusterPassword = "<HttpUserPassword>";
@@ -235,13 +237,13 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
             
-            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+            var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+            var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
             CreateCluster();
-
         }
 
         private static void CreateCluster()

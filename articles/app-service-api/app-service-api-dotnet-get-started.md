@@ -25,10 +25,10 @@
 This is the first in a series of tutorials that show how to use features of Azure App Service that are helpful for developing and hosting RESTful APIs:
 
 * Integrated support for API metadata
-* CORS support
+* [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) support
 * Authentication and authorization support
 
-You'll deploy a sample application to two [API apps](app-service-api-apps-why-best-platform.md) and a web app in Azure App Service. The sample application is a to-do list that has an AngularJS single-page application (SPA) front end, an ASP.NET Web API middle tier, and an ASP.NET Web API data tier. 
+You'll deploy a sample application to two [API apps](app-service-api-apps-why-best-platform.md) and a web app in Azure App Service. The sample application is a to-do list that has a single-page application (SPA) front end, an ASP.NET Web API middle tier, and an ASP.NET Web API data tier. The SPA front-end is based on the [AngularJS](https://angularjs.org/) framework.
 
 ![API Apps sample application diagram](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
 
@@ -59,16 +59,7 @@ In this tutorial, you'll learn:
 
 2. Open the ToDoList solution in Visual Studio 2015 or 2013.
 
-	The Visual Studio solution is a sample application that works with simple to-do items that consist of a description and an owner.
-
-		public class ToDoItem 
-		{ 
-		    public int ID { get; set; } 
-		    public string Description { get; set; } 
-		    public string Owner { get; set; } 
-		} 
- 
-	The solution includes three projects:
+	The Visual Studio solution is a sample application that works with simple to-do items that consist of a description and an owner. The solution includes three projects:
 
 	![](./media/app-service-api-dotnet-get-started/projectsinse.png)
 
@@ -76,24 +67,31 @@ In this tutorial, you'll learn:
 
 	* **ToDoListAPI** - The middle tier: an ASP.NET Web API project that calls the data tier to perform CRUD operations on to-do items.
 
-	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. To-do items are stored in memory, which means that whenever the application is restarted all changes are 
-	* . 
+	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. 
 
-	The middle tier provides the user ID in the `Owner` field when it calls the data tier. In the code that you download, the user ID is always "*". When you add authentication in later tutorials, the middle tier will provide the actual user ID to the data tier.
+	The three-tier architecture is typical of many applications but is not appropriate for every scenario. Here it is used mainly to facilitate a demonstration of API Apps features, and the code in each tier is simplified with that purpose in mind. Unlike a real application, the middle tier has no significant business logic. And the data tier uses server memory rather than a database as its persistence mechanism, which means that whenever the application is restarted all changes are lost.
 
 2. Build the solution to restore the NuGet packages.
 
-### Optional: run the application locally
+## Optional: run the application locally
 
 In this section, you verify that you can run the client locally and can call the API while it too is running locally.
 
 **Note:** These instructions work for Internet Explorer and Edge browsers because these browsers allow cross-origin JavaScript calls from and to `http://localhost` URLs. If you're using Chrome, start the browser with the `--disable-web-security` switch. If you're using Firefox, skip this section.
 
-1. Set all three projects as startup projects, with ToDoListDataAPI starting first, then ToDoListAPI, and then ToDoListAngular. (In **Solution Explorer**, right-click the solution, click **Properties**, select **Multiple startup projects**, put the projects in the correct order, and set **Action** to **Start** for each one.)  
+1. Set all three projects as startup projects, with ToDoListDataAPI starting first, then ToDoListAPI, and then ToDoListAngular.
 
-2. Press F5 to start the projects.
+	a. In **Solution Explorer**, right-click the solution, and then click **Properties**.
+
+	b. Select **Multiple startup projects**, and then put the projects in the correct order.
+
+	c. Set **Action** to **Start** for each project.  
+
+2. Press F5 or click **Debug > Start Debugging** to start the projects in debug mode.
 
 	Three browser windows open. Two browser windows show HTTP 403 error pages (directory browsing not allowed), which is normal for Web API projects.  The third browser window shows the AngularJS UI. 
+
+	In some browsers you'll see dialog boxes indicating that the project is configured to use SSL. If you want to 
 
 3. In the browser window that shows the AngularJS UI, click the **To Do List** tab.
 
@@ -105,7 +103,7 @@ In this section, you verify that you can run the client locally and can call the
 
 	Any changes you make are stored in memory and are lost when you restart the application.
 
-3. Close the browser windows.
+3. Close the browser windows and stop Visual Studio debugging.
 
 ## Use Swagger metadata and UI
 
@@ -115,9 +113,9 @@ An ASP.NET Web API project can dynamically generate Swagger metadata by using th
 
 In this section of the tutorial, you look at the generated Swagger 2.0 metadata, and then you try out a test UI that is based on the Swagger metadata.
 
-2. Set the ToDoListDataAPI project as the startup project. 
+2. Set the ToDoListDataAPI project (**not** the ToDoListAPI project) as the startup project. 
  
-4. Press F5 to run the project in debug mode.
+4. Press F5 or click **Debug > Start Debugging** to run the project in debug mode.
 
 	The browser opens and shows the HTTP 403 error page.
 
@@ -170,7 +168,7 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 		        "deprecated": false
 		      },
 
-1. Close the browser.
+1. Close the browser and stop Visual Studio debugging.
 
 3. In the ToDoListDataAPI project in **Solution Explorer**, open the *App_Start\SwaggerConfig.cs* file, then scroll down to the following code and uncomment it.
 
@@ -192,9 +190,11 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
 	![Swagger UI available methods](./media/app-service-api-dotnet-get-started/methods.png)
 
-5. Click **Get**.
+5. Click the first **Get** button in the list.
 
 6. Enter an asterisk as the value of the `owner` parameter, and then click **Try it out**.
+
+	When you add authentication in later tutorials, the middle tier will provide the actual user ID to the data tier. For now, all tasks will have asterisk as their owner ID while the application runs without authentication enabled. 
 
 	![Swagger UI try it out](./media/app-service-api-dotnet-get-started/gettryitout1.png)
 
@@ -208,7 +208,7 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
 	![Swagger UI try it out Post](./media/app-service-api-dotnet-get-started/post.png)
 
-7. Change the JSON in the `contact` parameter input box so that it looks like the following example, or substitute your own description text:
+7. Change the JSON in the `todo` parameter input box so that it looks like the following example, or substitute your own description text:
 
 		{
 		  "ID": 2,
@@ -220,13 +220,13 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
 	The ToDoList API returns an HTTP 204 response code that indicates success.
 
-11. Click **Get > Try it out**.
+11. Click the first **Get** button, and then in that section of the page click the **Try it out** button.
 
 	The Get method response now includes the new to do item. 
 
-12. Try also the Put, Delete, and Get by ID methods.
+12. Optional: Try also the Put, Delete, and Get by ID methods.
 
-14. Close the browser.
+14. Close the browser and stop Visual Studio debugging.
 
 Swashbuckle works with any ASP.NET Web API project. If you want to add Swagger metadata generation to an existing project, just install the Swashbuckle package. 
 
@@ -256,7 +256,6 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	![App type in App Service dialog](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	<a id="apptype"></a> 
 	The app type doesn't determine the features that are available to the new API app, web app, or mobile app. All of the API app features shown in these tutorials are available to all three types. The only difference is in the icon and text that the Azure portal displays to identify the app type, and the order in which features are listed on some pages in the portal. You'll see the Azure portal later in the tutorial; it's a web interface for managing Azure resources. 
 
 	For these tutorials the SPA front end is running in a web app, and each Web API back end is running in an API app, but everything would work the same if all three were web apps or all three were API apps. Also, a single API app or web app could host both the SPA front end and the middle tier back end.
@@ -291,7 +290,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 5. In the **Size** drop-down, click **Free**.
 
-	For this tutorial, The free pricing tier will provide sufficient performance.
+	For this tutorial, the free pricing tier will provide sufficient performance.
 
 6. In the **Configure App Service Plan** dialog, click **OK**.
 
@@ -301,19 +300,19 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	![Click Create in Create App Service dialog](./media/app-service-api-dotnet-get-started/clickcreate.png)
 
-	Visual Studio creates the API app.
+	Visual Studio creates the API app and a publish profile that has all of the required settings for the API app. Then it opens the **Publish Web** wizard, which you'll use to deploy the project.
 
 	**Note:** There are other ways to create API apps in Azure App Service. For example, in Visual Studio when you create a new project, you can create Azure resources for it the same way you just saw for an existing project. You can also create API apps by using the [Azure portal](https://portal.azure.com/), [Azure cmdlets for Windows PowerShell](../powershell-install-configure.md), or the [cross-platform command-line interface](../xplat-cli.md).
 
-	When Visual Studio finishes creating the API app, it creates a publish profile that has all of the required settings for the new API app. In the following steps, you use the new publish profile to deploy the project.  
+	The **Publish Web** wizard opens on the **Connection** tab (shown below). 
 
-8. In the **Connection** tab of the **Publish Web** wizard, click **Next**. 
+	On the **Connection** tab, the **Server** and **Site name** settings point to your API app. The **User name** and **Password** are deployment credentials that Azure creates for you. After deployment, Visual Studio opens a browser to the **Destination URL** (that's the only purpose for **Destination URL**).  
 
-	You could instead go ahead and click **Publish** now to immediately deploy the project to the new API app, but for the tutorial you'll go through the other tabs of this dialog to see what you can do in them.
+8. Click **Next**. 
 
 	![Click Next in Connection tab of Publish Web](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	The next tab is the **Settings** tab. Here you can change the build configuration tab to deploy a debug build for [remote debugging](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several **File Publish Options**:
+	The next tab is the **Settings** tab (shown below). Here you can change the build configuration tab to deploy a debug build for [remote debugging](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). The tab also offers several **File Publish Options**:
 
 	* Remove additional files at destination
 	* Precompile during publishing
@@ -325,7 +324,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	![Click Next in Settings tab of Publish Web](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
-	The **Preview** tab gives you an opportunity to see what files are going to be copied from your project to the API app. When you're deploying a project to an API app that you already deployed to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
+	Next is the **Preview** tab (shown below), which gives you an opportunity to see what files are going to be copied from your project to the API app. When you're deploying a project to an API app that you already deployed to earlier, only changed files are copied. If you want to see a list of what will be copied, you can click the **Start Preview** button.
 
 15. Click **Publish**.
 
@@ -353,7 +352,7 @@ In this section, you use Azure tools that are integrated into the Visual Studio 
 
 	![App Services blade](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
-	Two blades open, one with an overview of the API app, and one with a long list of settings that you can view and change.
+	Two blades open. One blade has an overview of the API app, and one has a long list of settings that you can view and change.
 
 16. In the **Settings** blade, find the **API** section and click **API Definition**. 
 
@@ -413,23 +412,33 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 
 	The following snippet shows how the code instantiates the client object and calls the Get method.
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-		
-		public ActionResult Index()
+		private static ToDoListDataAPI NewDataAPIClient()
 		{
-		    return View(db.Contacts.Get());
+		    var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+		    return client;
+		}
+		
+		public async Task<IEnumerable<ToDoItem>> Get()
+		{
+		    using (var client = NewDataAPIClient())
+		    {
+		        var results = await client.ToDoList.GetByOwnerAsync(owner);
+		        return results.Select(m => new ToDoItem
+		        {
+		            Description = m.Description,
+		            ID = (int)m.ID,
+		            Owner = m.Owner
+		        });
+		    }
 		}
 
 	The constructor parameter gets the endpoint URL from  the `toDoListDataAPIURL` app setting. In the Web.config file, that value is set to the local IIS Express URL of the API project so that you can run the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
 
 6. Your client class will be generated with a different name based on your API app name; change the code in *Controllers\ToDoListController.cs* so that the type name matches what was generated in your project. For example, if you named your API App ToDoListDataAPI0121, the code would look like the following example:
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-		
-		public ActionResult Index()
+		private static ToDoListDataAPI0121 NewDataAPIClient()
 		{
-		    return View(db.Contacts.Get());
-		}
+		    var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 ### Create an API app to host the middle tier
 
@@ -461,7 +470,7 @@ If you called the middle tier API app now, it would try to call the data tier us
  
 1. Go to the [Azure portal](https://portal.azure.com/), and then navigate to the **API App** blade for the API app that you created to host the TodoListAPI (middle tier) project.
 
-2. In the API App's **Settings** blade, click **App settings**.
+2. In the API App's **Settings** blade, click **Application settings**.
  
 4. In the API App's **Application Settings** blade, scroll down to the **App settings** section and add the following key and value:
 
@@ -498,30 +507,6 @@ In this tutorial you download ASP.NET Web API projects for deployment to App Ser
 
 The **Azure API App** project template is equivalent to choosing the **Empty** ASP.NET 4.5.2 template, clicking the check box to add Web API support, and installing the Swashbuckle package. In addition, the template adds some Swashbuckle configuration code designed to prevent the creation of duplicate Swagger operation IDs.
 
-## Optional: Changing an app type
-
-As explained [earlier](#apptype), the only difference between API apps, web apps, and mobile apps is the way they are represented in the portal. Because they all have the same features, it is never necessary to change an app type.
-
-However, if you want to change the portal representation, it's easy to do. For example, you could change one of the API apps you just created to a web app by performing the following steps.
-
-1. Open Resource Explorer.
-
-2. In the left navigation pane, expand **subscriptions**, and then expand the subscription you've been working with.
-
-4. Expand **resourceGroups**, and then expand the resource group you've been working with.
-
-5. Expand **Microsoft.Web**, expand **sites**, and then select the API app that you want to change.
-
-6. Click **Edit**.
-
-8. Find the `kind` property, and change it from "api" to "WebApp".
-
-	![kind property for App Service instance](./media/app-service-api-dotnet-get-started/resexp.png)
-
-9. Click **Put**.
-
-10. Go to the Azure portal, and you see that the icon has changed to reflect the new app type.
-
 ## Optional: API definition URL in Azure Resource Manager templates
 
 In this tutorial, you've seen the API definition URL in Visual Studio and in the Azure portal. You can also configure the API definition URL for an API app by using [Azure Resource Manager templates](../resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](../powershell-install-configure.md) and the [Azure CLI](../xplat-cli-install.md). 
@@ -536,10 +521,14 @@ For an example of an Azure Resource Manager template that sets the API definitio
 
 If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
 
+Two of the project names are similar (ToDoListAPI, ToDoListDataAPI). If things don't look as described in the instructions when you are working with a project, make sure you have opened the correct project.
+
 If you're on a corporate network and are trying to deploy to Azure App Service through a firewall, make sure that ports 443 and 8172 are open for Web Deploy. If you can't open those ports, see the following Next steps section for other deployment options.
+
+If you accidentally deploy the wrong project to an API app and then later deploy the correct one to it, you might see "Route names must be unique" errors.  To correct this, redeploy the project to the API app, and on the **Settings** tab of the **Publish Web** wizard select **Remove additional files at destination**.
 
 After you have your ASP.NET API app running in Azure App Service, you may want to learn more about Visual Studio features that simplify troubleshooting. For information about logging, remote debugging, and more, see  [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Next steps
 
-In this tutorial, you've seen how to create API apps, deploy code to them, generate client code for them, and consume them from .NET clients. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md). Later tutorials in the series show how to implement authentication and authorization.
+In this tutorial, you've seen how to create API apps, deploy code to them, generate client code for them, and consume them from .NET clients. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md). Later tutorials in the series show how to implement authentication and authorization.

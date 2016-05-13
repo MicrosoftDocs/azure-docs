@@ -22,7 +22,7 @@ Connect to an SMTP server to send email. The SMTP API can be used from:
 
 - Logic apps
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SMTP connector](../app-service-logic/app-service-logic-connector-smtp.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With SMTP, you can:
 

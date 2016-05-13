@@ -1,6 +1,6 @@
 ﻿<properties
-   pageTitle="Azure Data Catalog release notes"
-   description="Release notes for the 28 August 2015 public preview release of Azure Data Catalog."
+   pageTitle="Azure Data Catalog release notes | Microsoft Azure"
+   description="Release notes for Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="05/11/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
@@ -50,7 +50,7 @@ When connecting to Oracle Database data sources users must have installed the co
 
 ### Registering and connecting to SQL Server Reporting Services
 
-Support for SQL Server Reporting Services (SSRS) data sources in the initial preview release of Azure Data Catalog is limited to Native Mode servers only. Support for SSRS in SharePoint mode will be added in a later release.
+Support for SQL Server Reporting Services (SSRS) data sources is currently limited to Native Mode servers only. Support for SSRS in SharePoint mode will be added in a later release.
 
 ### Opening data assets in Excel
 

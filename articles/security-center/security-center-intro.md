@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/22/2016"
    ms.author="terrylan"/>
 
 # Introduction to Azure Security Center
@@ -54,7 +54,7 @@ You can define policies for your Azure subscriptions and resource groups accordi
 
 > [AZURE.NOTE] To modify a security policy at the subscription level or the resource group level, you must be the Owner of the subscription or a Contributor to it.
 
-On the **Security Center** blade, select the **Security policy** tile for a list of your subscriptions and resource groups.   
+On the **Security Center** blade, select the **Policy** tile for a list of your subscriptions and resource groups.   
 
 ![Security Center blade][2]
 
@@ -100,9 +100,9 @@ Click the **Recommendations** tile for a list of recommendations. Click on each 
 
 ### Resource health
 
-The **Resources health** tile shows the overall security posture of the environment by resource type, including virtual machines, web applications, and other resources.   
+The **Resource security health** tile shows the overall security posture of the environment by resource type, including virtual machines, web applications, and other resources.   
 
-Select a resource type on the **Resources health** tile to view more information, including a list of any potential security vulnerabilities that have been identified. (**Virtual Machines** is selected in the example below.)
+Select a resource type on the **Resource security health** tile to view more information, including a list of any potential security vulnerabilities that have been identified. (**Virtual machines** is selected in the example below.)
 
 ![Resources health tile][6]
 
@@ -123,6 +123,14 @@ Selecting an alert shows more information about the attack and suggestions for h
 
 ![Security alert details][8]
 
+### Partner solutions
+
+The **Partner solutions** tile lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription. Security Center displays alerts coming from the solutions.
+
+Select the **Partner solutions** tile. A blade opens displaying a list of all connected partner solutions.
+
+![Partner solutions][9]
+
 ## Get started
 To get started with  Security Center, you need a subscription to Microsoft Azure. Security Center is enabled with your Azure subscription. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -137,6 +145,7 @@ In this document, you were introduced to Security Center, its key capabilities, 
 - [Managing security recommendations in Azure Security Center](security-center-recommendations.md)--Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
@@ -149,3 +158,4 @@ In this document, you were introduced to Security Center, its key capabilities, 
 [6]: ./media/security-center-intro/resources-health.png
 [7]: ./media/security-center-intro/security-alert.png
 [8]: ./media/security-center-intro/security-alert-detail.png
+[9]: ./media/security-center-intro/partner-solutions.png

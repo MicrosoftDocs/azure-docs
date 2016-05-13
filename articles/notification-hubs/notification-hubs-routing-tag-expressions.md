@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Routing and tag expressions
@@ -50,7 +50,7 @@ You can send notifications to tags using the send notifications methods of the `
 	// Windows 8.1 / Windows Phone 8.1
 	var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
 	"You requested a Beatles notification</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles);
+	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
 
 	// Windows 10
 	toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +

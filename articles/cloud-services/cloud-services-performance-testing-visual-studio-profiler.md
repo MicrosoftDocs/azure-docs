@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/21/2015" 
+	ms.date="03/28/2016" 
 	ms.author="tarcher"/>
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
@@ -31,7 +31,7 @@ This article covers the CPU Sampling method of profiling, which can be done loca
 
 
 
-## Step 1: Configure Visual Studio for Profiling
+## 1: Configure Visual Studio for profiling
 
 First, there are a few Visual Studio configuration options that might be helpful when profiling. To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries. You'll want to make sure that you reference the available symbol servers. To do this, on the **Tools** menu in Visual Studio, choose **Options**, then choose **Debugging**, then **Symbols**. Make sure that Microsoft Symbol Servers is listed under **Symbol file (.pdb) locations**.  You can also reference http://referencesource.microsoft.com/symbols, which might have additional symbol files.
 
@@ -76,7 +76,7 @@ Call this code from the RunAsync method in the worker role's RoleEntryPoint-deri
 
 Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to **Release**. This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started. Start the Compute Emulator UI from the taskbar to verify that your worker role is running.
 
-## Step 2: Attach to a Process
+## 2: Attach to a process
 
 Instead of profiling the application by starting it from the Visual Studio 2010 IDE, you must attach the profiler to a running process. 
 
@@ -112,7 +112,7 @@ When you want to stop profiling, choose the **Stop Profiling** link.
 
 ![][10]
 
-## Step 3: View Performance Reports
+## 3: View performance reports
 
 The performance report for your application is displayed.
 
@@ -133,7 +133,7 @@ If you added the string concatenation code in this article, you should see a war
 
 ![][14]
 
-## Step 4: Make Changes and Compare Performance
+## 4: Make changes and compare performance
 
 You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
 
@@ -158,7 +158,7 @@ The reports highlight differences between the two runs.
 
 Congratulations! You've gotten started with the profiler.
 
-##  Troubleshooting
+## Troubleshooting
 
 - Make sure you are profiling a Release build and start without debugging.
 
