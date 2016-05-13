@@ -23,7 +23,7 @@
 Meeting high availability and disaster recovery requirements requires two types of knowledge: 1) detailed technical understanding of a cloud platform’s capabilities and 2) how to properly architect a distributed service. This paper covers the former - the capabilities and limitations of the Azure platform with respect to Resiliency (sometimes refered to as Business Continuity). While it also touches on architecture and design patterns that is not the focus. The reader should consult the material in the other Additional Resources section for design guidance.
 
 The information is organized into the following sections:
-##[Recovery from local failures](./resiliency-technical-guidance-local-failures.md)
+##[Recovery from local failures](./resiliency-technical-guidance-recovery-local-failures.md)
 Physical hardware (for example drives, servers, and network devices) can all fail and resources can be exhausted when load spikes. This section describes the capabilities Azure provides to maintain high availability under these conditions.
 
 ##[Recovery from loss of an Azure region](./resiliency-technical-guidance-recovery-loss-azure-region.md)

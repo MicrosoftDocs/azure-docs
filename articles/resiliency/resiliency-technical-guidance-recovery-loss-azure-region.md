@@ -51,7 +51,7 @@ A complete discussion of distributed design is outside the scope of this documen
 
 Recovery of infrastructure as a service(IaaS) virtual machines(VMs) is similar to platform as a service (PaaS) compute recovery in many respects, however there are important differences due to the fact that an IaaS VM consists of both the VM and the VM Disk.
 
-  * __Use the Blob Copy API to duplicate VM Disks__: In order to create VMs in multiple regions the VM Disk must be copied to the alternate region. Because VM Disks are just blobs this can be accomplished using the [AzCopy Command Like Utility](../articles/storage-use-azcopy/).
+  * __Use the Blob Copy API to duplicate VM Disks__: In order to create VMs in multiple regions the VM Disk must be copied to the alternate region. Because VM Disks are just blobs this can be accomplished using the [AzCopy Command Like Utility](../storage/storage-use-azcopy/).
 
   * __Separate the Data disk from the OS disk__: An important consideration for IaaS VMs is that you cannot change the OS disk without recreating the VM. This is not a problem if your recovery strategy is to redeploy after disaster. However, it might be a problem if you are using the Warm Spare approach to reserve capacity. To implement this properly you must have the correct OS disk deployed to both the primary and secondary locations and the application data must be stored on a separate drive. If possible use a standard OS configuration that can be provided on both locations. After a failover you must then attach the data drive to your existing IaaS VMs in the secondary DC. Use AzCopy to copy snapshots of the data disk(s) to a remote site.
 
@@ -67,7 +67,7 @@ In the event of a geo-failover there will be no change to how the account is acc
 
 In addition to automatic failover provided by GRS, Azure has introduced a service that gives you read access to the copy of your data in the secondary storage location. This is called Read Access - Geo Redundant Storage (RA-GRS).
 
-For more information about both GRS and the RA-GRS preview, see [Azure Storage replication](../storage/storage-redundancy/).
+For more information about both GRS and the RA-GRS preview, see [Azure Storage replication](../storage/storage-redundancy.md).
 
 ###Geo-Replication Region Mappings:
 
@@ -97,7 +97,7 @@ As discussed in the section on VM Disks, there are no guarantees for data consis
 
 ###SQL Database
 
-Recovery of Azure Azure SQL Databases can be achieved by taking advantage of Point in Time Restore for Basic, Standard, or Premium tiers. For more information, see [Azure SQL Database Backup and Restore](../sql-database/sql-database-business-continuity/).
+Recovery of Azure Azure SQL Databases can be achieved by taking advantage of Point in Time Restore for Basic, Standard, or Premium tiers. For more information, see [Azure SQL Database Backup and Restore](../sql-database/sql-database-business-continuity.md).
 
 In addition to using Point in Time Restore, you can manually export the database to an Azure Storage blob using the Azure Azure SQL Database Import/Export service. This can be implemented in three ways:
 
@@ -105,7 +105,7 @@ In addition to using Point in Time Restore, you can manually export the database
   * Export to a blob using storage account in the same data center (and rely on Azure Storage geo-replication to the separate data center).
   * Import to your on-premises SQL Server.
 
-For implementation details see the article [Business Continuity in Azure SQL Database](../sql-database/sql-database-business-continuity/).
+For implementation details see the article [Business Continuity in Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
 ###SQL Server on Virtual Machines
 
@@ -119,7 +119,7 @@ The following diagram demonstrates standard backup and restore with Azure storag
 
 ![Backup to a Storage Blob in Microsoft Azure](./media/resiliency-technical-guidance-recovery-loss-azure-region/SQL_Server_Disaster_Recovery-2.png "Backup to a Storage Blob in Microsoft Azure")
 
-For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr/).
+For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ##Other Azure Platform Services
 
@@ -132,11 +132,11 @@ When attempting to run your cloud service in multiple Azure regions, you must co
 
 The Access Control Service (ACS) uses a unique namespace name that does not span Azure regions. ACS 2.0 takes backups of all namespaces once per day and stores them in a secure offsite location. In the case of a disaster, the ACS operation staff may attempt to recover customers’ subscriptions in a remote Azure region using the most recent backup. Due to the frequency of backups data loss up to 24 hours may occur. There is no SLA for regional failover and the recovery time can be several days depending on the scenario.
 
-To use ACS in an alternate region, customers must configure an ACS namespace in that region. ACS 2.0 customers concerned about potential for data loss are encouraged to review the ACS 2.0 Management Service. This interface allows administrators to manage their namespaces and import and extract all relevant data. Through the use of this interface, ACS customers have the ability develop custom backup and restore solutions for a higher level of data consistency than is currently offered by ACS. For other availability considerations, see [Access Control Service (Availability)](./https://msdn.microsoft.com/library/azure/hh873027.aspx#LocalAccessControl).
+To use ACS in an alternate region, customers must configure an ACS namespace in that region. ACS 2.0 customers concerned about potential for data loss are encouraged to review the ACS 2.0 Management Service. This interface allows administrators to manage their namespaces and import and extract all relevant data. Through the use of this interface, ACS customers have the ability develop custom backup and restore solutions for a higher level of data consistency than is currently offered by ACS. For other availability considerations, see [Access Control Service (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#access-control-service).
 
 ###Service Bus
 
-Azure Service Bus uses a unique namespace that does not span Azure regions. So the first requirement is to setup the necessary service bus namespaces in the alternate region. However, there are also considerations for the durability of the queued messages. There are several strategies for replicating messages across Azure regions. For the details on these replication strategies and other disaster recovery strategies, see [Best practices for insulating applications against Service Bus outages and disasters](../service-bus/service-bus-outages-disasters/). For other availability considerations, see [Service Bus (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#service-bus).
+Azure Service Bus uses a unique namespace that does not span Azure regions. So the first requirement is to setup the necessary service bus namespaces in the alternate region. However, there are also considerations for the durability of the queued messages. There are several strategies for replicating messages across Azure regions. For the details on these replication strategies and other disaster recovery strategies, see [Best practices for insulating applications against Service Bus outages and disasters](../service-bus/service-bus-outages-disasters.md). For other availability considerations, see [Service Bus (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#service-bus).
 
 ###Web Apps
 
@@ -144,7 +144,7 @@ To migrate an Azure Web App to a secondary Azure region, you must have a backup 
 
 ###Mobile Services
 
-In the secondary Azure region, create a backup mobile service for your application. Restore the Azure SQL Database to the alternate region as well. Then use Azure command-line tools to move the mobile service to the alternate region. Then configure the mobile service to use the restored database. For more information on this process, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery/). For other availability considerations, see [Mobile Services (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#mobile).
+In the secondary Azure region, create a backup mobile service for your application. Restore the Azure SQL Database to the alternate region as well. Then use Azure command-line tools to move the mobile service to the alternate region. Then configure the mobile service to use the restored database. For more information on this process, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md). For other availability considerations, see [Mobile Services (Availability)](./resiliency-technical-guidance-recovery-local-failures.md#mobile).
 
 ###HDInsight
 
@@ -160,7 +160,7 @@ Azure Media Services has a different recovery approach for encoding and streamin
 
 ###Virtual Network
 
-Configuration files provide the quickest way to setup a virtual network in an alternate Azure region. After configuring the virtual network in the primary Azure region, [export the virtual network settings](../virtual-network/virtual-networks-create-vnet-classic-portal/) for the current network to a network configuration file. In the event of an outage in the primary region, [restore the virtual network](../virtual-network/virtual-networks-create-vnet-classic-portal/) from the stored configuration file. Then configure other cloud services, virtual machines, or cross-premises settings to work with the new virtual network.
+Configuration files provide the quickest way to setup a virtual network in an alternate Azure region. After configuring the virtual network in the primary Azure region, [export the virtual network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md) for the current network to a network configuration file. In the event of an outage in the primary region, [restore the virtual network](../virtual-network/virtual-networks-create-vnet-classic-portal.md) from the stored configuration file. Then configure other cloud services, virtual machines, or cross-premises settings to work with the new virtual network.
 
 ##Checklists for disaster recovery
  
