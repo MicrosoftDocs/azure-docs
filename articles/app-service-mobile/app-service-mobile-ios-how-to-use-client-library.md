@@ -597,7 +597,7 @@ You can use the Facebook SDK for iOS to sign users into your application using F
 
 2. Install the Facebook SDK for iOS by following the [Facebook SDK for iOS - Getting Started](https://developers.facebook.com/docs/ios/getting-started) documentation. Instead of creating a new app, you can add the iOS platform to your existing registration. 
 
- Facebook's documentation includes some Objective-C code in the App Delegate. If you are using **Swift**, you can use the following translations for AppDelegate.swift:
+    Facebook's documentation includes some Objective-C code in the App Delegate. If you are using **Swift**, you can use the following translations for AppDelegate.swift:
   
 		// Add the following import to your bridging header:
 		//		#import <FBSDKCoreKit/FBSDKCoreKit.h>
