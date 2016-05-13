@@ -38,7 +38,7 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
-*NOTE:* When running AAD Connect on a DC it may report "The sync command or cmdlet is not available”.  The issue is caused by the AAD Connect PS module not automatically loading on start of PowerShell. As the server being used is a DC, it will naturally have higher restriction levels to prevent unauthorized access.  Importing PS modules into a DC would be a prime example of a malicious PS module being loaded. The cmdlet can be made available by first running `import-module ADSync`.
+If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
 
 - **AllowedSyncCycleInterval**. The most frequently Azure AD will allow synchronizations to occur. You cannot synchronize more frequently than this and still be supported.
 - **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It will have the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you change CustomizedSyncCycleInterval, this will take effect after next synchronization cycle.
