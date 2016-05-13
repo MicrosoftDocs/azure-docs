@@ -3,7 +3,7 @@
     description="Overview of Azure Service Bus atomic transactions and send via" 
     services="service-bus" 
     documentationCenter=".net" 
-    authors="sethmanheim" 
+    authors="clemensv" 
     manager="timlt" 
     editor=""/>
 
