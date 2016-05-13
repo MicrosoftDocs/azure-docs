@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/04/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher" />
 
 # Overview of the Azure Resource Group project deployment script

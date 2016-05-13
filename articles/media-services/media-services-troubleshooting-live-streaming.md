@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Troubleshooting live streaming guide" 
+	pageTitle="Troubleshooting guide for live streaming" 
 	description="This topic gives suggestions on how to troubleshoot live streaming problems." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
  	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
-#Troubleshooting live streaming guide 
+#Troubleshooting guide for live streaming
 
 This topic gives suggestions on how to troubleshoot some live streaming problems.
 

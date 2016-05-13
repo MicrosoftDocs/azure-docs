@@ -19,6 +19,8 @@
 
 # Using client assertion to get access tokens from Azure AD
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 ## Background

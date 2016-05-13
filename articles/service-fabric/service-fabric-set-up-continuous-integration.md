@@ -45,7 +45,7 @@ Before you can set up the build machine, you need to create a [service principal
 
     a. If you are running Windows 10 with the latest updates, you can skip this step (PowerShellGet is already installed).
 
-    b. If not, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
+    b. If not, install [Windows Management Framework 5.0](https://aka.ms/wmf5download), which includes PowerShellGet.
 
 2.	Install and update the AzureRM module.
 If you have any previous version of Azure PowerShell installed, remove it:
@@ -54,11 +54,9 @@ If you have any previous version of Azure PowerShell installed, remove it:
 
     b. Search for "Azure PowerShell" and uninstall it.
 
-    c.  Open a PowerShell command prompt.
+    c. Open a PowerShell command prompt as an administrator.
 
-    d.	Install the AzureRM module by using the command `Install-Module AzureRM`.
-
-    e.	Update the AzureRM module by using the command `Update-AzureRM`.
+    d. Install the AzureRM module by using the command `Install-Module AzureRM`.
 
 3.	Disable (or enable) Azure data collection.
 
@@ -100,7 +98,7 @@ If you have any previous version of Azure PowerShell installed, remove it:
 | --- | --- |
 | KeyVaultLocation | Any value. This parameter must match the location in which you plan to create the cluster. |
 | CertificateSecretName | Any value. |
-| CertificateDnsName | Must match the DNS name of your cluster. Example: `mycluster.westus.azure.cloudapp.net` |
+| CertificateDnsName | Must match the DNS name of your cluster. Example: `mycluster.westus.cloudapp.azure.com` |
 | SecureCertificatePassword | Any value. This parameter is used when you import the certificate on your build machine. |
 | KeyVaultName | Any value. |
 | KeyVaultResourceGroupName | Any value. However, don't use the resource group name that you plan to use for your cluster. |
@@ -358,6 +356,7 @@ If a previous build did not clean up after itself (for example, if the build was
     |Azure RM Subscription|Select the connection endpoint that you created in the **Create a Service Principal** section.|
     |Action|**Delete Resource Group**|
     |Resource Group|Enter any unused name. You must use the same name in the next step.|
+    |Continue on error|This step will fail if the resource group does not exist. Enable **Continue on error** in the **Control Options** section to avoid this.|
 
 5.	Save the build definition.
 
