@@ -70,7 +70,9 @@ To quickly iterate changes, you can start your application within a container, a
 
 1. Append the following HTML content to the end of the file and save the changes.
 
+  ```
   <h1>Hello from a Docker Container!</h1>
+  ```
 
 1.	Viewing the output window, when the .NET build is completed and you see `Application started. Press Ctrl+C to shut down`, switch back to your browser and refresh the page.
 
