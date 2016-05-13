@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
+	pageTitle="Customize HDInsight clusters using script actions | Microsoft Azure"
 	description="Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that on the cluster nodes, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R."
 	services="hdinsight"
 	documentationCenter=""
@@ -91,6 +91,8 @@ When applying a script to a cluster, the cluster state will change to from __Run
     StartTime         : 2/23/2016 7:40:55 PM
     EndTime           : 2/23/2016 7:41:05 PM
     Status            : Succeeded
+
+> [AZURE.NOTE] If you have changed the cluster user (admin) password after the cluster was created, this may cause script actions ran against this cluster to fail. If you have any persisted script actions that target worker nodes, these may fail when you add nodes to the cluster through resize operations.
 
 ## Example Script Action scripts
 

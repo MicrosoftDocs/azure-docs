@@ -204,6 +204,8 @@ An HDInsight cluster can have two user accounts. The HDInsight cluster user acco
 
 ###Change the cluster user password
 
+> [AZURE.NOTE] If you change the cluster user (admin) password, this may cause script actions ran against this cluster to fail. If you have any persisted script actions that target worker nodes, these may fail when you add nodes to the cluster through resize operations. For more information on script actions, see [Customize HDInsight clusters using script actions](hdinsight-hadoop-customize-cluster-linux.md).
+
 1. Sign in to the Ambari Web UI using the HDInsight cluster user credentials. The default username is **admin**. The URL is **https://<HDInsight Cluster Name>azurehdinsight.net**.
 2. Click **Admin** from the top menu, and then click "Manage Ambari". 
 3. From the left menu, click **Users**.
