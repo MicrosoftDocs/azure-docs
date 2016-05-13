@@ -1,7 +1,6 @@
 <properties
    pageTitle="Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Microsoft Azure"
    description="Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application."
-   keywords="online application upgrade,cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning"
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
