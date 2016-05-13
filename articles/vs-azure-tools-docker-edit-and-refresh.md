@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/25/2016"
+   ms.date="05/13/2016"
    ms.author="allclark" />
 
 # Debugging apps in a local Docker container
 
 ## Overview
-The Visual Studio Tools for Docker provides a consistent way to develop and validate your application locally in a Linux Docker container without having to restart the container each time you make a code change. This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container, make any necessary changes, and then refresh the browser to see those changes, as well as set breakpoints for debugging.
+The Visual Studio Tools for Docker provides a consistent way to develop in a and validate your application locally in a Linux Docker container. You don't have to restart the container each time you make a code change. This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container, make any necessary changes, and then refresh the browser to see those changes. It will also show you how to set breakpoints for debugging.
 
 > [AZURE.NOTE] Windows Container support will be coming in a future release
 
@@ -84,8 +84,11 @@ Often, changes will need further inspection, leveraging the debugging features o
 1.	Return to Visual Studio and open `Controllers\HomeController.cs`
 
 1.  Replace the contents of the About() method with the following:
-string message = "Your application description page from wthin a Container";
-ViewData["Message"] = message;
+
+	```
+	string message = "Your application description page from wthin a Container";
+	ViewData["Message"] = message;
+    ````
 
 1.  Set a breakpoint to the left of the `string message`... line.
 
@@ -111,7 +114,6 @@ with the production realism of developing within a Docker container.
 - [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - Language services for editing docker files, with more e2e scenarios coming
 - [Windows Container Information](http://aka.ms/containers)- Windows Server and Nano Server information
 - [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service Content](http://aka.ms/AzureContainerService)
-- [Service Fabric](https://azure.microsoft.com/services/service-fabric/)
 
 ## Various Docker tools
 
