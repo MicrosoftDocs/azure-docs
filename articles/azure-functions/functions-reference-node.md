@@ -138,7 +138,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 The node version is currently locked at `5.9.1`. We're investigating adding support for more versions and making it configurable.
 
-You can include packages in your function directory by 
+You can include packages in your function by 
 uploading a *package.json* file to your function's folder in the function app's file system. For file upload instructions, see the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
 
 You can also use `npm install` in the function app's SCM (Kudu) command line interface:
