@@ -120,9 +120,7 @@ To accomplish this move, perform two separate move operations in the following s
 
 The options for moving resources deployed through the classic model differ based on whether you are moving the resources within a subscription or to a new subscription. 
 
-### Move resources from one resource group to another resource group within the same subscription
-
-The following restrictions apply:
+When moving resources from one resource group to another resource group **within the same subscription**, the following restrictions apply:
 
 - Virtual networks (classic) cannot be moved.
 - Virtual machines (classic) must be moved with the cloud service. 
@@ -131,9 +129,7 @@ The following restrictions apply:
 - Only one storage account (classic) can be moved at a time.
 - Storage account (classic) cannot be moved in the same operation with a virtual machine or a cloud service.
 
-### Move resources to a new subscription
-
-The following restrictions apply:
+When moving resources to a **new subscription**, the following restrictions apply:
 
 - All classic resources in the subscription must be moved in the same operation.
 - The move can only be requested through the portal or through a separate REST API for classic moves. The standard Resource Manager move commands do not work when moving classic resources to a new subscription. The steps to use either the portal or the REST API are shown in sections below.
@@ -236,27 +232,23 @@ To move existing resources to another resource group or subscription, run:
 
 In the request body, you specify the target resource group and the resources to move. For more information about the move REST operation, see [Move resources](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
-However, to move **classic resources to a new subscription**, you must use different REST operations. To check if a subscription can participate as the source subscription in a cross-subscription move of classic resources, use the following operation:
+However, to move **classic resources to a new subscription**, you must use different REST operations. To check if a subscription can participate as the source or target subscription in a cross-subscription move of classic resources, use the following operation:
 
     POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
     
-With request body:
+For the source subscription, use request body:
 
     {
         "role": "source"
     }
 
-To check if a subscription can participate as the target subscription in a cross-subscription move of classic resources, use the following operation:
-
-    POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-
-With request body:
+For the target subscription, use request body:
 
     {
         "role": "target"
     }
 
-The response from either validation operation will be formatted as:
+The response for either validation operation is:
 
     {
         "status": "{status}",
