@@ -1,4 +1,4 @@
-There are various reasons that you may have issues conncting to an application running on an Azure virtual machine (VM) such as the application not running and listening on the expected ports or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem..
+There are various reasons that you may have issues conncting to an application running on an Azure virtual machine (VM) such as the application not running and listening on the expected ports or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem.
 
 If you are having issues connecting to your VM using RDP or SSH, please see one of the following articles first:
 
