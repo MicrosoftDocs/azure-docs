@@ -51,5 +51,6 @@ Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [c
 
 ## Learn More
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/) 
-Review the [technical overview of SQL Database](sql-database-technical-overview.md)  
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+ 
+Review the [technical overview of SQL Database](sql-database-technical-overview.md).
