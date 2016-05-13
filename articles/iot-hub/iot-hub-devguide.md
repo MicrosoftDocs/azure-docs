@@ -18,11 +18,11 @@
 
 # Azure IoT Hub developer guide
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of IoT devices and an application back end.
 
-Azure IoT Hub enables:
+Azure IoT Hub helps to provide:
 
-* Secure communications using per-device security credentials and access control.
+* Secure communications by using per-device security credentials and access control.
 * Reliable device-to-cloud and cloud-to-device hyper-scale messaging.
 * Easy device connectivity with device libraries for the most popular languages and platforms.
 
@@ -36,21 +36,21 @@ This article covers the following topics:
 
 ## Endpoints <a id="endpoints"></a>
 
-Azure IoT Hub is a multi-tenant service, that exposes its functionality to a variety of actors. The following diagram shows the various endpoints that IoT Hub exposes.
+Azure IoT Hub is a multi-tenant service that exposes its functionality to a variety of actors. The following diagram shows the various endpoints that IoT Hub exposes.
 
 ![IoT Hub endpoints][img-endpoints]
 
 The following is a description of the endpoints:
 
-* **Resource provider**: The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface that enables Azure subscription owners to create IoT hubs, update IoT hub properties, and delete IoT hubs. IoT Hub properties govern hub-level security policies as opposed to device-level access control (see [Access Control](#accesscontrol) below) and functional options for cloud-to-device and device-to-cloud messaging. The resource provider also enables you to [export device identities](#importexport).
-* **Device identity management**: Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). Device identities are used for device authentication and access control. See [Device identity registry](#device-identity-registry) for more information.
-* **Device endpoints**: For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
+* **Resource provider**. The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface that enables Azure subscription owners to create and delete IoT hubs, and update IoT hub properties. IoT Hub properties govern hub-level security policies, as opposed to device-level access control (see the section [Access Control](#accesscontrol) later in this article), and functional options for cloud-to-device and device-to-cloud messaging. The resource provider also enables you to [export device identities](#importexport).
+* **Device identity management**. Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). Device identities are used for device authentication and access control. For more information, see [Device identity registry](#device-identity-registry).
+* **Device endpoints**. For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
     - *Send device-to-cloud messages*. Use this endpoint to send device-to-cloud messages. For more information, see [Device to cloud messaging](#d2c).
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
 
     These endpoints are exposed using HTTP 1.1, [MQTT v3.1.1][lnk-mqtt], and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
-* **Service endpoints**: Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
-    - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs] and a back-end service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
+* **Service endpoints**. Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
+    - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
     - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
 
 The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways to access these endpoints.
@@ -61,18 +61,18 @@ Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tl
 
 When you use the [Azure Service Bus SDK for .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) or the [Event Hubs - Event Processor Host][], you can use any IoT Hub connection strings with the correct permissions, and then use **messages/events** as the Event Hub name.
 
-When using SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][]:
+When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][]:
 
-1. In the IoT hub blade, click **Settings**, then **Messaging**,
-2. In the **Device-to-cloud settings** section, you will find the **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions** values.
+1. In the IoT hub blade, click **Settings** > **Messaging**.
+2. In the **Device-to-cloud settings** section, you'll find the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions**.
 
-    ![][img-eventhubcompatible]
+    ![Device-to-cloud settings][img-eventhubcompatible]
 
-> [AZURE.NOTE] In cases when the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] If the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
 
 You can then use any shared access security policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
 
-If you need to build an Event Hub connection string using the previous information, use the following pattern:
+If you need to build an Event Hub connection string by using the previous information, use the following pattern:
 
 ```
 Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}
@@ -86,11 +86,11 @@ The following is a list of SDKs and integrations that you can use with Event Hub
 
 ## Device identity registry
 
-Each IoT hub has a device identity registry that you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages, and to allow access to the device-facing endpoints as explained in the [Access Control](#accesscontrol) section.
+Each IoT hub has a device identity registry. You can use this registry to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. You can also use the registry to allow access to the device-facing endpoints, as explained in the [Access Control](#accesscontrol) section.
 
 At a high level, the device identity registry is a REST-capable collection of device identity resources. The following sections detail the device identity resource properties, and the operations the registry enables on the identities.
 
-> [AZURE.NOTE] See [IoT Hub APIs and SDKs][lnk-apis-sdks] for more details about the HTTP protocol and the SDKs that you can use to interact with the device identity registry.
+> [AZURE.NOTE] For more details about the HTTP protocol and the SDKs that you can use to interact with the device identity registry, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
 ### Device identity properties <a id="deviceproperties"></a>
 
@@ -147,7 +147,7 @@ You can disable devices by updating the **status** property of an identity in th
 
 ### Import and export device identities <a id="importexport"></a>
 
-You can export device identities in bulk from an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry: 
+You can export device identities in bulk from an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry:
 
 - For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
 - To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
@@ -298,7 +298,7 @@ IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and s
 
   * **QoS 2 is not supported**: When a device client publishes a message with **QoS 2**, IoT Hub closes the network connection. When a device client subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet.
   * **Retain**: If a device client publishes a message with the RETAIN flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. This means that IoT Hub does not persist the retain message, but instead passes it to the back-end application.
-  
+
 See the article [IoT Hub MQTT support][lnk-mqtt-support] for further details.
 
 As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. The tradeoff with this approach is the requirement to self-host and operate a custom protocol gateway.
@@ -401,7 +401,7 @@ For a tutorial on cloud-to-device messages, see [Get started with Azure IoT Hub 
 
 Every cloud-to-device message has an expiration time. This can be explicitly set by the service (in the **ExpiryTimeUtc** property), or it is set by IoT Hub using the default *time to live* specified as an IoT Hub property. See [Cloud-to-device configuration options](#c2dconfiguration).
 
-> [AZURE.NOTE] A common way to take advantage of message expiration is set short time to live values in order to avoid sending messages to disconnected devices. This achieves the same result as maintaining the device connection state, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed. 
+> [AZURE.NOTE] A common way to take advantage of message expiration is set short time to live values in order to avoid sending messages to disconnected devices. This achieves the same result as maintaining the device connection state, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed.
 
 #### Message feedback <a id="feedback"></a>
 
