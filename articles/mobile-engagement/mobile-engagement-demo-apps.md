@@ -37,7 +37,7 @@ This app is available in the following apps stores:
 - **Windows Universal demo app**
 
 	- Download the app at the [Windows App store](https://www.microsoft.com/en-us/store/apps/azure-mobile-engagement/9nblggh4qmh2).
-	- The app was developed as a Windows 10 Universal App. The source code is available on [Github](https://github.com/Azure/azure-mobile-engagement-app-ios).
+	- The app was developed as a Windows 10 Universal App. The source code is available on [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
 
 - **iOS demo app**
 
@@ -47,7 +47,7 @@ This app is available in the following apps stores:
 - **Android demo app**
 
 	- Download the app at the [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.azure.engagement)
-	- The source code is available on [GitHub](https://github.com/Azure/azure-mobile-engagement-app-android)/
+	- The source code is available on [GitHub](https://github.com/Azure/azure-mobile-engagement-app-android).
 
 ![Windows Universal demo app][1]
 
@@ -87,7 +87,7 @@ You can use this app in the following ways:
 	![device-id-ios][8]
 	![device-id-android][9]
 
-## Key features of the Demo App
+## Key features of the demo app
 
 - As mentioned earlier, with this app, you have all the key resources for Azure Mobile Engagement in your hand. You can go through the links in the left menu.
 
@@ -95,16 +95,13 @@ You can use this app in the following ways:
 
 	![out-of-app][29]
 
-
 	- On iOS, you have to close the app to see the out-of-app or system push notifications. You can look at the implementation here for adding **Action buttons**, like the ones that are added to this out-of-app notification for *Feedback* and *Share* (so that the user can take action right from the notification itself).
 
 	![out-of-app-ios][11] ![out-of-app-display-ios][14]
 
-
-	- On Android, you can see the options that are supported by Android in the form of adding multiline text (**Big Text**) or adding an image in the notification **Big Picture**) to the notification along with the **Action buttons**, as supported by iOS.
+	- On Android, you can see the options that are supported in the form of adding multiline text (**Big Text**) or adding an image in the notification **Big Picture**) to the notification along with the **Action buttons**, as supported by iOS.
 
 	![out-of-app-android][12] ![out-of-app-display-android][15]
-
 
 	- On Windows 10, you can see how the notifications look on the PC. This notification also shows up in the Windows 10 **Notification Center**. There is no support for adding **Action buttons** at the moment with the Windows SDK.
 
@@ -130,13 +127,17 @@ You can use this app in the following ways:
 
 	![pop-up-ios][19]	![pop-up-android][20]
 
+**iOS**, **Android**
+
 - Mobile Engagement also supports a specialized type of in-app notification called **Polls**. This allows you to send out quick surveys to your segmented app users. You can add questions and options for each question as in the following screenshot, which will then get displayed as an in-app notification to the app user.   
 
 	![notification-poll][32]
 
 	![survey-windows][26]
 
-	![survey-ios][27] **iOS** ![survey-android][28] **Android**
+	![survey-ios][27]   ![survey-android][28]
+
+**iOS**, **Android**
 
 - Mobile Engagement also supports sending silent **Data Push** notifications. With these notifications, you can send data from your service (like the JSON data in the following example), which you can handle in your app and take some action. An example is how we're changing the price of an item selectively by using Data Push notifications.
 
@@ -144,7 +145,9 @@ You can use this app in the following ways:
 
 	![data-push-windows][23]
 
-	![data-push-ios][24] **iOS** ![data-push-android][25] **Android**
+	![data-push-ios][24]  ![data-push-android][25]
+
+**iOS**, **Android**
 
 > [AZURE.NOTE] You can view detailed step-by-step instructions for any of these notifications by clicking **Click here for instructions on how to send these notifications from Mobile Engagement platform** on any sample notification screen.
 
