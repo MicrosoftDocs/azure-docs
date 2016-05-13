@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Automate DR for file shares on StorSimple using ASR| Microsoft Azure"
+   pageTitle="Automate DR for file shares on StorSimple using Azure Site Recovery| Microsoft Azure"
    description="Describes the steps and best practices for creating a disaster recovery solution for file shares hosted on StorSimple storage."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/11/2016"
+   ms.date="05/13/2016"
    ms.author="vidarmsft" />
 
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
@@ -49,7 +49,7 @@ In addition, if Azure is your recovery site, run the [Azure Virtual Machine Read
 
 To avoid latency issues (which might result in higher costs), make sure that you create your StorSimple Cloud Appliance, automation account, and storage account(s) in the same region.
 
-## Enable Disaster Recovery (DR) using Azure Site Recovery for file shares hosted on StorSimple
+## Enable DR for StorSimple file shares  
 
 Each component of the on-premises environment needs to be protected to enable complete replication and recovery. This section describes how to:
 
@@ -73,7 +73,7 @@ If the customer has a small number of applications, a single domain controller f
 
 If the customer has a large number of applications, is running an Active Directory forest, and will be failing over a few applications at a time, then we recommend setting up an additional domain controller on the DR site (either a secondary site or in Azure).
 
-Please refer to [Automated DR solution for Active Directory and DNS using ASR](../site-recovery/site-recovery-active-directory.md) for instructions when making a domain controller available on the DR site. For the remainder of this document, we will assume a domain controller is available on the DR site.
+Please refer to [Automated DR solution for Active Directory and DNS using Azure Site Recovery](../site-recovery/site-recovery-active-directory.md) for instructions when making a domain controller available on the DR site. For the remainder of this document, we will assume a domain controller is available on the DR site.
 
 ### Use Azure Site Recovery to enable protection of the file server VM
 
@@ -365,40 +365,37 @@ You can run the [Azure Virtual Machine Readiness Assessment tool](http://azure.m
 
 ## Limitations
 
-1.  Currently, only 1 StorSimple device can be failed over (to a single StorSimple Cloud Appliance). The scenario of a file server that spans several StorSimple devices is not yet supported.
+- Currently, only 1 StorSimple device can be failed over (to a single StorSimple Cloud Appliance). The scenario of a file server that spans several StorSimple devices is not yet supported.
 
-1.  If you get an error while enabling protection for a VM, make sure that you have disconnected the iSCSI targets.
+- If you get an error while enabling protection for a VM, make sure that you have disconnected the iSCSI targets.
 
-2.  All the volume containers that have been grouped together because of backup policies spanning across volume containers will be failed over together.
+- All the volume containers that have been grouped together because of backup policies spanning across volume containers will be failed over together.
 
-3.  All the volumes in the volume containers you have chosen will be failed over.
+- All the volumes in the volume containers you have chosen will be failed over.
 
-4.  Volumes that add up to more than 64 TB can’t be failed over because the maximum capacity of a single StorSimple Cloud Appliance is 64 TB.
+- Volumes that add up to more than 64 TB can’t be failed over because the maximum capacity of a single StorSimple Cloud Appliance is 64 TB.
 
-5.  If the planned/unplanned failover fails and the VMs are created in Azure, then do not clean up the VMs. Instead, do a failback. If you delete the VMs then the on-premises VMs cannot be turned on again.
+- If the planned/unplanned failover fails and the VMs are created in Azure, then do not clean up the VMs. Instead, do a failback. If you delete the VMs then the on-premises VMs cannot be turned on again.
 
-6.  After a failover, if you are not able to see the volumes, go to the VMs, open Disk Management, rescan the disks, and then bring them online.
+- After a failover, if you are not able to see the volumes, go to the VMs, open Disk Management, rescan the disks, and then bring them online.
 
-8.  In some instances, the drive letters in the DR site might be different than the letters on-premises. If this occurs, you will need to manually correct the problem after the failover is finished.
+- In some instances, the drive letters in the DR site might be different than the letters on-premises. If this occurs, you will need to manually correct the problem after the failover is finished.
 
+- Multi-factor authentication should be disabled for the Azure credential that is entered in the automation account as an asset. If this authentication is not disabled, scripts will not be allowed to run automatically and the recovery plan will fail.
 
-2.  Multi-factor authentication should be disabled for the Azure credential that is entered in the automation account as an asset. If this authentication is not disabled, scripts will not be allowed to run automatically and the recovery plan will fail.
+- Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 
-7.  Failover job timeout: The StorSimple script will time out if the failover of volume containers takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+- Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
  
-  
-10. Backup job timeout: The StorSimple script times out if the backup of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
-
 	> [AZURE.IMPORTANT] Run the backup manually from the Azure portal and then run the recovery plan again.
 
-1.  Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
+- Clone job timeout: The StorSimple script times out if the cloning of volumes takes more time than the Azure Site Recovery limit per script (currently 120 minutes).
 
-3.  Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
-
+- Time synchronization error: The StorSimple scripts errors out saying that the backups were unsuccessful even though the backup is successful in the portal. A possible cause for this might be that the StorSimple appliance’s time might be out of sync with the current time in the time zone.
+ 
 	> [AZURE.IMPORTANT] Sync the appliance time with the current time in the time zone.
 
-1.  Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
-
+- Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
 	> [AZURE.IMPORTANT] Rerun the recovery plan after the appliance failover is complete.
 
 ## Summary
