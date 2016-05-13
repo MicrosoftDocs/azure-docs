@@ -157,7 +157,7 @@ The method has a few key components that you need to understand.
 
     4.  **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline.
 
--   The method returns a dictionary that can be used to chain custom activities together. We will not use this feature in this sample solution.
+-   The method returns a dictionary that can be used to chain custom activities together in the future. This feature is not implemented yet, so just return an empty dictionary from the method. 
 
 ### Procedure: Create the custom activity
 
@@ -224,13 +224,8 @@ The method has a few key components that you need to understand.
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
 
-            // declare dataset types
-            CustomDataset inputLocation;
-            AzureBlobDataset outputLocation;
-
             Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
-
+	
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
@@ -273,8 +268,6 @@ The method has a few key components that you need to understand.
 
             // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
             Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-            // convert to blob location object.
-            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
             folderPath = GetFolderPath(outputDataset);
 
@@ -291,7 +284,8 @@ The method has a few key components that you need to understand.
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.
             return new Dictionary<string, string>();
         }
 
@@ -423,9 +417,6 @@ This section provides more details and notes about the code in the Execute metho
 
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-
-		// Convert to blob location object.
-		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
 4.	The code also calls a helper method: **GetFolderPath** to retrieve the folder path (the storage container name).
 
@@ -572,7 +563,7 @@ In this step, you will create datasets to represent input and output data.
 		    "name": "InputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 		            "format": {
@@ -647,7 +638,7 @@ In this step, you will create datasets to represent input and output data.
 	| 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
 	| 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3.  Click **Deploy** on the toolbar to create and deploy the **InputDataset** table. Confirm that you see the **TABLE CREATED SUCCESSFULLY** message on the title bar of the Editor.
+3.  Click **Deploy** on the toolbar to create and deploy the **InputDataset** table. 
 
 #### Create output dataset
 
@@ -661,7 +652,7 @@ In this step, you will create another dataset of type AzureBlob to represent the
 		    "name": "OutputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
 		            "folderPath": "mycontainer/outputfolder",
@@ -719,7 +710,7 @@ In this step, you will create a pipeline with one activity, the custom activity 
 						"typeProperties": {
 							"assemblyName": "MyDotNetActivity.dll",
 							"entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-							"packageLinkedService": "StorageLinkedService",
+							"packageLinkedService": "AzureStorageLinkedService",
 							"packageFile": "customactivitycontainer/MyDotNetActivity.zip"
 						},
 						"inputs": [
