@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Surface area limitations and blocking issues for Stretch Database | Microsoft Azure"
-	description="Learn about blocking issues that you have to resolve before you can enable Stretch Database."
+	pageTitle="Limitations for Stretch Database | Microsoft Azure"
+	description="Learn about limitations for Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
 	authors="douglaslMS"
@@ -16,42 +16,50 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# Surface area limitations and blocking issues for Stretch Database
+# Limitations for Stretch Database
 
-Learn about blocking issues that you have to resolve before you can enable Stretch Database.
+Learn about limitations for Stretch\-enabled tables, and about limitations that currently prevent you from enabling Stretch for a table.
 
-## <a name="Limitations"></a>Blocking issues
-In the current preview release of SQL Server 2016, the following items make a table ineligible for Stretch.
+##  <a name="Caveats"></a> Limitations for Stretch\-enabled tables
+
+Stretch\-enabled tables have the following limitations.
+
+**Constraints**
+-   Uniqueness is not enforced for UNIQUE constraints and PRIMARY KEY constraints in the Azure table that contains the migrated data.
+
+**DML operations**
+-   You can't UPDATE or DELETE rows in a Stretch\-enabled table, or in a view that includes Stretch\-enabled tables.
+
+-   You can't INSERT rows into a Stretch\-enabled table on a linked server.
+
+**Indexes**
+-   You can't create an index for a view that includes Stretch\-enabled tables.
+
+-   Filters on SQL Server indexes are not propagated to the remote table.
+
+##  <a name="Limitations"></a> Limitations that currently prevent you from enabling Stretch for a table
+
+The following items currently prevent you from enabling Stretch for a table.
 
 **Table properties**
--   More than 1,023 columns
+-   Tables that have more than 1,023 columns or more than 998 indexes
 
--   More than 998 indexes
+-   FileTables or tables that contain FILESTREAM data
 
--   Tables that contain FILESTREAM data
-
--   FileTables
-
--   Replicated tables
-
--   Tables that are actively using Change Tracking or Change Data Capture
+-   Tables that are replicated, or that are actively using Change Tracking or Change Data Capture
 
 -   Memory\-optimized tables
 
 **Data types and column properties**
+-   text, ntext and image
+
 -   timestamp
 
 -   sql\_variant
 
 -   XML
 
--   geometry
-
--   geography
-
--   hierarchyid
-
--   CLR user\-defined types (UDTs)
+-   CLR data types including geometry, geography, hierarchyid, and CLR user\-defined types
 
 **Column types**
 -   COLUMN\_SET
@@ -59,13 +67,9 @@ In the current preview release of SQL Server 2016, the following items make a ta
 -   Computed columns
 
 **Constraints**
--   Check constraints
+-   Default constraints and check constraints
 
--   Default constraints
-
--   Foreign key constraints that reference the table
-
-    The table on which you can't enable Stretch Database is the table referenced by a foreign key constraint. In a parent-child relationship (for example, Orders and Order Details), this is the parent table (Orders).
+-   Foreign key constraints that reference the table. In a parent\-child relationship \(for example, Order and Order\_Detail\), you can enable Stretch for the child table \(Order\_Detail\) but not for the parent table \(Order\).
 
 **Indexes**
 -   Full text indexes
@@ -75,23 +79,6 @@ In the current preview release of SQL Server 2016, the following items make a ta
 -   Spatial indexes
 
 -   Indexed views that reference the table
-
-## <a name="Caveats"></a>Limitations and caveats for Stretch\-enabled tables
-IIn the current preview release of SQL Server 2016, Stretch\-enabled tables have the following limitations or caveats.
-
--   Uniqueness is not enforced for UNIQUE constraints and PRIMARY KEY constraints on a Stretch\-enabled table.
-
--   You can't run UPDATE or DELETE operations on a Stretch\-enabled table.
-
--   You can't INSERT remotely into a Stretch-enabled table on a linked server.
-
--   You can't use replication with a Stretch-enabled table.
-
--   You can't create an index for a view that includes Stretch\-enabled tables.
-
--   You can't update or delete from a view that includes Stretch\-enabled tables. You can, however, insert into a view that includes Stretch\-enabled tables.
-
--   Filters on indexes are not propagated to the remote table.
 
 ## See also
 
