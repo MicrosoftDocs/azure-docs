@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure SQL Database Helps Secure and Protect"
+   pageTitle="Azure SQL Database Secures and Protects"
    description="Learn how SQL Database helps secure and protect"
    keywords=""
    services="sql-database"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="05/13/2016"
    ms.author="carlrab"/>
    
-# Azure SQL Database Helps Secure and Protect
+# Azure SQL Database Secures and Protects
 
 ## Keep your app’s data safe and secure
 
@@ -25,7 +25,7 @@ Azure SQL Database supports millions of mission-critical databases in the cloud&
 
 ![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
-## In case of emergency
+## We’ve got your back
 
 You can only hope you don't need to access yesterday's backups or recover from a disaster. But if you find yourself in this situation, SQL Database is there to help. With 99.99% availability, automatic backups, point-in-time restore, built-in geo-replication, and failover options, you'll rest easy knowing your app is safe and sound.
 
@@ -52,5 +52,7 @@ Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [c
 
 ## Learn More
 
-Learn about [SQL Database](sql-database-technical-overview.md) and what it offers.
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/) 
+Review the [technical overview of SQL Database](sql-database-technical-overview.md)  
+
 
