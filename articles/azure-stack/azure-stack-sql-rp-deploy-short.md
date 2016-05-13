@@ -50,19 +50,19 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
 	A set of scripts is grouped by two major tabs open in the PowerShell Integrated Scripting Environment (ISE). Run all the loaded scripts in sequence from left to right in each tab.
 
-	Run scripts in the **Prepare** tab from left to right to:
+	1. Run scripts in the **Prepare** tab from left to right to:
 
-	1. Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
-	2. Upload the certificates and all other artifacts to a storage account for Azure Stack.
-	3. Publish gallery packages so that you can deploy SQL and resources through the gallery.
+	- Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
+	- Upload the certificates and all other artifacts to a storage account for Azure Stack.
+	- Publish gallery packages so that you can deploy SQL and resources through the gallery.
 
-	> [AZURE.IMPORTANT] If any of the scripts hangs for no apparent reason after you submit your Azure Active Directory tenant, your security settings might be blocking a DLL that's required for the deployment to run. To resolve this issue, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your resource provider folder, right-click it, click **Properties**, and then check **Unblock** in the **General** tab.
+		> [AZURE.IMPORTANT] If any of the scripts hangs for no apparent reason after you submit your Azure Active Directory tenant, your security settings might be blocking a DLL that's required for the deployment to run. To resolve this issue, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your resource provider folder, right-click it, click **Properties**, and then check **Unblock** in the **General** tab.
 
-	Run scripts in the **Deploy** tab from left to right to:
+	1. Run scripts in the **Deploy** tab from left to right to:
 
-		1. [Deploy a VM](azure-stack-sql-rp-deploy-long.md#Deploy-the-SQL-Server-Resource-Provider-VM) that hosts both your resource provider and SQL Server. This script references a JSON parameter file, which you need to update with some values before you run the script.
-		2. [Register a local DNS record](azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that maps to your resource provider VM.
-		3. [Register your resource provider](azure-stack-sql-rp-deploy-long.md#Register-the-SQL-RP-Resource-Provider) with the local Azure Resource Manager.
+		- [Deploy a VM](azure-stack-sql-rp-deploy-long.md#Deploy-the-SQL-Server-Resource-Provider-VM) that hosts both your resource provider and SQL Server. This script references a JSON parameter file, which you need to update with some values before you run the script.
+		- [Register a local DNS record](azure-stack-sql-rp-deploy-long.md#Update-the-local-DNS) that maps to your resource provider VM.
+		- [Register your resource provider](azure-stack-sql-rp-deploy-long.md#Register-the-SQL-RP-Resource-Provider) with the local Azure Resource Manager.
 
 		> [AZURE.IMPORTANT] All scripts assume that the base operating system image fulfills the prerequisites (.NET 3.5 installed, JavaScript and cookies enabled on the ClientVM, and a compatible version of Azure PowerShell installed). If you get errors when you run the scripts, double-check that you fulfilled the prerequisites.
 
