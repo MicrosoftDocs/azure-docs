@@ -131,25 +131,12 @@ Role | Permissions
 `Reader` | `Allows Read and Execute(Deploy) on the Template resource`
 `Contributor` | `Allows Edit and Delete permission on the Template resource. User cannot Share the Template with others`
 
-## Create and Manage Templates for your Organization
-
-Though the key use case of `Templates` is for personal and peer-to-peer sharing, you can use the `Templates` capability to publish items to a broader group of people. Some steps you need to take to achieve this:
-- If you have the ability to create users in your Tenant, create an abstracted user name e.g. HRGroupAdmin
-- This user can now be used to create a library for a broader audience. This user can publish and share templates to this generalized library
-- One key gap is that this is still dependent on a single user. To enable a group of users to manage this library a Azure AD group would need to be added as an owner to this library scope.
-- This can only be done via PowerShell. Instructions below:
-
-
-    //`to be filled with code from alan
-    $family="Windows Server 2012 R2 Datacenter"`
-
-
 ### Using Microsoft IDs vs. Org IDs  
 
 You can use the private `Templates` capability with your organization ID or a standard Microsoft Account. Remember though that sharing is only allowed for users within your Active Directory Tenant. If you attempt to Share a Template with someone outside your Tenant, it will send them an invitation similar to standard Azure AD functioning.
 
 ## Next steps
 
-•	To learn about creating ARM templates, see [Authoring templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)
-•	To understand the functions you can use in a ARM template, see [Template functions](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/)
-•	For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](https://azure.microsoft.com/en-us/documentation/articles/best-practices-resource-manager-design-templates/)
+- To learn about creating ARM templates, see [Authoring templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)
+- To understand the functions you can use in a ARM template, see [Template functions](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/)
+- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](https://azure.microsoft.com/en-us/documentation/articles/best-practices-resource-manager-design-templates/)
