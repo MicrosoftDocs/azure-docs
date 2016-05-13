@@ -93,15 +93,38 @@ Often, changes will need further inspection, leveraging the debugging features o
 
 1.  Switch to Visual Studio to view the breakpoint, and inspect the value of message.
 
-	![][3]
+![][3]
 
 ##Sumamry
-With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally, with the production realism of developing within a Docker container. 
-#TODO:
+With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally,
+with the production realism of developing within a Docker container.
 
-*links to details on the files added to the project*
-*link to the troubleshooting doc - resolve the duplicate docs
-  
+## Troubleshooting
+[Troubleshooting Visual Studio Docker Development](./vs-azure-tools-docker-troubleshooting-docker-errors)
+
+## More about Docker with Visual Studio, Windows, and Azure
+
+- [Docker Tools for Visual Studio](http://aka.ms/dockertoolsforvs) - Developing your .NET Core code in a container
+- [Docker Tools for Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) - Build and Deploy docker containers
+- [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) - Language services for editing docker files, with more e2e scenarios coming
+- [Windows Container Information](http://aka.ms/containers)- Windows Server and Nano Server information
+- [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) - [Azure Container Service Content](http://aka.ms/AzureContainerService)
+- [Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
+
+## Various Docker tools
+
+[Some great docker tools (Steve Lasker's blog)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
+
+## Good articles
+
+[Introduction to Microservices from NGINX](https://www.nginx.com/blog/introduction-to-microservices/)
+
+## Presentations
+
+- [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
+- [Introduction to ASP.NET Core @ build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810)
+- [Developing .NET apps in containers, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
+
 [0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
 [1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-props.png
