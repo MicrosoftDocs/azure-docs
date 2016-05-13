@@ -50,11 +50,11 @@ Visual Studio 2015 Tools for Docker enables ASP .NET Core RC2 Web app developers
 
 1. From the Visual Studio Solution Explorer, right-click the project and select **Add > Docker Support**.
 
-  ![][0]
+	![][0]
 
 1. The following files are created under the project node:
 
-  ![][1]
+	![][1]
 
 > [AZURE.NOTE] If using the [Docker for Windows Beta](https://beta.docker.com), open Properties\Docker.props and remove the default value and restart Visaul Studio for the value to take affect.
 ![][2]
@@ -70,9 +70,9 @@ To quickly iterate changes, you can start your application within a container, a
 
 1. Append the following HTML content to the end of the file and save the changes.
 
-  ```
-  <h1>Hello from a Docker Container!</h1>
-  ```
+	```
+	<h1>Hello from a Docker Container!</h1>
+	```
 
 1.	Viewing the output window, when the .NET build is completed and you see `Application started. Press Ctrl+C to shut down`, switch back to your browser and refresh the page.
 
@@ -95,7 +95,7 @@ ViewData["Message"] = message;
 
 1.  Switch to Visual Studio to view the breakpoint, and inspect the value of message.
 
-  ![][3]
+	![][3]
 
 ##Sumamry
 With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally,
