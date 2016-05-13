@@ -52,9 +52,9 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
 	1. Run scripts in the **Prepare** tab from left to right to:
 
-	- Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
-	- Upload the certificates and all other artifacts to a storage account for Azure Stack.
-	- Publish gallery packages so that you can deploy SQL and resources through the gallery.
+		- Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
+		- Upload the certificates and all other artifacts to a storage account for Azure Stack.
+		- Publish gallery packages so that you can deploy SQL and resources through the gallery.
 
 		> [AZURE.IMPORTANT] If any of the scripts hangs for no apparent reason after you submit your Azure Active Directory tenant, your security settings might be blocking a DLL that's required for the deployment to run. To resolve this issue, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your resource provider folder, right-click it, click **Properties**, and then check **Unblock** in the **General** tab.
 
