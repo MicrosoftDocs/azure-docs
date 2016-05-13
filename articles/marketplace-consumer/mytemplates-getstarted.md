@@ -24,7 +24,7 @@ The [Azure Resource Manager](../resource-group-authoring-templates.md) template 
 
 At //build/ 2016, we announced a new `Templates` capability in the [Azure Portal](https://portal.azure.com) along with the `Microsoft.Gallery` (resource provider) service as an extension of the [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/) to enable users to create, manage and deploy private templates from a personal library.
 
-This document walks you through adding, managing and sharing a private `Template` using the [Azure portal](#working-with-templates-using-the-azure-portal).
+This document walks you through adding, managing and sharing a private `Template` using the Azure portal.
 
 ## Guidance
 
