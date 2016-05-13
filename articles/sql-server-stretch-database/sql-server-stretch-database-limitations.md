@@ -24,15 +24,18 @@ Learn about limitations for Stretch\-enabled tables, and about limitations that 
 
 Stretch\-enabled tables have the following limitations.
 
-**Constraints**
+### Constraints
+
 -   Uniqueness is not enforced for UNIQUE constraints and PRIMARY KEY constraints in the Azure table that contains the migrated data.
 
-**DML operations**
+### DML operations
+
 -   You can't UPDATE or DELETE rows in a Stretch\-enabled table, or in a view that includes Stretch\-enabled tables.
 
 -   You can't INSERT rows into a Stretch\-enabled table on a linked server.
 
-**Indexes**
+### Indexes
+
 -   You can't create an index for a view that includes Stretch\-enabled tables.
 
 -   Filters on SQL Server indexes are not propagated to the remote table.
@@ -41,7 +44,8 @@ Stretch\-enabled tables have the following limitations.
 
 The following items currently prevent you from enabling Stretch for a table.
 
-**Table properties**
+### Table properties
+
 -   Tables that have more than 1,023 columns or more than 998 indexes
 
 -   FileTables or tables that contain FILESTREAM data
@@ -50,7 +54,8 @@ The following items currently prevent you from enabling Stretch for a table.
 
 -   Memory\-optimized tables
 
-**Data types and column properties**
+### Data types and column properties
+
 -   text, ntext and image
 
 -   timestamp
@@ -61,17 +66,20 @@ The following items currently prevent you from enabling Stretch for a table.
 
 -   CLR data types including geometry, geography, hierarchyid, and CLR user\-defined types
 
-**Column types**
+### Column types
+
 -   COLUMN\_SET
 
 -   Computed columns
 
-**Constraints**
+### Constraints
+
 -   Default constraints and check constraints
 
 -   Foreign key constraints that reference the table. In a parent\-child relationship \(for example, Order and Order\_Detail\), you can enable Stretch for the child table \(Order\_Detail\) but not for the parent table \(Order\).
 
-**Indexes**
+### Indexes
+
 -   Full text indexes
 
 -   XML indexes
