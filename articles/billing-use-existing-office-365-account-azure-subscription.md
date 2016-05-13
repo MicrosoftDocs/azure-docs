@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Put Office 365 and azure in the same directory | Microsoft Azure"
-	description="use office 365 user account for azure or vice versa"
+	pageTitle="Share a single Azure AD tenant across Office 365 and Azure subscriptions | Microsoft Azure"
+	description="Learn how to share your Office 365 Azure AD tenant and its users with your Azure subscription, or vice versa"
 	services="billing"
 	documentationCenter=""
 	authors="jiangchen79"
@@ -27,9 +27,9 @@ Scenario: If you already have an Office 365 subscription and are ready for an Az
 - If you already have an Office 365 subscription and want to sign up for Azure, use the **Sign in with your organizational account** option and continue the Azure sign up with your Office 365 account. See [detailed steps](#s1).
 - If you already have an Azure subscription and want to get an Office 365 subscription, sign in to Office 365 with your Azure account and proceed with the sign up steps. Once completed, the Office 365 subscription is added to the same Azure Active Directory that your Azure subscription belongs to. See [detailed steps](#s2).
 
->[AZURE.NOTE] To get an Office 365 subscription, you must be a global admin or billing admin of your Azure Active Directory. [Learn how to know the role of your Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory)
+>[AZURE.NOTE] To get an Office 365 subscription, the account you use for sign-in must be a member of the Global Admin or Billing Admin directory role in your Azure AD tenant. [Learn how to know the role of your Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory)
 
-To understand how things work when you add a subscription to an account, see the complementary [background information](#background-information) later in the article.
+To understand how things work when you add a subscription to an account, see the [background information](#background-information) later in the article.
 
 ## Detailed steps
 <a id="s1"></a>
@@ -80,7 +80,7 @@ Now you are all set. In the Azure portal, you will see the same users showing up
 
 In this scenario, Kelley Wall is a user who has an Azure subscription under the account admin@contoso.onmicrosoft.com. Kelley wants to subscribe to Office 365 and use the same directory she already has with Azure.
 
->[AZURE.NOTE] To get an Office 365 subscription, you must be a global admin or billing admin of your Azure Active Directory. [Learn how to know the role of your Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory)
+>[AZURE.NOTE] To get an Office 365 subscription, the account you use for sign-in must be a member of the Global Admin or Billing Admin directory role in your Azure AD tenant. [Learn how to know the role of your Azure Active Directory](#how-to-know-your-role-in-your-azure-active-directory)
 
 ![azure-portal-settings-subscription](./media/billing-use-existing-office-365-account-azure-subscription/10-azure-portal-settings-subscription.png)
 
@@ -136,6 +136,8 @@ Office 365 and Azure use the Azure Active Directory (AAD) service to manage user
 - A subscription lands in the directory of the user creating the subscription. As a result, your Office 365 subscription is tied to the same account of your Azure subscription when you use the account to create the Office 365 subscription.
 
 ![background-information](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
+
+See [How Azure subscription are sssociated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md) for more information.
 
 **Notes:**
 
