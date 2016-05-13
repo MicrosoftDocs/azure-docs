@@ -126,7 +126,7 @@ Essentially, the client library handles communication between the device and the
 
 We have just explained how would you implement the device-specific logic to perform device jobs. Now we will explain what objects are available for you to use.
 
-Some of these objects are required, which means that you need to implement the specific device-logic for it to be part of IoT Hub device management. Others are optional, so you can choose depending on your service needs (for example: you may choose not want to do firmware updates using IoT Hub). Here’s a description of each:
+Some of these objects are required, which means that you need to implement the specific device-logic for it to be part of IoT Hub device management.<!-- Loc Comment: Should "specific device-logic" be "device-specific logic"? Term "device-specific" is used a few time in this article. --> Others are optional, so you can choose depending on your service needs (for example: you may choose not want to do firmware updates using IoT Hub). Here’s a description of each:
 
 - **Device object (required)**: Provides device-specific information such as manufacturer information, model number, serial number, device time. The service can read this information, and in some cases update it. It also defines two actions that the service can perform on a device: reboot and factory reset.
 - **Server object (required)**: Contains connection parameters and settings used to connect to IoT Hub, such as the lifetime of the registration and the transport binding. The service can only read this information.
