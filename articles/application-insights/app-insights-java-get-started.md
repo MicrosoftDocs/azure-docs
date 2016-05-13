@@ -245,7 +245,7 @@ When viewing the properties of a request, you can see the telemetry events assoc
 
 As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics]() is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
-![Example of Analytics](./media/app-insights-asp-net/025.png)
+![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
 
 ## 5. Install your app on the server
