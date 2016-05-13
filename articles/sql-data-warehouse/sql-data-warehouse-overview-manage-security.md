@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="05/12/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -31,7 +31,7 @@ Connections to your SQL Data Warehouse can be encrypted by setting the encryptio
 
 ## Authentication
 
-Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password.
+Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password. Windows authentication is available as a preview feature.
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
 
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][].
+For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][] and [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
 
 
 ## Authorization
