@@ -33,7 +33,7 @@ To complete the steps in this article, you will need the following:
 
 * A text editor
 
-    > [AZURE.IMPORTANT] The text editor must use LF as the line ending. If it uses CRLF, this will cause errors when running the MapReduce job on Linux-based HDInsight clusters.
+    > [AZURE.IMPORTANT] The text editor must use LF as the line ending. If it uses CRLF, this will cause errors when running the MapReduce job on Linux-based HDInsight clusters. If you are not sure, use the optional step in the [Run MapReduce](#run-mapreduce) section to convert any CRLF to LF.
 
 * For Windows clients, PuTTY and PSCP. These utilities are available from the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY Download Page</a>.
 
