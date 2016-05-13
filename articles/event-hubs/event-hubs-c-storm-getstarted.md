@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/13/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
