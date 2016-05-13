@@ -358,6 +358,7 @@ The [azuredeploy.json][azuredeploy] template then creates the VNet containing th
 
 The address spaces for the subnets are passed in as parameters to this template. You can change these address spaces by modifying the azuredeploy.sh script. This is described in the [Deploying the sample solution][deploying] section later in this article.
 
+
 ### Application resources
 
 The [azuredeploy.sh][azuredeploy-script] script uses the [bb-ilb-backend-http-https.json][bb-ilb-backend-http-https] template to create the VMs, storage accounts, and resources for the web tier, business tier, and data access tier. The azuredeploy.sh script runs this template three times - once for each tier - passing in tier specific parameters such as the subnet name, the resource group, and the number of VMs to create. This template also takes parameters that specify the type of VM to create (Windows, Linux), the size of VM, the administrator name and password, and the name of the VM:
@@ -388,7 +389,9 @@ The [azuredeploy.sh][azuredeploy-script] script uses the [bb-ilb-backend-http-ht
       "vmAvSetName": { "value": "[variables('vmAvailabilitySetName')]" }
     }
   }
+}
 ```
+
 By default, each tier contains two VMs using the Standard_DS3 size (4 CPU cores, 14GB RAM, 28GB local SSD storage, up to 8TB disk storage). You can modify all of these configuration settings - see [Deploying the sample solution][deploying] section for details.
 
 The VMs are created in an availability set, and this template also creates an internal load balancer which distributes requests to port 80 and to port 443 across the set:
@@ -479,6 +482,7 @@ The [azuredeploy.sh][azuredeploy-script] script creates the resources for the NV
       }
     }
     ```
+
 
 	This UDR is applied to the Gateway subnet created for the connection to the on-premises network, described in the [Gateway resources][gateway-resources] section. This UDR ensures that all traffic from the on-premises network passes through the NVA.
 
@@ -580,7 +584,7 @@ The [azuredeploy.sh][azuredeploy-script] script calls the [bb-vpn-gateway-connec
         "sharedKey": "[parameters('sharedKey')]"
       }
     }
-```
+	```
 
 ## Deploying the sample solution
 
