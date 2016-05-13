@@ -3,7 +3,7 @@ pageTitle="Create multiple models from one experiment | Microsoft Azure"
 description="Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets."
 services="machine-learning"
 documentationCenter=""
-authors="garyericson"
+authors="hning86"
 manager="paulettm"
 editor="cgronlun"/>
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
 ms.date="05/12/2016"
-ms.author="garye"/>
+ms.author="garye;haining"/>
 
 # Create many Machine Learning models and web service endpoints from one experiment using PowerShell
 

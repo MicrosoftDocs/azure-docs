@@ -68,6 +68,8 @@ To create Logic apps with Trello, you must first create a **connection** then pr
 |Token|Yes|Provide Trello Credentials|
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
 
+>[AZURE.INCLUDE [Steps to create a connection to Trello](../../includes/connectors-create-api-twitter.md)]
+
 >[AZURE.TIP] You can use this connection in other logic apps.
 
 ## Reference for Trello
