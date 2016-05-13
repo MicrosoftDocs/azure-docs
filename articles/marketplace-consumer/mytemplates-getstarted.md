@@ -20,7 +20,7 @@
 
 # Get Started with private Templates
 
-The [Azure Resource Manager](resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+The [Azure Resource Manager](../resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
 At //build/ 2016, we announced a new `Templates` capability in the [Azure Portal](https://portal.azure.com) along with the `Microsoft.Gallery` (resource provider) service as an extension of the [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/) to enable users to create, manage and deploy private templates from a personal library.
 
@@ -138,6 +138,6 @@ You can use the private `Templates` capability with your Organization ID or a st
 
 ## Next steps
 
-- To learn about creating ARM templates, see [Authoring templates](resource-group-authoring-templates.md)
-- To understand the functions you can use in a ARM template, see [Template functions](resource-group-template-functions.md)
-- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md)
+- To learn about creating ARM templates, see [Authoring templates](../resource-group-authoring-templates.md)
+- To understand the functions you can use in a ARM template, see [Template functions](../resource-group-template-functions.md)
+- For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
