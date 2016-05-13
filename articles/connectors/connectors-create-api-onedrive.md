@@ -61,7 +61,6 @@ When you add this API to your logic apps, you must authorize logic apps to conne
 
 >[AZURE.INCLUDE [Steps to create a connection to OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
-
 >[AZURE.TIP] You can use this same connection in other logic apps.
 
 ## Swagger REST API reference
