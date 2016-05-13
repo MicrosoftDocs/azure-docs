@@ -19,11 +19,11 @@
 
 # Platform supported migration of IaaS resources from Classic to Azure Resource Manager
 
-It’s been almost a year since we announced the support for Virtual Machines under Azure Resource Manager. You can read more about the advancements and the additional capabilities that it supports here. In addition, we also gave guidance around how to best connect and have resources from the two deployment models co-exist in your subscription using Virtual Network Site-Site Gateways. In this article, we would like to how we are enabling migration of IaaS resources from Classic to Resource Manager.
+It’s been almost a year since we announced the support for Virtual Machines under Azure Resource Manager. You can read more about the advancements and the additional capabilities that it supports here. In addition, we also gave guidance around how to best connect and have resources from the two deployment models co-exist in your subscription using Virtual Network Site-to-Site Gateways. In this article, we would like to show how we are enabling migration of IaaS resources from Classic to Resource Manager.
 
 ## What is our goal with migration?
 
-We are really excited about the power and capability offered by the new experience and APIs available on Virtual Machines. We think this is really going to change the way you can use the cloud in a lot of ways. With the release of the new model, we allow you to deploy, manage, and monitor related services in a resource group. Resource Manager enables deploying complex applications using templates, configures virtual machines using VM extensions, and incorporates access management and tagging. It also includes scalable, parallel deployment for virtual machines into availability sets. In addition, the new model provides lifecycle management of Compute, Network and Storage independently. Finally, there’s a focus on enabling security by default with the enforcement of Virtual Machines in a Virtual Network.
+We are really excited about the power and capability offered by the new experience and APIs available on Virtual Machines. We think this is really going to change the way you can use the cloud in a lot of ways. With the release of the new model, it allows you to deploy, manage, and monitor related services in a resource group. Resource Manager enables deploying complex applications using templates, configures Virtual Machines using VM extensions, and incorporates access management and tagging. It also includes scalable, parallel deployment for Virtual Machines into availability sets. In addition, the new model provides lifecycle management of Compute, Network and Storage independently. And there’s a focus of enabling security by default with the enforcement of virtual machines in a Virtual Network.
 
 From a feature standpoint, almost all the features are supported for Compute, Network & Storage under Azure Resource Manager with a few exceptions which we are aggressively trying to finish in the coming months. In addition, we are continuously improving the user experience and adding more features to the Azure Portal to bridge the experiences.
 
@@ -40,9 +40,9 @@ Please note that one of the important changes that you will have to make as part
 Before we drill down into the details, we’d like to briefly explain the difference between Data Plane and Management Plane operations on the IaaS resources. Understanding these differences are critical since this explains how we are planning to support migration.
 
 - Management Plane - This describes the calls that comes into the management plane or the API for modifying resources. For example – Creating a VM, Restarting a VM, Update a Virtual Network with a new subnet, etc. All of these operations manage the resources running but doesn't directly impact connecting to the instances.
-- Data Plane (Application) – This describes the “runtime” of the application itself and involve interaction with instances that don’t go through the Azure API. Accessing your website or pulling data from a running SQL Server or mongoDB server would all be considered data plane or application interaction. Copying a blob from a storage account and accessing a Public IP address to RDP or SSH into the Virtual Machine also are data plane. These operations keep the application running across compute, networking, and storage.
+- Data Plane (Application) – This describes the “runtime” of the application itself and involve interaction with instances that don’t go through the Azure API. Accessing your website or pulling data from a running SQL Server or MongoDB server would all be considered data plane or application interaction. Copying a blob from a storage account and accessing a Public IP address to RDP or SSH into the Virtual Machine also are data plane. These operations keep the application running across compute, networking, and storage.
 
->[AZURE.NOTE] In some migration scenarios (more details in the unsupported configurations), we will stop deallocate & restart your virtual machines which will incur a short data plane downtime.
+>[AZURE.NOTE] In some migration scenarios (more details in the unsupported configurations), we will stop deallocate & restart your Virtual Machines which will incur a short data plane downtime.
 
 ## What are the supported scopes of Migration?
 
@@ -50,19 +50,19 @@ During public preview, we are offering two migration scopes primarily targeting 
 
 ### Migration of Virtual Machines (Not in a Virtual Network)
 
-In the Resource manager deployment model, we enforce security of your applications by default. Hence, all VMs need to be in a Virtual Network in the Resource manager model. Therefore, we will be restarting (Stop Deallocate and Start) the VMs as part of the migration. You will have a couple of choices when it comes to the Virtual networks:
-- You can request the platform to create a new Virtual Network and migrate the virtual machine into the new Virtual Network (or)
+In the Resource Manager deployment model, we enforce security of your applications by default. Hence, all VMs need to be in a Virtual Network in the Resource Manager model. Hence, as part of the migration, we will be restarting (Stop Deallocate and Start) the VMs as part of the migration. You will have a couple of choices when it comes to the Virtual Networks:
+- You can request the platform to create a new Virtual Network and migrate the Virtual Machine into the new Virtual Network (or)
 - Migrate the Virtual Machine into an existing Virtual Network in Resource Manager
 
 >[AZURE.NOTE] In this migration scope, both the ‘management plane’ and ‘data plane’ operations may not be allowed for a certain period of time during the migration.
 
-### Migration of Virtual machines (in a Virtual Network)
+### Migration of Virtual Machines (in a Virtual Network)
 
 In this scope, for most VM configurations, we are only migrating the metadata between the Classic and Resource Manager. The underlying Virtual Machines are running on the same hardware, in the same network, and with the same storage. Thus, when we refer to migration of the metadata from the Classic to Resource Manager, the ‘management plane’ operations may not be allowed for a certain period of time during the migration. However, the Data plane will continue to work i.e., your applications running on top of Virtual Machines (Classic) will not incur downtime during the migration.
 
 At this time, the following configurations are not supported. When we add support for them in the future, some VMs in this configuration might incur downtime (stop deallocate & restart) :
 
--	If you have more than 1 availability set in a Single Cloud Service
+-	If you have more than 1 availability set in a single Cloud Service
 -	If you have '1 or more availability sets' & 'VMs that are not in an availability set' in a single Cloud Service
 
 >[AZURE.NOTE] In this migration scope, the ‘management plane’ may not be allowed for a certain period of time during the migration. For certain special configurations as described above, this will incur 'data plane' downtime.
@@ -72,7 +72,7 @@ At this time, the following configurations are not supported. When we add suppor
 Storage account migration is currently not supported for this Public Preview. However, support for storage account migration is planned and should be released very soon. There are two important aspects when it comes to migration and its storage account behavior.
 
 - Enabling Resource Manager VMs to be deployed on Classic storage account
-  To allow seamless migration, we have enabled the capability to deploy resource manager VMs in a Classic storage account. With this capability, Compute and Network resources can be migrated independent of storage accounts.
+  To allow seamless migration, we have enabled the capability to deploy Resource Manager VMs in a Classic storage account. With this capability, Compute and Network resources can be migrated independent of storage accounts.
 - Best practice for storage account migration
 	When storage account migration is supported, the platform will enforce the Compute and Network resources separate from the storage accounts to enable a seamless experience.
 
@@ -103,8 +103,8 @@ Service | Configuration | Recommendation
 ---------- | ------------ | ------------
 Resource Manager | Role Based Access Control for Classic Resources | Since the URI of the resources are modified after migration. We recommend that you pre-plan the RBAC policy updates that need to happen after migration.
 Compute | Multiple Subnets associated with a VM | You should update the subnet configuration to reference only Subnet.
-Compute | Virtual Machines that belong to a Virtual Network but doesn't have an explicit subnet assigned. | You can optionally delete the VM. This feature support is currently planned.
-Compute | Virtual Machines that has Alerts, AutoScale Policies | At this time, the migration will go through and these settings will be dropped. So we highly recommend you to evaluate your environment before doing migration. Alternatively, you can also reconfigure the Alert settings after migration is complete.
+Compute | Virtual Machines that belong to a Virtual Network but don't have an explicit subnet assigned. | You can optionally delete the VM. This feature support is currently planned.
+Compute | Virtual Machines that have Alerts, AutoScale Policies | At this time, the migration will go through and these settings will be dropped. So we highly recommend you to evaluate your environment before doing migration. Alternatively, you can also reconfigure the Alert settings after migration is complete.
 Compute | XML VM Extensions [VS Debugger, WebDeploy & RemoteDebug] | This will not be supported. We recommend that you remove these extensions from the Virtual Machine continue migration.
 Compute | Cloud Services that contain Web/Worker Roles | This is currently not supported and is in the planning process.
 Network | Virtual Networks that contain Virtual Machines & Web/Worker Roles |  This is currently not supported and is in the planning process.
@@ -130,7 +130,7 @@ With the announcement of Public Preview, we have added support for triggering mi
 ![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
 
 1.	Prepare
-	* This is the first step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from Classic to Resource Manager resources and present this side by side for you to visualize. The detailed flow of actions are described below.
+	* This is the first step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from Classic to Resource Manager resources and present this side by side for you to visualize. The detailed flow of actions is described below.
   * You will select the Virtual Network or the Hosted Service (if it’s not a VNET) that you want to prepare for migration.
   *	At first, the platform will always do data analysis in the background for the resource(s) under migration and return back success/failure if the resource(s) are capable of migration.
 	*	If the resource is not capable of migration, we will list out the reasons for why it’s not supported for migration.
@@ -140,7 +140,7 @@ With the announcement of Public Preview, we have added support for triggering mi
 
 2.	Manual or Scripted Check
   * In this step, you can optionally use the configuration that you downloaded earlier to validate that the migration looks correct. Alternatively, you can also log into the portal and spot check the properties and resources to validate that metadata migration looks good.
-	* If you are migrating a Virtual Network, most configuration of virtual machines will not be restarted. For applications on those VMs, you can validate that the application is still up and running.
+	* If you are migrating a Virtual Network, most configuration of Virtual Machines will not be restarted. For applications on those VMs, you can validate that the application is still up and running.
 	* You can test your monitoring/automation and operational scripts to see if the VMs are working as expected and if your updated scripts work correctly. Please note that only GET operations will be supported when the resources are in the Prepared state.
   * There is no set time window before which you need to ‘commit’ the migration. You can take as much time as you want in this state. However, please note that the Management plane will be locked for these resources until you either ‘abort’ or ‘commit’.
   * If you see any issues, you can always ‘abort’ the migration and go back to the ‘Classic’ deployment model. Once you go back, we will open up the management plane operations on the resources so you can resume normal operations on those VMs in the Classic deployment model.
