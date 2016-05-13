@@ -4,7 +4,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
 
-   ![][7]
+	![][7]
 
 2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**. 
 
