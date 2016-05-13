@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Azure Functions NodeJS developer reference
@@ -138,10 +138,23 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 The node version is currently locked at `5.9.1`. We're investigating adding support for more versions and making it configurable.
 
-You can include packages in your function directory (i.e. via `npm install`) and then import them to your function in the usual ways (i.e. via `require('packagename')`)
+You can include packages in your function directory by 
+uploading a *package.json* file to your function's folder in the function app's file system. For file upload instructions, see the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
+
+You can also use `npm install` in the function app's SCM (Kudu) command line interface:
+
+1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Click **Debug Console > CMD**.
+
+3. Navigate to `D:\home\site\wwwroot\<function_name>`.
+
+4. Run `npm install`.
+
+Once the packages you need are installed, you import them to your function in the usual ways (i.e. via `require('packagename')`)
 
 ```javascript
-// Import the underescore.js library
+// Import the underscore.js library
 var _ = require('underscore');
 var version = process.version; // version === 'v5.9.1'
 
