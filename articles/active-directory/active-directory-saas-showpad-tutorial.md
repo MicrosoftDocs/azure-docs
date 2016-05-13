@@ -121,9 +121,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_04.png) 
 
 
-    a. In the **Sign On URL** textbox, type `https://companyname.showpad.biz/login`.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Showpad application using the following pattern: `https://<company name>.showpad.biz/login`
 
-	b. In the **Identifier** textbox, type `https://microsoft-sso.showpad.biz`.
+	b. In the **Identifier** textbox, type the URL using the following pattern: `https://<company name>.showpad.biz`
 
 	c. Click **Next**
 
