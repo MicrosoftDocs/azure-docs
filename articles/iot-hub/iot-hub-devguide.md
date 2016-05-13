@@ -98,19 +98,19 @@ Device identities are represented as JSON documents with the following propertie
 
 | Property | Options | Description |
 | -------- | ------- | ----------- |
-| deviceId | required, read-only on updates | A case-sensitive string ( up to 128 char long) of ASCII 7-bit alphanumeric chars + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
-| generationId | required, read-only | A hub-generated case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId** when they have been deleted and recreated. |
+| deviceId | required, read-only on updates | A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| generationId | required, read-only | A hub-generated, case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag | required, read-only | A string representing a weak etag for the device identity, as per [RFC7232][lnk-rfc7232].|
 | auth | optional | A composite object containing authentication information and security materials. |
 | auth.symkey | optional | A composite object containing a primary and a secondary key, stored in base64 format. |
-| status | required | Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
-| statusReason | optional | A 128 char-long string storing the reason for the device identity status. All UTF-8 characters are allowed. |
-| statusUpdateTime | read-only | Date and time of the last status update. |
-| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings) and it can have a delay of at most 5 minutes. For these reasons there can be false positives such as devices reported as connected but actually disconnected. |
-| connectionStateUpdatedTime | read-only | Date and last time the connection state was updated. |
-| lastActivityTime  | read-only | Date and last time the device connected, received, or sent a message. |
+| status | required | An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
+| statusReason | optional | A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed. |
+| statusUpdateTime | read-only | A temporal indicator, showing the date and time of the last status update. |
+| connectionState | read-only | A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are actually disconnected. |
+| connectionStateUpdatedTime | read-only | A temporal indicator, showing the date and last time the connection state was updated. |
+| lastActivityTime  | read-only | A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
 
-> [AZURE.NOTE] Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed depending on network conditions and configurations.
+> [AZURE.NOTE] Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
 
 ### Device identity operations
 
@@ -124,14 +124,14 @@ The IoT Hub device identity registry exposes the following operations:
 * Export all identities to blob storage
 * Import identities from blob storage
 
-All these operations allow the use of optimistic concurrency as specified in [RFC7232][lnk-rfc7232].
+All these operations allow the use of optimistic concurrency, as specified in [RFC7232][lnk-rfc7232].
 
 > [AZURE.IMPORTANT] The only way to retrieve all identities in a hub's identity registry is to use the [Export](#importexport) functionality.
 
 An IoT Hub device identity registry:
 
 - Does not contain any application metadata.
-- Can be accessed like a dictionary using the **deviceId** as the key.
+- Can be accessed like a dictionary, by using the **deviceId** as the key.
 - Does not support expressive queries.
 
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
@@ -147,12 +147,9 @@ You can disable devices by updating the **status** property of an identity in th
 
 ### Import and export device identities <a id="importexport"></a>
 
-You can export device identities in bulk from an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry:
+You can export device identities in bulk from an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
 
-- For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
-- To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
-
-You can import device identities in bulk to an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
+You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints). Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
 
 - For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
 - To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
