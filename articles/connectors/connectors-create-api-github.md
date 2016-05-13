@@ -61,6 +61,8 @@ To create Logic apps with GitHub, you must first create a **connection** then pr
 |Token|Yes|Provide GitHub Credentials|
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
 
+>[AZURE.INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
+
 >[AZURE.TIP] You can use this connection in other logic apps.
 
 ## Reference for GitHub
