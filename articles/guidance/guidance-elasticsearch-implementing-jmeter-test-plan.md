@@ -19,6 +19,8 @@
    
 # Implementing a JMeter test plan for Elasticsearch
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series](guidance-elasticsearch.md). 
 
 The performance tests conducted against Elasticsearch were implemented by using JMeter test plans 
