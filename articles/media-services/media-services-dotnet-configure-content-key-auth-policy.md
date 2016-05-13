@@ -401,6 +401,7 @@ To get a test token based on the token restriction that was used for the key aut
 ##<a id="types"></a>Types used when defining ContentKeyAuthorizationPolicy
 
 ###<a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+
     public enum ContentKeyRestrictionType
     {
         Open = 0,
