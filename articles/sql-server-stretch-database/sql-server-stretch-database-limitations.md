@@ -54,7 +54,7 @@ The following items currently prevent you from enabling Stretch for a table.
 
 -   Memory\-optimized tables
 
-### Data types and column properties
+### Data types
 
 -   text, ntext and image
 
