@@ -85,21 +85,28 @@ For Azure Resource Manager virtual machines, use the following PowerShell exampl
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
+$workspaceName = "your workspace name"
+$VMresourcegroup = "**"
+$VMresourcename = "**"
 
-$workspaceId="**"
-$workspaceKey="**"
+$workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq $workspaceName})
 
-$resourcegroup = "**"
-$resourcename = "**"
+if ($workspace.Name -ne $workspaceName) 
+{
+    Write-Error "Unable to find OMS Workspace $workspaceName. Do you need to run Select-AzureRMSubscription?"
+}
 
-$vm = Get-AzureRMVM -ResourceGroupName $resourcegroup -Name $resourcename
+$workspaceId = $workspace.CustomerId 
+$workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGroupName $workspace.ResourceGroupName -Name $workspace.Name).PrimarySharedKey
+
+$vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-Set-AzureRMVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
 
 
 ```
-When configuring using PowerShell, you need to provide the Workspace ID and Primary Key. You can find your Workspace ID and Primary Key on the **Settings** page of the OMS portal.
+When configuring using PowerShell, you need to provide the Workspace ID and Primary Key. You can find your Workspace ID and Primary Key on the **Settings** page of the OMS portal, or using PowerShell as shown in the example above.
 
 ![workspace ID and primary key](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
@@ -135,12 +142,15 @@ Syslog|Events sent to the Syslog or Rsyslog daemons
 Currently, OMS is able to analyze:
 
 - IIS logs from Web roles and virtual machines
-- Windows Event logs from Web roles, Worker roles and Azure virtual machines running a Windows operating system
+- Windows Event logs and ETW logs from Web roles, Worker roles and Azure virtual machines running a Windows operating system
 - Syslog from Azure virtual machines running a Linux operating system
+- Diagnostics written to blob storage in json format for Network Security Group, Application Gateway, and KeyVault resources
 
 The logs must be in the following locations:
 
 - WADWindowsEventLogsTable (Table Storage) – Contains information from Windows Event logs.
+- WADETWEventTable (Table Storage) – Contains information from Windows ETW logs.
+- WADServiceFabricSystemEventTable, WADServiceFabricReliableActorEventTable, WADServiceFabricReliableServiceEventTable (Table Storage) - Contains information on Service Fabric Operational, Actor and Service events.
 - wad-iis-logfiles (Blob Storage) – Contains information about IIS logs.
 - LinuxsyslogVer2v0 (Table Storage) – Contains Linux syslog events.
 
@@ -148,7 +158,7 @@ The logs must be in the following locations:
 
 For virtual machines, you also have the option of installing the [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs you will also allow be able to perform additional analysis including configuration change tracking, SQL assessment and update assessment.
 
-You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 ## Enable Azure diagnostics in a Web role for IIS log and event collection
 

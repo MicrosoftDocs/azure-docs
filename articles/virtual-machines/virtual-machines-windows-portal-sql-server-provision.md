@@ -80,7 +80,7 @@ On the **Basics** blade, provide the following information:
 * Select a **Location** for this deployment.
 * Click **OK** to save the settings.
 
-	![SQL Basics Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png)
+	![SQL Basics Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## 2. Choose virtual machine size
 On the **Size** step, choose a virtual machine size in the **Choose a size** blade. This initially presents you with recommended machine sizes. The sizes are based on the template you selected. It also estimates the monthly cost to run the VM.
