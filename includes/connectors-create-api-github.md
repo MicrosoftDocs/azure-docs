@@ -1,5 +1,5 @@
 ### Prerequisites
-- A [OneDrive](http://GitHub.com) account 
+- A [GitHub](http://GitHub.com) account 
 
 Before you can use your GitHub account in a Logic app, you must authorize the Logic app to connect to your GitHub account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
 
