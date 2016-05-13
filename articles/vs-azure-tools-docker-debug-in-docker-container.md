@@ -93,7 +93,7 @@ Often, changes will need further inspection, leveraging the debugging features o
 
 1.  Switch to Visual Studio to view the breakpoint, and inspect the value of message.
 
-	![][3]
+![][3]
 
 ##Sumamry
 With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally,
