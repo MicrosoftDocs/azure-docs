@@ -41,7 +41,7 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 		- Upload the certificates and all other artifacts to an Azure Stack storage account.
 		- Publish gallery packages so that you can deploy MySQL resources through the gallery.
 
-	> [AZURE.IMPORTANT] If any of the scripts hang for no apparent reason after you submit your Azure Active Directory tenant, your security settings might be blocking a DLL that's required for the deployment to run. To resolve this issue, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your resource provider folder, right click it, click **Properties**, and then check **Unblock** in the **General** tab.
+		> [AZURE.IMPORTANT] If any of the scripts hang for no apparent reason after you submit your Azure Active Directory tenant, your security settings might be blocking a DLL that's required for the deployment to run. To resolve this issue, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your resource provider folder, right click it, click **Properties**, and then check **Unblock** in the **General** tab.
 
 	2. Run scripts in the **Deploy** tab from left to right to:
 
