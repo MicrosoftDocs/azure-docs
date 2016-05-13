@@ -64,7 +64,7 @@ To quickly iterate changes, you can start your application within a container, a
  
 1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally. See the output window, using build or 
 
-1. Once the container image has been built and is running in a Docker container, Visual Studio will try to launch the Web app in your default browser. If you are using the Microsoft Edge browser or otherwise have errors, see [Troubleshooting](vs-azure-tools-docker-troubleshooting-docker-errors.md) section.
+1. Once the container image has been built and is running in a Docker container, Visual Studio will try to launch the Web app in your default browser. If you are using the Microsoft Edge browser or otherwise have errors, see the [Troubleshooting](#troubleshooting) section.
 
 1. Return to Visual Studio and open `Views\Home\About.cshtml`. 
 
@@ -100,7 +100,7 @@ With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you
 with the production realism of developing within a Docker container.
 
 ## Troubleshooting
-[Troubleshooting Visual Studio Docker Development](vs-azure-tools-docker-troubleshooting-docker-errors.md)
+[Troubleshooting Visual Studio Docker Development](./vs-azure-tools-docker-troubleshooting-docker-errors)
 
 ## More about Docker with Visual Studio, Windows, and Azure
 
