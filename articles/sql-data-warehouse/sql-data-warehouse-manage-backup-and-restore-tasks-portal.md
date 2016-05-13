@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Backup and restore in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
+   pageTitle="Backup and restore in Azure SQL Data Warehouse (Portal) | Microsoft Azure"
    description="Azure portal tasks for restoring a live, deleted, or inaccessible database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="05/05/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Backup and restore a database in Azure SQL Data Warehouse (PowerShell)
+# Backup and restore a database in Azure SQL Data Warehouse (Portal)
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-manage-backup-and-restore.md)
