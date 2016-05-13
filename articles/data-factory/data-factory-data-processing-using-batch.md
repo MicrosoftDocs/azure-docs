@@ -547,6 +547,10 @@ In this step, you will create a linked service for your **Azure Batch** account 
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
 
+		For the **poolName** property, you can also specify the ID of the pool instead of the name of the pool.
+
+		> [AZURE.NOTE] The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight. You can only use your own Azure Batch pool in an Azure data factory.
+
     5.  Specify **StorageLinkedService** for the **linkedServiceName** property. You created this linked service in the previous step. This storage is used as a staging area for files and logs.
 
 3.  Click **Deploy** on the command bar to deploy the linked service.
