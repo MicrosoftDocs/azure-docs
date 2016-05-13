@@ -19,6 +19,8 @@
 
 # Running Elasticsearch on Azure
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series](guidance-elasticsearch.md). 
 
 ## Overview
