@@ -48,17 +48,9 @@ In order to complete this tutorial you'll need the following:
 
 	![][3]
 
-5. Click the **Event Hubs** tab at the top of the page, and then click the Event Hub you just created.
+5. At the bottom of the page, click **Connection Information**. Click the copy button (shown in the following figure) to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
 
 	![][4]
-
-6. Click the **Configure** tab at the top, add a rule named **SendRule** with Send rights, add another rule called **ReceiveRule** with *Manage*, *Send*, *Listen* rights, and then click **Save**.
-
-	![][5]
-
-7. Click the **Dashboard** tab at the top of the page, and then click **Connection Information**. Copy the two connection strings to a temporary location, as you will use them later in this tutorial.
-
-	![][6]
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
@@ -112,10 +104,7 @@ Now that you've built a working application that creates an Event Hub and sends 
 [1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png
 [2]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub2.png
 [3]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub3.png
-[4]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub4.png
-[5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png
-[6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png
-
+[4]: ./media/event-hubs-csharp-ephcs-getstarted/create-conn-str1.png
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png

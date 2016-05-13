@@ -21,7 +21,9 @@ In this section, you'll write a Windows console app that sends events to your Ev
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the connection string with **Send** rights (the **SendRule** connection string). Be sure to remove the `EntityPath` suffix from the connection string:
+5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the connection string with **Send** rights (the **SendRule** connection string).
+
+	> [AZURE.IMPORTANT] Be sure to remove the `EntityPath` suffix from the connection string before building the application.
 
 	```
 	static string eventHubName = "{Event Hub name}";
