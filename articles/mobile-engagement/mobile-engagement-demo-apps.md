@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Mobile Engagement Demo App"
-	description="Describes where to download, how to use and find benefits using Azure Mobile Engagement Demo app"
+	pageTitle="Azure Mobile Engagement demo app | Microsoft Azure"
+	description="Describes where to download, how to use, and the benefits of using Azure Mobile Engagement demo app"
 	services="mobile-engagement"
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="erikre" 
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -16,137 +16,137 @@
 	ms.date="04/29/2016"
 	ms.author="piyushjo" />
 
-# Azure Mobile Engagement Demo App
+# Azure Mobile Engagement demo app
 
-We have published an Azure Mobile Engagement demo app for **iOS**, **Android** and **Windows** platforms to help you to find useful resources and learn more about Azure Mobile Engagement. 
+We've published an Azure Mobile Engagement demo app for **iOS**, **Android**, and **Windows** platforms to help you to find useful resources and learn more about Azure Mobile Engagement.
 
 The app helps you to:
 
-1. Easily find useful links to Azure Mobile Engagement specific resources like videos, documentation, support forum, where to go to raise feature requests etc. 
-2. Experience sample notifications supported by Azure Mobile Engagement to get ideas for your own mobile applications. 
-3. Provides you a reference implementation that you can use to study how to implement Mobile Engagement into your own app to: 
+- Easily find useful links to Mobile Engagement resources like videos, documentation, the support forum, and where to go to raise feature requests.
+- Experience sample notifications that are supported by Azure Mobile Engagement to get ideas for your own mobile applications.
+- Use a reference implementation to study how to implement Mobile Engagement into your own app. You can learn to:
 
-	- collect Analytics data 
-	- implement advanced notification scenarios of types such as *Full screen Interstitial* or *Pop-up*
-	- implement Surveys/Polls
-	- implement silent push/data push scenarios   
+	- Collect analytics data.
+	- Implement advanced notification scenarios of types such as *Full screen Interstitial* or *Pop-up*.
+	- Implement surveys and polls.
+	- Implement silent push data and push scenarios.   
 
 ## App installation
-This apps is available in the respective apps stores:
+This app is available in the following apps stores:
 
-1. **Windows Universal Demo App**
+- **Windows Universal demo app**
 
-	- [Download link at Windows App Store](https://www.microsoft.com/en-us/store/apps/azure-mobile-engagement/9nblggh4qmh2) 
-	- App was developed as Windows 10 Universal App and the source code is available on [Github](https://github.com/Azure/azure-mobile-engagement-app-ios)
+	- Download the app at the [Windows App store](https://www.microsoft.com/en-us/store/apps/azure-mobile-engagement/9nblggh4qmh2).
+	- The app was developed as a Windows 10 Universal App. The source code is available on [Github](https://github.com/Azure/azure-mobile-engagement-app-ios).
 
-2. **iOS Demo App** 
+- **iOS demo app**
 
-	- [Download link at Apple Store](https://itunes.apple.com/us/app/azure%20mobile%20engagement/id1105090090) 
-	- App was developed in iOS Swift and the source code is available on [Github](https://github.com/Azure/azure-mobile-engagement-app-ios)
+	- Download the app at the [Apple store](https://itunes.apple.com/us/app/azure%20mobile%20engagement/id1105090090).
+	- The app was developed in iOS Swift. The source code is available on [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
 
-3. **Android Demo App** 
+- **Android demo app**
 
-	- [Download link at Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.azure.engagement)
-	- Source code is available on [Github](https://github.com/Azure/azure-mobile-engagement-app-android)
+	- Download the app at the [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.azure.engagement)
+	- The source code is available on [GitHub](https://github.com/Azure/azure-mobile-engagement-app-android)/
 
-![][1]
+![Windows Universal demo app][1]
 
-![][2]
-![][3]
+![iOS demo app][2]
+![Android demo app][3]
 
 
 ## Usage
 
-You can use these apps in the following ways:
+You can use this app in the following ways:
 
-**1) Download the apps on your device from the application store links provided above.** 
+**Download the app on your device from the application store links (provided earlier):**
 
->[AZURE.IMPORTANT] You don't need any Azure account or the need to connect the app to any backend. The app will work independently. 
+>[AZURE.IMPORTANT] You don't need an Azure account or to connect the app to a back end. The app works independently.
 
-- Once you have the app on your device then you can go through the links in the left side menu to find all the useful resources about Azure Mobile Engagement. 
-- We have also added our [service's RSS feed](https://aka.ms/azmerssfeed) right into this application so you are always updated about the latest product updates.
-- You can also go through the sample notification scenarios to experience what type of notifications are supported by Azure Mobile Engagement for each platforms. These notifications can be experienced locally i.e. you can click on the buttons on the screens to show you the notifications experience which is identical to when you will send the notifications from the Azure Mobile Engagement platform. 
+- After you have the app on your device, then you can go through the links in the left-side menu to find the useful resources about Mobile Engagement.
+- We've added the [service's RSS feed](https://aka.ms/azmerssfeed) into this application so that you're always updated about the latest product updates.
+- You can also go through the sample notification scenarios to experience the type of notifications that are supported by Mobile Engagement for each platform. These notifications can be experienced locally--that is, you can click the buttons on the screens to show you the notifications experience, which is identical to sending the notifications from the Mobile Engagement platform.
 
-![][4]
-    
-![][5]
-![][6]
+![menu-windows][4]
 
-**2) Download the source code from the Github links provided above.** 
+![menu-ios][5]
+![menu-android][6]
 
-- Once you have downloaded the source code, open it in the respective Development environment so XCode for iOS, Android Studio for Android and Visual Studio for Windows. 
-- You should next follow our [Basic SDK integration steps](mobile-engagement-windows-store-dotnet-get-started.md) so that you are able to connect this app to its own Mobile Engagement backend instance. 
-	- You will need to configure a connection string in the app.  
-	- You will also need to configure the push notification platform for your app. 
-- You will notice that this app itself is instrumented with Azure Mobile Engagement and therefore as you open the app after connecting it to the backend, you will be able to see the user session, activities, events etc on the Monitor tab. 
-- You will also be able to send notifications to this app from your own Mobile Engagement instance instead of using local notifications. 
-	- Here you can add your device as test device by using the **Get the Device ID** menu item in the app which will give you a device id that you then register as a test device with your platform backend instance. 
+**Download the source code from the Github links (provided earlier):**
 
-	![][7]
-	    
-	![][8]
-	![][9]
+- After you've downloaded the source code, open it in the respective development environment--XCode for iOS, Android Studio for Android, and Visual Studio for Windows.
+- You should next follow our [basic SDK integration steps](mobile-engagement-windows-store-dotnet-get-started.md) so that you're able to connect this app to its own Mobile Engagement back-end instance.
+	- You need to configure a connection string in the app.
+	- You also need to configure the push notification platform for your app.
+- You'll notice that this app itself is instrumented with Azure Mobile Engagement. Therefore, as you open the app after connecting it to the back end, you'll be able to see the user session, activities, events, and so on, on the **Monitor** tab.
+- You'll also be able to send notifications to this app from your own Mobile Engagement instance instead of using local notifications.
+	- Here you can add your device as a test device by using the **Get the Device ID** menu item in the app. This will give you a device ID that you then register as a test device with your platform back-end instance.
+
+	![device-id-windows][7]
+
+	![device-id-ios][8]
+	![device-id-android][9]
 
 ## Key features of the Demo App
 
-1. As mentioned above, with this app, you have all the key resources for Azure Mobile Engagement in your hand. You can go through the links in the left menu. 
+- As mentioned earlier, with this app, you have all the key resources for Azure Mobile Engagement in your hand. You can go through the links in the left menu.
 
-2. Experience out-of-app notifications for each platform. These notifications can be delivered as **notification only** where clicking on the notification will simply open up a native screen of the application (using **deep linking**) or as **Web announcement** where you can deliver additional HTML content from the Mobile Engagement backend to be displayed when the notification is clicked. 
+- You can experience out-of-app notifications for each platform. These notifications can be delivered as **notification only**, where clicking the notification simply opens up a native screen of the application (by using **deep linking**), or as a **Web announcement**, where you can deliver additional HTML content from the Mobile Engagement back end to be displayed when the notification is clicked.
 
-	![][29]
+	![out-of-app][29]
 
-	
-	- On iOS, you will have to close the app to see the out-of-app or system push notifications. You can look at the implementation here for adding **Action buttons** like the ones added to this out-of-app notification here for *Feedback* and *Share* so that the user can take action right from the notification itself. 
-	    
-	![][11] ![][14]
-	
-	
-	- On Android, you will see the options supported by Android in the form of adding multi-line text (**Big Text**) or adding an image in the notification **Big Picture**) to the notification along with the **Action buttons** as supported by iOS. 
-	
-	![][12] ![][15]
-	
-	
-	- On Windows 10, you can see how the notifications look like on the PC. This notification will also show up in the Windows 10 **Notification Center**. There is no support for adding **Action buttons** at the moment with Windows SDK. 
-	
-	![][10] ![][13] 
 
-3. Experience default in-app notifications for each platform. This is a two-step experience where a **Notification** window is displayed first which when clicked, opens up a full screen **Announcement** as displayed below. The content of this announcement comes from your Mobile Engagement backend instance. The SDK has the templates for both notification and announcement which could be easily customized like in this demo app with the addition of our logo and coloring.  
+	- On iOS, you have to close the app to see the out-of-app or system push notifications. You can look at the implementation here for adding **Action buttons**, like the ones that are added to this out-of-app notification for *Feedback* and *Share* (so that the user can take action right from the notification itself).
 
-	![][16]
-	
-	![][17] **iOS** ![][18] **Android** 
+	![out-of-app-ios][11] ![out-of-app-display-ios][14]
 
-4. You can also use the **Category** feature of Azure Mobile Engagement to customize this default experience. In the demo app, we have demonstrated two common ways to change the experience of the notifications. Note that Category feature is not yet supported in Windows SDK yet. 
 
-	**Full screen interstitial**
-	
-	![][30]
+	- On Android, you can see the options that are supported by Android in the form of adding multiline text (**Big Text**) or adding an image in the notification **Big Picture**) to the notification along with the **Action buttons**, as supported by iOS.
 
-	![][21]	![][22]
+	![out-of-app-android][12] ![out-of-app-display-android][15]
 
-	**Pop-up notification**
 
-	![][31]
-	
-	![][19]	![][20]
+	- On Windows 10, you can see how the notifications look on the PC. This notification also shows up in the Windows 10 **Notification Center**. There is no support for adding **Action buttons** at the moment with the Windows SDK.
 
-5. Azure Mobile Engagement also supports a specialized type of in-app notification called **Polls** which allow you to send out quick surveys to your segmented app users. You can add questions and options for each questions like the following which will then get displayed as an in-app notification to the app user.   
+	![out-of-app-windows][10] ![out-of-app-display-windows][13]
 
-	![][32]
+- You can experience default in-app notifications for each platform. This is a two-step experience where a **Notification** window is displayed first. When you click it, it opens up a full screen **Announcement**, as displayed in the following screenshot. The content of this announcement comes from your Mobile Engagement back-end instance. The SDK has the templates for both notifications and announcements. They can be easily customized as in this demo app with the addition of our logo and coloring.  
 
-	![][26]
-	    
-	![][27] **iOS** ![][28] **Android**
+	![in-app-windows][16]
 
-5. Azure Mobile Engagement also supports sending silent **Data Push** notification where you can send some data from your service like the JSON data in the following example which you can handle in your app and take some action. For example, how we are changing the price of an item selectively using the Data Push notification. 
+	![in-app-ios][17] **iOS** ![in-app-android][18] **Android**
 
-	![][33]
+- You can also use the **Category** feature of Mobile Engagement to customize this default experience. In the demo app, we've demonstrated two common ways to change the experience of the notifications. Note that Category feature is not yet supported in the Windows SDK yet.
 
-	![][23]
-	    
-	![][24] **iOS** ![][25] **Android** 
+	**Full-screen interstitial:**
 
-> [AZURE.NOTE] Note that you can view detailed step-by-step instructions for any of these notification by clicking on *Click here for instructions on how to send these notifications from Mobile Engagement platform* on any sample notification screen. 
+	![in-app-interstitial][30]
+
+	![interstitial-ios][21]	![interstitial-android][22]
+
+	**Pop-up notification:**
+
+	![in-app-pop-up][31]
+
+	![pop-up-ios][19]	![pop-up-android][20]
+
+- Mobile Engagement also supports a specialized type of in-app notification called **Polls**. This allows you to send out quick surveys to your segmented app users. You can add questions and options for each question as in the following screenshot, which will then get displayed as an in-app notification to the app user.   
+
+	![notification-poll][32]
+
+	![survey-windows][26]
+
+	![survey-ios][27] **iOS** ![survey-android][28] **Android**
+
+- Mobile Engagement also supports sending silent **Data Push** notifications. With these notifications, you can send data from your service (like the JSON data in the following example), which you can handle in your app and take some action. An example is how we're changing the price of an item selectively by using Data Push notifications.
+
+	![notification-data-push][33]
+
+	![data-push-windows][23]
+
+	![data-push-ios][24] **iOS** ![data-push-android][25] **Android**
+
+> [AZURE.NOTE] You can view detailed step-by-step instructions for any of these notifications by clicking **Click here for instructions on how to send these notifications from Mobile Engagement platform** on any sample notification screen.
 
 
 [1]: ./media/mobile-engagement-demo-apps/home-windows.png
