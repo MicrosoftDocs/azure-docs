@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="05/10/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Get started with Azure Mobile Engagement for Android apps
@@ -168,7 +168,7 @@ The following sections sets up your app to receive them.
 
 [AZURE.INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## More resources
+## Next steps
 
 Go to [Android SDK](mobile-engagement-android-sdk-overview.md) to get detailed knowlege about the SDK integration.
 
