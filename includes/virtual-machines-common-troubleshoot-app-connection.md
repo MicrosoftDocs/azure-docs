@@ -14,9 +14,13 @@ If you need more help at any point in this article, you can contact the Azure ex
 If you have problems connecting to an application, try the following general troubleshooting steps. After each step, try connecting to your application again :
 
 - Restart the virtual machine
-- Recreate the endpoint / firewall rules / network security group (NSG) rules - see [Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md) or [Manage Network Security Groups](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+- Recreate the endpoint / firewall rules / network security group (NSG) rules
+	- [Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+	- [Manage Network Security Groups](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 - Connect from different location, such as a different Azure virtual network
-- Redeploy the virtual machine - see [Redeploy Windows VM](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md) or [Redeploy Linux VM](../articles/virtual-machines/virtual-machines-linux-redeploy-to-new-node.md)
+- Redeploy the virtual machine
+	- [Redeploy Windows VM](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md)
+	- [Redeploy Linux VM](../articles/virtual-machines/virtual-machines-linux-redeploy-to-new-node.md)
 - Recreate the virtual machine
 
 For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
