@@ -57,7 +57,7 @@ These steps can help resolve most Remote Desktop connection failures in Azure vi
 
 These steps can help resolve most Remote Desktop connection failures in Azure virtual machines that were created by using the Resource Manager deployment model. After each step, try reconnecting to the VM.
 
-> [AZURE_TIP] If the 'Connect' button in the portal is greyed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+> [AZURE.TIP] If the 'Connect' button in the portal is greyed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 - Reset remote access by using PowerShell.
 	- If you haven't already, [install PowerShell and connect to your Azure subscription](../powershell-install-configure.md) by using the Azure Active Directory method. Note that you don't need to switch to Resource Manager mode in PowerShell versions 1.0.x.
