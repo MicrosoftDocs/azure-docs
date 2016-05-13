@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/13/2016"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 05/13/2016 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.875.2159884 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.875.2159884 (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.922.2266903  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.922.2266903  (HDP 2.2.9.1-11)
+* HDInsight (Windows)		3.3.0.922.2266903  (HDP 2.3.3.1-18)
+* HDInsight	(Linux)			3.2.1000.0.7565644   (HDP	2.2.9.1-11)
+* HDInsight (Linux)			3.3.1000.0.7565644   (HDP 2.3.3.1-18)
+* HDInsight (Linux)			3.4.1000.0.7548380   (HDP 2.4.2.0)
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example Spark, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDP versions for HDInsight clusters | With this release, we have updated HDP versions for HDInsight clusters| Service    | Spark| N/A
 
 ## Notes for 04/11/2016 release of HDInsight
 
@@ -31,7 +50,7 @@ The full version numbers for HDInsight clusters deployed with this release:
 * HDInsight (Windows)		3.3.0.889.2191206  (HDP 2.3.3.1-16 -unchanged)
 * HDInsight	(Linux)			3.2.1000.0.7339916   (HDP 2.2.9.1-10)
 * HDInsight (Linux)			3.3.1000.0.7339916   (HDP 2.3.3.1-16)
-* HDInsight (Linux)			3.3.1000.0.7338911   (HDP 2.4.1.1-3)
+* HDInsight (Linux)			3.4.1000.0.7338911   (HDP 2.4.1.1-3)
 * SDK			1.5.8
 
 This release contains the following updates.
