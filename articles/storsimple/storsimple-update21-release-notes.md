@@ -12,24 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/11/2016"
+   ms.date="05/13/2016"
    ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 2.1 release notes  
 
 ## Overview
 
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.1. They also contain a list of the StorSimple software, driver, and disk firmware updates included in this release. 
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.1. They also contain a list of the StorSimple software updates included in this release. 
 
-Update 2.1 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 1.2. The device version associated with Update 2.1 is 6.3.9600.17XXX.
+Update 2.1 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 1.2. The device version associated with Update 2.1 is 6.3.9600.17702.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 >[AZURE.IMPORTANT]
 > 
-- It takes approximately X-Y hours to install this update (including the Windows updates). 
-- Update 2.1 has software and  LSI driver updates.
-- For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
+> - Update 2.1 has software only updates. It takes approximately 1.5-2 hours to install this update. 
+
+> - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 
 ## What's new in Update 2.1
@@ -37,39 +37,39 @@ Please review the information contained in the release notes before you deploy t
 The following key improvements have been made in Update 2.1.
 
  
-- **StorSimple virtual device improvements** – Previously, the StorSimple 8000 series positioned the virtual device as a disaster recovery or development/test solution. There was only one model of virtual device (model 1100). Update 2.1 introduces two virtual device models: 
+- **Automated space reclamation optimization** – When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
 
-     - 8010 (formerly called the 1100) – No change; has a capacity of 30 TB and uses Azure standard storage.
-     - 8020 – Has a capacity of 64 TB and uses Azure Premium storage for improved performance.
 
-    There is a single VHD for both virtual device models (8010/8020). When you first start the virtual device, it detects the platform parameters and applies the correct model version.
+- **Snapshot performance enhancements** – Update 2.1 has improved the time to process a cloud snapshot in certain scenarios where large volumes are being used and there is minimal to no data churn. A scenario that would benefit from this enhancement would be the archive volumes.
 
-- **Networking Improvements** – Update 2.1 contains the following networking improvements:
 
-     - Multiple NICs can be enabled for the cloud so that failover can occur if a NIC fails.
-     - Routing improvements, with fixed metrics for cloud enabled blocks.
-     - Online retry of failed resources before a failover.
-     - New alerts for service failures.
+- **Hardening of Support package gathering** – There have been improvements in the way the Support package is gathered and uploaded in this release. 
 
-- **Updating Improvements** – In Update 1.2 and earlier, the StorSimple 8000 series was updated via two channels: Windows Update for clustering, iSCSI, and so on, and Microsoft Update for binaries and firmware.
-    Update 2.1 uses Microsoft Update for all update packages. This should lead to less time patching or doing failovers. 
 
-- **Firmware updates** – The following firmware updates are included:
-    - LSI: lsi_sas2.sys Product Version 2.00.72.10
-    - SSD only (no HDD updates): XMGG, XGEG, KZ50, F6C2, and VR08
+- **Update reliability improvements** – This release has bug fixes that result in an improved Update reliability.
 
-- **Proactive Support** – Update 2.1 enables Microsoft to pull additional diagnostic information from the device. When our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. **By accepting Update 2.1, you allow us to provide this proactive support**.    
+
+- **Performance improvements for locally pinned volume creation** – This release has improved the time required for creating locally pinned volumes and also for the conversion of tiered to locally pinned volumes on the StorSimple device. There is also a concurrent improvement in the host performance during the volume creation.
+
+   
  
 
 ## Issues fixed in Update 2.1
 
 The following tables provides a summary of issues that were fixed in Updates 2.1.    
 
-| No. | Feature | Issue | Applies to physical device | Applies to virtual device |
-|-----|---------|-------|--------------------------------|--------------------------------|
-| 1 | Network interfaces | After an upgrade to Update 1, the StorSimple Manager service reported that the Data2 and Data3 ports failed on one controller. This issue has been fixed. | Yes | No |
-| 2 | Updates | After an upgrade to Update 1, audible alarm alerts occurred in the Azure classic portal on multiple devices. This issue has been fixed. | Yes | No |
-| 3 | Openstack authentication | When using Openstack as your cloud service provider, you could receive an error that your cloud authentication string was too long. This has been fixed. | Yes | No |
+| No | Feature                                    | Issue                                                                                                                                                                                                                                                                                        | Applies to physical device | Applies to virtual device |
+|----|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------------------------|
+| 1  | Locally pinned volumes                     | In the   earlier release, there were performance issues related to the creation of   locally pinned volumes as well as conversion from tiered to locally pinned   volumes. These issues are fixed in this release.                                                                           | Yes                        | No                        |
+| 2  | Locally pinned volumes                     | In rare instances, the system   would crash when creating a locally pinned volumes. This bug has been fixed   in this release.                                                                                                                                                               | Yes                        | No                        |
+| 3  | Tiering                                    | There were sporadic crashes when   the metadata for the StorSimple Cloud Appliances (8010 and 8020) tiered to   the cloud. This issue is fixed in this release.                                                                                                                              | No                         | Yes                       |
+| 4  | Snapshot creation                          | There were issues related to the   creation of incremental snapshots in scenarios with large volumes and minimal   to no data chrun. These issues are fixed in this release.                                                                                                                 | Yes                        | Yes                       |
+| 5  | Openstack authentication                   | When using Openstack as the   cloud service provider, the user would run into  a bug related to the authentication string.   This bug is fixed in this release.                                                                                                                              | Yes                        | No                        |
+| 6  | Host-side copy                             | In earlier versions of software,   an infrequent bug related to the ODX timing was seen when copying the data   from one volume to another volume. This would result in a controller failover   and the system could potentially go into Recovery mode. This bug is fixed in   this release. | Yes                        | No                        |
+|    |                                            |                                                                                                                                                                                                                                                                                              |                            |                           |
+| 7  | Windows Management   Instrumentation (WMI) | In the previous versions of   software, there were several instances of web proxy failure with the   exception “<ManagementException> Provider load failure”. This bug was   attributed to a WMI memory leak and is now fixed.                                                               | Yes                        | No                        |
+| 8  | Update                                     | In certain rare instances, in   the previous versions of software, the user received a   "CisPowershellHcsscripterror" when trying to scan or install   updates. This issue is fixed in this release.                                                                                        | Yes                        | Yes                       |
+| 9  | Support package                            | There have been improvements to   the way the Support package is gathered and uploaded.                                                                                                                                                                                                      | Yes                        | Yes                                    |
 
 
 ## Known issues in Update 2.1
@@ -102,9 +102,9 @@ The following table provides a summary of known issues in this release.
 
 ## Controller and firmware updates in Update 2.1
 
-This release updates the driver firmware on your device.
+This release has software-only updates. However, if you are updating from a version prior to Update 2, you will need to install driver, Storport, Spaceport, and (in some cases) disk firmware updates on your device.
  
-- For more information about the driver firmware update, see Microsoft Knowledge base article XXXXX. 
+For more information on how to install the driver, Storport, Spaceport, and disk firmware updates, see [install Update 0.2](storsimple-install-update21.md) on your StorSimple device.
 
  
 ## Virtual device updates in Update 2.1
@@ -113,4 +113,4 @@ This update cannot be applied to the virtual device. New virtual devices will ne
 
 ## Next step
 
-Learn how to [install Update 2.1](storsimple-install-update-2.md) on your StorSimple device.
+Learn how to [install Update 2.1](storsimple-install-update-21.md) on your StorSimple device.
