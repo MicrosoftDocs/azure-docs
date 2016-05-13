@@ -19,7 +19,9 @@
 
 # Tutorial: Azure Active Directory integration with Showpad
 
-The objective of this tutorial is to show you how to integrate Showpad with Azure Active Directory (Azure AD).<br>Integrating Showpad with Azure AD provides you with the following benefits:
+The objective of this tutorial is to show you how to integrate Showpad with Azure Active Directory (Azure AD).
+
+Integrating Showpad with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Showpad
 - You can enable your users to automatically get signed-on to Showpad (Single Sign-On) with their Azure AD accounts
@@ -45,7 +47,8 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 
 ## Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. 
+
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Showpad from the gallery
@@ -57,26 +60,36 @@ To configure the integration of Showpad into Azure AD, you need to add Showpad f
 
 **To add Showpad from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
-![Active Directory][1]<br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+	![Active Directory][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.<br><br>
-![Applications][2]<br>
-4. Click **Add** at the bottom of the page.<br><br>
-![Applications][3]<br>
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
-![Applications][4]<br>
-6. In the search box, type **Showpad**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)<br>
-7. In the results pane, select **Showpad**, and then click **Complete** to add the application.<br><br>
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+	![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+
+	![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+ 
+	![Applications][4]
+
+6. In the search box, type **Showpad**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_01.png)
+
+7. In the results pane, select **Showpad**, and then click **Complete** to add the application.
 
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Showpad based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Showpad to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Showpad needs to be established.<br>
+For single sign-on to work, Azure AD needs to know what the counterpart user in Showpad to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Showpad needs to be established.
+
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Showpad.
 
 To configure and test Azure AD single sign-on with Showpad, you need to complete the following building blocks:
@@ -89,97 +102,112 @@ To configure and test Azure AD single sign-on with Showpad, you need to complete
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Showpad application.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Showpad application.
 
 
 
 **To configure Azure AD single sign-on with Showpad, perform the following steps:**
 
-1. In the Azure AD portal, on the **Showpad** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-<br><br> ![Configure Single Sign-On][6] <br>
+1. In the Azure classic portal, on the **Showpad** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+
+	![Configure Single Sign-On][6] 
 
 2. On the **How would you like users to sign on to Showpad** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_03.png) <br>
+
+	![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_03.png)
 
 3. On the **Configure App Settings** dialog page, perform the following steps and then click **Next**:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_04.png) <br>
+
+	![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_04.png) 
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Showpad application using the following pattern: **“https://companyname.showpad.biz/login”**.<br>
+    a. In the **Sign On URL** textbox, type `https://companyname.showpad.biz/login`.
 
-	b. In the IDENTIFIER textbox, type the URL in the following pattern: **"https://microsoft-sso.showpad.biz"**.
+	b. In the **Identifier** textbox, type `https://microsoft-sso.showpad.biz`.
 
 	c. Click **Next**
 
 
 4. On the **Configure single sign-on at Showpad** page, perform the following steps and then click **Next**:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_05.png) <br>
+
+	![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_05.png)
 
     a. Click **Download metadata**, and then save the file on your computer.
 
     b. Click **Next**.
 
 
-5. Sign-on to your Showpad tenant as an administrator.<br>
+5. Sign-on to your Showpad tenant as an administrator.
 
-6. In the menu on the top, click the **Settings**.<br><br>
-![Configure Single Sign-On On App Side](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_001.png) <br>
+6. In the menu on the top, click the **Settings**.
 
-7. Navigate to "**Single Sign-On**" and click "**Enable**".<br><br>
-![Configure Single Sign-On On App Side](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_002.png) <br>
+	![Configure Single Sign-On On App Side](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_001.png) 
 
-8. On the **Add a SAML 2.0 Service** dialog, perform the following steps:<br><br>
-![Configure Single Sign-On On App Side](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_003.png) <br><br>
+7. Navigate to "**Single Sign-On**" and click "**Enable**".
+ 
+	![Configure Single Sign-On On App Side](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_002.png)
 
-	a. In the **Name** textbox, type the name of Identifier Provider (eg: Your company name).<br>
+8. On the **Add a SAML 2.0 Service** dialog, perform the following steps:
 
-	b. Select **XML** as your **Metadata Source**.<br>
+	![Configure Single Sign-On On App Side](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_003.png) 
 
-	c. In the **Metadata XML** textbox, copy and paste the content of the metadata XML file which you downloaded in step 4.<br>
+	a. In the **Name** textbox, type the name of Identifier Provider (e.g.: your company name).
 
-	d. Select the checkbox of **Auto-provision accounts for new users when they log in**, this will set up auto-provisioning to automatically allow new users to be created when they log in successfully for the first time.<br>
+	b. As **Metadata Source**, select **XML**.
 
-	e. Click the **Submit** button.<br>
+	c. Copy the content of the downloaded metadata XML file, and then paste it into the **Metadata XML** textbox.
+
+	d. Select **Auto-provision accounts for new users when they log in**.
+
+	e. Click **Submit**.
 
 
-10. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
-<br><br>![Azure AD Single Sign-On][10]<br>
+10. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+
+	![Azure AD Single Sign-On][10]
 
 
 11. On the **Single sign-on confirmation** page, click **Complete**.  
-  <br>![Azure AD Single Sign-On][11]
+  
+	![Azure AD Single Sign-On][11]
+
+
 
 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
-In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
+
+![Create Azure AD User][20]
 
 **To create a Showpad test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_09.png) <br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+
+	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_09.png) 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To display the list of users, in the menu on the top, click **Users**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_03.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_03.png) 
 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_04.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_04.png) 
 
 5. On the **Tell us about this user** dialog page, perform the following steps:
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_05.png) <br>
 
-    a. As Type Of User, select New user in your organization.
+	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_05.png) 
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    a. In the **User Name** textbox, type **BrittaSimon**.
 
-    c. Click **Next**.
+    b. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_06.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_06.png) 
 
     a. In the **First Name** textbox, type **Britta**.  
 
@@ -187,15 +215,17 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
     c. In the **Display Name** textbox, type **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    d. As **Role**, select **User**.
 
     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_07.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_07.png)
 
 8. On the **Get temporary password** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_08.png) <br>
+
+	![Creating an Azure AD test user](./media/active-directory-saas-showpad-tutorial/create_aaduser_08.png) 
 
     a. Write down the value of the **New Password**.
 
@@ -204,9 +234,11 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 ### Creating a Showpad test user
 
-The objective of this section is to create a user called Britta Simon in Showpad. Showpad supports just-in-time provisioning, which you have enabled.<br> 
+The objective of this section is to create a user called Britta Simon in Showpad. 
 
-There is no action item for you in this section. A new user will be created during an attempt to access Showpad if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).<br>
+Showpad supports just-in-time provisioning. You have enabled provisioning in **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)**. 
+
+There is no action item for you in this section. 
 
 
 
@@ -214,31 +246,37 @@ There is no action item for you in this section. A new user will be created duri
 ### Assigning the Azure AD test user
 
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Showpad.
-<br><br>![Assign User][200] <br>
+
+![Assign User][200]
 
 **To assign Britta Simon to Showpad, perform the following steps:**
 
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-<br><br>![Assign User][201] <br>
+1. On the Azure classic portal, in the menu on the top, click **Applications**.
 
-2. In the applications list, select **Showpad**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_50.png) <br>
+	![Assign User][201] 
+
+2. In the applications list, click **Showpad**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_50.png) 
 
 1. In the menu on the top, click **Users**.
-<br><br>![Assign User][203] <br>
+
+	![Assign User][203]
 
 1. In the Users list, select **Britta Simon**.
 
 2. In the toolbar on the bottom, click **Assign**.
-<br><br>![Assign User][205]
+
+	![Assign User][205]
 
 
 
 
 ### Testing Single Sign-On
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.<br>
-When you click the Showpad tile in the Access Panel, you should get automatically signed-on to your Showpad application.
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+
+When you click the **Showpad** tile in the Access Panel, you should get automatically signed-on to your Showpad application.
 
 
 ## Additional Resources
