@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="05/12/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
@@ -96,6 +96,8 @@ Now that a connection has been established to your database, let's go ahead and 
 ## Next steps
 
 Now that you can connect and query, try [visualizing the data with PowerBI][].
+
+To configure your environment for Windows authentication, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
 
 [visualizing the data with PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
