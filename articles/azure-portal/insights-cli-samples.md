@@ -27,13 +27,13 @@ This article shows you sample command line interface (CLI) commands that will he
 If you haven't already installed the Azure CLI, see [Install the Azure CLI](../xplat-cli-install.md). If you're unfamiliar with Azure CLI, you can read more about it at [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 
-In Windows, install npm from the [Node.js website](https://nodejs.org/). After you complete the installation, using CMD.exe with Run As Administrator privileges, execute the following from the folder where npm is installed:
+In Windows, install npm from the [Node.js website](https://nodejs.org/). After you complete the installation, using CMD.exe with Run As Administrator privileges, execute the following from the folder where npm is installed:
 
 ```
 npm install azure-cli --global
 ```
 
-Next, navigate to any folder/location you want and type at the command-line:
+Next, navigate to any folder/location you want and type at the command-line:
 
 ```
 azure help
@@ -61,7 +61,7 @@ To change working context to a different subscription, use the following command
 azure account set "subscription ID or subscription name"
 ```
 
-To use Azure Resource Manager and Azure Insights commands, you need to be on the ARM mode.
+To use Azure Resource Manager and Azure Insights commands, you need to be on the ARM mode
 
 ```
 azure config mode arm
