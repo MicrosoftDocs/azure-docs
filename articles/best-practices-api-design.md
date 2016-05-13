@@ -19,10 +19,7 @@
 
 # API design guidance
 
-![](media/best-practices-api-design/pnp-logo.png)
-
-Some topics in this guidance are under discussion and may change in the future. We welcome your feedback!
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 

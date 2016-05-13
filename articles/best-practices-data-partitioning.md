@@ -19,7 +19,7 @@
 
 # Data partitioning guidance
 
-![](media/best-practices-data-partitioning/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 

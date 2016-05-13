@@ -19,8 +19,7 @@
 
 # Background jobs guidance
 
-![Patterns and Practices logo](media/best-practices-background-jobs/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 

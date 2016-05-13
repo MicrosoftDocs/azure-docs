@@ -19,7 +19,7 @@
 
 # Retry general guidance
 
-![](media/best-practices-retry-general/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 
