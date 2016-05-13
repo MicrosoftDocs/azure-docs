@@ -43,7 +43,7 @@ Use these steps if you're already familiar with Azure Stack. If you want more de
 
 	> [AZURE.IMPORTANT] If any of the scripts hang for no apparent reason after you submit your Azure Active Directory tenant, your security settings might be blocking a DLL that's required for the deployment to run. To resolve this issue, look for the Microsoft.AzureStack.Deployment.Telemetry.Dll in your resource provider folder, right click it, click **Properties**, and then check **Unblock** in the **General** tab.
 
-  Run scripts in the **Deploy** tab from left to right to:
+	Run scripts in the **Deploy** tab from left to right to:
 
 	1. [Deploy a virtual machine  (VM)](azure-stack-mysql-rp-deploy-long.md#Deploy-the-MySQLResource-Provider-VM) that will host both your resource provider, MySQL servers and databases that you will instantiate. This script references a JSON parameter file, which you need to update with some values before you run the script.
 	- [Register a local DNS record](azure-stack-mysql-rp-deploy-long.md#Update-the-local-DNS) that will map to your resource provider VM.
