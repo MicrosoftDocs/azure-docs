@@ -51,7 +51,7 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 ## Exceptions, Tracking, and Error Handling
 
  - Exception Handling
- - Azure Diagnostics
+ - Azure Diagnostics and Tracked Properties
 
 ## Long-Running Actions
 
@@ -77,13 +77,15 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 
 - [Getting the weather forecast via HTTP](app-service-logic-scenario-weather.md)
 
-## Deploying Logic Apps and Connections
+## Deploying Logic Apps and Release Management
 
  - Logic App Resource Deployment and Templates
+ - Release Management of Logic Apps and Connections
 
 ### Scenarios
 
 - [Deploying FTP to Blob](app-service-logic-scenario-ftp-blob.md)
+- Integration Logic Apps with Visual Studio Release Management
 
 ## Integrating with Nested Workflows and Azure Functions
 
