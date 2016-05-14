@@ -105,6 +105,6 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
-[Row-Overflow Data Exceeding 8 KB](https://msdn.microsoft.com/library/ms186981.aspx)
-[CREATE TABLE (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt203953.aspx)
-[Internal error: An expression services limit has been reached](http://support.microsoft.com/kb/913050/)
+[Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
+[CREATE TABLE (Azure SQL Data Warehouse)]: https://msdn.microsoft.com/library/mt203953.aspx
+[Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
