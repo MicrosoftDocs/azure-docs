@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/11/2016"
+	ms.date="05/13/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -47,7 +47,7 @@ Now let's get started!
 
 Please make sure you have the following:
 
-- An active Azure account. If you don't have one, you can sign up for a [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 - [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 - .NET Framework 4.6
 
@@ -600,7 +600,8 @@ Congratulations! You've completed this NoSQL tutorial and have a working C# cons
 ##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
--   [DocumentDB account][documentdb-create-account].
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+-   A [DocumentDB account][documentdb-create-account].
 -   The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) solution available on GitHub.
 
 To restore the references to the DocumentDB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).

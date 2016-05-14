@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="05/12/2016"
    ms.author="chackdan"/>
 
 
@@ -53,6 +53,7 @@ Pre-requisites for each machine that you want to add to the cluster:
 - .NET Framework 4.5.1 or higher, full install
 - Windows PowerShell 3.0
 - The cluster administrator deploying and configuring the cluster must have administrator privileges on each of the computers.
+- RemoteRegistry service should be running on all the machines.
 
 ### Step 3: Determine the initial cluster size
 Each node consists of a full Service Fabric stack and is an individual member of the Service Fabric cluster. In a typical Service Fabric deployment there is one node per OS instance (physical or virtual). The cluster size is determined by your business needs; however, you must have a minimum cluster size of three nodes (machines/VMs).

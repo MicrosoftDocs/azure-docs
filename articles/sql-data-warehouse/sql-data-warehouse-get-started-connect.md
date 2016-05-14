@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="05/12/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
@@ -67,8 +67,6 @@ For the best experience, use Visual Studio 2015 with the [latest SQL Server Data
 
     ![Explore AdventureWorksDW][5]
 
-> [AZURE.NOTE] Specifying the SQL Data Warehouse database in the **Database Name** field at connection time (step 4) is important in order for the object tree to work properly.  Leaving this option blank and connecting to the default database, **master**, may not work if some of the databases on your logical server are paused.  This limitation will eventually be resolved, but in the meantime, connecting to the SQL Data Warehouse database will ensure proper function of the object explorer tree as seen above.
-
 ## Step 3: Run a sample query
 
 Now that a connection has been established to your database, let's go ahead and write a query.
@@ -96,6 +94,8 @@ Now that a connection has been established to your database, let's go ahead and 
 ## Next steps
 
 Now that you can connect and query, try [visualizing the data with PowerBI][].
+
+To configure your environment for Windows authentication, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
 
 [visualizing the data with PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md  
 

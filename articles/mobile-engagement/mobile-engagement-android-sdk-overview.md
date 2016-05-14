@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Android SDK Integration for Azure Mobile Engagement"
-	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+	description="Describes how to integrate Azure Mobile Engagement SDK in Android apps"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -16,8 +16,7 @@
 	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
-
-# Using advanced Azure Mobile Engagement features for Android apps
+# Android SDK Integration for Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Universal Windows](mobile-engagement-windows-store-sdk-overview.md)
@@ -25,7 +24,7 @@
 - [iOS](mobile-engagement-ios-sdk-overview.md)
 - [Android](mobile-engagement-android-sdk-overview.md)
 
-Learn about all the advanced features of Azure Mobile Engagement you can integrate into your Android App.
+This document describes all the integration and configuration options available for Azure Mobile Engagement Android SDK. 
 
 ## Prerequisites
 

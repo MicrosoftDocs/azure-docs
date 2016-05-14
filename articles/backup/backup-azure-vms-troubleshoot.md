@@ -128,8 +128,7 @@ VM backup relies on issuing snapshot command to underlying storage. Not having a
 	```
 3.  VM status reported incorrectly because VM is shutdown in RDP.  <br>
 	If you have Shut down the virtual machine in RDP, please check back in the portal that VM status is reflected correctly. If not, please shutdown the VM in portal using 'Shutdown' option in VM dashboard.
-4.  Many VMs from same cloud service are configured to backup at the same time.<br>
-	It is best practice to spread the VMs from same cloud service to have different backup schedules.
+4.  If more than four VM’s share the same cloud service, configure multiple backup policies to stage the backup times so no more than four VM backups are started at the same time. Try to spread the backup start times an hour apart between policies. 
 5.  VM is running at High CPU/Memory.<br>
 	If the virtual machine is running at High CPU usage(>90%) or memory, snapshot task is queued, delayed and wil eventually gets timed-out. Try on-demand backup in such situations.
 
