@@ -31,7 +31,7 @@ This walkthrough shows you how to get connected to an Azure SQL Data Warehouse i
 
 ## Step 1: Find the fully qualified Azure SQL server name
 
-Your SQL Data Warehouse database is associated with an Azure SQL server. To connect to your database you need the fully qualified name of the server(**servername**.database.windows.net*).
+Your SQL Data Warehouse database is associated with an Azure SQL Server. To connect to your database you need the fully qualified name of the server (**servername**.database.windows.net*).
 
 To find the fully qualified server name.
 
@@ -59,7 +59,6 @@ To find the fully qualified server name.
     - **Server name**. Enter the *server name* previously identified.
     - **Authentication**. Select SQL Server Authentication.
     - **User Name** and **Password**. Enter user name and password for the Azure SQL server.
-    - **Database Name**.  Enter the database name for the SQL Data Warehouse.
     - Click **Connect**.
 
 5. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
