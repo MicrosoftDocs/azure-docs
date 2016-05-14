@@ -264,6 +264,13 @@ The following steps summarize the process for enabling Web API CORS support. For
 		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
+## Using Azure API Management with API Apps
+
+If you use Azure API Management with an API app, configure CORS in API Management instead of in the API app. For more information, see the following resources:
+
+* [Azure API Management Overview (video: CORS starts at 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
+* [API Management cross domain policies](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS).
+ 
 ## Troubleshooting
 
 If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
