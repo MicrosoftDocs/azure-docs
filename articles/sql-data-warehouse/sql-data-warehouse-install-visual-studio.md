@@ -20,9 +20,9 @@
 
 To develop applications for SQL Data Warehouse, we recommend using Visual Studio 2015 with the most recent version of SQL Server Data Tools (SSDT).  Visual Studio 2013 with SSDT is also supported.  
 
-Additionally, **Microsoft SQL Server Update for database tooling**, is needed to run queries from the Visual Studio Integrated Development Environment (IDE). Once this extention is installed, you will then be able to view database objects in the object explorer tree and run queries against your SQL Data Warehouse.
+Additionally, **Microsoft SQL Server Update for database tooling** is needed to run queries from the Visual Studio Integrated Development Environment (IDE). Once this extention is installed, you will then be able to view database objects in the object explorer tree and run queries against your SQL Data Warehouse.
 
-> [AZURE.NOTE] SSDT does not yet offer full feature support for SQL Data Warehouse.  Features such as Database Project support will be added in future versions of SSDT.
+> [AZURE.NOTE] SQL Data Warehouse does not support all features of Visual Studio and SSDT.  Features such as Database Projects will be added in a future version of SSDT.
 
 ## Step 1: Install Visual Studio 2015
 
