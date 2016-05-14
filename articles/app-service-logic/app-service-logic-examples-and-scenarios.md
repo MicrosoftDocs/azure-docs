@@ -59,9 +59,9 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 
 ## Batches and Looping
 
-- SplitOn
-- ForEach
-- Until
+- [SplitOn](app-service-logic-loops-and-scopes.md)
+- [ForEach](app-service-logic-loops-and-scopes.md)
+- [Until](app-service-logic-loops-and-scopes.md)
 
 ### Scenario
 
