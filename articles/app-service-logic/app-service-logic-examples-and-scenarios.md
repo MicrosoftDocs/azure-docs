@@ -71,7 +71,7 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 ## HTTP, REST, and SOAP
 
  - HTTP Action and HTTP+Swagger
- - Calling SOAP
+ - [Calling SOAP](## TODO - link to blog)
 
 ### Scenario
 
@@ -84,13 +84,13 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 
 ### Scenarios
 
-- [Deploying FTP to Blob](app-service-logic-scenario-ftp-blob.md)
 - Integration Logic Apps with Visual Studio Release Management
+- [Deploying FTP to Blob](app-service-logic-scenario-ftp-blob.md)
 
 ## Integrating with Nested Workflows and Azure Functions
 
 - Nested Workflows
-- Azure Functions Integration
+- [Azure Functions Integration](app-service-logic-azure-functions.md)
 
 ### Scenarios
 
