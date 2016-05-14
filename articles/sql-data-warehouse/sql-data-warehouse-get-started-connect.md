@@ -56,9 +56,9 @@ To find the fully qualified server name.
 
     ![Connect to Server][4]
 
-    - **Server name**. Enter the *server name* previously identified.
-    - **Authentication**. Select SQL Server Authentication.
-    - **User Name** and **Password**. Enter user name and password for the Azure SQL server.
+    - **Server name**. Enter the **server name** previously identified.
+    - **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
+    - **User Name** and **Password**. Enter user name and password if SQL Server Authentication was selected above.
     - Click **Connect**.
 
 5. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
