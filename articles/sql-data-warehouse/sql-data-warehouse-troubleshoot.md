@@ -41,7 +41,7 @@ Below are some of the most common query performance issues we see.
 
 ### Statistics
 
-[Statistics][] are objects that contain information about the range and frequency of values in a database column. The query engine uses these statistics to optimize query execution and improve query performance. Unlike SQL Server or SQL DB, SQL Data Warehouse does not auto-create or auto-update statistics.  Statistics must be manually mantained on all tables.  To learn how to manage your statistics and identify tables which need statistics, take a look at the article [Manage statistics in SQL Data Warehouse][].
+[Statistics][] on your tables contain information about the range and frequency of values in a database column or combination of columns. The query engine uses these statistics to optimize query execution and improve query performance. Unlike SQL Server or SQL DB, SQL Data Warehouse does not automatically create or update statistics.  Statistics must be manually mantained on all tables.  To learn how to manage your statistics and identify tables which need statistics, take a look at the article [Manage statistics in SQL Data Warehouse][].
 
 ### Table Design
 
