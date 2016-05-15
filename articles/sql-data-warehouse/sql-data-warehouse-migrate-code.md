@@ -20,7 +20,7 @@
 
 When migrating your code from another database to SQL Data Warehouse, you will most likely need to make changes to your code base. Some SQL Data Warehouse features can significantly improve performance as they are designed to work in a distributed fashion. However, to maintain performance and scale, some features are also not available.
 
-## Transact-SQL code changes
+## Common T-SQL Limitations
 
 The following list summarizes the most common feature which are not supported in Azure SQL Data Warehouse. The links take you to workarounds for the unsupported feature:
 
@@ -52,10 +52,9 @@ The following list summarizes the most common feature which are not supported in
 
 Fortunately most of these limitations can be worked around. Explanations are provided in the relevant development articles referenced above.
 
-### Common table expressions
-The current implementation of common table expressions (CTEs) within SQL Data Warehouse has the following funcationality and limitations:
+## Supported CTE features
 
-**CTE Functionality**
+Common table expressions (CTEs) are partially supported in SQL Data Warehouse.  The following CTE features are currently supported:
 
 - A CTE can be specified in a SELECT statement.
 - A CTE can be specified in a CREATE VIEW statement.
@@ -66,7 +65,9 @@ The current implementation of common table expressions (CTEs) within SQL Data Wa
 - An external table can be referenced from a CTE.
 - Multiple CTE query definitions can be defined in a CTE.
 
-**CTE Limitations**
+## CTE Limitations
+
+Common table expressions have some limitations in SQL Data Warehouse including:
 
 - A CTE must be followed by a single SELECT statement. INSERT, UPDATE, DELETE, and MERGE statements are not supported.
 - A common table expression that includes references to itself (a recursive common table expression) is not supported (see below section).
@@ -75,9 +76,9 @@ The current implementation of common table expressions (CTEs) within SQL Data Wa
 - When a CTE is used in a statement that is part of a batch, the statement before it must be followed by a semicolon.
 - When used in statements prepared by sp_prepare, CTEs will behave the same way as other SELECT statements in PDW. However, if CTEs are used as part of CETAS prepared by sp_prepare, the behavior can defer from SQL Server and other PDW statements because of the way binding is implemented for sp_prepare. If SELECT that references CTE is using a wrong column that does not exist in CTE, the sp_prepare will pass without detecting the error, but the error will be thrown during sp_execute instead.
 
-### Recursive common table expressions (CTE)
+## Recursive CTEs
 
-This is a complex migration scenario, and the best process is for the CTE to be broken down and handled in steps. You can typically use a loop and populate a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][] article.
+Recursive CTEs are not supported in SQL Data Warehouse.  The migraion of recursive CTE can be somewhat complete and the best process is to break down the into multiple steps. You can typically use a loop and populate a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][] article.
 
 ### System functions
 
