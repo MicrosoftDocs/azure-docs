@@ -28,7 +28,7 @@
 
 This article will walk you through creating records and records sets by using PowerShell. After creating your DNS Zone, you need to add the DNS records for your domain. To do this, you'll first need to understand DNS records and record sets.
 
-[AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)] 
+[AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 ## Before you begin
 
@@ -39,7 +39,7 @@ Verify that you have installed the latest version of the Azure Resource Manager 
 In this section, we will show you how to create a record set and records.
 
 
-### 1. Connect to your subscription 
+### 1. Connect to your subscription
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
@@ -47,7 +47,7 @@ Open your PowerShell console and connect to your account. Use the following samp
 
 Check the subscriptions for the account.
 
-	Get-AzureRmSubscription 
+	Get-AzureRmSubscription
 
 Specify the subscription that you want to use.
 
@@ -83,7 +83,7 @@ In the above example, the zone is specified using the zone name and resource gro
 
 ### 3. Add a record
 
-In order to be able to use the newly created *www* record set, you'll need to add records to it. You can add IPv4 *A* records to the *www* record set using the example below. This example relies on the variable that you set, $rs, in the previous step. 
+In order to be able to use the newly created *www* record set, you'll need to add records to it. You can add IPv4 *A* records to the *www* record set using the example below. This example relies on the variable that you set, $rs, in the previous step.
 
 Adding records to a record set using `Add-AzureRmDnsRecordConfig` is an off-line operation. Only the local variable *$rs* is updated.
 
@@ -129,19 +129,18 @@ If you have not yet delegated the domain to the Azure DNS name servers, you will
 	Addresses:  134.170.185.46
     	        134.170.188.221
 
-## Additional record type examples
+## Create a record set of each type with a single record
 
 
 The following examples show how to create a record set of each record type, each containing a single record.
 
-[AZURE.INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)] 
+[AZURE.INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)]
 
 
-## Next Steps
+## Next steps
 
 [How to manage DNS zones](dns-operations-dnszones.md)
 
 [How to manage DNS records](dns-operations-recordsets.md)
 
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
- 
