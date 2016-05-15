@@ -23,19 +23,27 @@ The following summaries will help you understand the differences between SQL Ser
 ### Table features
 SQL Data Warehouse does not use or support these features:
 
-- Primary keys
-- Foreign keys
-- Check constraints
-- Unique constraints
-- Unique indexes
-- Computed columns
-- Sparse columns
-- User defined types
-- Indexed views
-- Identities
-- Sequences
-- Triggers
-- Synonyms
+<div style="float: left; width: 50%;">
+ <ul>
+ <li>Primary keys</li>
+ <li>Check constraints</li>
+ <li>Unique indexes</li>
+ <li>Sparse columns</li>
+ <li>Indexed views</li>
+ <li>Sequences</li>
+ <li>Synonyms</li>
+ </ul>
+ </div>
+ <div style="float: right; width: 50%;">
+ <ul>
+ <li>Foreign keys</li>
+ <li>Unique constraints</li>
+ <li>Computed columns</li>
+ <li>User defined types</li>
+ <li>Identities</li>
+ <li>Triggers</li>
+ </ul>
+</div>
 
 ### Data type differences
 SQL Data Warehouse supports the common business data types:
