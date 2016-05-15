@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
-SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By spreading the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By dividing the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.
 
 When a table is created in SQL Data Warehouse, it is actually spread across all of the the distributions.
 
@@ -52,8 +52,10 @@ SQL Data Warehouse supports the common business data types:
 - **smalldatetime**
 - **smallint**
 - **smallmoney**
+- **sysname**
 - **time**
 - **tinyint**
+- **uniqueidentifier**
 - **varbinary**
 - **varchar**
 
@@ -80,11 +82,7 @@ WHERE y.[name] IN
                 ,   'timestamp'
                 ,   'xml'
                 )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
+AND  y.[is_user_defined] = 1
 ;
 
 ```
@@ -196,7 +194,7 @@ The predictability of the hash is extremely important. It means that hash distri
 
 As you will see below, hash distribution can be very effective for query optimization. This is why it is considered to be an optimized form of data distribution.
 
-> [AZURE.NOTE] Remember! The hash is not based on the value of the data but rather on the type of the data being hashed.
+> [AZURE.NOTE] Remember! The hash is not only based on the value of the data.  The hash is a combination of both the value and the data type.
 
 Below is a table that has been hash distributed by ProductKey.
 
@@ -223,7 +221,7 @@ WITH
 ## Table partitions
 Table partitions are supported and easy to define.
 
-Example SQL Data Warehouse partitioned `CREATE TABLE` command:
+Example of SQL Data Warehouse partitioned `CREATE TABLE` command:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -249,7 +247,7 @@ WITH
 ;
 ```
 
-Notice that there is no partitioning function or scheme in the definition. All that is taken care of when the table is created. All you have to do is identify the boundary points for the column that is going to be the partitioning key.
+Notice that there is no partitioning function or scheme in the definition. SQL Data Warehouse uses a simplified definition of partitions which is slightly different from SQL Server. All you have to do is identify the boundary points for the partitioned column.
 
 ## Statistics
 
@@ -291,13 +289,14 @@ SQL Data Warehouse does not use or support these features:
 | synonyms | N/A |
 
 ## Next steps
-For more development tips, see [development overview][].
+For more development tips, see [development overview][].  For more tips on best practices, see [[SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
 [Assigning Surrogate Keys]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
