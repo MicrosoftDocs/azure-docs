@@ -74,7 +74,9 @@ CROSS JOIN (SELECT COUNT(*) nbr_nodes  FROM sys.dm_pdw_nodes WHERE type = 'compu
 GROUP BY 
     n.nbr_nodes, s.name, t.name
 HAVING 
-    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000
+    AVG(CASE WHEN rg.State = 3 THEN rg.Total_rows ELSE NULL END) < 100000 OR
+    AVG(CASE WHEN rg.State = 0 THEN rg.Total_rows ELSE NULL END) < 100000
+
 ORDER BY 
     s.name, t.name
 ```
