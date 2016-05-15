@@ -56,6 +56,7 @@ Fortunately most of these limitations can be worked around. Explanations are pro
 The current implementation of common table expressions (CTEs) within SQL Data Warehouse has the following funcationality and limitations:
 
 **CTE Functionality**
+
 - A CTE can be specified in a SELECT statement.
 - A CTE can be specified in a CREATE VIEW statement.
 - A CTE can be specified in a CREATE TABLE AS SELECT (CTAS) statement.
@@ -66,6 +67,7 @@ The current implementation of common table expressions (CTEs) within SQL Data Wa
 - Multiple CTE query definitions can be defined in a CTE.
 
 **CTE Limitations**
+
 - A CTE must be followed by a single SELECT statement. INSERT, UPDATE, DELETE, and MERGE statements are not supported.
 - A common table expression that includes references to itself (a recursive common table expression) is not supported (see below section).
 - Specifying more than one WITH clause in a CTE is not allowed. For example, if a CTE_query_definition contains a subquery, that subquery cannot contain a nested WITH clause that defines another CTE.
