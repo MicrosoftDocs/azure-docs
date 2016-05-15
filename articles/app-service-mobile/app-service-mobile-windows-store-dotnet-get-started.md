@@ -54,9 +54,9 @@ Once you have configured your Mobile App backend, you can either create a new cl
 
 1. Back in the **Get started** blade for your Mobile App backend, click **Create a new app** > **Download**, then extract the compressed project files to your local computer.
 
-3. (Optional) Add the UWP app project to the solution with the server project. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution, if you choose to do so. To add a UWP app project to the solution, you must be using Visual Studio 2015 or a later version.
+3. (Optional) Add the UWP app project to the same solution as the server project. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution, if you choose to do so. To add a UWP app project to the solution, you must be using Visual Studio 2015 or a later version.
 
-4. With the UWP app as the startup project, press the F5 key to rebuild the project and start the app.
+4. With the UWP app as the startup project, deploy the project and start the app.
 
 5. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
 
@@ -64,7 +64,7 @@ Once you have configured your Mobile App backend, you can either create a new cl
 
 	This sends a POST request to the new mobile app backend that's hosted in Azure.
 
-6. (Optional) Stop debugging, and restart debugging using a different device or mobile emulator.
+6. (Optional) Stop the app and deploy to and restart on a different device or mobile emulator.
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
 
@@ -76,10 +76,10 @@ Once you have configured your Mobile App backend, you can either create a new cl
   Learn how to authenticate users of your app with an identity provider.
 
 * [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-  Learn how to send a very basic push notification to your app.
+  Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-* [Enable offline sync in your app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Learn how to enable offline sync in your app.
+* [Enable offline sync for your Windows app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- Anchors. -->
 <!-- Images. -->
