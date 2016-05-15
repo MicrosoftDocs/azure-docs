@@ -118,7 +118,7 @@ Please refer to the [SQL Data Warehouse Best Practices][] article for more infor
 [learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Manage statistics in SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
 [Provision]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip
+[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
 [Visual Studio 2013/2015]: ./sql-data-warehouse-get-started-connect.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Statistics]: ./sql-data-warehouse-develop-statistics.md
