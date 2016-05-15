@@ -104,11 +104,9 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, this CLR type is not supported
 - **image**, **text**, **ntext**, use varchar/nvarchar (smaller the better)
-- **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
 - **table**, convert to temporary tables
 - **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use binary(8) or varbinary(8) for NOT NULL or NULL row version values.
-- **uniqueidentifier**, use varbinary(16) or varchar(36) depending on the input format (binary or character) of your values. If the input format is character-based an optimization is possible. By converting from character to binary format, you can reduce the column storage by over 50%. In very large tables this optimization can be beneficial.
 - **user defined types**, convert back to their native types where possible
 - **xml**, use a varchar(max) or smaller for better performance. Split across columns if needed
 
