@@ -289,7 +289,7 @@ SQL Data Warehouse does not use or support these features:
 | synonyms | N/A |
 
 ## Next steps
-For more development tips, see [development overview][].  For more tips on best practices, see [[SQL Data Warehouse Best Practices][].
+For more development tips, see [development overview][].  For more tips on best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
