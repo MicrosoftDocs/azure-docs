@@ -24,7 +24,7 @@ Service Fabric enables you to build and manage scalable and reliable application
 
 Why is a microservices approach important? The two main reasons are:
 
-1. They enable you to scale different parts of your application depending on its needs
+1. They enable you to scale different parts of your application depending on its needs.
 
 2. Development teams are able to be more agile in rolling out changes and thereby provide features to your customers faster and more frequently. 
 
@@ -62,7 +62,7 @@ Service Fabric provides first-class support for the full application lifecycle m
 
 The Service Fabric ALM capabilities enable application administrators/IT operators to use simple, low-touch workflows to provision, deploy, patch, and monitor applications. These built-in workflows greatly reduce the burden on IT operators to keep applications continuously available.
 
-Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes that are deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances, each of which can be managed and upgraded independently. Importantly, Service Fabric is able to deploy *any* executables or runtime and make these reliable. For example, it can be used to deploy ASP.NET Core 1, node.js, Java VMs, scripts, or anything else that makes up your application.
+Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes that are deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances, each of which can be managed and upgraded independently. Importantly, Service Fabric is able to deploy *any* executables or runtime and make these reliable. For example, it can be used to deploy ASP.NET Core 1, Node.js, Java VMs, scripts, or anything else that makes up your application.
 
 For more information on application lifecycle management, read [Application lifecycle](service-fabric-application-lifecycle.md) and on deploying any code see [Deploy a guest executable](service-fabric-deploy-existing-app.md)
 
@@ -71,7 +71,7 @@ By using Service Fabric, you can:
 
 - Develop massively scalable applications that are self-healing.
 
-- Develop applications composed of microservices, using the Service Fabric programmming model, or simply host guest executables, and other application frameworks of your choice, such as ASP.NET Core 1, node.js, etc.
+- Develop applications composed of microservices, using the Service Fabric programming model, or simply host guest executables, and other application frameworks of your choice, such as ASP.NET Core 1, Node.js, etc.
 
 - Develop stateless and stateful microservices and make these highly reliable.
 
@@ -83,7 +83,7 @@ By using Service Fabric, you can:
 
 - Deploy applications in seconds.
 
-- Deploy applications at higher density than virtual machines, deploying hundreds or thousand of applications per machine.
+- Deploy applications at higher density than virtual machines, deploying hundreds or thousands of applications per machine.
 
 - Deploy different versions of the same application side by side, each independently upgradable.
 
@@ -103,8 +103,8 @@ By using Service Fabric, you can:
 ## Next steps
 
 * For more information:
-	* [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
-	* [Terminology overview](service-fabric-technical-overview.md)
+    * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
+    * [Terminology overview](service-fabric-technical-overview.md)
 * Setting up your Service Fabric [development environment](service-fabric-get-started.md)  
 * [Choosing a programming model framework](service-fabric-choose-framework.md) for your service
 
