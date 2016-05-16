@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Get started with the FTP API
 Connect to an FTP server to manage your files, including upload files, delete files, and more. The FTP API can be used from:
 
-- Logic apps
+- Logic apps (discussed in this topic)
+- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/en-us/tutorials/connections-list/ for the complete list))
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 

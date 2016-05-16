@@ -14,23 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 
 # Get started with the SQL Azure API
-Connect to SQL Azure to manage your tables and rows, such as insert rows, get tables, and more.
+Connect to Azure SQL Database to manage your tables and rows, such as insert rows, get tables, and more.
 
-The SQL Azure API can be be used from:
+The Azure SQL Database API can be be used from:
 
-- Logic apps 
+- Logic apps (discussed in this topic)
+- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/en-us/tutorials/connections-list/ for the complete list))
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-With SQL Azure, you can:
+With Azure SQL Database, you can:
 
-- Build your business flow based on the data you get from SQL Azure. 
-- Use actions to get a row, insert a row, and more. These actions get a response, and then make the output available for other actions. For example, you can get a row of data from SQL Azure, and then add that data to Excel. 
+- Build your business flow based on the data you get from Azure SQL Database. 
+- Use actions to get a row, insert a row, and more. These actions get a response, and then make the output available for other actions. For example, you can get a row of data from Azure SQL Database, and then add that data to Excel. 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,7 +50,7 @@ When you add this API to your logic apps, enter the following values:
 
 |Property| Required|Description|
 | ---|---|---|
-|SQL Connection String|Yes|Enter your SQL Azure connection string|
+|SQL Connection String|Yes|Enter your Azure SQL Database connection string|
 
 After you create the connection, you enter your the SQL properties, like the table name. The **REST API reference** in this topic describes these properties.
 
