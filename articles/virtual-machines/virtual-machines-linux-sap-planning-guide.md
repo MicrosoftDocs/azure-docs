@@ -211,44 +211,44 @@
 
 [vm-size-specs]:virtual-machines-size-specs.md
 [azure-subscription-service-limits-subscription]:azure-subscription-service-limits.md#subscription
-[vpn-gateway-create-site-to-site-rm-powershell]:vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]:vpn-gateway-cross-premises-options.md
-[vpn-gateway-site-to-site-create]:vpn-gateway-site-to-site-create.md
-[virtual-machines-deploy-rmtemplates-azure-cli]:virtual-machines-deploy-rmtemplates-azure-cli.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
-[virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-deploy-rmtemplates-powershell.md (Manage virtual machines using Azure Resource Manager and PowerShell)
-[virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image-resource-manager.md
-[virtual-machines-manage-availability]:virtual-machines-manage-availability.md
-[virtual-machines-linux-how-to-attach-disk]:virtual-machines-linux-how-to-attach-disk.md
+[vpn-gateway-create-site-to-site-rm-powershell]:../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
+[vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-cross-premises-options.md
+[vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-site-to-site-create.md
+[virtual-machines-deploy-rmtemplates-azure-cli]:virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
+[virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
+[virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image.md
+[virtual-machines-manage-availability]:virtual-machines-linux-manage-availability.md
+[virtual-machines-linux-how-to-attach-disk]:virtual-machines-linux-classic-attach-disk.md
 [virtual-networks-reserved-private-ip]:virtual-networks-static-private-ip-arm-ps.md
 [virtual-machines-sql-server-infrastructure-services]:virtual-machines-sql-server-infrastructure-services.md
 [storage-redundancy]:storage-redundancy.md
-[storage-scalability-targets]:storage-scalability-targets.md
-[virtual-networks-manage-dns-in-vnet]:virtual-networks-manage-dns-in-vnet.md
-[resource-groups-networking]:resource-groups-networking.md
-[virtual-networks-static-private-ip-arm-pportal]:virtual-networks-static-private-ip-arm-pportal.md
-[virtual-networks-multiple-nics]:virtual-networks-multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:virtual-network-deploy-multinic-arm-template.md
-[virtual-network-deploy-multinic-arm-ps]:virtual-network-deploy-multinic-arm-ps.md
-[virtual-network-deploy-multinic-arm-cli]:virtual-network-deploy-multinic-arm-cli.md
+[storage-scalability-targets]:../storage/storage-scalability-targets.md
+[virtual-networks-manage-dns-in-vnet]:../virtual-network/virtual-networks-manage-dns-in-vnet.md
+[resource-groups-networking]:../virtual-network/resource-groups-networking.md
+[virtual-networks-static-private-ip-arm-pportal]:../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[virtual-networks-multiple-nics]:../virtual-network/virtual-networks-multiple-nics.md
+[virtual-network-deploy-multinic-arm-template]:../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-ps]:../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-cli]:../virtual-network/virtual-network-deploy-multinic-arm-cli.md
 [vpn-gateway-create-site-to-site-rm-powershell]:vpn-gateway-create-site-to-site-rm-powershell.md
 [vpn-gateway-create-site-to-site-rm-powershell]:vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-about-vpn-devices]:vpn-gateway-about-vpn-devices.md
-[vpn-gateway-vpn-faq]:vpn-gateway-vpn-faq.md
+[vpn-gateway-about-vpn-devices]:../vpn-gateway/vpn-gateway-about-vpn-devices.md
+[vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
 [vpn-gateway-create-site-to-site-rm-powershell]:vpn-gateway-create-site-to-site-rm-powershell.md
-[powershell-install-configure]:powershell-install-configure.md
-[xplat-cli]:xplat-cli.md
+[powershell-install-configure]:../powershell-install-configure.md
+[xplat-cli]:../xplat-cli.md
 [virtual-machines-deploy-rmtemplates-azure-cli]:virtual-machines-deploy-rmtemplates-azure-cli.md
-[xplat-cli-azure-resource-manager]:xplat-cli-azure-resource-manager.md
+[xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 [virtual-machines-linux-create-upload-vhd-suse]:virtual-machines-linux-create-upload-vhd-suse.md
 [virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image-resource-manager.md
-[storage-use-azcopy]:storage-use-azcopy.md
+[storage-use-azcopy]:../storage/storage-use-azcopy.md
 [virtual-machines-linux-capture-image-resource-manager-capture]:virtual-machines-linux-capture-image-resource-manager.md#capture-the-vm
-[storage-azure-cli]:storage-azure-cli.md
+[storage-azure-cli]:../storage/storage-azure-cli.md
 [storage-powershell-guide-full-copy-vhd]:storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-azure-cli-copy-blobs]:storage-azure-cli.md#copy-blobs
 [virtual-machines-linux-agent-user-guide]:virtual-machines-linux-agent-user-guide.md
-[virtual-machines-size-specs]:virtual-machines-size-specs.md
-[virtual-machines-sql-server-performance-best-practices]:virtual-machines-sql-server-performance-best-practices.md
+[virtual-machines-size-specs]:../virtual-machines-size-specs.md
+[virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md
 [virtual-machines-sql-server-alwayson-availability-groups-powershell]:virtual-machines-sql-server-alwayson-availability-groups-powershell.md
 [virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener]:virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md
@@ -256,7 +256,7 @@
 [azure-subscription-service-limits]:azure-subscription-service-limits.md
 [virtual-machines-configuring-oracle-data-guard]:virtual-machines-configuring-oracle-data-guard.md
 [virtual-machines-linux-configure-raid]:virtual-machines-linux-configure-raid.md
-[virtual-machines-attach-disk-preview]:virtual-machines-attach-disk-preview.md
+[virtual-machines-attach-disk-preview]:virtual-machines-linux-attach-disk-portal.md
 [virtual-machines-workload-template-sql-alwayson]:virtual-machines-workload-template-sql-alwayson.md
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:virtual-machines-linux-how-to-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux
 [resource-group-authoring-templates]:resource-group-authoring-templates.md
@@ -270,13 +270,13 @@
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image-resource-manager.md
 [virtual-networks-udr-overview]:virtual-networks-udr-overview.md
-[virtual-networks-nsg]:virtual-networks-nsg.md
+[virtual-networks-nsg]:../virtual-network/virtual-networks-nsg.md
 [storage-premium-storage-preview-portal]:storage-premium-storage-preview-portal.md
 [storage-introduction]:storage-introduction.md
 [virtual-machines-upload-image-windows-resource-manager]:virtual-machines-upload-image-windows-resource-manager.md
-[virtual-machines-azure-resource-manager-architecture]:virtual-machines-azure-resource-manager-architecture.md
+[virtual-machines-azure-resource-manager-architecture]:../resource-manager-deployment-model.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-tutorial.md
-[virtual-networks-create-vnet-arm-pportal]:virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [virtual-machines-linux-tutorial]:virtual-machines-linux-tutorial.md
 
