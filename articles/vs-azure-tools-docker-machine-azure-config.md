@@ -4,7 +4,7 @@
    services="visual-studio-online"
    documentationCenter="na"
    authors="SteveLas"
-   manager="Balans"
+   manager="douge"
    editor="" />
 <tags
    ms.service="multiple"
