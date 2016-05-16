@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="05/16/2016"
 	ms.author="banders"/>
 
 
@@ -71,11 +71,27 @@ Before you install or deploy agents, review the following details to ensure you 
 ## Install the agent using the command line
 - Modify and then use the following example to install the agent using the command line.
 
+    >[AZURE.NOTE] If you want to upgrade an agent, you need to use the Log Analytics scripting API. See the next section to upgrade an agent.
+
     ```
-    MMASetup-AMD64.exe /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
+    MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
 
+## Upgrade the agent and add a workspace using a script
+You can upgrade an agent and add a workspace using the Log Analytics scripting API with the following PowerShell example.
+
+```
+$mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+$mma.AddCloudWorkspace($workspaceId, $workspaceKey)
+$mma.ReloadConfiguration()
+```
+
+>[AZURE.NOTE] If you've used the command line or script previously to install or configure the agent, `EnableAzureOperationalInsights` was replaced by `AddCloudWorkspace`.
+
 ## Install the agent using DSC in Azure Automation
+
+>[AZURE.NOTE] This procedure and script example will not upgrade an existing agent.
+
 1. Import the xPSDesiredStateConfiguration DSC Module from [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) into Azure Automation.  
 2.	Create Azure Automation variable assets for *OPSINSIGHTS_WS_ID* and *OPSINSIGHTS_WS_KEY*. Set *OPSINSIGHTS_WS_ID* to your OMS Log Analytics workspace ID and set *OPSINSIGHTS_WS_KEY* to the primary key of your workspace.
 3.	Use the script below and save it as MMAgent.ps1
@@ -97,10 +113,11 @@ Configuration MMAgent
         {
             Name = "HealthService"
             State = "Running"
+            DependsOn = "[Package]OI"
         }
 
         xRemoteFile OIPackage {
-            Uri = "https://opsinsight.blob.core.windows.net/publicfiles/MMASetup-AMD64.exe"
+            Uri = "http://download.microsoft.com/download/0/C/0/0C072D6E-F418-4AD4-BCB2-A362624F400A/MMASetup-AMD64.exe"
             DestinationPath = $OIPackageLocalPath
         }
 
@@ -108,7 +125,7 @@ Configuration MMAgent
             Ensure = "Present"
             Path  = $OIPackageLocalPath
             Name = "Microsoft Monitoring Agent"
-            ProductId = "E854571C-3C01-4128-99B8-52512F44E5E9"
+            ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
             Arguments = '/C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + ' OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
             DependsOn = "[xRemoteFile]OIPackage"
         }
@@ -131,21 +148,10 @@ If you've installed agents but did not configure them or if you want the agent t
 After data is collected from computers monitored by the agent, the number of computers monitored by OMS will appear in the OMS portal on the **Connected Sources** tab in **Settings** as **Servers Connected**.
 
 
-### To disable an agent
+## To disable an agent
 1. After installing the agent, open **Control Panel**.
 2. Open Microsoft Monitoring Agent and then click the **Azure Log Analytics (OMS)** tab.
 3. Select a workspace and then click **Remove**. Repeat this step for all other workspaces.
-
-## Configure an agent using the command line
-
-- You can use Windows PowerShell with the following example.
-    ```
-    $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
-    $healthServiceSettings.AddCloudWorkspace('workspacename', 'workspacekey')
-    $healthServiceSettings.ReloadConfiguration()
-    ```
-
->[AZURE.NOTE] If you've used the command line or script previously to install or configure the agent, `EnableAzureOperationalInsights` was replaced by `AddCloudWorkspace`.
 
 
 ## Optionally, configure agents to report to an Operations Manager management group
