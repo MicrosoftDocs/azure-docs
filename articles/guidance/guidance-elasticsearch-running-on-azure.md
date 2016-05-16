@@ -556,7 +556,7 @@ If you are hosting an Elasticsearch cluster by using Azure VMs, each node can co
 limit of vertical scalability for a node is largely governed by the SKU of the VM and the overall
 restrictions applied to individual storage accounts and Azure subscriptions. 
 
-The page [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits/) 
+The page [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md) 
 describes these limits in detail, but as far as building an Elasticsearch cluster is concerned, the items
 in the following list are the most pertinent. 
 
@@ -1017,12 +1017,12 @@ guidance. The document [Creating a Performance Testing Environment for Elasticse
 
 [Apache JMeter]: http://jmeter.apache.org/
 [Apache Lucene]: https://lucene.apache.org/
-[Automatically scale machines in a Virtual Machine Scale Set]: virtual-machines-vmss-walkthrough/
-[Azure Disk Encryption for Windows and Linux IaaS VMs Preview]: azure-security-disk-encryption/
-[Azure Load Balancer]: load-balancer-overview/
-[ExpressRoute]: expressroute-introduction/
-[internal load balancer]: load-balancer-internal-overview/
-[Sizes for Virtual Machines]: virtual-machines-linux-sizes/
+[Automatically scale machines in a Virtual Machine Scale Set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create.md
+[Azure Disk Encryption for Windows and Linux IaaS VMs Preview]: ../azure-security-disk-encryption.md
+[Azure Load Balancer]: ../load-balancer/load-balancer-overview.md
+[ExpressRoute]: ../expressroute/expressroute-introduction.md
+[internal load balancer]:  ../load-balancer/load-balancer-internal-overview.md
+[Sizes for Virtual Machines]: ../virtual-machines/virtual-machines-linux-sizes.md
 
 [Memory Requirements]: #memory-requirements
 [Network Requirements]: #network-requirements
