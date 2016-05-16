@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/13/2016"
+	ms.date="05/16/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -608,7 +608,8 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 
 ## Next steps
 
--   Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
+- Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
+- Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md)
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).

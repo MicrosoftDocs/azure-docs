@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="05/16/2016" 
 	ms.author="johnmac"/>
 
 # Performance levels in DocumentDB
@@ -172,6 +172,8 @@ To learn more about pricing and managing data with Azure DocumentDB, explore the
 - [Request units](http://go.microsoft.com/fwlink/?LinkId=735027)
 
 To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
+
+To get started with scale and performance testing with DocumentDB, see [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png 
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png 

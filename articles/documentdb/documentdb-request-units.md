@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="stbaro"/>
 
 #Request Units in DocumentDB
@@ -177,5 +177,8 @@ To learn more about reserved throughput with Azure DocumentDB, explore these res
 - [DocumentDB performance levels](documentdb-partition-data.md)
 
 To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
+
+To get started with scale and performance testing with DocumentDB, see [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md).
+
 
 [1]: ./media/documentdb-request-units/queryexplorer.png 
