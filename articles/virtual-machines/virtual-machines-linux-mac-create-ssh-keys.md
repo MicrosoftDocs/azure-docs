@@ -19,7 +19,7 @@
 
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
 
-To create a password-secured SSH public and private key you need a terminal open on your workstation.  Once you have SSH keys you can create new VMs with that key by default or add the public key to existing VMs using both the Azure CLI and Azure templates.  
+To create a password-secured SSH public and private key you need a terminal open on your workstation.  Once you have SSH keys you can create new VMs with that key by default or add the public key to existing VMs using both the Azure CLI and Azure templates.  This will allow for password-less logins over SSH using the much more secure authentication method of Keys versus passwords.
 
 ## Quick Command Listing
 
