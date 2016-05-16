@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: Get started with Azure Data Lake Analytics using Java SDK
@@ -38,9 +38,9 @@ In this tutorial, you will develop a Java console application which contains sam
 
 The code snippet below provides code for **non-interactive** authentication, where the application provides its own credentials.
 
-You will need to give your application permission to create resources in Azure for this tutorial to work. It is **highly recommended** that you only give this application Contributor permissions to a new, unusued, and empty resource group in your Azure subscription for the purposes of this tutorial.
+You will need to give your application permission to create resources in Azure for this tutorial to work. It is **highly recommended** that you only give this application Contributor permissions to a new, unused, and empty resource group in your Azure subscription for the purposes of this tutorial.
 
-## Create a Java aplication
+## Create a Java application
 
 1. Open IntelliJ and create a new Java project using the **Command Line App** template.
 
@@ -383,7 +383,7 @@ You will need to give your application permission to create resources in Azure f
 ## See also
 
 - To see the same tutorial using other tools, click the tab selectors on the top of the page.
-- To see a more complexed query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 - For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).

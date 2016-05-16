@@ -28,9 +28,6 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-
-
-
 <!-- ################################ -->
 <!-- ################################ -->
 ## Manage accounts

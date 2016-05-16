@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -77,7 +77,7 @@ In case you want to use your own data, here are the procedures for uploading dat
 
 ## Develop U-SQL scripts
 
-The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **To create and submit a Data Lake Analytics job**
 
@@ -175,8 +175,8 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
 	* Job Summary. Show the summary information of current job, e.g.: State, Progress, Execution Time, Runtime Name, Submitter etc.   
 	* Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
-	* Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
-	* MetaData Operations. It shows all the metadata operations.
+	* Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Execution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
+	* Metadata Operations. It shows all the metadata operations.
 	* State History.
 	* Diagnostics. Data Lake Tools for Visual Studio will diagnose job execution automatically. You will receive alerts when there are some errors or performance issues in their jobs. See Job Diagnostics (link TBD) part for more information.
 
@@ -236,8 +236,8 @@ The following video demonstrates the U-SQL local run feature:
 
     - In script input (EXTRACT * FROM “/path/abc”) - both the DataRoot path and the script path will be searched.
     - In script output (OUTPUT TO “path/abc”): the DataRoot path will be used as the output folder.
-    - In assembly registration (CRREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot.
-    - In registered TVF/View or other metadata entiteis: the DataRoot Path will be searched, but not the script path.
+    - In assembly registration (CREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot.
+    - In registered TVF/View or other metadata entities: the DataRoot Path will be searched, but not the script path.
 
     For scripts ran on Data Lake serivce, the default storage account will be used as root folder and will be searched accordingly.
 
@@ -292,7 +292,7 @@ To see more development topics:
 
 ##Appx-A PowerShell sample for preparing the tutorial
 
-The following PowerShell script prepares an Azure Data Lake Analytics account and the source data for you, So you can skip to [Develop U-SQL scipts](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+The following PowerShell script prepares an Azure Data Lake Analytics account and the source data for you, So you can skip to [Develop U-SQL scripts](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
     $nameToken = "<Enter an alias>"
