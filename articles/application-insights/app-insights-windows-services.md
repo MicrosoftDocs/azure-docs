@@ -37,23 +37,23 @@ First check whether you are working with another type of Windows application:
 
 1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app. 
 
-    ![Click New, Application Insights](./media/app-insights-windows-desktop/01-new.png)
+    ![Click New, Application Insights](./media/app-insights-windows-services/01-new.png)
 
 
 2.  Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. Close the Application Map or scroll left to the overview blade for the resource.
 
-    ![Click Essentials, select the key, and press ctrl+C](./media/app-insights-windows-desktop/10.png)
+    ![Click Essentials, select the key, and press ctrl+C](./media/app-insights-windows-services/10.png)
 
 ## <a name="sdk"></a>Install the SDK in your application
 
 
 1. In Visual Studio, edit the NuGet packages of your Windows application project.
 
-    ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-desktop/03-nuget.png)
+    ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-services/03-nuget.png)
 
 2. Install the Application Insights Windows Server package: Microsoft.ApplicationInsights.WindowsServer
 
-    ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
+    ![Search for "Application Insights"](./media/app-insights-windows-services/04-ai-nuget.png)
 
     *Can I use other packages?*
 
@@ -119,7 +119,7 @@ To see counts of users and sessions you can set the values on each `TelemetryCli
 
 In Visual Studio, you'll see a count of the events that have been sent.
 
-![](./media/app-insights-windows-desktop/appinsights-09eventcount.png)
+![](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
 Events also appear in the diagnostics and output windows.
 

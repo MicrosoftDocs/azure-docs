@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Base Configuration Test Environment with Azure Resource Manager"
 	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure."
 	documentationCenter=""
@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/25/2016"

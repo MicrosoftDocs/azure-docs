@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/11/2016"
 	ms.author="andkjell"/>
 
 
@@ -46,12 +46,7 @@ If you use Azure AD Sync an in-place upgrade is recommended. If you want to, it 
 
 If you want to see how to do an in-place upgrade from DirSync to Azure AD Connect, then please see this Channel 9 video:
 
-<!-- The next section is actually supposed to look like this, but video ids are not working at present.
 > [AZURE.VIDEO azure-active-directory-connect-in-place-upgrade-from-legacy-tools]
--->
-
-[Azure Active Directory Connect: in-place upgrade from legacy tools](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools)  
-![in-place upgrade](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
 
 ## FAQ
 **Q: I have received an email notification from the Azure Team and/or a message from the Office 365 message center, but I am using Connect.**  
