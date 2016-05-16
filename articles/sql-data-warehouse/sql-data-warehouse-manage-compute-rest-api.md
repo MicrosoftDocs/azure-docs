@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="05/14/2016"
    ms.author="barbkess;sonyama"/>
 
 # Manage compute power in Azure SQL Data Warehouse (REST)
@@ -91,6 +91,7 @@ For other management tasks, see [Management overview][].
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
 [Performance scalability overview]: ./sql-data-warehouse-overview-scalability.md
+[Manage compute power overview]: ./sql-data-warehouse-overview-manage-compute.md
 
 <!--MSDN references-->
 [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
