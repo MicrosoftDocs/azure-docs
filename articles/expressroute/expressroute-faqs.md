@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -244,3 +244,6 @@ Refer to [ExpressRoute partners and locations](expressroute-locations.md) for mo
 
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
+
+### Can Dynamics AX be accessed over an ExpressRoute connection?
+No, it is not supported.

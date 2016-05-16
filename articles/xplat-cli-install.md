@@ -63,6 +63,11 @@ Once the Azure CLI has been installed, you will be able to run the **azure** com
 ```
 azure help
 ```
+> [AZURE.NOTE]On some Linux distributions you may receive an error, /usr/bin/env: ‘node’: No such file or directory, this comes from recent installations of nodejs being installed at /usr/bin/nodejs. To fix this error create a symbolic link to /usr/bin/node by running the command below
+
+```
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+```
 
 To see the version of the Azure CLI you installed, type the following:
 

@@ -3,7 +3,7 @@
    description="Recommended naming conventions for Azure resources. How to name virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities"
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -18,6 +18,8 @@
    ms.author="masimms"/>
    
 # Recommended naming conventions for Azure resources
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 The choice of a name for any resource in Microsoft Azure is important because:
 

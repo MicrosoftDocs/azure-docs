@@ -19,6 +19,8 @@
 
 # About the Tailspin Surveys application
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 Tailspin is a fictitious company that is developing a SaaS application named Surveys. This application enables organizations to create and publish online surveys.

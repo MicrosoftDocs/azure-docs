@@ -109,4 +109,3 @@ If the prepared configuration looks good, you can move forward and Commit the re
 
 - [Platform supported migration of IaaS resources from Classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
 - [Technical Deep Dive on Platform supported migration from Classic to Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-- [Clone a classic Virtual Machine to Azure Resource Manager using Community PowerShell Scripts](virtual-machines-windows-migration-scripts)
