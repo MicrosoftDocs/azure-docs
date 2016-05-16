@@ -23,7 +23,7 @@ At Microsoft, we work hard to make sure our services are always available. Somet
 
 ## How to prepare 
 
-It is critical for every customer to prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to reactivate your applications in a functioning state. Please refer to the Azure documentation below to build your own disaster recovery plan.
+It is critical for every customer to prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to reactivate your applications in a functioning state. Please refer to the Azure documentation below to build your own disaster recovery plan:
 
 -   [Disaster Recovery and High Availability for Azure Applications](https://msdn.microsoft.com/library/azure/dn251004.aspx)
 
@@ -41,11 +41,11 @@ The recommended way to determine the Azure service status is to subscribe to the
 
 ## Customer Options in the event of a Storage outage
 
-If one or more storage services are temporarily unavailable at one or more regions, there are two options for you to consider. If you desire immediate access to your data, please consider Option 2.
+If one or more Storage services are temporarily unavailable at one or more regions, there are two options for you to consider. If you desire immediate access to your data, please consider Option 2.
 
 ### Option 1: Wait for recovery
 
-In this case, no action on your part is required. We are working diligently to restore the Azure service availability. can monitor the service status on the [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
+In this case, no action on your part is required. We are working diligently to restore the Azure service availability. You can monitor the service status on the [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
 ### Option 2: Copy data from secondary
 
@@ -74,7 +74,7 @@ For more details on the infrastructure of Azure Storage geo replication, please 
 
 There are some recommended approaches to back up your the storage data on a regular basis.
 
--   VM Disks – Use the Azure Backup service to back up the VM disks used by your Azure virtual machines.
+-   VM Disks – Use the [Azure Backup service](https://azure.microsoft.com/en-us/services/backup/)  to back up the VM disks used by your Azure virtual machines.
 
 -   Block blobs –Create a [snapshot](https://msdn.microsoft.com/library/azure/hh488361.aspx) of each block blob, or copy the blobs to another storage account in another region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 
