@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/03/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Build your first Azure data factory using Azure Portal/Data Factory Editor
@@ -254,8 +254,8 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2016-02-01T00:00:00Z",
-		        "end": "2016-02-02T00:00:00Z",
+		        "start": "2016-05-01T00:00:00Z",
+		        "end": "2016-05-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}

@@ -35,7 +35,7 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 ### How do I get started with Azure Data Factory?
 
 - For an overview of Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md).
-- For a tutorial on how to **copy data** using Copy Activity, see [Copy data from Azure Blob Storage to Azure SQL Database](data-factory-get-started.md).
+- For a tutorial on how to **copy/move data** using Copy Activity, see [Copy data from Azure Blob Storage to Azure SQL Database](data-factory-get-started.md).
 - For a tutorial on how to **transform data** using HDInsight Hive Activity. See [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md) 
   
 ### What is the Data Factory’s region availability?

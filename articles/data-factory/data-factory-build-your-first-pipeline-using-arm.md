@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/03/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Build your first Azure data factory using Azure Resource Manager template
@@ -206,8 +206,8 @@ Click **Using Data Factory Editor** tab to switch to the article with details ab
 						                "linkedServiceName": "HDInsightOnDemandLinkedService"
 						            }
 						        ],
-						        "start": "2014-02-01T00:00:00Z",
-						        "end": "2014-02-02T00:00:00Z",
+						        "start": "2016-05-01T00:00:00Z",
+						        "end": "2016-05-02T00:00:00Z",
 						        "isPaused": false
 						    }
 	                    }
