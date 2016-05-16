@@ -24,7 +24,7 @@ As a simple example, consider `InstanceCount` for a stateless service. When you 
 
 ## Specifying environment-specific parameters
 
-The solution to this configuration issue is a set of parameterized default services and application parameter files that fill in those parameter values for a given environment.
+The solution to this configuration issue is a set of parameterized default services and application parameter files that fill in those parameter values for a given environment. Default services and application parameters are configured in the application and service manifests. The schema definition for the ServiceManifest.xml and ApplicationManifest.xml files is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ### Default services
 

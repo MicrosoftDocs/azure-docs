@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2016"
+   ms.date="05/10/2016"
    ms.author="jrj;barbkess;sonyama;nicw"/>
 
 # Manage statistics in SQL Data Warehouse
@@ -54,7 +54,7 @@ As you understand how you want to query your data you might want to refine this 
 ## When to update statistics
 It is important to include updating statistics in your database management routine. When the distribution of data in the database changes, statistics need to be updated. Otherwise, you can see sub-optimal query performance, and efforts to further troubleshoot the query might not be worthwhile.
 
-One best practice is to update statistics on date columns each day as new dates are added.  Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a gender column on a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one gender and a new requirement results in multiple genders then you definitely need to update statistics on the gender column.
+One best practice is to update statistics on date columns each day as new dates are added.  Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you definitely need to update statistics on the country column.
 
 One of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"
 
