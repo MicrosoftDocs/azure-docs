@@ -36,7 +36,7 @@ To use the Azure portal:
 
 7. Choose **Optional Configuration > Availability set**, and select the availability set you wish to add the virtual machine to.
 
-   ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png)
+   ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
 
 8. Review your configuration settings. When you're done, click **Create**.
 
