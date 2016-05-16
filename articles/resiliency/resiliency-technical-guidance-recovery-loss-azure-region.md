@@ -178,7 +178,7 @@ Configuration files provide the quickest way to setup a virtual network in an al
   2. Manage backups of the associated Azure SQL Database to restore during failover
   3. Use Azure command-line tools to move mobile service
 
-#[HDInsight](#hdinsight) Checklist
+##[HDInsight](#hdinsight) Checklist
   1. Create a new Hadoop cluster in the region with replicated data
 
 ##[SQL Reporting](#sql-reporting) Checklist
