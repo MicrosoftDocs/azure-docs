@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Location Reporting for Android Mobile Engagement"
-	description="Location Reporting for Android for Azure Mobile Engagement"
+	pageTitle="Location Reporting for Azure Mobile Engagement Android SDK"
+	description="Describes how to configure location reporting for Azure Mobile Engagement Android SDK"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Location Reporting in Engagement on Android
+# Location Reporting for Azure Mobile Engagement Android SDK
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-This topic describes how to do Engagement location reporting in your Android application.
+This topic describes how to do location reporting for your Android application.
 
 ## Prerequisites
 
 [AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
-
 
 ## Location reporting
 
@@ -47,7 +46,7 @@ To enable lazy area location reporting, you can do it by using the configuration
 
 You also need to add the following permission if missing:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
 
@@ -67,7 +66,7 @@ To enable real time location reporting, add a line of code to where you set the 
 
 You also need to add the following permission if missing:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
 
@@ -83,7 +82,7 @@ By default, real time location reporting only uses network based locations. To e
 
 You also need to add the following permission if missing:
 
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Background reporting
 
@@ -99,18 +98,18 @@ By default, real time location reporting is only active when the application run
 
 The background location report will be stopped if the user reboots its device, you can add this to make it automatically restart at boot time:
 
-		<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			<intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED" />
-			</intent-filter>
-		</receiver>
+	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+		   android:exported="false">
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		</intent-filter>
+	</receiver>
 
 You also need to add the following permission if missing:
 
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Android M permissions
+## Android M permissions
 
 Starting with Android M, some permissions are managed at runtime and needs user approval.
 
