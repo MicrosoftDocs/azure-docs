@@ -29,7 +29,7 @@ The extension and customization is done in such a way that we do not need to for
 
 The data in SCP is modeled as continuous streams of tuples. Typically the tuples flow into some queue first, then picked up, and transformed by business logic hosted inside a Storm topology, finally the output could be piped as tuples to another SCP system, or be committed to stores like distributed file system or databases like SQL Server.
 
-![A diagram of a queue feeding data to processing, which feeds a data store](media/hdinsight-storm-scp-programming-guide/image1.png)
+![A diagram of a queue feeding data to processing, which feeds a data store](media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
 In Storm, an application topology defines a graph of computation. Each node in a topology contains processing logic, and links between nodes indicate data flow. The nodes to inject input data into the topology are called Spouts, which can be used to sequence the data. The input data could reside in file logs, transactional database, system performance counter etc. The nodes with both input and output data flows are called Bolts, which do the actual data filtering and selections and aggregation.
 
@@ -504,7 +504,7 @@ Here **examples\\HybridTopology\\java\\target\\** is the folder containing the J
 
 Our SCP component includes Java side and C\# side. In order to interact with native Java Spouts/Bolts, Serialization/Deserialization must be carried out between Java side and C\# side, as illustrated in the following graph.
 
-![diagram of java component sending to SCP component sending to Java component](media/hdinsight-storm-scp-programming-guide/image2.png)
+![diagram of java component sending to SCP component sending to Java component](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
 
 1.  **Serialization in Java side and Deserialization in C\# side**
 	
