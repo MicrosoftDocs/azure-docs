@@ -166,10 +166,7 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 The `azure vm quick-create` is the way to quickly deploy a VM so you can log in  to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment.  To deploy a Linux VM customized for your infrastructure you can follow any of the articles below.
 
 - [Use an Azure resource manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md)
-
-<!-- Loc Comment: Linked page does not match link title and is same as linked page below, so should this link be updated? -->
-- [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-deploy-templates.md).
+- [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-cli-complete.md).
 - [Create a SSH Secured Linux VM on Azure using Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Create a Linux VM using the Azure CLI](virtual-machines-linux-create-cli-complete.md)
 
 Those articles will get you started in building an Azure infrastructure as well as any number of proprietary and open-source infrastructure deployment, configuration, and orchestration tools.
