@@ -19,7 +19,7 @@
 
 
 
-# Create DNS record sets and records using the Azure Portal
+# Create DNS record sets and records by using the Azure portal
 
 
 > [AZURE.SELECTOR]
@@ -28,34 +28,34 @@
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 
-This article will walk you through creating records and records sets by using the Azure Portal. After creating your DNS Zone, you need to add the DNS records for your domain. To do this, you'll first need to understand DNS records and record sets.
+This article walks you through the process of creating records and records sets by using the Azure portal. After you create your DNS zone, you add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
 
-[AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)] 
+[AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 
-## Create a record set and a record
+## Create a record set and record
 
-The following example will walk you through how to create a record set and records by using the Azure portal. We'll use the DNS 'A' record type.
+The following example walks you through the process of creating a record set and record by using the Azure portal. We'll use the DNS 'A' record type.
 
-1. Log in to the Azure portal.
+1. Sign in to the portal.
 
-2. Navigate to the **DNS zone** blade in which you want to create a record set.
+2. Go to the **DNS zone** blade in which you want to create a record set.
 
-3. In your DNS zone blade, at the top of the blade click **Record set** to open the **Add record set** blade. 
- 
-	![new record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
+3. At the top of the **DNS zone** blade, select **Record set** to open the **Add record set** blade.
 
-4. In the **Add record set** blade, name your records set. For example, you could name your record set "**www**".
-  
-	![add record set](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
+	![New record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
-5. Type, select the type of record you want to create. For example, **A**.
+4. On the **Add record set** blade, name your record set. For example, you could name your record set "**www**".
 
-6. Set the **TTL**. The default in the portal is 1 hour.
+	![Add record set](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
 
-7. Add the IP addresses, one IP address per line. Using the suggested record set name and record type from above, this adds the IPv4 IP addresses to the A record for the www record set.
+5. Select the type of record you want to create. For example, select **A**.
 
-8. When you have finished added IP addresses, click **OK** at the bottom of the blade. The DNS record set will be created.
+6. Set the **TTL**. The default time-to-live in the portal is one hour.
+
+7. Add the IP addresses, one IP address per line. When you use the suggested record set name and record type described earlier, you adds the IPv4 IP addresses to the A record for the www record set.
+
+8. When you've finished adding IP addresses, select **OK** at the bottom of the blade. The DNS record set will be created.
 
 
 ## Next steps
