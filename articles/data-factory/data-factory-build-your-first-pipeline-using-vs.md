@@ -339,6 +339,11 @@ If you receive the error: "**This subscription is not registered to use namespac
 
 See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
 
+You can also Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application. 
+
+> [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
+ 
+
 ## Use Server Explorer to view data factories
 
 1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
