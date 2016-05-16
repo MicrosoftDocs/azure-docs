@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running Windows VMs in multiple datacenters on Azure"
+   pageTitle="Running Windows VMs in multiple datacenters on Azure | Reference Architecture | Microsoft Azure"
    description="How to deploy VMs in multiple datacenters on Azure for availability and resiliency."
    services=""
    documentationCenter="na"
@@ -18,6 +18,8 @@
    ms.author="mikewasson"/>
 
 # Running Windows VMs in multiple datacenters on Azure 
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 In this article, we recommend a set of practices to run VMs in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
 
