@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/11/2016"
+ms.date="05/17/2016"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -104,7 +104,7 @@ The blob indexer can extract text from the following document formats:
 Azure Search indexes each document (blob) as follows:
 
 - The entire text content of the document is extracted into a string field named `content`. Note that we currently don't provide support for extracting multiple documents from a single blob:
-	- For example, a CSV file is indexed as a single document. If you need to treat each line in a CSV as a separate document, please add a suggestion on Azure Search [UserVoice](https://feedback.azure.com/forums/263029-azure-search/category/86073-crawlers).
+	- For example, a CSV file is indexed as a single document. If you need to treat each line in a CSV as a separate document, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
 	- A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email with a PDF attachment) is also indexed as a single document.
 
 - User-specified metadata properties present on the blob, if any, are extracted verbatim. The metadata properties can also be used to control certain aspects of the document extraction process – see [Using Custom Metadata to Control Document Extraction](#CustomMetadataControl) for more details.
