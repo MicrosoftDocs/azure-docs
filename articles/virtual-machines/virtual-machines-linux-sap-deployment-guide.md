@@ -62,6 +62,8 @@
 
 [azure-portal]:https://portal.azure.com
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
+[azure-ps]:powershell-install-configure.md
+[azure-cli]:xplat-cli-install.md
 
 [planning-guide]:virtual-machines-linux-sap-planning-guide.md (SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide)
 [planning-guide-classic]:virtual-machines-windows-classic-sap-planning-guide.md
@@ -362,8 +364,8 @@ During the configuration work, the following resources are needed:
 * SAP Note [2191498] containing the required SAP Host Agent version for Linux on Microsoft Azure when deploying on the new Azure Resource Manager.
 * SAP Note [2243692] containing information about licensing for SAP on Linux on Azure
 * [SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all required SAP Notes for Linux
-* [SAP specific PowerShell cmdlets][azure-script-ps]
-* [SAP specific Azure CLI](https://github.com/Azure/azure-linux-extensions/tree/master/AzureEnhancedMonitor)
+* SAP specific PowerShell cmdlets that are part of the [Azure PowerShell][azure-ps]
+* SAP specific Azure CLI that are part of the [Azure CLI][azure-cli]
 * [Microsoft Azure Portal][azure-portal]
 
 [comment]: <> (MSSedusch TODO Add ARM patch level for SAP Host Agent in SAP Note 1409604)
