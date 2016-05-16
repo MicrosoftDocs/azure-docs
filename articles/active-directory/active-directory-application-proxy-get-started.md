@@ -33,16 +33,18 @@ Azure AD Application Proxy provides single sign-on (SSO) and secure remote acces
 
 ## Why is this a better solution?
 Azure AD App Proxy provides a simple, secure, and cost-effective remote access solution to all your on-premises applications.
-- App Proxy works in the cloud, so you can save time and money compared to DMZs or edge servers that require complex on-premises infrastructures.
-- When you publish your apps through Azure AD, they automatically get access to the rich authorization controls and security analytics in Azure. This means  you get advanced security capabilities for all your existing apps without having to change any app.
-- Single sign-on gives your end users the ease and simplicity of access to all the apps they need to be productive.
+
+- App Proxy works in the cloud, so you can save time and money compared to DMZs or edge servers that require complex on-premises infrastructures.  
+- When you publish your apps through Azure AD, they automatically get access to the rich authorization controls and security analytics in Azure. This means  you get advanced security capabilities for all your existing apps without having to change any app.  
+- Single sign-on gives your end users the ease and simplicity of access to all the apps they need to be productive.  
 
 ## What kind of applications work with Azure AD App Proxy?
 With Azure AD app proxy you can access different types of internal applications:
-- Web applications that use Integrated Windows Authentication for authentication
-- Web applications that use form-based access
-- Web APIs that you want to expose to rich applications on different devices
-- Applications hosted behind a Remote Desktop Gateway
+
+- Web applications that use Integrated Windows Authentication for authentication  
+- Web applications that use form-based access  
+- Web APIs that you want to expose to rich applications on different devices  
+- Applications hosted behind a Remote Desktop Gateway  
 
 ## How does it work?
 App Proxy works with three basic steps. First, connectors are deployed on the on-premises network. Then, the connector connects to the cloud service.
