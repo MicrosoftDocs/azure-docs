@@ -48,7 +48,7 @@ Now that you have the lastest version of SSDT, you are ready to [connect][] to y
 
 <!--Image references-->
 
-<!--Arcticles-->
+<!--Articles-->
 [connect]: ./sql-data-warehouse-get-started-connect.md
 
 <!--Other-->
