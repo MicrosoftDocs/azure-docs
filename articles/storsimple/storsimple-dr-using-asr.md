@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/16/2016"
    ms.author="vidarmsft" />
 
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
@@ -200,7 +200,8 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 	-   Uninstall custom script extension in Azure VM
 
-	![](./media/storsimple-dr-using-asr/image4.png)
+		![](./media/storsimple-dr-using-asr/image4.png)
+
 
 1.  Publish all the scripts by selecting the runbook in the automation account and going to **Author** tab. After this step, the **Runbooks** tab will appear as follows:
 
@@ -240,23 +241,24 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 	![](./media/storsimple-dr-using-asr/image6.png)
 
-	1.  Go to the **Recovery Services** section and select the Azure Site Recovery vault that you created earlier.
 
-	2.  Select the **Recovery Plans** tab and create a new recovery plan as follows:
+1.  Go to the **Recovery Services** section and select the Azure Site Recovery vault that you created earlier.
 
-    	1.  Specify a name and select the appropriate **Protection Group**.
+2.  Select the **Recovery Plans** tab and create a new recovery plan as follows:
 
-    	2.  Select the VMs from the protection group that you want to include in the recovery plan.
+	a.  Specify a name and select the appropriate **Protection Group**.
 
-    	3.  After the recovery plan is created, select it to open the Recovery plan customization view.
+	b.  Select the VMs from the protection group that you want to include in the recovery plan.
 
-    	4.  Select **All groups shutdown**, click **Script**, and choose **Add a primary side script before all Group shutdown**.
+	c.  After the recovery plan is created, select it to open the Recovery plan customization view.
 
-    	5.  Select the automation account (in which you added the runbooks) and then select the **Fail over-StorSimple-Volume-Containers** runbook.
+	d.  Select **All groups shutdown**, click **Script**, and choose **Add a primary side script before all Group shutdown**.
 
-    	6.  Click **Group 1: Start**, choose **Virtual Machines**, and add the VMs that are to be protected in the recovery plan.
+	e.  Select the automation account (in which you added the runbooks) and then select the **Fail over-StorSimple-Volume-Containers** runbook.
 
-    7.  Click **Group 1: Start**, choose **Script**, and add all the following scripts in order as **After Group 1** steps.
+	f.  Click **Group 1: Start**, choose **Virtual Machines**, and add the VMs that are to be protected in the recovery plan.
+
+    g.  Click **Group 1: Start**, choose **Script**, and add all the following scripts in order as **After Group 1** steps.
 
 		-   Start-StorSimple-Virtual-Appliance runbook
 
@@ -266,13 +268,13 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
 		-   Uninstall-custom-script-extension runbook
 
-    1.  Add a manual action after the above 4 scripts in the same **Group 1: Post-steps** section. This action is the point at which you can verify that everything is working correctly. This action needs to be added only as a part of test failover (so only select the **Test Failover** checkbox).
+1.  Add a manual action after the above 4 scripts in the same **Group 1: Post-steps** section. This action is the point at which you can verify that everything is working correctly. This action needs to be added only as a part of test failover (so only select the **Test Failover** checkbox).
 
-    2.  After the manual action, add the Cleanup script using the same procedure that you used for the other runbooks. Save the recovery plan.
+2.  After the manual action, add the Cleanup script using the same procedure that you used for the other runbooks. Save the recovery plan.
 
-		> [AZURE.NOTE] When running a test failover, you should verify everything at the manual action step because the StorSimple volumes that had been cloned on the target device will be deleted as a part of the cleanup after the manual action is completed.
+	> [AZURE.NOTE] When running a test failover, you should verify everything at the manual action step because the StorSimple volumes that had been cloned on the target device will be deleted as a part of the cleanup after the manual action is completed.
 
-		![](./media/storsimple-dr-using-asr/image7.png)
+	![](./media/storsimple-dr-using-asr/image7.png)
 
 ## Perform a test failover
 
@@ -288,7 +290,7 @@ Refer to the [Active Directory DR Solution](../site-recovery/site-recovery-activ
 
 3.  Select the virtual network to start the test failover process.
 
-![](./media/storsimple-dr-using-asr/image8.png)
+	![](./media/storsimple-dr-using-asr/image8.png)
 
 1.  When the secondary environment is up, you can perform your validations.
 
@@ -348,11 +350,6 @@ During a failback, StorSimple volume containers are failed over back to the phys
 
 ### Capacity planning and readiness assessment
 
-Capacity planning is made up of at least two important processes:
-
--   Mapping on-premises Hyper-V VMs to Azure VM sizes (such as A6, A7, A8, and A9).
-
--   Determining the required Internet bandwidth.
 
 #### Hyper-V site
 
@@ -362,6 +359,12 @@ Use the [User Capacity planner tool](http://www.microsoft.com/download/details.a
 
 You can run the [Azure Virtual Machine Readiness Assessment tool](http://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery Services. The Readiness Assessment Tool checks VM configurations and warns when configurations are incompatible with Azure. For example, it issues a warning if a C: drive is larger than 127 GB.
 
+
+Capacity planning is made up of at least two important processes:
+
+-   Mapping on-premises Hyper-V VMs to Azure VM sizes (such as A6, A7, A8, and A9).
+
+-   Determining the required Internet bandwidth.
 
 ## Limitations
 
@@ -396,6 +399,7 @@ You can run the [Azure Virtual Machine Readiness Assessment tool](http://azure.m
 	> [AZURE.IMPORTANT] Sync the appliance time with the current time in the time zone.
 
 - Appliance failover error: The StorSimple script might fail if there is an appliance failover when the recovery plan is running.
+	
 	> [AZURE.IMPORTANT] Rerun the recovery plan after the appliance failover is complete.
 
 ## Summary
