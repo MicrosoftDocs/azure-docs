@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/04/2016"
+   ms.date="05/16/2016"
    ms.author="stuartle;tomfitz"/>
 
 # Use Azure Resource Explorer to view and modify resources
@@ -67,7 +67,7 @@ The PowerShell tab in Resource Explorer shows you the cmdlets to use to interact
 
 ![PowerShell](./media/resource-manager-resource-explorer/are-07-powershell.png)
 
-For more information on The Azure PowerShell cmdlets, see [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
+For more information on The Azure PowerShell cmdlets, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
 
 ## Summary
 When working with ARM, the Resource Explorer can be an extremely useful tool. It is a great way to find ways to use PowerShell to query and make changes. If you're working with the REST API it is a great way to get started and quickly test API calls before you start writing code. And if you're writing ARM templates it can be a great way to understand the resource hierarchy and find where to put configuration - you can make a change in the Portal and then find the corresponding entries in Resource Explorer!
