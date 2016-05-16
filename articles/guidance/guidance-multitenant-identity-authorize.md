@@ -19,6 +19,8 @@
 
 # Role-based and resource-based authorization in multitenant applications
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 Our  [reference implementation] is an ASP.NET Core 1.0 application. In this article we'll look at two general approaches to authorization, using the authorization APIs provided in ASP.NET Core 1.0.
