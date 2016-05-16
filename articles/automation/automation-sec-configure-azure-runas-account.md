@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/11/2016"
+    ms.date="05/16/2016"
     ms.author="magoedte"/>
 
 # Authenticate Runbooks with Azure Run As account
@@ -193,7 +193,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 5. In the **Edit PowerShell Runbook** blade, paste the following code on the canvas:<br>
 
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
     ```  
@@ -213,7 +213,8 @@ Next we will perform a small test to confirm you are able to successfully authen
 You can use the updated sample code below, taken from the AzureAutomationTutorial example runbook, to authenticate using the Run As account to manage ARM resources with your runbooks. 
 
    ```
-   connectionName = "AzureRunAsConnection"
+   $connectionName = "AzureRunAsConnection"
+   $SubId = Get-AutomationVariable -Name 'SubscriptionId'
    try
    {
       # Get the connection "AzureRunAsConnection "
@@ -225,9 +226,8 @@ You can use the updated sample code below, taken from the AzureAutomationTutoria
          -TenantId $servicePrincipalConnection.TenantId `
          -ApplicationId $servicePrincipalConnection.ApplicationId `
          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-
-      $SubscriptionId = Get-AutomationVariable -Name 'SubscriptionId'
-      Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+	  "Setting context to a specific subscription"	 
+	  Set-AzureRmContext -SubscriptionId $SubId	 		 
    }
    catch {
        if (!$servicePrincipalConnection)
@@ -241,8 +241,7 @@ You can use the updated sample code below, taken from the AzureAutomationTutoria
    } 
    ```
 
-The script includes two additional lines of code to support referencing the subscription context so you can easily work between multiple subscriptions. A variable asset named **SubscriptionId** contains the ID of the subscription and if that's too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easier to identify for your purposes.  Alternatively, you can also use the argument *SubscriptionName* instead of *SubscriptionId* with a corresponding variable asset.
-
+The script includes two additional lines of code to support referencing a subscription context so you can easily work between multiple subscriptions. A variable asset named SubscriptionId contains the ID of the subscription, and after the Add-AzureRmAccount cmdlet statement, the [Set-AzureRmContext cmdlet](https://msdn.microsoft.com/en-us/library/mt619263.aspx) is stated with the parameter set *-SubscriptionId*. If the variable name is too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easier to identify for your purposes. Alternatively, you can use the parameter set -SubscriptionName instead of -SubscriptionId with a corresponding variable asset.  
 
 ## Next Steps
 - For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
