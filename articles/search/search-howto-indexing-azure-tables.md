@@ -36,7 +36,7 @@ To set up table indexing:
 	- Specify the table name using the `container.name` parameter
 	- Optionally, specify a query using the `container.query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables.
 2. Create a search index with the schema that corresponds to the columns in the table that you want to index. 
-3. Create the indexer by connecting your data source to an existing target index.
+3. Create the indexer by connecting your data source to the search index.
 
 ### Create data source
 
