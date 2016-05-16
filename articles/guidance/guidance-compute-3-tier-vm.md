@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running Windows VMs for an N-tier architecture | Blueprint | Microsoft Azure"
+   pageTitle="Running Windows VMs for an N-tier architecture | Reference Architecture | Microsoft Azure"
    description="How to implement a multi-tier architecture on Azure, paying particular attention to availability, security, scalability, and manageability security."
    services=""
    documentationCenter="na"
@@ -18,6 +18,8 @@
    ms.author="mikewasson"/>
 
 # Running Windows VMs for an N-tier architecture on Azure
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article outlines a set of proven practices for running Windows VMs for an application with a N-tier architecture.
 
