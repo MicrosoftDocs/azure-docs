@@ -37,10 +37,11 @@ An Azure storage account provides storage for the operating system disk and any 
 
 ## How can I access my virtual machine?
 
-You need to establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). For instructions, see [How to Use SSH with Linux and Mac on Azure](virtual-machines-linux-use-ssh-key.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+You need to establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](virtual-machines-linux-ssh-from-windows.md) or 
+[from Linux and Mac](virtual-machines-linux-ssh-from-linux.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
 
-If you’re having problems with Remote Desktop or SSH, check out [Troubleshoot Secure Shell (SSH) connections](virtual-machines-linux-troubleshoot-ssh-connection.md).
+If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connections](virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## Can I use the temporary disk (/dev/sdb1) to store data?
 
@@ -48,9 +49,9 @@ You shouldn’t use the temporary disk (/dev/sdb1) to store data. It is only the
 
 
 
-## Why am I not seeing Canada Central and Canada East regions as available locations for virtual machines through Azure Resource Manager?
+## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 
-A: The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration will be done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region the new regions should be available for subsequent virtual machines.
+The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration will be done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region the new regions should be available for subsequent virtual machines.
 
 
 
