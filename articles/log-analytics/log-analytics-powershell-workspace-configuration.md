@@ -13,19 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="powershell"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="05/16/2016"
 	ms.author="richrund"/>
 
-# Use PowerShell to Create and Configure a Log Analytics Workspace
+# Manage Log Analytics using PowerShell
 
-Using PowerShell you can programmatically create and configure Log Analytics workspaces. 
-Examples of the tasks you can perform with PowerShell include:
+You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/library/mt188224.aspx) to perform a variety of functions in Log Analytics from a command line or as part of a script.  Examples of the tasks you can perform with PowerShell include:
 
 + Create a workspace
 + Add or remove a solution
 + Import and export saved searches
 + Add a the log analytics agent to an Azure virtual machine
 + Configure log analytics to index data collected using Azure diagnostics
+
+This article provides two code samples that illustrate some of the functions that you can perform from PowerShell.  You can refer to the [Log Analytics PowerShell cmdlet reference](http://msdn.microsoft.com/library/mt188224.aspx) for other functions.
+
+> [AZURE.NOTE] Log Analytics was previously called Operational Insights which is why this is the name used in the cmdlets.
+
+## Prerequisites
 
 To use PowerShell with your Log Analytics workspace you must have:
 
