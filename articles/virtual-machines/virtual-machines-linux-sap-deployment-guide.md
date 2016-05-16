@@ -268,7 +268,7 @@
 [virtual-networks-udr-overview]:../virtual-network/virtual-networks-udr-overview.md
 [resource-group-overview]:../resource-group-overview.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
-[virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image-resource-manager.md
+[virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image.md
 [virtual-networks-nsg]:virtual-networks-nsg.md
 [storage-premium-storage-preview-portal]:storage-premium-storage-preview-portal.md
 [storage-introduction]:storage-introduction.md
