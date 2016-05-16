@@ -274,7 +274,7 @@
 [virtual-networks-nsg]:virtual-networks-nsg.md
 [storage-premium-storage-preview-portal]:storage-premium-storage-preview-portal.md
 [storage-introduction]:storage-introduction.md
-[virtual-machines-upload-image-windows-resource-manager]:virtual-machines-upload-image-windows-resource-manager.md
+[virtual-machines-upload-image-windows-resource-manager]:virtual-machines-windows-upload-image.md
 [virtual-machines-azure-resource-manager-architecture]:virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]:virtual-networks-create-vnet-arm-pportal.md
