@@ -17,4 +17,4 @@
  ms.date="05/16/2016"
  ms.author="yurid"/>
  
-[AZURE.INCLUDE [iot-security-architecure](../includes/iot-security-architecure.md)]
+[AZURE.INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]

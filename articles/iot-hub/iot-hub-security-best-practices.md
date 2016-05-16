@@ -17,4 +17,4 @@
  ms.date="05/16/2016"
  ms.author="yurid"/>
  
-[AZURE.INCLUDE [iot-security-best-practices](../includes/iot-security-best-practices.md)]
+[AZURE.INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
