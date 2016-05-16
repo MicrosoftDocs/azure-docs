@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="02/18/2016" />
+	ms.date="05/16/2016" />
 
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
@@ -53,7 +53,7 @@ To give you an idea of what a scoring profile looks like, the following example 
 
 To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter, `scoringProfile=geo` in the request.
 
-    GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
 This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](search-api-2015-02-28-preview/#SearchDocs).
 
@@ -106,8 +106,8 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
 	      "name": "boostGenre",
           "text": {
             "weights": {
-              "albumTitle": 1,
-              "genre": 5 ,
+              "albumTitle": 1.5,
+              "genre": 5,
               "artistName": 2
             }
           }
@@ -148,7 +148,7 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
     }
 
 
-##Workflow
+## Workflow
 
 To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have multiple scoring profiles within an index, but you can only specify one profile at time in any given query.
 
@@ -167,7 +167,7 @@ The body of the scoring profile is constructed from weighted fields and function
         <b>Weights</b>
       </td>
       <td>
-        Specify name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1, 5, and null, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+        Specify name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1.5, 5, and 2, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
       </td>
     </tr>
     <tr>
@@ -204,7 +204,7 @@ The body of the scoring profile is constructed from weighted fields and function
 After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview/#createindex) and [Add or Update Documents](search-api-2015-02-28-preview/#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 <a name="bkmk_template"></a>
-##Template
+## Template
 This section shows the syntax and template for scoring profiles. Refer to [Index attribute reference](#bkmk_indexref) in the next section for descriptions of the attributes.
 
     ...
@@ -258,7 +258,7 @@ This section shows the syntax and template for scoring profiles. Refer to [Index
     ...
 
 <a name="bkmk_indexref"></a>
-##Index attributes reference
+## Index attributes reference
 
 **Note**
 A scoring function can only be applied to fields that are filterable.
@@ -273,7 +273,7 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>Text</td>	<td>Contains the Weights property.</td>
 </tr><tr>
-<td>Weights</td>	<td>Optional. A name-value pair that specifies a field name and relative weight. Relative weight must be a positive integer. The maximum value is int32.MaxValue. You can specify the field name without a corresponding weight. Weights are used to indicate the importance of one field relative to another.</td>
+<td>Weights</td>	<td>Optional. A name-value pair that specifies a field name and relative weight. Relative weight must be a positive integer or floating-point number. You can specify the field name without a corresponding weight. Weights are used to indicate the importance of one field relative to another.</td>
 <tr>
 <td>Functions</td>	<td>Optional. Note that a scoring function can only be applied to fields that are filterable.</td>
 </tr><tr>
@@ -295,9 +295,9 @@ A scoring function can only be applied to fields that are filterable.
 <br>
 - Download counts: For applications that track downloads, the magnitude function lets you boost items that have the most downloads.
 <tr>
-<td>magnitude | boostingRangeStart</td>	<td>Sets the start value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50.</td>
+<td>magnitude | boostingRangeStart</td>	<td>Sets the start value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50.</td>
 </tr><tr>
-<td>magnitude | boostingRangeEnd</td>	<td>Sets the end value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 4.</td>
+<td>magnitude | boostingRangeEnd</td>	<td>Sets the end value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 4.</td>
 </tr><tr>
 <td>magnitude | constantBoostBeyondRange</td>	<td>Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range.</td>
 </tr><tr>
@@ -305,13 +305,13 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>freshness | boostingDuration</td>	<td>Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration ][#bkmk_boostdur] in the following section for syntax and examples.</td>
 </tr><tr>
-<td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
+<td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameter` query parameter) as a lon,lat argument.</td>
 </tr><tr>
 <td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview/#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>A number that indicates the distance in kilometers from the reference location where the boosting range ends.</td>
 </tr><tr>
-<td>tag</td>	<td>The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameterquery` string option).</td>
+<td>tag</td>	<td>The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameter` query parameter).</td>
 </tr><tr>
 <td>tag | tagsParameter</td>	<td>A parameter to be passed in queries to specify tags for a particular request. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview/#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
@@ -323,7 +323,7 @@ A default scoring profile name can be set here, causing Azure Search to use that
 </table>
 
 <a name="bkmk_interpolation"></a>
-##Set interpolations
+## Set interpolations
 
 Interpolations allow you to define the slope for which the score boosting increases from the start of the range to the end of the range. The following interpolations can be used:
 
@@ -339,13 +339,11 @@ Interpolations allow you to define the slope for which the score boosting increa
  ![][1]
 
 <a name="bkmk_boostdur"></a>
-##Set boostingDuration
+## Set boostingDuration
 
 `boostingDuration` is an attribute of the freshness function. You use it to set an expiration period after which boosting will stop for a particular document. For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents. Or to boost upcoming events in the next week specify "-P7D".
 
-`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is:
-
-     [-]P[nD][T[nH][nM][nS]]
+`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is: `[-]P[nD][T[nH][nM][nS]]`.
 
 The following table provides several examples.
 

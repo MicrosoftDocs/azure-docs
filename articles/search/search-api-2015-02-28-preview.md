@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="03/08/2016"
+   ms.date="05/16/2016"
    ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
 This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
-- `moreLikeThis` query parameter in [Search Documents](#SearchDocs) API. It finds other documents that are relevant to another specific document.
+- `moreLikeThis` query parameter in the [Search Documents](#SearchDocs) API. It finds other documents that are relevant to another specific document.
 
 A few additional parts of the `2015-02-28-Preview` REST API are documented separately. These include:
 
@@ -1062,35 +1062,112 @@ The body of the request contains one or more documents to be indexed. Documents 
 
 **Response**
 
-Status code: 200 OK is returned for a successful response, meaning that all items have been successfully indexed (as indicated by the 'status' field set to true for all items):
+Status code 200 (OK) is returned for a successful response, meaning that all items have been successfully indexed. This is indicated by the `status` field set to true for all items, as well as the `statusCode` being set to either 201 (for newly uploaded documents) or 200 (for merged or deleted documents):
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_new_document",
           "status": true,
-          "errorMessage": null
+          "errorMessage": null,
+          "statusCode": 201
+        },
+        {
+          "key": "unique_key_of_merged_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
+        },
+        {
+          "key": "unique_key_of_deleted_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
         }
       ]
     }  
 
-Status code: 207 is returned when at least one item was not successfully indexed (as indicated by the 'status' field set to false for items that have not been indexed):
+Status code 207 (Multi-Status) is returned when at least one item was not successfully indexed. Items that have not been indexed have the `status` field set to false. The `errorMessage` and `statusCode` properties will indicate the reason for the indexing error:
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_document_1",
           "status": false,
-          "errorMessage": "The search service is too busy to process this document. Please try again later."
+          "errorMessage": "The search service is too busy to process this document. Please try again later.",
+          "statusCode": 503
+        },
+        {
+          "key": "unique_key_of_document_2",
+          "status": false,
+          "errorMessage": "Document not found.",
+          "statusCode": 404
+        },
+        {
+          "key": "unique_key_of_document_3",
+          "status": false,
+          "errorMessage": "Index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'. Please try again later.",
+          "statusCode": 422
         }
       ]
     }  
 
-The `errorMessage` property will indicate the reason for the indexing error if possible.
+The following table explains the various per-document status codes that can be returned in the response. Note that some indicate problems with the request itself, while others indicate temporary error conditions. The latter you should retry after a delay.
 
-**Note**: If your client code frequently encounters a 207 response, one possible reason is that the system is under load. You can confirm this by checking the `errorMessage` property. If this is the case, we recommend ***throttling indexing requests***. Otherwise, if indexing traffic doesn't subside, the system could start rejecting all requests with 503 errors.
+<table style="font-size:12">
+    <tr>
+		<th>Status code</th>
+		<th>Meaning</th>
+		<th>Retryable</th>
+		<th>Notes</th>
+	</tr>
+    <tr>
+		<td>200</td>
+		<td>Document was successfully modified or deleted.</td>
+		<td>n/a</td>
+		<td>Delete operations are <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>. That is, even if a document key does not exist in the index, attempting a delete operation with that key will result in a 200 status code.</td>
+	</tr>
+    <tr>
+		<td>201</td>
+		<td>Document was successfully created.</td>
+		<td>n/a</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>400</td>
+		<td>There was an error in the document that prevented it from being indexed.</td>
+		<td>No</td>
+		<td>The error message in the response will indicate what is wrong with the document.</td>
+	</tr>
+    <tr>
+		<td>404</td>
+		<td>The document could not be merged because the given key doesn't exist in the index.</td>
+		<td>No</td>
+		<td>This error does not occur for uploads since they create new documents, and it does not occur for deletes because they are <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>.</td>
+	</tr>
+    <tr>
+		<td>409</td>
+		<td>A version conflict was detected when attempting to index a document.</td>
+		<td>Yes</td>
+		<td>This can happen when you're trying to index the same document more than once concurrently.</td>
+	</tr>
+    <tr>
+		<td>422</td>
+		<td>The index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'.</td>
+		<td>Yes</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>503</td>
+		<td>Your search service is temporarily unavailable, possibly due to heavy load.</td>
+		<td>Yes</td>
+		<td>Your code should wait before retrying in this case or you risk prolonging the service unavailability.</td>
+	</tr>
+</table> 
 
-Status code: 429 indicates that you have exceeded your quota on the number of documents per index. You must either create a new index or upgrade for higher capacity limits.
+**Note**: If your client code frequently encounters a 207 response, one possible reason is that the system is under load. You can confirm this by checking the `statusCode` property for 503. If this is the case, we recommend ***throttling indexing requests***. Otherwise, if indexing traffic doesn't subside, the system could start rejecting all requests with 503 errors.
+
+Status code 429 indicates that you have exceeded your quota on the number of documents per index. You must either create a new index or upgrade for higher capacity limits.
 
 **Example:**
 
@@ -1252,9 +1329,13 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 
 `scoringProfile=[string]` (optional) - The name of a scoring profile to evaluate match scores for matching documents in order to sort the results.
 
-`scoringParameter=[string]` (zero or more) - Indicates the value for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format name:value. For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be &scoringParameter=mylocation:-122.2,44.8
+`scoringParameter=[string]` (zero or more) - Indicates the values for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format `name-value1,value2,...`.
 
-> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `scoringParameters` instead of `scoringParameter`. Also, you specify it as a JSON array of strings where each string is a separate name:value pair.
+- For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be `&scoringParameter=mylocation--122.2,44.8`. The first dash separates the name from the value list, while the second dash is part of the first value (longitude in this example).
+- For scoring parameters such as for tag boosting that can contain commas, you can escape any such values in the list using single quotes. If the values themselves contain single quotes, you can escape them by doubling.
+  - For example, if you have a tag boosting parameter called "mytag" and you want to boost on the tag values "Hello, O'Brien" and "Smith", the query string option would be `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Note that quotes are only required for values that contain commas.
+
+> [AZURE.NOTE] When calling **Search** using POST, this parameter is named `scoringParameters` instead of `scoringParameter`. Also, you specify it as a JSON array of strings where each string is a separate `name-values` pair.
 
 `minimumCoverage` (optional, defaults to 100) - a number between 0 and 100 indicating the percentage of the index that must be covered by a search query in order for the query to be reported as a success. By default, the entire index must be available or `Search` will return HTTP status code 503. If you set `minimumCoverage` and `Search` succeeds, it will return HTTP 200 and include a `@search.coverage` value in the response indicating the percentage of the index that was included in the query.
 
@@ -1501,13 +1582,13 @@ Note that you can only query one index at a time. Do not create multiple indexes
 13) Search the index assuming there's a scoring profile called "geo" with two distance scoring functions, one defining a parameter called "currentLocation" and one defining a parameter called "lastLocation"
 
 
-    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&scoringParameter=lastLocation--121.499,44.2113&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
       "scoringProfile": "geo",
-      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+      "scoringParameters": [ "currentLocation--122.123,44.77233", "lastLocation--121.499,44.2113" ]
     }
 
 14) Find documents in the index using [simple query syntax](https://msdn.microsoft.com/library/dn798920.aspx). This query returns hotels where searchable fields contain the terms "comfort" and "location" but not "motel":
