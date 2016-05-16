@@ -22,9 +22,15 @@
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to a Universal Windows Platform (UWP) app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
+This tutorial shows you how to add a cloud-based backend service to a Universal Windows Platform (UWP) app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md). The following are screen captures from the completed app:
 
-[AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
+![Completed desktop app](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
+Running on a desktop. 
+
+![Completed phone app](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)  
+Running on a phone
+
+Completing this tutorial is a prerequisite for all other Mobile App tutorials for UWP apps. 
 
 ##Prerequisites
 
