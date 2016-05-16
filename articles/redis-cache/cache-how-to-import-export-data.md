@@ -59,16 +59,27 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
     ![Import data][cache-import-data]
 
-
+2. Click **Choose Blob(s)** and select the storage account that contains the data to import.
 
     ![Choose storage account][cache-import-choose-storage-account]
 
+3. Click the container that contains the data to import.
 
     ![Choose container][cache-import-choose-container]
 
+4. Select one or more blobs to import by clicking the area to the left of the blob name, and then click **Select**.
 
+    ![Choose blobs][cache-import-choose-blobs]
 
+5. Click **Import** to begin the import process.
 
+    >[AZURE.IMPORTANT] The cache is not accessible by cache clients during the import process, and any existing data in the cache is erased.
+
+    ![Import][cache-import-blobs]
+
+    You can monitor the progress of the export operation by following the notifications from the Azure Portal.
+
+    ![Import progress][cache-import-data-import-complete] 
 
 ## Import/Export FAQ
 
@@ -84,16 +95,10 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 [cache-import-data]: ./media/cache-how-to-import-export-data/cache-import-data.png
 [cache-import-choose-storage-account]: ./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png
 [cache-import-choose-container]: ./media/cache-how-to-import-export-data/cache-import-choose-container.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
-[]: ./media/cache-how-to-import-export-data/.png
+[cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
+[cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
+[cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+
 
 
 
