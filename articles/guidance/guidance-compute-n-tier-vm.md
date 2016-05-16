@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running VMs for an N-tier architecture (Windows) | Blueprint | Microsoft Azure"
+   pageTitle="Running VMs for an N-tier architecture (Windows) | Reference Architecture | Microsoft Azure"
    description="How to run Windows VMs for an N-tier architecture in Microsoft Azure."
    services=""
    documentationCenter="na"
@@ -17,8 +17,9 @@
    ms.date="05/02/2016"
    ms.author="mikewasson"/>
 
-
 # Adding reliability to an N-tier architecture on Azure (Windows VMs)
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article outlines a set of proven practices for running a reliable N-tier architecture in Microsoft Azure. This article builds on a previous article that shows a basic [N-tier architecture on Azure][blueprints-3-tier]. In this article, we include some additional components that can increase the reliability of the application:
 

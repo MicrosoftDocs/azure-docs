@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor="jwhit"
+    editor=""
 	keywords="azure powershell, powershell script tutorial, powershell automation"/>
 <tags
     ms.service="automation"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/13/2016"
     ms.author="magoedte;sngun"/>
 
 # My first PowerShell runbook
@@ -106,7 +106,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
     ``` 
 <br>
 4.	Click **Test pane** so that we can test the runbook.
-5.	Click **Start** to start the test. Once it completes, you should receive output containing the Environment and Subscription ID of your account. This confirms that the credential is valid.
+5.	Click **Start** to start the test. Once it completes, you should receive output displaying basic information from your account. This confirms that the credential is valid. <br> ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-results.png)
 
 ## Step 6 - Add code to start a virtual machine
 
