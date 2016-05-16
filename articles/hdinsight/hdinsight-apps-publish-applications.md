@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/11/2016"
+   	ms.date="05/16/2016"
    	ms.author="jgao"/>
 
 # Publish HDInsight applications into the Azure Marketplace
@@ -28,7 +28,7 @@ Other HDInsight application related article:
 - [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to install and test custom HDInsight applications.
 
  
-### Prerequisites
+## Prerequisites
 
 In order to submit your custom application to the marketplace, you must have created and tested your custom application. See the following articles:
 
