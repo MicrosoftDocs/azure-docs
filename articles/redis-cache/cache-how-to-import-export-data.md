@@ -36,7 +36,7 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
     ![Storage account][cache-export-data-choose-account]
 
-3. Choose the desired blob container and click **Select**. To create a container click **Add Container**.
+3. Choose the desired blob container and click **Select**. To use new a container, click **Add Container** to add it first and then select it from the list.
 
     ![Choose storage container][cache-export-data-container]
 
@@ -44,7 +44,7 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
     ![Export][cache-export-data]
 
-    You can monitor the progress of the export operation by following the notifications from the Azure Portal.
+    You can monitor the progress of the export operation by following the notifications from the Azure Portal or by viewing the events in the [audit log](cache-configure.md#support-amp-troubleshooting-settings).
 
     ![][cache-export-data-export-in-progress]
 
@@ -77,7 +77,7 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
     ![Import][cache-import-blobs]
 
-    You can monitor the progress of the export operation by following the notifications from the Azure Portal.
+    You can monitor the progress of the export operation by following the notifications from the Azure Portal or by viewing the events in the [audit log](cache-configure.md#support-amp-troubleshooting-settings).
 
     ![Import progress][cache-import-data-import-complete] 
 
