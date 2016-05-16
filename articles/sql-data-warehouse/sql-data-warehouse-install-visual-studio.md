@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="05/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Install Visual Studio 2015 and SSDT for SQL Data Warehouse
@@ -26,19 +26,19 @@ Additionally, **Microsoft SQL Server Update for database tooling** is needed to 
 
 ## Step 1: Install Visual Studio 2015
 
-Follow these links to download and install Visual Studio 2015. If you already have Visual Studion 2013 or 2015 installed, you can skip to installing SSDT.
+Follow these links to download and install Visual Studio 2015. If you already have Visual Studio 2013 or 2015 installed, you can skip to Step 2, install SSDT.
 
 1. [Download Visual Studio 2015][] from Visual Studio Team Services.
-2. Install by following the [Installing Visual Studio][] guide on MSDN and choose the default configurations.
+2. Follow the [Installing Visual Studio][] guide on MSDN and choose the default configurations.
 
 ## Step 2: Install SSDT
 
-To install SSDT for Visual Studio simply check for an update from within Visual Studio by following these steps.
+To install SSDT for Visual Studio simply check for an SSDT update from within Visual Studio by following these steps.
 
-1. Click on *Tools* / *Extensions and Updates…* / *Updates* 
-2. Select *Product Updates* and then look for *Microsoft SQL Server Update for database tooling*
+1. In Visual Studio click on **Tools** / **Extensions and Updates…** / **Updates**
+2. Select **Product Updates** and then look for **Microsoft SQL Server Update for database tooling**
 
-If an update is not found, then you have the latest version installed already to confirm SSDT is installed, click on *Help* / *About Microsoft Visual Studio* and look for SQL Server Data Tools in the list.
+If an update is not found, then you have the latest version installed.  To confirm SSDT is installed, click on **Help** / **About Microsoft Visual Studio** and look for SQL Server Data Tools in the list.
 
 ## Next steps
 
