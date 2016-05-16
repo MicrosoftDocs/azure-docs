@@ -371,7 +371,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourc
     -H "Content-Type: application/json" \
     -d $'{
 "location": "DataCenterLocation"
-}’
+}'
 ```
 
 If this request is successful, you will receive a 200 series response and the response body will contain a JSON document containing information about the group. The `"provisioningState"` element will contain a value of `"Succeeded"`.
@@ -393,7 +393,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 
 > [AZURE.NOTE] If you have saved the JSON document containing the template and parameters to a file, you can use the following instead of `-d "{ template and parameters}"`:
 >
-> ```--data-binary "@/path/to/file.json"```
+> `--data-binary "@/path/to/file.json"`
 
 If this request is successful, you will receive a 200 series response and the response body will contain a JSON document containing information about the deployment operation.
 
