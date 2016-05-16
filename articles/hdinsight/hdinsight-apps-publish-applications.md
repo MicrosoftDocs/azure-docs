@@ -65,7 +65,7 @@ Create a zip file that contains all required files for installing your HDInsight
 - mainTemplate.json. See a sample at [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 - All required scripts.
 
-[AZURE.NOTE] The application files (including web appliation files if there is any) can be located on any publicly accessible endpoint.
+> [AZURE.NOTE] The application files (including web appliation files if there is any) can be located on any publicly accessible endpoint.
 
 ## Publish application
 
