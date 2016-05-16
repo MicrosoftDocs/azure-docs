@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/31/2016"
+   ms.date="05/16/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Use Elasticsearch as a Service Fabric application trace store
@@ -36,7 +36,7 @@ Below, we describe how to set up Elasticsearch on Azure, discuss the pros and co
 ## Set up Elasticsearch on Azure
 The most straightforward way to set up the Elasticsearch service on Azure is through [**Azure Resource Manager templates**](../resource-group-overview.md). A comprehensive [Quickstart Azure Resource Manager template for Elasticsearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure Quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes). It can also provision separate client and server nodes with different configurations and various numbers of data disks attached.
 
-Here, we will use another template, called **ES-MultiNode** from the [Microsoft patterns and practices ELK branch](https://github.com/mspnp/semantic-logging/tree/elk/). This template is somewhat easier to use, and it creates an Elasticsearch cluster protected by HTTP basic authentication by default. Before you proceed, please download the [Microsoft patterns and practices ELK repository](https://github.com/mspnp/semantic-logging/tree/elk/) from GitHub to your machine (by either cloning the repository or downloading a zip file). The ES-MultiNode template is located in the folder with the same name.
+Here, we will use another template, called **ES-MultiNode** from the [Azure diagnostic tools repository](https://github.com/Azure/azure-diagnostics-tools). This template is somewhat easier to use, and it creates an Elasticsearch cluster protected by HTTP basic authentication. Before you proceed, please download the repository from GitHub to your machine (by either cloning the repository or downloading a zip file). The ES-MultiNode template is located in the folder with the same name.
 
 ### Prepare a machine to run Elasticsearch installation scripts
 The easiest way to use the ES-MultiNode template is through a provided Azure PowerShell script called `CreateElasticSearchCluster`. To use this script, you need to install PowerShell modules and a tool called **openssl**. The latter is needed for creating an SSH key that can be used to administer your Elasticsearch cluster remotely.
@@ -71,12 +71,12 @@ Before you run the script, open the `azuredeploy-parameters.json` file and verif
 |dataDiskSize            |The size of data disks (in GB) that will be allocated for each data node. Each node will receive 4 data disks, exclusively dedicated to Elastic Search service.|
 |region                  |The name of Azure region where the Elastic Search cluster should be located.|
 |esUserName              |The user name of the user that will be configured to have access to ES cluster (subject to HTTP basic authentication). The password is not part of parameters file and must be provided when `CreateElasticSearchCluster` script is invoked.|
-|vmSizeDataNodes         |The Azure virtual machine size for Elastic Search cluster nodes. Defaults to Standard_D1.|
+|vmSizeDataNodes         |The Azure virtual machine size for Elastic Search cluster nodes. Defaults to Standard_D2.|
 
 Now you are ready to run the script. Issue the following command:
 
 ```powershell
-CreateElasticSearchCluster -ResourceGroupName <es-group-name>
+CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-region> -EsPassword <es-password>
 ```
 
 where 

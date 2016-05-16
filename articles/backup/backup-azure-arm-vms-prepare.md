@@ -21,12 +21,12 @@
 # Prepare your environment to back up ARM virtual machines
 
 > [AZURE.SELECTOR]
-- [Prepare to back up ARM VMs](backup-azure-arm-vms-prepare.md)
-- [Prepare to back up Azure VMs](backup-azure-vms-prepare.md)
+- [Resource manager model](backup-azure-arm-vms-prepare.md)
+- [Classic model](backup-azure-vms-prepare.md)
 
 This article provides the steps for preparing your environment to back up an Azure Resource Manager (ARM) virtual machine (VM). The steps shown in the procedures use the Azure portal.  
 
-The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects both Classic-deployed or ARM-deployed VMs. You must use a Recovery Services vault to protect an ARM-deployed VM.
+The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects ** both Classic-deployed or ARM-deployed VMs** . You must use a Recovery Services vault to protect an ARM-deployed VM.
 
 >[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 
@@ -46,7 +46,7 @@ Before you prepare your environment, please understand the limitations.
 
 - Backing up virtual machines with more than 16 data disks is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
-- Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup. If you attempt to restore the VM before deleting the existing VM, the restore operation fails.
+- Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 - Cross-region backup and restore is not supported.
 - You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - You can back up virtual machines only for select operating system versions:
@@ -228,28 +228,49 @@ To use an HTTP proxy to communicating to the public Internet, follow these steps
 
 #### Step 1. Configure outgoing network connections
 
-To establish a machine-wide proxy configuration for any outgoing HTTP/HTTPS traffic, follow the instructions for the appropriate VM platform.
+###### For Windows machines
+This will setup proxy server configuration for Local System Account. 
 
-For Windows machines run the following command in an elevated command prompt:
+1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+2. Run following command from elevated prompt,
+
+     ```
+     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
+     ```
+     It will open internet explorer window.
+3. Go to Tools -> Internet Options -> Connections -> LAN settings.
+4. Verify proxy settings for System account. Set Proxy IP and port. 
+5. Close Internet Explorer.
+
+This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+   
+If you have setup a proxy server on a current user account(not a Local System Account), use the following script to apply them to SYSTEMACCOUNT:
 
 ```
-netsh winhttp set proxy http://<proxy IP>:<proxy port>
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
+>[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly. 
 
-For Linux machines: <br/>
-- Add the following line to the ```/etc/environment``` file:
+######For Linux machines 
 
-  ```
-  http_proxy=http://<proxy IP>:<proxy port>
-  ```
+Add the following line to the ```/etc/environment``` file:
 
-- Add the following lines to the ```/etc/waagent.conf``` file:
+```
+http_proxy=http://<proxy IP>:<proxy port>
+```
 
-  ```
-  HttpProxy.Host=<proxy IP>
-  HttpProxy.Port=<proxy port>
-  ```
+Add the following lines to the ```/etc/waagent.conf``` file:
+   
+```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
 
 #### Step 2. Allow incoming connections on the proxy server:
 
