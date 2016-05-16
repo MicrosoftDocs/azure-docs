@@ -246,7 +246,7 @@
 [storage-powershell-guide-full-copy-vhd]:storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-azure-cli-copy-blobs]:storage-azure-cli.md#copy-blobs
 [virtual-machines-linux-agent-user-guide]:virtual-machines-linux-agent-user-guide.md
-[virtual-machines-size-specs]:virtual-machines-size-specs.md
+[virtual-machines-size-specs]:virtual-machines-linux-sizes.md
 [virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-windows-sql-high-availability-dr.md
 [virtual-machines-sql-server-alwayson-availability-groups-powershell]:virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
@@ -280,7 +280,7 @@
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[virtual-machines-azurerm-versus-azuresm]:virtual-machines-azurerm-versus-azuresm.md
+[virtual-machines-azurerm-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 
 [install-extension-cli]:https://github.com/Azure/azure-linux-extensions/blob/master/AzureEnhancedMonitor/README.md
 
