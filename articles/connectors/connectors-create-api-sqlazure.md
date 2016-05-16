@@ -24,7 +24,7 @@ Connect to Azure SQL Database to manage your tables and rows, such as insert row
 The Azure SQL Database API can be be used from:
 
 - Logic apps (discussed in this topic)
-- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/en-us/tutorials/connections-list/ for the complete list))
+- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
