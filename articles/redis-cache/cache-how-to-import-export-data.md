@@ -18,7 +18,7 @@
 
 # How to import data into and export data from Azure Redis Cache
 
-Azure Redis Cache provides the capability to import and export a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account.
+Azure Redis Cache provides the capability to import and export a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. This article provides a guide for importing and exporting data with Azure Redis Cache and provides the answers to commonly asked questions.
 
 ![Import data and export data][cache-settings-import-export-menu]
 
