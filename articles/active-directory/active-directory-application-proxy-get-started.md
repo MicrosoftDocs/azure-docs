@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="05/16/2016"
 	ms.author="kgremban"/>
 
 # How to provide secure remote access to on-premises applications
@@ -22,14 +22,29 @@
 
 You want to provide access for remote users who have all kinds of devices – managed, and unmanaged; tablets, smartphones, and laptops. But providing secure access to a myriad of resources can be complex. In recent years, reverse proxies were a popular way to provide secure remote access, but they needed to be behind firewalls which were hard to secure and hard to make highly available.
 
-## Secure remote access in the cloud
-In a modern cloud environment, we take remote access to the next level using Application Proxy in Azure Active Directory (AD). Application Proxy is a feature of Azure AD that is supplied as a service, meaning that it’s easy to deploy and use. It integrates with Azure AD, the same identity platform that is used by Office 365.
+Employees today want to be productive at any place, at any time, and from any device. They want to work on their own devices, whether they be tablets, phones, or laptops. And they expect to be able to access all their applications: those in the cloud as well as other corporate apps on-premises. Providing access to on-premises applications has traditionally involved virtual private networks (VPNs), demilitarized zones (DMZs), or on-premises reverse proxies. Not only are these solutions complex and hard to make secure, but they are costly to setup and manage.
+
+There is a better way!
+
+A modern workforce in the mobile-first, cloud-first world needs a modern remote access solution. Azure AD Application Proxy is a feature of the Azure Active Directory Premium offering, and offers remote access as a service. That means it's easy to deploy, use, and manage.
 
 ## What is Azure Active Directory Application Proxy?
-Application Proxy provides single sign-on (SSO) and secure remote access for web applications hosted on-premises, such as SharePoint sites and Outlook Web Access. Your on-premises web applications can now be accessed the same way as your SaaS apps in Azure Active Directory, without the need for a VPN or changing the network infrastructure. Application Proxy lets you publish applications, and then employees can log into your apps from home or on their own devices, and authenticate through this cloud-based proxy.
+Azure AD Application Proxy provides single sign-on (SSO) and secure remote access for web applications hosted on-premises. This can include SharePoint sites, Outlook Web Access, or any other LOB web application you have. Your on-premises web applications can now be integrated with Azure AD, the same identity and control platform that is used by O365. End users can access your on-premises applications the same way they access O365 and other SaaS apps integrated with Azure AD, without the need for a VPN or changing the network infrastructure.
+
+## Why is this a better solution?
+Azure AD App Proxy provides a simple, secure, and cost-effective remote access solution to all your on-premises applications.
+- App Proxy works in the cloud, so you can save time and money compared to DMZs or edge servers that require complex on-premises infrastructures.
+- When you publish your apps through Azure AD, they automatically get access to the rich authorization controls and security analytics in Azure. This means  you get advanced security capabilities for all your existing apps without having to change any app.
+- Single sign-on gives your end users the ease and simplicity of access to all the apps they need to be productive.
+
+## What kind of applications work with Azure AD App Proxy?
+With Azure AD app proxy you can access different types of internal applications:
+- Web applications that use Integrated Windows Authentication for authentication
+- Web applications that use form-based access
+- Web APIs that you want to expose to rich applications on different devices
+- Applications hosted behind a Remote Desktop Gateway
 
 ## How does it work?
-
 App Proxy works with three basic steps. First, connectors are deployed on the on-premises network. Then, the connector connects to the cloud service.
 Finally, the connector and cloud service route user traffic to applications.
 
