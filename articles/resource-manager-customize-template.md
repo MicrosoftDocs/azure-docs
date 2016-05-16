@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Customize an exported Azure Resource Manager template | Microsoft Azure"
+	pageTitle="Customize exported Resource Manager template | Microsoft Azure"
 	description="Add parameters to an exported Azure Resource Manager template and redeploy it through Azure PowerShell or Azure CLI."
 	services="azure-resource-manager"
 	documentationCenter=""
