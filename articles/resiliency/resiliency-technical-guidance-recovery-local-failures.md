@@ -40,7 +40,9 @@ Finally, all long running operations should be invoked repeatedly until they suc
 
 ###Elasticity
 
-The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each of the roles to run with two or more instances based on expected load. But role instances can easily be scaled up or down as usage patterns change. This can be done with the manually in the Azure Portal or can be automated using Windows PowerShell, the Service Management API, or third-party tools. See here for information on [How to auto scale a cloud service](../cloud-services/cloud-services-how-to-scale.md)
+The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each of the roles to run with two or more instances based on expected load. But role instances can easily be scaled up or down as usage patterns change. This can be done with the Azure Portal, Windows PowerShell, the Service Management API, or third-party tools. The FC automatically provisions any new instances and inserts them into the load balancer for that role.
+
+With [Azure Auto-Scale](../cloud-services/cloud-services-how-to-scale.md), you can enable Azure to automatically scale your roles based on load. Automatic scaling can also be programmatically built-in and configured for a cloud service using a framework like the [Auto-Scaling Application Block (WASABi)](https://msdn.microsoft.com/library/hh680945.aspx).
 
 ###Partitioning
 
@@ -51,7 +53,7 @@ Azure's Fabric Controller uses two types of partitions: update domains and fault
 
 Per the [Azure SLA](https://azure.microsoft.com/support/legal/sla/), Microsoft guarantees that when two or more web role instances are deployed to different fault and upgrade domains, they will have external connectivity at least 99.95% of the time. Unlike update domains, there is no way to control the number of fault domains. Azure automatically allocates fault domains and distributes role instances across them. At least the first two instances of every role are placed in different fault and upgrade domains in order to ensure that any role with at least two instances will satisfy the SLA. This is represented in the following diagram.
 
-![Fault Domain Isolation (Simplified View)](./media/resiliency-technical-guidance-recovery-local-failures/partitioning-1.png "Fault Domain Isolation (Simplified View)")
+![Fault Domain Isolation (Simplified View)](./media/resiliency-technical-guidance-recovery-local-failures/partitioning-1.png "Fault Domain Isolation - Simplified View")
 
 ###Load Balancing
 
@@ -75,7 +77,7 @@ In the diagram above the IIS tier and the SQL tier are assigned to different Ava
 
 ###Load Balancing
 
-If the VMs should have traffic distributed across them, you must group the VMs in a cloud service and load balance across a specific TCP or UDP endpoint. For more information, see [Load Balancing Virtual Machines](../load-balancer/load-balancer-overview.md). If the VMs receive input from another source (for example, a queuing mechanism), then a load balancer is not required.  The load balancer uses a basic health check to determine if traffic should be sent to the node. It is also possible to create your own probes to implement application specific health metrics that determine if the VM should receive traffic.
+If the VMs should have traffic distributed across them, you must group the VMs in a cloud service and load balance across a specific TCP or UDP endpoint. For more information, see [Load Balancing Virtual Machines](../load-balancer/). If the VMs receive input from another source (for example, a queuing mechanism), then a load balancer is not required.  The load balancer uses a basic health check to determine if traffic should be sent to the node. It is also possible to create your own probes to implement application specific health metrics that determine if the VM should receive traffic.
 
 ##Storage
 
@@ -103,7 +105,7 @@ Microsoft Azure SQL Database provides database-as-a-service, allowing applicatio
 
 ####Replication
 
-Azure SQL Database provides built-in resiliency to node-level failure. All writes into a database are automatically replicated to two or more background nodes using a quorum commit technique (the primary and at least one secondary must confirm that the activity is written to the transaction log before the transaction is deemed successful and returns). In the case of node failure the database automatically fails over to one of the secondary replicas. This causes a transient connection interruption for client applications. For this reason all Microsoft Azure SQL Database clients must implement some form of transient connection handling. For more information, see [Using the Transient Fault Handling Application Block with SQL Azure](https://msdn.microsoft.com/library/hh680899(v=pandp.50).aspx).
+Azure SQL Database provides built-in resiliency to node-level failure. All writes into a database are automatically replicated to two or more background nodes using a quorum commit technique (the primary and at least one secondary must confirm that the activity is written to the transaction log before the transaction is deemed successful and returns). In the case of node failure the database automatically fails over to one of the secondary replicas. This causes a transient connection interruption for client applications. For this reason all Microsoft Azure SQL Database clients must implement some form of transient connection handling. For more information, see [Using the Transient Fault Handling Application Block with SQL Azure](https://msdn.microsoft.com/library/hh680899.aspx).
 
 ####Resource Management
 
@@ -135,7 +137,7 @@ The following diagram demonstrates the architecture of AlwaysOn Availability Gro
 
 You can also automatically provision an AlwaysOn Availability Group deployment end-to-end on Azure VMs by using the AlwaysOn template in the Microsoft Azure Portal. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure Portal Gallery](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-The following diagram demonstrates the use of Database Mirroring on Azure Virtual Machines. It was also taken from the depth topic, [High availability and disaster Recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+The following diagram demonstrates the use of Database Mirroring on Azure Virtual Machines. It was also taken from the depth topic, [High availability and disaster Recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr/).
 
 ![Database Mirroring in Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png "Database Mirroring in Microsoft Azure")
 
@@ -150,7 +152,7 @@ Azure Cloud Services are built on Azure, so they benefit from the platform capab
 To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best Practices for performance improvements using Service Bus brokered messaging](../service-bus/service-bus-performance-improvements.md). For more information, see [Service Bus (Disaster Recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#service-bus).
 
 ###Mobile Services
-
+**moving to app services**
 There are two availability considerations for Azure Mobile Services. First, regularly back up the Azure SQL Database associated with your mobile service. Also back up the mobile service scripts. For more information, see [Recover your mobile service in the event of a disaster](../mobile-services/mobile-services-disaster-recovery.md). If Mobile Services experiences a temporary outage, you might have to temporarily use an alternate Azure datacenter. For more information, see [Mobile Services (Disaster Recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#mobile-services).
 
 ###HDInsight
@@ -158,7 +160,7 @@ There are two availability considerations for Azure Mobile Services. First, regu
 The data associated with HDInsight is stored by default in Azure Blob Storage, which has high the availability and durability properties specified by Azure Storage. The multi-node processing associated with Hadoop MapReduce jobs is done on a transient Hadoop Distributed File System (HDFS) that is provisioned when needed by HDInsight. Results from a MapReduce job are also stored by default in Azure Blob Storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (Disaster Recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#HDInsight).
 
 ##Checklists: Local Failures
-
+ 
 ###[Cloud Services](#cloud-services) Checklist
   1. Configure at least two instances for each role
   2. Persist state in durable storage, not on role instances
@@ -172,24 +174,21 @@ The data associated with HDInsight is stored by default in Azure Blob Storage, w
   1. Do not use the D: drive for persistent storage
   2. Group machines in a service tier into an availability set
   3. Configure load balancing and optional probes
-
+ 
 ##[Storage](#storage) Checklist
   1. Use multiple storage accounts when data or bandwidth exceeds quotas
 
 ##[SQL Database](#sql-database) Checklist
   1. Implement a retry policy to handle transient errors
   2. Use partitioning/sharding as a scale out strategy
-
+  
 ##[SQL Server on Virtual Machines](#sql-server-on-virtual-machines) Checklist
   1. Follow the previous recommendations for Virtual Machines
   2. Use SQL Server high availability features, such as AlwaysOn
-
-##[Access Control Service](#access-control-service) Checklist
-**add AAD here**
-  1. No additional availability steps required for local failures
-
+  
 ##[Service Bus](#service-bus) Checklist
   1. Consider creating a durable client-side queue as a backup
 
 ##[HDInsight](#hdinsight) Checklist
   1. No additional availability steps required for local failures
+ 
