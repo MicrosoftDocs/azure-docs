@@ -266,7 +266,7 @@ Follow the steps documented in [Connect to an Azure subscription from the Azure 
 
 ##Create a service principal
 
-> [AZURE.NOTE] These steps are an abridged version of the information provided in the _Authenticate service principal with a password - Azure CLI_ section of the [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli) document. These steps create a new service principal that can be used to authenticate the REST API requests used to create Azure resources such as an HDInsight cluster.
+> [AZURE.NOTE] These steps are an abridged version of the information provided in the _Authenticate service principal with a password - Azure CLI_ section of the [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password---azure-cli) document. These steps create a new service principal that can be used to authenticate the REST API requests used to create Azure resources such as an HDInsight cluster.
 
 1. From the command prompt, terminal session, or shell, use the following command to list your Azure subscriptions.
 
