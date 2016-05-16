@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2016" 
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # Create an ASP.NET 5 web app in Visual Studio Code
 
