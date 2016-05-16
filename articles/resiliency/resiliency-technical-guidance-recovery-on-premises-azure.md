@@ -27,14 +27,14 @@ Azure provides a comprehensive set of services for enabling extension of an on-p
 
 ##Networking
 
-Azure Virtual Network enables you to create a logically isolated section in Azure and securely connect it to your on-premises datacenter or a single client machine using an IPsec connection. Virtual Network makes it easy for you to take advantage of Azure’s scalable, on-demand infrastructure while providing connectivity to data and applications on-premises, including systems running on Windows Server, mainframes and UNIX. See [Azure Networking Documentation](../virtual-network/) for more information.
+Azure Virtual Network enables you to create a logically isolated section in Azure and securely connect it to your on-premises datacenter or a single client machine using an IPsec connection. Virtual Network makes it easy for you to take advantage of Azure’s scalable, on-demand infrastructure while providing connectivity to data and applications on-premises, including systems running on Windows Server, mainframes and UNIX. See [Azure Networking Documentation](../virtual-network/virtual-networks-overview.md) for more information.
 
 ##Compute
 
-If you're using Hyper-V on-premises can “lift and shift” existing virtual machines(VMs) to Azure & service providers running Windows Server 2012 (or later), without making changes to the VM or converting VM formats. For more information, see [About disks and VHDs for Azure virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds/).
+If you're using Hyper-V on-premises can “lift and shift” existing virtual machines(VMs) to Azure & service providers running Windows Server 2012 (or later), without making changes to the VM or converting VM formats. For more information, see [About disks and VHDs for Azure virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 ##Azure Site Recovery
-If you would like disaster recovery as a service (DRaaS), Azure provides [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/). Azure Site Recovery offers comprehensive protection for VMware, Hyper-V, and physical servers. Azure Site Recovery allows you to leverage another on-premises server or Azure as your recovery site. For more information on Azure Site Recovery please see the [Azure Site Recovery Documentation](../site-recovery/).
+If you would like disaster recovery as a service (DRaaS), Azure provides [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/). Azure Site Recovery offers comprehensive protection for VMware, Hyper-V, and physical servers. Azure Site Recovery allows you to leverage another on-premises server or Azure as your recovery site. For more information on Azure Site Recovery please see the [Azure Site Recovery Documentation](https://azure.microsoft.com/documentation/services/site-recovery/).
 
 ##Storage
 
@@ -53,7 +53,7 @@ With incremental backups, only changes to files are transferred to the cloud. Th
 ##Database
 
 You can have a disaster recovery solution for your SQL Server databases in a hybrid-IT environment using AlwaysOn Availability Groups, database mirroring, log shipping, and backup and restore with Azure blog storage. All of these solutions use SQL Server running on Azure Virtual Machines.
-AlwaysOn Availability Groups can be used in a hybrid-IT environment where database replicas exist both on-premises and in the cloud. This is shown in the following diagram, taken from the depth topic [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr/).
+AlwaysOn Availability Groups can be used in a hybrid-IT environment where database replicas exist both on-premises and in the cloud. This is shown in the following diagram, taken from the depth topic [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![SQL AlwaysOn Availability Groups in a hybrid cloud architecture](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-3.png "SQL AlwaysOn Availability Groups in a hybrid cloud architecture")
 
@@ -69,10 +69,10 @@ Finally, you can backup an on-premises database directly to Azure Blob Storage.
 
 ![Backup SQL Server to an Azure Storage Blob in a hybrid cloud architecture](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-6.png "Backup SQL Server to an Azure Storage Blob in a hybrid cloud architecture")
 
-For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr/) and [Backup and Restore for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery/).
+For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md) and [Backup and Restore for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
 
-##Checklists for on-premises recovery in Microsoft Azure 
- 
+##Checklists for on-premises recovery in Microsoft Azure
+
 ##[Networking](#networking) Checklist
   1. Use Virtual Network to securely connect on-premises to the Cloud
 

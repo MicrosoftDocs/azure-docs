@@ -20,6 +20,10 @@
 
 Part of a robust business continuity plan is having a plan of your data gets corrupted or accidentally deleted.  Below is information about recovery after data corrupted or accidentally deleted due to application errors or operator error.
 
+##IaaS VMs
+
+To protect your  IaaS VMs from application errors or accidental deletion use [Azure Backup](https://azure.microsoft.com/services/backup/). Azure Backup enables creation of backups which are consistent across multiple VM disks.  In addition, the Backup Vault can be replicated across regions to provide recovery from region loss.
+
 ##Storage
 
 Note that while Azure Storage provides data resiliency through automated replicas, this does not prevent your application code (or developers/users) from corrupting data through accidental or unintended deletion, update, and so on. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data a secondary storage location with an audit log. Developers can take advantage of the blob [snapshot capability](https://msdn.microsoft.com/library/azure/ee691971.aspx), which can create read-only point in time snapshots of blob contents. This can be used as the basis of a data-fidelity solution for blobs.
@@ -30,18 +34,18 @@ While blobs and tables are highly durable, they always represent the current sta
 
 For Azure Blobs, you can perform point-in-time backups using the [blob snapshot feature](https://msdn.microsoft.com/library/ee691971.aspx). For each snapshot, you are only charged for the storage required to store the differences within the blob since the last snapshot state. The snapshots are dependent on the existence of the original blob they are based on, so a copy operation to another blob or even another storage account is advisable to ensure that backup data is properly protected against accidental deletion. For Azure Tables, you can make point-in-time copies to a different table or to Azure Blobs. More detailed guidance and examples of performing application-level backups of tables and blobs can be found here:
 
-  * [Protecting Your Tables Against Application Errors](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/05/03/protecting-your-tables-against-application-errors/) 
+  * [Protecting Your Tables Against Application Errors](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/05/03/protecting-your-tables-against-application-errors/)
   * [Protecting Your Blobs Against Application Errors](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/04/29/protecting-your-blobs-against-application-errors/)
 
 ##Database
 
-There are several [business continuity](../sql-database/sql-database-business-continuity/) (backup, restore) options available for Azure SQL Database. Databases can be copied via the [Database Copy](./articles/sql-database-copy/) functionality, or [export](../sql-database/sql-database-export/) & [import](https://msdn.microsoft.com/library/hh710052.aspx) a SQL Server bacpac file. Database Copy provides transactional consistent results, while a bacpac (through the import/export service) does not. Both of these options run as queue-based services within the data center and do not currently provide a time-to-completion SLA.
+There are several [business continuity](../sql-database/sql-database-business-continuity.md) (backup, restore) options available for Azure SQL Database. Databases can be copied via the [Database Copy](../sql-database/sql-database-copy.md) functionality, or [export](../sql-database/sql-database-export.md) & [import](https://msdn.microsoft.com/library/hh710052.aspx) a SQL Server bacpac file. Database Copy provides transactional consistent results, while a bacpac (through the import/export service) does not. Both of these options run as queue-based services within the data center and do not currently provide a time-to-completion SLA.
 
 >[AZURE.NOTE]The database copy and import/export options place a significant degree of load on the source database, and can trigger resource contention or throttling >events.
 
 ###SQL Database Backup
 
-Point-in-time backups for Microsoft Azure SQL Database are achieved by [copying your Azure SQL database](../sql-database/sql-database-copy/). You can use this command to create a transactionally-consistent copy of a database on the same logical database server or to a different server. In either case, the database copy is fully functional and completely independent of the source database. Each copy you create represents a point-in-time recovery option. You can recover the database state completely by renaming the new database with the source database name. Alternatively, you can recover a specific subset of data from the new database by using Transact-SQL queries. For additional details about SQL Database, see [Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity/).
+Point-in-time backups for Microsoft Azure SQL Database are achieved by [copying your Azure SQL database](../sql-database/sql-database-copy.md). You can use this command to create a transactionally-consistent copy of a database on the same logical database server or to a different server. In either case, the database copy is fully functional and completely independent of the source database. Each copy you create represents a point-in-time recovery option. You can recover the database state completely by renaming the new database with the source database name. Alternatively, you can recover a specific subset of data from the new database by using Transact-SQL queries. For additional details about SQL Database, see [Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md).
 
 ###SQL Server on Virtual Machines Backup
 
@@ -54,11 +58,11 @@ Some Azure platform services store information in a user-controlled storage acco
 For Azure Web Sites and Azure Mobile Services, you must backup and maintain the associated databases. For Azure Media Service and Virtual Machines, you must maintain the associated Azure Storage account and all resources in that account. For example, for Virtual Machines, you must backup and manage the VM disks in Azure blob storage.
 
 ##Checklists for Data Corruption or Accidental Deletion
- 
+
 ##[Storage](#storage) Checklist
   1. Regularly backup critical storage resources
   2. Consider using the snapshot feature for blobs
-  
+
 ##[Database](#database) Checklist
   1. Create point-in-time backups using the Database Copy command
 
@@ -74,3 +78,6 @@ For Azure Web Sites and Azure Mobile Services, you must backup and maintain the 
 
 ##Virtual Machines Checklist
   1. Backup and maintain the VM disks in blob storage
+
+## More Information
+See [Storage, backup and recovery scenarios](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/) for more information on Azure's backup and restore features.
