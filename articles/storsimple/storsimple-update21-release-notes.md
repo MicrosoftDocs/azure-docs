@@ -21,7 +21,7 @@
 
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.1. They also contain a list of the StorSimple software updates included in this release. 
 
-Update 2.1 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 1.2. The device version associated with Update 2.1 is 6.3.9600.17702.
+Update 2.1 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2. The device version associated with Update 2.1 is 6.3.9600.17702.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
@@ -48,10 +48,7 @@ The following key improvements have been made in Update 2.1.
 
 - **Update reliability improvements** – This release has bug fixes that result in an improved Update reliability.
 
-
-- **Performance improvements for locally pinned volume creation** – This release has improved the time required for creating locally pinned volumes and also for the conversion of tiered to locally pinned volumes on the StorSimple device. There is also a concurrent improvement in the host performance during the volume creation.
-
-   
+  
  
 
 ## Issues fixed in Update 2.1
@@ -60,8 +57,8 @@ The following tables provides a summary of issues that were fixed in Updates 2.1
 
 | No | Feature                                    | Issue                                                                                                                                                                                                                                                                                        | Applies to physical device | Applies to virtual device |
 |----|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------------------------|
-| 1  | Locally pinned volumes                     | In the earlier release, there were performance issues related to the creation of locally pinned volumes as well as conversion from tiered to locally pinned volumes. These issues are fixed in this release.                                                                           | Yes                        | No                        |
-| 2  | Locally pinned volumes                     | In rare instances, the system would crash when creating a locally pinned volumes. This bug has been fixed   in this release.                                                                                                                                                               | Yes                        | No                        |
+| 1  | Host performance                      | In the earlier release, host-side performance issues were observed during the creation of a locally pinned volume and during the conversion of a tiered volume to a locally pinned volume. These issues are fixed in this release thereby resulting in an improvement in the host performance during the volume creation and conversion procedures.                                                                        | Yes                        | No                        |
+| 2  | Locally pinned volumes                     | In rare instances, the system would crash when creating a locally pinned volume. This bug has been fixed in this release.                                                                                                                                                               | Yes                        | No                        |
 | 3  | Tiering                                    | There were sporadic crashes when the metadata for the StorSimple Cloud Appliances (8010 and 8020) tiered to   the cloud. This issue is fixed in this release.                                                                                                                              | No                         | Yes                       |
 | 4  | Snapshot creation                          | There were issues related to the creation of incremental snapshots in scenarios with large volumes and minimal to no data churn. These issues are fixed in this release.                                                                                                                 | Yes                        | Yes                       |
 | 5  | Openstack authentication                   | When using Openstack as the cloud service provider, the user would run into an infrequent bug related to the authentication where the JSON parser resulted in a crash. This bug is fixed in this release.                                                                                                                              | Yes                        | No                        |
