@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="11/25/2015"
+   ms.date="05/17/2015"
    ms.author="sedusch"/>
 
 # SAP NetWeaver on Azure virtual machines (VMs) – DBMS Deployment Guide
