@@ -45,9 +45,8 @@ UseUrls() configured the WebHost to listen to incoming URL traffic. [Docker Tool
 # Configure the listening port to 80
 ENV ASPNETCORE_SERVER.URLS http://*:80
 ```
-
 ## Volume Mapping not functioning
-To enable Edit & Refresh capabilities, volume mapping is configured to share the source code of your project to the .app folder within the container. As files are changed on your host machine, the containers /app directdory uses the same directory. In docker-compose.debug.yml, the following configuration enables volume mapping
+To enable Edit & Refresh capabilities, volume mapping is configured to share the source code of your project to the .app folder within the container. As files are changed on your host machine, the containers /app directdory uses the same directory. In docker-compose.debug.yml, the following configuration enables volume mapping:
 ```
     volumes:
       - ..:/app
@@ -102,10 +101,10 @@ If you are using the Microsoft Edge browser, the site might not open as Edge con
 6. Refresh the page in Edge, and you should see the site up and running. 
 7. For more information on this issue, visit Scott Hanselman's blog post, [Microsoft Edge can't see or open VirtualBox-hosted local web sites](http://www.hanselman.com/blog/FixedMicrosoftEdgeCantSeeOrOpenVirtualBoxhostedLocalWebSites.aspx). 
 
-#Troubleshooting version 0.15 or earlier
+##Troubleshooting version 0.15 or earlier
 
 
-##Running the app causes PowerShell to open, display an error, and then close. The browser page doesn’t open.
+###Running the app causes PowerShell to open, display an error, and then close. The browser page doesn’t open.
 
 This could be an error during `docker-compose-up`. To view the error, perform the following steps:
 

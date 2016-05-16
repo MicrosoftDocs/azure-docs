@@ -27,7 +27,7 @@ Running [Docker](https://www.docker.com/) containers requires a host VM running 
 
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver. 
 
-The Azure driver will need your subscription id. You can use the [Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/) or the [Azure Poral](https:/portal.azure.com) to retrieve your Azure Subscription. 
+The Azure driver will need your subscription id. You can use the [Azure CLI](xplat-cli-install.md) or the [Azure Poral](https:/portal.azure.com) to retrieve your Azure Subscription. 
 
 **Using the Azure Portal**
 - Select Subscriptions from the left navigation page, and copy to subscription id.
