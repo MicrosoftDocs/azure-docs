@@ -3,7 +3,7 @@
 	description="Learn all about the .NET SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK." 
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
-	ms.author="ryancraw"/>
+	ms.date="05/06/2016" 
+	ms.author="rnagpal"/>
 
 # DocumentDB SDK
 
@@ -35,6 +35,18 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.7.1"/>[1.7.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.1)
+  - Added an overload to Uri based ExecuteStoredProcedureAsync method that takes RequestOptions as a parameter.
+  
+### <a name="1.7.0"/>[1.7.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.7.0)
+  - Added time to live (TTL) support for documents.
+
+### <a name="1.6.3"/>[1.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
+  - Fixed a bug in Nuget packaging of .NET SDK for packaging it as part of a Azure Cloud Service solution.
+  
+### <a name="1.6.2"/>[1.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
+  - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
 ### <a name="1.5.3"/>[1.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
   - **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream.
@@ -122,6 +134,10 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.7.1](#1.7.1) | May 06, 2016 |---
+| [1.7.0](#1.7.0) | April 26, 2016 |---
+| [1.6.3](#1.6.3) | April 08, 2016 |---
+| [1.6.2](#1.6.2) | March 29, 2016 |---
 | [1.5.3](#1.5.3) | February 19, 2016 |---
 | [1.5.2](#1.5.2) | December 14, 2015 |---
 | [1.5.1](#1.5.1) | November 23, 2015 |---

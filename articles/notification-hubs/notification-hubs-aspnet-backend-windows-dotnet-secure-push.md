@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Secure Push
 
 > [AZURE.SELECTOR]
-- [Windows Universal](notification-hubs-windows-dotnet-secure-push.md)
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
 - [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
 - [Android](notification-hubs-aspnet-backend-android-secure-push.md)
 

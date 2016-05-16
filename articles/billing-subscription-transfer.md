@@ -3,7 +3,7 @@
    description="How to transfer an Azure subscription to another user, and some frequently asked questions (FAQ) about the process"
    services="billing"
    documentationCenter=""
-   authors="curtand"
+   authors="genlin"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/21/2015"
-   ms.author="curtand;kareni;ruchic"/>
+   ms.date="04/14/2016"
+   ms.author="genli"/>
 
 # Transferring an Azure subscription
 
@@ -25,7 +25,7 @@ Do you:
 - Want to move your Azure subscription from one directory to another?
 - Have Azure and Office 365 in different tenants and want to consolidate?
 
-You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own, no matter which country you operate in.
+You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own, no matter which country you operate in. We now support the transfer of Azure Marketplace Purchases for these subscription types as well.
 
 ## How to transfer an Azure subscription
 
@@ -108,6 +108,10 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 -   **Can the recipient use a different payment mechanism?**
 
     Yes. There are limitations here: now the subscription billing history is split across two accounts. But the advantage is that you can do this without having to [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
+
+-   **Will the payment method be impacted after I transferred an Azure subscription?**
+
+    In order to accept a subscription transfer, a credit card or similar payment method must be provided to pay for the subscription. For example, if Bob transfers a subscription to Jane and Jane accepts the transfer, Jane must also provide a payment method that she will use to pay for the subscription. After the transfer is complete, Bob will no longer be charged for the subscription he transferred to Jane.
 
 ## Next steps after accepting ownership of a subscription
 

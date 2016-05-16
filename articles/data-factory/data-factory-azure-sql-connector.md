@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Azure SQL | Azure Data Factory" 
+	pageTitle="Move data to/from Azure SQL Database | Microsoft Azure" 
 	description="Learn how to move data to/from Azure SQL Database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL Database using Azure Data Factory
@@ -625,16 +625,5 @@ The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-
-
-
-	 
-
-
-
-
-
-
-
-
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

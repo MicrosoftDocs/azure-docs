@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to use Azure Blob storage from Python | Microsoft Azure"
-	description="Learn how to use the Azure Blob storage from Python to upload, list, download, and delete blobs."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="emgerner"/>
+    ms.date="04/29/2016"
+	ms.author="jehine"/>
 
 # How to use Azure Blob storage from Python
 
@@ -57,14 +57,14 @@ After this change, anyone on the Internet can see blobs in a public container, b
 
 ## Upload a blob into a container
 
-To create a block blob and upload data, use the **create\_block\_blob\_from\_path**, **create\_block\_blob\_from\_stream**, **create\_block\_blob\_from\_bytes** or **create\_block\_blob\_from\_text** methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
+To create a block blob and upload data, use the **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** or **create\_blob\_from\_text** methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
-**create\_block\_blob\_from\_path** uploads the contents of a file from the specified path, and **create\_block\_blob\_from\_stream** uploads the contents from an already opened file/stream. **create\_block\_blob\_from\_bytes** uploads an array of bytes, and **create\_block\_blob\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
+**create\_blob\_from\_path** uploads the contents of a file from the specified path, and **create\_blob\_from\_stream** uploads the contents from an already opened file/stream. **create\_blob\_from\_bytes** uploads an array of bytes, and **create\_blob\_from\_text** uploads the specified text value using the specified encoding (defaults to UTF-8).
 
 The following example uploads the contents of the **sunset.png** file into the **myblob** blob.
 
 	from azure.storage.blob import ContentSettings
-	block_blob_service.create_block_blob_from_path(
+	block_blob_service.create_blob_from_path(
         'mycontainer',
         'myblockblob',
         'sunset.png',

@@ -15,43 +15,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="04/11/2016"
 	ms.author="genli"/>
 
 # Azure Offers - benefits & limits, how to sign-up, purchase, upgrade or Activate
 
 Azure provides various offers to suite your business needs and get started using Azure. Visit [Azure Offers](https://azure.microsoft.com/support/legal/offer-details/) for a complete listing of all active offers with details on each offer about what they cover, benefits and availability by countries/region.
 
-The following list provides details on common offers
+The following table provides details on common offers:
 
-- **Free Trial**
-  - [Sign-up  and step by step guide](#SignupFreeTrial)
-  - [Benefits](https://azure.microsoft.com/pricing/free-trial/)
-  - [FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)
-  - [Upgrade Free Trial to Pay-As-You-Go](#UpgradeFreeToPYG)
-- **Pay-As-You-Go**
-   - [Sign-up](https://azure.microsoft.com/pricing/purchase-options/)
-   - [Pricing](https://azure.microsoft.com/pricing/)
-- **MPN** (Microsoft Partner Network) - Members receive  monthly Azure credits at no charge  
-  - [Azure Benefits for partners](https://azure.microsoft.com/offers/ms-azr-0025p/)
-  - [Enroll as a partner](http://go.microsoft.com/fwlink/?linkid=309258&clcid=0x409) or [Subscribe to Microsoft Action pack](http://go.microsoft.com/fwlink/?linkid=525768&clcid=0x409)
-  - Use Azure credits - Access the [MPN portal](https://mspartner.microsoft.com/Pages/Locale.aspx) and verify your eligibility status and follow steps under Software Keys & benefits. If you cannot verify your eligibility, contact [MPN support](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
-- **MSDN & Visual Studio subscriber**
-  - [MSDN Dev/Test Benefits.](https://azure.microsoft.com/offers/ms-azr-0023p/) [Visual Studio subscriber benefits.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
-  - [Activate Visual Studio subscriber Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
-  - [Activate MSDN Azure benefits in three simple steps](https://www.youtube.com/watch?v=SN2CA71uOEI&feature=youtu.be). Logon to [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx) and verify eligibility, click on 'Activate Azure benefit'. If you cannot verify your eligibility, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/subscriptions/contactus.aspx)
-- **BizSpark**
-  - [Benefits BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two). For more details, see [Monthly Azure credit for Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0064p/)
-  - [Join BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx). If you encounter issues, please contact [the BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
-- **BizSpark Plus**
-   - [Learn about BizSpark Plus](https://www.microsoft.com/bizspark/plus/default.aspx). For more details, see [BizSpark Plus Benefits](https://azure.microsoft.com/offers/ms-azr-0149p/)
-   - [Join BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx) and then work with your partner contact to upgrade to BizSpark Plus. If  you encounter issues, please contact [the  BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
-- **Resellers** (Open Volume License programs)
-  - [Activate Online service Key - step by step guide](#activateKey)
-  - [Purchase, Benefits, Activate](https://azure.microsoft.com/offers/ms-azr-0111p/)
-- **EA (Enterprise Agreement)**
-  - [Licensing Azure for the Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
-  - To activate, contact your Microsoft Account Manager or Reseller to get started today
+| Offer                                                                              | Detail |
+|--------------------------------------------------------------------------------------|---------|
+| Free Trial                                                                           |•	[Sign-up and step by step guide](billing-buy-sign-up-azure-subscription.md#SignupFreeTrial)<br>•	[Benefits](https://azure.microsoft.com/pricing/free-trial/)</br>• [FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)</br>• [Upgrade Free Trial to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#UpgradeFreeToPYG)     |
+| Pay-As-You-Go                                                                        | •	[Sign-up](https://azure.microsoft.com/pricing/purchase-options/)</br>• [Pricing](https://azure.microsoft.com/pricing/)   |
+| MPN (Microsoft Partner Network) - Members receive monthly Azure credits at no charge | •	[Azure Benefits for partners](https://azure.microsoft.com/offers/ms-azr-0025p/)</br>•	[Enroll as a partner](http://go.microsoft.com/fwlink/?linkid=309258&clcid=0x409) or [Subscribe to Microsoft Action pack](http://go.microsoft.com/fwlink/?linkid=525768&clcid=0x409)</br>• Use Azure credits - Access the [MPN portal](https://partner.microsoft.com) and verify your eligibility status and follow steps under Software Keys & benefits. If you cannot verify your eligibility, contact [MPN support](https://partner.microsoft.com/Support/).   |
+| MSDN & Visual Studio subscriber                                                      |• [MSDN Dev/Test Benefits](https://azure.microsoft.com/offers/ms-azr-0023p/)</br>• [Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)</br>• [Activate Visual Studio subscriber Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)</br>• [Activate MSDN Azure benefits in three simple steps](https://www.youtube.com/watch?v=SN2CA71uOEI&feature=youtu.be):<br> Logon to [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx) and verify eligibility, click on 'Activate Azure benefit'. If you cannot verify your eligibility, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/subscriptions/contactus.aspx).|
+| BizSpark                                                                             | • [Benefits BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two). For more details, see [Monthly Azure credit for Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0064p/)<br>• [Join BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx). If you encounter issues, please contact the [BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).      |
+| BizSpark Plus                                                                        |• [Learn about BizSpark Plus](https://www.microsoft.com/bizspark/plus/default.aspx). For more details, see [BizSpark Plus Benefits](https://azure.microsoft.com/offers/ms-azr-0149p/)</br>• [Join BizSpark](https://www.microsoft.com/bizspark/signup/default.aspx) and then work with your partner contact to upgrade to BizSpark Plus. If you encounter issues, please contact the [BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).     |
+| Resellers (Open Volume License programs)                                             |• [Activate Online service Key - step by step guide](billing-buy-sign-up-azure-subscription.md#activateKey)</br>• [Purchase, Benefits, Activate](https://azure.microsoft.com/offers/ms-azr-0111p/)</br>       |
+| EA (Enterprise Agreement)                                                            |• [Licensing Azure for the Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/)</br>• To activate, contact your Microsoft Account Manager or Reseller to get started today     |
 
 <a name="SignupFreeTrial"></a>
 ## Sign up for an Azure Free Trial subscription

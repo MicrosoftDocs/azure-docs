@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="01/22/2016"
+	ms.date="05/10/2016"
 	ms.author="sstein"/>
 
 
@@ -30,22 +30,25 @@ The [Azure portal](https://portal.azure.com/) allows you to create, monitor and 
 ![Database Overview](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1. Database management actions
+
 ![Db management actions](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
 The Azure portal provides a set of common database actions accessible at the top of a database blade. You can restore a database to a previous point in time, open a database in Visual Studio, copy a database to a new server, and export the database to an Azure storage account.
 
-- [Restoring a SQL database](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Restoring a SQL database](sql-database-user-error-recovery.md)
 - [Open a SQL database in Visual Studio](sql-database-connect-query.md)
 - [Export a SQL database](sql-database-export.md)
 
 ## 2. Database monitoring
+
 ![Database monitoring](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
 
-Azure SQL databases by default feature monitoring charts for Database Throughput Unit (DTU), database size, and connection health. These monitoring charts can be customized and extended to additionally chart CPU percentage, Data IO percentage, Deadlocks, Log IO percentage or even the percentage of requests blocked by firewall. More information on how to customize monitoring charts can be found [here][Azure part monitoring].
+Azure SQL databases by default feature monitoring charts for Database Transaction Unit (DTU), database size, and connection health. These monitoring charts can be customized and extended to additionally chart CPU percentage, Data IO percentage, Deadlocks, Log IO percentage or even the percentage of requests blocked by firewall.
 
-Additionally, alert rules can be setup to monitor a specified metric and alert a designated administrator and co-administrator when pre-set thresholds are reached. More information on how to setup alert rules in the Azure Classic Portal can be found [here][Azure part monitoring].
+Additionally, alert rules can be setup to monitor a specified metric and alert a designated administrator and co-administrator when pre-set thresholds are reached.
 
 ## 3. Database security & auditing
+
 ![Database security](./media/sql-database-manage-portal/sqldatabase_security.png)
 
 Azure SQL databases can be configured to track all database events and write them to an audit log in your Azure storage account. This feature can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies that could indicate business concerns or suspected security violations.
@@ -58,29 +61,15 @@ Azure SQL databases can also be configured to mask sensitive data to non-privile
 
 
 ## 4. Geo-replication
+
 ![Geo-replication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
 Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The geo-replication part on the portal allows you to select the Azure region you would like the secondary database to reside in. 
 
-- [Geo-Replication](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+- [Geo-Replication](sql-database-geo-replication-overview.md)
 
 
 
+## Additional resources
 
-
-##Additional resources
-* [SQL Database](sql-database-technical-overview.md)   
-* [Monitoring SQL Database using Dynamic Management Views][]   
-* [Transact-SQL Reference (SQL Database)][]
-
-  [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
-  [Classic Portal]: https://portal.azure.com
-  [Azure part monitoring]: ../documentdb-monitor-accounts.md
-  [AzureDb management overview]: http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/
-  [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database
-  [Database geo-replication]: http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/
-  [Managing Azure SQL Database using SQL Server Management Studio]: sql-database-manage-azure-ssms.md
-  [Monitoring SQL Database using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
-  [Transact-SQL Reference (SQL Database)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
-  [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
-  [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
+- [SQL Database](sql-database-technical-overview.md)

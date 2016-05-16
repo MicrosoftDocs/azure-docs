@@ -3,7 +3,7 @@
 	description="how to use elastic database jobs"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags

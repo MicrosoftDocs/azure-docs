@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Grant user permissions to specific DevTest Lab policies | Microsoft Azure"
-	description="Learn how to grant user permissions to specific DevTest Lab policies based on each user's needs"
+<properties
+	pageTitle="Grant user permissions to specific lab policies | Microsoft Azure"
+	description="Learn how to grant user permissions to specific lab policies in DevTest Labs based on each user's needs"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Grant user permissions to specific DevTest Lab policies
+# Grant user permissions to specific lab policies
 
 ## Overview
 
-This article illustrates how to use PowerShell to grant users permissions to a particular Azure DevTest Lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
+This article illustrates how to use PowerShell to grant users permissions to a particular lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
 
 ## Policies as resources
 
-As discussed in the [Azure Role-based Access Control](/role-based-access-control-configure.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. 
+As discussed in the [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
 
-In DevTest Lab, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each DevTest Lab policy is a resource in the Policy resource type, and can be assigned as a scope to an RBAC role. 
+In DevTest Labs, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each lab policy is a resource in the Policy resource type, and can be assigned as a scope to an RBAC role.
 
 For example, in order to grant users read/write permission to the **Allowed VM Sizes** policy, you would create a custom role that works with the **Microsoft.DevTestLab/labs/policySets/policies/*** action, and then assign the appropriate users to this custom role in the scope of **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-To learn more about custom roles in RBAC, see the [Custom Roles in Azure RBAC](/role-based-access-control-configure.md#custom-roles-in-azure-rbac) section of the [Azure Role-Based Access Control](/role-based-access-control-configure.md) article.
+To learn more about custom roles in RBAC, see the [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) section of the [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) article.
 
-##Creating a DevTest Lab custom role using PowerShell
+##Creating a lab custom role using PowerShell
 In order to get started, you’ll need to read the following article, which will explain how to install and configure the Azure PowerShell cmdlets: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
 
 Once you’ve set up the Azure PowerShell cmdlets, you can perform the following tasks:
@@ -83,9 +83,9 @@ In the previous example, the **AllowedVmSizesInLab** policy is used. You can use
 
 ## Next steps
 
-Once you've granted user permissions to specific DevTest Lab policies, here are some next steps to consider:
+Once you've granted user permissions to specific lab policies, here are some next steps to consider:
 
-- [Secure access to a DevTest Lab](devtest-lab-add-devtest-user.md).
+- [Secure access to a lab](devtest-lab-add-devtest-user.md).
 
 - [Set lab policies](devtest-lab-set-lab-policy.md).
 
@@ -93,4 +93,4 @@ Once you've granted user permissions to specific DevTest Lab policies, here are 
 
 - [Create custom artifacts for your VMs](devtest-lab-artifact-author.md).
 
-- [Add a VM with artifacts to an Azure DevTest Lab](devtest-lab-add-vm-with-artifacts.md).
+- [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md).

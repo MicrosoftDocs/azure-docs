@@ -3,8 +3,8 @@
    description="Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud." 
    services="sql-database" 
    documentationCenter="" 
-   authors="jeffgoll" 
-   manager="jeffreyg" 
+   authors="carlrabeler" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/11/2015"
-   ms.author="jeffreyg"/>
+   ms.date="02/25/2016"
+   ms.author="sashan;carlrab"/>
 
 # SQL Database FAQ
 
@@ -51,7 +51,7 @@ Auditing is built into the SQL Database service at no extra cost and is availabl
 There are a few tools available to you. 
 
 - For on-premises databases, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/), which will recommend databases and  DTUs required, and will evaluate multiple databases for elastic database pools.
-- If a single database would benefit from being in a pool, Azure's intelligent engine will recommend an elastic database pool if it sees an historical usage pattern that warrants it. See [recommended elastic database pools](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools) to see how this works. For details about how to do the math yourself, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md)
+- If a single database would benefit from being in a pool, Azure's intelligent engine will recommend an elastic database pool if it sees an historical usage pattern that warrants it. See [Monitor, manage, and size an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md). For details about how to do the math yourself, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md)
 - To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
 
 ## How often can I change the service tier or performance level of a single database? 
@@ -61,12 +61,12 @@ With V12 databases you can change the service tier (between Basic, Standard, and
 As often as you want.
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic database pool? 
-Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. This can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases see [Change the service tier of a database](sql-database-scale-up.md). For elastic databases, see [Elastic pool reference](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations) 
+Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. This can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases see [Change the service tier of a database](sql-database-scale-up.md). 
 
-##When should I use a single database vs. elastic databases? 
+## When should I use a single database vs. elastic databases? 
 In general, elastic database pools are designed for a typical software-as-a-service (SaaS) application pattern, where there is one database per customer or tenant. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. 
 
-Azure's intelligent engine will recommend a pool for databases if it sees a usage pattern that warrants it. For details, see [Recommended elastic database pools](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools). For detailed guidance about choosing between single and elastic databases, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md).
+Azure's intelligent engine will recommend a pool for databases if it sees a usage pattern that warrants it. For details, see [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md). For detailed guidance about choosing between single and elastic databases, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md).
 
 ## What does it mean to have up to 200% of your maximum provisioned database storage for backup storage? 
 Backup storage is the storage associated with your automated database backups that are used for Point-In-Time-Restore and Geo-Restore. Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you will be provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
@@ -74,3 +74,17 @@ Backup storage is the storage associated with your automated database backups th
 ## I'm moving from Web/Business to the new service tiers, what do I need to know?
 Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](sql-database-web-business-sunset-faq.md)
 
+## What is an expected replication lag when geo-replicating a database between two regions withing the same Azure geography?  
+We are currently supporting an RPO of 5 seconds and the replication lag has been less than that as long the geo-secondary is hosted in the Azure recommended paired region and is of the same service tier.
+
+## What is an expected replication lag when geo-secondary is created in the same region as the primary database?  
+Based on empirical data, there is not too much difference between intra-region and inter-region replication lag when the Azure recommended paired region is used. 
+
+## If there is a network failure between two regions, how does the retry logic work when geo-replication is set up?  
+If there is a disconnect, we retry every 10 seconds to re-establish connections.
+
+## What can I do to guarantee that a critical change on the primary database is replicated?
+The geo-secondary is an async replica and we do not try to keep it in full sync with the primary. But we provide a method to force synchronization. It is designed to ensure the replication of critical changes (e.g. password updates). It will impact performance as it will block the calling thread until all committed transactions are replicated. For details, see [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx). 
+
+## What tools are available to monitor the replication lag between the primary database and geo-secondary?
+We expose the real-time replication lag between the primary database and geo-secondary through a DMV. For details, see [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).

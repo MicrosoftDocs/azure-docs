@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
 # Guide for using PolyBase in SQL Data Warehouse
 
-This guide gives practical information for using PolyBase in SQL Data Warehouse. 
+This guide gives practical information for using PolyBase in SQL Data Warehouse.
 
 To get started, see the [Load data with PolyBase][] tutorial.
 
 
 ## Rotating storage keys
 
-From time to time you will want to change the access key to your blob storage for security reasons. 
+From time to time you will want to change the access key to your blob storage for security reasons.
 
-The most elegant way to perform this task is to follow a process known as "rotating the keys". You may have noticed that you have two storage keys for your blob storage account. This is so that you can transition 
+The most elegant way to perform this task is to follow a process known as "rotating the keys". You may have noticed that you have two storage keys for your blob storage account. This is so that you can transition
 
 Rotating your Azure storage account keys is a simple three step process
 
@@ -37,20 +37,18 @@ Rotating your Azure storage account keys is a simple three step process
 3. Drop and create the external table(s) pointing to the new external data source
 
 When you have migrated all your external tables to the new external data source then you can perform the clean up tasks:
- 
+
 1. Drop first external data source
 2. Drop first database scoped credential based on the primary storage access key
 3. Log into Azure and regenerate the primary access key ready for the next time
 
 ## Query Azure blob storage data
-Queries against external tables simply use the table name as though it was a relational table. 
+Queries against external tables simply use the table name as though it was a relational table.
 
-```
-
--- Query Azure storage resident data via external table. 
+```sql
+-- Query Azure storage resident data via external table.
 SELECT * FROM [ext].[CarSensor_Data]
 ;
-
 ```
 
 > [AZURE.NOTE] A query on an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This indicates that your external data contains *dirty* records. A data record is considered 'dirty' if the actual data types/number of columns do not match the column definitions of the external table or if the data doesn't conform to the specified external file format. To fix this, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE DDL.
@@ -61,21 +59,21 @@ This example loads data from Azure blob storage to SQL Data Warehouse database.
 
 Storing data directly removes the data transfer time for queries. Storing data with a columnstore index improves query performance for analysis queries by up to 10x.
 
-This example uses the CREATE TABLE AS SELECT statement to load data. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition. 
+This example uses the CREATE TABLE AS SELECT statement to load data. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition.
 
 CREATE TABLE AS SELECT is a highly performant Transact-SQL statement that loads the data in parallel to all the compute nodes of your SQL Data Warehouse.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
 
-```
--- Load data from Azure blob storage to SQL Data Warehouse 
+```sql
+-- Load data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
-WITH 
+WITH
 (   
     CLUSTERED COLUMNSTORE INDEX
 ,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
-AS 
-SELECT * 
+AS
+SELECT *
 FROM   [ext].[CarSensor_Data]
 ;
 ```
@@ -86,7 +84,7 @@ See [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
 
-```
+```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
 create statistics [CustomerKey] on [Customer_Speed] ([CustomerKey]);
 create statistics [GeographyKey] on [Customer_Speed] ([GeographyKey]);
@@ -95,11 +93,11 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## Export data to Azure blob storage
-This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes. 
+This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes.
 
-The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in the specified text file format. 
+The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in the specified text file format.
 
-```
+```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
 (
     LOCATION='/archive/log2014/',
@@ -124,13 +122,13 @@ At present PolyBase supports loading data files that have been UTF-8 encoded. As
 
 To work around this requirement the best answer is to re-write to UTF-8 encoding.
 
-There are several ways to do this. Below are two approaches using Powershell: 
+There are several ways to do this. Below are two approaches using Powershell:
 
 ### Simple example for small files
 
 Below is a simple one line Powershell script that creates the file.
- 
-```
+
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
@@ -140,7 +138,7 @@ However, whilst this is a simple way to re-encode the data it is by no means the
 
 The code sample below is more complex but as it streams the rows of data from source to target it is much more efficient. Use this approach for larger files.
 
-```
+```PowerShell
 #Static variables
 $ascii = [System.Text.Encoding]::ASCII
 $utf16le = [System.Text.Encoding]::Unicode
@@ -209,5 +207,3 @@ To learn more about moving data to SQL Data Warehouse, see the [data migration o
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
-
-

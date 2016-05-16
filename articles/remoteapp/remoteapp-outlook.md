@@ -11,8 +11,8 @@
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/04/2015"
+    ms.topic="hero-article"
+    ms.date="02/25/2016"
     ms.author="elizapo" />
 
 # Using Microsoft Outlook in Azure RemoteApp

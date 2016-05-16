@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations API documentation for a recommendations engine available in the Microsoft Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="05/05/2016" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -899,7 +899,7 @@ OData XML
 <ins>To add a FeatureBlockList rule:</ins><br>
 <br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-To add an Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
+To add an Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
 <ins>To add a WhiteList rule:</ins><br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>To add a FeatureWhiteList rule:</ins><br>
@@ -1049,6 +1049,7 @@ OData XML
 
 ###8.2.	Get Catalog
 Retrieves all catalog items.
+The catalog will be retrieved one page at a time. If you want to get items at a particular index, you can use the $skip odata parameter. For instance if you want to get items starting at position 100, add the parameter $skip=100 to the request.
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -1170,12 +1171,12 @@ HTTP Status code: 200
 
 The response includes one entry per catalog item. Each entry has the following data:
 
-- `feed/entry/content/properties/ExternalId` – Catalog item external ID, the one provided by the customer.
 - `feed/entry/content/properties/InternalId` – Catalog item internal ID, the one that Azure Machine Learning Recommendations has generated.
 - `feed/entry/content/properties/Name` – Catalog item name.
-- `feed/entry/content/properties/Category` – Catalog item category.
-- `feed/entry/content/properties/Description` – Catalog item description.
-- `feed/entry/content/properties/Metadata` – Catalog item metadata.
+- `feed/entry/content/properties/Rating` –  (for future use)
+- `feed/entry/content/properties/Reasoning` –  (for future use)
+- `feed/entry/content/properties/Metadata` –  (for future use)
+- `feed/entry/content/properties/FormattedRating` – (for future use)
 
 OData XML
 
@@ -1372,6 +1373,7 @@ HTTP Status code: 200
 
 ###9.2.	List Model Usage Files
 Retrieves metadata of all model usage files.
+The usage files will be retrieved one page at a time. Each page containes 100 items. If you want to get items at a particular index, you can use the $skip odata parameter. For instance if you want to get items starting at position 100, add the parameter $skip=100 to the request.
 
 | HTTP Method | URI |
 |:--------|:--------|

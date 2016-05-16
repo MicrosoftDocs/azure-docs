@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="02/10/2016" 
 	ms.author="fashah;mohabib;bradsev" /> 
 
 # Move data to SQL Server on an Azure virtual machine
@@ -38,16 +38,16 @@ The following table summarizes the options for moving data to SQL Server on an A
 
 Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
 
-> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](data-factory-data-movement-activities.md).
+> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../data-factory/data-factory-data-movement-activities.md).
 
 
 ## <a name="prereqs"></a>Prerequisites
 This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* An **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 * Provisioned **SQL Server on an Azure VM**. For instructions, see [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
 ## <a name="filesource_to_sqlonazurevm"></a> Moving data from a flat file source to SQL Server on an Azure VM
@@ -64,7 +64,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 BCP is a command line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premises SQL Server, SQL Azure and SQL Server VM on Azure). 
 
 > [AZURE.NOTE] **Where should my data be for BCP?**  
-> While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
+> While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](../storage/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
 
 1. Ensure that the database and the tables are created on the target SQL Server database. Here is an example of how to do that using the `Create Database` and `Create Table` commands:
 
@@ -176,7 +176,7 @@ We describe each of these below:
 
 ### Deploy a SQL Server Database to a Microsoft Azure VM wizard
 
-The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
+The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple and recommended way to move data from an on-premises SQL Server instance to SQL Server on an Azure VM. For detailed steps as well as a discussion of other alternatives, see [Migrate a database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Export to Flat File
 
@@ -220,9 +220,9 @@ A screenshot of the Database backup/restore options from SQL Server Management S
 
 ## Resources
 
-[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[Migrate a Database to SQL Server on an Azure VM](../virtual-machines/virtual-machines-windows-migrate-sql.md)
 
-[SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
+[SQL Server on Azure Virtual Machines overview](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png

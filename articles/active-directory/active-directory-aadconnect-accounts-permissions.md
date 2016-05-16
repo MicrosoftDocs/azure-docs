@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="04/14/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -107,13 +107,13 @@ If you use express settings, then an account will be created in Active Directory
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Azure AD Connect sync service accounts
-A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. If you use a remote server running SQL server, the **AAD_** service account must be located in the domain.
+A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the account is created in the domain. If you use a remote server running SQL server or if you use a proxy which requires authentication, the **AAD_** service account must be located in the domain.
 
 ![Sync Service Account](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 The account is created with a long complex password which does not expire.
 
-This account will be used by Windows to store the encryption keys so the password for this account should not be reset or changed.
+This account is used to store the passwords for the other accounts in a secure way. These other accounts passwords are stored encrypted in the database. The private keys for the encryption keys are protected with the cryptographic services secret-key encryption using Windows Data Protection API (DPAPI). You should not reset the password on the service account since Windows will then destroy the encryption keys for security reasons.
 
 If you use a full SQL Server then the service account will be the DBO of the created database for the sync engine. The service will not function as intended with any other permissions. A SQL login will also be created.
 

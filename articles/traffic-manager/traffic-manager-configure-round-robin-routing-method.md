@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configure Round Robin routing method
 
-A common traffic routing method pattern is to provide a set of identical endpoints, which include cloud services and websites, and send traffic to each in a round-robin fashion. The steps below outline how to configure Traffic Manager in order to perform this type of traffic routing method. For more information on the different traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md).
+A common traffic routing method pattern is to provide a set of identical endpoints, which include cloud services and websites, and send traffic to each in a round-robin fashion. The steps below outline how to configure Traffic Manager in order to perform this type of traffic routing method. For more information on the different traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
 
 >[AZURE.NOTE] Azure Websites already provides round-robin load balancing functionality for websites within a datacenter (also known as a region). Traffic Manager allows you to specify round-robin traffic routing method for websites in different datacenters.
 

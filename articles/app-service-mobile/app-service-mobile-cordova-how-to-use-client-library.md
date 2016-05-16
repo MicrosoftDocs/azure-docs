@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/07/2016"
 	ms.author="adrianha"/>
 
 # How to Use Apache Cordova Client Library for Azure Mobile Apps
@@ -31,191 +31,12 @@ tutorials. This guide also assumes that you have added the Apache Cordova Plugin
 Cordova plugin to your project on the command-line:
 
 ```
-cordova plugin add ms-azure-mobile-apps
+cordova plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
 For more information on creating [your first Apache Cordova app], see their documentation.
 
-##<a name="create-client"></a>How to: Create Client
-
-Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
-
-```
-var client = WindowsAzure.MobileServicesClient(appUrl);
-```
-
-##<a name="table-reference"></a>How to: Create Table Reference
-
-To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
-
-```
-var table = client.getTable(tableName);
-```
-
-##<a name="querying"></a>How to: Query a Table Reference
-
-Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
-To return all data from the table, use the following:
-
-```
-/**
- * Process the results that are received by a call to table.read()
- *
- * @param {Object} results the results as a pseudo-array
- * @param {int} results.length the length of the results array
- * @param {Object} results[] the individual results
- */
-function success(results) {
-   var numItemsRead = results.length;
-
-   for (var i = 0 ; i < results.length ; i++) {
-       var row = results[i];
-       // Each row is an object - the properties are the columns
-   }
-}
-
-function failure(error) {
-    throw new Error('Error loading data: ', error);
-}
-
-table
-    .read()
-    .then(success, failure);
-```
-
-The success function is called with the results.   Do not use `for (var i in results)` in
-the success function as that will iterate over information that is included in the results
-when other query functions (such as `.includeTotalCount()`) are used.
-
-For more information on the Query syntax, refer to the [Query object documentation].
-
-### Filtering Data on the server
-
-You can use a `where` clause on the table reference:
-
-```
-table
-    .where({ userId: user.userId, complete: false })
-    .read()
-    .then(success, failure);
-```
-
-You can also use a function that filters the object.  In this case the `this` variable is assigned to the
-current object being filtered.  The following is functionally equivalent to the prior example:
-
-```
-function filterByUserId(currentUserId) {
-    return this.userId === currentUserId && this.complete === false;
-}
-
-table
-    .where(filterByUserId, user.userId)
-    .read()
-    .then(success, failure);
-```
-
-### Paging through data
-
-Utilize the take() and skip() methods.  For example, if you wish to split the table into 100-row records:
-
-```
-var totalCount = 0, pages = 0;
-
-// Step 1 - get the total number of records
-table.includeTotalCount().take(0).read(function (results) {
-    totalCount = results.totalCount;
-    pages = Math.floor(totalCount/100) + 1;
-    loadPage(0);
-}, failure);
-
-function loadPage(pageNum) {
-    let skip = pageNum * 100;
-    table.skip(skip).take(100).read(function (results) {
-        for (var i = 0 ; i < results.length ; i++) {
-            var row = results[i];
-            // Process each row
-        }
-    }
-}
-```
-
-The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
-totalCount field is filled with the total number of records that would be returned if no paging
-is used.
-
-You can then use the pages variable and some UI buttons to provide a page list; use loadPage() to
-load the new records for each page.  You should implement some sort of caching to speed access to
-records that have already been loaded.
-
-
-###<a name="sorting-data"></a>How to: Return data sorted
-
-Use the .orderBy() or .orderByDescending() query methods:
-
-```
-table
-    .orderBy('name')
-    .read()
-    .then(success, failure);
-```
-
-For more information on the Query object, refer to the [Query object documentation].
-
-##<a name="inserting"></a>How to: Insert Data
-
-Create a JavaScript object with the appropriate date and call table.insert() asynchronously:
-
-```
-var newItem = {
-    name: 'My Name',
-    signupDate: new Date()
-};
-
-table
-    .insert(newItem)
-    .done(function (insertedItem) {
-        var id = insertedItem.id;
-    }, failure);
-```
-
-On successful insertion, the inserted item is returned with the additional fields that are required
-for sync operations.  You should update your own cache with this information for later updates.
-
-Note that the Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.
-In the case of dynamic schema, the schema of the table is updated on the fly, allowing you to add
-columns to the table just by specifying them in an insert or update operation.  We recommend that
-you turn off dynamic schema before moving your application to production.
-
-##<a name="modifying"></a>How to: Modify Data
-
-Similar to the .insert() method, you should create an Update object and then call .update().  The update
-object must contain the ID of the record to be updated - this is obtained when reading the record or
-when calling .insert().
-
-```
-var updateItem = {
-    id: '7163bc7a-70b2-4dde-98e9-8818969611bd',
-    name: 'My New Name'
-};
-
-table
-    .update(updateItem)
-    .done(function (updatedItem) {
-        // You can now update your cached copy
-    }, failure);
-```
-
-##<a name="deleting"></a>How to: Delete Data
-
-Call the .del() method to delete a record.  Pass the ID in an object reference:
-
-```
-table
-    .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
-    .done(function () {
-        // Record is now deleted - update your cache
-    }, failure);
-```
+[AZURE.INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ##<a name="auth"></a>How to: Authenticate Users
 
@@ -234,89 +55,46 @@ authentication experience, as it relies on the provider's web authentication int
 for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific
 device-specific SDKs.
 
-##<a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
+[AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-o have Mobile Services manage the authentication process in your Windows Store or HTML5 app, you must register
-your app with your identity provider. Then in your Azure App Service, you need to configure the application ID and
-secret provided by your provider. For more information, see the tutorial [Add authentication to your app].
+###<a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
 
-Once you have registered your identity provider, simply call the .login() method with the name of your provider. For
-example, to login with Facebook use the following code.
+Several types of Apache Cordova applications use a loopback capability to handle OAuth UI flows.  This causes problems
+since the authentication service only knows how to utilize your service by default.  Examples of this are using the Ripple
+emulator, running your service locally or in a different Azure App Service but redirecting to the Azure App Service for
+authentication, or Live Reload with Ionic.  Follow these instructions to add your local settings to the configuration:
 
-```
-client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
-}, function (err) {
-     alert("Error: " + err);
-});
-```
+1. Log into the [Azure Portal]
+2. Select **All resources** or **App Services** then click on the name of your Mobile App.
+3. Click on **Tools**
+4. Click on **Resource explorer** in the OBSERVE menu, then click on **Go**.  A new window or tab will open.
+5. Expand the **config**, **authsettings** nodes for your site in the left hand navigation.
+6. Click on **Edit**
+7. Look for the "allowedExternalRedirectUrls" element.  It will be set to null.  Change it to the following:
 
-If you are using an identity provider other than Facebook, change the value passed to the login method above to one of
-the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
 
-In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
-provider and generating a App Service authentication token after successful login with the identity provider. The login
-function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token
-in the userId and authenticationToken fields, respectively. This token can be cached and re-used until it expires.
+    Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
+    service), or "http://localhost:4400" (for the Ripple service).  However, these are examples - your situation,
+    including for the services mentioned in the examples, may be different.
+8. Click on the **Read/Write** button in the top-right corner of the screen.
+9. Click on the green **PUT** button.
 
-##<a name="client-auth"></a>How to: Authenticate with a Provider (Client Flow)
+The settings will be saved at this point.  Do not close the browser window until the settings have finished saving.
+You will also need to add these loopback URLs to the CORS settings:
 
-Your app can also independently contact the identity provider and then provide the returned token to your App Service for
-authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional
-user data from the identity provider.
+1. Log into the [Azure Portal]
+2. Select **All resources** or **App Services** then click on the name of your Mobile App.
+3. The Settings blade will open automatically.  If it doesn't, click on **All Settings**.
+4. Click on **CORS** under the API menu.
+5. Enter the URL that you wish to add in the box provided and press Enter.
+6. Enter additional URLs as needed.
+7. Click on **Save** to save the settings.
 
-### Social Authentication basic example
-
-This example uses Facebook client SDK for authentication:
-
-```
-client.login(
-     "facebook",
-     {"access_token": token})
-.done(function (results) {
-     alert("You are now logged in as: " + results.userId);
-}, function (err) {
-     alert("Error: " + err);
-});
-```
-This example assumes that the token provided by the respective provider SDK is stored in the token variable.
-
-### Microsoft Account example
-
-The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now logged in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-```
-
-This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
-
-##<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
-
-The authentication information for the current user can be retrieved from the `/.auth/me` endpoint using any
-AJAX method.  For example, to use the fetch API:
-
-```
-var url = client.applicationUrl + '/.auth/me';
-fetch(url)
-    .then(function (data) {
-        return data.json()
-    }).then(function (user) {
-        // The user object contains the claims for the authenticated user
-    });
-```
-
-You could also use jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+It will take approximately 10-15 seconds for the new settings to take effect.
 
 ##<a name="register-for-push"></a>How to: Register for Push Notifications
 
@@ -366,6 +144,7 @@ send push notifications directly from clients as that could be used to trigger a
 service attack against Notification Hubs or the PNS.
 
 <!-- URLs. -->
+[Azure Portal]: https://portal.azure.com
 [Azure Mobile Apps Quick Start]: app-service-mobile-cordova-get-started.md
 [Get started with authentication]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

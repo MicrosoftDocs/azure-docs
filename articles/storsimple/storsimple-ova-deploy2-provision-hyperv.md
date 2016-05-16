@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V (Preview)
+# Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
-## Overview 
+## Overview
 
-This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V 2008 R2, Hyper-V 2012, or Hyper-V 2012 R2.
+This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V 2008 R2, Hyper-V 2012, or Hyper-V 2012 R2. This article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
 
 You will need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
-> [AZURE.IMPORTANT]
-> 
-> This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
 
 ## Provisioning prerequisites
 
@@ -42,7 +39,9 @@ Before you begin, make sure that:
 
 -   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
 
-### For the StorSimple virtual device 
+	> [AZURE.IMPORTANT] The software running on the StorSimple Virtual Array may only be used in conjunction with the Storsimple Manager service.
+
+### For the StorSimple virtual device
 
 Before you deploy a virtual device, make sure that:
 
@@ -51,20 +50,20 @@ Before you deploy a virtual device, make sure that:
 -   The host system is able to dedicate the following resources to provision your virtual device:
 
 	-   A minimum of 4 cores.
-	
+
 	-   At least 8 GB of RAM.
-	
+
 	-   One network interface.
-	
+
 	-   A 500 GB virtual disk for system data.
 
-### For the network in the datacenter 
+### For the network in the datacenter
 
 Before you begin, make sure that:
 
 -   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see [StorSimple Virtual Array networking requirements](storsimple-ova-system-requirements.md#networking-requirements).
 
-## Step-by-step provisioning 
+## Step-by-step provisioning
 
 To provision and connect to a virtual device, you will need to perform the following steps:
 
@@ -97,7 +96,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 #### To provision a virtual device
 
-1.  On your Windows Server host, copy the virtual device image on the local drive. This is the image that you have downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
+1.  On your Windows Server host, copy the virtual device image on the local drive. This is the image (VHD or VHDX) that you have downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
 
 2.  Open **Server Manager**. In the top right corner, click **Tools** and select **Hyper-V Manager**.
 
@@ -117,7 +116,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  On the **Specify generation** page, choose **Generation 1**. Click **Next**.
+1.  On the **Specify generation** page, if using a VHD, choose **Generation 1**. If using a VHDX (for Windows Server 2012 or later), choose **Generation 2**. Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
@@ -145,7 +144,7 @@ Perform the following steps to provision a device in your hypervisor.
 
     b.  Click **Next**.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image8.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
 1.  Review the **Summary** presented to you. Click **Finish** to create the virtual machine.
 
@@ -161,7 +160,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 1.  To meet the minimum requirements, you also need to add a 500 GB virtual data disk. In the **Settings** page:
 
-    1.  In the left pane, select **SCSI Controller**. 
+    1.  In the left pane, select **SCSI Controller**.
     2.  In the right pane, select **Hard Drive,** and click **Add**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image12.png)
@@ -178,7 +177,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
-1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). If you choose **Fixed size** disk, it will also work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**. Note that **Dynamically expanding** is the default in Hyper-V 2012 and Hyper-V 2012 R2. In Hyper-V 2008 R2, default is **Fixed size**. 
+1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). If you choose **Fixed size** disk, it will also work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**. Note that **Dynamically expanding** is the default in Hyper-V 2012 and Hyper-V 2012 R2. In Hyper-V 2008 R2, default is **Fixed size**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 
@@ -194,7 +193,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
 
-1.  You will return to the **Settings** page. Click **OK** to close the **Settings** page and return to Hyper-V Manager window.
+2.  You will return to the **Settings** page. Click **OK** to close the **Settings** page and return to Hyper-V Manager window.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
 
@@ -216,7 +215,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image23.png)
 
-1.  For security reasons, the device administrator password expires at the first log on. You will be prompted to change the password. 
+1.  For security reasons, the device administrator password expires at the first log on. You will be prompted to change the password.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image24.png)
 
@@ -232,15 +231,15 @@ Perform the following steps to start your virtual device and connect to it.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image27.png)
 
-1.  Steps 6-8 only apply when booting up in a non DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non DHCP environment, you will see the following screen. 
+1.  Steps 6-8 only apply when booting up in a non DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non DHCP environment, you will see the following screen.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image28.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image28m.png)
 
  	You will now need to configure the network.
 
 1.  Use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image29.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image29m.png)
 
 1.  Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
@@ -250,11 +249,22 @@ Perform the following steps to start your virtual device and connect to it.
 
 1.  After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and registration.
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image31.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image31m.png)
 
-	If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
 
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
+
+1. (Optional) Perform this step only if you are deploying your device in the Government Cloud. You will now enable the United States Federal Information Processing Standard (FIPS) mode on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data.
+	1. To enable the FIPS mode, run the following cmdlet:
+		
+		`Enter-HcsFIPSMode`
+
+	2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
+
+		> [AZURE.NOTE] You can either enable or disable FIPS mode on your device. Alternating the device between FIPS and non-FIPS mode is not supported.
+
+If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+
+![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
 
 If you face any other error during the initial configuration using the local web UI, refer to the following workflows in [Manage your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
 

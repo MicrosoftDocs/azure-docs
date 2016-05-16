@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="04/28/2016"
    ms.author="alkohli"/>
 
-# StorSimple Virtual Array system requirements (Preview)
+# StorSimple Virtual Array system requirements
 
 ## Overview
 
@@ -34,10 +34,6 @@ The StorSimple system requirements information published in this article applies
  
 - For 7000 series devices, go to [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
-> [AZURE.IMPORTANT]
-> 
-> - This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
-> - If you experience any issues with StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=StorSimple).  
 
 ## Software requirements
 
@@ -91,12 +87,34 @@ The following table lists the ports that need to be opened in your firewall to a
 | TCP 443 (HTTPS)          | Out           | WAN            | Yes                       | Outbound port is used for accessing data in the cloud. <br></br>The outbound web proxy is user configurable. |
 | UDP 53 (DNS)             | Out           | WAN            | In some cases; see notes. | This port is required only if you are using an Internet-based DNS server. <br></br> **Note**: If deploying a file server, we recommend using local DNS server.|
 | UDP 123 (NTP)            | Out           | WAN            | In some cases; see notes. | This port is required only if you are using an Internet-based NTP server.<br></br> **Note:** If deploying a file server, we recommend synchronizing time with your Active Directory domain controllers.  |
-|TCP 9354                 | Out           | WAN            | Yes                       | The outbound port is used by the StorSimple device to communicate with the StorSimple Manager service.|
 | TCP 80 (HTTP)           | In            | LAN            | Yes                       | This is the inbound port for local UI on the StorSimple device for local management. <br></br> **Note**: Accessing the local UI over HTTP will automatically redirect to HTTPS.|
 | TCP 443 (HTTPS)		   | In            | LAN            | Yes                       | This is the inbound port for local UI on the StorSimple device for local management.|
 | TCP 3260 (iSCSI)         | In            | LAN            | No                        | This port is used to access data over iSCSI.|
 
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
+
+### URL patterns for firewall rules 
+
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your virtual array and the StorSimple Manager service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your StorSimple as and when needed. 
+
+We recommend that you set your firewall rules for outbound traffic, based on StorSimple fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
+
+> [AZURE.NOTE] 
+> 
+> - The device (source) IPs should always be set to all the cloud-enabled network interfaces. 
+> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+
+
+| URL pattern                                                      | Component/Functionality                                           |
+|------------------------------------------------------------------|---------------------------------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`   | StorSimple Manager service<br>Access Control Service<br>Azure Service Bus|
+|`http://*.backup.windowsazure.com`|Device registration|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Certificate revocation |
+| `https://*.core.windows.net/*`                          | Azure storage accounts and monitoring |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update servers<br>                        |
+| `http://*.deploy.akamaitechnologies.com`                         |Akamai CDN |
+| `https://*.partners.extranet.microsoft.com/*`                    | Support package                                                  |
+| `http://*.data.microsoft.com `                   | Telemetry service in Windows, see the [update for customer experience and diagnostic telemetry](https://support.microsoft.com/en-us/kb/3068708)                                                  |
 
 ## Next step
 

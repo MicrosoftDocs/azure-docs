@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/01/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -195,16 +195,16 @@ With this Information Frank can define the following Auto-scale Profile and Rule
 |	**Duration:** 20 Minutes								|	**Duration:** 30 Minutes						|
 |	**Time Aggregation:** Average							|	**Time Aggregation:** Average					|
 |	**Action:** Increase count by 8							|	**Action:** Increase count by 3					|
-|	**Cool down (minutes):** 90								|	**Cool down (minutes):** 90						|
+|	**Cool down (minutes):** 180							|	**Cool down (minutes):** 180					|
 |	                                                    	|	                                            	|
 |	**Auto-scale Rule (Scale DOWN)**						|	**Auto-scale Rule (Scale DOWN)**				|
 |	**Resource:** Worker Pool 1								|	**Resource:** Worker Pool 1						|
 |	**Metric:** WorkersAvailable							|	**Metric:** WorkersAvailable					|
-|	**Operation:** Greater than 8							|	**Operation:** Less than 3						|
+|	**Operation:** Greater than 8							|	**Operation:** Greater than 3						|
 |	**Duration:** 20 Minutes								|	**Duration:** 15 Minutes						|
 |	**Time Aggregation:** Average							|	**Time Aggregation:** Average					|
 |	**Action:** Decrease count by 2							|	**Action:** Decrease count by 3					|
-|	**Cool down (minutes):** 90								|	**Cool down (minutes):** 90						|
+|	**Cool down (minutes):** 120							|	**Cool down (minutes):** 120					|
 
 The Target range defined in the profile is calculated by the minimum instances defined in the 
 Profile for the **App Service plan** + buffer.
@@ -246,7 +246,7 @@ to prevent this he sets the auto-scale rule to increase instances as follows:
 |	**Duration:** 20 Minutes						|
 |	**Time Aggregation:** Average					|
 |	**Action:** Increase count by 3					|
-|	**Cool down (minutes):** 90						|
+|	**Cool down (minutes):** 120					|
 |													|
 |	**Auto-scale Rule (Scale DOWN)**				|
 |	**Resource:** Worker Pool 1						|
@@ -255,7 +255,7 @@ to prevent this he sets the auto-scale rule to increase instances as follows:
 |	**Duration:** 20 Minutes						|
 |	**Time Aggregation:** Average					|
 |	**Action:** Decrease count by 3					|
-|	**Cool down (minutes):** 90						|
+|	**Cool down (minutes):** 120					|
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png

@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="01/21/2016"
+	ms.topic="article"
+	ms.date="03/04/2016"
 	ms.author="tdykstra"/>
 
 # Authentication and authorization for API Apps in Azure App Service
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Overview 
+
+> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
 
 Azure App Service offers built-in authentication and authorization services that implement [OAuth 2.0](#oauth) and [OpenID Connect](#oauth). This article describes the services and options that are available for API Apps in Azure App Service.
 
@@ -85,7 +87,7 @@ If you want to handle a service-to-service scenario without using App Service au
 
 Service account authentication from an App Service logic app to an API app is a special case that is explained in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
-## Client authentication
+## Mobile client authentication
 
 For information about how to handle authentication from mobile clients, see the [documentation on authentication for mobile apps](../app-service-mobile/app-service-mobile-ios-get-started-users.md). App Service authentication works the same way for mobile apps and API apps.
   
@@ -102,7 +104,7 @@ For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT),
 * [Introduction to OAuth2, OpenID Connect and JSON Web Tokens (JWT) - PluralSight Course](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
 * [Building and Securing a RESTful API for Multiple Clients in ASP.NET - PluralSight course](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
-For more information about authentication using Azure Active Directory, see the following resources.
+For more information about Azure Active Directory, see the following resources.
 
 * [Azure AD scenarios](http://aka.ms/aadscenarios)
 * [Azure AD developers' guide](http://aka.ms/aaddev)
@@ -110,4 +112,4 @@ For more information about authentication using Azure Active Directory, see the 
 
 ## Next steps
 
-This article has explained authentication and authorization features of App Service that you can use for API apps. In the next tutorial, you'll learn how to implement [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
+This article has explained authentication and authorization features of App Service that you can use for API apps. The next tutorial in the getting started series shows how to implement [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).

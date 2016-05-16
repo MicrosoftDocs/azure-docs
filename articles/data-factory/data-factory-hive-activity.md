@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Hive Activity
@@ -61,7 +61,7 @@ inputs | Input(s) consumed by the Hive activity | No
 outputs | Output(s) produced by the Hive activity | Yes 
 linkedServiceName | Reference to the HDInsight cluster registered as a linked service in Data Factory | Yes 
 script | Specify the Hive script inline | No
-script path | Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together | No 
+script path | Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. Note that the file name is case-sensitive. | No 
 defines | Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf'  | No
 
 ## Example
@@ -215,6 +215,12 @@ To use parameterize Hive script, do the following
 		FROM HiveSampleIn Group by ProfileID
 
 
+## See Also
+- [Pig Activity](data-factory-pig-activity.md)
+- [MapReduce Activity](data-factory-map-reduce.md)
+- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+- [Invoke Spark programs](data-factory-spark.md)
+- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
 
 

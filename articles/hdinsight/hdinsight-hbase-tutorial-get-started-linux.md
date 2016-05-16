@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="jgao"/>
 
 
@@ -26,6 +26,8 @@
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
 The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, use the tab selector on the top of the page to switch.
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ###Prerequisites
 
@@ -41,15 +43,18 @@ The following procedure use an Azure ARM template to create an HBase cluster. To
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Parameters** blade, enter the following:
 
     - **ClusterName**: Enter a name for the HBase cluster that you will create.
-    - **ClusterStorageAccountName**: Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account.
     - **Cluster login name and password**: The default login name is **admin**.
-    - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
+    - **SSH username and password**: The default username is **sshuser**.  You can rename it.
+     
     Other parameters are optional.  
+    
+    Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
+        
 3. Click **OK** to save the parameters.
 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
 5. Click **Legal terms**, and then click **Create**.
@@ -251,7 +256,9 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 
 In a high availability cluster, you will find a link to the current active HBase master node that is hosting the Web UI.
 
+##Delete the cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next steps?
 In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.

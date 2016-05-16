@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="11/02/2015"
+   ms.date="02/19/2016"
    ms.author="mobandyo;sirishap;bryanla"/>
 
 # Cloud Cruiser and Microsoft Azure Billing API Integration

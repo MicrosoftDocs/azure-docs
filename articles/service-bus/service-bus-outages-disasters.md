@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Insulating Service Bus applications against outages and disasters | Microsoft Azure"
-   description="Describes techniques you can use to protect applications against a potential Service Bus outage."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Insulating Service Bus applications against outages and disasters | Microsoft Azure"
+    description="Describes techniques you can use to protect applications against a potential Service Bus outage."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Best practices for insulating applications against Service Bus outages and disasters
 
@@ -27,7 +27,7 @@ A disaster is defined as the permanent loss of a Service Bus scale unit or datac
 
 Service Bus uses multiple messaging stores to store messages that are sent to queues or topics. A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail.
 
-All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus does not enable automatic geo-replication of data, nor does it allow a service namespace to span multiple datacenters.
+All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus does not enable automatic geo-replication of data, nor does it allow a namespace to span multiple datacenters.
 
 ## Protecting against ACS outages
 
@@ -41,7 +41,7 @@ A non-partitioned queue or topic is assigned to one messaging store. If this mes
 
 ## Protecting against datacenter outages or disasters
 
-To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States (North/Central) region, and **contosoSecondary.servicebus.windows.net** might be located in the United States (South/Central) region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
+To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States North/Central region, and **contosoSecondary.servicebus.windows.net** might be located in the US South/Central region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
 
 For more information, see the "Failure of Service Bus within an Azure datacenter" section in [Asynchronous Messaging Patterns and High Availability][].
 
@@ -61,7 +61,7 @@ If the application does not require permanent sender-to-receiver communication, 
 
 ## Active replication
 
-Active replication uses entities in both service namespaces for every operation. Any client that sends a message sends two copies of the same message. The first copy is sent to the primary entity (for example, **contosoPrimary.servicebus.windows.net/sales**), and the second copy of the message is sent to the secondary entity (for example, **contosoSecondary.servicebus.windows.net/sales**).
+Active replication uses entities in both namespaces for every operation. Any client that sends a message sends two copies of the same message. The first copy is sent to the primary entity (for example, **contosoPrimary.servicebus.windows.net/sales**), and the second copy of the message is sent to the secondary entity (for example, **contosoSecondary.servicebus.windows.net/sales**).
 
 A client receives messages from both queues. The receiver processes the first copy of a message, and the second copy is suppressed. To suppress duplicate messages, the sender must tag each message with a unique identifier. Both copies of the message must be tagged with the same identifier. You can use the [BrokeredMessage.MessageId][] or [BrokeredMessage.Label][] properties, or a custom property to tag the message. The receiver must maintain a list of messages that it has already received.
 
@@ -90,6 +90,8 @@ The [Geo-replication with Service Bus Brokered Messages][] sample demonstrates p
 If the application can tolerate a Service Bus entity being unavailable, but must not lose messages, the sender can employ a durable client-side queue that locally stores all messages that cannot be sent to Service Bus. Once the Service Bus entity becomes available again, all buffered messages are sent to that entity. The [Durable Message Sender][] sample implements such a queue with the help of MSMQ. Alternatively, the messages can be written to the local disk.
 
 A durable client-side queue preserves message order and shields the client application from exceptions in case the Service Bus entity is unavailable. It can be used with simple and distributed transactions.
+
+> [AZURE.NOTE] This sample works well in Infrastructure as a Service (IaaS) scenarios where a local disk or a disk for MSMQ is mapped to a storage account and messages are stored reliably with MSMQ. This is not suitable for Platform as a Service (PaaS) scenarios such as Cloud Services and Web Applications.
 
 ## Next steps
 

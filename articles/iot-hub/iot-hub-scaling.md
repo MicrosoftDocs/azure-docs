@@ -13,14 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/20/2016"
+ ms.date="03/14/2016"
  ms.author="elioda"/>
 
 # Scaling IoT Hub
 
-Azure IoT Hub can support up to a million simultaneously connected devices by increasing the number of IoT Hub S1 tier units or S2 tier units to 2,000. For more information, see [IoT Hub pricing][lnk-pricing].
-
-Each IoT Hub unit allows a certain number of devices in the registry, and these devices can all be simultaneously connected. Each unit also allows a number of daily messages.
+Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a number of daily messages.
 
 In order to properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
 

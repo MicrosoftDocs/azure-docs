@@ -13,10 +13,11 @@ Thank you for your interest in Azure documentation!
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
+* [Feedback, comments, and support](./contributor-guide/feedback-and-comments.md)
 * [More resources](#more-resources)
 * [Index of all contributors' guide articles](./contributor-guide/contributor-guide-index.md) (opens new page)
 
-## Ways to contribute
+## Ways to contribute 
 
 You can contribute to [Azure documentation](http://azure.microsoft.com/documentation/) in a few different ways:
 
@@ -41,7 +42,7 @@ If you submit a pull request with new or significant changes to documentation an
 
 We need you to complete the online form before we can accept your pull request.
 
-Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla).
+Full details are available at [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
 
 ## Repository organization
 
@@ -49,7 +50,7 @@ The content in the azure-content repository follows the organization of document
 
 ### \articles
 
-The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. 
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension.
 
 Articles in the root directory are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 

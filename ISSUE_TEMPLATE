@@ -1,0 +1,9 @@
+Instead of using GitHub issues, please consider these options if you need help or have feedback:
+
+-	Feedback or questions about technical articles are best handled through the Disqus thread at the bottom of each article. This makes it clear to us which article you are talking about.
+
+-	Suggested changes to technical articles are best handled as proposals for change through pull requests. Each pull request is reviewed by the SME.
+
+-	If you need support using Azure, your best bets are StackOverflow, MSDN, and our support channels. See https://azure.microsoft.com/en-us/support/forums/ and https://azure.microsoft.com/en-us/support/options/.
+
+-	Product and feature feedback is best handled through the general feedback for Azure: https://feedback.azure.com 

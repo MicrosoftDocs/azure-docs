@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
@@ -60,9 +60,9 @@ administrator or a co-administrator for the associated subscription.
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-5.  Select a **Pricing tier** or use the default.  For more information on pricing tiers, see [Azure Storage Pricing](../../pricing/details/storage).
+5.  Select a **Pricing tier** or use the default.  For more information on pricing tiers, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-6.  Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview/#resource-groups).
+6.  Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
 7. Select the **Subscription** that the storage account will be used with.
 
@@ -77,25 +77,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
 > [AZURE.TIP] If you already have a CDN profile that you want to use for this tutorial, proceed to [Step 3](#step-3-create-a-new-cdn-endpoint).
 
-**To create a new CDN profile**
-
-1. In the [Azure Management Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
-
-    The new CDN profile blade appears.
-
-    ![New CDN Profile][new-cdn-profile]
-
-2. Enter a name for your CDN profile.
-
-3. Select a **Pricing tier** or use the default.
-
-4. Select or create a **Resource Group**.  It is not necessary that this is the same Resource Group as your storage account.
-
-5. Select the **Subscription** for this CDN profile.  This will need to be the same subscription as the storage account for the purposes of this tutorial.
-
-6. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.  It does not need to be the same location as the storage account.
-
-7. Click the **Create** button to create the new profile.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## Step 3: Create a new CDN endpoint
 
@@ -115,7 +97,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
     ![Add endpoint blade][cdn-add-endpoint]
 
-3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<EndpointName>.azureedge.net`.
+3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net`.
 
 4. In the **Origin type** dropdown, select *Storage*.  
 
@@ -147,7 +129,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 If you no longer wish to cache an object in the Azure Content
 Delivery Network (CDN), you can take one of the following steps:
 
--   You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage-manage-access-to-resources/) for more information.
+-   You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage/storage-manage-access-to-resources.md) for more information.
 -   You can disable or delete the CDN endpoint using the Management Portal.
 -   You can modify your hosted service to no longer respond to requests for the object.
 
@@ -160,7 +142,6 @@ An object already cached in the CDN will remain cached until the time-to-live pe
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
 
-[new-cdn-profile]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-a-storage-account-with-cdn/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png

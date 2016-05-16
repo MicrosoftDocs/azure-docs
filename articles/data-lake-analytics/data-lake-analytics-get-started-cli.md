@@ -3,18 +3,18 @@
    description="Learn how to use the Azure Command-line Interface to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using Azure Command-line Interface (CLI)
 
@@ -28,17 +28,9 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
 In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma 
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
-**The basic Data Lake Analytics process:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Azure Data Lake Analytics process flow diagram](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Create a Data Lake Analytics account.
-2. Prepare the source data. Data Lake Analytics jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
-3. Develop a U-SQL script.
-4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
-in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
-
-**Prerequisites**
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
@@ -48,7 +40,7 @@ Before you begin this tutorial, you must have the following:
 - **Authentication**, using the following command:
 
 		azure login
-	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
+	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 - **Switch to the Azure Resource Manager mode**, using the following command:
 
 		azure config mode arm

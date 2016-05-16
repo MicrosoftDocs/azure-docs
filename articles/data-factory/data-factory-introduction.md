@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/09/2016" 
+	ms.date="04/26/2016" 
 	ms.author="spelluru"/>
 
 # Introduction to Azure Data Factory Service
@@ -57,4 +57,15 @@ Linked services define the information needed for Data Factory to connect to ext
 
 With the four simple concepts of datasets, activities, pipelines and linked services, you are ready to get started!  You can [build your first pipeline](data-factory-build-your-first-pipeline.md)  from the ground up, or deploy a ready-made sample by following the instructions in our [Data Factory Samples](data-factory-samples.md) article. 
 
+## Supported regions
+You can create data factories in the **West US** and **North Europe** regions at this time. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. 
+
+Azure Data Factory itself does not store any data. It lets you create data-driven flows to orchestrate movement of data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores) and processing of data using [compute services](data-factory-compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to [monitor and manage workflows](data-factory-monitor-manage-pipelines.md) using both programmatic and UI mechanisms. 
+
+Note that even though the Azure Data Factory is available in only **West US** and **North Europe** regions, the service powering the data movement in Data Factory is available [globally](data-factory-data-movement-activities.md#global) in several regions. In case a data store sits behind a firewall then a  a [Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) installed in your on-premises environment moves the data instead. 
+
+For an example, let us assume that your compute environment(s) such as Azure HDInsight cluster and Azure Machine Learning are running out of West Europe region. You can create and leverage an Azure Data Factory instance in North Europe and use it to schedule jobs on your compute environments in West Europe. It takes a few milliseconds for the Data Factory service to trigger the job on your compute environment but the time for executing the job on your computing environment does not change.
+
+We intend to have Azure Data Factory in every geography supported by Azure in the future.
+  
 

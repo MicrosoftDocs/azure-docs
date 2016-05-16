@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure AD Connect: Version Release History | Microsoft Azure"
    description="This topic lists all releases of Azure AD Connect and Azure AD Sync"
    services="active-directory"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/16/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -22,10 +22,57 @@ The Azure Active Directory team regularly updates Azure AD Connect with new feat
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
-Related links:
+This is list of related topics:
 
-- For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
-- [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+| Topic |  |
+| --------- | --------- |
+| Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release. |
+| Required permissions | For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade) |
+| Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+
+## 1.1.180.0
+Released: 2016 May
+
+**New features:**
+
+- Warns and helps you verifying domains if you didn’t do it before running Azure AD Connect.
+- Added support for [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
+- Added support for the latest [Microsoft Azure Government cloud](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) infrastructure with new URL requirements.
+
+**Fixed issues and improvements:**
+
+- Added filtering to the Sync Rule Editor to make it easy to find sync rules.
+- Improved performance when deleting a connector space.
+- Fixed an issues when the same object was both deleted and added in the same run (called delete/add).
+- A disabled Sync Rule will no longer re-enable included objects and attributes on upgrade or directory schema refresh.
+
+## 1.1.130.0
+Released: 2016 April
+
+**New features:**
+
+- Added support for multi-valued attributes to [Directory Extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
+- Added support for more configuration variations for [automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) to be considered eligible for upgrade.
+- Added some cmdlets for [custom scheduler](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
+
+## 1.1.119.0
+Released: 2016 March
+
+**Fixed issues:**
+
+- Made sure Express install cannot be used on Windows Server 2008 (pre-R2) since password sync is not supported on this operating system.
+- Upgrade from DirSync with a custom filter configuration did not work as expected.
+- When upgrading to a newer release and there are no changes to the configuration, a full import/synchronization should not be scheduled.
+
+## 1.1.110.0
+Released: 2016 February
+
+**Fixed issues:**
+
+- Upgrade from earlier releases does not work if installation is not in the default **C:\Program Files** folder.
+- If you install and unselect **Start the synchronization process..** at the end of the installation wizard, re-running the installation wizard will not enable the scheduler.
+- The scheduler will not work as expected on servers where the date/time format is not US-en. It will also block `Get-ADSyncScheduler` to return correct times.
+- If you installed an earlier release of Azure AD Connect with ADFS as the sign-in option and upgrade, you cannot run the installation wizard again.
 
 ## 1.1.105.0
 Released: 2016 February

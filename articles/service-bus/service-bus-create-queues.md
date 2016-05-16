@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Write applications that use Service Bus queues | Microsoft Azure"
-   description="How to write a simple queue-based application that uses Service Bus."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Write applications that use Service Bus queues | Microsoft Azure"
+    description="How to write a simple queue-based application that uses Service Bus."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Create applications that use Service Bus queues
 
 This topic describes Service Bus queues and shows how to write a simple queue-based application that uses Service Bus.
 
-Consider a scenario from the world of retail in which sales data from individual Point of Sale (POS) terminals must be routed to an inventory management system which uses that data to determine when stock has to be replenished. This solution uses Service Bus messaging for the communication between the terminals and the inventory management system, as illustrated in the following figure:
+Consider a scenario from the world of retail in which sales data from individual Point-of-Sale (POS) terminals must be routed to an inventory management system that uses the data to determine when stock has to be replenished. This solution uses Service Bus messaging for the communication between the terminals and the inventory management system, as illustrated in the following figure:
 
 ![Service-Bus-Queues-Img1](./media/service-bus-create-queues/IC657161.gif)
 
@@ -31,7 +31,7 @@ Before we look at the code that is required to set up this application, consider
 
 ### Temporal decoupling
 
-With the asynchronous messaging pattern, producers and consumers do not have to be online at the same time. The messaging infrastructure reliably stores messages until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the whole system. Furthermore, the consuming application may only have to be online during certain times of the day. For example, in this retail scenario, the inventory management system may only have to come online after the end of the business day.
+With the asynchronous messaging pattern, producers and consumers do not have to be online at the same time. The messaging infrastructure reliably stores messages until the consuming party is ready to receive them. This means the components of the distributed application can be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the whole system. Furthermore, the consuming application may only have to be online during certain times of the day. For example, in this retail scenario, the inventory management system may only have to come online after the end of the business day.
 
 ### Load leveling
 
@@ -55,15 +55,15 @@ The following section shows how to use Service Bus to build this application.
 
 ### Sign up for a Service Bus account and subscription
 
-You’ll need an Azure account in order to start working with Service Bus. If you do not already have one, you can sign up for a free trial [here](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+You’ll need an Azure account in order to start working with Service Bus. If you do not already have one, you can sign up for a free account [here](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Create a service namespace
 
-Once you have a subscription, you can create a new namespace. You’ll have to give your new namespace a unique name across all Service Bus accounts. Each namespace acts as a container for a set of Service Bus entities. For more information, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+Once you have a subscription, you can create a new namespace. Give your new namespace a unique name across all Service Bus accounts. Each namespace acts as a scoping container for a set of Service Bus entities.
 
 ### Install the NuGet package
 
-To use the Service Bus service namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. You can find this assembly as part of the Microsoft Azure SDK, and the download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/). However, the Service Bus NuGet package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. For details about using NuGet and the Service Bus package, see [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/dn741354.aspx).
+To use the Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. You can find this assembly as part of the Microsoft Azure SDK, and the download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/). However, the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
 
 ### Create the queue
 
@@ -158,4 +158,4 @@ catch (Exception e)
 
 ## Next steps
 
-Now that you've learned the basics of queues, see [Create applications that use Service Bus topics and subscriptions](service-bus-create-topics-subscriptions.md) to continue this discussion using the publish/subscribe capabilities of Service Bus brokered messaging.
+Now that you've learned the basics of queues, see [Create applications that use Service Bus topics and subscriptions](service-bus-create-topics-subscriptions.md) to continue this discussion using the publish/subscribe capabilities of Service Bus topics and subscriptions.

@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Create an Azure AD B2C tenant

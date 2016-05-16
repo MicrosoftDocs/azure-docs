@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/19/2016"
-	ms.author="jutang"/>
+	ms.date="05/04/2016"
+	ms.author="robmcm"/>
 
 # How to use File Storage from Java
 

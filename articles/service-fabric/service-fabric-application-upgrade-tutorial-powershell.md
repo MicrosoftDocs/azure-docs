@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="05/13/2016"
    ms.author="subramar"/>
 
 
@@ -52,17 +52,17 @@ You can use the Visual Studio *Edit Manifest Files* option after you right-click
 After the changes are made, the manifest should look like the following (highlighted portions show the changes):
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService"Version="2.0"xmlns="http://schemas.microsoft.com/2011/01/fabric"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<CodePackageName="Code"Version="2.0">
+<CodePackageName="Code" Version="2.0">
 ```
 
 Now we need to update the *ApplicationManifest.xml* file (found under the **VisualObjects** project under the **VisualObjects** solution) to use version 2.0 of the **VisualObjects.ActorService** project, and also update the Application version to 2.0.0.0 from 1.0.0.0. Now the corresponding lines in the *ApplicationManifest.xml* should read like the following:
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"ApplicationTypeName="VisualObjects"ApplicationTypeVersion="2.0.0.0"xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
- <ServiceManifestRefServiceManifestName="VisualObjects.ActorService"ServiceManifestVersion="2.0" />
+ <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
 

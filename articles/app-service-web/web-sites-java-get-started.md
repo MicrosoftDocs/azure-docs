@@ -11,25 +11,19 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
-	ms.topic="hero-article"
-	ms.date="01/09/2016"
+	ms.topic="get-started-article"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 This tutorial shows how to create a Java [web app in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the [Azure Portal](https://portal.azure.com/). The Azure Portal is a web interface that you can use to manage Azure resources.
 
-> [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits][] or [sign up for a free trial][].
+> [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits] or [sign up for a free trial].
 >
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service][]. There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
+> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service]. There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
 ## Java application options
 
@@ -53,7 +47,7 @@ There are several ways you can set up a Java application in an App Service web a
 	* You want to configure the web container from scratch yourself. 
 	* You want to use a version of Java that isn’t supported in App Service and want to upload it yourself.
 
-	For cases like these, you can create an app using the Azure Portal, and then provide the appropriate runtime files manually. In this case the files will be counted against your storage space quotas for your App Service plan. For more information, see [Upload a custom Java web app to Azure](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/web-sites-java-custom-upload/).
+	For cases like these, you can create an app using the Azure Portal, and then provide the appropriate runtime files manually. In this case the files will be counted against your storage space quotas for your App Service plan. For more information, see [Upload a custom Java web app to Azure](web-sites-java-custom-upload.md).
 
 ## <a name="portal"></a> Create and configure a Java web app
 
@@ -173,8 +167,11 @@ At this point, you have a Java application server running in your web app in Azu
 
 For more information about developing Java applications in Azure, see the [Java Developer Center](/develop/java/).
 
-<!-- External Links -->
+<!-- URL List -->
+
 [activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
 [sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
-
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+
+<!-- IMG List -->
+

@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="03/01/2016"
    ms.author="tomfitz"/>
 
 # Resource Manager providers, regions, API versions and schemas
@@ -158,15 +158,17 @@ Azure Active Directory works with Resource Manager to enable role-based access c
 
 When deploying resources, you frequently need to retrieve information about the resource providers and types. You can retrieve this information through REST API, Azure PowerShell, or Azure CLI.
 
+To work with a resource provider, that resource provider must be registered with your account. By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. The examples below show how to get the registration status of a resource provider, and register the resource provider, if needed.
+
 ### REST API
 
-To get all of the available resource providers, including their types, locations, API versions, and registration status, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
+To get all of the available resource providers, including their types, locations, API versions, and registration status, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. If you need to register a resource provider, see [Register a subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
 The following example shows how to get all of the available resource providers.
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
     
 The output will be similar to:
 
@@ -178,7 +180,7 @@ The output will be similar to:
 
 The next example shows how to get the resource types for a particular resource provider.
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
     
 The output will be similar to:
 
@@ -188,6 +190,10 @@ The output will be similar to:
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
     ...
     
+To register a resource provider provide the namespace:
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+
 ### Azure CLI
 
 The following example shows how to get all of the available resource providers.
@@ -209,6 +215,10 @@ You can save the information for a particular resource provider to a file with t
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
+To register a resource provider provide the namespace:
+
+    azure provider register -n Microsoft.ServiceBus
+
 ## Supported regions
 
 When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there 
@@ -225,7 +235,7 @@ To discover which regions are available for a particular resource type in your s
 
 The following example shows how to get the supported regions for web sites.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
 The output will be similar to:
 
@@ -249,7 +259,7 @@ The following example returns all of the supported locations for each resource t
 
     azure location list
 
-You can also filter the location results with a tool like **jq**. To learn about tools like jq, see [Useful tools to interact with Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+You can also filter the location results with a JSON utility like [jq](https://stedolan.github.io/jq/).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 

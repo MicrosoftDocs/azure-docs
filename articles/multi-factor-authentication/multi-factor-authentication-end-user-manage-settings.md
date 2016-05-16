@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Having trouble with Azure Multi-Factor Authentication
@@ -132,6 +132,9 @@ If you use multi-factor authentication with Azure you will want to change your s
 
 If you have a new phone and need to change the primary contact number that mfa uses, you can do this in one of two ways.
 
+>[AZURE.IMPORTANT]
+>It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
+
 The first is using a secondary authentication method.  If you have specified a secondary authentication phone number you can sign-in using it. 
 ![Setup](./media/multi-factor-authentication-end-user-manage/altphone.png)
 Notice in the screen shot above, two phone numbers have been setup.  One ending in 67 and the second ending in 30.
@@ -142,9 +145,6 @@ To sign in using the alternate phone number, sign-in as you normally would, then
 Then select your other phone number.  In this case, you would select **Call me at +X XXXXXXXX30**
 
 ![Alternate phone](./media/multi-factor-authentication-end-user-manage/altphone2.png)
-
->[AZURE.IMPORTANT]
->It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
 
 The second is by contacting your administrator or the person who setup mfa for you.  You only need to do this if you have not configured a secondary authentication phone number.  Otherwise you will have to contact your administrator or the person who setup mfa and have them clear you settings so the next time you sign-in, you will be prompted to [setup multi-factor authentication](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) again.
 

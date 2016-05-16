@@ -3,8 +3,8 @@
 	description="Learn how to encode with Media Encoder Premium Workflow. Code samples are written in C# and use the Media Services SDK for .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="05/15/2016" 
 	ms.author="juliako"/>
 
 #Advanced encoding with Media Encoder Premium Workflow
 
->[AZURE.NOTE]For premium encoder questions, email mepd at Microsoft.com.
->
->Media Encoder Premium Workflow media processor discussed in this topic is not available in China.
+>[AZURE.NOTE] Media Encoder Premium Workflow media processor discussed in this topic is not available in China.
+
+For premium encoder questions, email mepd at Microsoft.com.
 
 ##Overview
 
@@ -30,13 +30,11 @@ The following topics outline details related to **Media Encoder Premium Workflow
 
 - [Formats Supported by the Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – Discusses the file formats and codecs supported by **Media Encoder Premium Workflow**.
 
-- The [compare encoders](media-services-encode-asset.md#compare_encoders) section compares the encoding capabilities of **Media Encoder Premium Workflow**, **Media Encoder Standard** and **Azure Media Encoder**.
+- The [compare encoders](media-services-encode-asset.md#compare_encoders) section compares the encoding capabilities of **Media Encoder Premium Workflow** and **Media Encoder Standard**.
 
 This topic demonstrates how to encode with **Media Encoder Premium Workflow** using .NET.
 
 Encoding tasks for the **Media Encoder Premium Workflow** require a separate configuration file, called a Workflow file. These files have a .workflow extension and are created using the [Workflow Designer](media-services-workflow-designer.md) tool.
-
->[AZURE.NOTE]For premium encoder questions, email mepd at Microsoft.com.
 
 ##Encode
 
@@ -271,6 +269,7 @@ The following is a complete example. For information on how to set up with Media
 	}
 
 
+For premium encoder questions, email mepd at Microsoft.com.
 
 ##Media Services learning paths
 

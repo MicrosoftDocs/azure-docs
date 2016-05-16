@@ -10,11 +10,11 @@ The Azure Toolkit for Eclipse requires the following software components:
     * [Mac OS X](http://www.apple.com/osx) Versions "Yosemite" and "El Captain"
     * [Ubuntu Linux](http://www.ubuntu.com) Versions 12, 14, and 15
 
->[AZURE.NOTE] More information can be found on the [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) page at the Eclipse Marketplace.
+More information can be found on the [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) page at the Eclipse Marketplace.
 
 > [AZURE.IMPORTANT] If you are using the Azure Toolkit for Eclipse on Windows, the toolkit requires installing the Azure SDK 2.7 or later. You have two options for installing the Azure SDK:
 > 
-> * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)][].
+> * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
 > * If you do not have the Azure SDK installed when you create your first Azure deployment project, you will be prompted to automatically download install the requisite version of the Azure SDK.
 > 
 > Note that the Azure SDK is only required on Windows.

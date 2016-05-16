@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Troubleshooting and Q and A for Application Insights for Java
@@ -24,7 +24,7 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 
 *In Eclipse, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.*
 
-* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[1.0,)</version>` or (Gradle) `version:'1.0.+'`), try specifying a specific version instead like `1.0.2`. See the [release notes](app-insights-release-notes-java.md) for the latest version.
+* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[1.0,)</version>` or (Gradle) `version:'1.0.+'`), try specifying a specific version instead like `1.0.2`. See the [release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) for the latest version.
 
 ## No data 
 
@@ -33,7 +33,7 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 * Wait a minute and click Refresh. The charts refresh themselves periodically, but you can also refresh manually. The refresh interval depends on the time range of the chart.
 * Check that you have an instrumentation key defined in the ApplicationInsights.xml file (in the resources folder in your project)
 * Verify that there is no `<DisableTelemetry>true</DisableTelemetry>` node in the xml file.
-* In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
+* In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com.
 * In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 * Turn on logging to the IDE console window, by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with [Error].
 * Make sure that the correct ApplicationInsights.xml file has been successfully loaded by the Java SDK, by looking at the console's output messages for a "Configuration file has been successfully found" statement.
@@ -46,7 +46,9 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 * Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
 * Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 
+#### I don't see all the data I'm expecting
 
+* Open the Quotas and Pricing blade and check whether [sampling](app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry. 
 
 ## No usage data
 

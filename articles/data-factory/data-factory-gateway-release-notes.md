@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/08/2016" 
 	ms.author="spelluru"/>
 
 # Release notes for Data Management Gateway
@@ -22,19 +22,32 @@ One of the challenges for modern data integration is to seamlessly move data to 
 
 Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) for more information.
 
+## Current version (1.11.5918.1)
 
-## Current version (1.9.5865.2)
+- Maximum size of the gateway event log has been increased from 1 MB to 40 MB.
+- A warning dialog is displayed in case a restart is needed during gateway auto-update. You can choose to restart right then or later. 
+- In case auto-update fails, gateway installer will retry auto-updating 3 times at maximum.
+- Performance improvements
+	- Improve performance for loading large tables from on-premises server in code-free copy scenario.
+- Bug fixes
+
+## Earlier versions
+
+## 1.10.5892.1
+
+- Performance improvements
+- Bug fixes
+
+## 1.9.5865.2
 
 - Zero touch auto update capability
 - New tray icon with gateway status indicators
 - Ability to “Update now” from the client
 - Ability to set update schedule time
-- PowerShell script for toggling auto-update on/off 
+- PowerShell script for toggling auto-update on/off
+- Support for JSON format  
 - Performance improvements
 - Bug fixes
-
-
-## Earlier versions
 
 ## 1.8.5822.1
 

@@ -13,11 +13,11 @@
 	ms.workload="big-data" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.topic="get-started-article" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
-# Overview: Apache Spark on Azure HDInsight (Linux)
+# Overview: Apache Spark on HDInsight Linux (Preview)
  
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. Spark is also compatible with Azure Blob storage (WASB) so your existing data stored in Azure can easily be processed via Spark.
 

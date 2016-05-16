@@ -27,4 +27,4 @@ The vault credential file is downloaded through a secure channel from the Azure 
 - Ensure that the vault credentials is saved in a location which can be accessed from your machine. If it is stored in a file share/SMB, check for the access permissions.
 - The vault credentials file is used only during the registration workflow.
 - The vault credentials file expires after 48hrs and can be downloaded from the portal.
-- Refer to the Azure Backup [FAQ](](../articles/backup/backup-azure-backup-faq.md) for any questions on the workflow.
+- Refer to the Azure Backup [FAQ](../articles/backup/backup-azure-backup-faq.md) for any questions on the workflow.

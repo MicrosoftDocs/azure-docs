@@ -12,8 +12,8 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/14/2016" 
+	ms.topic="article" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 # How to Create an App Service Environment #
@@ -31,12 +31,14 @@ ASE creation requires customers to provide the following pieces of information:
 - ASE resource pool definition
 
 There are some important details to each of those items.
+
 - The name of the ASE will be used in the subdomain for any apps made in that ASE
 - All apps made in an ASE will be in the same subscription as the ASE itself
 - If you do not have access to the subscription used to make the ASE you cannot use the ASE to create apps
 - VNETs used to host an ASE must be Regional classic "v1" VNETs 
 - The subnet used to host the ASE must not contain any other compute resources
 - Only one ASE can exist in a subnet
+- Currently only virtual networks with an RFC1918 address space (i.e. private addresses) are supported.
 
 Each ASE deployment is a Hosted Service that Azure manages and maintains.  The compute resources hosting the ASE system roles are not accessible to the customer though the customer does manage the quantity of instances and their sizes.  
 
@@ -62,7 +64,7 @@ The name that is specified for the ASE will be used for the apps created in the 
 Having the defaults is very useful for a certain number of situations but often you will need to adjust something.  The next few sections walk through each of the ASE related configuration sections.
 
 ### Virtual Network ###
-While there is a quick create capability that will automatically create a new VNET, the feature also supports selection of an existing VNET and manual creation of a VNET.  You can select an existing VNET (only classic "v1" virtual networks are supported at this time) if it is large enough to support an App Service Environment deployment.  The VNET must have at least 8 addresses or more.  
+While there is a quick create capability that will automatically create a new VNET, the feature also supports selection of an existing VNET and manual creation of a VNET.  You can select an existing VNET (only classic "v1" virtual networks are supported at this time) if it is large enough to support an App Service Environment deployment.  The VNET must have at least 8 addresses or more. Currently only virtual networks with an RFC1918 address space (i.e. private addresses) are supported. 
 
 If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 8 addresses or more and cannot have any other resources already in it.  ASE creation will fail if you try to use a subnet that already has VMs allocated into it.  
 

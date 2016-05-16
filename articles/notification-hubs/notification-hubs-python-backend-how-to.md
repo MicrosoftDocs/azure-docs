@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Python
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]

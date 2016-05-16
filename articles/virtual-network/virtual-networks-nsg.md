@@ -40,12 +40,12 @@ NSG rules contain the following properties.
 |---|---|---|---|
 |**Name**|Name for the rule|Must be unique within the region<br/>Can contain letters, numbers, underscores, periods and hyphens<br/>Must start with a letter or number<br/>Must end with a letter, number, or underscore<br/>Can have up to 80 characters|You may have several rules within an NSG, so make sure you follow a naming convention that allows you to identify the function of your rule|
 |**Protocol**|Protocol to match for the rule|TCP, UDP, or \*|Using \* as a protocol includes ICMP (East-West traffic only), as well as UDP and TCP and may reduce the number of rules you need<br/>At the same time, using \* might be too broad an approach, so make sure you only use when really necessary|
-|**Source port range**|Source port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 100-2000), or \* (for all ports)|Try to use port ranges as much as possible to avoid the need for multiple rules|
-|**Destination port range**|Destination port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 100-2000), or \* (for all ports)|Try to use port ranges as much as possible to avoid the need for multiple rules|
-|**Source address prefix**|Source address prefix or tag to match for the rule|Single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#Default-Tags), or * (for all addresses)|Consider using ranges, tags, and * to reduce the number of rules|
-|**Destination address prefix**|Destination address prefix or tag to match for the rule|single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#Default-Tags), or * (for all addresses)|Consider using ranges, tags, and * to reduce the number of rules|
+|**Source port range**|Source port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 1-65635), or \* (for all ports)|Source ports could be ephemeral. Unless your client program is using a specific port, please use "*" in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules<br/>Multiple ports or port ranges cannot be grouped by a comma
+|**Destination port range**|Destination port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 1-65535), or \* (for all ports)|Try to use port ranges as much as possible to avoid the need for multiple rules<br/>Multiple ports or port ranges cannot be grouped by a comma
+|**Source address prefix**|Source address prefix or tag to match for the rule|Single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#Default-Tags), or * (for all addresses)|Consider using ranges, default tags, and * to reduce the number of rules|
+|**Destination address prefix**|Destination address prefix or tag to match for the rule|single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#Default-Tags), or * (for all addresses)|Consider using ranges, default tags, and * to reduce the number of rules|
 |**Direction**|Direction of traffic to match for the rule|inbound or outbound|Inbound and outbound rules are processed separately, based on direction|
-|**Priority**|Rules are checked in the order of priority, once a rule applies, no more rules are tested for matching|Number between 100 and 65535|Consider creating rules jumping priorities by 100 for each rule, to leave space for new rules to come between existing rules|
+|**Priority**|Rules are checked in the order of priority, once a rule applies, no more rules are tested for matching|Number between 100 and 4096|Consider creating rules jumping priorities by 100 for each rule, to leave space for new rules to come between existing rules|
 |**Access**|Type of access to apply if the rule matches|allow or deny|Keep in mind that if an allow rule is not found for a packet, the packet is dropped|
 
 NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. 
@@ -68,7 +68,7 @@ Default tags are system-provided identifiers to address a category of IP address
 
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
 
-As illustrated by the default rules below, traffic originating and ending in a VNet is allowed both in Inbound and Outbound directions. While connectivity to the Internet is allowed for Outbound direction, it is by default blocked for Inbound direction. There is a default rule to allow Azure’s load balancer to probe the health of your VMs and role instances. You can override this rule if you are not using a load balanced set.
+As illustrated by the default rules below, traffic originating and ending in a virtual network is allowed both in Inbound and Outbound directions. While connectivity to the Internet is allowed for Outbound direction, it is by default blocked for Inbound direction. There is a default rule to allow Azure’s load balancer to probe the health of your VMs and role instances. You can override this rule, if you are not using a load balanced set.
 
 **Inbound default rules**
 
@@ -98,14 +98,22 @@ You can associate an NSG to VMs, NICs, and subnets, depending on the deployment 
 
 - **Associating an NSG to a subnet (all deployments)**. When you associate an NSG to a subnet, the network access rules in the NSG are applied to all the IaaS and PaaS resources in the subnet. 
 
-You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. When that happens, all network access rules are applied to the traffic in the following order:
+You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. When that happens, all network access rules are applied to the traffic, by priority in each NSG,  in the following order:
 
 - **Inbound traffic**
-	1. NSG applied to subnet.
-	2. NSG applied to NIC (Resource Manager) or VM (classic).
+	1. NSG applied to subnet. 
+	
+           If subnet NSG has a matching rule to deny traffic, packet will be dropped here.
+	2. NSG applied to NIC (Resource Manager) or VM (classic). 
+	   
+           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped at VM\NIC, although subnet NSG has a matching rule to allow traffic.
 - **Outbound traffic**
-	1. NSG applied to NIC (Resource Manager) or VM (classic).
+	1. NSG applied to NIC (Resource Manager) or VM (classic). 
+	  
+           If VM\NIC NSG has a matching rule to deny traffic, packet will be dropped here.
 	2. NSG applied to subnet.
+	   
+           If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
 ![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
 
@@ -117,7 +125,7 @@ You can implement NSGs in the classic or Resource Manager deployment models usin
 |Deployment tool|Classic|Resource Manager|
 |---|---|---|
 |Classic portal|![No][red]|![No][red]|
-|Azure portal|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Yes][green]</a>|
+|Azure portal|![Yes][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Yes][green]</a>|
 |PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Yes][green]</a>|
 |Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Yes][green]</a>|
 |ARM template|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Yes][green]</a>|
@@ -165,7 +173,7 @@ You need to take into account the special rules listed below. Make sure you do n
 
 ### ICMP traffic
 
-The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a specific tag for *ICMP*. However, ICMP traffic is allowed within a Virtual Network by default through the Inbound VNet rules that allow traffic from/to any port and protocol within the VNet.
+The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a specific tag for *ICMP*. However, ICMP traffic is allowed within a Virtual Network by default through the Inbound VNet rule(Default rule 65000 inbound) that allows traffic from/to any port and protocol within the VNet.
 
 ### Subnets
 

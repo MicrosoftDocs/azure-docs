@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="heeldin"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/04/2015"
+   ms.date="03/25/2016"
    ms.author="heeldin;motanv"/>
 
 # Testability actions
-In order to simulate an unreliable infrastructure, Azure Service Fabric provides developers with ways to simulate various real-world failures and state transitions. These are exposed as testability actions. The actions are the low-level APIs that cause a specific fault injection, state transition, or validation. By combining these actions, a service developer can write comprehensive test scenarios for your services.
+In order to simulate an unreliable infrastructure, Azure Service Fabric provides you, the developer, with ways to simulate various real-world failures and state transitions. These are exposed as testability actions. The actions are the low-level APIs that cause a specific fault injection, state transition, or validation. By combining these actions, you can write comprehensive test scenarios for your services.
 
 Service Fabric provides some common test scenarios composed of these actions. We highly recommend that you utilize these built-in scenarios, which are carefully chosen to test common state transitions and failure cases. However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are not covered by the built-in scenarios yet or that are custom tailored for your application.
 
-C# implementations of the actions are found in the System.Fabric.Testability.dll assembly. The Testability PowerShell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly. As part of runtime installation, the ServiceFabricTestability PowerShell module is installed to allow for easy use.
+C# implementations of the actions are found in the System.Fabric.dll assembly. The System Fabric PowerShell module is found in the Microsoft.ServiceFabric.Powershell.dll assembly. As part of runtime installation, the ServiceFabric PowerShell module is installed to allow for ease of use.
 
 ## Graceful vs. ungraceful fault actions
 Testability actions are classified into two major buckets:
@@ -51,9 +51,9 @@ For better quality validation, run the service and business workload while induc
 | ValidateApplication | Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system. | ValidateApplicationAsync | Test-ServiceFabricApplication | Not applicable |
 | ValidateService | Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system. | ValidateServiceAsync | Test-ServiceFabricService | Not applicable |
 
-## Running a testability action by using PowerShell
+## Running a testability action using PowerShell
 
-This tutorial shows you how to run a testability action by using PowerShell. You will learn how to run a testability action against a local (one-box) cluster or an Azure cluster. Microsoft.Fabric.Testability.Powershell.dll--the testability PowerShell module--is installed automatically when you install the Microsoft Service Fabric MSI. The module is loaded automatically when you open a PowerShell prompt.
+This tutorial shows you how to run a testability action by using PowerShell. You will learn how to run a testability action against a local (one-box) cluster or an Azure cluster. Microsoft.Fabric.Powershell.dll--the Service Fabric PowerShell module--is installed automatically when you install the Microsoft Service Fabric MSI. The module is loaded automatically when you open a PowerShell prompt.
 
 Tutorial segments:
 
@@ -68,7 +68,7 @@ To run a testability action against a local cluster, first connect to the cluste
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-Here the action **Restart-ServiceFabricNode** is being run on a node named "Node1". The completion mode specifies that it should not verify whether the restart action actually succeeded. Specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded. Instead of directly specifying the node by its name, you can specify it via a partition key and the kind of replica, as follows:
+Here the action **Restart-ServiceFabricNode** is being run on a node named "Node1". The completion mode specifies that it should not verify whether the restart-node action actually succeeded. Specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded. Instead of directly specifying the node by its name, you can specify it via a partition key and the kind of replica, as follows:
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -95,7 +95,7 @@ The output of the first **Get-ServiceFabricNode** (a cmdlet from the Service Fab
 
 Running a testability action (by using PowerShell) against an Azure cluster is similar to running the action against a local cluster. The only difference is that before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure cluster first.
 
-## Running a testability action by using C#
+## Running a testability action using C&#35; 
 
 To run a testability action by using C#, first you need to connect to the cluster by using FabricClient. Then obtain the parameters needed to run the action. Different parameters can be used to run the same action.
 Looking at the RestartServiceFabricNode action, one way to run it is by using the node information (node name and node instance ID) in the cluster.
@@ -169,14 +169,14 @@ class Test
 
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
     }
 
     static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
     {
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
     }
 }
 ```
@@ -212,12 +212,11 @@ ReplicaSelector is a helper exposed in testability and is used to help select a 
 
 To use this helper, create a ReplicaSelector object and set the way you want to select the replica and the partition. You can then pass it into the API that requires it. If no option is selected, it defaults to a random replica and random partition.
 
+```csharp
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
 PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
 long replicaId = 130559876481875498;
 
-
-```csharp
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 

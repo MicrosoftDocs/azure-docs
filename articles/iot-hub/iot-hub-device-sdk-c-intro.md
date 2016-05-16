@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="03/29/2016"
      ms.author="obloch"/>
 
 # Introducing the Azure IoT device SDK for C
@@ -22,9 +22,11 @@ The **Azure IoT device SDK** is a set of libraries designed to simplify the proc
 
 The Azure IoT device SDK for C is written in ANSI C (C99) to maximize portability. This makes it well-suited to operate on a number of platforms and devices, especially where minimizing disk and memory footprint is a priority.  
 
-There are a broad range of platforms on which the SDK has been tested (see the [SDK documentation](https://github.com/Azure/azure-iot-sdks/tree/master/c) for details). Although this article includes walkthroughs of sample code running on the Windows platform, keep in mind that the code described in this article is the exactly the same across the range of supported platforms.
+There are a broad range of platforms on which the SDK has been tested (see the [platforms and compatibility list](iot-hub-tested-configurations.md) for details). Although this article includes walkthroughs of sample code running on the Windows platform, keep in mind that the code described in this article is exactly the same across the range of supported platforms.
 
 In this article you'll be introduced to the architecture of the Azure IoT device SDK for C. We'll demonstrate how to initialize the device library, send events to IoT Hub as well as receive messages from it. The information in this article should be enough to get started using the SDK, but also provides pointers to additional information about the libraries.
+
+>> [AZURE.NOTE] This article does not include information about how to use the *device management* capabilities of the C libraries in the SDK. To learn how to use the device management capabilities, see [Introducing the Azure IoT Hub device management library for C](iot-hub-device-management-library.md).
 
 ## SDK architecture
 
@@ -40,41 +42,42 @@ This repository contains the entire family of Azure IoT device SDKs. However, th
 
   ![](media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
 
-The core implementation of the SDK can be found in the **common**, **iothub\_client**, and **serializer** folders in the repository. The **common** folder contains shared code used throughout the libraries (typically you don’t use the code in the **common** folder directly). However, the **iothub\_client** and **serializer** folders contain implementations of the two distinct layers of the SDK that you will use in your code.
-
--   **IoTHubClient** - The **iothub\_client** folder contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs for sending events to IoT Hub as well as receiving messages from it. If you use this library, you are responsible for implementing message serialization, but other details of communicating with IoT Hub are handled for you.
-
--   **serializer** - The **serializer** folder contains the implementation of the **serializer** library. The **serializer** library adds modeling capabilities on top of the features provided by **IoTHubClient**. If you use the **serializer** library, you start by defining a model that specifies the events you want to send to IoT Hub as well as the messages you expect to receive from it. Once the model is defined, the SDK provides you an API surface that enables you to easily work with events and messages without having to worry about serialization details.
+* The core implementation of the SDK can be found in the **iothub\_client** folder which contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs implementing raw messaging for sending messages to IoT Hub as well as receiving messages from it. When using this library, you are responsible for implementing message serialization (eventually using the serializer sample described below), but other details of communicating with IoT Hub are handled for you.
+* The **serializer** folder contains helper functions and samples showing how to serialize data before sending to Azure IoT Hub using the client library. Note that the use of the serializer is not mandatory and only provided as a convinience. If you use the **serializer** library, you start by defining a model that specifies the events you want to send to IoT Hub as well as the messages you expect to receive from it. Once the model is defined, the SDK provides you an API surface that enables you to easily work with events and messages without having to worry about serialization details
+The library depends on other open source libraries that implement transport using several protocols (AMQP, MQTT).
+* The **IoTHubClient** library depends on other open source libraries:
+   * The [Azure C shared utility](https://github.com/Azure/azure-c-shared-utility) library which provides common functionality for basic tasks (like string, list manipulation, IO, etc...) needed accross several Azure related C SDKs
+   * The [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) library which is client side implementation of AMQP optimized for resource constraint devices.
+   * The [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) library which is a general purpose library implementing the MQTT protocol and optimized for resource constraint devices.
 
 All of this is easier to understand by looking at example code. The following sections walk you through a couple of the sample applications that are included in the SDK. This should give you a good feel for the various capabilities of the architectural layers of the SDK as well as an introduction to how the APIs work.
 
 ## Before running the samples
 
-Before you can run the samples in the Azure IoT device SDK for C you must complete two tasks: prepare your development environment and obtain device credentials. The [readme file](https://github.com/Azure/azure-iot-sdks/tree/master/c) included with the SDK provides instructions for both tasks. The following sections include some additional commentary on those instructions.
+Before you can run the samples in the Azure IoT device SDK for C you must create an instance of the service on your Azure subscription if you don't already have one and complete 2 tasks:
+* prepare your development environment
+* obtain device credentials.
+
+If you need to create an instance of Azure IoT Hub on your Azure subscription, follow the instructions [here](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md).
+
+The [readme file](https://github.com/Azure/azure-iot-sdks/tree/master/c) included with the SDK provides instructions for preparing your development environment and obtain device credentials.
+The following sections include some additional commentary on those instructions.
 
 ### Preparing your development environment
 
+While packages are provided for some platforms (such as NuGet for Windows or apt_get for Debian and Ubuntu) and the samples use these packages when available, the below instructions detail how to build the library and the samples directly form the code.
+
 First, you'll need to obtain a copy of the SDK from GitHub and then build the source. You should get a copy of the source from the **master** branch of the [GitHub repository](https://github.com/Azure/azure-iot-sdks).
 
-When you’ve downloaded a copy of the source, you must complete the steps described in the SDK article [Prepare your development environment](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md). Most of the work you'll have to do for Windows involves [preparing Qpid Proton libraries](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#preparing-qpid-proton-libraries-in-windows), and [verifying your environment](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#verify-your-environment). The following are a few tips to help you complete the procedure described in the preparation guide:
+When you’ve downloaded a copy of the source, you must complete the steps described in the SDK article ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md).
 
--   When you create your **PROTON\_PATH** environment variable, make it a **system** environment variable as shown here:
 
-  ![](media/iot-hub-device-sdk-c-intro/07-EnvironmentVariables.PNG)
+The following are a few tips to help you complete the procedure described in the preparation guide:
 
 -   When you install the **CMake** utility, choose the option to add **CMake** to the system PATH for **all users** (adding to **the current user** works as well):
 
   ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
 
--   Be sure to install the correct version of Python. Typically in Windows, you should install the x86 version:
-
-  ![](media/iot-hub-device-sdk-c-intro/09-Python.PNG)
-
-You can use the default options in the installer.
-
-- Add the Python directory to the system **PATH** environment variable. On Windows, this looks like the following:
-- 
-  ![](media/iot-hub-device-sdk-c-intro/16-PythonPath.PNG)
 
 -   Before you open the **Developer Command Prompt for VS2015**, install the Git command line tools. To install these tools, complete the following steps:
 
@@ -90,21 +93,24 @@ You can use the default options in the installer.
 
   		![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
-When you run the **build\_proton.cmd** script from the command prompt, the script downloads the Proton source from its GitHub repository and then builds the Proton libraries.
 
-If you want to run the MQTT samples, follow the instructions for [building the Apache MQTT library](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md#building-the-apache-mqtt-library-in-windows) in the SDK documentation. Regardless, the last thing you'll need to do is to run **build.cmd**.
-
-When you have completed the previous steps, you're ready to compile the sample applications.
+When you have completed all the steps described in the ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md) page, you're ready to compile the sample applications.
 
 ### Obtaining device credentials
 
-Now that your development environment is set up, the last thing to do is to get a set of device credentials.  For a device to be able to access an IoT hub, you must first add the device to the IoT Hub device registry. When you add your device you'll get a set of device credentials which you'll need in order for the device to be able to connect to an IoT hub. The sample applications that we’ll look at in the next section expect these credentials in the form of a **device connection string**.
+Now that your development environment is set up, the next thing to do is to get a set of device credentials.  For a device to be able to access an IoT hub, you must first add the device to the IoT Hub device registry. When you add your device you'll get a set of device credentials which you'll need in order for the device to be able to connect to an IoT hub. The sample applications that we’ll look at in the next section expect these credentials in the form of a **device connection string**.
 
-The [Device Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) tool (included with the Azure IoT device SDK) uses the Azure IoT service libraries to perform various functions on IoT Hub, including adding devices. If you use Device Explorer to add a device, you’ll get a corresponding connection string. You need this connection string to make the sample applications run.
+There are a couple tools provided in the SDK open source repository to help managing the IoT Hub. One is a Windows application called Device Explorer, the second one is a node.js based cross platform CLI tool caled iothub-explorer. You can learn more about these tools [here](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
+
+As we are going through running the samples on Windows in this article, we are using the Device Explorer tool. But you can also use iothub-explorer if you prefer CLI tools.
+
+The [Device Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/DeviceExplorer) tool uses the Azure IoT service libraries to perform various functions on IoT Hub, including adding devices. If you use Device Explorer to add a device, you’ll get a corresponding connection string. You need this connection string to make the sample applications run.
 
 In case you're not already familiar with the process, the following procedure describes how to use Device Explorer to add a device and obtain a device connection string.
 
-Open **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** in **Visual Studio 2015** and build the solution. When you run the program you’ll see this interface:
+You can find a Windows installer for the Device Explorer tool on the [SDK release page](https://github.com/Azure/azure-iot-sdks/releases). But you can also run the tool directly from its code opening **[DeviceExplorer.sln](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/DeviceExplorer.sln)** in **Visual Studio 2015** and building the solution.
+
+When you run the program you’ll see this interface:
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
@@ -146,15 +152,15 @@ This solution contains a single project. It is worth noting that there are four 
 
   ![](media/iot-hub-device-sdk-c-intro/17-iothub-client-sample-amqp-githubpackages.PNG)
 
-You always need the **Microsoft.Azure.IoTHub.Common** package when you are working with the SDK. Since this sample relies on AMQP, you must also include the **Apache.QPID.Proton.AzureIoT** and **Microsoft.Azure.IoTHub.AmqpTransport** packages (there are equivalent packages for HTTP). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in our solution.
+You always need the **Microsoft.Azure.C.SharedUtility** package when you are working with the SDK. Since this sample relies on AMQP, you must also include the **Microsoft.Azure.uamqp** and **Microsoft.Azure.IoTHub.AmqpTransport** packages (there are equivalent packages for HTTP and MQTT). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in your solution.
 
-You can find the implementation for the sample application in the **iothub\_client\_sample\_amqp.c** source file:
-
-  ![](media/iot-hub-device-sdk-c-intro/13-iothub_client_sample_amqp_c.PNG)
+You can find the implementation for the sample application in the **iothub\_client\_sample\_amqp.c** source file.
 
 We'll use this sample application to walk you through what’s required to use the **IoTHubClient** library.
 
 ### Initializing the library
+
+> [AZURE.NOTE] Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQPS on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdks) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdks) to determine whether you need to include any platform initialization code in your client.
 
 To start working with the libraries you must first allocate an IoT Hub client handle:
 
@@ -163,7 +169,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-Note that we’re passing a copy of our device connection string to this function (the one we obtained from Device Explorer). We also designate the protocol that we want to use. This example uses AMQP, but HTTP is also an option.
+Note that we’re passing a copy of our device connection string to this function (the one we obtained from Device Explorer). We also designate the protocol that we want to use. This example uses AMQP, but MQTT and HTTP are also an option.
 
 When you have a valid **IOTHUB\_CLIENT\_HANDLE**, you can start calling the APIs to send events and receive messages from IoT Hub. We’ll look at that next.
 
@@ -260,9 +266,7 @@ As with the previous sample, this one includes several NuGet packages:
 
 We've seen most of these in the previous sample, but **Microsoft.Azure.IoTHub.Serializer** is new. This is required when we use the **serializer** library.
 
-You can find the implementation of the sample application in the **simplesample\_amqp.c** file:
-
-  ![](media/iot-hub-device-sdk-c-intro/15-simplesample_amqp_c.PNG)
+You can find the implementation of the sample application in the **simplesample\_amqp.c** file.
 
 The following sections walk you through the key parts of this sample.
 
@@ -459,3 +463,5 @@ Each of these three functions align with the three initialization functions desc
 ## Next Steps
 
 This article covered the basics of using the libraries in the **Azure IoT device SDK for C**. It provided you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](iot-hub-device-sdk-c-iothubclient.md).
+
+To learn how to use the device management capabilities in the **Azure IoT device SDK for C**, see [Introducing the Azure IoT Hub device management library for C](iot-hub-device-management-library.md).

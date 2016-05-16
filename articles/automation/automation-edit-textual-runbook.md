@@ -3,7 +3,7 @@
 	description="This article provides different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren" />
 
 # Editing textual runbooks in Azure Automation

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Stream Analytics to export to Power BI from Application Insights" 
-	description="Demonstrates how to use Stream Analytics to process exported data." 
+	pageTitle="Export to Power BI from Application Insights" 
+	description="Articles " 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,46 +12,50 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/05/2016" 
 	ms.author="awills"/>
- 
-# Use Stream Analytics to feed Power BI from Application Insights
 
-This article shows how to use [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) to process data [exported](app-insights-export-telemetry.md) from [Visual Studio Application Insights](app-insights-overview.md). As an example target, we send the data to [Microsoft Power BI](https://powerbi.microsoft.com/). 
+# Feed Power BI from Application Insights
 
+[Power BI](http://www.powerbi.com/) is a suite of business analytics tools to analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including from [Visual Studio Application Insights](app-insights-overview.md).
 
-> [AZURE.NOTE] The easiest way to get data into Power BI from Application Insights is by [using the adapter](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-application-insights/) that you'll find in the Power BI Gallery under Services. What we describe in this article is currently more versatile, but it's also a demonstration of how to use Stream Analytics with Application Insights.
+To get started, see [Display Application Insights data in Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/).
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. 
+You get an initial dashboard that you can customize, combining the Application Insights charts with those of other sources. There's a visualization gallery where you can get more charts, and each chart has a parameters you can set.
 
-
-![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/010.png)
-
-[Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is an Azure service that works as an adaptor, continually processing the data exported from Application Insights.
-
-![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/020.png)
+![](./media/app-insights-export-power-bi/010.png)
 
 
+After the initial import, the dashboard and the reports continue to update daily. You can control the refresh schedule on the dataset.
 
 
-## Video
+**Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling.](app-insights-sampling.md)
 
-Noam Ben Zeev shows what we describe in this article.
+## Alternative ways to see Application Insights data
 
-> [AZURE.VIDEO export-to-power-bi-from-application-insights]
+* [Azure Dashboards containing Application Insights charts](app-insights-dashboards.md) may be more appropriate if you don't need to show non-Azure data. For example, if you want to set up a dashboard of Application Insights charts monitoring different components of a system, perhaps together with some Azure service monitors, then an Azure dashboard is ideal. It updates more frequently by default. 
+* [Continuous export](app-insights-export-telemetry.md) copies your incoming data to Azure storage, from where you can move and process it however you like.
+* [Analytics](app-insights-analytics.md) lets you perform complex queries on the raw data retained by Application Insights.
 
 
-**Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+## Create your own Power BI adaptor using Stream Analytics
 
-## Monitor your app with Application Insights
+The Power BI content pack for Application Insights displays a useful subset of your app's telemetry that will probably be sufficient for your needs. But if you'd like to get a broader range of telemetry than it provides, or if you'd like to compute some data from the raw telemetry, then you can create your own adapter using the Azure Stream Analytics service.
 
-If you haven't tried it yet, now is the time to start. Application Insights can monitor any device or web app on a wide range of platforms, including Windows, iOS, Android, J2EE, and more. [Get started](app-insights-overview.md).
+In this scheme, we'll export data from Application Insights to Azure Storage. [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) will pull the data from there, rename and process some of the fields, and pipe it into Power BI. Stream Analytics is a service that can filter, aggregate and perform computations on a continuous stream of data.
 
-## Create storage in Azure
+![Block diagram for export through SA to PBI](./media/app-insights-export-power-bi/020.png)
+
+
+>[AZURE.TIP] **You don't need to follow the procedure in the rest of this article** (using Stream Analytics) to see Application Insights data in Power BI. There's a much easier way! ([Use the free adapter](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/) instead. Follow the rest of this article only if that adapter doesn't provide all the data you want, or if you want to define your own aggregations or functions over your data. 
+
+### Create storage in Azure
 
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
-1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
+1. Did you try the [Power BI powerpack for Application Insights](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/)? If it's sufficient for your needs, then you don't need anything in the rest of this article.
+
+2.  Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-power-bi/030.png)
 
@@ -65,7 +69,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![In the storage, open Settings, Keys, and take a copy of the Primary Access Key](./media/app-insights-export-power-bi/045.png)
 
-## Start continuous export to Azure storage
+### Start continuous export to Azure storage
 
 [Continuous export](app-insights-export-telemetry.md) moves data from Application Insights into Azure storage.
 
@@ -98,7 +102,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
 The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to pipe the data to Power BI.
 
-## Create an Azure Stream Analytics instance
+### Create an Azure Stream Analytics instance
 
 From the [Classic Azure Portal](https://manage.windowsazure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
@@ -129,7 +133,7 @@ Now you'll need the Primary Access Key from your Storage Account, which you note
 ![](./media/app-insights-export-power-bi/140.png)
 
 
-Be sure to set the Date Format to YYYY-MM-DD (with dashes).
+**Be sure to set the Date Format to YYYY-MM-DD (with dashes).**
 
 The Path Prefix Pattern specifies where Stream Analytics finds the input files in the storage. You need to set it to correspond to how Continuous Export stores the data. Set it like this:
 
@@ -154,7 +158,7 @@ Close the wizard and wait for the setup to complete.
 
 > [AZURE.TIP] Use the Sample command to download some data. Keep it as a test sample to debug your query.
 
-## Set the output
+### Set the output
 
 Now select your job and set the output.
 
@@ -164,7 +168,7 @@ Provide your **work or school account** to authorize Stream Analytics to access 
 
 ![Invent three names](./media/app-insights-export-power-bi/170.png)
 
-## Set the query
+### Set the query
 
 The query governs the translation from input to output.
 
@@ -237,7 +241,7 @@ Paste this query:
 
 * This query includes values of the dimension properties without depending on a particular dimension being at a fixed index in the dimension array.
 
-## Run the job
+### Run the job
 
 You can select a date in the past to start the job from. 
 
@@ -245,7 +249,7 @@ You can select a date in the past to start the job from.
 
 Wait until the job is Running.
 
-## See results in Power BI
+### See results in Power BI
 
 Open Power BI with your work or school account, and select the dataset and table that you defined as the output of the Stream Analytics job.
 
@@ -256,7 +260,13 @@ Now you can use this dataset in reports and dashboards in [Power BI](https://pow
 
 ![In Power BI, select your dataset and fields.](./media/app-insights-export-power-bi/210.png)
 
-## Video
+
+### No data?
+
+* Check that you [set the date format](#set-path-prefix-pattern) correctly to YYYY-MM-DD (with dashes).
+
+
+### Video
 
 Noam Ben Zeev shows how to export to Power BI.
 
@@ -268,3 +278,4 @@ Noam Ben Zeev shows how to export to Power BI.
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [More samples and walkthroughs](app-insights-code-samples.md)
+ 

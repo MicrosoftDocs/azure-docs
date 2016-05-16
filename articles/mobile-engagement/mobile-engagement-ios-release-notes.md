@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #Release notes
+
+##3.2.2 (04/07/2016)
+
+-   Fixed bug on HTTP request cancellation which sometimes leads to crash. 
 
 ##3.2.1 (12/11/2015)
 

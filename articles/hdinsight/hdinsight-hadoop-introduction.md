@@ -11,10 +11,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/27/2016"
+   ms.date="03/29/2016"
    ms.author="cgronlun"/>
 
 
@@ -80,6 +80,10 @@ The following example scripts are provided by the HDInsight team:
 * [Solr](hdinsight-hadoop-solr-install-linux.md): An enterprise-scale search platform that allows full-text search on data.
 
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+## HDInsight Standard and HDInsight Premium
+
+HDInsight provides big data cloud offerings in two categories, Standard and Premium. HDInsight Standard provides an enterprise-scale cluster that organizations can use to run their big data workloads. HDInsight Premium builds on that and provides advanced analytical and security capabilities for an HDInsight cluster. For more information, see [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
 ## What are the Hadoop components and utilties?
 
@@ -212,11 +216,19 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 
 * State-of-the-art Hadoop components. For details, see [What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning].
 
-* High availability and reliability of clusters. See [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) for details.
+* High availability and reliability of clusters.  A second head node has been added to the Hadoop clusters deployed by HDInsight to increase the availability of the service. Standard implementations of Hadoop clusters typically have a single head node. HDInsight removes this single point of failure with the addition of a secondary head node. The switch to a new HA cluster configuration doesn't change the price of the cluster, unless customers create clusters with an extra-large head node instead of the default large-size node.
+
+	See [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) for details.
 
 * Efficient and economical data storage with Azure Blob storage, a Hadoop-compatible option. See [Use Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md) for details.
 
 * Integration with other Azure services, including [Web apps](../documentation/services/app-service/web/) and [SQL Database](../documentation/services/sql-database/).
+
+* Additional VM sizes. HDInsight clusters are available on different VM types and sizes. HDInsight clusters can now utilize A2 to A7 sizes built for general purposes; D-Series nodes that feature solid-state drives (SSDs) and 60-percent faster processors; and A8 and A9 sizes that have InfiniBand support for fast networking. Apache HBase on Azure HDInsight customers can benefit from the larger memory configurations of the D-Series to increase performance. Apache Storm on Azure HDInsight customers can also benefit from additional memory for loading larger reference data sets, as well as faster CPUs for higher throughput.
+
+* Cluster scaling. Cluster scaling enables you to change the number of nodes of a running HDInsight cluster without having to delete or re-create it.
+
+* Virtual Network support. HDInsight clusters can be used with Azure Virtual Network to support isolation of cloud resources or hybrid scenarios that link cloud resources with those in your datacenter.
 
 * Low entry cost. Start a [free trial](/pricing/free-trial/), or consult [HDInsight pricing details](/pricing/details/hdinsight/).
 
@@ -257,7 +269,7 @@ Build on this introduction to Hadoop in the cloud and big data analysis with the
 
 * [Azure SQL Database](/documentation/services/sql-database/): Documentation, tutorials, and videos for SQL Database.
 
-* [SQL Database on the Azure Portal](sql-database-manage-portal.md): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
+* [SQL Database on the Azure Portal](../sql-database/sql-database-manage-portal.md): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
 * [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304): Download page for a SQL Database sample database.
 

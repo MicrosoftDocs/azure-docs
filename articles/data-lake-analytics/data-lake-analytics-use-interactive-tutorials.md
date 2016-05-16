@@ -3,18 +3,18 @@
    description="Quick start with learning Data Lake Analytics and U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 
 # Use Azure Data Lake Analytics interactive tutorials
