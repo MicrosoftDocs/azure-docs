@@ -32,7 +32,7 @@ It's important to understand the difference between DNS record sets and individu
 
 ## Azure DNS and cross-platform Azure CLI
 
-Azure DNS is an Azure Resource Manager-only service. It does not have an ASM API. You will need to make sure that the Azure CLI is configured to use Resource Manager mode, using the `azure config mode arm` command.<BR>If you see the message "*error: 'dns' is not an azure command*", it's most likely because you are using Azure CLI in ASM mode, not Resource Manager mode.
+Azure DNS is an Azure Resource Manager-only service. It does not have an ASM API. You will need to make sure that the Azure CLI is configured to use Resource Manager mode by using the `azure config mode arm` command.<BR>If you see the message "*error: 'dns' is not an azure command*", it's most likely because you are using Azure CLI in ASM mode, not Resource Manager mode.
 
 ## Create a new record set and a record
 
