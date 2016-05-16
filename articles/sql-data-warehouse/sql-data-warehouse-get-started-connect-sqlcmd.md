@@ -47,11 +47,11 @@ To connect to your database you need the full name of the server (***servername*
 
 To connect to a specific instance of SQL Data Warehouse when using sqlcmd you will need to open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string will need following required parameters:
 
-+ **Server (-S): **Server in the form `<`Server Name`>`.database.windows.net
-+ **Database (-d): **Database name.
-+ **User (-U): **Server user in the form `<`User`>`
-+ **Password (-P): **Password associated with the user.
-+ **Enable Quoted Identifiers (-I): **Quoted identifiers must be enabled in order to connect to a SQL Data Warehouse instance.
++ **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
++ **Database (-d):** Database name.
++ **User (-U):** Server user in the form `<`User`>`
++ **Password (-P):** Password associated with the user.
++ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled in order to connect to a SQL Data Warehouse instance.
 
 Therefore, to connect to a SQL Data Warehouse instance, you would enter the following:
 
