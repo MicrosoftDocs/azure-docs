@@ -49,13 +49,13 @@ The following diagram highlights the important components in this architecture:
 
 - **Network virtual appliance (NVA).** An NVA is a generic term for a virtual appliance that might perform tasks such as acting as a firewall, implementing access security, WAN optimization (including network compression), custom routing, or a variety of other operations. The NVA receives requests from the inbound NVA network. The NVA can validate these requests and, if they are acceptable, it can forward them to the Web tier through the outbound NVA subnet.
 
-- **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud; see [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details. You can deploy an internal load balancer in each tier to improve scalability. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs) to limit the source of requests and the destinations of any results. In this example, NSGs are also designed to block outbound traffic heading for the Internet from the web and data access tiers (only the business tier is allowed to submit Internet requests).
+- **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud; see [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details. You can deploy an internal load balancer in each tier to improve scalability. The traffic in each subnet may be subject to rules defined by using [Azure Network Security Groups][azure-network-security-group](NSGs) to limit the source of requests and the destinations of any results.
 
     > [AZURE.NOTE] This article describes the cloud application as a single entity. See [Implementing a Multi-tier Architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
 
-- **User-defined routes (UDR).** The gateway subnet contains a UDR that ensures that all application traffic from the on-premises network is routed through the NVAs.
+- **User-defined routes (UDR).** The gateway subnet contains a UDR that ensures that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs.
 
-	Additionally, each of the application subnets defines one or more custom (user-defined) routes for redirecting or blocking Internet requests made by VMs running in that subnet. In this example, the UDR for the business tier redirects requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet. The UDRs for the web and data access tier prevent outbound Internet requests by discarding them. This technique provides an additional layer of security above those of the NSGs for these tiers.
+	Additionally, each of the application subnets defines one or more custom (user-defined) routes for redirecting or blocking Internet requests made by VMs running in that subnet. In this example, the UDRs for the web, business, and data access tiers redirect requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet.
 
     > [AZURE.NOTE] Any response received as a result of the request will return directly to the originator in the Business tier subnet and will not pass through on-premises network.
 
@@ -83,41 +83,36 @@ You may have additional or differing requirements from those described here. You
 
 ### Resource group recommendations
 
-Create each subnet and its resources (including VMs) in a separate resource group. This approach enables you to control access to these resources in each resource group by using [Role-Based Access Control (RBAC)][rbac]. Using RBAC enables you to grant varying levels of control over different resource groups to individual members or groups of DevOps staff. For example, staff who can control the gateway subnet could be a different set from the staff that maintain the Web tier, or staff that control access to the business logic or data used by the application.
+Use resource groups to enable the separation of responsibility for different sets of DevOps staff. For example, staff who can control the gateway subnet could be a different set from the staff that maintain the Web tier, or staff that control access to the business logic or data used by the application. This approach enables you to control access to these resources in each resource group by using [Role-Based Access Control (RBAC)][rbac]. Using RBAC enables you to grant varying levels of control over different resource groups to individual members or groups of DevOps staff. Specifically, consider creating:
 
-<!-- 
-We are actually using a different approach:
-1 resource group for the vnet, all underlying subnets, NSGs, and UDRs. (capacity template)
-1 resource group for the DMZ and jumpbox VM. (capability template)
-1 reasource group for each app tier including load balancer and VMs. (capability template)
-Notice that the last resource groups do NOT contain any subnets. They must be int eh same resource group as the vnet they belong to.
-Make a reference to https://azure.microsoft.com/en-us/documentation/articles/best-practices-resource-manager-design-templates/ for best practices on RGs
--->
+- A resource group for the VNet. This resource group should include the subnets (excluding the VMs), NSGs, UDRs, and the gateway resources for connecting to the on-premises network.
+
+- A resource group containing the resources for the inbound and outbound NVA subnets and the management subnet. This resource group includes the VMs for the NVAs (including the load balancer), the jump box and other management VMs, and the UDR for the gateway subnet that forces all traffic through the NVAs.
+
+- Resource groups for each application tier, containing the load balancer and VMs for each tier. Note that this resource group should not include the subnets for each tier; the VNet resource group contains these resources as they are managed separately from the VMs within them.
+
+> [AZURE.NOTE] For more information, see [Best practices for designing Azure Resource Manager templates][arm-template-best-practices].
 
 ### RBAC recommendations
 
-within a resource group, create separate RBAC roles for users who can be system administrators (create and administer VMs) and users who can administer the network (assign a public IP address to a network interface, change NSG rules on the network, create VPN connections, and so on). Segregating users across roles in this way allows a the network administrator to change NSG rules and assign public IP addresses to VMs. A system administrator will be unable to perform these tasks, but can manage VMs. To implement this scheme:
+within a resource group, create separate RBAC roles for DevOps staff who can create and administer VMs, and centralized IT administrators who can manage the network (assign a public IP address to a network interface, change NSG rules on the network, create VPN connections, and so on). Segregating staff across roles in this way allows an IT administrator to change NSG rules and assign public IP addresses to VMs. DevOps staff will be unable to perform these tasks, but can manage VMs. To implement this scheme:
 
-<!--
-Look at your comment about network here again. Since all the network stuff is in a separate RG, people who maintain VMs will work in a completely different RG. I'm not sure we should call the system administrators. Let's call them DevOps, and make sure they have read rights to everything the RG containing the network stuff. THe network admins will be 'centralized IT administrators'.
--->
-
-- The system administrators role should include the Virtual Machine Contributor role and Storage account contributor role (to enable system administrators to create and attach disks to VMs), as well as the Reader role on the resource group. For example:
+- The DevOps staff role should include the Virtual Machine Contributor role and Storage account contributor role (to enable system administrators to create and attach disks to VMs), as well as the Reader role on the resource group. For example:
 
     ```powershell
-    azure role assignment create -o "Virtual Machine Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName sysadmin@contoso.com
+    azure role assignment create -o "Virtual Machine Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName devops@contoso.com
 
-    azure role assignment create -o "Storage Account Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName sysadmin@contoso.com
+    azure role assignment create -o "Storage Account Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName devops@contoso.com
 
-    azure role assignment create -o "Reader" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName sysadmin@contoso.com
+    azure role assignment create -o "Reader" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName devops@contoso.com
     ```
 
-- The network administrators role should include the Network Contributor role and Reader role on the resource group. For example:
+- The IT administrators role should include the Network Contributor role and Reader role on the resource group. For example:
 
     ```powershell
-    azure role assignment create -o "Network Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName networkadmin@contoso.com
+    azure role assignment create -o "Network Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName itadmin@contoso.com
 
-    azure role assignment create -o "Reader" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName sysadmin@contoso.com
+    azure role assignment create -o "Reader" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName itadmin@contoso.com
     ```
 
 ### Virtual network gateway recommendations
@@ -127,12 +122,12 @@ Access to the VNet is through a virtual network gateway. You can use an [Azure V
 Avoid placing the gateway subnet in the middle of the address space. A good practice is to set the address space for the gateway subnet at the upper end of the VNet address space.
 
 <!--
-Let's link this to the new VPN doc recommendation once it is published.
+Link this to the new VPN doc recommendation once it is published.
 -->
 
 ### NVA recommendations
 
-NVAs can provide different services for managing and monitoring network traffic. In this reference architecture, we use the NVA to manage traffic coming from on-premises to Azre. TO do so, you must route all traffic received from the Azure gateway through the NVA. The Azure Marketplace provides many NVAs available from third-party vendors, including:
+NVAs can provide different services for managing and monitoring network traffic. This reference architecture uses the NVA to manage traffic coming from on-premises to Azure. To do so, you must route all traffic received from the Azure gateway through the NVA. The Azure Marketplace provides many NVAs available from third-party vendors, including:
 
 - [Barracuda Web Application Firewall][barracuda-waf] and [Barracuda NextGen Firewall][barracuda-nf]
 
@@ -146,48 +141,37 @@ NVAs can provide different services for managing and monitoring network traffic.
 
 You can also create an NVA by using your own custom VMs; this is the approach taken by the sample script and templates used to implement this reference architecture.
 
-The sample template enables IP forwarding for the NICs used by the NVAs to allow traffic intended for other VMs to be received by the NVA. If you are creating your own VMs manually, you can use the following command to enable IP forwarding for a NIC:
+Enable IP forwarding on any NICs used by the NVAs for routing traffic (the sample template implements this setting). If you are creating your own VMs manually, use the following command to enable IP forwarding for a NIC:
 
 ```powershell
 azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
 ```
 
-<!--
-I'm not sure this is a recommendation. Maybe we should say 'Enable IP forwarind on any NIC used by your NVAs that will be used for routing traffic' We can still explain what IP forwarding does, and provide a link to teh existing UDR article that shows how you enable IP forwarding.  
--->
-
 Configure the NVA to inspect all requests intended for the web tier application subnet, and permit traffic to pass through only if it is appropriate to do so. This will most likely involve installing additional services and software on the NVA. The steps for performing this task will vary depending on the NVA and your security requirements.
 
-> [AZURE.NOTE] BY default, the configuration created by the sample script does not set up routing in the NVA. For a simple configuration that you can use for testing, on each NVA VM install the Microsoft Routing and Remote Access Service (RRAS), enable routing, and add a static route for traffic intended for the web tier to network interface *Ethernet 2* (inbound requests arrive on network interface *Ethernet*).
+> [AZURE.NOTE] BY default, the configuration created by the sample script enables routing through the NVA by configuring each NVA VM as a simple Linux router. Inbound traffic arrives on network interface *eth0*, and outbound traffic is dispatched through network interface *eth1*. You can customize the NVA VMs to add security elements such as firewalls and content-based traffic filtering.
 
-<!-- This is not true. The sample template enables routing through the NVA by configuring it as a Linux router. -->
-
-Ensure that inbound traffic cannot bypass the NVA. To do this, add a UDR to the gateway subnet that directs all requests made to the application arriving through the gateway to the NVA. The following example shows a UDR that forces requests intended for the web tier through the NVA:
-
-<!-- our solution also does this, and the idea is that there is a rule to pass traffic to the mgmt subnet without going through the NVA, and ALL traffic to the vnet to go through the NVA. Since we are routing to the ILB, only open ports will be allowed through, which is another level of security. I think we should add something on the ILB in the Security considerations section.-->
+Ensure that inbound traffic *heading for the application* cannot bypass the NVA. However, traffic directed towards the management subnet *should not pass through the NVA*. To do this, add a UDR to the gateway subnet that directs all requests made to the application arriving through the gateway to the NVA. The following example shows UDRs that enables management traffic to pass directly to the management subnet, but forces requests intended for the application through the NVA:
 
 ```powershell
 <# Create a new route table: #>
 azure network route-table create <<resource-group>> <<route-table-name>> <<location>>
 
-<# Add a route for the web tier application subnet (10.0.3.0/24) to the route table that directs requests through the NVA load balancer: #>
-azure network route-table route create -a 10.0.3.0/24 -y VirtualAppliance -p 10.0.1.254 <<resource-group>> <<route-table-name>> <<route-name>>
+<# Add a route for for management traffic (10.0.0.0/24) to the route table. This route allows traffic to bypass the NVA: #>
+azure network route-table route create -a 10.0.0.0/24 -y VNETLocal <<resource-group>> <<route-table-name>> <<route-name>>
+
+<# Add a route for all other traffic (10.0.0.0/16) to the route table that directs requests through the NVA load balancer: #>
+azure network route-table route create -a 10.0.0.0/16 -y VirtualAppliance -p 10.0.1.254 <<resource-group>> <<route-table-name>> <<route-name>>
 
 <# Associate the route table with the gateway subnet: #>
 azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> GatewaySubnet
 ```
 
-Always verify that UDR routing operates as expected by using a tool such as [tracert][tracert] to trace the request path from on-premises to VMs in the web tier of the application.
-
-<!-- tracert will NOT work in this scenario, since it relies on ICMP, which is usually blocked on Windows VMs, and does not go through the Azure load balancer. The only way to really check is to use netstat or network sniffer apps such as Wire Shark on the NVAs themselves. -->
-
 To maximize scalability, create a pool (availability set) of NVA devices and use a load balancer to distribute requests received through the virtual network gateway across this pool. This strategy enables you to quickly start and stop NVAs to maintain performance, according to the load. Point the UDR that directs requests to the NVAs to this load balancer.
 
 ### NSG recommendations
 
-The gateway subnet exposes a public IP address for handling the connection to the on-premises network. There is a risk that this endpoint could be used as a point of attack. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Create a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that has not originated from the on-premises network (192.168.0.0/16 in the [Architecture diagram][architecture]). You can create rules similar to these:
-
-<!-- The gateway subnet does not expose any public IPs. The VPN gateway has a public IP. Other than that, I like the idea of this NSG. -->
+The VPN gateway exposes a public IP address for handling the connection to the on-premises network. There is a risk that this endpoint could be used as a point of attack. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Create a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that has not originated from the on-premises network (192.168.0.0/16 in the [Architecture diagram][architecture]). You can create rules similar to these:
 
 ```powershell
 azure network nsg create <<resource-group>> nva-nsg <<location>>
@@ -227,22 +211,9 @@ azure network nsg rule create --protocol * --source-address-prefix * --source-po
 
 ### Internet access recommendations
 
-Control outbound traffic from the web, business, and data access tiers to prevent accidental disclosure of confidential information. The following UDR could be applied to the web and data access tiers to cause traffic routed to the Internet to be dropped.
+Control outbound traffic from the web, business, and data access tiers to prevent accidental disclosure of confidential information. In the example architecture, the web, business, and data access tiers are permitted access to the Internet, but all such traffic is force-tunnelled through the on-premises network (as described in the [Recommendations][recommendations] section) so that it can be audited.
 
-```powershell
-<# Create a new route table: #>
-azure network route-table create <<resource-group>> <<route-table-name>> <<location>>
-
-<# Add a route that traps Internet-bound traffic: #>
-azure network route-table route create -a 0.0.0.0/0 -y None <<resource-group>> <<route-table-name>> <<route-name>>
-
-<# Associate the route table with the web tier subnet: #>
-azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> <<web-tier-subnet-name>>
-```
-
-In the sample architecture shown above, the business tier is permitted access to the Internet, but you should ensure that all such traffic is force-tunnelled through the on-premises network (as described in the [Recommendations][recommendations] section) so that it can be audited.
-
-<!-- We need to kill this. Not allowing outbounbd traffic tot he Internet will disable diagnostic logging for the VMs, since they need to write to a storage account, which can only be doen through the public Internet. We should tell our customers that here.-->
+> [AZURE.NOTE] Do not completely block Internet traffic from the web, business and application tiers as this will prevent these tiers from recording Azure diagnostic information, which requires that components have access to an Azure storage account. Reading and writing storage account information requires access to the Internet.
 
 ```powershell
 <# Create a new route table: #>
@@ -273,228 +244,43 @@ azure network nsg rule create --protocol * --source-address-prefix * --destinati
 
 The management subnet comprises servers that contain the management and monitoring software. Only DevOps staff should have access to this subnet.
 
-<!-- We need to discuss the whole DevOps thing here. Leave it as is for now. This might be a discussion for later when we can do hub-spoke vnets. -->
-
 Do not expose this subnet to the outside world. For example, do not create a public IP address for the Jump box. Instead, only allow DevOps staff access through the gateway from the on-premises network. The NSG for this subnet must enforce this rule.
 
 Do not force DevOps requests through the NVA; the UDR that intercepts application traffic and redirects it to the NVA should not capture traffic for the management subnet. This is to help prevent lockout, where a poorly configured NVA blocks all administrative requests, making it impossible for DevOps staff to reconfigure the system.
 
 ## Solution components
 
-The sample solution provided for this architecture consists of a bash script named [azuredeploy.sh][azuredeploy-script] that invokes a set of Azure Resource Manager templates. This is a bash script that you can run on Windows and Linux.
+The solution provided for this architecture utilizes the following ARM templates:
 
-<!-- this section should not discuss the script, but the arm templates. More specifically, the main components int eh ARM templates. the script is used in the section named "Deploying the sample solution" -->
+- [azuredeploy.json][azuredeploy]. This template is specific to this architecture. It creates a resource group containing the VNet network, subnets, NSGs, and UDRs for these subnets.
 
-The script assumes that you have an existing on-premises infrastructure, including a VPN server that can support IPSec connections. You must supply the following information to run the script:
+- [bb-ilb-backend-http-https.json][bb-ilb-backend-http-https]. This is a generic template that creates a load balanced collection of VMs. This template is used to create the resources for the web tier, business tier, and data access tier. The template creates a resource group for each tier.
 
-- The name of the 3-tier application infrastructure to be created. The script creates separate subnets for the Web tier, business tier, and data tier. Each tier consists of two VMs accessed through a load balancer.
+- [ibb-vm-iis.json][ibb-vm-iis] and [ibb-vm-apache.json][ibb-vm-apache]. These templates install web server software on a VM (Microsoft Internet Information Services or the Apache Web Server). Use the ibb-vm-iis.json template to set up a Windows web server, or ibb-vm-apache.json to configure a Linux web server.
 
-- The subscription of the Azure account to use, as a GUID string. By default, the script creates nine VMs that consume 36 CPU cores although you can customize the installation to use smaller VMs. Make sure that you have sufficient quota available before continuing.
+- [ibb-nvas-mgmt.json][ibb-nvas-mgmt]. This template creates the resources for the NVAs and management subnet, including the NVA VMs with load balancer, and the jump box.
 
-- The shared key used by the VPN server to establish IPSec connections.
+- [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection]. This template creates the resources for the VPN gateway; the gateway subnet, the local network gateway for accessing the on-premises network, the virtual network gateway, the gateway connection, and the UDR for routing requests to the NVA load balancer.
 
-- The IP address of the VPN server.
+The solution also includes a bash script named [azuredeploy.sh][azuredeploy-script] that invokes invokes these templates in sequence and ties the results together to construct the system.
 
-- The address space of the on-premises network, in CIDR format.
+The following sections provide more details on the key resources created for this architecture by the templates.
 
-The following example shows how to run the script:
+### Creating the NVAs
 
-```powershell
-./azuredeploy.sh myapp nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn mysharedkey123 111.222.33.4 192.168.0.0/24
-```
+The NVAs are Linux (Ubuntu) VMs. The [iib-nvas-mgmt.json][iib-nvas-mgmt] template invokes another generic template ([bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe]) to create these VMs. The distinguishing aspects of these VMS consist of:
 
-The script creates separate resource groups for the solution, as follows:
+- The IP forwarding configuration from the NIC on the inbound NVA subnet to the NIC on the outbound NVA subnet,
 
-- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection.
+- The load balancing rules for traffic arriving from the on-premises network, and
 
-- ***myapp*-web-subnet-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier, by default), the network interfaces, and the load balancer for this tier.
+- The UDR that forces all inbound traffic through the load balancer.
 
-- ***myapp*-biz-subnet-rg.**. This resource group holds the VMs and resources for the business tier.
+#### IP forwarding
 
-- ***myapp*-db-subnet-rg.** This resource group holds the VMs and resources for the data access tier.
+The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement IP forwarding:
 
-- ***myapp*-mgmt-subnet-nva-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs and a load balancer for the NVA and a separate VM for the jump box. Each NVA VM has two network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs.
-
-The following sections summarize the templates that create the resources for these resource groups.
-
-### Network resources
-
-The network resources held in the *myapp*-netwk-rg resource group are created by the [azuredeploy.json][azuredeploy] template. This template creates the following NSGs and NSG rules:
-
-- **mgmt-nsg.** This NSG and rule-set is used by the management subnet containing the jump box. The rules in this NSG only permit RDP traffic from the on-premises network and blocks everything else. The elements in the template for these rules look like this:
-
-	```
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "name": "mgmt-nsg",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": { "uri": "[variables('nsgTemplate')]" },
-        "parameters": {
-          "baseName": { "value": "[parameters('baseName')]" },
-          "nsgNamePrefix": { "value": "mgmt" },
-          "rulesNames": { "value": [ "on-prem-allow", "vnet-deny" ] },
-          "rulesDirections": { "value": [ "Inbound", "Inbound" ] },
-          "rulesAccess": { "value": [ "Allow", "Deny" ] },
-          "rulesSourceAddressPrefixes": { "value": [ "[parameters('onpremNetPrefix')]", "*" ] },
-          "rulesSourcePorts": { "value": [ "*", "*" ] },
-          "rulesDestinationAddressPrefixes": { "value": [ "*", "*" ] },
-          "rulesDestinationPorts": { "value": [ 3389, "*" ] },
-          "rulesProtocol": { "value": [ "TCP", "*" ] }
-        }
-      }
-    }
-	```
-<!-- Avoid discussing resources of type /deployments. All they do is call another template. Go tot eh child (resource) templates and show the actual resources being created. For this document, the important resources to be discussed are:
-
-- UDR on gatewaysubent
-- NICs for NVAs (IP forwarding)
-- ILB rules
-- UDR for forced tunneling
-- VPN gateway with defaultlocalsite porperty for forced tunneling
-- NSG on mgmt subnet
-- jumpbox on mgmt subnet
-
-I would divide this section into 3 H3 headings: mgmt subnet (jumpbox and NSG), NVA (UDR on gateway subnet, IP forwarding on NICs, and load balancing rules), and forced tunneling (UDR on subents and default local site on VPN gateway)
-
- -->
-
-- **web-nsg.** This NSG and rule-set is used by the web tier. The rules permit HTTP traffic from the on-premises network and elsewhere in the virtual network, and RDP requests from the management subnet. All other traffic is blocked:
-
-	```
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2015-01-01",
-      "name": "web-nsg",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": { "uri": "[variables('nsgTemplate')]" },
-        "parameters": {
-          "baseName": { "value": "[parameters('baseName')]" },
-          "nsgNamePrefix": { "value": "web" },
-          "rulesNames": { "value": [ "on-prem-allow", "vnet-allow", "mgmt-rdp-allow", "vnet-deny" ] },
-          "rulesDirections": { "value": [ "Inbound", "Inbound", "Inbound", "Inbound" ] },
-          "rulesAccess": { "value": [ "Allow", "Allow", "Allow", "Deny" ] },
-          "rulesSourceAddressPrefixes": { "value": [ "[parameters('onpremNetPrefix')]", "[parameters('vnetPrefix')]", "[parameters('vnetMgmtSubnetPrefix')]", "*" ] },
-          "rulesSourcePorts": { "value": [ "*", "*", "*", "*" ] },
-          "rulesDestinationAddressPrefixes": { "value": [ "*", "*", "*", "*" ] },
-          "rulesDestinationPorts": { "value": [ 80, 80, 3389, "*", "*" ] },
-          "rulesProtocol": { "value": [ "TCP", "TCP", "TCP", "*" ] }
-        }
-      }
-    }
-	```
-
-	> [AZURE.NOTE] If you need to allow HTTPS traffic, you can open port 443 to on-premises and virtual network traffic as well.
-
-- **biz-nsg.** This NSG and rule-set allows RDP traffic from the management subnet, and HTTP traffic from the web tier only. All other traffic is blocked. It is defined in the same manner as the previous NSGs.
-
-	> [AZURE.NOTE] If web tier sends requests using protocols other than HTTP, you must add NSG rules that open the necessary ports.
-
-- **db-nsg.** This NSG and rule-set allows RDP traffic from the management subnet, and HTTP traffic from the business tier only. All other traffic is blocked.
-
-	> [AZURE.NOTE] As with the previous example, if the business tier sends requests using protocols other than HTTP, you must add NSG rules that open the necessary ports.
-
-The [azuredeploy.json][azuredeploy] template then creates the VNet containing the following six subnets:
-
-- ***myapp*-mgmt-subnet** for the jump box. The template associates the mgmt-nsg NSG with this subnet.
-
-- ***myapp*-nva-fe-subnet** and ***myapp*-nva-be-subnet**, which represent the front-end (incoming traffic from the on-premises network) and back-end (outbound traffic heading to the web tier) subnets for the NVA. Each NVA has two NICs, one of which is attached to the ***myapp*-nva-fe-subnet** subnet while the other belongs to the ***myapp*-nva-be-subnet** subnet.
-
-- ***myapp*-web-subnet**, ***myapp*-biz-subnet**, and ***myapp*-db-subnet** which are used by the web tier, business tier, and data access tier respectively. The template associates the appropriate NSGs (described above) with each subnet.
-
-The address spaces for the subnets are passed in as parameters to this template. You can change these address spaces by modifying the azuredeploy.sh script. This is described in the [Deploying the sample solution][deploying] section later in this article.
-
-
-### Application resources
-
-The [azuredeploy.sh][azuredeploy-script] script uses the [bb-ilb-backend-http-https.json][bb-ilb-backend-http-https] template to create the VMs, storage accounts, and resources for the web tier, business tier, and data access tier. The azuredeploy.sh script runs this template three times - once for each tier - passing in tier specific parameters such as the subnet name, the resource group, and the number of VMs to create. This template also takes parameters that specify the type of VM to create (Windows, Linux), the size of VM, the administrator name and password, and the name of the VM:
-
-```
-{
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2015-01-01",
-  "name": "[concat(parameters('baseName'),copyindex(1))]",
-  "copy": {
-    "name": "vmCount",
-    "count": "[parameters('numberVMs')]"
-  },
-  "properties": {
-    ...
-    },
-    "parameters": {
-      "baseName": { "value": "[parameters('baseName')]" },
-      "vmNamePrefix": { "value": "[concat(parameters('vmNamePrefix'),copyindex(1))]" },
-      "vmComputerName": { "value": "[concat(parameters('vmComputerName'),copyindex(1))]" },
-      "vmSize": {"value": "[parameters('vmSize')]"},
-      "snid": { "value": "[parameters('subnetId')]" },
-      "lbBackendPoolId": { "value": "[variables('ilbBEId')]" },
-      "osType": { "value": "[parameters('osType')]" },
-      "adminUsername": { "value": "[parameters('adminUsername')]" },
-      "adminPassword": { "value": "[parameters('adminPassword')]" },
-      "stgAccountName": { "value": "[concat(parameters('baseName'),copyindex(1),variables('uniqueString'))]" },
-      "vmAvSetName": { "value": "[variables('vmAvailabilitySetName')]" }
-    }
-  }
-}
-```
-
-By default, each tier contains two VMs using the Standard_DS3 size (4 CPU cores, 14GB RAM, 28GB local SSD storage, up to 8TB disk storage). You can modify all of these configuration settings - see [Deploying the sample solution][deploying] section for details.
-
-The VMs are created in an availability set, and this template also creates an internal load balancer which distributes requests to port 80 and to port 443 across the set:
-
-```
-"loadBalancingRules": [
-  {
-    "name": "http-rule",
-    "properties": {
-      "backendAddressPool": { "id": "[variables('ilbBEId')]" },
-      "frontendIPConfiguration": { "id": "[variables('lbFEIpConfigId')]" },
-      "frontendPort": 80,
-      "backendPort": 80,
-      "protocol": "Tcp"
-    }
-  },
-  {
-    "name": "https-rule",
-    "properties": {
-      "backendAddressPool": { "id": "[variables('ilbBEId')]" },
-      "frontendIPConfiguration": { "id": "[variables('lbFEIpConfigId')]" },
-      "frontendPort": 443,
-      "backendPort": 443,
-      "protocol": "Tcp"
-    }
-  }
-]
-```
-
-The load balancer uses a health probe which access port 80 to determine whether a VM is functioning.
-
-```
-"probes": [
-  {
-    "name": "ilb-probe",
-    "properties": {
-      "port": 80,
-      "protocol": "Http",
-      "requestPath": "/"
-    }
-  }
-]
-```
-
-After creating the resources for the web tier, the [azuredeploy.sh][azuredeploy] script installs Microsoft Internet Information Services (IIS) or the Apache Web Server on the web tier VMs. The script uses the [ibb-vm-iis.json][ibb-vm-iis] and [ibb-vm-apache.json][ibb-vm-apache] templates to perform the installation. The decision on which web server to set up is based on the operating system installed on the VMs; Windows VMs install IIS whereas Ubuntu VMs install Apache.
-
-> [AZURE.NOTE] The script does not install any software other than the operating system on the VMs in business and data access tiers. You must configure these VMs to match the requirements of your application and install the necessary software yourself.
-
-### NVA and management subnet resources
-
-The [azuredeploy.sh][azuredeploy-script] script creates the resources for the NVA and management subnet by using the [iib-nvas-mgmt.json][iib-nvas-mgmt] template. This template sets up:
-
-- An availability set for the NVA VMs.
-
-- Two NVA VMs (the number is configurable) running Ubuntu. Each NVA VM has two network interfaces; one connected to the *myapp*-nva-fe-subnet and the other attached to the *myapp*-nva-be-subnet. When the template creates the VMs, it configures IP forwarding for these interfaces:
+1. The template configures IP forwarding for the two NICs when it invokes the [bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe] template:
 
 	```
     "parameters": {
@@ -504,43 +290,120 @@ The [azuredeploy.sh][azuredeploy-script] script creates the resources for the NV
       ...
     }
 	```
-	> [AZURE.NOTE] The VMs themselves are created by another template called [bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe] using the values specified by these parameters.
 
-- An internal load balancer which distributes HTTP requests sent to ports 80 and 443 across the NVA availability set.
+    This setting enables the VM to accept traffic on a NIC even if the NIC is not attached to the network to which the traffic is addressed.
 
-- A UDR that directs traffic to the load balancer:
+2. The template runs the [nva.sh][nva-script] script on each VM after the VM has been created. This is a Linux bash script that configures the IP network driver in the operating system to forward IP requests across NICs:
 
-    ```
-    {
-      "type": "Microsoft.Network/routeTables",
-      "apiVersion": "2016-03-30",
-      "location": "[variables('location')]",
-      "name": "[variables('udrName')]",
-      "properties": {
-        "routes": [
-          {
-            "name": "toFrontEnd",
-            "properties": {
-              "addressPrefix": "[parameters('feSubnetPrefix')]",
-              "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "[parameters('ilbIpAddress')]"
-            }
-          }
-        ]
+	```
+    #!/bin/bash
+    echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
+	```
+
+It is important that both of these tasks complete successfully, otherwise traffic might not pass through the NVA and could be blocked.
+
+#### Load balancing the NVAs
+
+The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template creates an availability set for the VMs, and implements an internal load balancer which distributes HTTP requests sent to ports 80 and 443 across this availability set. The load balancer has a static IP address. The JSON snippet below illustrates how the template configures the load balancer. Note that in this snippet, the *ilbIpAddress* parameter contains the internal IP address of the load balancer, and the *feSubnetId* parameter is a reference to the inbound (front-end) NVA subnet. The variable *ilbBEName* refers to the pool containing the NVA VMs.
+
+```
+{
+  "type": "Microsoft.Network/loadBalancers",
+  "apiVersion": "2016-03-30",
+  "location": "[variables('location')]",
+  "name": "[variables('lbName')]",
+  "tags": {
+    "displayName": "Load balancer"
+  },
+  "properties": {
+    "frontendIPConfigurations": [
+      {
+        "name": "feIpConfig1",
+        "properties": {
+          "privateIPAllocationMethod": "Static",
+          "privateIPAddress": "[parameters('ilbIpAddress')]",
+          "subnet": { "id": "[parameters('feSubnetId')]" }
+        }
       }
-    }
-    ```
+    ],
+    "backendAddressPools": [ { "name": "[variables('ilbBEName')]" } ],
+    "loadBalancingRules": [
+      {
+        "name": "http",
+        "properties": {
+          "frontendIPConfiguration": { "id": "[variables('ilbFEId')]" },
+          "backendAddressPool": { "id": "[variables('ilbBEId')]" },
+          "frontendPort": 80,
+          "backendPort": 80,
+          "protocol": "Tcp"
+        }
+      },
+      {
+        "name": "https",
+        "properties": {
+          "frontendIPConfiguration": { "id": "[variables('ilbFEId')]" },
+          "backendAddressPool": { "id": "[variables('ilbBEId')]" },
+          "frontendPort": 443,
+          "backendPort": 443,
+          "protocol": "Tcp"
+        }
+      }
+    ]
+  }
+}
+```
+
+#### Routing traffic through the NVA load balancer
+The UDR that directs traffic to the load balancer implements a routing rule that forces all inbound traffic intended for the application to pass through the load balancer. Notice that the rule specifies that the load balancer is a virtual appliance:
+
+**NOTE: THIS MAY CHANGE - ALSO NEED A UDR THAT BYPASSES THE NVA FOR MANAGEMENT SUBNET TRAFFIC - POSSIBLY DISCUSS IN MANAGEMENT SUBNET SECTION**
+```
+{
+  "type": "Microsoft.Network/routeTables",
+  "apiVersion": "2016-03-30",
+  "location": "[variables('location')]",
+  "name": "[variables('udrName')]",
+  "properties": {
+    "routes": [
+      {
+        "name": "toFrontEnd",
+        "properties": {
+          "addressPrefix": "[parameters('feSubnetPrefix')]",
+          "nextHopType": "VirtualAppliance",
+          "nextHopIpAddress": "[parameters('ilbIpAddress')]"
+        }
+      }
+    ]
+  }
+}
+```
+
+The [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template takes this UDR as an input parameter and applies the UDR to the Gateway subnet created for the connection to the on-premises network.
+
+```
+"parameters": {
+  ...
+  "udrName": {
+    "type": "string",
+    "defaultValue": "",
+    "metadata": { "description": "Name of an optional UDR to be placed in the GatewaySubnet." }
+  },
+  "udrResourceGroup": {
+    "type": "string",
+    "defaultValue": "",
+    "metadata": { "description": "Name of the resource group for the optional UDR." }
+  },
+  ...
+```
+
+### Configuring the VPN gateway and implementing forced tunnelling
+
+The [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template creates the VPN gateway for connecting the VNet and the on-premises network.
 
 
-	This UDR is applied to the Gateway subnet created for the connection to the on-premises network, described in the [Gateway resources][gateway-resources] section. This UDR ensures that all traffic from the on-premises network passes through the NVA.
+#### Creating the VPN gateway
 
-- A jump box VM running Ubuntu. The template uses the [bb-bb-vm-1nic-static-private-ip.json][bb-vm-1nic-static-private-ip] to create this VM. The VM is placed in the *myapp*-mgmt-subnet.
-
-### Gateway resources
-
-The [azuredeploy.sh][azuredeploy-script] script calls the [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template to create the following Azure gateway resources:
-
-- The **GatewaySubnet** subnet. The template invokes further templates, [bb-gatewaysubnet.json][bb-gatewaysubnet] and [bb-gatewaysubnet-udr.json][bb-gatewaysubnet-udr], to actually create the subnet and associate it with the UDR that routes requests to the NVA load balancer described in the previous section. The parameters shown below are passed to these templates:
+This template invokes further templates, [bb-gatewaysubnet.json][bb-gatewaysubnet] and [bb-gatewaysubnet-udr.json][bb-gatewaysubnet-udr], to actually create the subnet and associate it with the UDR. The parameters shown below are passed to these templates:
 
 	```
     "parameters": {
@@ -551,6 +414,9 @@ The [azuredeploy.sh][azuredeploy-script] script calls the [bb-vpn-gateway-connec
       "displayName": { "value": "Gateway UDR" }
     }
 	```
+
+The [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template then creates the following items:
+
 - A public, dynamic IP address for the gateway:
 
 	```
@@ -592,7 +458,7 @@ The [azuredeploy.sh][azuredeploy-script] script calls the [bb-vpn-gateway-connec
     }
 	```
 
-- A local gateway for the on-premises network:
+- A local gateway for the on-premises network. The public address of the on-premises VPN device, and the address space of the on-premises network are passed in to this template as parameters.:
 
 	```
     {
@@ -610,7 +476,7 @@ The [azuredeploy.sh][azuredeploy-script] script calls the [bb-vpn-gateway-connec
     }
 	```
 
-- An IPsec VPN connection between the virtual network gateway and the local gateway.
+- An IPsec VPN connection between the virtual network gateway and the local gateway. Notice that the shared key used to establish the connection is passed in to this template as a parameter.
 
 	```
     {
@@ -634,17 +500,169 @@ The [azuredeploy.sh][azuredeploy-script] script calls the [bb-vpn-gateway-connec
     }
 	```
 
+#### Implementing forced tunnelling
+
+The [azuredeploy.sh][azuredeploy] script uses the Azure CLI directly to implement forced tunneling for the web, business, and data access tiers. The script creates a route table with a default route that directs all Internet-bound traffic back through the virtual network gateway. The script then adds this route table to the subnets for the web, business, and data access tiers:
+
+```powershell
+FORCED_TUNNELING_ROUTE_TABLE_NAME=${BASE_NAME}-forced-tunneling-udr
+
+echo
+echo azure network route-table create -n ${FORCED_TUNNELING_ROUTE_TABLE_NAME}  -g ${NTWK_RESOURCE_GROUP}  -l ${LOCATION}
+     azure network route-table create -n ${FORCED_TUNNELING_ROUTE_TABLE_NAME}  -g ${NTWK_RESOURCE_GROUP}  -l ${LOCATION}
+
+echo
+echo azure network route-table route create -n "DefaultRoute"  -g ${NTWK_RESOURCE_GROUP} -a "0.0.0.0/0" -y VirtualNetworkGateway -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME}
+     azure network route-table route create -n "DefaultRoute"  -g ${NTWK_RESOURCE_GROUP} -a "0.0.0.0/0" -y VirtualNetworkGateway -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME}
+echo
+echo azure network vnet subnet set -n ${DEPLOYED_WEB_SUBNET_NAME} -e ${DEPLOYED_VNET_NAME} -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME} -g ${RESOURCE_GROUP} 
+     azure network vnet subnet set -n ${DEPLOYED_WEB_SUBNET_NAME} -e ${DEPLOYED_VNET_NAME} -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME} -g ${RESOURCE_GROUP} 
+
+echo
+echo azure network vnet subnet set -n ${DEPLOYED_BIZ_SUBNET_NAME} -e ${DEPLOYED_VNET_NAME} -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME} -g ${RESOURCE_GROUP} 
+     azure network vnet subnet set -n ${DEPLOYED_BIZ_SUBNET_NAME} -e ${DEPLOYED_VNET_NAME} -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME} -g ${RESOURCE_GROUP} 
+
+echo
+echo azure network vnet subnet set -n ${DEPLOYED_DB_SUBNET_NAME} -e ${DEPLOYED_VNET_NAME} -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME} -g ${RESOURCE_GROUP} 
+     azure network vnet subnet set -n ${DEPLOYED_DB_SUBNET_NAME} -e ${DEPLOYED_VNET_NAME} -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME} -g ${RESOURCE_GROUP} 
+```
+### Creating the management subnet
+
+The management subnet contains the jump box, and optionally other VMs that can be used to perform monitoring tasks. The example template only creates the jump box, but you can add and configure other VMs manually, according to your monitoring requirements.
+
+#### Creating the jump box
+
+The purpose of the jump box is to provide privileged access to DevOps staff who need to manage and configure the system. The jump box is a VM running Ubuntu. The [ibb-nvas-mgmnt.json][ibb-nvas-mgmnt] template uses the [bb-bb-vm-1nic-static-private-ip.json][bb-vm-1nic-static-private-ip] to create this VM.
+
+It is imperative to protect the jump box from access by unauthorized staff. The [azuredeploy.json][azuredeploy] template performs the following tasks to help protect the system:
+
+- Implement an NSG with rules that prohibit access from unexpected sources.
+
+- Configure NSG rules that permit management access to VMs in the web, business, and data access tier subnets only from the management subnet.
+
+#### Blocking unexpected access to the management subnet
+
+The [azuredeploy.json][azuredeploy] template creates two NSG rules named *on-prem-allow* and *vnet-deny* for the management subnet:
+
+```
+{
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2015-01-01",
+  "name": "mgmt-nsg",
+  "properties": {
+    "mode": "Incremental",
+    "templateLink": { "uri": "[variables('nsgTemplate')]" },
+    "parameters": {
+      "baseName": { "value": "[parameters('baseName')]" },
+      "nsgNamePrefix": { "value": "mgmt" },
+      "rulesNames": { "value": [ "on-prem-allow", "vnet-deny" ] },
+      "rulesDirections": { "value": [ "Inbound", "Inbound" ] },
+      "rulesAccess": { "value": [ "Allow", "Deny" ] },
+      "rulesSourceAddressPrefixes": { "value": [ "[parameters('onpremNetPrefix')]", "*" ] },
+      "rulesSourcePorts": { "value": [ "*", "*" ] },
+      "rulesDestinationAddressPrefixes": { "value": [ "*", "*" ] },
+      "rulesDestinationPorts": { "value": [ 3389, "*" ] },
+      "rulesProtocol": { "value": [ "TCP", "*" ] }
+    }
+  }
+}
+```
+
+The on-prem-allow rule allows RDP access through port 3389 only to traffic that has originated from the on-premises network. The vnet-deny rule blocks all traffic that has originated from the VNet. Note that it is still necessary to authenticate traffic that arrives from the on-premises network. You can perform this task by using [RBAC][rbac] as described elsewhere in this document; the example template does not implement any authentication.
+
+#### Permitting management access to the application subnets 
+
+Each application subnet has NSG rules that permit incoming management traffic on port 3389 (for RDP access) and port 22 (for SSH access). The following example shows part of the NSG configuration for the web tier. The configurations for the business and data access tiers is similar:
+
+```
+{
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2015-01-01",
+  "name": "web-nsg",
+  "properties": {
+    "mode": "Incremental",
+    "templateLink": { "uri": "[variables('nsgTemplate')]" },
+    "parameters": {
+      "baseName": { "value": "[parameters('baseName')]" },
+      "nsgNamePrefix": { "value": "web" },
+      "rulesNames": { "value": [ ..., ..., "mgmt-rdp-allow", "mgmt-ssh-allow", "vnet-deny" ] },
+      "rulesDirections": { "value": [ ..., ..., "Inbound", "Inbound", "Inbound" ] },
+      "rulesAccess": { "value": [ ..., ..., "Allow", "Allow", "Deny" ] },
+      "rulesSourceAddressPrefixes": { "value": [ "[parameters('onpremNetPrefix')]", "[parameters('vnetPrefix')]", "[parameters('vnetMgmtSubnetPrefix')]", "[parameters('vnetMgmtSubnetPrefix')]", "*" ] },
+      "rulesSourcePorts": { "value": [ ..., ..., "*", "*", "*" ] },
+      "rulesDestinationAddressPrefixes": { "value": [ ..., ..., "*", "*", "*" ] },
+      "rulesDestinationPorts": { "value": [ ..., ..., 3389, 22, "*" ] },
+      "rulesProtocol": { "value": [ ..., ..., "TCP", "TCP", "*" ] }
+    }
+  }
+}
+```
+
 ## Deploying the sample solution
 
-To run the [azuredeploy.sh][azuredeploy] script, you must [install the latest version of the Azure CLI][cli-install]. Additionally, if you are using Windows, you must install a tool that provides a bash shell, such as [git for Windows][git-for-windows].
+The solution assumes the following prerequistes:
+
+- You have an existing on-premises infrastructure, including a VPN server that can support IPSec connections.
+
+- You have installed the latest version of the Azure CLI. [Follow these instructions for details][cli-install].
+
+- If you are deploying the solution from Windows, you must install a tool that provides a bash shell, such as [git for Windows][git-for-windows].
+
+To run the script that deploys the solution:
+
+1. Download the [azuredeploy.sh][azuredeploy] script to your local computer.
+
+2. Open a bash shell and move to the folder containing the azuredeploy.sh script.
+
+3. Run the command `./azuredeploy.sh`. You must supply the following information as command line parameters:
+
+	- The name of the 3-tier application infrastructure to be created. The script creates separate subnets for the Web tier, business tier, and data tier. Each tier consists of two VMs accessed through a load balancer.
+
+	- The subscription of the Azure account to use, as a GUID string. By default, the script creates nine VMs that consume 36 CPU cores although you can customize the installation to use smaller VMs. Make sure that you have sufficient quota available before continuing.
+
+	- The shared key used by the VPN server to establish IPSec connections.
+
+	- The IP address of the VPN server.
+
+	- The address space of the on-premises network, in CIDR format.
+
+	The following example shows how to run the script:
+
+	```powershell
+	./azuredeploy.sh myapp nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn mysharedkey123 111.222.33.4 192.168.0.0/24
+	```
+
+4. Ensure that the script completes successfully. Note that it is possible to re-run the script if an error occurs; objects that have already been created will not be overwritten.
+
+5. Verify that the following items have been created by using the Azure portal:
+
+
+**NOTE TO SELF: START HERE TOMORROW**
+
+
+
+### Structure of the solution
+
+The script creates separate resource groups for the solution, as follows (*myapp* represents the name of the 3-tier application infrastructure specified on the command line):
+
+- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection.
+
+- ***myapp*-web-subnet-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier, by default), the network interfaces, and the load balancer for this tier.
+
+- ***myapp*-biz-subnet-rg.**. This resource group holds the VMs and resources for the business tier.
+
+- ***myapp*-db-subnet-rg.** This resource group holds the VMs and resources for the data access tier.
+
+- ***myapp*-mgmt-subnet-nva-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs and a load balancer for the NVA and a separate VM for the jump box. Each NVA VM has two network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs.
+
+### Customizing the solution
 
 Prior to invoking each template, the script creates an inline JSON object named PARAMETERS which is passed to the template. The template uses the values in this object to determine how to create the resources. Most of the parameters are populated from variables defined in the script. The example below shows how the script runs the azuredeploy.json template:
 
 ```
-LOCATION=centralus
-azure config mode arm
-NTWK_RESOURCE_GROUP=${BASE_NAME}-ntwk-rg
-# create network
+############################################################################
+## Create vNet and Subnets for mgmt, nva-fe, nva-be, web, biz, db
+############################################################################
 TEMPLATE_URI=https://raw.githubusercontent.com/mspnp/blueprints/master/ARMBuildingBlocks/guidance-hybrid-network-secure-vnet/Templates/azuredeploy.json
 RESOURCE_GROUP=${NTWK_RESOURCE_GROUP}
 ON_PREM_NET_PREFIX=${INPUT_ON_PREMISES_ADDRESS_SPACE}
@@ -656,17 +674,22 @@ VNET_WEB_SUBNET_PREFIX=10.0.3.0/24
 VNET_BIZ_SUBNET_PREFIX=10.0.4.0/24
 VNET_DB_SUBNET_PREFIX=10.0.5.0/24
 PARAMETERS="{\"baseName\":{\"value\":\"${BASE_NAME}\"},\"onpremNetPrefix\":{\"value\":\"${ON_PREM_NET_PREFIX}\"},\"vnetPrefix\":{\"value\":\"${VNET_PREFIX}\"},\"vnetMgmtSubnetPrefix\":{\"value\":\"${VNET_MGMT_SUBNET_PREFIX}\"},\"vnetNvaFeSubnetPrefix\":{\"value\":\"${VNET_NVA_FE_SUBNET_PREFIX}\"},\"vnetNvaBeSubnetPrefix\":{\"value\":\"${VNET_NVA_BE_SUBNET_PREFIX}\"},\"vnetWebSubnetPrefix\":{\"value\":\"${VNET_WEB_SUBNET_PREFIX}\"},\"vnetBizSubnetPrefix\":{\"value\":\"${VNET_BIZ_SUBNET_PREFIX}\"},\"vnetDbSubnetPrefix\":{\"value\":\"${VNET_DB_SUBNET_PREFIX}\"}}"
-azure group create --name ${RESOURCE_GROUP} --location ${LOCATION} --subscription ${SUBSCRIPTION}
-azure group deployment create --template-uri ${TEMPLATE_URI} -g ${RESOURCE_GROUP} -p ${PARAMETERS}
+
+echo
+echo azure group create --name ${RESOURCE_GROUP} --location ${LOCATION} --subscription ${SUBSCRIPTION}
+     azure group create --name ${RESOURCE_GROUP} --location ${LOCATION} --subscription ${SUBSCRIPTION}
+echo
+echo azure group deployment create --template-uri ${TEMPLATE_URI} -g ${RESOURCE_GROUP} -p ${PARAMETERS}
+     azure group deployment create --template-uri ${TEMPLATE_URI} -g ${RESOURCE_GROUP} -p ${PARAMETERS}
 ```
 
 You can change these variables before running the script if you need to vary the resources created, for example, if you need to modify the address spaces of the subnets in the VNet.
 
-> [AZURE.NOTE] Change the values of the variables rather than the PARAMETERS object. If you modify the PARAMETERS object directly, or try to add or remove parameters, the template may not run correctly.
+> [AZURE.NOTE] Change the values of the variables rather than the PARAMETERS object. If you modify the PARAMETERS object directly, or try to add or remove parameters, the template might not run correctly.
 
 The azuredeploy.json template takes the following parameters:
 
-- **LOCATION**. The Azure region in which to create the resource groups used by the system.
+- **LOCATION**. The Azure region in which to create the resource groups used by the system. 
 
 - **VNET_PREFIX**. The address space of the VNet to be created.
 
@@ -714,17 +737,13 @@ The script calls the [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template to create the 
 
 You should not change the parameters to the [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template. This template depends on the values specified elsewhere in the script, so changing the parameters may cause this template to fail.
 
-<!-- I need this section to be step-by-step. Numbered list. From downloading the script, changing the parameters, running the script. Then have a section on how to check (even if it is just look at the portal, but ideally accessing the web front end from on-prem. -->
-
 ## Availability considerations
-<!-- we decided to rename the -bilities to -bility conidertations (look at the example above. the idea here is to discuss what else could be done for each -bility that we do not do in the golden path/script -->
-
 
 If you are using Azure ExpressRoute to provide the connectivity between the VNet and the on-premises network, [configure a VPN gateway to provide failover][vpn-failover] if the ExpressRoute connection becomes unavailable.
 
 For specific information on maintaining availability for VPN and ExpressRoute connections, see the articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
 
-## Security
+## Security considerations
 
 This architecture applies security at several points. The recommendations and solution components listed earlier describe the basic solution which you can customize according to your own requirements. However, you should bear in mind the points described in the following sections.
 
@@ -733,6 +752,8 @@ This architecture applies security at several points. The recommendations and so
 ### Routing through the NVA
 
 In the example shown in the diagram in the [Architecture diagram][architecture], all requests for the application are directed through the NVA by using a UDR that routes them through the NVA. This UDR is applied to the gateway subnet. You can add more routes to the UDR, but ensure that you do not inadvertently create routes that enable application requests to bypass the NVA or that block administrative traffic intended for the management subnet.
+
+The load balancer in front of the NVAs also acts as a security device. Only traffic that matches the ports specified by load balancing rules can pass through. By default, the example architecture only enables HTTP (port 80) and HTTPS (port 443) requests. You can add further rules to allow traffic through other ports, but document all changes and be prepared to monitor the requests flowing through these ports.
 
 ### Blocking/passing traffic to the application tiers
 
@@ -762,14 +783,6 @@ If you are using ExpressRoute to provide the connectivity between your on-premis
 
 > [AZURE.NOTE] You can find additional information specifically aimed at monitoring and managing VPN and ExpressRoute connections in the articles The articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
 
-## Troubleshooting
-
-<!-- kill the troubleshooting section for now -->
-
-**TBD - Logging on NVAs, Manual troubleshooting from jump box - testing connectivity, netstat and wireshark**
-
-> [AZURE.NOTE] You can find specific information about troubleshooting VPN and ExpressRoute connections in the articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
-
 ## Next steps
 
 <!-- links -->
@@ -789,7 +802,6 @@ If you are using ExpressRoute to provide the connectivity between your on-premis
 [security]: #security
 [recommendations]: #recommendations
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[tracert]: https://technet.microsoft.com/library/cc940128.aspx
 [barracuda-waf]: https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf/
 [barracuda-nf]: https://azure.microsoft.com/marketplace/partners/barracudanetworks/barracuda-ng-firewall/
 [vns3]: https://azure.microsoft.com/marketplace/partners/cohesive/cohesiveft-vns3-for-azure/
@@ -814,3 +826,5 @@ If you are using ExpressRoute to provide the connectivity between your on-premis
 [bb-gatewaysubnet-udr]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/ARMBuildingBlocks/Templates/bb-gatewaysubnet-udr.json
 [cli-install]: https://azure.microsoft.com/documentation/articles/xplat-cli-install
 [git-for-windows]: https://git-for-windows.github.io
+[arm-template-best-practices]: https://azure.microsoft.com/documentation/articles/best-practices-resource-manager-design-templates/
+[nva-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/ARMBuildingBlocks/Scripts/nva.sh
