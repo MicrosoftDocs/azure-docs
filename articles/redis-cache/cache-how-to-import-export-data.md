@@ -55,7 +55,22 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
 ## Import
 
-## Azure Redis Cache Import/Export FAQ
+1. To import one or more exported cache blobs, browse to your cache in the Azure portal and click **Import data** from the **Settings** blade of your cache instance.
+
+    ![Import data][cache-import-data]
+
+
+
+    ![Choose storage account][cache-import-choose-storage-account]
+
+
+    ![Choose container][cache-import-choose-container]
+
+
+
+
+
+## Import/Export FAQ
 
   
 <!-- IMAGES -->
@@ -66,6 +81,15 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 [cache-export-data-export-complete]: ./media/cache-how-to-import-export-data/cache-export-data-export-complete.png
 [cache-export-data-export-in-progress]: ./media/cache-how-to-import-export-data/cache-export-data-export-in-progress.png
 [cache-export-data]: ./media/cache-how-to-import-export-data/cache-export-data.png
+[cache-import-data]: ./media/cache-how-to-import-export-data/cache-import-data.png
+[cache-import-choose-storage-account]: ./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png
+[cache-import-choose-container]: ./media/cache-how-to-import-export-data/cache-import-choose-container.png
+[]: ./media/cache-how-to-import-export-data/.png
+[]: ./media/cache-how-to-import-export-data/.png
+[]: ./media/cache-how-to-import-export-data/.png
+[]: ./media/cache-how-to-import-export-data/.png
+[]: ./media/cache-how-to-import-export-data/.png
+[]: ./media/cache-how-to-import-export-data/.png
 []: ./media/cache-how-to-import-export-data/.png
 []: ./media/cache-how-to-import-export-data/.png
 []: ./media/cache-how-to-import-export-data/.png
