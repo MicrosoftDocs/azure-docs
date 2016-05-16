@@ -34,7 +34,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 4. Click **My Apps** > **Add a New App** > **Website** > **Skip and Create App ID**. 
 
-5. In **Display Name**, type a unique name for your app, type your **Contact Email**, choose a **Category** for you app, then click **Create App ID** and complete the security check. This takes you to the developer dashboard for your new Facebook app.
+5. In **Display Name**, type a unique name for your app, type your **Contact Email**, choose a **Category** for your app, then click **Create App ID** and complete the security check. This takes you to the developer dashboard for your new Facebook app.
 
 6. Under "Facebook Login," click **Get Started**. Add your application's **Redirect URI** to **Valid OAuth redirect URIs**, then click **Save Changes**. 
 
