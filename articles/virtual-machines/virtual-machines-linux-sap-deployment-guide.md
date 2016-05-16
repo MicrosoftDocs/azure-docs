@@ -241,9 +241,8 @@
 [virtual-machines-deploy-rmtemplates-azure-cli]:virtual-machines-deploy-rmtemplates-azure-cli.md
 [xplat-cli-azure-resource-manager]:xplat-cli-azure-resource-manager.md
 [virtual-machines-linux-create-upload-vhd-suse]:virtual-machines-linux-create-upload-vhd-suse.md
-[virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image-resource-manager.md
 [storage-use-azcopy]:storage-use-azcopy.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:virtual-machines-linux-capture-image-resource-manager.md#capture-the-vm
+[virtual-machines-linux-capture-image-resource-manager-capture]:virtual-machines-linux-capture-image.md#capture-the-vm
 [storage-azure-cli]:storage-azure-cli.md
 [storage-powershell-guide-full-copy-vhd]:storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-azure-cli-copy-blobs]:storage-azure-cli.md#copy-blobs
@@ -266,7 +265,7 @@
 [deploy-template-powershell]:resource-group-template-deploy.md#deploy-with-powershell
 [deploy-template-cli]:resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
 [deploy-template-portal]:resource-group-template-deploy.md#deploy-with-the-preview-portal
-[virtual-networks-udr-overview]:../virtual-networ/virtual-networks-udr-overview.md
+[virtual-networks-udr-overview]:../virtual-network/virtual-networks-udr-overview.md
 [resource-group-overview]:../resource-group-overview.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image-resource-manager.md
