@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/15/2016" 
 	ms.author="juliako"/>
 
 #Advanced encoding with Media Encoder Premium Workflow
 
->[AZURE.NOTE]- For premium encoder questions, email mepd at Microsoft.com.
->
+>[AZURE.NOTE]
+>- For premium encoder questions, email mepd at Microsoft.com.
 >- Media Encoder Premium Workflow media processor discussed in this topic is not available in China.
 
 ##Overview
