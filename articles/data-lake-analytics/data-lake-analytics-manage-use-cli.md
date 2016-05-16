@@ -177,7 +177,7 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
 	#List tables
 	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 	
-The types include database, schema, assembly, externaldatasource, table, tablevaluedfunction or tablestatistics.
+The types include database, schema, assembly, external data source, table, tablevaluedfunction or table statistics.
 
 ###Create catalog secret
 
