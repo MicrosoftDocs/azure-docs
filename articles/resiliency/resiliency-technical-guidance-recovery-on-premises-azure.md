@@ -73,19 +73,23 @@ For more information, see [High availability and disaster recovery for SQL Serve
 
 ##Checklists for on-premises recovery in Microsoft Azure
 
-##[Networking](#networking) Checklist
-  1. Use Virtual Network to securely connect on-premises to the Cloud
+##Networking Checklist
+  1. Review the [Networking](#networking) section of this document
+  2. Use Virtual Network to securely connect on-premises to the Cloud
 
-##[Compute](#compute) Checklist
+##Compute Checklist
+  1. Review the [Compute](#compute) section of this document
   2. Relocate VMs between Hyper-V and Azure
 
-##[Storage](#storage) Checklist
-  1. Take advantage of StorSimple services for using Cloud storage
-  2. Use Azure Backup Services
+##Storage Checklist
+  1. Review the [Storage](#storage) section of this document
+  2. Take advantage of StorSimple services for using Cloud storage
+  3. Use Azure Backup Services
 
-##[Database](#database) Checklist
-  1. Consider using SQL Server on Azure VMs as the backup
-  2. Setup AlwaysOn Availability Groups
-  3. Configure certificate-based Database Mirroring
-  4. Use log shipping
-  5. Backup on-premises database to Azure blob storage
+##Database Checklist
+  1. Review the [Database](#database) section of this document
+  2. Consider using SQL Server on Azure VMs as the backup
+  3. Setup AlwaysOn Availability Groups
+  4. Configure certificate-based Database Mirroring
+  5. Use log shipping
+  6. Backup on-premises database to Azure blob storage

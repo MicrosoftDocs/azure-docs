@@ -22,7 +22,7 @@
 
 [Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe): Guidance for building resilient cloud architectures, guidance for implementing those architectures on Microsoft technologies, and recipes for implementing these architectures for specific scenarios.
 
-[Disaster Recovery and High Availability for Azure Applications](https://msdn.microsoft.com/library/azure/dn251004.aspx): A detailed overview of availability and disaster recovery. It covers the challenge of manual replication for reference and transactional data. The final sections provide summaries of different types of DR topologies that span Azure datacenters for the highest level of availability.
+[Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide): A detailed overview of availability and disaster recovery. It covers the challenge of manual replication for reference and transactional data. The final sections provide summaries of different types of DR topologies that span Azure datacenters for the highest level of availability.
 
 [Business Continuity in Azure SQL Database](../sql-database/sql-database-business-continuity.md): Focusses exclusively on Azure Azure SQL Database techniques for availability, which primarily centers on backup and restore strategies. If you use Azure SQL Database in your cloud service, you should review this paper and its related resources.
 

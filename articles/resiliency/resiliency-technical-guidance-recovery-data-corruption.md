@@ -18,15 +18,15 @@
 
 #Azure Resiliency Technical Guidance - Recovery from data corruption or accidental deletion
 
-Part of a robust business continuity plan is having a plan of your data gets corrupted or accidentally deleted.  Below is information about recovery after data corrupted or accidentally deleted due to application errors or operator error.
+Part of a robust business continuity plan is having a plan of your data gets corrupted or accidentally deleted. Below is information about recovery after data corrupted or accidentally deleted due to application errors or operator error.
 
-##IaaS VMs
+##Virtual Machines
 
-To protect your  IaaS VMs from application errors or accidental deletion use [Azure Backup](https://azure.microsoft.com/services/backup/). Azure Backup enables creation of backups which are consistent across multiple VM disks.  In addition, the Backup Vault can be replicated across regions to provide recovery from region loss.
+To protect your Azure Virtual Machines (sometimes called infrastructure as a service (IaaS) VMs) from application errors or accidental deletion use [Azure Backup](https://azure.microsoft.com/services/backup/). Azure Backup enables creation of backups which are consistent across multiple VM disks.  In addition, the Backup Vault can be replicated across regions to provide recovery from region loss.
 
 ##Storage
 
-Note that while Azure Storage provides data resiliency through automated replicas, this does not prevent your application code (or developers/users) from corrupting data through accidental or unintended deletion, update, and so on. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data a secondary storage location with an audit log. Developers can take advantage of the blob [snapshot capability](https://msdn.microsoft.com/library/azure/ee691971.aspx), which can create read-only point in time snapshots of blob contents. This can be used as the basis of a data-fidelity solution for blobs.
+Note that while Azure Storage provides data resiliency through automated replicas, this does not prevent your application code (or developers/users) from corrupting data through accidental or unintended deletion, update, and so on. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data a secondary storage location with an audit log. Developers can take advantage of the blob [snapshot capability](https://msdn.microsoft.com/library/azure/ee691971.aspx), which can create read-only point in time snapshots of blob contents. This can be used as the basis of a data-fidelity solution for Azure Storage blobs.
 
 ###Blob and Table Storage Backup
 
@@ -59,25 +59,29 @@ For Azure Web Sites and Azure Mobile Services, you must backup and maintain the 
 
 ##Checklists for Data Corruption or Accidental Deletion
 
-##[Storage](#storage) Checklist
-  1. Regularly backup critical storage resources
-  2. Consider using the snapshot feature for blobs
+Virtual Machines Checklist
+  1. Review the [Virtual Machines](#virtual-machines) section of this document
+  1. Backup and maintain the VM disks with Azure Backup (or your own back system using Azure blob storage and VHD snapshots)
 
-##[Database](#database) Checklist
-  1. Create point-in-time backups using the Database Copy command
+##Storage Checklist
+  1. Review the [Storage](#storage) section of this document
+  2. Regularly backup critical storage resources
+  3. Consider using the snapshot feature for blobs
 
-##[SQL Server on Virtual Machines Backup](#sql-server-on-virtual-machines-backup) Checklist
-  1. Use traditional backup and restore techniques
-  2. Create a delayed log shipping session
+##Database Checklist
+  1. Review the [Database](#database) section of this document
+  2. Create point-in-time backups using the Database Copy command
 
-##Web Apps Checklist
+##SQL Server on Virtual Machines Backup Checklist
+  1. Review the [SQL Server on Virtual Machines Backup](#sql-server-on-virtual-machines-backup) section of this document
+  2. Use traditional backup and restore techniques
+  3. Create a delayed log shipping session
+
+Web Apps Checklist
   1. Backup and maintain the associated database, if any
 
-##Media Services Checklist
+Media Services Checklist
   1. Backup and maintain the associated storage resources
 
-##Virtual Machines Checklist
-  1. Backup and maintain the VM disks in blob storage
-
-## More Information
+##More Information
 See [Storage, backup and recovery scenarios](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/) for more information on Azure's backup and restore features.

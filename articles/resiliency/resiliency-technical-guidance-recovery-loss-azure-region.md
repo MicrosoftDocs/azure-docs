@@ -49,7 +49,7 @@ A complete discussion of distributed design is outside the scope of this documen
 
 ##Virtual Machines
 
-Recovery of infrastructure as a service(IaaS) virtual machines(VMs) is similar to platform as a service (PaaS) compute recovery in many respects, however there are important differences due to the fact that an IaaS VM consists of both the VM and the VM Disk.
+Recovery of infrastructure as a service (IaaS) virtual machines (VMs) is similar to platform as a service (PaaS) compute recovery in many respects, however there are important differences due to the fact that an IaaS VM consists of both the VM and the VM Disk.
 
   * __Use Azure Backup to create application consistent cross region backups__:
   [Azure Backup](https://azure.microsoft.com/services/backup/) enables customers to create application consistent backups across multiple VM disks and support replication of backups across regions. This is accomplished by choosing to geo-replicate the backup vault at the time of creation. Note, replication of the backup vault must be configured at the time of creation, it can't be set later. If a region is lost Microsoft will bake the backups available to customers. Customers will be able to restore to any of their configured restore points.
@@ -66,7 +66,7 @@ In Azure blobs, tables, queues, and VM Disks are all geo-replicated by default. 
 
 In the event of a geo-failover there will be no change to how the account is accessed (the URL and account key will not change), however, the storage account will be in a different region after failover, which could impact applications which require regional affinity with their storage account. Even for services and applications that do not require a storage account in the same data center, the cross-datacenter latency and bandwidth charges might be a compelling reason to move traffic to the failover region temporarily. This could factor into an overall disaster recovery strategy.
 
-In addition to automatic failover provided by GRS, Azure has introduced a service that gives you read access to the copy of your data in the secondary storage location. This is called Read Access - Geo Redundant Storage (RA-GRS).
+In addition to automatic failover provided by GRS, Azure has introduced a service that gives you read access to the copy of your data in the secondary storage location. This is called Read-Access Geo-Redundant Storage (RA-GRS).
 
 For more information about both GRS and RA-GRS storage see [Azure Storage replication](../storage/storage-redundancy.md).
 
@@ -79,7 +79,8 @@ It is important to know where your data is geo-replicated to in order to know wh
 ###Geo-Replication Pricing:
 
 Geo-replication is included in current pricing for Azure Storage. This is called Geo-Redundant Storage. If you do not want your data geo-replicated you can disable geo-replication for your account. This is called Locally Redundant Storage, and is charged at a discounted price over geo-replicated storage.
-Determining if a geo-failover has occurred
+
+###Determining if a geo-failover has occurred
 
 If a geo-failover occurs this will be posted to the [Azure Service Health Dashboard](https://azure.microsoft.com/status/), however, applications can implement an automated means of detecting this by monitoring the geo-region for their storage account. This can be used to trigger other recovery operations such as activation of compute resources in the geo-region where their storage moved to. This is queryable from the service management API using [Get Storage Account Properties](https://msdn.microsoft.com/library/ee460802.aspx). The relevant properties are:
 
@@ -142,52 +143,64 @@ Configuration files provide the quickest way to setup a virtual network in an al
 
 ##Checklists for disaster recovery
 
-##[Cloud Services](#cloud-services) Checklist
-  1. Create a cross-region disaster recovery strategy
-  2. Understand trade-offs in reserving capacity in alternate regions
-  3. Use traffic routing tools, such as Azure Traffic Manager
+##Cloud Services Checklist
+  1. Review the [Cloud Services](#cloud-services) section of this document
+  2. Create a cross-region disaster recovery strategy
+  3. Understand trade-offs in reserving capacity in alternate regions
+  4. Use traffic routing tools, such as Azure Traffic Manager
 
-##[Virtual Machines](#virtual-machines) Checklist
-  1. Use [Azure Backup](https://azure.microsoft.com/services/backup/) to create application consistent backups across regions
+##Virtual Machines Checklist
+  1. Review the [Virtual Machines](#virtual-machines) section of this document
+  2. Use [Azure Backup](https://azure.microsoft.com/services/backup/) to create application consistent backups across regions
 
-##[Storage](#storage) Checklist
-  1. Do not disable geo-replication of storage resources
-  2. Understand alternate region for geo-replication in the event of failover
-  3. Create custom backup strategies for user-controlled failover strategies
+##Storage Checklist
+  1. Review the [Storage](#storage) section of this document
+  2. Do not disable geo-replication of storage resources
+  3. Understand alternate region for geo-replication in the event of failover
+  4. Create custom backup strategies for user-controlled failover strategies
 
-##[SQL Database](#sql-database) Checklist
-  1. Use [Geo-Restore](../sql-database/sql-database-geo-restore.md) or [Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) as appropriate
+##SQL Database Checklist
+  1. Review the [SQL Database](#sql-database) section of this document
+  2. Use [Geo-Restore](../sql-database/sql-database-geo-restore.md) or [Geo-Replication](../sql-database/sql-database-geo-replication-overview.md) as appropriate
 
-##[SQL Server on Virtual Machines](#sql-server-on-virtual-machines) Checklist
-  1. Use cross-region AlwaysOn Availability Groups or database mirroring
-  2. Alternately use backup and restore to blob storage
+##SQL Server on Virtual Machines Checklist
+  1. Review the [SQL Server on Virtual Machines](#sql-server-on-virtual-machines) section of this document
+  2. Use cross-region AlwaysOn Availability Groups or database mirroring
+  3. Alternately use backup and restore to blob storage
 
-##[Service Bus](#service-bus) Checklist
-  1. Configure a Service Bus namespace in an alternate region
-  2. Consider custom replication strategies for messages across regions
+##Service Bus Checklist
+  1. Review the [Service Bus](#service-bus) section of this document
+  2. Configure a Service Bus namespace in an alternate region
+  3. Consider custom replication strategies for messages across regions
 
-##[Web Apps](#web-apps) Checklist
-  1. Maintain web site backups outside of the primary region
-  2. If outage is partial, attempt to retrieve current site with FTP
-  3. Plan to deploy web site to new or existing web site in an alternate region
-  4. Plan configuration changes for both application and DNS CNAME records
+##Web Apps Checklist
+  1. Review the [Web Apps](#web-apps) section of this document
+  2. Maintain web site backups outside of the primary region
+  3. If outage is partial, attempt to retrieve current site with FTP
+  4. Plan to deploy web site to new or existing web site in an alternate region
+  5. Plan configuration changes for both application and DNS CNAME records
 
-##[Mobile Services](#mobile-services) Checklist
-  1. Create a backup mobile service in an alternate region
-  2. Manage backups of the associated Azure SQL Database to restore during failover
-  3. Use Azure command-line tools to move mobile service
+##Mobile Services Checklist
+  1. Review the [Mobile Services](#mobile-services) section of this document
+  2. Create a backup mobile service in an alternate region
+  3. Manage backups of the associated Azure SQL Database to restore during failover
+  4. Use Azure command-line tools to move mobile service
 
-##[HDInsight](#hdinsight) Checklist
-  1. Create a new Hadoop cluster in the region with replicated data
+##HDInsight Checklist
+  1. Review the [HDInsight](#hdinsight) section of this document
+  2. Create a new Hadoop cluster in the region with replicated data
 
-##[SQL Reporting](#sql-reporting) Checklist
-  1. Maintain an alternate SQL Reporting instance in a different region
-  2. Maintain a separate plan to replicate the target to that region
+##SQL Reporting Checklist
+  1. Review the [SQL Reporting](#sql-reporting) section of this document
+  2. Maintain an alternate SQL Reporting instance in a different region
+  3. Maintain a separate plan to replicate the target to that region
 
-##[Media Services](#media-services) Checklist
-  1. Create a Media Services account in an alternate region
-  2. Encode the same content in both regions to support streaming failover
-  3. Submit encoding jobs to an alternate region in the event of an outage
+##Media Services Checklist
+  1. Review the [Media Services](#media-services) section of this document
+  2. Create a Media Services account in an alternate region
+  3. Encode the same content in both regions to support streaming failover
+  4. Submit encoding jobs to an alternate region in the event of an outage
 
-##[Virtual Network](#virtual-network) Checklist
-  1. Use exported virtual network settings to recreate it in another region
+##Virtual Network Checklist
+  1. Review the [Virtual Network](#virtual-network) section of this document
+  2. Use exported virtual network settings to recreate it in another region
