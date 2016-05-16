@@ -19,6 +19,8 @@
 
 # Sign-up and tenant onboarding in a multitenant application
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 This article describes how to implement a _sign-up_ process in a multi-tenant application, which allows a customer to sign up their organization for your application.

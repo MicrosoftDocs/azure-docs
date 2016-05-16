@@ -20,7 +20,7 @@
 
 # Azure Guidance
 
-![patterns & practices](media/guidance/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals be successful on the Microsoft Azure platform. We develop guidance that shows best practices for building cloud solutions on Azure.
 

@@ -1,5 +1,3 @@
-### To create a local network gateway, follow the steps below:
-
 1. In the Azure Portal, navigate to **New** **>** **Networking** **>** **Local network gateway**.
 
 	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)

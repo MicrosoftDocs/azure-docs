@@ -37,7 +37,7 @@ This release contains the following updates.
 
 | Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example Spark, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Updated HDP versions for HDInsight clusters | With this release, we have updated HDP versions for HDInsight clusters| Service    | Spark| N/A
+| Spark version update and other bug fixes | This release updates the Spark version in HDInsight cluster to 1.6.1, and fixes other bugs| Service    | Spark| N/A
 
 ## Notes for 04/11/2016 release of HDInsight
 
