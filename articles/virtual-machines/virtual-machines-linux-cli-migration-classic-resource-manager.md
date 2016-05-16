@@ -31,7 +31,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 
 ## Step 2: Set your subscription and sign up for migration public preview
 
-For migration scenarios, you need to set up your environment for both classic and resource manager. [Install Azure CLI](../xplat-cli-install.md) and [select your subscription](../xplat-cli-connect.md).
+For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../xplat-cli-install.md) and [select your subscription](../xplat-cli-connect.md).
 
 Select the Azure subscription by using the following command.
 
@@ -69,7 +69,7 @@ If you want to migrate the VMs to a platform-created virtual network, use the fo
 
 	azure service deployment prepare-migration servicename deploymentname new "" "" ""
 
-If you want to migrate into an existing virtual network in the Resource Manager deployment model, use the following command.
+If you want to migrate to an existing virtual network in the Resource Manager deployment model, use the following command.
 
 	azure service deployment prepare-migration serviceName deploymentName existing destinationVNETResourceGroupName subnetName vnetName
 
