@@ -208,20 +208,20 @@
 [Logo_Windows]:./media/virtual-machines-linux-sap-shared/Windows.png
 [Logo_Linux]:./media/virtual-machines-linux-sap-shared/Linux.png
 
-[vm-size-specs]:virtual-machines-size-specs.md
+[vm-size-specs]:virtual-machines-linux-sizes.md
 [azure-subscription-service-limits-subscription]:azure-subscription-service-limits.md#subscription
 [vpn-gateway-create-site-to-site-rm-powershell]:vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]:vpn-gateway-cross-premises-options.md
-[vpn-gateway-site-to-site-create]:vpn-gateway-site-to-site-create.md
+[vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-cross-premises-options.md
+[vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-site-to-site-create.md
 [virtual-machines-deploy-rmtemplates-azure-cli]:virtual-machines-deploy-rmtemplates-azure-cli.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-deploy-rmtemplates-powershell.md (Manage virtual machines using Azure Resource Manager and PowerShell)
 [virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image-resource-manager.md
-[virtual-machines-manage-availability]:virtual-machines-manage-availability.md
-[virtual-machines-linux-how-to-attach-disk]:virtual-machines-linux-how-to-attach-disk.md
-[virtual-networks-reserved-private-ip]:virtual-networks-static-private-ip-arm-ps.md
-[virtual-machines-sql-server-infrastructure-services]:virtual-machines-sql-server-infrastructure-services.md
-[storage-redundancy]:storage-redundancy.md
-[storage-scalability-targets]:storage-scalability-targets.md
+[virtual-machines-manage-availability]:virtual-machines-linux-manage-availability.md
+[virtual-machines-linux-how-to-attach-disk]:virtual-machines-linux-classic-attach-disk.md
+[virtual-networks-reserved-private-ip]:../virtual-network/virtual-networks-static-private-ip-arm-ps.md
+[virtual-machines-sql-server-infrastructure-services]:virtual-machines-windows-sql-server-iaas-overview.md
+[storage-redundancy]:../storage/storage-redundancy.md
+[storage-scalability-targets]:../storage/storage-scalability-targets.md
 [virtual-networks-manage-dns-in-vnet]:virtual-networks-manage-dns-in-vnet.md
 [resource-groups-networking]:resource-groups-networking.md
 [virtual-networks-static-private-ip-arm-pportal]:virtual-networks-static-private-ip-arm-pportal.md
@@ -247,16 +247,16 @@
 [storage-azure-cli-copy-blobs]:storage-azure-cli.md#copy-blobs
 [virtual-machines-linux-agent-user-guide]:virtual-machines-linux-agent-user-guide.md
 [virtual-machines-size-specs]:virtual-machines-size-specs.md
-[virtual-machines-sql-server-performance-best-practices]:virtual-machines-sql-server-performance-best-practices.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md
-[virtual-machines-sql-server-alwayson-availability-groups-powershell]:virtual-machines-sql-server-alwayson-availability-groups-powershell.md
-[virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener]:virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md
-[virtual-networks-configure-vnet-to-vnet-connection]:virtual-networks-configure-vnet-to-vnet-connection.md
+[virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-alwayson-availability-groups-powershell]:virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener]:virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-networks-configure-vnet-to-vnet-connection]:../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md
 [azure-subscription-service-limits]:azure-subscription-service-limits.md
-[virtual-machines-configuring-oracle-data-guard]:virtual-machines-configuring-oracle-data-guard.md
+[virtual-machines-configuring-oracle-data-guard]:virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-configure-raid]:virtual-machines-linux-configure-raid.md
 [virtual-machines-attach-disk-preview]:virtual-machines-attach-disk-preview.md
-[virtual-machines-workload-template-sql-alwayson]:virtual-machines-workload-template-sql-alwayson.md
+[virtual-machines-workload-template-sql-alwayson]:virtual-machines-windows-portal-sql-alwayson-availability-groups.md
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:virtual-machines-linux-how-to-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux
 [resource-group-authoring-templates]:resource-group-authoring-templates.md
 [virtual-machines-linux-update-agent]:virtual-machines-linux-update-agent.md
@@ -273,7 +273,6 @@
 [storage-premium-storage-preview-portal]:storage-premium-storage-preview-portal.md
 [storage-introduction]:storage-introduction.md
 [virtual-machines-upload-image-windows-resource-manager]:virtual-machines-upload-image-windows-resource-manager.md
-[virtual-machines-azure-resource-manager-architecture]:virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]:virtual-networks-create-vnet-arm-pportal.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
