@@ -69,8 +69,8 @@
 [deployment-guide-classic]:virtual-machines-windows-classic-sap-deployment-guide.md
 [dbms-guide]:virtual-machines-linux-sap-dbms-guide.md (SAP NetWeaver on Linux virtual machines (VMs) – DBMS Deployment Guide)
 [dbms-guide-classic]:virtual-machines-windows-classic-sap-dbms-guide.md
-[dr-guide-classic]:virtual-machines-windows-classic-sap-dr-guide.md
-[ha-guide-classic]:virtual-machines-windows-classic-sap-ha-guide.md
+[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
 
 [getting-started]:virtual-machines-linux-sap-getting-started-arm.md
 [getting-started-windows-classic]:virtual-machines-windows-classic-sap-getting-started.md
