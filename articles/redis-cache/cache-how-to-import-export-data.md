@@ -83,6 +83,41 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
 ## Import/Export FAQ
 
+This section contains frequently asked questions about the Import/Export features.
+
+
+## What pricing tiers can used Import/Export?
+
+Import/Export is available only for premium caches.
+
+## Can I import data from any Redis cache?
+
+Yes, you can import data that was exported from another Azure Redis Cache instance. You can also import a Redis Cache Dabatase (RDB) file that was exported from an on-premises Redis cache installation.
+
+## Will my cache be available during an Import/Export operation?
+
+-	**Export** - Caches remain available and you can continue to use your cache during an export operation.
+-	**Import** - Caches become unavailable when an import operation starts, and become available for use when the import operation completes.
+
+## How long does an Import/Export operation take?
+
+-	**Export** - ???
+-	**Import** - ???
+
+## I received a timeout error during my Import/Export operation. What does it mean?
+
+If you remain on the **Import data** or **Export data** blade for longer than 15 minutes before initiating the operation, you will receive an error similar to the following.
+
+    The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
+
+To resolve this, initiate the import or export operation before 15 minutes has elapsed.
+
+## I got an error when exporting my data to an Azure Blob Storage Account. What happened?
+
+You can't use a [Blob storage account](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) with the Import/Export feature. At this time, Blob storage accounts do not support page blobs which are used by the Import/Export feature.
+
+    
+
   
 <!-- IMAGES -->
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
