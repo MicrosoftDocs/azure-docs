@@ -26,11 +26,11 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
 ## Export
 
-1. To export the current contents of the cache to storage, browse to your cache in the Azure portal, click **Export data** from the **Settings** blade of your cache instance, and click **Choose Storage Container**.
+1. To export the current contents of the cache to storage, browse to your cache in the Azure portal and click **Export data** from the **Settings** blade of your cache instance.
 
     ![Choose storage container][cache-export-data-choose-storage-container]
 
-2. Select the desired storage account.
+2. Click **Choose Storage Container** and select the desired storage account.
 
     >[AZURE.IMPORTANT] Do not choose a [Blob storage account](../storage/storage-blob-storage-tiers.md#blob-storage-accounts). At this time, Blob storage accounts do not support page blobs which are used by the Import/Export feature.
 
