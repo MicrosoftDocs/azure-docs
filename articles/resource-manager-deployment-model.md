@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2016"
+   ms.date="05/13/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
@@ -26,7 +26,9 @@ For most resources, you can transition to Resource Manager without any issues. H
 - **Storage** - Supports required storage accounts that store the VHDs for virtual machines, including their operating system and additional data disks.
 - **Network** - Supports required NICs, virtual machine IP addresses, and subnets within virtual networks and optional load balancers, load balancer IP addresses, and Network Security Groups.
 
-For these resource types, you must be aware of which version you are using because the supported operations will differ. To understand which model was used to deploy your resources, let's review the two models.
+For these resource types, you must be aware of which version you are using because the supported operations will differ. If you are ready to migrate your resources from classic deployment to Resource Manager deployment, see [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
+
+To understand which model was used to deploy your resources, let's review the two models.
 
 ## Resource Manager characteristics
 
@@ -161,7 +163,7 @@ There are some important considerations when working with Virtual Machines.
 - Virtual machines deployed with the Resource Manager deployment model must be included in a virtual network.
 - Virtual machines deployed with the classic deployment model don't have to be included in a virtual network.
 
-If you can afford downtime for your Virtual Machines, you can transition them from classic deployment to Resource Manager with the [ASM2ARM PowerShell scripts](https://github.com/fullscale180/asm2arm).
+If you are ready to migrate your resources from classic deployment to Resource Manager deployment, see [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md).
 
 For more details about transitioning Compute, Storage, and Networking resources, see [Azure Compute, Network & Storage Providers under the Azure Resource Manager](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 

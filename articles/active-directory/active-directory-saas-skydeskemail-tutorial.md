@@ -174,7 +174,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     b. In Azure AD classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Logout** URL textbox.
 
-    c. **Chanage Password URL** is optional so leave it blank.
+    c. **Change Password URL** is optional so leave it blank.
 
     d. Click on **Get Key From File** to select your downloaded Skydesk Email certificate, and then click **Open** to upload the certificate.
 
