@@ -19,7 +19,7 @@
 
 When working with Visual Studio Tools for Docker Preview, you may encounter some problems due to the preview nature. The following are some common issues and resolutions.
 
-##Unable to add UseUrls() to Program.cs
+##Failed to configure Program.cs for Docker support
 
 When adding docker support, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` must be added to the WebHostBuilder(). If Program.cs the Main() function or a new WebHostBuilder class wasn't found, a warning will be displayed. .UseUrls() is required to enable Kestrel to listen to incoming traffic, beyond localhost when run within a docker container.
 Upon completion, the typical code will look like the following:
@@ -29,7 +29,7 @@ public class Program
     public static void Main(string[] args)
     {
         var host = new WebHostBuilder()
-            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))
+            .UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS") ?? String.Empty)
             .UseKestrel()
             .UseContentRoot(Directory.GetCurrentDirectory() ?? "")
             .UseIISIntegration()
