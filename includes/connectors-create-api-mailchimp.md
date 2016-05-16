@@ -11,7 +11,5 @@ Here are the steps to authorize your Logic app to connect to your MailChimp acco
   ![MailChimp step 2](./media/connectors-create-api-mailchimp/mailchimp-2.png)
 3. Provide your MailChimp user name and password to authorize your Logic app:  
   ![MailChimp step 3](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
-4. Authorize the Logic app to use your MailChimp account:  
+4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
   ![MailChimp step 4](./media/connectors-create-api-mailchimp/mailchimp-4.png)
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![MailChimp step 5](./media/connectors-create-api-mailchimp/mailchimp-5.png)   
