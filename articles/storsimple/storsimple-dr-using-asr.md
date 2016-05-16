@@ -260,13 +260,10 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 
     g.  Click **Group 1: Start**, choose **Script**, and add all the following scripts in order as **After Group 1** steps.
 
-		-   Start-StorSimple-Virtual-Appliance runbook
-
-		-   Fail over-StorSimple-volume-containers runbook
-
-		-   Mount-volumes-after-failover runbook
-
-		-   Uninstall-custom-script-extension runbook
+	- Start-StorSimple-Virtual-Appliance runbook
+	- Fail over-StorSimple-volume-containers runbook
+	- Mount-volumes-after-failover runbook
+	- Uninstall-custom-script-extension runbook
 
 1.  Add a manual action after the above 4 scripts in the same **Group 1: Post-steps** section. This action is the point at which you can verify that everything is working correctly. This action needs to be added only as a part of test failover (so only select the **Test Failover** checkbox).
 
