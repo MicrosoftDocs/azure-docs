@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configure an availability set for classic VMs | Microsoft Azure"
-	description="Configure an availability set for a new or existing virtual machine in the classic deployment model using the Azure classic portal and Azure PowerShell."
+	description="Configure an availability set for a new or existing virtual machine in the classic deployment model using the Azure portal and Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
