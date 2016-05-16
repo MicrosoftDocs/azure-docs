@@ -37,7 +37,7 @@ Summary of loading process:
 4. Run a T-SQL command to load the data in parallel into a new database table.
 <!-- 5. Schedule and run a loading job. --> 
 
-For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase and T-SQL)][].
+For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][].
 
 ### 2. Use Azure Data Factory
 
@@ -79,7 +79,16 @@ Summary of loading process:
 2. Use the AZCopy command-line utility to copy data from flat files to Azure blob storage.
 3. Use PolyBase to load into SQL Data Warehouse.
 
-For a tutorial, see [Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)][].
+For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][].
+
+### Use bcp
+If you have a small amount of data you can use bcp to load directly into Azure SQL Data Warehouse.
+
+Summary of loading process:
+1. Use the bcp command-line utility to export data from SQL Server to flat files.
+2. Use bcp to load data from flat files directly to SQL Data Warehouse.
+
+For a tutorial, see [Load data from SQL Server to Azure SQL Data Warehouse (bcp)][].
 
 
 ### Use Import/Export (recommended for > 10 TB data)
@@ -107,9 +116,12 @@ For more development tips, see the [development overview][].
 <!--Image references-->
 
 <!--Article references-->
-[Load data from Azure blob storage to SQL Data Warehouse (PolyBase and T-SQL)]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)]: sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md
 [Load data from SQL Server to Azure SQL Data Warehouse (SSIS)]: sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Load data from SQL Server to Azure SQL Data Warehouse (bcp)]: sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: sql-data-warehouse-load-from-sql-server-with-azcopy.md
+
 [Load sample databases]: sql-data-warehouse-load-sample-databases.md
 [Migration overview]: sql-data-warehouse-overview-migrate.md
 [solution partners]: sql-data-warehouse-solution-partners.md

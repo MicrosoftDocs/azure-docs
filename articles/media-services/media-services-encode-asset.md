@@ -160,7 +160,7 @@ MP3 (MPEG-1 Audio Layer 3)|Yes|Yes
 Windows Media Audio|Yes|Yes
 WAV/PCM|Yes|Yes
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Yes|No
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Yes|No
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format)) |Yes|No
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Yes|No
 
 

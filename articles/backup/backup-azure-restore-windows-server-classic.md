@@ -18,6 +18,10 @@
 
 # Restore files to a Windows server or Windows client machine using the classic deployment model
 
+> [AZURE.SELECTOR]
+- [Classic portal](backup-azure-restore-windows-server-classic.md)
+- [Azure portal](backup-azure-restore-windows-server.md)
+
 This article covers the steps required to perform two types of restore operations:
 
 - Restore data to the same machine from which the backups were taken.
@@ -25,7 +29,7 @@ This article covers the steps required to perform two types of restore operation
 
 In both cases, the data is retrieved from the Azure Backup vault.
 
->[AZURE.IMPORTANT] Azure has two different deployment models for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
 
 ## Recover data to the same machine
 If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
@@ -86,7 +90,7 @@ The terminology used in these steps includes:
 
     ![Another Server](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
 
-5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired) download a new vault credential file from the *Sample vault* in the Azure portal. Once the vault credential file is provided, the backup vault against the vault credential file is displayed.
+5. Provide the vault credential file that corresponds to the *Sample vault*. If the vault credential file is invalid (or expired) download a new vault credential file from the *Sample vault* in the Azure classic portal. Once the vault credential file is provided, the backup vault against the vault credential file is displayed.
 
 6. Select the *Source machine* from the list of displayed machines.
 

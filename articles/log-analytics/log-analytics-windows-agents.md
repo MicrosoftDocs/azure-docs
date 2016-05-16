@@ -41,7 +41,7 @@ Before you install or deploy agents, review the following details to ensure you 
 
 - You can only install the OMS MMA on computers running Windows Server 2008 SP 1 or later or Windows 7 SP1 or later.
 - You'll need an OMS subscription.  For additional information, see [Get started with Log Analytics](log-analytics-get-started.md).
-- Each Windows computer must be able to connect to the internet. This connection can be direct, via a proxy, or through the  OMS Log Analytics Forwarder.
+- Each Windows computer must be able to connect to the Internet using HTTPS. This connection can be direct, via a proxy, or through the  OMS Log Analytics Forwarder.
 - You can install the OMS MMA on stand-alone computers, servers, and virtual machines. If you want to connect Azure-hosted virtual machines to OMS, see [Connect Azure storage to Log Analytics](log-analytics-azure-storage.md).
 - The agent needs to use TCP port 443 for various resources. For more information, see [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md).
 
