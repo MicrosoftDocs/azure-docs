@@ -16,7 +16,7 @@
    ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-# Manage DNS records and record sets using CLI
+# Manage DNS records and record sets by using CLI
 
 
 > [AZURE.SELECTOR]
@@ -27,30 +27,30 @@
 
 This article shows you how to manage record sets and records for your DNS zone by using the cross-platform Azure command-line interface (CLI).
 
-It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone with the same name and that are of the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-cli.md).
+It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Understanding record sets and records](dns-getstarted-create-recordset-cli.md).
 
 
-## Azure DNS and cross-platform Azure CLI
+## Configure the cross-platform Azure CLI
 
-Azure DNS is an Azure Resource Manager-only service. It does not have an ASM API. Make sure that the Azure CLI is configured to use Resource Manager mode, by using the `azure config mode arm` command.
+Azure DNS is an Azure Resource Manager-only service. It does not have an Azure Service Management API. Make sure that the Azure CLI is configured to use Resource Manager mode, by using the `azure config mode arm` command.
 
-If you see "error: 'dns' is not an azure command" it is most likely because you are using Azure CLI in ASM mode, not Resource Manager mode.
+If you see **error: 'dns' is not an azure command**, it's most likely because you are using Azure CLI in Azure Service Management mode, not in Resource Manager mode.
 
 ## Create a new record set and record
 
-To create a record set in the Azure portal, see [Create a record set and records](dns-getstarted-create-recordset-cli.md).
+To create a new record set in the Azure portal, see [Create a record set and records](dns-getstarted-create-recordset-cli.md).
 
 
 ## Retrieve a record set
 
-To retrieve an existing record set, use `azure network dns record-set show`. Specify the resource group, zone name, record set relative name, and the record type. Use the example below, replacing the values with your own.
+To retrieve an existing record set, use `azure network dns record-set show`. Specify the resource group, zone name, record set relative name, and record type. Use the example below, replacing the values with your own.
 
 	azure network dns record-set show myresourcegroup contoso.com www A
 
 
 ## List record sets
 
-You can list all records in a DNS Zone using the `azure network dns record-set list` command. You  need to specify the resource group name and zone name.
+You can list all records in a DNS zone by using the `azure network dns record-set list` command. You need to specify the resource group name and zone name.
 
 ### To list all record sets
 
@@ -69,7 +69,7 @@ This example returns all record sets that match the given record type (in this c
 
 You add records to record sets by using the `azure network dns record-set add-record`command. The parameters for adding records to a record set vary depending on the type of the record that's being set. For example, when you use a record set of type *A*, you can only specify records with the parameter `-a <IPv4 address>`.
 
-To create record set, use the `azure network dns record-set create`command. Specify the resource group, zone name, record set relative name, and the record type and time to live (TTL). If the --ttl parameter is not defined, the value defaults to 4 (in seconds).
+To create a record set, use the `azure network dns record-set create`command. Specify the resource group, zone name, record set relative name, record type, and time to live (TTL). If the --ttl parameter is not defined, the value defaults to four (in seconds).
 
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
@@ -79,7 +79,7 @@ After you create the A record set, add the IPv4 address by using the `azure netw
 	azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1
 
 
-The following examples show how to create a record set of each record type that contains a single record.
+The following examples show how to create a record set of each record type, containing a single record.
 
 [AZURE.INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
 
@@ -106,7 +106,8 @@ The following examples show how to create a record set of each record type that 
 	data:
 	info:    network dns record-set add-record command OK
 
-### To remove an existing value from a record set use `azure network dns record-set delete-record`.
+### To remove an existing value from a record set
+Use `azure network dns record-set delete-record`.
 
 	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
 	info:    Executing command network dns record-set delete-record
@@ -129,7 +130,7 @@ The following examples show how to create a record set of each record type that 
 
 Records can be removed from a record set by using `azure network dns record-set delete-record`. The record that is being removed must be an exact match with an existing record across all parameters.
 
-Removing the last record from a record set does not delete the record set. For more information, see the [Delete a record set](#delete) section of this article for more information.
+Removing the last record from a record set does not delete the record set. For more information, see the section of this article called [Delete a record set](#delete) for more information.
 
 	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
 
@@ -173,6 +174,6 @@ The optional *-q* switch can be used to suppress the confirmation prompt.
 
 ## Next steps
 
-For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md). For information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
+For more information about Azure DNS, see [Azure DNS overview](dns-overview.md). For information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
 
 If you want to work with reverse DNS records, see [How to manage reverse DNS records](dns-reverse-dns-record-operations-cli.md).
