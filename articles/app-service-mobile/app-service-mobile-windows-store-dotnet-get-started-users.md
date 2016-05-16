@@ -107,7 +107,7 @@ Next, you will update the app to authenticate users before requesting resources 
             </StackPanel>
         </Button>
 
-9. Press the F5 key to run the app, click the **Sign in** button, and sign into the app with your chosen identity provider. After your sign-in is successful, the app runs without errors, and you should be able to query your backend and make updates to data.
+9. Press the F5 key to run the app, click the **Sign in** button, and sign into the app with your chosen identity provider. After your sign-in is successful, the app runs without errors and you are able to query your backend and make updates to data.
 
 
 ##<a name="tokens"></a>Store the authentication token on the client

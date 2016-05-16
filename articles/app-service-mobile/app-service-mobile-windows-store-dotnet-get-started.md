@@ -56,7 +56,7 @@ Once you have configured your Mobile App backend, you can either create a new cl
 
 3. (Optional) Add the UWP app project to the same solution as the server project. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution, if you choose to do so. To add a UWP app project to the solution, you must be using Visual Studio 2015 or a later version.
 
-4. With the UWP app as the startup project, deploy the project and start the app.
+4. With the UWP app as the startup project, press the F5 key to deploy and run the app.
 
 5. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
 
@@ -64,11 +64,11 @@ Once you have configured your Mobile App backend, you can either create a new cl
 
 	This sends a POST request to the new mobile app backend that's hosted in Azure.
 
-6. (Optional) Stop the app and deploy to and restart on a different device or mobile emulator.
+6. (Optional) Stop the app and restart it on a different device or mobile emulator.
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
 
-	Notice that data saved from the previous step is loaded from the mobile app after the UWP app starts. 
+	Notice that data saved from the previous step is loaded from Azure after the UWP app starts. 
 
 ##Next steps
 
