@@ -22,7 +22,7 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
 ![Import data and export data][cache-settings-import-export-menu]
 
->[AZURE.IMPORT] Import/Export is only available for premium caches.
+>[AZURE.IMPORTANT] Import/Export is only available for premium caches.
 
 ## Export
 
@@ -53,7 +53,9 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
     Note that caches remain available for use during the export process.
 
 
+## Import
 
+## Azure Redis Cache Import/Export FAQ
 
   
 <!-- IMAGES -->
