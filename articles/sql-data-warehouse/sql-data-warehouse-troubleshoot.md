@@ -20,24 +20,22 @@
 The following topic lists some of the more common issues customers run into with Azure SQL Data Warehouse.
 
 ## Connectivity
-Connecting to Azure SQL Data Warehouse can fail for a couple of common reasons:
+More common connectivity issues include:
 
 - Firewall rules are not set
 - Using unsupported tools/protocols
 
 ### Firewall Rules
-Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses can access databases. The firewalls are secure by default - meaning you must allow your IP address access before you can connect.
-
-To configure your firewall for access, please follow the steps in the [Configure server firewall access for your client IP][] section of the [Provision][] page.
+Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [configure server firewall access for your client IP][] in the [provisioning instructions][].
 
 ### Using unsupported tools/protocols
-SQL Data Warehouse supports [Visual Studio 2013/2015][] as development environments and [SQL Server Native Client 10/11 (ODBC)][] for client connectivity.
+SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your data.  For client connectivity, [SQL Server Native Client 10/11 (ODBC)][] are recommended.  SQL Server Management Studio (SSMS) is not yet supported and while it partially works, the object explorer tree does not work with SQL Data Warehouse and the query may work after you ignore some error messages.  
 
 ## Query Performance
 
-There are several simple things you can do in your database design to ensure that you get the optimal query performance from you SQL Data Warehouse.  A good place to always start is [learning how to monitor your queries][].  Sometimes the solution is to simply add more compute power to your queries by [scaling your SQL Datawarehouse][]. To find many of these optimizations in one place, take a look at out article [SQL Data Warehouse Best Practices][].  
+There are several simple things you can do in your database design to ensure that you get optimal query performance from your SQL Data Warehouse.  A good place to start to understand how your queries are performaning is the article on [learning how to monitor your queries][].  Sometimes the solution to getting a query to execute faster is to simply add more compute power to your queries by [scaling your SQL Datawarehouse][]. To find many of these optimizations in one place, take a look at out article [SQL Data Warehouse Best Practices][].  
 
-Below are some of the most common query performance issues we see.
+Below are some of the most common causes of query performance issues we see.
 
 ### Statistics
 
@@ -102,7 +100,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 EXEC sp_droprolemember 'smallrc', 'LoadUser'
 ```
 
-The guidance for minimum resource class for loads to a CCI table is to use xlargerc for DW100-DW300, largerc for DW400-DW600, and mediumrc for anything at or above DW1000.  This guidance is a good practice for most workloads.  The goal is to give each index build operation 400 MB or more of memory.  However, one size does not fit all.  The memory needed to optimize a columnstore index is dependent on the data being loaded, which is primarily influenced by row size.  Tables with narrower row widths need less memory, wider row widths need more.  If you would like to experiment, you can use the query from Step 1, to see if you get optimal columnstore indexes at smaller memory allocations.  Minimally you want on average more than 100K rows per row group.  Above 500K is even better.  The maximum you will see is 1 million rows per row group. For details on how to manage resources classes and concurrency see the link below.
+The guidance for minimum resource class for loads to a CCI table is to use xlargerc for DW100 to DW300, largerc for DW400 to DW600, and mediumrc for anything at or above DW1000.  This guidance is a good practice for most workloads.  The goal is to give each index build operation 400 MB or more of memory.  However, one size does not fit all.  The memory needed to optimize a columnstore index is dependent on the data being loaded, which is primarily influenced by row size.  Tables with narrower row widths need less memory, wider row widths need more.  If you would like to experiment, you can use the query from Step 1, to see if you get optimal columnstore indexes at smaller memory allocations.  Minimally you want on average more than 100K rows per row group.  Above 500K is even better.  The maximum you will see is 1 million rows per row group. For details on how to manage resources classes and concurrency see the link below.
 
 
 ## Next steps
@@ -117,9 +115,9 @@ Please refer to the [SQL Data Warehouse Best Practices][] article for more infor
 [development overview]: ./sql-data-warehouse-overview-develop.md
 [learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Manage statistics in SQL Data Warehouse]: ./sql-data-warehouse-develop-statistics.md
-[Provision]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013/2015]: ./sql-data-warehouse-get-started-connect.md
+[provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
+[configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md/#create-a-new-azure-sql-server-level-firewall
+[Visual Studio 2013 or 2015]: ./sql-data-warehouse-get-started-connect.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 [Statistics]: ./sql-data-warehouse-develop-statistics.md
 
