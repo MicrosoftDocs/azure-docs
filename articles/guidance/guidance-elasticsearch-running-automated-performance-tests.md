@@ -20,6 +20,8 @@
    
 # Running the automated Elasticsearch performance tests
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series](guidance-elasticsearch.md). 
 
 The documents [Tuning Data Ingestion Performance for Elasticsearch on Azure] and [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure] describe a number of performance tests that were run against a sample Elasticsearch cluster.
