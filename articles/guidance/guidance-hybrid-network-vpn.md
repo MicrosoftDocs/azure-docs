@@ -81,7 +81,7 @@ The following high-level steps outline a process for implementing this architect
     2. Set the variable bits in the address space of the VNet to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
     3. Convert the resulting bits to decimal and express it as an address space with the prefix length set to the size of the gateway subnet.
 
- For example, for VNet with an IP address range of 10.20.0.0/16, applying step #2 above becomes 10.20.0b11111111.0b11100000.  Converting that to decimal and expressing it as an address space yields 10.20.255.224/27
+ For example, for a VNet with an IP address range of 10.20.0.0/16, applying step #2 above becomes 10.20.0b11111111.0b11100000.  Converting that to decimal and expressing it as an address space yields 10.20.255.224/27
 
 - Allocate a public IP address for the virtual network gateway.
 
