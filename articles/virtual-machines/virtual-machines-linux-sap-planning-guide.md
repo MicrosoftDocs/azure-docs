@@ -209,7 +209,7 @@
 [Logo_Windows]:./media/virtual-machines-linux-sap-shared/Windows.png
 [Logo_Linux]:./media/virtual-machines-linux-sap-shared/Linux.png
 
-[vm-size-specs]:virtual-machines-size-specs.md
+[vm-size-specs]:virtual-machines-linux-sizes.md
 [azure-subscription-service-limits-subscription]:azure-subscription-service-limits.md#subscription
 [vpn-gateway-create-site-to-site-rm-powershell]:../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-cross-premises-options.md
@@ -230,24 +230,19 @@
 [virtual-network-deploy-multinic-arm-template]:../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-network-deploy-multinic-arm-ps]:../virtual-network/virtual-network-deploy-multinic-arm-ps.md
 [virtual-network-deploy-multinic-arm-cli]:../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[vpn-gateway-create-site-to-site-rm-powershell]:vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-create-site-to-site-rm-powershell]:vpn-gateway-create-site-to-site-rm-powershell.md
 [vpn-gateway-about-vpn-devices]:../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[vpn-gateway-create-site-to-site-rm-powershell]:vpn-gateway-create-site-to-site-rm-powershell.md
 [powershell-install-configure]:../powershell-install-configure.md
-[xplat-cli]:../xplat-cli.md
-[virtual-machines-deploy-rmtemplates-azure-cli]:virtual-machines-deploy-rmtemplates-azure-cli.md
+[xplat-cli]:../xplat-cli-install.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
-[virtual-machines-linux-create-upload-vhd-suse]:virtual-machines-linux-create-upload-vhd-suse.md
-[virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image-resource-manager.md
+[virtual-machines-linux-create-upload-vhd-suse]:virtual-machines-linux-suse-create-upload-vhd.md
 [storage-use-azcopy]:../storage/storage-use-azcopy.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:virtual-machines-linux-capture-image-resource-manager.md#capture-the-vm
+[virtual-machines-linux-capture-image-resource-manager-capture]:virtual-machines-linux-capture-image.md#capture-the-vm
 [storage-azure-cli]:../storage/storage-azure-cli.md
 [storage-powershell-guide-full-copy-vhd]:storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-azure-cli-copy-blobs]:storage-azure-cli.md#copy-blobs
 [virtual-machines-linux-agent-user-guide]:virtual-machines-linux-agent-user-guide.md
-[virtual-machines-size-specs]:../virtual-machines-size-specs.md
+[virtual-machines-size-specs]:virtual-machines-linux-sizes.md
 [virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md
 [virtual-machines-sql-server-alwayson-availability-groups-powershell]:virtual-machines-sql-server-alwayson-availability-groups-powershell.md
@@ -268,7 +263,7 @@
 [virtual-networks-udr-overview]:virtual-networks-udr-overview.md
 [resource-group-overview]:resource-group-overview.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
-[virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image-resource-manager.md
+[virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image.md
 [virtual-networks-udr-overview]:virtual-networks-udr-overview.md
 [virtual-networks-nsg]:../virtual-network/virtual-networks-nsg.md
 [storage-premium-storage-preview-portal]:storage-premium-storage-preview-portal.md
