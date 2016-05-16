@@ -62,8 +62,8 @@
 
 [azure-portal]:https://portal.azure.com
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-ps]:powershell-install-configure.md
-[azure-cli]:xplat-cli-install.md
+[azure-ps]:../powershell-install-configure.md
+[azure-cli]:../xplat-cli-install.md
 
 [planning-guide]:virtual-machines-linux-sap-planning-guide.md (SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide)
 [planning-guide-classic]:virtual-machines-windows-classic-sap-planning-guide.md
@@ -217,7 +217,7 @@
 [vpn-gateway-site-to-site-create]:vpn-gateway-site-to-site-create.md
 [virtual-machines-deploy-rmtemplates-azure-cli]:virtual-machines-deploy-rmtemplates-azure-cli.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-deploy-rmtemplates-powershell.md (Manage virtual machines using Azure Resource Manager and PowerShell)
-[virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image-resource-manager.md
+[virtual-machines-linux-capture-image-resource-manager]:virtual-machines-linux-capture-image.md
 [virtual-machines-manage-availability]:virtual-machines-manage-availability.md
 [virtual-machines-linux-how-to-attach-disk]:virtual-machines-linux-how-to-attach-disk.md
 [virtual-networks-reserved-private-ip]:virtual-networks-static-private-ip-arm-ps.md
@@ -266,20 +266,19 @@
 [deploy-template-powershell]:resource-group-template-deploy.md#deploy-with-powershell
 [deploy-template-cli]:resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
 [deploy-template-portal]:resource-group-template-deploy.md#deploy-with-the-preview-portal
-[virtual-networks-udr-overview]:virtual-networks-udr-overview.md
-[resource-group-overview]:resource-group-overview.md
+[virtual-networks-udr-overview]:../virtual-networ/virtual-networks-udr-overview.md
+[resource-group-overview]:../resource-group-overview.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image-resource-manager.md
-[virtual-networks-udr-overview]:virtual-networks-udr-overview.md
 [virtual-networks-nsg]:virtual-networks-nsg.md
 [storage-premium-storage-preview-portal]:storage-premium-storage-preview-portal.md
 [storage-introduction]:storage-introduction.md
 [virtual-machines-upload-image-windows-resource-manager]:virtual-machines-windows-upload-image.md
 [virtual-machines-azure-resource-manager-architecture]:virtual-machines-azure-resource-manager-architecture.md
-[virtual-machines-windows-tutorial]:virtual-machines-windows-tutorial.md
+[virtual-machines-windows-tutorial]:virtual-machines-windows-hero-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]:virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
-[virtual-machines-linux-tutorial]:virtual-machines-linux-tutorial.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
+[virtual-machines-linux-tutorial]:virtual-machines-linux-quick-create-cli.md
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
