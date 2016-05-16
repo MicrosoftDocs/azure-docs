@@ -44,7 +44,7 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
     ![Export][cache-export-data]
 
-5. You can monitor the progress of the export operation by following the notifications from the Azure Portal.
+    You can monitor the progress of the export operation by following the notifications from the Azure Portal.
 
     ![][cache-export-data-export-in-progress]
 
