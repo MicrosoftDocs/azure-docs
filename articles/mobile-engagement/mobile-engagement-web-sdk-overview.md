@@ -57,9 +57,9 @@ This version of the Engagement Web SDK doesn't support samsung-tv, OperaTV, webO
 
 Replace the `capptain-sdk.js` file by the `engagement-sdk.js` file and update your script imports accordingly.
 
-#### Uninstall Capptain Reach
+#### Remove Capptain Reach
 
-This version of Engagement Web SDK doesn't support the Reach feature, it needs to be uninstalled from your application.
+This version of Engagement Web SDK doesn't support the Reach feature, if you integrated Capptain Reach in your application then it needs to be removed.
 
 Remove the Reach css import from your page and delete the related css file (capptain-reach.css by default).
 

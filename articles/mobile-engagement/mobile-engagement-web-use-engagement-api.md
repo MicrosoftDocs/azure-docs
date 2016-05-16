@@ -160,8 +160,12 @@ This function works exactly like the `engagement.agent.sendJobError`.
 
 ### Reporting Crashes
 
+the `sendCrash` function is used to report crashes manually.
+
+the `crashid` argument is a string used to identify the type of the crash.
+the `crash` argument is usually the stack trace of the crash as a string.
+
 	engagement.agent.sendCrash(crashid, crash);
-	// crashed identifies the type of crash, while crash is the content (usually a stack trace)
 
 ## Extra parameters
 
