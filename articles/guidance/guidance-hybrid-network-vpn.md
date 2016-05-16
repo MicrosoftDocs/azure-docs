@@ -629,7 +629,7 @@ GOTO :eof
 
 <!-- links -->
 
-[implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
+[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
 [resource-manager-overview]: ../resource-group-overview.md
 [arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
 [azure-cli]: ../virtual-machines-command-line-tools.md
