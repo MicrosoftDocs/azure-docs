@@ -768,7 +768,7 @@ Implement a pool of NVA devices (using an availability set), and use a load bala
 
 If you are creating a custom NVA incorporating your own code, make sure that any security checks performed are stateless and do not depend on the same client revisiting the same NVA for each request.
 
-A VPN gateway supports sustained throughput of up to 100 Mbps for the Basic and Standard SKUs. The High Performance SKU provides up to 200 Mbps. For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 2000 Mbps bandwidth and lower latency than a VPN connection, but requires increased expenditure and a greater configuration effort.
+A VPN gateway supports sustained throughput of up to 100 Mbps for the Basic and Standard SKUs. The High Performance SKU provides up to 200 Mbps. For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute gives you up to 2000 Mbps bandwidth with lower latency than a VPN connection, but requires increased expenditure and a greater configuration effort.
 
 > [AZURE.NOTE] The articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute] describe issues surrounding the scalability of Azure gateways. 
 
@@ -776,7 +776,7 @@ A VPN gateway supports sustained throughput of up to 100 Mbps for the Basic and 
 
 Use the resources in the management subnet to connect to the VMs in the system and perform monitoring. The example in the [Architecture blueprint][architecture] section depicts a jump box which provides access to DevOps staff, and a separate monitoring server. Depending on the size of the network, the jump box and monitoring server could be combined into a single machine, or monitoring functions could be spread across several VMs.
 
-If each tier in the system is protected by using NSG rules, it may also be necessary to open port 3389 (for RDP access), port 22 (for SSH access), or any other ports used by management and monitoring tools to enable requests from the data management subnet.
+If each tier in the system is protected by using NSG rules, it may also be necessary to open port 3389 (for RDP access), port 22 (for SSH access), or any other ports used by management and monitoring tools to enable requests from the data management subnet (the sample template implements these rules by default).
 
 If you are using ExpressRoute to provide the connectivity between your on-premises datacenter and Azure, use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor and troubleshoot connection issues.
 
