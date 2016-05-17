@@ -3,7 +3,7 @@
 	description="Learn what to do in the event of an Azure service disruption impacting Azure Cloud Services."
 	services="cloud-services"
 	documentationCenter=""
-	authors="adamglick"
+	authors="kmouss"
 	manager="drewm"
 	editor=""/>
 
@@ -24,11 +24,11 @@ Microsoft provides a Service Level Agreements(SLAs) for its services as a commit
 
 Azure already has many built-in platform features that support highly available applications. for more on these services please read [Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide).
 
-This document covers a true Disaster Recovery, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences; but you must prepare for the possibility that there is an outage of the entire datacenter. When a datacenter goes down, the locally redundant copies of your data are not available. If you have enabled Geo-replication, there are three additional copies of your Azure Storage blobs and tables in a datacenter in a different region. When Microsoft declares the datacenter lost, Azure remaps all of the DNS entries to the geo-replicated datacenter. 
-
+This document covers a true Disaster Recovery, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences; but you must prepare for the possibility that there is an outage of the entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would temporarily be unavailable. If you have enabled Geo-replication, there are three additional copies of your Azure Storage blobs and tables stored in a different region. In the event of complete regional outage or a disaster in which the primary region is not recoverable, Azure remaps all of the DNS entries to the geo-replicated region. 
+ 
 >[AZURE.NOTE]Be aware that you do not have any control over this process, and it will only occur for datacenter-wide failures. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data Strategies for Disaster Recovery](https://aka.ms/drtechguide#DSDR). If you would like to be able to affect your own failover you may want to consider the use of [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) which creates a read-only copy of your data in another region.
 
-To help you handle these rare occurrences, we provide you the following guidance for Azure Cloud Services in the case of an outage of the entire datacenter where your Cloud Services application is deployed. 
+To help you handle these rare occurrences, we provide you the following guidance for Azure Virtual Machine in the case of a service disruption of the entire region where your Azure Virtual Machine application is deployed. 
 
 ##Option 1: Wait for recovery 
 In this case, no action on your part is required. Know that Azure teams are working diligently to restore service availability. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/). 
