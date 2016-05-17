@@ -170,7 +170,7 @@ If a scaling operation fails, the service will try to revert the operation and t
 
 Scaling takes approximately 20 minutes, depending on how much data is in the cache.
 
-## How can I tell when scaling is complete?
+### How can I tell when scaling is complete?
 
 In the Azure Portal you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
 
