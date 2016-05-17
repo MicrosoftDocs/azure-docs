@@ -38,7 +38,7 @@ For example, in a service that partitions data across multiple stores, if a work
 Finally, all long running operations should be invoked repeatedly until they succeed. For example, a provisioning operation might be placed in an Azure queue, and removed from the queue by a worker role only when it succeeds. Garbage collection might be necessary to clean up data created by interrupted operations.
 
 ###Elasticity
-The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each of the roles to run with two or more instances based on expected load. But role instances can easily be scaled up or down as usage patterns change. This can be done with the manually in the Azure Portal or can be automated using Windows PowerShell, the Service Management API, or third-party tools. See here for information on [How to auto scale a cloud service](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-scale/).
+The initial number of instances running for each role is determined in each role’s configuration. Administrators should initially configure each of the roles to run with two or more instances based on expected load. But role instances can easily be scaled up or down as usage patterns change. This can be done with the manually in the Azure Portal or can be automated using Windows PowerShell, the Service Management API, or third-party tools. See here for information on [How to auto scale a cloud service](../cloud-services/cloud-services-how-to-scale.md).
 
 ###Partitioning
 Azure's Fabric Controller uses two types of partitions: update domains and fault domains.
