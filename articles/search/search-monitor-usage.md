@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="07/17/2016"
+   ms.date="05/17/2016"
    ms.author="heidist"/>
 
 # Monitor usage and statistics in an Azure Search service
