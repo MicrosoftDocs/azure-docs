@@ -31,7 +31,6 @@ This document covers a true Disaster Recovery, when a whole region experiences a
 To help you handle these rare occurrences, we provide you the following guidance for Azure Virtual Machine in the case of an outage of the entire datacenter where your Azure Virtual Machine application is deployed. 
 
 ##Option 1: Wait for recovery 
-
 In this case, no action on your part is required. Know that we are working diligently to restore service availability. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
 >[AZURE-NOTE]This is the best option if customer hasn’t setup Azure Site Recovery (ASR), Virtual Machine (VM) backup, Read-Access Geo-Redundant Storage (RA-GRS) or Geo-Redundant Storage (GRS) prior to the disruption. 
@@ -41,21 +40,18 @@ For customers desiring immediate access to virtual machines, the below two optio
 >[AZURE-NOTE]Be aware that both of the below options have the possibility of some data loss.     
 
 ##Option 2: Restore a Virtual Machine(VM) from a backup 
-
 For customers who have a VM backup configured, you can restore the VM from its backup and recovery point. 
 
 Follow these steps to restore a new VM from an Azure Backup see Restore virtual machines in Azure.
 
-To help you plan for your Azure Virtual Machines backup infrastructure please read the article, [Plan your VM backup infrastructure in Azure]((../backup/backup-azure-vms-introduction.md).
+To help you plan for your Azure Virtual Machines backup infrastructure please read the article, [Plan your VM backup infrastructure in Azure](../backup/backup-azure-vms-introduction.md).
 
 ##Option 3: Initiate a failover using Azure Site Recovery(ASR) 
-
-For customers who have configured Azure Site Recovery to work with you impacted Azure Virtual Machines, you can restore your VM(s) from their replica(s). These replications can reside either on Azure or even on-premises. In this case, you can create a new VM(s) from its existing replica.  Follow these steps to restore your VMs from an Azure Site Recovery Replica please see [Migrate Azure IaaS virtual machines between Azure regions with Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
+For customers who have configured Azure Site Recovery to work with you impacted Azure Virtual Machines, you can restore your VM(s) from their replica(s). These replicas can reside either on Azure or even on-premises. In this case, you can create a new VM(s) from its existing replica.  Follow these steps to restore your VMs from an Azure Site Recovery Replica please see [Migrate Azure IaaS virtual machines between Azure regions with Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
 
 >[AZURE-NOTE]Although Azure Virtual Machine OS and data disks will be replicated to a secondary Virtual Hard Drive(VHD), if they are in a GRS or RA-GRS storage account, each VHD is replicated independently and this level of replication doesn’t guarantee consistency across the VHDs replicated. If your application and/or databases using these data disks have dependencies on each other, it isn’t guaranteed that all VHDs are replicated as one snapshot. It is also not guaranteed that the VHD replica from GRS or RA-GRS storage will result in an application consistent snapshot to boot the VM. 
 
 ##References 
-
 [Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide)
 
 [Azure Business Continuity Technical Guidance](http://aka.ms/bctechguide)
