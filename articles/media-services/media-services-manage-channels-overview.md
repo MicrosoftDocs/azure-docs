@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/03/2016"
+	ms.date="05/17/2016"
 	ms.author="juliako"/>
 
 #Overview of Live Steaming using Azure Media Services
@@ -66,7 +66,7 @@ Feature|Pass-through Channel|Standard Channel
 Single bitrate input is encoded into multiple bitrates in the cloud|No|Yes
 Maximum resolution, number of layers|1080p, 8 layers (4K), 60+fps|720p, 6 layers, 30 fps
 Input protocols|RTMP, Smooth Streaming|RTMP, Smooth Streaming, and RTP
-Price||
+Price|See the [pricing page](/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](/pricing/details/media-services/) 
 Maximum run time|24x7|8 hours
 Support for inserting slates|No|Yes
 Support for ad signaling|No|Yes
