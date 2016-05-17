@@ -17,7 +17,7 @@
 	ms.date="05/16/2016"
 	ms.author="mimig"/>
 
-# How to create a DocumentDB database account using the Azure portal
+# How to create a DocumentDB account using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
