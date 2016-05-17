@@ -166,8 +166,6 @@ At a high level, an import job involves the following steps:
 - Drives are received and processed at the Azure data center. 
 - Drives are return shipped using your carrier account to the return address provided in import job.
 
-![Inside and Import Job][importjobflow]
-
 ### Inside an Export job
 
 At a high level, an export job involves the following steps:
@@ -182,8 +180,6 @@ At a high level, an export job involves the following steps:
 - Drives are received and processed at the Azure data center. 
 - Drives are bitlocker encrypted and keys are available via Classic Portal.  
 - Drives are return shipped using your carrier account to the return address provided in import job.
-
-![Inside an Export Job][exportjobflow]
 
 ### Viewing your job status
 
