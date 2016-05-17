@@ -21,7 +21,7 @@ Perform the following steps to download the software update from the Microsoft U
 
 5. Click **View Basket**.
 
-6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
+6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a sub-folder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
 >   [AZURE.NOTE]
 The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
@@ -111,7 +111,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 	- The WMI update KB3103616
 	
 
-10. Skip this step if you are upgrading from Update 2. If you are upgrading from a version prior to Update 2, you will also need to download:
+10. Skip this step if you are updating from Update 2. If you are updating from a version prior to Update 2, you will also need to download:
 
 
 	- The LSI driver KB3121900

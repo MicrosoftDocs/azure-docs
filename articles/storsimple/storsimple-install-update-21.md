@@ -44,11 +44,11 @@ If you are applying Update 2 or later (including Update 2.1), Microsoft will be 
 
 12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17702)**. The **Last updated date** should also be modified. 
 
-	If you are running a version prior to Update 2, you will also see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
+	If you are updating from a version prior to Update 2, you will also see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
 
     Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. In some cases when you are running Update 1.2, your disk firmware might already be up-to-date, in which case you don't need to install any maintenance mode updates.
 
-	If you are running Update 2, your device should now be up-to-date. You can skip the remaining steps.
+	If you are updating from Update 2, your device should now be up-to-date. You can skip the remaining steps.
 
 13. Download the maintenance mode updates by using the steps listed in [To download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should already be installed by now).
 
@@ -62,14 +62,13 @@ Use this procedure if you fail the gateway check when trying to install the upda
 
 The software versions that can be upgraded using the hotfix method are:
 
-- Update 0.1
-- Update 0.2
-- Update 0.3
-- Update 1
-- Update 1.1
-- Update 1.2
+- Update 0.1, 0.2, 0.3
+- Update 1, 1.1, 1.2
 - Update 2 
 
+> [AZURE.IMPORTANT]
+>
+> - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update.
 
 The hotfix method involves the following three steps:
 
@@ -116,7 +115,6 @@ You may also need to install disk firmware updates. You can verify whether you n
 
 > [AZURE.IMPORTANT]
 >
-> - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update.
 > - This procedure needs to be performed only once to apply Update 2.1. You can use the Azure classic portal to apply subsequent updates.
 > - If updating from Update 2, the total install time is close to 1.5 hours.
 > - Before using this procedure to apply the update, make sure that both the device controllers are online and all the hardware components are healthy.
