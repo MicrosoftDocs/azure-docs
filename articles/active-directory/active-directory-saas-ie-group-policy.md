@@ -3,7 +3,7 @@
     description="How to use group policy to deploy the Internet Explorer add-on for the My Apps portal."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="MarkusVi"
     manager="stevenpo"
     editor=""/>
 <tags
