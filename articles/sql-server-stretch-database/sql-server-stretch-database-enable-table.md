@@ -43,7 +43,7 @@ Review the purpose of the wizard and the prerequisites.
 
 Confirm that the table you want to enable is displayed and selected.
 
-In RC3, you can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
+You can migrate an entire table or you can specify a simple date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, do one of the following things.
 
 -   Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a predicate.
 
