@@ -215,7 +215,7 @@ Please post your issues and questions about migration to our [VM forum](https://
 
 **What if I don't like the names of the resources that the platform chose during migration?**
 
-All the resources that you explicitly provide names for in the classic deployment model will be retained during migration. In some cases, new resources will be created. For example: a network interface will be created for every VM. At this moment, we don't support the ability to control the names of these new resources created during migration. Please log your votes for this feature on the [Azure feedback page](http://feedback.azure.com).
+All the resources that you explicitly provide names for in the classic deployment model will be retained during migration. In some cases, new resources will be created. For example: a network interface will be created for every VM. At this moment, we don't support the ability to control the names of these new resources created during migration. Please log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
 
 
 ## Next steps
