@@ -3,7 +3,7 @@
 	description="Learn about the kinds of Marketplace Item metadata for Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="rupisure"
 	manager="byronr"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/04/2016"
-	ms.author="erikje"/>
+	ms.author="rupisure"/>
 
 # Marketplace item metadata for Azure Stack
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle=" Running multiple VM instances (Windows) | Blueprint | Microsoft Azure"
+   pageTitle=" Running multiple VM instances (Windows) | Reference Architecture | Microsoft Azure"
    description="How to run multiple VM instances on Azure for scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
@@ -18,6 +18,8 @@
    ms.author="mikewasson"/>
 
 # Running multiple Windows VM instances on Azure (single tier, Internet-facing)
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article outlines a set of proven practices for running multiple Windows VM instances on Azure, paying attention to scalability, availability, manageability, and security.  
 
