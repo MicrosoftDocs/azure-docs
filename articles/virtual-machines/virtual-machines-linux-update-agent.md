@@ -40,7 +40,7 @@ and on CentOS, type:
 
     #sudo yum install waagent
 
-For Oracle Linux, make sure the add-on repository enabled in file `/etc/yum.repo.d/public-yum-ol6.repo` or `/etc/yum.repo.d/public-yum-ol7.repo`, then type:
+For Oracle Linux, make sure the add-on repository enabled in file `/etc/yum.repos.d/public-yum-ol6.repo` or `/etc/yum.repos.d/public-yum-ol7.repo`, then type:
 
     #sudo yum install WALinuxAgent
 
