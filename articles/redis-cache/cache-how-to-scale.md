@@ -18,7 +18,7 @@
 
 # How to Scale Azure Redis Cache
 
->[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. During the preview period, you cannot scale to or from a premium tier cache, but you can change the pricing tier within a premium cache, and you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size) in a premium cache with clustering enabled.
+>[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. 
 
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure Portal](https://portal.azure.com).
 
