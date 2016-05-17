@@ -78,7 +78,7 @@ All `Templates` available to you can be seen at `Browse > Templates`. This inclu
 
 You can view the details of a `Template` by clicking into an item in the list.
 
-![View Template](media/view-template-portal2b.PNG)  <br />
+![View Template](media/view-template-portal2b.png)  <br />
 
 ## Edit a Template resource
 
@@ -92,13 +92,13 @@ You can edit the description or ARM template text. You cannot edit the name sinc
 
 Once the `Template` is saved you will see a confirmation notification.
 
-![Edit Template](media/edit-template-portal3a.PNG)  <br />
+![Edit Template](media/edit-template-portal3a.png)  <br />
 
 ## Deploy a Template resource
 
 You can deploy any `Template` that you have `Read` permissions on. The deployment flow launches the standard Azure Template deployment blade. Fill out the values for the ARM template parameters to proceed with the deployment.
 
-![Deploy Template](media/deploy-template-portal1.PNG)  <br />
+![Deploy Template](media/deploy-template-portal1.png)  <br />
 
 ## Share a Template resource
 
@@ -114,17 +114,17 @@ Role | Permissions
 
 Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience.
 
-![Share Template](media/share-template-portal1.PNG)  <br />
+![Share Template](media/share-template-portal1.png)  <br />
 
  You can now choose a role and a user or group to provide access to a particular `Template`. The available roles are Owner, Reader & Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
-![Share Template](media/share-template-portal2a.PNG)  <br />
+![Share Template](media/share-template-portal2a.png)  <br />
 
-![Share Template](media/share-template-portal3a.PNG)  <br />
+![Share Template](media/share-template-portal3a.png)  <br />
 
 Click **Select** and **Ok**. You can now see the users or groups you added to the resource.
 
-![Share Template](media/share-template-portal4a.PNG)  <br />
+![Share Template](media/share-template-portal4a.png)  <br />
 
 > [AZURE.NOTE] A Template can only be shared with users and groups in the same Azure Active Directory tenant. If you share a Template with an email address that is not in your tenant, an invitation will be sent asking the user to join the tenant as a guest.
 
