@@ -55,7 +55,7 @@ This version of the Engagement Web SDK doesn't support samsung-tv, OperaTV, webO
 
 #### JavaScript files
 
-Replace the `capptain-sdk.js` file by the `engagement-sdk.js` file and update your script imports accordingly.
+Replace the `capptain-sdk.js` file by the `azme-sdk.js` file and update your script imports accordingly.
 
 #### Remove Capptain Reach
 
@@ -106,9 +106,9 @@ Remove the `reach` object from your configuration if any. It looks like the foll
 
 Remove any other Reach customization such as categories.
 
-#### Remove useless APIs
+#### Remove deprecated APIs
 
-Some of the APIs from Capptain became useless in the Engagement version of the SDK.
+Some of the APIs from Capptain are deprecated in the Engagement version of the SDK.
 
 Remove any call to the following APIs: `agent.connect`, `agent.disconnect`, `agent.pause`, `agent.sendMessageToDevice`.
 
@@ -116,9 +116,9 @@ Remove the following callbacks, if any, from your Capptain configuration: `onCon
 
 #### JavaScript APIs
 
-Every occurrences of *capptain* has been renamed *engagement*. You have to do the same in your application. Basically the global JavaScript object `window.capptain` becomes `window.engagement`.
+The global JavaScript object `window.capptain` becomes `window.azme` (Azure Mobile Engagement).
 
-For instance: `capptain.deviceId` becomes `engagement.deviceId`, `capptain.agent.startActivity` becomes `engagement.agent.startActivity` etc ...
+For instance: `capptain.deviceId` becomes `azme.deviceId`, `capptain.agent.startActivity` becomes `azme.agent.startActivity` etc ...
 
 #### Application ID
 
@@ -135,7 +135,7 @@ Before migration:
 
 After migration:
 
-	window.engagement = {
+	window.azme = {
 	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
 	  [...]
 	};

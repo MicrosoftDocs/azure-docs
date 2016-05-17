@@ -23,7 +23,7 @@ If you already have integrated an older version of our SDK into your application
 
 You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 1.4.0 to 1.6.0 you have to first follow the "from 1.4.0 to 1.5.0" procedure then the "from 1.5.0 to 1.6.0" procedure.
 
-Whatever the version you upgrade from, you have to replace the `engagement-sdk.js` with the new one.
+Whatever the version you upgrade from, you have to replace the `azme-sdk.js` with the new one.
 
 ## From 1.2.1 to 2.0.0
 
@@ -35,7 +35,7 @@ This version of the Engagement Web SDK doesn't support samsung-tv, OperaTV, webO
 
 ### JavaScript files
 
-Replace the `capptain-sdk.js` file by the `engagement-sdk.js` file and update your script imports accordingly.
+Replace the `capptain-sdk.js` file by the `azme-sdk.js` file and update your script imports accordingly.
 
 ### Remove Capptain Reach
 
@@ -86,9 +86,9 @@ Remove the `reach` object from your configuration if any. It looks like the foll
 
 Remove any other Reach customization such as categories.
 
-### Remove useless APIs
+### Remove deprecated APIs
 
-Some of the APIs from Capptain became useless in the Engagement version of the SDK.
+Some of the APIs from Capptain are deprecated in the Engagement version of the SDK.
 
 Remove any call to the following APIs: `agent.connect`, `agent.disconnect`, `agent.pause`, `agent.sendMessageToDevice`.
 
@@ -96,9 +96,9 @@ Remove the following callbacks, if any, from your Capptain configuration: `onCon
 
 ### JavaScript APIs
 
-Every occurrences of *capptain* has been renamed *engagement*. You have to do the same in your application. Basically the global JavaScript object `window.capptain` becomes `window.engagement`.
+The global JavaScript object `window.capptain` becomes `window.azme` (Azure Mobile Engagement).
 
-For instance: `capptain.deviceId` becomes `engagement.deviceId`, `capptain.agent.startActivity` becomes `engagement.agent.startActivity` etc ...
+For instance: `capptain.deviceId` becomes `azme.deviceId`, `capptain.agent.startActivity` becomes `azme.agent.startActivity` etc ...
 
 ### Application ID
 
@@ -115,7 +115,7 @@ Before migration:
 
 After migration:
 
-	window.engagement = {
+	window.azme = {
 	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
 	  [...]
 	};
