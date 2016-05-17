@@ -62,6 +62,6 @@ The following examples show how to create a record set of each record type, each
 
 ## Next Steps
 
-To manage your record set and records, see [Manage DNS records and record sets using CLI](dns-operations-recordsets-portal.md).
+To manage your record set and records, see [Manage DNS records and record sets using CLI](dns-operations-recordsets-portal.md).<!-- Loc Comment: This link title is for "CLI", but linked article is for Azure portal. So it seems that either the link title should be fixed to "Manage DNS records and record sets using the Azure portal" or linked article should be to fixed to "dns-operations-recordsets-cli". -->
 
 For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md).
