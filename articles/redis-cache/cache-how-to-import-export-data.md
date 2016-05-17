@@ -22,7 +22,7 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
 Import can be used to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon. Importing data is an easy way to create a cache with pre-populated data.
 
-Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB files. You can use this feature to move data from one Azure Redis Cache instance to another or other Redis server.
+Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB files. You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server.
 
 This article provides a guide for importing and exporting data with Azure Redis Cache and provides the answers to commonly asked questions.
 
@@ -69,7 +69,7 @@ Before beginning the import operation, ensure that your Redis Database (RDB) fil
 
 2. Click **Choose Storage Container** and select the desired storage account. The storage account must be in the same subscription and region as your cache.
 
-    >[AZURE.IMPORTANT] Import/Export works with page blobs, which are supported by both classic and ARM storage accounts, but are not supported by [Blob storage accounst](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) at this time.
+    >[AZURE.IMPORTANT] Import/Export works with page blobs, which are supported by both classic and ARM storage accounts, but are not supported by [Blob storage accounts](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) at this time.
 
     ![Storage account][cache-export-data-choose-account]
 
@@ -83,8 +83,6 @@ Before beginning the import operation, ensure that your Redis Database (RDB) fil
 
     You can monitor the progress of the export operation by following the notifications from the Azure Portal or by viewing the events in the [audit log](cache-configure.md#support-amp-troubleshooting-settings).
 
-    ![][cache-export-data-export-in-progress]
-
     ![][cache-export-data-export-complete]
 
     Note that caches remain available for use during the export process.
@@ -94,17 +92,17 @@ Before beginning the import operation, ensure that your Redis Database (RDB) fil
 
 This section contains frequently asked questions about the Import/Export feature.
 
--	[What pricing tiers can used Import/Export?](#what-pricing-tiers-can-used-importexport)
+-	[What pricing tiers can use Import/Export?](#what-pricing-tiers-can-use-importexport)
 -	[Can I import data from any Redis server?](#can-i-import-data-from-any-redis-server)
 -	[Will my cache be available during an Import/Export operation?](#will-my-cache-be-available-during-an-importexport-operation)
 -	[Can I use Import/Export with Redis cluster?](#can-i-use-importexport-with-redis-cluster)
 -	[How is Import/Export different from Redis persistence?](#how-is-importexport-different-from-redis-persistence)
--	[Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell,-cli,-or-other-management-clients)
+-	[Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 -	[I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
 -	[I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened)
 
 
-### What pricing tiers can used Import/Export?
+### What pricing tiers can use Import/Export?
 
 Import/Export is available only in the premium pricing tier.
 
@@ -157,7 +155,6 @@ Import/Export works only with RDB files stored as page blobs. Other blob types a
 [cache-export-data-choose-storage-container]: ./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png
 [cache-export-data-container]: ./media/cache-how-to-import-export-data/cache-export-data-container.png
 [cache-export-data-export-complete]: ./media/cache-how-to-import-export-data/cache-export-data-export-complete.png
-[cache-export-data-export-in-progress]: ./media/cache-how-to-import-export-data/cache-export-data-export-in-progress.png
 [cache-export-data]: ./media/cache-how-to-import-export-data/cache-export-data.png
 [cache-import-data]: ./media/cache-how-to-import-export-data/cache-import-data.png
 [cache-import-choose-storage-account]: ./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png
