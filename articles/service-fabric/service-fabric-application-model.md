@@ -3,7 +3,7 @@
    description="How to model and describe applications and services in Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor="mani-ramaswamy"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="05/12/2016"   
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Model an application in Service Fabric
 
