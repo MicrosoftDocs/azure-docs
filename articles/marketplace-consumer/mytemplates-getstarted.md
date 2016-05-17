@@ -60,13 +60,13 @@ There are two ways to create a `Template` resource in the Azure portal.
 
 5. Click **Save**.
 
-    > [AZURE.NOTE] The Export template blade shows notifications when the exported ARM template has errors. You will still be able to save this ARM template to the Templates. Ensure that you check and fix the template issues before redeploying a new instance.
+    > [AZURE.NOTE] The Export template blade shows notifications when the exported ARM template has errors, but you will still be able to save this ARM template to the Templates. Ensure that you check and fix any ARM template issues before redeploying the exported ARM template.
 
-    > [AZURE.NOTE] Microsoft.Gallery is a Tenant based azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
+    > [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
 
 ### B. Add a new Template resource from browse
 
-You can also add a new `Template` from scratch using the +Add command button in `Browse > Templates`. You will need to provide a Name, Description and the ARM template text.
+You can also add a new `Template` from scratch using the +Add command button in `Browse > Templates`. You will need to provide a Name, Description and the ARM template JSON.
 
 ![Add Template](media/add-template-portal.PNG)  <br />
 
@@ -116,7 +116,7 @@ Select **Share** on the browse item by right clicking or on the view blade of a 
 
 ![Share Template](media/share-template-portal1.png)  <br />
 
- You can now choose a role and a user or group to provide access to a particular `Template`. The available roles are Owner, Reader & Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
+ You can now choose a role and a user or group to provide access to a particular `Template`. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
 ![Share Template](media/share-template-portal2a.png)  <br />
 
@@ -131,5 +131,5 @@ Click **Select** and **Ok**. You can now see the users or groups you added to th
 ## Next steps
 
 - To learn about creating ARM templates, see [Authoring templates](../resource-group-authoring-templates.md)
-- To understand the functions you can use in a ARM template, see [Template functions](../resource-group-template-functions.md)
+- To understand the functions you can use in an ARM template, see [Template functions](../resource-group-template-functions.md)
 - For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
