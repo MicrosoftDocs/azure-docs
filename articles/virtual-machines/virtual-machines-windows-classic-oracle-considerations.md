@@ -3,8 +3,8 @@ pageTitle="Considerations for using Oracle VM images | Microsoft Azure"
 description="Learn about supported configurations and limitations for an Oracle VM on Windows Server in Azure before you deploy."
 services="virtual-machines-windows"
 documentationCenter=""
-manager=""
-authors="bbenz"
+manager="timlt"
+authors="rickstercdn"
 tags="azure-service-management"/>
 
 <tags
@@ -13,16 +13,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
-ms.date="06/22/2015"
-ms.author="bbenz" />
+ms.date="05/17/2016"
+ms.author="rclaus" />
 
 #Miscellaneous considerations for Oracle virtual machine images
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-
-This article covers considerations for Oracle virtual machines in Azure, which are based on Oracle software images provided by Microsoft, with Windows Server as the operating system.  
+This article covers considerations for Oracle virtual machines in Azure, which are based on Oracle software images provided by Oracle.  
 
 -  Oracle Database virtual machine images
 -  Oracle WebLogic Server virtual machine images
@@ -47,14 +45,10 @@ Although the simplest approach is to attach a single disk to the virtual machine
 
 Consider two different approaches for attaching multiple disks based on whether you want to prioritize the performance of read operations or write operations for your database:
 
-- **Oracle ASM on its own** is likely to result in better write operation performance, but worse IOPS for read operations as compared to the approach using Windows Server 2012 storage pools. The following illustration logically depicts this arrangement.  
+- **Oracle ASM on its own** is likely to result in better write operation performance, but worse IOPS for read operations as compared to the approach using disk arrays. The following illustration logically depicts this arrangement.  
 	![](media/virtual-machines-windows-classic-oracle-considerations/image2.png)
 
-- **Oracle ASM with Windows Server 2012 storage pools** is likely to result in better read operation IOPS performance if your database primarily performs read operations, or if you value the performance of read operations over write operations. An image based on the Windows Server 2012 operating system is required. See [Deploy storage spaces on a stand-alone server](http://technet.microsoft.com/library/jj822938.aspx) for more information about storage pools. In this arrangement, two equal subsets of attached disks are first “striped” together as physical disks in two storage pool volumes, and then the volumes are added to an ASM disk group. The following illustration logically depicts this arrangement.  
-
-	![](media/virtual-machines-windows-classic-oracle-considerations/image3.png)  
-
->[AZURE.IMPORTANT] Evaluate the trade-off between write performance and read performance on a case-by-case basis. Your actual results can vary when you use these approaches.
+>[AZURE.IMPORTANT] Evaluate the trade-off between write performance and read performance on a case-by-case basis. Your actual results can vary when you use this.
 
 ### High availability and disaster recovery considerations
 
@@ -66,7 +60,7 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 
 ##Oracle WebLogic Server virtual machine images
 
--  **Clustering is supported on Enterprise Edition only.** If you are using Microsoft-licensed images of WebLogic Server (specifically, those with Windows Server as the operating system), you are licensed to use WebLogic clustering only when using the Enterprise Edition of WebLogic Server. Do not use clustering with WebLogic Server Standard Edition.
+-  **Clustering is supported on Enterprise Edition only.** You are licensed to use WebLogic clustering only when using the Enterprise Edition of WebLogic Server. Do not use clustering with WebLogic Server Standard Edition.
 
 -  **Connection timeouts:** If your application relies on connections to public endpoints of another Azure cloud service (for example, a database tier service), Azure might close these open connections after 4 minutes of inactivity. This might affect features and applications relying on connection pools, because connections that are inactive for more than that limit might no longer remain valid. If this affects your application, consider enabling "keep-alive" logic on your connection pools.
 
