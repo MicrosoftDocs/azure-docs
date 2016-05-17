@@ -112,6 +112,7 @@ Where
 ## <a name="format"></a> Data format
 
 * Each blob is a text file that contains multiple '\n'-separated rows.
+* Each row represents a telemetry data point such as a request or page view.
 * Each row is an unformatted JSON document. If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:
 
 ![View the telemetry with a suitable tool](./media/app-insights-export-telemetry/06-json.png)

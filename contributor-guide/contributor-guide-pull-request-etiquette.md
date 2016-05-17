@@ -36,7 +36,7 @@ You can help make the pull request queue work better by following these best pra
 
 - When you delete articles or images, don't mix the deletions with new content additions or updates. Handle the changes/new content in a separate working branch.
 
-- Contact your pull request reviewer to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, and security issues; for truly broken customer experiences; and for executive escalations. 
+- Contact your pull request reviewer to expedite PRs only when absolutely necessary. You can request expedited PR handling for Red Zone, privacy, legal, and security issues; for truly broken customer experiences; and for executive escalations. 
 
 - For releases or refactoring of content, plan ahead with your PR reviewer. You may need his or her help to create a release branch or to coordinate merge times with publishing times so your content is published at the right time.
 

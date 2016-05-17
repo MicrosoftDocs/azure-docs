@@ -21,14 +21,15 @@
 Log Analytics solutions are a collection of **logic**, **visualization** and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists solutions supported Log Analytics and tells you how to add and remove them using the Solutions Gallery.
 
 Solutions allow deeper insights to:
+
 - help investigate and resolve operational issues faster
 - collect and correlate various types of machine data
 - help you be proactive with activities such as capacity planning, patch status reporting and security auditing.
 
 
->[AZURE.NOTE] OMS includes base Log Search functionality, so you don't need to install a solution to enable it. However, you can get additional functionality by adding solutions to it from the Solution Gallery page.
+>[AZURE.NOTE] Log Analytics includes Log Search functionality, so you don't need to install a solution to enable it. However, you can get data visualizations, suggested searches and insights by adding solutions from the Solution Gallery.
 
-After you've added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service can take from a few minutes to several hours. After the service processes the data, you can view it in OMS.
+After you've added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service typically takes a few minutes to an hour. After the service processes the data, you can view it in OMS.
 
 You can easily remove a solution when it is no longer needed. When you remove a solution, its data is not sent to OMS, which can reduce the amount of data used by your daily quota, if you have one.
 
@@ -37,17 +38,18 @@ You can easily remove a solution when it is no longer needed. When you remove a 
 
 At this time, servers that are connected to OMS using the Microsoft Monitoring Agent can use most of the solutions available, including:
 
-- System Updates
-- Antimalware
-- Change Tracking
-- SQL Assessment
 - Active Directory Assessment
 - Alert Management (without SCOM alerts)
+- Antimalware
+- Change Tracking
+- Security
+- SQL Assessment
+- System Updates
 
 However, the following solutions are *not* supported with the Microsoft Monitoring Agent and require System Center Operations Manager (SCOM) agent.
 
-- Capacity Management
 - Alert Management (including SCOM alerts)
+- Capacity Management
 - Configuration Assessment
 
 Refer to [Connecting Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting the SCOM agent to Log Analytics.
@@ -104,6 +106,73 @@ The following table shows data collection methods and other details about how da
 |Windows firewall logs|Windows|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)| on arrival|
 |Windows event logs|Windows|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)| for Azure storage: 1 min; for the agent: on arrival|
 |Wire Data|Windows (2012 R2 / 8.1 or later)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)|![No](./media/log-analytics-add-solutions/oms-bullet-red.png)| every 1 minute|
+
+## Log Analytics Preview Solutions and Features
+
+By running a service and following devops practices we are able to partner with customers to develop features and solutions.
+
+During private preview we give a small group of customers access to an early implementation of the feature or solution to gain feedback and make improvements. This early implementation has minimal features and operational capabilities. 
+
+Our goal is to try things quickly so we can find what works, and what doesn’t work. We iterate through this process until the feedback from the private preview customers informs us that we’re ready for a public preview. 
+
+During the public preview, we make the feature or solution available for all users to get more feedback and validate our scaling and efficiency. During this phase:
+
+- Preview features will appear in the Settings tab and can be enabled by any user
+- Preview solutions can be added through the gallery or using a published script
+
+### What should I know about Preview Features and Solutions?
+
+We’re excited about new features and solutions and we love working with you to develop them.
+
+Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with something that is under development. 
+
+When enabling a preview feature through the portal you will be see a warning reminding you that the feature is in preview. 
+
+#### For both *private* and *public* preview
+
+The following applies to both public and private previews:
+
+- Things may not always work correctly. 
+  - Issues range from being a minor annoyance through to something not working at all
+- There is potential for the preview to have a negative impact on your systems / environment
+  - We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur
+- Data loss / corruption may occur
+- We may ask you to collect diagnostic logs or other data to help troubleshoot issues
+- The feature or solution may be removed (either temporarily or permanently)
+  - Based on our learnings during the preview we may decide to not release the feature or solution
+- Previews may not work or may not have been tested with all configurations, and we may limit:
+  - The operating systems that can be used (e.g. a feature may only apply to Linux while in preview)
+  - The type of agent (MMA, SCOM) that can be used (e.g. a feature may not work with SCOM while in preview)  
+- Preview solutions and features are not covered by the Service Level Agreement
+- Usage of preview features will incur usage charges
+- Features or capabilities that you need for the feature / solution to be useful may be missing or incomplete
+- Features / solutions may not be available in all regions
+- Features / solutions may not be localized
+- Features / solutions may have a limit on the number of customers or devices that can use it
+- You may need to use scripts to perform configuration and to enable the solution/feature
+- The user interface (UI) will be incomplete and may change from day to day
+- Public previews may not be appropriate for your production / critical systems
+
+#### For *private* preview
+
+In addition to the items above, the following is specific to private previews:
+
+- We expect you to provide us with feedback on your experience so that we can make the feature/solution better
+- We may contact you for feedback using surveys, phone calls or e-mail
+- Things won't always work correctly
+- We may require a Non-Disclosure Agreement (NDA) for participation or may include confidential content
+  - Before blogging, tweeting or otherwise communicating with third parties please check with the Program Manager responsible for the preview to understand any restrictions on disclosure
+- Do not run on production / critical systems
+
+
+### How do I get access to private preview features and solutions?
+
+We invite customers to private previews through several different ways depending on the preview. 
+
+- Answering the monthly customer survey and giving us permission to follow up with you improves your chances of being invited to a private preview.
+- Your Microsoft account team can nominate you.
+- You can sign up based on details posted on twitter [msopsmgmt](https://twitter.com/msopsmgmt) 
+- You can sign up based on details shared community events – look for us at meet ups, conferences and in online communities. 
 
 
 ## Next steps

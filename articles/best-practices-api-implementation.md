@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,8 +19,7 @@
 
 # API implementation guidance
 
-![](media/best-practices-api-implementation/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 Some topics in this guidance are under discussion and may change in the future. We welcome your feedback!
 

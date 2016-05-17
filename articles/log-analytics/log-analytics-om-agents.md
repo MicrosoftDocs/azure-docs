@@ -3,7 +3,7 @@
 	description="To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your OMS workspace."
 	services="log-analytics"
 	documentationCenter=""
-	authors="bandersmsft"
+	authors="MGoedtel"
 	manager="jwhit"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
-	ms.author="banders"/>
+	ms.date="05/11/2016"
+	ms.author="magoedte"/>
 
 # Connect Operations Manager to Log Analytics
 
@@ -36,6 +36,7 @@ The following diagram shows the System Center Operations Manager and OMS relatio
 Before starting, review the following details to verify you meet necessary prerequisites.
 
 - OMS only supports Operations Manager 2012 SP1 UR6 and greater, and Operations Manager 2012 R2 UR2 and greater.  Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
+- All Operations Manager agents must meet minimum support requirements. Ensure that agents are up to the minimum update, otherwise Windows agent traffic will fail and many errors might fill the Operations Manager event log.
 - An OMS subscription.  For further information, review [Get started with Log Analytics](log-analytics-get-started.md).
 
 ## Connecting Operations Manager to OMS
