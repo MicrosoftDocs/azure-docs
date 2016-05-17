@@ -41,3 +41,22 @@ You can help make the pull request queue work better by following these best pra
 - For releases or refactoring of content, plan ahead with your PR reviewer. You may need his or her help to create a release branch or to coordinate merge times with publishing times so your content is published at the right time.
 
 - If you are trying to coordinate updates made in the ACOM repo (ie, changes to left navigation, landing pages, redirects, or learning maps) with changes you are making in the azure-content-pr repository, you must coordinate that work ahead of time with your PR reviewer. Otherwise, you risk having a lot of broken links.
+
+## In a hurry? Submit PRs that can be accepted automatically
+
+Use the PRMerger automation rules to get more of your day-to-day PRs merged automatically.
+
+PRMerger can accept your PR automatically, if:
+* It affects 10 files or fewer.
+* It contains 15 commits or fewer.
+* Less than 20% of text changes.
+* Selectors/switchers aren't updated.
+* No files are deleted or added.
+* No images are new, changed, or deleted.
+
+### Need to make a lot of little changes?
+
+Take your cue from the PRMerger automation rules above, and do the following:
+* Submit articles with light changes together in a PR with 10 or fewer files.
+* Create a separate PR for articles in which images or selectors change. This requires human review.
+* Create a separate PR for new or deleted articles. This requires human review.
