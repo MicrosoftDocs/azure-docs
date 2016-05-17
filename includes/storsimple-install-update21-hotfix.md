@@ -110,10 +110,16 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 	- The WMI update KB3103616
 	- The iSCSI update KB3146621
 	
-	If you are upgrading from a version prior to Update 2, you will also need to download:
+10. Skip this step if you are upgrading from Update 2. If you are upgrading from a version prior to Update 2, you will also need to download:
+
+
 
 	- The LSI driver KB3121900
+
+
 	- The Storport update KB3080728
+
+
 	- The Spaceport update KB3090322
 
 #### To install and verify maintenance mode hotfixes

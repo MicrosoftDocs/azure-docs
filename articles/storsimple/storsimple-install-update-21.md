@@ -120,7 +120,7 @@ You may also need to install disk firmware updates. You can verify whether you n
 > - If updating from Update 2, the total install time is close to 1.5 hours.
 > - Before using this procedure to apply the update, make sure that both the device controllers are online and all the hardware components are healthy.
 
-Perform the following steps to apply this update as a hotfix.
+Perform the following steps to download and install the hotfixes.
 
 [AZURE.INCLUDE [storsimple-install-update21-hotfix](../../includes/storsimple-install-update21-hotfix.md)]
 
