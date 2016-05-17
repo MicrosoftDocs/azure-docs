@@ -149,7 +149,6 @@ This topic lists every topic that applies directly to the Data Factory service o
 | [Azure Data Factory - Frequently Asked Questions](data-factory-faq.md) | Frequently asked questions about Azure Data Factory. |
 | [Azure Data Factory - Functions and System Variables](data-factory-functions-variables.md) | Provides a list of Azure Data Factory functions and system variables |
 | [Azure Data Factory - Naming Rules](data-factory-naming-rules.md) | Describes naming rules for Data Factory entities. |
-| [Azure Data Factory release notes](data-factory-release-notes.md) | Data Factory release notes |
 | [Troubleshoot Data Factory issues](data-factory-troubleshoot.md) | Learn how to troubleshoot issues with using Azure Data Factory. |
 
 
