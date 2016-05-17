@@ -241,19 +241,19 @@ Now that you have set up your computer and learned how to manage subscriptions a
 
 An Azure Storage account comes with two account keys. You can use the following cmdlet to retrieve your keys.
 
-		Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName
+	Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName
 
 For Azure PowerShell v1.4, use the following cmdlet to retrieve a specific key. Valid values are Value[0] and Value[1].  
 
-		(Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Value[0]
+	(Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Value[0]
 
 For Azure PowerShell v1.3.2, use the following cmdlet to retrieve a specific key. Valid values are Key1 and Key2:
 
-		(Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Key1
+	(Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Key1
 
 If you would like to regenerate your keys, use the following cmdlet. Valid values for -KeyName are "key1" and "key2"
 
-		New-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -AccountName $StorageAccountName -KeyName "key1"
+	New-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -AccountName $StorageAccountName -KeyName "key1"
 
 
 ## How to manage Azure blobs
