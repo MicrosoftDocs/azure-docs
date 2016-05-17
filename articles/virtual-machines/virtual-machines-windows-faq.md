@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="05/16/2016"
 	ms.author="cynthn"/>
 
-# Frequently asked question about Azure Virtual Machines created with the resource manager deployment model
+# Frequently asked question about Windows Virtual Machines 
 
 
-This article addresses some common questions users ask about Azure virtual machines created with the Resource Manager deployment model.
+This article addresses some common questions users ask about Windows virtual machines created in Azure using the Resource Manager deployment model. For the Linux version of this topic, see [Frequently asked question about Linux Virtual Machines](virtual-machines-linux-faq.md)
 
 ## What can I run on an Azure VM?
 
-All subscribers can run server software on an Azure virtual machine. For information about the support policy for running Microsoft server software in Azure, see [Microsoft server software support for Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+All subscribers can run server software on an Azure virtual machine. For information about the support policy for running Microsoft server software in Azure, see [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)
 
 For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
@@ -47,7 +47,9 @@ If you’re familiar with Hyper-V, you might be looking for a tool similar to VM
 
 ## Can I use the temporary disk (the D: drive by default) to store data?
 
-You shouldn’t use the temporary disk to store data. They are only temporary storage, so you would risk losing data that can’t be recovered. This can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+You shouldn’t use the temporary disk to store data. It is only temporary storage, so you would risk losing data that can’t be recovered. This can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+
+If you have an application that needs to use the D: drive letter, you can reassign drive letters so that the temporary disk uses soemthing other than D:. For instructions, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
 
 ## How can I change the drive letter of the temporary disk?
 

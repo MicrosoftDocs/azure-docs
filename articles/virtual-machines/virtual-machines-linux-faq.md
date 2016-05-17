@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="05/16/2016"
 	ms.author="cynthn"/>
 
-# Frequently asked question about Azure Virtual Machines created with the resource manager deployment model
+# Frequently asked question about Linux Virtual Machines 
 
 
-This article addresses some common questions users ask about Azure virtual machines created with the Resource Manager deployment model.
+This article addresses some common questions users ask about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](virtual-machines-windows-faq.md)
 
 ## What can I run on an Azure VM?
 
-All subscribers can run server software on an Azure virtual machine. For more information, see [Linux on Azure-Endorsed Distributions](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+All subscribers can run server software on an Azure virtual machine. For more information, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)
 
 
 ## How much storage can I use with a virtual machine?
