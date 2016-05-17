@@ -68,7 +68,7 @@ The Actors runtime saves changes made to the actor's State Manager when the call
 All timers are stopped when the actor is deactivated as part of garbage collection. No timer callbacks are invoked after that. Also, the Actors runtime does not retain any information about the timers that were running before deactivation. It is up to the actor to register any timers that it needs when it is reactivated in the future. For more information, see the section on [actor garbage collection](service-fabric-reliable-actors-lifecycle.md).
 
 ## Actor reminders
-Reminders are a mechanism to trigger persistent callbacks on an actor at specified times. Their functionality is similar to timers. But unlike timers, reminders are triggered under all circumstances until the actor explicitly unregisters them or the actor is explicitly deleted. Specifically, reminders are triggered across actor deactivations and failovers because the Actors runtime persists information about the actor's reminders.
+Reminders are a mechanism to trigger persistent callbacks on an actor at specified times. Their functionality is similar to timers. But unlike timers, reminders are triggered under all circumstances until the actor explicitly unregisters them or the actor is explicitly deleted. Specifically, reminders are triggered across actor deactivations and failovers because the Actors runtime persists information about the actor's reminders. Reminders will also be retriggered even if prior reminder callback has not yet completed.
 
 To register a reminder, an actor calls the `RegisterReminderAsync` method provided on the base class, as shown in the following example:
 
