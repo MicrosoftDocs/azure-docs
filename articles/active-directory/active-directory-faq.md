@@ -20,21 +20,21 @@
 
 Azure AD is a comprehensive IDaaS solution spanning all aspects of identity, access management, and security. For a general overview of Azure AD please look at 
 
-## Accessing Azure and Azure AD
+## Accessing Azure and Azure Active Directory
 
-**Q: I cannot find Azure AD in http://portal.azure.com?**
+**Q: Why can I not find Azure AD in http://portal.azure.com?**
 
-**A:** Azure AD administration experience is still offered through http://manage.windowsazure.com; we expect a public preview of the new administration experiences to be available in Sept 2016. Get all Azure AD announcements [Alex’s AAD blog]
+**A:** The Azure AD administration experience is still available via 'http://manage.windowsazure.com'. ; we expect a public preview of the new administration experiences to be available in Sept 2016. Get all Azure AD announcements [Alex’s AAD blog]
 
 ---
 
-**Q: When trying to access Azure AD on http://manage.windowsazure.com I get “No subscriptions found”?**
+**Q: Why do I get “No subscriptions found” when I try to access Azure AD via http://manage.windowsazure.com?**
 
 **A:** you will need permissions on an Azure subscription, if you have a paid Office 365 or Azure AD navigate to http://aka.ms/accessAAD for a one-time activation step, otherwise you will need to activate a full Azure trial or paid subscription. Azure trial [https://azure.microsoft.com/en-us/pricing/free-trial/]
 
 ---
 
-**Q: What’s the connection between Azure AD, Office 365, and Azure?**
+**Q: What’s the relationship between Azure AD, Office 365, and Azure?**
 
 **A:** Azure AD enables all Microsoft Online services with common identity and access management capabilities. Learn more [https://blogs.technet.microsoft.com/ad/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/]
 
