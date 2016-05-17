@@ -3,7 +3,7 @@
    description="Add, manage and share your customized templates using the Azure portal, the Azure CLI, or PowerShell."
    services="marketplace"
    documentationCenter=""
-   authors="vybavar"
+   authors="VybavaRamadoss"
    manager="asimm"
    editor=""
    tags="marketplace, azure, azure-resource-manager, templates"
