@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running multiple Windows VMs | Azure reference architecture"
+   pageTitle="Running multiple Windows VMs | Reference Architecture | Microsoft Azure"
    description="How to run multiple VM instances on Azure for scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
@@ -19,6 +19,8 @@
 
 # Running multiple Windows VMs on Azure 
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article outlines a set of proven practices for running multiple virtual machine (VM) instances in an availability set, to improve availability and scalability.   
 
 In this architecture, the workload is distributed across the VM instances. There is a single public IP address, and Internet traffic is distributed to the VMs using a load balancer. This architecture can be used for a single-tier app, such as a stateless web app or storage cluster. It is also a building block for N-tier applications. 
@@ -26,7 +28,6 @@ In this architecture, the workload is distributed across the VM instances. There
 This article builds on [Running a Single Windows VM on Azure][single vm]. The recommendations in that article also apply to this architecture.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-
 
 ## Architecture diagram
 

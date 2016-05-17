@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/12/2016"
+   ms.date="05/13/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -31,7 +31,7 @@ Connections to your SQL Data Warehouse can be encrypted by setting the encryptio
 
 ## Authentication
 
-Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password. Windows authentication is available as a preview feature.
+Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password. Azure Active Directory authentication is available as a preview feature.
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
 
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][] and [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
+For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][] and [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication][].
 
 
 ## Authorization
@@ -86,7 +86,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde.md).
+You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)][].
 
 ## Auditing
 
@@ -100,6 +100,7 @@ For details and examples on connecting to your SQL Data Warehouse with different
 <!--Article references-->
 [Connect to SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
 [Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
+[Get started with Transparent Data Encryption (TDE)]: sql-data-warehouse-encryption-tde.md
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -111,4 +112,4 @@ For details and examples on connecting to your SQL Data Warehouse with different
 [Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Role-based access control in Azure Portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx
+[Role-based access control in Azure Portal]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure

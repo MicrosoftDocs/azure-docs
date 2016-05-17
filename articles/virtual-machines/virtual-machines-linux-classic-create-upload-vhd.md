@@ -52,7 +52,7 @@ Azure supports a variety of Linux distributions (see [Endorsed Distributions](vi
 - **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
 - **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md)**
 
-Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#linuxinstall)** for more tips on preparing Linux images for Azure.
+Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)** for more tips on preparing Linux images for Azure.
 
 After following the steps in the guides above you should have a VHD file that is ready to upload to Azure.
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Virtual datacenter | Azure reference architecture"
+   pageTitle="Virtual datacenter | Reference Architecture | Microsoft Azure"
    description="How to run Windows VMs for an N-tier architecture in Microsoft Azure."
    services=""
    documentationCenter="na"
@@ -17,8 +17,9 @@
    ms.date="05/16/2016"
    ms.author="mikewasson"/>
 
-
 # Azure reference architecture: Virtual datacenter (Windows VMs)
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article outlines a set of proven practices for running a reliable N-tier architecture in Microsoft Azure. This article builds on [Running Windows VMs for an N-tier architecture on Azure][blueprints-3-tier]. In this article, we include additional components that can increase the reliability of the application:
 

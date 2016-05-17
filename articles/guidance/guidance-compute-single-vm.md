@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running a Windows VM | Azure reference architecture"
+   pageTitle="Running a Windows VM | Reference Architecture | Microsoft Azure"
    description="How to run a VM on Azure, paying attention to scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
@@ -18,6 +18,8 @@
    ms.author="mikewasson"/>
 
 # Running a Windows VM on Azure
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article outlines a set of proven practices for running a VM on Azure, paying attention to scalability, availability, manageability, and security. 
 

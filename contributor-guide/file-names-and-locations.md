@@ -24,6 +24,7 @@ Here's what you need to know:
 - Use action verbs that are specific, such as develop, buy, build, troubleshoot. No -ing words.
 - No small words - don't include a, and, the, in, or, etc.
 - All files must be in markdown and use the .md file extension.
+- Spell the words out; don't use unnapproved or unnecessary acronyms in file names
 
 ##Pattern
 
@@ -45,6 +46,7 @@ Here are a few examples of valid names that follow the pattern. :
 - virtual-machines-install-windows-server-2008r2.md
 - cache-aspnet-session-state-provider
 - azure-sdk-dotnet-release-notes-2-8
+- storsimple-disaster-recovery-using-azure-site-recovery
 
 ##Marketplace content
 
