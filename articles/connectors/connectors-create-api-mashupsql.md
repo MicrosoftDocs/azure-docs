@@ -62,6 +62,8 @@ To create Logic apps with Sql Connector, you must first create a **connection** 
 |SqlConnectionString|Yes|Provide Your SQL Connection String|
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
 
+>[AZURE.INCLUDE [Steps to create a connection to Mashup SQL](../../includes/connectors-create-api-mashupsql.md)]
+
 >[AZURE.TIP] You can use this connection in other logic apps.
 
 ## Reference for Sql Connector
