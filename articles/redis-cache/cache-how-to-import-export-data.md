@@ -18,9 +18,13 @@
 
 # How to import data into and export data from Azure Redis Cache
 
-Azure Redis Cache provides the capability to import and export a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. This article provides a guide for importing and exporting data with Azure Redis Cache and provides the answers to commonly asked questions.
+Azure Redis Cache provides the capability to import and export a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. Import/Export is an Azure Redis Cache data management operation which allows you to move data into Azure Redis Cache or from Azure Redis Cache. This enables you to migrate between different Azure Redis Cache instances or populate the cache with data before use.
 
-![Import data and export data][cache-settings-import-export-menu]
+Import can be used to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon. Importing data is an easy way to create a cache with pre-populated data.
+
+Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB files. You can use this feature to move data from one Azure Redis Cache instance to another or other Redis server.
+
+This article provides a guide for importing and exporting data with Azure Redis Cache and provides the answers to commonly asked questions.
 
 >[AZURE.IMPORTANT] Import/Export is only available for premium caches.
 
@@ -30,7 +34,7 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
     ![Choose storage container][cache-export-data-choose-storage-container]
 
-2. Click **Choose Storage Container** and select the desired storage account.
+2. Click **Choose Storage Container** and select the desired storage account. The storage account must be in the same subscription and region as your cache.
 
     >[AZURE.IMPORTANT] Do not choose a [Blob storage account](../storage/storage-blob-storage-tiers.md#blob-storage-accounts). At this time, Blob storage accounts do not support page blobs which are used by the Import/Export feature.
 
@@ -83,28 +87,55 @@ Azure Redis Cache provides the capability to import and export a Redis Cache Dat
 
 ## Import/Export FAQ
 
-This section contains frequently asked questions about the Import/Export features.
+This section contains frequently asked questions about the Import/Export feature.
+
+-	[What pricing tiers can used Import/Export?](#what-pricing-tiers-can-used-importexport)
+-	[Can I import data from any Redis cache?](#can-i-import-data-from-any-redis-cache)
+-	[Will my cache be available during an Import/Export operation?](#will-my-cache-be-available-during-an-importexport-operation)
+-	[How long does an Import/Export operation take?](#how-long-does-an-importexport-operation-take)
+-	[Can I use Import/Export with Redis cluster?](#can-i-use-importexport-with-redis-cluster)
+-	[How is Import/Export different from Redis persistence?](#how-is-importexport-different-from-redis-persistence)
+-	[Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell,-cli,-or-other-management-clients)
+-	[I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
+-	[I got an error when exporting my data to an Azure Blob Storage Account. What happened?](#i-got-an-error-when-exporting-my-data-to-an-azure-blob-storage-account.-what-happened)
 
 
-## What pricing tiers can used Import/Export?
+### What pricing tiers can used Import/Export?
 
 Import/Export is available only for premium caches.
 
-## Can I import data from any Redis cache?
+### Can I import data from any Redis cache?
 
-Yes, you can import data that was exported from another Azure Redis Cache instance. You can also import a Redis Cache Dabatase (RDB) file that was exported from an on-premises Redis cache installation.
+Yes, you can import data that was exported from another Azure Redis Cache instance. For example you may want to export the data from your production cache and import it into a cache used as part of a staging environment for testing. You can also import a Redis Cache Dabatase (RDB) file that was exported from other Redis cache installations. To do this, upload the RDB file from the desired Redis server into a page blob in an Azure Storage Account, and then import it into your premium Azure Redis Cache instance.
 
-## Will my cache be available during an Import/Export operation?
+### Will my cache be available during an Import/Export operation?
 
 -	**Export** - Caches remain available and you can continue to use your cache during an export operation.
 -	**Import** - Caches become unavailable when an import operation starts, and become available for use when the import operation completes.
 
-## How long does an Import/Export operation take?
+### How long does an Import/Export operation take?
 
--	**Export** - ???
--	**Import** - ???
+It depends on the amount of data being imported or exported. Even with the largest sizes of cache, intervals of less than 30 minutes were observed.
 
-## I received a timeout error during my Import/Export operation. What does it mean?
+### Can I use Import/Export with Redis cluster?
+
+Yes, and you can import/export between a clustered cache and a non-clustered cache, with the following limitations.
+
+-	Clustered caches only support database 0. You can't import data that was stored in a database other than 0.
+-	When clustered cache data is imported, the keys are redistributed among the shards of the cluster. For information on keeping keys together in the same shard, see [How are keys distributed in a cluster?](cache-how-to-premium-clustering.md#how-are-keys-distributed-in-a-cluster)
+
+### How is Import/Export different from Redis persistence?
+
+Azure Redis Cache persistence allows you to persist data stored in Redis to Azure Storage. When persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache data is restored automatically using the most recent snapshot. For more information, see [How to configure data persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
+
+Import/ Export allows you to bring data into or export from Azure Redis Cache. It does not configure backup and restore using Redis persistence.
+
+
+### Can I automate Import/Export using PowerShell, CLI, or other management clients?
+
+This functionality is not available during the preview, but it is coming soon.
+
+### I received a timeout error during my Import/Export operation. What does it mean?
 
 If you remain on the **Import data** or **Export data** blade for longer than 15 minutes before initiating the operation, you will receive an error similar to the following.
 
@@ -112,7 +143,7 @@ If you remain on the **Import data** or **Export data** blade for longer than 15
 
 To resolve this, initiate the import or export operation before 15 minutes has elapsed.
 
-## I got an error when exporting my data to an Azure Blob Storage Account. What happened?
+### I got an error when exporting my data to an Azure Blob Storage Account. What happened?
 
 You can't use a [Blob storage account](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) with the Import/Export feature. At this time, Blob storage accounts do not support page blobs which are used by the Import/Export feature.
 
