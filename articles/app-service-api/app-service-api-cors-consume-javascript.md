@@ -72,7 +72,7 @@ For an example of an Azure Resource Manager template that sets the CORS property
 
 ## <a id="tutorialstart"></a> Continuing the .NET getting-started tutorial
 
-If you are following the Node.js or Java getting-started series for API apps, skip to the next article, [authentication for App Service API apps](app-service-api-authentication.md).
+If you are following the Node.js or Java getting-started series for API apps, you have completed the getting started series. Skip to the [Next steps](#next-steps) section to find suggestions for further learning about API Apps.
 
 The remainder of this article is a continuation of the .NET getting-started series and assumes that you successfully completed [the first tutorial](app-service-api-dotnet-get-started.md).
 
@@ -286,4 +286,4 @@ To learn more about Visual Studio features that simplify troubleshooting, see [T
 
 ## Next steps 
 
-In this article, you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. To learn more about API apps, read the [introduction to authentication in App Service](../app-service/app-service-authentication-overview.md), and then go to the next tutorial in this series: [user authentication for API apps](app-service-api-dotnet-user-principal-auth.md).
+In this article, you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. To learn more about API apps, read the [introduction to authentication in App Service](../app-service/app-service-authentication-overview.md), and then go to the [user authentication for API apps](app-service-api-dotnet-user-principal-auth.md) tutorial.

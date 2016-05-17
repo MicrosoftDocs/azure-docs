@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/16/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Build your Azure first data factory using Microsoft Visual Studio
@@ -238,8 +238,8 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-05-01T00:00:00Z",
+		        "end": "2016-05-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
@@ -338,6 +338,11 @@ If you receive the error: "**This subscription is not registered to use namespac
 	![output data](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 
 See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
+
+You can also Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application. 
+
+> [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
+ 
 
 ## Use Server Explorer to view data factories
 

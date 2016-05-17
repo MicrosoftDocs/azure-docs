@@ -69,8 +69,8 @@ The account SAS and service SAS tokens include some common parameters, and also 
 
 - **Api version** An optional parameter that specifies the storage service version to use to execute the request.
 - **Service version** A required parameter that specifies the storage service version to use to  authenticate the request.
-- **Start time.** This is the time at which the SAS becomes valid. The start time for a shared access signature is optional; if omitted, the SAS is effective immediately.
-- **Expiry time.** This is the time after which the SAS is no longer valid. Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy (see more below).
+- **Start time.** This is the time at which the SAS becomes valid. The start time for a shared access signature is optional; if omitted, the SAS is effective immediately. Must be expressed in UTC (Coordinated Universal Time), with a special UTC designator ("Z") i.e. 1994-11-05T13:15:30Z.
+- **Expiry time.** This is the time after which the SAS is no longer valid. Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy. Must be expressed in UTC (Coordinated Universal Time), with a special UTC designator ("Z") i.e. 1994-11-05T13:15:30Z (see more below).
 - **Permissions.** The permissions specified on the SAS indicate what operations the client can perform against the storage resource using the SAS. Available permissions differ for an account SAS and a service SAS.
 - **IP.** An optional parameter that specifies an IP address or a range of IP addresses outside of Azure (see the section [Routing session configuration state](../expressroute/expressroute-workflows.md#routing-session-configuration-state) for Express Route) from which to accept requests.
 - **Protocol.** An optional parameter that specifies the protocol permitted for a request. Possible values are both HTTPS and HTTP (https,http), which is the default value, or HTTPS only (https). Note that HTTP only is not a permitted value.

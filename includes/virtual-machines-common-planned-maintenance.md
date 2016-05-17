@@ -81,6 +81,8 @@ East China | North China
 Japan East | Japan West
 Brazil South | South Central US
 Australia Southeast | Australia East
+India Central | India South
+India West | India South
 US Gov Iowa | US Gov Virginia
 
 <!--Anchors-->
