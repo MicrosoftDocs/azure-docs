@@ -302,35 +302,35 @@ As a final consideration, you should review the [Azure IoT protocol gateway][lnk
 
 ### Device to cloud <a id="d2c"></a>
 
-As detailed in the [Endpoints](#endpoints) section, device-to-cloud messages are sent through a device-facing endpoint (**/devices/{deviceId}/messages/events**), and received through a service-facing endpoint (**/messages/events**), that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard Event Hubs integration and SDKs to receive device-to-cloud messages.
+As detailed in the [Endpoints](#endpoints) section, device-to-cloud messages are sent through a device-facing endpoint (**/devices/{deviceId}/messages/events**). The messages are received through a service-facing endpoint (**/messages/events**) that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard Event Hubs integration and SDKs to receive device-to-cloud messages.
 
-IoT Hub implements device-to-cloud messaging in a way that is similar to [Event Hubs][lnk-event-hubs], with IoT Hub's device-to-cloud messages being more like Event Hubs *events* than [Service Bus][lnk-servicebus] *messages*.
+IoT Hub implements device-to-cloud messaging in a way that is similar to [Event Hubs][lnk-event-hubs]. IoT Hub's device-to-cloud messages are more like Event Hubs *events* than [Service Bus][lnk-servicebus] *messages*.
 
 This implementation has the following implications:
 
-* Similarly to Event Hubs *events*, device-to-cloud messages are durable and retained in an IoT hub for up to 7 days (see [Device-to-cloud configuration options](#d2cconfiguration)).
+* Similarly to Event Hubs events, device-to-cloud messages are durable and retained in an IoT hub for up to seven days (see [Device-to-cloud configuration options](#d2cconfiguration)).
 * Device-to-cloud messages are partitioned across a fixed set of partitions that is set at creation time (see [Device-to-cloud configuration options](#d2cconfiguration)).
 * Analogously to Event Hubs, clients reading device-to-cloud messages must handle partitions and checkpointing. See [Event Hubs - Consuming events][lnk-event-hubs-consuming-events].
-* Like Event Hubs events, device-to-cloud messages can be at most 256Kb in size, and can be grouped in batches to optimize sends. Batches can be at most 256Kb, and at most 500 messages.
+* Like Event Hubs events, device-to-cloud messages can be at most 256 Kb in size, and can be grouped in batches to optimize sends. Batches can be at most 256 Kb, and at most 500 messages.
 
-There are, however, a few important distinctions between IoT Hub device-to-cloud and Event Hubs:
+There are, however, a few important distinctions between IoT Hub device-to-cloud messaging and Event Hubs:
 
-* As explained in the [Security](#security) section, IoT Hub allows per-device authentication and access control,
+* As explained in the [Security](#security) section, IoT Hub allows per-device authentication and access control.
 * IoT Hub allows millions of simultaneously connected devices (see [Quotas and throttling](#throttling)), while Event Hubs is limited to 5000 AMQP connections per namespace.
-* IoT Hub does not allow arbitrary partitioning using a **PartitionKey**. device-to-cloud messages are partitioned based on their originating **deviceId**.
-* Scaling IoT Hub is slightly different than Event Hubs. For more information, see [Scaling IoT Hub][lnk-guidance-scale].
+* IoT Hub does not allow arbitrary partitioning using a **PartitionKey**. Device-to-cloud messages are partitioned based on their originating **deviceId**.
+* Scaling IoT Hub is slightly different than that for Event Hubs. For more information, see [Scaling IoT Hub][lnk-guidance-scale].
 
 Note that this does not mean that you can substitute IoT Hub for Event Hubs in all scenarios. For example, in some event processing computations, it might be necessary to re-partition events with respect to a different property or field before analyzing the data streams. In this scenario, you could use an Event Hub to decouple two portions of the stream processing pipeline. For more information, see *Partitions* in [Azure Event Hubs Overview][lnk-eventhub-partitions].
 
 For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
-> [AZURE.NOTE] When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
+> [AZURE.NOTE] When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Non-telemetry traffic
 
 In many cases, in addition to telemetry data points, devices also send messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the back end, or device responses to commands sent from the back end.
 
-See [Device-to-cloud processing][lnk-guidance-d2c-processing] for more information about the best way to process these kind of messages.
+For more information about the best way to process these kind of messages, see [Device-to-cloud processing][lnk-guidance-d2c-processing].
 
 #### Device-to-cloud configuration options <a id="d2cconfiguration"></a>
 
@@ -339,9 +339,9 @@ An IoT hub exposes the following properties to enable you to control device-to-c
 * **Partition count**. Set this property at creation to define the number of partitions for device-to-cloud event ingestion.
 * **Retention time**. This property specifies the retention time for device-to-cloud messages. The default is one day, but it can be increased to seven days.
 
-Also, analogously to Event Hubs, IoT Hub enables you to manage Consumer Groups on the device-to-cloud receive endpoint.
+Also, analogously to Event Hubs, IoT Hub enables you to manage consumer groups on the device-to-cloud receive endpoint.
 
-You can modify all these properties using either the [Azure portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
+You can modify all these properties, either programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
 
 #### Anti-spoofing properties <a id="antispoofing"></a>
 
@@ -353,7 +353,7 @@ To avoid device spoofing in device-to-cloud messages, IoT Hub stamps all message
 
 The first two contain the **deviceId** and **generationId** of the originating device, as per [Device identity properties](#deviceproperties).
 
-The **ConnectionAuthMethod** property contains a JSON serialized object with the following properties:
+The **ConnectionAuthMethod** property contains a JSON serialized object, with the following properties:
 
 ```
 {
@@ -365,17 +365,17 @@ The **ConnectionAuthMethod** property contains a JSON serialized object with the
 
 ### Cloud to device <a id="c2d"></a>
 
-As detailed in the [Endpoints](#endpoints) section, you can send cloud-to-device messages through a service-facing endpoint (**/messages/devicebound**), and a device can receive them through a device-specific endpoint (**/devices/{deviceId}/messages/devicebound**).
+As detailed in the [Endpoints](#endpoints) section, you can send cloud-to-device messages through a service-facing endpoint (**/messages/devicebound**). A device can receive them through a device-specific endpoint (**/devices/{deviceId}/messages/devicebound**).
 
 Each cloud-to-device message is targeted at a single device, setting the **to** property to **/devices/{deviceId}/messages/devicebound**.
 
-**Important**: Each device queue can hold at most 50 cloud-to-device messages. Trying to send more messages to the same device will result in an error.
+>[AZURE.IMPORTANT] Each device queue can hold at most 50 cloud-to-device messages. Trying to send more messages to the same device results in an error.
 
-> [AZURE.NOTE] When sending cloud-to-device messages, property names and values can only contain ASCII alphanumeric characters plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
+> [AZURE.NOTE] When sending cloud-to-device messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Message lifecycle <a id="message lifecycle"></a>
 
-In order to implement *at least once* delivery guarantee, cloud-to-device messages are persisted in per-device queues, and devices must explicitly acknowledge *completion* in order for IoT Hub to remove them from the queue. This guarantees resiliency against connectivity and device failures.
+In order to implement the guarantee of message delivery at least once, cloud-to-device messages are persisted in per-device queues. Devices must explicitly acknowledge *completion* in order for IoT Hub to remove them from the queue. This guarantees resiliency against connectivity and device failures.
 
 The following diagram shows the lifecycle state graph for a cloud-to-device message.
 
@@ -386,31 +386,33 @@ When the service sends a message, it is considered *Enqueued*. When a device wan
 A device can also:
 
 - *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state.
-- *Abandon* the message which causes IoT Hub to put the message back in the queue with the state set to **Enqueued**.
+- *Abandon* the message, which causes IoT Hub to put the message back in the queue, with the state set to **Enqueued**.
 
-A thread could fail to process a message without notifying IoT Hub. In this case, messages automatically transition from the **Invisible** state back to the **Enqueued** state after a *visibility (or lock) timeout*  with a default value of one minute. A message can transition between the **Enqueued** and **Invisible** states for at most the number of times specified in the *max delivery count* property on IoT Hub. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live](#ttl)).
+A thread could fail to process a message without notifying IoT Hub. In this case, messages automatically transition from the **Invisible** state back to the **Enqueued** state after a *visibility (or lock) timeout*. The default value of this timeout is one minute.
+
+A message can transition between the **Enqueued** and **Invisible** states for, at most, the number of times specified in the **max delivery count** property on IoT Hub. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live](#ttl)).
 
 For a tutorial on cloud-to-device messages, see [Get started with Azure IoT Hub cloud-to-device messages][lnk-getstarted-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
-> [AZURE.NOTE] Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. This could happen in many different scenarios. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed, or the message is carrying transient information whose loss would not impact the functionality of the application. Sometimes, for long running tasks, you can complete the cloud-to-device message after persisting the task description in local storage, and then notify the application back end with one or more device-to-cloud message at various stages of progress of the task.
+> [AZURE.NOTE] Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed. The message could also be carrying transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can complete the cloud-to-device message after persisting the task description in local storage. Then you can notify the application back end with one or more device-to-cloud message at various stages of progress of the task.
 
-#### Time to live <a id="ttl"></a>
+#### Message expiration (time to live) <a id="ttl"></a>
 
 Every cloud-to-device message has an expiration time. This can be explicitly set by the service (in the **ExpiryTimeUtc** property), or it is set by IoT Hub using the default *time to live* specified as an IoT Hub property. See [Cloud-to-device configuration options](#c2dconfiguration).
 
-> [AZURE.NOTE] A common way to take advantage of message expiration is set short time to live values in order to avoid sending messages to disconnected devices. This achieves the same result as maintaining the device connection state, while being significantly more efficient. It is also possible, by requesting message acknowledgements, to be notified by IoT Hub of which devices are able to receive messages and which are not online or are failed.
+> [AZURE.NOTE] A common way to take advantage of message expiration is to set short time to live values, in order to avoid sending messages to disconnected devices. This achieves the same result as maintaining the device connection state, while being significantly more efficient. By requesting message acknowledgements, you can be notified by IoT Hub which devices are able to receive messages, and which are not online or have failed.
 
 #### Message feedback <a id="feedback"></a>
 
 When you send a cloud-to-device message, the service can request the delivery of per-message feedback regarding the final state of that message.
 
-- If you set the **Ack** property to **positive**, IoT Hub generates a feedback message if and only if the cloud-to-device message reached the **Completed** state.
-- If you set the **Ack** property to **negative**, IoT Hub generates a feedback message if and only if the cloud-to-device message reaches the **Deadletterd** state.
+- If you set the **Ack** property to **positive**, IoT Hub generates a feedback message if, and only if, the cloud-to-device message reached the **Completed** state.
+- If you set the **Ack** property to **negative**, IoT Hub generates a feedback message, if and only if, the cloud-to-device message reaches the **Deadletterd** state.
 - If you set the **Ack** property to **full**, IoT Hub generates a feedback message in either case.
 
-> [AZURE.NOTE] If **Ack** is **full**, then if no feedback message is received it means that the feedback message expired, and the service cannot know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiry time is two days, therefore there should be plenty of time to get the service up and running if a failure occurs.
+> [AZURE.NOTE] If **Ack** is **full**, and you don't receive a feedback message, it means that the feedback message expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiry time is two days, which allows plenty of time to get the service running again if a failure occurs.
 
-As explained in [Endpoints](#endpoints), IoT Hub delivers feedback through a service-facing endpoint (**/messages/servicebound/feedback**) as messages. The receive semantics for feedback are the same as for cloud-to-device messages and have the same [Message lifecycle](#message lifecycle). Whenever possible, message feedback is batched in a single message, with the following format.
+As explained in [Endpoints](#endpoints), IoT Hub delivers feedback through a service-facing endpoint (**/messages/servicebound/feedback**) as messages. The semantics for receiving feedback are the same as those for cloud-to-device messages, and have the same [Message lifecycle](#message lifecycle). Whenever possible, message feedback is batched in a single message, with the following format.
 
 Each message retrieved by a device from the feedback endpoint has the following properties:
 
@@ -426,15 +428,15 @@ The body is a JSON-serialized array of records, each with the following properti
 | -------- | ----------- |
 | EnqueuedTimeUtc | Timestamp indicating when the outcome of the message happened. For example, the device completed or the message expired. |
 | OriginalMessageId | **MessageId** of the cloud-to-device message to which this feedback information pertains. |
-| StatusCode | Required integer. Used in feedback messages generated by IoT Hub. <br/> 0 = success <br/> 1 = message expired <br/> 2 = max delivery count exceeded <br/> 3 = message rejected |
+| StatusCode | Required integer. Used in feedback messages generated by IoT Hub. <br/> 0 = success <br/> 1 = message expired <br/> 2 = maximum delivery count exceeded <br/> 3 = message rejected |
 | Description | String values for **StatusCode**. |
 | DeviceId | **DeviceId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 | DeviceGenerationId | **DeviceGenerationId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 
 
-**Important**. The service must specify a **MessageId** for the cloud-to-device message in order to be able to correlate its feedback with the original message.
+>[AZURE.IMPORTANT] The service must specify a **MessageId** for the cloud-to-device message to be able to correlate its feedback with the original message.
 
-**Example**. This is an example body of a feedback message.
+The following example shows the body of a feedback message.
 
 ```
 [
@@ -455,7 +457,7 @@ The body is a JSON-serialized array of records, each with the following properti
 
 #### Cloud-to-device configuration options <a id="c2dconfiguration"></a>
 
-Each IoT hub exposes the following configuration options for cloud-to-device messaging:
+Each IoT hub exposes the following configuration options for cloud-to-device messaging.
 
 | Property | Description | Range and default |
 | -------- | ----------- | ----------------- |
@@ -464,7 +466,7 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | feedback.ttlAsIso8601 | Retention for service-bound feedback messages. | ISO_8601 interval up to 2D (minimum 1 minute). Default: 1 hour. |
 | feedback.maxDeliveryCount | Maximum delivery count for feedback queue. | 1 to 100. Default: 100. |
 
-For further information, see [Manage IoT hubs][lnk-manage].
+For more information, see [Manage IoT hubs][lnk-manage].
 
 ## Quotas and throttling <a id="throttling"></a>
 
