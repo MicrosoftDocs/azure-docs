@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 05/12/16-->
+<!--author=alkohli last changed: 05/17/16-->
 
 #### To download hotfixes
 
@@ -32,7 +32,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
 1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
 
-4. Select **Option 1** to log on to the device with full access.
+4. Select **Option 1** to log on to the device with full access. We recommend that you install the hotfix on the passive controller first.
 
 5. To install the hotfix, at the command prompt, type:
 
@@ -41,6 +41,8 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share.
 
 	We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+
+	Supply the password when prompted.
 
     A sample output is shown below.
 
@@ -59,37 +61,36 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
 6. Type **Y** when prompted to confirm the hotfix installation.
 
-7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet.
+7. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
 
     The following sample output shows the update in progress. The `RunInprogress` will be `True` when the update is in progress.
 
         ````
         Controller0>Get-HcsUpdateStatus
-        RunInprogress       : True
-        LastHotfixTimestamp : 05/12/2016 10:36:13 PM
-        LastUpdateTimestamp : 05/12/2016 10:35:25 PM
-        Controller0Events   :
-        Controller1Events   :
+		RunInprogress       : True
+		LastHotfixTimestamp :
+		LastUpdateTimestamp : 5/5/2016 2:04:02 AM
+		Controller0Events   :
+		Controller1Events   :
+
         ````
 
      The following sample output indicates that the update is finished. The `RunInProgress` will be `False` when the update has completed.
 
         ````
-        Controller1>Get-HcsUpdateStatus
+        Controller0>Get-HcsUpdateStatus
+		RunInprogress       : False
+		LastHotfixTimestamp : 5/17/2016 9:15:55 AM
+		LastUpdateTimestamp : 5/17/2016 9:06:07 AM
+		Controller0Events   :
+		Controller1Events   :
 
-        RunInprogress       : False
-        LastHotfixTimestamp : 05/12/2016 10:59:13 PM
-        LastUpdateTimestamp : 05/12/2016 10:35:25 PM
-        Controller0Events   :
-        Controller1Events   :
 
         ````
 
 	> [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
 
-8. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent . Ensure that `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe` is installed before `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`.
-
-9. Verify the system software versions. Type:
+8. After the software update is complete, verify the system software versions. Type:
 
     `Get-HcsSystem`
 
@@ -103,10 +104,14 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
 9. Repeat steps 3-5 to install the remaining regular-mode hotfixes.
 
+	> [AZURE.IMPORTANT] You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates. 
+	
+
 	- The WMI updates - KB3103616
 	- The iSCSI updates - KB3146621
 	
 	If you are upgrading from a version prior to Update 2, you will also need to download:
+
 	- The LSI driver - KB3121900
 	- The Storport update - KB3080728
 	- The Spaceport update - KB3090322

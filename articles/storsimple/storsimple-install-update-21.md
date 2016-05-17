@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/12/2016"
+   ms.date="05/17/2016"
    ms.author="alkohli" />
 
 # Install Update 2.1 on your StorSimple device
@@ -21,7 +21,7 @@
 
 This tutorial explains how to install Update 2.1 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 2.1 includes device software, WMI, and iSCSI updates. If moving from a pre-Update 2 version, you will also be required to apply LSI driver, Spaceport, Storport, and disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive and can only be applied via the Windows PowerShell interface of the device. 
+Update 2.1 includes device software, WMI, and iSCSI updates. If updating from a pre-Update 2 version, you will also be required to apply LSI driver, Spaceport, Storport, and disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive and can only be applied via the Windows PowerShell interface of the device. 
 
 > [AZURE.IMPORTANT]
 
@@ -78,16 +78,23 @@ If your device is running Update 2, you must download and install the following 
 
 #### Download updates for a device running pre-Update 2 software
 
-If your device is running a version prior to Update 2 (including Update 0.2, 0.3, 1.0, 1.1, 1.2), you must download and install the following hotfixes in the prescribed order: 
+If your device is running versions 0.2, 0.3, 1.0, and 1.1, you must download and install the LSI driver and firmware update. This update is already installed if you are running Update 1.2 or 2. 
  
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 4      | KB3121900 | LSI driver              |  Regular     | ~ 20 mins |
-| 5      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
-| 6      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
+| 4      | KB3121900 | LSI driver and firmware             |  Regular     | ~ 20 mins |
 
 
-You may also need to install disk firmware updates:
+If your device is running versions 0.2, 0.3, 1.0, 1.1, and 1.2, you must download and install the Spaceport and the Storport fix. These are already installed if you are running Update 2.
+
+| Order  | KB        | Description                    | Update type  | Install time |
+|--------|-----------|-------------------------|------------- |-------------|
+| 5      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
+| 6      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
+
+
+
+You may also need to install disk firmware updates. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. :
 
 
 | Order  | KB        | Description                    | Update type  | Install time |
