@@ -1,20 +1,20 @@
 <properties
-   pageTitle="How to set up the Business Glossary for governed tagging | Microsoft Azure"
-   description="How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	pageTitle="How to set up the Business Glossary for governed tagging | Microsoft Azure"
+	description="How-to article highlighting the business glossary in Azure Data Catalog for defining and using a common business vocabulary to tag registered data assets."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="05/06/2016"
-   ms.author="maroche"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="05/06/2016"
+	ms.author="maroche"/>
 
 # How to set up the Business Glossary for Governed Tagging
 
@@ -83,3 +83,7 @@ Both glossary tags and user tags are searchable, and can be applied as filters i
 
 ## Summary
 The business glossary in Azure Data Catalog, and the governed tagging it enables, allow data assets to be identified, managed, and discovered in a consistent manner. The business glossary can promote learning of the business vocabulary amongst users of an organization and supports meaningful meta-data to be captured, making asset discovery and understanding a breeze.
+
+## See Also
+
+- [REST API documentation for business glossary operations](https://msdn.microsoft.com/library/mt708855.aspx)
