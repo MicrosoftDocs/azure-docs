@@ -23,7 +23,6 @@ One of the challenges for modern data integration is to seamlessly move data to 
 Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) for more information.
 
 ## CURRENT VERSION (1.12.5953.1)
-- Provide a PowerShell script to analyze errors and help collect event logs associated with Data Management Gateway.
 - Bug fixes
 
 
