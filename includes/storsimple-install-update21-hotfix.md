@@ -107,8 +107,9 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 	> [AZURE.IMPORTANT] You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates. 
 	
 
-	- The WMI update KB3103616
+	
 	- The iSCSI update KB3146621
+	- The WMI update KB3103616
 	
 10. Skip this step if you are upgrading from Update 2. If you are upgrading from a version prior to Update 2, you will also need to download:
 

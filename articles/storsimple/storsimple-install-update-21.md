@@ -84,8 +84,9 @@ If your device is running Update 2, you must download and install the following 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
 | 1      | KB3162954 | Software update         |  Regular     | ~ 45 mins |
-| 2      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
-| 3      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
+| 2      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
+| 3      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
+
 
 #### Download updates for a device running pre-Update 2 software
 
