@@ -56,7 +56,7 @@ Log Analytics solutions consist of several components, including:
 
 + Visualizations
 + [Custom Log](log-analytics-data-sources-custom-logs.md) sources
-+ [Custom Field](log-analytics-data-sources-custom-fields.md) definitions
++ [Custom Field](log-analytics-custom-fields.md) definitions
 + [Alerts](log-analytics-alerts.md)
 + Saved Searches
 + Automation
@@ -85,7 +85,7 @@ No IT system runs in isolation so you’ll also want to integrate Log Analytics 
 
 For reporting Log Analytics is able to automatically export data to [PowerBI](log-analytics-powerbi.md). If you need to integrate with another reporting system, you can use the Search cmdlets to run queries and export search results.
 
-Grant users access to the Log Analytics workspace using [Azure RBAC](../role-based-access-control-manage-access-powershell.md) to provide people access to the workspace.  
+Grant users access to the Log Analytics workspace using [Azure RBAC](../active-directory/role-based-access-control-manage-access-powershell.md) to provide people access to the workspace.  
 
 For ticketing or alerting systems you can with integrate Log Analytics using the [Alerting](log-analytics-alerts.md) functionality and its ability to call a webhook or an Azure Automation runbook. 
 
