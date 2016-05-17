@@ -38,7 +38,7 @@ If you determine that your cache is no longer meeting the requirements of your a
 ## Scale a cache
 To scale your cache, [browse to the cache](cache-configure.md#configure-redis-cache-settings) in the [Azure Portal](https://portal.azure.com) and click **Settings**, **Pricing tier**.
 
-You can also click the **Standard tier** or **Basic tier** part in the **Redis Cache** blade.
+You can also click the **Pricing tier** part in the **Redis Cache** blade.
 
 ![Pricing tier][redis-cache-pricing-tier-part]
 
@@ -64,6 +64,10 @@ When scaling is complete, the status changes from **Scaling** to **Running**.
 ## How to automate a scaling operation
 
 In addition to scaling your Azure Redis Cache instances in the Azure Portal, you can scale using Azure Redis Cache PowerShell cmdlets, Azure CLI, and by using the Microsoft Azure Management Libraries (MAML). 
+
+-	[Scale using PowerShell](#scale-using-powershell)
+-	[Scale using Azure CLI](#scale-using-azure-cli)
+-	[Scale using MAML](#scale-using-maml)
 
 ### Scale using PowerShell
 
@@ -122,9 +126,9 @@ The following list contains answers to commonly asked questions about Azure Redi
 -	You can't scale from a **Premium** cache down to a **Basic** or **Standard** pricing tier.
 -	You can scale from one **Premium** cache pricing tier to another.
 -	You can't scale from a **Basic** cache directly to a **Premium** cache. You must first scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
--	If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size).
+-	If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size). At this time you can't enable clustering on a previously existing cache that was created without clustering.
 
-For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
+    For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
 ### After scaling, do I have to change my cache name or access keys?
 
@@ -132,37 +136,30 @@ No, your cache name and keys are unchanged during a scaling operation.
 
 ### How does scaling work?
 
-When a **Basic** cache is scaled to a different size, it is shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
-
-When a **Basic** cache is scaled to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
-
-When a **Standard** cache is scaled to a different size, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is re-provisioned, similar to the process that occurs during a failure of one of the cache nodes.
+-	When a **Basic** cache is scaled to a different size, it is shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
+-	When a **Basic** cache is scaled to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
+-	When a **Standard** cache is scaled to a different size or to a **Premium** cache, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is re-provisioned, similar to the process that occurs during a failure of one of the cache nodes.
 
 ### Will I lose data from my cache during scaling?
 
-When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
+-	When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
+-	When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
+-	When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
 
-When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
-
-When a **Standard** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
 
 Note that while Standard and Premium caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
 ### Will my cache be available during scaling?
 
-**Standard** caches remain available during the scaling operation.
-
-**Basic** caches are offline during scaling operations to a different size, but remain available when scaling from **Basic** to **Standard**.
+-	**Standard** and **Premium** caches remain available during the scaling operation.
+-	**Basic** caches are offline during scaling operations to a different size, but remain available when scaling from **Basic** to **Standard**.
 
 ### Operations that are not supported
 
-You can't scale to or from a **Premium** cache.
-
-You can't change from a **Standard** to a **Basic** cache.
-
-You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
-
-You can scale up from a **C0** (250 MB) cache to a larger size, but you can't scale a larger size down to a **C0** cache.
+-	You can't change from a **Standard** to a **Basic** cache.
+-	You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+-	You can scale up from a **C0** (250 MB) cache to a larger size, but you can't scale a larger size down to a **C0** cache.
+-	You can't scale from a **Basic** cache directly to a **Premium** cache. You must first scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
 
 If a scaling operation fails, the service will try to revert the operation and the cache will revert to the original size.
 
