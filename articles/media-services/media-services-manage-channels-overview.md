@@ -64,7 +64,7 @@ Following table provides a guide to comparing the two Channel types supported in
 Feature|Pass-through Channel|Standard Channel
 ---|---|---
 Single bitrate input is encoded into multiple bitrates in the cloud|No|Yes
-Maximum resolution, number of layers|1080p, 8 layers (4K??), 60+fps|720p, 6 layers, 30 fps
+Maximum resolution, number of layers|1080p, 8 layers (4K), 60+fps|720p, 6 layers, 30 fps
 Input protocols|RTMP, Smooth Streaming|RTMP, Smooth Streaming, and RTP
 Price||
 Maximum run time|24x7|8 hours
@@ -80,7 +80,7 @@ Auto-shutoff of Channels when input feed is lost|No|After 12 hours, if there is 
 
 The following diagram shows the major parts of the AMS platform that are involved in the **pass-through** workflow.
 
-![Live workflow][live-overview2]
+![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -88,7 +88,7 @@ For more information, see [Working with Channels that Receive Multi-bitrate Live
 
 The following diagram shows the major parts of the AMS platform that are involved in Live Streaming workflow where a Channel is enabled to perform live encoding with Media Services.
 
-![Live workflow][live-overview1]
+![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
 
 For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -165,6 +165,3 @@ Stopped|Stopped|No
 [Quotas and limitations](media-services-quotas-and-limitations.md).  
 
 [Media Services Concepts](media-services-concepts.md)
-
-[live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
- 
