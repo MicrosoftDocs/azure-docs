@@ -26,18 +26,18 @@ Azure already has many built-in platform features that support highly available 
 
 This document covers a true Disaster Recovery, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences; but you must prepare for the possibility that there is an outage of the entire datacenter. When a datacenter goes down, the locally redundant copies of your data are not available. If you have enabled Geo-replication, there are three additional copies of your Azure Storage blobs and tables in a datacenter in a different region. When Microsoft declares the datacenter lost, Azure remaps all of the DNS entries to the geo-replicated datacenter. 
 
->[AZURE-NOTE]Be aware that you do not have any control over this process, and it will only occur for datacenter-wide failures. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data Strategies for Disaster Recovery](https://aka.ms/drtechguide#DSDR). If you would like to be able to affect your own failover you may want to consider the use of [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) which creates a read-only copy of your data in another region.
+>[AZURE.NOTE]Be aware that you do not have any control over this process, and it will only occur for datacenter-wide failures. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data Strategies for Disaster Recovery](https://aka.ms/drtechguide#DSDR). If you would like to be able to affect your own failover you may want to consider the use of [Read-Access Geo-Redundant Storage (RA-GRS)](../storage/storage-redundancy.md#read-access-geo-redundant-storage) which creates a read-only copy of your data in another region.
 
 To help you handle these rare occurrences, we provide you the following guidance for Azure Cloud Services in the case of an outage of the entire datacenter where your Cloud Services application is deployed. 
 
 ##Option 1: Wait for recovery 
-In this case, no action on your part is required.  Know that Azure teams are working diligently to restore service availability. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/). 
+In this case, no action on your part is required. Know that Azure teams are working diligently to restore service availability. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/). 
 
->[AZURE-NOTE]Note: This is the best option if customer hasn’t setup Azure Site Recovery (ASR) or has a secondary deployment in a different region. 
+>[AZURE.NOTE]This is the best option if customer hasn’t setup Azure Site Recovery (ASR) or has a secondary deployment in a different region. 
 
 For customers desiring immediate access to their deployed Cloud Services, the below options are available.
 
->[AZURE-NOTE]Be aware that these options have the possibility of some data loss.     
+>[AZURE.NOTE]Be aware that these options have the possibility of some data loss.     
 
 ##Option 2: Re-Deploy your Cloud Service configuration to a new Region 
 
@@ -50,7 +50,6 @@ Depending on your application data sources, you may need to check the recovery p
   * For SQL Database sources please read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md) to check on the options available based on the replication model chosen for your application. 
 
 ##Option 3: Use a backup deployment through a Traffic Manager 
-
 This option assume you have already designed your application solution with regional disaster recovery in mind. This option can be used if you already have a secondary Cloud Services application deployment running in a different region and connected through a traffic manager channel. In this case, check the health of the secondary deployment and if all healthy, you can redirect traffic to it through Azure Traffic manager taking advantage traffic routing method and failover order configurations in ATM please see [How to configure Traffic Manager settings](../traffic-manager/traffic-manager-overview.md#how-to-configure-traffic-manager-settings). 
 
 ![Balancing Azure Cloud Services across regions with Azure Traffic Manager](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
