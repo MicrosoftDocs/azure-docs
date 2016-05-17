@@ -102,7 +102,7 @@ The service contract specifies what operations (the Web service terminology for 
 
 	A channel is the WCF object through which the host and client pass information to each other. Later, you will write code against the channel to echo information between the two applications.
 
-1. From the **Build** menu, click **Build Solution** or press F6 to confirm the accuracy of your work so far.
+1. From the **Build** menu, click **Build Solution** or press **Ctrl+Shift+B** to confirm the accuracy of your work so far.
 
 ### Example
 
@@ -348,7 +348,7 @@ This step describes how to run a basic Service Bus service.
 	host.Close();
 	```
 
-1. Press F6 to build the project.
+1. Press **Ctrl+Shift+B** to build the project.
 
 ### Example
 
@@ -465,7 +465,7 @@ The next step is to create a basic Service Bus client application and define the
 	public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
-1. Press F6 to build the client.
+1. Press **Ctrl+Shift+B** to build the client.
 
 ### Example
 
@@ -650,7 +650,7 @@ However, one of the main differences is that the client application uses a chann
 
 ## To run the applications
 
-1. Press F6 to build the solution. This builds both the client project and the service project that you created in the previous steps.
+1. Press **Ctrl+Shift+B** to build the solution. This builds both the client project and the service project that you created in the previous steps.
 
 2. Before running the client application, you must make sure that the service application is running. In Solution Explorer in Visual Studio, right-click the **EchoService** solution, then click **Properties**.
 
