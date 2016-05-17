@@ -153,7 +153,7 @@ Without forced tunneling, Internet-bound traffic from your VMs in Azure will alw
 
 For more information about configuring forced tunneling, see [About forced tunneling for the classic deployment model](vpn-gateway-about-forced-tunneling.md) and [About forced tunneling for the Resource Manager deployment model](vpn-gateway-about-forced-tunneling.md).
 
-**Forced-tunneling diagram**
+**Forced tunneling diagram**
 
 ![Forced Tunneling connection](./media/vpn-gateway-plan-design/forced-tunnel.png "forced tunneling")
 
