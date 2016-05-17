@@ -15,12 +15,12 @@
 	ms.topic="article"
 	ms.date="05/17/2016"
 	ms.author="nicking"/>
+# Use REST to back up and restore App Service apps
 
 > [AZURE.SELECTOR]
 - [PowerShell](websites-powershell-backup.md)
 - [REST API](websites-csm-backup.md)
 
-# Use REST to back up and restore App Service apps
 [App Service apps](https://azure.microsoft.com/services/app-service/web/) can be backed up as blobs in Azure storage. The backup can also contain the app’s databases. If the app is ever accidentally deleted, or if the app needs to be reverted to a previous version, it can be restored from any previous backup. Backups can be done at any time on demand, or backups can be scheduled at suitable intervals.
 
 This article will explain how to backup and restore an app with RESTful API requests. If you would like to create and manage app backups graphically through the Azure portal, see [Back up a web app in Azure App Service](web-sites-backup.md)
