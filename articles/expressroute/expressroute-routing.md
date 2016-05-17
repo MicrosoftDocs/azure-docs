@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -37,7 +37,7 @@ You can use either private IP addresses or public IP addresses to configure the 
  - The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
  - If a /29 subnet is used, it will be split into two /30 subnets. 
 	 - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-	 - For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
+	 - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
 	 - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
 
 #### Example for private peering
@@ -78,7 +78,7 @@ Routing exchange will be over eBGP protocol. EBGP sessions are established betwe
 
 ## Autonomous System numbers
 
-Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved AS 65515 for internal use. Both 16 and 32 bit AS numbers are supported.
+Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
 
 There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
 
@@ -134,8 +134,6 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | **Europe** |    |  |
 |    | North Europe | 12076:51003 |
 |    | West Europe | 12076:51002 |
-|    | UK North    | 12076:51022 |
-|    | UK South 2 | 12076:51023 |
 | **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |

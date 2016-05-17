@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running Windows VMs for a 3-tier architecture | Blueprint | Microsoft Azure"
+   pageTitle="Running Windows VMs for an N-tier architecture | Reference Architecture | Microsoft Azure"
    description="How to implement a multi-tier architecture on Azure, paying particular attention to availability, security, scalability, and manageability security."
    services=""
    documentationCenter="na"
@@ -17,11 +17,13 @@
    ms.date="04/19/2016"
    ms.author="mikewasson"/>
 
-# Running Windows VMs for a 3-tier architecture on Azure
+# Running Windows VMs for an N-tier architecture on Azure
 
-This article outlines a set of proven practices for running Windows VMs for an application with a 3-tier architecture.
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-There are variations of 3-tier architectures. For the most part, the differences shouldn't matter for the purposes of these recommendations. This article assumes a typical 3-tier web app:
+This article outlines a set of proven practices for running Windows VMs for an application with a N-tier architecture.
+
+There are variations of N-tier architectures. For the most part, the differences shouldn't matter for the purposes of these recommendations. This article assumes a typical 3-tier web app:
 
 - **Web tier.** Handles incoming HTTP requests. Responses are returned through this tier.
 
@@ -461,6 +463,9 @@ goto :eof
 
 ```
 
+## Next steps
+
+- This article shows a basic N-tier architecture. For some additional considerations about reliability, see [Adding reliability to an N-tier architecture on Azure][n-tier].
 
 <!-- links -->
 
@@ -478,6 +483,7 @@ goto :eof
 [load-balancer-internal]: ../load-balancer/load-balancer-internal-overview.md
 [load-balancer-internal-cli]: ../load-balancer/load-balancer-get-started-ilb-arm-cli.md
 [multi-vm]: guidance-compute-multi-vm.md
+[n-tier]: guidance-compute-n-tier-vm.md
 [naming conventions]: guidance-naming-conventions.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
 [nsg-rules]: ../best-practices-resource-manager-security.md#network-security-groups

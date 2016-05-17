@@ -22,6 +22,8 @@
 
 Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US, Brazil South, West India, India South and China North where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
+
 ## How it works
 
 A common SaaS application pattern is the single-tenant database model: each customer is given a database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic database pools solve this problem by ensuring that databases get the performance resources they need, when they need it, while  providing a simple resource allocation mechanism within a predictable budget.
@@ -61,7 +63,7 @@ Databases that are great candidates for elastic database pools typically have pe
 | eDTUs per pool | The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
 | Max storage per pool (GB) | The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
 | Max number of databases per pool | The maximum number of databases allowed per pool. |
-| Max concurrent workers per pool | The maximum number of concurrent workers (also referred to as requests) available for all databases in the pool. |
+| Max concurrent workers per pool | The maximum number of concurrent workers (requests) available for all databases in the pool. |
 | Max concurrent logins per pool | The maximum number of concurrent logins for all databases in the pool. |
 | Max concurrent sessions per pool | The maximum number of sessions available for all databases in the pool. |
 
@@ -83,7 +85,7 @@ For more information about other tools, see the [Elastic database tools learning
 
 ## Business continuity features for databases in a pool
 
-Elastic databases support most [business continuity features](sql-database-business-continuity.md) that are available to single databases on V12 servers.
+Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
 
 
 ### Point in time restore

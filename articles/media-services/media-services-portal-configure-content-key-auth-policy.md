@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/07/2016"  
+ 	ms.date="05/03/2016"   
 	ms.author="juliako"/>
 
 
@@ -97,7 +97,7 @@ You can click the **import policy xml** button and provide a different XML which
 
 
 ##Next Steps
-Now that you have configured content key's authorization policy, go to the [How to: Use the Azure Classic Portal to enable encryption](../media-services-manage-content#encrypt/) topic.
+Now that you have configured content key's authorization policy, go to the [How to: Use the Azure Classic Portal to enable encryption](media-services-manage-content.md#encrypt) topic.
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png

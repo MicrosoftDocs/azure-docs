@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="04/05/2016"
 	ms.author="onewth"/>
 
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
@@ -25,7 +25,7 @@ You can use these APIs to detect sentiment, key phrases, topics and language fro
 
 Please refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
-This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](machine-learning-apps-text-analytics/).
+This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](../machine-learning-apps-text-analytics/).
 
 By the end of this tutorial, you will be able to programatically detect:
 
@@ -65,7 +65,7 @@ In this task, you will sign up for the text analytics service.
 
 It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](//go.microsoft.com/fwlink/?LinkID=759712) returns.
 
-**Tip!** For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
+>[AZURE.TIP] For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
 
 1. You will need to set the headers to the following. Note that JSON is currently the only accepted input format for the APIs. XML is not supported.
 
@@ -236,6 +236,50 @@ Follow these steps to detect topics in your text.
                 ]
 			}
 		}
+
+Note that the successful response for topics from the `operations` endpoint will have the following schema:
+
+	{
+    		"topics" : [{
+        		"id" : "string",
+        		"score" : "number",
+        		"keyPhrase" : "string"
+    		}],
+    		"topicAssignments" : [{
+        		"documentId" : "string",
+        		"topicId" : "string",
+        		"distance" : "number"
+    		}],
+    		"errors" : [{
+        		"id" : "string",
+        		"message" : "string"
+    		}]
+    	}
+
+Explanations for each part of this response are as follows:
+
+**topics**
+
+| Key | Description |
+|:-----|:----|
+| id | A unique identifier for each topic. |
+| score | Count of documents assigned to topic. |
+| keyPhrase | A summarizing word or phrase for the topic. |
+
+**topicAssignments**
+
+| Key | Description |
+|:-----|:----|
+| documentId | Identifier for the document. Equates to the ID included in the input. |
+| topicId | The topic ID which the document has been assigned to. |
+| distance | Document-to-topic affiliation score between 0 and 1. The lower a distance score the stronger the topic affiliation is. |
+
+**errors**
+
+| Key | Description |
+|:-----|:----|
+| id | Input document unique identifier the error refers to. |
+| message | Error message. |
 
 ## Next steps ##
 

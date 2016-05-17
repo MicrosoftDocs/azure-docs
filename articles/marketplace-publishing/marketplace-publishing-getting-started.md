@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/07/2016"
+   ms.date="04/29/2016"
    ms.author="hascipio" />
 
 # How to publish an offer to the Azure Marketplace
@@ -57,7 +57,7 @@ Some steps are shared between the different types of solutions. This article pro
 
 - [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-hero-tutorial/)
+- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 **Data Services**
 

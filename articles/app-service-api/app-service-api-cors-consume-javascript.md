@@ -264,6 +264,13 @@ The following steps summarize the process for enabling Web API CORS support. For
 		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
+## Using Azure API Management with API Apps
+
+If you use Azure API Management with an API app, configure CORS in API Management instead of in the API app. For more information, see the following resources:
+
+* [Azure API Management Overview (video: CORS starts at 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
+* [API Management cross domain policies](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
+ 
 ## Troubleshooting
 
 If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
@@ -279,4 +286,4 @@ To learn more about Visual Studio features that simplify troubleshooting, see [T
 
 ## Next steps 
 
-In this article, you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. In the next article in the API Apps getting started series, you learn about [authentication for App Service API apps](app-service-api-authentication.md).
+In this article, you saw how to enable App Service CORS support so that client JavaScript code can call an API in a different domain. To learn more about API apps, read the [introduction to authentication in App Service](../app-service/app-service-authentication-overview.md), and then go to the next tutorial in this series: [user authentication for API apps](app-service-api-dotnet-user-principal-auth.md).

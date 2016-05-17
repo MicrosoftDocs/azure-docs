@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name" 
    authors="coreyp-at-msft" 
    manager="stevenka" 
-   editor="tysonn"/>
+   editor="tysonn"
+   keywords="powershell dsc, desired state configuration, powershell dsc azure"/>
 
 <tags
    ms.service="automation"
@@ -13,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="03/02/2016"
-   ms.author="coreyp"/>
+   ms.date="05/10/2016"
+   ms.author="magoedte;coreyp"/>
 
 # Azure Automation DSC Overview #
 

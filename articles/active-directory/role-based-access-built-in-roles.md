@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Built-in roles
@@ -34,7 +34,7 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) | Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) | Can manage everything except access. |
 | [Data Factory Contributor](#data-factory-contributor) | Can manage data factories |
-| [DevTest Lab User](#devtest-lab-user) | Can view everything and connect, start, restart, and shutdown virtual machines |
+| [DevTest Labs User](#devtest-labs-user) | Can view everything and connect, start, restart, and shutdown virtual machines |
 | [Document DB Account Contributor](#document-db-account-contributor) | Can manage Document DB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Can manage Intelligent Systems accounts |
 | [Network Contributor](#network-contributor) | Can manage all network resources |
@@ -152,23 +152,25 @@ Can manage data factories
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.Support/* | Create and manage support tickets  |
 
-### DevTest Lab User
+### DevTest Labs User
 Can view everything and connect, start, restart, and shutdown virtual machines
 
 | **Actions** ||
 | ------- | ------ |
 | */read | Read resources of all types |
-| Microsoft.DevTestLab/labs/labStats/action | Read lab stats |
-| Microsoft.DevTestLab/Environments/* | Create and manage environments |
 | Microsoft.DevTestLab/labs/createEnvironment/action | Create a lab environment |
+| Microsoft.DevTestLab/labs/formulas/delete | Delete formulas |
+| Microsoft.DevTestLab/labs/formulas/write | Add or modify forumulas |
+| Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluate lab policies |
 | Microsoft.Compute/virtualMachines/start/action | Start virtual machines |
 | Microsoft.Compute/virtualMachines/restart/action | Restart virtual machines |
 | Microsoft.Compute/virtualMachines/deallocate/action | Deallocate virtual machines |
 | Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
-| Microsoft.Network/virtualNetworks/join/action | Join virtual networks |
-| Microsoft.Network/loadBalancers/join/action | Join load balancers |
-| Microsoft.Network/publicIPAddresses/link/action | Link to publisc IP addresses |
-| Microsoft.Network/networkInterfaces/link/action | Link to network interfaces |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Join a virtual network |
+| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Join a load balancer backend address pool |
+| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Join a load balancer inbound nat rule |
+| Microsoft.Network/publicIPAddresses/join/action | Join a public IP address |
+| Microsoft.Network/networkInterfaces/join/action | Join a Virtual Machine to a network interface |
 | Microsoft.Network/networkInterfaces/write | Write network interfaces |
 
 ### Document DB Account Contributor
@@ -371,17 +373,17 @@ Can manage classic storage accounts
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Storage Account Contributor
-Can manage storage accounts
+Can manage storage accounts, but not acccess to them.
 
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
 | Microsoft.Authorization/*/read | Read all authorization |
-| Microsoft.Resources/subscriptions/resources/read | Read subscription resources |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read subscription resource groups |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Read subscription resource groups resources |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage subscription resource group deployments |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+| Microsoft.Insights/diagnosticSettings/* | Manage diagnostic settings |
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### User Access Administrator

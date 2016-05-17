@@ -41,11 +41,11 @@ The following high-level concepts describe what you can do with App Service.
 ### App Types
 App Service allows you to create the following app types from a single development experience:
 
-- [**Web Apps**](../app-service-web-overview) - Quickly create and deploy mission critical Web apps that scale with your business.
-- [**Mobile Apps**](../app-service-mobile-value-prop-preview) - Engage employees, partners and customers on any device at any time.
-- [**API Apps**](../app-service-api-apps-why-best-platform) - Easily build and consume cloud APIs.
-- [**Function Apps**](../functions-overview) - Create lightweight functions that respond to events across Azure, on premises, and SaaS providers.
-- [**Logic Apps**](../app-service-logic-what-are-logic-apps) - Automate the access and use of data across clouds without writing code.
+- [**Web Apps**](../app-service-web/app-service-web-overview.md) - Quickly create and deploy mission critical Web apps that scale with your business.
+- [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) - Engage employees, partners and customers on any device at any time.
+- [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - Easily build and consume cloud APIs.
+- [**Function Apps**](../azure-functions/functions-overview.md) - Create lightweight functions that respond to events across Azure, on premises, and SaaS providers.
+- [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - Automate the access and use of data across clouds without writing code.
 
 As a single integrated service, App Service makes it easy to compose the above app types into a single solution, allowing you to easily build apps that target both web and mobile clients using the same back-end and integrate with on-premises systems as well as popular services such as Office 365 and salesforce.com.
 

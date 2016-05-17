@@ -19,7 +19,7 @@
 # Use custom activities in an Azure Data Factory pipeline
 There are two types of activities that you can use in an Azure Data Factory pipeline.
  
-- [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported data stores](data-factory-data-movement-activities#supported-data-stores).
+- [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores).
 - [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform/process data using computes such as Azure HDInsight, Azure Batch, and Azure Machine Learning. For example: HDInsight Hive and Machine Learning Batch Execution.  
 
 If you need to move data to/from a data store that is not supported by Azure Data Factory, you can create a custom .NET activity with your own data movement logic and use the activity in the pipeline. 
@@ -47,17 +47,19 @@ For the purpose of the tutorial, you need to create an Azure Batch account with 
 1. Create an **Azure Batch account** using the [Azure Portal](http://manage.windowsazure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
 
 	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet.
-2. Create an **Azure Batch pool**. You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
-
-	You can also use [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
-
-	You may want to create the Azure Batch pool with at least 2 compute nodes so that slices are processed in parallel. If you are using Batch Explorer:  
-
-	- Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
-	- Specify **Windows Server 2012 R2** for the Operating System Family setting.
-	- Specify **2** as value for the **Max tasks per compute node** setting.
-	- Specify **2** as value for the **Number of Target Dedicated** setting. 
-
+2. Create an **Azure Batch pool**.
+	1. In the [Azure Portal](https://portal.azure.com), click **Browse** in the left menu, and click **Batch Accounts**. 
+	2. Select your Azure Batch account to open the **Batch Account** blade. 
+	3. Click **Pools** tile.
+	4. In the **Pools** blade, click Add button on the toolbar to add a pool.
+		1. Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
+		2. Specify **Windows Server 2012 R2** for the Operating System Family setting.
+		3. Select a **node pricing tier**. 
+		3. Enter **2** as value for the **Target Dedicated** setting.
+		4. Enter **2** as value for the **Max tasks per node** setting.
+	5. Click **OK** to create the pool. 
+ 
+	You can also use [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.	 
 
 ### High-level steps 
 1.	**Create a custom activity** to use a Data Factory pipeline. The custom activity in this sample will contain the data transformation/processing logic. 
@@ -93,7 +95,7 @@ The method takes four parameters:
 - **activity**. This parameter represents the current compute entity - in this case, an Azure Batch.
 - **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline. 
 
-The method returns a dictionary that can be used to chain custom activities together. This feature is not yet supported at this time.  
+The method returns a dictionary that can be used to chain custom activities together in the future. This feature is not implemented yet, so just return an empty dictionary from the method.  
 
 ### Procedure 
 1.	Create a **.NET Class Library** project.
@@ -234,7 +236,9 @@ The method returns a dictionary that can be used to chain custom activities toge
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.  
+
             return new Dictionary<string, string>();
         }
 
@@ -654,8 +658,11 @@ In this step, you will create datasets to represent input and output data.
 See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
 
 The Data Factory service creates a job in Azure Batch with the name: **adf-<pool name>:job-xxx**. A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
+
 	
 ![Batch Explorer tasks](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
+
+> [AZURE.NOTE] Download the source code for [Azure Batch Explorer tool][batch-explorer], compile, and use it to create and monitor Batch pools. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
 
 ![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
@@ -725,6 +732,14 @@ To access these extended properties in the **Execute** method, use code similar 
     	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
 	}
 
+## Auto-scaling feature of Azure Batch
+You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
+ 
+	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+
+See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
+
+If the pool is using the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.  If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
 
 ## Use Azure HDInsight linked services
 In the walkthrough, you used Azure Batch compute to run the custom activity. You can also use your own HDInsight cluster or have Data Factory create an on-demand HDInsight cluster and have the custom activity run on the HDInsight cluster. Here are the high level steps for using an HDInsight cluster.  
