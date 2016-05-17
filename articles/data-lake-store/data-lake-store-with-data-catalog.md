@@ -36,7 +36,7 @@ Before you begin this tutorial, you must have the following:
 
 ## Register Data Lake Store as a source for Data Catalog
 
->[AZURE.VIDEO ADCwithADL] 
+>[AZURE.VIDEO adcwithadl] 
 
 1. Go to `https://azure.microsoft.com/services/data-catalog`, and click **Get started**.
 
