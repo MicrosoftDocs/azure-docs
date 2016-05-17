@@ -24,7 +24,7 @@ Azure Role-Based Access Control (RBAC) comes with the following built-in roles t
 
 The table below provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **not actions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property specifies the actions that are excluded from the allowed actions.
 
->[AZURE.NOTE] The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure powershell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
+>[AZURE.NOTE] The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
 
 | Role name | Description |
 | --------- | ----------- |
