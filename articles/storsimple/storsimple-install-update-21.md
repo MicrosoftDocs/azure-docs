@@ -94,7 +94,7 @@ If your device is running versions 0.2, 0.3, 1.0, 1.1, and 1.2, you must downloa
 
 
 
-You may also need to install disk firmware updates. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. :
+You may also need to install disk firmware updates. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: XMGG, XGEG, KZ50, F6C2, VR08, then you do not need to install these updates.
 
 
 | Order  | KB        | Description                    | Update type  | Install time |
