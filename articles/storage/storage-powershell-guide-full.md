@@ -237,7 +237,7 @@ Now that you have set up your computer and learned how to manage subscriptions a
 
 ### How to retrieve and regenerate Azure storage keys
 
-> [AZURE.NOTE] The method for retrieving keys changed from Azure PowerShell 1.3.2 to Azure PowerShell 1.4. We'll explain both methods in this section.
+> [AZURE.IMPORTANT] The method for retrieving keys changed from Azure PowerShell 1.3.2 to Azure PowerShell 1.4. We'll explain both methods in this section.
 
 An Azure Storage account comes with two account keys. You can use the following cmdlet to retrieve your keys.
 
