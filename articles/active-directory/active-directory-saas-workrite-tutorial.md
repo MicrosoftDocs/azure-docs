@@ -22,6 +22,7 @@
 The objective of this tutorial is to show you how to integrate Workrite with Azure Active Directory (Azure AD).  
 Integrating Workrite with Azure AD provides you with the following benefits: 
 
+
 - You can control in Azure AD who has access to Workrite 
 - You can enable your users to automatically get signed-on to Workrite (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure classic portal
