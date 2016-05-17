@@ -3,8 +3,8 @@
 	description="Learn how to use PowerShell to back up and restore an app in Azure App Service"
 	services="app-service"
 	documentationCenter=""
-	authors="nking92"
-	manager="aelnably"
+	authors="nicking"
+	manager="zhey"
     editor="" />
 
 <tags
@@ -52,6 +52,24 @@ If you would like to include a database as part of your backup, first create a d
 		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbBackup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupName MyBackup -StorageAccountUrl $sasUrl -Databases $dbSetting1,$dbSetting2
 
+## Get backups
+
+The Get-AzureRmWebAppBackupList cmdlet will return an array of all backups for a web app. You must supply the name of the web app and its resource group.
+
+		$resourceGroupName = "Default-Web-WestUS"
+		$appName = "ContosoApp"
+		$backups = Get-AzureRmWebAppBackupList -Name $appName -ResourceGroupName $resourceGroupName
+
+To get a specific backup, use the Get-AzureRmWebAppBackup cmdlet.
+
+		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
+
+You can also pipe a web app object into any of the backup management cmdlets for convenience.
+
+		$app = Get-AzureRmWebApp -Name ContosoApp -ResourceGroupName Default-Web-WestUS
+		$backupList = $app | Get-AzureRmWebAppBackupList
+		$backup = $app | Get-AzureRmWebAppBackup -BackupId 10102
+
 ## Schedule automatic backups
 
 You can schedule backups to happen automatically at a specified interval. To configure a backup schedule, use the Edit-AzureRmWebAppBackupConfiguration cmdlet. This cmdlet takes several parameters:
@@ -92,22 +110,6 @@ To get the current backup schedule, use the Get-AzureRmWebAppBackupConfiguration
 ## Restore a web app from a backup
 
 To restore a web app from a backup, use the Restore-AzureRmWebAppBackup cmdlet. The easiest way to use this cmdlet is to pipe in a backup object retrieved from the Get-AzureRmWebAppBackup cmdlet or Get-AzureRmWebAppBackupList cmdlet.
-
-The Get-AzureRmWebAppBackupList cmdlet will return an array of all backups for a web app. You must supply the name of the web app and its resource group.
-
-		$resourceGroupName = "Default-Web-WestUS"
-		$appName = "ContosoApp"
-		$backups = Get-AzureRmWebAppBackupList -Name $appName -ResourceGroupName $resourceGroupName
-
-To get a specific backup, use the Get-AzureRmWebAppBackup cmdlet.
-
-		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
-
-You can also pipe a web app object into any of the backup management cmdlets for convenience.
-
-		$app = Get-AzureRmWebApp -Name ContosoApp -ResourceGroupName Default-Web-WestUS
-		$backupList = $app | Get-AzureRmWebAppBackupList
-		$backup = $app | Get-AzureRmWebAppBackup -BackupId 10102
 
 Once you have a backup object, you can pipe it into the Restore-AzureRmWebAppBackup cmdlet. You must specify the Overwrite switch parameter to indicate that you intend to overwrite the contents of your web app with the contents of the backup. If the backup contains databases, those databases will be restored as well.
 
