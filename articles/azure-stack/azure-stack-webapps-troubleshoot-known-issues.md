@@ -24,7 +24,7 @@ If you experience issues while deploying or working with Web Apps on Azure Stack
 
 ![Azure Stack Web Apps Create New Web App][1]
 
-After you have completed the [registration of the Azure Stack Web Apps Provider](azure-stack-webapps-deploy.md/#register-the-newly-deployed-azure-stack-web-apps-provider-with-arm) if you cannot find the Web + Mobile blade then please try the following:
+After you have completed the [registration of the Azure Stack Web Apps Provider](azure-stack-webapps-deploy.md#register-the-newly-deployed-azure-stack-web-apps-provider-with-arm) if you cannot find the Web + Mobile blade then please try the following:
 * **Logout of the portal** and **close your browser** and then in a **new browser window login to the portal** and try again.
 
 If you still cannot see the web and mobile blade please try the following:
