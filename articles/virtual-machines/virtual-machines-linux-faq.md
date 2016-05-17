@@ -47,7 +47,9 @@ If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connecti
 
 You shouldn’t use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage, you would risk losing data that can’t be recovered. 
 
+## Can I copy or clone an existing Azure VM?
 
+Yes. For instructions, see [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](virtual-machines-linux-specialized-image.md).
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 

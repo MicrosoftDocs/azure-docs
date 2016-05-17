@@ -67,6 +67,10 @@ Yes. For instructions, see [Upload a Windows VM image to Azure ](virtual-machine
 
 Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](virtual-machines-windows-expand-os-disk.md).
 
+## Can I copy or clone an existing Azure VM?
+
+Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-specialized-image.md).
+
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 
 The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration will be done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region the new regions should be available for subsequent virtual machines.
