@@ -89,13 +89,15 @@ Use resource groups to enable the separation of responsibility for different set
 
 - A resource group containing the resources for the inbound and outbound NVA subnets and the management subnet. This resource group includes the VMs for the NVAs (including the load balancer), the jump box and other management VMs, and the UDR for the gateway subnet that forces all traffic through the NVAs.
 
+<!-- THe subnets for the NVAs are int eh same resource group as the first bullet point -->
+
 - Resource groups for each application tier, containing the load balancer and VMs for each tier. Note that this resource group should not include the subnets for each tier; the VNet resource group contains these resources as they are managed separately from the VMs within them.
 
 > [AZURE.NOTE] For more information, see [Best practices for designing Azure Resource Manager templates][arm-template-best-practices].
 
 ### RBAC recommendations
 
-within a resource group, create separate RBAC roles for DevOps staff who can create and administer VMs, and centralized IT administrators who can manage the network (assign a public IP address to a network interface, change NSG rules on the network, create VPN connections, and so on). Segregating staff across roles in this way allows an IT administrator to change NSG rules and assign public IP addresses to VMs. DevOps staff will be unable to perform these tasks, but can manage VMs. To implement this scheme:
+Within a resource group, create separate RBAC roles for DevOps staff who can create and administer VMs, and centralized IT administrators who can manage the network (assign a public IP address to a network interface, change NSG rules on the network, create VPN connections, and so on). Segregating staff across roles in this way allows an IT administrator to change NSG rules and assign public IP addresses to VMs. DevOps staff will be unable to perform these tasks, but can manage VMs. To implement this scheme:
 
 - The DevOps staff role should include the Virtual Machine Contributor role and Storage account contributor role (to enable system administrators to create and attach disks to VMs), as well as the Reader role on the resource group. For example:
 
@@ -149,7 +151,7 @@ azure network nic set -g <<resource-group>> -n <<nva-inbound-nic-name>> -f true
 
 Configure the NVA to inspect all requests intended for the web tier application subnet, and permit traffic to pass through only if it is appropriate to do so. This will most likely involve installing additional services and software on the NVA. The steps for performing this task will vary depending on the NVA and your security requirements.
 
-> [AZURE.NOTE] BY default, the configuration created by the sample script enables routing through the NVA by configuring each NVA VM as a simple Linux router. Inbound traffic arrives on network interface *eth0*, and outbound traffic is dispatched through network interface *eth1*. You can customize the NVA VMs to add security elements such as firewalls and content-based traffic filtering.
+> [AZURE.NOTE] By default, the configuration created by the sample script enables routing through the NVA by configuring each NVA VM as a simple Linux router. Inbound traffic arrives on network interface *eth0*, and outbound traffic is dispatched through network interface *eth1*. You can customize the NVA VMs to add security elements such as firewalls and content-based traffic filtering.
 
 Ensure that inbound traffic *heading for the application* cannot bypass the NVA. However, traffic directed towards the management subnet *should not pass through the NVA*. To do this, add a UDR to the gateway subnet that directs all requests made to the application arriving through the gateway to the NVA. The following example shows UDRs that enables management traffic to pass directly to the management subnet, but forces requests intended for the application through the NVA:
 
@@ -211,7 +213,7 @@ azure network nsg rule create --protocol * --source-address-prefix * --source-po
 
 ### Internet access recommendations
 
-Control outbound traffic from the web, business, and data access tiers to prevent accidental disclosure of confidential information. In the example architecture, the web, business, and data access tiers are permitted access to the Internet, but all such traffic is force-tunnelled through the on-premises network (as described in the [Recommendations][recommendations] section) so that it can be audited.
+Control outbound traffic from the web, business, and data access tiers to prevent accidental disclosure of confidential information. In the example architecture, the web, business, and data access tiers are permitted access to the Internet, but all such traffic is force-tunnelled through the on-premises network (as described in the [Recommendations][recommendations] section) so that it can be audited and controlled.
 
 > [AZURE.NOTE] Do not completely block Internet traffic from the web, business and application tiers as this will prevent these tiers from recording Azure diagnostic information, which requires that components have access to an Azure storage account. Reading and writing storage account information requires access to the Internet.
 
@@ -291,6 +293,8 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement
     }
 	```
 
+<!-- Add a snippet from the vm-3nics-lbbe tempalte that shows the NIC property for ip forwarding as well. -->
+
     This setting enables the VM to accept traffic on a NIC even if the NIC is not attached to the network to which the traffic is addressed.
 
 2. The template runs the [nva.sh][nva-script] script on each VM after the VM has been created. This is a Linux bash script that configures the IP network driver in the operating system to forward IP requests across NICs:
@@ -309,12 +313,7 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template creates an availability set for
 ```
 {
   "type": "Microsoft.Network/loadBalancers",
-  "apiVersion": "2016-03-30",
-  "location": "[variables('location')]",
-  "name": "[variables('lbName')]",
-  "tags": {
-    "displayName": "Load balancer"
-  },
+  ...
   "properties": {
     "frontendIPConfigurations": [
       {
@@ -356,7 +355,7 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template creates an availability set for
 #### Routing traffic through the NVA load balancer
 The UDR that directs traffic to the load balancer implements a routing rule that forces all inbound traffic intended for the application to pass through the load balancer. Notice that the rule specifies that the load balancer is a virtual appliance:
 
-**NOTE: THIS MAY CHANGE - ALSO NEED A UDR THAT BYPASSES THE NVA FOR MANAGEMENT SUBNET TRAFFIC - POSSIBLY DISCUSS IN MANAGEMENT SUBNET SECTION**
+**NOTE: THIS MAY CHANGE - ALSO NEED A UDR THAT BYPASSES THE NVA FOR MANAGEMENT SUBNET TRAFFIC - POSSIBLY DISCUSS IN MANAGEMENT SUBNET SECTION** CHECK THE UPDATED TEMPLATE
 ```
 {
   "type": "Microsoft.Network/routeTables",
@@ -457,6 +456,7 @@ The [bb-vpn-gateway-connection.json][bb-vpn-gateway-connection] template then cr
       }
     }
 	```
+<!-- Check the template for the vpn again. There should be two new properties: Sku, which must be Standard or HighPerformance (instead of Basic) for forced tunneling to work; and default local gateway, which points to the network to sedn all Internet traffic to for forced tunneling. Fous on those properties. Don't bother going through the other elements below for vpn connectivity, since we (will) cover them in the VPN doc. -->
 
 - A local gateway for the on-premises network. The public address of the on-premises VPN device, and the address space of the on-premises network are passed in to this template as parameters.:
 
@@ -526,6 +526,9 @@ echo
 echo azure network vnet subnet set -n ${DEPLOYED_DB_SUBNET_NAME} -e ${DEPLOYED_VNET_NAME} -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME} -g ${RESOURCE_GROUP} 
      azure network vnet subnet set -n ${DEPLOYED_DB_SUBNET_NAME} -e ${DEPLOYED_VNET_NAME} -r ${FORCED_TUNNELING_ROUTE_TABLE_NAME} -g ${RESOURCE_GROUP} 
 ```
+
+<!-- I don't like this. I thought everything was being done in the ARM templates. I will circle back with Hanz. -->
+
 ### Creating the management subnet
 
 The management subnet contains the jump box, and optionally other VMs that can be used to perform monitoring tasks. The example template only creates the jump box, but you can add and configure other VMs manually, according to your monitoring requirements.
@@ -567,8 +570,11 @@ The [azuredeploy.json][azuredeploy] template creates two NSG rules named *on-pre
   }
 }
 ```
+<!-- We may need to review this based on refactoring Rohit is working on -->
 
-The on-prem-allow rule allows RDP access through port 3389 only to traffic that has originated from the on-premises network. The vnet-deny rule blocks all traffic that has originated from the VNet. Note that it is still necessary to authenticate traffic that arrives from the on-premises network. You can perform this task by using [RBAC][rbac] as described elsewhere in this document; the example template does not implement any authentication.
+The on-prem-allow rule allows RDP access through port 3389 only to traffic that has originated from the on-premises network. The vnet-deny rule blocks all traffic that has originated from the VNet.
+
+<!-- I removed teh RBAC stuff you had here. It was not valid. RBAC is about specifying who can manage Azure resources. It has nothing to do with authentication users for access to a VM. -->
 
 #### Permitting management access to the application subnets 
 
@@ -597,6 +603,8 @@ Each application subnet has NSG rules that permit incoming management traffic on
   }
 }
 ```
+
+<!-- I don't believe we need to repeat this json here since it is very similar to the one above, just different parameters. -->
 
 ## Deploying the sample solution
 
