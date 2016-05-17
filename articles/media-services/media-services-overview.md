@@ -135,13 +135,13 @@ When working with Live Streaming the following components are commonly involved:
 - A camera that is used to broadcast an event.
 - A live video encoder that converts signals from the camera to streams that are sent to a live streaming service.
 
-	Optionally, multiple live encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders to achieve seamless failover with no data loss.
+	Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronizationto achieve seamless failover with no data loss.
 - A live streaming service that enables you to do the following:
 	
 	- ingest live content using various live streaming protocols (for example RTMP or Smooth Streaming),
 	- (optionally) encode your stream into adaptive bitrate stream
 	- preview your live stream,
-	- store the ingested content in order to be streamed later (Video-on-Demand)
+	- record and store the ingested content in order to be streamed later (Video-on-Demand)
 	- deliver the content through common streaming protocols (for example, MPEG DASH, Smooth, HLS, HDS) directly to your customers, or to a Content Delivery Network (CDN) for further distribution.
 
 
@@ -153,11 +153,20 @@ In Azure Media Services, **Channels**, **Programs**, and **StreamingEndpoints** 
 
 A **Channel** represents a pipeline for processing live streaming content. A Channel can receive a live input streams in the following ways:
 
+- An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further processing. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+
+	>[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](/pricing/details/media-services/) details.
+	
 - An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
-- An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
-	>[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming.
+###Working with Channels that receive multi-bitrate live stream from on-premises encoders (pass-through)
+
+The following diagram shows the major parts of the AMS platform that are involved in the **pass-through** workflow.
+
+![Live workflow][live-overview2]
+
+For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 ###Working with Channels that are enabled to perform live encoding with Azure Media Services
 
@@ -167,13 +176,6 @@ The following diagram shows the major parts of the AMS platform that are involve
 
 For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-###Working with Channels that receive multi-bitrate live stream from on-premises Encoders
-
-The following diagram shows the major parts of the AMS platform that are involved in the **pass-through** workflow.
-
-![Live workflow][live-overview2]
-
-For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 ##Consuming content
 
