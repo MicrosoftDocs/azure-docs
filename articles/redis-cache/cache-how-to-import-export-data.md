@@ -56,7 +56,7 @@ Before beginning the import operation, ensure that your Redis Database (RDB) fil
 
     ![Import][cache-import-blobs]
 
-    You can monitor the progress of the export operation by following the notifications from the Azure Portal or by viewing the events in the [audit log](cache-configure.md#support-amp-troubleshooting-settings).
+    You can monitor the progress of the import operation by following the notifications from the Azure Portal or by viewing the events in the [audit log](cache-configure.md#support-amp-troubleshooting-settings).
 
     ![Import progress][cache-import-data-import-complete] 
 
