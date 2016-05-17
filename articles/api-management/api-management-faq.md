@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="sdanie"/>
 
 # Azure API Management FAQ
@@ -35,6 +35,7 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[Can I configure an OAUth 2.0 Authorization Server with ADFS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[What routing method does API Management use when deployed to multiple geographic locations?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
+-	[Can I create an API Management service instance using an ARM template?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
 
 
 
@@ -71,7 +72,20 @@ Yes, you can manage it using the [API Management REST API](https://msdn.microsof
 
 ### How can I add a user to the Administrators group?
 
-At this time, administrators are limited to users that log in through the Azure Classic Portal as administrators or co-administrators on the Azure subscription that contains the API Management instance. Users created in the publisher portal cannot be designated as administrators or added to the administrators group.
+It can be achieved by following below steps: 
+
+1. Login to the new [Azure Portal](https://portal.azure.com) 
+2. Navigate to the resource group which contains the desired API Management instance
+3. Add the desired user to "Api Management Contributor" role
+
+Once that is done, the newly added contributor can use Azure PowerShell [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx) to login as an administrator:
+
+1. Use `Login-AzureRmAccount` cmdlet to login
+2. Set the context to the subscription which contains the service using 
+ 	`Set-AzureRmContext -SubscriptionID <subscriptionGUID>`
+3. Get SSO token using
+   	`Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`
+4. Copy paste the URL in browser and the user should have admin portal access
 
 
 ### Why is the policy that I want to add not enabled in the policy editor?
@@ -120,3 +134,7 @@ For information on configuring this scenario, see [Using ADFS in API Management]
 ### What routing method does API Management use when deployed to multiple geographic locations? 
 
 API Management uses the [Performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance-traffic-routing-method). Incoming traffic will be routed to the closest API gateway. If one region goes offline, incoming traffic will be automatically routed to the next closest gateway. For more information about routing methods, see [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+
+### Can I create an API Management service instance using an ARM template?
+
+Yes, see the [Azure API Management Service](http://aka.ms/apimtemplate) quickstart templates.

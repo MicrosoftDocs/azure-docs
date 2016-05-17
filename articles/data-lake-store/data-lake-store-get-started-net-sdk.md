@@ -10,10 +10,10 @@
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/20/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
@@ -34,11 +34,17 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 * Visual Studio 2013 or 2015. The instructions below use Visual Studio 2015.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-* **Create an Azure Active Directory Application**. See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). For a .NET console application that you create in this article, you must create a **Native Client application** (and not a Web application, as demonstrated in the link). Once you have created the application, retrieve the following values related to the application.
-	- Get **client ID** and **redirect URI** for the application
-	- Set delegated permissions
+* **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Direcotry - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
+	* **For interactive authentication** (used in this article) - In Azure Active Directory, you must create a **Native Client application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID** and **redirect URI** for the application
+		- Set delegated permissions
 
-	Instructions on how to retrieve these values and set the permissions are available in the link provided above.
+	* **For non-interactive authentication** - In Azure Active Directory, you must create a **Web application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID**, **client secret**,  and **redirect URI** for the application
+		- Set delegated permissions
+		- Assign the Azure Active Directory application to a role. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group. 
+
+	See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) for instructions on how to retrieve these values, set the permissions, and assign roles.
 
 ## Create a .NET application
 

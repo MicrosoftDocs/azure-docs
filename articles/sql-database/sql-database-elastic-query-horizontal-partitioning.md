@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Queries across sharded cloud databases | Microsoft Azure"
+    pageTitle="Reporting across scaled-out cloud databases | Microsoft Azure"
     description="how to set up elastic queries over horizontal partitions"    
     services="sql-database"
     documentationCenter=""  
@@ -12,16 +12,19 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/18/2016"
+    ms.date="04/26/2016"
     ms.author="torsteng;sidneyh" />
 
-# Create reports across sharded cloud databases (horizontally partitioned) (preview)
+# Reporting across scaled-out cloud databases (preview)
 
 ![Query across shards][1]
 
-Horizontally partitioned databases distribute rows across a scaled out data tier (also called "sharding"). With this approach, the schema is identical on all participating databases. For non-sharded databases, see [Queries across sharded cloud databases (vertically partitioned)](sql-database-elastic-query-vertical-partitioning.md). 
+Sharded databases distribute rows across a scaled out data tier. The schema is identical on all participating databases, also known as horizontal partitioning. Using an elastic query, you can create reports that span all databases in a sharded database.
 
 For a quick start, see [Reporting across scaled-out cloud databases](sql-database-elastic-query-getting-started.md).
+
+For non-sharded databases, see [Query across cloud databases with different schemas](sql-database-elastic-query-vertical-partitioning.md). 
+
  
 ## Prerequisites
 
@@ -171,7 +174,7 @@ The following query performs a three-way join between warehouses, orders and ord
  
 ## Stored procedure for remote T-SQL execution: sp\_execute_remote
 
-Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called **sp\_execute\_remote** and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
+Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) and can be used to execute remote stored procedures or T-SQL code on the remote databases. It takes the following parameters: 
 
 * Data source name (nvarchar): The name of the external data source of type RDBMS. 
 * Query (nvarchar): The T-SQL query to be executed on each shard. 

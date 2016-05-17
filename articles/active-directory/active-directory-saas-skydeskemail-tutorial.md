@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="04/22/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,7 +84,7 @@ To configure the integration of Skydesk Email into Azure AD, you need to add Sky
 
 7. In the results pane, select **Skydesk Email**, and then click **Complete** to add the application.
 
-
+	![Creating an Azure AD test user](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Skydesk Email based on a test user called "Britta Simon".
@@ -174,7 +174,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     b. In Azure AD classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Logout** URL textbox.
 
-    c. **Chanage Password URL** is optional so leave it blank.
+    c. **Change Password URL** is optional so leave it blank.
 
     d. Click on **Get Key From File** to select your downloaded Skydesk Email certificate, and then click **Open** to upload the certificate.
 

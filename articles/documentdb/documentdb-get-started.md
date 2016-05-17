@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/15/2016"
+	ms.date="05/13/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -47,7 +47,7 @@ Now let's get started!
 
 Please make sure you have the following:
 
-- An active Azure account. If you don't have one, you can sign up for a [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 - [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 - .NET Framework 4.6
 
@@ -66,10 +66,9 @@ Let's create a DocumentDB account. If you already have an account you want to us
 4. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution.
 5. Then without leaving the menu, click on **Manage NuGet Packages...**
 ![Screen shot of the Right Clicked Menu for the Project](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. On the left most panel of the **Manage NuGet Packages** window, click **Online** / **nuget.org**.
-7. In the **Search Online** input box, search for **DocumentDB**.
-8. Within the results, find **Microsoft Azure DocumentDB Client Library** and click **Install**.  
-   The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
+6. In the **Nuget** tab, click **Browse**, and type **azure documentdb** in the search box.
+7. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
+The package ID for the DocumentDB Client Library is [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 ![Screen shot of the Nuget Menu for finding DocumentDB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
@@ -78,10 +77,11 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
 First, add these references to the beginning of your C# application, in the Program.cs file:
 
-		// ADD THIS PART TO YOUR CODE
-		using System;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
+
+    // ADD THIS PART TO YOUR CODE
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -147,7 +147,6 @@ Add the following code to run your asynchronous task from your **Main** method. 
 					Console.WriteLine("End of demo, press any key to exit.");
 					Console.ReadKey();
 			}
-	}
 
 Press **F5** to run your application.
 
@@ -168,7 +167,7 @@ Copy and paste the **WriteToConsoleAndPromptToContinue** method underneath the *
 
 Your DocumentDB [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
 
-Copy and paste the **CreateDatabaseIfNotExists** method underneath the **GetStartedDemo** method.
+Copy and paste the **CreateDatabaseIfNotExists** method underneath the **WriteToConsoleAndPromptToContinue** method.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDatabaseIfNotExists(string databaseName)
@@ -454,7 +453,7 @@ Copy and paste the **ExecuteSimpleQuery** method underneath your **CreateFamilyD
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
-			foreach (Family family in familyQuery)
+			foreach (Family family in familyQueryInSql)
 			{
 					Console.WriteLine("\tRead {0}", family);
 			}
@@ -601,7 +600,8 @@ Congratulations! You've completed this NoSQL tutorial and have a working C# cons
 ##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
--   [DocumentDB account][documentdb-create-account].
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+-   A [DocumentDB account][documentdb-create-account].
 -   The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) solution available on GitHub.
 
 To restore the references to the DocumentDB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect).

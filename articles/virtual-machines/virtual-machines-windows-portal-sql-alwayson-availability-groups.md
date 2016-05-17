@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configure AlwaysOn availability groups Azure Resource Manager | Microsoft Azure"
-	description="Create an AlwaysOn availability group with Azure virtual machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution."
+	pageTitle="Configure Always On availability groups Azure Resource Manager | Microsoft Azure"
+	description="Create an Always On availability group with Azure virtual machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,26 +13,25 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/04/2016"
+	ms.date="05/10/2016"
 	ms.author="mikeray" />
 
-# Configure an AlwaysOn availability group in Azure Resource Manager virtual machines (GUI)
+# Configure an Always On availability group in Azure Resource Manager virtual machines (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal - Classic](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - Classic](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Template ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Classic model.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Classic model. 
 
 
 This end-to-end tutorial shows you how to create a SQL Server availability group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial.
 
->[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for AlwaysOn availability groups with a Listener. This configures everything you need for AlwaysOn availability groups automatically. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+>[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for Always On availability groups with a Listener. This configures everything you need for availability groups automatically. For more information, see [SQL Server Always On Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
-At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
+At the end of the tutorial, your SQL Server availability group solution in Azure will consist of the following elements:
 
 - A virtual network containing multiple subnets, including a front-end and a back-end subnet
 
@@ -56,13 +55,13 @@ This tutorial assumes the following:
 
 - You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-portal-sql-server-provision.md)
 
-- You already have a solid understanding of AlwaysOn availability groups. For more information, see [AlwaysOn availability groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+- You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] If you are interested in using AlwaysOn availability groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn availability groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
 
 In this tutorial you will use the Azure portal to:
 
-- Select the the new AlwaysOn Availabiltiy group template from the portal
+- Select the the Always On template from the portal
 
 - Review the template settings and update a few configuration settings for your environment
 
@@ -70,7 +69,7 @@ In this tutorial you will use the Azure portal to:
 
 - Connect to one of the domain controllers and then to one of the SQL Servers
 
-## Provision an AlwaysOn availability group from the gallery with the resource manager deployment model
+## Provision an availability group from the gallery with the resource manager deployment model
 
 Azure provides a gallery image for the entire solution. In order to locate the template:
 
@@ -90,7 +89,7 @@ Click on **Basics** and configure the following:
 
 - **Password** is the password for the domain administrator account. Use a complex password. Confirm the password.
 
-- **Subscription** is the subscription that Azure will bill to run all of the resources deployed for the AlwaysOn availability group. You can specify a different subscription if your account has multiple subscriptions.
+- **Subscription** is the subscription that Azure will bill to run all of the resources deployed for the availability group. You can specify a different subscription if your account has multiple subscriptions.
 
 - **Resource group** is the name for the group that all of the Azure resources created by this tutorial will belong to. For this tutorial use **SQL-HA-RG**. For more information, see (Azure Resource Manager overview)[resource-group-overview.md/#resource-groups].
 
@@ -224,7 +223,7 @@ On the summary page Azure validates the settings. You can also download the temp
 
 ###Buy
 
-This final blade contains **Terms of use**, and **privacy policy**. Review this information. When you are ready for Azure to start creating the virtual machines, and all of the other required resources for the AlwaysOn availability group, click **Create**.
+This final blade contains **Terms of use**, and **privacy policy**. Review this information. When you are ready for Azure to start creating the virtual machines, and all of the other required resources for the availability group, click **Create**.
 
 The Azure portal will create the resource group and all of the resources.
 
@@ -262,4 +261,4 @@ You are now connected to the primary domain controller. To RDP to the SQL Server
 
 1.	Use the same user account and password that you used to RDP to the domain controller.
 
-You are now connected with RDP to the SQL Server. You can open SQL Server management studio, connect to the default instance of SQL Server and verify the AlwaysOn availabilty group is configured.
+You are now connected with RDP to the SQL Server. You can open SQL Server management studio, connect to the default instance of SQL Server and verify the availabilty group is configured.

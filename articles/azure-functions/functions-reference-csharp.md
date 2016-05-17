@@ -138,7 +138,7 @@ In addition, the following assemblies are special cased and may be referenced by
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`).
+If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`). For information on how to upload files to your function folder, see the following section on package management.
 
 ## Package management
 
@@ -180,11 +180,11 @@ Function apps are built on App Service, so all of the [deployment options availa
 
 #### To upload project.json by using the function app's SCM (Kudu) endpoint
 
-1. Navigate to: *https://<function_app_name>.scm.azurewebsites.net*.
+1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Click **Debug Console > CMD**.
 
-3. Navigate to *D:\home\site\wwwroot\<function_name>*.
+3. Navigate to `D:\home\site\wwwroot\<function_name>`.
 
 4. Drag-and-drop your *project.json* file into the folder (onto the file grid).
 
@@ -192,7 +192,7 @@ Function apps are built on App Service, so all of the [deployment options availa
 
 1. Follow the instructions [here](../app-service-web/web-sites-deploy.md#ftp) to get FTP configured.
 
-2. When you're connected to the function app site, copy your *project.json* file to */site/wwwroot/<function_name>*.
+2. When you're connected to the function app site, copy your *project.json* file to `/site/wwwroot/<function_name>`.
 
 #### Package installation log 
 

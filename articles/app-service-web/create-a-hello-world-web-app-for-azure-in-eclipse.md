@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Create a Hello World Web App for Azure in Eclipse
@@ -54,14 +54,26 @@ There are several ways by which you can deploy a Java web application to Azure. 
 1. In Eclipse's Project Explorer, right-click **MyHelloWorld**.
 
 1. In the context menu, select **Azure**, then click **Publish as Azure Web App...**
+
    ![][03]
+   
+   Alternatively, while your web application project is selected in the Project Explorer, you can click the **Publish** dropdown button on the toolbar and select **Publish as Azure Web App** from there:
+   
+   ![][publishDropdownButton]
+   
 1. If you have not already signed into Azure from Eclipse, you will be prompted to sign into your Azure account:
+
    ![][04]
+   
    Note: If you have multiple Azure accounts, some of the prompts during the sign in process may be shown more than once, even if they appear to be the same. When this happens, continue following the sign in instructions.
 1. After you have successfully signed into your Azure account, the **Manage Subscriptions** dialog box will display a list of subscriptions that are associated with your credentials. If there are multiple subscriptions listed and you want to work with only a specific subset of them, you may optionally uncheck the ones you do want to use. When you have selected your subscriptions, click **Close**.
+
    ![][05]
-1. When the **Deploy to Azure Web App Container** dialog box appears, it will display any Web App containers that you have previously created; if you have not created any containers, the list will be empty.   
+   
+1. When the **Deploy to Azure Web App Container** dialog box appears, it will display any Web App containers that you have previously created; if you have not created any containers, the list will be empty.
+
    ![][06]
+   
 1. If you have not created an Azure Web App Container before, or if you would like to publish your application to a new container, use the following steps. Otherwise, select an existing Web App Container and skip to step 7 below.
 
   1. Click **New...**
@@ -201,3 +213,4 @@ For more information, see the following links:
 [11]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/11-Completed-Deploy-Dialog.png
 [12]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/12-Activity-Log-View.png
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
+[publishDropdownButton]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/publishDropdownButton.png

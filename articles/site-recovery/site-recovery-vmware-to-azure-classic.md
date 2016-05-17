@@ -19,8 +19,10 @@
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-vmware-to-azure-classic.md)
-- [Legacy](site-recovery-vmware-to-azure-classic-legacy.md)
+- [Azure Portal](site-recovery-vmware-to-azure.md)
+- [Classic Portal](site-recovery-vmware-to-azure-classic.md)
+- [Classic Portal (legacy)](site-recovery-vmware-to-azure-classic-legacy.md)
+
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
 
@@ -381,7 +383,7 @@ If you're replicating VMware VMs you need to add a vCenter server (or ESXi host)
 > [AZURE.VIDEO enhanced-vmware-to-azure-protection]
 
 
-A protection group contain virtual machines or physical servers that will share the same replication settings.
+Protection groups are logical groupings of virtual machines or physical servers that you want to protect using the same protection settings. You apply protection settings to a protection group, and those settings are applied to all virtual machines/physical machines that you add to the group.
 
 1. Open **Protected Items** > **Protection Group** and click to add a protection group.
 

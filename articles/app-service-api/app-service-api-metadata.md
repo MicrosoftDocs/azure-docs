@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/02/2016"
 	ms.author="tdykstra"/>
 
 # App Service API Apps metadata for API discovery and code generation 
@@ -55,3 +55,5 @@ You can generate client code for an API app by using Visual Studio or from the c
 ## Next steps
 
 For a step-by-step tutorial that guides you through creating, deploying, and consuming an API app, see [Get started with API Apps in Azure App Service](app-service-api-dotnet-get-started.md).
+
+If you use Azure API Management with API Apps, you can use Swagger metadata to import your API into API Management. For more information, see [How to import the definition of an API with operations in Azure API Management](../api-management/api-management-howto-import-api.md). 

@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/04/2016" 
+	ms.date="04/25/2016" 
 	ms.author="tomfitz"/>
 
 # Lock resources with Azure Resource Manager
 
-As an administrator, there are scenarios where you will want to place a lock on a subscription, resource group or resource to prevent other users in your organization from accidentally deleting critical resources. When locked, authorized users can still read and modify the resources, but they can't delete the resources.
+As an administrator, you may need to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting critical resources. When locked, authorized users can still read and modify the resources, but they can't delete the resources.
 
-Locks are different from using role-based access control to assign user permissions to perform certain actions. To learn about setting permissions for users and roles, see 
-[Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). Unlinke role-based access control, you use management locks to apply a restriction across all users and roles, and you typically apply the locks for only limited duration.
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles To learn about setting permissions for users and roles, see 
+[Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
 When you apply a lock at a parent scope, all child resources inherit the same lock.
 
 ## Who can create or delete locks in your organization
 
-To create or delete management locks, you must have access to **Microsoft.Authorization/\*** or **Microsoft.Authorization/locks/\*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions. For more information about assigning access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
+To create or delete management locks, you must have access to **Microsoft.Authorization/\*** or **Microsoft.Authorization/locks/\*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
 
 ## Creating a lock in a template
 

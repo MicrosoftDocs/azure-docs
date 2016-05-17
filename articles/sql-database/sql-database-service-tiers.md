@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jhubbard"
-	editor="jeffreyg"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/20/2016"
+	ms.date="05/13/2016"
 	ms.author="carlrab"/>
 
 # SQL Database options and performance: Understand what's available in each service tier

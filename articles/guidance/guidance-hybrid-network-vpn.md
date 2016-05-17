@@ -43,7 +43,7 @@ The following diagram highlights the components in this architecture:
 
 - **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **VPN appliance.** This is a device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. 
+- **VPN appliance.** This is a device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012.
 
     > [AZURE.NOTE] For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to an Azure VPN Gateway, see the instructions for the appropriate device in the [list of VPN devices supported by Azure][vpn-appliance].
 
@@ -632,10 +632,10 @@ GOTO :eof
 [implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
 [resource-manager-overview]: ../resource-group-overview.md
 [arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
-[azure-cli]: ../virtual-machines/virtual-machines-command-line-tools.md
+[azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-portal]: ../azure-portal/resource-group-portal.md
 [azure-powershell]: ../powershell-azure-resource-manager.md
-[azure-virtual-network]: ../virtual-networks-overview.md
+[azure-virtual-network]: ../virtual-network/virtual-networks-overview.md
 [vpn-appliance]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
@@ -664,7 +664,7 @@ GOTO :eof
 [forced-tunnelling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
 [vpn-appliances]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md
-[installing-ad]: ../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md
+[installing-ad]: ../active-directory/active-directory-install-replica-active-directory-domain-controller.md
 [deploying-ad]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [creating-dns]: https://blogs.msdn.microsoft.com/mcsuksoldev/2014/03/04/creating-a-dns-server-in-azure-iaas/
 [configuring-dns]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md

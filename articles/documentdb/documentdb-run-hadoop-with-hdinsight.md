@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="04/26/2016" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
@@ -40,20 +40,16 @@ Don't have time to complete the tutorial and just want to get the full sample Po
 
 <table border='1'>
 	<tr><th>Hadoop Connector Version</th>
-		<td>1.1.0</td></tr>
+		<td>1.2.0</td></tr>
 	<tr><th>Script Uri</th>
-		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
+		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
 	<tr><th>Date Modified</th>
-		<td>07/20/2015</td></tr>
+		<td>04/26/2016</td></tr>
 	<tr><th>Supported HDInsight Versions</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Change Log</th>
-		<td>Updated DocumentDB Java SDK to 1.1.0</br>
-			Removed additional output parameter for custom indexing paths</br>
-			Added optional parameter for custom string precision (-1 by default)</br>
-			6/11/2015</br>
-			Fixed connector's compatability with the <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC driver</a></br>
-			Added ability to change output collection offer type (S3 offer by default)</br>
+		<td>Updated DocumentDB Java SDK to 1.6.0</br>
+			Added support for partitioned collections as both a source and sink</br>
 		</td></tr>
 </table>
 
@@ -472,7 +468,7 @@ To learn more, see the following articles:
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md 
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md

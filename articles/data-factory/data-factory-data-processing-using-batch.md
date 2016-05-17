@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="04/26/2016"
     ms.author="spelluru"/>
 # HPC and data orchestration using Azure Batch and Data Factory
 
-High performance computing (HPC) has in the past been the domain of on-premises datacenters: a supercomputer working on data, but limited by the number of physical machines available. The Azure Batch service revolutionizes this by providing HPC as a service. You can configure as many machines as needed. Batch also handles the work of scheduling and coordinating the work, letting you concentrate on the algorithms to run. Azure Data Factory is a perfect complement to Batch; it simplifies the orchestration of data movement. Using Data Factory, you can specify regular movements of data for ETL, process the data, and then move the results to permanent storage. For example, data gathered from sensors are moved (by Data Factory) to a temporary location where Batch (under Data Factory’s control) processes the data and produces a new set of results. Then Data Factory moves the results to a final repository. With these two services working in tandem, you can efficiently use HPC to process large amounts of data on a regular schedule.
+This is an example solution that moves and processes large-scale datasets automatically. The solution is end-to-end and includes the architecture and code. It is based on two Azure services. Azure Batch provides HPC as a service to configure as many computers as you need, and to schedule and coordinate the work. Azure Data Factory complements Batch by simplifying the orchestration of data movement. You can specify regular movements of data for ETL, process the data, and then move the results to permanent storage.
 
-Here we provide an end-to-end solution example that moves and processes large-scale datasets automatically. The architecture is relevant to many scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis. Architects and IT decision makers will get an overview from the diagram and basic steps. Developers can use the code as a starting point for their own implementation. This article contains the entire solution.
+The architecture is relevant to many scenarios such as risk modeling by financial services, image processing and rendering, and genomic analysis. 
 
 See the [Azure Batch](../batch/batch-api-basics.md) and [Data Factory](data-factory-introduction.md) documentation if you are not familiar with these services before following the example solution.
 
@@ -51,7 +51,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 **Time**: If you are familiar with Azure, Data Factory, and Batch, and have completed the prerequisites, we estimate this solution will take 1-2 hours to complete.
 
-### Prerequisites
+## Prerequisites
 
 1.  **Azure subscription**. If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -62,21 +62,17 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
     The sample solution uses Azure Batch (indirectly via an Azure Data Factory pipeline) to process data in a parallel manner on a pool of compute nodes, which is a managed collection of virtual machines.
 
 4.  Create an **Azure Batch pool** with at least 2 compute nodes.
-
-	 You can download the source code for the [Azure Batch Explorer tool](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), compile, and use it to create the pool (**highly recommended for this sample solution**), or use [Azure Batch Library for .NET](../batch/batch-dotnet-get-started.md) to create the pool. See [Azure Batch Explorer Sample Walkthrough](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) for step-by-step instructions for using the Azure Batch Explorer. You can also use the [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
-
-	 Use Batch Explorer to create the pool with the following setting:
-
-	-   Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution.
-
-	-   Specify **Windows Server 2012 R2** for the **Operating System Family** setting.
-
-	-   Specify **2** as value for the **Max tasks per compute node** setting.
-
-	-   Specify **2** as value for the **Number of Target Dedicated** setting.
-
-	 ![](./media/data-factory-data-processing-using-batch/image2.png)
-
+	1.  In the [Azure Portal](https://portal.azure.com), click **Browse** in the left menu, and click **Batch Accounts**. 
+	2. Select your Azure Batch account to open the **Batch Account** blade. 
+	3. Click **Pools** tile.
+	4. In the **Pools** blade, click Add button on the toolbar to add a pool.
+		1. Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
+		2. Specify **Windows Server 2012 R2** for the Operating System Family setting.
+		3. Select a **node pricing tier**. 
+		3. Enter **2** as value for the **Target Dedicated** setting.
+		4. Enter **2** as value for the **Max tasks per node** setting.
+	5. Click **OK** to create the pool. 
+ 	 
 5.  [Azure Storage Explorer 6 (tool)](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software). These are GUI tools for inspecting and altering the data in your Azure Storage projects including the logs of your cloud-hosted applications.
 
     1.  Create a container named **mycontainer** with private access (no anonymous access)
@@ -101,7 +97,7 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 6.  **Microsoft Visual Studio 2012 or later** (to create the custom Batch activity to be used in the Data Factory solution).
 
-### High-level steps to create the solution
+## High-level steps to create the solution
 
 1.  Create a custom activity to use in the Data Factory solution. The custom activity contains the data processing logic.
 
@@ -161,7 +157,7 @@ The method has a few key components that you need to understand.
 
     4.  **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline.
 
--   The method returns a dictionary that can be used to chain custom activities together. We will not use this feature in this sample solution.
+-   The method returns a dictionary that can be used to chain custom activities together in the future. This feature is not implemented yet, so just return an empty dictionary from the method. 
 
 ### Procedure: Create the custom activity
 
@@ -228,13 +224,8 @@ The method has a few key components that you need to understand.
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
 
-            // declare dataset types
-            CustomDataset inputLocation;
-            AzureBlobDataset outputLocation;
-
             Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
-
+	
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
@@ -277,8 +268,6 @@ The method has a few key components that you need to understand.
 
             // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
             Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-            // convert to blob location object.
-            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
             folderPath = GetFolderPath(outputDataset);
 
@@ -295,7 +284,8 @@ The method has a few key components that you need to understand.
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.
             return new Dictionary<string, string>();
         }
 
@@ -428,9 +418,6 @@ This section provides more details and notes about the code in the Execute metho
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 
-		// Convert to blob location object.
-		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
-
 4.	The code also calls a helper method: **GetFolderPath** to retrieve the folder path (the storage container name).
 
 		folderPath = GetFolderPath(outputDataset);
@@ -554,9 +541,15 @@ In this step, you will create a linked service for your **Azure Batch** account 
 
     3.  Enter the ID of the pool for the **poolName** property**.** For this property, you can specify either pool name or pool ID.
 
-    4.  Enter the batch URI for the **batchUri** JSON property. The **URL** from the **Azure Batch account blade** is in the following format: \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL. Example: "batchUri": "https://eastus.batch.azure.com".
+    4.  Enter the batch URI for the **batchUri** JSON property. 
+    
+		> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL. Example: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
+
+		For the **poolName** property, you can also specify the ID of the pool instead of the name of the pool.
+
+		> [AZURE.NOTE] The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight. You can only use your own Azure Batch pool in an Azure data factory.
 
     5.  Specify **StorageLinkedService** for the **linkedServiceName** property. You created this linked service in the previous step. This storage is used as a staging area for files and logs.
 
@@ -576,7 +569,7 @@ In this step, you will create datasets to represent input and output data.
 		    "name": "InputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 		            "format": {
@@ -651,7 +644,7 @@ In this step, you will create datasets to represent input and output data.
 	| 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
 	| 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3.  Click **Deploy** on the toolbar to create and deploy the **InputDataset** table. Confirm that you see the **TABLE CREATED SUCCESSFULLY** message on the title bar of the Editor.
+3.  Click **Deploy** on the toolbar to create and deploy the **InputDataset** table. 
 
 #### Create output dataset
 
@@ -665,7 +658,7 @@ In this step, you will create another dataset of type AzureBlob to represent the
 		    "name": "OutputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
 		            "folderPath": "mycontainer/outputfolder",
@@ -723,7 +716,7 @@ In this step, you will create a pipeline with one activity, the custom activity 
 						"typeProperties": {
 							"assemblyName": "MyDotNetActivity.dll",
 							"entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-							"packageLinkedService": "StorageLinkedService",
+							"packageLinkedService": "AzureStorageLinkedService",
 							"packageFile": "customactivitycontainer/MyDotNetActivity.zip"
 						},
 						"inputs": [
@@ -807,6 +800,8 @@ In this step, you will test the pipeline by dropping files into the input folder
 6.  Use [Azure Batch Explorer](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) to view the **tasks** associated with the **slices** and see what VM each slice ran on. You see that a job is created with the name **adf-\<poolname\>**. This job will have a task for each slice. In this example, there will be 5 slices, so 5 tasks in Azure Batch. With the **concurrency** set to **5** in the pipeline JSON in Azure Data Factory and **Maximum tasks per VM** set to **2** in Azure Batch pool with **2** VMs, the tasks ran very fast (see the **Created** time).
 
     ![](./media/data-factory-data-processing-using-batch/image14.png)
+
+	> [AZURE.NOTE] Download the source code for [Azure Batch Explorer tool][batch-explorer], compile, and use it to create and monitor Batch pools. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
 
 7.  You should see the output files in the **outputfolder** of **mycontainer** in your Azure blob storage.
 
@@ -893,9 +888,18 @@ You can extend this sample to learn more about Azure Data Factory and Azure Batc
 
 3.  Create a pool with higher/lower **Maximum tasks per VM**. Update the Azure Batch linked service in the Data Factory solution to use the new pool you created. (See Step 4: Create and run the pipeline for more on the **Maximum tasks per VM** setting.)
 
-4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md).
+4.  Create an Azure Batch pool with **autoscale** feature. Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+	See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details. 
+
+	If the pool is using the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.  If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes. 
+	 
+5. In the sample solution, the **Execute** method invokes the **Calculate** method that processes an input data slice to produce an output data slice. You can write your own method to process input data and replace the Calculate method call in the Execute method with a call to your method.
+
+ 
+
 
 ## Next steps: Consume the data
 
@@ -928,3 +932,8 @@ After you process data you can consume it with online tools like **Microsoft Pow
     -   [Create and manage Azure Batch account in the Azure Portal](../batch/batch-account-create-portal.md)
 
     -   [Get started with Azure Batch Library .NET](../batch/batch-dotnet-get-started.md)
+
+
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/09/2016"
+   ms.date="05/10/2016"
    ms.author="elfish"/>
 
 # Overview: Cloud business continuity and database disaster recovery with SQL Database
@@ -64,8 +64,7 @@ The following table shows the differences of the cloud business continuity featu
 | --- |--- | --- | ---
 | Point In Time Restore | Any restore point within 7 days | Any restore point within 14 days | Any restore point within 35 days
 | Geo-Restore | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h | ERT < 12h, RPO < 1h
-| Standard Geo-Replication | not included |  ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
-| Active Geo-Replication | not included | not included | ERT < 30s, RPO < 5s
+| Active Geo-Replication | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s | ERT < 30s, RPO < 5s
 
 These features are provided to address the scenarios listed earlier. Please refer to the [Design for business continuity](sql-database-business-continuity-design.md) section for guidance how to select the specific feature.
 
@@ -74,16 +73,12 @@ These features are provided to address the scenarios listed earlier. Please refe
 
 ###Point In Time Restore
 
-Point In Time Restore is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 14 days with Standard, and 35 days with Premium. Refer to [Recover from human error](sql-database-user-error-recovery.md) for details of how to use Point In Time Restore.
+[Point In Time Restore](sql-database-point-in-time-restore.md) is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 14 days with Standard, and 35 days with Premium. Refer to [Recover from human error](sql-database-user-error-recovery.md) for details of how to use Point In Time Restore.
 
 ###Geo-Restore
 
-Geo-Restore is also available with Basic, Standard, and Premium databases. It provides the default recovery option when also  database is unavailable because of an incident in the region where your database is hosted. Similar to Point In Time Restore, Geo-Restore relies on database backups in geo-redundant Azure storage. It restores from the geo-replicated backup copy and therefore is resilient to the storage outages in the primary region.  Refer to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to use Geo-Restore.
-
-###Standard Geo-Replication
-
-Standard Geo-Replication is available for Standard and Premium databases. It’s designed for applications that can use the capacity of standard service tier but have more aggressive recovery requirements than Geo-Restore can offer. When the primary database fails you can initiate failover to a non-readable secondary database stored in the DR paired region. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to configure Geo-Replication and to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to failover to the secondary database.
+[Geo-Restore](sql-database-geo-restore.md) is also available with Basic, Standard, and Premium databases. It provides the default recovery option when also  database is unavailable because of an incident in the region where your database is hosted. Similar to Point In Time Restore, Geo-Restore relies on database backups in geo-redundant Azure storage. It restores from the geo-replicated backup copy and therefore is resilient to the storage outages in the primary region.  Refer to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to use Geo-Restore.
 
 ###Active Geo-Replication
 
-Active Geo-Replication is available for Premium databases. It’s designed for write-intensive applications with the most aggressive recovery requirements. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries in the same way as Standard Geo-Replication.  In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to configure Geo-Replication and to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to failover to the secondary database. Refer to [Application upgrade without downtime](sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.
+[Active Geo-Replication](sql-database-geo-replication-overview.md) is available for all database tiers. It’s designed for applications that hve more aggressive recovery requirements than Geo-Restore can offer. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries.  In addition, Active Geo-Replication can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to [configure Geo-Replication](sql-database-geo-replication-portal.md) and to [failover to the secondary database](sql-database-geo-replication-failover-portal.md). Refer to [Application upgrade without downtime](sql-database-business-continuity-application-upgrade.md) for details on how to implement the application upgrade without downtime.

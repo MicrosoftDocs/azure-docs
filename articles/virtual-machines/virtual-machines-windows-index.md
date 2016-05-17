@@ -156,11 +156,7 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 ## Workloads
 
-[High-availability line of business application](virtual-machines-windows-lob.md)
-
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
-
-[Hybrid cloud test environment](virtual-machines-windows-classic-hybrid-test-env.md)
 
 [MongoDB](virtual-machines-windows-classic-install-mongodb.md)
 
@@ -171,8 +167,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 [SAP](virtual-machines-windows-classic-sap-get-started.md)
 
 [SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
-
-[SharePoint](virtual-machines-windows-sharepoint-farm.md)
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
@@ -194,8 +188,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Troubleshoot allocation failures when you create, restart, or resize VMs in Azure](virtual-machines-windows-allocation-failure.md)
 
+[Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
 
-
-
-
-
+[Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)

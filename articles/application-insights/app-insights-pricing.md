@@ -67,7 +67,7 @@ At any time, you can switch to the 30 day free Premium trial. This gives you the
 * You can also inspect individual data points at source during debugging:
  * If you run your app in debug mode in Visual Studio, the data points are logged in the Output window. 
  * To see client data points, open your browser's debugging pane (usually F12) and open the network tab.
-* The data rate may be (by default) reduced by [adaptive sampling](app-insights-sampling). This means that, as usage of your app increases, the telemetry rate won't increase as much as you might expect.
+* The data rate may be (by default) reduced by [adaptive sampling](app-insights-sampling.md). This means that, as usage of your app increases, the telemetry rate won't increase as much as you might expect.
 
 ### Overage
 
@@ -86,7 +86,7 @@ The chart at the bottom of the pricing blade shows your application's data point
 
 Click the chart for more detail, or drag across it and click (+) for the detail of a time range.
 
-The chart shows the volume of data that arrives at the Application Insights service, after [sampling](app-insights-sampling).
+The chart shows the volume of data that arrives at the Application Insights service, after [sampling](app-insights-sampling.md).
 
 
 ## Data rate
@@ -148,7 +148,7 @@ There are several forms of sampling. We recommend [adaptive sampling](app-insigh
 
 As an alternative, you can set *ingestion sampling* on the Quotas + pricing blade. This form of sampling operates at the point where telemetry from your app enters the Application Insights service. It doesn't affect the volume of telemetry sent from your app, but it reduces the volume retained by the service.
 
-![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-sampling/04.png)
+![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/04.png)
 
 Sampling is an effective way to reduce charges and stay within your monthly quota. The sampling algorithm retains related items of telemetry, so that, for example, when you use Search, you can find the request related to a particular exception. The algorithm also retains correct counts, so that you see the correct values in Metric Explorer for request rates, exception rates, and other counts.
 
