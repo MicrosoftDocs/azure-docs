@@ -19,39 +19,11 @@
 #Application Architecture on Microsoft Azure
 Resources for building applications that use Microsoft Azure. This includes tools to help you draw diagrams to visually describe software systems. 
 
-
-
-##Azure Architectural Design Patterns
-Microsoft publishes series of architectural design patterns to help you compose your own custom designs. The patterns are intended to be concise architectural guides which can be composed together in order provide guidance on how to best leverage the Microsoft Azure platform to solve your organization’s business needs.
-
-
-[Overview](../azure-architectures-cpif-overview/) - 
-[Hybrid networking](../azure-architectures-cpif-infrastructure-hybrid-networking/) - 
-[Offsite batch processing](../azure-architectures-cpif-foundation-offsite-batch-processing-tier/) -
-[Multi-site data tier](../azure-architectures-cpif-foundation-multi-site-data-tier/) -
-[Global load balanced web tier](../azure-architectures-cpif-foundation-global-load-balanced-web-tier/) -
-[Azure search tier](../azure-architectures-cpif-foundation-azure-search-tier/)
- 
-Each  pattern contains
- 
-- A service description
-- A list of Azure Services required to leverage the pattern
-- Architectural diagrams
-- Architectural dependencies
-- Design limitations or considerations that may impact the pattern
-- Interfaces and endpoints
-- Anti-patterns
-- Key high-level architecture considerations including availability and resiliency, composite SLAs for services used, scale and performance, cost and operational considerations.
-
-![Azure Architecture Design patterns](./media/architecture-overview/AzureArchPatterns.jpg)
-
-
 ##Design patterns poster
-Microsoft Patterns and Practices has published the book [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx) which is available both on MSDN and in PDF download. There is also a large format poster available which lists all the patterns. 
 
-![Patterns and Practices Cloud Patterns Poster](./media/architecture-overview/PnPPatternPosterThumb.jpg)
+Microsoft patterns & practices has published the book [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx) which is available both on MSDN and in PDF download. There is also a large format poster available which lists all the patterns. 
 
-
+![patterns & practices Cloud Patterns Poster](./media/architecture-overview/PnPPatternPosterThumb.jpg)
 
 ##Microsoft architecture certification course
 

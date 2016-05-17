@@ -19,6 +19,8 @@
 
 #  Application roles in multitenant applications
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 Application roles are used to assign permissions to users. For example, the [Tailspin Surveys][Tailspin] application defines the following roles:
@@ -55,7 +57,7 @@ Drawbacks:
 
 ### Implementation
 
-**Define the roles.** The SaaS provider declares the app roles in the application manifest. For example, here is the manifest entry for the Surveys app:
+**Define the roles.** The SaaS provider declares the app roles in the [application manifest]. For example, here is the manifest entry for the Surveys app:
 
 ```
 "appRoles": [
@@ -155,24 +157,15 @@ Drawbacks:
 
 There are many existing examples for this approach. For example, see [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service].
 
+## Next steps
 
-## Additional resources
-
--	[Authorization in a web app using Azure AD application roles & role claims]
--	[Authorization in Cloud Applications using AD Groups]
--	[Roles based access control in cloud applications using Azure AD]
--	[Supported Token and Claim Types].  Describes the role and group claims in Azure AD.
--	[Understanding the Azure Active Directory application manifest]
+- Read the next article in this series: [Role-based and resource-based authorization in multitenant applications][authorization]
 
 <!-- Links -->
 [Tailspin]: guidance-multitenant-identity-tailspin.md
 [part of a series]: guidance-multitenant-identity.md
 [authorization]: guidance-multitenant-identity-authorize.md
 [Securing a backend web API]: guidance-multitenant-identity-web-api.md
-[Authorization in Cloud Applications using AD Groups]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service]: ../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
-[Understanding the Azure Active Directory application manifest]: ../active-directory/active-directory-application-manifest.md
-[Supported Token and Claim Types]: ../active-directory/active-directory-token-and-claims.md
-[Roles based access control in cloud applications using Azure AD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-[Authorization in a web app using Azure AD application roles & role claims]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims
+[application manifest]: ../active-directory/active-directory-application-manifest.md
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

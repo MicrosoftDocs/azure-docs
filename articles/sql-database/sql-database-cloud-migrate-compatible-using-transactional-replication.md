@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # Migrate SQL Server database to SQL Database using transactional replication
@@ -29,7 +29,11 @@ Transactional replication is a technology built-in and integrated with SQL Serve
  - SQL Server 2014 SP1 CU3 and above
  - SQL Server 2014 RTM CU10 and above
  - SQL Server 2012 SP2 CU8 and above
- - SQL Server 2012 SP3 
+ - SQL Server 2013 SP3 when it will release
+
+
+> [AZURE.IMPORTANT] You must use the latest version of SQL Server Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of SQL Server Management Studio will not be able to set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
 
 You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. Additionally, for each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
 

@@ -464,6 +464,10 @@ Export an import allows you to persist checkpoint data when you need to delete t
 
 > [AZURE.NOTE] Since the data is persisted to the default storage container, the new cluster **must** use the same storage account and container as the previous cluster.
 
+## Delete your cluster
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##Troubleshooting
 
 If you do not see files being stored to the the /devicedata location (either using the `hadoop fs -ls /devicedata` command or the Hive commandd in the Query Console,) use the Storm UI to look for any errors returned by the topologies.

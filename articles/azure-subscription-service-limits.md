@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/11/2016"
 	ms.author="jroth"/>
 
 # Azure subscription and service limits, quotas, and constraints
@@ -32,7 +32,7 @@ In the limits below, a new table has been added to reflect any differences in li
 
 > [AZURE.NOTE] It is important to emphasize that quotas for resources in Azure Resource Groups are per-region accessible by your subscription, and are not per-subscription, as the service management quotas are. Let's use core quotas as an example. If you need to request a quota increase with support for cores, you need to decide how many cores you want to use in which regions, and then make a specific request for Azure Resource Group core quotas for the amounts and regions that you want. Therefore, if you need to use 30 cores in West Europe to run your application there; you should specifically request 30 cores in West Europe. But you will not have a core quota increase in any other region -- only West Europe will have the 30-core quota.
 <!-- -->
-As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) for more help discovering your current quotas for specific regions.
+As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](./resource-manager-common-deployment-errors.md) for more help discovering your current quotas for specific regions.
 
 
 ## Service-specific limits
@@ -41,6 +41,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
 - [Application Insights](#application-insights-limits)
+- [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
@@ -130,7 +131,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-size-specs.md) for additional details.
+See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-linux-sizes.md) for additional details.
 
 **Standard storage accounts**
 
@@ -272,6 +273,9 @@ To learn more about other limits, such as document size, keys, requests, and res
 ### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
+### Automation limits
+[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
 ### SQL Database limits
 
 For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
@@ -280,6 +284,6 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 
 [Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/virtual-machines-size-specs.md)
+[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/virtual-machines-linux-sizes.md)
 
 [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)

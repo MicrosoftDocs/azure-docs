@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/18/2016"
 	ms.author="brandwe"/>
 
 # Integrate Azure AD into an Android App
@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-If you're developing a desktop application, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
+If you're developing a desktop application, Azure AD makes it simple and straightforward for you to authenticate your users by using their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
 For Android clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build an Android To-Do List application that:
 
@@ -44,7 +44,7 @@ For information on how to set this up, visit our existing samples here:
 
 **What am I doing?**
 
-*Microsoft Active Directory supports adding two types of applications. Web APIs that offer services to users and applications (either on the web or an applicaiton running on a device) that access those Web APIs. In this step you are registering the Web API you are running locally for testing this sample. Normally this Web API would be a REST service that is offering functionaltiy you want an app to access. Microsoft Azure Active Directory can protect any endpoint!*
+*Microsoft Active Directory supports adding two types of applications. Web APIs that offer services to users and applications (either on the web or an application running on a device) that access those Web APIs. In this step you are registering the Web API you are running locally for testing this sample. Normally this Web API would be a REST service that is offering functionality you want an app to access. Microsoft Azure Active Directory can protect any endpoint!*
 
 *Here we are assuming you are registering the TODO REST API referenced above, but this works for any Web API you'd want Azure Active Directory to protect.*
 
@@ -68,7 +68,7 @@ Registering your web application is the first step. Next, you'll need to tell Az
 
 **What am I doing?**  
 
-*As stated above, Microsoft Azure Active Directory supports adding two types of applications. Web APIs that offer services to users and applications (either on the web or an applicaiton running on a device) that access those Web APIs. In this step you are registering the application in this sample. You must do that in order for this application to be able to request to access the Web API you just registered. Azure Active Directory will refuse to even allow your application to ask for sign-in unless it's registered! That's part of the security of the model.*
+*As stated above, Microsoft Azure Active Directory supports adding two types of applications. Web APIs that offer services to users and applications (either on the web or an application running on a device) that access those Web APIs. In this step you are registering the application in this sample. You must do that in order for this application to be able to request to access the Web API you just registered. Azure Active Directory will refuse to even allow your application to ask for sign-in unless it's registered! That's part of the security of the model.*
 
 *Here we are assuming you are registering this sample application referenced above, but this works for any app you are developing.*
 
@@ -264,14 +264,14 @@ Explanation of the parameters:
 
 Optional:  **acquireTokenSilent**
 
-You can call **acquireTokenSilent** to handle caching, and token refresh. It provides sync version as well. It accepts userid as paremeter.
+You can call **acquireTokenSilent** to handle caching, and token refresh. It provides sync version as well. It accepts userid as parameter.
 
     ```java
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
 11. **Broker**:
-  Microsoft Intune's Company portal app will provide the broker component. Adal will use the broker account, if there is one user account is created at this authenticator and Developer choose not to skip it. Developer can skip the broker user with:
+  Microsoft Intune's Company portal app will provide the broker component. ADAL will use the broker account, if there is one user account is created at this authenticator and Developer choose not to skip it. Developer can skip the broker user with:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -293,7 +293,7 @@ You can call **acquireTokenSilent** to handle caching, and token refresh. It pro
  * MANAGE_ACCOUNTS
 
 
-Using this walkthrough, you should have what you need to successfully integrate with Azure Active Directory. For more examples of this working, viist the AzureADSamples/ repository on GitHub.
+Using this walkthrough, you should have what you need to successfully integrate with Azure Active Directory. For more examples of this working, visit the AzureADSamples/ repository on GitHub.
 
 ## Important Information
 
@@ -303,7 +303,7 @@ Library project resources can be overwritten by your application resources. This
 
 ### Broker
 
-Broker component will be delivered with Microsoft Intune's Company portal app. Account will be created in Account Manager. Account type is "com.microsoft.workaccount". It only allows single SSO account. It will create SSO cookie for this user after completing device challange for one of the apps.
+Broker component will be delivered with Microsoft Intune's Company portal app. Account will be created in Account Manager. Account type is "com.microsoft.workaccount". It only allows single SSO account. It will create SSO cookie for this user after completing device challenge for one of the apps.
 
 ### Authority Url and ADFS
 
@@ -313,7 +313,7 @@ Authority url needs STS instance and tenant name: https://login.windows.net/your
 
 ### Querying cache items
 
-ADAL provides Default cache in SharedPrefrecens with some simple cache query fucntions. You can get the current cache from AuthenticationContext with:
+ADAL provides Default cache in SharedPreferences with some simple cache query functions. You can get the current cache from AuthenticationContext with:
 ```Java
  ITokenCacheStore cache = mContext.getCache();
 ```
@@ -416,9 +416,9 @@ acquireToken method without activity supports dialog prompt.
 
 ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced AndroidKeyStore for 4.3(API18) secure storage of private keys. ADAL uses that for API18 and above. If you want to use ADAL for lower SDK versions, you need to provide secret key at AuthenticationSettings.INSTANCE.setSecretKey
 
-### Oauth2 Bearer challange
+### Oauth2 Bearer challenge
 
-AuthenticationParameters class provides functionality to get the authorization_uri from Oauth2 bearer challange.
+AuthenticationParameters class provides functionality to get the authorization_uri from Oauth2 bearer challenge.
 
 ### Session cookies in Webview
 
@@ -450,6 +450,10 @@ Your application should overwrite them if localized strings are desired.
 =======
 
 ### NTLM dialog
-Adal version 1.1.0 supports NTLM dialog that is processed through onReceivedHttpAuthRequest event from WebViewClient. Dialog layout and strings can be customized.### Step 5: Download the iOS Native Client Sample code
+Adal version 1.1.0 supports NTLM dialog that is processed through onReceivedHttpAuthRequest event from WebViewClient. Dialog layout and strings can be customized.
+
+### Cross-app SSO
+Learn [How to enable cross-app SSO on Android using ADAL](active-directory-sso-android.md)  
+
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]

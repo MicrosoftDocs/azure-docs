@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Use MapReduce in Hadoop on HDInsight
@@ -53,8 +53,6 @@ Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT 
 For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 For examples of using Hadoop streaming with HDInsight, see the following:
-
-* [Develop C# Hadoop streaming programs](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 * [Develop Python MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 
@@ -148,7 +146,7 @@ For reference, the following is the Java code for the word count MapReduce job:
 	  }
 	}
 
-For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md).
+For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
 ##<a id="run"></a>Run the MapReduce
 
@@ -165,11 +163,9 @@ HDInsight can run HiveQL jobs by using a variety of methods. Use the following t
 
 Although MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. There are several Java-based frameworks that make it easier to define MapReduce applications, as well as technologies such as Pig and Hive, which provide an easier way to work with data in HDInsight. To learn more, see the following articles:
 
-* [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+* [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 
 * [Develop Python streaming MapReduce programs for HDInsight](hdinsight-hadoop-streaming-python.md)
-
-* [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
 
 * [Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 
@@ -182,8 +178,7 @@ Although MapReduce provides powerful diagnostic abilities, it can be a bit chall
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
+[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-samples]: hdinsight-run-samples.md

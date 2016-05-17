@@ -12,23 +12,29 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="05/07/2016" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
-Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
+Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
 Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](https://azure.microsoft.com/pricing/details/application-insights/).
 
-(If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade. And if you'd like to see data in Power BI, use [the adapter](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) - which *doesn't* use Continuous Export.)
+
+Before you set up continuous export, there are some alternatives you might want to consider:
+
+* [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
+* [Analytics](app-insights-analytics.md) provides a powerful query  language for telemetry, and also can export results.
+* If you're looking to [explore your data in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), you can do that without using Continuous Export.
+
 
 ## Create a storage account
 
 If you don't already have a "classic" storage account, create one now.
 
 
-1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
+1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-telemetry/030.png)
 
@@ -71,6 +77,8 @@ To stop the stream permanently, delete the export. Doing so doesn't delete your 
 
 The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address. 
 
+Data that has been discarded by [sampling](app-insights-sampling.md) is not included in the exported data.
+
 Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
 The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) you have set up. 
@@ -89,10 +97,22 @@ When you open your blob store, you'll see a container with a set of blob files. 
 
 The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
+Here's the form of the path:
+
+
+    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+  
+Where 
+
+-	`blobCreationTimeUtc` is time when blob was created in the internal staging storage
+-	`blobDeliveryTimeUtc` is the time when blob is copied to the export destination storage
+
+
 
 ## <a name="format"></a> Data format
 
 * Each blob is a text file that contains multiple '\n'-separated rows.
+* Each row represents a telemetry data point such as a request or page view.
 * Each row is an unformatted JSON document. If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:
 
 ![View the telemetry with a suitable tool](./media/app-insights-export-telemetry/06-json.png)

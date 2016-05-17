@@ -1,5 +1,5 @@
-﻿<properties
-   pageTitle="How to connect to data sources"
+<properties
+   pageTitle="How to connect to data sources | Microsoft Azure"
    description="How-to article highlighting how to connect to data sources discovered with Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -51,3 +51,6 @@ To make it easier for users who discover a data source but do not have permissio
 
 ##Summary
 Registering a data source with **Azure Data Catalog** makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service. Once a data source has been registered, and discovered, users can connect to the data source from the **Azure Data Catalog** portal “Open in…”” menu or using their data tools of choice.
+
+## See also
+- [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutorial for step-by-step details about how to connect to data sources.

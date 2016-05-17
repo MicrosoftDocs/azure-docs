@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Virtual Network Overview
@@ -91,9 +91,6 @@ There is no extra cost for using Virtual Networks in Azure. The compute instance
 ## Next steps
 
 - [Create a VNet](virtual-networks-create-vnet-arm-pportal.md) and subnets.
-- [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-tutorial.md).
+- [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 - Learn about [NSGs](virtual-networks-nsg.md).
-- Learn about [load balancers](../load-balancer/load-balancer-overview.md).
-- [Reserve an internal IP address](virtual-networks-reserved-private-ip.md)
-- [Reserve a public IP address](virtual-networks-reserved-public-ip.md).
 - Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).

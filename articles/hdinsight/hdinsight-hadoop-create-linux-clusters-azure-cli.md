@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="02/29/2016"
+   	ms.date="03/08/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
@@ -33,9 +33,12 @@ The steps in this document walk through the process of creating a new HDInsight 
 
 ##Prerequisites
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-- __Azure CLI__. For information on installing the CLI, see [Install the Azure CLI](../xplat-cli-install.md).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- __Azure CLI__.
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ##Login to your Azure subscription
 

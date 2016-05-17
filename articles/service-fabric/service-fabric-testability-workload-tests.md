@@ -34,7 +34,6 @@ Let's walk through an example of a service that exposes four workloads: A, B, C,
 
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -151,7 +150,7 @@ class Test
     {
         Array values = Enum.GetValues(typeof(T));
         T workload = (T)values.GetValue(random.Next(values.Length));
-        return T;
+        return workload;
     }
 }
 ```

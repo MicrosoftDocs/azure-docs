@@ -7,15 +7,15 @@ Service Bus topics and subscriptions support a *publish/subscribe* messaging com
 In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a "one-to-many" form of communication, using a publish/subscribe pattern. It is possible to
 register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently.
 
-A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to filter/restrict which messages to a topic are received by which topic subscriptions.
+A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which enables you to filter or restrict which messages to a topic are received by which topic subscriptions.
 
-Service Bus topics and subscriptions enable you to scale and process a very large number of messages across a very large number of users and applications.
+Service Bus topics and subscriptions enable you to scale and process a very large number of messages across many users and applications.
 
-## Create a service namespace
+## Create a namespace
 
-To begin using Service Bus topics and subscriptions in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
+To begin using Service Bus topics and subscriptions in Azure, you must first create a *service namespace*. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
-To create a service namespace:
+To create a namespace:
 
 1.  Log on to the [Azure classic portal][].
 
@@ -31,13 +31,13 @@ To create a service namespace:
 
 	> [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
 	![][6]
 
 ## Obtain the default management credentials for the namespace
 
-In order to perform management operations, such as creating a topic or subscription on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the Azure portal.
+In order to perform management operations, such as creating a topic or subscription on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the portal.
 
 ### Obtain management credentials from the portal
 

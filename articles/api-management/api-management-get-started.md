@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
@@ -59,7 +59,7 @@ The system is made up of the following components:
 
 ## <a name="create-service-instance"> </a>Create an API Management instance
 
->[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial][].
 
 The first step in working with API Management is to create a service instance. Sign in to the [Azure Classic Portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
@@ -111,6 +111,8 @@ Perform the following steps to configure the calculator API:
 4. Click **Save** to import the API.
 
 ![Add new API][api-management-import-new-api]
+
+>[AZURE.NOTE] **API Management** currently supports both 1.2 and 2.0 version of Swagger document for import. Make sure that, even though [Swagger 2.0 specification](http://swagger.io/specification) declares that `host`, `basePath`, and `schemes` properties are optional, your Swagger 2.0 document **MUST** contain those properties; otherwise it won't get imported. 
 
 Once the API is imported, the summary page for the API is displayed in the publisher portal.
 

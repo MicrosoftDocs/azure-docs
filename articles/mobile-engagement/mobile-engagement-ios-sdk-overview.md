@@ -32,9 +32,9 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 
 ##Release notes
 
-###3.2.1 (12/11/2015)
+###3.2.2 (04/07/2016)
 
--   Fixed the delay when a new app instance is triggered by a notification with deep links 
+-   Fixed bug on HTTP request cancellation which sometimes leads to crash. 
 
 For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)
 

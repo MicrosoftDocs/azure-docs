@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="spelluru"/>
 
 # Move data from a Web table source using Azure Data Factory
@@ -27,7 +27,7 @@ The sample below shows:
 
 1.	A linked service of type [Web](#web-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [WebTabe](#WebTable-dataset-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [WebTable](#WebTable-dataset-properties).
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [WebSource](#websource-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -285,4 +285,5 @@ If you are using Excel 2013, use [Microsoft Power Query for Excel](https://www.m
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

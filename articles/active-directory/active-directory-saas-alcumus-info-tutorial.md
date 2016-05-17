@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Alcumus Info Exch
 
 - You can control in Azure AD who has access to Alcumus Info Exchange 
 - You can enable your users to automatically get signed-on to Alcumus Info Exchange (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ To configure the integration of Alcumus Info Exchange into Azure AD, you need to
 
 **To add Alcumus Info Exchange from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. 
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
 <br><br>![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -95,11 +95,11 @@ To configure and test Azure AD single sign-on with Alcumus Info Exchange, you ne
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Alcumus Info Exchange application.<br>
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Alcumus Info Exchange application.<br>
 
 **To configure Azure AD single sign-on with Alcumus Info Exchange, perform the following steps:**
 
-1. In the Azure AD portal, on the **Alcumus Info Exchange** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
+1. In the Azure classic portal, on the **Alcumus Info Exchange** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.<br><br>
 ![Configure Single Sign-On][6]
 
 2. On the **How would you like users to sign on to Alcumus Info Exchange** page, select **Azure AD Single Sign-On**, and then click **Next**.<br><br>
@@ -119,7 +119,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. Contact the Alcumus Info Exchange support team via [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com), provide them with the metadata file, and them let them know that they should enable SSO for you.
 
 
-6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br>![What is Azure AD Connect][10]
+6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**. <br><br>![What is Azure AD Connect][10]
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  <br><br>![What is Azure AD Connect][11]
 
@@ -127,12 +127,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
 In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.<br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.<br>
 ![Creating an Azure AD test user](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.

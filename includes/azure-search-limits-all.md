@@ -1,4 +1,4 @@
-Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2
+Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2 <sup>7</sup>
 ---|---|---|---|----
 Maximum search services|N/A|---|12 per Azure subscription|12 per Azure subscription
 Maximum storage size <sup>1</sup>|50 MB or 10,000 documents|2 GB per service|25 GB per partition or 300 GB documents per service|100 GB per partition or 1.2 TB per service
@@ -11,6 +11,8 @@ Index: maximum scoring profiles per index|16|16|16|16
 Index: maximum functions per profile|8|8|8|8
 Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents
 Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours
+Blob indexer: maximum blob size, MB|16|16|128|256
+Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|4 million|4 million
 Queries per second (QPS) <sup>2</sup>|N/A|~3 per replica|~15 per replica|~60 per replica
 Scale out: maximum search units (SU) <sup>3</sup>|N/A|Up to 3 units (3 replicas and 1 partition)|36 units|36 units
 Pricing <sup>4</sup>|N/A|$75 per SU per month|$250 per SU per month|$1000 per SU per month
@@ -26,5 +28,7 @@ Pricing <sup>4</sup>|N/A|$75 per SU per month|$250 per SU per month|$1000 per SU
 <sup>5</sup> This is not a typo. Basic tier has a limit of 100 fields per index. It is the only tier that has this lower limit.
 
 <sup>6</sup> [Basic tier](http://aka.ms/azuresearchbasic) is available at an introductory rate of 50% off the full price during the preview period.
+
+<sup>7</sup> S2 requires a service ticket. It cannot be provisioned in the portal. Please send email to azuresearch_contact@microsoft.com for help in getting started.
 
 

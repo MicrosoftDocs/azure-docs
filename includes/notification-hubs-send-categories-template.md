@@ -1,7 +1,7 @@
 
 This section shows how to send breaking news as tagged template notifications from a .NET console app.
 
-If you are using Mobile Services please refer to the [Get Started with Push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) tutorials. 
+If you are using Mobile Apps please refer to the [Add push notifications for Mobile Apps](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) tutorial and select your platform at the top. 
 
 If you want to use Java or PHP refer to [How to use Notification Hubs from Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). You can send notifications from any backend using the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 

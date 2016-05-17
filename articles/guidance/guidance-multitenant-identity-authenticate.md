@@ -17,7 +17,9 @@
    ms.date="02/16/2016"
    ms.author="mwasson"/>
 
-# Authentication in multitenant applications
+# Authentication in multitenant apps, using Azure AD and OpenID Connect
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-multitenant-identity.md). There is also a complete [sample application] that accompanies this series.
 
@@ -37,11 +39,11 @@ Our [reference implementation](guidance-multitenant-identity-tailspin.md) is an 
 6.	The middleware validates the ID token. At this point, the user is now authenticated inside the application.
 7.	The middleware redirects the user back to application.
 
-## Registering the application with Azure AD
+## Register the app with Azure AD
 
 To enable OpenID Connect, the SaaS provider registers the application inside their own Azure AD tenant.
 
-To register the application, follow the steps in [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md), in the section "To register an application in the Azure Management Portal."
+To register the application, follow the steps in [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md), in the section [Adding an Application](../active-directory/active-directory-integrating-applications.md#adding-an-application).
 
 In the **Configure** page:
 
@@ -52,7 +54,7 @@ In the **Configure** page:
   -	You can set multiple reply URLs. During development, you can use a `localhost` address, for running the app locally.
 -	Generate a client secret: Under **keys**, click on the drop down that says **Select duration** and pick either 1 or 2 years. The key will be visible when you click **Save**. Be sure to copy the value, because it's not shown again when you reload the configuration page.
 
-## Configuring the authentication middleware
+## Configure the auth middleware
 
 This section describes how to configure the authentication middleware in ASP.NET Core 1.0 for multitenant authentication with OpenID Connect.
 
@@ -101,7 +103,7 @@ app.UseCookieAuthentication(options =>
 });
 ```
 
-## Initiating the authentication flow
+## Initiate the authentication flow
 
 To start the authentication flow in ASP.NET MVC, return a **ChallengeResult** from the contoller:
 
@@ -121,7 +123,7 @@ public IActionResult SignIn()
 
 This causes the middleware to return a 302 (Found) response that redirects to the authentication endpoint.
 
-## User login session
+## User login sessions
 
 As mentioned, when the user first signs in, the Cookie Authentication middleware writes the user claims to a cookie. After that, HTTP requests are authenticated by reading the cookie.
 
@@ -168,7 +170,7 @@ During the authentication process, the OpenID Connect middleware raises a series
 
 - **TokenResponseReceived**. Called after the middleware gets an access token from the IDP. Applies only to authorization code flow.
 
-- **AuthenticationValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about th euser. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](guidance-multitenant-identity-claims.md).
+- **AuthenticationValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about the user. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](guidance-multitenant-identity-claims.md).
 
 - **UserInformationReceived**. Called if the middleware gets the user profile from the user info endpoint. Applies only to authorization code flow, and only when `GetClaimsFromUserInfoEndpoint = true` in the middleware options.
 
@@ -256,6 +258,12 @@ app.UseOpenIdConnectAuthentication(options =>
 }
 ```
 
+## Next steps
+
+- Read the next article in this series: [Working with claims-based identities in multitenant applications][claims]
+
+
+[claims]: guidance-multitenant-identity-claims.md
 [cookie-options]: https://docs.asp.net/en/latest/security/authentication/cookie.html#controlling-cookie-options
 [session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

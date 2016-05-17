@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/14/2016"
+    ms.date="05/02/2016"
     ms.author="micurd"/>
 
 # Using the Azure CLI with Azure Storage
@@ -25,7 +25,7 @@ In this guide, we’ll explore how to use [Azure Command-Line Interface (Azure C
 
 This guide assumes that you understand the basic concepts of Azure Storage. The guide provides a number of scripts to demonstrate the usage of the Azure CLI with Azure Storage. Be sure to update the script variables based on your configuration before running each script.
 
-> [AZURE.NOTE] The guide provides the Azure CLI command and script examples running in Azure Service Management mode (ASM). See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands for storage in Azure Resource Management (ARM) mode.
+> [AZURE.NOTE] The guide provides the Azure CLI command and script examples running in Azure Service Management mode (ASM). See [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) for Azure CLI commands for storage in Azure Resource Management (ARM) mode.
 
 ## Get started with Azure Storage and the Azure CLI in 5 minutes
 

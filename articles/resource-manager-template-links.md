@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Resource links template schema
@@ -42,20 +42,21 @@ To create a link, add the following schema to the resources section of your temp
 
 The following tables describe the values you need to set in the schema.
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | **{namespace}/{type}/providers/links** | The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource. |
-| apiVersion | enum | Yes | **2015-01-01** | The API version to use for creating the resource. |  
-| name | string | Yes | **{resouce}/Microsoft.Resources/{linkname}**<br /><br />up to 64 characters<br />It cannot contain <, > %, &, ?, or any control characters. | A value that specifes both the name of source resource and a name for the link. |
-| dependsOn | array | No |  A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first. | 
-| properties | object | Yes | (shown below)  | An object that identifies the resource to link to, and notes about the link. |  
+| Name | Value |
+| ---- | ---- |
+| type | Enum<br />Required<br />**{namespace}/{type}/providers/links**<br /><br />The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource. |
+| apiVersion | Enum<br />Required<br />**2015-01-01**<br /><br />The API version to use for creating the resource. |  
+| name | String<br />Required<br />**{resouce}/Microsoft.Resources/{linkname}**<br /> up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the name of source resource and a name for the link. |
+| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first. | 
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the resource to link to, and notes about the link. |  
 
+<a id="properties" />
 ### properties object
 
-| Name | Type | Required | Permitted Values | Description |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| targetId   | string | Yes |   | The identifier of the target resource to link to. |
-| notes   | string | No | 512 characters | Description of the lock. |
+| Name | Value |
+| ------- | ---- |
+| targetId | String<br />Required<br />**{resource id}**<br /><br />The identifier of the target resource to link to. |
+| notes | String<br />Optional<br />up to 512 characters<br /><br />Description of the lock. |
 
 
 ## How to use the link resource
@@ -71,7 +72,7 @@ To work with links through REST, see [Linked Resources](https://msdn.microsoft.c
 
 Use the following Azure PowerShell command to see all of the links in your subscription. You can provide other parameters to limit the results.
 
-    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -OutputObjectFormat New
+    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
 ## Examples
 
@@ -131,12 +132,12 @@ The following example applies a read-only lock to a web app.
 
 The following quickstart templates deploy resources with a link.
 
-- [Alert to queue with Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-- [Alert to Slack with Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-- [Provision an API app with an existing gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
-- [Provision an API app with a new gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
-- [Create a Logic App plus API app using a template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
-- [Logic app that sends a text message when an alert fires](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+- [Alert to queue with Logic app](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
+- [Alert to Slack with Logic app](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
+- [Provision an API app with an existing gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
+- [Provision an API app with a new gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
+- [Create a Logic App plus API app using a template](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
+- [Logic app that sends a text message when an alert fires](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
 
 
 ## Next steps

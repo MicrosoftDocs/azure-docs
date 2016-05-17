@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mimig"/>
+	ms.date="04/18/2016" 
+	ms.author="arramac"/>
 
 
 # DocumentDB limits and quotas
@@ -23,3 +23,5 @@
 The following table describes the limits and quota enforcements of DocumentDB. 
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+
+Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md).

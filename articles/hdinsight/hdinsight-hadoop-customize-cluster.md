@@ -19,13 +19,10 @@
 
 # Customize Windows-based HDInsight clusters using Script Action
 
-[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
-
 **Script Action** can be used to invoke [custom scripts](hdinsight-hadoop-script-actions.md) 
 during the cluster creation process for installing additional software on a cluster.
 
-The information in this article is specific to Windows-based HDInsight clusters. Use the tab 
-select above to switch to a version of this article that is specific to Linux-based clusters.
+The information in this article is specific to Windows-based HDInsight clusters. For Linux-based clusters, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). 
 
 HDInsight clusters can be customized in a variety of other ways as well, such as including 
 additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml, 
@@ -33,6 +30,8 @@ hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common
 in the cluster. These customizations can be done through Azure PowerShell, the Azure 
 HDInsight .NET SDK, or the Azure Portal. For more information, see 
 [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster].
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 ## Script Action in the cluster creation process
 
@@ -196,9 +195,9 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
 
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
-		Install-Package Microsoft.Azure.Management.Resources -Pre
+		Install-Package Microsoft.Azure.Management.ResourceManager -Pre 
+		Install-Package Microsoft.Azure.Management.HDInsight
 
 2. Use the following using statements in the Program.cs file:
 
@@ -211,7 +210,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.ResourceManager;
 
 3. Place the code in the class with the following:
 
@@ -226,7 +225,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
         private const string ExistingStorageName = "<ExistingAzureStorageAccountName>";
         private const string ExistingStorageKey = "<ExistingAzureStorageAccountKey>";
         private const string ExistingContainer = "<ExistingAzureBlobStorageContainer>";
-        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+        private const string NewClusterType = "Hadoop";
         private const OSType NewClusterOSType = OSType.Windows;
         private const string NewClusterUsername = "<HttpUserName>";
         private const string NewClusterPassword = "<HttpUserPassword>";
@@ -238,13 +237,13 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
             
-            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+            var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+            var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
             CreateCluster();
-
         }
 
         private static void CreateCluster()

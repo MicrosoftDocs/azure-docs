@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/07/2016"
 	ms.author="anhoh"/>
 
 # Request increased DocumentDB account limits
@@ -25,24 +25,12 @@ After reading this article, you'll be able to answer the following questions:
 -	Which DocumentDB account quotas can be adjusted by contacting Azure support?
 -	How can I request a DocumentDB account quota adjustment?
 
-##<a id="AdjustableQuotas"></a> Adjustable DocumentDB account quotas
+##<a id="Quotas"></a> DocumentDB account quotas
 
-The following table describes the DocumentDB quotas that can be adjusted by contacting Azure support:   
+The following table describes the DocumentDB quotas. The quotas that have an asterisk (*) can be adjusted by contacting Azure support: 
 
-|Entity |Quota (Standard Offer)|
-|-------|--------|
-|Database Accounts     |5
-|Number of stored procedures, triggers and UDFs per collection       |25 each
-|Maximum collections per database account    |100
-|Maximum document storage per database (100 collections)    |1 TB
-|Maximum number of UDFs per query     |2
-|Maximum number of JOINs per query    |5
-|Maximum number of AND clauses per query      |20
-|Maximum number of OR clauses per query       |20
-|Maximum number of values per IN expression       |200
-|Maximum number of points in a polygon argument in a ST_WITHIN query	|16
-|Maximum number of collection creates per minute    |5
-|Maximum number of scale operations per minute    |5
+[AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+
 
 ##<a id="RequestQuotaIncrease"></a> Request a quota adjustment
 The following steps show how to request a quota adjustment.

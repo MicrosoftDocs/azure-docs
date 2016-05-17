@@ -6,7 +6,7 @@
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-   
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
@@ -18,7 +18,7 @@
 
 # Deploy a guest executable to Service Fabric
 
-You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric terminologie refers to those types of applications as guest executables. 
+You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric terminologie refers to those types of applications as guest executables.
 Guest executables are treated by Service Fabric like stateless services. As a result they will be placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster.
 
 ## Benefits of running a guest executable in Service Fabric
@@ -35,7 +35,7 @@ In this article, we cover the basic steps to package a guest executable and depl
 
 ## Quick overview of application and service manifest files
 
-Before you get into the details of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two files:
+Before you get into the details of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two XML files: the application and service manifests. The schema definition for the ApplicationManifest.xml and ServiceManifest.xml files is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 
 * **Application manifest**
@@ -289,6 +289,6 @@ If you browse to the directory by using Server Explorer, you can find the workin
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. As a next step, you can check out additional content for this topic.
 
-- [Sample for packaging and deploying a guest executable on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), including a link to the prerelease of the packaging tool
+- [Sample for packaging and deploying a guest executable on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), including a link to the prerelease of the packaging tool
 - [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 - [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/21/2016"
+   ms.date="05/02/2016"
    ms.author="barbkess;sonyama"/>
 
 # Language elements
@@ -283,6 +283,6 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-reference.md
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->

@@ -5,7 +5,7 @@
 	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor="cgronlun"/>
 
 <tags
@@ -14,45 +14,23 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="01/20/2016"
+    ms.date="05/09/2016"
     ms.author="sstein"/>
 
 # Create a new SQL database and perform common database setup tasks with PowerShell cmdlets 
 
-**Single database**
 
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-database-get-started.md)
-- [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
+- [C#](sql-database-get-started-csharp.md)
 
 
-Learn how to create a new SQL database and do common database setup tasks using PowerShell cmdlets.
+
+Learn how to create a new SQL database using PowerShell cmdlets. (For creating elastic databases, see [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md).)
 
 
-To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-- If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
-
-
-## Configure your credentials and select your subscription
-
-Now that you are running the Azure Resource Manager module you have access to all the necessary cmdlets to create a SQL database. 
-
-First you must establish access to your Azure account so run the following cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
-
-	Add-AzureRmAccount
-
-After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
-
-
-### Select your Azure subscription
-
-To select the subscription you need your subscription Id. You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureRmSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
-
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-After successfully running **Select-AzureRmSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureRmSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
+[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## Database setup: Create a resource group, server, and firewall rule
 

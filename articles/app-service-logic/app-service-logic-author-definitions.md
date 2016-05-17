@@ -2,7 +2,7 @@
 	pageTitle="Author Logic App definitions | Microsoft Azure" 
 	description="Learn how to write the JSON definition for Logic apps" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,21 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 	
 # Author Logic App definitions
-This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
 
 ## Several steps that repeat over a list
 
 A common pattern is to have one step that gets a list of items, and then you have a series of two or more actions that you want to do for each item in the list:  
 
-![Repeat over lists](./media/app-service-logic-author-definitions/repeatoverlists.png)
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
 
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
+
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
+
+![Repeat over lists](./media/app-service-logic-author-definitions/newrepeatoverlists4.png) 
+
+ 
 In this example, there are 3 actions:
 
-1. Get a list of articles. This returns back an object that contains an array.
+1. Get a list of articles. This returns an object that contains an array.
 
 2. An action that goes to a link property on each article, which returns the actual location of the article.
 
@@ -77,7 +84,7 @@ In this example, there are 3 actions:
 
 As covered in [use logic app features](app-service-logic-use-logic-app-features.md), you iterate over the first list by using the `forEach:` property on the second action. However, for the third action, you need to select the `@actions('readLinks').outputs` property, because the second executed for each article.
 
-Inside the action you can use the [`item()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#item) function. In this example, I wanted to get the `location` header, so I had to continue with `@item().outputs.headers` to get the outputs of the action execution from the second action that we are now iterating over.  
+Inside the action you can use the [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item) function. In this example, I wanted to get the `location` header, so I had to continue with `@item().outputs.headers` to get the outputs of the action execution from the second action that we are now iterating over.  
 
 ## Mapping items in a list to some different configuration
 
@@ -134,7 +141,7 @@ Next, let's say that we want to get completely different content depending on a 
 
 In this case, we first get a list of articles, and then the second step looks up in a map, based on the category that was defined as a parameter, which URL to get the content from. 
 
-Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
+Two items to pay attention here: the [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) function is used to check to see if the category matches one of the known categories defined. Second, once we get the category, we can pull the item of the map using square brackets: `parameters[...]`. 
 
 ## Chain/nest Logic Apps while repeating over a list
 
@@ -199,7 +206,7 @@ In the parent logic app:
 }
 ```
 
-Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
+Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) function to get the values that were passed into the child workflow. You'll then populate the outputs with the data that you want to return to the parent flow. 
 
 ```
 {
@@ -236,7 +243,7 @@ Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.micro
 }
 ```
 
-You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx). 
+You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx). 
 
 >[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
 
@@ -354,7 +361,7 @@ You can see the timestamp for both branches is identical.
 
 You can combine two conditional flows of logic (that may or may not have executed) by having a single action that takes data from both branches. 
 
-Your strategy for this varies depending on if you are handling one item, or a collection of items. In the case of a single item, you'll want to use the [`coalesce()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#coalesce) function:
+Your strategy for this varies depending on if you are handling one item, or a collection of items. In the case of a single item, you'll want to use the [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce) function:
 
 ```
 {
@@ -410,7 +417,7 @@ Your strategy for this varies depending on if you are handling one item, or a co
 }
 ```
  
-Alternatively, when your first two branches both operate on a list of orders, for example, you'll want to use the [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) function to combine the data from both branches. 
+Alternatively, when your first two branches both operate on a list of orders, for example, you'll want to use the [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) function to combine the data from both branches. 
 
 ```
 {
@@ -514,17 +521,17 @@ We also want a substring of the the order's name because the first 5 characters 
 
 Working from the inside out:
 
-1. Get the [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length)  of the orderer's name, this returns back the total number of characters
+1. Get the [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)  of the orderer's name, this returns back the total number of characters
 
 2. Subtract 5 (because we'll want a shorter string)
 
-3. Actually take the [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring) . We start at index `5` and go the remainder of the string.
+3. Actually take the [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring) . We start at index `5` and go the remainder of the string.
 
-4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64) string
+4. Convert this substring to a [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) string
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace)  all of the `+` characters with `-`
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)  all of the `+` characters with `-`
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) all of the `/` characters with `_`
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) all of the `/` characters with `_`
 
 ## Working with Date Times
 
@@ -571,13 +578,13 @@ Date Times can be useful, particularly when you are trying to pull data from a d
 }
 ```
 
-In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
+In this example, we are extracting the `startTime` of the previous step. Then we are getting the current time and subtracting one second :[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (you could use other units of time such as `minutes` or `hours`). Finally, we can compare these two values. If the first is less than the second, then that means more than one second has elapsed since the order was first placed. 
 
-Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow). 
+Also note that we can use string formatters to format dates: in the query string I use [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) to get the RFC1123. All date formatting [is documented on MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). 
 
 ## Passing in values at runtime to vary behavior
 
-Let's say you have different behaviors that you want to run based on some value that you use to kick off your Logic app. You can use the [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerOutputs) function to get these values out of what you passed in:
+Let's say you have different behaviors that you want to run based on some value that you use to kick off your Logic app. You can use the [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs) function to get these values out of what you passed in:
 
 ```
 {
@@ -611,13 +618,7 @@ Let's say you have different behaviors that you want to run based on some value 
 }
 ```
 
-To actually make this work, when you start the run you need to pass the properties you want (in the above example `uriToGet` and `doMoreLogic`). Here is the call you can [use Basic auth for](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth):
-
-```
-POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
-Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
-Content-type: application/json
-```
+To actually make this work, when you start the run you need to pass the properties you want (in the above example `uriToGet` and `doMoreLogic`). 
 
 With the following payload. Note that you have provided the Logic app with the values to use now:
 
@@ -728,4 +729,4 @@ You may have an API that you are calling, and you want to wait for a certain res
 }
 ```
 
-See the [REST API documentation](https://msdn.microsoft.com/library/azure/dn948513.aspx) for all of the options you have for creating and managing Logic apps. 
+See the [REST API documentation](https://msdn.microsoft.com/library/azure/mt643787.aspx) for all of the options you have for creating and managing Logic apps. 

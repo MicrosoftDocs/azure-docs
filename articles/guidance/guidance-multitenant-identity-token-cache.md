@@ -20,6 +20,8 @@
 
 # Caching access tokens in a multitenant application
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 It's relatively expensive to get an OAuth access token, because it requires an HTTP request to the token endpoint. Therefore, it's good to cache tokens whenever possible. The [Azure AD Authentication Library][ADAL] (ADAL)  automatically caches tokens obtained from Azure AD, including refresh tokens.
@@ -143,8 +145,13 @@ In our case, we decided not to handle these two events.
 - For concurrency, last write wins. That's OK, because tokens are stored independently for each user + client, so a conflict would only happen if the same user had two concurrent login sessions.
 - For reading, we load the cache on every request. Requests are short lived. If the cache gets modified in that time, the next request will pick up the new value.
 
+## Next steps
+
+- Read the next article in this series: [Federating with a customer's AD FS for multitenant apps in Azure][adfs]
+
 <!-- links -->
 [ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
+[adfs]: guidance-multitenant-identity-adfs.md
 [data-protection]: https://docs.asp.net/en/latest/security/data-protection/index.html
 [distributed-cache]: https://docs.asp.net/en/latest/fundamentals/distributed-cache.html
 [DistributedTokenCache]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.TokenStorage/DistributedTokenCache.cs

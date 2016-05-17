@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="cgronlun"
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # How to configure an Azure SQL database firewall
@@ -29,9 +29,6 @@ To configure your database firewall, you create firewall rules that specify rang
 
 **Recommendation:** Microsoft recommends using database-level firewall rules whenever possible to make your database more portable. Use server-level firewall rules when you have many databases that have the same access requirements, and you don't want to spend time configuring each database individually.
 
-**About Federations:** The current implementation of Federations will be retired with Web and Business service tiers. Consider deploying custom sharding solutions to maximize scalability, flexibility, and performance. For more information about custom sharding, see [Scaling Out Azure SQL Databases](https://msdn.microsoft.com/library/dn495641.aspx).
-
-> [AZURE.NOTE] If you create a database federation in Azure SQL Database where the root database contains database-level firewall rules, the rules are not copied to the federation member databases. If you need database-level firewall rules for the federation members, you will have to recreate the rules for the federation members. However, if you split a federation member containing a database-level firewall rule into new federation members using the ALTER FEDERATION … SPLIT statement, the new destination members will have the same database-level firewall rules as the source federation member. For more information about federations, see [Federations in Azure SQL Database](https://msdn.microsoft.com/library/hh597452.aspx).
 
 ## SQL Database firewall overview
 
@@ -72,7 +69,7 @@ The first server-level firewall setting can be created using the [Azure Portal](
 
 ## Creating database-level firewall rules
 
-After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information on configuring database-level firewall rules, see [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ## Programmatically managing firewall rules
 

@@ -3,9 +3,9 @@
 	description="Learn how to configure a database for Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/09/2016"
 	ms.author="douglasl"/>
 
 # Enable Stretch Database for a database
@@ -69,7 +69,7 @@ Enabling Stretch Database on  a database or a table requires db\_owner permissio
     USE <database>
     GO
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD='<password>'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>'
     ```
 
 4.  When you configure a database for Stretch Database, you have to provide a credential for Stretch Database to use for communication between the on premises SQL Server and the remote Azure server. You have two options.
@@ -102,13 +102,13 @@ Enabling Stretch Database on  a database or a table requires db\_owner permissio
 
     1.  For the SERVER argument, provide the name of an existing Azure server, including the `.database.windows.net` portion of the name \- for example, `MyStretchDatabaseServer.database.windows.net`.
 
-    2.  Provide an existing administrator credential with the CREDENTIAL argument, or specify FEDERATED\_SERVICE\_ACCOUNT \= ON. The following example provides an existing credential.
+    2.  Provide an existing administrator credential with the CREDENTIAL argument, or specify FEDERATED\_SERVICE\_ACCOUNT = ON. The following example provides an existing credential.
 
     ```tsql
     ALTER DATABASE <database name>
         SET REMOTE_DATA_ARCHIVE = ON
             (
-                SERVER = <server_name> ,
+                SERVER = '<server_name>',
                 CREDENTIAL = <db_scoped_credential_name>
             ) ;
     GO;
@@ -128,5 +128,7 @@ Enable additional tables for Stretch Database. Monitor data migration and manage
 -   [Backup and restore Stretch-enabled databases](sql-server-stretch-database-backup.md)
 
 ## See also
+
 [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md)
+
 [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)

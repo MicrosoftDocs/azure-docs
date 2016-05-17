@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Prepare the physical machine"
-	description="Prepare the physical machine"
+	pageTitle="Add a SQL Server resource provider to Azure Stack"
+	description="Add a SQL Server resource provider to Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
-	manager="v-kiwhit"
+	authors="Dumagar"
+	manager="bradleyb"
 	editor=""/>
 
 <tags
@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="v-anpasi"/>
+	ms.date="04/27/2016"
+	ms.author="dumagar"/>
 
-# Add a SQL Server resource provider to Azure Stack
-
-The SQL Server Resource Provider adaptor lets you use any SQL Server-based workload through Azure Stack so that SQL server databases can be used when deploying cloud native apps as well as SQL-based websites on Azure Stack.
+# Installing SQL Server Resource Provider adaptor for Azure Stack
+The SQL Server Resource Provider adaptor lets you consume any SQL Server-based workload through your Azure stack, allowing SQL server databases to be consumed when deploying cloud native apps as well as SQL-based websites on Azure Stack.
 
 To deploy a SQL Server resource provider, you’ll take the following steps:
 
@@ -26,8 +25,6 @@ To deploy a SQL Server resource provider, you’ll take the following steps:
 2. [Deploy](#deploy-the-sql-server-resource-provider) the resource provider code onto a virtual machine.
 3. [Add an Azure Stack DNS record](#add-a-dns-record) so that traffic can be property directed to the the resource provider virtual machine.
 4. [Register](#register-the-sql-resource-provider) the resource provider virtual machine with Azure Resource Manager so the latter recognizes the new resource type and properly direct requests.
-
-
 
 ## Before you deploy
 
@@ -60,7 +57,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 3. In Internet Explorer, click the Tools (gear) icon, click **Internet Options**, and then click the **Privacy** tab.
 
-4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again. 
+4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again.
 
 5. Close Internet Explorer and restart PowerShell ISE as an administrator.
 
@@ -72,7 +69,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
 
-4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
+4. Download and install the latest [Azure PowerShell SDK](http://aka.ms/azStackPsh).
 
 ## Create a wildcard certificate
 
@@ -82,19 +79,17 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 2. Open Internet Information Services (IIS) Manager by typing *InetMgr* in the **Run** command box.
 
-3. Expand **PORTALVM** in the left pane and then double-click **Server Certificates** in the center pane. 
+3. Expand **PORTALVM** in the left pane and then double-click **Server Certificates** in the center pane.
 
 4. In the **Actions** pane, click **Create Domain Certificate**.
 
-5. In the **Common name** box, type *.azurestack.local.
+5. In the **Common name** box, type **\*.azurestack.local**.
 
 6. Type values of your choice in the other boxes and then click **Next**.
 
 7. Click **Select** and choose **AzureStackCertificationAuthority**.
 
-8. In the **Friendly name** box, type *.azurestack.local.
-
-
+8. In the **Friendly name** box, type **\*.azurestack.local**.
 
 ## Export the wildcard certificate
 
@@ -146,11 +141,11 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 12. Make sure that the parameter value for **cseBlobStorage** is **AzureStack.SQLRP.Setup.5.11.61.0.nupkg** (make sure the numbers are accurate).
 
-13. Launch PowerShell ISE as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
+13. Launch PowerShell Console as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
 
 14. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
-15. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**. 
+15. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**.
 
 16. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
@@ -172,7 +167,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 7. Open DNS Manager by running **DNSmgmt.msc** from the **Run** command box.
 
-8. Expand **ADVM**, expand **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host (A or AAAA)**. 
+8. Expand **ADVM**, expand **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host (A or AAAA)**.
 
 9. In the **New Host** dialog box, type *sqlrp* in the **Name** box. This will set the new host URL to **sqlrp.azurestack.local**.
 
@@ -186,11 +181,9 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 3. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
-4. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**. 
+4. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
-5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
-
-6. In the **Windows PowerShell credential request** dialog box, type *sqlRpUsername* and *sqlRpPassw0rd* for the manifest credentials.
+5. In the **Windows PowerShell credential request** dialog box, literally type *sqlRpUsername* and *sqlRpPassw0rd* for the manifest credentials.
 
 ## Verify your resource provider exists
 
@@ -202,4 +195,3 @@ You’ll need a wildcard certificate to secure communications between the resour
 ## Next Steps
 
 You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [Web Apps resource provider](azure-stack-webapps-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
-

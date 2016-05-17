@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,10 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
-# Create a new Office 365 Users API in your organization's app service environment
+# Create a new Office 365 Users API in PowerApps Enterprise
+
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about the available connections in PowerApps, go to [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/). 
+
+<!--Archived
+Add the Office 365 Users API to your organization's (tenant) app service environment. 
 
 ## Create the API in the Azure portal
 
@@ -69,17 +77,17 @@ If you don't have an existing AAD app with the key and secret values, then use t
 
 5. In **Add application**:  
 
-	a) Enter a **Name** for your application.  
-	b) Leave the application type as **Web**.  
-	c) Select **Next**.  
+	1. Enter a **Name** for your application.  
+	2. Leave the application type as **Web**.  
+	3. Select **Next**.  
 
 	![Add AAD application - app info][8]
 
 6. In **App Properties**:  
 
-	a) Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
-	b) Enter a valid **APP ID URI** for your app.  
-	c) Select **OK**.  
+	1. Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	2. Enter a valid **APP ID URI** for your app.  
+	3. Select **OK**.  
 
 	![Add AAD application - app properties][9]
 
@@ -97,11 +105,17 @@ If you don't have an existing AAD app with the key and secret values, then use t
 
 A new Azure Active Directory app is created. You can use this app in your Office 365 Users API configuration in the Azure portal. 
 
+Some good info on AAD applications at [How and why applications are added to Azure AD](../active-directory/active-directory-how-applications-are-added.md).
+
+## See the REST APIs
+
+[Office 365 Users REST API](../connectors/connectors-create-api-office365-users.md) reference.
+
 ## Summary and next steps
 In this topic, you added the Office 365 Users API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
 [Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
-
+-->
 
 <!--References-->
 [1]: ./media/powerapps-create-api-office365-users/browse-to-registered-apis.PNG

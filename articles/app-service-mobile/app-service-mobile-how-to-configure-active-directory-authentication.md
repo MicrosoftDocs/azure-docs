@@ -2,9 +2,9 @@
 	pageTitle="How to configure Azure Active Directory authentication for your App Services application"
 	description="Learn how to configure Azure Active Directory authentication for your App Services application."
 	authors="mattchenderson"
-	services="app-service\mobile"
+	services="app-service"
 	documentationCenter=""
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Azure Active Directory login
@@ -21,9 +21,6 @@
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider.
-
-> [AZURE.NOTE] This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. If using the gateway, please see the [alternative method]. Differences that apply to using the gateway are called out in notes throughout that section.
-
 
 ## <a name="express"> </a>Configure Azure Active Directory using express settings
 
@@ -33,7 +30,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 15. Click **Azure Active Directory**, and then click **Express** under **Management Mode**.
 
-16. Click **OK** to register the application in Azure Active Directory. This will create a new registration. If you wish to choose an existing
+16. Click **OK** to register the application in Azure Active Directory. This will create a new registration. If you want to choose an existing
 registration instead, click **Select an existing app** and then search for the name of a previously created registration within your tenant.
 Click the registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings blade.
 
@@ -72,11 +69,6 @@ You can also choose to provide configuration settings manually. This is the pref
 
     ![][3]
 
-
-	> [AZURE.NOTE]
-	If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your Reply URL instead uses the gateway URL with the _/signin-aad_ path.
-
-
 9. Click **Save**. Then copy the **Client ID** for the app. You will configure your application to use this later.
 
 10. In the bottom command bar, click **View Endpoints**, and then copy the **Federation Metadata Document** URL and download that document or navigate to it in a browser.
@@ -84,10 +76,6 @@ You can also choose to provide configuration settings manually. This is the pref
 11. Within the root **EntityDescriptor** element, there should be an **entityID** attribute of the form `https://sts.windows.net/` followed by a GUID specific to your tenant (called a "tenant ID"). Copy this value - it will serve as your **Issuer URL**. You will configure your application to use this later.
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your application
-
-> [AZURE.NOTE]
-If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Azure Active Directory**. Paste in the ClientID and add the tenant ID to the **Allowed Tenants** list. Click **Save**.
-
 
 13. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication/Authorization**.
 
@@ -119,7 +107,7 @@ Azure Active Directory also allows you to register native clients, which provide
 
 4. In the Add Application Wizard, enter a **Name** for your application and click the  **Native Client Application** type. Then click to continue.
 
-5. In the **Redirect URI** box, enter your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
+5. In the **Redirect URI** box, enter your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_. If creating a Windows application, instead use the [package SID](app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) as the URI.
 
 6. Once the native application has been added, click the **Configure** tab. Find the **Client ID** and make a note of this value.
 
@@ -146,5 +134,4 @@ You have now configured a native client application which can access your App Se
 
 [Azure portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
-[ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [alternative method]:#advanced

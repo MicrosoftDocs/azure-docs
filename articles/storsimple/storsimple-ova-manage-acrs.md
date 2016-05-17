@@ -3,7 +3,7 @@
    description="Describes how to manage access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple Virtual Array."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="05/03/2016"
+   ms.author="alkohli" />
 
-# Use the StorSimple Manager service to manage access control records for the StorSimple Virtual Array (Preview)
+# Use the StorSimple Manager service to manage access control records for the StorSimple Virtual Array 
 
 ## Overview
 
@@ -43,7 +43,7 @@ Perform the following steps to get the IQN of a Windows host that is running Win
 
 You use the StorSimple Manager service **Configuration** page to add ACRs. Typically, you will associate one ACR with one volume.
 
-For information about associating an ACR with a volume, go to [Use the StorSimple Manager service to manage volumes on a StorSimple Virtual Array](storsimple-ova-manage-volumes).
+For information about associating an ACR with a volume, go to [add a volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
 >[AZURE.IMPORTANT] 
 > 

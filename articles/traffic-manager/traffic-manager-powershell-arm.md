@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Resource Manager support for Traffic Manager Preview | Microsoft Azure "
-   description="Using powershell for Traffic Manager with Azure Resource Manager (ARM) in preview"
+   pageTitle="Azure Resource Manager support for Traffic Manager | Microsoft Azure "
+   description="Using powershell for Traffic Manager with Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
-# Azure Resource Manager support for Azure Traffic Manager Preview
-Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Traffic Manager profiles can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups.md).
+# Azure Resource Manager support for Azure Traffic Manager
+Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Traffic Manager profiles can now be managed using Azure Resource Manager-based APIs and tools. 
 
 ## Resource model
 
@@ -42,8 +42,6 @@ However, whilst the features remain the same, some terminology has changed:
 There are currently a small number of limitations in the ARM support for Azure Traffic Manager:
 
 - Traffic Manager profiles created using the existing (non-ARM) Azure Service Management (ASM) API, tools and 'classic' portal are not available via ARM, and vice versa. Migration of profiles from ASM to ARM APIs is not currently supported, other than by deleting and re-creating the profile.
-
-- 'Nested' Traffic Manager endpoints are supported via the ARM API, ARM PowerShell and ARM-mode Azure CLI.  They are not currently supported in the Azure portal (which also uses the ARM API).
 
 - Traffic Manager endpoints of type 'AzureEndpoints', when referencing a Web App, can only reference the default (production) [Web App slot](../app-service-web/web-sites-staged-publishing.md).  Custom slots are not yet supported.  As a workaround, custom slots can be configured using the 'ExternalEndpoints' type. 
 

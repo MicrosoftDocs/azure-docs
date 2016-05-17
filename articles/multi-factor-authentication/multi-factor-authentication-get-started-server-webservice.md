@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Getting started the MFA Server Mobile App Web Service
@@ -24,12 +24,12 @@ In order to use the Azure Multi-Factor Authentication App, the following are req
 
 - Please see Hardware and Software Requirements for hardware and software requirements
 - You must be using v6.0 or higher of the Azure Multi-Factor Authentication Server
-- Mobile App Web Service must be installed on an Internet-facing web server running Microsoft® Internet Information Services (IIS) 6.x or IIS 7.x
-- When using IIS 6.x, ensure ASP.NET v2.0.50727 is installed, registered and set to Allowed
-- Required role services when using IIS 7.x include ASP.NET and IIS 6 Metabase Compatibility
+- Mobile App Web Service must be installed on an Internet-facing web server running Microsoft® Internet Information Services (IIS) IIS 7.x or higher.  For more information on IIS see [IIS.NET](http://www.iis.net/).
+- Ensure ASP.NET v4.0.30319 is installed, registered and set to Allowed
+- Required role services include ASP.NET and IIS 6 Metabase Compatibility
 - Mobile App Web Service must be accessible via a public URL
 - Mobile App Web Service must be secured with an SSL certificate.
-- The Azure Multi-Factor Authentication Web Service SDK must be installed in IIS 6.x or IIS 7.x on the server that the Azure Multi-Factor Authentication Server
+- The Azure Multi-Factor Authentication Web Service SDK must be installed in IIS 7.x or higher on the server that the Azure Multi-Factor Authentication Server
 - The Azure Multi-Factor Authentication Web Service SDK must be secured with an SSL certificate.
 - Mobile App Web Service must be able to connect to the Azure Multi-Factor Authentication Web Service SDK over SSL
 - Mobile App Web Service must be able to authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account that is a member of a security group called “PhoneFactor Admins”. This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.

@@ -19,6 +19,8 @@
 
 # Working with claims-based identities in multitenant applications
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 ## Claims in Azure AD
@@ -91,7 +93,7 @@ For a single-tenant application, you can just check that the issuer is your own 
 -	Whenever a user signs in, look up the issuer in the database. If the issuer isn't found, it means that tenant hasn't signed up. You can redirect them to a sign up page.
 -  You could also blacklist certain tenants; for example, for customers that didn't pay their subscription.
 
-For a more detailed discussion, see [Sign-up and tenant onboarding].
+For a more detailed discussion, see [Sign-up and tenant onboarding in a multitenant application][signup].
 
 ## Using claims for authorization
 
@@ -118,12 +120,12 @@ Here are some basic patterns for checking claims.
      IEnumerable<Claim> groups = User.FindAll("groups");
     ```
 
-For more details about using claims in authorization, see [Authorization].
+For more information, see [Role-based and resource-based authorization in multitenant applications][authorization].
 
-## Additional resources
+## Next steps
 
-- [Claims-Based Authorization]
-
+- Read the next article in this series: [Sign-up and tenant onboarding in a multitenant application][signup]
+- Learn more about [Claims-Based Authorization] in the ASP.NET Core 1.0 documentation
 
 <!-- Links -->
 [part of a series]: guidance-multitenant-identity.md
@@ -131,7 +133,7 @@ For more details about using claims in authorization, see [Authorization].
 [Supported Token and Claim Types]: ../active-directory/active-directory-token-and-claims.md
 [issuer]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 [Authentication events]: guidance-multitenant-identity-authenticate.md#authentication-events
-[Sign-up and tenant onboarding]: guidance-multitenant-identity-signup.md
-[Authorization]: guidance-multitenant-identity-authorize.md
+[signup]: guidance-multitenant-identity-signup.md
 [Claims-Based Authorization]: https://docs.asp.net/en/latest/security/authorization/claims.html
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[authorization]: guidance-multitenant-identity-authorize.md

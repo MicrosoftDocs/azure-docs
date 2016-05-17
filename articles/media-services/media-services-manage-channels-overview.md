@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders" 
+	pageTitle="Live streaming with on-premise encoders that create multi-bitrate streams" 
 	description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="cenkdin,Juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+	ms.date="05/03/2016"
+	ms.author="cenkdin;juliako"/>
 
-#Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
+#Live streaming with on-premise encoders that create multi-bitrate streams
 
 ##Overview
 
@@ -34,7 +34,7 @@ This topic covers the following:
 - [Common live streaming scenario](media-services-manage-channels-overview.md#scenario)
 - [Description of a Channel and its related components](media-services-manage-channels-overview.md#channel)
 - [Considerations](media-services-manage-channels-overview.md#considerations)
-- [Tasks related to Live Streaming](media-services-manage-channels-overview.md#tasks)
+
 
 ##<a id="scenario"></a>Common live streaming scenario
 The following steps describe tasks involved in creating common live streaming applications.
@@ -63,8 +63,6 @@ The following steps describe tasks involved in creating common live streaming ap
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
 1. Delete the Program (and optionally delete the asset).     
-
-The [live streaming tasks](media-services-manage-channels-overview.md#tasks) section links to topics that demonstrate how to achieve tasks described above.
 
 ##<a id="channel"></a>Description of a Channel and its related components
 

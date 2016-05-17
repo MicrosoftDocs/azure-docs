@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="01/30/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher" />
 
 # Manage Azure storage resources with Storage Explorer (Preview)
@@ -33,7 +33,7 @@ To see your Azure storage resources in Storage Explorer, you need to log in to a
 
 	![][0]
 
-1.	Select the check boxes for the account subscriptions you want to browse and then choose the **Apply** button. 
+1.	Select the check boxes for the account subscriptions you want to browse and then choose the **Apply** button.
 
 	![][1]
 
@@ -42,8 +42,8 @@ To see your Azure storage resources in Storage Explorer, you need to log in to a
 ### Attach an external storage
 
 1. Get the account name and key for the storage account you want to attach.
-	1.	In the Azure preview portal, choose the storage account that want to attach.
-	1.	In the **Manage** section of the **Settings** pane in the Azure preview portal, choose the **Keys** button.
+	1.	In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), choose the storage account that want to attach.
+	1.	In the **Manage** section of the **Settings** pane, choose the **Keys** button.
 	1.	Copy the **Storage Account Name** and **Primary Access Key** values.
 
 		![][2]
@@ -56,7 +56,7 @@ To see your Azure storage resources in Storage Explorer, you need to log in to a
 
 	![][4]
 
-	The external storage appears in Storage Explorer. 
+	The external storage appears in Storage Explorer.
 
 	![][5]
 
@@ -134,7 +134,7 @@ For some operations, you may need an SAS to access a storage resource. You can c
 
 ## Manage SAS and permissions
 
-To control access to blob containers, you can choose the **Manage Access Control List** and **Set Public Access Level** commands. 
+To control access to blob containers, you can choose the **Manage Access Control List** and **Set Public Access Level** commands.
 
 -	Manage Access Control List lets you add, edit, and remove access policies (whether users can read, write and so forth) on the selected blob container.
 -	Set Public Access Level lets you determine how much access public users get to the resource.  
@@ -158,7 +158,7 @@ To control access to blob containers, you can choose the **Manage Access Control
 	![][20]
 
 ## Next steps
-Learn about the features in Azure Storage services by reading articles in [Introduction to Microsoft Azure Storage](/storage/storage-introduction.md).
+Learn about the features in Azure Storage services by reading articles in [Introduction to Microsoft Azure Storage](./storage/storage-introduction.md).
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png

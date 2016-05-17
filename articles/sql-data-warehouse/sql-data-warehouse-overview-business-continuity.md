@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/17/2016"
+   ms.date="04/07/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -51,7 +51,7 @@ Since SQL Data Warehouse separates compute and storage, all your data is directl
 
 ### Database Restore
 
-Database restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. These backups are stored on RA-GRS Azure Storage and are therefore geo-redundant by default. The automatic backup and restore features come with no additional charges and provide a zero-cost and zero-admin way to protect databases from accidental corruption or deletion. To learn more about database restore, refer to [Recover from user error][].
+Database restore is designed to restore your database to an earlier point in time. Azure SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. These backups are stored on RA-GRS Azure Storage and are therefore geo-redundant by default. The automatic backup and restore features come with no additional charges and provide a zero-cost and zero-admin way to protect databases from accidental corruption or deletion. To learn more about database restore, refer to [Restore from snapshot][].
 
 ### Geo-Restore
 
@@ -68,7 +68,7 @@ To learn about the business continuity features of other SQL Database editions, 
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Recover from user error]: sql-data-warehouse-business-continuity-recover-from-user-error.md
+[Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
 
 <!--MSDN references-->
 [Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx

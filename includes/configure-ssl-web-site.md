@@ -44,7 +44,11 @@ To get an SSL certificate for use with Azure App Service, you submit a Certifica
 >
 > Elliptic Curve Cryptography (ECC) certificates are supported with Azure App Service; however, they are relatively new and you should work with your CA on the exact steps to create the CSR.
 
-You may also need to obtain **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs website. The steps in this article provide steps to ensure that any intermediate certificates are merged with the certificate uploaded to your apps.
+You may also need to obtain **[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs website. This article provides steps to ensure that any intermediate certificates are merged with the certificate uploaded to your apps.
+
+> [AZURE.NOTE]
+>
+> In case your CA uses intermediate certificates each of them must be installed along with the certificate issued for your domain. Failing to install any of the intermediate certificates may cause hard to reproduce interoperability problems for some clients.
 
 <a name="bkmk_certreq"></a>
 ### Get a certificate using Certreq.exe (Windows only)
@@ -451,6 +455,8 @@ Before performing the steps in this section, you must have associated a custom d
 >
 > 2. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
 
+&gt; [AZURE.NOTE] If you add an **IP based SSL** to a Web App that already had an **SNI binding** with a different certificate, as soon as IP SSL is enabled for the Web App, we'll remap the site's hostname to that IP address, so if any other hostname is CNAME'd to that site's hostname it will also get traffic on IP SSL address. 
+For such cases we created one more DNS entry: sni.&lt;nameofyourWebApp&gt;.azurewebsites.net where &lt;nameofyourWebApp&gt; is the name of your Azure App Service Web App. So, you should change your DNS records pointing to the name used in your SNI binding so that it points to sni.&lt;nameofyourWebApp&gt;.azurewebsites.net instead.
 
 At this point, you should be able to visit your app using `HTTPS://` instead of `HTTP://` to verify that the certificate has been configured correctly.
 
@@ -535,7 +541,6 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx

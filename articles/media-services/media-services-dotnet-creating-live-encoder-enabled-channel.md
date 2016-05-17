@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK" 
+	pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET" 
 	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -12,12 +12,12 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/03/2016"
+	ms.topic="get-started-article"
+	ms.date="05/05/2016"
 	ms.author="juliako"/>
 
 
-#Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using .NET SDK
+#How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -31,7 +31,7 @@
 
 This tutorial walks you through the steps of creating a **Channel** that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
 
-For more conceptual information related to Channels that are enabled for live encoding, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
+For more conceptual information related to Channels that are enabled for live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Common Live Streaming Scenario

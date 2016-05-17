@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/14/2016"   
+ 	ms.date="05/03/2016"    
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Overview
 
-In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media. Once a video has been encoded it can be placed into different file containers. The process of placing encoded media into a container is called packaging. For example, you can take an MP4 file and convert it into Smooth Streaming or HLS content by using the Azure Media Packager. For more information, see [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media. Once a video has been encoded it can be placed into different file containers. The process of placing encoded media into a container is called packaging. For example, you can take an MP4 file and convert it into Smooth Streaming or HLS content by using the Azure Media Packager. 
 
 Media Services supports dynamic and static packaging. When using static packaging you need to create a copy of your content in each format required by your customers. With dynamic packaging all you need is to create an asset that contains a set of adaptive bitrate MP4 or Smooth Streaming files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that your users receive the stream in the protocol they have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
@@ -31,24 +31,24 @@ Media Services supports dynamic and static packaging. When using static packagin
 
 However, there are some scenarios that require static packaging: 
 
-- Validating Adaptive Bitrate MP4s Encoded with External Encoders (for example, using third party encoders).
+- Validating adaptive bitrate MP4s encoded with external encoders (for example, using third party encoders).
 
 You can also use static packaging to perform the following tasks. However it is recommended to use dynamic encryption.
 
-- Using Static Encryption to Protect your Smooth and MPEG DASH with PlayReady
-- Using Static Encryption to Protect HLSv3 with AES-128
-- Using Static Encryption to Protect HLSv3 with PlayReady
+- Using static encryption to protect your Smooth and MPEG DASH with PlayReady
+- Using static encryption to protect HLSv3 with AES-128
+- Using static encryption to protect HLSv3 with PlayReady
 
 
 ## Validating Adaptive Bitrate MP4s Encoded with External Encoders
 
-If you want to use a set of adaptive bitrate (multi-bitrate) MP4 files that were not encoded with Media Services Encoder, you should validate your files before further processing. The Media Services Packager can validate an asset that contains a set of MP4 files and check whether the asset can be packaged to Smooth Streaming or HLS. If the validation task fails, the job that was processing the task will complete with an error. The XML that defines the preset for the validation task can be found in the [Task Preset for Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) topic.
+If you want to use a set of adaptive bitrate (multi-bitrate) MP4 files that were not encoded with Media Services' encoders, you should validate your files before further processing. The Media Services Packager can validate an asset that contains a set of MP4 files and check whether the asset can be packaged to Smooth Streaming or HLS. If the validation task fails, the job that was processing the task will complete with an error. The XML that defines the preset for the validation task can be found in the [Task Preset for Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) topic.
 
->[AZURE.NOTE]Use the Media Services Encoder to produce or the Media Services Packager to validate your content in order to avoid runtime issues. If the On-Demand Streaming server is not able to parse your source files at runtime, you will receive HTTP 1.1 error “415 Unsupported Media Type”. Repeatedly causing the server to fail to parse your source files affects performance of the On-Demand Streaming server and may reduce the bandwidth available to serving other requests. Azure Media Services offers a Service Level Agreement (SLA) on its On-Demand Streaming services; however, this SLA cannot be honored if the server is misused in the fashion described above.
+>[AZURE.NOTE]Use the Media Encoder Standard to produce or the Media Services Packager to validate your content in order to avoid runtime issues. If the On-Demand Streaming server is not able to parse your source files at runtime, you will receive HTTP 1.1 error “415 Unsupported Media Type”. Repeatedly causing the server to fail to parse your source files affects performance of the On-Demand Streaming server and may reduce the bandwidth available to serving other requests. Azure Media Services offers a Service Level Agreement (SLA) on its On-Demand Streaming services; however, this SLA cannot be honored if the server is misused in the fashion described above.
 
 This section shows how to process the validation task. It also shows how to see the status and the error message of the job that completes with JobStatus.Error.
 
-To validate your MP4 files with Media Services Packager, you must create your own manifest (.ism) file and upload it together with the source files into the Media Services account. Below is a sample of the .ism file produced by the Azure Media Encoder. The file names are case sensitive. Also, make sure the text in the .ism file is encoded with UTF-8.
+To validate your MP4 files with Media Services Packager, you must create your own manifest (.ism) file and upload it together with the source files into the Media Services account. Below is a sample of the .ism file produced by the Media Encoder Standard. The file names are case sensitive. Also, make sure the text in the .ism file is encoded with UTF-8.
 
 	
 	<?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -98,7 +98,7 @@ The following code sample uses Azure Media Services .NET SDK Extensions.  Make s
 	            Path.Combine(_mediaFiles, @"MultibitrateMP4Files");
 	
 	        // XML Configruation files path.
-	        private static readonly string _configurationXMLFiles = @"../..\Configurations\";
+	        private static readonly string _configurationXMLFiles = @"../..\Configurations";
 	
 	        private static MediaServicesCredentials _cachedCredentials = null;
 	        private static CloudMediaContext _context = null;
@@ -519,13 +519,13 @@ The example defines the UpdatePlayReadyConfigurationXMLFile method that you can 
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -689,7 +689,7 @@ The example defines the UpdatePlayReadyConfigurationXMLFile method that you can 
 
 ## Using Static Encryption to Protect HLSv3 with AES-128
 
-If you want to encrypt your HLS with AES-128, you have a choice of using dynamic encryption (the recommended option) or static encryption (as shown in this section). If you decide to use dynamic encryption, see [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128).
+If you want to encrypt your HLS with AES-128, you have a choice of using dynamic encryption (the recommended option) or static encryption (as shown in this section). If you decide to use dynamic encryption, see [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md).
 
 >[AZURE.NOTE]In order to convert your content into HLS, you must first convert/encode your content into Smooth Streaming.
 >Also, for the HLS to get encrypted with AES make sure to set the following properties in your MediaPackager_SmoothToHLS.xml file: set the encrypt property to true, set the key value, and the keyuri value to point to your authentication\authorization server.
@@ -866,13 +866,13 @@ The example in this section encodes a mezzanine file (in this case MP4) into mul
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1237,13 +1237,13 @@ Make sure to update the following code to point to the folder where your input M
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset

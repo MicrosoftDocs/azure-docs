@@ -31,7 +31,7 @@ Web Apps can back up the following information:
 
 * Web app configuration
 * Web app file content
-* Any Azure SQL atabases or MySQL databases connected to your app (you can choose which ones to include in the backup)
+* Any Azure SQL databases or MySQL databases connected to your app (you can choose which ones to include in the backup)
 
 This information is backed up to the Azure storage account and container that you specify. 
 
