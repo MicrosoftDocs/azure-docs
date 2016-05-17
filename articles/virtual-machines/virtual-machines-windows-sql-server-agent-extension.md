@@ -62,10 +62,11 @@ You can also use the **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet.
 
 	Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 
-The previous command confirms the agent is installed and provides general status information. You can also get specific status information about Automated Backup and Patching with the following two commands.
+The previous command confirms the agent is installed and provides general status information. You can also get specific status information about Automated Backup and Patching with the following commands.
 
-	(Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname").AutoPatchingSettings
-	(Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname").AutoBackupSettings
+	$sqlext = Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+	$sqlext.AutoPatchingSettings
+	$sqlext.AutoBackupSettings
 
 ## Removal   
 
