@@ -18,7 +18,9 @@ The following is a list of the available preconfigured Oracle virtual machine im
 - Oracle Database 12c Standard Edition on Oracle Linux
 - Oracle WebLogic Server 12c Enterprise Edition on Oracle Linux
 - Oracle Linux 6.4.0.0.0
+- Oracle Linux 6.7.0.0.0
 - Oracle Linux 7.0.0.0.0
+- Oracle Linux 7.2.0.0.0
 
 ##Additional resources
 
