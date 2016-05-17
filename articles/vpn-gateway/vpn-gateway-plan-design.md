@@ -143,7 +143,7 @@ To configure a Site-to-Site connection, regardless of deployment model, you will
 - A VPN device that is compatible with Azure VPN gateways
 - A public-facing IPv4 IP address that is not behind a NAT
 
-You will need to have experience configuring your VPN device to create a Site-to-Site configuration. For more information about VPN devices, see [About VPN devices](vpn-gateway-about-vpn-devices.md). The VPN devices article contains information about validated devices, requirements for devices that have not been validated, and links to the device configuration documents for each device if they are available.
+You will need to have experience configuring your VPN device. For more information about VPN devices, see [About VPN devices](vpn-gateway-about-vpn-devices.md). The VPN devices article contains information about validated devices, requirements for devices that have not been validated, and links to the device configuration documents for each device if they are available.
 
 ### <a name="forcedtunnel"></a>Consider forced tunnel routing
 
@@ -165,7 +165,7 @@ A forced tunneling connection can be configured in both deployment models and by
 
 ## Next steps
 
-See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateways](vpn-gateway-about-vpngateways.md) for more information to help you with your design. 
+See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateway](vpn-gateway-about-vpngateways.md) article for more information to help you with your design. 
 
 For more information about connection topologies, see [Connection toplogies](vpn-gateway-topology.md).
 
