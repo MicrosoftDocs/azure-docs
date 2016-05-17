@@ -28,6 +28,39 @@ This article provides a guide for importing and exporting data with Azure Redis 
 
 >[AZURE.IMPORTANT] Import/Export is only available for premium caches.
 
+
+
+## Import
+
+Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page blobs in Azure storage, in the same region and subscription as your Azure Redis Cache instance. For more information, see [Get started with Azure Blob storage ](../storage/storage-dotnet-how-to-use-blobs.md).
+
+1. To import one or more exported cache blobs, browse to your cache in the Azure portal and click **Import data** from the **Settings** blade of your cache instance.
+
+    ![Import data][cache-import-data]
+
+2. Click **Choose Blob(s)** and select the storage account that contains the data to import.
+
+    ![Choose storage account][cache-import-choose-storage-account]
+
+3. Click the container that contains the data to import.
+
+    ![Choose container][cache-import-choose-container]
+
+4. Select one or more blobs to import by clicking the area to the left of the blob name, and then click **Select**.
+
+    ![Choose blobs][cache-import-choose-blobs]
+
+5. Click **Import** to begin the import process.
+
+    >[AZURE.IMPORTANT] The cache is not accessible by cache clients during the import process, and any existing data in the cache is deleted.
+
+    ![Import][cache-import-blobs]
+
+    You can monitor the progress of the export operation by following the notifications from the Azure Portal or by viewing the events in the [audit log](cache-configure.md#support-amp-troubleshooting-settings).
+
+    ![Import progress][cache-import-data-import-complete] 
+
+
 ## Export
 
 1. To export the current contents of the cache to storage, browse to your cache in the Azure portal and click **Export data** from the **Settings** blade of your cache instance.
@@ -36,7 +69,7 @@ This article provides a guide for importing and exporting data with Azure Redis 
 
 2. Click **Choose Storage Container** and select the desired storage account. The storage account must be in the same subscription and region as your cache.
 
-    >[AZURE.IMPORTANT] Do not choose a [Blob storage account](../storage/storage-blob-storage-tiers.md#blob-storage-accounts). At this time, Blob storage accounts do not support page blobs which are used by the Import/Export feature.
+    >[AZURE.IMPORTANT] Import/Export works with page blobs, which are supported by both classic and ARM storage accounts, but are not supported by [Blob storage accounst](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) at this time.
 
     ![Storage account][cache-export-data-choose-account]
 
@@ -57,65 +90,33 @@ This article provides a guide for importing and exporting data with Azure Redis 
     Note that caches remain available for use during the export process.
 
 
-## Import
-
-1. To import one or more exported cache blobs, browse to your cache in the Azure portal and click **Import data** from the **Settings** blade of your cache instance.
-
-    ![Import data][cache-import-data]
-
-2. Click **Choose Blob(s)** and select the storage account that contains the data to import.
-
-    ![Choose storage account][cache-import-choose-storage-account]
-
-3. Click the container that contains the data to import.
-
-    ![Choose container][cache-import-choose-container]
-
-4. Select one or more blobs to import by clicking the area to the left of the blob name, and then click **Select**.
-
-    ![Choose blobs][cache-import-choose-blobs]
-
-5. Click **Import** to begin the import process.
-
-    >[AZURE.IMPORTANT] The cache is not accessible by cache clients during the import process, and any existing data in the cache is erased.
-
-    ![Import][cache-import-blobs]
-
-    You can monitor the progress of the export operation by following the notifications from the Azure Portal or by viewing the events in the [audit log](cache-configure.md#support-amp-troubleshooting-settings).
-
-    ![Import progress][cache-import-data-import-complete] 
-
 ## Import/Export FAQ
 
 This section contains frequently asked questions about the Import/Export feature.
 
 -	[What pricing tiers can used Import/Export?](#what-pricing-tiers-can-used-importexport)
--	[Can I import data from any Redis cache?](#can-i-import-data-from-any-redis-cache)
+-	[Can I import data from any Redis server?](#can-i-import-data-from-any-redis-server)
 -	[Will my cache be available during an Import/Export operation?](#will-my-cache-be-available-during-an-importexport-operation)
--	[How long does an Import/Export operation take?](#how-long-does-an-importexport-operation-take)
 -	[Can I use Import/Export with Redis cluster?](#can-i-use-importexport-with-redis-cluster)
 -	[How is Import/Export different from Redis persistence?](#how-is-importexport-different-from-redis-persistence)
 -	[Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell,-cli,-or-other-management-clients)
 -	[I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
--	[I got an error when exporting my data to an Azure Blob Storage Account. What happened?](#i-got-an-error-when-exporting-my-data-to-an-azure-blob-storage-account.-what-happened)
+-	[I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened)
 
 
 ### What pricing tiers can used Import/Export?
 
-Import/Export is available only for premium caches.
+Import/Export is available only in the premium pricing tier.
 
-### Can I import data from any Redis cache?
+### Can I import data from any Redis server?
 
-Yes, you can import data that was exported from another Azure Redis Cache instance. For example you may want to export the data from your production cache and import it into a cache used as part of a staging environment for testing. You can also import a Redis Cache Dabatase (RDB) file that was exported from other Redis cache installations. To do this, upload the RDB file from the desired Redis server into a page blob in an Azure Storage Account, and then import it into your premium Azure Redis Cache instance.
+Yes, in addition to importing data exported from Azure Redis Cache instances, you can import RDB files from any Redis server running in any cloud or environment, such as Linux, Windows, or cloud providers such as Amazon Web Services. To do this, upload the RDB file from the desired Redis server into a page blob in an Azure Storage Account, and then import it into your premium Azure Redis Cache instance. For example you may want to export the data from your production cache and import it into a cache used as part of a staging environment for testing or migration. 
 
 ### Will my cache be available during an Import/Export operation?
 
 -	**Export** - Caches remain available and you can continue to use your cache during an export operation.
 -	**Import** - Caches become unavailable when an import operation starts, and become available for use when the import operation completes.
 
-### How long does an Import/Export operation take?
-
-It depends on the amount of data being imported or exported. Even with the largest sizes of cache, intervals of less than 30 minutes were observed.
 
 ### Can I use Import/Export with Redis cluster?
 
@@ -143,9 +144,9 @@ If you remain on the **Import data** or **Export data** blade for longer than 15
 
 To resolve this, initiate the import or export operation before 15 minutes has elapsed.
 
-### I got an error when exporting my data to an Azure Blob Storage Account. What happened?
+### I got an error when exporting my data to Azure Blob Storage. What happened?
 
-You can't use a [Blob storage account](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) with the Import/Export feature. At this time, Blob storage accounts do not support page blobs which are used by the Import/Export feature.
+Import/Export works only with RDB files stored as page blobs. Other blob types are not supported at this time, including blob storage accounts with hot and cool tiers.
 
     
 
