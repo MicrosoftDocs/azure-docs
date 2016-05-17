@@ -98,7 +98,7 @@ The following configurations are not supported for public preview. Our recommend
 
 Service | Configuration | Recommendation
 ---------- | ------------ | ------------
-Resource Manager | Role Based Access Control for classic resources | Because the URI of the resources are modified after migration, we recommend that you plan the RBAC policy updates that need to happen after migration.
+Resource Manager | Role Based Access Control (RBAC) for classic resources | Because the URI of the resources are modified after migration, we recommend that you plan the RBAC policy updates that need to happen after migration.
 Compute | Multiple subnets associated with a VM | You should update the subnet configuration to reference only subnets.
 Compute | Virtual machines that belong to a virtual network but don't have an explicit subnet assigned. | You can optionally delete the VM.
 Compute | Virtual machines that have alerts, Autoscale policies | At this time, the migration will go through and these settings will be dropped. So we highly recommend that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete.
@@ -118,40 +118,52 @@ Before you start the migration experience, we highly recommend the following:
 - If you have VMs that are not in a virtual network, they will be stopped and deallocated as part of the prepare operation. If you don't want to lose the public IP address, please look into reserving the IP address before triggering the prepare operation. However, if the VMs are in a virtual network, they will not be stopped and deallocated.
 - Do not attempt to migrate production resources at this time.
 - Plan your migration during non-business hours to accommodate for any unexpected failures that might happen during migration.
-- Download the current configuration of your VMs by using PowerShell, CLI commands, or REST APIs to make it easier for validation after the prepare step is complete.
-- Update your automation/operationalization scripts to handle the Resource Manager deployment model before you start the migration. You can optionally do GET operations when the resources are in the Prepared state.
-- Evaluate the RBAC policies configured on the classic IaaS resources, and have a plan for after the migration is complete.
+- Download the current configuration of your VMs by using PowerShell, command-line interface (CLI) commands, or REST APIs to make it easier for validation after the prepare step is complete.
+- Update your automation/operationalization scripts to handle the Resource Manager deployment model before you start the migration. You can optionally do GET operations when the resources are in the prepared state.
+- Evaluate the RBAC policies that are configured on the classic IaaS resources, and have a plan for after the migration is complete.
 
-With the announcement of public preview, we have added support for triggering migration through REST APIs, PowerShell, Azure CLI.
+The migration workflow is as follows. With the announcement of public preview, we have added support for triggering migration through REST APIs, PowerShell, and Azure CLI.
 
 ![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
 
-1.	Prepare
-	* This is the first step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize. The detailed flow of actions is described below.
-  * You will select the virtual network or the hosted service (if it’s not a virtual network) that you want to prepare for migration.
-  *	At first, the platform will always do data analysis in the background for the resource(s) under migration and return back success/failure if the resource(s) are capable of migration.
-	*	If the resource is not capable of migration, we will list out the reasons for why it’s not supported for migration.
-	* If the resource is capable of migration, the platform first locks down the management plane operations for the resource(s) under migration. For example: you will not able to add a data disk to a VM under migration.
-  *	The platform will then start the migration of metadata from classic to Resource Manager for the migrating resource(s).  
-  *	After the prepare operation is complete, you will have the option of visualizing the resources in both classic and Resource Manager. For every cloud service in the classic deployment model, we will create a resource group name which has a pattern `cloud-service-name>-migrated`.
+>[AZURE.NOTE] All the operations described in the following sections are idempotent. If you run into anything other than an unsupported feature or configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.
 
-2.	Check (manual or scripted)
-  * In this step, you can optionally use the configuration that you downloaded earlier to validate that the migration looks correct. Alternatively, you can also log into the portal and spot check the properties and resources to validate that metadata migration looks good.
-	* If you are migrating a virtual network, most configuration of virtual machines will not be restarted. For applications on those VMs, you can validate that the application is still up and running.
-	* You can test your monitoring/automation and operational scripts to see if the VMs are working as expected and if your updated scripts work correctly. Please note that only GET operations will be supported when the resources are in the Prepared state.
-  * There is no set time window before which you need to ‘commit’ the migration. You can take as much time as you want in this state. However, please note that the Management plane will be locked for these resources until you either ‘abort’ or ‘commit’.
-  * If you see any issues, you can always ‘abort’ the migration and go back to the ‘classic’ deployment model. After you go back, we will open up the management plane operations on the resources so you can resume normal operations on those VMs in the classic deployment model.
+### Prepare
 
-3. Abort
-  * This is an optional step that allows you to revert back your changes to the classic deployment model and abort the migration.
-	Please note that this operation cannot be executed after you have triggered the 'Commit' operation. 	
+The prepare operation is the first step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
 
-4.	Commit
-  * After you are done with the validation, you can ‘commit’ the migration and the resources will not appear anymore in classic but will be available only in the Resource Manager deployment model. This also means the migrated resources can only be managed in the new portal.
-	* If this operation fails, we recommend that you retry this a couple of times. If it continues to fail, please create a support ticket or create a forum post with a ClassicIaaSMigration tag [here](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows)
+You will select the virtual network or the hosted service (if it’s not a virtual network) that you want to prepare for migration.
 
->[AZURE.NOTE] All the operations described below are idempotent. If you run into anything other than an unsupported feature or configuration error, we recommend that you retry the prepare, abort or commit operation and the platform will retry the action again.
+At first, the platform will always do data analysis in the background for the resources under migration and return success/failure if the resources are capable of migration.
 
+	* If the resource is not capable of migration, we will list out the reasons for why it’s not supported for migration.
+	* If the resource is capable of migration, the platform first locks down the management plane operations for the resources under migration. For example: you will not able to add a data disk to a VM under migration.
+
+The platform will then start the migration of metadata from classic to Resource Manager for the migrating resources.  
+
+After the prepare operation is complete, you will have the option of visualizing the resources in both classic and Resource Manager. For every cloud service in the classic deployment model, we will create a resource group name which has a pattern `cloud-service-name>-migrated`.
+
+### Check (manual or scripted)
+
+In the check step, you can optionally use the configuration that you downloaded earlier to validate that the migration looks correct. Alternatively, you can also log into the portal and spot check the properties and resources to validate that metadata migration looks good.
+
+If you are migrating a virtual network, most configuration of virtual machines will not be restarted. For applications on those VMs, you can validate that the application is still up and running.
+
+You can test your monitoring/automation and operational scripts to see if the VMs are working as expected and if your updated scripts work correctly. Please note that only GET operations will be supported when the resources are in the Prepared state.
+
+There is no set time window before which you need to ‘commit’ the migration. You can take as much time as you want in this state. However, please note that the Management plane will be locked for these resources until you either ‘abort’ or ‘commit’.
+
+If you see any issues, you can always ‘abort’ the migration and go back to the ‘classic’ deployment model. After you go back, we will open up the management plane operations on the resources so you can resume normal operations on those VMs in the classic deployment model.
+
+### Abort
+
+Abort is an optional step that allows you to revert your changes to the classic deployment model and stop the migration. Note that this operation cannot be executed after you have triggered the commit operation. 	
+
+### Commit
+
+After you are done with the validation, you can commit the migration, and the resources will not appear anymore in classic but will be available only in the Resource Manager deployment model. This also means the migrated resources can only be managed in the new portal.
+
+If this operation fails, we recommend that you retry this a couple of times. If it continues to fail, please create a support ticket or create a forum post with a ClassicIaaSMigration tag [here](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
 
 ## Frequently Asked Questions
 
