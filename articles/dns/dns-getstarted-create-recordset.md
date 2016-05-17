@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a record set and records for a DNS Zone using PowerShell | Microsoft Azure"
+   pageTitle="Create a record set and records for a DNS zone using PowerShell | Microsoft Azure"
    description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell"
    services="dns"
    documentationCenter="na"
@@ -26,7 +26,7 @@
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
-This article walks you through the process of creating records and records sets by using PowerShell. After creating your DNS zone, you add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
+This article walks you through the process of creating records and records sets by using Windows PowerShell. After creating your DNS zone, you add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
@@ -58,7 +58,7 @@ For more information about working with PowerShell, see [Using Windows PowerShel
 
 ### 2. Create a record set
 
-You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. When creating a record set, you'll need to specify the record set name, the zone, the Time-to-Live (TTL), and the record type.
+You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. When creating a record set, you need to specify the record set name, the zone, the time-to-Live (TTL), and the record type.
 
 To create a record set in the apex of the zone (in this case, 'contoso.com'), use the record name "@", including the quotation marks. This is a common DNS convention.
 
@@ -74,7 +74,7 @@ If a record set already exists, the command fails unless the *-Overwrite* switch
 	$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
 
 
-In the previous example, you specify the zone by using the zone name and resource group name. Alternatively, you can specify a zone object, as returned by `Get-AzureRmDnsZone` or `New-AzureRmDnsZone`.
+In this example, you specify the zone by using the zone name and resource group name. Alternatively, you can specify a zone object, as returned by `Get-AzureRmDnsZone` or `New-AzureRmDnsZone`.
 
 	$zone = Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 –Zone $zone [-Tag $tags] [-Overwrite] [-Force]
@@ -83,9 +83,9 @@ In the previous example, you specify the zone by using the zone name and resourc
 
 ### 3. Add a record
 
-In order to use the newly created *www* record set, you need to add records to it. You can add IPv4 *A* records to the *www* record set by using the example below. This example relies on the variable *$rs* that you set in the previous step.
+In order to use the newly created *www* record set, you need to add records to it. You can add IPv4 *A* records to the *www* record set by using the folllowing example. This example relies on the variable *$rs* that you set in the previous step.
 
-Adding records to a record set using `Add-AzureRmDnsRecordConfig` is an offline operation. Only the local variable *$rs* is updated.
+Adding records to a record set by using `Add-AzureRmDnsRecordConfig` is an offline operation. Only the local variable *$rs* is updated.
 
 
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
@@ -117,7 +117,7 @@ You can retrieve the record set from Azure DNS by using `Get-AzureRmDnsRecordSet
 
 You can also use nslookup or other DNS tools to query the new record set.  
 
-If you have not yet delegated the domain to the Azure DNS name servers, you need to specify the name server address for your zone explicitly.
+If you have not yet delegated the domain to the Azure DNS name servers, you need to explicitly specify the name, server, and address for your zone.
 
 
 	nslookup www.contoso.com ns1-01.azure-dns.com
@@ -143,4 +143,4 @@ The following examples show how to create a record set of each record type, each
 
 [How to manage DNS records](dns-operations-recordsets.md)
 
-[Automate Azure Operations with .NET SDK](dns-sdk.md)
+[Automate Azure operations with .NET SDK](dns-sdk.md)
