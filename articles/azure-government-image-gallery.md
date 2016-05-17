@@ -100,6 +100,7 @@ SUSE|SUSE Linux Enterprise Server 12 (Premium Image)|Confidently run your produc
 SUSE|SUSE Linux Enterprise Server 11 SP4|Confidently run your production workloads on SUSE Linux Enterprise Server on Microsoft Azure, knowing that your service levels are guaranteed, and that help from SUSE and Microsoft engineers, if you n...|Linux|30 GB
 
 
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
 
 ## <a name="next"></a>Next steps
