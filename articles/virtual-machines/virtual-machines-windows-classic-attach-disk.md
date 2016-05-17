@@ -25,7 +25,7 @@ If you need an additional data disk, you can attach an empty disk or an existing
 
 It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to drive C and a temporary disk mapped to drive D. **Do not use the temporary disk to store data**. As the name implies, the temporary disk provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure Storage.
 
-For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md).
+For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-windows-about-disks-vhds.md).
 
 ## Video walkthrough
 
