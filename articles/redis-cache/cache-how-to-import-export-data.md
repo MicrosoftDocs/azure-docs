@@ -32,7 +32,7 @@ This article provides a guide for importing and exporting data with Azure Redis 
 
 ## Import
 
-Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page blobs in Azure storage, in the same region and subscription as your Azure Redis Cache instance. For more information, see [Get started with Azure Blob storage ](../storage/storage-dotnet-how-to-use-blobs.md).
+Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page blobs in Azure storage, in the same region and subscription as your Azure Redis Cache instance. For more information, see [Get started with Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). If you exported your RDB file using the [Export](#export) feature your RDB file is already stored in a page blob and is ready for importing.
 
 1. To import one or more exported cache blobs, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure portal and click **Import data** from the **Settings** blade of your cache instance.
 
