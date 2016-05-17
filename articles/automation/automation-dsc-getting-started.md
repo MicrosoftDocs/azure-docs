@@ -43,31 +43,32 @@ depending on how you assign nodes.
 1. Start the Windows PowerShell ISE (or any text editor).
 
 2. Type the following text:
-```powershell
-configuration TestConfig
-{
-    Node WebServer
+
+    ```powershell
+    configuration TestConfig
     {
-        WindowsFeature IIS
+        Node WebServer
         {
-            Ensure               = 'Present'
-            Name                 = 'Web-Server'
-            IncludeAllSubFeature = $true
+            WindowsFeature IIS
+            {
+                Ensure               = 'Present'
+                Name                 = 'Web-Server'
+                IncludeAllSubFeature = $true
 
+            }
         }
-    }
 
-    Node NotWebServer
-    {
-        WindowsFeature IIS
+        Node NotWebServer
         {
-            Ensure               = 'Absent'
-            Name                 = 'Web-Server'
+            WindowsFeature IIS
+            {
+                Ensure               = 'Absent'
+                Name                 = 'Web-Server'
 
+            }
         }
-    }
-}
-```
+        }
+    ```
 3. Save the file as `TestConfig.ps1`.
 
 This configuration calls one resource in each node block, the [WindowsFeature resource](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), that ensures either the presence
