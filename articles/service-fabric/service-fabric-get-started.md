@@ -3,7 +3,7 @@
    description="Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/18/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Prepare your development environment
  In order to build and run [Azure Service Fabric applications][1] on your development machine, you need to install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
