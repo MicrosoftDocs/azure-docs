@@ -25,7 +25,7 @@ You can set the lock level to **CanNotDelete** or **ReadOnly**. **CanNotDelete**
 Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see 
 [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-When you apply a lock at a parent scope, all child resources inherit the same lock.
+When you apply a lock at a parent scope, all child resources inherit the same lock. The most restrictive lock in the inheritance takes precedence.
 
 ## Who can create or delete locks in your organization
 
