@@ -3,8 +3,8 @@
 	description="Learn how to use RESTful API calls to back up and restore an app in Azure App Service"
 	services="app-service"
 	documentationCenter=""
-	authors="nking92"
-	manager="edlauare"
+	authors="nicking"
+	manager="zhey"
     editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/17/2016"
 	ms.author="nicking"/>
 
 > [AZURE.SELECTOR]
