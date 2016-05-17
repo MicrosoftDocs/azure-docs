@@ -124,4 +124,4 @@ Learn more:
 - [Introduction to Azure Security Center](../security-center/security-center-intro.md)
 
 <!--Image references-->
-[1]: ./media/security-management-and-monitoring/shared-responsibility.png
+[1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
