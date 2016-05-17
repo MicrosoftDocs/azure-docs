@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/17/2016"
 	ms.author="cynthn"/>
 
 # Attach a data disk to a Windows virtual machine created with the classic deployment model
@@ -25,6 +25,8 @@ If you need an additional data disk, you can attach an empty disk or an existing
 
 It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has a disk for the operating system mapped to drive C and a temporary disk mapped to drive D. **Do not use the temporary disk to store data**. As the name implies, the temporary disk provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure Storage.
 
+For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md).
+
 ## Video walkthrough
 
 Here's a walkthrough of the steps in this tutorial.
@@ -33,7 +35,7 @@ Here's a walkthrough of the steps in this tutorial.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>How to: initialize a new data disk in Windows Server
+## Initialize the disk
 
 1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server][logon].
 
