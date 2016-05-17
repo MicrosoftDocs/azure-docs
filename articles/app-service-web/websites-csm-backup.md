@@ -3,7 +3,7 @@
 	description="Learn how to use RESTful API calls to back up and restore an app in Azure App Service"
 	services="app-service"
 	documentationCenter=""
-	authors="nicking"
+	authors="NKing92"
 	manager="zhey"
     editor="" />
 
