@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to Scale Azure Redis Cache" 
+	pageTitle="How to Scale Azure Redis Cache | Microsoft Azure" 
 	description="Learn how to scale your Azure Redis Cache instances" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/17/2016" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
@@ -48,9 +48,11 @@ Select the desired pricing tier from the **Pricing tier** blade and click **Sele
 
 >[AZURE.NOTE] You can scale to a different pricing tier with the following restrictions.
 >
->-	You can't scale to or from a **Premium** cache.
->-	You can't scale from a **Standard** cache to a **Basic** cache.
+>-	You can't scale from a higher pricing tier to a lower pricing tier.
+>    -    You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+>    -    You can't scale from a **Standard** cache down to a **Basic** cache.
 >-	You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
+>-	You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
 >-	You can't scale from a larger size down to the **C0 (250 MB)** size.
 
 While the cache is scaling to the new pricing tier, a **Scaling** status is displayed in the **Redis Cache** blade.
@@ -105,20 +107,30 @@ For more information, see the [Manage Redis Cache using MAML](https://github.com
 
 The following list contains answers to commonly asked questions about Azure Redis Cache scaling.
 
-## Can I scale to, from, or within a Premium cache
+-	[Can I scale to, from, or within a Premium cache?](#can-i-scale-to-from-or-within-a-premium-cache)
+-	[After scaling, do I have to change my cache name or access keys?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
+-	[How does scaling work?](#how-does-scaling-work)
+-	[Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
+-	[Operations that are not supported](#operations-that-are-not-supported)
+-	[How long does scaling take?](#how-long-does-scaling-take)
+-	[How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
+-	[Why is this feature in preview?](#why-is-this-feature-in-preview)
 
--	You can't scale to a **Premium** cache pricing tier from **Basic** or **Standard** pricing tiers.
--	You can't scale from a **Premium** cache to a **Basic** or **Standard** pricing tier.
+### Can I scale to, from, or within a Premium cache?
+
+-	You can't scale from a **Premium** cache down to a **Basic** or **Standard** pricing tier.
 -	You can scale from one **Premium** cache pricing tier to another.
+-	You can't scale from a **Basic** cache directly to a **Premium** cache. You must first scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
 -	If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](cache-how-to-premium-clustering.md#cluster-size).
 
 For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
-## After scaling, do I have to change my cache name or access keys
+### After scaling, do I have to change my cache name or access keys?
 
 No, your cache name and keys are unchanged during a scaling operation.
 
-## How does scaling work
+### How does scaling work?
 
 When a **Basic** cache is scaled to a different size, it is shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
 
@@ -126,7 +138,7 @@ When a **Basic** cache is scaled to a **Standard** cache, a replica cache is pro
 
 When a **Standard** cache is scaled to a different size, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is re-provisioned, similar to the process that occurs during a failure of one of the cache nodes.
 
-## Will I lose data from my cache during scaling
+### Will I lose data from my cache during scaling?
 
 When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
 
@@ -136,13 +148,13 @@ When a **Standard** cache is scaled to a larger size, all data is typically pres
 
 Note that while Standard and Premium caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
-## Will my cache be available during scaling
+### Will my cache be available during scaling?
 
 **Standard** caches remain available during the scaling operation.
 
 **Basic** caches are offline during scaling operations to a different size, but remain available when scaling from **Basic** to **Standard**.
 
-## Operations that are not supported
+### Operations that are not supported
 
 You can't scale to or from a **Premium** cache.
 
@@ -154,15 +166,15 @@ You can scale up from a **C0** (250 MB) cache to a larger size, but you can't sc
 
 If a scaling operation fails, the service will try to revert the operation and the cache will revert to the original size.
 
-## How long does scaling take
+### How long does scaling take?
 
 Scaling takes approximately 20 minutes, depending on how much data is in the cache.
 
-## How can I tell when scaling is complete
+## How can I tell when scaling is complete?
 
 In the Azure Portal you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
 
-## Why is this feature in preview
+### Why is this feature in preview?
 
 We are releasing this feature to get feedback. Based on the feedback, we will release this feature to General Availability soon.
 

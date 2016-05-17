@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to configure Redis clustering for a Premium Azure Redis Cache" 
+	pageTitle="How to configure Redis clustering for a Premium Azure Redis Cache | Microsoft Azure" 
 	description="Learn how to create and manage Redis clustering for your Premium tier Azure Redis Cache instances" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/17/2016" 
 	ms.author="sdanie"/>
 
 # How to configure Redis clustering for a Premium Azure Redis Cache
