@@ -3,9 +3,9 @@
 	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="" />
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="msolhab;bradsev" />
+	ms.date="05/10/2016" 
+	ms.author="bradsev" />
 
 
 # Scenarios for advanced analytics in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled by the Cortana Analytics Process (CAP). It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the Cortana Analytics Process. It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
