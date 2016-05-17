@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/07/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Azure Functions developer reference
@@ -80,7 +80,7 @@ To facilitate HTTP triggers, there is also a web host which is designed to sit i
 A script host points to a folder that contains a configuration file and one or more functions.
 
 ```
-parentFolder (for example, wwwroot)
+parentFolder (for example, wwwroot in a function app)
  | - host.json
  | - mynodefunction
  | | - function.json
@@ -93,11 +93,49 @@ parentFolder (for example, wwwroot)
  | | - run.csx
 ```
 
-The *host.json* file contains some script host specific configuration and sits in the parent folder.
+The *host.json* file contains some script host specific configuration and sits in the parent folder. For information on settings that are available, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
 
 Each function has a folder that contains code file(s), *function.json*, and other dependencies.
 
 When setting up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
+
+## <a id="fileupdate"></a> How to update function app files
+
+The function editor built into the Azure portal lets you update the *function.json* file and the code file for a function. To upload or update other files such as *package.json* or *project.json* or dependencies, you have to use other deployment methods.
+
+Function apps are built on App Service, so all of the [deployment options available to standard web apps](../app-service-web/web-sites-deploy.md) are available for function apps as well. Here are some methods you can use to upload or update function app files. 
+
+#### To use Visual Studio Online (Monaco)
+
+1. In the Azure Functions portal, click **Function app settings**.
+
+2. In the **Advanced Settings** section, click **Go to App Service Settings**.
+
+3. Click **Tools**.
+
+4. Under **Develop**, click **Visual Studio Online**.
+
+5. Turn it **On** if it is not already enabled, and click **Go**.
+
+	After Visual Studio Online loads, you'll see the *host.json* file and function folders under *wwwroot*. 
+
+6. Open files to edit them, or drag and drop from your development machine to upload files.
+
+#### To use the function app's SCM (Kudu) endpoint
+
+1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Click **Debug Console > CMD**.
+
+3. Navigate to `D:\home\site\wwwroot\` to update *host.json* or `D:\home\site\wwwroot\<function_name>` to update a function's files.
+
+4. Drag-and-drop a file you want to upload into the appropriate folder in the file grid.
+
+#### To use FTP
+
+1. Follow the instructions [here](../app-service-web/web-sites-deploy.md#ftp) to get FTP configured.
+
+2. When you're connected to the function app site, copy an updated *host.json* file to `/site/wwwroot` or copy function files to `/site/wwwroot/<function_name>`.
 
 ## Parallel execution
 
