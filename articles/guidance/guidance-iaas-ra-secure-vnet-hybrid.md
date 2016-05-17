@@ -262,7 +262,7 @@ The following sections provide more details on the key resources created for thi
 
 ### Creating the NVAs
 
-The NVAs are Linux (Ubuntu) VMs. The [iib-nvas-mgmt.json][iib-nvas-mgmt] template invokes another generic template ([bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe]) to create these VMs. The distinguishing aspects of these VMS consist of:
+The NVAs are Linux (Ubuntu) VMs. The [ibb-nvas-mgmt.json][iib-nvas-mgmt] template invokes another generic template ([bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe]) to create these VMs. The distinguishing aspects of these VMS consist of:
 
 - The IP forwarding configuration from the NIC on the inbound NVA subnet to the NIC on the outbound NVA subnet,
 
@@ -708,7 +708,7 @@ The following variables specify the IP addresses used by the load balancers for 
 
 #### NVA and jump box configuration
 
-The [ibb-nvas.mgmt.json][ibb-nvas.mgmt] template creates the NVAs and jump box.
+The [ibb-nvas.mgmt.json][ibb-nvas-mgmt] template creates the NVAs and jump box.
 
 You can set the following parameters:
 
@@ -783,9 +783,9 @@ If you are using ExpressRoute to provide the connectivity between your on-premis
 <!-- links -->
 
 [resource-manager-overview]: ../resource-group-overview.md
-[guidance-vpn-gateway]: ../guidance-hybrid-network-vpn.md
+[guidance-vpn-gateway]: ./guidance-hybrid-network-vpn.md
 [script]: #sample-solution-script
-[implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
+[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md
@@ -803,7 +803,7 @@ If you are using ExpressRoute to provide the connectivity between your on-premis
 [fortinet]: https://azure.microsoft.com/marketplace/partners/fortinet/fortinet-fortigate-singlevmfortigate-singlevm/
 [securesphere]: https://azure.microsoft.com/marketplace/partners/imperva/securesphere-waf-for-azr/
 [denyall]: https://azure.microsoft.com/marketplace/partners/denyall/denyall-web-application-firewall/
-[vpn-failover]: ../guidance-hybrid-network-expressroute-vpn-failover.md
+[vpn-failover]: ./guidance-hybrid-network-expressroute-vpn-failover.md
 [wireshark]: https://www.wireshark.org/
 [rbac-recommendations]: #rbac_recommendations
 [azuredeploy-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/guidance-hybrid-network-secure-vnet/Scripts/azuredeploy.sh
@@ -823,3 +823,9 @@ If you are using ExpressRoute to provide the connectivity between your on-premis
 [git-for-windows]: https://git-for-windows.github.io
 [arm-template-best-practices]: https://azure.microsoft.com/documentation/articles/best-practices-resource-manager-design-templates/
 [nva-script]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/ARMBuildingBlocks/Scripts/nva.sh
+[ra-vpn]: ./guidance-hybrid-network-vpn.md
+[ra-expressroute]: ./guidance-hybrid-network-expressroute.md
+[ibb-nvas-mgmnt] https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/Templates/ibb-nvas-mgmt.json
+
+
+
