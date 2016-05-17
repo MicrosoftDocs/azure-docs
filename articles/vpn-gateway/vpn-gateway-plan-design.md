@@ -165,7 +165,7 @@ A forced tunneling connection can be configured in both deployment models and by
 
 ## Next steps
 
-See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateway](vpn-gateway-about-vpngateways.md) article for more information to help you with your design. 
+See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) and [About VPN Gateway](vpn-gateway-about-vpngateways.md) articles for more information to help you with your design. 
 
 For more information about connection topologies, see [Connection toplogies](vpn-gateway-topology.md).
 
