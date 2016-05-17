@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Get started with the SendGrid connector
@@ -57,9 +57,13 @@ To create Logic apps with SendGrid, you must first create a **connection** then 
 |Property| Required|Description|
 | ---|---|---|
 |ApiKey|Yes|Provide Your SendGrid Api Key|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+ 
+
+>[AZURE.INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 
 >[AZURE.TIP] You can use this connection in other logic apps.
+
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
 ## Reference for SendGrid
 Applies to version: 1.0
