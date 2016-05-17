@@ -64,7 +64,7 @@ Following table provides a guide to comparing the two Channel types supported in
 Feature|Pass-through Channel|Standard Channel
 ---|---|---
 Single bitrate input is encoded into multiple bitrates in the cloud|No|Yes
-Maximum resolution, number of layers|1080p, 8 layers (4K), 60+fps|720p, 6 layers, 30 fps
+Maximum resolution, number of layers|1080p, 8 layers, 60+fps|720p, 6 layers, 30 fps
 Input protocols|RTMP, Smooth Streaming|RTMP, Smooth Streaming, and RTP
 Price|See the [pricing page](/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](/pricing/details/media-services/) 
 Maximum run time|24x7|8 hours
