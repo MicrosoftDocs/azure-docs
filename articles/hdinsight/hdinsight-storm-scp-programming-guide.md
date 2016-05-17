@@ -19,7 +19,7 @@ ms.author="raviperi"/>
 
 #SCP programming guide
 
-SCP is a platform to build real time, reliable, consistent and high performance data processing application. It is built on top of Storm (http://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and open sourced by Twitter. It leverages ZooKeeper (http://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
+SCP is a platform to build real time, reliable, consistent and high performance data processing application. It is built on top of [Apache Storm](http://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and open sourced by Twitter. It leverages [Apache ZooKeeper](http://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
 
 Not only the SCP project ported Storm on Windows but also the project added extensions and customization for the Windows ecosystem. The extensions include .NET developer experience, and libraries, the customization includes Windows-based deployment. 
 
@@ -35,7 +35,7 @@ In Storm, an application topology defines a graph of computation. Each node in a
 
 SCP supports best efforts, at-least-once and exactly-once data processing. In a distributed streaming processing application, various errors may happen during data processing, such as network outage, machine failure, or user code error etc. At-least-once processing ensures all data will be processed at least once by replaying automatically the same data when error happens. At-least-once processing is simple and reliable and suits well in many applications. However, when the application requires exact counting, for example, at-least-once processing is insufficient since the same data could potentially be played in the application topology. In that case, exactly-once processing is designed to make sure the result is correct even when the data may be replayed and processed multiple times.
 
-SCP enables .NET developers to develop real time data process applications while leverage JVM based Storm under the cover. The .NET and JVM communicate via TCP local socket. Basically each Spout/Bolt is a .Net/Java process pair, where the user logic runs in .Net process as a plugin.
+SCP enables .NET developers to develop real time data process applications while leverage the Java Virtual Machine (JVM) based Storm under the cover. The .NET and JVM communicate via TCP local socket. Basically each Spout/Bolt is a .Net/Java process pair, where the user logic runs in .Net process as a plugin.
 
 To build a data processing application on top of SCP, several steps are needed:
 
@@ -181,7 +181,7 @@ Context provides a running environment to the application. Each ISCPPlugin insta
 		public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
 	}
 
-"TopologyContext" is provided to get the topology context, it is most useful for components with multiple parallelism. Here is an example:
+`TopologyContext` is provided to get the topology context, it is most useful for components with multiple parallelism. Here is an example:
 
 	//demo how to get TopologyContext info
 	if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -224,11 +224,11 @@ For non-transactional bolt supporting ack, it should explicitly `Ack()` or `Fail
 
 ### StateStore
 
-**StateStore** provides metadata services, monotonic sequence generation, and wait-free coordination. Higher-level distributed concurrency abstractions can be built on **StateStore**, including distributed locks, distributed queues, barriers, and transaction services.
+`StateStore` provides metadata services, monotonic sequence generation, and wait-free coordination. Higher-level distributed concurrency abstractions can be built on `StateStore`, including distributed locks, distributed queues, barriers, and transaction services.
 
-SCP applications may use **State** object to persist some information in ZooKeeper, especially for transactional topology. Doing so, if transactional spout crashes and restart, it can retrieve the necessary information from ZooKeeper and restart the pipeline.
+SCP applications may use the `State` object to persist some information in ZooKeeper, especially for transactional topology. Doing so, if transactional spout crashes and restart, it can retrieve the necessary information from ZooKeeper and restart the pipeline.
 
-The **StateStore** object mainly has these methods:
+The `StateStore` object mainly has these methods:
 
 	/// <summary>
 	/// Static method to retrieve a state store of the given path and connStr 
@@ -283,7 +283,7 @@ The **StateStore** object mainly has these methods:
 	/// <typeparam name="T">stateId, id of the State</typeparam>
 	public State GetState(long stateId)
 
-The **State** object mainly has these methods:
+The `State` object mainly has these methods:
 
 	/// <summary>
 	/// Set the status of the state object to commit 
