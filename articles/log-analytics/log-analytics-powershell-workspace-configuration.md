@@ -23,7 +23,7 @@ You can use the [Log Analytics PowerShell cmdlets](http://msdn.microsoft.com/lib
 + Create a workspace
 + Add or remove a solution
 + Import and export saved searches
-+ Add a the log analytics agent to an Azure virtual machine
++ Add the log analytics agent to an Azure virtual machine
 + Configure log analytics to index data collected using Azure diagnostics
 
 This article provides two code samples that illustrate some of the functions that you can perform from PowerShell.  You can refer to the [Log Analytics PowerShell cmdlet reference](http://msdn.microsoft.com/library/mt188224.aspx) for other functions.
