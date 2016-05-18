@@ -156,10 +156,12 @@ Note that while Standard and Premium caches have a 99.9% SLA for availability, t
 
 ### Operations that are not supported
 
--	You can't change from a **Standard** to a **Basic** cache.
+-	You can't scale from a higher pricing tier to a lower pricing tier.
+    -    You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
+    -    You can't scale from a **Standard** cache down to a **Basic** cache.
 -	You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
--	You can scale up from a **C0** (250 MB) cache to a larger size, but you can't scale a larger size down to a **C0** cache.
--	You can't scale from a **Basic** cache directly to a **Premium** cache. You must first scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+-	You can't scale from a **Basic** cache directly to a **Premium** cache. You must scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
+-	You can't scale from a larger size down to the **C0 (250 MB)** size.
 
 If a scaling operation fails, the service will try to revert the operation and the cache will revert to the original size.
 
