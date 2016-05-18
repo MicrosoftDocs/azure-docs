@@ -3,7 +3,7 @@
    description="Tips for securing a database in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
 
@@ -31,13 +31,13 @@ Connections to your SQL Data Warehouse can be encrypted by setting the encryptio
 
 ## Authentication
 
-Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password.
+Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password as well as a preview of Azure Active Directory. 
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
 
-However, as a best practice your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. To create a database user based on server login:
+However, as a best practice your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
 
-First, connect to the master database on your server with your server admin login and create a new server login.
+To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.
 
 ```sql
 -- Connect to master database and create a login
@@ -45,7 +45,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 ```
 
-Then, connect to your SQL Data Warehouse database with your server admin login and create a database user based on the server login you just created.
+Then, connect to your **SQL Data Warehouse database** with your server admin login and create a database user based on the server login you just created.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][].
+For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][] and [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][].
 
 
 ## Authorization
@@ -86,7 +86,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde.md).
+You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)][].
 
 ## Auditing
 
@@ -98,8 +98,10 @@ For details and examples on connecting to your SQL Data Warehouse with different
 <!--Image references-->
 
 <!--Article references-->
-[Connect to SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
-[Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
+[Connect to SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
+[Get started with SQL Database Auditing]: ./sql-data-warehouse-overview-auditing.md
+[Get started with Transparent Data Encryption (TDE)]: ./sql-data-warehouse-encryption-tde.md
+[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-aad-authentication.md
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -107,8 +109,8 @@ For details and examples on connecting to your SQL Data Warehouse with different
 [Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
 [Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
+[Transparent Data Encryption]: https://go.microsoft.com/fwlink/?LinkId=526242
 [Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Role-based access control in Azure Portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx
+[Role-based access control in Azure Portal]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure

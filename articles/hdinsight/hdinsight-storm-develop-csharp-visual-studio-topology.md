@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/17/2016"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -639,6 +639,10 @@ For an example of a C# topology that splits stream data into multiple streams, s
 To discover more information about creating C# topologies, visit [SCP.NET GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
 For more ways to work with HDInsight and more Storm on HDinsight samples, see the following:
+
+**Microsoft SCP.NET**
+
+* [SCP programming guide](hdinsight-storm-scp-programming-guide.md)
 
 **Apache Storm on HDInsight**
 

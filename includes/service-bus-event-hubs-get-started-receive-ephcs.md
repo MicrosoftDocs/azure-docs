@@ -22,13 +22,15 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 
 5. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**.
 
-6. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Ensure that the project name (**Receiver**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use..
+6. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Ensure that the project name (**Receiver**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use.
 
     ![][13]
 
 	This downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
 
-7. Right-click the **Receiver** project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**, and then click **OK** to create the class.
+7. Right-click the **Receiver** project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**, and then click **Add** to create the class.
+
+	![][15]
 
 8. Add the following statements at the top of the SimpleEventProcessor.cs file:
 
@@ -89,7 +91,7 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-	Then, modify the `Main` method in the `Program` class as follows, substituting the Event Hub name and the **ReceiveRule** connection string, and the storage account and key that you copied in the previous sections. Be sure to remove the `EntityPath` suffix from the connection string:
+	Then, replace the `Main` method in the `Program` class with the following code, substituting the Event Hub name and the namespace-level connection string that you saved previously, and the storage account and key that you copied in the previous sections. 
 
     ```
 	static void Main(string[] args)
@@ -128,5 +130,6 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
 
