@@ -69,7 +69,7 @@ This example returns all record sets that match the given record type (in this c
 
 You add records to record sets by using the `azure network dns record-set add-record`command. The parameters for adding records to a record set vary depending on the type of the record that's being set. For example, when you use a record set of type *A*, you can only specify records with the parameter `-a <IPv4 address>`.
 
-To create a record set, use the `azure network dns record-set create`command. Specify the resource group, zone name, record set relative name, record type, and time to live (TTL). If the --ttl parameter is not defined, the value defaults to four (in seconds).
+To create a record set, use the `azure network dns record-set create`command. Specify the resource group, zone name, record set relative name, record type, and time to live (TTL). If the --ttl parameter is not defined, the value (in seconds) defaults to four.
 
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
@@ -79,7 +79,7 @@ After you create the A record set, add the IPv4 address by using the `azure netw
 	azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1
 
 
-The following examples show how to create a record set of each record type, containing a single record.
+The following examples show how to create a record set of each record type. Each record set contains a single record.
 
 [AZURE.INCLUDE [dns-add-record-cli-include](../../includes/dns-add-record-cli-include.md)]
 
@@ -130,7 +130,7 @@ Use `azure network dns record-set delete-record`.
 
 Records can be removed from a record set by using `azure network dns record-set delete-record`. The record that is being removed must be an exact match with an existing record across all parameters.
 
-Removing the last record from a record set does not delete the record set. For more information, see the section of this article called [Delete a record set](#delete) for more information.
+Removing the last record from a record set does not delete the record set. For more information, see the section of this article called [Delete a record set](#delete).
 
 	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
 

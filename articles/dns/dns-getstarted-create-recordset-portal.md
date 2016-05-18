@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a record set and records for a DNS Zone using the Azure portal | Microsoft Azure"
-   description="How to create host records for Azure DNS and create record sets and records using the Azure portal"
+   description="How to create host records for Azure DNS and create record sets and records using the Azure portal | Microsoft Azure"
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
@@ -62,4 +62,4 @@ The following example walks you through the process of creating a record set and
 
 To manage your record set and records, see [Manage DNS records and record sets using the Azure portal](dns-operations-recordsets-portal.md).
 
-For more information about Azure DNS, see the [Azure DNS Overview](dns-overview.md).
+For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
