@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to configure Azure Redis Cache"
+	pageTitle="How to configure Azure Redis Cache | Microsoft Azure"
 	description="Understand the default Redis configuration for Azure Redis Cache and learn how to configure your Azure Redis Cache instances"
 	services="redis-cache"
 	documentationCenter="na"
 	authors="steved0x"
-	manager="erikre"
+	manager="douge"
 	editor="tysonn" />
 <tags 
 	ms.service="cache"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/10/2016"
+	ms.date="05/18/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -48,9 +48,10 @@ Azure Redis Cache provides the following settings on the **Settings** blade.
 	-	[Access ports](#access-ports)
 	-	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
 	-	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
-	-	[Recommendations](#recommendations)
+	-	[Redis Cache Advisor](#recommendations)
 -	[Data management settings](#data-management-settings)
 	-	[Redis data persistence](#redis-data-persistence)
+	-	[Import/Export](#importexport)
 -	[Network settings](#network-settings)
 -	[Diagnostics settings](#diagnostics-settings)
 -	[Scale settings](#scale-settings)
@@ -60,7 +61,17 @@ Azure Redis Cache provides the following settings on the **Settings** blade.
 
 ## Support & troubleshooting settings
 
+The settings in the **Support + troubleshooting** provide you with options for resolving issues with your cache.
+
+![Support + troubleshooting](./media/cache-configure/redis-cache-support-troubleshooting.png)
+
+Click **Troubleshoot** to be provided with common issues and strategies for resolving them.
+
 Click **Audit logs** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../azure-portal/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+
+**Resource health** is an Azure portal wide setting that is not currently supported for Azure Redis Cache. For information and instructions for monitoring the health of your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
+
+Click **New support request** to open a support request for your cache.
 
 ## General settings
 
@@ -117,7 +128,8 @@ Click **Advanced settings** to configure Redis keyspace notifications. Keyspace 
 
 For more information, see [Redis Keyspace Notifications](http://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
-### Recommendations
+<a name="recommendations"></a>
+### Redis Cache Advisor
 
 The **Recommendations** blade displays recommendations for your cache. During normal operations, no recommendations are displayed. 
 
@@ -166,6 +178,16 @@ Click **OK** to save the persistence configuration.
 
 >[AZURE.IMPORTANT] Redis data persistence is only available for Premium caches. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 
+### Import/Export
+
+Import/Export is an Azure Redis Cache data management operation which allows you to import data into Azure Redis Cache or export data from Azure Redis Cache by importing and exporting a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. This enables you to migrate between different Azure Redis Cache instances or populate the cache with data before use.
+
+Import can be used to bring Redis compatible RDB file(s) from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process Azure Redis Cache loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
+
+Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB file(s). You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server. During the export process a temporary file is created on the VM that hosts the Azure Redis Cache server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
+
+>[AZURE.IMPORTANT] Import/Export is only available for Premium tier caches. For more information and instructions, see [Import and Export data in Azure Redis Cache](cache-how-to-import-export-data.md).
+
 ## Network settings
 
 The settings in the **Network** section allow you to access and configure the following settings for your cache.
@@ -180,11 +202,13 @@ The **Diagnostics** section allows you to configure diagnostics for your Redis C
 
 ![Diagnostics](./media/cache-configure/redis-cache-diagnostics.png)
 
-Click **Diagnostics** to configure the storage account used to store cache diagnostics.
+Click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#enable-cache-diagnostics) used to store cache diagnostics.
 
 ![Redis Cache Diagnostics](./media/cache-configure/redis-cache-diagnostics-settings.png)
 
-For more information, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
+Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) for your cache, and **Alert rules** to [set up alert rules](cache-how-to-monitor.md#operations-and-alerts).
+
+For more information on Azure Redis Cache diagnostics, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
 
 ## Scale settings
 
@@ -214,11 +238,15 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 ## Resource management settings
 
-![Redis Cache Users and Tags](./media/cache-configure/redis-cache-resource-management.png)
-
-The **Users** section provides support for role-based access control (RBAC) in the Azure Portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure Portal](http://go.microsoft.com/fwlink/?LinkId=512803).
+![Resource management](./media/cache-configure/redis-cache-resource-management.png)
 
 The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+
+The **Locks** section allows you to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
+
+The **Users** section provides support for role-based access control (RBAC) in the Azure Portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure Portal](../active-directory/role-based-access-control-configure.md).
+
+Click **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../resource-group-template-deploy.md).
 
 ## Default Redis server configuration
 
