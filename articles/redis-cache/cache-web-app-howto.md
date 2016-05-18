@@ -688,12 +688,13 @@ Clicking the **Deploy to Azure** button takes you to the Azure portal and initia
 1. On the **Custom deployment** blade, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
 2. On the **Parameters** blade, specify an administrator account name (**ADMINISTRATORLOGIN** - don't use **admin**), administrator login password (**ADMINISTRATORLOGINPASSWORD**), and database name (**DATABASENAME**). The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
 3. Change any of the other settings if desired, or keep the defaults, and click **OK**.
-4. Once the settings are configured, click **Review legal terms**.
+
 
 ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
-1. Read the terms on the **Purchase** blade and click **Purchase**.
-2. To begin provisioning the resources, click **Create** on the **Custom deployment** blade.
+1. Click **Review legal terms**.
+2. Read the terms on the **Purchase** blade and click **Purchase**.
+3. To begin provisioning the resources, click **Create** on the **Custom deployment** blade.
 
 To view the progress of your deployment, click the notification icon and click **Deployment started**.
 
