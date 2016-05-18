@@ -30,8 +30,6 @@ There are several ways you can trigger a Logic app from another app. Here are so
 
 ### Scenarios
 
-- [Register for an external event](app-service-logic-scenario-paypal-slack.md) like a Paypal or Slack webhook
-- [Build a custom API to long-poll service bus](app-service-logic-scenario-sb-custom-api.md)
 - [Logic App Request Synchronous Response](app-service-logic-http-endpoint.md)
 
 ## Content-Types, Conversions, and Transformations
@@ -39,19 +37,7 @@ There are several ways you can trigger a Logic app from another app. Here are so
 The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) contains many functions to allow you to convert and work with different content types.  In addition the engine will do all it can to preserve content-types as data flows through the workflow.
 
 - [Handling of Content-Types](app-service-logic-content-type.md) like application/json, application/xml, and plain/text
-- [Workflow Definition Language](app-service-logic-workflow-language.md)
-
-### Scenarios
-
-- [Convert XML to JSON](app-service-logic-scenario-xml-json.md)
-- [Parsing JSON string](app-service-logic-scenario-sb-json.md)
-- [Converting form encoded data](app-service-logic-scenario-paypal-slack.md) like a Slack or Twilio webhook.
-- [Convert CSV to JSON]
-
-## Exceptions, Tracking, and Error Handling
-
- - Exception Handling
- - Azure Diagnostics and Tracked Properties
+- [Workflow Definition Language](http://aka.ms/logicappsdocs)
 
 ## Long-Running Actions
 
@@ -63,38 +49,9 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 - [ForEach](app-service-logic-loops-and-scopes.md)
 - [Until](app-service-logic-loops-and-scopes.md)
 
-### Scenario
-
-- [Loop over email attachments and store to blob](app-service-logic-scenario-email-attach.md)
-- [Insert new Salesforce customers into SQL](app-service-logic-scenario-salesforce-sql.md)
-
 ## HTTP, REST, and SOAP
 
- - HTTP Action and HTTP+Swagger
- - [Calling SOAP](## TODO - link to blog)
-
-### Scenario
-
-- [Getting the weather forecast via HTTP](app-service-logic-scenario-weather.md)
-
-## Deploying Logic Apps and Release Management
-
- - Logic App Resource Deployment and Templates
- - Release Management of Logic Apps and Connections
-
-### Scenarios
-
-- Integration Logic Apps with Visual Studio Release Management
-- [Deploying FTP to Blob](app-service-logic-scenario-ftp-blob.md)
-
-## Integrating with Nested Workflows and Azure Functions
-
-- Nested Workflows
-- [Azure Functions Integration](app-service-logic-azure-functions.md)
-
-### Scenarios
-
-- [Trigger on Stream Analytics through Service Bus](app-service-logic-scenario-stream-analytics.md)
+ - [Calling SOAP](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 
 We will keep adding examples and scenarios to this document. Use the comments section below to let us know what examples or scenarios you'd like to see here.
