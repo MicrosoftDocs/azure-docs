@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrate your schema to SQL Data Warehouse#
@@ -23,19 +23,20 @@ The following summaries will help you understand the differences between SQL Ser
 ### Table features
 SQL Data Warehouse does not use or support these features:
 
-- Primary keys
-- Foreign keys
-- Check constraints
-- Unique constraints
-- Unique indexes
-- Computed columns
-- Sparse columns
-- User defined types
-- Indexed views
-- Identities
-- Sequences
-- Triggers
-- Synonyms
+- Primary keys  
+- Foreign keys  
+- Check constraints  
+- Unique constraints  
+- Unique indexes  
+- Computed columns  
+- Sparse columns  
+- User defined types  
+- Indexed views  
+- Identities  
+- Sequences  
+- Triggers  
+- Synonyms  
+
 
 ### Data type differences
 SQL Data Warehouse supports the common business data types:
@@ -54,14 +55,17 @@ SQL Data Warehouse supports the common business data types:
 - money
 - nchar
 - nvarchar
+- numeric
 - real
 - smalldatetime
 - smallint
 - smallmoney
+- sysname
 - time
 - tinyint
 - varbinary
 - varchar
+- uniqueidentifier
 
 You can use this query to identify columns in your data warehouse that contain incompatible types:
 
@@ -81,19 +85,12 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
+AND  y.[is_user_defined] = 1
 ;
 
 ```
@@ -108,22 +105,22 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, this CLR type is not supported
 - **image**, **text**, **ntext**, use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
-- **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
-- **sysname**, use nvarchar(128)
 - **table**, convert to temporary tables
 - **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use binary(8) or varbinary(8) for NOT NULL or NULL row version values.
-- **varchar(max)**, use varchar(8000) or smaller for better performance
-- **uniqueidentifier**, use varbinary(16) or varchar(36) depending on the input format (binary or character) of your values. If the input format is character-based an optimization is possible. By converting from character to binary format, you can reduce the column storage by over 50%. In very large tables this optimization can be beneficial.
 - **user defined types**, convert back to their native types where possible
-- **xml**, use a varchar(8000) or smaller for better performance. Split across columns if needed
+- **xml**, use a varchar(max) or smaller for better performance. Split across columns if needed
+
+For better performance, instead of:
+
+- nvarchar(max), use nvarchar(4000) or smaller for better performance
+- varchar(max), use varchar(8000) or smaller for better performance
 
 Partial support:
 
 - Default constraints support literals and constants only. Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.
 
-> [AZURE.NOTE] Define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, you will not be be able to insert data into the table. Also, try to limit the size of your variable length columns for even better throughput for running queries.
+> [AZURE.NOTE] If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, and load rows with BCP, you will not be be able to us Polybase to load this data quite yet. Polybase support for wide rows will be added soon. Also, try to limit the size of your variable length columns for even better throughput for running queries.
 
 ## Next steps
 Once you have successfully migrated your database schema to SQLDW you can proceed to one of the following articles:

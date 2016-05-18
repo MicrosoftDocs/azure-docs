@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/17/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Create HBase clusters on Azure Virtual Network 

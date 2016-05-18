@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
