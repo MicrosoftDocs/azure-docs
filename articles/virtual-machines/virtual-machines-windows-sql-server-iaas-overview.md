@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/10/2016"
+	ms.date="05/18/2016"
 	ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
