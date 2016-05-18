@@ -3,8 +3,8 @@
    description="Understand how Logic Apps deals with content-types at design and runtime"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="jehollan"
-   manager="jiharrer"
+   authors="jeffhollan"
+   manager="dwrede"
    editor=""/>
 
 <tags

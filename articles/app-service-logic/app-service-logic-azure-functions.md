@@ -3,8 +3,8 @@
    description="See how to use Azure Functions with Logic Apps"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="jehollan"
-   manager="jiharrer"
+   authors="jeffhollan"
+   manager="dwrede"
    editor=""/>
 
 <tags
