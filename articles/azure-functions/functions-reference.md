@@ -162,3 +162,4 @@ For more information, see the following resources:
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) on the Azure App Service team blog. A history of how Azure Functions was developed.
