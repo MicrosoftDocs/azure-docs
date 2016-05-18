@@ -81,7 +81,7 @@ When you add an agent to Operations Management Suite, the Automation solution pu
 Open a PowerShell session in Administrator mode and run the following commands to import the module.
 
 	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-	Import-Module HybridRegistration.psd1
+	Import-Module .\HybridRegistration.psd1
 
 
 Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
