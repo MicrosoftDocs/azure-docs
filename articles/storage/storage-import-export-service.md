@@ -201,7 +201,7 @@ The time it takes to process an import/export job varies depending on different 
 
 **Drive handling fee**
 
-There is a drive handling fee for each drive processed as part of your import or export job. See the details on the [Azure Import/Export Pricing](https://azure.microsoft.com/en-us/pricing/details/storage-import-export/). 
+There is a drive handling fee for each drive processed as part of your import or export job. See the details on the [Azure Import/Export Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/). 
 
 **Shipping costs**
 
@@ -209,7 +209,7 @@ When you ship drives to Azure, you pay the shipping cost to the shipping carrier
 
 **Transaction costs**
 
-There are no transaction costs when importing data into blob storage. The standard egress charges are applicable when data is exported from blob storage. For more details on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/en-us/pricing/details/data-transfers/) 
+There are no transaction costs when importing data into blob storage. The standard egress charges are applicable when data is exported from blob storage. For more details on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/) 
 
 ## Quick Start
 
@@ -276,9 +276,9 @@ Azure Import/Export client tool PrepImport command for subsequent copy sessions 
 
 **Remember**: By default, the data will be imported as Block Blobs. You can use the /BlobType parameter to import data as a Page Blobs. For example, if you are importing VHD files which will be mounted as disks on an Azure VM, you must import them as Page Blobs.   If you are uncertain which blob type to use, you can specify /blobType:auto to let us help you determine the right type. In this case, all vhd and vhdx files will be imported as Page Blobs, and the rest will be imported as Block Blobs.
 
-See more details about using the Azure Import/Export client tool in [Preparing Hard Drives for Import](https://msdn.microsoft.com/en-us/library/dn529089.aspx).
+See more details about using the Azure Import/Export client tool in [Preparing Hard Drives for Import](https://msdn.microsoft.com/library/dn529089.aspx).
 
-Also, refer to the [Sample Workflow to Prepare Hard Drives for an Import Job](https://msdn.microsoft.com/en-us/library/dn529097.aspx) for more detailed step by step instructions.  
+Also, refer to the [Sample Workflow to Prepare Hard Drives for an Import Job](https://msdn.microsoft.com/library/dn529097.aspx) for more detailed step by step instructions.  
 
 ### Create the Import Job
 
@@ -379,7 +379,7 @@ Please go through the FAQ section below as it covers the most common questions c
 
 The time to copy varies depending on different factors like, job type, type and size of data being copied, size of disks provided and existing workload. It can vary from a couple of days to a couple of weeks, depending on these factors. Therefore, it is difficult to provide a general estimate. The service tries to optimize your job, by copying multiple drives in parallel when possible. If you have a time critical import/export job, reach out to us for an estimate.
 
-**Can I use Azure Import/Export service with an ARM storage account? **
+**Can I use Azure Import/Export service with an ARM storage account?**
 
 No, you cannot copy data to an ARM storage account directly using the Azure Import/Export service. Service only supports classic storage accounts. ARM storage account support will be coming soon. As an alternative, you can import data into a classic storage account, and migrate it to your ARM storage account using AzCopy or CopyBlob.
 
@@ -391,11 +391,11 @@ No, the Azure Import/Export service only supports Block Blobs and Page Blobs. Al
 
 No, the Azure Import/Export service does not support CSP subscriptions. The support will be added in the future.
 
-**Can I skip the drive preparation step for an import job or can I prepare a drive without copying? **
+**Can I skip the drive preparation step for an import job or can I prepare a drive without copying?**
 
 Any drive that you want to ship for importing data, must be prepared using the Azure Import/Export client tool. You must use the client tool to copy data to the drive. 
 
-**Do I need to perform any disk preparation when creating an export job? **
+**Do I need to perform any disk preparation when creating an export job?**
 
 No, but some pre-checks are recommended. Check the number of disks required using Azure Import/Export tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx). It helps you preview drive usage for the blobs you selected, based on the size of the drives you are going to use. Also check that you can read/write to the hard drive that will be shipped for the export job.
 
@@ -415,7 +415,7 @@ You can view status for completed jobs for up to 90 days. All completed jobs wil
 
 One import or export job can reference only 10 drives in a single job for the Import/Export service. If you want to ship more than 10 drives, you can create multiple jobs. Drives that are associated with the same job must be shipped together in the same package.
 
-**Can I use a USB-SATA adaptor that is not in the recommended list? **
+**Can I use a USB-SATA adaptor that is not in the recommended list?**
 
 If you have a converter which is not listed above, you can try running the Azure Import/Export Tool using your converter to prepare the drive and see if it works before purchasing a supported converter.
 
@@ -458,21 +458,21 @@ Some storage account locations are mapped to alternate shipping locations. Previ
 
 The Portal status changes from Shipping to Transferring when the drive processing starts. If your drive has reached the facility, but has not started processing, your job status will show as Shipping.
 
-**When shipping my drive, the carrier asks for the data center contact name and phone number. What should I provide? **
+**When shipping my drive, the carrier asks for the data center contact name and phone number. What should I provide?**
 
 The phone number is provided to you during job creation. If you need a contact name, please contact us at waimportexport@microsoft.com and we will provide you with that information.
 
 **Can I use Azure Import/Export service to copy PST mailboxes and SharePoint data to O365?**
 
-Please refer to [Import PST files or SharePoint data to Office 365](https://technet.microsoft.com/en-us/library/ms.o365.cc.ingestionhelp.aspx).
+Please refer to [Import PST files or SharePoint data to Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
 
 **Can I use Azure Import/Export service to copy my backups offline to Azure Backup Service?**
 
-Please refer to [Offline Backup workflow in Azure Backup](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-backup-import-export/).
+Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
 ## See also
 
-[Setting up Azure Import/Export client tool](https://msdn.microsoft.com/en-us/library/dn529112.aspx)
+[Setting up Azure Import/Export client tool](https://msdn.microsoft.com/library/dn529112.aspx)
 [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 
 
