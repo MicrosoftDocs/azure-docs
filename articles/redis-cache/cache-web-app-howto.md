@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/05/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # How to create a Web App with Redis Cache
@@ -692,7 +692,7 @@ Clicking the **Deploy to Azure** button takes you to the Azure portal and initia
 
 ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
-1. Read the terms on the **Create** blade and click **Create**.
+1. Read the terms on the **Purchase** blade and click **Purchase**.
 2. To begin provisioning the resources, click **Create** on the **Custom deployment** blade.
 
 To view the progress of your deployment, click the notification icon and click **Deployment started**.
