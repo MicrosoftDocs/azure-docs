@@ -172,7 +172,7 @@ able to create new resources. In that case, you should see an error message indi
 
 For more information about role-based access control, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
 
-In addition to role-based access control, you deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the 
+In addition to role-based access control, your deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the 
 subscription. For example, an administrator can require that a particular tag value be provided for a resource type. If you have not fulfilled the policy requirements, you will receive an error during 
 deployment. For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
