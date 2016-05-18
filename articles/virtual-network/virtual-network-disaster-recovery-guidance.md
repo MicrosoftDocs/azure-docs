@@ -30,7 +30,7 @@ There could be several different ways that your application could be disrupted. 
 
 **Q: What do you do in the event of an outage to an entire region? i.e. if a region is completely cutoff due to a natural disaster? What happens to the Virtual Networks hosted in the region?**
 
-A: There is nothing you can do at this point other than wait for recovery by the Azure team. The Virtual Network and the resources in the affected region remains inaccessible during the time of the outage.
+A: The Virtual Network and the resources in the affected region remains inaccessible during the time of the service disruption.
 
 ![Simple Virtual Network Diagram](./media/virtual-network-disaster-recovery-guidance/vnet.png)
 
