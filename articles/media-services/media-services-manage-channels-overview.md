@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/17/2016"
+	ms.date="05/18/2016"
 	ms.author="juliako"/>
 
 #Overview of Live Steaming using Azure Media Services
@@ -123,6 +123,8 @@ The following table shows how Channel states map to billing states in the API an
 
 To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure Classic Portal.
 You are responsible for stopping your channels when you are done with the live encoding channel.  Failure to stop an encoding channel will result in continued billing.
+
+AMS will auto shutoff the Channels after 12 hours if input feeds are lost. However, you will still be billed for up to 12 hours of if you don't move the Channel to Stopped state. 
 
 ###<a id="states"></a>Channel states and how they map to the billing mode 
 
