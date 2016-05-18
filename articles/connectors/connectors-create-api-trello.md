@@ -25,7 +25,7 @@ The Trello connector can be used from:
 
 - [Logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Flows](http://flows.microsoft.com)  
+- [Flow](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
