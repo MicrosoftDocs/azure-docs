@@ -17,7 +17,7 @@
 	ms.author="erikje"/>
 
 # Deploy Azure Stack POC
-To deploy the Azure Stack POC, you'll first need to [prepare the deployment machine](#prepare-the-deployment-machine) and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
+To deploy the Azure Stack POC, you first need to [prepare the deployment machine](#prepare-the-deployment-machine) and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
 ## Prepare the deployment machine
 

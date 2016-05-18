@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/14/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Azure Functions C# developer reference
@@ -87,7 +87,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Importing namespaces
 
-If you need import namespaces, you can do so as usual, with the `using` clause.
+If you need to import namespaces, you can do so as usual, with the `using` clause.
 
 ```csharp
 using System.Net;
@@ -100,8 +100,10 @@ The following namespaces are automatically imported and are therefore optional:
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -135,6 +137,8 @@ The following assemblies are automatically added by the Azure Functions hosting 
 In addition, the following assemblies are special cased and may be referenced by simplename (e.g. `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
@@ -160,43 +164,13 @@ When you upload a *project.json* file, the runtime gets the packages and automat
 
 ### How to upload a project.json file
 
-Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. This also gives access to the streaming logs where package installation output will be displayed.
+1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. 
 
-Function apps are built on App Service, so all of the [deployment options available to standard web apps](../app-service-web/web-sites-deploy.md) are available for function apps as well. Here are some methods you can use.
+	This also gives access to the streaming logs where package installation output will be displayed. 
 
-#### To upload project.json by using Visual Studio Online (Monaco)
+2. To upload a project.json file, use one of the methods described in the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
 
-1. In the Azure Functions portal, click **Function app settings**.
-
-2. In the **Advanced Settings** section, click **Go to App Service Settings**.
-
-3. Click **Tools**.
-
-4. Under **Develop**, click **Visual Studio Online**.
-
-5. Turn it **On** if it is not already enabled, and click **Go**.
-
-6. After Visual Studio Online loads, drag-and-drop your *project.json* file into your function's folder (the folder named after your function).
-
-#### To upload project.json by using the function app's SCM (Kudu) endpoint
-
-1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Click **Debug Console > CMD**.
-
-3. Navigate to `D:\home\site\wwwroot\<function_name>`.
-
-4. Drag-and-drop your *project.json* file into the folder (onto the file grid).
-
-#### To upload project.json by using FTP
-
-1. Follow the instructions [here](../app-service-web/web-sites-deploy.md#ftp) to get FTP configured.
-
-2. When you're connected to the function app site, copy your *project.json* file to `/site/wwwroot/<function_name>`.
-
-#### Package installation log 
-
-After the *project.json* file is uploaded, you see output like the following example in your function's streaming log:
+3. After the *project.json* file is uploaded, you see output like the following example in your function's streaming log:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -213,6 +187,25 @@ After the *project.json* file is uploaded, you see output like the following exa
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
+```
+
+## Environment variables
+
+To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
 ```
 
 ## Reusing .csx code

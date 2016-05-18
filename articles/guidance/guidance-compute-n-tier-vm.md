@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running VMs for an N-tier architecture (Windows) | Blueprint | Microsoft Azure"
+   pageTitle="Virtual datacenter | Reference Architecture | Microsoft Azure"
    description="How to run Windows VMs for an N-tier architecture in Microsoft Azure."
    services=""
    documentationCenter="na"
@@ -14,25 +14,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="05/16/2016"
    ms.author="mikewasson"/>
 
+# Azure reference architecture: Virtual datacenter (Windows VMs)
 
-# Adding reliability to an N-tier architecture on Azure (Windows VMs)
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article outlines a set of proven practices for running a reliable N-tier architecture in Microsoft Azure. This article builds on a previous article that shows a basic [N-tier architecture on Azure][blueprints-3-tier]. In this article, we include some additional components that can increase the reliability of the application:
+This article outlines a set of proven practices for running a reliable N-tier architecture in Microsoft Azure. This article builds on [Running Windows VMs for an N-tier architecture on Azure][blueprints-3-tier]. In this article, we include additional components that can increase the reliability of the application:
 
-- A virtual network appliance for greater network security.
+- A network virtual appliance for greater network security.
 - SQL Server AlwaysOn Availability Groups for high availability in the data tier.
-- Monitoring software such as [Nagios], [Zabbix], or [Icinga] for better insight into the system.  
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
-This article is focused on IaaS infrastructure, not application design. The following diagram shows an abstraction of an N-tier application: 
+## Architecture diagram
 
-![IaaS: N-tier](media/blueprints/compute-n-tier-vm.png)
+This article is focused on VM and network infrastructure, not application design. The following diagram shows an abstraction of an N-tier application: 
 
-The application consists of two services, labeled A and B. For example, they might be web apps or web APIs. Client requests get routed either to service A or to service B, depending on the content of the request (for example, the URL path). Service A writes to a SQL database, while service B sends data to an external service, such as Redis cache or a message queue, which is outside the scope of this article.
+![IaaS: N-tier](media/blueprints/compute-n-tier-advanced.png)
+
+This diagram builds on the architecture shown in [Running Windows VMs for an N-tier architecture on Azure][blueprints-3-tier], adding the following components:
+
+- **Network virtual appliance**. Provides firewall and other network functionality.
+
+- **SQL Server AlwaysOn Availability Group**. Provides high availability at the data tier, by enabling replication and failover.
+
+The application consists of two services, labeled A and B. For example, they might be web apps or web APIs. Client requests are routed either to service A or to service B, depending on the content of the request (for example, the URL path). Service A writes to a SQL database. Service B sends data to an external service, such as Redis cache or a message queue, which is outside the scope of this article.
 
 These general characteristics imply some high-level requirements for the system:
 
@@ -41,29 +49,30 @@ These general characteristics imply some high-level requirements for the system:
 - Network packet inspection.
 - Multiple storage technologies might be used.
 
-## Virtual network appliance
+## Network virtual appliance
 
-A virtual network appliance is a VM running software that performs network functionality. Typical features of a virtual network appliance include:
+A network virtual appliance (NVA) is a VM running software that performs network functionality. Typical features of an NVA include:
 
-- Network security and firewall.
+- Firewall.
 - Traffic optimization, such as WAN optimization.
 - Packet inspection.
 - SSL offloading.
 - Layer 7 load balancing.
 - Logging and reporting
 
-For high availability, place two or more virtual network appliances in an availability set. Use an external load balancer to distribute incoming Interet requests across the instances.
+For high availability, place two or more NVAs in an availability set. Use an external load balancer to distribute incoming Internet requests across the instances.
 
-For security, the network appliance should have two separate NICs, placed in different subnets. One NIC is for Internet traffic, and the other is for network traffic to the other subnets within the VNet. Configure IP forwarding on the appliance to forward Internet traffic from the front-end NIC to the back-end NIC. Note that some network appliances do not support multiple NICs.
+For security, the NVA should have two separate NICs, placed in different subnets. One NIC is for Internet traffic, and the other is for network traffic to the other subnets within the VNet. Configure IP forwarding on the appliance to forward Internet traffic from the front-end NIC to the back-end NIC. Note that some NVA do not support multiple NICs.
 
-> [AZURE.NOTE] This article doesn't cover how to configure the network appliance, which depends on the particular appliance.
+> [AZURE.NOTE] This article doesn't cover how to configure the NVA, which depends on the particular appliance.
 
-Network considerations:
+## Network recommendations
 
 - Generally, put each service or app tier into its own subnet, and set NSGs on each subnet. For more information about designing VNets and subnets, see [Plan and design Azure Virtual Networks][plan-network].
 
-- In the configuration shown here, network traffic within the VNet (between VMs) is _not_ routed through the network appliance. If you need network traffic within the VNet to go through the appliance &mdash; for example, for compliance reasons &mdash; create user defined routes (UDRs) to route the traffic. For more information, see [What are User Defined Routes and IP Forwarding?][udr].
-- Use [network security groups][nsg] (NSGs) to isolate subnets. For example, in the previous diagram, the NSG for service A allows network traffic only from the network appliance and the management subnet. Of course, the details will depend on your application.
+- In the configuration shown here, network traffic within the VNet (between VMs) is _not_ routed through the network virtual appliance. If you need network traffic within the VNet to go through the appliance &mdash; for example, for compliance reasons &mdash; create user defined routes (UDRs) to route the traffic. For more information, see [What are User Defined Routes and IP Forwarding?][udr].
+
+- Use [network security groups][nsg] (NSGs) to isolate subnets. For example, in the previous diagram, the NSG for service A allows network traffic only from the NVA and the management subnet. Of course, the details will depend on your application.
 
 ## SQL Server AlwaysOn Availability Groups
 
@@ -93,16 +102,10 @@ If your app makes significantly more reads than writes, you can offload some of 
 
 Test your deployment by [forcing a manual failover][sql-always-on-force-failover].
 
-## Monitoring software 
-
-Monitoring software sush as [Nagios], [Zabbix], or [Icinga] can give you insight into response time, VM uptime, and the overall health of your system.
-
-Install the monitoring software on a VM that's placed in a separate management subnet.
-
 
 ## Example deployment script
 
-The following Windows batch script creates the N-tier deployment shown in the previous diagram.
+The following Windows batch script creates the N-tier deployment shown in the previous diagram. The script requires version 0.9.20 or later of the [Azure Command-Line Interface (CLI)][azure-cli]. 
 
 The script is designed to work with the SQL Server AlwaysOn Cluster template in the Azure marketplace. You will deploy the this template from the Azure portal, and then run the script. The script executes Azure CLI commands to deploy additional resources.
 
@@ -122,7 +125,7 @@ The script is designed to work with the SQL Server AlwaysOn Cluster template in 
 
 2. Run the script. Pass in your Azure subscription ID, the administrator password, and the IP addresses to whitelist for the jumpbox. For the IP address, you can specify a range using CIDR notation, or a single IP address.
 
-The script does not install the software for the network appliance or the monitoring VM.
+The script does not install the software for the network virtual appliance.
 
 ```bat
 @ECHO OFF
@@ -132,8 +135,8 @@ SET me=%~n0
 
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: The following variables MUST match the template parameters that you provide
-:: when you deploy the SQL Server AlwaysOn Cluster template.
+:: The following variables MUST match the template parameters that you provide 
+:: when you deploy the SQL Server AlwaysOn Cluster template. 
 
 ::  Administrator user name
 SET USERNAME=testuser
@@ -148,7 +151,7 @@ SET SQL_SUBNET_NAME=subnet-2
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
+	
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Set up variables for deploying resources to Azure.
 :: Change these variables for your own deployment as needed.
@@ -213,7 +216,7 @@ SET SUBSCRIPTION=%1
 SET ADMIN_ADDRESS_PREFIX=%2
 SET PASSWORD=%3
 
-:: Set up the names of things using recommended conventions.
+:: Set up the names of things using recommended conventions. 
 SET PUBLIC_IP_NAME=%APP_NAME%-pip
 SET DIAGNOSTICS_STORAGE=%APP_NAME:-=%diag
 SET JUMPBOX_PUBLIC_IP_NAME=%APP_NAME%-jumpbox-pip
@@ -276,7 +279,7 @@ CALL :CallCLI azure network lb create --name %LB_NAME% --location %LOCATION% %PO
 :: Create the frontend subnet
 CALL :CallCLI azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
   %DMZ_SUBNET_IP_RANGE_1% --name %SUBNET_FRONTEND_NAME% %POSTFIX%
-
+  
 :: Create the backend subnet
 CALL :CallCLI azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
   %DMZ_SUBNET_IP_RANGE_2% --name %SUBNET_BACKEND_NAME% %POSTFIX%
@@ -322,7 +325,7 @@ CALL :CallCLI azure network nic set --name %JUMPBOX_NIC_NAME% ^
 
 :: Make Jump Box publically accessible
 CALL :CallCLI azure network nic set --name %JUMPBOX_NIC_NAME% --public-ip-name %JUMPBOX_PUBLIC_IP_NAME% %POSTFIX%
-
+	
 :: SQL AlwaysOn AG tier NSG rules
 
 :: No NSG is created in SQL AlwaysOn deployment since it uses rdp load balancer
@@ -337,7 +340,7 @@ CALL :CallCLI azure network nsg create --name %SQL_TIER_NSG_NAME% --location %LO
 CALL azure network nsg rule create --nsg-name %SQL_TIER_NSG_NAME% --name svc-allow ^
 	--access Allow --protocol * --direction Inbound --priority 100 ^
 	--source-address-prefix %SERVICE_SUBNET_IP_RANGE_1% --source-port-range * ^
-	--destination-address-prefix * --destination-port-range * %POSTFIX%
+	--destination-address-prefix * --destination-port-range * %POSTFIX%	
 
 :: Allow inbound remote access traffic from management subnet
 CALL :CallCLI azure network nsg rule create --nsg-name %SQL_TIER_NSG_NAME% --name manage-rdp-allow ^
@@ -353,8 +356,8 @@ CALL :CallCLI azure network nsg rule create --nsg-name %SQL_TIER_NSG_NAME% --nam
 
 :: Associate the NSG rule with the subnet
 CALL :CallCLI azure network vnet subnet set --vnet-name %VNET_NAME% --name %SQL_SUBNET_NAME% ^
-	--network-security-group-name %SQL_TIER_NSG_NAME% %POSTFIX%
-
+	--network-security-group-name %SQL_TIER_NSG_NAME% %POSTFIX%	
+	
 GOTO :eof
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -422,7 +425,7 @@ CALL :CallCLI azure network nsg rule create --nsg-name %SERVICE_TIER_NSG_NAME% -
 :: Associate the NSG rule with the subnet
 CALL :CallCLI azure network vnet subnet set --vnet-name %VNET_NAME% --name %SUBNET_NAME% ^
 	--network-security-group-name %SERVICE_TIER_NSG_NAME% %POSTFIX%									
-
+  
 CALL :CreateCommonLBResources %LB_NAME%
 
 :: Set a temporary variable to number of VMs in service tier and use the actual
@@ -493,10 +496,10 @@ CALL :CallCLI azure network nic create --name %NIC_NAME% --subnet-name %SUBNET_N
 IF NOT "%LB_NAME%"=="" (
 	:: Add NIC to back-end address pool
 	SET LB_BACKEND_NAME=%LB_NAME%-backend-pool
-	CALL azure network nic address-pool add --name %NIC_NAME% --lb-name %LB_NAME% ^
+	CALL azure network nic address-pool create --name %NIC_NAME% --lb-name %LB_NAME% ^
 	  --lb-address-pool-name %LB_BACKEND_NAME% %POSTFIX%
 )  
-
+  
 :: Create the storage account for the OS VHD
 CALL :CallCLI azure storage account create --type PLRS --location %LOCATION% ^
  %VHD_STORAGE% %POSTFIX%
@@ -558,7 +561,7 @@ CALL :CallCLI azure network nic create --name %NIC_NAME_2% --subnet-name %SUBNET
 IF NOT "%LB_NAME%"=="" (
 	:: Add first NIC to back-end address pool
 	SET LB_BACKEND_NAME=%LB_NAME%-backend-pool
-	CALL azure network nic address-pool add --name %NIC_NAME_1% --lb-name %LB_NAME% ^
+	CALL azure network nic address-pool create --name %NIC_NAME_1% --lb-name %LB_NAME% ^
 	  --lb-address-pool-name %LB_BACKEND_NAME% %POSTFIX%
 )  
 
@@ -594,7 +597,7 @@ SETLOCAL
 CALL %*
 IF %ERRORLEVEL% NEQ 0 (
     Echo Error executing CLI Command: %*
-
+    
 	REM This command executes in the main script context so we can exit the whole script on an error
     (GOTO) 2> NUL & GOTO :eof
 )
@@ -603,10 +606,13 @@ GOTO :eof
 
 ## Next steps
 
-- If you need higher availability than the SLAs provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Running Windows VMs in multiple datacenters on Azure][multi-dc].    
+- If you need higher availability than the SLAs provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Azure reference architecture: Running Windows VMs in multiple datacenters on Azure][multi-dc].    
+
+- To learn more about setting up a DMZ with a virtual appliance, see [Virtual appliance scenario][virtual-appliance-scenario].
 
 <!-- links -->
 
+[azure-cli]: ../virtual-machines-command-line-tools.md
 [blueprints-3-tier]: guidance-compute-3-tier-vm.md
 [multi-dc]: guidance-compute-multiple-datacenters.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
@@ -620,7 +626,4 @@ GOTO :eof
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/en-us/library/hh213417.aspx#ConnectToSecondary
 [sql-alwayson-arm-template]: https://azure.microsoft.com/en-us/documentation/templates/sql-server-2014-alwayson-dsc/
 [udr]: ../virtual-network/virtual-networks-udr-overview.md
-[Nagios]: https://www.nagios.org/
-[Zabbix]: http://www.zabbix.com/
-[Icinga]: http://www.icinga.org/
-
+[virtual-appliance-scenario]: ../virtual-network/virtual-network-scenario-udr-gw-nva.md

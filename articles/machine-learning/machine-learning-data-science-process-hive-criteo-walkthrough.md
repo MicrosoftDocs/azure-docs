@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="ginathan;bradsev" />
 
 # The Cortana Analytics Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
@@ -94,7 +94,7 @@ An alternative approach to access, explore, and model this data that does not re
 
 ## <a name="login"></a>Log into the cluster headnode
 
-To login to the headnode of the cluster, use the [Azure Management](manage.windowsazure.com) portal to locate the cluster. Click on the HDInsight elephant icon on the left and then double click on the name of your cluster. Navigate to the **Configuration** tab, double click on the CONNECT icon on the bottom of the page, and enter your remote access credentials when prompted. This takes you to the headnode of the cluster.
+To login to the headnode of the cluster, use the [Azure Management](https://manage.windowsazure.com) portal to locate the cluster. Click on the HDInsight elephant icon on the left and then double click on the name of your cluster. Navigate to the **Configuration** tab, double click on the CONNECT icon on the bottom of the page, and enter your remote access credentials when prompted. This takes you to the headnode of the cluster.
 
 Here is what a typical first login to the cluster headnode looks like:
 
