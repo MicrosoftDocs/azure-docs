@@ -20,7 +20,7 @@
 
 ##Understanding app scaling##
 
-When using App Service, your application will be decoupled form the capacity 
+When using App Service, your application will be decoupled from the capacity 
 allocated to it by 2 concepts:
  
 >**The Application:** Represents the App and its runtime configuration. For 
