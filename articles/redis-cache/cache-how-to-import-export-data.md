@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to import data into and export data from Azure Redis Cache | Microsoft Azure" 
+	pageTitle="Import and Export data in Azure Redis Cache | Microsoft Azure" 
 	description="Learn how to import and export data to and from blob storage with your premium Azure Redis Cache instances" 
 	services="redis-cache" 
 	documentationCenter="" 
@@ -16,23 +16,17 @@
 	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
-# How to import data into and export data from Azure Redis Cache
+# Import and Export data in Azure Redis Cache
 
-Azure Redis Cache provides the capability to import and export a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. This can be useful for testing, migration, backups, and pre-populating your cache with data.
+Import/Export is an Azure Redis Cache data management operation which allows you to import data into Azure Redis Cache or export data from Azure Redis Cache by importing and exporting a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. This enables you to migrate between different Azure Redis Cache instances or populate the cache with data before use.
 
 This article provides a guide for importing and exporting data with Azure Redis Cache and provides the answers to commonly asked questions.
 
 >[AZURE.IMPORTANT] Import/Export is in preview and is only available for [premium tier](cache-premium-tier-intro.md) caches.
 
-## What is Import/Export?
-
-Import/Export is an Azure Redis Cache data management operation which allows you to import data into Azure Redis Cache or export data from Azure Redis Cache by importing and exporting a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. This enables you to migrate between different Azure Redis Cache instances or populate the cache with data before use.
-
-**Import** can be used to bring Redis compatible RDB file(s) from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process Azure Redis Cache loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
-
-**Export** allows you to export the data stored in Azure Redis Cache to Redis compatible RDB file(s). You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server. During the export process a temporary file is created on the VM that hosts the Azure Redis Cache server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
-
 ## Import
+
+Import can be used to bring Redis compatible RDB file(s) from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process Azure Redis Cache loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
 
 >[AZURE.NOTE] Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page blobs in Azure storage, in the same region and subscription as your Azure Redis Cache instance. For more information, see [Get started with Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). If you exported your RDB file using the [Azure Redis Cache Export](#export) feature your RDB file is already stored in a page blob and is ready for importing.
 
@@ -64,6 +58,8 @@ Import/Export is an Azure Redis Cache data management operation which allows you
 
 
 ## Export
+
+Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB file(s). You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server. During the export process a temporary file is created on the VM that hosts the Azure Redis Cache server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
 1. To export the current contents of the cache to storage, [browse to your cache](cache-configure.md#configure-redis-cache-settings) in the Azure portal and click **Export data** from the **Settings** blade of your cache instance.
 
