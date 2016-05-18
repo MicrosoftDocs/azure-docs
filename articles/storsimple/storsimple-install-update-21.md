@@ -42,7 +42,7 @@ If you are applying Update 2 or later (including Update 2.1), Microsoft will be 
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17701)**. The **Last updated date** should also be modified. 
+12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17704)**. The **Last updated date** should also be modified. 
 
 	If you are updating from a version prior to Update 2, you will also see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
 
