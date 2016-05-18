@@ -49,6 +49,10 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 - [ForEach](app-service-logic-loops-and-scopes.md)
 - [Until](app-service-logic-loops-and-scopes.md)
 
+## Integrating with Nested Workflows and Azure Functions
+
+- [Azure Functions Integration](app-service-logic-azure-functions.md)
+
 ## HTTP, REST, and SOAP
 
  - [Calling SOAP](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
