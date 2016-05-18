@@ -262,7 +262,7 @@ The following sections provide more details on the key resources created for thi
 
 ### Creating the NVAs
 
-The NVAs are Linux (Ubuntu) VMs. The [ibb-nvas-mgmt.json][iib-nvas-mgmt] template invokes another generic template ([bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe]) to create these VMs. The distinguishing aspects of these VMS consist of:
+The NVAs are Linux (Ubuntu) VMs. The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template invokes another generic template ([bb-vms-3nics-lbbe.json][bb-vms-3nics-lbbe]) to create these VMs. The distinguishing aspects of these VMS consist of:
 
 - The IP forwarding configuration from the NIC on the inbound NVA subnet to the NIC on the outbound NVA subnet,
 
@@ -516,7 +516,7 @@ The management subnet contains the jump box, and optionally other VMs that can b
 
 #### Creating the jump box
 
-The purpose of the jump box is to provide privileged access to DevOps staff who need to manage and configure the system. The jump box is a VM running Ubuntu. The [ibb-nvas-mgmnt.json][ibb-nvas-mgmnt] template uses the [bb-bb-vm-1nic-static-private-ip.json][bb-vm-1nic-static-private-ip] to create this VM.
+The purpose of the jump box is to provide privileged access to DevOps staff who need to manage and configure the system. The jump box is a VM running Ubuntu. The [ibb-nvas-mgmnt.json][ibb-nvas-mgmt] template uses the [bb-bb-vm-1nic-static-private-ip.json][bb-vm-1nic-static-private-ip] to create this VM.
 
 It is imperative to protect the jump box from access by unauthorized staff. The [azuredeploy.json][azuredeploy] template performs the following tasks to help protect the system:
 
