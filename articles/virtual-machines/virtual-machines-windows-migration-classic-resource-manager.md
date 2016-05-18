@@ -219,7 +219,7 @@ All the resources that you explicitly provide names for in the classic deploymen
 
 
 ## Next steps
-Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating the resources.
+Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
 
 - [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
