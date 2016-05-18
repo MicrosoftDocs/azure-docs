@@ -23,6 +23,15 @@ The following release notes identify the critical open issues and the issues fix
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
+## What's new in Update 0.1
+
+Virtual Array 0.1 is a bug fix only release. There are no new features, no changes in encryption, auth, or privacy, no security fixes. As well, there are no service side changes. Categories of bugs fixes include:
+•	Fixing reboot issues when dealing with sub-directories with ADS information
+•	Resiliency around cloud outages
+•	Improving the accuracy of jobs status (percentage completion) in the portal
+•	Picking up new SaaS SDK for bug fixes. 
+
+
 ## Issues fixed in Update 0.1
 
 The following table provides a summary of issues fixed in this release.
