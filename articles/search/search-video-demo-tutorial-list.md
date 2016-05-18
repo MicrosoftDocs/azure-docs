@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/15/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
 #Azure Search: code samples, demos, videos and tutorials
@@ -37,7 +37,6 @@ These sites are fully functional web applications that use Azure Search for the 
 
 [**New York City (NYC) Jobs portal demo for Azure Search**](http://aka.ms/azjobsdemo) is a live ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative. This app uses the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx). You can modify code to try out the [Lucene syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx). 
 
-[**Try App Service + Azure Search in ASP.NET MVC combo app**](search-tryappservice.md) is a free one-hour session with Azure Search that includes data, a functional web application, and source code that you can modify online to test drive various search features in an ASP.NET application.
 
 [**Azure Search Demo Site**](https://searchsamples.azurewebsites.net/#/) is a collection of demo apps for Azure Search. Test-drive media search, geo search and product inventory apps using Azure Search.
 
