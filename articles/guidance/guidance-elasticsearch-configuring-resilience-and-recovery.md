@@ -56,7 +56,7 @@ You cannot explicitly allocate a VM to a specific UD and FD; this allocation is 
 - The first VM provisioned in the AS will be placed in the first FD (FD 0) and the first UD (UD 0).
 - The second VM provisioned in the AS will be placed in FD 1 and UD 1.
 - The third VM provisioned in the AS will be placed in FD 0 and UD 2.
- -The fourth VM provisioned in the AS will be placed in FD 1 and UD 3.
+- The fourth VM provisioned in the AS will be placed in FD 1 and UD 3.
 - The fifth VM provisioned in the AS will be placed in FD 0 and UD 4.
 - The sixth VM provisioned in the AS will be placed in FD 1 and UD 0.
 - The seventh VM provisioned in the AS will be placed in FD 0 and UD 1.
