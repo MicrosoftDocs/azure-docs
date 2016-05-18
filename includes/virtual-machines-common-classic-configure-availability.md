@@ -21,22 +21,22 @@ To use the Azure portal:
 1. If you haven't already done so, sign in to the Azure portal.
 
 2. On the hub menu, click **+ New**, and then click **Virtual Machine**.
-
-   ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+    
+    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
 
 3. Select the Marketplace virtual machine image you wish to use. You can choose to create a Linux or Windows virtual machine.
 
 4. For the selected virtual machine, verify that the deployment model is set to **Classic** and then click **Create**
-
-   ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
+    
+    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
 
 5. Enter a virtual machine name, user name and password (for Windows machines) or SSH public key (for Linux machines). 
 
 6. Choose the VM size and then click **Select** to continue.
 
 7. Choose **Optional Configuration > Availability set**, and select the availability set you wish to add the virtual machine to.
-
-   ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
+    
+    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
 
 8. Review your configuration settings. When you're done, click **Create**.
 
@@ -52,18 +52,18 @@ In the Azure portal, you can add existing classic virtual machines to an existin
 1. If you have not already done so, sign in to the Azure portal.
 
 2. On the Hub menu, click **Virtual Machines (classic)**.
-
-   ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
+    
+    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 
 3. From the list of virtual machines, select the name of the virtual machine that you want to add to the set.
 
 4. Choose **Availability set** from the virtual machine **Settings**.
-
-   ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
+    
+    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
 
 5. Select the availability set you wish to add the virtual machine to. The virtual machine must belong to the same cloud service as the availability set.
-
-   ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
+    
+    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
 
 6. Click **Save**.
 
