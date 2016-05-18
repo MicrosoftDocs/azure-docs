@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/09/2016"
    ms.author="tedway; neerajkh"/>
 
 # Multi-Geo Help documentation
@@ -41,7 +41,9 @@ If you open an experiment from Gallery, you can also select which region you wan
 
 ## Web service management
 
-To programmatically manage web services, such as for retraining, use the region-specific address: **https://asiasoutheast.management.azureml.net**
+To programmatically manage web services, such as for retraining, use the region-specific address:
+- https://asiasoutheast.management.azureml.net
+- https://europewest.management.azureml.net
 
 ### Things to note
 

@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Deploy a line of business application | Microsoft Azure" 
-	description="Deploy a web-based, highly-available, line of business application with SQL Server AlwaysOn Availability Groups in Azure in five phases." 
+	description="Deploy a web-based, highly-available, line of business application with SQL Server Always On Availability Groups in Azure in five phases." 
 	documentationCenter=""
 	services="virtual-machines-windows" 
 	authors="JoeDavies-MSFT" 
@@ -11,17 +11,17 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/08/2016" 
 	ms.author="josephd"/>
 
 # Deploy a high-availability line of business application in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-This article contains links to the step-by-step instructions for deploying a high-availability, intranet-only, web-based line of business application with SQL Server AlwaysOn Availability Groups in Azure infrastructure services. The application is hosted on these computers:
+This article contains links to the step-by-step instructions for deploying a high-availability, intranet-only, web-based line of business application with SQL Server Always On Availability Groups in Azure infrastructure services. The application is hosted on these computers:
 
 - Two web servers
 - Two database servers
@@ -73,9 +73,9 @@ You deploy this configuration in the following phases:
 
 - [Phase 1: Configure Azure](virtual-machines-windows-ps-lob-ph1.md). Create storage accounts, availability sets, and a cross-premises virtual network.
 - [Phase 2: Configure domain controllers](virtual-machines-windows-ps-lob-ph2.md). Create and configure replica Active Directory Domain Services (AD DS) domain controllers.
-- [Phase 3: Configure SQL Server infrastructure](virtual-machines-windows-ps-lob-ph3.md). Create and configure the virtual machines running SQL Server, create the cluster, and enable SQL Server AlwaysOn Availability Groups.
+- [Phase 3: Configure SQL Server infrastructure](virtual-machines-windows-ps-lob-ph3.md). Create and configure the virtual machines running SQL Server, create the cluster, and enable SQL Server Always On Availability Groups.
 - [Phase 4: Configure web servers](virtual-machines-windows-ps-lob-ph4.md). Create and configure the two web server virtual machines.
-- [Phase 5: Add the application databases to a SQL Server AlwaysOn Availability Group](virtual-machines-windows-ps-lob-ph5.md). Prepare the line of business application databases and add them to a SQL Server AlwaysOn Availability Group.
+- [Phase 5: Add the application databases to a SQL Server Always On Availability Group](virtual-machines-windows-ps-lob-ph5.md). Prepare the line of business application databases and add them to a SQL Server Always On Availability Group.
 
 This deployment is designed to accompany the [Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664) and incorporate the latest recommendations.
 

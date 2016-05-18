@@ -44,24 +44,3 @@ Add a new tag through the portal by defining your own Key/Value pair, and save i
 Your new tag should now appear in the list of tags for your resource.
 
 ![New Tag saved in Azure portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
-
-
-## Viewing your tags in the usage details
-
-Tags placed on Compute, Network, and Storage resources through the Azure Resource Manager will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
-
-Click on **Download usage details** to view the usage details in your subscription.
-
-![Usage details in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-usage-details.png)
-
-Select your billing statement and the **Version 2** usage details:
-
-![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag/azure-portal-version2-usage-details.png)
-
-From the usage details, you can see all of the tags in the **Tags** column:
-
-![Tags column in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-column.png)
-
-By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
-
-

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
-# Azure AD and applications: Guiding developers
-
-## Overview
+# Azure AD and applications: Develop line of business apps
 
 This guide provides an overview of developing line of business (LoB) applications for Azure Active Directory (AD) and is specifically written for Active Directory/Office 365 global administrators.
+
+## Overview
 
 Building applications integrated with Azure AD gives users in your organization single sign-on with Office 365. Having the application in Azure AD gives you control over the authentication policy set for the application. To learn more about conditional access and how to protect apps with multi-factor authentication (MFA) see the following document: [Configuring access rules](active-directory-conditional-access-azuread-connected-apps.md).
 
@@ -32,12 +32,12 @@ Registering an application allows any user to do the following:
 
 - Get an identity for their application that Azure AD recognizes
 - Get one or more secrets/keys that the application can use to authenticate itself to AD
-- Brand the application with a name, logo, etc. in the Azure portal
-- Leverage Azure AD authorization features for their app
-  - Application role based access control (RBAC)
+- Brand the application in the Azure portal with a custom name, logo, etc.
+- Leverage Azure AD authorization features for their app, including:
+  - Role-Based Access Control (RBAC)
   - Azure Active Directory as oAuth authorization server (secure an API exposed by the application)
 
-- Declare required permissions necessary for the application to function as expected. They include:
+- Declare required permissions necessary for the application to function as expected, including:
 	  - App permissions (global administrators only). For example:
 	    - Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group or Subscription
 	  - Delegated permissions (any user). For example:
@@ -49,15 +49,13 @@ Registering an application allows any user to do the following:
 
 Here’s what you, the global administrator, will need to do to help developers make their application ready for production:
 
-- Configure Access Rules (access policy/MFA)
+- Configure access rules (access policy/MFA)
 - Configure the app to require user assignment and assign users
 - Suppress the default user consent experience
 
-## Configuring access rules
+## Configure access rules
 
-As we mentioned earlier please refer to the following article to learn more about configuring access rules for any application.
-
-[Configuring access rules](active-directory-conditional-access-azuread-connected-apps.md).
+Configure per-application access rules to your SaaS apps. This can include requiring MFA, or only allowing access to users on trusted networks. The details for this are available in the document [Configuring access rules](active-directory-conditional-access-azuread-connected-apps.md).
 
 ## Configure the app to require user assignment and assign users
 
@@ -70,14 +68,17 @@ If you’re an Azure AD Premium or Enterprise Mobility Suite (EMS) subscriber, w
 [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md)  
 [Assigning groups to an application](active-directory-applications-guiding-developers-assigning-groups.md)
 
-## Suppressing user consent
+## Suppress user consent
 
-By default, the user will need to consent to the permission that’s required in order to sign in. The consent experience, being asked to grant to permissions to an application, can be disconcerting for users who are unfamiliar with needing to make such a decision.
+By default, each user goes through a consent experience in order to sign in. The consent experience, being asked to grant permissions to an application, can be disconcerting for users who are unfamiliar with making such decisions.
 
-For applications that you trust, it’s possible for you to consent to application on behalf of all of the users in your organization.
+For applications that you trust, you can simplify the user experience by consenting to the application on behalf of your organization.
 
 For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md).
 
 ##Related Articles
 
+- [Enable secure remote access to on-premises applications with Azure AD Application Proxy](active-directory-application-proxy-get-started.md)
+- [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
+- [Managing access to apps with Azure AD](active-directory-managing-access-to-apps.md)
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

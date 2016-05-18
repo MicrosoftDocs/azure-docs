@@ -79,7 +79,7 @@ keeps an ordered list of CUD operations (Create, Update, Delete)  that will late
 A local store is associated with the sync context using an initialize method such as
 `IMobileServicesSyncContext.InitializeAsync(localstore)` in the [.NET client SDK].
 
-## How offline synchronization works
+## <a name="how-sync-works"></a>How offline synchronization works
 
 When using sync tables, your client code controls when local changes will be synchronized with an Azure
 Mobile App backend. Nothing is sent to the backend until there is a call to *push* local changes. Similarly,
@@ -112,9 +112,10 @@ the local store is populated with new data only when there is a call to *pull* d
   can return incorrect results.
 
   If the query has a parameter, one way to create a unique query name is to incorporate the parameter value.
-  For instance, if you are filtering on userid, your query name could be as follows:
+  For instance, if you are filtering on userid, your query name could be as follows (in C#):
 
-		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
+		await todoTable.PullAsync("todoItems" + userid, 
+			syncTable.Where(u => u.UserId = userid));
 
   If you want to opt out of incremental sync, pass `null` as the query ID. In this case, all records will
   be retrieved on every call to `PullAsync`, which is potentially inefficient.

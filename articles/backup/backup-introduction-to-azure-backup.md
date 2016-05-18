@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="05/10/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # What is Azure Backup?
@@ -100,13 +100,6 @@ Once the backup job finishes, the staging location is deleted. The price of stor
 ### Restore Premium Storage VMs
 
 Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
-
-The steps to restore a Premium Storage VM recovery point to Premium Storage are:
-
-1. [Restore the VM recovery point to standard storage.](backup-azure-restore-vms.md)
-2. [Copy the disks to premium storage.](../storage/storage-use-azcopy.md)
-3. [Create the Azure IaaS VM.](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-
 
 ## Functionality
 These five tables summarize how backup functionality is handled in each component.

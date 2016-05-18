@@ -19,6 +19,8 @@
 
 # Running the automated Elasticsearch resiliency tests
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series](guidance-elasticsearch.md).
 
 [Resilience and Recovery] describes

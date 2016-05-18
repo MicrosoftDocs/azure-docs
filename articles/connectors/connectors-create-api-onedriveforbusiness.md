@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Get started with the OneDrive for Business connector
@@ -25,7 +25,7 @@ The OneDrive for Business connector can be used from:
 
 - [Logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Flows](http://flows.microsoft.com)  
+- [Flow](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
 
@@ -69,6 +69,8 @@ To create Logic apps with OneDrive for Business, you must first create a **conne
 | ---|---|---|
 |Token|Yes|Provide OneDrive for Business Credentials|
 After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+
+>[AZURE.INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 

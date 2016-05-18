@@ -13,11 +13,21 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo" />
 
 
 #Release notes
+
+##4.2.2 (05/17/2016)
+
+- Stability improvements.
+
+##4.2.1 (05/10/2016)
+
+- Security: disable web view local file access.
+- Security: remove `EngagementPreferenceActivity` class that extends obsolete and unsecure `PreferenceActivity` class.
+- Security: reach activities are now documented to use `exported="false"`, this flag can also be used in previous SDK versions.
 
 ##4.2.0 (03/11/2016)
 
