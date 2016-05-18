@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="alkohli" />
 
 # Install Update 2.1 on your StorSimple device
@@ -34,7 +34,7 @@ Update 2.1 includes device software, WMI, and iSCSI updates. If updating from a 
 
 ## Install Update 2.1 via the Azure classic portal
 
-Perform the following steps to update your device to [Update 2.1](storsimple-update2-release-notes.md).
+Perform the following steps to update your device to [Update 2.1](storsimple-update21-release-notes.md).
 
 
 > [AZURE.NOTE]
@@ -42,7 +42,7 @@ If you are applying Update 2 or later (including Update 2.1), Microsoft will be 
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17702)**. The **Last updated date** should also be modified. 
+12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17701)**. The **Last updated date** should also be modified. 
 
 	If you are updating from a version prior to Update 2, you will also see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
 
@@ -50,7 +50,7 @@ If you are applying Update 2 or later (including Update 2.1), Microsoft will be 
 
 	If you are updating from Update 2, your device should now be up-to-date. You can skip the remaining steps.
 
-13. Download the maintenance mode updates by using the steps listed in [To download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should already be installed by now).
+13. Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should already be installed by now).
 
 13. Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates. 
 
@@ -78,41 +78,43 @@ The hotfix method involves the following three steps:
 
 #### Download updates for a device running Update 2 software
 
-If your device is running Update 2, you must download and install the following hotfixes in the prescribed order:
+**If your device is running Update 2**, you must download and install the following hotfixes in the prescribed order:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1      | KB3162954 | Software update         |  Regular     | ~ 45 mins |
-| 2      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
-| 3      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
+| 1.      | KB3162954 | Software update         |  Regular     | ~ 45 mins |
+| 2.      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
+| 3.      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
 
 
 #### Download updates for a device running pre-Update 2 software
 
-If your device is running versions 0.2, 0.3, 1.0, and 1.1, you must download and install the LSI driver and firmware update. This update is already installed if you are running Update 1.2 or 2. 
+**If your device is running versions 0.2, 0.3, 1.0, and 1.1**, you must download and install the LSI driver and firmware update. This update is already installed if you are running Update 1.2 or 2. 
  
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 4      | KB3121900 | LSI driver and firmware             |  Regular     | ~ 20 mins |
+| 4.      | KB3121900 | LSI driver and firmware             |  Regular     | ~ 20 mins |
 
 
+<br></br>
 If your device is running versions 0.2, 0.3, 1.0, 1.1, and 1.2, you must download and install the Spaceport and the Storport fix. These are already installed if you are running Update 2.
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 5      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
-| 6      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
+| 5.      | KB3090322 | Spaceport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
+| 6.      | KB3080728 | Storport fix </br> Windows Server 2012 R2 |  Regular     | ~ 20 mins |
 
 
 
-You may also need to install disk firmware updates. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: XMGG, XGEG, KZ50, F6C2, VR08, then you do not need to install these updates.
+<br></br>
+You may also need to install disk firmware updates. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGG`, `XGEG`, `KZ50`, `F6C2`, `VR08`, then you do not need to install these updates.
 
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 7      | KB3121899 | Disk firmware              |  Maintenance     | ~ 30 mins |
+| 7.      | KB3121899 | Disk firmware              |  Maintenance     | ~ 30 mins |
  
-
+<br></br>
 > [AZURE.IMPORTANT]
 >
 > - This procedure needs to be performed only once to apply Update 2.1. You can use the Azure classic portal to apply subsequent updates.
