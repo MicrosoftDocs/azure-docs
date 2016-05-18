@@ -145,6 +145,16 @@ When multiple triggering events occur faster than a single-threaded function run
 
 Pulse is a live event stream which shows how often your function runs, as well as successes and failures. You can also monitor your average execution time. We’ll be adding more features and customization to it over time. You can access the **Pulse** page from the **Monitoring** tab.
 
+## Repositories
+
+The code for Azure Functions is open source and stored in GitHub repositories:
+
+* [WebJobs.Script (the runtime)](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [Azure Functions UX (the portal](https://github.com/projectkudu/AzureFunctionsPortal)
+* [Azure Functions templates](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
+* [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+
 ## Bindings
 
 Here is a table of all supported bindings.
@@ -163,3 +173,8 @@ For more information, see the following resources:
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) on the Azure App Service team blog. A history of how Azure Functions was developed.
+
+
+
+
+
