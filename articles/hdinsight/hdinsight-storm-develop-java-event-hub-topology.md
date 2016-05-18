@@ -386,7 +386,7 @@ The jar created by this project contains two topologies; __com.microsoft.example
 
     Click submit to start the EventHubReader topology.
 
-6. Wait a few minutes to allow the topologies to generate events and store then to Azure Storage, then select the __Query Console__ tab at the top of the __Storm Dashboard__ page.
+6. Wait a few minutes to allow the topologies to generate events and store then to Azure Storage, then select the __Hadoop Query Console__ tab at the top of the __Storm Dashboard__ page.
 
 7. On the __Query Console__, select __Hive Editor__ and replace the default `select * from hivesampletable` with the following:
 
