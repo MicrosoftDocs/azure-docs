@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 # Deploy a guest executable to Service Fabric
@@ -250,10 +250,10 @@ The last step is to deploy your application. The PowerShell script below shows h
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\nodeapp'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'nodeapp'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\nodeapp'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'nodeapp'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
@@ -275,11 +275,11 @@ This is a useful configuration for front-end applications (for example, a REST e
 
 In Service Fabric Explorer, identify the node where the service is running. In this example, it runs on Node1:
 
-![Node where service is running](./media/service-fabric-deploy-existing-app/runningapplication.png)
+![Node where service is running](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
 If you navigate to the node and browse to the application, you will see the essential node information, including its location on disk.
 
-![Location on disk](./media/service-fabric-deploy-existing-app/locationondisk.png)
+![Location on disk](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
 If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder as shown below.
 

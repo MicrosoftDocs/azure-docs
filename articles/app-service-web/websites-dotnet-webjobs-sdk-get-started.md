@@ -299,7 +299,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 In this section you use **Server Explorer** to set connection string values in Azure.
 
-7. In **Server Explorer**, right-click your web app under **Azure > {your resource group}**, and then click **View Settings**.
+7. In **Server Explorer**, right-click your web app under **Azure > App Service > {your resource group}**, and then click **View Settings**.
 
 	The **Azure Web App** window opens on the **Configuration** tab.
 
