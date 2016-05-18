@@ -245,7 +245,7 @@ or [Troubleshooting Azure Linux VM extension failures](./virtual-machines/virtua
 
 ## Virtual machine provisioning and allocation failures
 
-If you are trying to deploy a virtual machine and have encountered an OS image provisioning error or an allocation errors, see [Troubleshoot creating a new VM](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) and [Troubleshoot allocation failures](./virtual-machines/virtual-machines-windows-allocation-failure.md).
+If you are trying to deploy a virtual machine and have encountered an OS image provisioning error or an allocation error, see [Troubleshoot creating a new VM](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) and [Troubleshoot allocation failures](./virtual-machines/virtual-machines-windows-allocation-failure.md).
 
 ## Understand when a deployment is ready 
 
