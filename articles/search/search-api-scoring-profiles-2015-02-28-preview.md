@@ -158,20 +158,25 @@ Provide a name. Scoring profiles are optional, but if you add one, the name is r
 
 The body of the scoring profile is constructed from weighted fields and functions.
 
-| Element | Description |
-|---------|-------------|
-| Weights | Specify name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1.5, 5, and 2, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight. |
-| Functions | Used when additional calculations are required for specific contexts. Valid values are `freshness`, `magnitude`, `distance` and `tag`. Each function has parameters that are unique to it.
+### Weights ###
+
+The `weights` property of a scoring profile specifies name-value pairs that assign a relative weight to a field. In the [Example](#example), the albumTitle, genre, and artistName fields are boosted 1.5, 5, and 2, respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogeneous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+
+### Functions ###
+
+Functions are used when additional calculations are required for specific contexts. Valid function types are `freshness`, `magnitude`, `distance` and `tag`. Each function has parameters that are unique to it.
 
   - `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (`Edm.DataTimeOffset`). Note the `boostingDuration` attribute is used only with the freshness function.
   - `magnitude` should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. You can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set `boostingRangeStart` at 100 and `boostingRangeEnd` at 1 to boost the lower-priced items. This function can only be used with double and integer fields.
   - `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `Edm.GeographyPoint` fields.
   - `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `Collection(Edm.String)` fields.
-  **Rules for using functions**
-    - Function type (freshness, magnitude, distance, tag) must be lower case.
-    - Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
-    - Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28/#createindex) for more information about filterable fields.
-    - Functions can only be applied to fields that are defined in the fields collection of an index. |
+  
+#### Rules for using functions ####
+
+  - Function type (freshness, magnitude, distance, tag) must be lower case.
+  - Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
+  - Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28/#createindex) for more information about filterable fields.
+  - Functions can only be applied to fields that are defined in the fields collection of an index.
 
 After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview/#createindex) and [Add or Update Documents](search-api-2015-02-28-preview/#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
@@ -245,12 +250,7 @@ A scoring function can only be applied to fields that are filterable.
 | `boost` | Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1. |
 | `fieldName` | Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field. |
 | `interpolation` | Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include `linear` (default), `constant`, `quadratic`, and `logarithmic`. See [Set interpolations](#bkmk_interpolation) for details. |
-| `magnitude` | The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:
-
-  - Star ratings: Alter the scoring based on the value within the "Star Rating" field. When two items are relevant, the item with the higher rating will be displayed first.
-  - Margin: When two documents are relevant, a retailer may wish to boost documents that have higher margins first.
-  - Click counts: For applications that track click through actions to products or pages, you could use magnitude to boost items that tend to get the most traffic.
-  - Download counts: For applications that track downloads, the magnitude function lets you boost items that have the most downloads. |
+| `magnitude` | The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:<ul><li>Star ratings: Alter the scoring based on the value within the "Star Rating" field. When two items are relevant, the item with the higher rating will be displayed first.</li><li>Margin: When two documents are relevant, a retailer may wish to boost documents that have higher margins first.</li><li>Click counts: For applications that track click through actions to products or pages, you could use magnitude to boost items that tend to get the most traffic.</li><li>Download counts: For applications that track downloads, the magnitude function lets you boost items that have the most downloads.</li></ul> |
 | `magnitude:boostingRangeStart` | Sets the start value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50. |
 | `magnitude:boostingRangeEnd` | Sets the end value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 4. |
 | `magnitude:constantBoostBeyondRange` | Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range. |
