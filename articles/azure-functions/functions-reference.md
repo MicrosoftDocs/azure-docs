@@ -149,8 +149,8 @@ Pulse is a live event stream which shows how often your function runs, as well a
 
 The code for Azure Functions is open source and stored in GitHub repositories:
 
-* [WebJobs.Script (the runtime)](https://github.com/Azure/azure-webjobs-sdk-script/)
-* [Azure Functions UX (the portal](https://github.com/projectkudu/AzureFunctionsPortal)
+* [Azure Functions runtime](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [Azure Functions portal](https://github.com/projectkudu/AzureFunctionsPortal)
 * [Azure Functions templates](https://github.com/Azure/azure-webjobs-sdk-templates/)
 * [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
 * [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
