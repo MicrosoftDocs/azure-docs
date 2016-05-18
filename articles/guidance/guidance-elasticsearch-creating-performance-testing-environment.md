@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
+   ms.date="05/18/2016"
    ms.author="masashin"/>
    
 # Creating a performance testing environment for Elasticsearch on Azure
@@ -192,10 +192,10 @@ unzip JMeterPlugins-Standard-1.3.0.zip
 
 Use `nohup` to launch the JMeter Server in the background. It should respond by displaying a 
 process ID and a message indicating that it has created a remote object and is ready to start 
-receiving commands.
+receiving commands.  Run the following command in the ~/apache-jmeter-2.13/bin directory. 
 
 ```bash
-nohup bin/jmeter-server &
+nohup jmeter-server &
 ```
 
 > [AZURE.NOTE] If the VM is shutdown then the JMeter Server program is terminated. You will need to 
