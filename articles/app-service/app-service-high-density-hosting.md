@@ -60,52 +60,14 @@ set to true ( `"perSiteScaling": true`) and the App is setting the number of
 workers to use to 1 `"properties": { "numberOfWorkers": "1" }`
 
  ##Sample Template##
+
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters":
-        {
+        "parameters":{
             "appServicePlanName": { "type": "string" },
             "appName": { "type": "string" }
-            },
-        "resources": [
-        {
-            "comments": "App Service Plan with per site perSiteScaling = true",
-            "type": "Microsoft.Web/serverFarms",
-            "sku": {
-                "name": "S1",
-                "tier": "Standard",
-                "size": "S1",
-                "family": "S",
-                "capacity": 10
-            },
-            "name": "[parameters('appServicePlanName')]",
-            "apiVersion": "2015-08-01",
-            "location": "West US",
-            "properties": {
-                "name": "[parameters('appServicePlanName')]",
-                "perSiteScaling": true }
-                },
-        {
-            "type": "Microsoft.Web/sites",
-            "name": "[parameters('appName')]",
-            "apiVersion": "2015-08-01-preview",
-            "location": "West US",
-            "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
-            "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
-            "resources": [
-                {
-                    "comments": "",
-                    "type": "config",
-                    "name": "web",
-                    "apiVersion": "2015-08-01",
-                    "location": "West US",
-                    "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
-                "properties": { "numberOfWorkers": "1" }
-                    }       
-                ]
-            }
-        ]
+         },
     }
 
 ##Recommended configuration for High Density Hosting##
