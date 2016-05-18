@@ -12,7 +12,7 @@
 
 ### Create an MX record set with a single record
 
-In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com"). This is common for MX records.
+In this example, we use the record set name "@" to create the MX record at the zone apex (in this case, "contoso.com"). This is common for MX records.
 
 	$rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
@@ -26,7 +26,7 @@ In this example, we use the record set name "@" to create the MX record at the z
 
 ### Create an SRV record set with a single record
 
-If you are creating an SRV record in root of zone, just specify *_service* and *_protocol* in the record name. There is no need to also include ‘.@’ in the record name.
+If you are creating an SRV record in the root of a zone, simply specify *_service* and *_protocol* in the record name. There is no need to include ‘.@’ in the record name.
 
 	$rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"

@@ -4,20 +4,20 @@ Each DNS record has a name and a type. Records come in various types according t
 
 Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT. Record sets of type SOA are created automatically with each zone. They cannot be created separately. Note that SPF records should be created using the TXT record type. See [this page](http://tools.ietf.org/html/rfc7208#section-3.1) for more information.
 
-In Azure DNS, records are specified using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name "www.contoso.com".
+In Azure DNS, records are specified by using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name "www.contoso.com".
 
 ## About record sets
 
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the www.contoso.com web site is hosted on two different IP addresses. This requires two different A records, one for each IP address. This is an example of a record set. 
+Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the www.contoso.com web site is hosted on two different IP addresses. This requires two different A records, one for each IP address. This is an example of a record set.
 
 	www.contoso.com.		3600	IN	A	134.170.185.46
 	www.contoso.com.		3600	IN	A	134.170.188.221
 
-Azure DNS manages DNS records using record sets. A record set is the collection of DNS records in a zone with the same name and the same type. Most record sets contain a single record, but examples like the one above in which a record set contains more than one record are not uncommon. 
+Azure DNS manages DNS records by using record sets. A record set is the collection of DNS records in a zone that have the same name and are the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record are not uncommon.
 
 Records sets of type SOA and CNAME are an exception; the DNS standards do not permit multiple records with the same name for these types.
 
-The Time-to-Live, or TTL, specifies how long each record is cached by clients before being re-queried. In the above example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
+The Time-to-Live, or TTL, specifies how long each record is cached by clients before being re-queried. In this example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
 
 #### Wildcard record sets
 
@@ -27,4 +27,4 @@ To create a wildcard record set, use the record set name "\*", or a name whose f
 
 #### CNAME record sets
 
-CNAME record sets cannot co-exist with other record sets with the same name. For example, you cannot create a CNAME with the relative name "www" and an A record with the relative name "www" at the same time. Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex. These constraints arise from the DNS standards; they are not limitations of Azure DNS.
+CNAME record sets cannot co-exist with other record sets with the same name. For example, you cannot create a CNAME record set with the relative name "www" and an A record with the relative name "www" at the same time. Because the zone apex (name = ‘@’) always contains the NS and SOA record sets that were created when the zone was created, this means you cannot create a CNAME record set at the zone apex. These constraints arise from the DNS standards and aren't limitations of Azure DNS.
