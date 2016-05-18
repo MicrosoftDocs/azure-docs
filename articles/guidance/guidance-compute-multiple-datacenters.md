@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Running Windows VMs in multiple datacenters on Azure | Reference Architecture | Microsoft Azure"
-   description="How to deploy VMs in multiple datacenters on Azure for availability and resiliency."
+   pageTitle="Virtual datacenter with high availability | Reference Architecture | Microsoft Azure"
+   description="How to deploy VMs in multiple datacenters on Azure for high availability and resiliency."
    services=""
    documentationCenter="na"
    authors="mikewasson"
@@ -14,20 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="05/16/2016"
    ms.author="mikewasson"/>
 
-# Running Windows VMs in multiple datacenters on Azure 
+# Azure reference architecture: Virtual datacenter with high availability 
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-In this article, we recommend a set of practices to run VMs in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
+In this article, we recommend a set of practices to run Windows VMs in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource groups] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Architecture diagram
 
-The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm.md).
+The following diagram builds on the architecture shown in [Azure reference architecture: Virtual datacenter](guidance-compute-n-tier-vm.md).
 
 ![IaaS: multiple datacenters](media/blueprints/compute-multi-dc.png)
 
@@ -37,7 +37,7 @@ The following diagram builds on the architecture shown in [Adding reliability to
 
 - **Resource groups**. Create separate [resource groups][resource groups] for the primary datacenter, the secondary datacenter, and for Traffic Manager. This gives you the flexibility to manage each datacenter as a single collection of resources. For example, you could redeploy one datacenter, without taking down the other one. [Link the resource groups][resource-group-links], so that you can run a query to list all the resources for the application.
 
-- **VNets**. Create a separate VNet for each datacenter. Make sure the address spaces do not overlap. For example, use 10.0.0.0/16 and 172.16.0.0/16.
+- **VNets**. Create a separate VNet for each datacenter. Make sure the address spaces do not overlap. 
 
 - **SQL Server AlwaysOn Availability Group**. If you are using SQL Server, we recommend [SQL AlwaysOn Availabilty Groups][sql-always-on] for high availability. Create a single availability group that includes the SQL Server instances in both datacenters. For more information, see the section [Configuring the SQL Server AlwaysOn availability group](#configuring-the-sql-server-alwayson-availability-group ).
 
@@ -99,7 +99,7 @@ However, make sure that both regions support all of the Azure services needed fo
 
 ## Configuring the SQL Server AlwaysOn availability group 
 
-This section builds on guidance offered in [Running Windows VMs for an N-tier architecture on Azure](guidance-compute-n-tier-vm.md#SQL-AlwaysOn-Availability-Group).
+This section builds on guidance offered in [Azure reference architecture: Virtual datacenter](guidance-compute-n-tier-vm.md#SQL-AlwaysOn-Availability-Group).
 
 - Availability Groups require a domain controller. All nodes in the availability group must be in the same AD domain. At a minimum, place two domain controllers in each datacenter. Give each domain controller a static IP address.
 
@@ -108,7 +108,7 @@ This section builds on guidance offered in [Running Windows VMs for an N-tier ar
 - For each VNet, add the IP addresses of the domain controllers (from both datacenters) to the DNS server list. You can use the following CLI command. More more information, see [Manage DNS servers used by a virtual network (VNet)][vnet-dns].
 
     ```bat
-    azure network vnet set --resource-group dc01-rg --name dc01-vnet --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4"
+    azure network vnet set --resource-group dc01-rg --name dc01-vnet --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
 - Create a [Windows Server Failover Clustering][wsfc] (WSFC) cluster that includes the SQL Server instances in both datacenters. 
@@ -172,17 +172,16 @@ For the SQL Server cluster, there are two failover scenarios to consider:
     
     - When you fail back to primary datacenter, restore the asynchronous commit setting.  
 
-
-    
 ## Next steps
 
-- To learn more about Traffic Manager probing and how to troubleshoot failures, see [Troubleshooting degraded state on Azure Traffic Manager][tm-troubleshooting].
+- This series has focused on pure cloud deployments. Enterprise scenarios often require a hybrid network, connecting an on-premises network with an Azure virtual network. To learn how to build such a hybrid network, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][hybrid-vpn].
 
 <!-- Links -->
 
 [azure-sla]: https://azure.microsoft.com/support/legal/sla/
 [azure-sql-db]: https://azure.microsoft.com/en-us/documentation/services/sql-database/
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
+[hybrid-vpn]: guidance-hybrid-network-vpn.md
 [regional-pairs]: ../best-practices-availability-paired-regions.md
 [resource groups]: ../resource-group-overview.md
 [resource-group-links]: ../resource-group-link-resources.md
@@ -195,7 +194,6 @@ For the SQL Server cluster, there are two failover scenarios to consider:
 [tm-monitoring]: ../traffic-manager/traffic-manager-monitoring.md
 [tm-routing]: ../traffic-manager/traffic-manager-routing-methods.md
 [tm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/traffic-manager/v1_0/
-[tm-troubleshooting]: ../traffic-manager/traffic-manager-troubleshooting-degraded.md
 [traffic-manager]: https://azure.microsoft.com/en-us/services/traffic-manager/
 [vnet-dns]: ../virtual-network/virtual-networks-manage-dns-in-vnet.md
 [vnet-to-vnet]: ../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
