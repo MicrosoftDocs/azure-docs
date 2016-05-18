@@ -273,7 +273,7 @@ This section contains the following subsections:
 The *function.json* file for a storage queue trigger specifies the following properties.
 
 - `name` : The variable name used in function code for the queue or the queue message. 
-- `queueName` : The name of the queue to poll.
+- `queueName` : The name of the queue to poll. For queue naming rules, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx).
 - `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
 - `type` : Must be set to *queueTrigger*.
 - `direction` : Must be set to *in*. 
@@ -355,7 +355,7 @@ If you want to handle poison messages manually, you can get the number of times 
 The *function.json* file for a storage queue output binding specifies the following properties.
 
 - `name` : The variable name used in function code for the queue or the queue message. 
-- `queueName` : The name of the queue.
+- `queueName` : The name of the queue. For queue naming rules, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx).
 - `connection` : The name of an app setting that contains a storage connection string. If you leave `connection` empty, the trigger will work with the default storage connection string for the function app, which is specified by the AzureWebJobsStorage app setting.
 - `type` : Must be set to *queue*.
 - `direction` : Must be set to *out*. 

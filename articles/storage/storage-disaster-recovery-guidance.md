@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="05/17/2016"
 	ms.author="robinsh"/>
 
 
-# What to do in the event of an Azure Storage outage 
+# What to do if an Azure Storage outage occurs
 
 At Microsoft, we work hard to make sure our services are always available. Sometimes, forces beyond our control impact us in ways that cause unplanned service outages in one or more regions. To help you handle these rare occurrences, we provide the following high-level guidance for Azure Storage services.
 
@@ -39,7 +39,7 @@ It is critical for every customer to prepare their own disaster recovery plan. T
 
 The recommended way to determine the Azure service status is to subscribe to the [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
 
-## Customer Options in the event of a Storage outage
+## What to do if a Storage outage occurs
 
 If one or more Storage services are temporarily unavailable at one or more regions, there are two options for you to consider. If you desire immediate access to your data, please consider Option 2.
 
@@ -51,7 +51,7 @@ In this case, no action on your part is required. We are working diligently to r
 
 If you chose [Read-access geo-redundant storage (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (recommended) for your storage accounts, you will have read access to your data from the secondary region. You can use tools such as [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), and the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from the secondary region into another storage account in an unimpacted region, and then point your applications to that storage account for both read and write availability.
 
-## What to expect in the event of storage failover
+## What to expect if a Storage failover occurs
 
 If you chose [Geo-redundant storage (GRS)](storage-redundancy.md#geo-redundant-storage) or [Read-access geo-redundant storage (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (recommended), Azure Storage will keep your data durable in two regions (primary and secondary). In both regions, Azure Storage constantly maintains multiple replicas of your data.
 
@@ -70,7 +70,7 @@ A couple of points regarding the storage geo-failover experience:
 -   After the failover, your storage account will be fully functioning, but in a “degraded” status, as it is actually hosted in a standalone region with no geo-replication possible. To mitigate this risk, we will restore the original primary region and then do a geo-failback to restore the original state. If the original primary region is unrecoverable, we will allocate another secondary region.
 For more details on the infrastructure of Azure Storage geo replication, please refer to the article on the Storage team blog about [Redundancy Options and RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-##Best Practices of protecting your data
+##Best Practices for protecting your data
 
 There are some recommended approaches to back up your the storage data on a regular basis.
 

@@ -460,7 +460,7 @@ GO
 The In-Memory OLTP features in Azure SQL Database became [active for preview on October 28, 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
-During the Preview phase before General Availability (GA), In-Memory OLTP is supported only for:
+In the current preview, In-Memory OLTP is supported only for:
 
 - Databases that are at a *Premium* service tier.
 
@@ -491,7 +491,11 @@ If a database contains any of the following kinds of In-Memory OLTP objects or t
 #### Other relationships
 
 
-- Using In-Memory OLTP features with databases in elastic pools is not supported during Preview, but might be supported in the future:
+- Using In-Memory OLTP features with databases in elastic pools is not supported during Preview.
+ - To move a database that has or has had In-Memory OLTP objects to an elastic pool, follow these steps:
+  - 1. Drop any memory-optimized tables, table types, and natively compiled T-SQL modules in the database
+  - 2. Change the service tier of the database to standard (*there is currently an issue preventing the move of Premium databases that have had In-Memory OLTP objects in the past into an elastic pool; the Azure DB team is actively working on resolving the issue)
+  - 3. Move the database into the elastic pool
 
 - Using In-Memory OLTP with SQL Data Warehouse is not supported.
  - The columnstore index feature of In-Memory Analytics is supported in SQL Data Warehouse.
