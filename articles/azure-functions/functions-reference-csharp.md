@@ -189,6 +189,25 @@ When you upload a *project.json* file, the runtime gets the packages and automat
 2016-04-04T19:02:57.455 Packages restored.
 ```
 
+## Environment variables
+
+To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
+```
+
 ## Reusing .csx code
 
 You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file, as shown in the following example.
