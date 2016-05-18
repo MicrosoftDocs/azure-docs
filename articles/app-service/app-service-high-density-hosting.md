@@ -108,7 +108,7 @@ workers to use to 1 `"properties": { "numberOfWorkers": "1" }`
         ]
     }
 
-#Recommended configuration for High Density Hosting#
+##Recommended configuration for High Density Hosting##
 
 **Per App scaling** is a feature that is enabled in both public Azure regions 
 as well as in App Service Environments, however the recomended strategy is to 
