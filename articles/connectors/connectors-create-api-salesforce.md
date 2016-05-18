@@ -1,10 +1,10 @@
 <properties
-pageTitle="Add the Salesforce API in PowerApps Enterprise and your Logic Apps | Microsoft Azure"
-description="Overview of the Salesforce API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Add the Salesforce connector  in PowerApps Enterprise and your Logic Apps | Microsoft Azure"
+description="Overview of the Salesforce connector  with REST API parameters"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,11 +14,11 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Salesforce API
-Connect to Salesforce and create objects, get objects, and more. The Salesforce API can be be used from:
+# Get started with the Salesforce connector 
+Connect to Salesforce and create objects, get objects, and more. The Salesforce connector can be used from:
 
 - Logic apps 
 - PowerApps
@@ -36,9 +36,9 @@ With Salesforce, you can:
 - Build your business flow based on the data you get from SalesForce. 
 - Use triggers for when an object is created or updated.
 - Use actions to create an object, delete an object, and more. These actions get a response, and then make the output available for other actions. For example, when a new object is created in Salesforce, you can send an email using Office 365.
-- Add the Salesforce API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Salesforce connector to PowerApps Enterprise. Then, your users can use this connector  within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,11 +49,11 @@ The Salesforce API includes the following trigger and actions.
 | --- | --- |
 |<ul><li>When an object is created</li><li>When an object is modified</li></ul> | <ul><li>Create object</li><li>Get objects</li><li>When an object is created</li><li>When an object is modified</li><li>Delete object</li><li>Get object</li><li>Get object types (SObjects)</li><li>Update object</li></ul>
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 ## Create a connection to Salesforce 
 
-When you add this API to your logic apps, you must authorize logic apps to connect to your Salesforce.
+When you add this connector to your logic apps, you must authorize logic apps to connect to your Salesforce.
 
 1. Sign in to your Salesforce account.
 2. Allow your logic apps to connect and use your Salesforce account. 

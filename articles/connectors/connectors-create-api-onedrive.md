@@ -1,10 +1,10 @@
 <properties
-pageTitle="Add the OneDrive API in PowerApps Enterprise and your Logic Apps | Microsoft Azure"
-description="Overview of the OneDrive API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Add the OneDrive connector in PowerApps Enterprise and your Logic Apps | Microsoft Azure"
+description="Overview of the OneDrive connector with REST API parameters"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Get started with the OneDrive API
+# Get started with the OneDrive connector
 
-Connect to OneDrive to manage your files, including upload, get, delete files, and more. The OneDrive API can be be used from:
+Connect to OneDrive to manage your files, including upload, get, delete files, and more. The OneDrive connector can be used from:
 
 - Logic apps 
 - PowerApps
@@ -37,24 +37,24 @@ With OneDrive, you can:
 - Build your business flow based on the data you get from OneDrive. 
 - Use triggers for when a file is created or updated.
 - Use actions to create a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in OneDrive, you can email that file using Office 365.
-- Add the OneDrive API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the OneDrive connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
-The OneDrive API includes the following trigger and actions. 
+The OneDrive connector includes the following trigger and actions. 
 
 | Triggers | Actions|
 | --- | --- |
 |<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>List files in a folder</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>List root folder</li><li>Update file</li><li>When a file is modified</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 ## Create a connection to OneDrive
 
-When you add this API to your logic apps, you must authorize logic apps to connect to your OneDrive.
+When you add this connector to your logic apps, you must authorize logic apps to connect to your OneDrive.
 
 1. Sign in to your OneDrive account.
 2. Allow your logic apps to connect and use your OneDrive. 

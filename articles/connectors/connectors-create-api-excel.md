@@ -1,10 +1,10 @@
 <properties
-pageTitle="Add the Excel API in PowerApps Enterprise | Microsoft Azure"
-description="Overview of the Excel API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Add the Excel connector in PowerApps Enterprise | Microsoft Azure"
+description="Overview of the Excel connector with REST API parameters"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,20 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Excel API
+# Get started with the Excel connector
 
-Connect to Excel to insert a row, delete a row, and more. The Excel API can be be used from:
+Connect to Excel to insert a row, delete a row, and more. The Excel connector can be used from:
 
 - PowerApps
 
 With Excel, you can:
 
-- Add the Excel API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Excel connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 ## Triggers and actions
 Excel includes the following action. There are no triggers. 
@@ -36,7 +36,7 @@ Excel includes the following action. There are no triggers.
 |--- | ---|
 |None | <ul><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get row</li><li>Get tables</li><li>Update row</li></ul>
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 ## Swagger REST API reference
 Applies to version: 1.0.
