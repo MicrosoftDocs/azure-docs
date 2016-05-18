@@ -193,7 +193,7 @@ The SDKs vary between platforms, and there are are several components that you c
 Your action  | Data classes collected (see next table)
 ---|---
 [Add Application Insights SDK to a .NET web project][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users
-[Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
+[Install Status Monitor on IIS][redfield]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
 [Add SDK to Windows Store app][windows]|DeviceContext<br/>Users<br/>Crash data
@@ -256,7 +256,6 @@ This product includes GeoLite2 data created by MaxMind, available from [http://w
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-asp-net.md

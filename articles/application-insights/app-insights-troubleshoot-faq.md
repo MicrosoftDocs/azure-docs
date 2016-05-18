@@ -126,7 +126,6 @@ See [Data Retention and Privacy][data].
 <tr><td>Server custom metrics</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
 </table>
 
-If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
 ## Automation
 
@@ -139,7 +138,6 @@ You can [write PowerShell scripts](app-insights-powershell.md) to create and upd
 
 <!--Link references-->
 
-[azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
