@@ -36,13 +36,13 @@ Log Analytics can collect data for the following resources:
 
 | Resource Type | Logs (Diagnostic Categories) | Log Analytics Solution |
 | --------------------------------------- | -------------------------------- | --------------- |
-| Application Insights | Availability <br> Custome Events <br> Exceptions <br> Requests <br> | Application Insights (Preview) |
+| Application Insights | Availability <br> Custom Events <br> Exceptions <br> Requests <br> | Application Insights (Preview) |
 | API Management | | *none* (Preview) |
 | Automation <br> Microsoft.Automation/AutomationAccounts | JobLogs <br> JobStreams          | AzureAutomation (Preview) | 
 | Key Vault <br> Microsoft.KeyVault/Vaults               | AuditEvent                       | KeyVault (Preview       |
 | Application Gateway <br> Microsoft.Network/ApplicationGateways   | ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog | AzureNetworking (Preview) |
 | Network Security Group <br> Microsoft.Network/NetworkSecurityGroups | NetworkSecurityGroupEvent <br> NetworkSecurityGroupRuleCounter | AzureNetworking (Preview) |
-| Service Fabric                          | ETWEvent <br> Operational Event <br> ReliableActor Event <br> Reliable Service Event| ServiceFabric (Preview) |
+| Service Fabric                          | ETWEvent <br> Operational Event <br> Reliable Actor Event <br> Reliable Service Event| ServiceFabric (Preview) |
 | Virtual Machines | Linux Syslog <br> Windows Event <br> IIS Log <br> Windows ETWEvent | *none* |
 | Web Roles <br> Worker Roles | Linux Syslog <br> Windows Event <br> IIS Log <br> Windows ETWEvent | *none* |
 
@@ -53,7 +53,7 @@ You can help us prioritize additional logs for OMS to analyze by voting on our [
 
 ## Collect data from Application Insights
 
-
+This functionality is currently in private preview. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
 ## Collect data using Azure diagnostics written to blob in JSON
 
@@ -75,14 +75,14 @@ Before Log Analytics can collect data for these resources, Azure diagnostics mus
 
 The following sections will walk you through how to:
 
-+ Enabled the Log Analytcis solution for the Azure service 
++ Enable the Log Analytics solution for the Azure service 
 + Configure Log Analytics to collect the logs for each resource  
 
 ### Enabling Log Analytics to Collect Azure Diagnostics Written to Blob in JSON
 
 Collecting logs for these services is performed using PowerShell scripts.
 
-We have provided two PowerShell scripts to assit with configuring Log Analytics: 
+We have provided two PowerShell scripts to assist with configuring Log Analytics: 
 
 1. A script that will prompt you for input and is able to set up simple configurations 
 2. A script with PowerShell functions that take the resources as input and then configures log collection.  
@@ -99,7 +99,7 @@ We are also working on enabling configuration from the portal as well.
   - [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
   - [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
 3. You have a [Log Analytics](https://portal.azure.com/#create/Microsoft.LogAnalyticsOMS) workspace  
-4. Unzip the helper scripts from Add-AzureDiagnosticsToOMS.zip and copy to a local folder e.g. c:\OMSScript 
+4. Download the scripts from PowerShell gallery to a local folder e.g. c:\OMSScript 
 
 #### Option 1: Run the Interactive Configuration Scripts
 
@@ -116,17 +116,17 @@ Add-AzureDiagnostiToOMS-UI.ps1
 
 ```
 
-You’ll be given a choice of options and asked the following: 
+The script will display a list of available selections and provide prompt for you to make your selection. You’ll be asked to make selections for each of the following: 
 
-+ Resources Type (Azure Service) to configure 
-+ Resource instances to configure
-+ Log Analytics workspace to collect the data 
++ Resources Type (Azure Service) to collect logs from 
++ Resource instances to collect logs from
++ Log Analytics workspace that will collect the data 
 
-After this has been run you should see data collected in about 30 minutes, if not see troubleshooting info below 
+After this has been run you should see data collected in about 20 minutes, if not see the troubleshooting info below 
 
 #### Option 2: Finding Resources and Configuring 
 
-You’ll be using a script we’ve included which wraps the OMS Log Analytics cmdLets to make configuring resources easier. To get the syntax: 
+You’ll be using a script we’ve included which wraps the OMS Log Analytics cmdlets to make configuring resources easier. To get the syntax: 
 
 `Get-Help .\Add-AzureDiagnosticsToOMS.ps1` 
 
@@ -137,20 +137,23 @@ Here’s the steps:
 >[AZURE.NOTE] If resource and workspace are in different Azure Subscriptions, switch between them as needed using `Select-AzureRmSubscription -SubscriptionId <Subscription the resource is in>` 
 
 ```
+$resourceName = "DougVaultName"
+$workspaceName = "Doug-Workspace"
+
 # Find the Resource to monitor, for example: 
-$resource = Find-AzureRmResource -ResourceType "Microsoft.KeyVault/Vaults" -ResourceNameContains DougVaultName
+$resource = Find-AzureRmResource -ResourceType "Microsoft.KeyVault/Vaults" -ResourceNameContains $partialResourceName
 
 # Find the OMS Log Analytics workspace to configure, for example: 
-$workspace = Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces" -ResourceNameContains Doug-Workspace 
+$workspace = Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces" -ResourceNameContains $workspaceName 
 
 # Perform configuration
 Add-AzureDiagnosticsToOMS.ps1 $resource $workspace 
 
 # Enable the OMS Solution (if needed – it is automatically added when using the interactive script)
-# Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace. ResourceGroupName -WorkspaceName $workspace.Name -intelligencepackname KeyVault -Enabled $true `
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -intelligencepackname KeyVault -Enabled $true 
 
 ```
-After this has been run you should see data collected in about 30 minutes, if not see troubleshooting info in the Appendix 
+After this has been run you should see data collected in about 20 minutes, if not see troubleshooting info below. 
 
 >[AZURE.NOTE] You will not be able to see the configuration in the Azure portal. You can verify configuration using the `Get-AzureRmOperationalInsightsStorageInsight` cmdlet.  
 
@@ -161,8 +164,7 @@ If you need to delete the OMS configuration for a resource use the cmdlet `Remov
 
 ### Troubleshooting Configuration for Azure Diagnostics Written to Blob in JSON
 
-Issue: 
-
+*Issue*
 When configuring for a resource that is logging to Classic storage I get an exception saying subscription not found: 
 
 ```
@@ -171,16 +173,13 @@ Select-AzureSubscription : The subscription id 7691b0d1-e786-4757-857c-7360e6189
 Parameter name: id 
 ```
 
-Resolution: 
+*Resolution*
+Add your login account with the cmdlet: `Add-AzureAccount`
 
-Add your login account with the CmdLet: `Add-AzureAccount`
+*Issue*
+When running the scripts, I am getting an error of ‘\<Script Name\>’ is not digitally signed. You cannot run this script on the current system. 
 
-Issue: 
-
-When running the scripts, I am getting an error of ‘<Script Name>’ is not digitally signed. You cannot run this script on the current system. 
-
-Resolution: 
-
+*Resolution*
 To enable running the script on your machine, right click on the file in a file explorer and choose the file properties. On the properties screen, please check the “unblock” button in the file security section to enable the file to run on your machine, click apply and try running it again from the PowerShell. 
 
 
@@ -188,11 +187,12 @@ To enable running the script on your machine, right click on the file in a file 
 
 If you are not seeing data collected to OMS for your diagnostic log, here are the high level troubleshooting steps: 
 
-+ Is Data flowing to the Storage Account? 
-+ Is the OMS solution enabled? 
-+ Is OMS configured for every resource? 
++ Verify data flowing to the storage account 
++ Verify the Log Analytics solution for the service is enabled
++ Verify that Log Analytics is configured to read from storage
++ Update the storage account key
 
-#### Is Data flowing to the Storage Account? 
+#### Verify data is flowing to the storage account
 
 You can check this with the Azure Storage Explorer of your choice or with PowerShell. 
 
@@ -204,15 +204,15 @@ The storage container Azure Diagnostics logs to has a name with a format of:
 
 insights-logs-<Category> 
 
-For details on using the Storage CmdLets to check the container for recent data see: https://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/ 
+For details on using the Storage cmdlets to check the container for recent data see: https://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/ 
 
-Is the OMS solution enabled? 
+#### Verify the Log Analytics solution for the service is enabled 
 
 The needed OMS solution is enabled for you if you configure OMS for the resources using `Add-AzureDiagnostiToOMS-UI.ps1 `
 
 To check the solution is enabled, go to Settings in the OMS Portal, on the Solutions tab you can see which solutions are enabled. 
 
- If the OMS Solution is in Private Preview then you need to enable with the PowerShell CmdLet `Set-AzureRmOperationalInsightsIntelligencePack `
+ If the OMS Solution is in Private Preview then you need to enable with the PowerShell cmdlet `Set-AzureRmOperationalInsightsIntelligencePack `
 
 See the name of the Solution to enable in table at the top of the document listing the supported resource / log types. 
 
@@ -220,11 +220,9 @@ For example:
 
 `Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <Workspace Resource Group> -WorkspaceName <Workspace Name> -intelligencepackname KeyVault -Enabled $true `
 
- 
+#### Verify that Log Analytics is configured to read from storage 
 
-Is OMS configured for every resource? 
-
-If you add additional Azure Resources, you need to enable Diagnostics logging for them, as well as configure OMS for them. To check which resources OMS has configured you can use the CmdLet Get-AzureRmOperationalInsightsStorageInsight 
+If you add additional Azure Resources, you need to enable Diagnostics logging for them, as well as configure OMS for them. To check which resources OMS has configured you can use the cmdlet `Get-AzureRmOperationalInsightsStorageInsight` 
 
 For example: 
 
@@ -239,15 +237,15 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName oi-default-east-
 Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName oi-default-east-us -WorkspaceName Doug-TryAzure | select Containers
 ```
 
-Updating the Storage Key 
+#### Update the Storage Key 
 
-If you change the key for the storage account, you will need to update OMS to have the new key using `Set-AzureRmOperationalInsightsStorageInsight` cmdlet. 
+If you change the key for the storage account the Log Analytics configuration will also need to be updated with the new key. You can update the Log Analytics configuration with a new key using the `Set-AzureRmOperationalInsightsStorageInsight` cmdlet.
 
 For example:  
 
-`Set-AzureRmOperationalInsightsStorageInsight –ResourceGroupName <Resource Group Name> –WorkspaceName <Resource Name> –Name <Storage Insight Name> -StorageAccountKey foo `
+`Set-AzureRmOperationalInsightsStorageInsight –ResourceGroupName <Resource Group Name> –WorkspaceName <Resource Name> –Name <Storage Insight Name> -StorageAccountKey $newKey `
 
-To find the Storage Insight Name, use the CmdLet `Get-AzureRmOperationalInsightsStorageInsight `
+To find the Storage Insight Name, use the `Get-AzureRmOperationalInsightsStorageInsight` cmdlet.
 
 ## Collect data using Azure diagnostics written to table storage or IIS Logs written to blob 
 
@@ -284,8 +282,7 @@ Use the following procedure to enable Azure diagnostics in a virtual machine for
 #### To enable Azure diagnostics in a virtual machine with the Azure management portal
 
 1. Install the VM Agent when you create a virtual machine. If the virtual machine already exists, verify that the VM Agent is already installed.
-	- If you use the default Azure management portal to create the virtual machine, perform a **Custom Create** and select **Install the VM Agent**.
-	- If you use the new Azure management portal to create a virtual machine, select **Optional Configuration**, then **Diagnostics** and set **Status** to **On**.
+	- In the Azure management portal, navigate to the virtual machine, select **Optional Configuration**, then **Diagnostics** and set **Status** to **On**.
 
 	Upon completion, the VM will automatically have the Azure Diagnostics extension installed and running which will be responsible for collecting your diagnostics data.
 
@@ -294,7 +291,7 @@ Use the following procedure to enable Azure diagnostics in a virtual machine for
 	2. Click **Monitoring**.
 	3. Click **Diagnostics**.
 	4. Set the **Status** to **ON**.
-	5. Select each diagnostics metric that you want to use. OMS can analyze Windows event system logs, Windows event application logs and IIS logs.
+	5. Select each diagnostics log that you want to collect.
 	7. Click **OK**.
 
 Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage. Refer to the Azure Diagnostics 1.2 Configuration Schema for a sample configuration file and detailed documentation on its schema. Ensure that you install and configure Azure PowerShell version 0.8.7 or later from [How to install and configure Azure PowerShell](../powershell-install-configure.md). If you have a version of Microsoft Azure Diagnostics installed that is earlier than version 1.2 you cannot use the new portal to enable or configure diagnostics.
@@ -343,7 +340,6 @@ Refer to [How To Enable Diagnostics in a Cloud Service](https://msdn.microsoft.c
 With Azure diagnostics enabled:
 
 - IIS logs are stored by default, with log data transferred at the scheduledTransferPeriod transfer interval.
-
 - Windows Event Logs are not transferred by default.
 
 #### To enable diagnostics
@@ -380,7 +376,7 @@ In [Step 4: Configure storage of your diagnostics data](https://msdn.microsoft.c
     </ConfigurationSettings>
 ```
 
-The **AccountName** and **AccountKey** values are found in the Microsoft Azure Management Portal in the storage account dashboard, under Manage Access Keys. The protocol for the connection string must be **https**.
+The **AccountName** and **AccountKey** values are found in the Azure Management Portal in the storage account dashboard, under Manage Access Keys. The protocol for the connection string must be **https**.
 
 Once the updated diagnostic configuration is applied to your cloud service and it is writing diagnostics to Azure Storage, then you are ready to configure OMS.
 
@@ -389,9 +385,10 @@ Once the updated diagnostic configuration is applied to your cloud service and i
 
 You can enable storage analysis and configure Log Analytics to collect from the Azure Storage account with Azure Diagnostics by using the information at [Data sources in Log Analytics](log-analytics-data-sources.md#collect-data-from-azure-diagnostics).
 
-In approximately 15 minutes you will begin to see data from the storage account available for analysis within OMS.
+In approximately 20 minutes you will begin to see data from the storage account available for analysis within OMS.
 
 
 ## Next steps
 
-- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.
+- [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
+- [Use search queries](log-analytics-log-searches.md) to analyze the data.
