@@ -18,7 +18,7 @@
 
 # Log Analytics Features for Service Providers
 
-Log Analytics can help Managed Service Providers (MSPs), Large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
+Log Analytics can help Managed Service Providers (MSPs), Large Enterprises, Independent Software Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 
 For service providers there are 3 main areas of opportunity when using Log Analytics:
 
@@ -35,7 +35,7 @@ For Log Analytics, the following capabilities are enabled in Cloud Solution Prov
 
 As a *Cloud Solution Provider* you can:
 
-+ Create Log Analytics workspaces in a tenant subscription (using the Azure portal, PowerShell, or ARM). When you login to a tenant’s subscription you will pass the tenant identifier (The tenant identifier is often that last part of the e-mail address you sign in with):
++ Create Log Analytics workspaces in a tenant (customer's) subscription (using the Azure portal, PowerShell, or ARM). When you login to a tenant’s subscription you will pass the tenant identifier (The tenant identifier is often that last part of the e-mail address they use to sign in):
   - In the OMS portal add `?tenant=contoso.com` in the URL for the portal e.g. `mms.microsoft.com/?tenant=contoso.com`
   - In PowerShell, use the `-Tenant contoso.com` parameter when using `Add-AzureRmAccount` cmdlet
 + Access workspaces created by tenants, both in the Azure portal and in the OMS portal, as well as via PowerShell / ARM
@@ -43,7 +43,7 @@ As a *Cloud Solution Provider* you can:
 + Add and remove user access to the workspace using Azure user management. When in a tenant’s workspace in the OMS portal you won’t see the user management page under Settings
   - Note: OMS does not support role based access yet - giving a user `reader` permission in the Azure portal will still allow them to make configuration changes in the OMS portal
 
-As a *tenant* of a Cloud Solution Provider you can:
+As a *customer* of a Cloud Solution Provider you can:
 
 + Create log analytics workspaces in a CSP subscription
 + Access workspaces created by the CSP, both in the Azure portal and in the OMS portal, as well as via PowerShell / ARM
