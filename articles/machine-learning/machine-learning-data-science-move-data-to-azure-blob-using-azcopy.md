@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using AzCopy
-
-## Introduction
 
 AzCopy is a command-line utility designed for high-performance uploading, downloading, and copying data to and from Microsoft Azure blob, file, and table storage.
 
@@ -33,12 +31,14 @@ Guidance on technologies used to move data to and/or from Azure Blob storage are
 
 > [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](../storage/storage-dotnet-how-to-use-blobs.md) and  [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
+
 ## Prerequisites
 
 This document assumes that you have an Azure subscription, a storage account and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
 
 - To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 - For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+
 
 ## Upload files to an Azure blob
 
@@ -47,12 +47,14 @@ To upload a file, use the following command in the AzCopy is a command-line.
 	# Upload from local file system
 	AzCopy /Source:<your_local_directory> /Dest: https://<your_account_name>.blob.core.windows.net/<your_container_name> /DestKey:<your_account_key> /S
 
+
 ## Download files from an Azure blob
 
 To download a file from an Azure blob, use the following command in the AzCopy is a command-line.
 
 	# Downloading blobs to local file system
 	AzCopy /Source:https://<your_account_name>.blob.core.windows.net/<your_container_name>/<your_sub_directory_at_blob>  /Dest:<your_local_directory> /SourceKey:<your_account_key> /Pattern:<file_pattern> /S
+
 
 ## Transfer blobs between Azure containers
 
@@ -67,6 +69,7 @@ To transfer blobs between Azure containers, use the following command in the AzC
 	<your_sub_directory_at_blob>: the sub directory in the container
 	<your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
 	<file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
+
 
 ## Tips for using AzCopy
 

@@ -4,7 +4,7 @@
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
-   manager="mblythe" 
+   manager="paulettm" 
    editor=""
    tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="02/04/2016"
+   ms.date="05/17/2016"
    ms.author="heidist"/>
 
 # Monitor usage and statistics in an Azure Search service
