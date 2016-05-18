@@ -1062,7 +1062,7 @@ The body of the request contains one or more documents to be indexed. Documents 
 
 **Response**
 
-Status code 200 (OK) is returned for a successful response, meaning that all items have been successfully indexed. This is indicated by the `status` field set to true for all items, as well as the `statusCode` being set to either 201 (for newly uploaded documents) or 200 (for merged or deleted documents):
+Status code 200 (OK) is returned for a successful response, meaning that all items have been successfully indexed. This is indicated by the `status` property being set to true for all items, as well as the `statusCode` property being set to either 201 (for newly uploaded documents) or 200 (for merged or deleted documents):
 
     {
       "value": [
