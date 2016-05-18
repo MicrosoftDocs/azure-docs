@@ -25,7 +25,7 @@ The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose 
 [Azure Machine Learning Studio](https://studio.azureml.net/) has a large library of algorithms from the  ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
 
 
-## Download the machine learning algorithm cheat sheet
+## Download: Machine learning algorithm cheat sheet
 
 Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size (11x17 in) to keep it handy and get help choosing an algorithm.
 
