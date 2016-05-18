@@ -3,7 +3,7 @@
    description="Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shivaniguptamsft;barbkess;sonyama"/>
 
 # Analyze data with Azure Machine Learning
 This tutorial will show you how to build a predictive machine learning model with Azure Machine Learning using your Azure SQL Data Warehouse data. In this tutorial, we will build a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
@@ -67,9 +67,6 @@ After the experiment finishes running successfully, click the output port at the
 ![View imported data][3]
 
 
-
-
-
 ## Step 2: Clean Data
 We will drop some columns that are not relevant for the model.
 
@@ -79,8 +76,6 @@ We will drop some columns that are not relevant for the model.
 
 3. Exclude two columns: CustomerAlternateKey and GeographyKey.
 ![Remove unnecessary columns][5]
-
-
 
 
 ## Step 3: Build Model
@@ -98,9 +93,6 @@ We will split the data 80-20: 80% to train a machine learning model and 20% to t
 ![Select Column to predict][8]
 
 
-
-
-
 ## Step 4: Score Model
 Now, we will test how the model performs on test data. We will compare the algorithm of our choice with a different algorithm to see which performs better.
 
@@ -116,8 +108,6 @@ Now, we will test how the model performs on test data. We will compare the algor
 6. Click the output port at the bottom of the Evaluate Model module and click Visualize.
 ![Visualize evaluation results][11]
 
-
-
 The metrics provided are the ROC curve, precision-recall diagram and lift curve. Looking at these metrics, we can see that the first model performed better than the second one. To look at the what the first model predicted, click on output port of the Score Model and click Visualize.
 ![Visualize score results][12]
 
@@ -131,8 +121,6 @@ Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you
 ## Next Steps
 
 To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure][].
-
-
 
 <!--Image references-->
 [1]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png

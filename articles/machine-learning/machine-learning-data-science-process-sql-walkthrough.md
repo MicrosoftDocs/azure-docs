@@ -3,7 +3,7 @@
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;fashah;bradsev"/>
+	ms.date="05/10/2016"
+	ms.author="fashah;bradsev"/>
 
 
 # The Cortana Analytics Process in action: using SQL Server
 
-In this tutorial, you walkthrough building and deploying a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows the Cortana Analytics Process (CAP) workflow.
+In this tutorial, you walkthrough building and deploying a machine learning model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The procedure follows a standard data science workflow: ingest and explore the data, engineer features to facilitate learning, then build and deploy a model.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
