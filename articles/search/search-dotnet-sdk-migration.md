@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="brjohnst"/>
 
 # Upgrading to the Azure Search .NET SDK version 1.1
