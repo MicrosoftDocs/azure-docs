@@ -74,6 +74,7 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 - External users can't consent to multi-tenant applications in directories outside of their home directory
 - PowerBI doesn't currently support access by external users
 - Office Portal doesn't support licensing external users
+- With respect to Azure AD PowerShell, external users are logged into their home directory and cannot manage directories in which they are external users
 
 
 ## What's next
