@@ -112,21 +112,37 @@ Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, W
 Azure Import/Export service supports copying data to and from all Public Azure storage accounts. You can ship hard disk drives to one of the following locations. If your storage account is in a public Azure location which is not specified here, an alternate shipping location will be provided, when you are creating the job on Classic portal or via REST API.
 
 Supported shipping locations:
+
 - East US
+
 - West US
+
 - East US 2
+
 - Central US
+
 - North Central US
+
 - South Central US
+
 - North Europe
+
 - West Europe
+
 - East Asia
+
 - Southeast Asia
+
 - Australia East
+
 - Australia Southeast
+
 - Japan West
+
 - Japan East
+
 - Central India
+
 
 ### Shipping
 
