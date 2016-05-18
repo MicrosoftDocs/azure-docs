@@ -89,7 +89,7 @@ When copying data to your hard drive, you can attach it directly using a SATA co
 
 If you have a converter which is not listed above, you can try running the Azure Import/Export Tool using your converter to prepare the drive and see if it works before purchasing a supported converter.
 
-> AZURE.IMPORTANT External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not send an external HDD. The disk inside the casing of an external HDD also cannot be used. USB drives are also not supported.
+> [AZURE.IMPORTANT] External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not send an external HDD. The disk inside the casing of an external HDD also cannot be used. USB drives are also not supported.
 
 ### Encryption
 
@@ -105,7 +105,7 @@ You can use one of the following 64-bit Operating Systems to prepare the hard dr
 
 Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10*, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. All of these operating systems support BitLocker Drive Encryption.
 
-> AZURE.IMPORTANT *If you are using a Windows 10 machine to prepare your hard drive, please download the latest version of the Azure Import/Export Tool.
+> [AZURE.IMPORTANT] *If you are using a Windows 10 machine to prepare your hard drive, please download the latest version of the Azure Import/Export Tool.
 
 ### Locations
 
@@ -144,7 +144,7 @@ You must also provide a valid FedEx or DHL carrier account number depending on t
 
 In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 
-> AZURE.IMPORTANT Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+> [AZURE.IMPORTANT] Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
 
 ## How does the Azure Import/Export service work?
 
@@ -217,7 +217,7 @@ There are no transaction costs when importing data into blob storage. The standa
 
 Create an import job to copy data to your Azure storage account by shipping one or more drives containing data to the specified data center. The import job conveys details about hard disk drives, data to be copied, target storage account and shipping information to the Azure Import/Export service. Creating an import job is a three-step process. First, prepare your drives using the Azure Import/Export client tool. Second, submit an import job on the Classic Portal. Third, ship the drives to the shipping address provided during job creation and update the shipping info in your job details.   
 
-> AZURE.IMPORTANT You can submit only one job per storage account. Each drive you ship can be imported to one storage account. For example, let’s say you wish to import data into two storage accounts. You must use separate hard disk drives for each storage account and create separate jobs per storage account. 
+> [AZURE.IMPORTANT] You can submit only one job per storage account. Each drive you ship can be imported to one storage account. For example, let’s say you wish to import data into two storage accounts. You must use separate hard disk drives for each storage account and create separate jobs per storage account. 
 
 ### Prepare Your Drives	
 
@@ -242,7 +242,7 @@ The first step when importing data using Azure Import/Export service is to prepa
 6.	You can specify the /encrypt parameter to enable Bitlocker encryption on the hard disk drive. Alternatively, you could also enable Bitlocker encryption manually on the hard disk drive and supply the key while running the tool.
 
 7.	The Azure Import/Export Tool generates a drive journal file for each drive as it is prepared. The drive journal file is stored on your local computer, not on the drive itself. You will upload the journal file when you create the import job. A drive journal file includes the drive ID and the BitLocker key, as well as other information about the drive. 
-Important: Each hard disk drive you prepare will result in a journal file. When you are creating the import job on Classic Portal, you must upload all the journal files of the drives which are part of that import job. Drives without journal files will not be processed.
+**Important**: Each hard disk drive you prepare will result in a journal file. When you are creating the import job on Classic Portal, you must upload all the journal files of the drives which are part of that import job. Drives without journal files will not be processed.
 
 8.	Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
 
