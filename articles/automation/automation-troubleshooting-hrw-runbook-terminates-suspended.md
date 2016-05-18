@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/12/2016"
+   ms.date="05/18/2016"
    ms.author="magoedte" />
 
 # Hybrid Runbook Worker: A runbook job terminates with a status of Suspended
@@ -37,7 +37,7 @@ There are several possible causes for the error:
   3. The runbooks cannot authenticate with local resources
 
 
-## Cause 1 Hybrid Runbook Worker is behind proxy or firewall
+## Cause 1: Hybrid Runbook Worker is behind proxy or firewall
 
 The computer the Hybrid Runbook Worker is running on is behind a firewall or proxy server and outbound network access may not be permitted or configured correctly.
 
@@ -45,7 +45,7 @@ The computer the Hybrid Runbook Worker is running on is behind a firewall or pro
 
 Verify the computer has outbound access to *.cloudapp.net on ports 443, 9354, and 30000-30199. 
 
-## Cause 2 Computer has less than minimum hardware requirements
+## Cause 2: Computer has less than minimum hardware requirements
 
 Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer will become over utilized and cause runbook job delays or timeouts. 
 
@@ -53,7 +53,7 @@ Computers running the Hybrid Runbook Worker should meet the minimum hardware req
 
 First confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.  If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows.  If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.         
 
-## Cause 3 Runbooks cannot authenticate with local resources
+## Cause 3: Runbooks cannot authenticate with local resources
 
 ### Solution
 
