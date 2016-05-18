@@ -77,7 +77,7 @@ You must have the following installed on your computer:
 	2. Enter a **name** for the data factory.
 	3. Select the **Azure subscription** in which you want the data factory to be created. 
 	4. Select the **resource group** for the data factory.
-	5. Select the **West US** or **North Europe** for the **region**.
+	5. Select the **West US**, **East US** or **North Europe** for the **region**.
 	6. Click **Next**. 
 9. In the **Configure data stores** page, specify an existing **Azure SQL database** and **Azure storage account** (or) create new ones, and click Next. 
 10. In the **Configure compute** page, select defaults, and click **Next**. 
