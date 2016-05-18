@@ -111,9 +111,12 @@ workers to use to 1 `"properties": { "numberOfWorkers": "1" }`
 ##Recommended configuration for High Density Hosting##
 
 **Per App scaling** is a feature that is enabled in both public Azure regions 
-as well as in App Service Environments, however the recomended strategy is to 
-use App Servic Environemnts to leverage their advanced features and the larger 
+as well as in App Service Environments, however the recommended strategy is to 
+use App Service Environments to leverage their advanced features and the larger 
 pools of capacity.  
+
+Follow the steps listed below as a guideline on how to configure 
+**High Density Hosting** for your apps.
 
 1. Configure the **App Service Environment** and choose a **worker pool** that 
 will be dedicated to the *high density hosting* scenario.
