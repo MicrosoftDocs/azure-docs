@@ -21,7 +21,9 @@
 
 [SQL Server running on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) enables you host your SQL Server databases in the Cloud. For example, you can migrate an on-premises database to an Azure VM preconfigured with Windows Server 2012 R2 and SQL Server 2014 Enterprise edition. But there are many other possible scenarios, such as multi-machine configurations that support high availability or hybrid architectures with connectivity to on-premises networks.
 
-For a great overview, watch the video [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
+For a great overview, watch the following video:
+
+> [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
 
 ## SQL offerings
 
