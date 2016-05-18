@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Running Windows VMs in multiple datacenters on Azure"
+   pageTitle="Running Windows VMs in multiple datacenters on Azure | Reference Architecture | Microsoft Azure"
    description="How to deploy VMs in multiple datacenters on Azure for availability and resiliency."
    services=""
    documentationCenter="na"
@@ -18,6 +18,8 @@
    ms.author="mikewasson"/>
 
 # Running Windows VMs in multiple datacenters on Azure 
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 In this article, we recommend a set of practices to run VMs in multiple Azure datacenters, to achieve availability and a robust disaster recovery infrastructure.
 
@@ -45,9 +47,10 @@ The following diagram builds on the architecture shown in [Adding reliability to
 
 ## Availability
 
-A multi-datacenter architecture can provide higher availability than deploying to a single datacenter. If a regional outage affects the primary datacenter, Traffic Manager fails over to the secondary datacenter. This architecture can also help if an individual subsystem of the application fails. For example, at the time of writing, the [SLA][azure-sla] for VMs in an availability set is 99.95%. But the chance that VMs in availability sets will fail in _two_ datacenters at the same time is 0.05 &times; 0.05, or 99.999975% availability. 
+A multi-datacenter architecture can provide higher availability than deploying to a single datacenter. If a regional outage affects the primary datacenter, Traffic Manager fails over to the secondary datacenter. This architecture can also help if an individual subsystem of the application fails.  
      
 There are several general approaches to achieving high availability across data centers:      
+
 - Active/passive with hot standby. Traffic goes to one datacenter, while the other waits on standby. VMs in the secondary datacenter are allocated and running at all times.
 
 - Active/passive with cold standby. The same, but VMs in the secondary datacenter are not allocated until needed for failover. This approach costs less to run, but will generally have longer down time during a failure.

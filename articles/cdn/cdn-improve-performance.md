@@ -25,6 +25,8 @@ There are two ways to enable compression:
 - You can enable compression on your origin server, in which case the CDN will pass through the compressed files and deliver compressed files to clients that request them.
 - You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users, even if they are not compressed by the origin server.
 
+> [AZURE.IMPORTANT] CDN configuration changes take some time to propagate through the network.  For <b>Azure CDN from Akamai</b> profiles, propagation usually completes in under one minute.  For <b>Azure CDN from Verizon</b> profiles, you will usually see your changes apply within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs before troubleshooting
+
 ## Enabling compression
 
 > [AZURE.NOTE] The Standard and Premium CDN tiers provide the same compression functionality, but the user interface differs.  For more information about the differences between Standard and Premium CDN tiers, see [Azure CDN Overview](cdn-overview.md).
@@ -50,7 +52,9 @@ There are two ways to enable compression:
 	![CDN compression options](./media/cdn-file-compression/cdn-compress-standard.png)
 
 4. Use the default types, or modify the list by removing or adding file types.
-
+	
+	> [AZURE.TIP] While possible, it is not recommended to apply compression to compressed formats, such as ZIP, MP3, MP4, JPG, etc.
+	
 5. After making your changes, click the **Save** button.
 
 ### Premium tier
@@ -69,7 +73,9 @@ There are two ways to enable compression:
 
 	![File compression](./media/cdn-file-compression/cdn-compress-files.png)
 
-3. Enable compression by clicking the **Compression Enabled** radio button.  Enter the MIME types you wish to compress as a comma-delimited list (no spaces) in the **File Types** textbox. 
+3. Enable compression by clicking the **Compression Enabled** radio button.  Enter the MIME types you wish to compress as a comma-delimited list (no spaces) in the **File Types** textbox.
+		
+	> [AZURE.TIP] While possible, it is not recommended to apply compression to compressed formats, such as ZIP, MP3, MP4, JPG, etc. 
 
 4. After making your changes, click the **Update** button.
 
@@ -86,21 +92,25 @@ These tables describe Azure CDN compression behavior for every scenario.
 > For **Azure CDN from Akamai**, all files are eligible for compression.
 >
 > For all Azure CDN products, a file must be a MIME type that has been [configured for compression](#enabling-compression).
+>
+> **Azure CDN from Verizon** profiles (Standard and Premium) support **gzip**, **deflate**, or **bzip2** encoding.  **Azure CDN from Akamai** profiles only support **gzip** encoding.
+>
+> **Azure CDN from Akamai** endpoints always request **gzip** encoded files from the origin, regardless of the client request.
 
 ### Compression disabled or file is ineligible for compression
 
-|Requested format|Cached file|CDN response|Notes|
+|Client requested format (via Accept-Encoding header)|Cached file format|CDN response to the client|Notes|
 |----------------|-----------|------------|-----|
-|Compressed|Compressed|Compressed|CDN transcodes between supported formats|
+|Compressed|Compressed|Compressed|   |
 |Compressed|Uncompressed|Uncompressed|    |	
 |Compressed|Not cached|Compressed or Uncompressed|Depends on origin response|
-|Uncompressed|Compressed|Uncompressed|CDN will go back to origin for uncompressed version|
+|Uncompressed|Compressed|Uncompressed|    |
 |Uncompressed|Uncompressed|Uncompressed|    |	
 |Uncompressed|Not cached|Uncompressed|     |
 
 ### Compression enabled and file is eligible for compression
 
-|Requested format|Cached file|CDN response|Notes|
+|Client requested format (via Accept-Encoding header)|Cached file format|CDN response to the client|Notes|
 |----------------|-----------|------------|-----|
 |Compressed|Compressed|Compressed|CDN transcodes between supported formats|
 |Compressed|Uncompressed|Compressed|CDN performs compression|
@@ -110,11 +120,7 @@ These tables describe Azure CDN compression behavior for every scenario.
 |Uncompressed|Not cached|Uncompressed|     |	
 
 ## Notes
-
-1. As with deploying new endpoints, CDN configuration changes take some time to propagate through the network.  For <b>Azure CDN from Akamai</b> profiles, propagation usually completes in under one minute.  For <b>Azure CDN from Verizon</b> profiles, you will usually see your changes apply within 90 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs before troubleshooting.
-2. Only one file version (compressed or uncompressed) will be cached on the edge server. A request for a different version will result in the content being transcoded by the edge server.
-3. For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. You cannot enable/disable compression for the mentioned types using the Azure portal.  
-4. While possible, it is not recommended to apply compression to compressed formats, such as ZIP, MP3, MP4, JPG, etc.
+1. For Media Services CDN enabled streaming endpoints, compression is enabled by default for the following content types: application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml. You cannot enable/disable compression for the mentioned types using the Azure portal.  
 
 ## See also
 - [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md)    

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="About VPN Gateways for Virtual Network cross-premises connectivity | Microsoft Azure"
-   description="Learn about VPN gateways, which can be used for Site-to-Site cross-premises connections for hybrid configurations, VNet-to-VNet connections, and Point-to-Site connections."
+   pageTitle="About VPN Gateway| Microsoft Azure"
+   description="Learn about VPN Gateway for Azure Virtual Network."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
-# About VPN gateways
+# About VPN Gateway
 
-VPN Gateways, also called Azure Virtual Network Gateways, are used to send network traffic between virtual networks and on-premises locations. They are also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). The sections below discuss the items that relate to a VPN gateway.
+VPN Gateway is used to send network traffic between virtual networks and on-premises locations. It is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). The sections below discuss the items that relate to VPN Gateway.
 
 The instructions that you use to create your VPN gateway will depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you'll use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway. You can't create a Resource Manager VPN gateway for a classic deployment model virtual network. 
 
@@ -39,6 +39,7 @@ The example below shows a gateway subnet named GatewaySubnet. You can see the CI
 
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 
+>[AZURE.IMPORTANT] Ensure that the GatewaySubnet does not have a Network Security Group (NSG) applied to it, as this may cause connections to fail.
 
 ## <a name="gwtype"></a>Gateway types
 
@@ -64,7 +65,7 @@ The example below specifies the `-GatewaySku` as *Standard*.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
-### Estimated aggregate throughput by SKU and gateway type
+###  <a name="aggthroughput"></a>Estimated aggregate throughput by SKU and gateway type
 
 
 The table below shows the gateway types and the estimated aggregate throughput. 
@@ -74,7 +75,9 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 ## <a name="vpntype"></a>VPN types
 
-Each configuration requires a specific VPN type in order to work. If you are combining two configurations, such as creating a Site-to-Site connection and a Point-to-Site connection to the same VNet, you must use a VPN type that satisfies both connection requirements. In the case of Point-to-Site and Site-to-Site coexisting connections, you must use a route-based VPN type when working with the Azure Resource Manager deployment model, or a dynamic gateway if you are working with the classic deployment mode.
+Each configuration requires a specific VPN type in order to work. If you are combining two configurations, such as creating a Site-to-Site connection and a Point-to-Site connection to the same VNet, you must use a VPN type that satisfies both connection requirements. 
+
+In the case of Point-to-Site and Site-to-Site coexisting connections, you must use a route-based VPN type when working with the Azure Resource Manager deployment model, or a dynamic gateway if you are working with the classic deployment mode.
 
 When you create your configuration, you'll select the VPN type that is required for your connection. 
 
@@ -116,14 +119,14 @@ In the example below, you can see a local network gateway named MyOnPremiseWest 
 
 ### Modify address prefixes - classic deployment
 
-If you need to modify your local sites when using the classic deployment model, at this time, you can use the Local Networks configuration page in the classic portal, or modify the Network Configuration file, NETCFG.XML, directly.
+If you need to modify your local sites when using the classic deployment model, you can use the Local Networks configuration page in the classic portal, or modify the Network Configuration file, NETCFG.XML, directly.
 
 
-## VPN devices
+##  <a name="devices"></a> VPN devices
 
 You must make sure that the VPN device that you plan to use supports the VPN type required for your configuration. See [About VPN devices](vpn-gateway-about-vpn-devices.md) for more information about compatible VPN devices.
 
-## Gateway requirements
+##  <a name="requirements"></a>Gateway requirements
 
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2016"
+   ms.date="05/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load data into Azure SQL Data Warehouse
@@ -79,7 +79,7 @@ Summary of loading process:
 2. Use the AZCopy command-line utility to copy data from flat files to Azure blob storage.
 3. Use PolyBase to load into SQL Data Warehouse.
 
-For a tutorial, see [Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)][].
+For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][].
 
 ### Use bcp
 If you have a small amount of data you can use bcp to load directly into Azure SQL Data Warehouse.
@@ -124,7 +124,7 @@ For more development tips, see the [development overview][].
 
 [Load sample databases]: sql-data-warehouse-load-sample-databases.md
 [Migration overview]: sql-data-warehouse-overview-migrate.md
-[solution partners]: sql-data-warehouse-solution-partners.md
+[solution partners]: sql-data-warehouse-integrate-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Statistics]: sql-data-warehouse-develop-statistics.md
 
