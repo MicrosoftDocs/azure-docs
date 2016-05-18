@@ -100,7 +100,7 @@ The following table provides a summary of known issues in this release.
 
 This release has software-only updates. However, if you are updating from a version prior to Update 2, you will need to install driver, Storport, Spaceport, and (in some cases) disk firmware updates on your device.
  
-For more information on how to install the driver, Storport, Spaceport, and disk firmware updates, see [install Update 0.2](storsimple-install-update21.md) on your StorSimple device.
+For more information on how to install the driver, Storport, Spaceport, and disk firmware updates, see [install Update 2.1](storsimple-install-update-21.md) on your StorSimple device.
 
  
 ## Virtual device updates in Update 2.1
