@@ -87,7 +87,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Importing namespaces
 
-If you need import namespaces, you can do so as usual, with the `using` clause.
+If you need to import namespaces, you can do so as usual, with the `using` clause.
 
 ```csharp
 using System.Net;
