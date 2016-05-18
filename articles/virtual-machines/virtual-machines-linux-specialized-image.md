@@ -20,7 +20,6 @@
 # Create a copy of a Linux virtual machine in the Azure Resource Manager deployment model
 
 
-
 This article shows you how to create a copy of your Azure virtual machine (VM) running Linux. Specifically, it covers how to do this in the Resource Manager deployment model, by using the Azure CLI and the Azure portal. It shows you how to create a *specialized* image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for porting your Linux VM from the classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Linux VM created in the Resource Manager deployment model. You can copy over the operating system and data disks this way, and then set up the network resources to create the new virtual machine.
 
 If you need to create mass deployments of similar Linux VMs, you should use a *generalized* image. For that, see [How to capture a Linux virtual machine](virtual-machines-linux-capture-image.md).
