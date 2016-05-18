@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Automated Patching for SQL Server VMs (Classic) | Microsoft Azure"
-	description="Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using the classic deployment mode."
+	pageTitle="Automated Patching for SQL Server VMs (Resource Manager) | Microsoft Azure"
+	description="Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jhubbard"
 	editor=""
-	tags="azure-service-management" />
+	tags="azure-resource-manager"/>
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
@@ -16,15 +16,15 @@
 	ms.date="05/18/2016"
 	ms.author="jroth" />
 
-# Automated Patching for SQL Server in Azure Virtual Machines (Classic)
+# Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)
 
 > [AZURE.SELECTOR]
 - [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 - [Classic](virtual-machines-windows-classic-sql-automated-patching.md)
 
-Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server 2012 or 2014. Automated Updates can only be installed during this maintenance window. For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database. Automated Patching depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server 2012 or 2014. Automated Updates can only be installed during this maintenance window. For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database. Automated Patching depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. To view the Resource Manager version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Resource Manager](virtual-machines-windows-sql-automated-patching.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. To view the classic version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Classic](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ## Configure Automated Patching in the Azure portal
 
@@ -79,6 +79,6 @@ The following products are compatible with the SQL Server IaaS Agent features 
 
 ## Next steps
 
-For information about other available automation tasks, see [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+For information about other available automation tasks, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
