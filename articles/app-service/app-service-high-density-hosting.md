@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="High Density Hosting on Azure App Service" 
+	description="High Density Hosting on Azure App Service" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor="" 
+	services="app-service\web" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="05/17/2016" 
+	ms.author="byvinyal"/>
+
 #High Density Hosting on Azure App Service#
 
 ##Understanding app scaling##
