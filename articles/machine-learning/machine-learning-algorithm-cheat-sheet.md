@@ -27,14 +27,13 @@ The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose 
 
 ## Download: Machine learning algorithm cheat sheet
 
-Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size (11x17 in) to keep it handy and get help choosing an algorithm.
-
 **Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
+Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size (11x17 in) to keep it handy and get help choosing an algorithm.
 
 > [AZURE.NOTE] See the article [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) for a detailed guide to using this cheat sheet.
 
