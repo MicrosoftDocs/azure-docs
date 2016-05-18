@@ -78,7 +78,7 @@ The hotfix method involves the following three steps:
 
 #### Download updates for a device running Update 2 software
 
-**If your device is running Update 2**, you must download and install the following hotfixes in the prescribed order:
+If your device is running Update 2, you must download and install the following hotfixes in the prescribed order:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -89,7 +89,7 @@ The hotfix method involves the following three steps:
 
 #### Download updates for a device running pre-Update 2 software
 
-**If your device is running versions 0.2, 0.3, 1.0, and 1.1**, you must download and install the LSI driver and firmware update. This update is already installed if you are running Update 1.2 or 2. 
+If your device is running versions 0.2, 0.3, 1.0, and 1.1, you must download and install the LSI driver and firmware update. This update is already installed if you are running Update 1.2 or 2. 
  
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -115,6 +115,7 @@ You may also need to install disk firmware updates. You can verify whether you n
 | 7.      | KB3121899 | Disk firmware              |  Maintenance     | ~ 30 mins |
  
 <br></br>
+
 > [AZURE.IMPORTANT]
 >
 > - This procedure needs to be performed only once to apply Update 2.1. You can use the Azure classic portal to apply subsequent updates.
