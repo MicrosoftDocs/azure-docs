@@ -24,6 +24,7 @@ App cloning is currently only supported for premium tier app service plans. The 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
+To learn about using ARM based Azure PowerShell cmdlets to manage your Web Apps check [ARM based PowerShell commands for Azure Web App](app-service-web-app-arm-powershell.md)
 
 ## Cloning an existing App ##
 
@@ -106,9 +107,11 @@ This feature is currently in preview, we are working to add new capabilities ove
 - Easy Auth settings are not cloned
 - Kudu Extension are not cloned
 - TiP rules are not cloned
+- Database content are not cloned
 
 
 ### References ###
+- [ARM based PowerShell commands for Azure Web App](app-service-web-app-arm-powershell.md)
 - [Web App Cloning using Azure Portal](app-service-web-app-cloning-portal.md)
 - [Back up a web app in Azure App Service](web-sites-backup.md)
 - [Azure Resource Manager support for Azure Traffic Manager Preview](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
