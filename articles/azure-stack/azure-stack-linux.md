@@ -3,7 +3,7 @@
 	description="Learn how create Linux-based virtual machines on Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="anajodMS"
+	authors="anjayajodha"
 	manager="byronr"
 	editor=""/>
 
