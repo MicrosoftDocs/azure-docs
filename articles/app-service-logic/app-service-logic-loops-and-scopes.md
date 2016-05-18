@@ -113,7 +113,7 @@ SplitOn can be specified in code-view as the following example.  This recieves a
 
 ## Scopes
 
-It is possible to group a series of actions together using a scope.  This is particularly useful for implementing [exception handling](## TODO).  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following:
+It is possible to group a series of actions together using a scope.  This is particularly useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following:
 
 
 ```
