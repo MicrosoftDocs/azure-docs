@@ -59,10 +59,6 @@ To do this, the App Service Plan is setting the per site scaling property is
 set to true ( `"perSiteScaling": true`) and the App is setting the number of 
 workers to use to 1 `"properties": { "numberOfWorkers": "1" }`
 
-
- ##Sample Template##
-
-
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -89,7 +85,23 @@ workers to use to 1 `"properties": { "numberOfWorkers": "1" }`
                 "perSiteScaling": true 
             }
         },
-        ]
+        {
+            "type": "Microsoft.Web/sites",
+            "name": "[parameters('appName')]",
+            "apiVersion": "2015-08-01-preview",
+            "location": "West US",
+            "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
+            "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
+            "resources": [ {
+                    "comments": "",
+                    "type": "config",
+                    "name": "web",
+                    "apiVersion": "2015-08-01",
+                    "location": "West US",
+                    "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
+                    "properties": { "numberOfWorkers": "1" }
+             } ]
+         }]
     }
 
 
