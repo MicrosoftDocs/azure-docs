@@ -36,7 +36,7 @@ Describes the options for restoring a database in Azure SQL Data Warehouse. Thes
 
 **Recovering from disasters (DR):** This scenario refers to recovering from a major catastrophe. In the scenario where a disruptive event like a natural disaster or a regional outage causes the database to become unavailable, a customer would like to recover the database in a different region to continue business operations.
 
-## Backup policies
+## Snapshot policies
 
 [AZURE.INCLUDE [SQL Data Warehouse backup retention policy](../../includes/sql-data-warehouse-backup-retention-policy.md)]
 
