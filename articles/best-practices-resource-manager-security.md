@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Security considerations for Azure Resource Manager"
+	pageTitle="Security considerations for Resource Manager | Microsoft Azure"
 	description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/16/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -360,7 +360,7 @@ Every subnet created in a virtual network is automatically associated with a rou
 
 ### BGP routes
 
-At the time of this writing, [ExpressRoute](./expressroute/expressroute-introduction.md) is not yet supported in the [Network Resource Provider](virtual-network/resource-groups-networking.md) for Azure Resource Manager.  If you have an ExpressRoute connection between your
+At the time of this writing, [ExpressRoute](./expressroute/expressroute-introduction.md) is not yet supported in the [Network Resource Provider](./virtual-network/resource-groups-networking.md) for Azure Resource Manager.  If you have an ExpressRoute connection between your
 on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure once ExpressRoute is supported in the NRP. These
 BGP routes are used in the same way as default routes and user defined routes in each Azure subnet. For more information see
 [ExpressRoute Introduction](./expressroute/expressroute-introduction.md).

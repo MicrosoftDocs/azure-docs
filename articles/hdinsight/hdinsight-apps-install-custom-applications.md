@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="05/18/2016"
    	ms.author="jgao"/>
 
 # Install custom HDInsight applications
@@ -84,6 +84,11 @@ You can check the application status on the Azure portal to validate the applica
 5. Click **hue** from the list to list the properties.  
 6. Click the Webpage link to validate the website; open the HTTP endpoint in a brower to validate the Hue web UI, open the SSH endpoint using [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) or other [SSH clients](hdinsight-hadoop-linux-use-ssh-unix.md).
  
+## Troubleshoot the installation
+
+See the [Troubleshoot](hdinsight-apps-install-applications.md#troubleshoot) section in Install HDInsight Applications.
+
+
 ## Next steps
 
 - [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): learn how to develop ARM templates for deploying HDInsight applications.

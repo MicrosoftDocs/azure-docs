@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="05/16/2016" 
 	ms.author="nitinme"/>
 
 
@@ -170,7 +170,7 @@ We can use `sqlContext` to perform transformations on structured data. The first
 1. Let's start to get a sense of what our dataset contains. For example, what are the different values in the **results** column?
 
 
-	df.select('results').distinct().show()
+		df.select('results').distinct().show()
 
 	
 	You should see an output like the following:

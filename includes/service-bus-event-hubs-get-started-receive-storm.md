@@ -16,7 +16,7 @@ This tutorial uses an [HDInsight Storm][] installation, which comes with the Eve
 
 4. In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).
 
-   ![][12]
+	![][12]
 
 5. Select **Use default Workspace location**, then click **Next**
 
