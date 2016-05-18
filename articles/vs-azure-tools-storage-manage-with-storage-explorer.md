@@ -26,115 +26,143 @@ storage accounts and resources.
 
 ## Prerequisites
 
-To complete this tutorial, you'll need the following:
-
 - [Download and install Storage Explorer (preview)](http://go.microsoft.com/fwlink/?LinkId=708343)
-- Microsoft Azure account. If you don't have an account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 
-or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
-## Connect to an Azure account
+## Connect to a storage account or service
 
-The first task when using Storage Explorer (Preview) is to sign into an account associated with one or more active Azure subscriptions. 
+Storage Explorer (Preview) allows you to connect to Azure storage accounts - or individual services such as a blob container, queue, or table - associated with your Azure subscription(s). In addition, you can attach to Azure storage accounts shared from another Azure subscription using either the subscription's credentials - account name and key - or a SAS (Shared Access Signature) provided by the Azure subscription owner.
+
+- [Connect to an Azure subscription](#connect-to-an-azure-account)
+- [Attach to external storage](#attach-or-detach-an-external-storage-account)
+- [Attach Service using SAS]
+- [Attach Account using SAS]
+
+## Connect to an Azure subscription
+
+> [AZURE.NOTE] If you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Start Storage Explorer (Preview). 
 
 1. If you are running Storage Explorer (Preview) for the first time or if you've run Storage Explorer (Preview) before, but haven't
-connected to an Azure account, you'll see an infobar that allows you to connect to your Azure account.
+connected to an Azure account, you'll see an infobar that allows you to connect to an Azure account.
 
 	![][0]
 	
-1. Tap **Connect to Microsoft Azure** and follow the dialogs to sign into an account associated with at least one active Azure subscription.
+1. Tap **Connect to Microsoft Azure** and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
 
-1. Once you successfully sign in, the left pane of the Storage Explorer (Preview) will populate with 
-the account's active Azure subscriptions. 
+Once you successfully sign in with a Microsoft account, the left pane of the Storage Explorer (Preview) will populate with all the storage accounts associated with all of the Azure subscriptions associated with the 
+Microsoft account.
 
-## Filter the displayed Azure subscriptions
+### Filter the Azure subscriptions
 
-Once you connect to an account, the left pane of Storage Explorer (Preview) displays all
-of the subscriptions associated with that account. If you have a large quantity of subscriptions, this 
-list can be long and unwieldly. In order to filter, or pare down, the list of displayed subscriptions, 
-follow these instructions:
+Storage Explorer (Preview) allows you to filter which Azure subscriptions associated with your signed-in Microsoft account(s) will have their storage accounts listed in the left-pane.
 
 1. Tap the **Settings** (gear) icon.
 
 	![][1]   
 
-
-1. 	At the top of left pane, you will see a drop-down list containing all of the accounts you've connected
-to. 
+1. 	At the top of left pane, you will see a drop-down list containing all of the Microsoft accounts you've signed into. 
 
 	![][3]
 	 
-1.	Tap the accounts drop-down list to see all of the connected-to accounts as well as a link for adding more accounts.
+1.	Tap the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
 
 	![][4]
 
-1.	Select the desired account from the drop-down list.
+1.	Select the desired Microsoft account from the drop-down list.
 
-1. 	The left pane will now display all of the subscriptions associated with the selected Azure account.
-The checkboxes to the left of each subscription enables you to specify which subscriptions
-you want displayed. Checking/unchecking **All subscriptions** toggles selecting all or none of the 
-listed subscriptions.
+1. 	The left pane will display all the Azure subscriptions associated with the selected Microsoft account.
+The checkbox to the left of each Azure subscription enables you to specify whether
+or not you want Storage Explorer (Preview) to list all the storage accounts associated with that Azure subscriptions. Checking/unchecking **All subscriptions** toggles selecting all or none of the 
+listed Azure subscriptions.
 
 	![][2]  
 
-1.	When you have finished checking the subscriptions you want to manage, tap **Apply**. 
+1.	When you have finished selecting the Azure subscriptions you want to manage, tap **Apply**. The left pane will update to list all the storage accounts for each selected Azure subscription for the current Microsoft account. 
 
-1.	The left pane will now display only the storage accounts associated with the subscriptions you selected.
+### Adding additional Microsoft accounts
 
-## Add an Azure account to Storage Explorer (Preview)
-
-Storage Explorer (Preview) allows you to connect to multiple accounts. To add an account, follow these steps:
+The following steps walk you through connecting to additional Microsoft accounts to view each account's Azure subscription(s) and storage accounts.
 
 1.	Tap the **Settings** (gear) icon.
 
 	![][1]   
 
-1. 	At the top of left pane, you will see a drop-down list containing all of the accounts you've connected
-to. 
+1. 	At the top of the left pane, you will see a drop-down list containing all of the currently connected Microsoft accounts.
 
 	![][3]
 	 
-1.	Tap the accounts drop-down list to see all of the connected-to accounts as well as a link for adding more accounts.
+1.	Tap the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
 
 	![][4]
 
 1.	Tap **Add an account** and follow the dialogs to sign into an account associated with at least one active Azure subscription.
 
-1.	Select the check boxes for the account subscriptions you want to browse. 
+1.	Select the check boxes for the Azure subscriptions you want to browse. 
 
 	![][2]  
 
 1.	Tap **Apply**.
 
+### Switch between Microsoft accounts
+
+While you can connect to multiple Microsoft accounts, the left pane shows only the storage accounts 
+associated with the subscriptions for a single (current) Microsoft account. If you connect to multiple
+Microsoft accounts, you can switch between the accounts by performing the following steps:
+
+1.	Tap the **Settings** (gear) icon.
+
+	![][1]   
+
+1. 	At the top of the left pane, you will see a drop-down list containing all of the currently connected Microsoft accounts.
+
+	![][3]
+	 
+1.	Tap the down-arrow next to the drop-down list to see all of the signed-into Microsoft accounts as well as a link for adding (signing into) additional Microsoft accounts.
+
+	![][4]
+
+1.	Tap the desired Microsoft account.
+
+1.	Select the check boxes for the Azure subscriptions you want to browse. 
+
+	![][2]  
+
+1.	Tap **Apply**.
+  
+
 ## Attach or detach an external storage account
 
-As you've seen, you can view the storage accounts associated with an account once you add that account to Storage Explorer (Preview).
+Storage Explorer (Preview) provides the ability to attach to external storage accounts so that storage accounts can be easily shared. This section explains how to attach to (and detach from) external storage accounts.
 
-In addition, you can also work with *external storage accounts* - those that are not associated with an added account.
+### Get the storage account credentials
 
-This section explains how to attach to (and detach from) external storage accounts.
+In order to share an external storage account, the owner of that account must first get the 
+credentials - account name and key - for the account and then share that information with the 
+person wanting to attach to that (external) account. Obtaining the storage account credentials
+can be done via the Azure portal by following these steps: 
+
+1.	Sign in to the [Azure portal](https://portal.azure.com).
+1.	Tap **Browse**.
+1.	Tap **Storage Accounts**.
+1.	In the **Storage Accounts** blade, tap the desired storage account.
+1.	In the **Settings** blade for the selected storage account, tap **Access keys**.
+
+	![][5]
+	
+1.	In the **Access keys** blade, copy the **STORAGE ACCOUNT NAME** and **KEY 1** values for use when attaching to the storage account. 
+
+	![][6]
 
 ### Attach to an external storage account
 
-1. Get the account name and key for the storage account you want to attach.
-	1.	Sign in to the [Azure portal](https://portal.azure.com).
-	1.	Tap **Browse**.
-	1.	Tap **Storage Accounts**.
-	1.	In the **Storage Accounts** blade, tap the desired storage account.
-	1.	In the **Settings** blade for the selected storage account, tap **Access keys**.
-	
-		![][5]
-		
-	1.	In the **Access keys** blade, make note of (or copy to a safe place) the **STORAGE ACCOUNT NAME** and **KEY 1** values. (**Note:** The KEY 1 value is used interchangeably with the Primary Access Key that you'll need to provide later.)  
-	
-		![][6]
-
-1.	In Storage Explorer (Preview), right-click **Storage Accounts**, and from its context menu, select **Attach External Storage**.
+1.	In Storage Explorer (Preview), right-click **Storage Accounts**, and - from the context menu - select **Attach External Storage**.
 
 	![][7]
 	
-1.	In the **Attach External Storage** dialog, enter the Storage Account Name in the **Account name** box and Primary Access Key (Key 1 value copied before) in the **Account key** box. Tap **OK** when done. 
+1.	The section, *Get the storage account credentials*, explains how to obtain the 
+storage account name and key 1 values. Those values will be used in this step. In 
+the **Attach External Storage** dialog, enter the storage account name in the **Account name** box and the Key 1 value in the **Account key** box. Tap **OK** when done. 
 
 	![][8]
 
@@ -144,13 +172,14 @@ This section explains how to attach to (and detach from) external storage accoun
 
 ### Detach from an external storage account
 
-1. 	Right-click the external storage account you want to detach.
-
-1.	From the storage account's context menu, select **Detatch**.
+1. 	Right-click the external storage account you want to detach, and - from the context menu - 
+select **Detach**.
 
 	![][10]
 
 1.	When the confirmation message box appears, tap **Yes** to confirm the detachment from the external storage account.
+
+	![][12]
 
 ## Search for storage accounts
 
@@ -179,3 +208,4 @@ To clear the search, tap the **x** button in the search box.
 [9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/external-storage-account.png
 [10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage.png
 [11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-account-search.png
+[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage-confirmation.png
