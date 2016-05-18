@@ -30,15 +30,15 @@ If you need to create mass deployments of similar Windows VMs, you should use a 
 
 Ensure that you meet the following prerequisites before you start the steps:
 
-- You have an Azure virtual machine running Windows, which you created by using either the classic or the Resource Manager deployment model. You have configured the operating system, attached data disks, and made other customizations like installing required applications. You'll use this VM to create the copy. If you need help creating the source VM, see [How to create a Windows VM with Resource Manager](virtual-machines-windows-ps-create.md).
+- **You have an Azure virtual machine running Windows**, created by using either the classic or the Resource Manager deployment model. You have configured the operating system, attached data disks, and made other customizations like installing required applications. You'll use this VM to create the copy. If you need help creating the source VM, see [How to create a Windows VM with Resource Manager](virtual-machines-windows-ps-create.md).
 
-- You have the Azure PowerShell installed on your machine, and you are signed in to your Azure subscription. For more information, see [How to install and configure PowerShell](../powershell-install-configure.md).
+- You have **Azure PowerShell 1.0 (or later)** installed on your machine, and you are signed in to your Azure subscription. For more information, see [How to install and configure PowerShell](../powershell-install-configure.md).
 
-- You have downloaded and installed AzCopy tool. For more information about this tool, see [Transfer data with AzCopy commandline tool](../storage/storage-use-azcopy.md).
+- You have downloaded and installed the **AzCopy tool**. For more information about this tool, see [Transfer data with AzCopy commandline tool](../storage/storage-use-azcopy.md).
 
-- You have a resource group, a storage account, and a blob container created in that resource group to copy the VHDs to. For steps to use an existing storage account or create a new one, see [Create or find an Azure storage account](virtual-machines-windows-upload-image.md#createstorage).
+- You have a **resource group**, a **storage account**, and a **blob container** created in that resource group to copy the VHDs to. For steps to use an existing storage account or create a new one, see [Create or find an Azure storage account](virtual-machines-windows-upload-image.md#createstorage).
 
-> [AZURE.NOTE] Similar steps apply for a VM created by using either of the two deployment models as the source image. Where applicable, minor differences are noted.
+> [AZURE.NOTE] Similar steps apply for a VM created by using either of the two deployment models as the source image. Where applicable, this article notes the minor differences.
 
 
 ## Copy VHDs to your Resource Manager storage account
@@ -56,7 +56,7 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 1. Find the access keys for the storage account that contains your source VHD, as well as the storage account where you will copy your VHD to create the new VM. The key for the account from where we are copying the VHD is called the *Source Key*, and that for the account to which it will be copied is called the *Destination Key*. For more information about access keys, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-	- If your source VM was created by using the classic deployment model, click **Browse** > **Storage accounts (classic)** > *your storage account* > **All Settings** > **Keys**. Copy the key labeled as **Primary Access Key**.
+	- If your source VM was created by using the classic deployment model, click **Browse** > **Storage accounts (classic)** > *your storage account* > **All Settings** > **Keys**. Copy the key labeled as **PRIMARY ACCESS KEY**.
 
 	- If your source VM was created by using the Resource Manager deployment model, or for the storage account that you will use for your new VM, click **Browse** > **Storage accounts** > *your storage account* > **All Settings** > **Access keys**. Copy the key labeled as **key1**.
 
