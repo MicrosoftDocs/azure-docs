@@ -58,11 +58,11 @@ For detailed steps on integrating an application into Azure for managing resourc
 
      ![add](./media/resource-group-create-service-principal-portal/add-icon.png)
 
-5. Select the type of application you would like to create. For this tutorial, select **Add an application my organiztion is developing**. 
+5. Select the type of application you would like to create. For this tutorial, select **Add an application my organization is developing**. 
 
      ![new application](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
-6. Provide a name for the application and select the type of application you want to create. For this tutorial, create a **WEB APPLICATION AND/OR WEB API** and click the next button. If you select **NATIVE CLIENT APPLICATION** the remaining steps of this article will not match your experience.
+6. Provide a name for the application and select the type of application you want to create. For this tutorial, create a **WEB APPLICATION AND/OR WEB API** and click the next button. If you select **NATIVE CLIENT APPLICATION**, the remaining steps of this article will not match your experience.
 
      ![name application](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
