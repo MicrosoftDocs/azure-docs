@@ -20,15 +20,14 @@
 
 # Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio
 
-The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.
+The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm for predictive analytics solutions from the Azure Machine Learning algorithm library.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms for your predictive analytics solutions. These algorithms fall into the general machine learning categories of ***regression***, ***classification***, ***clustering***, and ***anomaly detection***, and each one is designed to address a different type of machine learning problem.
+[Azure Machine Learning Studio](https://studio.azureml.net/) has a large number of algorithms from the families ***regression***, ***classification***, ***clustering***, and ***anomaly detection***. Each one is designed to address a different type of machine learning problem.
 
-> [AZURE.NOTE] See the article [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) for a detailed guide to using this cheat sheet.
 
 ## Download  the machine learning algorithm cheat sheet
 
-Download the Machine Learning Algorithm Cheat Sheet and get help figuring out how to choose a machine learning algorithm for your solution. To keep it nearby, you can print the cheat sheet in tabloid size (11 x 17 in.).
+Download the Machine Learning Algorithm Cheat Sheet and get help figuring out how to choose an algorithm for your model. To keep it nearby, print the cheat sheet in tabloid size (11 x 17 in.).
 
 **Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
@@ -36,6 +35,8 @@ Download the Machine Learning Algorithm Cheat Sheet and get help figuring out ho
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
+
+> [AZURE.NOTE] See the article [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) for a detailed guide to using this cheat sheet.
 
 ## More help with algorithms
 
@@ -79,7 +80,7 @@ Download the Machine Learning Algorithm Cheat Sheet and get help figuring out ho
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
---> 
+-->
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
