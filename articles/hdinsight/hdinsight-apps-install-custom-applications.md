@@ -86,7 +86,7 @@ You can check the application status on the Azure portal to validate the applica
  
 ## Troubleshoot the installation
 
-See [Install HDInsight applications](hdinsight-apps-install-applications.md#troubleshoot).
+See the [Troubleshoot](hdinsight-apps-install-applications.md#troubleshoot) section in Install HDInsight Applications.
 
 
 ## Next steps
