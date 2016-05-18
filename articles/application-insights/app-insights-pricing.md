@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
 
 # Manage pricing and quota for Application Insights
@@ -35,7 +35,6 @@ Your choice of pricing scheme affects:
 
 * [Monthly Quota](#monthly-quota) - the amount of telemetry you can analyze each month.
 * [Data rate](#data-rate) - the maximum rate at which data from your app can be processed.
-* [Retention](#data-retention) - how long data is kept in  the Application Insights portal for you to view.
 * [Continuous export](#continuous-export) - whether you can export data to other tools and services.
 
 These limits are set separately for each Application Insights resource.
@@ -101,8 +100,6 @@ There are three buckets which are counted separately:
 
 
 
-
-
 *What happens if my app exceeds the per-second rate?*
 
 * The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. Some versions of the SDK then try to resend, spreading a surge out over several minutes; others such as the JavaScript SDK just drop the refused data.
@@ -125,24 +122,9 @@ If you encounter the throttling limits, here are some things you can do:
 * Pre-aggregate metrics. If you have put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
-### Name limits
-
-1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data sent via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key not scoped to data type.
-2.	[Properties][apiproperties] can be used for filtering and group by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
-3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values." The original value can still be used for full text search and filtering.
-
-## Data retention
-
-Your pricing tier determines how long data is kept in the portal, and therefore how far back you can set the time ranges.
-
-
-* Raw data points (that is, instances that you can inspect in Diagnostic Search): between 7 days.
-* Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for 90 days.
-
-
 ## Sampling
 
-[Sampling](app-insights-sampling.md) is a method of reducing the volume of telemetry retained by your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. Sampling helps you to keep within your monthly quota.
+[Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. Sampling helps you to keep within your monthly quota.
 
 There are several forms of sampling. We recommend [adaptive sampling](app-insights-sampling.md), which automatically adjusts to the volume of telemetry that your app sends. It operates in the SDK in your web app, so that the telemetry traffic on the network is reduced. You can use it if your web app framework is .NET: just install the latest (beta) version of the SDK.
 
@@ -158,6 +140,15 @@ Sampling is an effective way to reduce charges and stay within your monthly quot
 Application Insights charges are added to your Azure bill. You can see details of your Azure bill on the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions). 
 
 ![On the side menu, choose Billing.](./media/app-insights-pricing/02-billing.png)
+
+
+
+## Name limits
+
+1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data sent via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key not scoped to data type.
+2.	[Properties][apiproperties] can be used for filtering and group by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
+3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values." The original value can still be used for full text search and filtering.
+
 
 ## Limits summary
 

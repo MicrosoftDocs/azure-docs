@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -27,7 +27,7 @@ First, the short answer:
 * The standard telemetry modules that run "out of the box" are unlikely to send sensitive data to the service. The telemetry is concerned with load, performance and usage metrics, exception reports, and other diagnostic data. The main user data visible in the diagnostic reports are URLs; but your app shouldn't in any case put sensitive data in plain text in a URL.
 * You can write code that sends additional custom telemetry to help you with diagnostics and monitoring usage. (This extensibility is a great feature of Application Insights.) It would be possible, by mistake, to write this code so that it includes personal and other sensitive data. If your application works with such data, you should apply strong review processes to all the code you write.
 * While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser. 
-* The data is held in [Microsoft Azure](http://azure.com) servers in the USA. Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit, though not in the servers.
+* The data is held in [Microsoft Azure](http://azure.com) servers in the USA. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit, though not in the servers.
 
 The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
 
@@ -94,9 +94,7 @@ This would be possible by writing a [telemetry processor plugin](app-insights-ap
 
 ## How long is the data kept? 
 
-It depends on your [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/).
-
-Raw data points (that is, items that you can inspect in Diagnostic Search): 7 days. If you need to keep data longer than that, you can use [continuous export](app-insights-export-telemetry.md) to copy it to a storage account.
+Raw data points (that is, items that you can inspect in Diagnostic Search) are kept for 7 days. If you need to keep data longer than that, you can use [continuous export](app-insights-export-telemetry.md) to copy it to a storage account.
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 90 days.
 
@@ -119,6 +117,10 @@ Microsoft uses the data only in order to provide the service to you.
 #### Can it be stored somewhere else, for example in Europe? 
 
 * Not at present. 
+
+#### Does that mean my app has to be hosted in the USA?
+
+* No. Your application can run anywhere, either in your own on-premises hosts or in the Cloud.
 
 ## How secure is my data?  
 
