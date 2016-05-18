@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
