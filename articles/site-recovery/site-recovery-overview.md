@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="site-recovery" 
-	ms.devlang="na"
+	ms.devlang="na"r
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
@@ -63,7 +63,7 @@ Site Recovery can help with application-aware BCDR so that workloads and apps co
 - **Application-consistent snapshots**—Replication using application-consistent snapshots for single or N-tier apps.
 **Near-synchronous replication**—Replication frequency as low as 30 seconds for Hyper-V, and continuous replication for VMware.
 **Integration with SQL Server AlwaysOn**—You can manage the failover of availability groups in Site Recovery recovery plans. 
-- **Flexible recovery plans**— You can create and customize recovery plans with external scripts, manual actions, and Azure Automation runbookx that enable you to recover an entire application stack with a single click.
+- **Flexible recovery plans**— You can create and customize recovery plans with external scripts, manual actions, and Azure Automation runbooks that enable you to recover an entire application stack with a single click.
 - **Automation library**—A rich Azure Automation library provides production-ready, application-specific scripts that can be downloaded and integrated with Site Recovery. 
 -** Simple network management**—Advanced network management in Site Recovery and Azure simplifies application network requirements, including reserving IP addresses, configuring load-balancers, and integrating Azure Traffic Manager for efficient network switch overs.
 
