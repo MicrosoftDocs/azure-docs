@@ -252,7 +252,7 @@ The following sections summarize the results of these tests, noting any degradat
 
 <!-- TODO; reformat this pdf for display inline -->
 
-The results of this test are shown in the file [ElasticsearchRecoveryScenario1.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticsearchRecoveryScenario1.pdf). The graphs show performance profile of the workload and physical resources for each node in the cluster. The initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes before being restarted. The statistics for a further 20 minutes are illustrated; the system takes approximately 10 minutes to recover and stabilize. This is illustrated by the transaction rates and response times for the different workloads.
+The results of this test are shown in the file [ElasticsearchRecoveryScenario1.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario1.pdf). The graphs show performance profile of the workload and physical resources for each node in the cluster. The initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes before being restarted. The statistics for a further 20 minutes are illustrated; the system takes approximately 10 minutes to recover and stabilize. This is illustrated by the transaction rates and response times for the different workloads.
 
 Note the following points:
 
@@ -271,7 +271,7 @@ Note the following points:
 
 <!-- TODO; reformat this pdf for display inline -->
 
-The results of this test are depicted in the file [ElasticsearchRecoveryScenario2.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticsearchRecoveryScenario2.pdf). As with the first test, the initial part of the graphs shows the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. During this interval, the Elasticsearch data on this node is removed, simulating catastrophic data loss, before being restarted. Full recovery appears to take 12-15 minutes before the levels of performance seen before the test are restored.
+The results of this test are depicted in the file [ElasticsearchRecoveryScenario2.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario2.pdf). As with the first test, the initial part of the graphs shows the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. During this interval, the Elasticsearch data on this node is removed, simulating catastrophic data loss, before being restarted. Full recovery appears to take 12-15 minutes before the levels of performance seen before the test are restored.
 
 Note the following points:
 
@@ -291,7 +291,7 @@ Note the following points:
 
 <!-- TODO; reformat this pdf for display inline -->
 
-The file [ElasticsearchRecoveryScenario3.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticsearchRecoveryScenario3.pdf) illustrates the results of this test. As with the first test, the initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. At this point, the Elasticsearch cluster attempts to recreate the missing shards and rebalance the shards across the remaining nodes. After 5 minutes node 0 is brought back online, and once again the cluster has to rebalance the shards. Performance is restored after 12-15 minutes.
+The file [ElasticsearchRecoveryScenario3.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario3.pdf) illustrates the results of this test. As with the first test, the initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. At this point, the Elasticsearch cluster attempts to recreate the missing shards and rebalance the shards across the remaining nodes. After 5 minutes node 0 is brought back online, and once again the cluster has to rebalance the shards. Performance is restored after 12-15 minutes.
 
 Note the following points:
 
@@ -307,7 +307,7 @@ Note the following points:
 
 <!-- TODO; reformat this pdf for display inline -->
 
-The results of this test, in the file [ElasticsearchRecoveryScenario4.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticsearchRecoveryScenario4.pdf), show how each node is taken offline and then brought back up again in succession. Each node is shut down for 5 minutes before being restarted at which point the next node in sequence is stopped.
+The results of this test, in the file [ElasticsearchRecoveryScenario4.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario4.pdf), show how each node is taken offline and then brought back up again in succession. Each node is shut down for 5 minutes before being restarted at which point the next node in sequence is stopped.
 
 Note the following points:
 
