@@ -60,6 +60,6 @@ The following example walks you through the process of creating a record set and
 
 ## Next steps
 
-To manage your record set and records, see [Manage DNS records and record sets using the Azure portal](dns-operations-recordsets-portal.md).
+To manage your record set and records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
 
 For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).

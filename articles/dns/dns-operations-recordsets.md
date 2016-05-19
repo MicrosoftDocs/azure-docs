@@ -66,7 +66,7 @@ This example returns all record sets, regardless of name or record type:
 
 ### To list record sets of a given record type
 
-This example returns all record sets that match the given record type. In this case, the record set that is returned is A records.
+This example returns all record sets that match the given record type. In this case, the record set that is returned is A records:
 
 	$list = Get-AzureRmDnsRecordSet –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
@@ -220,7 +220,7 @@ The optional *-Force* switch can be used to suppress the confirmation prompt.
 	$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 	Remove-AzureRmDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
 
-### Specify the record set by object:
+### Specify the record set by object
 
 	$rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Remove-AzureRmDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]

@@ -60,7 +60,7 @@ This example returns all record sets, regardless of name or record type:
 
 ### To list record sets of a given type
 
-This example returns all record sets that match the given record type (in this case, A records).
+This example returns all record sets that match the given record type (in this case, A records):
 
 	azure network dns record-set list myresourcegroup contoso.com A
 
@@ -176,4 +176,4 @@ The optional *-q* switch can be used to suppress the confirmation prompt.
 
 For more information about Azure DNS, see [Azure DNS overview](dns-overview.md). For information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
 
-If you want to work with reverse DNS records, see [How to manage reverse DNS records](dns-reverse-dns-record-operations-cli.md).
+If you want to work with reverse DNS records, see [How to manage reverse DNS records for your services using the Azure CLI](dns-reverse-dns-record-operations-cli.md).

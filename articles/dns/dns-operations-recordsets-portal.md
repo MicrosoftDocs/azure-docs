@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="05/ 06/2016"
    ms.author="cherylmc"/>
 
 # Manage DNS records and record sets by using the Azure portal
@@ -63,7 +63,7 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 
 	![Saving  record set](./media/dns-operations-recordsets-portal/saving150.png)
 
-4. Once the record has been saved, the values on the **DNS zone** blade will reflect the new record.
+After the record has been saved, the values on the **DNS zone** blade will reflect the new record.
 
 
 ## Update a record
@@ -81,7 +81,7 @@ When you update a record in an existing record set, the fields you can update de
 	![Saved record set](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-3. Once the record has been saved, the values for the record set on the **DNS zone** blade will reflect the updated record.
+After the record has been saved, the values for the record set on the **DNS zone** blade will reflect the updated record.
 
 
 ## Remove a record from a record set
@@ -132,4 +132,4 @@ You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) t
 
 -   For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
 -   For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
--   For more information about reverse DNS records, see [How to manage reverse DNS records](dns-reverse-dns-record-operations-ps.md).
+-   For more information about reverse DNS records, see [How to manage reverse DNS records for your services using PowerShell](dns-reverse-dns-record-operations-ps.md).
