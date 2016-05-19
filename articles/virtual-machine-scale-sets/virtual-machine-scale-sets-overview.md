@@ -60,11 +60,11 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
  - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
 
  - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set:
-	|Source |Source Port |Destination | Destination Port
-	|---|---|---|---|
-	|Public IP |Port 50000 |vmss\_0 |Port 22 |
-	|Public IP |Port 50001 |vmss\_1 |Port 22 |
-	|Public IP |Port 50002 |vmss\_2 |Port 22 |
+	| Source	| Source Port	| Destination	| Destination Port	|
+	| ---		| ---		| ---		| ---			|
+	| Public IP	| Port 50000	| vmss\_0	| Port 22		|
+	| Public IP	| Port 50001 	| vmss\_1	| Port 22		|
+	| Public I	| Port 50002	| vmss\_2	| Port 22		|
 
 	Here's an example of creating a VM scale set which uses NAT rules to enable SSH connection to every VM in a scale set using a single public IP: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
 
