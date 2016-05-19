@@ -26,11 +26,23 @@ Automated Patching establishes a maintenance window for an Azure Virtual Machine
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. To view the classic version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Classic](virtual-machines-windows-classic-sql-automated-patching.md).
 
+## Prerequisites
+
+To use Automated Patching, consider the following prerequisites:
+
+- **Operating System**:
+	- Windows Server 2012
+	- Windows Server 2012 R2
+- **SQL Server version**:
+	- SQL Server 2012
+	- SQL Server 2014
+	- SQL Server 2016
+	
 ## Configure Automated Patching in the Azure portal
 
 You can use the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) to configure Automated Patching when you create a new SQL Server Virtual Machine.
 
->[AZURE.NOTE] Automated Patching relies on the SQL Server IaaS Agent. To install and configure the agent, you must have the Azure VM Agent running on the target virtual machine. Newer virtual machine gallery images have this option enabled by default, but the Azure VM Agent might be missing on existing VMs. If you are using your own VM image, you will also need to install the SQL Server IaaS Agent. For more information, see [VM Agent and Extensions](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+>[AZURE.NOTE] Automated Patching relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 The following Azure portal screenshot shows these options under **OPTIONAL CONFIGURATION** | **SQL AUTOMATED PATCHING**.
 
@@ -64,18 +76,6 @@ Based on this example, the following table describes the practical effect on the
 It could take several minutes to install and configure the SQL Server IaaS Agent.
 
 To disable Automated Patching, run the same script without the -Enable parameter to the New-AzureVMSqlServerAutoPatchingConfig. As with installation, it can take several minutes to disable Automated Patching.
-
-## Compatibility
-
-The following products are compatible with the SQL Server IaaS Agent features for Automated Patching:
-
-- Windows Server 2012
-
-- Windows Server 2012 R2
-
-- SQL Server 2012
-
-- SQL Server 2014
 
 ## Next steps
 
