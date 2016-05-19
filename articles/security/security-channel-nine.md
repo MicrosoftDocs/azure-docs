@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
 # Azure security videos on Channel 9
@@ -45,6 +45,7 @@ Join this session to see the Microsoft security platform in action. General Mana
 Jack Richins teaches [Scott](https://channel9.msdn.com/Niners/Glucose) how to easily encrypt his SQL Server databases on Virtual Machine Azure instances. It's easier than you'd think!
 
 Areas covered in this video:
+
 - Understanding encryption and SQL Server
 - Understanding the Data Protection API, master keys, and certificates
 - Using SQL commands to create the master key and certificates, and encrypt the database

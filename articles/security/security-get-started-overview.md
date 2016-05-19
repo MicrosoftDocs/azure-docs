@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
 # Get Started - Overview
@@ -30,6 +30,7 @@ When you look on the left side of the page you’ll see a collection of categori
 Each category will have an Overview article. The goal of the Overview article is to provide you a summary of what Azure has to offer in term of security for that category. The Overview articles will help you understand the products, services and features available in Azure that you can use to enhance the security of your deployments. These Overview articles contain numerously links to technical content so that you can learn more about the topics and how to implement them.
 
 The Azure Security Information site currently addresses the following categories:
+
 - Resources
 - Network security
 - Storage security

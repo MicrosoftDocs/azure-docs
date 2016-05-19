@@ -30,6 +30,7 @@ We have the following to help you with your architectural investigations and des
 ## Architectural infographics
 
 Microsoft publishes several architectural related posters/infographics. They include:
+
 - [Building Real-World Cloud Applications](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
 - [Scaling with Cloud Services](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
@@ -37,6 +38,7 @@ Microsoft publishes several architectural related posters/infographics. They inc
 
 Microsoft publishes a set of high level [architectural blueprints](http://aka.ms/azblueprints) showing how to build specific types of systems using Microsoft products.
 Each blueprint includes a:
+
 - Flat 2D Visio 2003-based file that you can download and modify
 - Colorful 3D perspective PDF file to introduce the blueprint to less technical audiences
 - Video that walks through the 3D version

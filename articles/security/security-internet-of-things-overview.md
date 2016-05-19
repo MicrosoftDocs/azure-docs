@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
 # Internet of Things security overview
@@ -51,6 +51,7 @@ The IoT poses unique security, privacy, and compliance challenges to businesses 
 You can learn how to handle security in these areas by reading [Internet of Things security from the ground up](../iot-suite/securing-iot-ground-up.md).
 
 The article discusses the following topics:
+
 - [Secure Infrastructure from the Ground Up](../iot-suite/securing-iot-ground-up.md)
 - [Microsoft Azure – Secure IoT Infrastructure for Your Business](../iot-suite/securing-iot-ground-up.md)
 
