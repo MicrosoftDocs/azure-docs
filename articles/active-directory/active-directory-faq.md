@@ -108,7 +108,7 @@ For more details, see [Monitor your on-premises identity infrastructure and sync
 
 ## Password management
 
-**Q: Can I use Azure AD password write-back without password sync? (AKA, I would like to use Azure AD SSPR with password writeback but I don’t want my passwords stored in the cloud?)**
+**Q: Can I use Azure AD password write-back without password sync? (AKA, I would like to use Azure AD SSPR with password write-back but I don’t want my passwords stored in the cloud?)**
 
 **A:** You do not need to synchronize your AD passwords to Azure AD in order to enable write-back. In a federated environment, Azure AD SSO relies on the on-premises directory to authenticate the user. This scenario does not require the on-premises password to be tracked in Azure AD.
 
