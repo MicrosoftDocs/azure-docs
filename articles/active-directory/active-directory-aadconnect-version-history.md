@@ -24,11 +24,11 @@ This article is designed to help you keep track of the versions that have been r
 
 This is list of related topics:
 
-| Topic |  |
-| --------- | --------- |
-| Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release. |
-| Required permissions | For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade) |
-| Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+Topic |  
+--------- | --------- |
+Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
+Required permissions | For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
+Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1.1.180.0
 Released: 2016 May
