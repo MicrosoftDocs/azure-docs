@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Load Balancer overview | Microsoft Azure"
-   description="Overview of Azure Load Balancer features, architecture, and implementation. It helps to understand how Load Balancer works and leverage it for the cloud."
+   description="Overview of Azure Load Balancer features, architecture, and implementation. Learn how the load balancer works and leverage it in the cloud."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -36,9 +36,9 @@ In this model a public IP address and a FQDN are assigned to a cloud service. Vi
 
 Port translation is done through endpoints that have a one-to-one relationship between the public-assigned port of the public IP address and the local port assigned to send traffic to a specific virtual machine. Load balancing is done through load balancer endpoints. Those endpoints have a one-to-many relationship between the public IP address and the local ports assigned to all virtual machines in the cloud service that respond to the load-balanced network traffic.
 
-The domain label for the public IP address that the load balancer uses in this deployment model is <cloud service name>.cloudapp.net. The graphic below shows the load balancer in this model.
+The domain label for the public IP address that the load balancer uses in this deployment model is <cloud service name>.cloudapp.net. The graphic below shows the Azure Load Balancer in this model.
 
-![Load Balancer in the classic deployment model](./media/load-balancer-overview/asm-lb.png)
+![Azure Load Balancer in the classic deployment model](./media/load-balancer-overview/asm-lb.png)
 
 ### Azure Resource Manager deployment model
 
@@ -48,9 +48,9 @@ A public IP address is its own resource and can be associated with a domain labe
 
 A private or public IP address is assigned to the network interface resource attached to a virtual machine. Once a network interface is added to a load balancer's back-end IP address pool, the load balancer will start sending load-balanced network traffic based on the load-balanced rules that are created.
 
-The graphic below shows the load balancer in this model:
+The graphic below shows the Azure Load Balancer in this model:
 
-![Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)
+![Azure Load Balancer in Resource Manager](./media/load-balancer-overview/arm-lb.png)
 
 ## Load balancer features
 
@@ -104,11 +104,11 @@ The load balancer configuration supports full cone NAT for UDP. Full cone NAT is
 >The maximum number of ports that can be used by the VIP or an instance-level public IP (PIP) is 64,000. This is a TCP standard limitation.
 
 
-**Support for multiple load-balanced IP addresses for virtual machines**
+####Support for multiple load-balanced IP addresses for virtual machines
 
 You can get more than one load-balanced public IP address assigned to a set of virtual machines. With this ability, you can host multiple SSL websites and/or multiple SQL Server AlwaysOn Availability Group listeners on the same set of virtual machines. See more at [Multiple VIPs per cloud service](load-balancer-multivip.md).
 
-**Template-based deployments through Azure Resource Manager**
+####Template-based deployments through Azure Resource Manager####
 
 The load balancer can be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see the [Resource Manager overview](../resource-group-overview.md).
 
