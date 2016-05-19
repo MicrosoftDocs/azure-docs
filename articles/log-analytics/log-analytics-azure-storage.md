@@ -39,7 +39,7 @@ Log Analytics can collect data for the following resources:
 | Application Insights | Availability <br> Custom Events <br> Exceptions <br> Requests <br> | Application Insights (Preview) |
 | API Management | | *none* (Preview) |
 | Automation <br> Microsoft.Automation/AutomationAccounts | JobLogs <br> JobStreams          | AzureAutomation (Preview) | 
-| Key Vault <br> Microsoft.KeyVault/Vaults               | AuditEvent                       | KeyVault (Preview       |
+| Key Vault <br> Microsoft.KeyVault/Vaults               | AuditEvent                       | KeyVault (Preview) |
 | Application Gateway <br> Microsoft.Network/ApplicationGateways   | ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog | AzureNetworking (Preview) |
 | Network Security Group <br> Microsoft.Network/NetworkSecurityGroups | NetworkSecurityGroupEvent <br> NetworkSecurityGroupRuleCounter | AzureNetworking (Preview) |
 | Service Fabric                          | ETWEvent <br> Operational Event <br> Reliable Actor Event <br> Reliable Service Event| ServiceFabric (Preview) |
@@ -51,11 +51,11 @@ Log Analytics can collect data for the following resources:
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 
-## Collect data from Application Insights
+## Collect data from Application Insights (Preview)
 
 This functionality is currently in private preview. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
-## Collect data using Azure diagnostics written to blob in JSON
+## Collect data using Azure diagnostics written to blob in JSON (Preview)
 
 Log Analytics can read the logs for the following services write diagnostics to blob storage in JSON format:
 
@@ -257,6 +257,8 @@ Log Analytics can read the logs for the following services that write diagnostic
 
 Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. 
 
+Once diagnostics are enabled you can use the Azure portal or PowerShell configure Log Analytics to collect the logs.
+
 Azure Diagnostics is an Azure extension that enables you to collect diagnostic data from a worker role, web role, or virtual machine running in Azure. The data is stored in an Azure storage account and can then be collected by Log Analytics.
 
 For Log Analytics to collect these Azure Diagnostics logs, the logs must be in the following locations:
@@ -381,12 +383,30 @@ The **AccountName** and **AccountKey** values are found in the Azure Management 
 Once the updated diagnostic configuration is applied to your cloud service and it is writing diagnostics to Azure Storage, then you are ready to configure OMS.
 
 
-## Enable Azure Storage analysis by Log Analytics
+## Use the Azure portal to collect logs from Azure Storage 
 
-You can enable storage analysis and configure Log Analytics to collect from the Azure Storage account with Azure Diagnostics by using the information at [Data sources in Log Analytics](log-analytics-data-sources.md#collect-data-from-azure-diagnostics).
+You can use the Azure portal to configure Log Analytics to collect the logs for the following Azure services:
 
-In approximately 20 minutes you will begin to see data from the storage account available for analysis within OMS.
++ Service Fabric clusters
++ Virtual Machines
++ Web/Worker Roles
 
+In the Azure portal, navigate to your Log Analytics workspace and perform the following tasks:
+
+1. Click *Storage accounts logs*
+2. Click the *Add* task
+3. Select the Storage account that contains the diagnostics logs
+  - This can be either a classic storage account or an ARM storage account
+4. Select the Data Type you want to collect logs for
+  - This will be one of IIS Logs; Events; Syslog (Linux); ETW Logs; Service Fabric Events
+5. The value for Source will be automatically populated based on the data type and cannot be changed
+6. Click OK to save the configuration
+
+Repeat steps 2-6 for additional storage accounts and data types that you want Log Analytics to collect.
+
+In approximately 20 minutes you will be able to see data from the storage account in Log Analytics. You will only see data that is written to storage after the configuration is applied. Log Analytics does not read the pre-existing data from the storage account. 
+
+>[AZURE.NOTE] The portal does not validate that the Source exists in the storage account or if new data is being written.
 
 ## Next steps
 
