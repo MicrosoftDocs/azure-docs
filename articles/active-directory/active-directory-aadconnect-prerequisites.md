@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/10/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -93,7 +93,7 @@ If you have problems with connectivity, please see [Troubleshoot connectivity pr
 - Optional: A test user account to verify synchronization.
 
 ## Component prerequisites
-Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. Depending on your Windows Server version, do the following:
+Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You need this version or a later version installed on your server. Depending on your Windows Server version, do the following:
 
 - Windows Server 2012R2
   - Microsoft PowerShell is installed by default, no action is required.
