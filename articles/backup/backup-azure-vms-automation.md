@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="05/09/2016"
+   ms.date="05/19/2016"
    ms.author="markgal; trinadhk"/>
 
 # Deploy and manage backup for ARM VMs using PowerShell
@@ -135,7 +135,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 
 > [AZURE.NOTE] The timezone of the BackupTime field in PowerShell is UTC. However, when the backup time is shown in the Azure portal, the time is adjusted to your local timezone.
 
-A backup protection policy is associated with at least one retention policy.  Retention policy defines how long a recovery point is kept with Azure Backup. Use Get-AzureRmRecoveryServicesBackupRetentionPolicyObject to view the default retention policy.  Similarly you can obtain the default schedule policy using Get-AzureRmRecoveryServicesBackupSchedulePolicyObject. The schedule and retention policy objects are used as inputs to the New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet. 
+A backup protection policy is associated with at least one retention policy.  Retention policy defines how long a recovery point is kept with Azure Backup. Use Get-AzureRmRecoveryServicesBackupRetentionPolicyObject to view the default retention policy.  Similarly you can obtain the default schedule policy using Get-AzureRmRecoveryServicesBackupSchedulePolicyObject. The schedule and retention policy objects are used as inputs to the New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet.
 
 A backup protection policy defines when and how often the backup of an item is done. The New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet creates a PowerShell object that holds backup policy information. The backup policy is used as an input to the Enable-AzureRmRecoveryServicesBackupProtection cmdlet.
 
@@ -270,6 +270,36 @@ You can get the details of the restore operation using the Get-AzureRmRecoverySe
 ```
 PS C:\> $restorejob = Get-AzureRmRecoveryServicesBackupJob -Job $restorejob
 PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
+```
+
+### Create a VM from the restored disks
+
+After you have restored the disks, follow these steps to create and configure an ARM virtual machine from those disks.
+
+```
+PS C:\> $properties = $details.properties
+PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
+PS C:\> $containerName = $properties["Config Blob Container Name"]
+PS C:\> $blobName = $properties["Config Blob Name"]
+Set -AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
+PS C:\> $destination_path = "C:\vmconfig.json"
+Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination
+PS C:\> $destination_path -Context $storageContext
+PS C:\> $obj = ((Get-Content -Path $destination_path -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
+PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.HardwareProfile.VirtualMachineSize -VMName "testrestore"
+Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri
+foreach($dd in $obj.StorageProfile.DataDisks)
+{
+$vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri  -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
+}
+PS C:\> $nicName="p1234"
+PS C:\> $pip = New-AzureRmPublicIpAddress -Name $nicName -ResourceGroupName "test" -Location "WestUS" -AllocationMethod Dynamic
+PS C:\> $vnet = Get-AzureRmVirtualNetwork -Name "testvNET" -ResourceGroupName "test"
+PS C:\> $subnetIndex=0
+PS C:\> $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
+PS C:\> $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType
+New-AzureRmVM -ResourceGroupName "test" -Location "centralindia" -VM $vm
 ```
 
 ## Registering Windows Server or DPM to a Recovery Services Vault
