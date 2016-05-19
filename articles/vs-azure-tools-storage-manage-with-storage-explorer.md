@@ -233,7 +233,7 @@ an Azure subscription admin can grant temporary access to a storage account by g
 In this context, a service can be a blob container, queue, or table. The following sections
 explain how to generate the SAS for the listed service:
 
-- [Get the SAS for a blob container](./vs-azure-tools-storage-explorer-blobs.md/#get-the-sas-for-a-blob-container)
+- [Get the SAS for a blob container](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
 - Get the SAS for a queue - *Coming soon*
 - Get the SAS for a table - *Coming soon*
 
