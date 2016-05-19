@@ -32,7 +32,7 @@ It's important to understand the difference between DNS record sets and individu
 
 ## Create a new record set and record
 
-To create a record set in the Azure portal, see [Create DNS records using the Azure portal](dns-getstarted-create-recordset-portal.md).
+To create a record set in the Azure portal, see [Create DNS records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
 
 ## View a record set
@@ -46,7 +46,7 @@ To create a record set in the Azure portal, see [Create DNS records using the Az
 
 ## Add a new record to a record set
 
-You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear at the Azure DNS name servers. Record sets of type CNAME can contain one record at most.
+You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers. Record sets of type CNAME can contain one record at most.
 
 
 1. On the **Record set properties** blade for your DNS zone, select the record set that you want to add a record to.
@@ -61,9 +61,9 @@ You can add up to 20 records to any record set. A record set cannot contain two 
 
 3. In the corner, you will see that the record is saving.
 
-	![Save a record](./media/dns-operations-recordsets-portal/saving150.png)
+	![Saving  record set](./media/dns-operations-recordsets-portal/saving150.png)
 
-4. Once the record has been saved, the values for the record set on the **DNS zone** blade will reflect the new record.
+4. Once the record has been saved, the values on the **DNS zone** blade will reflect the new record.
 
 
 ## Update a record
@@ -72,16 +72,16 @@ When you update a record in an existing record set, the fields you can update de
 
 1. On the **Record set properties** blade for your record set, search for the record.
 
-2. Modify the record. When you modify a record, you can change the available settings for the record. In the example below, the **IP address** field is selected, and the IP address is in the process of being modified.
+2. Modify the record. When you modify a record, you can change the available settings for the record. In the following example, the **IP address** field is selected, and the IP address is in the process of being modified.
 
 	![Modify a record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. Select **Save** at the top of the blade to save your settings. You'll see the notification that the record has been saved in the upper right corner.
+3. Select **Save** at the top of the blade to save your settings. In the upper right corner, you'll see the notification that the record has been saved.
 
 	![Saved record set](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-3. Once the record has been saved, the values for the record set on the **DNS zone** blade reflect the updated record.
+3. Once the record has been saved, the values for the record set on the **DNS zone** blade will reflect the updated record.
 
 
 ## Remove a record from a record set
@@ -96,7 +96,7 @@ You can use the Azure portal to remove records from a record set. Note that remo
 
 3. Select **Save** at the top of the blade to save your settings.
 
-3. Once the record has been removed, the values for the record on the **DNS zone** blade will reflect that it    was removed.
+3. Once the record has been removed, the values for the record on the **DNS zone** blade will reflect the removal.
 
 
 ## <a name="delete"></a>Delete a record set
