@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory FAQ | Microsoft Azure"
-	description="Azure Active Directory FAQ"
+	description="Azure Active Directory FAQ that provides answers to questions in conjunction with accessing Azure and Azure Active Directory, password management and application access."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/20/2016"
+	ms.date="05/20/2016"
 	ms.author="markusvi"/>
 
 # Azure Active Directory FAQ
@@ -23,24 +23,30 @@ As an IDaaS provider, Azure AD enables you control "*who is allowed to do what*"
 
 Additionally, Azure AD provides you with Single Sign-On (SSO) to your applications. With SSO, you can significantly improve the sign-on experience of your users.  
 
-For more details, [What is Azure Active Directory?](active-directory-whatis.md).
+For more details, see [What is Azure Active Directory?](active-directory-whatis.md).
 
 
 
 ## Accessing Azure and Azure Active Directory
 
-**Q: Why can't I find Azure AD in the Azure portal (http://portal.azure.com)?**
+**Q: Why can't I find Azure AD in the Azure portal (https://portal.azure.com)?**
 
-**A:** The Azure AD administration experience is still available in the Azure classic portal (`http://manage.windowsazure.com`). A public preview of the new administration experiences that is integrated into the Azure portal is planned to be released by September.  
+**A:** The Azure AD administration experience is still available in the Azure classic portal (`https://manage.windowsazure.com`). A public preview of the new administration experiences that is integrated into the Azure portal is planned to be released by September.  
 
 For the latest information about releases, see the [Active Directory Team Blog](https://blogs.technet.microsoft.com/ad/) .
 
 
 ---
 
-**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal (http://manage.windowsazure.com)?**
+**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal (https://manage.windowsazure.com)?**
 
-**A:** You will need permissions on an Azure subscription, if you have a paid Office 365 or Azure AD navigate to  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step, otherwise you will need to activate a full [Azure trial](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription. 
+**A:** You will permissions on an Azure subscription. If you have a paid Office 365 or Azure AD navigate to  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step, otherwise you will need to activate a full [Azure trial](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription. 
+
+For more details, see:
+
+- [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+
+- [Manage the directory for your Office 365 subscription in Azure](active-directory-manage-o365-subscription.md)
 
 ---
 
