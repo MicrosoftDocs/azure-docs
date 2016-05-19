@@ -89,4 +89,4 @@ For more information, see [High availability and disaster recovery for SQL Serve
   6. Backup on-premises database to Azure blob storage
 
 ##Next steps
-This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bcdrtechguide). The next article in this series focuses on [recovery from data corruption](./resiliency-technical-guidance-recovery-data-corruption.md). 
+This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bctechguide). The next article in this series focuses on [recovery from data corruption](./resiliency-technical-guidance-recovery-data-corruption.md). 

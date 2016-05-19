@@ -16,10 +16,10 @@
    ms.date="05/13/2016"
    ms.author="patw;jroth;aglick"/>
 
-#Azure Resiliency Technical Guidance - Recovery from loss of an Azure region
+#Azure Resiliency Technical Guidance - Recovery from an Azure region-wide service disruption
 
-Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity. At the time of this writing, Azure has eight regions (4 in North America, 2 in Asia, and 2 in Europe).
-Under rare circumstances facilities in an entire region can become inaccessible, for example due to network failures, or lost entirely for example due to natural disasters. This section explains Azure’s capabilities for creating applications which are distributed across regions. Regions are designed to minimize the possibility that a failure in one region could affect other regions.
+Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity. At the time of this writing, Azure has twenty-four regions around the world.
+Under rare circumstances it is possible that facilities in an entire region can become inaccessible, for example due to network failures, or lost entirely, for example due to a natural disaster. This section explains Azure’s capabilities for creating applications which are distributed across regions. Regions are designed to minimize the possibility that a failure in one region could affect other regions.
 
 ##Cloud Services
 
@@ -190,4 +190,4 @@ Configuration files provide the quickest way to setup a virtual network in an al
   2. Use exported virtual network settings to recreate it in another region
  
 ##Next steps
-This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bcdrtechguide). The next article in this series focuses on [recovery from an on-premises datacenter to Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md). 
+This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bctechguide). The next article in this series focuses on [recovery from an on-premises datacenter to Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md). 

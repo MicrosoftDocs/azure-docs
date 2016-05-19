@@ -100,19 +100,19 @@ Azure detects and handles many failures, but there are many types of failures th
 When creating your application’s availability and disaster recovery plan, consider the business consequences of the application’s failure. Defining the processes, policies, and procedures to restore critical systems after a catastrophic event takes time, planning, and commitment. And once you establish the plans, you cannot stop there. You must regularly analyze, test, and continually improve the plans based on your application portfolio, business needs, and the technologies available to you. Azure provides both new capabilities and new challenges to creating robust applications that withstand failures.
 
 ##Additional resources
-[High availability for applications built on Microsaoft Azure](./resiliency-high-availability-azure-applications.md)
+[High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md)
 
 [Disaster recovery for applications built on Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md)
 
-[Azure Business Continuity Technical Guidance](https://aka.ms/bctechguide)
+[Azure resiliency technical guidance](./resiliency-technical-guidance.md)
 
-[Business Continuity in Azure SQL Database](../sql-database/sql-database-business-continuity.md)
+[Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md)
 
-[High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
+[High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
 
-[Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe)
+[Failsafe: Guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe)
 
-[Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
+[Best Practices for the design of large-scale services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
 
 ##Next steps
-This article is part of a series of articles focused on Disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md).
+This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md).
