@@ -27,18 +27,10 @@ For more details, see [What is Azure Active Directory?](active-directory-whatis.
 
 ## Accessing Azure and Azure Active Directory
 
-**Q: Why can't I find Azure AD in the Azure portal (https://portal.azure.com)?**
-
-**A:** The Azure AD administration experience is still available in the Azure classic portal (`https://manage.windowsazure.com`). A public preview of the new administration experiences that is integrated into the Azure portal is planned to be released by September.  
-
-For the latest information about releases, see the [Active Directory Team Blog](https://blogs.technet.microsoft.com/ad/) .
-
-
----
 
 **Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal (https://manage.windowsazure.com)?**
 
-**A:** You will permissions on an Azure subscription. If you have a paid Office 365 or Azure AD navigate to  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step, otherwise you will need to activate a full [Azure trial](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription. 
+**A:** Accessing the Azure classic portal requires each user to have permissions on an Azure subscription. If you have a paid Office 365 or Azure AD navigate to  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step, otherwise you will need to activate a full [Azure trial](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription. 
 
 For more details, see:
 
@@ -50,21 +42,15 @@ For more details, see:
 
 **Q: What’s the relationship between Azure AD, Office 365, and Azure?**
 
-**A:** Microsoft Azure is an open, flexible, enterprise-grade cloud computing platform and infrastructure for building, deploying, and managing applications and services through a global network of Microsoft-managed data centers.  
+**A:** Azure Active Directory provides you with common identity and access capabilities to all Microsoft online services. Whether you are using Office 365, Microsoft Azure, Intune or others, you are already using an Azure AD to enable sign-on and access management for all of these services. 
 
-Azure provides you with, for example, Software as a Service (SaaS) solutions such as Office 365. Office 365 is a group of software plus services subscriptions that provides productivity software and related online services to you.  
-
-Azure AD complements Office 365 with a comprehensive cloud-based set of identity and access management capabilities that provides you with Identity as a Service (IDaaS).  
-If you have an Office 365 subscription, you also already have an Azure AD running on Azure. 
+In fact, all the users you have enabled for Microsoft Online services are defined as user accounts in one or more Azure AD instances. You can enable these accounts for free Azure AD capabilities such as cloud application access.
+ 
+Additionally, Azure AD paid services (e.g.: Azure AD basic, Premium, EMS, etc.) complement other Online services such as Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
 
 
 ---
 
-**Q: Which Azure AD features are available for free?**
-
-**A:** All common features in an Azure subscription are available for free. 
-
-For a complete list of these features, see [Common Features](active-directory-editions.md/#common-features).
 
 
 ## Getting started with Hybrid Azure AD
@@ -81,7 +67,10 @@ For more details, see [Integrating your on-premises identities with Azure Active
 
 **Q: How do I set up SSO between my on-premises directory and my cloud applications?**
 
-**A:** You only need to set up SSO between your on-premises directory and Azure AD. As long as your cloud applications are managed by Azure AD, you can extend the SSO reach to your on-premises environment by implementing federation with ADFS or password synchronization. Both options are included in **Azure AD Connect**.  
+**A:** You only need to set up SSO between your on-premises directory and Azure AD. As long as you access your cloud applications through Azure AD, the service automatically drives your users to correctly authenticate with their on-premises credentials.
+
+Implementing SSO from on-premises can be easily achieved with federation solutions such as ADFS or by configuring password hash sync. You can easily deploy both options using the Azure AD Connect configuration wizard.
+  
 
 For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
   
@@ -90,7 +79,7 @@ For more details, see [Integrating your on-premises identities with Azure Active
 
 **Q: Does Azure Active Directory provide a self-service portal for users in my organization?**
 
-**A:** Yes, Azure Active Directory provides you with the Azure AD Access Panel for user self-service and application access. IF you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal. 
+**A:** Yes, Azure Active Directory provides you with the [Azure AD Access Panel](http://myapps.microsoft.com) for user self-service and application access. IF you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal. 
 
 For more information, see the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
@@ -145,7 +134,7 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 **Q: What if the application I need is not in the Azure AD marketplace?**
 
-**A:** With Azure AD Premium, you can add and configure any application you want. Additionally, depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
+**A:** With Azure AD Premium, you can add and configure any application you want. Depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
 
 For more details, see:
 
@@ -189,7 +178,7 @@ For more information, see:
 
 **Q: Can I add applications I’m running on-premises?**
 
-**A:** Azure AD Application Proxy enables you easily access your on-premises web applications the same way as your SaaS apps in Azure Active Directory, without the need for a VPN or changing the network infrastructure.  
+**A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way you are accessing your SaaS apps in Azure Active Directory. There is no need for a VPN or changing your network infrastructure.  
 
 For more details, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
 
