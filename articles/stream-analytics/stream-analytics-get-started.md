@@ -59,9 +59,9 @@ To create an Event Hub:
 
 We have provided a client application that will generate sample incoming call metadata and push it to Event Hub. Follow the steps below to set up this application.  
 
-1.	Download the [TelcoGenerator.zip file](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)'*'. Then unzip it to a directory.
+1.	Download the [TelcoGenerator.zip file](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip). Then unzip it to a directory.
 
-    '*' **Note**: Windows may block the downloaded zip file. Right click the file and select properties. If the message "This file came from another computer and might be blocked to help protect this computer." then tick the "Unblock" box and click apply on the zip file.
+    **Note**: Windows may block the downloaded zip file. Right click the file and select properties. If the message "This file came from another computer and might be blocked to help protect this computer." then tick the "Unblock" box and click apply on the zip file.
 
 2.	Replace the Microsoft.ServiceBus.ConnectionString and EventHubName values in **telcodatagen.exe.config** with your Event Hub connection string and name.
 
