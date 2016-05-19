@@ -374,7 +374,7 @@ You can run the following command to import entities into a table using the mani
 
 ### Only copy data that doesn't exist in the destination
 
-The `/XO` and `/XN` parameters allow you to exclude older or newer source resources from being copied, respectively. If you only want to copy source resources that don't exist in the destination, you can specify both parameters in the AzCopy command:
+The `/XO` and `/XN` parameters allow you to exclude older or newer source resources from being copied, respectively. Not supported when either the source or destination is a table. If you only want to copy source resources that don't exist in the destination, you can specify both parameters in the AzCopy command:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
