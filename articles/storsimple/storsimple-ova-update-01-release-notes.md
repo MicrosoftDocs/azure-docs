@@ -12,25 +12,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array release notes
 
 ## Overview
 
-The following release notes identify the critical open issues and the issues fixed for the Update 0.1 release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). This release corresponds to software version 10.0.10271.0.
+The following release notes identify the critical open issues and the issues fixed for the Update 0.1 release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). This release corresponds to software version 10.0.10279.0.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
 ## What's new in Update 0.1
 
-Virtual Array 0.1 is a bug fix only release. There are no new features, no changes in encryption, auth, or privacy, no security fixes. As well, there are no service side changes. Categories of bugs fixes include:
-•	Fixing reboot issues when dealing with sub-directories with ADS information
-•	Resiliency around cloud outages
-•	Improving the accuracy of jobs status (percentage completion) in the portal
-•	Picking up new SaaS SDK for bug fixes. 
+Virtual Array 0.1 is a bug-fix only release. The main categories of bugs fixes include (but are not limited to):
 
+- Resiliency around cloud outages: This release has several bug fixes around scenarios when there is a cloud connectivity disruption.
+- Improving the accuracy of jobs status (percentage completion) in the portal: In earlier versions, job status in the portal was not granular. This release 
+- Reliability improvements: This release has several reliability improvements.
+- Updated VHDs and VMDKs available from the portal: The Azure classic portal will be pointing to new VHDs and VMDKs and you can provision Update 0.1 devices using these images.
+
+Note if you download the VHD and VMDK from the portal, those will now be pointing to Update 0.1 
 
 ## Issues fixed in Update 0.1
 
@@ -59,4 +61,4 @@ The following table provides a summary of known issues in this release.
 | **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
 | **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you will need to take the volumes offline and then bring them online for the change to take effect. | These will be addressed in a later release. |
 | **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
-| **14.** | File server  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone or Item Level Recovery.| |
+| **14.** | File server  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |

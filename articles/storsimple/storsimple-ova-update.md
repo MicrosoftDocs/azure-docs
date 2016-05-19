@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/18/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # Apply updates and hotfixes to the StorSimple Virtual Array
@@ -27,7 +27,17 @@ Keep in mind that an update or hotfix installation could restart your device. Gi
 
 We recommend that you install updates through the Azure classic portal. Perform the following steps to install the update or hotfix.
 
-For procedures when installing updates via the classic portal, go to [Install regular updates via the Azure classic portal](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal).) 
+#### To install updates via the Azure classic portal
+
+1. On the **Devices** page, select the device on which you want to install updates.
+
+2. Navigate to **Devices** > **Maintenance** and scroll down to **Software Updates**.
+
+3. To check for updates, click **Scan Updates** at the bottom of the page.
+
+4. You will see a message if software updates are available. Click **Download Updates** to download the updates. This should launch a job to download the available updates. The install  Click **Install Updates** to begin updating the device.
+
+    You will be notified when the update is successfully installed. The software version and the timestamp should also be updated.
 
 ## Use the local web UI 
 
@@ -69,19 +79,19 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
 
-2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. 
+2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
 
 	![update device](./media/storsimple-ova-update/update1m.png)
 
-3. A warning will show up. Given this is single node device, after the update is applied, the device will restart and there will be downtime. Click the check icon.
+3.  A warning will show up. Given this is a single node device, after the update is applied, the device will restart and there will be downtime. Click the check icon.
 
 	![update device](./media/storsimple-ova-update/update4m.png)
 
-4. Click **Apply**.The update will start. After the device is successfully updated, it will restart. The local UI will not be accessible in this duration.
+4. The update will start. After the device is successfully updated, it will restart. The local UI will not be accessible in this duration.
 
     ![update device](./media/storsimple-ova-update/update6m.png)
 
-4. After the restart is complete, you can verify the software version. Go to **Maintenance** > **Software Update**. The build number should be **10.0.0.0.10276**.
+4. After the restart is complete, you will be taken to the sign in page. You can then verify the software version. Go to **Maintenance** > **Software Update**. The build number should be **10.0.0.0.10279**.
 
 	![update device](./media/storsimple-ova-update/update9m.png)
 
