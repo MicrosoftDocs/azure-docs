@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 # Run Sqoop jobs using Azure PowerShell for Hadoop in HDInsight
@@ -71,9 +71,9 @@ The following PowerShell script pre-processes the source file, and exports it to
     $destBlobName = "tutorials/usesqoop/data/sample.log"
         
     # Define the connection string
-    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
     $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
         
     # Create block blob objects referencing the source and destination blob.

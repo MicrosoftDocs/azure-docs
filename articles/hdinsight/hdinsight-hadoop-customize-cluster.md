@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/18/2016"
 	ms.author="nitinme"/>
 
 # Customize Windows-based HDInsight clusters using Script Action
@@ -142,9 +142,9 @@ This following PowerShell script demonstrates how to install Spark on Windows ba
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_GRS
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
 	$defaultStorageAccountContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $storageAccountKey  

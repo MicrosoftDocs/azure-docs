@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -33,9 +33,9 @@ Connections to your SQL Data Warehouse can be encrypted by setting the encryptio
 
 Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password as well as a preview of Azure Active Directory. 
 
-When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
+When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
-However, as a best practice your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
+However, as a best practice, your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
 
 To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.
 
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][] and [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][].
+For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][].  For more details on using the Azure AD preview for SQL Data Warehouse, see [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][].
 
 
 ## Authorization
