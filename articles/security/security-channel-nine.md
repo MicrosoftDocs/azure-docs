@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Security on Channel 9 | Microsoft Azure"
+   pageTitle="Azure security videos on Channel 9 | Microsoft Azure"
    description="The article provides a curated list of Azure security presentations on Channel 9. Channel 9 is a community that connects the people who use our products with the people behind our products."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="terrylan"/>
 
-# Azure Security on Channel 9
+# Azure security videos on Channel 9
 
 [Channel 9](https://channel9.msdn.com/) is a community. They bring forward the people behind our products and connect them with those who use them.
 
