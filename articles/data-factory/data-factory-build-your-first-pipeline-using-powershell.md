@@ -346,6 +346,16 @@ In this step, you will use Azure PowerShell to monitor what’s going on in an A
 
 > [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
 
+## Summary 
+In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure Portal to do the following steps:  
+
+1.	Created an Azure **data factory**.
+2.	Created two **linked services**:
+	1.	**Azure Storage** linked service to link your Azure blob storage that holds input/output files to the data factory.
+	2.	**Azure HDInsight** on-demand linked service to link an on-demand HDInsight Hadoop cluster to the data factory. Azure Data Factory creates a HDInsight Hadoop cluster just-in-time to process input data and produce output data. 
+3.	Created two **datasets** which describe input and output data for HDInsight Hive activity in the pipeline. 
+4.	Created a **pipeline** with a **HDInsight Hive** activity. 
+
 ## Next steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand Azure HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure Blob to Azure SQL](./data-factory-get-started.md).
 
@@ -353,9 +363,10 @@ In this article, you have created a pipeline with a transformation activity (HDI
 | Topic | Description |
 | :---- | :---- |
 | [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn820234.aspx) |  See comprehensive documentation on Data Factory cmdlets |
+| [Data Transformation Activities](data-factory-data-transformation-activities.md) | This article provides a list of data transformation activities (such as HDInsight Hive transformation you used in this tutorial) supported by Azure Data Factory. |
+| [Scheduling and Execution](data-factory-scheduling-and-execution.md) | This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Pipelines](data-factory-create-pipelines.md) | This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. |
 | [Datasets](data-factory-create-datasets.md) | his article will help you understand datasets in Azure Data Factory.
-| [Scheduling and Execution](data-factory-scheduling-and-execution.md) | This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Monitor and Manage Pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) | This article describes how to monitor, manage and debug your pipelines using Azure portal blades. |
 | [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. 
 
