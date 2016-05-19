@@ -68,7 +68,7 @@ You can also add a new **Template** from scratch using the +Add command button i
 
 ![Add Template](media/add-template-portal1.PNG)  <br />
 
-    > [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
+> [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
 
 ## View Template resources
 
