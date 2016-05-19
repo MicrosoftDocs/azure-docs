@@ -136,7 +136,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 		}
 
 ## How to create the NSG for the back end subnet
-To create an NSG named named *NSG-BackEnd* based on the scenario above, follow the steps below.
+To create an NSG named *NSG-BackEnd* based on the scenario above, follow the steps below.
 
 1. Create a security rule allowing access from the front end subnet to port 1433 (default port used by SQL Server).
 
@@ -154,7 +154,7 @@ To create an NSG named named *NSG-BackEnd* based on the scenario above, follow t
 
 5. Add the rules created above to a new NSG named **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Associate the NSG created above to the *BackEnd* subnet.
