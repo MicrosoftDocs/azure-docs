@@ -120,9 +120,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_04.png) 
 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your HPE SaaS application using the following pattern: **“https://\<Tenantname\>.saas.hpe.com”**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your HPE SaaS application using the following pattern: `https://<tenant name>.saas.hpe.com`
 
-    b. In the **Reply URL** textbox, type the URL using the following pattern: **"https://\<tenant-name\>.saas.hpe.com/sp/ACS.saml2"**. 
+    b. In the **Reply URL** textbox, type the URL using the following pattern: `https://<tenant name>.saas.hpe.com/sp/ACS.saml2`. 
 
     c. Click **Next**.
 
@@ -154,7 +154,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
 In the Users list, select **Britta Simon**.
 
-	![Create Azure AD User][20]
+![Create Azure AD User][20]
 
 **To create a test user in Azure AD, perform the following steps:**
 

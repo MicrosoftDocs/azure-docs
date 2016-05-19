@@ -139,7 +139,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
  
 7. On the **Configure single sign-on at Questetra BPM Suite** page, click **Download certificate**, and then save the certificate file locally on your computer.
 
-![Configure Single Sign-On][14]
+	![Configure Single Sign-On][14]
 
 
 8. On you **Questetra BPM Suite** company site, perform the following steps: 

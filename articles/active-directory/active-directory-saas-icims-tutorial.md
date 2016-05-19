@@ -120,7 +120,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-icims-tutorial/tutorial_icims_04.png) 
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your ICIMS application using the following pattern: **“https://\<TenantName\>.icims.com”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your ICIMS application using the following pattern: `https://<tenant name>.icims.com`
 
     b. Click **Next**.
 
