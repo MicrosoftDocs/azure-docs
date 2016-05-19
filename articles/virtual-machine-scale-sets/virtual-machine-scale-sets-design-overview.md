@@ -38,6 +38,8 @@ If you turn off overprovisioning, you can get away with a larger ratio of VMs pe
 
 
 ## Limits
-A scale set built on a custom image (one built by you) must create all OS disk vhds within one storage account. Thus, the maximum number of VMs in a scale set built on a custom image is 20. If you turn off overprovisioning, you can go up to 40.
+A scale set built on a custom image (one built by you) must create all OS disk vhds within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image is 20. If you turn off overprovisioning, you can go up to 40.
 
-A scale set built on a platform image is limited to 100 VMs (we recommend 5 storage accounts for this scale). For more, you will need to deploy multiple scale sets. [For an example of how to do this, please see this template.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
+A scale set built on a platform image is limited to 100 VMs (we recommend 5 storage accounts for this scale).
+
+For more VMs than these limits allow, you will need to deploy multiple scale sets. [For an example of how to do this, please see this template.](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)
