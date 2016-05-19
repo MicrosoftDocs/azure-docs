@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/18/2016"
+	ms.date="05/19/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -61,7 +61,7 @@ Azure Redis Cache provides the following settings on the **Settings** blade.
 
 ## Support & troubleshooting settings
 
-The settings in the **Support + troubleshooting** provide you with options for resolving issues with your cache.
+The settings in the **Support + troubleshooting** section provide you with options for resolving issues with your cache.
 
 ![Support + troubleshooting](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
