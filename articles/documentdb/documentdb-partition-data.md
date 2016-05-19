@@ -76,7 +76,7 @@ DocumentDB is designed for predictable performance. When you create a collection
 
 When DocumentDB stores documents, it distributes them evenly among partitions based on the partition key value. The throughput is also distributed evenly among the available partitions i.e. the throughput per partition = (total throughput per collection)/ (number of partitions). 
 
-> [AZURE.TIP] In order to achieve the full throughput of the collection, you must choose a partition key that allows you to evenly distribute requests among a number of distinct partition key values.
+>[AZURE.NOTE] In order to achieve the full throughput of the collection, you must choose a partition key that allows you to evenly distribute requests among a number of distinct partition key values.
 
 ## Single Partition and Partitioned Collections
 DocumentDB supports the creation of both single-partition and partitioned collections. 

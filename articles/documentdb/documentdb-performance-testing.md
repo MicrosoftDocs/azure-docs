@@ -18,18 +18,20 @@
 	ms.author="arramac"/>
 
 # Performance and Scale Testing with Azure DocumentDB
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and scale seamlessly along with your application as it grows. This article describes how you can perform performance and scale testing with DocumentDB using a .NET console app. 
+Performance and scale testing is a key step in application development. While most performance testing is performed in the scope of an end-to-end application, many developers implement separate performance test suites (a.k.a. benchmarks) for their individual components, including the database layer. This article is a reference for developers looking to implement performance testing on [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) or evaluating DocumentDB for high-performance application scenarios.
 
 After reading this article, you will be able to answer the following questions:   
 
-- Where can I find a client driver or benchmark application for performance testing of Azure DocumentDB?
-- What are the key factors that affect end to end performance of requests made to Azure DocumentDB? 
+- Where can I find a sample .NET client application for performance testing of Azure DocumentDB?
+- What are the key factors that affect end-to-end performance of requests made to Azure DocumentDB? 
 - How do I achieve high throughput levels with Azure DocumentDB from my application?
 
 To get started with code, please download the project from [DocumentDB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
 ## Configurations for Best End-to-End Performance
-In order to get the best end-to-end performance with DocumentDB, the following are the key client-side configuration options:
+DocumentDB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. Scaling your workload is as easy as provisioning additional throughput through the SDKs or the REST API. However since DocumentDB is accessed via network calls, when you're writing a single client application to performance test DocumentDB, you need to configure it to reduce the impact of network latency on your performance measurements.
+
+In order to get the best end-to-end performance with DocumentDB, the following are the key client-side configuration options in .NET:
 
 - **Increase the number of Threads/Tasks**: Since calls to DocumentDB are over the network, you should increase the degree of parallelism so that the client driver spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), please create ~100 Tasks reading or writing to DocumentDB.
 - **Test within the same Azure region**: When possible, run within a Virtual Machine or App Service deployed in the same Azure Region. You should be able to achieve the same throughput levels outside Azure, but will need more parallelism to compensate for network latency between requests. For a ballpark, within Azure regions the latency to a DocumentDB account is 1-2 ms, but the latency between the West and East coast of the US is about 50 ms.
@@ -40,9 +42,9 @@ In order to get the best end-to-end performance with DocumentDB, the following a
 - **Scale out your client-workload**: If you are testing at very high throughput levels (>50,000 RU/s), the client app becomes the bottleneck usually due to CPU or Network utilization, and you'll be unable to utilize the DocumentDB account’s provisioned throughput. You can get linear throughput increases by running more client instances across multiple VMs.
 
 ## Get Started
-The quickest way to get started is to run the DocumentDB Performance Testing Driver, as described in the steps below. You can also review the source code and make changes to your own client drivers.
+The quickest way to get started is to compile and run the .NET sample below, as described in the steps below. You can also review the source code and implement similar configurations to your own client drivers.
 
-**Step 1:** Please download the project from [DocumentDB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark), or fork the Github repository.
+**Step 1:** Download the project from [DocumentDB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark), or fork the Github repository.
 
 **Step 2:** Modify the settings for EndpointUrl, AuthorizationKey, CollectionThroughput and DocumentTemplate (optional) in App.config.
 
