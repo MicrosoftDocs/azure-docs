@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with private Templates | Microsoft Azure"
-   description="Add, manage and share your customized templates using the Azure portal, the Azure CLI, or PowerShell."
+   description="Add, manage and share your private templates using the Azure portal, the Azure CLI, or PowerShell."
    services="marketplace-customer"
    documentationCenter=""
    authors="VybavaRamadoss"
@@ -18,7 +18,7 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
-# Get started with private Templates
+# Get started with private Templates on the Azure Portal
 
 An [Azure Resource Manager](../resource-group-authoring-templates.md) template is a declarative template used to define your deployment. You can define the resources to deploy for a solution, and specify parameters and variables that enable you to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
@@ -41,12 +41,12 @@ The following suggestions will help you take full advantage of **Templates** whe
 
 There are two ways to create a **Template** resource in the Azure portal.
 
-### A. Create a new Template resource from a running resource group
+### Method 1 : Create a new Template resource from a running resource group
 
 1. Navigate to an existing resource group on the Azure Portal. Select **Export template** in **Settings**.
 2. Once the Resource Manager template is exported, use the **Save Template** button to save it to the **Templates** repository. Find complete details for Export template [here](https://azure.microsoft.com/blog/export-template/).
 <br /><br />
-![Resource group export](media/rg-export-portal.PNG)  <br />
+![Resource group export](media/rg-export-portal1.PNG)  <br />
 
 3. Select the **Save to Template** command button.
 <br /><br />
@@ -56,49 +56,49 @@ There are two ways to create a **Template** resource in the Azure portal.
     - Name – Name of the template object (NOTE: This is an Azure Resource Manager based name. All naming restrictions apply and it cannot be changed once created).
     - Description – Quick summary about the template.
 
-    ![Save Template](media/save-template-portal.PNG)  <br />
+    ![Save Template](media/save-template-portal1.PNG)  <br />
 
 5. Click **Save**.
 
     > [AZURE.NOTE] The Export template blade shows notifications when the exported Resource Manager template has errors, but you will still be able to save this Resource Manager template to the Templates. Ensure that you check and fix any Resource Manager template issues before redeploying the exported Resource Manager template.
 
-    > [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
-
-### B. Add a new Template resource from browse
+### B. Method 2 : Add a new Template resource from browse
 
 You can also add a new **Template** from scratch using the +Add command button in **Browse > Templates**. You will need to provide a Name, Description and the Resource Manager template JSON.
 
-![Add Template](media/add-template-portal.PNG)  <br />
+![Add Template](media/add-template-portal1.PNG)  <br />
+
+    > [AZURE.NOTE] Microsoft.Gallery is a Tenant based Azure resource provider. The Template resource is tied to the user who created it. It is not tied to any specific subscription. A subscription needs to be chosen only when deploying a Template.
 
 ## View Template resources
 
 All **Templates** available to you can be seen at **Browse > Templates**. This includes **Templates** you have created as well as ones that have been shared with you with varying levels of permissions. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
-![View Template](media/view-template-portal.PNG)  <br />
+![View Template](media/view-template-portal1.PNG)  <br />
 
 You can view the details of a **Template** by clicking into an item in the list.
 
-![View Template](media/view-template-portal2b.png)  <br />
+![View Template](media/view-template-portal2c.png)  <br />
 
 ## Edit a Template resource
 
 You can initiate the edit flow for a **Template** by right clicking the item on the Browse list or by choosing the Edit command button.
 
-![Edit Template](media/edit-template-portal.PNG)  <br />
+![Edit Template](media/edit-template-portal1a.PNG)  <br />
 
 You can edit the description or Resource Manager template text. You cannot edit the name since it is an Resource Manager resource name. When you edit the Resource Manager template JSON we will validate to ensure that it is valid JSON. Choose **OK** and then **Save** to save your updated template.
 
-![Edit Template](media/edit-template-portal2.PNG)  <br />
+![Edit Template](media/edit-template-portal2a.PNG)  <br />
 
 Once the **Template** is saved you will see a confirmation notification.
 
-![Edit Template](media/edit-template-portal3a.png)  <br />
+![Edit Template](media/edit-template-portal3b.png)  <br />
 
 ## Deploy a Template resource
 
 You can deploy any **Template** that you have **Read** permissions on. The deployment flow launches the standard Azure Template deployment blade. Fill out the values for the Resource Manager template parameters to proceed with the deployment.
 
-![Deploy Template](media/deploy-template-portal1.png)  <br />
+![Deploy Template](media/deploy-template-portal1b.png)  <br />
 
 ## Share a Template resource
 
@@ -114,17 +114,17 @@ Contributor | Allows Edit and Delete permission on the Template resource. User c
 
 Select **Share** on the browse item by right clicking or on the view blade of a specific item. This launches a Share experience.
 
-![Share Template](media/share-template-portal1.png)  <br />
+![Share Template](media/share-template-portal1a.png)  <br />
 
  You can now choose a role and a user or group to provide access to a particular **Template**. The available roles are Owner, Reader and Contributor. More details in the [access control](#access-control-for-a-tenant-resource-provider) section below.
 
-![Share Template](media/share-template-portal2a.png)  <br />
+![Share Template](media/share-template-portal2b.png)  <br />
 
-![Share Template](media/share-template-portal3a.png)  <br />
+![Share Template](media/share-template-portal3b.png)  <br />
 
 Click **Select** and **Ok**. You can now see the users or groups you added to the resource.
 
-![Share Template](media/share-template-portal4a.png)  <br />
+![Share Template](media/share-template-portal4b.png)  <br />
 
 > [AZURE.NOTE] A Template can only be shared with users and groups in the same Azure Active Directory tenant. If you share a Template with an email address that is not in your tenant, an invitation will be sent asking the user to join the tenant as a guest.
 
