@@ -96,7 +96,7 @@ To get a specific web app, use:
 
 ### Configure an existing Web App ###
 
-To change the settings and configurations for an existing web app, use the **Set-AzureRmWebApp** cmdlet. You can change a number of settings for a full list you can check the [Cmdlet reference link](https://msdn.microsoft.com/en-us/library/mt652487.aspx)
+To change the settings and configurations for an existing web app, use the **Set-AzureRmWebApp** cmdlet. You can change a number of settings for a full list you can check the [Cmdlet reference link](https://msdn.microsoft.com/library/mt652487.aspx)
 
 Example to use this cmdlet to change connection strings
 
@@ -160,4 +160,4 @@ To delete an existing web app you can use the **Remove-AzureRmWebApp** cmdlet, y
 - [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 - [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
 - [SSL Certificates binding using PowerShell](app-service-web-app-powerhell-ssl-binding.md)
-- [Azure Cmdlet Reference of Web App ARM PowerShell Cmdlets](https://msdn.microsoft.com/en-us/library/mt619237.aspx)
+- [Azure Cmdlet Reference of Web App ARM PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
