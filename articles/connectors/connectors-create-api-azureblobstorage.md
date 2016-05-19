@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Azure blob storage API in your Logic Apps | Microsoft Azure"
-	description="Overview of Azure blob storage API with REST API parameters"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the Azure blob storage Connector in your Logic Apps | Microsoft Azure"
+    description="Overview of Azure blob storage Connector with REST API parameters"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the Azure blob storage API
-Connect to an Azure Blob to manage files in a blob container, such as creating files, deleting files, and more. The Azure blob storage API can be used from:
+# Get started with the Azure blob storage connector
+Connect to an Azure Blob to manage files in a blob container, such as creating files, deleting files, and more. The Azure blob storage Connector can be used from:
 
 - Logic apps 
 
@@ -38,10 +38,10 @@ Azure blob includes the following actions. There are no triggers.
 | --- | --- |
 | None. | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li></ul> |
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 ## Create a connection to Azure blob
-When you add this API to your logic apps, enter the following storage account values: 
+When you add this Connector to your logic apps, enter the following storage account values: 
 
 |Property| Required|Description|
 | ---|---|---|
