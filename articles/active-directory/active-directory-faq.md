@@ -88,6 +88,15 @@ For more details, see [Integrating your on-premises identities with Azure Active
 For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
   
 
+---
+
+**Q: Does Azure Active Directory provide a self-service portal for users in my organization?**
+
+**A:** Yes, Azure Active Directory provides you with the Azure AD Access Panel for user self-service and application access. IF you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal. 
+
+For more information, see the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+
+
 
 ---
 
@@ -138,13 +147,44 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 **Q: What if the application I need is not in the Azure AD marketplace?**
 
-**A:** With Azure AD Premium, you can add and configure any application you want. Additionally, you can configure, depending on your application’s capabilities and your preferences, configure SSO and automated provisioning.  
+**A:** With Azure AD Premium, you can add and configure any application you want. Additionally, you can configure, depending on your application’s capabilities and your preferences, SSO and automated provisioning.  
 
 For more details, see:
 
 - [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
 - [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md) 
 
+
+---
+
+**Q: How do users sign into applications using Azure Active Directory?**
+ 
+**A:** Azure Active directory provides several ways for users to view and access their applications such as:
+
+- The Azure AD access panel
+
+- The Office 365 application launcher
+
+- Direct sign-on to federated apps
+
+- Deep links to federated, password-based, or existing apps
+
+For more information, see [Deploying Azure AD integrated applications to users](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users).
+
+
+---
+
+**Q: What are the different ways Azure Active Directory enables authentication and single sign-on to applications?**
+ 
+**A:** Azure Active Directory supports many standardized protocols for authentication and authorization such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation. Azure AD also supports password vaulting and automated sign-in capabilities for apps that only support forms-based authentication.  
+
+For more information, see:
+
+- [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
+
+- [Active Directory Authentication Protocols](https://msdn.microsoft.com/en-us/library/azure/dn151124.aspx)
+
+- [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 
 ---
@@ -165,6 +205,15 @@ For more details, see [How to provide secure remote access to on-premises applic
 For more details, see [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md).
 
 
+---
+
+**Q: What is Automated User Provisioning for SaaS Apps?**
+
+**A:** Azure Active Directory allows you to automate the creation, maintenance, and removal of user identities in many popular cloud (SaaS) applications. 
+
+For more information, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
+
+---
 
 
 
