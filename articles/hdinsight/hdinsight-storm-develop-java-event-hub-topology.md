@@ -26,7 +26,7 @@ In this tutorial, you will learn how to use the Event Hubs spout and bolt to rea
 
 * An Apache Storm on HDInsight cluster. Use one of the following getting started articles to create a cluster:
 
-    - A [Linux-based Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md): Select this if you want to use SSH to work with the cluster from Linux, Unix, OS X, or Windows clients
+    - A [Linux-based Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started-linux.md): Select this if you want to use SSH to work with the cluster from Linux, Unix, OS X, or Windows clients
 
     - A [Windows-based Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started.md): Select this if you want to use PowerShell to work with the cluster from a Windows client
 
