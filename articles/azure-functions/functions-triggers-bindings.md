@@ -34,5 +34,5 @@ The following articles explain how to configure and code triggers and bindings i
 
 For more information, see the following resources:
 
-* [Testing a function](../articles/azure-functions/functions-test-a-function.md)
-* [Scale a function](../articles/azure-functions/functions-scale.md)
+* [Testing a function](functions-test-a-function.md)
+* [Scale a function](functions-scale.md)
