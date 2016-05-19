@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/04/2016"
+   ms.date="05/19/2016"
    ms.author="larryfr"/>
 
 
@@ -77,6 +77,12 @@ It is highly recommended that you create a single subnet for each HDInsight clus
 Windows-based clusters require a v1 (Classic) Virtual Network, while Linux-based clusters require a v2 (Azure Resource Manager,) Virtual Network. If you do not have the correct type of network, it will not be usable when you create the cluster.
 
 If you have resources on a Virtual Network that is not usable by the cluster you plan on creating, you can create a new Virtual Network that is usable by the cluster, and connect it to the incompatible Virtual Network. You can then create the cluster in the network version that it requires, and it will be able to access resources in the other network since the two are joined. For more information on connecting classic and new Virtual Networks, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+###Custom DNS
+
+When creating a virtual network, Azure provides default name resolution for Azure services such as HDInsight that are installed in the network. However you may need to use your own Domain Name System (DNS) for situations such as cross network domain name resolution. For example, when communicating between services located in two joined virtual networks. 
+
+For more information on using your own DNS server with Azure Virtual Network, see the __Name resolution using your own DNS server__ section of the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
 ###Secured Virtual Networks
 
