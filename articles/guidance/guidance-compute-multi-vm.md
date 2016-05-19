@@ -1,5 +1,5 @@
 <properties
-   pageTitle=" Running multiple VM instances (Windows) | Blueprint | Microsoft Azure"
+   pageTitle="Running multiple Windows VMs | Reference Architecture | Microsoft Azure"
    description="How to run multiple VM instances on Azure for scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
@@ -14,20 +14,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="05/16/2016"
    ms.author="mikewasson"/>
 
-# Running multiple Windows VM instances on Azure (single tier, Internet-facing)
+# Running multiple Windows VMs on Azure 
 
-This article outlines a set of proven practices for running multiple Windows VM instances on Azure, paying attention to scalability, availability, manageability, and security.  
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-The following diagram builds on the topology shown in [Running a Single Windows VM on Azure][single vm].
+This article outlines a set of proven practices for running multiple virtual machine (VM) instances in an availability set, to improve availability and scalability.   
 
-> [AZURE.NOTE] This configuration is meant for running multiple instances with the same VM image. The intended scenario is a single-tier app, such as a stateless web app or storage cluster, using multiple instances for scalability and availability. This article does not cover multi-tier applications.
+In this architecture, the workload is distributed across the VM instances. There is a single public IP address, and Internet traffic is distributed to the VMs using a load balancer. This architecture can be used for a single-tier app, such as a stateless web app or storage cluster. It is also a building block for N-tier applications. 
+
+This article builds on [Running a Single Windows VM on Azure][single vm]. The recommendations in that article also apply to this architecture.
+
+> [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
+
+## Architecture diagram
 
 ![IaaS: multiple VMs](media/blueprints/compute-multi-vm.png)
 
-- **Availability Set.** Put the VMs into an [Availability Set][availability set]. This makes the VMs eligible for the [SLA][vm-sla] for virtual machines. (For the SLA to apply, you need a minimum of two VMs in the same availability set.)
+- **Availability Set.** Put the VMs into an [Availability Set][availability set]. This makes the VMs eligible for the [SLA][vm-sla] for virtual machines. For the SLA to apply, you need a minimum of two VMs in the same availability set.
 
 - **VNet**. Every VM in Azure is deployed into a virtual network (VNet), which is further divided into **subnets**. For this scenario, place the VMs on the same subnet.
 
@@ -37,11 +43,9 @@ The following diagram builds on the topology shown in [Running a Single Windows 
     - **Front-end configuration.** Associates the public IP address with the load balancer.
     - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 
-- Create **load balancer rules** for the network traffic that should be distributed across the VMs. For example, for HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
+- **Load balancer rules** are used to distribute network traffic among all the VMs in the back-end address pool. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
 
-- Create **NAT rules** when you need to route traffic to a specific VM &mdash; for example, to allow remote desktop to a VM instance. When you create a NAT rule, associate it with the NIC for the VM instance.
-
-    - Example: To enable **remote desktop (RDP)** to the VMs, create a separate NAT rule for each VM, mapping a distinct port number to port 3389. (RDP uses port 3389.) For example, use port 50001 for "VM1", port 50002 for "VM2", and so on. Then assign the NAT rules to the NICs on the VMs. Connect to the VM by using the _external_ port number (50001, 50002, etc).
+- **NAT rules** are used to route traffic to a specific VM. For example, to enable remote desktop (RDP) to the VMs, create a separate NAT rule for each VM. Each rule should map a distinct port number to port 3389, which is the default port for RDP. (For example, use port 50001 for "VM1", port 50002 for "VM2", and so on.) Assign the NAT rules to the NICs on the VMs.
 
 - **Network interfaces (NICs)**. Provision a NIC for each VM. The NIC provides network connectivity to the VM. Associate the NIC with the subnet and also with the back-end address pool of the load balancer.
 
@@ -49,15 +53,13 @@ The following diagram builds on the topology shown in [Running a Single Windows 
 
 ## Scalability
 
-The load balancer takes incoming network requests and distributes them across the NICs in the back-end address pool. To scale horizontally, add more VM instances to the Availability Set (or deallocate VMs to scale down).
+The load balancer takes incoming network requests and distributes them across the NICs in the back-end address pool. To scale horizontally, add more VM instances to the Availability Set (or deallocate VMs to scale down). 
 
-For example, suppose you're running a web server. You would add a load balancer rule for port 80 and/or port 443 (for SSL). When a client sends an HTTP request, the load balancer picks a back-end IP address by using a [hashing algorithm][load balancer hashing] that includes the source IP address. In that way, client requests are distributed across all the VMs.
-
-It's important that any VM instance can handle any request that is routed through the load balancer.
+For example, suppose you're running a web server. You would add a load balancer rule for port 80 and/or port 443 (for SSL). When a client sends an HTTP request, the load balancer picks a back-end IP address by using a [hashing algorithm][load balancer hashing] that includes the source IP address. In that way, client requests are distributed across all the VMs. 
 
 > [AZURE.TIP] When you add a new VM to an Availability Set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, Internet traffic won't be routed to the new VM.
 
-The Azure load balancer is a layer-4 load balancer, meaning it distributes traffic based on TCP/UDP port numbers. Another option is [Azure Application Gateway][app-gateway], which is a layer-7 load balancer (HTTP/HTTPS) that supports URL-based routing and SSL offload. For a comparison of the two, see [Load Balancer differences][load balancer differences].
+Each Azure Subscription has default limits in place, including a maximum number of VMs per region. You can increase the limit by filing a support request. For more information, see [Azure subscription and service limits, quotas, and constraints][subscription-limits].  
 
 ## Availability
 
@@ -67,7 +69,7 @@ The Availability Set makes your app more resilient to both planned and unplanned
 
 - _Unplanned maintenance_ happens if there is a hardware failure. Azure makes sure that VMs within an Availability Set are provisioned across more than one server rack. This helps to reduce the impact of hardware failures, network outages, power interruptions, and so on.
 
-For more information, see [Manage the availability of virtual machines][availability set]. The following video also has a good overview of Availability Sets: [How Do I Configure an Availability Set to Scale VMs][availability set ch9]
+For more information, see [Manage the availability of virtual machines][availability set]. The following video also has a good overview of Availability Sets: [How Do I Configure an Availability Set to Scale VMs][availability set ch9]. 
 
 > [AZURE.WARNING]  Make sure to configure the Availability Set when you provision the VM. Currently, there is no way to add a Resource Manager VM to an Availability Set after the VM is provisioned.
 
@@ -85,36 +87,19 @@ Here are some recommendations on load balancer health probes:
 
 ## Manageability
 
-With multiple VMs, it becomes important to automate processes, so they are reliable and repeatable.
-
-Use [Operations Management Suite (OMS)][oms] to centralize management and configuration. OMS integrates with other operation services in Azure, such as site recovery and backup.
-
-- 	You can get started with a free trial of OMS. Enter the email account associated with your Azure subscription, and then add OMS solutions to your account.
-- Consider as a base-line the following offerings:
-	- System updates assessment. Monitors patching history, missing updates, etc.
-	- Antimalware assessment. Checks for VMs that are missing malware protection and VMs with active threats.
-	- Capacity planning: Tracks resource utilization.
-	- Change tracking: Logs applications and Windows services that were installed, removed, or changed.
-	- Security and Audit. Identify, assess, and mitigate security risks.
-
-Use [Azure Automation][azure-automation] to automate deployment, OS patching, and other tasks. Azure Automation is an automation service that runs on Azure, and is based on Windows PowerShell. It provides several benefits over just running scripts from a local machine:
-
-- High availability
-- Secure storage of security credentials and certificates.
-- Built-in task scheduler
-- Automatic logging
-
-You can find example automation scripts at the [Runbook Gallery] on TechNet.
+With multiple VMs, it becomes important to automate processes, so they are reliable and repeatable. You can use [Azure Automation][azure-automation] to automate deployment, OS patching, and other tasks. Azure Automation is an automation service that runs on Azure, and is based on Windows PowerShell. Example automation scripts are available at the [Runbook Gallery] on TechNet.
 
 ## Security
 
-The previous diagram does not show a [network security group][nsg] (NSG), because the load balancer rules define which traffic reaches the back end. However, load balancer rules don't support IP whitelisting, so if you want to whitelist certain public IP addresses, add an NSG to the subnet.
+Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet cannot communicate directly to VMs in a different VNet. VMs within the same VNet can communicate, unless you create [network security groups][nsg] (NSGs) to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
+
+For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP whitelisting, so if you want to whitelist certain public IP addresses, add an NSG to the subnet.
 
 ## Example deployment script
 
-The following Windows batch script executes the [Azure CLI][azure-cli] commands to deploy multiple VMs and the related network and storage resources, as shown in the previous diagram.
+The following Windows batch script deploys the architecture shown in the previous diagram. The script requires version 0.9.20 or later of the [Azure Command-Line Interface (CLI)][azure-cli]. 
 
-The script uses the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
+The script uses the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions]. It was tested against version 0.9.20 of the Azure CLI.
 
 ```bat
 ECHO OFF
@@ -136,7 +121,7 @@ SET NUM_VM_INSTANCES=2
 :: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
 SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
 
-:: For a list of VM sizes see:
+:: For a list of VM sizes see: 
 ::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
 :: To see the VM sizes available in a region:
 :: 	azure vm sizes --location <location>
@@ -243,7 +228,7 @@ CALL azure network nic create --name %NIC_NAME% --subnet-name %SUBNET_NAME% ^
   --subnet-vnet-name %VNET_NAME% --location %LOCATION% %POSTFIX%
 
 :: Add NIC to back-end address pool
-CALL azure network nic address-pool add --name %NIC_NAME% --lb-name %LB_NAME% ^
+CALL azure network nic address-pool create --name %NIC_NAME% --lb-name %LB_NAME% ^
   --lb-address-pool-name %LB_BACKEND_NAME% %POSTFIX%
 
 :: Create NAT rule for RDP
@@ -283,7 +268,6 @@ goto :eof
 [3-tier-blueprint]: guidance-compute-3-tier-vm.md
 [availability set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
-[app-gateway]: ../application-gateway/application-gateway-ssl-arm.md
 [azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
@@ -291,12 +275,13 @@ goto :eof
 [health probes]: ../load-balancer/load-balancer-overview.md#service-monitoring
 [health-probe-ip]: ../virtual-network/virtual-networks-nsg.md#special-rules
 [load balancer]: ../load-balancer/load-balancer-get-started-internet-arm-cli.md
-[load balancer differences]: ../load-balancer/load-balancer-overview.md#load-balancer-differences
 [load balancer hashing]: ../load-balancer/load-balancer-overview.md#hash-based-distribution
 [naming conventions]: guidance-naming-conventions.md
+[network-security]: ../best-practices-network-security.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
-[oms]: https://www.microsoft.com/en-us/server-cloud/operations-management-suite/overview.aspx
+[resource-manager-overview]: ../resource-group-overview.md 
 [Runbook Gallery]: ../automation/automation-runbook-gallery.md#runbooks-in-runbook-gallery
 [single vm]: guidance-compute-single-vm.md
+[subscription-limits]: ../azure-subscription-service-limits.md
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/

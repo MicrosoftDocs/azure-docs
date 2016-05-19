@@ -34,8 +34,6 @@ Three modes are available:
 - **no-cache**:  In this mode, requests with query strings are not cached at the CDN edge node.  The edge node retrieves the asset directly from the origin and passes it to the requestor with each request.
 - **unique-cache**:  This mode treats each request with a query string as a unique asset with its own cache.  For example, the response from the origin for a request for *foo.ashx?q=bar* would be cached at the edge node and returned for subsequent caches with that same query string.  A request for *foo.ashx?q=somethingelse* would be cached as a separate asset with its own time to live.
 
-	>[AZURE.WARNING] This mode should not be used when the query string contains parameters that will change with every request, such as a session ID or a user name, since this would result in a very low cache hit ratio.
-
 ##Changing query string caching settings for premium CDN profiles
 
 1. From the CDN profile blade, click the **Manage** button.
@@ -51,3 +49,6 @@ Three modes are available:
 	![CDN query string caching options](./media/cdn-query-string-premium/cdn-query-string.png)
 
 3. After making your selection, click the **Update** button.
+
+
+> [AZURE.IMPORTANT] The settings changes may not be immediately visible, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.

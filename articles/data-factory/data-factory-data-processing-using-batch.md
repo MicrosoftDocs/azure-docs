@@ -157,7 +157,7 @@ The method has a few key components that you need to understand.
 
     4.  **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline.
 
--   The method returns a dictionary that can be used to chain custom activities together. We will not use this feature in this sample solution.
+-   The method returns a dictionary that can be used to chain custom activities together in the future. This feature is not implemented yet, so just return an empty dictionary from the method. 
 
 ### Procedure: Create the custom activity
 
@@ -224,13 +224,8 @@ The method has a few key components that you need to understand.
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
 
-            // declare dataset types
-            CustomDataset inputLocation;
-            AzureBlobDataset outputLocation;
-
             Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
-
+	
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
@@ -273,8 +268,6 @@ The method has a few key components that you need to understand.
 
             // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
             Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-            // convert to blob location object.
-            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
             folderPath = GetFolderPath(outputDataset);
 
@@ -291,7 +284,8 @@ The method has a few key components that you need to understand.
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.
             return new Dictionary<string, string>();
         }
 
@@ -424,9 +418,6 @@ This section provides more details and notes about the code in the Execute metho
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 
-		// Convert to blob location object.
-		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
-
 4.	The code also calls a helper method: **GetFolderPath** to retrieve the folder path (the storage container name).
 
 		folderPath = GetFolderPath(outputDataset);
@@ -550,9 +541,15 @@ In this step, you will create a linked service for your **Azure Batch** account 
 
     3.  Enter the ID of the pool for the **poolName** property**.** For this property, you can specify either pool name or pool ID.
 
-    4.  Enter the batch URI for the **batchUri** JSON property. The **URL** from the **Azure Batch account blade** is in the following format: \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL. Example: "batchUri": "https://eastus.batch.azure.com".
+    4.  Enter the batch URI for the **batchUri** JSON property. 
+    
+		> [AZURE.IMPORTANT] The **URL** from the **Azure Batch account blade** is in the following format: \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON, you will need to **remove "accountname."** from the URL. Example: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
+
+		For the **poolName** property, you can also specify the ID of the pool instead of the name of the pool.
+
+		> [AZURE.NOTE] The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight. You can only use your own Azure Batch pool in an Azure data factory.
 
     5.  Specify **StorageLinkedService** for the **linkedServiceName** property. You created this linked service in the previous step. This storage is used as a staging area for files and logs.
 
@@ -572,7 +569,7 @@ In this step, you will create datasets to represent input and output data.
 		    "name": "InputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 		            "format": {
@@ -647,7 +644,7 @@ In this step, you will create datasets to represent input and output data.
 	| 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
 	| 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3.  Click **Deploy** on the toolbar to create and deploy the **InputDataset** table. Confirm that you see the **TABLE CREATED SUCCESSFULLY** message on the title bar of the Editor.
+3.  Click **Deploy** on the toolbar to create and deploy the **InputDataset** table. 
 
 #### Create output dataset
 
@@ -661,7 +658,7 @@ In this step, you will create another dataset of type AzureBlob to represent the
 		    "name": "OutputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
 		            "folderPath": "mycontainer/outputfolder",
@@ -719,7 +716,7 @@ In this step, you will create a pipeline with one activity, the custom activity 
 						"typeProperties": {
 							"assemblyName": "MyDotNetActivity.dll",
 							"entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-							"packageLinkedService": "StorageLinkedService",
+							"packageLinkedService": "AzureStorageLinkedService",
 							"packageFile": "customactivitycontainer/MyDotNetActivity.zip"
 						},
 						"inputs": [

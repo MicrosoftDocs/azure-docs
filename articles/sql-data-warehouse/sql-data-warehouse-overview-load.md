@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/09/2016"
+   ms.date="05/17/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load data into Azure SQL Data Warehouse
@@ -124,7 +124,7 @@ For more development tips, see the [development overview][].
 
 [Load sample databases]: sql-data-warehouse-load-sample-databases.md
 [Migration overview]: sql-data-warehouse-overview-migrate.md
-[solution partners]: sql-data-warehouse-solution-partners.md
+[solution partners]: sql-data-warehouse-integrate-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Statistics]: sql-data-warehouse-develop-statistics.md
 

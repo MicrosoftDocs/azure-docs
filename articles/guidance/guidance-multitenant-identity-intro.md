@@ -19,6 +19,8 @@
 
 # Introduction to identity management for multitenant applications in Microsoft Azure
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 Let's say you're writing an enterprise SaaS application to be hosted in the cloud. Of course, the application will have users:

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Capacity Management solution in Log Analytics | Microsoft Azure"
-	description="You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your System Center Operations Manager server infrastructure when using Operations Manager agents or Operations Manager management groups"
+	description="You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your Hyper-V  servers managed by System Center Virtual Machine Manager"
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -19,18 +19,35 @@
 # Capacity Management solution in Log Analytics
 
 
-You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your System Center Operations Manager server infrastructure when using Operations Manager agents or Operations Manager management groups. Capacity Planning isn’t available if you only use directly-connected agents. You install the solution to update the Operations Manager agent. The solution reads performance counters on the monitored server and sends usage data to the OMS service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
+You can use the Capacity Planning solution in Log Analytics to help you understand the capacity of your Hyper-V servers managed by System Center Virtual Machine Manager. This solution requires both System Center Operations Manager and System Center Virtual Machine Manager. Capacity Planning isn’t available if you only use directly-connected agents. You install the solution to update the Operations Manager agent. The solution reads performance counters on the monitored server and sends usage data to the OMS service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
 
 For example, a projection might identify when additional processor cores or additional memory will be needed for an individual server. In this example, the projection might indicate that in 30 days the server will need additional memory. This can help you plan for a memory upgrade during the server’s next maintenance window, which might occur once every two weeks.
 
-Before you can use the Capacity Management dashboard in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+>[AZURE.NOTE] The Capacity Management solution is not available to be added to workspaces. Customers who have the capacity management solution installed can continue to use the solution.  
+
+The capacity planning solution is in the process of being updated to address the following customer reported challenges:
+
+- Requirement to use Virtual Machine Manager and Operations Manager
+- Inability to customize/filter based on groups
+- Hourly data aggregation not frequent enough
+- No VM level insights
+- Data reliability
+
+Benefits of the new capacity solution:
+
+- Support granular data collection with improved reliability and accuracy
+- Support for Hyper-V without requiring VMM
+- Visualization of metrics in PowerBI
+- Insights on VM level utilization
+
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
 - Operations Manager is required for the Capacity Management solution.
-- You must enable the Operations Manager connector with Virtual Machine Manager (VMM).
-- You must have an Operations Manager agent on each computer where you want to monitor capacity.
+- Virtual Machine Manager is required for the Capacity Management solution.
+- Operations Manager connectivity with Virtual Machine Manager (VMM) is required. For additional information about connecting the systems, see [How to connect VMM with Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
+- Operations Manager must be connected to Log Analytics.
 - Add the Capacity Management solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  There is no further configuration required.
 
 
@@ -56,8 +73,6 @@ The tile opens the **Capacity Management** dashboard where you can view a summar
 - *Compute*: Shows processor cores and available memory
 - *Storage*: Shows the disk space used and average disk latency
 - *Search*: The data explorer that you can use to Search for any data in the OMS system
-
->[AZURE.NOTE] To view capacity management data, you must enable Operations Manager connectivity with Virtual Machine Manager (VMM). For additional information about connecting the systems, see [How to connect VMM with Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
 
 ![image of Capacity Management dashboard](./media/log-analytics-capacity/oms-capacity02.png)
 

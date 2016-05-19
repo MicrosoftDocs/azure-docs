@@ -95,7 +95,7 @@ The method takes four parameters:
 - **activity**. This parameter represents the current compute entity - in this case, an Azure Batch.
 - **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline. 
 
-The method returns a dictionary that can be used to chain custom activities together. This feature is not yet supported at this time.  
+The method returns a dictionary that can be used to chain custom activities together in the future. This feature is not implemented yet, so just return an empty dictionary from the method.  
 
 ### Procedure 
 1.	Create a **.NET Class Library** project.
@@ -236,7 +236,9 @@ The method returns a dictionary that can be used to chain custom activities toge
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.  
+
             return new Dictionary<string, string>();
         }
 
@@ -857,7 +859,6 @@ Sample | What custom activity does
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md

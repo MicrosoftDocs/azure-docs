@@ -160,10 +160,10 @@ To install Azure PowerShell, follow the steps in the previous section "Install A
 
     b. Open an admin PowerShell prompt and run the following commands, by using the password that you passed to `CreateAndUpload-Certificate.ps1` earlier.
 
-        ```
-        $password = Read-Host -AsSecureString
-        Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
-        ```
+    ```powershell
+    $password = Read-Host -AsSecureString
+    Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
+    ```
 
 2.	Run the certificate manager:
 

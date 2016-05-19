@@ -18,7 +18,7 @@
 	ms.date="05/05/2016"
 	ms.author="genli"/>
 
-# How to change the credit card that you use to pay for an Azure bill
+# How to change the credit card used to pay for an Azure subscription
 
 You may sometimes need to update details of the credit card in your account information, or change the card used to pay your bill.
 

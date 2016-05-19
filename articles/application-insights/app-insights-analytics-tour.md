@@ -34,10 +34,10 @@ Let's take a walk through some basic queries to get you started.
 
 Open Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights:
 
-![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
+![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-tour/001.png)
 
 	
-## [Take](app-insights-analytics-aggregations.md#take): show me n rows
+## [Take](app-insights-analytics-reference.md#take-operator): show me n rows
 
 Data points that log user operations (typically HTTP requests received by your web app) are stored in a table called `requests`. Each row is a telemetry data point received from the Application Insights SDK in your app.
 
@@ -59,7 +59,7 @@ Expand any item to see the detail:
 
 > [AZURE.NOTE] Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Be aware that sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the `top` or `sort` operator. 
 
-## [Top](app-insights-analytics-aggregations.md#top) and [sort](app-insights-analytics-aggregations.md#sort)
+## [Top](app-insights-analytics-reference.md#top-operator) and [sort](app-insights-analytics-reference.md#sort-operator)
 
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
 
@@ -87,9 +87,9 @@ The result would be the same, but it would run a bit more slowly. (You could als
 The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
 
 
-## [Project](app-insights-analytics-aggregations.md#project): select, rename and compute columns
+## [Project](app-insights-analytics-reference.md#project-operator): select, rename and compute columns
 
-Use [`project`](app-insights-analytics-aggregations.md#project) to pick out just the columns you want:
+Use [`project`](app-insights-analytics-reference.md#project-operator) to pick out just the columns you want:
 
 ```AIQL
 
@@ -120,13 +120,13 @@ In the scalar expression:
 * `1d` (that's a digit one, then a 'd') is a timespan literal meaning one day. Here are some more timespan literals: `12h`, `30m`, `10s`, `0.01s`.
 * `floor` (alias `bin`) rounds a value down to the nearest multiple of the base value you provide. So `floor(aTime, 1s)` rounds a time down to the nearest second.
 
-[Expressions](app-insights-analytics-scalars.md) can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
+[Expressions](app-insights-analytics-reference.md#scalars) can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
 
     
 
-## [Extend](app-insights-analytics-aggregations.md#extend): compute columns
+## [Extend](app-insights-analytics-reference.md#extend-operator): compute columns
 
-If you just want to add columns to the existing ones, use [`extend`](app-insights-analytics-aggregations.md#extend):
+If you just want to add columns to the existing ones, use [`extend`](app-insights-analytics-reference.md#extend-operator):
 
 ```AIQL
 
@@ -135,7 +135,7 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Using [`extend`](app-insights-analytics-aggregations.md#extend) is less verbose than [`project`](app-insights-analytics-aggregations.md#project) if you want to keep all the existing columns.
+Using [`extend`](app-insights-analytics-reference.md#extend-operator) is less verbose than [`project`](app-insights-analytics-reference.md#project-operator) if you want to keep all the existing columns.
 
 
 ## Accessing nested objects
@@ -181,7 +181,7 @@ To extract these values in Analytics:
 > [AZURE.NOTE] In [Metrics Explorer](app-insights-metrics-explorer.md), all custom measurements attached to any type of telemetry appear together in the metrics blade along with metrics sent using `TrackMetric()`. But in Analytics, custom measurements are still attached to whichever type of telemetry they were carried on, and metrics appear in their own `metrics` stream.
 
 
-## [Summarize](app-insights-analytics-aggregations.md#summarize): aggregate groups of rows
+## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregate groups of rows
 
 `Summarize` applies a specified *aggregation function* over groups of rows. 
 
@@ -219,7 +219,7 @@ Notice that you can use `name=` to set the name of a result column, either in th
 There's also a `count()` aggregation (and a count operation), for cases where you really do want to count the number of rows in a group.
 
 
-There's a range of [aggregation functions](app-insights-analytics-aggregations.md).
+There's a range of [aggregation functions](app-insights-analytics-reference.md#aggregations).
 
 
 ## Charting the results
@@ -245,7 +245,7 @@ We can do better than the table view. Let's look at the results in the chart vie
 Notice that although we didn't sort the results by time (as you can see in the table display), the chart display always shows datetimes in correct order.
 
 
-## [Where](app-insights-analytics-aggregations.md#where): filtering on a condition
+## [Where](app-insights-analytics-reference.md#where-operator): filtering on a condition
 
 If you've set up Application Insights monitoring for both the [client](app-insights-javascript.md) and server sides of your app, some of the telemetry in the database comes from browsers.
 
@@ -267,7 +267,7 @@ The `where` operator takes a Boolean expression. Here are some key points about 
  * `==`, `<>` : equal and not equal
  * `=~`, `!=` : case-insensitive string equal and not equal. There are lots more string comparison operators.
 
-Read all about [scalar expressions](app-insights-analytics-scalars.md).
+Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
 
 ### Filtering events
 
@@ -279,7 +279,7 @@ Find unsuccessful requests:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` has type string, so we must [cast it](app-insights-analytics-scalars.md#casts) for a numeric comparison.
+`responseCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
 
 Summarize the different responses:
 
@@ -388,7 +388,7 @@ The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the 
 
 
 
-## [Percentiles](app-insights-analytics-aggregations.md#percentiles)
+## [Percentiles](app-insights-analytics-reference.md#percentiles)
 
 What ranges of durations cover different percentages of sessions?
 
@@ -434,7 +434,7 @@ To get a separate breakdown for each country, we just have to bring the client_C
 ![](./media/app-insights-analytics-tour/190.png)
 
 
-## [Join](app-insights-analytics-aggregations.md#join)
+## [Join](app-insights-analytics-reference.md#join)
 
 We have access to several tables, including requests and exceptions.
 
@@ -454,7 +454,7 @@ In the same clauses, we rename the timestamp column.
 
 
 
-## [Let](app-insights-analytics-aggregations.md#let): Assign a result to a variable
+## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
 
 Use [let](./app-insights-analytics-syntax.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
 
