@@ -18,12 +18,13 @@
 
 # How to troubleshoot Azure Redis Cache
 
-This article provides guidance for troubleshooting Azure Redis Cache issues. It is divided into the following categories.
+This article provides guidance for troubleshooting the following categories of Azure Redis Cache issues.
 
--	[StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions) provides information on troubleshooting issues when using the StackExchange.Redis client
--	[Client side troubleshooting](#client-side-troubleshooting) provides steps for identifying and resolving issues caused by cache client side issues
--	[Server side troubleshooting](#server-side-troubleshooting) provides steps for identifying and resolving issues caused by cache server side issues
+-	[StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions) - This section provides information on troubleshooting issues when using the StackExchange.Redis client.
+-	[Client side troubleshooting](#client-side-troubleshooting) - This section provides steps for identifying and resolving issues caused by cache client side issues. This section applies to all cache clients.
+-	[Server side troubleshooting](#server-side-troubleshooting) - This section provides steps for identifying and resolving issues caused by cache server side issues.
 
+>[AZURE.NOTE] Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) sections.
 
 ## StackExchange.Redis timeout exceptions
 
@@ -70,9 +71,9 @@ This error message contains error codes that can help point you to the cause and
 
 2. Ensure that your Azure Redis Cache and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you are debugging from your local development machine. 
 
-    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000 ms interval by including a `synctimeout` property in the connection string. The following example shows a StackExchange.Redis cache connection string with a `synctimeout` of 2000 ms.
+    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000 ms interval by including a `synctimeout` property in the connection string. The following example shows a StackExchange.Redis cache connection string snippet with a `synctimeout` of 2000 ms.
 
-    `synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...`
+    `synctimeout=2000,cachename.redis.cache.windows.net,...`
 
 3. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
 
@@ -293,3 +294,9 @@ If you are consistently near the observed maximum bandwidth for your pricing tie
 `Resolution:` coming soon... 
 
 
+## Additional information
+
+-	[What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+-	[How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-	[How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
+-	[How to monitor Azure Redis Cache](cache-how-to-monitor.md)
