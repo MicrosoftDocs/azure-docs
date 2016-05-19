@@ -117,14 +117,14 @@ A channel supports up to three concurrently running programs so you can create m
 
 ##Billing Implications
 
-A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.  
+A channel begins billing as soon as it's state transitions to "Running" via the API.  
 
 The following table shows how Channel states map to billing states in the API and Azure Classic Portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure Classic Portal, billing will be active.
 
 To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure Classic Portal.
-You are responsible for stopping your channels when you are done with the live encoding channel.  Failure to stop an encoding channel will result in continued billing.
+You are responsible for stopping your channels when you are done with the channel. Failure to stop the channel will result in continued billing.
 
-AMS will auto shutoff the Channels after 12 hours if input feeds are lost. However, you will still be billed for up to 12 hours of if you don't move the Channel to Stopped state. 
+When working with Standard Channels, AMS will auto shutoff the Channels after 12 hours if input feeds are lost. However, you will still be billed for up to 12 hours of if you don't move the Channel to Stopped state. 
 
 ###<a id="states"></a>Channel states and how they map to the billing mode 
 
