@@ -56,7 +56,7 @@ After you connect to your logical server, you can connect to a database and run 
 
 4. Click the **Execute** button.  The following screen shot shows a successful query.
 
-	![Sucess. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
+	![Success. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Next steps
 

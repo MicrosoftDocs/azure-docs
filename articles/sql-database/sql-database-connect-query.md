@@ -89,9 +89,30 @@ If you need to install Visual Studio, you can:
 11. In the **SQL Server Object Explorer**, expand the node for your database.
 
 
+## Step 2:  Run sample queries
 
+After you connect to your logical server, you can connect to a database and run a sample query. 
 
-## next Steps
+1. In **Object Explorer**, navigate to a databbase on the server to which you have permission, such as the **AdventureWorks** sample database.
+2. Right-click the database and then select **New Query**.
+
+	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+
+3. In the query window, copy and paste the following code.
+
+		SELECT
+		CustomerId
+		,Title
+		,FirstName
+		,LastName
+		,CompanyName
+		FROM SalesLT.Customer;
+
+4. Click the **Execute** button.  The following screen shot shows a successful query.
+
+	![Success. Connect to SQL Database server: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+
+## Next Steps
 
 [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md) 
 
@@ -100,8 +121,3 @@ If you need to install Visual Studio, you can:
 
 [20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 
-[30-VSNewProject]: ./media/sql-database-connect-query/connqry-vs-new-project-f.png
-
-[40-VSProgramCsOverlay]: ./media/sql-database-connect-query/connqry-vs-program-cs-overlay-g.png
-
-[50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
