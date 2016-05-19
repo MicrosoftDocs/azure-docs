@@ -18,13 +18,11 @@
 
 # How to troubleshoot Azure Redis Cache
 
--	Convert the Blog post: https://azure.microsoft.com/en-us/blog/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/
--	https://gist.github.com/JonCole/db0e90bedeb3fc4823c2
--	https://gist.github.com/JonCole/9225f783a40564c9879d
--	Copy the ones from FAQ
--	Include tools that a customer can run such as slowlog/ monitor.
--	Goal: Make it readable and actionable.
+This article provides guidance for troubleshooting Azure Redis Cache issues. It is divided into the following categories.
 
+-	[StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions) provides information on troubleshooting issues when using the StackExchange.Redis client
+-	[Client side troubleshooting](#client-side-troubleshooting) provides steps for identifying and resolving issues caused by cache client side issues
+-	[Server side troubleshooting](#server-side-troubleshooting) provides steps for identifying and resolving issues caused by cache server side issues
 
 
 ## StackExchange.Redis timeout exceptions
@@ -33,7 +31,8 @@ StackExchange.Redis uses a configuration setting named `synctimeout` for synchro
 
 	System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
 
-The following table contains details about the error codes.
+
+This error message contains error codes that can help point you to the cause and possible resolution of the issue. The following table contains details about the error codes.
 
 | Error code | Details                                                                                                                                                                                                                                          |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -52,24 +51,28 @@ The following table contains details about the error codes.
 1. As a best practice make sure you are using the following pattern to connect using the StackExhange Redis client.
 
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+	    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	    {
+	        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+	
+	    });
+	
+	    public static ConnectionMultiplexer Connection
+	    {
+	        get
+	        {
+	            return lazyConnection.Value;
+	        }
+	    }
 
-    });
 
-    public static ConnectionMultiplexer Connection
-    {
-        get
-        {
-            return lazyConnection.Value;
-        }
-    }
-
+    For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 
 2. Ensure that your Azure Redis Cache and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you are debugging from your local development machine. 
 
-    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000 ms interval.
+    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000 ms interval by including a `synctimeout` property in the connection string. The following example shows a StackExchange.Redis cache connection string with a `synctimeout` of 2000 ms.
+
+    `synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...`
 
 3. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
 
