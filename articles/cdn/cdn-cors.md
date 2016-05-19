@@ -28,12 +28,12 @@ CORS (Cross Origin Resource Sharing) is an HTTP feature that enables a web appli
     `Origin: https://www.contoso.com`
  
 2.	The server may respond with the following:
-    - An **Access-Control-Allow-Origin** (ACAO) header in its response indicating which origin sites are allowed. For example:
+    - An **Access-Control-Allow-Origin** header in its response indicating which origin sites are allowed. For example:
         
         `Access-Control-Allow-Origin: https://www.contoso.com`
         
     - An error page if the server does not allow the cross-origin request
-    - An **Access-Control-Allow-Origin** (ACAO) header with a wildcard that allows all domains:
+    - An **Access-Control-Allow-Origin** header with a wildcard that allows all domains:
         
         `Access-Control-Allow-Origin: *`
  
@@ -51,7 +51,7 @@ If you need to allow a specific list of origins to be allowed for CORS, things g
  
 ### Azure CDN Premium from Verizon
 
-The best way to enable this is with Azure CDN is to use **Azure CDN Premium from Verizon**, which exposes some advanced functionality. 
+The best way to enable this is to use **Azure CDN Premium from Verizon**, which exposes some advanced functionality. 
  
 You'll need to [create a rule](cdn-rules-engine.md) to check the **Origin** header on the request.  If it's a valid origin, your rule will set the **Access-Control-Allow-Origin** header with the origin provided in the request.  If the origin specified in the **Origin** header is not allowed, your rule should omit the **Access-Control-Allow-Origin** header which will cause the browser to reject the request. 
  
