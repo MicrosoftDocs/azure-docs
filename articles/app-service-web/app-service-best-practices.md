@@ -22,8 +22,8 @@ This article summarizes best practices for using [Azure App Service](http://go.m
 
 ## <a name="colocation"></a>Colocation
 When Azure resources composing a solution such as a web app and a database are located in different regions the effects can include the following:  
-* increased latency in communication between resources
-* monetary charges for outbound data transfer cross-region as noted on the [Azure pricing page](https://azure.microsoft.com/pricing/details/data-transfers).
+* Increased latency in communication between resources
+* Monetary charges for outbound data transfer cross-region as noted on the [Azure pricing page](https://azure.microsoft.com/pricing/details/data-transfers).
 
 Colocation in the same region is best for Azure resources composing a solution such as a web app and a database or storage account used to hold content or data. When creating resources you should make sure they are in the same Azure region unless you have specific business or design reason for them not to be. You can move an App Service app to the same region as your database by leveraging the [App Service cloning feature](app-service-web-app-cloning-portal.md) currently available for Premium App Service Plan apps.   
 
