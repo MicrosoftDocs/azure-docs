@@ -233,5 +233,4 @@ Note the following:
 -	If it’s a hybrid copy (copy between on-premises and cloud data stores) with ORC format involved, you need to install JRE (Java Runtime Environment) on the gateway machine. 
 -	Complex data types are not supported (STRUCT, MAP, LIST, UNION)
 
-#### Compression
 ORC file has 3 [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of the above compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB which is the default for ORC. There is no option to override this behavior at this time. 
