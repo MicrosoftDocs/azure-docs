@@ -241,7 +241,7 @@ This section discusses troubleshooting issues that occur because of a condition 
 Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk. This *page faulting* causes the system to slow down significantly. There are several possible causes of this memory pressure: 
 
 1.	You have filled the cache to full capacity with data. 
-2.	Redis is seeing high memory fragmentation - most often caused by storing large objects (Redis is optimized for a small objects - [See here](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details). 
+2.	Redis is seeing high memory fragmentation - most often caused by storing large objects (Redis is optimized for a small objects - See the [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details). 
 
 #### Measurement
 
