@@ -203,7 +203,7 @@ allow UserB to access a storage account for a limited time with certain permissi
 
 	![][14]
  
-1. A second **Shared Access Signature** dialog will appear displaying the SAS. Tap **Copy** next to the **Connection String** to copy the SAS URI to the clipboard. Tap **Close** to dismiss the dialog.
+1. A second **Shared Access Signature** dialog will appear displaying the SAS. Tap **Copy** next to the **Connection String** to copy it to the clipboard. Tap **Close** to dismiss the dialog.
 
 ### Attach to the shared account using the SAS
 
@@ -226,7 +226,7 @@ Once attached, the storage account will be displayed with the text (SAS) appende
 ## Attach service using SAS
 
 The section [Attach account using SAS](#attach-account-using-sas) illustrates how 
-an Azure subscription admin can grant temporary access to a storage account by generating (and sharing) a SAS URI for the storage account. Similarly, a SAS URI can be generated for a specific service (blob container, queue, or table) within a storage account.  
+an Azure subscription admin can grant temporary access to a storage account by generating (and sharing) a SAS for the storage account. Similarly, a SAS can be generated for a specific service (blob container, queue, or table) within a storage account.  
 
 ### Generate a SAS for the service you want to share
 
