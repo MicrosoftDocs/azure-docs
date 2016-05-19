@@ -112,7 +112,7 @@ A Remote Desktop Gateway is a policy-based RDP proxy service that enforces secur
 - Configure a [client connection authorization policy](http://technet.microsoft.com/library/cc753324.aspx) to let the RD Gateway verify that the client machine name is valid (domain joined) and allowed to access the Azure management portal.
 - Use IPsec for [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) to further protect management traffic from eavesdropping and token theft, or consider an isolated Internet link via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 - Enable multi-factor authentication (via [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)) or smart-card authentication for administrators who log on through RD Gateway.
-- Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](virtual-network/virtual-networks-nsg.md) in Azure to minimize the number of permitted management endpoints.
+- Configure source [IP address restrictions](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) or [Network Security Groups](../virtual-network/virtual-networks-nsg.md) in Azure to minimize the number of permitted management endpoints.
 
 ## Security guidelines
 
