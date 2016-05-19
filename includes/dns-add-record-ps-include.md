@@ -12,7 +12,7 @@
 
 ### Create an MX record set with a single record
 
-In this example, we use the record set name "@" to create the MX record at the zone apex (in this case, "contoso.com"). This is common for MX records.
+In this example, we use the record set name "@" to create an MX record at the zone apex (in this case, "contoso.com"). This is common for MX records.
 
 	$rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5

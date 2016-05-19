@@ -1,6 +1,6 @@
 #### Create an A record set with single record
 
-To create a record set, use `azure network dns record-set create`. Specify the resource group, zone name, record set relative name, record type and time to live (TTL).
+To create a record set, use `azure network dns record-set create`. Specify the resource group, zone name, record set relative name, record type, and time to live (TTL).
 
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
