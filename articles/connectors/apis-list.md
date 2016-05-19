@@ -27,7 +27,7 @@ For pricing information and a list of what is included with each Service Tier, s
 
 Select an icon to learn how to quickly leverage these connectors to build  apps that call these services. These connectors can be used to build logic apps, PowerApps and Flows.
 
-|Managed connectors||||
+|Connectors||||
 |-----------|-----------|-----------|-----------|
 |[![API Icon][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API Icon][bingsearchicon]<br/>**Bing Search**][bingsearchdoc]|[![API Icon][boxicon]<br/>**Box**][boxDoc]|[![API Icon][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
 |[![API Icon][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][facebookicon]<br/>**Facebook**][facebookdoc]|[![API Icon][ftpicon]<br/>**FTP**][ftpdoc]|[![API Icon][githubicon]<br/>**GitHub**][githubdoc]|
