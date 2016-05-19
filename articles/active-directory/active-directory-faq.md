@@ -18,10 +18,8 @@
 
 # Azure Active Directory FAQ
 
-Azure Active Directory (Azure AD) is a comprehensive cloud-based set of identity and access management capabilities that provides you with Identity as a Service (IDaaS).
-As an IDaaS provider, Azure AD enables you control "*who is allowed to do what*" in your computer network.  
+Azure Active Directory is a comprehensive Identity as a Service (IDaaS) solution that spans all aspects of identity, access management, and security.
 
-Additionally, Azure AD provides you with Single Sign-On (SSO) to your applications. With SSO, you can significantly improve the sign-on experience of your users.  
 
 For more details, see [What is Azure Active Directory?](active-directory-whatis.md).
 
@@ -69,8 +67,8 @@ If you have an Office 365 subscription, you also already have an Azure AD runnin
 For a complete list of these features, see [Common Features](active-directory-editions.md/#common-features).
 
 
+## Getting started with Hybrid Azure AD
 
----
 
 **Q: How can I connect my on-premises directory to Azure AD?**
 
@@ -138,7 +136,7 @@ For more answers to password related questions, see [Password Management Frequen
 
 **Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**
 
-**A:** Azure AD has over 2600 pre-integrated applications from Microsoft, application service providers, or partners. 
+**A:** Azure AD has over 2600 pre-integrated applications from Microsoft, application service providers, or partners. All pre-integrated applications support SSO. SSO enables you to use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning
 
 For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
@@ -147,7 +145,7 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 **Q: What if the application I need is not in the Azure AD marketplace?**
 
-**A:** With Azure AD Premium, you can add and configure any application you want. Additionally, you can configure, depending on your application’s capabilities and your preferences, SSO and automated provisioning.  
+**A:** With Azure AD Premium, you can add and configure any application you want. Additionally, depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
 
 For more details, see:
 
