@@ -32,10 +32,10 @@ storage accounts and resources.
 
 Storage Explorer (Preview) allows you to connect to Azure storage accounts - or individual services such as a blob container, queue, or table - associated with your Azure subscription(s). In addition, you can attach to Azure storage accounts shared from another Azure subscription using either the subscription's credentials - account name and key - or a SAS (Shared Access Signature) provided by the Azure subscription owner.
 
-- [Connect to an Azure subscription](#connect-to-an-azure-account)
+- [Connect to an Azure subscription](#connect-to-an-azure-subscription)
 - [Attach to external storage](#attach-or-detach-an-external-storage-account)
-- [Attach Service using SAS]
-- [Attach Account using SAS]
+- [Attach account using SAS](#attach-account-using-sas)
+- [Attach service using SAS]
 
 ## Connect to an Azure subscription
 
@@ -181,13 +181,58 @@ select **Detach**.
 
 	![][12]
 
+## Attach account using SAS
+
+A SAS (Shared Access Signature) gives the admin of an Azure subscription the ability to
+grant access to a storage account on a temporary basis without having to provide their Azure
+subscription credentials. 
+
+The process is simple. Let's say PersonA is an admin of an Azure subscription. PersonA wants to 
+allow PersonB to access one of  
+
+1. The Azure subscription admin generates a SAS URI consisting of the connection string for the storage account.
+1. The Azure subscription admin shares the SAS with the person wanting access to the storage account.  
+1. The person wanting access 
+
+
+
+ +
+ +- Get the SAS URI for the account you want to access
+ +
+ +	- In Storage Explorer (Preview), tap the Storage Account you want to attach
+ +	- In the **Actions** pane, tap **Get Shared Access Signature**.
+ +	
+ +		![][12]
+ +
+ +	- On the **Shared Access Signature** dialog, specify the timeframe and/or permissions you want for the account, and tap **Create**.
+ +	
+ +		![][13]
+ +
+ +	- Copy the **Connection String** for later use.
+ +	
+ +	- Tap **Close** to dismiss the dialog.
+ +
+ +- In Storage Explorer (Preview), tap **Storage Accounts**
+ +
+ +- In the **Actions** pane, tap **Attach Account using SAS**.
+ +
+ +	![][14]
+ +
+ +- On the **Attach Account using SAS** dialog:
+ +	- **Account Name** - Enter the name that you want to associated with this account. 
+ +	- **Connection String** - Paste the connection string you copied earlier.
+ +	- Tap **OK** when done.
+ +
+ +		![][15]
+ +
+ +Once attached, the SAS Storage Account will be displayed with the text (SAS) appended to the storage account name.
+
 ## Search for storage accounts
 
-If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box. 
+If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box at the top of the left pane. 
 
 As you are typing into the search box, the left pane will display only the storage accounts that match the 
-search value you've entered up to that point. The following screen shot illustrates an example where I've searched for all
-storage accounts where the storage account name contains the text "tarcher".
+search value you've entered up to that point. The following screen shot illustrates an example where I've searched for all storage accounts where the storage account name contains the text "tarcher".
 
 ![][11]
 	
