@@ -28,7 +28,7 @@ Microsoft Azure Storage Explorer (Preview) is a standalone tool that enables you
 
 ## Connect to a storage account or service
 
-Storage Explorer (Preview) allows you to connect to your own Azure storage accounts as well as storage accounts and services shared from other Azure subscriptions:
+Storage Explorer (Preview) provides a myriad ways to connect to storage accounts. This includes connecting to storage accounts associated with your Azure subscriptions, connecting to storage accounts and services shared from other Azure subscriptions, and even connecting to and managing local storage using the Azure Storage Emulator:
 
 - [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscription.
 - [Connect to local storage](#connect-to-local-storage) - Manage local storage using the Azure Storage Emulator. 
