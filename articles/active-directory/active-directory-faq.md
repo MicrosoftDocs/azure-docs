@@ -167,7 +167,7 @@ For more details, see:
 
 - Deep links to federated, password-based, or existing apps
 
-For more information, see [Deploying Azure AD integrated applications to users](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users).
+For more information, see [Deploying Azure AD integrated applications to users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
 
 
 ---
@@ -180,7 +180,7 @@ For more information, see:
 
 - [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
 
-- [Active Directory Authentication Protocols](https://msdn.microsoft.com/en-us/library/azure/dn151124.aspx)
+- [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
 - [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
