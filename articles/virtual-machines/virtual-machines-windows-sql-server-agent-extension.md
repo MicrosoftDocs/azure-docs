@@ -41,12 +41,15 @@ The SQL Server IaaS Agent Extension supports the following administration tasks:
 
 Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
-- Windows Server 2012, Windows Server 2012 R2, or later.
-- SQL Server 2012, SQL Server 2014, or later.
-
-Requirements for using Powershell cmdlets:
-
-- Latest Azure PowerShell [available here](../powershell-install-configure.md).
+- **Operating System**:
+	- Windows Server 2012
+	- Windows Server 2012 R2
+- **SQL Server versions**:
+	- SQL Server 2012
+	- SQL Server 2014
+	- SQL Server 2016
+- **Azure PowerShell**:
+	- [Download and configure the latest Azure PowerShell commands](../powershell-install-configure.md)
 
 ## Installation
 

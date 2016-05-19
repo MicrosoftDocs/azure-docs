@@ -40,6 +40,10 @@ To use Automated Backup, consider the following prerequisites:
 	- SQL Server 2016 Enterprise
 - **Database configuration**:
 	- Target databases must use the full recovery model
+- **Azure PowerShell**:
+	- [Install the latest Azure PowerShell commands](../powershell-install-configure.md) if you plan to configure Automated Backup with PowerShell.
+
+>[AZURE.NOTE] Automated Backup relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## Automated Backup settings
 
@@ -55,9 +59,7 @@ The following table describes the options that can be configured for Automated B
 
 ## Configure Automated Backup in the Azure portal
 
-You can use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine.
-
->[AZURE.NOTE] Automated Backup relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+You can use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the classic deployment model.
 
 The following Azure portal screenshot shows these options under **OPTIONAL CONFIGURATION** | **SQL AUTOMATED BACKUP**.
 
@@ -67,7 +69,7 @@ For existing SQL Server 2014 virtual machines, select the **Auto backup** settin
 
 ![Automated Backup Configuration in Azure portal](./media/virtual-machines-windows-classic-sql-automated-backup/IC792133.jpg)
 
->[AZURE.NOTE] When you enable Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal will not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
+>[AZURE.NOTE] When you enable Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
 
 ## Configure Automated Backup with PowerShell
 

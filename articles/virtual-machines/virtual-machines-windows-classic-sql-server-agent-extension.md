@@ -41,21 +41,25 @@ The SQL Server IaaS Agent Extension supports the following administration tasks:
 
 Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
-- Azure VM Guest Agent (BGInfo extension automatically installed on new Azure VMs).
-- Windows Server 2012, Windows Server 2012 R2, or later.
-- SQL Server 2012, SQL Server 2014, or later.
-
-Requirements for using Powershell cmdlets:
-
-- Latest Azure PowerShell [available here](../powershell-install-configure.md).
+- **Operating System**:
+	- Windows Server 2012
+	- Windows Server 2012 R2
+- **SQL Server versions**:
+	- SQL Server 2012
+	- SQL Server 2014
+	- SQL Server 2016
+- **Azure PowerShell**:
+	- [Download and configure the latest Azure PowerShell commands](../powershell-install-configure.md)
+- **Virtual machine guest agent**:
+	- The BGInfo extension is automatically installed on new Azure VMs.
 
 ## Installation
 
 The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images.
 
-If you create an OS-only Windows Server virtual machine, you can install the extension manually by using the **Set-AzureVMSqlServerExtension** PowerShell cmdlet. Use the command to configure one of the agent's services, such as Automated Patching. The VM installs the agent if it is not installed.
+If you create an OS-only Windows Server virtual machine, you can install the extension manually by using the **Set-AzureVMSqlServerExtension** PowerShell cmdlet. Use the command to configure one of the agent's services, such as Automated Patching. The VM installs the agent if it is not installed. For instructions on using the **Set-AzureVMSqlServerExtension** PowerShell, see the individual topics in the [Supported services](#supported-services) section of this article.
 
->[AZURE.NOTE] For instructions on using the **Set-AzureVMSqlServerExtension** PowerShell, see the individual topics in the [Supported services](#supported-services) section of this article.
+>[AZURE.NOTE] If you install the SQL Server IaaS Agent Extension manually on a VM, you must use and manage its features using PowerShell commands. The portal interface is not available in this scenario.
 
 ## Status
 
