@@ -104,7 +104,7 @@ For more information, see the [Introduction to the Access Panel](active-director
 
 For more details, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](active-directory-aadconnect-health.md).  
 
-
+---
 
 ## Password management
 
@@ -129,7 +129,7 @@ For more details, see [Getting started with Password Management](active-director
 
 For more answers to password related questions, see [Password Management Frequently Asked Questions](active-directory-passwords-faq.md).
 
-
+---
 
 ## Application access
 
