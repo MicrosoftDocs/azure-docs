@@ -190,4 +190,4 @@ Configuration files provide the quickest way to setup a virtual network in an al
   2. Use exported virtual network settings to recreate it in another region
  
 ##Next steps
-This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bctechguide). The next article in this series focuses on [recovery from an on-premises datacenter to Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md). 
+This article is part of a series focused on Azure [resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series focuses on [recovery from an on-premises datacenter to Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md). 

@@ -39,7 +39,7 @@ Applications can have bugs which corrupt data and operators can incorrectly dele
 ###[Azure business continuity technical guidance](./resiliency-technical-guidance.md)
 A details listing of concepts and best practices for achieving business continuity and resiliency with Microsoft Azure for your on-premises, hybrid, and public cloud applications.
 
-###[Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide)
+###[Disaster Recovery and High Availability for Azure Applications](./resiliency-disaster-recovery-high-availability-azure-applications.md)
 A detailed overview of availability and disaster recovery. It covers the challenge of manual replication for reference and transactional data. The final sections provide summaries of different types of disaster recovery topologies that span Azure regions for the highest level of availability.
 
 ###[Business Continuity in Azure SQL Database](../sql-database/sql-database-business-continuity.md)
@@ -58,4 +58,4 @@ Technical guidance on how to backup and restore Microsoft SQL Server running on 
 Guidance for building resilient cloud architectures, guidance for implementing those architectures on Microsoft technologies, and recipes for implementing these architectures for specific scenarios.
 
 ##Next steps
-This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bctechguide). If you are interested in reading other articles in this series; please start with the next article titled [Recovery from local failures](./resiliency-technical-guidance-recovery-local-failures.md).
+This article is part of a series focused on Azure [resiliency technical guidance](./resiliency-technical-guidance.md). If you are interested in reading other articles in this series; please start with the next article titled [Recovery from local failures](./resiliency-technical-guidance-recovery-local-failures.md).

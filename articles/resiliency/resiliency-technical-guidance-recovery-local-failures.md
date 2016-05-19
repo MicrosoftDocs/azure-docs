@@ -175,4 +175,4 @@ The data associated with HDInsight is stored by default in Azure Blob Storage, w
   2. No additional availability steps required for local failures
  
 ##Next steps
-This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bctechguide). The next article in this series focuses on [recovery from a region-wide service disruption](./resiliency-technical-guidance-recovery-loss-azure-region.md).
+This article is part of a series focused on Azure [resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series focuses on [recovery from a region-wide service disruption](./resiliency-technical-guidance-recovery-loss-azure-region.md).
