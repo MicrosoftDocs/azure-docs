@@ -16,10 +16,9 @@
    ms.date="05/13/2016"
    ms.author="patw;jroth;aglick"/>
 
-#Azure Resiliency Technical Guidance - Index
+#Azure Resiliency Technical Guidance
 
 ##Introduction
-
 Meeting high availability and disaster recovery requirements requires two types of knowledge: 1) detailed technical understanding of a cloud platform’s capabilities and 2) how to properly architect a distributed service. This series of articles covers the former - the capabilities and limitations of the Azure platform with respect to Resiliency (sometimes refered to as Business Continuity). If you are interested in the later, please see the article series focused on [Disaster recovery and high availability for Azure applications](https://aka.ms/drtechguide). While this article series touches on architecture and design patterns, that is not the core focus of this series. The reader should consult the material in the [additional resources](#additional-resources) section for design guidance.
 
 The information is organized into the following articles:
@@ -62,4 +61,4 @@ Focuses on developing highly scalable cloud architectures. Many of the technique
 Technical guidance on how to backup and restore Microsoft SQL Server running on Azure Virtual Machines.
 
 ##Next steps
-This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bcdrtechguide). If you are interested in reading other articles in this series; please start with the [introduction](https://aka.ms/bcdrtechguide) which has links to all articles in the series.
+This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bcdrtechguide). If you are interested in reading other articles in this series; please start with the next article titled [Recovery from local failures](./resiliency-technical-guidance-recovery-local-failures.md).
