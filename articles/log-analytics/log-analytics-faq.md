@@ -13,23 +13,37 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/19/2016"
 	ms.author="banders"/>
 
 # Log Analytics FAQ
 
 This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Operations Management Suite (OMS). If you have any additional questions about Log Analytics, please go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
 
+## General
 
+**Q. What checks are performed by the AD and SQL Assessment solutions?**
+A. The following query shows a description of all checks currently performed:
+
+```
+(Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) RecommendationPeriod=2016-01 IsRollup=true | select RecommendationId, FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
+```
+
+The results can then be exported to Excel for further review.
+
+**Q: Why do I see something different than *OMS* in SCOM Administration?**
+A: Depending on what Update Rollup of SCOM you are in, you may see a node for *System Center Advisor*, *Operational Insights*, or *Log Analytics*.
+
+The text string update to *OMS* is included in a management pack, which needs to be imported manually. Follow the instructions on the latest SCOM Update Rollup KB article and refresh the OMS console to see the latest updates in the *OMS* node.
+
+**Q: Is there an *on prem* version of OMS?**
+A: No. Log Analytics processes and stores very large amounts of data. As a cloud service, Log Analytics is able to scale-up if necessary and avoid any performance impact to your environment.
+
+Because Log Analytics is a cloud service, it is frequently updated with new features and fixes.
+
+## Configuration
 **Q. Can I change the name of the table/blob container used to read from WAD Diagnostics?**  
 A.	No, this is not currently possible, but is planned for a future release.
-
-**Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?**  
-A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service OMS log analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
-
-The OMS agent was designed to ensure it has a small footprint and does some basic data compression. One of our customers actually wrote a blog on the tests they performed against our agent and how impressed they were. The data volume will vary based on the solutions your customers enables. You can find detailed information on the data volume and see the breakup by solution under the **Usage** tile in the OMS overview page.
-
-For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) about the low footprint of the OMS agent.
 
 **Q. What IP addresses do the OMS services use? How do I ensure that my firewall only allows traffic to the OMS Services?**  
 A. The Log Analytics service is built on top of Azure and the endpoints receive IPs that are in the [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653).
@@ -46,6 +60,31 @@ Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 A. The `Move-AzureRmResource` cmdlet will let you move an OMS workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
 
 You can’t move data from one OMS workspace to another, or change the region that Log Analytics data is stored in.
+
+**Q: How do I add OMS to SCOM?**
+A:  Updating to the latest update rollup and importing management packs will enable you to connect SCOM to OMS.
+
+Note that the OMS connection to SCOM is only available for SCOM 2012 SP1 and higher.
+
+**Q: How can I confirm that an agent is able to communicate with OMS?**
+A: To ensure that the agent can communicate with OMS, go to: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
+
+Under the **Azure Log Analytics (OMS)** tab, look for a green check mark. A green check mark icon confirms that the agent is able to communicate with the OMS service.
+
+A yellow warning icon means the agent is having issues communication with OMS. One common reason is the Microsoft Monitoring Agent service has been stopped and needs to be restarted.
+
+**Q: How do I stop an agent from communicating with OMS?**
+A: In SCOM, remove the computer from the OMS managed list. This stops all communication through SCOM for that agent. For agents connected to OMS directly, you can stop them from communicating with OMS through: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
+Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
+
+## Agent data
+
+**Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?**  
+A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service OMS log analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
+
+The OMS agent was designed to ensure it has a small footprint and does some basic data compression. One of our customers actually wrote a blog on the tests they performed against our agent and how impressed they were. The data volume will vary based on the solutions your customers enables. You can find detailed information on the data volume and see the breakup by solution under the **Usage** tile in the OMS overview page.
+
+For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) about the low footprint of the OMS agent.
 
 **Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?**
 A. Bandwidth is a function on the amount of data sent. Data is compressed as it is sent over the network.
@@ -64,41 +103,6 @@ For computers that are able to run the WireData agent, you can see how much data
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
 ```
 
-**Q. What checks are performed by the AD and SQL Assessment solutions?**
-A. The following query shows a description of all checks currently performed:
-
-```
-(Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) RecommendationPeriod=2016-01 IsRollup=true | select RecommendationId, FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
-```
-
-The results can then be exported to Excel for further review.
-
-
-**Q: How do I add OMS to SCOM?**
-A:  Updating to the latest update rollup and importing management packs will enable you to connect SCOM to OMS.
-
-Note that the OMS connection to SCOM is only available for SCOM 2012 SP1 and higher.
-
-**Q: Why do I see something different than *OMS* in SCOM Administration?**
-A: Depending on what Update Rollup of SCOM you are in, you may see a node for *System Center Advisor*, *Operational Insights*, or *Log Analytics*.
-
-The text string update to *OMS* is included in a management pack, which needs to be imported manually. Follow the instructions on the latest SCOM Update Rollup KB article and refresh the OMS console to see the latest updates in the *OMS* node.
-
-**Q: How can I confirm that an agent is able to communicate with OMS?**
-A: To ensure that the agent can communicate with OMS, go to: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
-
-Under the **Azure Log Analytics (OMS)** tab, look for a green check mark. A green check mark icon confirms that the agent is able to communicate with the OMS service.
-
-A yellow warning icon means the agent is having issues communication with OMS. One common reason is the Microsoft Monitoring Agent service has been stopped and needs to be restarted.
-
-**Q: How do I stop an agent from communicating with OMS?**
-A: In SCOM, remove the computer from the OMS managed list. This stops all communication through SCOM for that agent. For agents connected to OMS directly, you can stop them from communicating with OMS through: Control Panel, Security & Settings, **Microsoft Monitoring Agent**.
-Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
-
-**Q: Is there an *on prem* version of OMS?**
-A: No. Log Analytics processes and stores very large amounts of data. As a cloud service, Log Analytics is able to scale-up if necessary and avoid any performance impact to your environment.
-
-Because Log Analytics is a cloud service, it is frequently updated with new features and fixes.
 
 
 ## Next steps

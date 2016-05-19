@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/19/2016"
 	ms.author="banders"/>
 
 
 # Log Analytics search reference
 
-The following reference section about search language describe the general query syntax options you can use when searching for data and filtering expressions to help narrow your search. It also describes commands that you can use to take action on the data retrieved.
+The following reference section about search language describes the general query syntax options you can use when searching for data and filtering expressions to help narrow your search. It also describes commands that you can use to take action on the data retrieved.
 
 You can read about the fields returned in searches and the facets that help you dill-into similar categories of data in the [Search field and facet reference section](#search-field-and-facet-reference).
 
@@ -689,7 +689,7 @@ When you use Log Search to find data, results display various field and facets. 
 |Description|ConfigurationAlert|Alert description (short)|
 |DaysSinceLastUpdate|UpdateAgent|How many days ago (relative to 'TimeGenerated' of this record) did this agent install any update from WSUS/Microsoft Update?|
 |DaysSinceLastUpdateBucket|UpdateAgent|Based on DaysSinceLastUpdate, a categorization in 'time buckets' of how long ago was a computer last installed any update from WSUS/Microsoft Update|
-|AutomaticUpdateEnabled|UpdateAgent|Is automatic update checking enabled or disabled on this agent?v
+|AutomaticUpdateEnabled|UpdateAgent|Is automatic update checking enabled or disabled on this agent?
 |AutomaticUpdateValue|UpdateAgent|Is automatic update checking set to automatically download and install, only download, or only check?|
 |WindowsUpdateAgentVersion|UpdateAgent|Version number of the Microsoft Update agent|
 |WSUSServer|UpdateAgent|Which WSUS server is this update agent targeting?|
