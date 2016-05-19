@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/18/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # Install Update 2.1 on your StorSimple device
@@ -42,7 +42,7 @@ If you are applying Update 2 or later (including Update 2.1), Microsoft will be 
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17704)**. The **Last updated date** should also be modified. 
+12. Verify that your device is running **StorSimple 8000 Series Update 2.1 (6.3.9600.17705)**. The **Last updated date** should also be modified. 
 
 	If you are updating from a version prior to Update 2, you will also see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
 
@@ -78,7 +78,7 @@ The hotfix method involves the following three steps:
 
 #### Download updates for a device running Update 2 software
 
-If your device is running Update 2, you must download and install the following hotfixes in the prescribed order:
+**If your device is running Update 2**, you must download and install the following hotfixes in the prescribed order:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -89,7 +89,7 @@ If your device is running Update 2, you must download and install the following 
 
 #### Download updates for a device running pre-Update 2 software
 
-If your device is running versions 0.2, 0.3, 1.0, and 1.1, you must download and install the LSI driver and firmware update. This update is already installed if you are running Update 1.2 or 2. 
+**If your device is running versions 0.2, 0.3, 1.0, and 1.1**, you must download and install the LSI driver and firmware update. This update is already installed if you are running Update 1.2 or 2. 
  
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -97,7 +97,7 @@ If your device is running versions 0.2, 0.3, 1.0, and 1.1, you must download and
 
 
 <br></br>
-If your device is running versions 0.2, 0.3, 1.0, 1.1, and 1.2, you must download and install the Spaceport and the Storport fix. These are already installed if you are running Update 2.
+**If your device is running versions 0.2, 0.3, 1.0, 1.1, and 1.2**, you must download and install the Spaceport and the Storport fix. These are already installed if you are running Update 2.
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|

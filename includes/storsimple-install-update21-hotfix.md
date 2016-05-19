@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 05/18/16-->
+<!--author=alkohli last changed: 05/19/16-->
 
 #### To download hotfixes
 
@@ -96,9 +96,9 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
 
     You should see the following versions:
 
-    - HcsSoftwareVersion: 6.3.9600.17704
-    - CisAgentVersion: 1.0.9299.0
-    - MdsAgentVersion: 330.0.4698.13
+    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `CisAgentVersion: 1.0.9299.0`
+    - `MdsAgentVersion: 30.0.4698.16` 
 
 	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
 
@@ -185,7 +185,7 @@ To install the disk firmware updates, follow the instructions below.
         -----------------------MAINTENANCE MODE------------------------
     	Microsoft Azure StorSimple Appliance Model 8100
     	Name: Update2-8100-SHG0997879L76YD
-    	Software Version: 6.3.9600.17704
+    	Software Version: 6.3.9600.17705
     	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
     	You are connected to Controller1
     	---------------------------------------------------------------
