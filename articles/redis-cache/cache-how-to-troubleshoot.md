@@ -24,7 +24,7 @@ This article provides guidance for troubleshooting the following categories of A
 -	[Client side troubleshooting](#client-side-troubleshooting) - This section provides steps for identifying and resolving issues caused by cache client side issues. This section applies to all cache clients.
 -	[Server side troubleshooting](#server-side-troubleshooting) - This section provides steps for identifying and resolving issues caused by cache server side issues.
 
->[AZURE.NOTE] Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) sections.
+>[AZURE.NOTE] Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
 
 ## StackExchange.Redis timeout exceptions
 
