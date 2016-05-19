@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="04/21/2016"
+    ms.date="05/19/2016"
     ms.author="andkjell"/>
 
 # Topologies for Azure AD Connect
@@ -21,16 +21,16 @@ The objective of this topic is to describe different on-premises and Azure AD to
 
 Legend for pictures in the document:
 
-| Description | Icon |
-|-----|-----|
-| On-premises Active Directory forest | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
-| Active Directory with filtered import | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
-| Azure AD Connect sync server | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
-|  Azure AD Connect sync server “Staging mode” | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
-| GALSync with FIM2010 or MIM2016 | ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
-| Azure AD Connect sync server, detailed |![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
-| Azure AD directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
-| Unsupported scenario | ![Unsupported](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+Description | Icon
+-----|-----
+On-premises Active Directory forest| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
+Active Directory with filtered import| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
+Azure AD Connect sync server| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync1.png)
+Azure AD Connect sync server “Staging mode”| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync2.png)
+GALSync with FIM2010 or MIM2016| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync3.png)
+Azure AD Connect sync server, detailed| ![Sync](./media/active-directory-aadconnect-topologies/LegendSync4.png)
+Azure AD directory |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
+Unsupported scenario ![Unsupported](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
 ## Single forest, single Azure AD directory
@@ -118,10 +118,10 @@ In this scenario one (or more) **resource forest** trusts all **account forests*
 ## Office 365 and topology considerations
 Some Office 365 workloads have certain restrictions to supported topologies. If you plan to use any of these, then read the supported topologies topic for the workload.
 
-| Workload |  |
-| --------- | --------- |
-| Exchange Online |	If there is more than one Exchange organization on-premises (i.e. Exchange has been deployed to more than one forest) then you must use Exchange 2013 SP1 or later. Details can be found here: [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/en-us/library/jj873754.aspx) |
-| Skype for Business | When using multiple forests on-premises then only the account-resource forest topology is supported. Details for supported topologies can be found here: [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/en-us/library/dn933910.aspx) |
+Workload |
+--------- | ---------
+Exchange Online | If there is more than one Exchange organization on-premises (i.e. Exchange has been deployed to more than one forest) then you must use Exchange 2013 SP1 or later. Details can be found here: [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/en-us/library/jj873754.aspx)
+Skype for Business | When using multiple forests on-premises then only the account-resource forest topology is supported. Details for supported topologies can be found here: [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/en-us/library/dn933910.aspx)
 
 ## Staging server
 ![Staging Server](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -138,9 +138,9 @@ It is possible to have more than one staging server when you want to have multip
 Microsoft recommends having a single directory in Azure AD for an organization.
 Before you plan to use multiple Azure AD directories, these topics cover common scenarios allowing you to use a single directory.
 
-| Topic |  |
-| --------- | --------- |
-| Delegation using administrative units | [Administrative units management in Azure AD ](active-directory-administrative-units-management.md)
+Topic |
+--------- | ---------
+Delegation using administrative units | [Administrative units management in Azure AD ](active-directory-administrative-units-management.md)
 
 ![Multi Forest Multi Directory](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
