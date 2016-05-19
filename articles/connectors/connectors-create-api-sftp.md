@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the SFTP API in your Logic Apps | Microsoft Azure"
-	description="Overview of the SFTP API with REST API parameters"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the SFTP connector  in your Logic Apps | Microsoft Azure"
+    description="Overview of the SFTP connector  with REST API parameters"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the SFTP API
-Connect to an SFTP server to manage your files. You can do different tasks on the SFTP server, such as upload files, delete files, and more. The SFTP API can be used from: 
+# Get started with the SFTP connector 
+Connect to an SFTP server to manage your files. You can do different tasks on the SFTP server, such as upload files, delete files, and more. The SFTP connector  can be used from: 
 
 - Logic apps
 
@@ -34,17 +34,17 @@ To add an operation in logic apps, see [Create a logic app](../app-service-logic
 
 
 ## Triggers and actions
-The SFTP API has the following triggers and actions available.
+The SFTP connector  has the following triggers and actions available.
 
 Triggers | Actions
 --- | ---
 <ul><li>When a file is created or modified </li></ul> | <ul><li>Create file</li><li>Copy file</li><li>Delete file</li><li>Extract folder</li><li>Get file content</li><li>Get file content using path</li><li>Get file metadata</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is created or modified </li></ul>
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 
 ## Create a connection to SFTP
-When you add this API to your logic apps, enter the following values:
+When you add this connector to your logic apps, enter the following values:
 
 |Property| Required|Description|
 | ---|---|---|
