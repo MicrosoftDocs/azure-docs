@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configuring and Using the Storage Emulator with Visual Studio
 
 The Azure SDK development environment includes the storage emulator, a utility that simulates the Blob, Queue, and Table storage services available in Azure on your local development machine. If you are building a cloud service that employs the Azure storage services, or writing any external application that calls the storage services, you can test your code locally against the storage emulator. The Azure Tools for Microsoft Visual Studio integrate management of the storage emulator into Visual Studio. The Azure Tools initialize the storage emulator database on first use, starts the storage emulator service when you run or debug your code from Visual Studio, and provides read-only access to the storage emulator data via the Azure Storage Explorer.
 
-For detailed information on the storage emulator, including system requirements and custom configuration instructions, see [Use the Azure Storage Emulator for Development and Testing](./storage/storage-use-emulator/).
+For detailed information on the storage emulator, including system requirements and custom configuration instructions, see [Use the Azure Storage Emulator for Development and Testing](./storage/storage-use-emulator.md).
 
->[AZURE.NOTE] There are some differences in functionality between the storage emulator simulation and the Azure storage services. See [Differences Between the Storage Emulator and Azure Storage Services](./storage/storage-use-emulator) in the Azure SDK documentation for information on the specific differences.
+>[AZURE.NOTE] There are some differences in functionality between the storage emulator simulation and the Azure storage services. See [Differences Between the Storage Emulator and Azure Storage Services](./storage/storage-use-emulator.md) in the Azure SDK documentation for information on the specific differences.
 
 ## Configuring a connection string for the storage emulator
 

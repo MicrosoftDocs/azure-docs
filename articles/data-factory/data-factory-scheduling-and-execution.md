@@ -671,7 +671,7 @@ Note the following:
 - You do not need to specify **start** and **end** times for the pipeline. 
 - You need to specify availability of input and output datasets (frequency and interval) at this time even though the values are not used by Data Factory.  
 - Diagram view does not show one-time pipelines. This is by design. 
-- One time pipelines cannot updated. You can clone an one-time pipeline, rename it, update properties, and deploy it to create another one. 
+- One time pipelines cannot be updated. You can clone a one-time pipeline, rename it, update properties, and deploy it to create another one. 
 
   
 

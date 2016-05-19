@@ -11,10 +11,10 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="05/04/2016"
 	ms.author="josephd"/>
 
 # Create SharePoint server farms
@@ -42,7 +42,7 @@ The high-availability SharePoint farm consists of nine virtual machines in this 
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
+You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server Always On for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
 
 To create the high-availability (nine-server) SharePoint farm:
 

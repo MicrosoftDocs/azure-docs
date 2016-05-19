@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/25/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma" />
 
 # Application deployment with Azure Batch application packages
@@ -63,6 +63,8 @@ In the next few sections, we'll first cover associating a Storage account with y
 ### Link a Storage account
 
 In order to use application packages, you must first link an Azure Storage account to your Batch account. If you have not yet configured a Storage account for your Batch account, the Azure portal will display a warning the first time you click the *Applications* tile in the Batch account blade.
+
+> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, link *only* a **General purpose** storage account.
 
 ![No storage account configured warning in Azure portal][9]
 

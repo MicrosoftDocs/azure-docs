@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create your first a Windows VM | Microsoft Azure"
+	pageTitle="Create your first Windows VM | Microsoft Azure"
 	description="Learn how to create your first Windows virtual machine using the Azure portal."
 	keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
 	services="virtual-machines-windows"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/28/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 # Create your first Windows virtual machine in the Azure portal
@@ -49,7 +49,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to log on to and manage the VM. 
 
-	The password must be at 8-123 characters long and have at least 3 of the following: one lower case character, one upper case character, one number, and one special character. 
+	The password must be at least 8-123 characters long and have at least 3 of the following: one lower case character, one upper case character, one number, and one special character. 
 
 
 3. Select an existing [Resource group](../resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 

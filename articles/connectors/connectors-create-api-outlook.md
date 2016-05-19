@@ -79,9 +79,11 @@ To create Logic apps with Outlook.com, you must first create a **connection** th
 |Property| Required|Description|
 | ---|---|---|
 |Token|Yes|Provide Outlook.com Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)] 
+
+>[AZURE.TIP] You can use this connection in other logic apps.  
 
 ## Reference for Outlook.com
 Applies to version: 1.0

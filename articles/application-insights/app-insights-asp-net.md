@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/14/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
 
 
@@ -143,15 +143,20 @@ Open your Application Insights resource in the [Azure portal][portal].
 
 If you didn't sign in to Azure when you added the Application Ingsights to this app, do that now. Select **Configure Application Insights**. Doing that will enable you to continue to see telemetry from your live app after you've deployed it. The telemetry will appear in the Application Insights portal.
 
-### Metrics: aggregated data
+### Live Stream
 
-Look for data in the Overview charts. At first, you'll just see one or two points. For example:
+For a quick view of your telemetry data when you're debugging or right after a deployment, use Live Stream. 
 
-![Click through to more data](./media/app-insights-asp-net/12-first-perf.png)
+![From the overview blade, click Live Stream](./media/app-insights-asp-net/45.png)
 
-Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
 
-* *No user or page data?* - [Add user & page data](app-insights-web-track-usage.md)
+Live Stream is designed so that you can verify that your app is working OK right after a deployment.
+
+It shows data from just the past few minutes, and doesn't retain any data.
+
+It requires the 2.1.0-beta1 or later version of the SDK.  
+
+
 
 ### Search: individual events
 
@@ -162,6 +167,23 @@ Open Search to investigate individual requests and their associated events.
 [Learn more about search](app-insights-diagnostic-search.md)
 
 * *No associated events?* Set up [server exceptions](app-insights-asp-net-exceptions.md) and [dependencies](app-insights-asp-net-dependencies.md).
+
+
+### Metrics: aggregated data
+
+Look for aggregated data in the Overview charts. At first, you'll just see one or two points. For example:
+
+![Click through to more data](./media/app-insights-asp-net/12-first-perf.png)
+
+Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
+
+* *No user or page data?* - [Add user & page data](app-insights-web-track-usage.md)
+
+### Analytics: Powerful query language
+
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics]() is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+
+![Example of Analytics](./media/app-insights-asp-net/025.png)
 
 
 ## No data?
@@ -179,19 +201,8 @@ Open Search to investigate individual requests and their associated events.
 
 Now deploy your application and watch the data accumulate.
 
-### Live Stream
+Use [Live Stream](#live-stream) to monitor the first few minutes of a deployment or re-deployment tell you whether your app is working correctly. Especially when you're replacing an older version, you want to know whether performance has improved. If there's a problem, you might want to revert to the old version.
 
-The first few minutes of a deployment tell you whether your app is working correctly. Especially when you're replacing an older version, you want to know whether performance has improved. If there's a problem, you might want to revert to the old version.
-
-Live Stream provides an immediate view of a set of key performance metrics. It's designed so that you can watch it during a redeployment or reconfiguration. 
-
-![From the overview blade, click Live Stream](./media/app-insights-asp-net/45.png)
-
-Unlike the other metrics charts, Live Stream shows data from just the past few minutes, and doesn't retain any data. The aggregation pipeline is minimal and the display refreshes every second.
-
-Live Stream requires the 2.1.0-beta1 or later version of the SDK.
-
-*Live Stream stuck on its configuration page? - Refresh your browser (F5).*  
 
 #### Trouble on your build server?
 

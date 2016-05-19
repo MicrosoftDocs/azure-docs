@@ -20,7 +20,7 @@
 
 # Azure Guidance
 
-![patterns & practices](media/guidance/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals be successful on the Microsoft Azure platform. We develop guidance that shows best practices for building cloud solutions on Azure.
 
@@ -114,14 +114,14 @@ These articles provide an in-depth discussion of important concepts commonly ass
 
 ## Under development
 
-We're creating a new set of guidance we're calling "blueprints". Each blueprint offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these blueprints, and some are available for preview. We're very intereseted in your feedback.
+We're creating a new set of guidance we're calling _reference architectures_. Each reference architecture offers recommended practices and prescriptive steps for infrastructure-oriented scenarios. We're actively developing these reference architectures, and some are available for preview. We're very intereseted in your feedback.
 
-- [Running a Single Windows VM on Azure][blueprint-single-vm-windows]
-- [Running multiple Windows VM instances on Azure (single tier, Internet-facing)][blueprint-multi-vm-windows]
-- [Running Windows VMs for an N-tier architecture on Azure][blueprint-3-tier-windows]
-- [Adding reliability to an N-tier architecture on Azure (Windows VMs)][blueprint-n-tier-windows]
-- [Running Windows VMs in multiple datacenters on Azure][blueprint-multi-dc]
-- [Extending an on-premises network to Azure using a site-to-site virtual private network][blueprint-hybrid-network-vpn]
+- [Running a Single Windows VM on Azure][ref-arch-single-vm-windows]
+- [Running multiple Windows VM instances on Azure (single tier, Internet-facing)][ref-arch-multi-vm-windows]
+- [Running Windows VMs for an N-tier architecture on Azure][ref-arch-3-tier-windows]
+- [Adding reliability to an N-tier architecture on Azure (Windows VMs)][ref-arch-n-tier-windows]
+- [Running Windows VMs in multiple datacenters on Azure][ref-arch-multi-dc]
+- [Extending an on-premises network to Azure using a site-to-site virtual private network][ref-arch-hybrid-network-vpn]
 - [Implementing a highly available hybrid network architecture in Azure by using failover between ExpressRoute and VPN gateway](guidance-hybrid-network-expressroute-vpn-failover.md)
 - [Implementing a hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
 
@@ -142,16 +142,16 @@ We're creating a new set of guidance we're calling "blueprints". Each blueprint 
 [RetryPolicies]: Retry-Policies.md
 [ScalabilityChecklist]: ../best-practices-scalability-checklist/
 [AvailabilityChecklist]: ../best-practices-availability-checklist/
-[naming-conventions]: ./guidance-naming-conventions/
+[naming-conventions]: ../guidance-naming-conventions/
 
 <!-- guidance projects -->
 [elasticsearch]: guidance-elasticsearch.md
 [identity-multitenant]: guidance-multitenant-identity.md
 
-<!-- blueprints -->
-[blueprint-single-vm-windows]: guidance-compute-single-vm.md
-[blueprint-multi-vm-windows]: guidance-compute-multi-vm.md
-[blueprint-3-tier-windows]: guidance-compute-3-tier-vm.md
-[blueprint-n-tier-windows]: guidance-compute-n-tier-vm.md
-[blueprint-multi-dc]: guidance-compute-multiple-datacenters.md
-[blueprint-hybrid-network-vpn]: guidance-hybrid-network-vpn.md
+<!-- reference architectures -->
+[ref-arch-single-vm-windows]: guidance-compute-single-vm.md
+[ref-arch-multi-vm-windows]: guidance-compute-multi-vm.md
+[ref-arch-3-tier-windows]: guidance-compute-3-tier-vm.md
+[ref-arch-n-tier-windows]: guidance-compute-n-tier-vm.md
+[ref-arch-multi-dc]: guidance-compute-multiple-datacenters.md
+[ref-arch-hybrid-network-vpn]: guidance-hybrid-network-vpn.md

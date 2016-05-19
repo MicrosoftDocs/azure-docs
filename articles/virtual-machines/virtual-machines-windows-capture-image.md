@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="05/13/2016"
 	ms.author="dkshir"/>
 
 # How to capture a Windows virtual machine in the Resource Manager deployment model
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-capture-image.md).
 
 
 This article shows you how to use Azure PowerShell to capture an Azure virtual machine (VM) that is running Windows so you can use it to create other virtual machines. This image includes the OS disk and the data disks that are attached to the virtual machine. It doesn't include the virtual network resources that you'll need to create a Windows VM, so you'll need to set those up before you create another virtual machine that uses the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
@@ -62,9 +60,9 @@ You can capture the generalized Windows VM by using either Azure PowerShell or t
 
 ### Using PowerShell
 
-This article assumes that you have installed Azure PowerShell version 1.0.x. We recommend using this version since new Resource Manager features will not be added to older PowerShell versions. Read [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) to know more about the version differences.
+This article assumes that you have installed Azure PowerShell version 1.0.x. We recommend using this version since new Resource Manager features will not be added to older PowerShell versions. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
-1. Open Azure PowerShell 1.0.x and sign in to your Azure account.
+1. Open Azure PowerShell and sign in to your Azure account.
 
 		Login-AzureRmAccount
 
@@ -102,7 +100,7 @@ This article assumes that you have installed Azure PowerShell version 1.0.x. We 
 
 	The `-Path` variable is optional. You can use it to save the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images in. The URL of the image that is stored will be similar to `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. It will be created in the same storage account as that of the original virtual machine.
 
-	>[AZURE.NOTE] To find the location of your image, open the local JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. As of now, there is no easy way to check these images on the portal, since the *system* container in the storage account is hidden. For this reason, although the `-Path` variable is optional, you definitely want to use it to save the template locally and to easily find out the image URL. Alternatively, you can find this out using a tool called the **Azure Storage Explorer**, which is explained in the steps in the next section.
+	>[AZURE.NOTE] To find the location of your image, open the local JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. You can also verify the URI on the portal; it will be copied to a blob named **system** in your storage account. 
 
 
 ### Using Azure Resource Explorer (Preview)
@@ -113,7 +111,7 @@ The [Azure Resource Explorer (Preview)](https://azure.microsoft.com/blog/azure-r
 - Get API documentation.
 - Make API calls directly in your Azure subscriptions.
 
-To learn more about what you can do with this powerful tool, view the video at [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo).
+To learn more about what you can do with this powerful tool, view the video [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo).
 
 You can use the Resource Explorer to capture the virtual machine, as an alternative to the PowerShell method.
 
@@ -129,9 +127,9 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 	![Resource Explorer Action menu](./media/virtual-machines-windows-capture-image/ArmExplorerActionMenu.png)
 
-   You will see a list of all the actions that you can perform on the virtual machine.
+	- You will see a list of all the actions that you can perform on the virtual machine.
 
-	![Resource Explorer Action items](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
+		![Resource Explorer Action items](./media/virtual-machines-windows-capture-image/ArmExplorerActionItems.png)
 
 5. Deallocate the virtual machine by clicking the action button for **deallocate**. The status of your VM will change from **Stopped** to **Stopped (deallocated)**.
 
@@ -141,7 +139,7 @@ You can use the Resource Explorer to capture the virtual machine, as an alternat
 
 	![Resource Explorer capture](./media/virtual-machines-windows-capture-image/ArmExplorerCaptureAction.png)
 
-	Click the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image, as well as a JSON template file. As of now, these are not accessible via either the Resource Explorer or the [Azure portal](https://portal.azure.com).
+	Click the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image, as well as a JSON template file.
 
 8. To access the new image VHD as well as the template, download and install the Azure tool for managing storage resources, the [Azure Storage Explorer](http://storageexplorer.com/). The installer will install the Azure Storage Explorer locally on your machine.
 

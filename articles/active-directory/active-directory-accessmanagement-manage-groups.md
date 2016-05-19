@@ -1,7 +1,7 @@
 <properties
 
-	pageTitle="Managing security groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage security groups to manage Azure resource access using Azure Active Directory."
+	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+	description="How to create and manage groups to manage Azure resource access using Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -22,7 +22,7 @@
 
 One of the major features of Azure Active Directory (Azure AD) is the ability to manage access to resources. These resources can be objects in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, SharePoint sites, or on-premises resources. In addition, a resource owner can assign access to a resource to an Azure AD group. This grants the members of that group access to the resource. Then, the owner of the group manages membership in the group. Effectively, the resource owner delegates to the owner of the group the permission to assign users to their resource.
 
-## How do I create a security group?
+## How do I create a group?
 
 **To create a group**
 

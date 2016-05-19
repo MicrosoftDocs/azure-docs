@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using .NET SDK
@@ -46,7 +46,8 @@ The application requires an Azure resource group, and the default storage accoun
 2. Run the following Nuget command in the Nuget Package Management console.
 
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+		Install-Package Microsoft.Azure.Management.HDInsight
 
 6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
 
@@ -58,7 +59,7 @@ The application requires an Azure resource group, and the default storage accoun
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.ResourceManager;
 		
 		namespace CreateHDInsightCluster
 		{
@@ -75,8 +76,8 @@ The application requires an Azure resource group, and the default storage accoun
 				private const int NewClusterNumNodes = 1;
 				private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
 				private const OSType NewClusterOsType = OSType.Windows;
-                private const string NewClusterType = "Hadoop";
-                private const string NewClusterVersion = "3.2";
+				private const string NewClusterType = "Hadoop";
+				private const string NewClusterVersion = "3.2";
 				private const string NewClusterUsername = "admin";
 				private const string NewClusterPassword = "<HTTP User password>";
 		
@@ -87,8 +88,9 @@ The application requires an Azure resource group, and the default storage accoun
 					var tokenCreds = GetTokenCloudCredentials();
 					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
 					
-					var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-					resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+					var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+					var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+					var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 					
 					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 				
@@ -107,9 +109,8 @@ The application requires an Azure resource group, and the default storage accoun
 		
 					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
 
-                    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
-                    System.Console.ReadLine();
-                    
+					System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+					System.Console.ReadLine();
 				}
 
 				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
@@ -215,9 +216,9 @@ The following Azure PowerShell script can be use to create the dependent compone
         -Location $location `
         -Type Standard_GRS
 
-    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
     $defaultStorageContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey

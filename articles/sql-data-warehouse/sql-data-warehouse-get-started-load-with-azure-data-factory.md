@@ -65,7 +65,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 Now that the data is in place we can create the Azure Data Factory pipeline to move the data from Azure blob storage into SQL Data Warehouse.
 
-To get started, open the [Azure Portal][] and select your data factory from the left-hand menu.
+To get started, open the [Azure portal][] and select your data factory from the left-hand menu.
 
 ### Step 2.1: Create Linked Service
 
@@ -237,5 +237,5 @@ These topics provide detailed information about Azure Data Factory. They discuss
 
 <!--Other Web references-->
 [Azure Data Factory learning path]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Download sample data]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv

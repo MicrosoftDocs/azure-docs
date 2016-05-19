@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/19/2016"
+   ms.date="05/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
@@ -72,6 +72,7 @@ During the preview, SQL Data Warehouse will periodically be upgraded in order to
 <!--Image references-->
 
 <!--Article references-->
+[create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Get started]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->

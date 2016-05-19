@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -24,7 +24,9 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-If you're developing a windows phone app, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
+If you're developing a Windows Phone 8.1 app, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
+
+> [AZURE.NOTE] This code sample uses ADAL v2.0.  For the latest technology, you may want to instead try our [Windows Universal Tutorial using ADAL v3.0](active-directory-devquickstarts-windowsstore.md).  If you are indeed building an app for Windows Phone 8.1, this is the right place.  ADAL v2.0 is still fully supported, and is the recommended way of developing apps agianst Windows Phone 8.1 using Azure AD.
 
 For .NET native clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build a "Directory Searcher" Windows Phone 8.1 app that:
 

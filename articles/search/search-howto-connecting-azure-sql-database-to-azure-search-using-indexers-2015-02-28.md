@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/08/2016" 
+	ms.date="05/06/2016" 
 	ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search using indexers
@@ -70,7 +70,7 @@ You can get the connection string from the [Azure Classic Portal](https://portal
 
 Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table. See the following table for the mapping between SQL and Azure search data types.
 
-**Mapping between SQL Data Types and Azure Search data types
+## Mapping between SQL Data Types and Azure Search data types
 
 |SQL data type | Allowed target index field types |Notes 
 |------|-----|----|

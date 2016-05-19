@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
+	ms.date="05/06/2016"
 	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
@@ -583,7 +583,7 @@ AzCopy always sets the Content-MD5 property for an Azure blob or file after uplo
 
 Indicates whether to transfer snapshots. This option is only valid when the source is a blob.
 
-The transferred blob snapshots are renamed in this format: [blob-name] (snapshot-time)[extension].
+The transferred blob snapshots are renamed in this format: blob-name (snapshot-time).extension
 
 By default, snapshots are not copied.
 

@@ -229,7 +229,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	- There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (**columnDelimiter**)	
 	- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1** ), so the Data Factory service will look for input data every hour in the root folder in the blob container (**adftutorial**) you specified.
 
-	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
+	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. 
  
 	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid\>.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -429,7 +429,6 @@ See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive document
 See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
 
 
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908

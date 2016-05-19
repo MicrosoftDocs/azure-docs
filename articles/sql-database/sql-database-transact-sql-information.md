@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL differences
@@ -93,7 +93,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Trace flags
 - Transact-SQL debugging
 - Triggers: Server-scoped or logon triggers
-- USE statement
+- USE statement: To change the database context to a different database you must make a new connection to the new database.
 
 
 ## Full Transact-SQL reference

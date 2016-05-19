@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/13/2016"
    ms.author="mcoskun"/>
 
 # Back up and restore Reliable Services and Reliable Actors

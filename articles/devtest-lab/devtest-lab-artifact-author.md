@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
+	pageTitle="Create custom artifacts for your DevTest Labs VM | Microsoft Azure"
 	description="Learn how to author your own artifacts for use with DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-#Create custom artifacts for your DevTest Lab VM
+#Create custom artifacts for your DevTest Labs VM
 
 > [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to author custom artifacts](/documentation/videos/how-to-author-custom-artifacts) 
 
@@ -120,8 +120,8 @@ Create your custom artifact by following steps below:
 
 	![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
 
-1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
+1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
 
 ## Next steps
 
-- Learn how to [add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
+- Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).

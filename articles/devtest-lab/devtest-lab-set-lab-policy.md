@@ -13,23 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Define lab policies
 
-> [AZURE.NOTE] Click the following link to view this article's accompanying video: [How to author custom artifacts](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab) 
-
 ## Overview
 
-DevTest Lab allows you to specify key policies that govern how your lab and its VMs are used. 
+DevTest Labs allows you to specify key policies that govern how your lab and its VMs are used. 
 For example, you can set the rules for the VM sizes allowed to create VMs, the threshold for the number of VMs that can be created, and schedule jobs to automatically start/stop the lab VMs. 
 
 ## Accessing a lab's policies
 
 In order to view (and change) the policies for a lab, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 

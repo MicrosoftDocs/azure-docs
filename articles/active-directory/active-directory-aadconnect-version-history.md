@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure AD Connect: Version Release History | Microsoft Azure"
    description="This topic lists all releases of Azure AD Connect and Azure AD Sync"
    services="active-directory"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -29,6 +29,22 @@ This is list of related topics:
 | Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release. |
 | Required permissions | For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade) |
 | Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+
+## 1.1.180.0
+Released: 2016 May
+
+**New features:**
+
+- Warns and helps you verifying domains if you didn’t do it before running Azure AD Connect.
+- Added support for [Microsoft Cloud Germany](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
+- Added support for the latest [Microsoft Azure Government cloud](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) infrastructure with new URL requirements.
+
+**Fixed issues and improvements:**
+
+- Added filtering to the Sync Rule Editor to make it easy to find sync rules.
+- Improved performance when deleting a connector space.
+- Fixed an issues when the same object was both deleted and added in the same run (called delete/add).
+- A disabled Sync Rule will no longer re-enable included objects and attributes on upgrade or directory schema refresh.
 
 ## 1.1.130.0
 Released: 2016 April

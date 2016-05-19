@@ -307,11 +307,11 @@ While the service tiers are designed to improve performance stability and predic
 ## Tuning techniques
 This section explains some techniques that you can use to tune Azure SQL Database to gain the best performance out of your application and be able to run in the smallest possible performance level. A number of the techniques match traditional SQL Server tuning best practices, but some techniques are specific to Azure SQL Database. In some cases, traditional SQL Server techniques can be extended to also work on Azure SQL Database by examining the consumed resources for a database to find areas to further tune.
 
-### Query Performance Insight and Index Advisor
-SQL Database provides two tools in the Azure Classic Portal for analyzing and fixing performance issues with your database:
+### Query Performance Insight and SQL Database Advisor
+SQL Database provides two tools in the Azure Portal for analyzing and fixing performance issues with your database:
 
 - [Query Performance Insight](sql-database-query-performance.md)
-- [Index Advisor](sql-database-index-advisor.md)
+- [SQL Database Advisor](sql-database-index-advisor.md)
 
 Refer to the previous links for more information about each tool and how to use them. The two following sections on missing indexes and query tuning provide other ways to manually find and correct similar performance issues. We recommend that you first try the tools in the portal to more efficiently diagnose and correct problems. Use the manual tuning approach for special cases.
 
@@ -340,7 +340,7 @@ The following example creates a case where the selected query plan contains a sc
 
 Azure SQL Database contains functionality to help hint database administrators on how to find and fix common missing index conditions. Dynamic management views (DMVs) built into Azure SQL Database look at query compilation where an index would significantly reduce the estimated cost to run a query. During query execution, it tracks how often each query plan is executed as well as the estimated gap between the executing query plan and the imagined one where that index existed. This allows a database administrator to quickly guess which physical database design changes might improve the overall workload cost for a given database and its real workload.
 
->[AZURE.NOTE] Before using the DMVs to find missing indexes, first review the section on [Query Performance Insight and Index Advisor](#query-performance-insight-and-index-advisor).
+>[AZURE.NOTE] Before using the DMVs to find missing indexes, first review the section on [Query Performance Insight and SQL Database Advisor](#query-performance-insight-and-index-advisor).
 
 The following query can be used to evaluate potential missing indexes.
 
