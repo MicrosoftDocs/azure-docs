@@ -47,7 +47,7 @@ If requests have already been made to the CDN prior to CORS being set on the you
  
 ## Multiple origin scenarios
 
-If you need to allow a specific list of origins to be allowed for CORS, things get a little more complicated. The problem occurs when the CDN caches the **Access-Control-Allow-Origin** header for 'origin A'. When 'origin B' makes a subsequent request, it will check against the existing header on the edge which doesn't match and return an error.  There are several ways to correct this.
+If you need to allow a specific list of origins to be allowed for CORS, things get a little more complicated. The problem occurs when the CDN caches the **Access-Control-Allow-Origin** header for the first CORS origin.  When a different CORS origin makes a subsequent request, the CDN will served the cached **Access-Control-Allow-Origin** header, which won't match.  There are several ways to correct this.
  
 ### Azure CDN Premium from Verizon
 
