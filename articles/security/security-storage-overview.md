@@ -28,7 +28,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 This article will provide an overview of each of these core security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can learn more.  
 
-For a more detailed look at security in Azure Storage see the [Azure Storage security guide](https://azure.microsoft.com/en-us/documentation/articles../storage/storage-security-guide.md).
+For a more detailed look at security in Azure Storage see the [Azure Storage security guide](https://azure.microsoft.com/documentation/articles../storage/storage-security-guide.md).
 
 Here are the core features to be covered in this article:
 
@@ -59,7 +59,7 @@ When you create a storage account, Azure generates two 512-bit storage access ke
 Storage account keys, along with the storage account name, can be used to access the data objects stored in the storage account, e.g. blobs, entities within a table, queue messages, and files on an Azure file share. Using RBAC, you control access to the storage account keys which controls access to the data objects themselves.
 
 Learn more:
-- [About Azure Storage Accounts](./storage./storage-create-storage-account.md)
+- [About Azure Storage Accounts](../storage/storage-create-storage-account.md)
 
 ## Delegated access to storage objects
 

@@ -110,7 +110,7 @@ Azure AD Device Registration is the foundation for device-based [conditional acc
 When combined with a mobile device management (MDM) solution such as Intune, the device attributes in Azure Active Directory are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance.
 
 Learn more:
-- [Get started with Azure Active Directory Device Registration](../active-directory-view-access-usage-reports/active-directory-conditional-access-device-registration-overview.md)
+- [Get started with Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-device-registration-overview.md)
 - [Setting up on-premises conditional access using Azure Active Directory Device Registration](../active-directory/active-directory-conditional-access-on-premises-setup.md)
 - [Automatic device registration with Azure Active Directory for Windows domain-joined devices](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
 
