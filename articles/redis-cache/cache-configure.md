@@ -81,6 +81,13 @@ The settings in the **General** section allow you to access and configure the fo
 
 ![General settings](./media/cache-configure/redis-cache-general-settings.png)
 
+-	[Properties](#properties)
+-	[Access keys](#access-keys)
+-	[Access ports](#access-ports)
+-	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
+-	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
+-	[Redis Cache Advisor](#recommendations)
+
 ### Properties
 
 Click **Properties** to view information about your cache, including the cache endpoint and ports.
@@ -164,6 +171,9 @@ The settings in the **Data management** section allow you to access and configur
 
 ![Data management](./media/cache-configure/redis-cache-data-management.png)
 
+-	[Redis data persistence](#redis-data-persistence)
+-	[Import/Export](#importexport)
+
 ### Redis data persistence
 
 Click **Redis data persistence** to enable, disable, or configure data persistence for your premium cache.
@@ -217,6 +227,9 @@ For more information on Azure Redis Cache diagnostics, see [How to monitor Azure
 The settings in the **Scale** section allow you to access and configure the following settings for your cache.
 
 ![Network](./media/cache-configure/redis-cache-scale.png)
+
+-	[Pricing tier](#pricing-tier)
+-	[Redis cluster size](#cluster-size)
 
 ### Pricing tier
 
