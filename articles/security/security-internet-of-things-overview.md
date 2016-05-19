@@ -40,9 +40,9 @@ You can learn about IoT security architecture by reading [Internet of Things Sec
 
 This article discusses the following topics:
 
-- [Security Starts with a Threat Model](../iot-suite/iot-security-architecture.md)
-- [Security in IoT](../iot-suite/iot-security-architecture.md)
-- [Threat Modeling the Azure IoT Reference Architecture](../iot-suite/iot-security-architecture.md)
+- [Security Starts with a Threat Model](../iot-suite/iot-security-architecture.md#security-in-iot)
+- [Security in IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
+- [Threat Modeling the Azure IoT Reference Architecture](../iot-suite/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
 
 ## Security from the ground up
 
@@ -52,8 +52,8 @@ You can learn how to handle security in these areas by reading [Internet of Thin
 
 The article discusses the following topics:
 
-- [Secure Infrastructure from the Ground Up](../iot-suite/securing-iot-ground-up.md)
-- [Microsoft Azure – Secure IoT Infrastructure for Your Business](../iot-suite/securing-iot-ground-up.md)
+- [Secure Infrastructure from the Ground Up](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
+- [Microsoft Azure – Secure IoT Infrastructure for Your Business](../iot-suite/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
 ## Best Practices
 
@@ -63,7 +63,7 @@ You can learn about Internet of Things security best practices by reading [Inter
 
 The article discusses the following topics:
 
-- IoT Hardware Manufacturer/Integrator
-- IoT Solution Developer
-- IoT Solution Deployer
-- IoT Solution Operator
+- [IoT Hardware Manufacturer/Integrator](../iot-suite/iot-security-best-practices/#iot-hardware-manufacturerintegrator)
+- [IoT Solution Developer](../iot-suite/iot-security-best-practices/#iot-solution-developer)
+- [IoT Solution Deployer](../iot-suite/iot-security-best-practices/#iot-solution-deployer)
+- [IoT Solution Operator](../iot-suite/iot-security-best-practices/#iot-solution-operator)

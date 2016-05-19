@@ -49,10 +49,10 @@ Each blueprint includes a:
 
 ## 3D blueprint Visio template
 
-The 3D versions of the [Microsoft Architecture Blueprints](http://aka.ms/azblueprints) were initially created in a non-Microsoft tool. A new Visio 2013 (and later) template shipped on Aug 5, 2015 as part of a [Microsoft Architecture certification course distributed on EDX.ORG](../architecture-overview.md).
+The 3D versions of the [Microsoft Architecture Blueprints](http://aka.ms/azblueprints) were initially created in a non-Microsoft tool. A new Visio 2013 (and later) template shipped on Aug 5, 2015 as part of a [Microsoft Architecture certification course distributed on EDX.ORG](../architecture-overview.md#microsoft-architecture-certification-course).
 
 The template is also available outside the course.
 
 - [View the training video](http://aka.ms/3dBlueprintTemplateVideo) first so you know what it can do
 - Download the [Microsoft 3d Blueprint Visio Template](http://aka.ms/3DBlueprintTemplate)
-- Download the [Cloud and Enterprise Symbols](../architecture-overview.md) to use with the 3D template
+- Download the [Cloud and Enterprise Symbols](../architecture-overview.md#drawing-symbol-and-icon-sets) to use with the 3D template
