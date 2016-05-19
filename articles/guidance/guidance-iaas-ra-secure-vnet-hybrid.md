@@ -484,7 +484,7 @@ In this snippet, you should pay specific attention to the following properties:
 
 #### Implementing forced tunneling
 
-The [azuredeploy.sh][azuredeploy] script uses the [bb-ntwk-forced-tunneling.json][bb-ntwk-forced-tunneling] template to implement forced tunneling for the web, business, and data access tiers. The template creates a route table with a default route that directs all Internet-bound traffic back through the virtual network gateway, which in turn send the traffic on to the default site (through the local network gateway connection):
+The [azuredeploy.sh][azuredeploy] script uses the [bb-ntwk-forced-tunneling.json][bb-ntwk-forced-tunneling] template to implement forced tunneling for the web, business, and data access tiers. The template creates separate route tables for each tier; this allows you to customize the table and add further routes for each tier individually. The route table contains the following route that directs all Internet-bound traffic back through the virtual network gateway, which in turn send the traffic on to the default site (through the local network gateway connection):
 
 ```
 {
@@ -493,7 +493,7 @@ The [azuredeploy.sh][azuredeploy] script uses the [bb-ntwk-forced-tunneling.json
   "properties": {
     "routes": [
       {
-        "name": "DefaultRoute",
+        "name": "ForcedTunnelingRoute",
         "properties": {
           "addressPrefix": "0.0.0.0/0",
           "nextHopType": "VirtualNetworkGateway"
@@ -504,7 +504,7 @@ The [azuredeploy.sh][azuredeploy] script uses the [bb-ntwk-forced-tunneling.json
 }
 ```
 
-The template adds this route table to the subnets for the web, business, and data access tiers.
+The template adds the route tables to the subnets for the web, business, and data access tiers.
 
 ### Creating the management subnet
 
@@ -563,10 +563,9 @@ To run the script that deploys the solution:
 
 2. Open a bash shell and move to the folder containing the azuredeploy.sh script.
 
-3. Log in to your Azure account. In the bash shell enter the following commands:
+3. Log in to your Azure account. In the bash shell enter the following command:
 
 	```powershell
-    azure config mode arm
     azure login
 	```
 
@@ -590,17 +589,19 @@ To run the script that deploys the solution:
 
 	- The address space of the on-premises network, in CIDR format.
 
+	- The location (region) in which to create the VNet.
+
 	The following example shows how to run the script:
 
 	```powershell
-	./azuredeploy.sh myapp nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn mysharedkey123 111.222.33.4 192.168.0.0/24
+	./azuredeploy.sh myapp nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn mysharedkey123 111.222.33.4 192.168.0.0/24 eastus
 	```
 
-6. Ensure that the script completes successfully. Note that it is possible to re-run the script if an error occurs; objects that have already been created won't be overwritten.
+6. Verify that the script completes successfully. You can simply re-run the script if an error occurs.
 
 7. Browse to the Azure portal and verify that the following resource groups have been created:
 
-	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDR for forced tunneling; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection, as shown below:
+	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDRs for forced tunneling for each application tier; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection, as shown below:
 
 		![IaaS: myapp-netwk-rg](./media/guidance-iaas-ra-secure-vnet-hybrid/figure3.png)
 
@@ -622,6 +623,11 @@ To run the script that deploys the solution:
 		![IaaS: myapp-mgmt-rg](./media/guidance-iaas-ra-secure-vnet-hybrid/figure6.png)
 
 8. Configure the VPN appliance on the on-premises network to connect to the Azure VPN gateway. For more information, seer the article [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway].
+
+> [AZURE.NOTE] If you just need to refresh the UDRs and NSGs for an earlier version of the deployment, you can run the script with the value TRUE as an additional parameter:
+> ```powershell
+> ./azuredeploy.sh myapp nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn mysharedkey123 111.222.33.4 192.168.0.0/24 eastus TRUE
+> ```
 
 ### Customizing the solution
 
@@ -657,9 +663,7 @@ You can change these variables before running the script if you need to vary the
 
 #### VNet and subnet address spaces
 
-The [azuredeploy.json][azuredeploy] template creates the network infrastructure. You can set the following parameters:
-
-- **LOCATION**. The Azure region in which to create the resource groups used by the system.
+The [azuredeploy.json][azuredeploy] template creates the network infrastructure. You can specify the following parameters:
 
 - **VNET_PREFIX**. The address space of the VNet to be created.
 
