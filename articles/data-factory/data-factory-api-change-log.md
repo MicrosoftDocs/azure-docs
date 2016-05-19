@@ -23,7 +23,7 @@ This article provides information about changes to Azure Data Factory SDK in a s
 Release date: 2016-05-20
 
 ### Feature Additions
-* Added new StorageFormat type [OrcFormat](https://msdn.microsoft.com/library/mt723391(Azure.100).aspx) type to copy files in optimized row columnar (ORC) format.
+* Added new StorageFormat type [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) type to copy files in optimized row columnar (ORC) format.
 * Add [AllowPolyBase](https://msdn.microsoft.com/library/mt723396(Azure.100).aspx) and PolyBaseSettings properties to SqlDWSink.
     * Enables the use of PolyBase to copy data into SQL Data Warehouse.
 
