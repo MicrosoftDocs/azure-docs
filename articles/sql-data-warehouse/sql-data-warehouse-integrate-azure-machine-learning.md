@@ -3,7 +3,7 @@
    description="Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Use Azure Machine Learning with SQL Data Warehouse
 
-Azure Machine Learning is a fully managed predictive analytics service that you can use to create predictive models against your data in SQL Data Warehouse, and publish them as ready-to-consume web services. You can learn the basics of predictive analytics and machine learning by reading [Introduction to Machine Learning on Azure][].  You can then learn how to create, train, score and test a machine learning model using the [Create experiment tutorial][].
+Azure Machine Learning is a fully managed predictive analytics service that you can use to create predictive models against your data in SQL Data Warehouse, and then publish as ready-to-consume web services. You can learn the basics of predictive analytics and machine learning by reading [Introduction to Machine Learning on Azure][].  You can then learn how to create, train, score and test a machine learning model using the [Create experiment tutorial][].
 
 In this article, you will learn how to do the following using the [Azure Machine Learning Studio][]:
 
@@ -137,8 +137,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration.md
 [Create experiment tutorial]: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/
 [Introduction to machine learning on Azure]: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
