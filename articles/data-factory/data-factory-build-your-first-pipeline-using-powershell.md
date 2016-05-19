@@ -359,7 +359,7 @@ In this tutorial, you created an Azure data factory to process data by running H
 ## Next steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand Azure HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure Blob to Azure SQL](./data-factory-get-started.md).
 
-### References
+## See Also
 | Topic | Description |
 | :---- | :---- |
 | [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn820234.aspx) |  See comprehensive documentation on Data Factory cmdlets |

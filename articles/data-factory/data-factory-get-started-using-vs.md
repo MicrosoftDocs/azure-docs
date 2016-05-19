@@ -259,7 +259,7 @@ To update Azure Data Factory tools for Visual Studio, do the following:
 
 See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md#monitor-pipeline) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
 
-### See Also
+## See Also
 | Topic | Description |
 | :---- | :---- |
 | [Data Movement Activities](data-factory-data-movement-activities.md) | This article provides detailed information about the Copy Activity you used in the tutorial. |

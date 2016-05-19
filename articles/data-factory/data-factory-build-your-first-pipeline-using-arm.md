@@ -265,7 +265,7 @@ You can also use Monitor and Manage App to monitor your data pipelines. See [Mon
 > [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
 
 
-### See Also
+## See Also
 | Topic | Description |
 | :---- | :---- |
 | [Data Transformation Activities](data-factory-data-transformation-activities.md) | This article provides a list of data transformation activities (such as HDInsight Hive transformation you used in this tutorial) supported by Azure Data Factory. |

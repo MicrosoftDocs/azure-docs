@@ -110,7 +110,7 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 	![Monitoring App](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  
 
-### See Also
+## See Also
 | Topic | Description |
 | :---- | :---- |
 | [Data Movement Activities](data-factory-data-movement-activities.md) | This article provides detailed information about the Copy Activity you used in the tutorial. |

@@ -381,7 +381,7 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 4.	Created a **pipeline** with a **Copy Activity** with **BlobSource** as source and **SqlSink** as sink.  
 
 
-### See Also
+## See Also
 | Topic | Description |
 | :---- | :---- |
 | [Data Movement Activities](data-factory-data-movement-activities.md) | This article provides detailed information about the Copy Activity you used in the tutorial. |
