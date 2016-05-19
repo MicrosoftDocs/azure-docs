@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the SMTP API in your Logic Apps | Microsoft Azure"
-	description="Overview of the SMTP API with REST API parameters"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the SMTP Connector in your Logic Apps | Microsoft Azure"
+    description="Overview of the SMTP Connector with REST API parameters"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the SMTP API
-Connect to an SMTP server to send email. The SMTP API can be used from:
+# Get started with the SMTP Connector
+Connect to an SMTP server to send email. The SMTP Connector can be used from:
 
 - Logic apps (discussed in this topic)
 - PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
@@ -33,16 +33,16 @@ With SMTP, you can:
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
-The SMTP API has the following action available. There are no triggers.
+The SMTP Connector has the following action available. There are no triggers.
 
 |Triggers | Actions|
 |--- | ---|
 |None | Send email|
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 ## Create a connection to SMTP
-When you add this API to your logic apps, enter the following values:
+When you add this Connector to your logic apps, enter the following values:
 
 |Property| Required|Description|
 | ---|---|---|

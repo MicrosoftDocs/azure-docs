@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="05/18/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
 
-Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL Data Warehouse.  Alternatively, for a list of REST APIs to automate these same tasks, see [Operations for Azure SQL Databases][].
+Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL Data Warehouse.  For some good REST examples, see the article [Manage scalability with REST][].
 
 > [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
@@ -87,15 +87,16 @@ For more PowerShell examples, see:
 - [Restore from snapshot][]
 - [Geo-restore from snapshot][]
 
-For a list of all tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][].
+For a list of all tasks which can be automated with PowerShell, see [Azure SQL Database Cmdlets][].  For a list of tasks which can be automated with REST, see [Operations for Azure SQL Databases][].
 
 <!--Image references-->
 
 <!--Article references-->
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
-[Create a SQL Data Warehouse using PowerShell]: sql-data-warehouse-get-started-provision-powershell.md
-[Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Geo-restore from snapshot]: sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[How to install and configure Azure PowerShell]: ./powershell-install-configure.md
+[Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Restore from snapshot]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Geo-restore from snapshot]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Manage scalability with REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 <!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
@@ -106,7 +107,7 @@ For a list of all tasks which can be automated with PowerShell, see [Azure SQL D
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-[Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 <!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
