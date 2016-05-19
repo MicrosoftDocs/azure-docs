@@ -122,7 +122,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your HPE SaaS application using the following pattern: `https://<tenant name>.saas.hpe.com`
 
-    b. In the **Reply URL** textbox, type the URL using the following pattern: `https://<tenant name>.saas.hpe.com/sp/ACS.saml2`. 
+    b. In the **Reply URL** textbox, type the URL using the following pattern: `https://<tenant name>.saas.hpe.com/sp/ACS.saml2` 
 
     c. Click **Next**.
 
