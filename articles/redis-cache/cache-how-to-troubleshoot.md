@@ -136,35 +136,35 @@ Memory pressure on the client machine leads to all kinds of performance problems
 
 #### Measurement 
 
-1.	Monitory memory usage on machine to make sure that it does not exceed available memory. 
+1.	Monitor memory usage on machine to make sure that it does not exceed available memory. 
 2.	Monitor the `Page Faults/Sec` performance counter. Most systems will have some page faults even during normal operation, so watch for spikes in this page faults performance counter which correspond with timeouts.
 
 #### Resolution
 
-Upgrade to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consuption.
+Upgrade your client to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consuption.
 
 
 ### Burst of traffic
 
 #### Problem
 
-Bursts of traffic combined with poor ThreadPool settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
+Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
 
 #### Measurement 
 
-Monitor how your ThreadPool statistics change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can also look at the `TimeoutException` message from StackExchange.Redis. Here is an example :
+Monitor how your `ThreadPool` statistics change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can also look at the `TimeoutException` message from StackExchange.Redis. Here is an example :
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
 In the above message, there are several issues that are interesting:
 
- 1. Notice that in the "IOCP" section and the "WORKER" section you have a "Busy" value that is greater than the "Min" value. This means that your threadpool settings need adjusting.
- 2. You can also see "in: 64221". This indicates that 64211 bytes have been received at the kernel socket layer but haven't yet been read by the application (e.g. StackExchange.Redis). This typically means that your application isn't reading data from the network as quickly as the server is sending it to you.
+ 1. Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This means that your `ThreadPool` settings need adjusting.
+ 2. You can also see `in: 64221`. This indicates that 64211 bytes have been received at the kernel socket layer but haven't yet been read by the application (e.g. StackExchange.Redis). This typically means that your application isn't reading data from the network as quickly as the server is sending it to you.
 
 #### Resolution
 
-Configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your threadpool will scale up quickly under burst scenarios.
+Configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool will scale up quickly under burst scenarios.
 
 
 ### High client CPU usage
@@ -175,7 +175,7 @@ High CPU usage on the client is an indication that the system cannot keep up wit
 
 #### Measurement
 
-Monitor the System Wide CPU usage through the azure portal or through the associated perf counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. As a result of high CPU, you may also see high "in: XXX" values in TimeoutException error messages as described above in the "Burst of traffic" section.
+Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. As a result of high CPU, you may also see high `in: XXX` values in `TimeoutException` error messages as described in the [Burst of traffic](#burst-of-traffic) section.
 
 #### Resolution
 
@@ -204,7 +204,7 @@ Increase Client VM size or reduce network bandwidth consumption.
 
 A large request/response can cause timeouts. As an example, Suppose your timeout value configured on your client is 1 second. Your application requests two keys (e.g. 'A' and 'B') at the same time (using the same physical network connection). Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses. The server will send the responses back in the same order. If response 'A' is large enough it can eat up most of the timeout for subsequent requests. 
 
-Below, I will try to demonstrate this. In this scenario, Request 'A' and 'B' are sent quickly, the server starts sending responses 'A' and 'B' quickly, but because of data transfer times, 'B' get stuck behind the other request and times out even though the server responded quickly.
+The following example demonstrates this scenario. In this scenario, Request 'A' and 'B' are sent quickly, the server starts sending responses 'A' and 'B' quickly, but because of data transfer times, 'B' get stuck behind the other request and times out even though the server responded quickly.
 
     |-------- 1 Second Timeout (A)----------|
     |-Request A-|
@@ -221,9 +221,9 @@ This is a difficult one to measure. You basically have to instrument your client
 
 #### Resolution
 
-1.	Redis is optimized for a large number of small values, rather than a few large values. The preferred solution is to break up your data into related smaller values. [See here](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details around why smaller values are recommended.
+1.	Redis is optimized for a large number of small values, rather than a few large values. The preferred solution is to break up your data into related smaller values. See the [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details around why smaller values are recommended.
 2.	Increase the size of your VM (for client and Redis Cache Server), to get higher bandwidth capabilities, reducing data transfer times for larger responses. Note that getting more bandwidth on just the server or just on the client may not be enough. Measure your bandwidth usage and compare it to the capabilities of the size of VM you currently have.
-3.	Increase the number of ConnectionMultiplexer objects you use and round-robin requests over different connections.
+3.	Increase the number of `ConnectionMultiplexer` objects you use and round-robin requests over different connections.
 
 
 ## Server side troubleshooting
@@ -245,7 +245,7 @@ Memory pressure on the server side leads to all kinds of performance problems th
 
 #### Measurement
 
-Redis exposes two stats that can help you identify this issue. The first is "used_memory" and the other is "used_memory_rss". These stats are available through the Azure Portal or through the [Redis INFO](http://redis.io/commands/info) command.
+Redis exposes two metrics that can help you identify this issue. The first is `used_memory` and the other is `used_memory_rss`. [These metrics](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) are available in the Azure Portal or through the [Redis INFO](http://redis.io/commands/info) command.
 
 #### Resolution
 
@@ -254,7 +254,7 @@ There are several possible changes that you can make to help keep memory usage h
 1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. Note that this may not be sufficient if you have fragmentation.
 2. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
 3. Break up your large cached objects into smaller related objects.
-4. Upgrade to a larger cache size.
+4. [Scale](cache-how-to-scale.md) to a larger cache size.
 
 ### High CPU usage / Server Load
 
@@ -264,11 +264,11 @@ High CPU usage can mean that the client side can fail to process a response from
 
 #### Measurement
 
-Monitor the System Wide CPU usage through the azure portal or through the associated perf counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts.
+Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts.
 
 #### Resolution
 
-Upgrade to a larger VM size with more CPU capacity or investigate what is causing CPU spikes. 
+[Scale](cache-how-to-scale.md) to a larger cache tier with more CPU capacity or investigate what is causing CPU spikes. 
 
 ### Server Side Bandwidth Exceeded
 
@@ -282,7 +282,7 @@ You can monitor the `Cache Read` metric, which is the amount of data read from t
 
 #### Resolution
 
-If you are consistently near the observed maximum bandwidth for your pricing tier and cache size, consider moving to a pricing tier or size that has greater network bandwidth, using the values n [this table](cache-faq.md#cache-performance) as a guide.
+If you are consistently near the observed maximum bandwidth for your pricing tier and cache size, consider [scaling](cache-how-to-scale.md) to a pricing tier or size that has greater network bandwidth, using the values in [this table](cache-faq.md#cache-performance) as a guide.
 
 
 ### Running Expensive Operations/Scripts
