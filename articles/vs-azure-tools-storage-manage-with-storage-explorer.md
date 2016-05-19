@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/18/2016"
+	ms.date="05/19/2016"
 	ms.author="tarcher" />
 
 # Getting started with Storage Explorer (Preview)
@@ -30,7 +30,7 @@ Microsoft Azure Storage Explorer (Preview) is a standalone tool that enables you
 
 Storage Explorer (Preview) allows you to connect to your own Azure storage accounts as well as storage accounts and services shared from other Azure subscriptions:
 
-- [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscriptions.
+- [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscription.
 - [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription using the storage account's account name and key.
 - [Attach account using SAS](#attach-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
 - [Attach service using SAS](#attach-service-using-sas) - Manage a specific storage service (blob container, queue, or table) belonging to another Azure subscription using a SAS.

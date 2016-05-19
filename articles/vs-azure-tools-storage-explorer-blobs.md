@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="05/18/2016"
+	ms.date="05/19/2016"
 	ms.author="tarcher" />
 
 # Manage Azure Blob Storage resources with Storage Explorer (Preview)
