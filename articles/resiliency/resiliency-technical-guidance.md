@@ -34,9 +34,6 @@ The cloud significantly alters the economics of disaster recovery, making it pos
 ##[Recovery from data corruption or accidental deletion](./resiliency-technical-guidance-recovery-data-corruption.md)
 Applications can have bugs which corrupt data and operators can incorrectly delete important data. This section explains what Azure provides for backing up data and restoring to a previous point it time.
 
-##[Additional resources](./resiliency-technical-guidance-additional-resources.md)
-Other useful resources covering resiliency, availability, and disaster recovery in Azure.
-
 ##Additional resources
 
 ###[Azure business continuity technical guidance](./resiliency-technical-guidance.md)
