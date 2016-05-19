@@ -73,7 +73,7 @@ This error message contains error codes that can help point you to the cause and
 
     It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000 ms interval by including a `synctimeout` property in the connection string. The following example shows a StackExchange.Redis cache connection string snippet with a `synctimeout` of 2000 ms.
 
-    `synctimeout=2000,cachename.redis.cache.windows.net,...`
+        synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
 
 3. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
 
