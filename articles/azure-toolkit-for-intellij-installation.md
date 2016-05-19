@@ -18,7 +18,7 @@
 
 # Installing the Azure Toolkit for IntelliJ
 
-The Azure Toolkit for IntelliJ provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the IntelliJ IDEA development environment. The Azure Toolkit for IntelliJ is an Open Source project, whose source code is available under the Apache License 2.0 from the project's site on GitHub at the following URL:
+The Azure Toolkit for IntelliJ provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the IntelliJ IDEA development environment. The Azure Toolkit for IntelliJ is an Open Source project, whose source code is available under the MIT License from the project's site on GitHub at the following URL:
 
 <https://github.com/microsoft/azure-tools-for-java>
 
