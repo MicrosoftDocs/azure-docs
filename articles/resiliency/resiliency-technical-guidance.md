@@ -19,14 +19,14 @@
 #Azure resiliency technical guidance
 
 ##Introduction
-Meeting high availability and disaster recovery requirements requires two types of knowledge: 1) detailed technical understanding of a cloud platform’s capabilities and 2) how to properly architect a distributed service. This series of articles covers the former - the capabilities and limitations of the Azure platform with respect to Resiliency (sometimes refered to as Business Continuity). If you are interested in the later, please see the article series focused on [Disaster recovery and high availability for Azure applications](https://aka.ms/drtechguide). While this article series touches on architecture and design patterns, that is not the core focus of this series. The reader should consult the material in the [additional resources](#additional-resources) section for design guidance.
+Meeting high availability and disaster recovery requirements requires two types of knowledge: 1) detailed technical understanding of a cloud platform’s capabilities and 2) how to properly architect a distributed service. This series of articles covers the former - the capabilities and limitations of the Azure platform with respect to resiliency (sometimes refered to as business continuity). If you are interested in the later, please see the article series focused on [Disaster recovery and high availability for Azure applications](https://aka.ms/drtechguide). While this article series touches on architecture and design patterns, that is not the core focus of this series. The reader should consult the material in the [additional resources](#additional-resources) section for design guidance.
 
 The information is organized into the following articles:
 ##[Recovery from local failures](./resiliency-technical-guidance-recovery-local-failures.md)
 Physical hardware (for example drives, servers, and network devices) can all fail and resources can be exhausted when load spikes. This section describes the capabilities Azure provides to maintain high availability under these conditions.
 
 ##[Recovery from an Azure region-wide service disruption](./resiliency-technical-guidance-recovery-loss-azure-region.md)
-Widespread failures are rare but possible. Entire regions can become isolated due to network failures, or be physically damaged due to natural disasters. This section explains how to use Azure’s capabilities to create applications that span geographically diverse regions.
+Widespread failures are rare, but theoretically possible. Entire regions can become isolated due to network failures, or be physically damaged due to natural disasters. This section explains how to use Azure’s capabilities to create applications that span geographically diverse regions.
 
 ##[Recovery from on-premises to Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md)
 The cloud significantly alters the economics of disaster recovery, making it possible for organizations to use Azure to establish a second site for recovery. This can be done at a fraction of the cost of building and maintaining a secondary datacenter. This section explains the capabilities Azure provides for extending an on-premises datacenter to the cloud.

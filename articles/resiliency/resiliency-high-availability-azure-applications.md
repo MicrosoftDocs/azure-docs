@@ -31,7 +31,7 @@ When multiple role instances are deployed, Azure deploys these instances to diff
 
 ![Fault Domain Isolation - Simplified View](./media/resiliency-high-availability-azure-applications/fault-domain-isolation.png "Fault Domain Isolation - Simplified View")
 
-_Figure 1 Fault Domain Isolation - Simplified View_
+_Fault Domain Isolation - Simplified View_
 
 Upgrade domains are similar to fault domains in function, but they support upgrades rather than failures. An upgrade domain is a logical unit of instance separation that determines which instances in a particular service will be upgraded at a point in time. By default, for your hosted service deployment, five upgrade domains are defined. However, you can change that value in the service definition file. For example, you have eight instances of your web role. There will be two instances in three upgrade domains and two instances in one upgrade domain. Azure defines the update sequence, but it is based on the number of upgrade domains. For more information on upgrade domains, see [Update an Azure Service](../cloud-services/cloud-services-update-azure-service.md).
 
@@ -45,7 +45,7 @@ The majority of this paper focuses on cloud services, which use a Platform as a 
 
 ![Availability Sets for Azure Virtual Machines](./media/resiliency-high-availability-azure-applications/availability-set-for-azure-virtual-machines.png "Availability Sets for Azure Virtual Machines")
 
-_Figure 2 Availability Sets for Azure Virtual Machines_
+_Availability Sets for Azure Virtual Machines_
 
 >[AZURE.NOTE]In the previous diagram, SQL Server is installed and running on virtual machines. This is different from the previous discussion of Azure SQL Database, which provides database as a managed service.
 
@@ -85,7 +85,7 @@ You can make Azure web and worker roles that consume reference data autonomous a
 
 ![Application high availability through autonomous compute nodes](./media/resiliency-high-availability-azure-applications/application-high-availability-through-autonomous-compute-nodes.png "Application high availability through autonomous compute nodes")
 
-_Figure 3 Application high availability through autonomous compute nodes_
+_Application high availability through autonomous compute nodes_
 
 One consideration for this pattern is the deployment and startup speed for your roles. If you are deploying or downloading large amounts of reference data on startup, this can increase the amount of time it takes to spin up new deployments or role instances. This might be an acceptable tradeoff for the autonomy of having the reference data immediately available on each role rather than depending on external storage services.
 
@@ -111,12 +111,13 @@ The following diagram shows one possible implementation of this design in an Azu
 
 ![High availability through loose coupling](./media/resiliency-disaster-recovery-high-availability-azure-applications/application-high-availability-through-loose-coupling.png "High availability through loose coupling")
 
-_Figure 4 Application high availability through loose coupling_
+_Application high availability through loose coupling_
 
 The dashed arrows in the above diagram indicate asynchronous processing. The front-end web role is not aware of this asynchronous processing. This leads to the storage of the transaction at its final destination with reference to the current system. Due to the latency introduced by this asynchronous model, the transactional data is not immediately available for query. Therefore, each unit of the transactional data needs to be saved in a cache or user session to meet the immediate UI needs.
 
 Consequently, the web role is autonomous from the rest of the infrastructure. Its availability profile is a combination of the web role and the Azure queue and not the entire infrastructure. In addition to high availability, this approach allows the web role to scale horizontally, independent of the backend storage. This high availability model can have an impact on the economics of operations. Additional components like Azure queues and worker roles can impact monthly usage costs.
 Note that the previous diagram shows one implementation of this decoupled approach to transactional data. There are many other possible implementations. The following list provides some alternative variations.
+
  * A worker role might be placed between the web role and the storage queue.
  * A Service Bus queue can be used instead of an Azure Storage queue.
  * The final destination might be Azure Storage or a different database provider.

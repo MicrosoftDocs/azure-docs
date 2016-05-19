@@ -36,7 +36,7 @@ In the diagram below, users connect to a URL specified for ATM (__http://myATMUR
 
 ![Routing using the Azure Traffic Manager](./media/resiliency-disaster-recovery-azure-applications/routing-using-azure-traffic-manager.png "Routing using the Azure Traffic Manager")
 
-_Figure 5 Routing using the Azure Traffic Manager_
+_Routing using the Azure Traffic Manager_
 
 When configuring WATM you will provide a new Traffic Manager DNS prefix. This is the URL prefix you will provide to your users to access your service. WATM now abstracts load balancing one level up and not at the region level. The Traffic Manager DNS maps to a CNAME for all the deployments it manages.
 
@@ -124,9 +124,9 @@ Because reference data changes infrequently, you can improve the RTO by maintain
 
 ![Reference data publication to both primary and secondary regions](./media/resiliency-disaster-recovery-azure-applications/reference-data-publication-to-both-primary-and-secondary-regions.png "Reference data publication to both primary and secondary regions")
 
-__Figure 6 Reference data publication to both primary and secondary regions__
+__Reference data publication to both primary and secondary regions__
 
-As mentioned previously, you must implement your own application-specific backup routines for all data, including reference data. Geo-replicated copies across regions are only used in a region-wide service disruption. To prevent extended downtime, deploy the mission critical parts of the application’s data to the secondary region. For an example of this topology, see the [active-Passive model](#active-passive).
+As mentioned previously, you must implement your own application-specific backup routines for all data, including reference data. Geo-replicated copies across regions are only used in a region-wide service disruption. To prevent extended downtime, deploy the mission critical parts of the application’s data to the secondary region. For an example of this topology, see the [active-passive model](#active-passive).
 
 ##Transactional data pattern for disaster recovery
 Implementation of a fully functional disaster mode strategy requires asynchronous replication of the transactional data to the secondary region. The practical time windows within which the replication can occur will determine the RPO characteristics of the application. You might still recover the data lost from the primary region during the replication window. You may also be able to merge with the secondary region later.
@@ -139,7 +139,7 @@ Consider an application that uses Azure Storage queues to hold transactional dat
 
 ![Replicate transactional data in preparation for disaster recovery](./media/resiliency-disaster-recovery-azure-applications/replicate-transactional-data-in-preparation-for-disaster-recovery.png "Replicate transactional data in preparation for Disaster Recovery")
 
-_Figure 7 Replicate transactional data in preparation for disaster recovery_
+_Replicate transactional data in preparation for disaster recovery_
 
 The biggest challenge to implement the previous architecture is the replication strategy between regions. Azure provides a SQL Data Sync service for this type of replication. However, the service is still in preview and is not recommended for production environments. For more information, see [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md). For production applications, you must invest in a third-party solution or create your own replication logic in code. Depending on the architecture, the replication might be bi-directional, which is also more complex. One potential implementation could make use of the intermediate queue in the previous example. The worker role that processes the data to the final storage destination could make the change in both the primary and secondary region. These are not trivial tasks, and complete guidance for replication code is beyond the scope of this paper. The important point is that a lot of your time and testing should focus on how you replicate your data to the secondary region. Additional processing and testing should be done to ensure that the fail-over and recovery processes correctly handle any possible data inconsistencies or duplicate transactions.
 
@@ -151,9 +151,9 @@ Consider a second architecture that operates in degraded mode. The application o
 
 ![Degraded application mode for transaction capture](./media/resiliency-disaster-recovery-azure-applications/degraded-application-mode-for-transaction-capture.png "Degraded application mode for transaction capture")
 
-_Figure 8 Degraded application mode for transaction capture_
+_Degraded application mode for transaction capture_
 
-For more discussion of data management techniques for resilient Azure applications, see Failsafe: Guidance for Resilient Cloud Architectures.
+For more discussion of data management techniques for resilient Azure applications, see [Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe).
 
 ##Deployment topologies for disaster recovery
 Prepare mission critical applications for the possibility of a region-wide service disruption. You do this by incorporating a multi-region deployment strategy into the operational planning. Multi-region deployments might involve IT Pro processes to publish the application and reference data to the secondary region after experiencing a disaster. If the application requires instant fail-over, the deployment process may involve an active/passive or an active/active setup. This type of deployment has existing instances of the application running in the alternate region. As discussed, a routing tool such as the Azure Traffic Manager provides load balancing services at the DNS level. It can detect service disruptions and route the users to different regions when needed.
@@ -169,7 +169,7 @@ A single-region deployment is not really a disaster recovery topology, but is me
 
 ![Single-region deployment](./media/resiliency-disaster-recovery-azure-applications/single-region-deployment.png "Single-region deployment")
 
-_Figure 9 Single-region deployment_
+_Single-region deployment_
 
 Here it is apparent that the database is a single point of failure. Even though Azure replicates the data across different fault domains to internal replicas, this all occurs in the same region. It cannot withstand a catastrophic failure. If the region goes down, all of the fault domains go down, which includes all service instances and storage resources.
 
@@ -190,12 +190,12 @@ This option is only practical for non-critical applications that can tolerate a 
 
 ![Redeploy to a secondary Azure region](./media/resiliency-disaster-recovery-azure-applications/redeploy-to-a-secondary-azure-region.png "Redeploy to a secondary Azure region")
 
-_Figure 10 Redeploy to a secondary Azure region_
+_Redeploy to a secondary Azure region_
 
 ##Active-Passive
-The Active/Passive pattern is the choice that many companies favor. This pattern provides improvements to the RTO with a relatively small increase in cost over the redeploy pattern. In this scenario, there is again a primary and a secondary Azure region. All of the traffic goes to the active deployment on the primary region. The secondary region is better prepared for disaster recovery because the database is running on both regions. Additionally, there is a synchronization mechanism in place between them. This standby approach can involve two variations: a database-only approach or a complete deployment in the secondary region.
+The active-passive pattern is the choice that many companies favor. This pattern provides improvements to the RTO with a relatively small increase in cost over the redeploy pattern. In this scenario, there is again a primary and a secondary Azure region. All of the traffic goes to the active deployment on the primary region. The secondary region is better prepared for disaster recovery because the database is running on both regions. Additionally, there is a synchronization mechanism in place between them. This standby approach can involve two variations: a database-only approach or a complete deployment in the secondary region.
 
-In the first variation of the Active/Passive pattern, only the primary region has a deployed cloud service application. However, unlike the redeploy pattern, both regions are synchronized with the contents of the database (see the section on [Transactional data pattern for disaster recovery](#transactional-data-pattern-for-disaster-recovery)). When a disaster occurs, there are fewer activation requirements. You start the application in the secondary region, change connection strings to the new database, and change the DNS entries to reroute traffic.
+In the first variation of the active-passive pattern, only the primary region has a deployed cloud service application. However, unlike the redeploy pattern, both regions are synchronized with the contents of the database (see the section on [transactional data pattern for disaster recovery](#transactional-data-pattern-for-disaster-recovery)). When a disaster occurs, there are fewer activation requirements. You start the application in the secondary region, change connection strings to the new database, and change the DNS entries to reroute traffic.
 
 Like the redeploy pattern, you should already have stored the service packages in Azure Blob storage in the secondary region for faster deployment. Unlike the redeployment pattern, you don’t incur the majority of the overhead that database restore operations requires. The database is ready and running. This saves a significant amount of time, making this an affordable and, therefore, the most popular DR pattern.
 
@@ -203,24 +203,24 @@ Like the redeploy pattern, you should already have stored the service packages i
 
 ![Active-Passive - database only](./media/resiliency-disaster-recovery-azure-applications/active-passive-database-only.png "Active-Passive - database only")
 
-_Figure 11 Active-Passive - database only_
+_Active-Passive - database only_
 
-In the second variation of the Active/Passive pattern, the primary and secondary region have a full deployment. This deployment includes the cloud services and a synchronized database. However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. In that case, all new network requests route to the secondary region. Azure Traffic Manager can manage this fail-over automatically.
+In the second variation of the active-passive pattern, the primary and secondary region each have a full deployment. This deployment includes the cloud services and a synchronized database. However, only the primary region is actively handling network requests from the users. The secondary region becomes active only when the primary region experiences a service disruption. In that case, all new network requests route to the secondary region. Azure Traffic Manager can manage this fail-over automatically.
 
 Fail-over occurs faster than the database-only variation because the services are already deployed. This pattern provides a very low RTO; the secondary fail-over region must be ready to go immediately after failure of the primary region.
 
-Along with quicker response, this pattern also has an additional advantage of pre-allocating and deploying backup services. You don’t have to worry about a region not having the space to allocate new instances in a disaster. This is important if your secondary Azure region is nearing capacity. There is no guarantee (SLA) that you will instantly be able to deploy a number of new cloud services in any region.
+Along with a quicker response time, this pattern also has the additional advantage of pre-allocating and deploying backup services. You don’t have to worry about a region not having the space to allocate new instances in a disaster. This is important if your secondary Azure region is nearing capacity. There is no guarantee (SLA) that you will instantly be able to deploy a number of new cloud services in any region.
 
-For the fastest response time with this model, you must have similar scale (number of role instances) in the primary and secondary region. Despite the advantages, paying for unused compute instances is costly, and this is often not the most prudent financial choice. Because of this, it is more common to use a slightly scaled-down version of cloud services on the secondary region. Then you can quickly fail-over and scale out the secondary deployment when necessary. You should automate the fail-over process so that, once the primary region fails, you activate additional instances depending up on the load. This could involve some type of automatic scaling mechanism, such as the AutoScale Preview or the The Autoscaling Application Block. The following diagram shows the model where the primary and secondary region contain a fully deployed cloud service in an Active/Passive pattern.
+For the fastest response time with this model, you must have similar scale (number of role instances) in the primary and secondary region. Despite the advantages, paying for unused compute instances is costly, and this may not be the most prudent financial choice. Because of this, it is more common to use a slightly scaled-down version of cloud services on the secondary region. Then you can quickly fail-over and scale out the secondary deployment if necessary. You should automate the fail-over process so that, once the primary region is inaccessible, you activate additional instances depending upon the load. This could involve the use of an autoscaling mechanism like [Virtual Machine Scale Sets](../virtual-machines/virtual-machine-scale-sets-overview.md). The following diagram shows the model where the primary and secondary regions contain a fully-deployed cloud service in an active-passive pattern.
 
 ###Active-Passive - full replica
 
 ![Active-Passive - full replica](./media/resiliency-disaster-recovery-azure-applications/active-passive-full-replica.png "Active-Passive - Full Replica")
 
-_Figure 12 Active/Passive - full replica_
+_Active-Passive - full replica_
 
 ##Active-Active
-By now, you’re probably figuring out the evolution of the patterns – decreasing the RTO increases costs and complexity. The Active/Active solution actually breaks this tendency with regard to cost. In an Active/Active pattern, the cloud services and database are fully deployed in both regions. Unlike the Active/Passive model, both regions receive user traffic. This option yields the quickest recovery time. The services are already scaled to handle a portion of the load at each region. The DNS is already enabled to use the secondary region. There is additional complexity in determining how to route users to the appropriate region. Round-robin scheduling might be possible. It is more likely that certain users would use a specific region where the primary copy of their data resides.
+By now, you’re probably figuring out the evolution of the patterns – decreasing the RTO increases costs and complexity. The active-active solution actually breaks this tendency with regard to cost. In an active-active pattern, the cloud services and database are fully deployed in both regions. Unlike the active-passive model, both regions receive user traffic. This option yields the quickest recovery time. The services are already scaled to handle a portion of the load at each region. The DNS is already enabled to use the secondary region. There is additional complexity in determining how to route users to the appropriate region. Round-robin scheduling might be possible. It is more likely that certain users would use a specific region where the primary copy of their data resides.
 
 In case of fail-over, simply disable DNS to the primary region, which routes all traffic to the secondary region. Even in this model, there are some variations. For example, the following diagram shows a model where the primary region owns the master copy of the database. The cloud services in both regions write to that primary database. The secondary deployment can read from the primary or replicated database. Replication in this example happens one way.
 
@@ -228,11 +228,11 @@ In case of fail-over, simply disable DNS to the primary region, which routes all
 
 ![Active-Active](./media/resiliency-disaster-recovery-azure-applications/active-active.png "Active-Active")
 
-_Figure 13 Active-Active_
+_Active-Active_
 
-There is a downside to the Active/Active architecture in the previous diagram. The second region must access the database in the first region because the master copy resides there. Performance significantly drops off when you access data from outside a region. In cross-region database calls, you should consider some type of batching strategy to improve the performance of these calls. For more information, see [How to use batching to improve SQL Database application performance](../sql-database/sql-database-use-batching-to-improve-performance.md). An alternative architecture could involve each region accessing its own database directly. In that model, some type of bidirectional replication would be required to synchronize the databases in each region.
+There is a downside to the active-active architecture in the previous diagram. The second region must access the database in the first region because the master copy resides there. Performance significantly drops off when you access data from outside a region. In cross-region database calls, you should consider some type of batching strategy to improve the performance of these calls. For more information, see [How to use batching to improve SQL Database application performance](../sql-database/sql-database-use-batching-to-improve-performance.md). An alternative architecture could involve each region accessing its own database directly. In that model, some type of bidirectional replication would be required to synchronize the databases in each region.
 
-In the Active-Active pattern, you might not need as many instances on the primary region as you would in the Active-Passive pattern. If you have ten instances on the primary region in an Active-Passive architecture, you might need only five in each region in an Active-Active architecture. Both regions now share the load. This could be a cost savings over the Active-Passive pattern if you kept a warm standby on the passive region with ten instances waiting for fail-over.
+In the active-active pattern, you might not need as many instances on the primary region as you would in the active-passive pattern. If you have ten instances on the primary region in an active-passive architecture, you might need only five in each region in an active-active architecture. Both regions now share the load. This could be a cost savings over the active-passive pattern if you kept a warm standby on the passive region with ten instances waiting for fail-over.
 
 Realize that until you restore the primary region, the secondary region may receive a sudden surge of new users. If there were 10,000 users on each server when the primary region experiences a service disruption, the secondary region suddenly has to handle 20,000 users. Monitoring rules on the secondary region must detect this increase and double the instances in the secondary region. For more information on this, see the section on [failure detection](#failure-detection).
 

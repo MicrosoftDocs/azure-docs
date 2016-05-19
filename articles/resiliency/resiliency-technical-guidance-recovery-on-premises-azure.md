@@ -26,13 +26,13 @@ Azure provides a comprehensive set of services for enabling extension of an on-p
   * __Database Replication__: With SQL 2014 Availability Groups you can implement high availability and disaster recovery for your on-premises data.
 
 ##Networking
-Azure Virtual Network enables you to create a logically isolated section in Azure and securely connect it to your on-premises datacenter or a single client machine using an IPsec connection. Virtual Network makes it easy for you to take advantage of Azure’s scalable, on-demand infrastructure while providing connectivity to data and applications on-premises, including systems running on Windows Server, mainframes and UNIX. See [Azure Networking Documentation](../virtual-network/virtual-networks-overview.md) for more information.
+Azure Virtual Network enables you to create a logically isolated section in Azure and securely connect it to your on-premises datacenter or a single client machine using an IPsec connection. Virtual Network makes it easy for you to take advantage of Azure’s scalable, on-demand infrastructure while providing connectivity to data and applications on-premises, including systems running on Windows Server, mainframes and UNIX. See [Azure networking documentation](../virtual-network/virtual-networks-overview.md) for more information.
 
 ##Compute
 If you're using Hyper-V on-premises can “lift and shift” existing virtual machines(VMs) to Azure & service providers running Windows Server 2012 (or later), without making changes to the VM or converting VM formats. For more information, see [About disks and VHDs for Azure virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 ##Azure Site Recovery
-If you would like disaster recovery as a service (DRaaS), Azure provides [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/). Azure Site Recovery offers comprehensive protection for VMware, Hyper-V, and physical servers. Azure Site Recovery allows you to leverage another on-premises server or Azure as your recovery site. For more information on Azure Site Recovery please see the [Azure Site Recovery Documentation](https://azure.microsoft.com/documentation/services/site-recovery/).
+If you would like disaster recovery as a service (DRaaS), Azure provides [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/). Azure Site Recovery offers comprehensive protection for VMware, Hyper-V, and physical servers. Azure Site Recovery allows you to leverage another on-premises server or Azure as your recovery site. For more information on Azure Site Recovery please see the [Azure Site Recovery documentation](https://azure.microsoft.com/documentation/services/site-recovery/).
 
 ##Storage
 There are several options for using Azure as a backup site for on-premises data.
