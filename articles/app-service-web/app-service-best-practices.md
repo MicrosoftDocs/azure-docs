@@ -21,7 +21,7 @@
 This article summarizes best practices for using [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
 
 ## <a name="colocation"></a>Colocation
-When Azure resources composing a solution such as a web app and a database are located in different regions the effects can include the following:
+When Azure resources composing a solution such as a web app and a database are located in different regions the effects can include the following:  
 * increased latency in communication between resources
 * monetary charges for outbound data transfer cross-region as noted on the [Azure pricing page](https://azure.microsoft.com/pricing/details/data-transfers).
 
