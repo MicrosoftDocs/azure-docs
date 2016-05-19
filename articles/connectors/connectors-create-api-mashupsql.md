@@ -1,10 +1,10 @@
 <properties
 pageTitle="Sql Connector | Microsoft Azure"
-description="Create Logic apps with Azure App service. The Sql connector provides an API to work with Sql Databases."
-services="app-servicelogic"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+description="Create Logic apps with Azure App service. The Sql connector provides way to work with Sql Databases."
+services="app-servicelogic"    
+documentationCenter=".net,nodejs,java"     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -14,14 +14,14 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Sql Connector connector
+# Get started with the Sql connector
 
 
 
-The Sql Connector connector can be used from:  
+The Sql connector can be used from:  
 
 - [Logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
@@ -33,9 +33,9 @@ You can get started by creating a Logic app now, see [Create a logic app](../app
 
 ## Triggers and actions
 
-The Sql Connector connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+The Sql connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
- The Sql Connector connector has the following action(s) and/or trigger(s) available:
+ The Sql connector has the following action(s) and/or trigger(s) available:
 
 ### Sql Connector actions
 You can take these action(s):
