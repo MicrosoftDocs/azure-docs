@@ -20,9 +20,7 @@
 
 ## Overview 
 
-Microsoft Azure Storage Explorer (Preview) is a standalone tool that enables you to manage your Azure storage accounts. 
-In this article, you'll see how to connect to one or more Azure accounts to view and manager their associated 
-storage accounts and resources.  
+Microsoft Azure Storage Explorer (Preview) is a standalone tool that enables you to manage your Azure storage accounts. In this article, you'll see how to connect to one or more Azure accounts to view and manager their associated storage accounts and resources.  
 
 ## Prerequisites
 
@@ -30,12 +28,12 @@ storage accounts and resources.
 
 ## Connect to a storage account or service
 
-Storage Explorer (Preview) allows you to connect to Azure storage accounts - or individual services such as a blob container, queue, or table - associated with your Azure subscription(s). In addition, you can attach to Azure storage accounts shared from another Azure subscription using either the subscription's credentials - account name and key - or a SAS (Shared Access Signature) provided by the Azure subscription owner.
+Storage Explorer (Preview) allows you to connect to your own Azure storage accounts as well as storage accounts and services shared from other Azure subscriptions:
 
-- [Connect to an Azure subscription](#connect-to-an-azure-subscription)
-- [Attach to external storage](#attach-or-detach-an-external-storage-account)
-- [Attach account using SAS](#attach-account-using-sas)
-- [Attach service using SAS]
+- [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscriptions.
+- [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription using the storage account's account name and key.
+- [Attach account using SAS](#attach-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
+- [Attach service using SAS](#attach-service-using-sas) - Manage a specific storage service (blob container, queue, or table) belonging to another Azure subscription using a SAS.
 
 ## Connect to an Azure subscription
 
@@ -187,45 +185,71 @@ A SAS (Shared Access Signature) gives the admin of an Azure subscription the abi
 grant access to a storage account on a temporary basis without having to provide their Azure
 subscription credentials. 
 
-The process is simple. Let's say PersonA is an admin of an Azure subscription. PersonA wants to 
-allow PersonB to access one of  
+To illustrate this, let's say UserA is an admin of an Azure subscription, and UserA wants to 
+allow UserB to access a storage account for a limited time with certain permissions:
 
-1. The Azure subscription admin generates a SAS URI consisting of the connection string for the storage account.
-1. The Azure subscription admin shares the SAS with the person wanting access to the storage account.  
-1. The person wanting access 
+1. UserA generates a SAS (consisting of the connection string for the storage account) for a specific time period and with the desired permissions.
+1. UserA shares the SAS with the person wanting access to the storage account - UserB, in our example.  
+1. UserB uses Storage Explorer (Preview) to attach to the account belonging to UserA using the supplied SAS. 
 
+### Get a SAS for the account you want to share
 
+1.	Open Storage Explorer (Preview).
+1.	In the left pane, right-click the storage account you want share, and - from the context menu - select **Get Shared Access Signature**.
 
- +
- +- Get the SAS URI for the account you want to access
- +
- +	- In Storage Explorer (Preview), tap the Storage Account you want to attach
- +	- In the **Actions** pane, tap **Get Shared Access Signature**.
- +	
- +		![][12]
- +
- +	- On the **Shared Access Signature** dialog, specify the timeframe and/or permissions you want for the account, and tap **Create**.
- +	
- +		![][13]
- +
- +	- Copy the **Connection String** for later use.
- +	
- +	- Tap **Close** to dismiss the dialog.
- +
- +- In Storage Explorer (Preview), tap **Storage Accounts**
- +
- +- In the **Actions** pane, tap **Attach Account using SAS**.
- +
- +	![][14]
- +
- +- On the **Attach Account using SAS** dialog:
- +	- **Account Name** - Enter the name that you want to associated with this account. 
- +	- **Connection String** - Paste the connection string you copied earlier.
- +	- Tap **OK** when done.
- +
- +		![][15]
- +
- +Once attached, the SAS Storage Account will be displayed with the text (SAS) appended to the storage account name.
+	![][13]
+
+1. On the **Shared Access Signature** dialog, specify the time frame and permissions you want for the account, and tap **Create**.
+
+	![][14]
+ 
+1. A second **Shared Access Signature** dialog will appear displaying the SAS. Tap **Copy** next to the **Connection String** to copy the SAS URI to the clipboard. Tap **Close** to dismiss the dialog.
+
+### Attach to the shared account using the SAS
+
+1.	Open Storage Explorer (Preview).
+1.	In the left pane, right-click **Storage Accounts**, and - from the context menu - select **Attach account using SAS**.
+	![][15]
+
+1. On the **Attach Account using SAS** dialog:
+
+	- **Account Name** - Enter the name that you want to associated with this account. **NOTE:** The account name does not have to match the original storage account name for which the SAS was generated. 
+ 	- **Connection String** - Paste the connection string you copied earlier.
+ 	- Tap **OK** when done.
+	
+	![][16]
+
+Once attached, the storage account will be displayed with the text (SAS) appended to the account name you supplied.
+
+![][17]
+
+## Attach service using SAS
+
+The section [Attach account using SAS](#attach-account-using-sas) illustrates how 
+an Azure subscription admin can grant temporary access to a storage account by generating (and sharing) a SAS URI for the storage account. Similarly, a SAS URI can be generated for a specific service (blob container, queue, or table) within a storage account.  
+
+### Generate a SAS for the service you want to share
+
+In this context, a service can be a blob container, queue, or table. The following sections
+explain how to generate the SAS for the listed service:
+
+- [Get the SAS for a blob container](./vs-azure-tools-storage-explorer-blobs.md/#get-the-sas-for-a-blob-container)
+- Get the SAS for a queue - *Coming soon*
+- Get the SAS for a table - *Coming soon*
+
+### Attach to the shared account service using the SAS
+
+1.	Open Storage Explorer (Preview).
+1.	In the left pane, right-click **Storage Accounts**, and - from the context menu - select **Attach service using SAS**.
+	![][18]
+
+1. On the **Attach Account using SAS** dialog, paste in the SAS URI you copied earlier, and tap **OK**.
+
+	![][19]
+
+Once attached, the newly attached service will be displayed under the **(Service SAS)** node. 
+
+![][20]
 
 ## Search for storage accounts
 
@@ -254,3 +278,11 @@ To clear the search, tap the **x** button in the search box.
 [10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage.png
 [11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-account-search.png
 [12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/detach-external-storage-confirmation.png
+[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-context-menu.png
+[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/get-sas-dlg1.png
+[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-context-menu.png
+[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-dlg.png
+[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-account-using-sas-finished.png
+[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-context-menu.png
+[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-dlg.png
+[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-finished.png
