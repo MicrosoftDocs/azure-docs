@@ -31,6 +31,7 @@ Microsoft Azure Storage Explorer (Preview) is a standalone tool that enables you
 Storage Explorer (Preview) allows you to connect to your own Azure storage accounts as well as storage accounts and services shared from other Azure subscriptions:
 
 - [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscription.
+- [Connect to local storage](#connect-to-local-storage) - Manage local storage using the Azure Storage Emulator. 
 - [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription using the storage account's account name and key.
 - [Attach account using SAS](#attach-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
 - [Attach service using SAS](#attach-service-using-sas) - Manage a specific storage service (blob container, queue, or table) belonging to another Azure subscription using a SAS.
@@ -128,6 +129,27 @@ Microsoft accounts, you can switch between the accounts by performing the follow
 
 1.	Tap **Apply**.
   
+## Connect to local storage
+
+Storage Explorer (Preview) allows you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
+
+>[AZURE.NOTE] The Azure Storage Emulator is currently supported only for Windows. 
+
+1. Start Storage Explorer (Preview). 
+
+1. In the left pane, expand the **(Development)** node.
+
+	![][21]
+
+1. If you have not yet installed the Azure Storage Emulator, you'll be prompted to do so via an infobar. If the infobar is displayed, tap **Download the latest version**, and install the emulator. 
+
+	![][22]
+
+1. Once the emulator is installed, you'll have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, click on the appropriate link below:
+
+	- [Manage Azure blob storage resources](./vs-azure-tools-storage-explorer-blobs.md)
+	- Manage Azure queue storage resources - *Coming soon*
+	- Manage Azure table storage resources - *Coming soon*
 
 ## Attach or detach an external storage account
 
@@ -286,3 +308,5 @@ To clear the search, tap the **x** button in the search box.
 [18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-context-menu.png
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-dlg.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/attach-service-using-sas-finished.png
+[21]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/local-storage-drop-down.png
+[22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
