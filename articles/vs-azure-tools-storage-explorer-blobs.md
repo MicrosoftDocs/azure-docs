@@ -29,8 +29,7 @@ to work with blob containers and blobs.
 To complete the steps in this article, you'll need the following:
 
 - [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
-- Microsoft Azure account. If you don't have an account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)
-or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- [Connect to a Azure storage account or service](./vs-azure-tools-storage-manage-with-storage-explorer.md/#connect-to-a-storage-account-or-service)
 
 ## Create a blob container
 
