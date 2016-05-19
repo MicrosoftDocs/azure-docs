@@ -32,7 +32,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 ## Upgrade from DirSync
 Depending on your current DirSync deployment there are different options for the upgrade. If the expected upgrade time is less than 3 hours then we recommend to do an in-place upgrade. If the expected upgrade time is more than 3 hours we recommend to do a parallel deployment on another server. It is estimated that if you have more than 50,000 objects it will take more than 3 hours to do the upgrade.
 
-Scenario |
+Scenario |  
 ---- | ----
 [In-place upgrade](#in-place-upgrade)  | Preferred option if the upgrade is expected to take less than 3 hours.
 [Parallel deployment](#parallel-deployment) | Preferred option if the upgrade is expected to take more than 3 hours.

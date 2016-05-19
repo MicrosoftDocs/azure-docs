@@ -28,7 +28,7 @@ The Azure AD Connect installation wizard offers two different paths:
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics.
 
-Topic |
+Topic |  
 --------- | ---------
 Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md)
 Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)

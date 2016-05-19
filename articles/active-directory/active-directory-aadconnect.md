@@ -64,7 +64,7 @@ Before you start - [Hardware and prerequisites](active-directory-aadconnect-prer
 
 ### Next steps to Install Azure AD Connect
 
-Topic |
+Topic |  
 --------- | ---------
 Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md)
@@ -76,7 +76,7 @@ After installation | [Verify the installation and assign licenses ](active-direc
 
 You also want to prepare for [operational](active-directory-aadconnectsync-operations.md) concerns. You might want to have a stand-by server so you easily can fall over if there is a [disaster](active-directory-aadconnectsync-operations.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) server.
 
-Topic |
+Topic |  
 --------- | ---------
 Supported topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)
 Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md)
@@ -101,7 +101,7 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 
 ### Next steps to configure sync features
 
-Topic |
+Topic |  
 --------- | --------- |
 Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md)
 Password synchronization | [Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
@@ -121,7 +121,7 @@ The configuration model in sync is called [declarative provisioning](active-dire
 
 ### Next steps to customize Azure AD Connect sync
 
-Topic |
+Topic |  
 --------- | ---------
 All Azure AD Connect sync articles | [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)
 Technical concepts | [Azure AD Connect sync: Technical Concepts](active-directory-aadconnectsync-technical-concepts.md)
@@ -137,7 +137,7 @@ if your ADFS server has not been configured to automatically update certificates
 
 ### Next steps to configure federation features
 
-Topic |
+Topic |  
 --------- | ---------
 Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md)
 Manage AD FS farm | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md)
@@ -145,7 +145,7 @@ Manually updating federation certificates | [Renewing Federation Certificates fo
 
 ## More information and references
 
-Topic |
+Topic |  
 --------- | --------- |
 Version history | [Version history](active-directory-aadconnect-version-history.md)
 Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
