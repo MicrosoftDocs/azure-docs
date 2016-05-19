@@ -61,11 +61,11 @@ We have provided a client application that will generate sample incoming call me
 
 1.	Download the [TelcoGenerator.zip file](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)'*'. Then unzip it to a directory.
 
-    '*' Note: Windows may block the downloaded zip file. Right click the file and select properties. If the message "This file came from another computer and might be blocked to help protect this computer." then tick the "Unblock" box and click apply on the zip file.
+    '*' **Note**: Windows may block the downloaded zip file. Right click the file and select properties. If the message "This file came from another computer and might be blocked to help protect this computer." then tick the "Unblock" box and click apply on the zip file.
 
 2.	Replace the Microsoft.ServiceBus.ConnectionString and EventHubName values in **telcodatagen.exe.config** with your Event Hub connection string and name.
 
-    Note: The connection string copied from the Azure portal places the name of the connection at the end. Be sure to remove the ";EntityPath=<value>" from the add key= field.
+    **Note**: The connection string copied from the Azure portal places the name of the connection at the end. Be sure to remove the ";EntityPath=<value>" from the add key= field.
 
 3.	Start the application. The usage is as follows:
 
