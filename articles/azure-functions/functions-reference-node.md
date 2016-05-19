@@ -164,6 +164,27 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
+## Environment variables
+
+To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
+    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    
+    context.done();
+};
+
+function GetEnvironmentVariable(name)
+{
+    return name + ": " + process.env[name];
+}
+```
+
 ## TypeScript/CoffeeScript support
 
 There isn't, yet, any direct support for auto-compiling TypeScript/CoffeeScript via the runtime, so that would all need to be handled outside the runtime, at deployment time. 

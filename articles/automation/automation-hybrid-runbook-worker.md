@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/12/2016"
+   ms.date="05/18/2016"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -169,7 +169,7 @@ You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you ma
 
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.
 
-If your runbooks are not completeing succesfully and the job summary shows a status of **Suspended**, please review the troubleshooting article [Hybrid Runbook Worker: A runbook job terminates with a status of Suspended](automation-troubleshooting-hrw-runbook-terminates-suspended).   
+If your runbooks are not completeing succesfully and the job summary shows a status of **Suspended**, please review the troubleshooting article [Hybrid Runbook Worker: A runbook job terminates with a status of Suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md).   
 
 ## Relationship to Service Management Automation
 
