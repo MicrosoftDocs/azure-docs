@@ -49,7 +49,7 @@ This error message contains error codes that can help point you to the cause and
 
 ### Steps to investigate
 
-1. As a best practice make sure you are using the following pattern to connect using the StackExhange Redis client.
+1. As a best practice make sure you are using the following pattern to connect when using the StackExchange.Redis client.
 
 
 	    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
