@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Add the Dropbox API in PowerApps Enterprise or logic apps| Microsoft Azure"
-	description="Overview of the Dropbox API with REST API parameters"
-	services=""
+    pageTitle="Add the Dropbox connector in PowerApps Enterprise or logic apps| Microsoft Azure"
+    description="Overview of the Dropbox connector with REST API parameters"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the Dropbox API 
-Connect to Dropbox to manage files, such us create files, get files, and more. The Dropbox API can be be used from:
+# Get started with the Dropbox connector 
+Connect to Dropbox to manage files, such us create files, get files, and more. The Dropbox connector can be used from:
 
 - Logic apps 
 - PowerApps
@@ -38,9 +38,9 @@ With Dropbox, you can:
 - Build your business flow based on the data you get from Dropbox. 
 - Use triggers for when a file is created or updated.
 - Use actions to create a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a new file is created in Dropbox, you can email that file using Office 365.
-- Add the Dropbox API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+- Add the Dropbox connector to PowerApps Enterprise. Then, your users can use this connector within their apps. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+For information on how to add a connector in PowerApps Enterprise, go to [Register a connector in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,11 +51,11 @@ Triggers | Actions
 --- | ---
 <ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 ## Create the connection to Dropbox
 
-When you add this API to your logic apps, you must authorize logic apps to connect to your Dropbox.
+When you add this connector to your logic apps, you must authorize logic apps to connect to your Dropbox.
 
 1. Sign in to your Dropbox account.
 2. Select **Authorize**, and allow your logic apps to connect and use your Dropbox. 
