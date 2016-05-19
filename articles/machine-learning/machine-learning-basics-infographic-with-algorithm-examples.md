@@ -20,19 +20,17 @@
 
 # Downloadable Infographic: Machine learning basics with algorithm examples
 
-Download this easy-to-understand infographic overview of machine learning basics to identify the popular algorithms used to answer common machine learning questions. Links to algorithm examples help the machine learning beginner understand which algorithms to use and what they are used for.
+Download this easy-to-understand infographic overview of machine learning basics. Learn about popular algorithms used to answer common machine learning questions. Algorithm examples help the machine learning beginner understand which algorithms to use and what they are used for.
 
-## Popular algorithms are available in Machine Learning Studio
+## Popular algorithms in Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms that you can use to solve predictive analytics problems.
-The downloadable infographic below demonstrates how the four types of machine learning algorithms - **regression**, **anomaly detection**, **clustering**, and **classification** - can be used to answer your machine learning questions.
+[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large library of algorithms for predictive analytics. The infographic shows popular families of algorithms: **regression**, **anomaly detection**, **clustering**, and **classification**.
 
-The [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) contains many examples that show how these algorithms can be applied in real world solutions.
-Embedded links in the infographic take you to working examples of each algorithm.
+[Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) shows how these algorithms can be applied in many real-world solutions. Follow links in the infographic to see working examples.
 
-## Download the machine learning basics infographic
+## Download the infographic with algorithm examples
 
-**[Download: Infographic of machine learning basics with links to algorithm examples](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Download: Infographic of machine learning basics with links to algorithm examples (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 
 ![Infographic: Machine learning basics with algorithm examples. Popular algorithms. Machine learning for beginners.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
