@@ -66,9 +66,9 @@ For a complete list of these features, see [Common Features](active-directory-ed
 
 ---
 
-Q: **How can I connect my on-premises directory to Azure AD?**
+**Q: How can I connect my on-premises directory to Azure AD?**
 
-A: You can connect your on-premises directory to Azure AD using **Azure AD Connect**. 
+**A:** You can connect your on-premises directory to Azure AD using **Azure AD Connect**. 
 
 For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
