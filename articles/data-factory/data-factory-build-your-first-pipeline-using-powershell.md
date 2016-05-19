@@ -36,7 +36,7 @@ Apart from prerequisites listed in the Tutorial Overview topic, you need to inst
 - **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
 - (optional) This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets. 
 
-If you are using Azure PowerShell of **version < 1.0**, You will need to use cmdlets that are documented [here][cmdlet-reference]. You also will need to run the following commands before using the Data Factory cmdlets: 
+If you are using Azure PowerShell of **version < 1.0**, You will need to use cmdlets that are documented [here](https://msdn.microsoft.com/library/azure/dn820234.aspx). You also will need to run the following commands before using the Data Factory cmdlets: 
  
 1. Start Azure PowerShell and run the following commands. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
 	1. Run **Add-AzureAccount** and enter the  user name and password that you use to sign in to the Azure Portal.
