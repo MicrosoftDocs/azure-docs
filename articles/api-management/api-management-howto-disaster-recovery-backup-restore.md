@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" 
+	pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management | Microsoft Azure" 
 	description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="sdanie"/>
 
 # How to implement disaster recovery using service backup and restore in Azure API Management

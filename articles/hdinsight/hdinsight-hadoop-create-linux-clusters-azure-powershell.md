@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="04/05/2016"
+   	ms.date="05/18/2016"
    	ms.author="nitinme"/>
 
 #Create Linux-based clusters in HDInsight using Azure PowerShell
@@ -78,7 +78,7 @@ The following script demonstrates how to create a new cluster:
 
     # Create an Azure Blob Storage container
     $containerName = "<ContainerName>"              # Provide a container name
-    $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+    $storageAccountKey = (Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
     New-AzureStorageContainer -Name $containerName -Context $destContext
 

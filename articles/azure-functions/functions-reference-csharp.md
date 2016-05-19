@@ -87,7 +87,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Importing namespaces
 
-If you need import namespaces, you can do so as usual, with the `using` clause.
+If you need to import namespaces, you can do so as usual, with the `using` clause.
 
 ```csharp
 using System.Net;
@@ -100,8 +100,10 @@ The following namespaces are automatically imported and are therefore optional:
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -135,6 +137,8 @@ The following assemblies are automatically added by the Azure Functions hosting 
 In addition, the following assemblies are special cased and may be referenced by simplename (e.g. `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
@@ -183,6 +187,25 @@ When you upload a *project.json* file, the runtime gets the packages and automat
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
+```
+
+## Environment variables
+
+To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
 ```
 
 ## Reusing .csx code
