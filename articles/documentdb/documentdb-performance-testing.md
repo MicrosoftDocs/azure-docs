@@ -18,7 +18,7 @@
 	ms.author="arramac"/>
 
 # Performance and Scale Testing with Azure DocumentDB
-Performance and scale testing is a key step in application development. While most performance testing is performed in the scope of an end-to-end application, many developers implement separate performance test suites (a.k.a. benchmarks) for their individual components, including the database layer. This article is a reference for developers looking to implement performance testing on [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) or evaluating DocumentDB for high-performance application scenarios.
+Performance and scale testing is a key step in application development. Performance testing is typically carried out in two phases.  The first phase is implementing and testing the peformance of individual services or components via performance test suites or benchmarks, and the second phase is end to end for the entire application/service. The database tier is often one of the key components that can influence the overall performance and scalability of your solution. This article is a reference for developers implementing performance test suites for their [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) workloads, or evaluating DocumentDB for high-performance application scenarios.
 
 After reading this article, you will be able to answer the following questions:   
 
@@ -98,7 +98,7 @@ The quickest way to get started is to compile and run the .NET sample below, as 
 
 **Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same as the provisioned throughput of the collection. If it's below the provisioned throughput, try increasing the DegreeOfParallelism in increments until you reach the limit. If you've reached the CPU or network limits of your client machine, you can launch multiple instances of the app from multiple machines. If you need help with this step, please reach out to us via [Ask DocumentDB](askdocdb@microsoft.com) or by filing a support ticket.
 
-In this article, we looked at how you can perform performance and scale testing with DocumentDB using a .NET console app and reviewed key configuration options to get the best performance from DocumetntDB.
+In this article, we looked at how you can perform performance and scale testing with DocumentDB using a .NET console app and reviewed key configuration options to get the best performance from Azure DocumentDB.
 
 ## References
 * [DocumentDB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark)
