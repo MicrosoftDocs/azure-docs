@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an VM availability set | Microsoft Azure"
-	description="Learn how to create an availability set for your virtual machines using Azre portal and the Resource Manager deployment model."
+	description="Learn how to create an availability set for your virtual machines using Azure portal or PowerShell using the Resource Manager deployment model."
 	keywords="availability set"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -24,8 +24,9 @@ When using the portal, if you want your VM to be part of an availability set, yo
 
 For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-manage-availability.md).
 
-[New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx)
 
+
+## Use the portal to create an availability set
 
 1. Click **Browse** and select **Availability set**.
 2. At the top of the hub, click **Add**.
@@ -46,3 +47,10 @@ For more information about creating and using availability sets, see [Manage the
 8. Once the availability group has been created, you can see it in the list after you refresh.
 
 
+## Use PowerShell to create an availability set
+
+This example creates an availability set in the **RMResGroup** resource group in the **West US** location.
+
+	New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "West US"
+	
+For more information, see [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
