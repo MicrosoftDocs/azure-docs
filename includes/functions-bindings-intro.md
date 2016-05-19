@@ -1,0 +1,1 @@
+This article assumes that you've already read the [Azure Functions developer reference](../articles/azure-functions/functions-reference.md), and the [C#](../articles/azure-functions/functions-reference-csharp.md) or [Node](../articles/azure-functions/functions-reference-node.md) developer reference articles.
