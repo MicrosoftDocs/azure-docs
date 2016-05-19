@@ -22,15 +22,15 @@ This document lists and describes the content of the SDK archive.
 
 ## Engagement SDK
 
-`azme-sdk.js`
+`engagement-sdk.js`
 
-> Azure Mobile Engagement SDK main JavaScript file to include in your pages.
+> Engagement SDK main JavaScript file to include in your pages.
 
 ## Addons
 
 ### Proxy
 
-`azme-proxy.js`
+`engagement-proxy.js`
 
 > The SDK JavaScript file required to set up a proxy.
 
