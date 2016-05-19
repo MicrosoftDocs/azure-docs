@@ -31,7 +31,7 @@ Azure Resource Group deployments are a way to group together and publish a set o
 To get started deploying VM Scale Sets in Visual Studio you need the following:
 
 - Visual Studio 2013 or 2015
-- Azure SDK 2.7 or 2.8
+- Azure SDK 2.7, 2.8 or 2.9
 
 Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
@@ -85,7 +85,7 @@ Now you can edit the Template to customize it for your application's needs, such
 
 ## Exploring your VM Scale Set
 
-Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the Azure Portal and Azure Resource Explorer.
+Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the [Azure Portal](https://portal.azure.com) and [Azure Resource Explorer](https://resources.azure.com/).
 
 ![Cloud Explorer][cloud_explorer]
 
