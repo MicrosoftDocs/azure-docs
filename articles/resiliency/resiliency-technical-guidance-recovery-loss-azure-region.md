@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resiliency for recovery from loss of an Azure region technical guidance | Microsoft Azure"
-   description="Whitepaper on understanding and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery"
+   description="Article on understanding and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery"
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -188,3 +188,6 @@ Configuration files provide the quickest way to setup a virtual network in an al
 ##Virtual Network Checklist
   1. Review the [Virtual Network](#virtual-network) section of this document
   2. Use exported virtual network settings to recreate it in another region
+ 
+##Next steps
+This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bcdrtechguide). The next article in this series focuses on [recovery from an on-premises datacenter to Azure](./resiliency-technical-guidance-recovery-on-premises-azure.md). 

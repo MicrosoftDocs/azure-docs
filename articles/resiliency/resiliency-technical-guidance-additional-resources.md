@@ -22,7 +22,7 @@
 
 [Failsafe: Guidance for Resilient Cloud Architectures](https://channel9.msdn.com/Series/FailSafe): Guidance for building resilient cloud architectures, guidance for implementing those architectures on Microsoft technologies, and recipes for implementing these architectures for specific scenarios.
 
-[Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide): A detailed overview of availability and disaster recovery. It covers the challenge of manual replication for reference and transactional data. The final sections provide summaries of different types of DR topologies that span Azure datacenters for the highest level of availability.
+[Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide): A detailed overview of availability and disaster recovery. It covers the challenge of manual replication for reference and transactional data. The final sections provide summaries of different types of disaster recovery topologies that span Azure regions for the highest level of availability.
 
 [Business Continuity in Azure SQL Database](../sql-database/sql-database-business-continuity.md): Focusses exclusively on Azure Azure SQL Database techniques for availability, which primarily centers on backup and restore strategies. If you use Azure SQL Database in your cloud service, you should review this paper and its related resources.
 
@@ -31,3 +31,6 @@
 [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/): Focuses on developing highly scalable cloud architectures. Many of the techniques that you employ to improve scalability also improve availability. Also, if your application can not scale under increased load, then scalability becomes an availability issue.
 
 [Backup and Restore for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md): Technical guidance on how to backup and restore Microsoft SQL Server running on Azure Virtual Machines.
+
+##Next steps
+This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bcdrtechguide). If you are interested in reading other articles in this series; please start with the [introduction](https://aka.ms/bcdrtechguide) which has links to all articles in the series.

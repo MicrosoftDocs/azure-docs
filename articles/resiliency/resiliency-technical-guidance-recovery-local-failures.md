@@ -1,6 +1,6 @@
 <properties
    pageTitle="Recovery from local failures in Azure technical guidance | Microsoft Azure"
-   description="Whitepaper on understanding and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery focused on local failures within Azure."
+   description="Article on understanding and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery focused on local failures within Azure."
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -174,3 +174,5 @@ The data associated with HDInsight is stored by default in Azure Blob Storage, w
   1. Review the [HDInsight](#hdinsight) section of this document
   2. No additional availability steps required for local failures
  
+##Next steps
+This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bcdrtechguide). The next article in this series focuses on [recovery from a region-wide service disruption](./resiliency-technical-guidance-recovery-loss-azure-region.md). 

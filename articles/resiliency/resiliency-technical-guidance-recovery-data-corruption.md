@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resiliency technical guidance for recovering from data corruption or accidental deletion | Microsoft Azure"
-   description="Whitepaper on understanding how to recover from data corruption of data or accidental data deletion to and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery"
+   description="Article on understanding how to recover from data corruption of data or accidental data deletion to and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery"
    services=""
    documentationCenter="na"
    authors="adamglick"
@@ -78,3 +78,6 @@ For Azure Web Sites and Azure Mobile Services, you must backup and maintain the 
 
 ##More Information
 See [Storage, backup and recovery scenarios](https://azure.microsoft.com/documentation/scenarios/storage-backup-recovery/) for more information on Azure's backup and restore features.
+
+##Next steps
+This article is part of a series focused on Azure [resiliency and technical guidance](https://aka.ms/bcdrtechguide). If you are looking for more resiliency, disaster recovery, and high availability resources, please see our [additional resources](./resiliency-technical-guidance-additional-resources.md) article.
