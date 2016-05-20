@@ -121,7 +121,20 @@ In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 repres
 ## Slices - FAQ
 
 ### Why are my input slices are not in Ready state? 
-A common mistake is not setting **external** property to **true** on the input dataset when the input data is external to Data Factory (not produced by a data factory). If the external property is properly set, verify whether the input data exists in the location specified in the input dataset definition. 
+A common mistake is not setting **external** property to **true** on the input dataset when the input data is external to the data factory (not produced by the data factory). 
+
+In the following example, you only need to set **external** to true on **dataset1**.  
+
+**DataFactory1**
+Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3
+Pipeline 2: dataset3-> activity3 -> dataset4
+
+If you have another data factory with a pipeline that takes dataset4 (produced by pipeline 2 in data factory 1), you will need to mark dataset4 as an external dataset because the dataset is produced by a different data factory (DataFactory1, not DataFactory2).  
+
+**DataFactory2**	
+Pipeline 1: dataset4->activity4->dataset5
+
+If the external property is properly set, verify whether the input data exists in the location specified in the input dataset definition. 
 
 ### How to run a slice at another time than midnight when the slice is being produced daily?
 Use the **offset** property to specify the time at which you want the slice to be produced. See [Dataset availability](data-factory-create-datasets.md#Availability) section for details about this property. Here is a quick example:
