@@ -29,7 +29,7 @@ After configuring an Azure Application Gateway, one of the errors which users ma
 5. Request time out or connectivity issues with user requests.
 
 
-![imageURLroute](./media/application-gateway-troubleshooting/502.png "502 error on Application Gateway")
+![Troubleshooting](./media/application-gateway-troubleshooting/502.png)
 
 
 ##Empty BackendAddressPool
