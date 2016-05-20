@@ -16,7 +16,7 @@
    ms.date="05/20/2016"
    ms.author="terrylan"/>
 
-# Azure Storage Security Overview
+# Azure Virtual Machines security overview
 
 Azure Virtual Machines lets you deploy a wide range of computing solutions in an agile way. With support for Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP, and Azure BizTalk Services, you can deploy any workload and any language on nearly any operating system.
 
