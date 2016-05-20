@@ -518,6 +518,10 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 	![][37]
 
+3. Back in the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the app display a message when `GetProducts()` from **ProductsServer** is called.
+
+	![38]
+
 ## Next steps  
 
 To learn more about Service Bus, see the following resources:  
@@ -549,6 +553,7 @@ To learn more about Service Bus, see the following resources:
   
   [36]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [37]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
+  [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
