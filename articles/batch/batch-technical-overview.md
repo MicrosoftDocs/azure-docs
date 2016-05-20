@@ -62,7 +62,7 @@ When you develop Batch solutions, you'll use the following accounts in Microsoft
 
 ### Batch development APIs
 
-Most commonly, the core of your Batch solution will be built using one of the Batch client APIs. You can issue direct REST API calls to the service, but most applications and services that use Batch are built using one of the client libraries.
+Your applications and services can issue direct REST API calls, use one or more of the following client libraries, or a combination of both to manage compute resources and run parallel workloads at scale using the Batch service.
 
 | API    | API reference | Download | Code samples |
 | ----------------- | ------------- | -------- | ------------ |
