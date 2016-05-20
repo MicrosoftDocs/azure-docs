@@ -30,15 +30,20 @@ Automated Patching establishes a maintenance window for an Azure Virtual Machine
 
 To use Automated Patching, consider the following prerequisites:
 
-- **Operating System**:
-	- Windows Server 2012
-	- Windows Server 2012 R2
-- **SQL Server version**:
-	- SQL Server 2012
-	- SQL Server 2014
-	- SQL Server 2016
-- **Azure PowerShell**:
-	- [Install the latest Azure PowerShell commands](../powershell-install-configure.md) if you plan to configure Automated Patching with PowerShell.
+**Operating System**:
+
+- Windows Server 2012
+- Windows Server 2012 R2
+
+**SQL Server version**:
+
+- SQL Server 2012
+- SQL Server 2014
+- SQL Server 2016
+
+**Azure PowerShell**:
+
+- [Install the latest Azure PowerShell commands](../powershell-install-configure.md) if you plan to configure Automated Patching with PowerShell.
 
 >[AZURE.NOTE] Automated Patching relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
