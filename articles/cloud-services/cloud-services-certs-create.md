@@ -57,10 +57,15 @@ There are two easy ways to create a certificate on Windows, with the `makecert.e
 
 ### Makecert.exe
 
-This utility is installed with Visual Studio 2013/2015. It is a console utility that allows you to create and install certificates. If you launch the **Developer Command Prompt for VS2015** shortcut that is created when you install Visual Studio, a command prompt will appear that has this tool in path.
+This utility has been deprecated and is no longer documented here. Please see [this MSDN article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa386968) for more information.
 
-    makecert -sky exchange -r -n "CN=[CertificateName]" -pe -a sha1 -len 2048 -ss My -sv [CertificateName].pvk [CertificateName].cer
+### PowerShell
 
+```
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
 
 ### Internet Information Services (IIS)
 
