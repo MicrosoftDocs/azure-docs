@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="05/20/2016"
    ms.author="larryfr"/>
 
 # Deploy and manage Apache Storm topologies on Linux-based HDInsight
@@ -46,7 +46,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 2. Use the following command to start an example topology:
 
-        storm jar storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology WordCount
 
     This will start the example WordCount topology on the cluster. It will randomly generate sentences and count the occurrance of each word in the sentences.
 
