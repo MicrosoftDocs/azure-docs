@@ -92,7 +92,7 @@ You can also press **Delete** to delete the currently selected blob container.
 
 ## Copy a blob container
 
-Storage Explorer (Preview) allows you to copy a blob container to the clipboard, and then paste that blob container into another storage account. (To see how to copy individual blobs,
+Storage Explorer (Preview) enables you to copy a blob container to the clipboard, and then paste that blob container into another storage account. (To see how to copy individual blobs,
 refer to the section, [Managing blobs in a blob container](./#managing-blobs-in-a-blob-container).)
 
 The following steps illustrate how to copy a blob container from one storage account to another.
