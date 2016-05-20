@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="05/20/2016"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -31,7 +31,7 @@ You can designate one or more computers in your data center to act as a Hybrid R
 
 There are no inbound firewall requirements to support Hybrid Runbook Workers. The agent on the local computer initiates all communication with Azure Automation in the cloud. When a runbook is started, Azure Automation creates an instruction that is retrieved by agent. The agent then pulls down the runbook and any parameters before running it.  It will also retrieve any [assets](http://msdn.microsoft.com/library/dn939988.aspx) that are used by the runbook from Azure Automation.
 
->[AZURE.NOTE] Hybrid Runbook Workers do not currently support [DSC Configurations](automation-dsc-overview.md).
+>[AZURE.NOTE] We currently do not support compiling [DSC Configurations](automation-dsc-overview.md) in Automation DSC on Hybrid Runbook Workers.
 
 ## Hybrid Runbook Worker groups
 
@@ -56,6 +56,8 @@ Consider the following recommendations for hybrid workers:
 Firewall requirements:
 
 - The on-premises machine running hybrid runbook worker must have outbound access to *.cloudapp.net on ports 443, 9354, and 30000-30199.
+
+>[AZURE.NOTE] We do not recommend installing the Hybrid Runbook Worker feature on a domain controller in your environment.  
 
 ## Installing Hybrid Runbook Worker
 The procedure below describes how to install and configure Hybrid Runbook Worker.  Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.
