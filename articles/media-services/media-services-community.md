@@ -45,7 +45,7 @@ Currently, MSDN is AMS primary forum.
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
-##Provide feedback
+##Give us feature requests and vote on feature prioritization
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
