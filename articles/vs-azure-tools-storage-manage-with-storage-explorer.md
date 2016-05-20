@@ -20,7 +20,7 @@
 
 ## Overview 
 
-Microsoft Azure Storage Explorer (Preview) is a standalone app that allows you to easily work with Azure Storage data on Windows, OSX, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
+Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, OSX, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Storage Explorer (Preview) provides a myriad ways to connect to storage accounts
 1. Start Storage Explorer (Preview). 
 
 1. If you are running Storage Explorer (Preview) for the first time or if you've run Storage Explorer (Preview) before, but haven't
-connected to an Azure account, you'll see an infobar that allows you to connect to an Azure account.
+connected to an Azure account, you'll see an infobar that enables you to connect to an Azure account.
 
 	![][0]
 	
@@ -54,7 +54,7 @@ Microsoft account.
 
 ### Filter the Azure subscriptions
 
-Storage Explorer (Preview) allows you to filter which Azure subscriptions associated with your signed-in Microsoft account(s) will have their storage accounts listed in the left-pane.
+Storage Explorer (Preview) enables you to filter which Azure subscriptions associated with your signed-in Microsoft account(s) will have their storage accounts listed in the left-pane.
 
 1. Tap the **Settings** (gear) icon.
 
@@ -131,7 +131,7 @@ Microsoft accounts, you can switch between the accounts by performing the follow
   
 ## Connect to local storage
 
-Storage Explorer (Preview) allows you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
+Storage Explorer (Preview) enables you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
 
 >[AZURE.NOTE] The Azure Storage Emulator is currently supported only for Windows. 
 
