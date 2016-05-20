@@ -35,13 +35,13 @@ This article walks you through the process of creating records and records sets 
 
 ## Create a record set and record
 
-The following example walks you through how the process of creating a record set and records by using the Azure portal. We'll use the DNS **A** record type.
+The following example walks you through the process of creating a record set and records by using the Azure portal. We use the DNS **A** record type in this example.
 
 1. Sign in to the Azure portal.
 
-2. Navigate to the **DNS zone** blade in which you want to create a record set.
+2. Go to the **DNS zone** blade in which you want to create a record set.
 
-3. At the top of your **DNS zone** blade, select **Record set** to open the **Add record set** blade.
+3. At the top of the **DNS zone** blade, select **Record set** to open the **Add record set** blade.
 
 	![New record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
@@ -55,7 +55,7 @@ The following example walks you through how the process of creating a record set
 
 7. Add the IP addresses, one IP address per line, using the suggested record set name and record type from this example. This adds the IPv4 IP addresses to the **A** record for the www record set.
 
-8. When you've finished adding the IP addresses, select **OK** at the bottom of the blade. The DNS record set will be created.
+8. After you've finished adding the IP addresses, select **OK** at the bottom of the blade. The DNS record set will be created.
 
 
 ## Next steps
