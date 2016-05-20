@@ -1,5 +1,5 @@
 <properties
-	pageTitle="RBAC: Built in Roles | Microsoft Azure"
+	pageTitle="RBAC: Built-in Roles | Microsoft Azure"
 	description="This topic describes the built in roles for role-based access control (RBAC)."
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/16/2016"
+	ms.date="05/20/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Built-in roles
 
 Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
 
-The table below provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **not actions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property specifies the actions that are excluded from the allowed actions.
+## Roles in Azure
+
+The table below provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
 
 >[AZURE.NOTE] The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
 
@@ -56,7 +58,10 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 | [Web Plan Contributor](#web-plan-contributor) | Can manage web plans |
 | [Website Contributor](#website-contributor) | Can manage websites, but not the web plans to which they are connected |
 
-## API Management Service Contributor
+## Role permissions
+The following tables describe the specific permissions given to each role. This can include **Actions** which give permissions and **NotActions** which restrict them.
+
+### API Management Service Contributor
 Can manage API Management services
 
 | **Actions** | |
@@ -69,7 +74,7 @@ Can manage API Management services
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read roles and role assignments |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## Application Insights Component Contributor
+### Application Insights Component Contributor
 Can manage Application Insights components
 
 | **Actions** | |
@@ -83,7 +88,7 @@ Can manage Application Insights components
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## Automation Operator
+### Automation Operator
 Able to start, stop, suspend, and resume jobs
 
 | **Actions** ||
@@ -107,7 +112,7 @@ Able to start, stop, suspend, and resume jobs
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## BizTalk Contributor
+### BizTalk Contributor
 Can manage BizTalk services
 
 | **Actions** ||
@@ -120,7 +125,7 @@ Can manage BizTalk services
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## ClearDB MySQL DB Contributor
+### ClearDB MySQL DB Contributor
 Can manage ClearDB MySQL databases
 
 | **Actions** ||
@@ -133,32 +138,32 @@ Can manage ClearDB MySQL databases
 | Microsoft.Support/* | Create and manage support tickets |
 | successbricks.cleardb/databases/* | Create and manage ClearDB MySQL databases |
 
-## Contributor
+### Contributor
 Can manage everything except access
 
 | **Actions** ||
 | ------- | ------ |
 | * | Create and manage resources of all types |
 
-| **Not Actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | Can’t create roles and role assignments |
 | Microsoft.Authorization/*/Delete | Can’t delete roles and role assignments |
 
-## Data Factory Contributor
+### Data Factory Contributor
 Can manage data factories
 
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
-| Microsoft.DataFactory/dataFactories/* | Create and manage data factories |
+| Microsoft.DataFactory/dataFactories/* | Manage data factories |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## DevTest Labs User
+### DevTest Labs User
 Can view everything and connect, start, restart, and shutdown virtual machines
 
 | **Actions** ||
@@ -191,7 +196,7 @@ Can view everything and connect, start, restart, and shutdown virtual machines
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Storage/storageAccounts/listKeys/action | List storage account keys |
 
-## DocumentDB Account Contributor
+### DocumentDB Account Contributor
 Can manage DocumentDB accounts
 
 | **Actions** ||
@@ -204,7 +209,7 @@ Can manage DocumentDB accounts
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## Intelligent Systems Account Contributor
+### Intelligent Systems Account Contributor
 Can manage Intelligent Systems accounts
 
 | **Actions** ||
@@ -217,7 +222,7 @@ Can manage Intelligent Systems accounts
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## Network Contributor
+### Network Contributor
 Can manage all network resources
 
 | **Actions** ||
@@ -230,7 +235,7 @@ Can manage all network resources
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## New Relic APM Account Contributor
+### New Relic APM Account Contributor
 Can manage New Relic Application Performance Management accounts and applications
 
 | **Actions** ||
@@ -243,21 +248,21 @@ Can manage New Relic Application Performance Management accounts and application
 | Microsoft.Support/* | Create and manage support tickets |
 | NewRelic.APM/accounts/* | Create and manage New Relic application performance management accounts |
 
-## Owner
+### Owner
 Can manage everything, including access
 
 | **Actions** ||
 | ------- | ------ |
 | * | Create and manage resources of all types |
 
-## Reader
+### Reader
 Can view everything, but can't make changes
 
 | **Actions** ||
 | ------- | ------ |
 | */read | Read resources of all types, except secrets. |
 
-## Redis Cache Contributor
+### Redis Cache Contributor
 Can manage Redis caches
 
 | **Actions** ||
@@ -270,7 +275,7 @@ Can manage Redis caches
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## Scheduler Job Collections Contributor
+### Scheduler Job Collections Contributor
 Can manage Scheduler job collections
 
 | **Actions** ||
@@ -282,7 +287,7 @@ Can manage Scheduler job collections
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
 | Microsoft.Support/* | Create and manage support tickets  |
 
-## Search Service Contributor
+### Search Service Contributor
 Can manage Search services
 
 | **Actions** ||
@@ -294,7 +299,7 @@ Can manage Search services
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Search/searchServices/* | Create and manage search services |
 | Microsoft.Support/* | Create and manage support tickets  |
 
-## Security Manager
+### Security Manager
 Can manage security components, security policies and virtual machines
 
 | **Actions** ||
@@ -309,7 +314,7 @@ Can manage security components, security policies and virtual machines
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Security/* | Create and manage security components and policies |
 | Microsoft.Support/* | Create and manage support tickets  |
 
-## SQL DB Contributor
+### SQL DB Contributor
 Can manage SQL databases but not their security related policies
 
 | **Actions** ||
@@ -322,7 +327,7 @@ Can manage SQL databases but not their security related policies
 | Microsoft.Sql/servers/read | Read SQL Servers |
 | Microsoft.Support/* | Create and manage support tickets |
 
-| **Not Actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit audit settings |
@@ -331,7 +336,7 @@ Can manage SQL databases but not their security related policies
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit security alert policies |
 | Microsoft.Sql/servers/databases/securityMetrics/* | Can't edit security metrics |
 
-## SQL Security Manager
+### SQL Security Manager
 Can manage the security related policies of SQL servers and databases
 
 | **Actions** ||
@@ -356,7 +361,7 @@ Can manage the security related policies of SQL servers and databases
 | Microsoft.Sql/servers/securityAlertPolicies/* | Create and manage SQL server security alert policies |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## SQL Server Contributor
+### SQL Server Contributor
 Can manage SQL servers and databases but not their security related policies
 
 | **Actions** ||
@@ -368,7 +373,7 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Sql/servers/* | Create and manage SQL servers |
 | Microsoft.Support/* | Create and manage support tickets |
 
-| **Not Actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Can't edit SQL server auditing policies |
 | Microsoft.Sql/servers/auditingSettings/* | Can't edit SQL server auditing settings |
@@ -380,7 +385,7 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Sql/servers/databases/securityMetrics/* | Can't edit SQL server database security metrics |
 | Microsoft.Sql/servers/securityAlertPolicies/* | Can't edit SQL server security alert policies |
 
-## Classic Storage Account Contributor
+### Classic Storage Account Contributor
 Can manage classic storage accounts
 
 | **Actions** ||
@@ -392,7 +397,7 @@ Can manage classic storage accounts
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
 
-## Storage Account Contributor
+### Storage Account Contributor
 Can manage storage accounts, but not acccess to them.
 
 | **Actions** ||
@@ -405,7 +410,7 @@ Can manage storage accounts, but not acccess to them.
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## User Access Administrator
+### User Access Administrator
 Can manage user access to Azure resources
 
 | **Actions** ||
@@ -414,7 +419,7 @@ Can manage user access to Azure resources
 | Microsoft.Authorization/* | Read authorization |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## Classic Virtual Machine Contributor
+### Classic Virtual Machine Contributor
 Can manage classic virtual machines but not the virtual network or storage account to which they are connected
 
 | **Actions** ||
@@ -436,7 +441,7 @@ Can manage classic virtual machines but not the virtual network or storage accou
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
 
-## Virtual Machine Contributor
+### Virtual Machine Contributor
 Can manage virtual machines but not the virtual network or storage account to which they are connected
 
 | **Actions** ||
@@ -466,7 +471,7 @@ Can manage virtual machines but not the virtual network or storage account to wh
 | Microsoft.Storage/storageAccounts/read | Read storage accounts |
 | Microsoft.Support/* | Create and manage support tickets |
 
-## Classic Network Contributor
+### Classic Network Contributor
 Can manage classic virtual networks and reserved IPs
 
 | **Actions** ||
@@ -478,7 +483,7 @@ Can manage classic virtual networks and reserved IPs
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
 
-## Web Plan Contributor
+### Web Plan Contributor
 Can manage web plans
 
 | **Actions** ||
@@ -490,7 +495,7 @@ Can manage web plans
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Support/* | Create and manage support tickets |
 | Microsoft.Web/serverFarms/* | Create and manage server farms |
 
-## Website Contributor
+### Website Contributor
 Can manage websites but not the web plans to which they are connected
 
 | **Actions** ||
