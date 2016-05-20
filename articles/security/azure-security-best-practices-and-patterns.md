@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Security Best Practices and Patterns | Microsoft Azure"
-   description="The article provides an introduction about Azure Security Best Practices and Patters and a curated list of security best practices for different Azure resources."
+   description="The article provides an introduction about Azure Security Best Practices and Patterns and a curated list of security best practices for different Azure resources."
    services="azure-security"
    documentationCenter="na"
    authors="TomShinder"
