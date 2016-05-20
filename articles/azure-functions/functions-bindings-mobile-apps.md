@@ -94,7 +94,7 @@ Based on the example function.json above, the input binding retrieves the record
 
 Your function can write a record to a Mobile Apps table endpoint using an output binding. 
 
-## function.json for Mobile Apps output binding
+#### function.json for Mobile Apps output binding
 
 The function.json file supports the following properties:
 

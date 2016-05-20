@@ -22,8 +22,6 @@
 
 This article explains how to configure and code HTTP and webhook triggers and bindings in Azure Functions. 
 
-You can use an HTTP or WebHook trigger to call a function in response to an HTTP request.
-
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
 ## function.json for HTTP and webhook bindings
