@@ -504,7 +504,7 @@ If your web.config file already includes a **&lt;rewrite>** section, add the **&
 
 For PHP applications, simply save the [example](#example) as a web.config file in the root of your application, then re-deploy the application to your app.
 
-###Node.js, Python Django, and Java
+###Node.js, Python Django
 
 A web.config file is automatically created for Node.js, Python Django, and Java apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
 
@@ -525,6 +525,24 @@ To retrieve and modify the auto-generated file from the app, use the following s
 		The web.config file for Java applications using Apache Tomcat do not contain a **&lt;rewrite>** section, so you must add the **&lt;rewrite>** section from the example into the **&lt;system.webServer>** section.
 
 4. Redeploy the project (including the updated web.config,) to Azure
+
+Once you deploy a web.config with a rewrite rule to force HTTPS, it should take effect immediately and redirect all requests to HTTPS.
+
+###Java
+
+A web.config file is automatically created for Java apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
+
+To retrieve and modify the auto-generated file from the app, use the following steps.
+
+1. Download the file using FTP (see [Uploading/downloading files over FTP and collecting diagnostics logs](http://blogs.msdn.com/b/avkashchauhan/archive/2012/06/19/windows-azure-website-uploading-downloading-files-over-ftp-and-collecting-diagnostics-logs.aspx)).
+
+2. Add the rewrite rules using the following information.
+
+	* **Java**
+
+		The web.config file for Java applications using Apache Tomcat do not contain a **&lt;rewrite>** section, so you must add the **&lt;rewrite>** section from the example into the **&lt;system.webServer>** section.
+
+4. Add it to the folder /site/wwwroot
 
 Once you deploy a web.config with a rewrite rule to force HTTPS, it should take effect immediately and redirect all requests to HTTPS.
 
