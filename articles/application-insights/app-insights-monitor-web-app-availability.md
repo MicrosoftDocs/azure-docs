@@ -274,6 +274,8 @@ You might want to disable web tests while you are performing maintenance on your
 
     There's a limit of 100 requests per test.
 
+    The test will be stopped if runs longer than two minutes.
+
 * *How can I run a test with client certificates?*
 
     We don't support that, sorry.
