@@ -18,7 +18,9 @@
 	ms.author="arramac"/>
 
 # Performance and Scale Testing with Azure DocumentDB
-Performance and scale testing is a key step in application development. It is typically carried out in two phases. The first is testing the peformance of individual components via performance test suites or benchmarks, and the second is end-to-end performance testing of the entire application/service. The database is often one of the key components that can influence the overall performance and scalability of your solution, and therefor a critical component of performance testing. This article is a reference for developers implementing performance test suites for their [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) workloads, or evaluating DocumentDB for high-performance application scenarios.
+Performance and scale testing is a key step in application development. It is typically carried out in two phases. First, testing the peformance of individual components via performance test suites or benchmarks, and then end-to-end performance testing of the  application/service. The database is often one of the key components that can influence the overall performance and scalability of your solution, and therefore a critical component of performance testing. [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is purpose-built for elastic scale and predictable performance, and therefore a great fit for applications that need a high-performance database tier.
+
+This article is a reference for developers implementing performance test suites for their [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) workloads, or evaluating DocumentDB for high-performance application scenarios.
 
 After reading this article, you will be able to answer the following questions:   
 
