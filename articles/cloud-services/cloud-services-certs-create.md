@@ -57,7 +57,7 @@ There are two easy ways to create a certificate on Windows, with the `makecert.e
 
 ### Makecert.exe
 
-This utility has been deprecated and is no longer documented here. Please see [this MSDN article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa386968) for more information.
+This utility has been deprecated and is no longer documented here. Please see [this MSDN article](https://msdn.microsoft.com/library/windows/desktop/aa386968) for more information.
 
 ### PowerShell
 
