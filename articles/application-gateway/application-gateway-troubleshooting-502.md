@@ -85,8 +85,8 @@ Ensure that the instances are healthy and the application is properly configured
 - If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port. 
 - The call to http://127.0.0.1:port should return a HTTP result code of 200. This should be returned within the 30 sec time-out period.
 - Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups which block incoming or outgoing traffic on the port configured.
-- If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-classic-setup-endpoints/) is opened.
-- If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) must be configured to allow access on the desired port.
+- If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) is opened.
+- If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/virtual-networks-nsg.md) must be configured to allow access on the desired port.
 
 
 ##Problems with Custom Health Probe
@@ -107,7 +107,7 @@ Custom health probes allow additional flexibility to the default probing behavio
 In addition to the troubleshooting steps above, also ensure the following.
 
 - Ensure that the Protocol is set to HTTP only. HTTPS is not currently supported.
-- Ensure that the probe is correctly specified as per the [guide](https://azure.microsoft.com/documentation/articles/application-gateway-create-probe-ps/). 
+- Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md). 
 - If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 - Ensure that a call to http://\<host\>:\<port\>\<path\> returns a HTTP result code of 200.
 - Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
