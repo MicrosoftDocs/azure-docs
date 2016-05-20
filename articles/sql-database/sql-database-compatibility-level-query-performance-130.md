@@ -25,7 +25,7 @@ Azure SQL Database is running transparently hundreds of thousands of databases a
 Therefore, nothing prevents customers moving any existing databases to the latest Compatibility Level to benefit from the new query optimizer and query processor features. As a reminder, in SQL 2008 and Azure SQL Database v11, the Compatibility Level was by default set to 100;  in SQL 2012 to 110; in SQL 2014 and Azure SQL Database v12 to 120;  and today, with SQL Server 2016 and latest updates of Azure SQL DB comes the latest Compatibility Level 130.
 
 
-> [AZURE.IMPORTANT] Starting in June 2016, the Azure SQL Database default will change from 120 to 130 for **newly** created databases.
+> [AZURE.IMPORTANT] Starting in **June 2016**, the Azure SQL Database default will change from 120 to 130 for **newly** created databases.
 > 
 > Databases created before June 2016 won’t be affected and will keep running at the Compatibility Level they were initially created with (100, 110 or 120). The same goes for databases migrated from Azure SQL Database v11 to v12.
 
@@ -486,7 +486,7 @@ For now, let’s not forget, starting June 2016, Azure SQL Database will change 
 
 - [What’s New in Database Engine](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
 
-- [Query Store: A flight data recorder for your database](https://azure.microsoft.com/en-in/blog/query-store-a-flight-data-recorder-for-your-database/)
+- [Blog: Query Store: A flight data recorder for your database, by Borko Novakovic, June 8 2016](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)
 
 - [ALTER DATABASE Compatibility Level (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
 
@@ -498,7 +498,7 @@ For now, let’s not forget, starting June 2016, Azure SQL Database will change 
 
 - [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx)
 
-- [Blog: Improved Query Performance with Compatibility Level 130 in Azure SQL Database, by Alain Lissoir](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)
+- [Blog: Improved Query Performance with Compatibility Level 130 in Azure SQL Database, by Alain Lissoir, May 6 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)
 
 
 
@@ -518,5 +518,5 @@ CAPS / MSDN ideally, but instead on ACom:
 
 sql-database-compatibility-level-query-performance-130.md
 
-genemi = MightyPen , 2016-05-19  Thursday  16:44pm
+genemi = MightyPen , 2016-05-19  Thursday  17:50pm
 -->
