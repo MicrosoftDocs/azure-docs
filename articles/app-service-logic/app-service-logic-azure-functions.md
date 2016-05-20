@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using Azure Functions with Logic Apps | Microsoft Azure"
    description="See how to use Azure Functions with Logic Apps"
-   services="app-service\logic"
+   services="app-service\logic,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -18,7 +18,7 @@
    
 # Using Azure Functions with Logic Apps
 
-You can execute custom snippets of C# or Node.js by leveraging Azure Functions from with a Logic App.  [Azure Functions](https://azure.microsoft.com/) is an offering that allows serverless compute in Microsoft Azure.  This is useful within Logic Apps for many of the following scenarios below:
+You can execute custom snippets of C# or Node.js by leveraging Azure Functions from with a Logic App.  [Azure Functions](../azure-functions/functions-overview.md) is an offering that allows serverless compute in Microsoft Azure.  This is useful within Logic Apps for many of the following scenarios below:
 
 * Formatting a value of an action (e.g. convert from DateTime to a date string)
 * Performing calculations within a workflow
