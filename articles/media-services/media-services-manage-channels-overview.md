@@ -124,7 +124,7 @@ The following table shows how Channel states map to billing states in the API an
 To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure Classic Portal.
 You are responsible for stopping your channels when you are done with the channel. Failure to stop the channel will result in continued billing.
 
-When working with **Standard** channels, AMS will auto shutoff the Channels after 12 hours if input feeds are lost. However, you will still be billed for up to 12 hours of if you don't move the Channel to Stopped state. 
+>[AZURE.NOTE]When working with Standard channels, AMS will auto shutoff any Channel that is still in “Running” state 12 hours after the input feed is lost, and there are no Programs running. However, you will still be billed for the time the Channel was in “Running” state.
 
 ###<a id="states"></a>Channel states and how they map to the billing mode 
 

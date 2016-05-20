@@ -45,13 +45,13 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 	- [Allowed VM Sizes](#set-allowed-vm-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
 
-	- [Maximum VMs per user](#set-maximum-vms-per-user) - Specify the maximum number of VMs that can be created for a lab, as well as the maximum number of VMs that can be created by a user. 
+	- [Maximum VMs per user](#set-maximum-vms-per-user) - Specify the maximum number of VMs that can be created by a user. 
 
-	- [Total VMs allowed](#set-total-vms-allowed) - Specify the maximum number of VMs that can be created for a lab, as well as the maximum number of VMs that can be created by a user. 
+	- [Total VMs allowed](#set-total-vms-allowed) - Specify the maximum number of VMs that can be created for a lab. 
 
-	- [Auto shutdown](#set-auto-shutdown) - Specify the time that the current lab's VMs must shut down.
+	- [Auto shutdown](#set-auto-shutdown) - Specify the time when the current lab's VMs automatically shut down.
 
-	- [Auto start](#set-auto-start) - Specify the time that the current lab's VMs must shut down.
+	- [Auto start](#set-auto-start) - Specify the time when the current lab's VMs automatically start up.
 
 ## Set allowed VM sizes
 
