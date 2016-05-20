@@ -55,7 +55,7 @@ This version of the Engagement Web SDK doesn't support samsung-tv, OperaTV, webO
 
 #### JavaScript files
 
-Replace the `capptain-sdk.js` file by the `engagement-sdk.js` file and update your script imports accordingly.
+Replace the `capptain-sdk.js` file by the `azure-engagement.js` file and update your script imports accordingly.
 
 #### Remove Capptain Reach
 
@@ -106,25 +106,19 @@ Remove the `reach` object from your configuration if any. It looks like the foll
 
 Remove any other Reach customization such as categories.
 
-#### Remove useless APIs
+#### Remove deprecated APIs
 
-Some of the APIs from Capptain became useless in the Engagement version of the SDK.
+Some of the APIs from Capptain are deprecated in the Engagement version of the SDK.
 
 Remove any call to the following APIs: `agent.connect`, `agent.disconnect`, `agent.pause`, `agent.sendMessageToDevice`.
 
 Remove the following callbacks, if any, from your Capptain configuration: `onConnected`, `onDisconnected`, `onDeviceMessageReceived`, `onPushMessageReceived`.
 
-#### JavaScript APIs
-
-Every occurrences of *capptain* has been renamed *engagement*. You have to do the same in your application. Basically the global JavaScript object `window.capptain` becomes `window.engagement`.
-
-For instance: `capptain.deviceId` becomes `engagement.deviceId`, `capptain.agent.startActivity` becomes `engagement.agent.startActivity` etc ...
-
-#### Application ID
+#### Configuration
 
 Now Engagement uses a connection string to configure the SDK identifiers such as the application identifier.
 
-Replace the AppID by your connection string.
+Replace the application ID by your connection string, also note that the global object for the SDK configuration moves from `capptain` to `azureEngagement`.
 
 Before migration:
 
@@ -135,11 +129,17 @@ Before migration:
 
 After migration:
 
-	window.engagement = {
+	window.azureEngagement = {
 	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
 	  [...]
 	};
 
 The connection string for your application is displayed on the Azure Portal.
+
+#### JavaScript APIs
+
+the global JavaScript object `window.capptain` has been renamed `window.azureEngagement` but you can use the `window.engagement` alias for API calls (you can't use the alias to define the SDK configuration).
+
+For instance: `capptain.deviceId` becomes `engagement.deviceId`, `capptain.agent.startActivity` becomes `engagement.agent.startActivity` etc ...
 
 If you already have integrated an older version of our SDK into your application please consult [Upgrade Procedures](mobile-engagement-web-upgrade-procedure.md).

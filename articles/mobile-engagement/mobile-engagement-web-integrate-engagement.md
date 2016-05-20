@@ -32,7 +32,7 @@ The following steps are enough to activates the report of logs needed to compute
 ## Introduction
 
 Download the Web SDK from [here](http://aka.ms/P7b453).
-The SDK is shipped as a single JavaScript file named **engagement-sdk.js** that you have to include in
+The SDK is shipped as a single JavaScript file named **azure-engagement.js** that you have to include in
 each page of your site or web application.
 
 This script **MUST** be loaded **AFTER** a script or code snippet that you must write to configure Engagement for your application.
@@ -50,11 +50,11 @@ The Engagement Web SDK uses native JSON encoding/decoding and cross domain AJAX 
 
 ## Configure Engagement
 
-Write a script that creates a global **engagement** JavaScript object like the following.
+Write a script that creates a global **azureEngagement** JavaScript object like the following.
  
-Since your site may contain multiples pages, this example assumes that this script is also included in every pages, we'll name it `engagement-conf.js` in this procedure.
+Since your site may contain multiples pages, this example assumes that this script is also included in every pages, we'll name it `azure-engagement-conf.js` in this procedure.
 
-	window.engagement = {
+	window.azureEngagement = {
 	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
 	  appVersionName: '1.0.0',
 	  appVersionCode: 1
@@ -68,8 +68,8 @@ The `connectionString` for your application is displayed on the Azure Portal.
 
 	<head>
 	  ...
-	  <script type="text/javascript" src="engagement-conf.js"></script>
-	  <script type="text/javascript" src="engagement-sdk.js"></script>
+	  <script type="text/javascript" src="azure-engagement-conf.js"></script>
+	  <script type="text/javascript" src="azure-engagement.js"></script>
 	  ...
 	</head>
 
@@ -77,10 +77,23 @@ Or
 
 	<body>
 	  ...
-	  <script type="text/javascript" src="engagement-conf.js"></script>
-	  <script type="text/javascript" src="engagement-sdk.js"></script>
+	  <script type="text/javascript" src="azure-engagement-conf.js"></script>
+	  <script type="text/javascript" src="azure-engagement.js"></script>
 	  ...
 	</body>
+
+## Alias
+
+Once loaded the SDK script creates the **engagement** alias to access the SDK APIs (it can't be used to define the SDK configuration). This alias will be used as reference in this documentation. 
+
+Note that if the default alias is conflicting with another global variable from your page then you can redefine it in the configuration before loading the SDK as follow:
+
+	window.azureEngagement = {
+	  connectionString: 'Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}',
+	  appVersionName: '1.0.0',
+	  appVersionCode: 1
+	  alias:'anotherAlias'
+	};
 
 ## Basic reporting
 
@@ -94,7 +107,7 @@ Either way, to start or change the current user activity, call the `engagement.a
 
 	<body onload="yourOnload()">
 
-<!-- -->
+	<!-- -->
 
 	yourOnload = function() {
       [...]
@@ -124,7 +137,7 @@ The Engagement API allows to use all of Engagement's advanced capabilities and i
 
 You can customize URLs used by the SDK. For example to redefine the log URL (SDK endpoint for logging) you can override the configuration like this:
 
-	window.engagement = {
+	window.azureEngagement = {
 	  ...
 	  urls: {
 	    ...        
@@ -138,7 +151,7 @@ If your URL functions return a string beginning with either `/`, `//`, `http://`
 
 By default, the `https://` scheme is used for those URLs. If you want to customize the default scheme then override the configuration like this:
 
-	window.engagement = {
+	window.azureEngagement = {
 	  ...
 	  urls: {
         ...	     

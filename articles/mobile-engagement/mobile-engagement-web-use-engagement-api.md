@@ -20,7 +20,7 @@
 
 This document is an add-on to the document [How to Integrate Engagement on Android](mobile-engagement-web-integrate-engagement.md). It provides in depth details about how to use the Engagement API to report your application statistics.
 
-The Engagement API is provided by the ``engagement.agent`` object.
+The Engagement API is provided by the `engagement.agent` object. `engagement` is the default Engagement SDK alias which can be redefined from the SDK configuration.
 
 ## Engagement concepts
 

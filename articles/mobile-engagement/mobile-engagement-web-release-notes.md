@@ -21,11 +21,11 @@
 
 ##2.0.0 (TBA)
 
--   Initial Release of Azure Mobile Engagement
+-   Initial Release of Azure Mobile Engagement.
 -   appId configuration is replaced by a connection string configuration.
 -   Added APIs to enable/disable the Agent.
 -   Security improvements.
 -   Use native JSON APIs from browsers.
 -   Removed API to send and receive messages between devices.
--   Removed callbacks related to the deprecated XMPP connection.
+-   Removed callbacks related to the deprecated XMPP connection. 
 -   This version doesn't support the Reach feature.

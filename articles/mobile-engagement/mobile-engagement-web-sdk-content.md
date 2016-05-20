@@ -22,7 +22,7 @@ This document lists and describes the content of the SDK archive.
 
 ## Engagement SDK
 
-`engagement-sdk.js`
+`azure-engagement.js`
 
 > Engagement SDK main JavaScript file to include in your pages.
 
@@ -30,7 +30,7 @@ This document lists and describes the content of the SDK archive.
 
 ### Proxy
 
-`engagement-proxy.js`
+`azure-engagement-proxy.js`
 
 > The SDK JavaScript file required to set up a proxy.
 
