@@ -22,6 +22,8 @@
 
 The following articles explain how to configure and code triggers and bindings in Azure Functions. The articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md) or [Node.js](functions-reference-node.md) developer reference articles.
 
+## Triggers and bindings articles
+
 * [HTTP and WebHook triggers and bindings](functions-bindings-http-webhook.md)
 * [Timer trigger](functions-bindings-timer.md)
 * [Azure Storage (queues, blobs, tables) triggers and bindings](functions-bindings-storage.md)
