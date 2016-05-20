@@ -122,6 +122,8 @@ For more details, choose your app type under Get Started in the navigation bar o
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+* Blog:
+ * [Application Insights blog](https://azure.microsoft.com/en-gb/blog/tag/application-insights)
 
 
 ## Videos

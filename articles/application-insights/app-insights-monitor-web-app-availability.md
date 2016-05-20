@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="05/20/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -258,6 +258,26 @@ You might want to disable web tests while you are performing maintenance on your
 * *I'd like to use availability tests on our internal server that runs behind a firewall.*
 
     Configure your firewall to permit requests from the IP addresses in the list at the end of this article.
+
+* *Uploading a multi-step web test fails*
+
+    There's a size limit of 300K.
+
+    Loops aren't supported.
+
+    References to other web tests aren't supported.
+
+    Data sources aren't supported.
+
+    
+* *My multi-step test doesn't complete*
+
+    There's a limit of 100 requests per test.
+
+* *How can I run a test with client certificates?*
+
+    We don't support that, sorry.
+
 
 ## <a name="video"></a>Video
 

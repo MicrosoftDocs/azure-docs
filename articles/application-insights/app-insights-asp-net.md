@@ -34,6 +34,7 @@ You need:
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
 * Visual Studio 2013 update 3 or later.
 
+
 ## <a name="ide"></a> Add Application Insights to your project in Visual Studio
 
 #### If it's a new project...
