@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Proactive metric packing | Microsoft Azure"
-   description="An overview of using proactive metric packing (defragmentation) in Service Fabric"
+   pageTitle="Defragmentation of Metrics in Azure Service Fabric | Microsoft Azure"
+   description="An overview of using defragmentation or packing as a strategy for metrics in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
