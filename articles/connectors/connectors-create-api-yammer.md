@@ -1,10 +1,10 @@
 <properties
-pageTitle="Add the Yammer API in your Logic Apps | Microsoft Azure"
-description="Overview of the Yammer API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Add the Yammer Connector in your Logic Apps | Microsoft Azure"
+description="Overview of the Yammer Connector with REST API parameters"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Yammer API
+# Get started with the Yammer connector
 
 Connect to Yammer to access conversations in your enterprise network.
 
@@ -38,10 +38,10 @@ Trigger | Actions
 --- | ---
 <ul><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>| <ul><li>Get all messages</li><li>Gets messages in a group</li><li>Gets the messages from my Following feed</li><li>Post message</li><li>When there is a new message in a group</li><li>When there is a new message in my Following feed</li></ul>
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 ## Create a connection to Yammer
-To use the Yammer API, you first create a **connection** then provide the details for these properties: 
+To use the Yammer connector, you first create a **connection** then provide the details for these properties: 
 
 |Property| Required|Description|
 | ---|---|---|

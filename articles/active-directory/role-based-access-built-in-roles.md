@@ -1,5 +1,5 @@
 <properties
-	pageTitle="RBAC: Built in Roles | Microsoft Azure"
+	pageTitle="RBAC: Built-in Roles | Microsoft Azure"
 	description="This topic describes the built in roles for role-based access control (RBAC)."
 	services="active-directory"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/16/2016"
+	ms.date="05/20/2016"
 	ms.author="kgremban"/>
 
 #RBAC: Built-in roles
 
-## Built-in roles
-
 Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
 
-The table below provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **not actions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property specifies the actions that are excluded from the allowed actions.
+## Roles in Azure
+
+The table below provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
 
 >[AZURE.NOTE] The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
 
@@ -57,6 +57,9 @@ The table below provides brief descriptions of the built-in roles. Click the rol
 | [Classic Network Contributor](#classic-network-contributor) | Can manage classic virtual networks and reserved IPs |
 | [Web Plan Contributor](#web-plan-contributor) | Can manage web plans |
 | [Website Contributor](#website-contributor) | Can manage websites, but not the web plans to which they are connected |
+
+## Role permissions
+The following tables describe the specific permissions given to each role. This can include **Actions** which give permissions and **NotActions** which restrict them.
 
 ### API Management Service Contributor
 Can manage API Management services
@@ -142,7 +145,7 @@ Can manage everything except access
 | ------- | ------ |
 | * | Create and manage resources of all types |
 
-| **Not Actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | Can’t create roles and role assignments |
 | Microsoft.Authorization/*/Delete | Can’t delete roles and role assignments |
@@ -153,7 +156,7 @@ Can manage data factories
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
-| Microsoft.DataFactory/dataFactories/* | Create and manage data factories |
+| Microsoft.DataFactory/dataFactories/* | Manage data factories |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
@@ -324,7 +327,7 @@ Can manage SQL databases but not their security related policies
 | Microsoft.Sql/servers/read | Read SQL Servers |
 | Microsoft.Support/* | Create and manage support tickets |
 
-| **Not Actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit audit settings |
@@ -370,7 +373,7 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups | Microsoft.Sql/servers/* | Create and manage SQL servers |
 | Microsoft.Support/* | Create and manage support tickets |
 
-| **Not Actions** ||
+| **NotActions** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Can't edit SQL server auditing policies |
 | Microsoft.Sql/servers/auditingSettings/* | Can't edit SQL server auditing settings |
