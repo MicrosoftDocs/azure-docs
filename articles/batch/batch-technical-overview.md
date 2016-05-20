@@ -20,7 +20,7 @@
 
 Azure Batch enables you to run large-scale parallel and high performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
-With the Batch service, you define the Azure compute resources to execute your applications in parallel and at scale. You can run on-demand or scheduled jobs, and you don't need to manually create, configure, and manage an HPC cluster, individual virtual machines, virtual networks, or a job schedules. Batch handles the plumbing for you.
+With the Batch service, you define Azure compute resources to execute your applications in parallel, and at scale. You can run on-demand or scheduled jobs, and you don't need to manually create, configure, and manage an HPC cluster, individual virtual machines, virtual networks, or a complex job and task scheduling infrastructure.
 
 ## Use cases for Batch
 
@@ -83,11 +83,11 @@ In addition to the client APIs, you can also use the following to manage resourc
 
 ### Batch tools
 
-While not required to build solutions using Batch, these tools can be considered essential while learning to work with Batch, especially during development and debugging.
+While not required to build solutions using Batch, these tools can be considered essential while building and debugging your Batch applications and services.
 
-- [Azure Batch Explorer][batch_explorer] - The Batch Explorer is one of the Batch .NET sample applications [available on GitHub][github_samples]. Build this Windows Presentation Foundation (WPF) application with Visual Studio 2013 or 2015, and use it to browse and manage the resources in your Batch account while you are developing and debugging your Batch solutions. View job, pool, and task details, download files from compute nodes, or even connect to nodes remotely by using Remote Desktop (RDP) files that you obtain with just a few clicks in the Batch Explorer interface.
+- [Azure Batch Explorer][batch_explorer]: The Batch Explorer is one of the Batch .NET sample applications available on [GitHub][github_samples]. Build this Windows Presentation Foundation (WPF) application with Visual Studio 2013 or 2015, and use it to browse and manage the resources in your Batch account while you are developing and debugging your Batch solutions. View job, pool, and task details, download files from compute nodes, or even connect to nodes remotely by using Remote Desktop (RDP) files that you obtain with just a few clicks in the Batch Explorer interface.
 
-- [Microsoft Azure Storage Explorer][storage_explorer] - While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
+- [Microsoft Azure Storage Explorer][storage_explorer]: While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
 
 ## Scenario: Scale out a parallel workload
 
