@@ -506,7 +506,7 @@ For PHP applications, simply save the [example](#example) as a web.config file i
 
 ###Node.js, Python Django
 
-A web.config file is automatically created for Node.js, Python Django, and Java apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
+A web.config file is automatically created for Node.js, and Python Django apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
 
 To retrieve and modify the auto-generated file from the app, use the following steps.
 
