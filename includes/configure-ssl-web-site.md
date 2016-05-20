@@ -506,7 +506,7 @@ For PHP applications, simply save the [example](#example) as a web.config file i
 
 ###Node.js, Python Django
 
-A web.config file is automatically created for Node.js, and Python Django apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
+A web.config file is automatically created for Node.js and Python Django apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
 
 To retrieve and modify the auto-generated file from the app, use the following steps.
 
@@ -519,10 +519,6 @@ To retrieve and modify the auto-generated file from the app, use the following s
 	* **Node.js and Python Django**
 
 		The web.config file generated for Node.js and Python Django applications will already have a **&lt;rewrite>** section, containing **&lt;rule>** entries that are required for the proper functioning of the app. To force the app to use HTTPS, add the **&lt;rule>** from the example as the first entry in the **&lt;rules>** section. This will force HTTPS, while leaving the rest of the rules intact.
-
-	* **Java**
-
-		The web.config file for Java applications using Apache Tomcat do not contain a **&lt;rewrite>** section, so you must add the **&lt;rewrite>** section from the example into the **&lt;system.webServer>** section.
 
 4. Redeploy the project (including the updated web.config,) to Azure
 
