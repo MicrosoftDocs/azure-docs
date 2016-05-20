@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="05/20/2016"
 	ms.author="marsma"/>
 
 # Basics of Azure Batch
 
 Azure Batch enables you to run large-scale parallel and high performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
-With the Batch service, you programmatically define Azure compute resources to execute large-scale batch jobs. You can run these jobs on demand or on a schedule, and you don't need to manually configure and manage an HPC cluster, individual virtual machines, virtual networks, or a job scheduler.
+With the Batch service, you define the Azure compute resources to execute your applications in parallel and at scale. You can run on-demand or scheduled jobs, and you don't need to manually create, configure, and manage an HPC cluster, individual virtual machines, virtual networks, or a job schedules. Batch handles the plumbing for you.
 
 ## Use cases for Batch
 
@@ -58,19 +58,32 @@ When you develop Batch solutions, you'll use the following accounts in Microsoft
 
 - **Batch account** - When your applications interact with the Batch service, the account name, the URL of the account, and an access key are used as credentials. All of your Batch resources such as pools, compute nodes, jobs, and tasks are associated with a Batch account. You can [create and manage a Batch account](batch-account-create-portal.md) in the Azure portal.
 
-- **Storage account** - Batch includes built-in support for working with files in [Azure Storage][azure_storage]. Nearly every Batch scenario will use Azure Storage for file staging--for the programs that your tasks run, and for the data that they process--and for the storage of output data that your tasks generate. To create a Storage account, see [About Azure storage accounts](./../storage/storage-create-storage-account.md).
+- **Storage account** - Batch includes built-in support for working with files in [Azure Storage][azure_storage]. Nearly every Batch scenario will use Azure Storage--for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. To create a Storage account, see [About Azure storage accounts](./../storage/storage-create-storage-account.md).
 
-### Batch development libraries and tools
+### Batch development APIs
 
-To build solutions using Azure Batch, you can use the Batch .NET client libraries, PowerShell, or even issue direct REST API calls. Use any or all of these tools to develop client applications and services that run jobs in Batch.
+Most commonly, the core of your Batch solution will be built using one of the Batch client APIs. You can issue direct REST API calls to the service, but most applications and services that use Batch are built using one of the client libraries.
 
-- [Batch .NET][api_net] client library - Most Batch solutions are built using the Batch .NET client library, which is [available via NuGet][api_net_nuget].
+| API    | API reference | Download | Code samples |
+| ----------------- | ------------- | -------- | ------------ |
+| **Batch REST** | [MSDN][batch_rest] | N/A | [MSDN][batch_rest] |
+| **Batch .NET**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
+| **Batch Python**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
 
-- [Batch Management .NET][api_net_mgmt] client library - Also [available via NuGet][api_net_mgmt_nuget], use the Batch Management .NET client library to programmatically manage Batch accounts in your client applications or services.
+### Batch resource management
 
-- [Batch REST][batch_rest] API - The Batch REST APIs provide all of the same functionality as the Batch .NET client library. In fact, the Batch .NET library itself uses the Batch REST API under the hood to interact with the Batch service.
+In addition to the client APIs, you can also use the following to manage resources within your Batch account.
 
-- [Batch PowerShell cmdlets][batch_ps] - The Azure Batch cmdlets in the [Azure PowerShell](./../powershell-install-configure.md) module enable you to manage Batch resources with PowerShell.
+- [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](../powershell-install-configure.md) module enable you to manage Batch resources with PowerShell.
+
+- [Azure CLI](../xplat-cli-install.md): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including Batch.
+
+- [Batch Management .NET](batch-management-dotnet.md) client library: Also available via [NuGet][api_net_mgmt_nuget], you can use the Batch Management .NET client library to programmatically manage Batch accounts, quotas, and application packages. Reference for the management library is on [MSDN][api_net_mgmt].
+
+### Batch tools
+
+While not required to build solutions using Batch, these tools can be considered essential while learning to work with Batch, especially during development and debugging.
 
 - [Azure Batch Explorer][batch_explorer] - The Batch Explorer is one of the Batch .NET sample applications [available on GitHub][github_samples]. Build this Windows Presentation Foundation (WPF) application with Visual Studio 2013 or 2015, and use it to browse and manage the resources in your Batch account while you are developing and debugging your Batch solutions. View job, pool, and task details, download files from compute nodes, or even connect to nodes remotely by using Remote Desktop (RDP) files that you obtain with just a few clicks in the Batch Explorer interface.
 
@@ -121,6 +134,12 @@ Now that you've seen an example Batch scenario, it's time to dig deeper into the
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
+[api_nodejs]: http://azure.github.io/azure-sdk-for-node/azure-batch/latest/
+[api_nodejs_npm]: https://www.npmjs.com/package/azure-batch
+[api_python]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html
+[api_python_pypi]: https://pypi.python.org/pypi/azure-batch
+[api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
+[api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
