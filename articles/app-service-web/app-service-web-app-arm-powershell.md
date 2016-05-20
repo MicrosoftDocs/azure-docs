@@ -1,43 +1,30 @@
-<properties
-	pageTitle="ARM based PowerShell commands for Azure Web App"
-	description="Learn how to use the new ARM based PowerShell commands for Azure Web Apps."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ahmedelnably"
-	manager="stefsch"
-	editor=""/>
-
-<tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/18/2016"
-	ms.author="ahmedelnably"/>
-
 # Azure Web App ARM PowerShell#
 
 With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use ARM based PowerShell commands to manage Web Apps.
 
-To learn about how to manage Resource groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
+To learn about managing Resource Groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 
 ## Managing App Service Plans ##
 
 ### Create an App Service Plan ###
 To create a new app service plan, use the **New-AzureRmAppServicePlan** cmdlet.
 
-The command uses the **Name** parameter to specify a name for the app service plan, **Location** parameter to specify its location, **ResourceGroupName** parameter to specify which resource group will include the newly created app service plan, **Tier** parameter to specify the desired pricing tier (Default is Free, other options are Shared, Basic, Standard, and Premium), **WorkerSize** parameter to specify the size of workers (Default is small if the Tier parameter was specified as Basic, Standard or Premium), and **NumberofWorkers** parameter to specify the number of workers in the app service plan (Default value is 1). 
+Following are descriptions of the different parameters:
+
+- 	**Name**: name of the app service plan
+- 	**Location**: service plan location
+- 	**ResourceGroupName**: resource group that includes the newly created app service plan
+- 	**Tier**:  the desired pricing tier (Default is Free, other options are Shared, Basic, Standard, and Premium)
+- 	**WorkerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard or Premium)
+- 	**NumberofWorkers**: the number of workers in the app service plan (Default value is 1). 
 
 	New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName  ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
 ### List Existing App Service Plans ###
 
-To list the existing app service plans, use the **Get-AzureRmAppServicePlan** cmdlet.
+To list the existing app service plans, use **Get-AzureRmAppServicePlan** cmdlet.
 
-To list all app service plans under your subscription, use:
-
-    Get-AzureRmAppServicePlan
+To list all app service plans under your subscription, use: Get-AzureRmAppServicePlan
 
 To list all app service plans under a specific resource group, use:
 
@@ -66,7 +53,12 @@ To delete an existing app service plan, all assigned web apps need to be moved o
 
 To create a new web app, use the **New-AzureRmWebApp** cmdlet.
 
-The command uses the **Name** parameter to specify a name for the web app, **AppServicePlan** to host the web app, **ResourceGroupName** parameter to specify which resource group host the App service plan, and **Location** parameter to specify the web app location.
+Following are descriptions of the different parameters:
+
+- **Name**: name for the web app
+- **AppServicePlan**: service plan to host the web app
+- **ResourceGroupName**: resource group that hosts the App service plan
+- **Location**: the web app location.
 
     New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"
 
@@ -96,14 +88,14 @@ To get a specific web app, use:
 
 ### Configure an existing Web App ###
 
-To change the settings and configurations for an existing web app, use the **Set-AzureRmWebApp** cmdlet. You can change a number of settings for a full list you can check the [Cmdlet reference link](https://msdn.microsoft.com/library/mt652487.aspx)
+To change the settings and configurations for an existing web app, use the **Set-AzureRmWebApp** cmdlet.  Settings can be changed for a full list. For more details, check the [Cmdlet reference link](https://msdn.microsoft.com/library/mt652487.aspx)
 
-Example to use this cmdlet to change connection strings
+Example (1): use this cmdlet to change connection strings
 
 	$connectionstring = @{ “ContosoConn1” = @{ Type = “MySql”; Value = “MySqlConn”}; “ContosoConn2” = @{ Type = “SQLAzure”; Value = “SQLAzureConn”} }
 	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -ConnectionStrings $connectionstring
 
-Example to set the web app to run in 64-bit mode
+Example (2):  set the web app to run in 64-bit mode
 
 	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -Use32BitWorkerProcess $False
 
