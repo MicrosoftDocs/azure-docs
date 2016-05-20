@@ -37,5 +37,3 @@ Make sure to check the Azure Security and Compliance team blog to see what’s n
 [Enabling Diagnostics Logging for Azure Antimalware](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/19/enabling-diagnostics-logging-for-azure-antimalware/) (April 19, 2016)
 
 [What does shared responsibility in the cloud mean?](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/) (April 18, 2016)
-
-[Azure Disk Encryption for Windows Virtual Machines reaches General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/15/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) (April 15, 2016)
