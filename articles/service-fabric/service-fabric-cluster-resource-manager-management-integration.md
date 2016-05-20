@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 
@@ -87,6 +87,30 @@ Let’s talk about each of the different constraints you can see in these health
 -	Affinity: This constraint indicates that we couldn’t place the replica on the affected nodes since it would cause a violation of the affinity constraint.
 -	FaultDomain & UpgradeDomain: This constraint eliminates nodes if placing the replica on the indicated nodes would cause packing in a particular fault or upgrade domain
 -	PreferredLocation: You shouldn’t normally see this constraint causing nodes to get removed from the solution since it is optimization only by default. Further, the preferred location constraint is usually only present during upgrades (when it is used to move replicas back to where they were when the upgrade started), however it is possible.
+
+### Constraint priorities
+In all of these constraints, you may have been thinking “Hey – I think that placement constraints are the most important thing in my system. I’m willing to violate other constraints, even things like affinity and capacity, if it ensures that the placement constraints aren’t ever violated.”
+
+Well it turns out we can do that! Constraints can be configured with a few different levels of enforcement, but they boil down to “hard” (0), “soft” (1), “optimization” (2), and “off” (-1). Most of the constraints we’ve defined as hard by default (since, for example, most people don’t normally think about capacity as something they are willing to relax), and almost all are either hard or soft. However in advanced situations these can be changed. For example, what if you wanted to ensure that affinity would always be violated in order to solve node capacity issues, you could priority of the affinity constraint to “Soft” (1) and leave the capacity constraint set to “Hard” (0). The different constraint priorities are also why you'll see some constraint violation warnings more often than others - because there are certain constraints that we're willing to relax (violate) temporarily.
+
+The configuration and default values for the different constraints are listed below:
+
+ClusterManifest.xml
+
+```xml
+        <Section Name="PlacementAndLoadBalancing">
+            <Parameter Name="PlacementConstraintPriority" Value="0" />
+            <Parameter Name="CapacityConstraintPriority" Value="0" />
+            <Parameter Name="AffinityConstraintPriority" Value="0" />
+            <Parameter Name="FaultDomainConstraintPriority" Value="0" />
+            <Parameter Name="UpgradeDomainConstraintPriority" Value="1" />
+            <Parameter Name="PreferredLocationConstraintPriority" Value="2" />
+        </Section>
+```
+
+You’ll notice here that there are constraints defined for Upgrade and Fault domains, and also that they’re Soft. Also there’s this weird “PreferredLocation” constraint with a priority. What is all this stuff?
+
+First off, we model the desire to keep services spread out amongst fault and upgrade domains as a constraint inside the Resource Manager’s engine. Historically there have been a couple of times where we needed either to get really strict about placement with regard to fault and upgrade domains, and also a couple cases where there was some issue where we just needed to ignore them entirely (though briefly!), so generally we’ve been glad both for that design choice and for the flexibility of the constraint infrastructure.  Most of the time though, they sit as a soft constraint, meaning that if the Resource Manager temporarily needs to pack a couple replicas into a fault or upgrade domain in order to deal with, say, an upgrade going on, or a bunch of concurrent failures or other constraint violations (from the hard constraints) then that is ok. This normally doesn’t happen unless there are a lot of failures or other churn in the system preventing correct placement, and if the environment is configured correctly the stable state is always fault and upgrade domains being fully respected. The PreferredLocation constraint is a little different, and hence it is the only constraint set to “Optimization”. We use this constraint while upgrades in flight in order to try to prefer putting services back where we found them before the upgrade. There’s all sorts of reasons why this may not work in practice, but it’s a nice optimization, so here it sits. We’ll talk more about it when we talk about how the Cluster Resource Manager assists with upgrades
 
 ## Upgrades
 The Resource Manager also helps during application and cluster upgrades in order to ensure that the upgrade goes smoothly, but also to ensure that the rules and performance of the cluster are not compromised.
