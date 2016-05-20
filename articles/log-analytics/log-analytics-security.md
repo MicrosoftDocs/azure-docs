@@ -52,7 +52,7 @@ The following diagram shows a cloud security architecture as the flow of informa
 For your organization to send data to Log Analytics, you configure Windows agents, agents running on Azure virtual machines, or OMS Agents for Linux. If you use Operations Manager agents, then you'll use a configuration wizard in the Operations console to configure them. Users (which might be you, other individual users, or a group of people) create one or more OMS accounts and register agents by using one of the following accounts:
 
 
-- [Organizational ID](./active-directory/sign-up-organization.md)
+- [Organizational ID](../active-directory/sign-up-organization.md)
 
 - [Microsoft Account - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
 
@@ -76,7 +76,7 @@ For Windows agents running on Azure virtual machines, a read-only storage key is
 
 ## 3. The Log Analytics service receives and processes data
 
-The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](./storage/storage-introduction.md). Each Log Analytics user has a dedicated Azure blob, which is accessible only to that user. The type of data that is stored is dependent on the types of solutions that were imported and used to collect data.
+The Log Analytics service ensures that incoming data is from a trusted source by validating certificates and the data integrity with Azure authentication. The unprocessed raw data is then stored as a blob in [Microsoft Azure Storage](../storage/storage-introduction.md). Each Log Analytics user has a dedicated Azure blob, which is accessible only to that user. The type of data that is stored is dependent on the types of solutions that were imported and used to collect data.
 
 The Log Analytics service processes the raw data, and the aggregated processed data is stored in a SQL database. Communication between the service and SQL database relies on SQL database authentication.
 
