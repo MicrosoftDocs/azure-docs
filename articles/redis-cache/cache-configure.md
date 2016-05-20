@@ -301,6 +301,10 @@ New Azure Redis Cache instances are configured with the following default Redis 
 	-	P4 (53 GB - 530 GB) - up to 64 databases
 	-   All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
+
+>[AZURE.NOTE] The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+
+
 <a name="maxclients"></a>
 <sup>2</sup>`maxclients` is different for each Azure Redis Cache pricing tier.
 
