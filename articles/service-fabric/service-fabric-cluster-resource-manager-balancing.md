@@ -77,10 +77,11 @@ As an example let’s say that we have reports with the following totals for con
 Just like Balancing Thresholds, Activity Thresholds are defined per-metric via the cluster definition:
 
 ClusterManifest.xml
+
 ``` xml
-      <Section Name="MetricActivityThresholds">
-        <Parameter Name="Memory" Value="1536"/>
-      </Section>
+    <Section Name="MetricActivityThresholds">
+      <Parameter Name="Memory" Value="1536"/>
+    </Section>
 ```
 
 ## Balancing services together
