@@ -15,8 +15,9 @@
 	ms.topic="article"
 	ms.date="05/17/2016"
 	ms.author="sumedhb;aglick"/>
+	
 
-#Azure Key Vault availability and redundancy
+# Azure Key Vault availability and redundancy
 
 Azure Key Vault has multiple layers of redundancy built-in, to ensure your keys and secrets remain available to your application even when individual components of the service fail.
 
