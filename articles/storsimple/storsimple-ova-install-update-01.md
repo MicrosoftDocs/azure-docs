@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Apply StorSimple Virtual Array updates | Microsoft Azure"
-   description="Describes how to use the StorSimple Virtual Array web UI to apply updates and hotfixes"
+   pageTitle="Install Update 0.1 on StorSimple Virtual Array | Microsoft Azure"
+   description="Describes how to use the StorSimple Virtual Array web UI to apply Update 0.1 using the portal and hotfix method"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,7 +15,7 @@
    ms.date="05/20/2016"
    ms.author="alkohli" />
 
-# Apply updates and hotfixes to the StorSimple Virtual Array
+# Install Update 0.1 on your StorSimple Virtual Array
 
 ## Overview
 
@@ -31,13 +31,13 @@ We recommend that you install updates through the Azure classic portal. The port
 
 1. On the **Devices** page, select the device on which you want to install updates.
 
-2. Navigate to **Devices** > **Maintenance** >**Software Updates**.
+2. Navigate to **Devices** > **Maintenance** > **Software Updates**.
 
 3. You will see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
 
 	![Scan updates](./media/storsimple-ova-install-update-01/aupdate1m.png)
 
-4. From the bottom of the page, click **Download Updates**. A dialog is presented to you notifying that the update is disruptive. Given the StorSimple Virtual Array is a single node device, after the update is applied, the device will restart thereby disrupting any IO in progress. Click the check icon to launch a job to download the available updates. You will be notified after the updates are downloaded.
+4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device will restart after it is updated. This will disrupt any IO in progress. Click the check icon to launch a job to download the available updates. You will be notified after the updates are downloaded.
 
 	![Download updates](./media/storsimple-ova-install-update-01/aupdate1m.png)
 
