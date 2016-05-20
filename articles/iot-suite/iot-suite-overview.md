@@ -17,7 +17,7 @@
      ms.date="02/19/2016"
      ms.author="dobett"/>
 
-# Overview of Azure IoT Suite
+# What is Azure IoT Suite?
 
 The Azure internet of things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
 

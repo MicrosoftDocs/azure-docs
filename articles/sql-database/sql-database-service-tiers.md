@@ -4,9 +4,9 @@
 	keywords="database options,database performance"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="carlrabeler"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -14,8 +14,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="03/25/2016"
-	ms.author="jeffreyg"/>
+	ms.date="05/13/2016"
+	ms.author="carlrab"/>
 
 # SQL Database options and performance: Understand what's available in each service tier
 

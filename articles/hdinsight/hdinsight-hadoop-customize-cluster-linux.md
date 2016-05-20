@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
+	pageTitle="Customize HDInsight clusters using script actions | Microsoft Azure"
 	description="Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that on the cluster nodes, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="05/13/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -49,9 +49,11 @@ A Script Action is simply a Bash script that you provide a URL to, and parameter
 
 * Can be used through the __Azure Portal__, __Azure PowerShell__, __Azure CLI__, or __HDInsight .NET SDK__
 
-> [AZURE.IMPORTANT] There is no automatic way to undo the changes made by a script action. If you need to reverse the effects of a script, you must understand what changes were made and manually reverse them (or provide a script action that reverses them.)
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
+
+> [AZURE.IMPORTANT] There is no automatic way to undo the changes made by a script action. If you need to reverse the effects of a script, you must understand what changes were made and manually reverse them (or provide a script action that reverses them.)
 
 ### Script Action in the cluster creation process
 
@@ -89,6 +91,8 @@ When applying a script to a cluster, the cluster state will change to from __Run
     StartTime         : 2/23/2016 7:40:55 PM
     EndTime           : 2/23/2016 7:41:05 PM
     Status            : Succeeded
+
+> [AZURE.NOTE] If you have changed the cluster user (admin) password after the cluster was created, this may cause script actions ran against this cluster to fail. If you have any persisted script actions that target worker nodes, these may fail when you add nodes to the cluster through resize operations.
 
 ## Example Script Action scripts
 
@@ -476,6 +480,8 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 ### Apply a Script Action to a running cluster from the Azure CLI
 
 Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../xplat-cli-install.md).
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 1. Open a shell session, terminal, command-prompt or other command-line for your system and use the following command to switch to Azure Resource Manager mode.
 

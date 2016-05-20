@@ -1,6 +1,6 @@
 <properties
     pageTitle="How to use Azure Blob storage from iOS | Microsoft Azure"
-    description="Learn how to use Azure Blob storage to upload, download, list, and delete blob content. Samples written in Objective-C."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="04/11/2016"
     ms.author="micurd"/>
 
 # How to use Blob storage from iOS
@@ -113,7 +113,7 @@ The following example shows how to use Azure CLI to generate a SAS token that gr
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out [Shared Access Signatures: Understanding the SAS model](../storage-dotnet-shared-access-signature-part-1).
+As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out [Shared Access Signatures: Understanding the SAS model](storage-dotnet-shared-access-signature-part-1.md).
 
 ##Asynchronous Operations
 > [AZURE.NOTE] All methods that perform a request against the service are asynchronous operations. In the code samples, you’ll find that these methods have a completion handler. Code inside the completion handler will run **after** the request is completed. Code after the completion handler will run **while** the request is being made.

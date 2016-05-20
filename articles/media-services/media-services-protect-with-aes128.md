@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
- 	ms.date="04/07/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 #Using AES-128 Dynamic Encryption and Key Delivery Service
@@ -408,7 +408,7 @@ The following code shows how to send a request to the Media Services key deliver
 		            // This output is specified as AssetCreationOptions.None, which 
 		            // means the output asset is not encrypted. 
 		            task.OutputAssets.AddNew("Output asset",
-		                AssetCreationOptions.None);
+		                AssetCreationOptions.StorageEncrypted);
 		
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
 		            job.Submit();

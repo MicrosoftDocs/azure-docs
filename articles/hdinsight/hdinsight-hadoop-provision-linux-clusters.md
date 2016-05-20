@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/25/2016"
+   	ms.date="05/02/2016"
    	ms.author="jgao"/>
 
 
@@ -45,7 +45,22 @@ Each cluster type has its own terminology for nodes within the cluster, as well 
 |Storm|Nimbus node (2), Supervisor server (1+), Zookeeper node (3)|![HDInsight Storm cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|Head node (2), Worker node (1+), Zookeeper node (3) (Free for A1 Zookeepers VM size)|![HDInsight Spark cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* In parentheses are the number of nodes for each node type.
+Note: In parentheses are the number of nodes for each node type.
+
+The following table lists the default VM sizes for HDInsight:
+
+|Cluster Type|	Hadoop|	HBase|	Storm|	Spark|
+|------------|--------|------|-------|-------|
+|Head – Default VM size|	D3	|A3|	A3|	D12|
+|Head – Recommended VM sizes|	D3, D4, D12	|A3, A4, A5	|A3, A4, A5|	D12, D13, D14|
+|Worker – Default VM size|	D3|	D3|	D3|	D12|
+|Worker – Recommended VM sizes |	D3, D4, D12|	D3, D4, D12	|D3, D4, D12|	D12, D13, D14|
+|Zookeeper – Default VM size|	|	A2|	A2	| |
+|Zookeeper – Recommended VM sizes |		|A2, A3, A4	|A2, A3, A4	| |
+
+Note: Head is known as Nimbus for the Storm cluster type. Worker is known as Region for the HBase cluster type, and  as Supervisor for the Storm cluster type.
+
+
 
 > [AZURE.IMPORTANT] If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
 

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to use Blob storage from Node.js | Microsoft Azure"
-	description="Learn how to use Blob storage to upload, download, list, and delete blob content. Samples are written in Node.js."
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="02/17/2016"
+    ms.date="04/29/2016"
 	ms.author="micurd"/>
 
 

@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # What is Azure IoT Hub?
@@ -27,7 +27,11 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
 - Provides extensive monitoring for device connectivity and device identity management events.
 - Includes device libraries for the most popular languages and platforms.
 
+The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the key differences between these two services and highlights the advantages of using IoT Hub in your IoT solutions.
+
 ![Azure IoT Hub as cloud gateway in internet of things solution][img-architecture]
+
+> [AZURE.NOTE] For an in-depth discussion of IoT architecture see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
 
 ## IoT device-connectivity challenges
 
@@ -47,13 +51,16 @@ In addition to the requirements above, any IoT solution must also deliver scale,
 
 Azure IoT Hub addresses the device-connectivity challenges in the following ways:
 
--   **Per-device authentication and secure connectivity**. You can provision each device with its own security key to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can whitelist and blacklist individual devices, which enables complete control over device access.
+-   **Per-device authentication and secure connectivity**. You can provision each device with its own [security key][lnk-devguide-security] to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can whitelist and blacklist individual devices, which enables complete control over device access.
 
 -   **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This enables your IoT solution to easily identify connectivity issues, such as devices that try to connect with wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
 
--   **An extensive set of device libraries**. Azure IoT device SDKs are available and supported for a variety of languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
+-   **An extensive set of device libraries**. [Azure IoT device SDKs][lnk-device-sdks] are available and supported for a variety of languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
 
--   **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to provide support for custom protocol by customizing the the [Azure IoT protocol gateway][protocol-gateway] open source component. You can run the Azure IoT protocol gateway in the cloud or on-premises.
+-   **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to provide support for custom protocols by:
+
+    - Creating a field gateway with the [Azure IoT Gateway SDK][lnk-gateway-sdk] that converts your custom protocol to one of the three protocols understood by IoT Hub. 
+    - Customizing the [Azure IoT protocol gateway][protocol-gateway], an open source component that runs in the cloud.
 
 -   **Scale**. Azure IoT Hub scales to millions of simultaneously connected devices and millions of events per second.
 
@@ -65,11 +72,9 @@ These benefits are generic to many communication patterns. IoT Hub currently ena
 
 You can also implement other common patterns, such as file upload and download, by taking advantage of IoT-specific features in IoT Hub. These features include consistent device identity management, connectivity monitoring, and scale.
 
-The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the key differences between these two services and highlights the advantages of using IoT Hub in your IoT solutions.
-
 ## Gateways
 
-A gateway in an IoT solution is typically either a [protocol gateway][lnk-gateway] that is deployed in the cloud or a [field gateway][lnk-field-gateway] that is deployed locally with your devices. A protocol gateway performs protocol translation, for example MQTT to AMQP. A field gateway provides local management services for your devices. It can be a specialized device or software running on an existing piece of hardware. Both gateway types act as intermediaries between your devices and your IoT hub.
+A gateway in an IoT solution is typically either a [protocol gateway][lnk-gateway] that is deployed in the cloud or a [field gateway][lnk-field-gateway] that is deployed locally with your devices. A protocol gateway performs protocol translation, for example MQTT to AMQP. A field gateway can run analytics on the edge, make time-sensitive decisions that can reduce latency, provide device management services, enforce security and privacy constraints, and can also perform protocol translation. Both gateway types act as intermediaries between your devices and your IoT hub.
 
 A field gateway differs from a simple traffic routing device (such as a network address translation (NAT) device or firewall) because it typically performs an active role in managing access and information flow in your solution.
 
@@ -108,6 +113,10 @@ To learn more about Azure IoT Hub, see these links:
 [lnk-gateway]: iot-hub-protocol-gateway.md
 [lnk-field-gateway]: iot-hub-guidance.md#field-gateways
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-wns]: https://msdn.microsoft.com/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk

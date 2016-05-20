@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Administration and Development Task List in BizTalk Services | Microsoft Azure BizTalk Services" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="erikre" 
+<properties
+	pageTitle="Administration and Development Task List in BizTalk Services | Microsoft Azure" 
+	description="Planning and job aid for deploying Azure BizTalk Services."
+	services="biztalk-services"
+	documentationCenter=""
+	authors="msftman"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="deonhe"/>
 
 # Administration and Development Task List in BizTalk Services  

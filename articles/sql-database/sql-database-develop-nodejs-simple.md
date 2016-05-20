@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to SQL Database by using Node.js"
+	pageTitle="Connect to SQL Database by using Node.js | Microsoft Azure"
 	description="Presents a Node.js code sample you can use to connect to Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""

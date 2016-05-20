@@ -3,7 +3,7 @@
    description="Recommended naming conventions for Azure resources. How to name virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities"
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="mabsimms"
    manager="marksou"
    editor=""
    tags=""/>
@@ -19,12 +19,14 @@
    
 # Recommended naming conventions for Azure resources
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 The choice of a name for any resource in Microsoft Azure is important because:
 
 - It is difficult to change a name at a later time.
 - Names must meet the requirements of their specific resource type.
 
-Likewise, consistent naming conventions make resources easiler to locate. They also assist in understanding the role of
+Likewise, consistent naming conventions make resources easier to locate. They also assist in understanding the role of
 a resource in a solution.
 
 This article provides a summary of the naming rules and restrictions for Azure resources,

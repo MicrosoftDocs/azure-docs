@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Custom Settings for App Service Environments" 
-	description="Custom configuration settings for App Service Environments" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
+<properties
+	pageTitle="Custom settings for App Service Environments"
+	description="Custom configuration settings for App Service Environments"
+	services="app-service"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
 	editor=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/08/2016" 
-	ms.author="stefsch"/>	
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/08/2016"
+	ms.author="stefsch"/>
 
-# Custom Configuration Settings for App Service Environments
+# Custom configuration settings for App Service Environments
 
 ## Overview ##
-Since App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to an App Service Environment.  This article documents the various App Service Environment specific customizations that are available.
+Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
 
-App Service Environment customizations are stored using an array in the new attribute "clusterSettings" found in the "Properties" dictionary of the *hostingEnvironments* ARM entity.
+You can store App Service Environment customizations by using an array in the new **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
 
-An abbreviated ARM template snippet (below) shows the "clusterSettings" attribute:
+The following abbreviated Resource Manager template snippet shows the **clusterSettings** attribute:
 
 
     "resources": [
@@ -44,20 +44,30 @@ An abbreviated ARM template snippet (below) shows the "clusterSettings" attribut
        }
     }
 
-The "clusterSettings" attribute can be included in an ARM template to update the App Service Environment.
+The **clusterSettings** attribute can be included in a Resource Manager template to update the App Service Environment.
 
-Alternatively the attribute value can be updated using the [Azure Resource Explorer](https://resources.azure.com).  In Azure Resource Explorer, navigate to the node for the App Service Environment (subscriptions --> resourceGroups --> providers --> Micrososft.Web --> hostingEnvironments) and click on the specific App Service Environment to be updated.
+## Use Azure Resource Explorer to update an App Service Environment
+Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).  
 
-In the right-hand browser window, click "Read/Write" in the upper toolbar to allow interactive editing in the Resource Explorer.  Then click the blue "Edit" button to make the ARM template editable.  Scroll all the way to the bottom of the right-hand browser window.  The "clusterSettings" attribute will be at the very bottom where you can enter or update its value.
+1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **resourceGroups** > **providers** > **Micrososft.Web** > **hostingEnvironments**). Then click the specific App Service Environment that you want to update.
 
-Type in (or copy and paste) the array of configuration value(s) you want in the "clusterSettings" attribute.  Then click the green "PUT" button located at the top of the right-hand browser window to commit the change to the App Service Environment.
+2. In the right pane, click **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
 
-Regardless of the approach taken to update the App Service Environment, once the change is submitted it will take roughly 30 minutes multiplied by the number of front-ends in the App Service Environment for the change to take effect.  For example if an App Service Environment has four front-ends, it will take roughly two hours for the configuration update to complete.  While the configuration change is being rolled out, no other scaling operations or configuration change operations will be possible on the App Service Environment.
+3. Click the blue **Edit** button to make the Resource Manager template editable.
 
-## Disabling TLS 1.0 ##
-A recurring ask from customers, especially customers dealing with PCI compliance audits, is the ability to explicitly disable TLS 1.0 for their apps.
+4. Scroll to the bottom of the right pane. The **clusterSettings** attribute is at the very bottom, where you can enter or update its value.
 
-TLS 1.0 can be disabled with the following *clusterSettings* entry:
+5. Type (or copy and paste) the array of configuration values you want in the **clusterSettings** attribute.  
+
+6. Click the green **PUT** button that's located at the top of the right pane to commit the change to the App Service Environment.
+
+However you submit the change, it takes roughly 30 minutes multiplied by the number of front ends in the App Service Environment for the change to take effect.
+For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations can take place in the App Service Environment.
+
+## Disable TLS 1.0 ##
+A recurring question from customers, especially customers who are dealing with PCI compliance audits, is how to explicitly disable TLS 1.0 for their apps.
+
+TLS 1.0 can be disabled through the following **clusterSettings** entry:
 
         "clusterSettings": [
             {
@@ -68,11 +78,10 @@ TLS 1.0 can be disabled with the following *clusterSettings* entry:
 
 
 
-## Getting started
-The Azure Quickstart ARM template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/)
+## Get started
+The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 
 <!-- LINKS -->
 
 <!-- IMAGES -->
- 

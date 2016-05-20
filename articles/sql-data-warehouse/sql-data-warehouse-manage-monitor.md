@@ -3,7 +3,7 @@
    description="Learn how to monitor your workload using DMVs."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/29/2016"
+   ms.date="05/03/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitor your workload using DMVs
@@ -39,7 +39,7 @@ In the scenario where you would like to investigate query execution for a partic
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the 10 longest running queries
+-- Find 10 queries which ran the longest
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
@@ -142,30 +142,20 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 ```
 
-
-## Investigate Data Skew
-
-Use [DBCC PDW_SHOWSPACEUSED][] to lookup space used by a table.
-
-```sql
--- Find data skew for a distributed table
-DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
-```
-
-The result of this query will show you the number of table rows that are stored in each of the 60 distributions of your database. For optimal performance, the rows in your distributed table should be spread evenly across all the distributions.
-
-To learn more, see [table design][].
-
 ## Next steps
-For more information on Transact-SQL and Dynamic Management Views (DMVs), see [reference overview][]
-For more tips on managing your SQL Data Warehouse, see [manage overview][].
+For more information on Dynamic Management Views (DMVs), see [System views][].  
+For tips on managing your SQL Data Warehouse, see [manage overview][].  
+For best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
+[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
 [manage overview]: sql-data-warehouse-overview-manage.md
-[table design]: sql-data-warehouse-develop-table-design.md
-[reference overview]: sql-data-warehouse-overview-reference.md
+[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
+[System views]: sql-data-warehouse-reference-tsql-system-views.md
+
+<!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm_pdw_exec_requests]: http://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm_pdw_exec_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
@@ -173,5 +163,3 @@ For more tips on managing your SQL Data Warehouse, see [manage overview][].
 [sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
-
-<!--MSDN references-->

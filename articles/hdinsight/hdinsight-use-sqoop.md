@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 #Use Sqoop with Hadoop in HDInsight (Windows)
@@ -45,7 +45,9 @@ see [What's new in the cluster versions provided by HDInsight?][hdinsight-versio
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **A workstation with Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Understand the scenario
 
@@ -413,9 +415,9 @@ The PowerShell sample performs the following steps:
 		-Type Standard_LRS
 	
 	# Create the default Blob container
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
 									-ResourceGroupName $resourceGroupName `
-									-Name $defaultStorageAccountName |  %{ $_.Key1 }
+									-Name $defaultStorageAccountName)[0].Value
 	$defaultStorageAccountContext = New-AzureStorageContext `
 										-StorageAccountName $defaultStorageAccountName `
 										-StorageAccountKey $defaultStorageAccountKey 
@@ -634,7 +636,7 @@ The PowerShell sample performs the following steps:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
-[sqldatabase-get-started]: ../sql-database-get-started.md
+[sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx

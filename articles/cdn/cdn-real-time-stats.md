@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Real-time stats in Microsoft Azure CDN
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Overview
 
 This document explains real-time stats in Microsoft Azure CDN. This functionality provides real-time data about the performance of our CDN when delivering content to your clients.
-
-> [AZURE.NOTE] Real-time stats is a feature of the Premium CDN tier.  For a comparison of Standard and Premium CDN features, see [Azure CDN Overview](cdn-overview.md).
 
 The following graphs are available when viewing real-time statistics for the HTTP-based platforms:
 

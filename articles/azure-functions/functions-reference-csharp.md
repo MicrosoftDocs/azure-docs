@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Azure Functions C# developer reference
@@ -87,7 +87,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 
 ## Importing namespaces
 
-If you need import namespaces, you can do so as usual, with the `using` clause.
+If you need to import namespaces, you can do so as usual, with the `using` clause.
 
 ```csharp
 using System.Net;
@@ -100,14 +100,16 @@ The following namespaces are automatically imported and are therefore optional:
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## Referencing External Assemblies
 
-For framework assemblies, you can add references by using the `#r "AssemblyName"` directive.
+For framework assemblies, add references by using the `#r "AssemblyName"` directive.
 
 ```csharp
 #r "System.Web.Http"
@@ -135,23 +137,111 @@ The following assemblies are automatically added by the Azure Functions hosting 
 In addition, the following assemblies are special cased and may be referenced by simplename (e.g. `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`).
+If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`). For information on how to upload files to your function folder, see the following section on package management.
 
 ## Package management
 
-For package management, use a *project.json* file. Most things that work with the *project.json* format work with Azure Functions. The important thing is including the `frameworks` as `net46`: the Azure Functions runtime supports .NET v4.6. 
+To use NuGet packages in a C# function, upload a *project.json* file to the the function's folder in the function app's file system. Here is an example *project.json* file that adds a reference to Microsoft.ProjectOxford.Face version 1.1.0:
 
 ```json
 {
   "frameworks": {
     "net46":{
       "dependencies": {
-        "Humanizer": "2.0.1"
-        ...
+        "Microsoft.ProjectOxford.Face": "1.1.0"
+      }
+    }
+   }
+}
 ```
+
+When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. Just add the required `using` statements to your *run.csx* file to use the types defined in the NuGet packages.
+
+### How to upload a project.json file
+
+1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. 
+
+	This also gives access to the streaming logs where package installation output will be displayed. 
+
+2. To upload a project.json file, use one of the methods described in the **How to update function app files** section of the [Azure Functions developer reference topic](functions-reference.md#fileupdate). 
+
+3. After the *project.json* file is uploaded, you see output like the following example in your function's streaming log:
+
+```
+2016-04-04T19:02:48.745 Restoring packages.
+2016-04-04T19:02:48.745 Starting NuGet restore
+2016-04-04T19:02:50.183 MSBuild auto-detection: using msbuild version '14.0' from 'D:\Program Files (x86)\MSBuild\14.0\bin'.
+2016-04-04T19:02:50.261 Feeds used:
+2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
+2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
+2016-04-04T19:02:50.261 
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
+2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
+2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
+2016-04-04T19:02:57.189 
+2016-04-04T19:02:57.189 
+2016-04-04T19:02:57.455 Packages restored.
+```
+
+## Environment variables
+
+To get an environment variable or an app setting value, use `System.Environment.GetEnvironmentVariable`, as shown in the following code example:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
+```
+
+## Reusing .csx code
+
+You can use classes and methods defined in other *.csx* files in your *run.csx* file. To do that, use `#load` directives in your *run.csx* file, as shown in the following example.
+
+Example *run.csx*:
+
+```csharp
+#load "mylogger.csx"
+
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Verbose($"Log by run.csx: {DateTime.Now}"); 
+    MyLogger(log, $"Log by MyLogger: {DateTime.Now}");
+}
+```
+
+Example *mylogger.csx*:
+
+```csharp
+public static void MyLogger(TraceWriter log, string logtext)
+{
+    log.Verbose(logtext); 
+}
+```
+
+You can use a relative path with the `#load` directive:
+
+* `#load "mylogger.csx"` loads a file located in the function folder.
+
+* `#load "loadedfiles\mylogger.csx"` loads a file located in a folder in the function folder.
+
+* `#load "..\shared\mylogger.csx"` loads a file located in a folder at the same level as the function folder, that is, directly under *wwwroot*.
+ 
+The `#load` directive works only with *.csx* (C# script) files, not with *.cs* files. 
 
 ## Next steps
 
@@ -160,3 +250,4 @@ For more information, see the following resources:
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+

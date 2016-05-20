@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Spark Streaming: Process events from Azure Event Hubs with Apache Spark on HDInsight (Linux)
+# Spark Streaming: Process events from Azure Event Hubs with Apache Spark on HDInsight Linux (Preview)
 
 Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications. Data can be ingested from many sources. In this article we use Azure Event Hubs to ingest data. Event Hubs is a highly scalable ingestion system that can intake millions of events per second. 
 
@@ -123,7 +123,7 @@ A sample Scala application to receive the event and route it to different destin
 
 5. The application requires two dependency jars:
 
-	* **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. This jar is available on your Spark Linux cluster at `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. You can use pscp to copy the jar to your local computer.
+	* **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. This jar is available on your Spark Linux cluster at `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. You can use pscp to copy the jar to your local computer. (Note: Some instances have the file under `/usr/hdp/2.4.1.0-327/spark/lib`)
 
 			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
@@ -256,6 +256,8 @@ To run the application that streams events into a Hive table you need some addit
 * hive-site.xml
 
 The **.jar** files are available on your HDInsight Spark cluster at `/usr/hdp/current/spark-client/lib`. The **hive-site.xml** is available at `/usr/hdp/current/spark-client/conf`.
+
+
 
 You can use [WinScp](http://winscp.net/eng/download.php) to copy over these files from the cluster to your local computer. You can then use tools to copy these files over to your storage account associated with the cluster. For more information on how to upload files to the storage account, see [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).
 

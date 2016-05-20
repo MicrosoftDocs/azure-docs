@@ -22,7 +22,7 @@
 
 The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. It is an Open Source project, whose source code is available under the Apache License 2.0 from the project's site at:
 
-* <https://github.com/microsoft/azure-tools-for-java.>
+* <https://github.com/microsoft/azure-tools-for-java>
 
 ## Getting Started with the Azure Toolkit for Eclipse ##
 

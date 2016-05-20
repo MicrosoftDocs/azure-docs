@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/26/2016"
 	ms.author="prkhad"/>
 
 
@@ -55,7 +55,11 @@ For step-by-step instructions, see the [Quick Start](#quick-start) section later
 
 ## DS, DSv2 and GS series VMs
 
-Premium Storage supports DS-series, DSv2-series and GS-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with DS-series, DSv2-series or GS-series of VMs. But you cannot use Premium Storage disks with non-DS-series or non-GS-series of VMs. For information on available Azure VM types and sizes, see [Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md). Following are some of the features of DS, DSv2 and GS series VMs,
+Premium Storage supports DS-series, DSv2-series and GS-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with DS-series, DSv2-series or GS-series of VMs. But you cannot use Premium Storage disks with non-DS-series or non-GS-series of VMs. 
+
+For information on available Azure VM types and sizes for Windows VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md). For information on VM types and sizes for Linux VMs, see [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md). 
+
+Following are some of the features of DS, DSv2 and GS series VMs:
 
 **Cloud Service**: DS-series VMs can be added to a cloud service that includes only DS-series VMs. Do not add DS-series VMs to an existing cloud service that includes non-DS-series VMs. You can migrate your existing VHDs to a new cloud service running only DS-series VMs. If you want to retain the same virtual IP address (VIP) for the new cloud service that hosts your DS-series VMs, use the [Reserved IP Addresses](../virtual-network/virtual-networks-instance-level-public-ip.md). GS-series VMs can be added to an existing cloud service running only G-series VMs.
 
@@ -75,7 +79,9 @@ For example, a STANDARD_DS1 VM has 32 MB per second dedicated bandwidth availabl
 Currently, the largest VM on DS-series is STANDARD_DS14 and it can provide up to 512 MB per second across all disks. The largest VM on GS-series is STANDARD_GS5 and it can give up to 2000 MB per second across all disks.
 Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks.
 
-For the most up-to-date information on maximum IOPS and throughput (bandwidth) for DS-series, DSv2-series and GS-series VMs, see [Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
+For the most up-to-date information on maximum IOPS and throughput (bandwidth) for DS-series, DSv2-series and GS-series VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md). 
+
+To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
 
 ## Premium Storage Scalability and Performance Targets
 

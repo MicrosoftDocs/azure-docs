@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
+	ms.date="05/03/2016"
 	ms.author="piyushjo"/>
 
 # Authenticate with Mobile Engagement REST APIs - manual setup
@@ -21,7 +21,7 @@
 This is an appendix documentation to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read it first to get the context. 
 This describes an alternate way to do the One-time setup for setting up your authentication for the Mobile Engagement REST APIs using the Azure Portal. 
 
->[AZURE.NOTE] The instructions below are based on this [Active Directory guide](../resource-group-create-service-principal-portal/) and customized for what is required for authentication for Mobile Engagement APIs. So refer to it if you want to understand the steps below in detail. 
+>[AZURE.NOTE] The instructions below are based on this [Active Directory guide](../resource-group-create-service-principal-portal.md) and customized for what is required for authentication for Mobile Engagement APIs. So refer to it if you want to understand the steps below in detail. 
 
 1. Login to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
 

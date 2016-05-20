@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/29/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
-
 
 # Azure SDK for .NET 2.9 Release Notes
 
@@ -44,7 +43,7 @@ This updates includes the following:
 
 	The tool is updated frequently, go [here](http://aka.ms/datalaketool) to get the updates.
 
-- **Server Explorer** now enables you to view all and create some U-SQL metadata entities. For more information, see [this]() blog.
+- **Server Explorer** now enables you to view all and create some U-SQL metadata entities. For more information, see [this](https://azure.microsoft.com/documentation/services/data-lake-analytics/) blog.
 
 
 ##HDInsight Tools 

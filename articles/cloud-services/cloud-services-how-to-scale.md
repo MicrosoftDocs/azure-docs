@@ -19,13 +19,13 @@
 
 # How to auto scale a cloud service
 
-On the Scale page of the Azure classic portal, you can manually scale your web role or worker role, or you can enable automatic scaling based on CPU load or a message queue. 
+On the Scale page of the Azure classic portal, you can manually scale your web role or worker role, or you can enable automatic scaling based on CPU load or a message queue.
 
 >[AZURE.NOTE] This article focuses on Cloud Service web and worker roles. When you create a virtual machine directly, it is hosted in a cloud service. Some of this information applies to these types of virtual machines. Scaling an availability set of virtual machines is really just shutting them on and off based on the scale rules you configure. For more information about Virtual Machines and availability sets, see [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
 
 You should consider the following information before you configure scaling for your application:
 
-- Scaling is affected by core usage. Larger role instances use more cores. You can only scale an application within the limit of cores for your subscription. For example, if your subscription has a limit of twenty cores and you run an application with two medium sized cloud services (a total of four cores), you can only scale up other cloud service deployments in your subscription by sixteen cores. See [Cloud Service Sizes](cloud-services-sizes-specs.md) for more information about sizes.
+- Scaling is affected by core usage. Larger role instances use more cores. You can scale an application only within the limit of cores for your subscription. For example, if your subscription has a limit of twenty cores and you run an application with two medium sized cloud services (a total of four cores), you can only scale up other cloud service deployments in your subscription by sixteen cores. See [Cloud Service Sizes](cloud-services-sizes-specs.md) for more information about sizes.
 
 - You must create a queue and associate it with a role before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md).
 
@@ -47,7 +47,7 @@ By default, all roles do not follow a specific schedule. Therefore, any settings
 - Specific date ranges
 
 This is conigured in the [Azure classic portal](https://manage.windowsazure.com/) on the  
-**Cloud Services** > **\[Your cloud service\]** > **Scale** > **\[Production or Staging\]** page. 
+**Cloud Services** > **\[Your cloud service\]** > **Scale** > **\[Production or Staging\]** page.
 
 Click the **set up schedule times** button for each role you want to change.
 
@@ -126,7 +126,7 @@ This automatically scales if the number of messages in a queue goes above or bel
 
 ## Scale linked resources
 
-Often when you scale a role, it's beneficial to scale the database that the application is using also. If you link the database to the cloud service, you can access the scaling settings for that resource by clicking on the appropriate link. 
+Often when you scale a role, it's beneficial to scale the database that the application is using also. If you link the database to the cloud service, you can access the scaling settings for that resource by clicking on the appropriate link.
 
 1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 

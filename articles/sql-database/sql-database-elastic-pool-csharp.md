@@ -5,7 +5,7 @@
     keywords="c# database,sql development"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="02/23/2016"
+    ms.date="05/03/2016"
     ms.author="sstein"/>
 
 # C&#x23; database development: Create and configure an elastic database pool for SQL database
@@ -286,7 +286,7 @@ The following example updates the performance characteristics of an existing ela
 
 ## Move an existing database into an elastic database pool
 
-*After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Monitor and manage an elastic database pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 The following example moves an existing Azure SQL database into a pool:
 
@@ -318,7 +318,7 @@ The following example moves an existing Azure SQL database into a pool:
 
 ## Create a new database in an elastic database pool
 
-*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool. For details see, [Monitor and manage an elastic database pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 The following example creates a new database directly in a pool:
 
@@ -562,9 +562,6 @@ The following example lists all databases in a pool:
 [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
 [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[Elastic database pool reference](sql-database-elastic-pool-reference.md).
-
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool-csharp/aad.png

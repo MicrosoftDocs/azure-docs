@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Prepare to Publish or Deploy an Azure Application from Visual Studio
@@ -30,7 +30,7 @@ Use the following procedures to set up these services and configure your applica
 
 ## Create a cloud service
 
-To publish a cloud service to Azure, you must first create a cloud service, which runs your roles in the Azure environment. You can create a cloud service in the Azure Management Portal, as described in the section **To create a cloud service by using the Azure Management Portal**, later in this topic. You can also create a cloud service in Visual Studio by using the publishing wizard.
+To publish a cloud service to Azure, you must first create a cloud service, which runs your roles in the Azure environment. You can create a cloud service in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), as described in the section **To create a cloud service by using the Azure classic portal**, later in this topic. You can also create a cloud service in Visual Studio by using the publishing wizard.
 
 ### To create a cloud service by using Visual Studio
 
@@ -48,9 +48,9 @@ To publish a cloud service to Azure, you must first create a cloud service, whic
 
 1. Enter the name of your cloud service. The name forms part of the URL for your service and therefore must be globally unique. The name is not case-sensitive.
 
-### To create a cloud service by using the Azure Management Portal
+### To create a cloud service by using the Azure classic portal
 
-1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
+1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
 
 1. (optional) To display a list of cloud services that you've already created, choose the Cloud Services link on the left side of the page.
 
@@ -66,7 +66,7 @@ To publish a cloud service to Azure, you must first create a cloud service, whic
 
 ## Create a storage account
 
-A storage account provides access to the Blob, Queue, and Table services. You can create a storage account by using Visual Studio or the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkId=253103).
+A storage account provides access to the Blob, Queue, and Table services. You can create a storage account by using Visual Studio or the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103).
 
 ### To create a storage account by using Visual Studio
 
@@ -82,9 +82,9 @@ A storage account provides access to the Blob, Queue, and Table services. You ca
 
 1. When you’re done, choose **Create**.The new storage account appears in the **Storage** list in **Server Explorer**.
 
-### To create a storage account by using the Azure Management Portal
+### To create a storage account by using the Azure classic portal
 
-1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
+1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
 
 1. (Optional) To view your storage accounts, choose the **Storage** link in the panel on the left side of the page.
 
@@ -124,16 +124,16 @@ You must configure any role that accesses storage services to use the Azure stor
 
 1. In the **Subscription** list, choose your subscription. If the list of subscriptions doesn't include the one that you want, choose the **Download Publish Settings** link.
 
-1. In the **Account name** list, choose your storage account name. Azure Tools obtains storage account credentials automatically by using the .publishsettings file. To specify your storage account credentials manually, choose the **Manually entered credentials** option, and then continue with this procedure. You can get your storage account name and primary key from the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885). If you don’t want to specify your storage account settings manually, choose the **OK** button to close the dialog box.
+1. In the **Account name** list, choose your storage account name. Azure Tools obtains storage account credentials automatically by using the .publishsettings file. To specify your storage account credentials manually, choose the **Manually entered credentials** option, and then continue with this procedure. You can get your storage account name and primary key from the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885). If you don’t want to specify your storage account settings manually, choose the **OK** button to close the dialog box.
 
 1. Choose the **Enter storage account** credentials link.
 
 1. In the **Account name** box, enter the name of your storage account.
 
-    >[AZURE.NOTE] Log into the Management Portal, and then choose the **Storage** button. The portal shows a list of storage accounts. If you choose an account, a page for it opens. You can copy the name of the storage account from this page. If you are using a previous version of the Management Portal, the name of your storage account appears in the **Storage Accounts** view of the Management Portal. To copy this name, highlight it in the **Properties** window of this view, and then choose the Ctrl-C keys. To paste the name into Visual Studio, choose the **Account name** text box, and then choose the Ctrl+V keys.
+    >[AZURE.NOTE] Log into the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and then choose the **Storage** button. The portal shows a list of storage accounts. If you choose an account, a page for it opens. You can copy the name of the storage account from this page. If you are using a previous version of the classic portal, the name of your storage account appears in the **Storage Accounts** view. To copy this name, highlight it in the **Properties** window of this view, and then choose the Ctrl-C keys. To paste the name into Visual Studio, choose the **Account name** text box, and then choose the Ctrl+V keys.
 
-1. In the **Account key** box, enter your primary key, or copy and paste it from the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
-    To copy this key from the Management Portal:
+1. In the **Account key** box, enter your primary key, or copy and paste it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+    To copy this key:
 
     1. At the bottom of the page for the appropriate storage account, choose the **Manage Keys** button.
 

@@ -43,9 +43,9 @@ Multi-instance tasks require a pool with **inter-node communication enabled**, a
 CloudPool myCloudPool =
 	myBatchClient.PoolOperations.CreatePool(
 		poolId: "MultiInstanceSamplePool",
-		osFamily: "4",
+		targetDedicated: 3
 		virtualMachineSize: "small",
-		targetDedicated: 3);
+		cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.

@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-	  ms.date="04/07/2016"
+	  ms.date="04/11/2016"
       ms.author="minet" />
 
 # Get started with Azure File storage on Windows
@@ -172,10 +172,12 @@ Now upload a local file to the directory. The following example uploads a file f
 
 ### List the files in the directory
 
-To see the file in the directory, you can list the directory's files. This command will also list subdirectories, but in this example, there is no subdirectory, so only the file will be listed.
+To see the file in the directory, you can list all of the directory's files. This command returns the files and subdirectories (if there are any) in the CustomLogs directory.
 
 	# list files in the new directory
-	Get-AzureStorageFile -Share $s -Path CustomLogs
+	Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+
+Get-AzureStorageFile returns a list of files and directories for whatever directory object is passed in. "Get-AzureStorageFile -Share $s" returns a list of files and directories in the root directory. To get a list of files in a subdirectory, you have to pass the subdirectory to Get-AzureStorageFile. That's what this does -- the first part of the command up to the pipe returns a directory instance of the subdirectory CustomLogs. Then that is passed into Get-AzureStorageFile, which returns the files and directories in CustomLogs.
 
 ### Copy files
 
@@ -197,14 +199,14 @@ With support for SMB 3.0, File storage now supports encryption and persistent ha
 
 When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. The table below provides a summary of support for Windows clients. Please refer to this blog for more details on [SMB versions](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
-| Windows Client         | SMB Version Supports |
-|------------------------|----------------------|
-| Windows 7              | SMB 2.1              |
-| Windows Server 2008 R2 | SMB 2.1              |
-| Windows 8              | SMB 3.0              |
-| Windows Server 2012    | SMB 3.0              |
-| Windows Server 2012 R2 | SMB 3.0              |
-| Windows 10             | SMB 3.0              |
+| Windows Client         | SMB Version Supported |
+|------------------------|-----------------------|
+| Windows 7              | SMB 2.1               |
+| Windows Server 2008 R2 | SMB 2.1               |
+| Windows 8              | SMB 3.0               |
+| Windows Server 2012    | SMB 3.0               |
+| Windows Server 2012 R2 | SMB 3.0               |
+| Windows 10             | SMB 3.0               |
 
 ### Mount the file share from an Azure virtual machine running Windows
 
@@ -212,7 +214,7 @@ To demonstrate how to mount an Azure file share, we'll now create an Azure virtu
 
 
 1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-log-on.md).
+2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md).
 3. Open a PowerShell window on the virtual machine.
 
 ### Persist your storage account credentials for the virtual machine

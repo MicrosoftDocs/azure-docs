@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="02/05/2016"
-	ms.author="genemi"/>
+	ms.date="04/25/2016"
+	ms.author="annemill"/>
 
 
 # Write a program in C&#x23; to query and connect to a SQL Database

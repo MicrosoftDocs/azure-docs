@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -112,7 +112,7 @@ On the features page install only the required Lotus Notes features and **Client
 
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**Note:** You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account.
+**Note:** You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account. Also make sure to close the Lotus Notes client on the server. It cannot be running at the same time the Connector tries to connect to the Domino server.
 
 ### Create Connector
 

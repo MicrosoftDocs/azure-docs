@@ -3,7 +3,7 @@
 	description="Reset the administrator password or Remote Desktop services on a Windows VM created with the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # How to reset the Remote Desktop service or its login password in a Windows VM
 
@@ -27,7 +27,7 @@ If you can't connect to a Windows virtual machine because of a forgotten passwor
 Depending on the deployment model of your virtual machine, you can use either the Azure portal or the VM Access extension in Azure PowerShell. If you are using PowerShell, make sure you have the latest PowerShell module installed on your work computer and are signed in to your Azure subscription. For detailed steps, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
-> [AZURE.TIP] You can check the version of PowerShell that you have installed by using the `Get-Module azure | format-table version` command.
+> [AZURE.TIP] You can check the version of PowerShell that you have installed by using `Import-Module Azure; Get-Module Azure | Format-Table Version`.
 
 
 ## Windows VMs in the classic deployment model

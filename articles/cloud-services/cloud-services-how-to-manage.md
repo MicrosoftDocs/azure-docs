@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="04/26/2016"
 	ms.author="adegeo"/>
 
 
@@ -23,8 +23,8 @@
 # How to Manage Cloud Services
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
 - [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
 
 In the **Cloud Services** area of the Azure classic portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 

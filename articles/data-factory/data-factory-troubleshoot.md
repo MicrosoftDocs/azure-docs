@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -116,7 +116,6 @@ See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-build-y
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [troubleshoot]: data-factory-troubleshoot.md

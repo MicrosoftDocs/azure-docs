@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
-	ms.topic="article" 
-	ms.date="03/08/2016"
+	ms.topic="article"
+	ms.date="05/13/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -30,41 +30,13 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 In order to complete this tutorial you will need the following:
 
-+ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-cli-create.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
++ A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
 
 + An active Azure account. If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## Create an Event Hub
-
-1. Log on to the [Azure classic portal], and click **NEW** at the bottom of the screen.
-
-2. Click **App Services**, then **Service Bus**, then **Event Hub**, and then **Quick Create**.
-
-	![][1]
-
-3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
-
-	![][2]
-
-4. Click the namespace you just created (usually ***event hub name*-ns**).
-
-	![][3]
-
-5. Click the **Event Hubs** tab at the top of the page, and then click the Event Hub you just created.
-
-	![][4]
-
-6. Click the **Configure** tab at the top of the page, add a rule called **SendRule** with *Send* rights, add another rule called **ReceiveRule** with *Listen* rights, and then click **Save**.
-
-	![][5]
-
-7. On the same page, take note of the generated keys for **SendRule** and **ReceiveRule**.
-
-	![][6c]
-
-Your Event Hub is now created, and you have the connection strings you need to send and receive events.
+[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
 
@@ -90,14 +62,6 @@ The following resources are available for developing applications integrating Ev
 - [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight][] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->
-[1]: ./media/event-hubs-c-storm-getstarted/create-event-hub1.png
-[2]: ./media/event-hubs-c-storm-getstarted/create-event-hub2.png
-[3]: ./media/event-hubs-c-storm-getstarted/create-event-hub3.png
-[4]: ./media/event-hubs-c-storm-getstarted/create-event-hub4.png
-[5]: ./media/event-hubs-c-storm-getstarted/create-event-hub5.png
-[6]: ./media/event-hubs-getstarted/create-event-hub6.png
-[6c]: ./media/event-hubs-c-storm-getstarted/create-event-hub6c.png
-
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
@@ -109,4 +73,3 @@ The following resources are available for developing applications integrating Ev
 [HDInsight Storm overview]: ../hdinsight/hdinsight-storm-overview.md/
 [Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
- 

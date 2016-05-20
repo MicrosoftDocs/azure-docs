@@ -3,8 +3,8 @@
 	description="A starting point topic that gathers together links and best practice recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/07/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # Connecting to SQL Database: Best Practices and Design Guidelines
@@ -131,8 +131,7 @@ A discussion of the *blocking period* for clients that use ADO.NET is available 
 
 For code samples that illustrate retry logic, see:
 
-- [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
-
+- Code samples at: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 ### Error numbers for transient faults
 
@@ -162,10 +161,12 @@ For further information see:
 The following topics contains links to code samples for several languages and driver technologies that you can use to connect to Azure SQL Database from your client program.
 
 
-Various code samples are given for clients that run on both Windows, Linux, and Mac OS X.
+Various code samples are given for clients that run on Windows, Linux, and Mac platforms.
 
 
-**General samples:** There are [code samples](sql-database-develop-quick-start-client-code-samples.md) for a variety of programming languages, including PHP, Python, Node.js, and .NET CSharp. Also, samples are given for clients that run on Windows, Linux, and Mac OS X.
+**General samples:** There are code samples available for a variety of programming languages, including PHP, Python, Java, Node.js, and .NET CSharp. You can find links to the code samples at: 
+
+- [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 
 **Elastic scale:** For information about connectivity to Elastic Scale databases, see:
@@ -173,8 +174,4 @@ Various code samples are given for clients that run on both Windows, Linux, and 
 - [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 - [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 
-
-**Driver libraries:** For information about connection driver libraries, including recommended versions, see:
-
-- [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
 

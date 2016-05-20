@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="01/04/2016"
+ ms.date="04/14/2016"
  ms.author="rasquill"/>
 
 #About the virtual machine agent and extensions

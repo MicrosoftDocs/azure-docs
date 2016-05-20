@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="05/18/2016"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight
@@ -41,7 +41,9 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 ##prerequisites
 
 - **An Windows-based Hadoop cluster in HDInsight**. For information about creating one, see [Get started using Hadoop in HDInsight][getstarted]
-- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **A workstation with Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="recommendations"></a>Generate recommendations by using Windows PowerShell
@@ -89,10 +91,9 @@ Use the following Windows PowerShell script to run a job that uses the Mahout re
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=Get-AzureRmStorageAccountKey `
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup `
-        | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
             
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
@@ -180,10 +181,9 @@ Although the generated output might be OK for use in an application, it's not ve
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=Get-AzureRmStorageAccountKey `
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup `
-        | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
         -StorageAccountName $storageAccountName `
@@ -341,10 +341,9 @@ One of the classification methods available with Mahout is to build a [random fo
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
         
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
@@ -438,10 +437,9 @@ Mahout is installed on HDInsight 3.1 clusters, and it can be installed manually 
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
         
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
@@ -470,10 +468,9 @@ HDInsight 3.1 clusters include Mahout. The path and file name include the versio
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
     Invoke-AzureRmHDInsightHiveJob `
             -StatusFolder "wasb:///example/statusout" `
             -DefaultContainer $container `

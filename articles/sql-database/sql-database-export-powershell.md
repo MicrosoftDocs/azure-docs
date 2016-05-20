@@ -34,7 +34,7 @@ When you need to create an archive of an Azure SQL database, you can export the 
 - The mazimum size of a BACPAC file archived to Azure blob storage is 200 GB. Use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility to archive a larger BACPAC file to local storage. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 - Archiving to Azure premium storage using a BACPAC file is not supported.
 - If the export operation goes over 20 hours it may be canceled. To increase performance during export, you can:
- - Tempporarily increase your service level 
+ - Temporarily increase your service level 
  - Cease all read and write activity during the export
  - Use a clustered index on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export services needs to complete table scan to try to export entire table
  

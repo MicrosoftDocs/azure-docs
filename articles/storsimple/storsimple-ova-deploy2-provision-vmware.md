@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="04/12/2016"
    ms.author="alkohli"/>
 
 
@@ -59,7 +59,7 @@ Before you deploy a virtual device, make sure that:
 
 Before you begin, make sure that:
 
--   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see Microsoft Azure StorSimple Virtual Array System Requirements Guide.
+-   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md).
 
 ## Step-by-step provisioning 
 
@@ -91,7 +91,9 @@ To create a virtual device, you will need:
 
 Perform the following steps to provision a virtual device in your hypervisor.
 
-1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure classic portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
+1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure classic portal. 
+	1.  Ensure that this is the latest image file that you have downloaded. If you downloaded the image earlier, download it again to ensure you have the latest image. The latest image has two files (instead of one).
+	2.  Make a note of the location where you copied the image as you will be using this later in the procedure.
 
 2.  Log into the ESXi server using the vSphere client. You will need to have administrator privileges to create a virtual machine.
 
@@ -129,17 +131,18 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image11.png)
 
-1.  You should now browse and point to the VMDK that you downloaded.
+1.  You should now browse and point to the VMDK files that you downloaded. There will be two files. Select a file to upload.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image12.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image12m.png)
 
-1.  Click **Open**. This will now start the upload of the VMDK file to the specified datastore.
+1.  Click **Open**. This will now start the upload of the VMDK file to the specified datastore. It may take several minutes for the file to upload.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image13.png)
 
-1.  It may take several minutes for the file to upload. Once the upload is complete, you will see the file in the datastore in the folder you created.
+1.  After the upload is complete, you will see the file in the datastore in the folder you created. 
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
+
+	You will now need to upload the second VMDK file to the same datastore.
 
 1.  Return to the vSphere client window. With ESXi server selected, right-click and select **New Virtual Machine**.
 
@@ -156,7 +159,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
 
-1.  On the **Virtual Machine Version** page, select **Virtual Machine Version: 8**. Note this is the only supported option for this release.
+1.  On the **Virtual Machine Version** page, select **Virtual Machine Version: 8**. Note that versions 8 to 11 are all supported.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 
@@ -184,7 +187,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
 
-1.  On the **Select Existing Disk** page, under **Disk File Path**, click **Browse**. This opens a **Browse Datastores** dialog. Navigate to the location where you uploaded the VMDK. Select the file and click **OK**. Click **Next**.
+1.  On the **Select Existing Disk** page, under **Disk File Path**, click **Browse**. This opens a **Browse Datastores** dialog. Navigate to the location where you uploaded the VMDK. You will now see only one file in the datastore as the two files that you initially uploaded have been merged. Select the file and click **OK**. Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 

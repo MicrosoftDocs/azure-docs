@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="05/18/2016"
    ms.author="larryfr"/>
 
 #Run Hive queries using PowerShell
@@ -31,7 +31,9 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 To complete the steps in this article, you will need the following.
 
 - **An Azure HDInsight (Hadoop on HDInsight) cluster (Windows-based or Linux-based)**
-- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **A workstation with Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Run Hive queries using Azure PowerShell
 
@@ -92,10 +94,9 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
 		# Print the output
 		Write-Host "Display the standard output..." -ForegroundColor Green
 		Get-AzureRmHDInsightJobOutput `
@@ -127,10 +128,9 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
         Invoke-AzureRmHDInsightHiveJob `
             -StatusFolder "statusout" `
             -DefaultContainer $container `

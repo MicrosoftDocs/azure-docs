@@ -105,7 +105,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 <tr>
    <td valign="middle"><p><b>Business continuity</b></p></td>
    <td valign="middle"><ul><li type=round>In addition to built-in fault tolerance infrastructure capabilities, Azure SQL Database provides features, such as Point in Time Restore, Geo-Restore, and Geo-Replication to increase business continuity. For more information, see [SQL Database business continuity overview](sql-database-business-continuity.md).</ul></td>
-   <td valign="middle"><ul><li type=round>SQL Server on Azure VMs lets you to set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
+   <td valign="middle"><ul><li type=round>SQL Server on Azure VMs lets you to set up a high availability and disaster recovery solution for your database’s specific needs. Therefore, you can have a system that is highly optimized for your application. You can test and run failovers by yourself when needed. For more information, see [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).</ul></td>
 
 </tr>
 <tr>
@@ -113,7 +113,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
    <td valign="middle"><ul><li type=round>Your on-premises application can access data in Azure SQL Database.</ul></td>
    <td valign="middle"><ul>
       <li type=round>With SQL Server on Azure VMs, you can have applications that run partly in the cloud and partly on-premises. For example, you can extend your on-premises network and Active Directory Domain to the cloud via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). In addition, you can store on-premises data files in Azure Storage using [SQL Server Data Files in Azure](http://msdn.microsoft.com/library/dn385720.aspx). For more information, see [Introduction to SQL Server 2014 Hybrid Cloud](http://msdn.microsoft.com/library/dn606154.aspx).
-      <li type=round>Supports disaster recovery for on-premises SQL Server applications  using [SQL Server Backup and Restore with Azure Blob Storage](http://msdn.microsoft.com/library/jj919148.aspx) or [AlwaysOn replicas in Azure VMs](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
+      <li type=round>Supports disaster recovery for on-premises SQL Server applications  using [SQL Server Backup and Restore with Azure Blob Storage](http://msdn.microsoft.com/library/jj919148.aspx) or [AlwaysOn replicas in Azure VMs](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
       </ul></td>
 
 </tr>
@@ -175,7 +175,7 @@ For **SQL Server running on Azure VMs**, Microsoft provides an availability SLA 
 
 **SQL Database** is the right solution for cloud-designed applications when developer productivity and fast time-to-market are critical. With programmatic DBA-like functionality, it is perfect for cloud architects and developers as it lowers the need for managing the underlying operating system and database. For example, you can use the [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) and [PowerShell Cmdlets](http://msdn.microsoft.com/library/azure/dn546726.aspx) to automate and manage administrative operations for thousands of databases. Features such as [Elastic Database Pools](sql-database-elastic-pool.md) allow you to focus on the application layer and deliver your solution to the market faster.
 
-**SQL Server running on Azure VMs** is perfect if your existing or new applications require access and control to all features of a SQL Server instance. It is also a good fit when you want to migrate existing on-premises applications and databases to Azure as-is. Since you do not need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and in doing some performance optimizations that may be required by the Azure platform. For more information, see [Performance Best Practices for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-classic-sql-perf.md).
+**SQL Server running on Azure VMs** is perfect if your existing or new applications require access and control to all features of a SQL Server instance. It is also a good fit when you want to migrate existing on-premises applications and databases to Azure as-is. Since you do not need to change the presentation, application, and data layers, you save time and budget on rearchitecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and in doing some performance optimizations that may be required by the Azure platform. For more information, see [Performance Best Practices for SQL Server on Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-performance.md).
 
 ## Summary
 

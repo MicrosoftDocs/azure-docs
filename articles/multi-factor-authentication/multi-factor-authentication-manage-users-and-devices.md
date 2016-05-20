@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Managing user settings with Azure Multi-Factor Authentication in the cloud
@@ -22,7 +22,7 @@ As an administrator, you can manage the following user and device settings.
 
 - [Require selected users to provide contact methods again](#require-selected-users-to-provide-contact-methods-again)
 - [Delete users existing app passwords](#delete-users-existing-app-passwords)
-- [Restore MFA on all suspended devices for a user (Public Preview)](#restore-mfa-on-all-suspended-devices-for-a-user)
+- [Restore MFA on all suspended devices for a user](#restore-mfa-on-all-suspended-devices-for-a-user)
 
 
 

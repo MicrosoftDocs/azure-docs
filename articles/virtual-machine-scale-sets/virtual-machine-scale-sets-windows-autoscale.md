@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Automatically scale machines in a Virtual Machine Scale Set
@@ -39,17 +39,17 @@ For more information about Resource Manager resources, see [Azure Compute, Netwo
 
 The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Windows VMs and a Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+## Step 1: Install Azure PowerShell
 
-## Step 1: Create a resource group and a storage account
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
 
-1. **Sign in to Microsoft Azure**. Open the Microsoft Azure PowerShell window and run **Login-AzureRmAccount**.
+## Step 2: Create a resource group and a storage account
 
-2. **Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstestrg1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstestrg1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-3. **Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) to create a storage account named **vmsstestsa**. Keep the Azure PowerShell window open for steps later in this tutorial.
+2. **Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) to create a storage account named **vmsstestsa**. Keep the Azure PowerShell window open for steps later in this tutorial.
 
-## Step 2: Create the template
+## Step 3: Create the template
 An Azure Resource Manager template makes it possible for you to deploy and manage Azure resources together by using a JSON description of the resources and associated deployment parameters.
 
 1. In your favorite editor, create the file C:\VMSSTemplate.json and add the initial JSON structure to support the template.
@@ -486,7 +486,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 
 12.	Save the template file.    
 
-## Step 3: Upload the template to storage
+## Step 4: Upload the template to storage
 
 The template can be uploaded from the Microsoft Azure PowerShell window as long as you know the account name and the primary key of the storage account that you created in step 1.
 
@@ -515,15 +515,15 @@ The template can be uploaded from the Microsoft Azure PowerShell window as long 
             $fileName = "C:\" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
 
-## Step 4: Deploy the template
+## Step 5: Deploy the template
 
 Now that you created the template, you can start deploying the resources. Use this command to start the process:
 
-        New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
+    New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 When you press enter, you are prompted to provide values for the variables you assigned. Provide these values:
 
-	vmName: vmsstestvm1
+    vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
@@ -532,27 +532,31 @@ When you press enter, you are prompted to provide values for the variables you a
 
 It should take about 15 minutes for all of the resources to successfully be deployed.
 
->[AZURE.NOTE]You can also make use of the portal’s ability to deploy the resources. To do this, use this link:
-https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE] You can also make use of the portal’s ability to deploy the resources. To do this, use this link:
+"https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>"
 
-## Step 5: Monitor resources
+## Step 6: Monitor resources
 
 You can get some information about virtual machine scale sets using these methods:
 
  - The Azure portal - You can currently get a limited amount of information using the portal.
  - The [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool to explore the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:
 
-		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+        subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell - Use this command to get some information:
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or
+        
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
  - Connect to the jumpbox virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
 
->[AZURE.NOTE]A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/library/mt589023.aspx)
+>[AZURE.NOTE] A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Step 6: Remove the resources
+## Step 7: Remove the resources
 
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. You can delete the resource group and all of its resources will automatically be deleted.
 
@@ -560,4 +564,9 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 If you want to keep your resource group, you can delete the scale set only.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    
+## Next steps
+
+- Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md).
+- Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)

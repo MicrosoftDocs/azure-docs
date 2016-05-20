@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Azure Table storage using .NET | Microsoft Azure"
-	description="Store structured data in the cloud using Azure Table storage, Microsoft's NoSQL data store. Get started with simple Table storage operations, including creating and deleting tables and inserting, updating, deleting, and querying data."
+	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/29/2016"
 	ms.author="tamram"/>
 
 
@@ -56,11 +56,13 @@ Add the following `using` statements to the top of the `program.cs` file:
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
+### Parse the connection string
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Table service client
 
-The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Add the following code to the **Main()** method:
+The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Here's one way to create the service client:
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();

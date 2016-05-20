@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/29/2016"
+	ms.date="04/29/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -33,7 +33,7 @@ The duration of the entire scale-up process depends on both the size and service
 
 
 - To downgrade a database, the database should be smaller than the maximum allowed size of the target service tier. 
-- When upgrading a database with [Geo-Replication](sql-database-geo-replication-portal) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
+- When upgrading a database with [Geo-Replication](sql-database-geo-replication-portal.md) enabled, you must first upgrade its secondary databases to the desired performance tier before upgrading the primary database.
 - When downgrading from a Premium service tier, you must first terminate all Geo-Replication relationships. You can follow the steps described in the [Recover from an outage](sql-database-disaster-recovery.md) topic to stop the replication process between the primary and the active secondary databases.
 - The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity.md).
 - The new properties for the database are not applied until the changes are complete.

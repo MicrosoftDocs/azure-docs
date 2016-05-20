@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provision the Linux Data Science Virtual Machine 
 
-## Introduction
 
 The Linux Data Science Virtual Machine is an Azure virtual machine (VM) image that is pre-installed and configured with a collection of tools that are commonly used for doing data analytics and machine learning. The key software components included are:
 
@@ -29,10 +28,11 @@ The Linux Data Science Virtual Machine is an Azure virtual machine (VM) image th
 - Azure Command Line for managing Azure resources
 - PostgresSQL Database
 - Machine learning Tools
-    - Computational Network Toolkit (CNTK): a deep learning software from Microsoft Research
-    - Vowpal Wabbit: a fast online learning tool
-    - XGBoost: a tool providing fast and accurate boosted tree implementation
-- Azure SDK in Java
+    - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): a deep learning software from Microsoft Research
+    - [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): a fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
+    - [XGBoost](https://xgboost.readthedocs.org/en/latest/): a tool providing fast and accurate boosted tree implementation
+    - [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily) : Tool that makes getting started with data analytics and machine learning in R very easy with a GUI based data exploration and modeling with automatic R code generation. 
+- Azure SDK in Java, Python, node.js, Ruby, PHP
 - Libraries in R and Python for use in Azure Machine Learning and other Azure services
 - Development tools and editors (Eclipse, Emacs, gedit, vi)
 
@@ -61,7 +61,7 @@ Before you can create a Linux Data Science Virtual Machine, you must have the fo
 
 Here are the steps to create an instance of the Linux Data Science Virtual Machine:
 
-1.	Navigate to the virtual machine listing on the [Azure Portal](https://ms.portal.azure.com/#create/microsoft-ads.linuxdsvmlinuxdsvm).
+1.	Navigate to the virtual machine listing on the [Azure Portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
@@ -122,7 +122,7 @@ Once you login to the VM using either the SSH client OR XFCE graphical desktop t
 
 Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
 
-	python.exe -c "import IPython;print IPython.lib.passwd()"
+	python -c "import IPython;print(IPython.lib.passwd())"
 
 Enter a strong password when prompted.
 
@@ -137,9 +137,9 @@ Finally, you need to stop and restart the Jupyter service that is installed in /
 ## Tools installed on the Linux Data Science Virtual Machine
 
 ### Microsoft R Open 
-R is one of the most popular language for data analysis and machine learning. If you wish to use R for your analytics, the VM has Microsoft R Open (MRO) with the Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100% compatible with CRAN-R and any of the R libraries published in CRAN can be installed on the MRO. You can edit your R programs in one of the default editors like vi, Emacs or gedit. You are also able to download and use other IDEs as well such as [RStudio](http://www.rstudio.com).For your convenience, a simple script (installRStudio.sh) is provided in the **/dsvm/tools** directory that installs RStudio. If you are using the Emancs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within Emacs editor, has been pre-installed. 
+R is one of the most popular language for data analysis and machine learning. If you wish to use R for your analytics, the VM has Microsoft R Open (MRO) with the Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100% compatible with CRAN-R and any of the R libraries published in CRAN can be installed on the MRO. You can edit your R programs in one of the default editors like vi, Emacs or gedit. You are also able to download and use other IDEs as well such as [RStudio](http://www.rstudio.com). For your convenience, a simple script (installRStudio.sh) is provided in the **/dsvm/tools** directory that installs RStudio. If you are using the Emacs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within Emacs editor, has been pre-installed. 
 
-To launch R, you just type ***R*** in the shell. This takes you to an interactive environment. To develop your R program you will typical use an editor like Emacs or vi or gedit and then run the scripts within R. If you install RStudio you will have a full graphical IDE environment to develop your R program. 
+To launch R, you just type ***R*** in the shell. This takes you to an interactive environment. To develop your R program you will typically use an editor like Emacs or vi or gedit and then run the scripts within R. If you install RStudio you will have a full graphical IDE environment to develop your R program. 
 
 There is also a R script for you to install the [Top 20 R packages](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run once you are in the R interactive interface, which can be entered (as mentioned) by typing R in the shell.  
 
@@ -325,6 +325,30 @@ To run the xgboost command line, here are the commands to execute in the shell:
 A .model file is written to the directory specified. Information about this demo example can be found [here](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification). 
 
 More Information on xgboost is found on the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/) and in its [Github repository](https://github.com/dmlc/xgboost).
+
+#### Rattle
+Rattle (the R Analytical Tool To Learn Easily) makes getting started with data mining in R very easy with a GUI based data exploration and modeling. It presents statistical and visual summaries of data, transforms data that can be readily modelled, builds both unsupervised and supervised models from the data, presents the performance of models graphically, and scores new datasets. It also generate R code replicating the operations in the UI that can be run directly in R OR used as a starting point for further analysis. 
+
+To run rattle, you need to be on a graphical desktop login session. On the terminal, type ```R``` to enter the R environment. On the R prompt enter the following commands:
+
+	library(rattle)
+	rattle()
+	
+Now, a graphical interface will open up with a set of tabs. Here is a quick start steps in rattle to use a sample weather dataset and building a model. In some of the steps below it will prompt to automatically install and load any required R packages that are not already on the system. **NOTE**: You may see prompt on your R console window whether to install packages to your personal library if you dont have access to install the package in the system directory (the default). Answer "y" if you see these prompts. 
+
+1. Click Execute
+2. A dialog will pop up asking you if you like to use the example weather dataset. Click Yes to load the example
+3. Click the Model tab
+4. Click Execute to build a decision tree
+5. Click Draw to display the decision tree 
+6. Click the Forest radio button and click Execute to build a random forest 
+7. Click the Evaluate tab
+8. Click the Risk radio button and Click Execute to display two Risk (Cummulative) performance plots
+9. Click the Log tab to show the generate R code for the above operations
+(Note: There is a bug in current release of rattle - please insert '# ' in front of 'Export this log ...' in the text of the log.)
+10. Click the Export button to save R script to file weather_script.R to home folder
+
+You can exit Rattle and R. Now you can  modify the generated R script or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. This is an easy way especially for beginners in R to quickly do analysis and machine learning in a simple graphical interface while automatically generating code in R to modify and/or learn. 
 
 
 ## Next Steps

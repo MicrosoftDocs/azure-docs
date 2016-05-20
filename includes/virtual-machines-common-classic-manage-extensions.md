@@ -19,13 +19,11 @@ The most common tasks are:
 
 ##Find Available Extensions
 
-Azure VM Extensions are (For a complete list of extensions by the features they support, see [Azure VM Extensions and Features](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).) You can locate the extension and extended information using:
+You can locate extension and extended information using:
 
 -   PowerShell
 -   Azure Cross-Platform Interface (Azure CLI)
 -   Service Management REST API
-
-either [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) cmdlets or the [Service Management REST APIs](https://msdn.microsoft.com/library/ee460799.aspx) to find information about available extensions.
 
 ###Azure PowerShell
 

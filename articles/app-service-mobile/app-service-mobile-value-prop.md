@@ -3,7 +3,7 @@
 	description="Learn what advantages does App Service bring to your enterprise mobile apps."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="kirillg"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
-	ms.author="kirillg"/>
+	ms.date="05/03/2016"
+	ms.author="krisagh"/>
 
 # <a name="getting-started"> </a>What are Mobile Apps?
 

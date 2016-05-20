@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016"
 	ms.author="sunliangms;fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Process Azure blob data with advanced analytics
@@ -48,6 +48,7 @@ In order to do explore and manipulate a dataset, it must be downloaded from the 
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 Now you are ready to explore the data and generate features on this dataset.
+
 
 ##<a name="blob-dataexploration"></a>Data Exploration
 
@@ -148,6 +149,7 @@ For generating binned features, we proceed as follows:
 3. Finally, Join the dummy variables back to the original data frame
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
+
 
 ##<a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
 

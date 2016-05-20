@@ -1,9 +1,9 @@
-The inclusion of compute, network, and storage capabilities with the Azure Resource Manager will fundamentally simplify the deployment and management of complex applications running on IaaS. Many applications require a combination of resources, including a Virtual Network, Storage Account, Virtual Machine, and a Network Interface. The Azure Resource Manager offers the ability to construct a JSON template to deploy and manage all these resources together as a single application.
 
 
-## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager
 
-The Azure Resource Manager offers the ability to easily leverage pre-built application templates or construct an application template to deploy and manage compute, network, and storage resources on Azure. In this section, we’ll walk through the advantages of deploying resources through the Azure Resource Manager.
+## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager deployment model
+
+The Azure Resource Manager deployment model offers the ability to easily leverage pre-built application templates or construct an application template to deploy and manage compute, network, and storage resources on Azure. In this section, we’ll walk through the advantages of deploying resources through the Azure Resource Manager deployment model.
 
 -	Complexity made simple -- Build, integrate, and collaborate on complicated applications that can include the entire gamut of Azure resources (such as Websites, SQL Databases, Virtual Machines, or Virtual Networks) from a shareable template file
 -	Flexibility to have repeatable deployments for development, devOps, and system administrators when you use the same template file
@@ -15,7 +15,7 @@ The Azure Resource Manager offers the ability to easily leverage pre-built appli
 
 ## Advancements of the Compute, Network, and Storage APIs under Azure Resource Manager
 
-In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released.
+In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released:
 
 -	Enabling massive and parallel deployment of Virtual Machines
 -	Support for 3 Fault Domains in Availability Sets
@@ -83,7 +83,7 @@ The quotas for the Virtual Machines, Virtual Networks, and Storage Accounts crea
 
 **Can I continue to use my automated scripts for provisioning Virtual Machines, Virtual Networks, Storage Accounts etc. through the new Azure Resource Manager APIs?**
 
-All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the new Azure Resource Manager mode. Read more about how to modify your [Azure CLI scripts](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
+All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the new Azure Resource Manager mode.
 
 **Can the Virtual Networks created using the new Azure Resource Manager APIs be connected to my Express Route circuit?**
 

@@ -3,10 +3,10 @@
 	description="How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app" 
 	services="virtual-machines-linux" 
 	documentationCenter="nodejs" 
-	authors="rmcmurray" 
+	authors="hanuk" 
 	manager="wpickett" 
 	editor=""
-	azure-service-management"/>
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
-	ms.author="robmcm"/>
+	ms.date="04/12/2016" 
+	ms.author="hanuk;robmcm"/>
 
 # Running Cassandra with Linux on Azure and Accessing it from Node.js 
 
@@ -470,7 +470,7 @@ Please note that the keyspace created in step 4 uses SimpleStrategy with a  repl
 Will leverage the single region deployment completed and repeat the same process for installing the second region. The key difference between the single and multiple region deployment is the VPN tunnel setup for inter-region communication; we will start with the network installation, provision the VMs and configure Cassandra. 
 
 ###Step 1: Create the Virtual Network at the 2nd Region
-Log into the Azure classic portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure classic portal](../virtual-network/virtual-networks-create-vnet.md) for detailed steps of the process.      
+Log into the Azure classic portal and create a Virtual Network with the attributes show in the table. See [Configure a Cloud-Only Virtual Network in the Azure classic portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for detailed steps of the process.      
 
 <table>
 <tr><th>Attribute Name    </th><th>Value	</th><th>Remarks</th></tr>

@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="ggailey"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="chrande"/>
+	ms.date="05/05/2016"
+	ms.author="adrianha"/>
 
 # Upgrade your existing Node.js Azure Mobile Service to App Service
 
@@ -34,11 +34,11 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 
 Upgrading to the new [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) provides a lot of improvements, including:
 
-- Based on [Express framework](http://expressjs.com/en/index.html), the new Node SDK is light-weight and designed to keep up with new Node versions as they come out. You can customize the application behavior with Express middleware.
+- Based on the [Express framework](http://expressjs.com/en/index.html), the new Node SDK is light-weight and designed to keep up with new Node versions as they come out. You can customize the application behavior with Express middleware.
 
 - Significant performance improvements compared to the Mobile Services SDK.
 
-- You can now host a website together with your mobile backend; similarly, it's easy to add the Azure Mobile SDK to any existing expressv4 application.
+- You can now host a website together with your mobile backend; similarly, it's easy to add the Azure Mobile SDK to any existing express.v4 application.
 
 - Built for cross-platform and local development, the Mobile Apps SDK can be developed and run locally on Windows, Linux, and OSX platforms. It's now easy to use common Node development techniques like running [Mocha](https://mochajs.org/) tests prior to deployment.
 
@@ -52,7 +52,7 @@ Unlike the .NET Mobile Apps SDK, upgrading a Node backend from Mobile Services t
 
 The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring additional financial cost.
 
-You will then have two versions of the application: one which stays the same and serves published apps in the wild, and the other which you can then upgrade and target with a new client release. You can move and test your code at your pace, but you should make sure that any bug fixes you make get applied to both. Once you feel that a desired number of client apps in the wild have updated to the latest version, you can delete the original migrated app if you desire. It doesn't incur any additional monetary costs, if hosted in the same App Service plan as your Mobile App.
+You will then have two versions of the application: one that stays the same and serves published apps in the wild, and the other which you can then upgrade and target with a new client release. You can move and test your code at your pace, but you should make sure that any bug fixes you make get applied to both. Once you feel that a desired number of client apps in the wild have updated to the latest version, you can delete the original migrated app if you desire. It doesn't incur any additional monetary costs, if hosted in the same App Service plan as your Mobile App.
 
 The full outline for the upgrade process is as follows:
 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Compute context options for R Server on HDI Premium | Azure"
-   description="Learn the different compute context options available to users with R Server on HDInsight Premium"
+   pageTitle="Compute context options for R Server on HDInsight (preview) | Azure"
+   description="Learn the different compute context options available to users with R Server on HDInsight (preview)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# Compute context options for R Server on HDInsight Premium
+#Compute context options for R Server on HDInsight (preview)
 
-R Server on HDI Spark provides the latest capabilities for R-based analytics using data stored in HDFS in a container on your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account or the local Linux file system.  Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages, as well as the routines in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), Microsoft’s big data analytics package included with R Server.  The edge node of Premium clusters provides a convenient landing zone for connection to the cluster and running of your R scripts. With an edge node, you have the option of running ScaleR’s parallelized distributed functions across the cores of the edge node server, or across the nodes of the cluster through use of ScaleR’s Hadoop Map Reduce or Spark compute contexts.
+R Server on HDInsight (preview) provides the latest capabilities for R-based analytics using data stored in HDFS in a container on your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account or the local Linux file system.  Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages, as well as the routines in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), Microsoft’s big data analytics package included with R Server.  The edge node of Premium clusters provides a convenient landing zone for connection to the cluster and running of your R scripts. With an edge node, you have the option of running ScaleR’s parallelized distributed functions across the cores of the edge node server, or across the nodes of the cluster through use of ScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
 ## Compute Contexts for an Edge Node
 

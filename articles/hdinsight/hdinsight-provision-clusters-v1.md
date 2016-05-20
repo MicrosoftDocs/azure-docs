@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #Provision Hadoop clusters in HDInsight
 
 Learn how to plan for provision HDInsight clusters.
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) 
+> [AZURE.IMPORTANT] The steps in this document use the Azure Classic Portal. Microsoft does not recommend using the classic portal when creating new services. For an explanation of the advantages of the Azure Portal, see [Microsoft Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+>
+> This document also includes information on using Azure PowerShell and the Azure CLI. The snippets provided are based on commands that use Azure Service Management (ASM) to work with HDInsight and are __deprecated__. These commands will be removed by January 1, 2017.
+>
+>For a version of this document that uses the Azure portal, along with PowerShell and Azure CLI snippets that use Azure Resource Manager (ARM), see [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
 **Prerequisites:**
 
@@ -442,12 +444,9 @@ While provisioning a cluster, you can use the other configuration options such a
 
 > [AZURE.NOTE] As of 8/29/2014, Azure CLI cannot be used to associate a cluster with an Azure virtual network.
 
-Another option for provisioning an HDInsight cluster is the Azure CLI. Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the CLI from the following locations:
+Another option for provisioning an HDInsight cluster is the Azure CLI. Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux.
 
-- **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **Azure CLI** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
-
-For a general guide on how to use Azure CLI, see [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
+For a general guide on how to use Azure CLI, see [Azure CLI](../xplat-cli-install.md).
 
 Instructions below guide you on how to install Azure CLI on Linux and Windows, and then how to use the command line to provision a cluster.
 
@@ -712,7 +711,6 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -726,7 +724,7 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 

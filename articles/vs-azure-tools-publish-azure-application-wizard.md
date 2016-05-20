@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Publish Azure Application Wizard
@@ -29,7 +29,7 @@ Before you can publish your web application to Azure, you need to have a Microso
 
 1. Get a Microsoft account and an Azure subscription. You can try a free one month free Azure subscription [here](https://azure.microsoft.com/pricing/free-trial/)
 
-1. Create a cloud service and a storage account on Azure. You can do this from Server Explorer in Visual Studio, or by using the [Azure Management portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Create a cloud service and a storage account on Azure. You can do this from Server Explorer in Visual Studio, or by using the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. Enable your web application for Azure. To enable your web application to be published to Azure from Visual Studio, you’ll need to associate it with an Azure cloud service project in Visual Studio. To create the associated cloud service project, open the shortcut menu for the project for your web application, and then choose Convert, **Convert to Azure Cloud Service Project**.
 

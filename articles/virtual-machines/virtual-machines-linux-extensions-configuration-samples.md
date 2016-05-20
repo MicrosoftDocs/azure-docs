@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Linux VM extension configuration samples
@@ -23,7 +23,7 @@
 - [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md)
 - [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
 
-<br> 
+<br>
 
 
 This article provides sample configuration for configuring Azure VM extensions for Linux VMs.
@@ -51,11 +51,34 @@ The template snippet for Deploying extensions looks as following:
       "publisher": "Publisher Namespace",
       "type": "extension Name",
       "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
       "settings": {
       // Extension specific configuration goes in here.
       }
       }
       }
+
+## Sample template snippet for VM Extensions with VM Scale Sets.
+
+          {
+           "type":"Microsoft.Compute/virtualMachineScaleSets",
+          ....
+                 "extensionProfile":{
+                 "extensions":[
+                   {
+                     "name":"extension Name",
+                     "properties":{
+                       "publisher":"Publisher Namespace",
+                       "type":"extension Name",
+                       "typeHandlerVersion":"extension version",
+                       "autoUpgradeMinorVersion":true,
+                       "settings":{
+                       // Extension specific configuration goes in here.
+                       }
+                     }
+                    }
+                  }
+                }
 
 Before deploying the extension please check the latest extension version and replace the "typeHandlerVersion" with the current latest version.
 

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="03/02/2016"
+ ms.date="04/29/2016"
  ms.author="elioda"/>
 
 # Using IoT Hub security tokens
@@ -68,7 +68,7 @@ This is a Node function that computes the token from the inputs `resourceUri, si
 
         // construct autorization string
         var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
-        * base64UriEncoded + "&se=" + expires;
+        + base64UriEncoded + "&se=" + expires;
         if (policyName) token += "&skn="+policyName;
         // console.log("signature:" + token);
         return token;
@@ -129,7 +129,7 @@ Since the shared access policy can potentially grant access to connect as any de
 As an example, a token service using the precreated shared access policy called **device** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
-* signing key: one of the keys of the `device` plocy,
+* signing key: one of the keys of the `device` policy,
 * policy name: `device`,
 * any expiration time.
 

@@ -11,6 +11,8 @@ Index: maximum scoring profiles per index|16|16|16|16
 Index: maximum functions per profile|8|8|8|8
 Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents
 Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours
+Blob indexer: maximum blob size, MB|16|16|128|256
+Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|4 million|4 million
 Queries per second (QPS) <sup>2</sup>|N/A|~3 per replica|~15 per replica|~60 per replica
 Scale out: maximum search units (SU) <sup>3</sup>|N/A|Up to 3 units (3 replicas and 1 partition)|36 units|36 units
 Pricing <sup>4</sup>|N/A|$75 per SU per month|$250 per SU per month|$1000 per SU per month
@@ -23,7 +25,7 @@ Pricing <sup>4</sup>|N/A|$75 per SU per month|$250 per SU per month|$1000 per SU
 
 <sup>4</sup> Price is for the U.S. market, illustrating relative costs among alternative tiers. Different markets have different prices. Refer to the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for rates in other currencies. The rate is per search unit (SU). At the S1 level, a configuration of 3 search units (say 3 replicas and 1 partition) would cost $750 per month on average. If you scale down to fewer SU within the month, the bill is prorated so that you are charged only for what you use.
 
-<sup>5</sup> This is not a typo. Basic tier has a limit of 100 fields per index. It is the only tier that has this lower limit.
+<sup>5</sup> Notice that the Basic tier has a limit of 100 fields per index. It is the only tier with this lower limit.
 
 <sup>6</sup> [Basic tier](http://aka.ms/azuresearchbasic) is available at an introductory rate of 50% off the full price during the preview period.
 

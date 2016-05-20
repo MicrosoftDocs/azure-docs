@@ -12,8 +12,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
+
 
 # End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer
 
@@ -200,7 +201,7 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 
 1. Download [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) from the Microsoft Download Center, and run the installer.
 2. Launch Message Analyzer.
-3. On the **Start** page, navigate to **Downloads**, then filter on **Azure Storage**. You will see the Azure Storage Assets, as shown in the picture below.
+3. From the **Tools** menu, select **Asset Manager**. In the **Asset Manager** dialog, select **Downloads**, then filter on **Azure Storage**. You will see the Azure Storage Assets, as shown in the picture below.
 4. Click **Sync All Displayed Items** to install the Azure Storage Assets. The available assets include:
 	- **Azure Storage Color Rules:** Azure Storage color rules enable you to define special filters that use color, text, and font styles to highlight messages that contain specific information in a trace.
 	- **Azure Storage Charts:** Azure Storage charts are predefined charts that graph server log data. Note that to use Azure Storage charts at this time, you may only load the server log into the Analysis Grid.
@@ -209,7 +210,7 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 	- **Azure Storage View Layouts:** Azure Storage view layouts are predefined column layouts and groupings in the Analysis Grid.
 4. Restart Message Analyzer after you've installed the assets.
 
-![Message Analyzer Start Page](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
+![Message Analyzer Asset Manager](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
 > [AZURE.NOTE] Install all of the Azure Storage assets shown for the purposes of this tutorial.
 
