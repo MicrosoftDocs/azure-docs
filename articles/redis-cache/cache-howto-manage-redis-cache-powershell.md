@@ -234,6 +234,14 @@ To specify values for the `RedisConfiuration` parameter, enclose the values insi
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
+<a name="databases"></a>
+
+The `databases` setting can be configured only during cache creation. The following examples creates a premium P3 (26 GB) cache with 48 databases.
+
+	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"databases" = "48"}
+
+For more information on the `databases` property, see [Default Azure Redis Cache server configuration](cache-configure.md#default-redis-server-configuration).
+
 ## To update a Redis cache
 
 Azure Redis Cache instances are updated using the [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet.
