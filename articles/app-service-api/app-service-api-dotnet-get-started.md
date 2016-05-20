@@ -107,7 +107,7 @@ In this section, you verify that you can run the client locally and can call the
 
 ## Use Swagger metadata and UI
 
-Support for [Swagger](http://swagger.io/) 2.0 API metadata is built into Azure App Service. Each API app specifies a URL endpoint that returns metadata for the API in Swagger JSON format. The metadata returned from that endpoint can be used to generate client code. 
+Support for [Swagger](http://swagger.io/) 2.0 API metadata is built into Azure App Service. Each API app can specify a URL endpoint that returns metadata for the API in Swagger JSON format. The metadata returned from that endpoint can be used to generate client code. 
 
 An ASP.NET Web API project can dynamically generate Swagger metadata by using the [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet package. The Swashbuckle NuGet package is already installed in the ToDoListDataAPI and ToDoListAPI projects that you downloaded.
 

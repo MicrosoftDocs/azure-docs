@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementing a Hybrid Network Architecture with Azure and On-premises VPN | Blueprint | Microsoft Azure"
+   pageTitle="Implementing a Hybrid Network Architecture with Azure and On-premises VPN | Reference Architecture | Microsoft Azure"
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using a VPN."
    services=""
    documentationCenter="na"
@@ -18,6 +18,8 @@
    ms.author="roshar"/>
 
 # Implementing a Hybrid Network Architecture with Azure and On-premises VPN
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article outlines a set of practices for extending an on-premises network onto Azure using a site-to-site virtual private network (VPN). The traffic flows between the on-premises network and an Azure Virtual Network (VNet) through an IPSec VPN tunnel. This architecture is suitable for hybrid applications with the following characteristics:
 
@@ -81,7 +83,7 @@ The following high-level steps outline a process for implementing this architect
     2. Set the variable bits in the address space of the VNet to 1, up to the bits being used by the gateway subnet, then set the remaining bits to 0.
     3. Convert the resulting bits to decimal and express it as an address space with the prefix length set to the size of the gateway subnet.
 
- For example, for VNet with an IP address range of 10.20.0.0/16, applying step #2 above becomes 10.20.0b11111111.0b11100000.  Converting that to decimal and expressing it as an address space yields 10.20.255.224/27
+ For example, for a VNet with an IP address range of 10.20.0.0/16, applying step #2 above becomes 10.20.0b11111111.0b11100000.  Converting that to decimal and expressing it as an address space yields 10.20.255.224/27
 
 - Allocate a public IP address for the virtual network gateway.
 
@@ -629,7 +631,7 @@ GOTO :eof
 
 <!-- links -->
 
-[implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
+[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
 [resource-manager-overview]: ../resource-group-overview.md
 [arm-templates]: ../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md
 [azure-cli]: ../virtual-machines-command-line-tools.md

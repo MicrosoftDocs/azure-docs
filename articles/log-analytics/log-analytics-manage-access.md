@@ -203,7 +203,7 @@ If you need to change the Azure subscription that your OMS workspace is linked t
 
 If you choose to use standalone pricing for OMS components, you will pay for each component of OMS separately and the usage will appear on your Azure bill.
 
-If you have pre-paid for a certain amount of Azure usage as part of your Enterprise Agreement, then your usage of OMS will use your pre-paid usage. To use your Azure Commitment pricing for OMS Log Analytics, the subscription that the OMS workspace is linked to needs to be part of the Azure Enterprise Agreement.
+If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit agains any remaining monetary commit. 
 
 If you need to change the Azure subscription that the OMS workspace is linked to you can use the Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
