@@ -15,29 +15,44 @@
    ms.date="05/20/2016"
    ms.author="alkohli" />
 
-# StorSimple Virtual Array release notes
+# StorSimple Virtual Array Update 0.1 release notes
 
 ## Overview
 
-The following release notes identify the critical open issues and the issues fixed for the Update 0.1 release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). This release corresponds to software version 10.0.10279.0.
+The following release notes identify the critical open issues and the issues fixed for the Update 0.1 release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). This release corresponds to software version **10.0.10279.0**.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
 ## What's new in Update 0.1
 
-Virtual Array 0.1 is a bug-fix only release. The main categories of bugs fixes include (but are not limited to):
+Update 0.1 contains several bug fixes and improvements as listed below. 
 
-- Resiliency around cloud outages: This release has several bug fixes around scenarios when there is a cloud connectivity disruption.
-- Improving the accuracy of jobs status (percentage completion) in the portal: In earlier versions, job status in the portal was not granular. This release 
-- Reliability improvements: This release has several reliability improvements.
-- Updated VHDs and VMDKs available from the portal: The Azure classic portal will point to the new VHDs and VMDKs that you can download to provision Update 0.1 devices.
+- **Resiliency around cloud outages**: This release has several bug fixes around DR, backup, restore, and tiering in the event of a cloud connectivity disruption. 
+
+- **Improved restore performance**: This release has bug-fixes that have significantly cut down the completion time of the restore jobs.
+
+- **Automated space reclamation optimization**: When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
+
+- **Updated VHDs and VMDKs**: The Azure classic portal will now point to the new VHDs and VMDKs that you can download to provision Update 0.1 devices.
+
+- **Improving the accuracy of jobs status in the portal**: In earlier versions, job status in the portal was not granular. In this release, we a
+
+- **Bug fixes related to domain-joining and renaming** of the device.
 
 
 ## Issues fixed in Update 0.1
 
 The following table provides a summary of issues fixed in this release.
 
-
+| No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
+|------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1    | Device renaming and   domain-joining | In the last release, when a   domain-joined device was renamed, it would result in an error such as   "The network path was not found." or "The specified directory   service attribute or value does not exist." The domain-joining and renaming scenario were redesigned in this release and this issue is now resolved.  |
+| 2    | VMDK                                 | In some VMware versions, the OS disk   was seen as sparse causing alerts and disrupting normal operations. This was   fixed in this release.                                                                                                                                                                                    |
+| 3    | iSCSI server                         | In the last release, the user was   required to specify a gateway for each enabled network interface of your StorSimple virtual device.  This behvaior is changed in this release so   that the user has to configure at least one gateway for all the enabled   network interfaces.                                                                              |
+| 4    | Support package                      | In the earlier version of software,   Support package collection failed when package sizes were larger than 1 GB.  This issue is fixed in this release.                                                                                                                                                                               |
+| 5    | Cloud access                         |  In the last   release, if the StorSimple Virtual Array did not have network connectivity   and was restarted, the local UI would have connectivity issues. This problem   is fixed in this release.                                                                                                                            |
+| 6    | Monitoring charts                    | In the previous release, if a   device failover was performed, the cloud capacity utilization charts   displayed incorrect values in the Azure classic portal. This is fixed in the   current release.                                                                                                                          |
+| 7    | Update                               | In the earlier release, the portal continued to indicate that the updates were available even though the   device was updated. In this release, update detection logic has been changed   so as to not incorrectly flag that there are pending updates.                                                                       |
 
 
 ## Known issues in Update 0.1
@@ -61,3 +76,8 @@ The following table provides a summary of known issues in this release.
 | **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you will need to take the volumes offline and then bring them online for the change to take effect. | These will be addressed in a later release. |
 | **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
 | **14.** | File server  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |
+
+
+## Next step
+
+[Install Update 0.1](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
