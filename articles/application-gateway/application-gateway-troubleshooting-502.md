@@ -85,8 +85,8 @@ Ensure that the instances are healthy and the application is properly configured
 - If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port. 
 - The call to http://127.0.0.1:port should return a HTTP result code of 200. This should be returned within the 30 sec time-out period.
 - Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups which block incoming or outgoing traffic on the port configured.
-- If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-classic-setup-endpoints/) is opened.
-- If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/) must be configured to allow access on the desired port.
+- If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-classic-setup-endpoints/) is opened.
+- If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) must be configured to allow access on the desired port.
 
 
 ##Problems with Custom Health Probe
@@ -107,8 +107,8 @@ Custom health probes allow additional flexibility to the default probing behavio
 In addition to the troubleshooting steps above, also ensure the following.
 
 - Ensure that the Protocol is set to HTTP only. HTTPS is not currently supported.
-- Ensure that the probe is correctly specified as per the [guide](https://azure.microsoft.com/en-us/documentation/articles/application-gateway-create-probe-ps/). 
-- If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe. Configuration for Virtual Host is web server specific (for example [Apache configuration](http://httpd.apache.org/docs/2.2/vhosts/name-based.html) or [IIS configuration]https://technet.microsoft.com/en-us/library/cc753195\(v=ws.10\).aspx)).
+- Ensure that the probe is correctly specified as per the [guide](https://azure.microsoft.com/documentation/articles/application-gateway-create-probe-ps/). 
+- If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 - Ensure that a call to http://\<host\>:\<port\>\<path\> returns a HTTP result code of 200.
 - Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
 
@@ -119,4 +119,4 @@ When a user request is received, Application Gateway applies the configured rule
 	New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 
 
-If the above steps do not resolve the issue, please open a [support ticket](https://azure.microsoft.com/en-us/support/options/). 
+If the above steps do not resolve the issue, please open a [support ticket](https://azure.microsoft.com/support/options/). 
