@@ -135,7 +135,13 @@ In order to perform management operations on the new namespace, such as creating
 
 	![][45]
 
-4.  Make a note of these credentials, or copy them to the clipboard to use later in this tutorial.
+4.  Make a note of the connection string, or copy them to the clipboard to use later in this tutorial.
+
+5. In the same portal page, click the **Configure** tab at the top of the page.
+
+6. Make a note of the primary key for the **RootManageSharedAccessKey** policy, or copy it to the clipboard. You will use this value later in this tutorial.
+
+	![][46]
 
 ## Create an on-premises server
 
@@ -270,40 +276,29 @@ This project is a Visual Studio console application, and uses the [Azure Service
             }
         }
 
-13. In Solution Explorer, double-click the **App.config** file to
-    open it in the Visual Studio editor. Replace the contents of
-    **&lt;system.ServiceModel&gt;** with the following XML code. Be sure to
-    replace *yourServiceNamespace* with the name of your service
-    namespace, and *yourKey* with the SAS key you retrieved earlier
-    from the Azure classic portal:
+13. In Solution Explorer, double-click the **App.config** file to open it in the Visual Studio editor. At the bottom of the **&lt;system.ServiceModel&gt;** element (but still within &lt;system.ServiceModel&gt;), add the following XML code. Be sure to replace *yourServiceNamespace* with the name of your namespace, and *yourKey* with the SAS key you retrieved earlier from the portal:
 
-        <system.serviceModel>
-          <extensions>
-             <behaviorExtensions>
-                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-              </behaviorExtensions>
-              <bindingExtensions>
-                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-              </bindingExtensions>
-          </extensions>
-          <services>
-             <service name="ProductsServer.ProductsService">
-               <endpoint address="sb://yourServiceNamespace.servicebus.windows.net/products" binding="netTcpRelayBinding" contract="ProductsServer.IProducts"
-        behaviorConfiguration="products"/>
-             </service>
-          </services>
-          <behaviors>
-             <endpointBehaviors>
-               <behavior name="products">
-                 <transportClientEndpointBehavior>
-                    <tokenProvider>
-                       <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
-                    </tokenProvider>
-                 </transportClientEndpointBehavior>
-               </behavior>
-             </endpointBehaviors>
-          </behaviors>
-        </system.serviceModel>
+    ```
+    <system.serviceModel>
+	...
+      <services>
+         <service name="ProductsServer.ProductsService">
+           <endpoint address="sb://yourServiceNamespace.servicebus.windows.net/products" binding="netTcpRelayBinding" contract="ProductsServer.IProducts" behaviorConfiguration="products"/>
+         </service>
+      </services>
+      <behaviors>
+         <endpointBehaviors>
+           <behavior name="products">
+             <transportClientEndpointBehavior>
+                <tokenProvider>
+                   <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+                </tokenProvider>
+             </transportClientEndpointBehavior>
+           </behavior>
+         </endpointBehaviors>
+      </behaviors>
+    </system.serviceModel>
+    ```
 
 14. Press **Ctrl+Shift+B** or from the **Build** menu, click **Build Solution** to build the application and verify the accuracy of your work so far.
 
@@ -325,6 +320,18 @@ In this section you will build a simple ASP.NET application that displays data r
 4.  From the **Select a template** list, click **MVC**. Check the box for **Host in the cloud**, then click **OK**.
 
     ![][16]
+
+5. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
+
+	![][18]
+
+6. 	In the **Microsoft Azure** section of the **New ASP.NET Project** dialog box, make sure that **Host in the cloud** is selected and that **App Service** is selected in the drop-down list.
+
+	![][19]
+
+7. Click **OK**. 
+
+8. Now you must configure Azure resources for a new web app. Follow all the steps in the section [Configure Azure resources for a new web app](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Then, return to this tutorial and proceed to the next step.
 
 5.  In Solution Explorer, right click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
@@ -518,7 +525,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 	![][37]
 
-3. Back in the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the app display a message when `GetProducts()` from **ProductsServer** is called.
+3. Back in the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
 	![38]
 
@@ -544,7 +551,9 @@ To learn more about Service Bus, see the following resources:
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
   [16]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
-  [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.jpg
+  [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.png
+  [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-5.png
+  [19]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-6.png
 
   [21]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App1.png
   [24]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
@@ -557,6 +566,7 @@ To learn more about Service Bus, see the following resources:
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
+  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
