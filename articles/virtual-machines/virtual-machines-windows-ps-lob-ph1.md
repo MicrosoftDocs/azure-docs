@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 1: Configure Azure

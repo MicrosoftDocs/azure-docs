@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Manage resources for the Apache Spark cluster in Azure HDInsight (Linux)
+# Manage resources for the Apache Spark cluster on HDInsight Linux (Preview)
 
 Spark on Azure HDInsight (Linux) provides the Ambari Web UI to manage the cluster resources and monitor the health of the cluster. You can also use the Spark History Server to track applications that have finished running on the cluster. You can use the YARN UI to monitor that are currently running on the cluster. This article provides instructions on how to access these UIs and how to perform some basic resource management tasks using these interfaces.
 

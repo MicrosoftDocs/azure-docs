@@ -14,28 +14,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/28/2016"
 	ms.author="brohrer;garye" />
 
 
 # Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio
 
-The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.
+The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms for your predictive analytics solutions. These algorithms fall into the general machine learning categories of ***regression***, ***classification***, ***clustering***, and ***anomaly detection***, and each one is designed to address a different type of machine learning problem.
+[Azure Machine Learning Studio](https://studio.azureml.net/) has a large library of algorithms from the  ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
 
-> [AZURE.NOTE] See the article [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) for a detailed guide to using this cheat sheet.
 
-## Download  the machine learning algorithm cheat sheet
+## Download: Machine learning algorithm cheat sheet
 
-Download the Machine Learning Algorithm Cheat Sheet and get help figuring out how to choose a machine learning algorithm for your solution. To keep it nearby, you can print the cheat sheet in tabloid size (11 x 17 in.).
-
-**Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
+Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
+
+> [AZURE.NOTE] See the article [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) for a detailed guide to using this cheat sheet.
 
 ## More help with algorithms
 
@@ -53,7 +53,7 @@ Download the Machine Learning Algorithm Cheat Sheet and get help figuring out ho
 
 * The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data.
 
-* Every machine learning algorithm has its own style or *inductive bias*. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But knowing which will be the best fit beforehand is not always possible. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the [Cortana Analytics Gallery](http://gallery.azureml.net/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+* Every machine learning algorithm has its own style or *inductive bias*. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But knowing which will be the best fit beforehand is not always possible. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * There are three main categories of machine learning: **supervised learning**, **unsupervised learning**, and **reinforcement learning**.
 
@@ -79,7 +79,7 @@ Download the Machine Learning Algorithm Cheat Sheet and get help figuring out ho
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
---> 
+-->
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx

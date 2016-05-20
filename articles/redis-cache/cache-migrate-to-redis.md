@@ -190,7 +190,7 @@ Azure Redis Cache can work with .NET objects as well as primitive data types, bu
 
 ## Migrate ASP.NET Session State and Output caching to Azure Redis Cache
 
-Azure Redis Cache has providers for both ASP.NET Session State and Page Output caching. To migrate your application that uses the Managed Cache Service versions of these providers, first remove the existing sections from your web.config, and then configure the Azure Redis Cache versions of the providers. For instructions on using the Azure Redis Cache ASP.NET providers, see [ASP.NET Session State Provider for Azure Redis Cache](cache-asp.net-session-state-provider.md) and [ASP.NET Output Cache Provider for Azure Redis Cache](cache-asp.net-output-cache-provider.md).
+Azure Redis Cache has providers for both ASP.NET Session State and Page Output caching. To migrate your application that uses the Managed Cache Service versions of these providers, first remove the existing sections from your web.config, and then configure the Azure Redis Cache versions of the providers. For instructions on using the Azure Redis Cache ASP.NET providers, see [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md) and [ASP.NET Output Cache Provider for Azure Redis Cache](cache-aspnet-output-cache-provider.md).
 
 ## Next steps
 

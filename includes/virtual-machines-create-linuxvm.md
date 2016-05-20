@@ -1,3 +1,4 @@
+
 1. Sign in to your Azure subscription using the steps listed in [Connect to Azure from the Azure CLI](../articles/xplat-cli-connect.md).
 
 2. Make sure you are in the Service Management mode by using:
@@ -8,7 +9,7 @@
 
         azure vm image list | grep "Linux"
 
-   In a Windows command-prompt window, use find instead of grep.
+   In a Windows command-prompt window, use **find** instead of grep.
 
 4. Use `azure vm create` to create a new virtual machine with the Linux image from the above list. This step creates a new cloud service as well as a new storage account. You could also connect this virtual machine to an existing cloud service with a `-c` option. It also creates an SSH endpoint to login to the Linux virtual machine with the `-e` option.
 

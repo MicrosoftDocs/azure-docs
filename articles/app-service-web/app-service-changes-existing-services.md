@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Azure App Service and its impact on existing Azure services"
 	description="Explains how the new Azure App Service and its features impact existing services in Azure."
-	authors="yochayk"
-	writer="yochayk"
-	editor="yochayk"
-	manager="nirma"
 	services="app-service"
-	documentationCenter=""/>
+    documentationCenter=""
+	authors="yochay"
+	manager="nirma"
+	editor=""/>
 
 <tags
 	ms.service="app-service"

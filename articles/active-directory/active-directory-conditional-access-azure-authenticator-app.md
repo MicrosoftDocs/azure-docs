@@ -76,7 +76,7 @@ You should see the Workplace Joined message on the next screen.
 
 After you have installed the Azure Authenticator app, you can also create a work account from the Android Account Manager.
 
-1. From the **Settings** menu, navigat**e to Accounts and click **Add Account**.
+1. From the **Settings** menu, navigate to Accounts and click **Add Account**.
 2. Follow steps 2-7 in the procedure, Adding the work account through the app home screen**, to add a work account.
 
 ### How to find out which version is installed
@@ -108,7 +108,7 @@ You can remove the work account you created at any time as follows:
 4. Click **OK** when the message “Are you sure you want to leave workplace” is displayed.
 5. This ensures that you have deleted your work account from your workplace.
 
->[AZURE.NOTE>
+>[AZURE.NOTE]
 >It is recommended that you do not use the Remove Account option to delete a work account as this option might not work in some earlier versions of Android.
 
 ##Uninstalling the app

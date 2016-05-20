@@ -4,7 +4,7 @@
 	services="sql-database, virtual-machines"
 	documentationCenter=""
 	authors="carlrabeler"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="tysonn"/>
 
 <tags

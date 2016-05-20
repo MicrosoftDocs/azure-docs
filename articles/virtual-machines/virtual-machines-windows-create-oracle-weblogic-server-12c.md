@@ -43,7 +43,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 	2. Leave **Availability Set** as “Not Configured”.
 	3. Do not add any **endpoints** at this time.
 
-9.	Choose or Create a [Resource Group](../resource-group-portal.md)
+9.	Choose or Create a [Resource Group](../azure-portal/resource-group-portal.md)
 
 10. Choose a **Subscription**
 

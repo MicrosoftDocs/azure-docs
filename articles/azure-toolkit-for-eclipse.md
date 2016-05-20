@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/07/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -22,7 +22,7 @@
 
 The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. It is an Open Source project, whose source code is available under the Apache License 2.0 from the project's site at:
 
-* <https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>
+* <https://github.com/microsoft/azure-tools-for-java>
 
 ## Getting Started with the Azure Toolkit for Eclipse ##
 
@@ -30,7 +30,7 @@ The following articles will help you get started using Azure Toolkit for Eclipse
 
 * [What's New in the Azure Toolkit for Eclipse]
 * [Installing the Azure Toolkit for Eclipse]
-* [Creating a Hello World Application for Azure in Eclipse]
+* [Create a Hello World Cloud Service for Azure in Eclipse]
 * [Create a Hello World Web App for Azure in Eclipse]
 * [Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java]
 
@@ -77,7 +77,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Create a Hello World Cloud Service for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536

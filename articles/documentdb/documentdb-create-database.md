@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to create a database in DocumentDB | Microsoft Azure" 
-	description="Learn how to create a database using the online service portal for Azure DocumentDB, a NoSQL document database for JSON. Get a free account today." 
+	description="Learn how to create a database using the online service portal for Azure DocumentDB, your blazing fast, global-scale NoSQL database." 
 	keywords="how to create a database" 
 	services="documentdb" 
 	authors="mimig1" 
@@ -13,8 +13,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="02/19/2016" 
+	ms.topic="article" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # How to create a database for DocumentDB using the Azure portal

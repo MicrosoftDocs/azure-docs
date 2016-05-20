@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/23/2016"
+     ms.date="03/29/2016"
      ms.author="obloch"/>
 
 # Introducing the Azure IoT device SDK for C
@@ -25,6 +25,8 @@ The Azure IoT device SDK for C is written in ANSI C (C99) to maximize portabilit
 There are a broad range of platforms on which the SDK has been tested (see the [platforms and compatibility list](iot-hub-tested-configurations.md) for details). Although this article includes walkthroughs of sample code running on the Windows platform, keep in mind that the code described in this article is exactly the same across the range of supported platforms.
 
 In this article you'll be introduced to the architecture of the Azure IoT device SDK for C. We'll demonstrate how to initialize the device library, send events to IoT Hub as well as receive messages from it. The information in this article should be enough to get started using the SDK, but also provides pointers to additional information about the libraries.
+
+>> [AZURE.NOTE] This article does not include information about how to use the *device management* capabilities of the C libraries in the SDK. To learn how to use the device management capabilities, see [Introducing the Azure IoT Hub device management library for C](iot-hub-device-management-library.md).
 
 ## SDK architecture
 
@@ -157,6 +159,8 @@ You can find the implementation for the sample application in the **iothub\_clie
 We'll use this sample application to walk you through what’s required to use the **IoTHubClient** library.
 
 ### Initializing the library
+
+> [AZURE.NOTE] Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQPS on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdks) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdks) to determine whether you need to include any platform initialization code in your client.
 
 To start working with the libraries you must first allocate an IoT Hub client handle:
 
@@ -459,3 +463,5 @@ Each of these three functions align with the three initialization functions desc
 ## Next Steps
 
 This article covered the basics of using the libraries in the **Azure IoT device SDK for C**. It provided you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](iot-hub-device-sdk-c-iothubclient.md).
+
+To learn how to use the device management capabilities in the **Azure IoT device SDK for C**, see [Introducing the Azure IoT Hub device management library for C](iot-hub-device-management-library.md).

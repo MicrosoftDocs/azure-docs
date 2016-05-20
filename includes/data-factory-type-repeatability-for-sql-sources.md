@@ -50,6 +50,7 @@ Suppose the Flat Washer record is removed from the original csv. Then re-running
 Nothing new had to be done. The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which then contained only 1 record) and inserted it into the Table. 
 
 ### Mechanism 2
+> [AZURE.IMPORTANT] sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse at this time. 
 
 Another mechanism to achieve repeatability is by having a dedicated column (**sliceIdentifierColumnName**) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
 

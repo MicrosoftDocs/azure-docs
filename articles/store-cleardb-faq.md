@@ -81,6 +81,10 @@ Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend eithe
 
 You can use the [ClearDB Upgrade Wizard](https://www.cleardb.com/store/azure/upgrade). Currently we don’t have an upgrade path in the Azure portal.
 
+## I can’t see my ClearDB database in Azure portal ?
+
+If we create ClearDB database using Azure resource Manager or [new azure portal](https://portal.azure.com) , it will not be visible in the [old azure portal](https://manage.windowsazure.com). To workaround this is to link your database manually to the web app. Similarly if create ClearDB database in the [old portal](https://manage.windowsazure.com) you will not be able to see your database in the [new azure portal](https://portal.azure.com).There is no workaround for the latter scenario.
+
 ## Who do I contact for support when my database is down?
 
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) for any database related issues. Be prepared to provide them with your Azure subscription information.
@@ -89,9 +93,13 @@ Contact [ClearDB support](https://www.cleardb.com/developers/help/support) for a
 
 No. You cannot create additional users but you can create additional databases on your ClearDB database cluster.   
 
+## Can Basic/Pro series databases be upgraded in-place similar to Planetary plans today on ClearDB portal?
+
+Yes, Basic series databases can be upgraded in-place (Basic 60 through Basic 500). Pro series can be upgraded in-place (Pro 125 through Pro 1000) with the exception of Pro 60. We do not support upgrading Pro 60 database currently. 
+
 ## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well?  
 
-When you perform resource migration across subscriptions, some [limitations](app-service-move-resources.md) apply. A ClearDB MySQL database is a third party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
+When you perform resource migration across subscriptions, some [limitations](./app-service-web/app-service-move-resources.md) apply. A ClearDB MySQL database is a third party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
 
 ## Can I purchase Scalable WordPress with an Enterprise Agreement (EA) subscription?
 
@@ -119,6 +127,10 @@ Access to Azure Marketplace for third party services can be managed by your EA A
 ## Who do I contact for questions about my bill for ClearDB services in my EA subscription?
 
 Contact [Enterprise Customer Support](http://aka.ms/AzureEntSupport) with regards to billing under their EA enrollment. The EA Portal Support Team will answer your question or help resolve your issue.
+
+ 
+
+
 
 ## More information
 

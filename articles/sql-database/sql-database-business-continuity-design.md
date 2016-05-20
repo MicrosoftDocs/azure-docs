@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 #Design for business continuity
@@ -45,11 +45,6 @@ You should use the Geo-Replication if your application meets the following crite
 2. The rate of data change is high (e.g. transactions per minute or seconds). The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.
 3. The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.
 
-> [AZURE.NOTE] If your application uses Basic tier database(s) Geo-Repliation is not supported
-
-##When to choose Standard vs. Active Geo-Replication
-
-Standard tier databases do not have the option of using Active Geo-Replication so if your application uses standard databases and meets the above criteria it should enable Standard Geo-Replication. Premium databases on the other hand can choose either option. Standard Geo-Replication has been designed as a simpler and less expensive disaster recovery solution, particularly suited to applications that use it only to protect from unplanned events such as outages. With Standard Geo-Replication you can only use the DR paired region for the recovery and can create only one secondary for each primary. An additional secondary may be necessary for the application upgrade scenario. So if this scenario is critical for your application you should enable Active Geo-Replication instead. Please refer to [Upgrade application without downtime](sql-database-business-continuity-application-upgrade.md) for additional details. 
 
 > [AZURE.NOTE] Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads. 
 
@@ -69,19 +64,19 @@ You can enable Geo-Replication using Azure Classic Portal or by calling REST API
 6. Select the secondary type (*Readable* or *Non-readable*)
 7. Click **Create** to complete the configuration
 
-> [AZURE.NOTE] The DR paired region on the Geo-Replication blade will be marked as *recommended*. If you use a Premium tier database you can choose a different region. If you are using a Standard database you cannot change it. The Premium database will  have a choice of the secondary type (*Readable* or *Non-readable*). Standard database can only select a *Non-readable* secondary.
+> [AZURE.NOTE] The DR paired region on the Geo-Replication blade will be marked as *recommended* but you can choose a different region.
 
 
 ###PowerShell
 
 Use the [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) PowerShell cmdlet to create Geo-Replication configuration. This command is synchronous an returns when the primary and secondary databases are in sync. 
 
-To configure Geo-Replication with a non-readable secondary for a Premium or Standard database:
+To configure Geo-Replication with a non-readable secondary:
 		
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
 
-To create Geo-Replication with a readable secondary for a Premium database:
+To create Geo-Replication with a readable secondary:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"

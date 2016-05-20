@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Data Catalog get started with data catalog"
-   description="End-to-end tutorial of the scenarios and capabilities of Azure Data Catalog."
+   pageTitle="Azure Data Catalog - get started with Data Catalog | Microsoft Azure"
+   description="End-to-end tutorial presenting the scenarios and capabilities of Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
-   ms.author="derrickv"/>
+   ms.date="05/06/2016"
+   ms.author="maroche"/>
 
 # Get started with Azure Data Catalog
 
-This article is an end-to-end tutorial of the scenarios and capabilities of **Azure Data Catalog** public preview. Once you sign up for the preview, follow these steps to create a Data Catalog, and register, annotate, and discover data sources.
+This article is an end-to-end overview of the scenarios and capabilities of **Azure Data Catalog**. Once you sign up for the service, follow these steps to create a Data Catalog, and register, annotate, and discover data sources.
 
 ## Tutorial prerequisites
 
@@ -27,6 +27,8 @@ Before you begin this tutorial you must have the following:
 - **An Azure subscription** -  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 - **Azure Active Directory** -  Azure Data Catalog uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for identity and access management.
 - **Data sources** - Azure Data Catalog has capabilities to discover data sources. This tutorial uses the Adventure Works sample database, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+
+> [AZURE.NOTE] For more information on Azure subscriptions and Azure Active Directory, please see [Azure Data Catalog prerequisites](data-catalog-prerequisites.md).
 
 Let's get started installing the Adventure Works sample database.
 
@@ -183,6 +185,8 @@ In this exercise you use the **Azure Data Catalog** portal to annotate data asse
 
 In this exercise you added descriptive information to registered data assets so that catalog users can discover data sources using terms they understand.
 
+> [AZURE.NOTE] The Standard Edition of Data Catalog includes a business glossary that allows catalog administrators to define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
+
 ## Exercise 5: Crowdsourcing metadata
 
 In this exercise you work with another user to add metadata to data assets in the catalog. **Azure Data Catalog’s** crowdsourced approach to annotations allows any user to add tags, descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
@@ -258,4 +262,4 @@ In this exercise you explored the management capabilities of **Azure Data Catalo
 
 ## Summary
 
-In this tutorial you explored essential capabilities of **Azure Data Catalog** preview, including registering, annotating, discovering, and managing enterprise data sources. Now that you’ve completed the tutorial, it’s time to get started. You can begin today by registering the data sources you and your team rely on, and by inviting colleagues to use the catalog.
+In this tutorial you explored essential capabilities of **Azure Data Catalog**, including registering, annotating, discovering, and managing enterprise data sources. Now that you’ve completed the tutorial, it’s time to get started. You can begin today by registering the data sources you and your team rely on, and by inviting colleagues to use the catalog.

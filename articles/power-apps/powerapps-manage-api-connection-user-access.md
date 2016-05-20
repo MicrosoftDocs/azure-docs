@@ -14,12 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # Add a new API, add a connection, and give users access
 
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about the available connections in PowerApps, go to [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/). 
+
+<!--Archived
 APIs exist within an [app service environment](powerapps-get-started-azure-portal.md). APIs can be created from the available APIs for PowerApps, from API apps hosted in your app service environment, or from Swagger 2.0. There are many pre-built APIs available that can easily be added to your PowerApps. You can also upload your own API in JSON format or Swagger 2.0. 
 
 This topic:
@@ -84,6 +90,8 @@ In this topic, you:
 - You can also delete any of the APIs you create within your app service environment.
 
 Next, you can [manage and monitor your PowerApps](powerapps-manage-monitor-usage.md).
+-->
+
 
 [1]: ./media/powerapps-manage-api-connection-user-access/apiuseraccess.png
 [2]: ./media/powerapps-manage-api-connection-user-access/connectionuseraccess.png

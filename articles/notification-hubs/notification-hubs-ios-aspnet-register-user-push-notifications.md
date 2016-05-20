@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Register the current user for push notifications by using ASP.NET
 
 > [AZURE.SELECTOR]
-- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
 - [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
 
 

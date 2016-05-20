@@ -1,3 +1,7 @@
+### ASP.NET Web API
+
+The tutorial assumes that you have a basic knowledge of how to work with ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) in Visual Studio.
+
 ### Azure account
 
 You need an Azure account to complete the tutorial. You can:
@@ -14,7 +18,3 @@ The tutorial is written for Visual Studio 2015 with the Azure SDK for .NET 2.8.2
 If you have Visual Studio 2013, and you want to use that, [download the latest Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). The instructions are basically the same but some screens may look different.
 
 >[AZURE.NOTE] Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
-
-### ASP.NET Web API
-
-The tutorial assumes that you have a basic knowledge of how to work with ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) in Visual Studio.

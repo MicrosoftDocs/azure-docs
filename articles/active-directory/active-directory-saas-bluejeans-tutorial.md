@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Tutorial: Azure AD Integration with BlueJeans | Microsoft Azure" 
+    pageTitle="Tutorial: Azure Active Directory integration with BlueJeans | Microsoft Azure" 
     description="Learn how to use BlueJeans with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
     authors="jeevansd"  
@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure AD Integration with BlueJeans

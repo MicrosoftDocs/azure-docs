@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
 # Use the Web UI to administer your StorSimple Virtual Array
@@ -39,12 +39,12 @@ If you have misplaced your service data encryption key and need to retrieve it, 
 #### To get the service data encryption key
 
 1. Connect to the local web UI. Go to **Configuration** > **Cloud Settings**.
-
-    ![get service data encryption key 1](./media/storsimple-ova-web-ui-admin/image27.png)
+  
 
 2. At the bottom of the page, click **Get service data encryption key**. A key will appear. Copy and save this key.
-
-    ![get service data encryption key 2](./media/storsimple-ova-web-ui-admin/image28.png)
+  	
+	![get service data encryption key 1](./media/storsimple-ova-web-ui-admin/image27.png)
+   
 
 
 ## Troubleshoot web UI setup errors
@@ -99,7 +99,7 @@ You can shut down or restart your virtual device using the local web UI. We reco
 
     ![device shutdown 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. A warning will appear stating that a shutdown of the device will interrupt any IOs that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
+3. A warning will appear stating that a shutdown of the device will interrupt any IO that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
 
     ![device shutdown warning](./media/storsimple-ova-web-ui-admin/image37.png)
 

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="12/08/2015"
+ ms.date="04/15/2016"
  ms.author="rasquill"/>
 
 #Manage virtual machine extensions

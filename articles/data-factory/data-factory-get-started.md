@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/07/2016"
+	ms.date="04/01/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Copy data from Azure Blob Storage to Azure SQL Database
@@ -91,14 +91,14 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. Note that this article uses the [Azure Classic Portal](http://manage.windowsazure.com), not the [Azure Portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
+	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. Note that this article uses the [Azure Portal](http://manage.windowsazure.com), not the [Azure Portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
 
 	**If you have Visual Studio 2013 installed on your computer:** in the [Azure Portal](https://portal.azure.com), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you will need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to configure the firewall for your Azure SQL server.
 
 
 Do the following:
 
-- Click [Using Data Factory Editor](data-factory-get-started-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Classic Portal.
+- Click [Using Data Factory Editor](data-factory-get-started-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
 - Click [Using PowerShell](data-factory-monitor-manage-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-get-started-using-vs.md) link at the top to perform the tutorial by using Visual Studio 2013.
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/29/2016"
+   ms.date="04/11/2016"
    ms.author="larryfr"/>
 
 #Develop Java-based topologies for a basic word-count application with Apache Storm and Maven on HDInsight
@@ -107,6 +107,7 @@ For Storm topologies, the <a href="http://mojo.codehaus.org/exec-maven-plugin/" 
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>exec-maven-plugin</artifactId>
+      <version>1.4.0</version>
       <executions>
         <execution>
         <goals>
@@ -130,6 +131,7 @@ Add the following in the `<plugins>` section of the **pom.xml** file to include 
 	<plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.3</version>
       <configuration>
         <source>1.7</source>
         <target>1.7</target>

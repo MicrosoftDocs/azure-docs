@@ -3,7 +3,7 @@
 	description="This article describes how to install and configure Trend Micro security on a VM created with the classic deployment model in Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>

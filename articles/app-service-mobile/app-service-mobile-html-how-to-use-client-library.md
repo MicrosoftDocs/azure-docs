@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="adrianha"/>
+	ms.date="05/03/2016"
+	ms.author="adrianha;ricksal"/>
 
 # How to Use the JavaScript Client Library for Azure Mobile Apps
 

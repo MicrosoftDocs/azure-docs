@@ -14,10 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="guayan"/>
 
 # Register an API from Swagger 2.0 API Definition  
+
+> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> 
+> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> - To learn more about the available connections in PowerApps, go to [Available Connections](https://powerapps.microsoft.com/tutorials/connections-list/).  
+> - To learn more about custom APIs in PowerApps, go to [What are Custom APIs](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+
+<!--Archived
 Many organizations already have some existing APIs that users can use and consume within their apps. To use these APIs in your apps, you must "register" the APIs in the Azure portal using a managed API, existing APIs in your app service environment, or creating an API using Swagger. 
 
 > [AZURE.SELECTOR]
@@ -68,6 +76,8 @@ In this topic, you've seen how to register an API from Swagger 2.0 API definitio
 - [Configure the API properties](powerapps-configure-apis.md)
 - [Give users access to the APIs](powerapps-manage-api-connection-user-access.md)
 - [Start creating your apps in PowerApps](https://powerapps.microsoft.com/tutorials/)
+-->
+
 
 <!--References-->
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png

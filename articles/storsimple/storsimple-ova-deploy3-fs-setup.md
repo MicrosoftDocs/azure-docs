@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Set up as file server
@@ -129,7 +129,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     1.  Enter the **Service registration key** that you got in [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
 
-    2.  If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to get the [service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
+    2.  Skip this step if this is your first device registering with this service and go to the next step. If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to get the [service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
 
     3.  Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
 

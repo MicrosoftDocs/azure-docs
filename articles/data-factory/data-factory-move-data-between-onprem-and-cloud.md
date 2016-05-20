@@ -25,7 +25,7 @@ The data gateway provides the following capabilities:
 
 1.	Model on-premises data sources and cloud data sources within the same data factory and move data.
 2.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud dashboard.
-3.	Manage access to on-premises data sources securely.
+3.	Manage access to on-premises data sources securely.Troubl
 	1. No changes required to corporate firewall. Gateway only makes outbound HTTP based connections to open internet.
 	2. Encrypt credentials for your on-premises data stores with your certificate.
 4.	Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
@@ -160,7 +160,7 @@ If you encounter errors such as the following ones, it is likely because of the 
 1.	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2.	When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
 
-## Gateway troubleshooting
+## Troubleshooting gateway issues
 
 
 - You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
@@ -268,12 +268,12 @@ In this step, you will create two linked services: **AzureStorageLinkedService**
 			1. Set the **Integrated Security** to **true**..
 			2. Specify database **server name** and **database name**. 
 			2. Remove **User ID** and **Password**. 
-		3. Specify user name and password for **userName** and **password** properties.
+		3. Specify user name and password for **userName** and **password** properties.  
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
             		"gatewayName": "adftutorialgateway",
-            		"userName": "<Specify user name if you are using Windows Authentication>",
+            		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\\<user>",
             		"password": "<Specify password for the user account>"
         		}
 

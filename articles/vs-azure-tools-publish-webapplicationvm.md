@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Publish-WebApplicationVM (Windows PowerShell script)

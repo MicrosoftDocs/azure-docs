@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # Creating a virtual machine for a web application with Visual Studio

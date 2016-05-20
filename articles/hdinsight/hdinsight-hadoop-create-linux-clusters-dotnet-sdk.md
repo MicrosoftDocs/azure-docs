@@ -32,7 +32,6 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
 - __Visual Studio 2013 or 2015__
 
 ## Create clusters
@@ -51,8 +50,8 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 6. Run the following command in the console to install the packages:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
-        Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight
 
     These commands add .NET libraries and references to them to the current Visual Studio project.
 
@@ -66,7 +65,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
         using Microsoft.Azure.Common.Authentication.Models;
         using Microsoft.Azure.Management.HDInsight;
         using Microsoft.Azure.Management.HDInsight.Models;
-        using Microsoft.Azure.Management.Resources;
+        using Microsoft.Azure.Management.ResourceManager;
 
         namespace CreateHDInsightCluster
         {
@@ -83,7 +82,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                 private const int NewClusterNumNodes = 1;
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
-                private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
                 private const string NewClusterVersion = "3.2";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
@@ -105,7 +104,8 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                     var tokenCreds = GetTokenCloudCredentials();
                     var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
                     
-                    var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+                    var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+                    var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
                     var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
                     _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
@@ -160,8 +160,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                 }
             }
         }
-
-		
+	
 10. Replace the class member values.
 
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
@@ -364,3 +363,10 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+
+### Run jobs
+
+- [Run Hive jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [Run Pig jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [Run Oozie jobs in HDInsight](hdinsight-use-oozie.md)

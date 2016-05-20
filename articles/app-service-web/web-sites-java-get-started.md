@@ -11,19 +11,13 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
-	ms.topic="hero-article"
-	ms.date="03/04/2016"
+	ms.topic="get-started-article"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 This tutorial shows how to create a Java [web app in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the [Azure Portal](https://portal.azure.com/). The Azure Portal is a web interface that you can use to manage Azure resources.
 
@@ -173,7 +167,11 @@ At this point, you have a Java application server running in your web app in Azu
 
 For more information about developing Java applications in Azure, see the [Java Developer Center](/develop/java/).
 
-<!-- External Links -->
+<!-- URL List -->
+
 [activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
 [sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+
+<!-- IMG List -->
+

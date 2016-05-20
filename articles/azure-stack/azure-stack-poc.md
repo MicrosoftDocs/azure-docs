@@ -22,7 +22,7 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
 
 ## Scope of Azure Stack POC
 
--   Azure Stack POC must not be used as a production environment. Since the Azure Stack POC is single machine environment, it does not provide high-availability features. You might have data loss in the POC deployment due the risk of a pre-release environment.
+-   Azure Stack POC must not be used as a production environment. Since the Azure Stack POC is a single machine environment, it does not provide high-availability features. You might have data loss in the POC deployment due to the risks associated with a pre-release environment.
 
 -   Your deployment of Azure Stack is associated with a single Azure Active Directory directory. You can create multiple users in this directory and assign subscriptions to each user.
 

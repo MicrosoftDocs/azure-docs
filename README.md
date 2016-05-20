@@ -13,10 +13,11 @@ Thank you for your interest in Azure documentation!
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
+* [Feedback, comments, and support](./contributor-guide/feedback-and-comments.md)
 * [More resources](#more-resources)
 * [Index of all contributors' guide articles](./contributor-guide/contributor-guide-index.md) (opens new page)
 
-## Ways to contribute
+## Ways to contribute 
 
 You can contribute to [Azure documentation](http://azure.microsoft.com/documentation/) in a few different ways:
 

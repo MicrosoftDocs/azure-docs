@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="timlt" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="03/24/2016" 
+	ms.topic="article" 
+	ms.date="05/16/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -36,13 +36,13 @@ To create an empty resource group, select **New**, **Management**, and **Resourc
 
 ![create empty resource group](./media/resource-group-portal/create-empty-group.png)
 
-You give it a name and location, and, if necessary, select a subscription.
+Give it a name and location, and, if necessary, select a subscription.
 
 ![set group values](./media/resource-group-portal/set-group-properties.png)
 
 ## Deploy resources
 
-After your resource group has been created, you can deploy resources to it. To start deployment, simply select **New** and the type of resource you would like to deploy.
+After you create a resource group, you can deploy resources to it. To start a deployment, simply select **New** and the type of resource you would like to deploy.
 
 ![deploy resource](./media/resource-group-portal/deploy-resource.png)
 
@@ -63,7 +63,23 @@ Your deployment will begin. This could take a few minutes. When the deployment h
 
 ![view notification](./media/resource-group-portal/view-notification.png)
 
-## Browse resource groups
+After deploying your resources, you may decide that you need to add more resources to the group. You can add resources to a resource group by using the **Add** command on the resource group blade.
+
+![add resource](./media/resource-group-portal/add-resource.png)
+
+## Export template
+
+After setting up your resource group, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
+
+1. You can easily automate future deployments of the solution because all of the infrastructure is defined in the template.
+
+2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
+
+> [AZURE.NOTE] The export template feature is in preview, and not all resource types currently support exporting a template. When attempting to export a template, you may see an error that states some resources were not exported. If needed, you can manually define these resources in your template after downloading it.
+
+For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](../resource-manager-export-template/).
+
+## Manage resource group
 
 You can browse all resource groups by clicking **Resource groups**.
 
@@ -104,59 +120,9 @@ After pinning the section to the dashboard, you will see the summary on the dash
 
 And, selecting it immediately takes you to more details about the data.
 
-## View past deployments
-
-From within the resource group blade, you can see the date and status of the last deployment for this resource group. Selecting the link, displays a history of deployments for the group.
-
-![last deployment](./media/resource-group-portal/last-deployment.png)
-
-Selecting any deployment from the history shows details about that deployment.
-
-![deployment summary](./media/resource-group-portal/deployment-summary.png)
-
-You can see the individual operations that were executed during the deployment. The following image shows one operation that succeeded and one that failed.
-
-![operation details](./media/resource-group-portal/operation-details.png)
-
-For more information about troubleshooting a deployment, see [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
-
-You can retrieve the template that was used for the deployment by selecting **Export template**.
-
-![export template](./media/resource-group-portal/export-template.png)
-
-You will see the exact template used for this deployment.
-
-![show template](./media/resource-group-portal/show-template.png)
-
-It is not a complete representation of the resource group; if you added or deleted resources outside of this deployment, those actions are not reflected in the template.
-The blade includes the template, a parameter file to use with the template, and a PowerShell script to deploy the template. You can download these 3 files by selecting 
-**Save to file**.
-
-## View audit logs
-
-The audit log contains not just deployment operations, but all management operations taken on resources in your subscription. For example, you can see in the audit logs when someone in your organization stopped an app. To see the audit logs, select **Browse All** and **Audit Logs**.
-
-![browse audit logs](./media/resource-group-portal/browse-audit-logs.png)
-
-In the operations section, you can see the individual operations that have been performed across your subscription.
-
-![view audit log](./media/resource-group-portal/view-audit-log.png)
-
-By selecting any of the operations, you can see greater details, including which user executed the operation.
-
-For more information about viewing the audit logs, see [Audit operations with Resource Manager](../resource-group-audit.md).
-
-## Add resources to resource groups
-
-You can add resources to a resource group using the **Add** command on the resource group blade.
-
-![add resource](./media/resource-group-portal/add-resource.png)
-
-You can select the resource you want from the available list.
-
-## Deleting resource groups
-
-Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups. The linked resources will not be deleted but they may not operate as expected.
+Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual
+resources within a resource group. You want to exercise caution when you are deleting a resource group because there might be resources in other resource groups that are linked to it.
+The linked resources will not be deleted but they may not operate as expected.
 
 ![delete group](./media/resource-group-portal/delete-group.png)
 
@@ -164,7 +130,18 @@ Since resource groups allow you to manage the lifecycle of all the contained res
 
 You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags through the portal, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
-## Deploy a custom template
+## Deploy saved template
+
+If you saved a template to your account, you can view it later by select **Browse** and **Templates**.
+
+![browse templates](./media/resource-group-portal/browse-templates.png)
+
+You will see your own collection of templates.
+
+![show template collection](./media/resource-group-portal/show-template-collection.png)
+
+
+## Deploy custom template
 
 If you want to execute a deployment but not use any of the templates in the Marketplace, you can create customized template that defines the infrastructure for your solution. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
@@ -180,6 +157,13 @@ After launching the template deployment, you can create the custom template and 
 
 ![create template](./media/resource-group-portal/show-custom-template.png)
 
+Or, you can select a pre-existing template from the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/). These templates are contributed by the community. They cover many common scenarios, and 
+someone may have added a template that is similar to what you are trying to deploy. You can search the templates to find something that matches your scenario.
+
+![select quickstart template](./media/resource-group-portal/select-quickstart-template.png)
+
+After selecting a template, it is loaded in the editor.
+
 ## View your subscription and costs
 
 You can view information about your subscription and the rolled-up costs for all of your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
@@ -194,11 +178,19 @@ And, a breakdown of costs by resource type.
 
 ![resource cost](./media/resource-group-portal/cost-by-resource.png)
 
+## Access control for Azure dashboards
+
+Access to the information displayed by most tiles in the portal are governed by Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md).  In order to seamlessly integrate dashboards into the ecosystem all published dashboards are implemented as Azure resources.  From an access control perspective dashboards are no different from a virtual machine or a storage account.
+
+Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors will be able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers will be able to list and view dashboards, but cannot modify or delete them.  Users with reader access will be able to make local edits to a published dashboard (e.g. when troubleshooting an issue), but will not be given the option to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves.
+
+Note that the individual tiles on the dashboard will enforce their own access control requirements based on the resources they are showing data for.  This means that you can design a dashboard that can be shared more broadly while still protecting the data on individual tiles.
+
 ## Next Steps
 
-- For an introduction to the concepts in Resource Manager, see [Azure Resource Manager Overview](../resource-group-overview.md).
-- For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-- For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager.md).
+- To view audit logs, see [Audit operations with Resource Manager](../resource-group-audit.md).
+- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
+
 
 
 

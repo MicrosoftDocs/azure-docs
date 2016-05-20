@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Near Real Time Proactive Diagnostics in Application Insights" 
-	description="NRT Proactive Diagnostics automatically notifies you if your server response time shows unusual behavior. No configuration is needed." 
+	description="Alerts you to unusual failure patterns in your app, and provides diagnostic analysis. No configuration is needed." 
 	services="application-insights" 
     documentationCenter=""
 	authors="yorac" 
@@ -137,5 +137,6 @@ NRT Proactive Diagnostics complements other similar but distinct features of App
 ## Feedback please
 
 *We are very interested to know what you think about this. Please send feedback to:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
+
 
 

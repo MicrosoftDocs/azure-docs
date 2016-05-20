@@ -19,24 +19,19 @@ one message consumer.
 Service Bus queues are a general-purpose technology that can be used for
 a wide variety of scenarios:
 
--   Communication between web and worker roles in a multi-tier
-    Azure application.
--   Communication between on-premises apps and Azure hosted apps
-    in a hybrid solution.
--   Communication between components of a distributed application
-    running on-premises in different organizations or departments of an
-    organization.
+- Communication between web and worker roles in a multi-tier Azure application.
+- Communication between on-premises apps and Azure hosted apps in a hybrid solution.
+- Communication between components of a distributed application running on-premises in different organizations or departments of an organization.
 
-Using queues enables you to scale out your applications more easily, and
-enable more resiliency to your architecture.
+Using queues enables you to scale out your applications more easily, and enable resiliency in your architecture.
 
 ## Create a service namespace
 
 To begin using Service Bus queues in Azure, you must first
-create a service namespace. A namespace provides a scoping
+create a namespace. A namespace provides a scoping
 container for addressing Service Bus resources within your application.
 
-To create a service namespace:
+To create a namespace:
 
 1.  Log on to the [Azure classic portal][].
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/19/2016" 
 	ms.author="larryfr"/>
 
 #Analyze flight delay data by using Hive in HDInsight
@@ -34,6 +34,8 @@ Before you begin this tutorial, you must have the following:
 - __Azure SQL Database__. You will use an Azure SQL database as a destination data store. If you do not have a SQL Database already, see [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 
 - __Azure CLI__. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) for more steps.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 
 ##Download the flight data

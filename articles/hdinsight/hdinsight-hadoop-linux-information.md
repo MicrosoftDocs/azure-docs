@@ -21,11 +21,21 @@
 
 Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
+##Prerequisites
+
+Many of the steps in this document use the following utilities, which may need to be installed on your system.
+
+* [cURL](https://curl.haxx.se/) - used to communicate with web-based services
+* [jq](https://stedolan.github.io/jq/) - used to parse JSON documents
+* [Azure CLI](../xplat-cli-install.md) - used to remotely manage Azure services
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)] 
+
 ## Domain names
 
 The fully qualified domain name (FQDN) to use when connecting to the cluster from the internet is **&lt;clustername>.azurehdinsight.net** or (for SSH only) **&lt;clustername-ssh>.azurehdinsight.net**.
 
-Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, you can visit the __Hosts__ page on the Ambari Web UI, or use the following to return a list of hosts from the Ambari REST API using [cURL](http://curl.haxx.se/) and [jq](https://stedolan.github.io/jq/):
+Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, you can visit the __Hosts__ page on the Ambari Web UI, or use the following to return a list of hosts from the Ambari REST API:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -76,7 +86,7 @@ Example data and JAR files can be found on Hadoop Distributed File System (HDFS)
 
 ## HDFS, Azure Blob storage, and storage best practices
 
-In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.
+In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
 HDInsight uses Azure Blob storage as the default store, which provides the following benefits:
 

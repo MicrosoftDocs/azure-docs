@@ -1,31 +1,29 @@
 <properties
-   pageTitle="Creating and deploying Azure Resource Group Visual Studio projects | Microsoft Azure"
+   pageTitle="Azure Resource Group Visual Studio projects | Microsoft Azure"
    description="Use Visual Studio to create a Azure resource group project and deploy the resources to Azure."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor="" />
+   manager="timlt"
+   editor="tysonn" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz" />
 
 # Creating and deploying Azure resource groups through Visual Studio
 
-With Visual Studio and the [Azure SDK](https://azure.microsoft.com/downloads/), you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and 
-deploy that infrastructure along with the code. Or, you can define a Virtual Machine, Virtual Network and Storage Account, and deploy that infrastructure along with a script that is executed on Virutal Machine. 
-The **Azure Resource Group** deployment project enables to deploy all the needed resources in a single, repeatable operation. For more information about deploying and managing your resources, see [Azure Resource Manager overview](resource-group-overview.md).
+With Visual Studio and the [Azure SDK](https://azure.microsoft.com/downloads/), you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and deploy that infrastructure along with the code. Or, you can define a Virtual Machine, Virtual Network and Storage Account, and deploy that infrastructure along with a script that is executed on Virtual Machine. The **Azure Resource Group** deployment project enables you to deploy all the needed resources in a single, repeatable operation. For more information about deploying and managing your resources, see [Azure Resource Manager overview](resource-group-overview.md).
 
-Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the resources that are deployed to a Azure. To learn about the elements of the Resource Manager template,
-see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). Visual Studio enables you to edit these templates, and provides tools that simplify working with templates.
+Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the resources that are deployed to Azure. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). Visual Studio enables you to edit these templates, and provides tools that simplify working with templates.
 
-In this topic, you will deploy a web app and SQL Database; however, the steps are almost the same for 
-any type resource. You can just as easily deploy a Virtual Machine and its related resources. Visual Studio provides many different starter templates for deploying common scenarios.
+In this topic, you will deploy a web app and SQL Database; however, the steps are almost the same for any type resource. You can just as easily deploy a Virtual Machine and its related resources. Visual Studio provides many different starter templates for deploying common scenarios.
+
+This article was written using Visual Studio 2015 Update 2 and Microsoft Azure SDK for .NET 2.9. If you use Visual Studio 2013 with Azure SDK 2.9, your experience will be largely the same. You can use versions of the Azure SDK from 2.6 or later; however, your experience may be different than that shown in this article. It is strongly recommended that you install the latest version of the [Azure SDK](https://azure.microsoft.com/downloads/) before starting the steps. 
 
 ## Create Azure Resource Group project
 
@@ -33,7 +31,7 @@ In this procedure, you will create an Azure Resource Group project with a **Web 
 
 1. In Visual Studio, choose **File**, **New Project**, choose **C#** or **Visual Basic**. Then choose **Cloud**, and then choose **Azure Resource Group** project.
 
-    ![Cloud Deployment Project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796668.png)
+    ![Cloud Deployment Project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
 1. Choose the template that you want to deploy to Azure Resource Manager. Notice there are many different options based on the type of project you wish to deploy. For this topic, we'll choose the **Web app + SQL** template.
 
@@ -56,9 +54,8 @@ In this procedure, you will create an Azure Resource Group project with a **Web 
     |Deploy-AzureResourceGroup.ps1|A PowerShell script that invokes PowerShell commands to deploy to Azure Resource Manager.<br />**Note** This PowerShell script is used by Visual Studio to deploy your template. Any changes you make to this script will also affect deployment in Visual Studio, so be careful.|
     |WebSiteSQLDatabase.json|The resource manager template that defines the infrastructure you want deploy to Azure, and the parameters you can provide during deployment. It also defines the dependencies between the resources so they are deployed in the correct order.|
     |WebSiteSQLDatabase.parameters.json|A parameters file that contains values needed by the template. These are the values you pass in to customize each deployment.|
-    |AzCopy.exe|A tool used by the PowerShell script to copy files from the local storage drop path to the storage account container. This tool is used only if you configure the deployment project to deploy your code along with the template.|
 
-    All resource group deployment projects contain these four basic files. Other projects may contain additional files to support other functionality.
+    All resource group deployment projects contain these basic files. Other projects may contain additional files to support other functionality.
 
 ## Customize the Resource Manager template
 
@@ -89,10 +86,10 @@ Notice that not only was the resource added, but also a parameter for the type s
 
 ![show outline](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-The **WebSitePicturesType** parameter is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you do not want to permit anyone to deploy a 
+The **storageType** parameter is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you do not want to permit anyone to deploy a 
 **Premium_LRS** storage account through this template, simple remove it from the allowed types, as shown below. 
 
-    "WebSitePicturesType": {
+    "storageType": {
       "type": "string",
       "defaultValue": "Standard_LRS",
       "allowedValues": [
@@ -119,15 +116,15 @@ You can set **numberOfWorkers** to 1.
 
 You are now ready to deploy your project. When you deploy an Azure Resource Group project, you deploy it to an Azure resource group, which is just a logical grouping of resources in Azure such as web apps, databases, and so on.
 
-1. On the shortcut menu of the deployment project node, choose **Deploy**, **New Deployment**.
+1. On the shortcut menu of the deployment project node, choose **Deploy** > **New Deployment**.
 
-    ![Deploy, New Deployment menu item](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796672.png)
+    ![Deploy, New Deployment menu item](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
 
     The **Deploy to Resource Group** dialog box appears.
 
     ![Deploy To Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
 
-1. In the **Resource group** dropdown box, choose an existing resource group or create a new one. To create a resource group, open the **Resource Group** dropdown box and choose **<Create New...>**.
+1. In the **Resource group** dropdown box, choose an existing resource group or create a new one. To create a resource group, open the **Resource Group** dropdown box and choose **Create New ...**.
 
     ![Deploy To Resource Group Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
 
@@ -139,9 +136,9 @@ You are now ready to deploy your project. When you deploy an Azure Resource Grou
 
     ![Edit Parameters Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    The **Save passwords** option means the passwords will be saved as plain text in the JSON file. This option is not secure.
+    The **Save passwords as plain text in the parameters file** option is not secure.
 
-1. Choose the **Deploy** button to deploy the project to Azure. You can see the progress of the deployment in the **Output** window. Deployment may take several minutes to complete, depending on your configuration. Enter the database administrator password, if prompted.
+1. Choose the **Deploy** button to deploy the project to Azure. You can see the progress of the deployment in the **Output** window. Deployment may take several minutes to complete, depending on your configuration. Enter the database administrator password in the PowerShell console when prompted. If progress on your deployment has stalled, it may be because the process is waiting for you to enter the password in the PowerShell console.
 
     >[AZURE.NOTE] You may be asked to install the Azure PowerShell cmdlets. Because these cmdlets are required to deploy Azure resource groups, you need to install them.
     
@@ -184,9 +181,13 @@ deploying code for a web app or for setting up a Virtual Machine is almost the s
 
     ![add reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    By adding a reference, you link the web app project to the resource group project, and set three key properties.  The **Additional Properties** contains the web deployment package staging location that will be 
-    pushed to the Azure Storage. The **Include File Path** contains the path where the package will be created.  The **Include Targets** contains the command that deployment will execute. The default value of 
-    **Build;Package** enables the deployment to build and create a web deployment package (package.zip).  A publish profile is not needed as the deployment gets the necessary information from the properties to 
+    By adding a reference, you link the web app project to the resource group project, and automatically set three key properties.  
+    
+    - The **Additional Properties** contains the web deployment package staging location that will be pushed to the Azure Storage. 
+    - The **Include File Path** contains the path where the package will be created.  The **Include Targets** contains the command that deployment will execute. 
+    - The default value of **Build;Package** enables the deployment to build and create a web deployment package (package.zip).  
+    
+    A publish profile is not needed as the deployment gets the necessary information from the properties to 
     create the package.
     
       ![see reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
@@ -195,7 +196,7 @@ deploying code for a web app or for setting up a Virtual Machine is almost the s
 
     ![add web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Re-deploy your resource group project to the resource group. This time there are some new parameters. You do not need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** be they are auto-generated. Set the folder and file name to the path that contains the deployment package.
+1. Re-deploy your resource group project to the resource group. This time there are some new parameters. You do not need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because they are auto-generated. Set the folder and file name to the path that contains the deployment package.
 
     ![add web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     

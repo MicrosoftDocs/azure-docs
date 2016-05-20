@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Tutorial: Create a pipeline with Copy Activity using Data Factory Editor" 
-	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure Classic Portal." 
+	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure Portal." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -155,7 +155,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1** ), so the Data Factory service will look for input data every hour in the root folder in the blob container (**adftutorial**) you specified. 
 	
 
-	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
+	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
  
 	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -310,9 +310,9 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
  
 
 ## Monitor pipeline
-In this step, you will use the Azure Classic Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about using cmdlets for monitoring, see [Monitor and Manage Data Factory using PowerShell Cmdlets][monitor-manage-using-powershell].
+In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about using cmdlets for monitoring, see [Monitor and Manage Data Factory using PowerShell Cmdlets][monitor-manage-using-powershell].
 
-1. Navigate to [Azure Classic Portal (Preview)][azure-portal] if you don't have it open. 
+1. Navigate to [Azure Portal (Preview)][azure-portal] if you don't have it open. 
 2. If the blade for **ADFTutorialDataFactory** is not open, open it by clicking **ADFTutorialDataFactory** on the **Startboard**. 
 3. You should see the count and names of tables and pipeline you created on this blade.
 
@@ -397,7 +397,6 @@ See [Data Movement Activities](data-factory-data-movement-activities.md) article
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md

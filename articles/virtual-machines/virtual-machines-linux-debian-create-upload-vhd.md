@@ -14,9 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="szark"/>
-
 
 
 
@@ -28,8 +27,9 @@ This section assumes that you have already installed a Debian Linux operating sy
 
 ## Installation notes
 
+- Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 - The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the **convert-vhd** cmdlet.
-- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. LVM or RAID may be used on data disks if preferred.
+- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](virtual-machines-linux-configure-lvm.md) or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 - Do not configure a swap partition on the OS disk. The Azure Linux agent can be configured to create a swap file on the temporary resource disk. More information about this can be found in the steps below.
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
@@ -66,9 +66,9 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
         # sudo update-grub
 
-6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 6 or 7:
+6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 7 or 8:
 
-	**Debian 6.x "Wheezy"**
+	**Debian 7.x "Wheezy"**
 
 		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
 		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
@@ -76,7 +76,7 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
 
-	**Debian 7.x "Jessie"**
+	**Debian 8.x "Jessie"**
 
 		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
 		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main

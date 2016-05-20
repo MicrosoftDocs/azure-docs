@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Kindling, you need the following items:
 
 - An Azure AD subscription
-- A Kindling single-sign on enabled subscription
+- A Kindling subscription
 
 
 > [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
@@ -93,7 +93,7 @@ To configure and test Azure AD single sign-on with Kindling, you need to complet
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Kindling application. As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-To configure single sign-on for Kindling, you need a registered domain. If you don't have a registered domain yet, contact your Kindling support team via [support@flatterfiles.com](mailto:support@flatterfiles.com).  
+To configure single sign-on for Kindling, you need a registered domain. If you don't have a registered domain yet, contact your Kindling support team via [support@kindlingapp.com](mailto:support@kindlingapp.com).  
 
 
 
@@ -109,11 +109,15 @@ To configure single sign-on for Kindling, you need a registered domain. If you d
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Kindling application (e.g.: *https://fabrikam.Kindling.com/*).
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Kindling application (e.g.: *https://\<company name\>.kindlingapp.com/*).
 
-    b. Contact yout Kindling support team to get the **Issuer** and the **Reply URL** value.   
+    b. Contact yout Kindling support team via [support@kindlingapp.com](mailto:support@kindlingapp.com) to get the **Issuer** and the **Reply URL** value.   
+
+    c. In the **Issuer** textbox, type your Issuer URL.
+
+    d. In the **Reply URL** textbox, type your Reply URL.   
  
-    c. Click **Next**.
+    e. Click **Next**.
  
  
 4. On the **Configure single sign-on at Kindling** page, perform the following steps:

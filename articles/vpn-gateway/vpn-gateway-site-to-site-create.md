@@ -14,28 +14,33 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/16/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
-# Create a virtual network with a site-to-site VPN connection using the Azure classic portal
+# Create a virtual network with a Site-to-Site VPN connection using the Azure classic portal
 
 > [AZURE.SELECTOR]
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network. Site-to-site connections can be used for cross-premises and hybrid configurations. This article applies to the classic deployment model and uses the Azure classic portal.
+
+This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network. Site-to-site connections can be used for cross-premises and hybrid configurations. This article applies to the classic deployment model and uses the Azure classic portal. 
+
 
 **About Azure deployment models**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+## Connection diagram
  
 ![Site-to-Site diagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
 **Deployment models and tools for Site-to-Site connections**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
- 
-If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection for the classic deployment model](virtual-networks-configure-vnet-to-vnet-connection.md) or [Configure a VNet-to-VNet connection for the Resource Manager deployment model](vpn-gateway-vnet-vnet-rm-ps.md).
+
+If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection for the classic deployment model](virtual-networks-configure-vnet-to-vnet-connection.md). If you are looking for a different type of connection configuration, see the [VPN Gateway connection topologies](vpn-gateway-topology.md) article.
 
  
 ## Before you begin

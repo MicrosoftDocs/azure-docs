@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite overview | Microsoft Azure"
-	description="This provides an overview of Azure IoT Suite including packaging and the preconfigured solutions."
+	description="Overview of how Azure IoT Suite delivers internet of things preconfigured solutions to collect, analyze, and store data, provide visualizations, and integrate with other systems."
 	services=""
     suite="iot-suite"
 	documentationCenter=""
@@ -17,9 +17,9 @@
      ms.date="02/19/2016"
      ms.author="dobett"/>
 
-# Overview of Azure IoT Suite
+# What is Azure IoT Suite?
 
-The Azure IoT services offer a broad range of capabilities. These enterprise grade services enable you to:
+The Azure internet of things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
 
 - Collect data from devices
 - Analyze data streams in-motion

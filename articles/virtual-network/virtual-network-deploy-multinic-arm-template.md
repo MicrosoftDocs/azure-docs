@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Deploy multi NIC VMs using a template in Resource Manager | Microsoft Azure"
    description="Learn how to deploy multi NIC VMs using a template in Resource Manager"
    services="virtual-network"
@@ -37,7 +37,7 @@ Before you can deploy the back end servers, you need to deploy the main resource
 2. In the template page, to the right of **Parent resource group**, click **Deploy to Azure**.
 3. If needed, change the parameter values, then follow the steps in the Azure preview portal to deploy the resource group.
 
-> [AZURE.IMPORTANT] Make sure your storage account names are unique. You cannot have duplicate storage account names in Azure. 
+> [AZURE.IMPORTANT] Make sure your storage account names are unique. You cannot have duplicate storage account names in Azure.
 
 ## Understand the deployment template
 
@@ -229,20 +229,20 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'
 
 	Expected output:
 
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
-		Resources         : 
+
+		Resources         :
 		                    Name                 Type                                 Location
 		                    ===================  ===================================  ========
 		                    ASDB                 Microsoft.Compute/availabilitySets   westus  
@@ -253,14 +253,14 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 		                    NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
 		                    NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
 		                    wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
-		                    
+
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
 ## Deploy the template by using the Azure CLI
 
 To deploy the template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
 		azure config mode arm

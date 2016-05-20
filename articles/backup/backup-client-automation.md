@@ -592,5 +592,5 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Next steps
 For more information about Azure Backup for Windows Server/Client see
 
-- [Introduction to Azure Backup](backup-configure-vault.md)
-- [Back up Windows Servers](backup-azure-backup-windows-server.md)
+- [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+- [Back up Windows Servers](backup-configure-vault.md)

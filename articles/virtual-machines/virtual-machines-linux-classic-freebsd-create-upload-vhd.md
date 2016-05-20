@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="04/12/2016"
    ms.author="kyliel"/>
 
 # Create and Upload a FreeBSD VHD to Azure
@@ -81,7 +81,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
 6. **Install Azure Agent**
 
-    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). Version 2.0.10 and later officially supports FreeBSD 10 and later releases. The latest Azure Agent version for FreeBSD is 2.0.16.
+    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). Version 2.0.10 and later officially supports FreeBSD 10 and later releases. The latest Azure Agent version for FreeBSD is 2.1.4.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
@@ -180,7 +180,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
    For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
 
-   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell.md).
+   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](../powershell-install-configure.md).
 
 ## Step 4: Upload the .vhd file ##
 

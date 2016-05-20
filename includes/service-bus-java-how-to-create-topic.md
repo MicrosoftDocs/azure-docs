@@ -28,11 +28,11 @@ applications.
 ## Create a service namespace
 
 To begin using Service Bus topics and subscriptions in Azure,
-you must first create a service namespace. A service namespace provides
+you must first create a service namespace. A namespace provides
 a scoping container for addressing Service Bus resources within your
 application.
 
-To create a service namespace:
+To create a namespace:
 
 1.  Log on to the [Azure classic portal][].
 

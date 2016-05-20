@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -39,7 +39,7 @@ The following script action can be used to install Hue on a Linux-based HDInsigh
     
 This section provides instructions about how to use the script when provisioning the cluster using the Azure Portal. 
 
-> [AZURE.NOTE] Azure PowerShell, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 

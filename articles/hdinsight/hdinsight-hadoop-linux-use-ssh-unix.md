@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 - [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) allows you to remotely perform operations on your Liux-based HDInsight clusters using a command-line interface. This document provides information on using SSH with HDInsight from Linux, Unix, or OS X clients.
+[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) allows you to remotely perform operations on your Linux-based HDInsight clusters using a command-line interface. This document provides information on using SSH with HDInsight from Linux, Unix, or OS X clients.
 
 > [AZURE.NOTE] The steps in this article assume you are using a Linux, Unix, or OS X client. While these steps may be performed on a Windows-based client if you have installed a package that provides `ssh` and `ssh-keygen` (such as Git for Windows,) we recommend that Windows-based clients follow the steps in [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -35,7 +35,9 @@
 
 OR
 
-* [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
+* [Azure CLI](../xplat-cli-install.md).
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ##What is SSH?
 

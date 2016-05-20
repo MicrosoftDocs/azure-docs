@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Using Windows PowerShell scripts to publish to dev and test environments
@@ -37,7 +37,7 @@ Additional tools and resources for working with PowerShell in Visual Studio for 
 
 ## Generating the publish scripts
 
-You can generate the publish scripts for a virtual machine that hosts your website when you create a new project by following [these instructions](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). You can also [generate publish scripts for web apps in Azure App Service](/app-service-web/web-sites-dotnet-get-started.md).
+You can generate the publish scripts for a virtual machine that hosts your website when you create a new project by following [these instructions](./virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). You can also [generate publish scripts for web apps in Azure App Service](./app-service-web/web-sites-dotnet-get-started.md).
 
 ## Scripts that Visual Studio generates
 
@@ -149,7 +149,7 @@ When you create a virtual machine, the JSON configuration file looks similar to 
 
 You can edit the JSON configuration to change what happens when you run the publish scripts. The `cloudService` and `virtualMachine` sections are required, but you can delete the `databases` section if you don't need it. The properties that are empty in the default configuration file that Visual Studio generates are optional; those that have values in the default configuration file are required.
 
-If you have a website that has multiple deployment environments (known as slots) instead of a single production site in Azure, you can include the slot name in the name of the website in the JSON configuration file. For example, if you have a website that's named **mysite** and a slot for it named **test** then the URI is mysite-test.cloudapp.net, but the correct name to use in the configuration file is mysite(test). You can only do this if the website and slots already exist in your subscription. If they don't exist, create the website by running the script without specifying the slot, then create the slot in the Azure management portal, and thereafter run the script with the modified website name. For more information about deployment slots for web apps, see [Set up staging environments for web apps in Azure App Service](/app-service-web/web-sites-staged-publishing.md).
+If you have a website that has multiple deployment environments (known as slots) instead of a single production site in Azure, you can include the slot name in the name of the website in the JSON configuration file. For example, if you have a website that's named **mysite** and a slot for it named **test** then the URI is mysite-test.cloudapp.net, but the correct name to use in the configuration file is mysite(test). You can only do this if the website and slots already exist in your subscription. If they don't exist, create the website by running the script without specifying the slot, then create the slot in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and thereafter run the script with the modified website name. For more information about deployment slots for web apps, see [Set up staging environments for web apps in Azure App Service](./app-service-web/web-sites-staged-publishing.md).
 
 ## How to run the publish scripts
 

@@ -3,7 +3,7 @@
 	description="Describes how to redeploy Virtual Machines to mitigate RDP connection issues." 
 	services="virtual-machines-windows" 
 	documentationCenter="virtual-machines" 
-	authors="dsk-2015" 
+	authors="iainfoulds" 
 	manager="timlt"
 	tags="azure-resource-manager,top-support-issue" 
 />
@@ -12,11 +12,11 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
-	ms.date="03/02/2016" 
-	ms.author="dkshir;manavis" 
+	ms.date="04/13/2016" 
+	ms.author="iainfou;manavis" 
 />
 
 

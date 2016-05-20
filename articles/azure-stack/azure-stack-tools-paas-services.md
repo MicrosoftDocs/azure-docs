@@ -23,9 +23,9 @@ Azure Stack enables deploying Platform as a Service (PaaS) services from Microso
 ## Additional PaaS services
 In Technical Preview 1, three PaaS resource providers are now available.
 
-[Add a SQL Server resource provider to Azure Stack](azure-stack-sqlrp-deploy.md)
+[Add a SQL Server resource provider to Azure Stack](azure-stack-sql-rp-deploy-short.md)
 
-[Add a MySQL resource provider to Azure Stack](azure-stack-mysqlrp-deploy.md)
+[Add a MySQL resource provider to Azure Stack](azure-stack-mysql-rp-deploy-short.md)
 
 [Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
 

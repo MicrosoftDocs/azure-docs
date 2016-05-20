@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Using linked templates with Azure Resource Manager"
+   pageTitle="Linked templates with Azure Resource Manager | Microsoft Azure"
    description="Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Using linked templates with Azure Resource Manager
@@ -120,5 +120,5 @@ If you need to pass a value from linked template to the main template, you can c
 [Sharing State in Azure Resource Manager Templates](best-practices-resource-manager-state.md).
 
 ## Next steps
-- [Authoring templates](./resource-group-authoring-templates.md)
-- [Deploying templates](resource-group-template-deploy.md)
+- To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md)
+- To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)

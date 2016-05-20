@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/16/2016"
 	ms.author="billmath"/>
 
 #How Azure Multi-Factor Authentication works
@@ -34,7 +34,7 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 
 For additional information oh how it works see the following video.
 
-[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+>[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ##Methods available for multi-factor authentication
 When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification. 
@@ -66,7 +66,7 @@ Mobile app as a second factor|* | * | *
 Phone call as a second factor|* | * | *
 SMS as a second factor|* | * | *
 App passwords for clients that don't support MFA|* | * | *
-Admin control over authentication methods| | | *
+Admin control over authentication methods| *| *| *
 PIN mode| | | *
 Fraud alert| | | *
 MFA Reports| | | *

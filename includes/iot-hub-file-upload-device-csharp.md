@@ -69,8 +69,8 @@ In this section, you'll modify the simulated device application you created in [
 > [AZURE.NOTE] Note how this implementation of the simulated device completes the cloud-to-device message only after the blob has been uploaded. This approach simplifies the processing of the uploaded files in the back end because the delivery acknowledgment represents the availability of the uploaded file for processing. As explained in the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D], however, a message that is not completed before the *visibility timeout* (usually 1 minute) is put back in the device queue, and the **ReceiveAsync()** method will receive it again. For scenarios where the file upload can take longer, it might be preferable for the simulated device to keep a durable store of current upload jobs. This allows the simulated device to complete the cloud-to-device message before the file upload is complete, and then send a device-to-cloud message notifying the back end of completion.
 
 <!-- Links -->
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Azure Storage - How to use blobs]: ../storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
+[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
+[Azure Storage - How to use blobs]: ../articles/storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
 
 <!-- Images -->
 

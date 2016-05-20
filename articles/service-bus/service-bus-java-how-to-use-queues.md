@@ -13,17 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This article describes how to use Service Bus queues. The samples are
-written in Java and use the [Azure SDK for Java][]. The
-scenarios covered include **creating queues**, **sending and receiving
-messages**, and **deleting queues**.
+This article describes how to use Service Bus queues. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 

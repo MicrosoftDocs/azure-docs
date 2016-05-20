@@ -79,12 +79,12 @@ Some points to consider:
 
 ### Set up alerts automatically
 
-[Use PowerShell to create new alerts](app-insights-alerts/#set-alerts-by-using-powershell)
+[Use PowerShell to create new alerts](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Use PowerShell to Manage Application Insights
 
 * [Create new resources](app-insights-powershell-script-create-resource.md)
-* [Create new alerts](app-insights-alerts/#set-alerts-by-using-powershell)
+* [Create new alerts](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Application versions and stamps
 

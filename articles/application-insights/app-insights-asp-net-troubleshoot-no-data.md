@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
  
 # Troubleshooting no data - Application Insights for .NET
@@ -167,6 +167,12 @@ The data comes from scripts in the web pages.
 ## No dependency or exception data
 
 See [dependency telemetry](app-insights-asp-net-dependencies.md) and [exception telemetry](app-insights-asp-net-exceptions.md).
+
+## No performance data
+
+Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). you'll find it under Settings, Servers.
+
+It isn't available for Azure websites.
 
 ## No (server) data since I published the app to my server
 

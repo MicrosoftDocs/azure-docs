@@ -46,7 +46,7 @@ This article shows how to create a virtual machine based on a Microsoft-provided
 
 	c. Do not add any endpoints at this time.
 
-9.	Choose or create a resource group. For more information, see [Using the Azure portal to manage your Azure resources](../resource-group-portal.md).
+9.	Choose or create a resource group. For more information, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
 10. Choose a **Subscription**.
 
@@ -58,7 +58,7 @@ This article shows how to create a virtual machine based on a Microsoft-provided
 Follow the instructions in [Create an Oracle Database 12c virtual machine in Azure](virtual-machines-windows-classic-create-oracle-database.md), beginning with the **To create your database using the Oracle Database 12c virtual machine in Azure** section.
 
 ##To configure your Oracle WebLogic Server 12c hosted in this virtual machine
-Follow the instructions in [Create an Oracle WebLogic Server 12c virtual machine in Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md), beginning with the **To configure your Oracle WebLogic Server 12c virtual machine in Azure** section. 
+Follow the instructions in [Create an Oracle WebLogic Server 12c virtual machine in Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md), beginning with the **To configure your Oracle WebLogic Server 12c virtual machine in Azure** section.
 
 ##Additional resources
 [Miscellaneous considerations for Oracle virtual machine images](virtual-machines-windows-classic-oracle-considerations.md)

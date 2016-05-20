@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -263,7 +263,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 
 	
 
-12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure Classic Portal. 
+12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure Portal. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -386,7 +386,6 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  
