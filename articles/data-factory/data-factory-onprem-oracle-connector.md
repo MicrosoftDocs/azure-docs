@@ -488,7 +488,7 @@ You see the following **error message**: Copy activity met invalid parameters: '
 
 **Resolution/Workaround**
 
-1. If you haven't installed the .NET Provider for Oracle, please [install it]((http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)) and retry the scenario. 
+1. If you haven't installed the .NET Provider for Oracle, please [install it]((http://www.oracle.com/technetwork/topics/dotnet/downloads/)) and retry the scenario. 
 2. If you get the error message even after installing the provider, do the following: 
 	1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
 	2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry like below under **system.data** -> **DbProviderFactories**:
