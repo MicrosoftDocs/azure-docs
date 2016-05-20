@@ -1,3 +1,21 @@
+<properties
+	pageTitle="ARM based PowerShell commands for Azure Web App"
+	description="Learn how to use the new ARM based PowerShell commands for Azure Web Apps."
+	services="app-service\web"
+	documentationCenter=""
+	authors="ahmedelnably"
+	manager="stefsch"
+	editor=""/>
+
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/18/2016"
+	ms.author="ahmedelnably"/>
+
 # Azure Web App ARM PowerShell#
 
 With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use ARM based PowerShell commands to manage Web Apps.
