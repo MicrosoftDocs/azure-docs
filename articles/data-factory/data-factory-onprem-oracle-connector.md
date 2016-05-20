@@ -170,7 +170,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	    "description":"pipeline for copy activity",
 	    "activities":[  
 	      {
-	        "name": "AzureSQLtoBlob",
+	        "name": "OracletoBlob",
 	        "description": "copy activity",
 	        "type": "Copy",
 	        "inputs": [
@@ -323,7 +323,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 
 **Oracle output dataset:**
 
-The sample assumes you have created a table “MyTable” in Oracle and it contains a column called “timestampcolumn” for time series data. 
+The sample assumes you have created a table “MyTable” in Oracle. You should create the table in Oracle with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
 	{
 	    "name": "OracleOutput",
@@ -354,7 +354,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	    "description":"pipeline with copy activity",
 	    "activities":[  
 	      {
-	        "name": "AzureBlobtoSQL",
+	        "name": "AzureBlobtoOracle",
 	        "description": "Copy Activity",
 	        "type": "Copy",
 	        "inputs": [
@@ -369,8 +369,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
+	            "type": "BlobSource"
 	          },
 	          "sink": {
 	            "type": "OracleSink"
@@ -411,7 +410,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 Property | Description | Required
 -------- | ----------- | --------
-tableName | Name of the table in the Oracle Database that the linked service refers to. | No (if **oracleReaderQuery** of **SqlSource** is specified)
+tableName | Name of the table in the Oracle Database that the linked service refers to. | No (if **oracleReaderQuery** of **OracleSource** is specified)
 
 ## Oracle copy activity type properties
 
@@ -429,7 +428,7 @@ Property | Description |Allowed values | Required
 oracleReaderQuery | Use the custom query to read data. | SQL query string. For example: select * from MyTable <br/><br/>If not specified, the SQL statement that is executed: select * from MyTable | No (if **tableName** of **dataset** is specified)
 
 ### OracleSink
-**SqlSink** supports the following properties:
+**OracleSink** supports the following properties:
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
