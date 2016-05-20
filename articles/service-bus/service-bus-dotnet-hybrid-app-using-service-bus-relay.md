@@ -299,6 +299,15 @@ This project is a Visual Studio console application, and uses the [Azure Service
       </behaviors>
     </system.serviceModel>
     ```
+14. Still in App.config, in the **&lt;appSettings&gt;** element, replace the connection string value with the connection string you previously obtained from the portal. 
+
+```
+<appSettings>
+   <!-- Service Bus specific app setings for messaging connections -->
+   <add key="Microsoft.ServiceBus.ConnectionString"
+       value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
+</appSettings>
+````
 
 14. Press **Ctrl+Shift+B** or from the **Build** menu, click **Build Solution** to build the application and verify the accuracy of your work so far.
 
