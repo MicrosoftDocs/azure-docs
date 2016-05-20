@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/20/2016"
    ms.author="terrylan"/>
 
 # Azure Security Best Practices and Patterns
@@ -37,6 +37,6 @@ We currently have the following Azure security best practices and patterns artic
 - [Azure Network Security Best Practices](../azure-security-network-security-best-practices.md)
 - [Azure Data Security and Encryption Best Practices](azure-security-data-encryption-best-practices.md)
 - [Identity Management and Access Control Security Best Practices](azure-security-identity-management-best-practices.md)
-- Internet of Things Security Best Practices
+- [Internet of Things Security Best Practices](azure-security-iot-best-practices.md)
 - [Best practices for software update on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
-- Azure Boundary Security Best Practices
+- [Azure Boundary Security Best Practices](../articles/best-practices-network-security.md)
