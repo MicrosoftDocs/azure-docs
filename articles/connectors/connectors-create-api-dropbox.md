@@ -57,7 +57,7 @@ All connectors support data in JSON and XML formats.
 
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Dropbox.
 
->[AZURE.INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-dropbox.md)
+>[AZURE.INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
 
 After you create the connection, you enter the Dropbox properties, like the folder path or file name. The **REST API reference** in this topic describes these properties.
 
