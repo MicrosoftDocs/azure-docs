@@ -203,6 +203,14 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
 
+### Version 4.4
+
+- The storage emulator's garbage collection of blob data is now more efficient when dealing with large numbers of blobs.
+
+- Fixed a bug that caused container ACL XML to be validated slightly differently from how the storage service does it.
+
+- Fixed a bug that sometimes caused max and min DateTime values to be reported in the incorrect time zone.
+
 ### Version 4.3
 
 - The storage emulator now supports version 2015-07-08 of the storage services on Blob, Queue, and Table service endpoints.
@@ -224,12 +232,15 @@ There are no differences specific to Queue storage in the emulator.
 - The storage emulator executable has been renamed to *AzureStorageEmulator.exe*.
 
 ### Version 3.2
+
 - The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints. Note that File service endpoints are not currently supported in the storage emulator. See [Versioning for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) for details about version 2014-02-14.
 
 ### Version 3.1
+
 - Read-access geo-redundant storage (RA-GRS) is now supported in the storage emulator. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats APIs are supported for the account secondary and will always return the value of the LastSyncTime response element as the current time according to the underlying SQL database. For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the Microsoft Azure Storage Client Library for .NET Reference for details.
 
 ### Version 3.0
+
 - The Azure storage emulator is no longer shipped in the same package as the compute emulator.
 
 - The storage emulator graphical user interface is deprecated in favor of a scriptable command line interface. For details on the command line interface, see Storage Emulator Command-Line Tool Reference. The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.
