@@ -19,9 +19,13 @@
 
 ## Overview
 
-You may need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. In general, we recommend that you install updates through the Azure classic portal. However, in instances where the portal is not available, you can use the local web UI to apply hotfixes or updates. This tutorial describes how to use the Azure classic portal or the local web UI to apply an update or hotfix.
+This article describes the steps required to install Update 0.1 on your StorSimple Virtual Array. It describes the update procedures via the Azure classic portal and via the local web UI.
 
-Keep in mind that an update or hotfix installation could restart your device. Given that the StorSimple Virtual Array is a single node device, any IO that were in progress will be disrupted and your device will have some downtime. We also recommend that prior to applying an update, take the volumes or shares offline on the host first and then the device. This will minimize any possibility of data corruption.
+Typically, you need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. In general, we recommend that you install updates through the Azure classic portal. However, in instances where the portal is not available, you can use the local web UI to apply hotfixes or updates. 
+
+Keep in mind that an update or hotfix installation could restart your device. Given that the StorSimple Virtual Array is a single node device, any IO in progress are disrupted and your device experiences downtime. 
+
+Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This will minimize any possibility of data corruption.
 
 ## Use the Azure classic portal
 
@@ -39,7 +43,7 @@ We recommend that you install updates through the Azure classic portal. The port
 
 4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device will restart after it is updated. This will disrupt any IO in progress. Click the check icon to launch a job to download the available updates. You will be notified after the updates are downloaded.
 
-	![Download updates](./media/storsimple-ova-install-update-01/aupdate1m.png)
+	![Download updates](./media/storsimple-ova-install-update-01/aupdate5m.png)
 
 5. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog will be presented to you again. Click the check icon to start a job to install the updates. You will be notified after the job is created. 
 
@@ -105,7 +109,9 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
     ![update device](./media/storsimple-ova-install-update-01/update6m.png)
 
-4. After the restart is complete, you will be taken to the sign in page. You can then verify the software version. Go to **Maintenance** > **Software Update**. The build number should be **10.0.0.0.10279**.
+4. After the restart is complete, you will be taken to the sign in page. You can then verify the software version. Go to **Maintenance** > **Software Update**. The build number should be **10.0.0.0.10279**. 
+
+	> [AZURE.NOTE] We report the software versions in a slightly different way in the local web UI and the Azure classic portal. The local web UI reports **10.0.0.0.10279** and the Azure classic portal reports **10.0.10279.0** for the same version. 
 
 	![update device](./media/storsimple-ova-install-update-01/update9m.png)
 

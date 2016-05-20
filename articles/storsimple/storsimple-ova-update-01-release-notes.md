@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/19/2016"
+   ms.date="05/20/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array release notes
@@ -30,9 +30,8 @@ Virtual Array 0.1 is a bug-fix only release. The main categories of bugs fixes i
 - Resiliency around cloud outages: This release has several bug fixes around scenarios when there is a cloud connectivity disruption.
 - Improving the accuracy of jobs status (percentage completion) in the portal: In earlier versions, job status in the portal was not granular. This release 
 - Reliability improvements: This release has several reliability improvements.
-- Updated VHDs and VMDKs available from the portal: The Azure classic portal will be pointing to new VHDs and VMDKs and you can provision Update 0.1 devices using these images.
+- Updated VHDs and VMDKs available from the portal: The Azure classic portal will point to the new VHDs and VMDKs that you can download to provision Update 0.1 devices.
 
-Note if you download the VHD and VMDK from the portal, those will now be pointing to Update 0.1 
 
 ## Issues fixed in Update 0.1
 
