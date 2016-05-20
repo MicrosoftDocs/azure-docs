@@ -92,7 +92,7 @@ VPN Gateways, also called Azure Virtual Network Gateways, are used to send netwo
 
 Learn more:
 
-- [About VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) - learn more about the items that relate to a VPN gateway
+- [About VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 - [Azure Network Security Overview](security-network-overview.md)
 
 ## Privileged Identity Management
