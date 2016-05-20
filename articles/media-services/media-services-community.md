@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/19/2016"   
+	ms.date="05/20/2016"   
 	ms.author="juliako"/>
 
 # Azure Media Services Community  
@@ -34,15 +34,18 @@ Episode|Speaker|Date
 
 ###Twitter
 
-Follow for news and updates from the team and community on the **#mediaservices** hashtag.
+Use the @MSFTAzureMedia twitter handle to follow the AMS news and updates on Twitter. 
+You can use the @AzureSupport twitter handle to request support on Twitter.  
  
 ### Online forums
  
+Currently, MSDN is AMS primary forum.
+
+[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices)
-
-##Provide feedback
+##Give us feature requests and vote on feature prioritization
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -50,5 +53,6 @@ Follow for news and updates from the team and community on the **#mediaservices*
 
 Feature|Email
 ---|---
-Workflow Designer| mepd@microsoft.com
-Media Encoder Premium Workflow|mepd@microsoft.com
+Azure Media Analytics|amsanalytics@microsfot.com
+Azure Media Explorer|amse@microsoft.com
+Workflow Designer|mepd@microsoft.com
