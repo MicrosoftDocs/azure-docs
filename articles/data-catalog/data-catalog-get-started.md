@@ -161,7 +161,7 @@ For this example, you will use a keyword search. **Azure Data Catalog** search h
 In this example, you do a **Grouping** search for data assets where name equals product and tags equal illustration or tags equal photo.
 
 1. Go to https://azure.microsoft.com/services/data-catalog, click **Get started**, and log into the **Azure Data Catalog** portal.
-2. In the **Search Data Catalog** box, enter a **Grouping** as: query: (tags:description OR tags:photo).
+2. In the **Search Data Catalog** box, enter a **Grouping** query: (**tags:description OR tags:photo**).
 3. Click the search icon, or press Enter. **Azure Data Catalog** will display data assets for this search query.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
