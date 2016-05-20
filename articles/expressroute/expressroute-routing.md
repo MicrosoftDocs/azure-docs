@@ -116,7 +116,7 @@ Refer to the [ExpressRoute partners and peering locations](expressroute-location
 
 You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result,  you may experience sub-optimal connectivity experiences to different services. 
 
-Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.
+Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to customers](expressroute-optimize-routing.md).
 
 | **Geopolitical Region** | **Microsoft Azure region** | **BGP community value** |
 |---|---|---|
@@ -163,10 +163,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | **CRM Online** | 12076:5040 |
 | **Other Office 365 Services** | 12076:5100 |
 
-
-### Manipulating routing preferences
-
-Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the AS-PATH on route advertisements to influence traffic flow from Microsoft into your network.
+>[AZURE.NOTE] Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
 ## Next steps
 
