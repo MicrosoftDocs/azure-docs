@@ -42,7 +42,19 @@ To use Automated Patching, consider the following prerequisites:
 
 >[AZURE.NOTE] Automated Patching relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
-## Configure Automated Patching in the Azure portal
+## Settings
+
+The following table describes the options that can be configured for Automated Patching. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
+
+|Setting|Possible values|Description|
+|---|---|---|
+|**Automated Patching**|Enable/Disable (Disabled)|Enables or disables Automated Patching for an Azure virtual machine.|
+|**Maintenance schedule**|Everyday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday|The schedule for downloading and installing Windows, SQL Server, and Microsoft updates for your virtual machine.|
+|**Maintenance start hour**|0-24|The local start time to update the virtual machine.|
+|**Maintenance window duration**|30-180|The number of minutes permitted to complete the download and installation of updates.|
+|**Patch Category**|Important|The category of updates to download and install.|
+
+## Configuration in the Portal
 
 You can use the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) to configure Automated Patching when you create a new SQL Server Virtual Machine in the Resource Manager deployment model.
 
@@ -56,7 +68,7 @@ For existing SQL Server virtual machines, you must use PowerShell to configure t
 
 >[AZURE.NOTE] When you enable Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
 
-## Configure Automated Patching with PowerShell
+## Configuration with PowerShell
 
 After provisioning your SQL VM, use PowerShell to configure Automated Patching.
 

@@ -45,7 +45,7 @@ To use Automated Backup, consider the following prerequisites:
 
 >[AZURE.NOTE] Automated Backup relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-## Automated Backup settings
+## Settings
 
 The following table describes the options that can be configured for Automated Backup. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
 
@@ -57,7 +57,7 @@ The following table describes the options that can be configured for Automated B
 |**Encryption**|Enable/Disable (Disabled)|Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same automaticbackup container using the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups.|
 |**Password**|Password text (None)|A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken.|
 
-## Configure Automated Backup in the Azure portal
+## Configuration in the Portal
 
 You can use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the classic deployment model.
 
@@ -71,7 +71,7 @@ For existing SQL Server 2014 virtual machines, select the **Auto backup** settin
 
 >[AZURE.NOTE] When you enable Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
 
-## Configure Automated Backup with PowerShell
+## Configuration with PowerShell
 
 In the following PowerShell example, Automated Backup is configured for an existing SQL Server 2014 VM. The **New-AzureVMSqlServerAutoBackupConfig** command configures the Automated Backup settings to store backups in the Azure storage account specified by the $storageaccount variable. These backups will be retained for 10 days. The **Set-AzureVMSqlServerExtension** command updates the specified Azure VM with these settings.
 

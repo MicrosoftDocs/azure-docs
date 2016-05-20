@@ -59,6 +59,8 @@ If you create an OS-only Windows Server virtual machine, you can install the ext
 
 	Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2"
 
+If you update to the latest version of the SQL IaaS Agent Extension, you must restart your virtual machine after updating the extension.
+
 ## Status
 
 One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select **All settings** in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSExtension** extension listed.

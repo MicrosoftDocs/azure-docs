@@ -59,6 +59,8 @@ The SQL Server IaaS Agent Extension is automatically installed when you provisio
 
 If you create an OS-only Windows Server virtual machine, you can install the extension manually by using the **Set-AzureVMSqlServerExtension** PowerShell cmdlet. Use the command to configure one of the agent's services, such as Automated Patching. The VM installs the agent if it is not installed. For instructions on using the **Set-AzureVMSqlServerExtension** PowerShell, see the individual topics in the [Supported services](#supported-services) section of this article.
 
+If you update to the latest version of the SQL IaaS Agent Extension, you must restart your virtual machine after updating the extension. 
+
 >[AZURE.NOTE] If you install the SQL Server IaaS Agent Extension manually on a VM, you must use and manage its features using PowerShell commands. The portal interface is not available in this scenario.
 
 ## Status
