@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/03/2016"
+   ms.date="05/19/2016"
    ms.author="tomsh"/>
 
 # Encrypt an Azure Virtual Machine
