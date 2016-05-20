@@ -78,7 +78,7 @@ The following is a screen shot of the start page of the completed web applicatio
 
 ## Set up the development environment
 
-Before you can begin developing your Azure application, get the tools and set up your development environment.
+Before you can begin developing Azure applications, get the tools and set up your development environment.
 
 1.  Install the Azure SDK for .NET at [Get Tools and SDK][].
 
@@ -135,7 +135,7 @@ In order to perform management operations on the new namespace, such as creating
 
 	![][45]
 
-4.  Make a note of the connection string, or copy them to the clipboard to use later in this tutorial.
+4.  Make a note of the connection string, or copy it to the clipboard to use later in this tutorial.
 
 5. In the same portal page, click the **Configure** tab at the top of the page.
 
@@ -301,13 +301,13 @@ This project is a Visual Studio console application, and uses the [Azure Service
     ```
 14. Still in App.config, in the **&lt;appSettings&gt;** element, replace the connection string value with the connection string you previously obtained from the portal. 
 
-```
-<appSettings>
-   <!-- Service Bus specific app setings for messaging connections -->
-   <add key="Microsoft.ServiceBus.ConnectionString"
-       value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
-</appSettings>
-````
+	```
+	<appSettings>
+   	<!-- Service Bus specific app setings for messaging connections -->
+   	<add key="Microsoft.ServiceBus.ConnectionString"
+	       value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
+	</appSettings>
+	```
 
 14. Press **Ctrl+Shift+B** or from the **Build** menu, click **Build Solution** to build the application and verify the accuracy of your work so far.
 
@@ -326,11 +326,13 @@ In this section you will build a simple ASP.NET application that displays data r
 
     ![][15]
 
-4.  From the **Select a template** list, click **MVC**. Check the box for **Host in the cloud**, then click **OK**.
+4.  From the **Select a template** list, click **MVC**. 
+
+6.  Check the box for **Host in the cloud**.
 
     ![][16]
 
-5. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
+5. Click the **Change Authentication** button. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
 
 	![][18]
 
@@ -449,7 +451,7 @@ Run the application to verify that it works.
 
 ## Deploy the ProductsPortal project to the Azure web app
 
-To deploy the ProductsPortal web project, follow all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Then, return to this tutorial and proceed to the next step. Copy the URL of the deployed web app, as you will need that later in the tutorial.
+To deploy the ProductsPortal web project, follow all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Copy the URL of the deployed web app, as you will need the URL later in the tutorial. Then, return to this tutorial and proceed to the next step. 
 
 ## Put the pieces together
 
@@ -550,7 +552,7 @@ Before running the application, you must ensure that **ProductsPortal** is launc
 
 3. Back in the browser, press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
-	![38]
+	![][38]
 
 ## Next steps  
 
