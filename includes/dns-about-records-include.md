@@ -4,7 +4,7 @@ Each DNS record has a name and a type. Records are organized into various types 
 
 Azure DNS supports all common DNS record types, including A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT. SOA record sets  are created automatically with each zone. They cannot be created separately. Note that SPF records should be created by using the TXT record type. For more information, see [this page](http://tools.ietf.org/html/rfc7208#section-3.1).
 
-In Azure DNS, records are specified by using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name "www.contoso.com".
+In Azure DNS, records are specified by using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name www.contoso.com.
 
 ## About record sets
 
@@ -15,7 +15,7 @@ Sometimes you need to create more than one DNS record with a given name and type
 
 Azure DNS manages DNS records by using record sets. A record set is the collection of DNS records in a zone that have the same name and are the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record, are not uncommon.
 
-SOA and CNAME record sets are exceptions--the DNS standards don't permit multiple records with the same name for these types.
+SOA and CNAME record sets are exceptions. The DNS standards don't permit multiple records with the same name for these types.
 
 The time-to-live, or TTL, specifies how long each record is cached by clients before being re-queried. In this example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
 
@@ -23,7 +23,7 @@ The time-to-live, or TTL, specifies how long each record is cached by clients be
 
 Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
 
-To create a wildcard record set, use the record set name "\*", or a name with the label "\*", for example, "\*.foo".
+To create a wildcard record set, use the record set name "\*". Or, use a name with the label "\*", for example, "\*.foo".
 
 #### CNAME record sets
 

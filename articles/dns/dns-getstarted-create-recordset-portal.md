@@ -53,7 +53,7 @@ The following example walks you through the process of creating a record set and
 
 6. Set the **TTL**. The default TTL (time-to-live) in the portal is 1 hour.
 
-7. Add the IP addresses, one IP address per line, using the suggested record set name and record type from this example. This adds the IPv4 IP addresses to the **A** record for the www record set.
+7. Add the IP addresses, one IP address per line. Use the suggested record set name and record type from this example. This adds the IPv4 IP addresses to the **A** record for the www record set.
 
 8. After you've finished adding the IP addresses, select **OK** at the bottom of the blade. The DNS record set will be created.
 
