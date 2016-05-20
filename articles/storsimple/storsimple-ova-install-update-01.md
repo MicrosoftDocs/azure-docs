@@ -23,7 +23,7 @@ This article describes the steps required to install Update 0.1 on your StorSimp
 
 Typically, you need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. In general, we recommend that you install updates through the Azure classic portal. However, in instances where the portal is not available, you can use the local web UI to apply hotfixes or updates. 
 
-Keep in mind that an update or hotfix installation could restart your device. Given that the StorSimple Virtual Array is a single node device, any IO in progress are disrupted and your device experiences downtime. 
+Keep in mind that an update or hotfix installation restarts your device. Given that the StorSimple Virtual Array is a single node device, any IO in progress are disrupted and your device experiences downtime. 
 
 Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This will minimize any possibility of data corruption.
 

@@ -19,23 +19,23 @@
 
 ## Overview
 
-The following release notes identify the critical open issues and the issues fixed for the Update 0.1 release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). This release corresponds to software version **10.0.10279.0**.
+The following release notes identify the critical open issues and the resolved issues for the Microsoft Azure StorSimple Virtual Array Update 0.1 release. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) This release corresponds to the software version **10.0.10279.0**.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
 ## What's new in Update 0.1
 
-Update 0.1 contains several bug fixes and improvements as listed below. 
+Update 0.1 contains the following bug fixes and improvements. 
 
-- **Resiliency around cloud outages**: This release has several bug fixes around DR, backup, restore, and tiering in the event of a cloud connectivity disruption. 
+- **Resiliency around cloud outages**: This release has several bug fixes around disaster recovery, backup, restore, and tiering in the event of a cloud connectivity disruption. 
 
-- **Improved restore performance**: This release has bug-fixes that have significantly cut down the completion time of the restore jobs.
+- **Improved restore performance**: This release has bug fixes that have significantly cut down the completion time of the restore jobs.
 
 - **Automated space reclamation optimization**: When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
 
-- **Updated VHDs and VMDKs**: The Azure classic portal will now point to the new VHDs and VMDKs that you can download to provision Update 0.1 devices.
+- **New VHDs and VMDKs**: New VHDs and VMDKs are now available via the Azure classic portal. You can download these images to provision new Update 0.1 devices.
 
-- **Improving the accuracy of jobs status in the portal**: In earlier versions, job status in the portal was not granular. In this release, we a
+- **Improving the accuracy of jobs status in the portal**: In the earlier version of software, job status reporting in the portal was not granular. This issue is resolved in this release.
 
 - **Bug fixes related to domain-joining and renaming** of the device.
 
@@ -46,13 +46,13 @@ The following table provides a summary of issues fixed in this release.
 
 | No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Device renaming and   domain-joining | In the last release, when a   domain-joined device was renamed, it would result in an error such as   "The network path was not found." or "The specified directory   service attribute or value does not exist." The domain-joining and renaming scenario were redesigned in this release and this issue is now resolved.  |
-| 2    | VMDK                                 | In some VMware versions, the OS disk   was seen as sparse causing alerts and disrupting normal operations. This was   fixed in this release.                                                                                                                                                                                    |
-| 3    | iSCSI server                         | In the last release, the user was   required to specify a gateway for each enabled network interface of your StorSimple virtual device.  This behvaior is changed in this release so   that the user has to configure at least one gateway for all the enabled   network interfaces.                                                                              |
-| 4    | Support package                      | In the earlier version of software,   Support package collection failed when package sizes were larger than 1 GB.  This issue is fixed in this release.                                                                                                                                                                               |
-| 5    | Cloud access                         |  In the last   release, if the StorSimple Virtual Array did not have network connectivity   and was restarted, the local UI would have connectivity issues. This problem   is fixed in this release.                                                                                                                            |
-| 6    | Monitoring charts                    | In the previous release, if a   device failover was performed, the cloud capacity utilization charts   displayed incorrect values in the Azure classic portal. This is fixed in the   current release.                                                                                                                          |
-| 7    | Update                               | In the earlier release, the portal continued to indicate that the updates were available even though the   device was updated. In this release, update detection logic has been changed   so as to not incorrectly flag that there are pending updates.                                                                       |
+| 1    | Device renaming and   domain-joining | In the last release, when a   domain-joined device was renamed, it would result in an error such as "The network path was not found." or "The specified directory   service attribute or value does not exist." The domain-joining and renaming scenario were redesigned in this release and this issue is now resolved.  |
+| 2    | VMDK                                 | In some VMware versions, the OS disk was seen as sparse causing alerts and disrupting normal operations. This was fixed in this release.                                                                                                                                                                                    |
+| 3    | iSCSI server                         | In the last release, the user was required to specify a gateway for each enabled network interface of your StorSimple virtual device. This behavior is changed in this release so that the user has to configure at least one gateway for all the enabled network interfaces.                                                                              |
+| 4    | Support package                      | In the earlier version of software, Support package collection failed when the package sizes were larger than 1 GB. This issue is fixed in this release.                                                                                                                                                                               |
+| 5    | Cloud access                         |  In the last release, if the StorSimple Virtual Array did not have network connectivity and was restarted, the local UI would have connectivity issues. This problem is fixed in this release.                                                                                                                            |
+| 6    | Monitoring charts                    | In the previous release, following a device failover, the cloud capacity utilization charts displayed incorrect values in the Azure classic portal. This is fixed in the current release.                                                                                                                          |
+| 7    | Update                               | In the earlier release, the portal continued to indicate that the updates were available even though the device was updated. This issue is resolved in this release by updating the detection logic.                                                                       |
 
 
 ## Known issues in Update 0.1
