@@ -32,7 +32,7 @@ In all of these cases we don’t want to lose our refactoring work, and don’t 
 
 What to do? Well you could try turning on affinity.
 
-## How affinity works
+## How to configure affinity
 In order to set up affinity, you define an affinity relationship between two different services. Generally you can think of this as “pointing” one service at another and saying “This service can only run where that service is running.” Sometimes we refer to these as parent child relationships (where you point the child at the parent). What this does is ensure that the replicas or instances of one service are placed on the same nodes as the replicas or instances of the service to which it is affinitized.
 
 ``` csharp
@@ -63,7 +63,7 @@ The final thing to notice about affinity is that affinity relationships aren’t
 
 ## Next steps
 - For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
-- A lot of reasons where people try to use affinity, such as limiting services to run on a small set of machines, are actually better supported through other mechanisms. Check out [Application Groups](service-fabric-cluster-resource-manage-application-groups.md)
+- A lot of reasons where people try to use affinity, such as limiting services to run on a small set of machines and trying to aggregate the load of a collection of services, are actually better supported through Application Groups. Check out [Application Groups](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
