@@ -135,11 +135,11 @@ In order to perform management operations on the new namespace, such as creating
 
 	![][45]
 
-4.  Make a note of the connection string, or copy it to the clipboard to use later in this tutorial.
+4.  Copy the connection string, and paste it somewhere to use later in this tutorial.
 
 5. In the same portal page, click the **Configure** tab at the top of the page.
 
-6. Make a note of the primary key for the **RootManageSharedAccessKey** policy, or copy it to the clipboard. You will use this value later in this tutorial.
+6. Copy the primary key for the **RootManageSharedAccessKey** policy to the clipboard, or paste it into Notepad. You will use this value later in this tutorial.
 
 	![][46]
 
@@ -303,7 +303,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
 
 	```
 	<appSettings>
-   	<!-- Service Bus specific app setings for messaging connections -->
+   	<!-- Service Bus specific app settings for messaging connections -->
    	<add key="Microsoft.ServiceBus.ConnectionString"
 	       value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
 	</appSettings>
@@ -459,7 +459,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 1.  If it is not already open, in Visual Studio re-open the **ProductsPortal** project you created in the "Creating an ASP.NET Application" section.
 
-2.  Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project References. In Solution Explorer, right-click **References**, then click **Manage NuGet Packages**.
+2.  Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project References. In Solution Explorer, right-click the **ProductsPortal** project, then click **Manage NuGet Packages**.
 
 3.  Search for "Service Bus" and select the **Microsoft Azure Service Bus** item. Then complete the installation and close this dialog box.
 
@@ -512,19 +512,21 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 8.  Navigate to the **ProductsServer** project, then double-click the **ProductsServer.csproj** solution file to add it.
 
-9.  **ProductsServer** must be running in order to display the data on **ProductsPortal**. In Solution Explorer, right-click the **ProductsPortal** solution and click **Properties**.
+9.  **ProductsServer** must be running in order to display the data on **ProductsPortal**. In Solution Explorer, right-click the **ProductsPortal** solution and click **Properties**. The **Property Pages** dialog box is displayed.
 
 10. On the left side, click **Startup Project**. On the right side, click **Multiple startup projects**. Ensure that **ProductsServer** and **ProductsPortal** appear, in that order, with **Start** set as the action for both.
 
       ![][25]
 
-11. Still in the **Properties** dialog box, click **ProjectDependencies** on the left side.
+11. Still in the **Properties** dialog box, click **Project Dependencies** on the left side.
 
-12. In the **Projects** list, click **ProductsServer**. Ensure that **ProductsPortal** is not selected.
+12. In the **Projects** list, click **ProductsServer**. Ensure that **ProductsPortal** is **not** selected.
 
 14. In the **Projects** list, click **ProductsPortal**. Ensure that **ProductsServer** is selected. 
 
     ![][26]
+
+15. Click **OK** in the **Property Pages** dialog box.
 
 ## Set ProductsPortal as web app
 
@@ -539,6 +541,8 @@ Before running the application, you must ensure that **ProductsPortal** is launc
 	![][27]
 
 6. From the **File** menu in Visual Studio, click **Save All**.
+
+7. From the Build menu in Visual Studio, click **Rebuild Solution**.
 
 ## Run the application
 
