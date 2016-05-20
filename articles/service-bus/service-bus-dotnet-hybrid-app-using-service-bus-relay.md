@@ -438,7 +438,9 @@ Run the application to verify that it works.
 
     ![][21]
 
-4.  A browser will still display your application running locally, and it will look and function the same way it did when you ran it earlier as a regular ASP.NET MVC 4 application.
+## Deploy the ProductsPortal project to the Azure web app
+
+To deploy the ProductsPortal web project, follow all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Then, return to this tutorial and proceed to the next step. Copy the URL of the deployed web app, as you will need that later in the tutorial.
 
 ## Put the pieces together
 
@@ -513,9 +515,21 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
     ![][26]
 
-## Run the application
+## Set ProductsPortal as web app
 
-1.  From the **File** menu in Visual Studio, click **Save All**.
+Before running the application, you must ensure that **ProductsPortal** is launched as a web app.
+
+1. In Visual Studio, right-click the **ProjectsPortal** project and then click **Properties**.
+
+3. In the left-hand column, click **Web**.
+
+5. Click the Start URL button, and in the text box enter the URL for your previously deployed web app; for example, `http://productsportal1234567890.azurewebsites.net/`.
+
+	![][27]
+
+6. From the **File** menu in Visual Studio, click **Save All**.
+
+## Run the application
 
 2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. This time, you will see that the product inventory lists data retrieved from the product service on-premises system.
 
@@ -559,6 +573,7 @@ To learn more about Service Bus, see the following resources:
   [24]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
   [25]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-13.png
   [26]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-14.png
+  [27]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-8.png
   
   [36]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [37]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
