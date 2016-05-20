@@ -28,6 +28,8 @@ Make sure to check the Azure Security and Compliance team blog to see what’s n
 
 **Recent articles** (this section will be updated weekly with links to new posts):
 
+[Azure Disk Encryption for Windows Virtual Machines reaches General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) (May 20, 2016)
+
 [Advances in Azure Security Center Threat Detection](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/17/advances-in-azure-security-center-threat-detection/) (May 17, 2016)
 
 [Update on Operations Management Suite (OMS) Security](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/12/update-on-operations-management-suite-omssecurity/) (May 12, 2016)
