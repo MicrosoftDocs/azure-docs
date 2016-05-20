@@ -34,17 +34,18 @@ Episode|Speaker|Date
 
 ###Twitter
 
-Use the @MSFTAzureMedia twitter handle to follow the AMS news and updates on Twitter. Also, note that the @AzureSupport twitter handle can be used to request support on Twitter.  
+Use the @MSFTAzureMedia twitter handle to follow the AMS news and updates on Twitter. 
+You can use the @AzureSupport twitter handle to request support on Twitter.  
  
 ### Online forums
  
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) - MSDN is AMS primary forum.  
+Currently, MSDN is AMS primary forum.
+
+[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ##Provide feedback
-
-Use user voice to give us feature requests and vote on feature prioritization.  
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
