@@ -16,8 +16,8 @@
    ms.date="05/20/2016"
    ms.author="iainfou"/>
 
-## Allow external access to your VM
-To allow external traffic to reach your virtual machine (VM) using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. To create a Network Security Group and ACL rules you will need [the Azure CLI](../articles/xplat-cli-install.md) in resource manager mode (azure config mode arm).
+# Allow external access to your VM
+To allow external traffic to reach your virtual machine (VM) using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. To create a Network Security Group and ACL rules you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (azure config mode arm).
 
 ## Quick Commands
 In the following example you will create a Network Security Group, create a rule to allow HTTP traffic to your webserver, then assign this rule to your VM.
@@ -52,10 +52,10 @@ The quick commands here allow you to get up and running and traffic flowing to y
 
 Network Security Groups and ACL rules can also be defined as part of Azure Resouce Manager templates. Read more about [creating Network Security Groups with templates](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-If you need to use port-forwarding to map a unique external port to an internal port on your VM, you need to place an Azure load balancer in front of your VM. Network Address Translation (NAT) rules will work alongside Network Security Group ACL rules. You can learn about [creating an Internet-facing load balancer](../virtual-network/load-balancer-get-started-internet-arm-cli.md).
+If you need to use port-forwarding to map a unique external port to an internal port on your VM, you need to place an Azure load balancer in front of your VM. Network Address Translation (NAT) rules will work alongside Network Security Group ACL rules. You can learn about [creating an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## Next Steps
 
 - [Azure Resource Manager overview](../resource-group-overview.md)
 - [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-- [Azure Resource Manager Overview for Load Balancers](../virtual-network/load-balancer-arm.md)
+- [Azure Resource Manager Overview for Load Balancers](../load-balancer/load-balancer-arm.md)
