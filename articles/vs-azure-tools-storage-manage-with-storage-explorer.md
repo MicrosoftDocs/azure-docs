@@ -20,7 +20,7 @@
 
 ## Overview 
 
-Microsoft Azure Storage Explorer (Preview) is a standalone tool that enables you to manage your Azure storage accounts. In this article, you'll see how to connect to one or more Azure accounts to view and manager their associated storage accounts and resources.  
+Microsoft Azure Storage Explorer (Preview) is a standalone app that allows you to easily work with Azure Storage data on Windows, OSX, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
 
 ## Prerequisites
 
