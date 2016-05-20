@@ -34,12 +34,12 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
 ## Prepare your own image
 
 1. Prepare your own Linux image using one of the following instructions:
- - [CentOS-based Distributions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/)
- - [Debian Linux](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-debian-create-upload-vhd/)
- - [Oracle Linux](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-oracle-create-upload-vhd/)
- - [Red Hat Enterprise Linux](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-redhat-create-upload-vhd/)
- - [SLES & openSUSE](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd-suse)
- - [Ubuntu](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/)
+ - [CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md)
+ - [Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)
+ - [Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)
+ - [Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)
+ - [SLES & openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)
+ - [Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)
 
 2. [Add the image to the PIR](azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
 
