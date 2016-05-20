@@ -161,7 +161,7 @@ Create an availability set that provides a pool of NVA devices. Use a load balan
 
 ### NSG recommendations
 
-The VPN gateway exposes a public IP address for handling the connection to the on-premises network. There is a risk that this endpoint could be used as a point of attack. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Create a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that hasn't originated from the on-premises network (192.168.0.0/16 in the [Architecture diagram][architecture]). You can create rules similar to these:
+The VPN gateway exposes a public IP address for handling the connection to the on-premises network. There is a risk that this endpoint could be used as a point of attack. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Consider creating a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that hasn't originated from the on-premises network (192.168.0.0/16 in the [Architecture diagram][architecture]). You can create rules similar to these:
 
 ```powershell
 azure network nsg create <<resource-group>> nva-nsg <<location>>
@@ -169,6 +169,7 @@ azure network vnet subnet set --network-security-group-name nva-nsg <<resource-g
 azure network nsg rule create --protocol * --source-address-prefix 192.168.0.0/16 --source-port-range * --destination-port-range * --access Allow --priority 100 --direction Inbound <<resource-group>> nva-nsg allow-on-prem
 azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 120 --direction Inbound <<resource-group>> nva-nsg deny-other-traffic
 ```
+> [AZURE.NOTE] The example deployment described later does not enforce this rule as you may need to connect from more than one on-premises network through the gateway. You can add NSG rules similar to these for each on-premises network if necessary.
 
 Create NSGs for each application tier subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled. For example, the web tier subnet shown in the [Architecture diagram][architecture] diagram defines an NSG with rules that block all requests other than those for port 80 that have been received from the on-premises network (192.168.0.0/16) or the VNet:
 
@@ -218,7 +219,7 @@ Configure the on-premises network security appliance to direct force-tunneled tr
 
 The management subnet contains servers that run management and monitoring software. Only DevOps staff should have access to this subnet.
 
-Don't expose this subnet to the outside world. For example, don't create a public IP address for the jump box. Instead, only allow DevOps staff access through the gateway from the on-premises network. The NSG for the management subnet must enforce this rule.
+Don't expose this subnet to the outside world. For example, don't create a public IP address for the jump box. Instead, only allow DevOps staff access through the gateway from the on-premises network. Creat an NSG for the management subnet that enforces this rule.
 
 Don't force DevOps requests through the NVA; the UDR that intercepts application traffic and redirects it to the NVA shouldn't capture traffic for the management subnet. This is to help prevent lockout, where a poorly configured NVA blocks all administrative requests, making it impossible for DevOps staff to reconfigure the system.
 
@@ -302,7 +303,8 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement
 
 	```
     #!/bin/bash
-    echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
+    sudo bash -c "echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf"
+    sudo sysctl -p /etc/sysctl.conf
 	```
 
 It is important that both of these tasks complete successfully, otherwise traffic could be blocked by the NVA.
@@ -523,25 +525,24 @@ It is imperative to protect direct access to the jump box from access by unautho
   "type": "Microsoft.Resources/deployments",
   ...
   "properties": {
-    "mode": "Incremental",
+    ...
     "templateLink": { "uri": "[variables('nsgTemplate')]" },
     "parameters": {
       "baseName": { "value": "[parameters('baseName')]" },
       "nsgNamePrefix": { "value": "mgmt" },
-      "rulesNames": { "value": [ "on-prem-rdp-allow", "on-prem-ssh-allow", "vnet-deny" ] },
-      "rulesDirections": { "value": [ "Inbound", "Inbound", "Inbound" ] },
-      "rulesAccess": { "value": [ "Allow", "Allow", "Deny" ] },
-      "rulesSourceAddressPrefixes": { "value": [ "[parameters('onpremNetPrefix')]", "[parameters('onpremNetPrefix')]", "*" ] },
-      "rulesSourcePorts": { "value": [ "*", "*", "*" ] },
-      "rulesDestinationAddressPrefixes": { "value": [ "*", "*", "*" ] },
-      "rulesDestinationPorts": { "value": [ 3389, 22, "*" ] },
-      "rulesProtocol": { "value": [ "TCP", "TCP", "*" ] }
-    }
+      "rulesNames": { "value": [ "on-prem-rdp-allow", "on-prem-ssh-allow", "self-allow","vnet-deny" ] },
+      "rulesDirections": { "value": [ "Inbound", "Inbound", "Inbound", "Inbound" ] },
+      "rulesAccess": { "value": [ "Allow", "Allow", "Allow", "Deny" ] },
+      "rulesSourceAddressPrefixes": { "value": [ "[parameters('onpremNetPrefix')]", "[parameters('onpremNetPrefix')]", "[parameters('vnetMgmtSubnetPrefix')]", "*" ] },
+      "rulesSourcePorts": { "value": [ "*", "*", "*", "*" ] },
+      "rulesDestinationAddressPrefixes": { "value": [ "*", "*", "*", "*" ] },
+      "rulesDestinationPorts": { "value": [ 3389, 22, "*", "*" ] },
+      "rulesProtocol": { "value": [ "*", "TCP", "*", "*" ] }
   }
 }
 ```
 
-The on-prem-rdp-allow rule allows RDP access through port 3389 only to traffic that has originated from the on-premises network. The on-prem-ssh-allow performs the same function for SSH traffic through port 22. The vnet-deny rule blocks all traffic that has originated from the VNet.
+The on-prem-rdp-allow rule allows RDP access through port 3389 only to traffic that has originated from the on-premises network. The on-prem-ssh-allow rule performs the same function for SSH traffic through port 22. The self-allow rule permits all traffic from within the management subnet; this rule is necessary to connect from the jump box to the NVA VMs. The vnet-deny rule blocks all traffic that has originated elsewhere from the VNet.
 
 #### Permitting management access to the application subnets
 
@@ -610,24 +611,19 @@ To run the script that deploys the solution:
 		![IaaS: myapp-netwk-rg-subnets](./media/guidance-iaas-ra-secure-vnet-hybrid/figure4.png)
 
 
-	- ***myapp*-web-subnet-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier by default), storage for each VM, the network interfaces, and the load balancer for this tier:
+	- ***myapp*-web-tier-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier by default), storage for each VM, the network interfaces, and the load balancer for this tier:
 
-		![IaaS: myapp-web-subnet-rg](./media/guidance-iaas-ra-secure-vnet-hybrid/figure5.png)
+		![IaaS: myapp-web-tier-rg](./media/guidance-iaas-ra-secure-vnet-hybrid/figure5.png)
 
-	- ***myapp*-biz-subnet-rg.**. This resource group holds the VMs and resources for the business tier. The structure is the same as that of the web tier.
+	- ***myapp*-biz-tier-rg.**. This resource group holds the VMs and resources for the business tier. The structure is the same as that of the web tier.
 
-	- ***myapp*-db-subnet-rg.** This resource group holds the VMs and resources for the data access tier. The structure is the same as that of the web and business tiers.
+	- ***myapp*-db-tier-rg.** This resource group holds the VMs and resources for the data access tier. The structure is the same as that of the web and business tiers.
 
 	- ***myapp*-mgmt-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs (with storage) and a load balancer for the NVA, and a separate VM (with storage) for the jump box. Each NVA VM has three network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs. This resource group also contains the UDR for the gateway subnet.
 
 		![IaaS: myapp-mgmt-rg](./media/guidance-iaas-ra-secure-vnet-hybrid/figure6.png)
 
 8. Configure the VPN appliance on the on-premises network to connect to the Azure VPN gateway. For more information, seer the article [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway].
-
-> [AZURE.NOTE] If you just need to refresh the UDRs and NSGs for an earlier version of the deployment, you can run the script with the value TRUE as an additional parameter:
-> ```powershell
-> ./azuredeploy.sh myapp nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn mysharedkey123 111.222.33.4 192.168.0.0/24 eastus TRUE
-> ```
 
 ### Customizing the solution
 
