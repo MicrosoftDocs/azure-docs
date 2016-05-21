@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
 
@@ -46,11 +46,9 @@ None | <ul><li>Get row</li><li>Get rows</li><li>Insert row</li><li>Delete row</l
 All APIs support data in JSON and XML formats.
 
 ## Create the connection to SQL
-When you add this API to your logic apps, enter the following values:
 
-|Property| Required|Description|
-| ---|---|---|
-|SQL Connection String|Yes|Enter your Azure SQL Database connection string|
+>[AZURE.INCLUDE [Steps to create a connection to SQL](../../includes/connectors-create-api-sql.md)] 
+
 
 After you create the connection, you enter your the SQL properties, like the table name. The **REST API reference** in this topic describes these properties.
 

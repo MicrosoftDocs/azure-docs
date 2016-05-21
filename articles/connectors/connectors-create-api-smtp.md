@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
 # Get started with the SMTP API
@@ -42,13 +42,8 @@ The SMTP API has the following action available. There are no triggers.
 All APIs support data in JSON and XML formats. 
 
 ## Create a connection to SMTP
-When you add this API to your logic apps, enter the following values:
 
-|Property| Required|Description|
-| ---|---|---|
-| SMTP Server Name | Yes | Enter the fully qualified domain (FQDN) or IP address of the SMTP server.|
-| User name |Yes |Enter the user name to connect to the SMTP Server. |
-| Password | Yes|Enter the user name's password. |
+>[AZURE.INCLUDE [Steps to create a SMTP connection](../../includes/connectors-create-api-smtp.md)] 
 
 After you create the connection, you enter the SMTP properties, like the To or CC values. The **REST API reference** in this topic describes these properties.
 
