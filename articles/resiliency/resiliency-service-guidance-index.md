@@ -17,7 +17,7 @@
    ms.author="aglick"/>
 
 # Microsoft Azure service resiliency guidance
-Microsoft Azure is designed to provide you with the resources you need, when you need them. As part of good design and operational practices, you should know both how to architect your use of Azure services to achieve high availability with them as well as what to do if your application is impacted by a service disruption. To aid you in this process, this document contains links to disaster recovery guidance as well as design guidance for various Azure services.
+Microsoft Azure is designed to provide you with the resources you need, when you need them. As part of good design and operational practices, you should know both how to architect your use of Azure services to achieve high availability as well as what to do if your application is impacted by a service disruption. To aid you in this process, this document contains links to disaster recovery guidance as well as design guidance for various Azure services.
 
 ##Disaster recovery guidance
 The disaster recovery guidance links below are can provide you with the information you need to help you get your application back online quickly if you are impacted by an Azure service disruption. These links were created to help you answer the question, "I'm being impacted by an Azure service disruption, what can I do?"
@@ -33,7 +33,6 @@ The design guidance links below are design and architectural guidance that has b
 | [Storage](https://azure.microsoft.com/services/storage/ "Azure Storage")                            | [link](../storage/storage-disaster-recovery-guidance.md "Azure Storage disaster recovery guidance")          | Coming soon |
 | [SQL Databases](https://azure.microsoft.com/services/sql-database/ "Azure SQL Databases")           | [link](../sql-database/sql-database-disaster-recovery.md  "Azure SQL Database disaster recovery guidance")    | [link](../sql-database/sql-database-business-continuity-design.md "Azure SQL Databases design guidance") |
 | [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/ "Azure Virtual Machines") | [link](../virtual-machines/virtual-machines-disaster-recovery-guidance.md "Azure Virtual Machines disaster recovery guidance") | Coming soon |
-| [Virtual Network](https://azure.microsoft.com/services/virtual-network/ "Azure Virtual Network")    | [link](../virtual-network/virtual-network-disaster-recovery-guidance.md "Azure Virtual Network disaster recovery guidance")  | Coming soon |
 
 ##Next steps
 If you are looking for guidance that focuses more broadly on systems and solutions, please read [Disaster recovery and high availability for applications built on Microsoft Azure](https://aka.ms/drtechguide).
