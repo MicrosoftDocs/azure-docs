@@ -44,7 +44,7 @@ You need:
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
 * Visual Studio 2013 or later.
 
-## <a name="add"></a> 1. Create an Application Insights resource
+## <a name="add"></a>Create an Application Insights resource
 
 Sign in to the [Azure portal][portal], and create a new Application Insights resource. Choose ASP.NET as the application type.
 
@@ -62,7 +62,7 @@ The key identifies the resource, and you'll install it soon in the SDK to direct
 
 The steps you've just done to create a new resource are a good way to start monitoring any application. Now you can send data to it.
 
-## <a name="sdk"></a> 2. Install the SDK in your application
+## <a name="sdk"></a> Install the SDK in your application
 
 Installing and configuring the Application Insights SDK varies depending on the platform you're working on. For ASP.NET apps, it's easy.
 
@@ -89,7 +89,7 @@ To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
 
-## <a name="run"></a> 3. Run your project
+## <a name="run"></a> Run your project
 
 Use the **F5** to run your application and try it out: open different pages to generate some telemetry.
 
@@ -97,7 +97,7 @@ In Visual Studio, you'll see a count of the events that have been sent.
 
 ![](./media/app-insights-asp-net-manual/appinsights-09eventcount.png)
 
-## <a name="monitor"></a> 4. View your telemetry
+## <a name="monitor"></a> View your telemetry
 
 Return to the [Azure portal][portal] and browse to your Application Insights resource.
 
@@ -139,7 +139,7 @@ Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data
 > [Learn about sampling](app-insights-sampling.md).
 
 
-## 5. Add dependency tracking (and IIS perf counters)
+## Add dependency tracking (and IIS perf counters)
 
 The SDK needs a little help to get access to some data. In particular, you'll need this additional step in order to automatically measure calls from your app to databases, REST APIs, and other external components. These dependency metrics can be invaluable to help you diagnose performance issues.
 
@@ -166,7 +166,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 
 
-## 6. Add client-side monitoring
+## Add client-side monitoring
 
 You've installed the SDK that sends telemetry data from the server (back end) of your application. Now you can add client-side monitoring. This provides you with data on users, sessions, page views, and any exceptions or crashes that occur in the browser. You'll also be able to write your own code to track how your users work with your app, right down to the detailed level of clicks and keystrokes.
 
@@ -195,7 +195,7 @@ When it has the build info, the Application Insights web module automatically ad
 
 However, notice that the build version number is generated only by MS Build, not by the developer build in Visual Studio.
 
-## 7. Complete your installation
+## Complete your installation
 
 To get the full 360-degree view of your application, there are a few more things you can do:
 
