@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Editor
@@ -155,7 +155,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1** ), so the Data Factory service will look for input data every hour in the root folder in the blob container (**adftutorial**) you specified. 
 	
 
-	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
+	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
  
 	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -371,16 +371,24 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 
 
 ## Summary 
-In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used the Azure Portal to create the data factory, linked services, tables, and a pipeline. Here are the high level steps you performed in this tutorial:  
+In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used the Azure Portal to create the data factory, linked services, datasets, and a pipeline. Here are the high level steps you performed in this tutorial:  
 
-1.	Create an Azure **data factory**.
-2.	Create **linked services** that link data stores and computes (referred as **Linked Services**) to the data factory.
-3.	Create **tables** which describe input data and output data for pipelines.
-4.	Create **pipelines**. A pipeline consists of one or more activities and processes the inputs and produces outputs. Set the active period for the pipeline by specifying **Start** time and **End** time for the pipeline. The active period defines the time duration in which data slices will be produced.
+1.	Created an Azure **data factory**.
+2.	Created **linked services**:
+	1. An **Azure Storage** linked service to link your Azure Storage account that holds input data. 	
+	2. An **Azure SQL** linked service to link your Azure SQL database that holds the output data. 
+3.	Created **datasets** which describe input data and output data for pipelines.
+4.	Created a **pipeline** with a **Copy Activity** with **BlobSource** as source and **SqlSink** as sink.  
 
 
 ## See Also
-See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the **Copy Activity** in Azure Data Factory.
+| Topic | Description |
+| :---- | :---- |
+| [Data Movement Activities](data-factory-data-movement-activities.md) | This article provides detailed information about the Copy Activity you used in the tutorial. |
+| [Scheduling and execution](data-factory-scheduling-and-execution.md) | This article explains the scheduling and execution aspects of Azure Data Factory application model. |
+| [Pipelines](data-factory-create-pipelines.md) | This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. |
+| [Datasets](data-factory-create-datasets.md) | This article will help you understand datasets in Azure Data Factory.
+| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. 
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -397,7 +405,6 @@ See [Data Movement Activities](data-factory-data-movement-activities.md) article
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
