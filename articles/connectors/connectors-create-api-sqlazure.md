@@ -46,10 +46,6 @@ None | <ul><li>Get row</li><li>Get rows</li><li>Insert row</li><li>Delete row</l
 All connectors support data in JSON and XML formats.
 
 ## Create the connection to SQL
-<<<<<<< HEAD
-=======
-When you add this Connector to your logic apps, enter the following values:
->>>>>>> 0d7ccd264f8b12cd7ab12bb85429f7718136ca31
 
 >[AZURE.INCLUDE [Steps to create a connection to SQL](../../includes/connectors-create-api-sql.md)] 
 

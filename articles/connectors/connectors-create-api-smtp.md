@@ -42,10 +42,6 @@ The SMTP Connector has the following action available. There are no triggers.
 All connectors support data in JSON and XML formats. 
 
 ## Create a connection to SMTP
-<<<<<<< HEAD
-=======
-When you add this Connector to your logic apps, enter the following values:
->>>>>>> 0d7ccd264f8b12cd7ab12bb85429f7718136ca31
 
 >[AZURE.INCLUDE [Steps to create a SMTP connection](../../includes/connectors-create-api-smtp.md)] 
 
