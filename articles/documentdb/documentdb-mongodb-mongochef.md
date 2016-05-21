@@ -22,7 +22,7 @@
 To connect to a DocumentDB with protocol support for MongoDB account using MongoChef, you must:
 
 - Download and install [MongoChef](http://3t.io/mongochef)
-- Have your DocumentDB with protocol support for MongoDB account [connection string](documentdb-connect-mongodb-account) information
+- Have your DocumentDB with protocol support for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information
 
 ## Create the connection in MongoChef  
 
