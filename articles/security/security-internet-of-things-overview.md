@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/22/2016"
    ms.author="terrylan"/>
 
 # Internet of Things security overview
@@ -40,7 +40,7 @@ You can learn about IoT security architecture by reading [Internet of Things Sec
 
 This article discusses the following topics:
 
-- [Security Starts with a Threat Model](../iot-suite/iot-security-architecture.md#security-in-iot)
+- [Security Starts with a Threat Model](../iot-suite/iot-security-architecture.md#security-starts-with-a-threat-model)
 - [Security in IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 - [Threat Modeling the Azure IoT Reference Architecture](../iot-suite/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
 
@@ -52,14 +52,14 @@ You can learn how to handle security in these areas by reading [Internet of Thin
 
 The article discusses the following topics:
 
-- [Secure Infrastructure from the Ground Up](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
-- [Microsoft Azure – Secure IoT Infrastructure for Your Business](../iot-suite/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
+- [Secure infrastructure from the ground up](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
+- [Microsoft Azure – secure IoT infrastructure for your business](../iot-suite/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
 ## Best Practices
 
 Securing an IoT infrastructure requires a rigorous security-in-depth strategy. Starting from securing data in the cloud, to protecting data integrity while in transit over the public internet, and providing the ability to securely provision devices, each layer builds greater security assurance in the overall infrastructure.
 
-You can learn about Internet of Things security best practices by reading [Internet of Things Security Best Practices](../iot-suite/iot-security-best-practices.md).
+You can learn about Internet of Things security best practices by reading [Internet of Things security best practices](../iot-suite/iot-security-best-practices.md).
 
 The article discusses the following topics:
 

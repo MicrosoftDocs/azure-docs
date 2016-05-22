@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get Started with Azure Security | Microsoft Azure"
+   pageTitle="Azure security overview | Microsoft Azure"
    description="The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/22/2016"
    ms.author="terrylan"/>
 
-# Get Started - Overview
+# Azure security overview
 
 The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, please visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 

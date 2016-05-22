@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/22/2016"
    ms.author="terrylan"/>
 
 # Azure identity management security overview
@@ -154,6 +154,5 @@ Microsoft’s approach to identity spans on-premises and the cloud, creating a s
 Learn more:
 
 - [Hybrid identity white paper](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
-- [Identity and access management in the cloud](https://www.microsoft.com/server-cloud/products/azure-active-directory/overview.aspx)
-- [Azure Active ](https://azure.microsoft.com/documentation/services/active-directory/)
+- [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 - [Active Directory Team Blog](https://blogs.technet.microsoft.com/ad/)
