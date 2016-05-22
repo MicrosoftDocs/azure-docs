@@ -79,5 +79,6 @@ As already mentioned, all DocumentDB accounts require both authentication and se
 
 
 - Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB with protocol support for MongoDB account.
+- Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md)
 
  

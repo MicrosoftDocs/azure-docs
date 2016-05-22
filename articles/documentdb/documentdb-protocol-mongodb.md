@@ -31,5 +31,7 @@ DocumentDB protocol support for MongoDB enables the core MongoDB API functions t
 
 - Learn how to [create](documentdb-create-mongodb-account.md) a DocumentDB with protocol support for MongoDB account.
 - Learn how to [connect](documentdb-connect-mongodb-account.md) to a DocumentDB with protocol support for MongoDB account.
+- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB with protocol support for MongoDB account.
+- Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
 
  

@@ -116,15 +116,14 @@ To add your DocumentDB with protocol support for MongoDB account to the MongoChe
     	"isRegistered": false
 		}
 
-7. Execute a sample query, for example, search for families with the last name 'Andersen' and return the parents and state fields.
+7. Execute a sample query. For example, search for families with the last name 'Andersen' and return the parents and state fields.
 
 	![Screen shot of Mongo Chef query results](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 	
 
 ## Next steps
 
-
-- Explore additional DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
+- Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
 - Read about the DocumentDB with protocol support for MongoDB [preview development guidelines](documentdb-mongodb-guidelines.md).
 
  
