@@ -47,7 +47,7 @@ All connectors support data in JSON and XML formats.
 
 ## Create the connection to SQL
 
->[AZURE.INCLUDE [Steps to create a connection to SQL](../../includes/connectors-create-api-sql.md)] 
+>[AZURE.INCLUDE [Steps to create a connection to SQL](../../includes/connectors-create-api-sqlazure.md)] 
 
 
 After you create the connection, you enter the SQL properties, like the table name. The **REST API reference** in this topic describes these properties.
