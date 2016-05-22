@@ -203,7 +203,7 @@ If you are familiar with IIS Manager, you can use it to generate a certificate t
 
 	> [AZURE.NOTE] During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.
 
-	> [AZURE.NOTE] During the export process, be sure to select the option **include all certs in the certification path** and **Export all extended properties**. This will include any intermediate certificates in the exported certificate.
+	> During the export process, be sure to select the option **include all certs in the certification path** and **Export all extended properties**. This will include any intermediate certificates in the exported certificate.
 
 <a name="bkmk_subjectaltname"></a>
 ### Get a SubjectAltName certificate using OpenSSL
