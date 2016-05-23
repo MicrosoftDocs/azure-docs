@@ -311,7 +311,7 @@ You can do offline replication for the initial data copy. You can prepare this a
 
 Set up network mapping between source and target networks.
 
-- [Read](#prepare-for-network-mapping) for a quick overview of what network mapping does. In addition [read]((site-recovery-network-mapping.md) ) for an more in-depth explanation.
+- [Read](#prepare-for-network-mapping) for a quick overview of what network mapping does. In addition [read](site-recovery-network-mapping.md) for an more in-depth explanation.
 - Verify that virtual machines on VMM servers are connected to a VM network.
 
 Configure mapping as follows:
