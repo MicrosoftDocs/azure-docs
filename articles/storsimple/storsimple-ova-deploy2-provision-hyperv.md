@@ -22,14 +22,14 @@
 
 ## Overview
 
-This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V 2008 R2, Hyper-V 2012, or Hyper-V 2012 R2. This article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
+This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012 or Windows Server 2008 R2. This article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
 
 You will need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
 
 ## Provisioning prerequisites
 
-Here you will find the prerequisites to provision a virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012, or Hyper-V 2012 R2.
+Here you will find the prerequisites to provision a virtual device on a host system running Hyper-V on Windows Serer 2012 R2, Windows Server 2012, or Windows Server 2008 R2.
 
 ### For the StorSimple Manager service
 
@@ -45,7 +45,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual device, make sure that:
 
--   You have access to a host system running Hyper-V (2008 R2 or later) that can be used to a provision a device.
+-   You have access to a host system running Hyper-V on Windows Server 2008 R2 or newer that can be used to a provision a device.
 
 -   The host system is able to dedicate the following resources to provision your virtual device:
 
@@ -79,7 +79,7 @@ Each of these steps is explained in the following sections.
 
 To create a virtual device, you will need:
 
--   Hyper-V 2008 R2 SP1, Hyper-V 2012, or Hyper-V 2012 R2 running on your Windows Server 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 host system.
+-   The Hyper-V role installed on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 SP1.
 
 -   Microsoft Hyper-V Manager on a Microsoft Windows client connected to the host.
 
@@ -102,7 +102,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image1.png)
 
-	If you are running Hyper-V 2008 R2, open the Hyper-V Manager. In Server Manager, click **Roles > Hyper-V > Hyper-V Manager**.
+	If you are running Windows Server 2008 R2, open the Hyper-V Manager. In Server Manager, click **Roles > Hyper-V > Hyper-V Manager**.
 
 1.  In **Hyper-V Manager**, in the scope pane, right-click your system node to open the context menu, and then click **New** > **Virtual Machine**.
 
@@ -114,7 +114,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  On the **Specify generation** page, choose **Generation 2** and then click **Next**. This page doesn't appear if you're using Hyper-V 2008 R2.
+1.  On the **Specify generation** page, choose **Generation 2** and then click **Next**. This page doesn't appear if you're using Windows Server 2008 R2.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
@@ -126,7 +126,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image7.png)
 
-1.  On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk** and then specify the location of the virtual device image — a .vdhx file if you're using Hyper-V 2012 or later, or a .vhd file if you're using Hyper-V 2008 R2.  Click **Next**.
+1.  On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk** and then specify the location of the virtual device image — a .vdhx file if you're using Windows Server 2012 or newer, or a .vhd file if you're using Windows Server 2008 R2.  Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
@@ -155,11 +155,11 @@ Perform the following steps to provision a device in your hypervisor.
 
 1.  On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
 
-1.  On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**. This screen will not be presented if running Hyper-V 2008 R2.
+1.  On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**. This screen will not be presented if running Windows Server 2008 R2.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
-1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). If you choose **Fixed size** disk, it will also work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**. Note that **Dynamically expanding** is the default in Hyper-V 2012 and Hyper-V 2012 R2. In Hyper-V 2008 R2, default is **Fixed size**.
+1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). If you choose **Fixed size** disk, it will also work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**. Note that **Dynamically expanding** is the default in Windows Server 2012 R2 and Windows Server 2012. In Windows Server 2008 R2, the default is **Fixed size**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 

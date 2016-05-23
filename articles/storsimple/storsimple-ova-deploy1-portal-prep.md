@@ -39,7 +39,7 @@ Refer to the following articles in the prescribed sequence to deploy your StorSi
 | **#** | **In this step**                          | **You will do this …**                                                         | **Use these documents.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1.   | **Set up the Azure classic portal**       | Create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device.  |[Prepare the portal](storsimple-ova-deploy1-portal-prep.md)|
-|2.   | **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.<br></br>| [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
+|2.   | **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.<br></br>| [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
 |3.    | **Set up the Virtual Array**              | For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes.| [Set up virtual array as file server](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Set up virtual array as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)|
 
 #### Deployment videos
@@ -80,7 +80,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual device, make sure that:
 
--   You have access to a host system running Hyper-V (2008 R2 or above) or VMware (ESXi 5.5 or above) that can be used to a provision a device.
+-   You have access to a host system running Hyper-V on Windows Server 2008 R2 or newer or VMware (ESXi 5.5 or newer) that can be used to a provision a device.
 
 -   The host system is able to dedicate the following resources to provision your virtual device:
 
@@ -151,9 +151,9 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  Download the appropriate VHD or VHDX on a network share on your datacenter. Separate images are available for:
 
-	-   Hyper-V 2012 and later
+	-   Windows Server 2012 and later
 
-	-   Hyper-V 2008 R2
+	-   Windows Server 2008 R2
 
 	-   VMWare ESXi 5.5 and later
 
@@ -162,7 +162,7 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  Click on the image for your host operating system that you will use to provision the virtual device. This will take you to Microsoft Download Center.
 
-1.  If using Hyper-V on Windows Server 2012 or later, you must download the VHDX image for Hyper-V 2012 or later; if you're using Windows Server 2008 R2, download the VHD for Hyper-V 2008 R2.     If using VMware, download the VMDK image file.
+1.  If using Hyper-V on Windows Server 2012 or later, you must download the VHDX image for Windows Server 2012 or later; if you're using Windows Server 2008 R2, download the VHD for Windows Server 2008 R2. If using VMware, download the VMDK image file.
 
     The image files are approximately 4.8 GB.
 
