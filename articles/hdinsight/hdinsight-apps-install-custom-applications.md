@@ -106,7 +106,6 @@ If an application installation failed, you can see the error messages and debug 
 
     For more information, see [Troubleshooting](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
-
 ## Next steps
 
 - [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): learn how to develop ARM templates for deploying HDInsight applications.
