@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
@@ -115,6 +115,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 -	[After scaling, do I have to change my cache name or access keys?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 -	[How does scaling work?](#how-does-scaling-work)
 -	[Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
 -	[Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
 -	[Operations that are not supported](#operations-that-are-not-supported)
 -	[How long does scaling take?](#how-long-does-scaling-take)
@@ -146,6 +147,15 @@ No, your cache name and keys are unchanged during a scaling operation.
 -	When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
 -	When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
 
+### Is my custom databases setting affected during scaling?
+
+Some pricing tiers have different [databases limits](cache-configure.md#databases), so there are some considerations when scaling down if you configured a custom value for the `databases` setting during cache creation.
+
+-	When scaling to a pricing tier with a lower `databases` limit than the current tier:
+	-	If you are using the default number of `databases` which is 16 for all pricing tiers, no data is lost.
+	-	If you are using a custom number of `databases` that falls within the limits for the tier to which you are scaling, this `databases` setting is retained and no data is lost.
+	-	If you are using a custom number of `databases` that exceeds the limits of the new tier, the `databases` setting is lowered to the limits of the new tier and all data in the removed databases is lost.
+-	When scaling to a pricing tier with the same or higher `databases` limit than the current tier your `databases` setting is retained and no data is lost.
 
 Note that while Standard and Premium caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
