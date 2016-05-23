@@ -269,10 +269,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 4. In **New Configuration Server Details** specify:
 
 	- A name for the configuration server and credentials to connect to it.
-	- In the network connectivity type drop down select **Public Internet** or **VPN**.
-	
-	[AZURE.NOTE] You can't modify this setting after it's applied.
-
+	- In the network connectivity type drop down select **Public Internet** or **VPN**. Note that you can't modify this setting after it's applied.
 	- Select the Azure network on which the server should be located. If you're using VPN make sure the Azure network is connected to your on-premises network as expected. 
 	- Specify the internal IP address and subnet that will be assigned to the server. Note that the first four IP addresses in any subnet are reserved for internal Azure usage. Use any other available IP address.
 	
