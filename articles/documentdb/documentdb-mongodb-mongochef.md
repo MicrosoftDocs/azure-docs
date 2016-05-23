@@ -50,7 +50,7 @@ To add your DocumentDB with protocol support for MongoDB account to the MongoChe
 
 ## Use MongoChef to create a database, collection, and documents  
 
-To add your DocumentDB with protocol support for MongoDB account to the MongoChef connection manager, perform the following steps.
+To create a database, collection, and documents using MongoChef, perform the following steps.
 
 1. In the Connection Manager, highlight the connection and click Connect.
 
