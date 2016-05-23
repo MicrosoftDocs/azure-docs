@@ -18,12 +18,12 @@
 
 # Azure Hybrid Use Benefit for Windows Server
 
-For customers using Windows Server with Software Assurance, you can bring your on-premises Windows Server licenses to Azure and run Windows Server VMs in Azure at a reduced cost. The Azure Hybrid Use Benefit (AHUB) allows you to run Windows Server VMs in Azure and only get billed for the base compute rate. For more information, please see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/). This article explains how to deploy Windows Server VMs in Azure to make use of this licensing benefit.
+For customers using Windows Server with Software Assurance, you can bring your on-premises Windows Server licenses to Azure and run Windows Server VMs in Azure at a reduced cost. The Azure Hybrid Use Benefit allows you to run Windows Server VMs in Azure and only get billed for the base compute rate. For more information, please see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/). This article explains how to deploy Windows Server VMs in Azure to make use of this licensing benefit.
 
-> [AZURE.NOTE] You cannot use Azure Marketplace images to deploy Windows Server VMs utilizing AHUB. You must deploy your VMs using either PowerShell or Resource Manager templates in to correctly register your VMs as eligible for base compute rate discount.
+> [AZURE.NOTE] You cannot use Azure Marketplace images to deploy Windows Server VMs utilizing the Azure Hybrid Use Benefit. You must deploy your VMs using either PowerShell or Resource Manager templates in to correctly register your VMs as eligible for base compute rate discount.
 
 ## Pre-requisites
-There a couple of pre-requisites in order to utilize AHUB for Windows Server VMs in Azure:
+There a couple of pre-requisites in order to utilize Azure Hybrid Use Benefit for Windows Server VMs in Azure:
 
 - Install Azure PowerShell module installed
 - A Windows Server VHD you upload to Azure Storage
@@ -51,7 +51,7 @@ New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
     -LicenseType Windows_Server
 ```
 
-You can [read a more detailed walkthrough on deploying a VM in Azure to utilize AHUB via PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) below, or read a more desriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](./virtual-machines-windows-ps-create.md).
+You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) below, or read a more desriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](./virtual-machines-windows-ps-create.md).
 
 ## Deploy a VM via Resource Manager
 Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
@@ -64,7 +64,7 @@ Within your Resource Manager templates, an additional parameter for `licenseType
    },
 ```
  
-## Verify your VM is utilizing AHUB
+## Verify your VM is utilizing the licensing benefit
 Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, verify the the license type with `Get-AzureRmVM` as follows:
  
 ```
@@ -79,7 +79,7 @@ Location                 : westus
 LicenseType              : Windows_Server
 ```
 
-This contrasts with the following VM deployed without AHUB licensing, such as a VM deployed straight from the Azure Gallery:
+This contrasts with the following VM deployed without Azure Hybrid Use Benefit licensing, such as a VM deployed straight from the Azure Gallery:
 
 ```
 Type                     : Microsoft.Compute/virtualMachines
@@ -152,7 +152,7 @@ $urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licens
 $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
-Finally, create your VM and define the licensing type to utilize AHUB
+Finally, create your VM and define the licensing type to utilize Azure Hybrid Use Benefit:
 
 ```
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType Windows_Server

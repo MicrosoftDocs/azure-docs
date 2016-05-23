@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell;markvi"/>
 
 # Azure AD Connect sync service features
@@ -34,23 +34,23 @@ Many of these settings can only be changed by Azure AD Connect.
 
 The following settings can be configured by `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Comment |
-| --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Allows an attribute to be quarantined if it is a duplicate of another object rather than failing the entire object during export. |
-| [EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Allows objects to join on userPrincipalName in addition to primary SMTP address. |
-| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Allows the sync engine to update the userPrincipalName attribute for managed/licensed (non-federated) users. |
+DirSyncFeature | Comment
+--- | ---
+ [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Allows an attribute to be quarantined if it is a duplicate of another object rather than failing the entire object during export.
+[EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Allows objects to join on userPrincipalName in addition to primary SMTP address.
+[SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Allows the sync engine to update the userPrincipalName attribute for managed/licensed (non-federated) users.
 
 After you have enabled a feature, it cannot be disabled again.
 
 The following settings are configured by Azure AD Connect and cannot be modified by `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Comment |
-| --- | --- |
-| DeviceWriteback | [Azure AD Connect: Enabling device writeback](active-directory-aadconnect-feature-device-writeback.md) |
-| DirectoryExtensions | [Azure AD Connect sync: Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |
-| PasswordSync | [Implementing password synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-synchronization.md) |
-| UnifiedGroupWriteback | [Preview: Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) |
-| UserWriteback | Not currently supported. |
+DirSyncFeature | Comment
+--- | ---
+DeviceWriteback | [Azure AD Connect: Enabling device writeback](active-directory-aadconnect-feature-device-writeback.md)
+DirectoryExtensions | [Azure AD Connect sync: Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md)
+PasswordSync | [Implementing password synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-synchronization.md)
+UnifiedGroupWriteback | [Preview: Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback)
+UserWriteback | Not currently supported.
 
 ## Duplicate attribute resiliency
 Instead of failing to provision objects with duplicate UPNs / proxyAddresses, the duplicated attribute is “quarantined” and a temporary value is assigned if necessary. When the conflict is resolved, the temporary UPN will be fixed up to the proper value automatically. This behavior can be enabled for UPN and proxyAddress separately. For more details, see [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).

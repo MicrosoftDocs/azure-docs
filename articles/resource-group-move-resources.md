@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Move Resources to New Resource Group" 
-	description="Use Azure PowerShell or REST API to move resources to a new resource group for Azure Resource Manager." 
+	pageTitle="Move resources to new resource group | Microsoft Azure" 
+	description="Use Azure Resource Manager to move resources to a new resource group or subscription." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2016" 
+	ms.date="05/12/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -38,16 +38,18 @@ check the registration status and register resource providers, see [Resource pro
 3. If you are using Azure PowerShell or Azure CLI, use the latest version. To update your version, run the Microsoft Web Platform Installer and check if a 
 new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md) and [Install the Azure CLI](xplat-cli-install.md).
 4. If you are moving App Service app, you have reviewed [App Service limitations](#app-service-limitations).
+5. If you are moving resources deployed through classic model, you have reviewed [Classic deployment limitations](#classic-deployment-limitations).
 
 ## Services that support move
 
 For now, the services that support moving to both a new resource group and subscription are:
 
 - API Management
-- App Service apps (see [App Service limitations](#app-service-limitations) below)
+- App Service apps - see [App Service limitations](#app-service-limitations)
 - Automation
 - Batch
 - CDN
+- Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 - Data Factory
 - DocumentDB
 - HDInsight clusters
@@ -58,15 +60,14 @@ For now, the services that support moving to both a new resource group and subsc
 - Redis Cache
 - Scheduler
 - Search
-- SQL Database server (see [SQL Database limitations](#sql-database-limitations) below)
+- Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+- SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
+- Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 
 ## Services that partially support move
 
 The services that support moving to a new resource group but not a new subscription are:
 
-- Cloud Services
-- Storage (classic)
-- Virtual Machines (classic)
 - Virtual Networks
 
 ## Services that do not support move
@@ -77,6 +78,7 @@ The services that currently do not support moving a resource are:
 - Express Route
 - Storage
 - Virtual Machines
+- Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 
 ## App Service limitations
 
@@ -103,11 +105,34 @@ Your options are:
 
 All other combinations involve either moving a resource type that can't move (Application Insights) or leaving behind a resource type that can't be left behind when moving an App Service plan (any type of App Service resource).
 
-For another example, if your web app resides in a different resource group than your App Service plan, and you want to move both of them to a new resource group, you must perform the move in two steps. First, move the web app to the resource group with the App Service plan. Second, move both the web app and App Service plan to a new resource group.
+If your web app resides in a different resource group than its App Service plan but you want to move both to a new resource group, you must perform the move in two steps. For example:
 
-## SQL Database limitations
+- **web-a** resides in **web-group**
+- **plan-a** resides in **plan-group**
+- You want **web-a** and **plan-a** to reside in **combined-group**
 
-You cannot move a SQL database separately from its server. The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved. 
+To accomplish this move, perform two separate move operations in the following sequence:
+
+1. Move the **web-a** to **plan-group**
+2. Move **web-a** and **plan-a** to **combined-group**.
+
+## Classic deployment limitations
+
+The options for moving resources deployed through the classic model differ based on whether you are moving the resources within a subscription or to a new subscription. 
+
+When moving resources from one resource group to another resource group **within the same subscription**, the following restrictions apply:
+
+- Virtual networks (classic) cannot be moved.
+- Virtual machines (classic) must be moved with the cloud service. 
+- Cloud service can only be moved when the move includes all of its virtual machines.
+- Only one cloud service can be moved at a time.
+- Only one storage account (classic) can be moved at a time.
+- Storage account (classic) cannot be moved in the same operation with a virtual machine or a cloud service.
+
+When moving resources to a **new subscription**, the following restrictions apply:
+
+- All classic resources in the subscription must be moved in the same operation.
+- The move can only be requested through the portal or through a separate REST API for classic moves. The standard Resource Manager move commands do not work when moving classic resources to a new subscription. The steps to use either the portal or the REST API are shown in sections below.
 
 ## Using portal to move resources
 
@@ -145,7 +170,19 @@ You can select which resources to move, and the resource group to move them to.
 
 ![move resources](./media/resource-group-move-resources/select-group.png)
 
-You will be notified of its status when the move operation completes.
+When moving resources deployed through the classic model to a new resource group, you can use the edit icon next to the name of the resource group.
+
+![move classic resources](./media/resource-group-move-resources/edit-rg-icon.png)
+
+Select the resources to move while keeping in mind the [Classic deployment limitations](#classic-deployment-limitations). Select **OK** to start the move.
+
+ ![select classic resources](./media/resource-group-move-resources/select-classic-resources.png)
+ 
+ When moving resources deployed through the classic model to a new subscription, use the edit icon next to the subscription.
+ 
+ ![move to new subscription](./media/resource-group-move-resources/edit-subscription-icon.png)
+ 
+ All of the classic resources are automatically selected for the move.
 
 ## Using PowerShell to move resources
 
@@ -194,6 +231,44 @@ To move existing resources to another resource group or subscription, run:
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
 In the request body, you specify the target resource group and the resources to move. For more information about the move REST operation, see [Move resources](https://msdn.microsoft.com/library/azure/mt218710.aspx).
+
+However, to move **classic resources to a new subscription**, you must use different REST operations. To check if a subscription can participate as the source or target subscription in a cross-subscription move of classic resources, use the following operation:
+
+    POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+    
+For the source subscription, use request body:
+
+    {
+        "role": "source"
+    }
+
+For the target subscription, use request body:
+
+    {
+        "role": "target"
+    }
+
+The response for either validation operation is:
+
+    {
+        "status": "{status}",
+        "reasons": [
+            "reason1",
+            "reason2"
+        ]
+    }
+
+To move all classic resources from one subscription to another subscription, use the following operation:
+
+    POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+
+With request body:
+
+    {
+        "target": "/subscriptions/{target-subscription-id}"
+    }
+
+
 
 ## Next steps
 - To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md).

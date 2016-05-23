@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2016"    
+	ms.date="05/19/2016"    
 	ms.author="juliako"/>
 
 
@@ -236,6 +236,20 @@ The following code example uses Media Services .NET SDK to perform the following
 		}
 
 
+##Support for relative sizes
+
+When encoding your video or generating thumbnails off of it, you do not need to always specify output width and height in pixels. You can specify them in percentages, in the range [1%, …, 100%].
+
+###JSON preset 
+	
+	"Width": "100%",
+	"Height": "100%"
+
+###XML preset
+	
+	<Width>100%</Width>
+	<Height>100%</Height>
+	
 ##<a id="thumbnails"></a>Generate thumbnails
 
 This section shows how to customize a preset that generates thumbnails. The preset defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  

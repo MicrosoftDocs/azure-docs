@@ -3,7 +3,7 @@
    description="Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
