@@ -40,12 +40,12 @@ You need to go through the following, to complete the publishing:
 1. Choose File -> New Project and create a new Service Fabric Application
 2. Choose Guest Executable as the Service Template
 3. Click Browse to select the folder with your executable and fill in the rest of the parameters to create the new service
-  - `Code Package Behavior` can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable will not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.
-  - `Program` choose the executable that should be executed in order to start the service.
-  - `Arguments` specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
-  - `WorkingFolder` choose the working directory for the process that is going to be started. You can specify two values:
-  	- `CodeBase` specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the structure shown below).
-	  - `CodePackage` specifies that the working directory is going to be set to the root of the application package	(`MyServicePkg`).
+  - *Code Package Behavior* can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable will not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.
+  - *Program* choose the executable that should be executed in order to start the service.
+  - *Arguments* specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
+  - *WorkingFolder* choose the working directory for the process that is going to be started. You can specify two values:
+  	- *CodeBase* specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the structure shown below).
+    - *CodePackage* specifies that the working directory is going to be set to the root of the application package	(`MyServicePkg`).
 4. Give your service a name and click OK
 5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file (e.g.):
 ```xml
