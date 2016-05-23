@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/23/2016"
    ms.author="seanmck"/>
 
 # Disaster recovery in Azure Service Fabric
@@ -38,7 +38,7 @@ You can visualize the layout of your cluster across fault domains using the clus
 
 ### Geographic distribution
 
-There are currently 22 Azure regions throughout the world, with 5 more already announced. An individual region can contain one or more physical data centers depending on demand and the availability of suitable locations, among other factors. Note, however, that even in regions that contain multiple physical data centers, there is no guarantee that your cluster's VMs will be evenly spread across those physical locations. Indeed, currently, all VMs for a given cluster are provisioned within a single physical site.
+There are currently [25 Azure regions throughout the world](azure-regions), with several more announced. An individual region can contain one or more physical data centers depending on demand and the availability of suitable locations, among other factors. Note, however, that even in regions that contain multiple physical data centers, there is no guarantee that your cluster's VMs will be evenly spread across those physical locations. Indeed, currently, all VMs for a given cluster are provisioned within a single physical site.
 
 ## Dealing with failures
 
@@ -82,7 +82,6 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 }
 ```
 
->[AZURE.NOTE] Backup and restore is currently only available for the Reliable Services API. Backup and restore for Reliable Actors will be available in an upcoming release.
 
 ### Software failures and other sources of data loss
 
@@ -103,6 +102,7 @@ As a cause of data loss, code defects in services, human operational errors, and
 [azure-status-dashboard]:https://azure.microsoft.com/en-us/status/
 [azure-availability-checklist]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-availability-checklist/
 [disaster-recovery-drill]: https://azure.microsoft.com/en-us/documentation/articles/sql-database-disaster-recovery-drills/
+[azure-regions]: https://azure.microsoft.com/en-us/regions/
 
 <!-- Images -->
 
