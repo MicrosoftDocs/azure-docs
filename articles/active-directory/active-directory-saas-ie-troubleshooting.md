@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="05/19/2016"
     ms.author="markvi;liviodlc"/>
 
 #Troubleshooting the Access Panel Extension for Internet Explorer
