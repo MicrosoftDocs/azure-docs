@@ -20,7 +20,9 @@
 
 With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use ARM based PowerShell commands to manage Web Apps.
 
-To learn about managing Resource Groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md). To Learn about the full list of parameters and options for the Web App ARM PowerShell Cmdlets, see the [full Cmdlet Reference of Web App ARM PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
+To learn about managing Resource Groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md). 
+
+To Learn about the full list of parameters and options for the Web App ARM PowerShell Cmdlets, see the [full Cmdlet Reference of Web App ARM PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
 
 ## Managing App Service Plans ##
 
@@ -36,7 +38,7 @@ Following are descriptions of the different parameters:
 - 	**WorkerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard or Premium. Other options are Medium, and Large.)
 - 	**NumberofWorkers**: the number of workers in the app service plan (Default value is 1). 
 
-    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
+    `New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10`
 
 ### List Existing App Service Plans ###
 
@@ -78,7 +80,7 @@ Following are descriptions of the different parameters:
 - **ResourceGroupName**: resource group that hosts the App service plan.
 - **Location**: the web app location.
 
-    New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"
+    `New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"`
 
 ### Create a new Web App in an App Service Environment ###
 
