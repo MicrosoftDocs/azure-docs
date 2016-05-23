@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Security in the Microsoft Virtual Academy | Microsoft Azure"
+   pageTitle="Azure security courses from Microsoft Virtual Academy | Microsoft Azure"
    description="This article provides a curated collection of Azure security related courses from Microsoft Virtual Academy.  Microsoft Virtual Academy provides free, online training to help Developers, IT and Data Professionals, and students learn the latest technology, build their skills, and advance their careers."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="terrylan"/>
 
-# Azure Security in the Microsoft Virtual Academy
+# Azure security courses from Microsoft Virtual Academy
 
 Microsoft Virtual Academy provides free, online training to help Developers, IT and Data Professionals, and students learn the latest technology, build their skills, and advance their careers.
 
