@@ -367,7 +367,7 @@ In order to run the sample you run the **ble_gateway_hl** binary passing the pat
 ./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
 ```
 
-You may need o press the small button on the SensorTag to make it discoverable before you run the sample.
+You may need to press the small button on the SensorTag to make it discoverable before you run the sample.
 
 When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
