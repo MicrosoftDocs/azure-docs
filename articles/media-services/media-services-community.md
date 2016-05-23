@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/20/2016"   
+	ms.date="05/22/2016"   
 	ms.author="juliako"/>
 
 # Azure Media Services Community  
@@ -30,6 +30,10 @@ Episode|Speaker|Date
 [Azure Media Indexer automatically creates transcripts for your media](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)|Adarsh Solanki|07/09/2015
 [Microsoft Hyperlapse in Azure Media Services with Adarsh Solanki](https://azure.microsoft.com/documentation/videos/microsoft-hyperlapse-in-azure-media-services-with-adarsh-solanki/)|Adarsh Solanki|10/07/2015
 
+##Provide feedback and make suggestions
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 ##Discussion
 
 ###Twitter
@@ -38,16 +42,14 @@ Use the @MSFTAzureMedia twitter handle to follow the AMS news and updates on Twi
 You can use the @AzureSupport twitter handle to request support on Twitter.  
  
 ### Online forums
- 
+
+The following forums can be used for asking questions about current products and features.
+
 Currently, MSDN is AMS primary forum.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
-
-##Give us feature requests and vote on feature prioritization
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## Contact the team
 
