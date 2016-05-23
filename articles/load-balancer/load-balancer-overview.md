@@ -110,7 +110,7 @@ You can get more than one load-balanced public IP address assigned to a set of v
 
 ####Template-based deployments through Azure Resource Manager####
 
-The load balancer can be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see the [Resource Manager overview](../resource-group-overview.md).
+The load balancer can be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see the [Resource Manager overview](../resource-group-overview.md) .
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
