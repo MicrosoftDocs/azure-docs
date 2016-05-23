@@ -51,10 +51,24 @@ If you are creating a new VM using the portal, you can also create a new availab
 7. Click **Create** when you are finished.
 8. Once the availability group has been created, you can see it in the list after you refresh.
 
+## Use the portal to create a virtual machine and an availability set at the same time
+
+If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set.
+
+![Screenshot that shows the process for creating a new availability set while you create the VM.](./media/virtual-machines-windows-create-availability-set/new-vm-avail-set.png)
+
+
+## Add a new VM to an existing availability set
+
+For each additional VM that you create that should belong in the set, make sure that you create it in the same **resource group** and then select the existing availability set in Step 3. 
+
+![Screenshot showing how to select an existing availability set to use for your VM.](add-vm-to-set.png)
+
+
 
 ## Use PowerShell to create an availability set
 
-This example creates an availability set in the **RMResGroup** resource group in the **West US** location.
+This example creates an availability set in the **RMResGroup** resource group in the **West US** location. This needs to be done before you create the first VM that will be in the set.
 
 	New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "West US"
 	
