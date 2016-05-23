@@ -19,7 +19,7 @@
 
 ## Overview
 
-The following release notes identify the critical open issues and the resolved issues for the Microsoft Azure StorSimple Virtual Array Update 0.1 release. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) This release corresponds to the software version **10.0.10279.0**. This is a disruptive portal and will restart your device. If IO are in progress, the device will incur downtime.
+The following release notes identify the critical open issues and the resolved issues for the Microsoft Azure StorSimple Virtual Array Update 0.1 release. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) This release corresponds to the software version **10.0.10279.0**. Update 0.1 is a disruptive update and will restart your device. If IO are in progress, the device will incur downtime.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
