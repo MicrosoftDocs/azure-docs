@@ -91,8 +91,8 @@ As a cause of data loss, code defects in services, human operational errors, and
 
 - Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
 - Read other disaster-recovery and high-availability resources. Microsoft has published a large amount of guidance on these topics. While some of these documents refer to specific techniques for use in other products, they contain many general best practices you can apply in the Service Fabric context as well:
- - [Availability checklist](azure-availability-checklist)
- - [Performing a disaster recovery drill](disaster-recovery-drill)
+ - [Availability checklist](../best-practices-availability-checklist.md)
+ - [Performing a disaster recovery drill](../sql-database/sql-database-disaster-recovery-drills.md)
  - [Disaster recovery and high availability for Azure applications](dr-ha-guide)
 
 
@@ -101,8 +101,9 @@ As a cause of data loss, code defects in services, human operational errors, and
 [repair-partition-ps]: https://msdn.microsoft.com/en-us/library/mt163522.aspx
 [azure-status-dashboard]:https://azure.microsoft.com/en-us/status/
 [azure-availability-checklist]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-availability-checklist/
-[disaster-recovery-drill]: https://azure.microsoft.com/en-us/documentation/articles/sql-database-disaster-recovery-drills/
-[azure-regions]: https://azure.microsoft.com/en-us/regions/
+[azure-regions]: https://azure.microsoft.com/regions/
+[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+
 
 <!-- Images -->
 
