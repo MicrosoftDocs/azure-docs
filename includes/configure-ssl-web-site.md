@@ -504,9 +504,9 @@ If your web.config file already includes a **&lt;rewrite>** section, add the **&
 
 For PHP applications, simply save the [example](#example) as a web.config file in the root of your application, then re-deploy the application to your app.
 
-###Node.js, Python Django, and Java
+###Node.js, Python Django & Java
 
-A web.config file is automatically created for Node.js, Python Django, and Java apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
+A web.config file is automatically created for Node.js, Python Django & Java apps if they don't already provide one, but it only exists on the server since it is created during deployment. The automatically generated file contains settings that tell Azure how to host your application.
 
 To retrieve and modify the auto-generated file from the app, use the following steps.
 
@@ -524,7 +524,7 @@ To retrieve and modify the auto-generated file from the app, use the following s
 
 		The web.config file for Java applications using Apache Tomcat do not contain a **&lt;rewrite>** section, so you must add the **&lt;rewrite>** section from the example into the **&lt;system.webServer>** section.
 
-4. Redeploy the project (including the updated web.config,) to Azure
+4. Put it back to the folder /site/wwwroot
 
 Once you deploy a web.config with a rewrite rule to force HTTPS, it should take effect immediately and redirect all requests to HTTPS.
 
