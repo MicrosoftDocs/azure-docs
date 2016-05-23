@@ -103,9 +103,9 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Docu
 
 	The **Manage NuGet Packages** dialog box appears.
 
-2. In the **Search Online** box, type ***Azure DocumentDB***. 
+2. In the NuGet **Browse** box, type ***Azure DocumentDB***.
 	
-	From the results, install the **Microsoft Azure DocumentDB Client Library** package. This will download and install the DocumentDB package as well as all dependencies, like Newtonsoft.Json.
+	From the results, install the **Microsoft Azure DocumentDB Client Library** package. This will download and install the DocumentDB package as well as all dependencies, like Newtonsoft.Json. Click **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the install.
 
   	![Sreen shot of the Manage NuGet Packages window, with the Microsoft Azure DocumentDB Client Library highlighted](./media/documentdb-dotnet-application/nuget.png)
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Roles in Azure AD Privileged Identity Management
@@ -32,7 +32,8 @@ Azure AD Privileged Identity Management (PIM) manages policies for privileged ac
 Privileged Identity Management lets you assign users to common administrator roles, including:
 
 
-- **Global administrator** (also known as Company Administrator) has access to all administrative features. You can have more than one global admin in your organization. The person who signs up to purchase Office 365 automatically becomes a global admin.
+- **Global administrator** (also known as Company administrator) has access to all administrative features. You can have more than one global admin in your organization. The person who signs up to purchase Office 365 automatically becomes a global admin.
+- **Privileged role administrator** manages Azure AD PIM and updates role assignments for other users.  
 - **Billing administrator** makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 - **Password administrator** resets passwords, manages service requests, and monitors service health. Password admins are limited to resetting passwords for users.
 - **Service administrator** manages service requests and monitors service health.

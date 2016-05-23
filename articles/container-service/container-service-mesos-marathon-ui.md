@@ -24,8 +24,8 @@ DC/OS provides an environment for deploying and scaling clustered workloads, whi
 
 While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles.
 
-- [Deploying an Azure Container Service cluster](./container-service-deployment.md)
-- [Connecting to an Azure Container Service cluster](./container-service-connect.md)
+- [Deploying an Azure Container Service cluster](container-service-deployment.md)
+- [Connecting to an Azure Container Service cluster](container-service-connect.md)
 
 ## Explore the DC/OS UI
 
@@ -95,4 +95,4 @@ After the scale operation is complete, you will see multiple instances of the sa
 
 ## Next steps
 
-[Work with the DC/OS and Marathon API](./container-service-mesos-marathon-rest.md)
+[Work with the DC/OS and Marathon API](container-service-mesos-marathon-rest.md)

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 #Run Hadoop MapReduce samples in Windows-based HDInsight
@@ -91,7 +91,7 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
 		# Get the job output
 		$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 		$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+		$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 		$defaultStorageContainer = $cluster.DefaultStorageContainer
 		
 		Get-AzureRmHDInsightJobOutput `

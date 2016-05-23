@@ -21,7 +21,7 @@
 
 Automatic scaling of virtual machines in a scale set is the creation or deletion of machines in the set as needed by an application to match performance requirements and satisfy service level agreements (SLAs). As the volume of work grows, an application may require additional resources to enable it to effectively perform tasks.
 
-Automatic scaling is an automated process that helps ease management overhead. By reducing overhead, continual monitoring of system performance as well as making decisions about adding or removing resources are not needed. Scaling is an elastic process; more resources can be provisioned as the load increases on the system, but as demand decreases resources can be deallocated to minimize costs while still maintaining adequate performance and meeting SLAs.
+Automatic scaling is an automated process that helps ease management overhead by continual monitoring of system performance as well as making decisions about adding or removing resources that are not needed. Scaling is an elastic process; more resources can be provisioned as the load increases on the system, but as demand decreases resources can be deallocated to minimize costs while still maintaining adequate performance and meeting SLAs.
 
 Set up automatic scaling on a scale set by using an Azure Resource Manager template, by using Azure PowerShell, or by using Azure CLI.
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="05/18/2016"
 	ms.author="robinsh"/>
 
 # Using Azure PowerShell with Azure Storage
@@ -237,24 +237,21 @@ Now that you have set up your computer and learned how to manage subscriptions a
 
 ### How to retrieve and regenerate Azure storage keys
 
-> [AZURE.IMPORTANT] The method for retrieving keys changed from Azure PowerShell 1.3.2 to Azure PowerShell 1.4. We'll explain both methods in this section.
-
 An Azure Storage account comes with two account keys. You can use the following cmdlet to retrieve your keys.
 
-	Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName
+	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
 
-For Azure PowerShell v1.4, use the following cmdlet to retrieve a specific key. Valid values are Value[0] and Value[1].  
+Use the following cmdlet to retrieve a specific key. Valid values are Primary and Secondary.  
 
-	(Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Value[0]
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
 
-For Azure PowerShell v1.3.2, use the following cmdlet to retrieve a specific key. Valid values are Key1 and Key2:
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
 
-	(Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Key1
+If you would like to regenerate your keys, use the following cmdlet. Valid values for -KeyType are "Primary" and "Secondary"
 
-If you would like to regenerate your keys, use the following cmdlet. Valid values for -KeyName are "key1" and "key2"
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
 
-	New-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -AccountName $StorageAccountName -KeyName "key1"
-
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
 
 ## How to manage Azure blobs
 Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob Storage Service concepts. For detailed information, see [Get started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx).
