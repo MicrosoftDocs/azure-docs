@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # How to configure data persistence for a Premium Azure Redis Cache
@@ -98,7 +98,7 @@ All backups except for the most recent one are automatically deleted. This delet
 ### What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?
 
 -	If you have scaled to a larger size there is no impact.
--	If you have scaled to a smaller size and you have a custom [databases](cache-configure.md#databases) setting that is greater than the databases limit for your new size,data in those databases won't be restored. For more information see [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
+-	If you have scaled to a smaller size and you have a custom [databases](cache-configure.md#databases) setting that is greater than the [databases limit](cache-configure.md#databases) for your new size, data in those databases won't be restored. For more information see [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
 -	If you have scaled to a smaller size and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy.
 
 ## Next steps

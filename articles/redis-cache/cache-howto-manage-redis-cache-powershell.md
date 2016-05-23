@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Manage Azure Redis Cache with Azure PowerShell
@@ -237,7 +237,7 @@ To specify values for the `RedisConfiguration` parameter, enclose the values ins
 <a name="databases"></a>
 ## To configure the databases setting during cache creation
 
-The `databases` setting can be configured only during cache creation. The following examples creates a premium P3 (26 GB) cache with 48 databases using the [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
+The `databases` setting can be configured only during cache creation. The following example creates a premium P3 (26 GB) cache with 48 databases using the [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 

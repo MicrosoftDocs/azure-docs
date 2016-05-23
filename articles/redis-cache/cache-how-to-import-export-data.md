@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Import and Export data in Azure Redis Cache
@@ -123,7 +123,7 @@ Yes, and you can import/export between a clustered cache and a non-clustered cac
 
 Some pricing tiers have different [databases limits](cache-configure.md#databases), so there are some considerations when importing if you configured a custom value for the `databases` setting during cache creation.
 
--	When importing to a pricing tier with a lower `databases` limit than the tier from which you exported from:
+-	When importing to a pricing tier with a lower `databases` limit than the tier from which you exported:
 	-	If you are using the default number of `databases` which is 16 for all pricing tiers, no data is lost.
 	-	If you are using a custom number of `databases` that falls within the limits for the tier to which you are importing, no data is lost.
 	-	If your exported data contained data in a database that exceeds the limits of the new tier, the data from those higher databases is not imported.

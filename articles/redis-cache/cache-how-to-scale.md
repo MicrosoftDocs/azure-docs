@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
@@ -151,7 +151,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 
 Some pricing tiers have different [databases limits](cache-configure.md#databases), so there are some considerations when scaling down if you configured a custom value for the `databases` setting during cache creation.
 
--	When scaling to a pricing tier with a lower `databases` limit than the current tier
+-	When scaling to a pricing tier with a lower `databases` limit than the current tier:
 	-	If you are using the default number of `databases` which is 16 for all pricing tiers, no data is lost.
 	-	If you are using a custom number of `databases` that falls within the limits for the tier to which you are scaling, this `databases` setting is retained and no data is lost.
 	-	If you are using a custom number of `databases` that exceeds the limits of the new tier, the `databases` setting is lowered to the limits of the new tier and all data in the removed databases is lost.
