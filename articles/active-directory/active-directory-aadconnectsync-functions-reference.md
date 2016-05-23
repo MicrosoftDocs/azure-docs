@@ -45,7 +45,7 @@ The types are expressed with the following syntax:
 ## Functions Reference
 
 List of functions | | | | |  
--- | -- | -- | -- | -- | --
+--------- | --------- | --------- | --------- | --------- | ---------
 **Conversion** |  
 [CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64) | [ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex)
 [ConvertToUTF8Hex](#converttoutf8hex) | [CNum](#cnum) | [CRef](#cref) | [CStr](#cstr) | [StringFromGuid](#StringFromGuid) | [StringFromSid](#stringfromsid)
