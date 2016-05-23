@@ -425,3 +425,4 @@ via IoT Hub to cause the red LED on the SensorTag to light up:
 [lnk-setup-win32]: https://software.intel.com/get-started-edison-windows-32
 [lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
+[lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
