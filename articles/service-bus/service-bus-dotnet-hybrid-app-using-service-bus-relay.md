@@ -537,8 +537,8 @@ The next step is to convert the **ProductsPortal** frontend to an Azure web app.
 Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
 
 ![][9] 
+   
 
-<br />
 >AZURE.NOTE You may see an error in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
 
 After deployment is complete, return to this tutorial and proceed to the next step. 
@@ -565,7 +565,8 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
     ![][1]
 
-	<br />
+	   
+
 	> AZURE.IMPORTANT The **ProductsServer** console application must be running and able to serve the data to the **ProductsPortal** application. If the browser displays an error, wait a few more seconds for **ProductsServer** to load and display the following message. Then press **Refresh** in the browser.
 
 	![][37]
