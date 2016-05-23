@@ -367,6 +367,8 @@ In order to run the sample you run the **ble_gateway_hl** binary passing the pat
 ./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
 ```
 
+You may need o press the small button on the SensorTag to make it discoverable before you run the sample.
+
 When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
 Sending cloud-to-device messages
@@ -420,6 +422,6 @@ via IoT Hub to cause the red LED on the SensorTag to light up:
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-setup-win64]: https://software.intel.com/get-started-edison-windows
-[lnk-setup-win32]: https://software.intel.com/en-us/get-started-edison-windows-32
+[lnk-setup-win32]: https://software.intel.com/get-started-edison-windows-32
 [lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
