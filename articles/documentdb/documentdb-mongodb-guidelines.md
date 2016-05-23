@@ -43,7 +43,7 @@ Feature|Supported|Will be supported|Not Supported
 Insert|InsertOne| | 
  |InsertMany| | 
 ---|Insert|---|---
----|---|---|---
+ ||| 
 Update|UpdateOne|---|---
 ---|UpdateMany|---|---
 ---|Update|---|---
