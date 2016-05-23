@@ -538,11 +538,9 @@ Copy the URL of the deployed web app, as you will need the URL in the next step.
 
 ![][9] 
    
-
+After deployment is complete, return to this tutorial and proceed to the next step.
 
 >AZURE.NOTE You may see an error in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
-
-After deployment is complete, return to this tutorial and proceed to the next step. 
 
 ### Set ProductsPortal as web app
 
@@ -566,9 +564,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
     ![][1]
 
-	 
-
-  
+	Check the URL to make sure that **ProductsPortal** is running in the as an Azure web app.
 
 	> AZURE.IMPORTANT The **ProductsServer** console application must be running and able to serve the data to the **ProductsPortal** application. If the browser displays an error, wait a few more seconds for **ProductsServer** to load and display the following message. Then press **Refresh** in the browser.
 
