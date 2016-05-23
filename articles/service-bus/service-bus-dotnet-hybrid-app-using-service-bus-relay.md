@@ -532,13 +532,13 @@ Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page
 
 ## Deploy the ProductsPortal project to an Azure web app
 
-The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). After deployment is complete, return to this tutorial and proceed to the next step. 
+The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). 
 
 Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
 
 ![][9] 
    
-
+After deployment is complete, return to this tutorial and proceed to the next step. 
 
 >AZURE.NOTE You may see an error in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
 
@@ -560,10 +560,11 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
 ## Run the application
 
-2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. This time, you will see that the product inventory lists data retrieved from the product service on-premises system. Check the URL to make sure that **ProductsPortal** is running in the as an Azure web app.
+2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. This time, you will see that the product inventory lists data retrieved from the product service on-premises system. 
 
     ![][1]
 
+	Check the URL to make sure that **ProductsPortal** is running in the as an Azure web app.
 
 	> AZURE.IMPORTANT The **ProductsServer** console application must be running and able to serve the data to the **ProductsPortal** application. If the browser displays an error, wait a few more seconds for **ProductsServer** to load and display the following message. Then press **Refresh** in the browser.
 
