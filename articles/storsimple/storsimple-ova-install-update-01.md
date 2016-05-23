@@ -19,7 +19,7 @@
 
 ## Overview
 
-This article describes the steps required to install Update 0.1 on your StorSimple Virtual Array. It describes the update procedures via the Azure classic portal and via the local web UI.
+This article describes the steps required to install Update 0.1 on your StorSimple Virtual Array. It describes the update procedures via the Azure classic portal and via the local web UI. Each update procedure takes less than 2 minutes to complete.
 
 Typically, you need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. In general, we recommend that you install updates through the Azure classic portal. However, in instances where the portal is not available, you can use the local web UI to apply hotfixes or updates. 
 
