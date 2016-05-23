@@ -23,9 +23,9 @@ This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows 
 
 This walkthrough covers:
 
-1. **Architecture**: important architectural information about the Bluetooth low energy sample.
+* **Architecture**: important architectural information about the Bluetooth low energy sample.
 
-2. **Build and run**: the steps required to build and run the sample.
+* **Build and run**: the steps required to build and run the sample.
 
 ## Architecture
 
@@ -101,102 +101,102 @@ Before running the sample, you need to verify that your Edison board can connect
 First you need to update the version of the BlueZ software on your Edison. Note that even if you already have version 5.37 installed you should complete the following steps to ensure that the installation is complete:
 
 1. Stop the currently running bluetooth daemon.
-  
-  ```
-  systemctl stop bluetooth
-  ```
+    
+    ```
+    systemctl stop bluetooth
+    ```
 
 2. Download and extract the [source code](http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz) for BlueZ version 5.37.
-  
-  ```
-  wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
-  tar -xvf bluez-5.37.tar.xz
-  cd bluez-5.37
-  ```
+    
+    ```
+    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
+    tar -xvf bluez-5.37.tar.xz
+    cd bluez-5.37
+    ```
 
 3. Build and install BlueZ.
-  
-  ```
-  ./configure --disable-udev --disable-systemd --enable-experimental
-  make
-  make install
-  ```
+    
+    ```
+    ./configure --disable-udev --disable-systemd --enable-experimental
+    make
+    make install
+    ```
 
 4. Change the *systemd* service configuration for bluetooth so that it points to the new bluetooth daemon by editing the file **/lib/systemd/system/bluetooth.service**. Replace the value of the  **ExecStart** attribute so that it looks like this:
-  
-  ```
-   ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
-   ```
+    
+    ```
+    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
+    ```
 
 5. Reboot your Edison.
 
 Next you need to verify that your Edison can connect to the SensorTag device.
 
 1. Unblock bluetooth on the Edison and check that the version number is **5.37**.
-  
-  ```
-  rfkill unblock bluetooth
-  bluetoothctl --version
-  ```
+    
+    ```
+    rfkill unblock bluetooth
+    bluetoothctl --version
+    ```
 
 2. Execute the **bluetoothctl** command. You should see output similar to the following:
-  
-  ```
-  [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
-  ```
+    
+    ```
+    [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
+    ```
 
 3. You are now in an interactive bluetooth shell. Enter the command **scan on** to start scanning for bluetooth devices. You should see output similar to the following:
-  
-  ```
-  Discovery started
-  [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
-  ```
+    
+    ```
+    Discovery started
+    [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
+    ```
 
 4. Make the SensorTag device discoverable by pressing the small button (the green LED should flash). The Edison should discover the SensorTag device:
-  
-  ```
-  [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
-  [CHG] Device A0:E6:F8:B5:F6:00 TxPower: 0
-  [CHG] Device A0:E6:F8:B5:F6:00 RSSI: -43
-  ```
-  
-  In this example, you can see that the MAC address of the SensorTag device is **A0:E6:F8:B5:F6:00**.
+    
+    ```
+    [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
+    [CHG] Device A0:E6:F8:B5:F6:00 TxPower: 0
+    [CHG] Device A0:E6:F8:B5:F6:00 RSSI: -43
+    ```
+    
+    In this example, you can see that the MAC address of the SensorTag device is **A0:E6:F8:B5:F6:00**.
 
 5. Turn off scanning by entering the **scan off** command.
-  
-  ```
-  [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
-  Discovery stopped
-  ```
+    
+    ```
+    [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
+    Discovery stopped
+    ```
 
 6. Connect to your SensorTag device using its MAC address by entering **connect <MAC address>**. Note that the sample output below is abbreviated:
-  
-  ```
-  Attempting to connect to A0:E6:F8:B5:F6:00
-  [CHG] Device A0:E6:F8:B5:F6:00 Connected: yes
-  Connection successful
-  [CHG] Device A0:E6:F8:B5:F6:00 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
-  ...
-  [NEW] Primary Service
-          /org/bluez/hci0/dev_A0_E6_F8_B5_F6_00/service000c
-          Device Information
-  ...
-  [CHG] Device A0:E6:F8:B5:F6:00 GattServices: /org/bluez/hci0/dev_A0_E6_F8_B5_F6_00/service000c
-  ...
-  [CHG] Device A0:E6:F8:B5:F6:00 Name: SensorTag 2.0
-  [CHG] Device A0:E6:F8:B5:F6:00 Alias: SensorTag 2.0
-  [CHG] Device A0:E6:F8:B5:F6:00 Modalias: bluetooth:v000Dp0000d0110
-  ```
-  
-  Note: You can list the GATT characteristics of the device again using the **list-attributes** command.
+    
+    ```
+    Attempting to connect to A0:E6:F8:B5:F6:00
+    [CHG] Device A0:E6:F8:B5:F6:00 Connected: yes
+    Connection successful
+    [CHG] Device A0:E6:F8:B5:F6:00 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
+    ...
+    [NEW] Primary Service
+            /org/bluez/hci0/dev_A0_E6_F8_B5_F6_00/service000c
+            Device Information
+    ...
+    [CHG] Device A0:E6:F8:B5:F6:00 GattServices: /org/bluez/hci0/dev_A0_E6_F8_B5_F6_00/service000c
+    ...
+    [CHG] Device A0:E6:F8:B5:F6:00 Name: SensorTag 2.0
+    [CHG] Device A0:E6:F8:B5:F6:00 Alias: SensorTag 2.0
+    [CHG] Device A0:E6:F8:B5:F6:00 Modalias: bluetooth:v000Dp0000d0110
+    ```
+    
+    Note: You can list the GATT characteristics of the device again using the **list-attributes** command.
 
 7. You can now disconnect from the device using the **disconnect** command and then exit from the bluetooth shell using the **quit** command:
-  
-  ```
-  Attempting to disconnect from A0:E6:F8:B5:F6:00
-  Successful disconnected
-  [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
-  ```
+    
+    ```
+    Attempting to disconnect from A0:E6:F8:B5:F6:00
+    Successful disconnected
+    [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
+    ```
 
 You're now ready to run the BLE Gateway sample on your Edison device.
 
@@ -371,8 +371,7 @@ You may need to press the small button on the SensorTag to make it discoverable 
 
 When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
-Sending cloud-to-device messages
---------------------------------
+## Sending cloud-to-device messages
 
 The BLE module also supports sending of instructions from the Azure IoT Hub to
 the device. You should be able to use the
@@ -382,7 +381,7 @@ by the BLE module. For example, if you were using a Texas Instruments SensorTag
 device then you'd send the following sequence of JSON messages to the device
 via IoT Hub to cause the red LED on the SensorTag to light up:
 
-  - Reset all LEDs and the buzzer (turn them off)
+- Reset all LEDs and the buzzer (turn them off)
 
     ```json
     {
@@ -392,7 +391,7 @@ via IoT Hub to cause the red LED on the SensorTag to light up:
     }
     ```
 
-  - Configure I/O as 'remote'
+- Configure I/O as 'remote'
 
     ```json
     {
@@ -402,7 +401,7 @@ via IoT Hub to cause the red LED on the SensorTag to light up:
     }
     ```
 
-  - Turn on red LED
+- Turn on red LED
 
     ```json
     {
