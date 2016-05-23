@@ -206,7 +206,7 @@ Note that:
 
 **Component** | **Requirements** | **Details**
 --- | --- | --- 
-**Azure account** | You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/).
+**Azure account** | You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 **Azure storage** | You'll need an Azure storage account to store replicated data<br/><br/> Either the account should be a [Standard Geo-redundant Storage Account](../storage/storage-redundancy.md#geo-redundant-storage) or [Premium Storage Account](../storage/storage-premium-storage.md).<br/><br/> It must in the same region as the Azure Site Recovery service, and be associated with the same subscription. We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.<br/><br/> To learn more read [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md)
 **Azure virtual network** | You'll need an Azure virtual network on which the configuration server and master target server will be deployed. It should be in the same subscription and region as the Azure Site Recovery vault. If you wish to replicate data over an ExpressRoute or VPN connection the Azure virtual network must be connected to your on-premises network over an ExpressRoute connection or a Site-to-Site VPN.
 **Azure resources** | Make sure you have enough Azure resources to deploy all components. Read more in [Azure Subscription Limits](../azure-subscription-service-limits.md).
@@ -245,7 +245,7 @@ You have two options when configuring network connectivity between your on-premi
 
 4. In **Name**, enter a friendly name to identify the vault.
 
-5. In **Region**, select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](pricing/details/site-recovery/)
+5. In **Region**, select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 
 6. Click **Create vault**.
 
