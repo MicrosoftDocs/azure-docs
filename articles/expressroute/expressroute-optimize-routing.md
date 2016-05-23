@@ -23,7 +23,7 @@ Let's take a close look at the routing problem by an example. Imagine you have t
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
-### Solution: leveraging the BGP Communities
+### Solution: use BGP Communities
 To optimize routing for both office users, you need to know which prefix is from Azure US West and which from Azure US East. We encode this information by using [BGP Community values](expressroute-routing.md). We've assigned a unique BGP Community value to each Azure region, e.g. "12076:51004" for US East, "12076:51006" for US West. Now that you know which prefix is from which Azure region, you can configure which ExpressRoute circuit should be preferred. Because we use the BGP to exchange routing info,  you can use BGP's Local Preference to influence routing. In our example, you can assign a higher local preference value to 13.100.0.0/16 in US West than in US East, and similarly, a higher local preference value to 23.100.0.0/16 in US East than in US West. This configuration will make sure that, when both paths to Microsoft are available, your users in Los Angeles will take the ExpressRoute circuit in US West to connect to Azure US West whereas your users in New York take the ExpressRoute in US East to Azure US East. Routing is optimized on both sides. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
@@ -33,7 +33,7 @@ Here is another example where connections from Microsoft take a longer path to r
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
-### Solution: leveraging AS PATH prepending
+### Solution: use AS PATH prepending
 There are two solutions to the problem. The first one is that you simply advertise your on-premises prefix for your Los Angeles office, 177.2.0.0/31, on the ExpressRoute circuit in US West and your on-premises prefix for your New York office, 177.2.0.2/31, on the ExpressRoute circuit in US East. As a result, there is only one path for Microsoft to connect to each of your offices. There is no ambiguity and routing is optimized. With this design, you need to think about your failover strategy. In the event that the path to Microsoft via ExpressRoute is broken, you need to make sure that Exchange Online can still connect to your on-premises servers. 
 
 The second solution is that you continue to advertise both of the prefixes on both ExpressRoute circuits, and in addition you give us a hint of which prefix is close to which one of your offices. Because we support BGP AS Path prepending, you can configure the AS Path for your prefix to influence routing. In this example, you can lengthen the AS PATH for 172.2.0.0/31 in US East so that we will prefer the ExpressRoute circuit in US West for traffic destined for this prefix (as our network will think the path to this prefix is shorter in the west). Similarly you can lengthen the AS PATH for 172.2.0.2/31 in US West so that we'll prefer the ExpressRoute circuit in US East. Routing is optimized for both offices. With this design, if one ExpressRoute circuit is broken, Exchange Online can still reach you via another ExpressRoute circuit and your WAN. 
