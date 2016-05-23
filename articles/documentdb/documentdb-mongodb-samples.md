@@ -18,6 +18,10 @@
 	ms.author="stbaro"/>
 
 # DocumentDB protocol support for MongoDB examples
+To use these examples, you must:
+
+- [Create](documentdb-create-mongodb-account.md) a DocumentDB with protocol support for MongoDB account.
+- Retrieve your DocumentDB with protocol support for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information.
 
 ## Get started with a sample Node.js appplication
 
@@ -25,12 +29,12 @@ The following instructions can be used to connect a Node.js MongoDB application 
 
 1. Use git to git clone https://github.com/scotch-io/mean-google-maps
 2. Navigate to your mean-google-maps directory
-3. Edit /app/config.js and add the following entry:
+3. Edit /app/config.js and add the following entry (with connection string information for your account):
 
 		documentdb:
     	{
 	        name: "documentdb",
-        	url: "<your connection string>/mean-map-app?ssl=true",
+        	url: "mongodb://<DocumentDB user>:<DocumentDB password>@<DocumentDB host>:10250/?ssl=true/mean-map-app?ssl=true",
         	port: 10250
     	}
 4. Edit /server.js and modify the Connection to use the config entry create in step 3:

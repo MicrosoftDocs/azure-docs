@@ -38,7 +38,7 @@ DocumentDB does not support the MongoDB aggregation pipeline or Map-Reduce opera
 
 ## Support Matrix
 
-### CRUD Operations
+### CRUD and Query Operations
 
 Feature|Supported|Will be supported|Not Supported 
 ---|---|---|---
@@ -48,7 +48,6 @@ Insert|InsertOne| |
 Update|UpdateOne| | 
  |UpdateMany| | 
  |Update| | 
-OPERATORS| | | 
 Field Update|$inc, $mul, $rename, $set, $unset, $min, $max|$currentDate| 
 Array Update| |-all-| 
 Bitwise| |-all-| 
@@ -58,8 +57,6 @@ Delete|DeleteOne | |
  |DeleteMany| | 
  |Remove| | 
 BulkWrite| |bulkWrite()| 
-QUERY| | | 
-Operators| | | 
 Comparison|-all-| | 
 Logical|-all-| | 
 Element Query| |-all-| 
