@@ -41,11 +41,20 @@ We recommend that you install updates through the Azure classic portal. The port
 
 	![Scan updates](./media/storsimple-ova-install-update-01/aupdate1m.png)
 
-4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device will restart after it is updated. This will disrupt any IO in progress. Click the check icon to launch a job to download the available updates. You will be notified after the updates are downloaded.
+4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device will restart after it is updated. This will disrupt any IO in progress. Click the check icon to launch a job to download the available updates. 
+
+	![Confirm download updates](./media/storsimple-ova-install-update-01/aupdate3m.png)	
+
+	You will be notified after the updates are downloaded.
 
 	![Download updates](./media/storsimple-ova-install-update-01/aupdate5m.png)
 
-5. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog will be presented to you again. Click the check icon to start a job to install the updates. You will be notified after the job is created. 
+5. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog will be presented to you again. Click the check icon to start a job to install the updates. 
+ 
+ 	![Confirm install updates](./media/storsimple-ova-install-update-01/aupdate6m.png)	
+ 
+ 
+	You will be notified after the job is created. 
 
 	![Install updates](./media/storsimple-ova-install-update-01/aupdate8m.png)
 	
