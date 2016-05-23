@@ -31,8 +31,6 @@ If you are creating a new VM using the portal, you can also create a new availab
 	![Screenshot that shows the process for creating a new availability set while you create the VM.](./media/virtual-machines-windows-create-availability-set/new-vm-avail-set.png)
 
 
-1. In step 3, select Availability set.
-
 
 ## Use the portal to create an availability set before creating your VMs
 
