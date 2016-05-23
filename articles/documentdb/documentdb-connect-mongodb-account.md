@@ -50,6 +50,7 @@ Where the values of this string are available in the Connection String blade sho
 	- 10250
 - Database (optional)
 	- The default database used by the connection
+- ssl=true (required)
 
 For example, consider the account shown in the Connection String Information above.  A valid connection string is:
 	
