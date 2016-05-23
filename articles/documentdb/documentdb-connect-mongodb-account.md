@@ -54,7 +54,7 @@ Where the values of this string are available in the Connection String blade sho
 
 For example, consider the account shown in the Connection String Information above.  A valid connection string is:
 	
-	mongodb://contoso123:<password@contoso123.documents.azure.com:10250/?ssl=true
+	mongodb://contoso123:<password@contoso123.documents.azure.com:10250/mydatabase?ssl=true
 
 ## Connecting with the C# driver for MongoDB
 As already mentioned, all DocumentDB accounts require both authentication and secure communication via SSL. While the MongoDB connection string URI format supports an ssl=true query string parameter, working with the MongoDB C# driver requires use of the MongoClientSettings object when creating a MongoClient.  Given the account information above, the following code snippet shows how to connect to the account and work with the “Tasks” database.
