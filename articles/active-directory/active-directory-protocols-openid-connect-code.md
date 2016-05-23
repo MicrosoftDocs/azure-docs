@@ -35,7 +35,7 @@ The most basic sign-in flow contains the following steps - each of them is descr
 
 ## Send the sign-in request
 
-When your web application needs to authenticate the user, it must direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](active-directory-protocols-oauth-code), with a few important distinctions:
+When your web application needs to authenticate the user, it must direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](active-directory-protocols-oauth-code.md), with a few important distinctions:
 
 - The request must include the scope `openid` in the `scope` parameter.
 - The `response_type` parameter must include `id_token`.
@@ -119,7 +119,7 @@ You may also wish to validate additional claims depending on your scenario. Some
 - Ensuring the user has proper authorization/privileges
 - Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorizations, etc. For more information about the token types and claims, please read [Supported Token and Claim Types](active-directory-token-and-claims).
+Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorizations, etc. For more information about the token types and claims, please read [Supported Token and Claim Types](active-directory-token-and-claims.md).
 
 ## Send a sign out request
 
