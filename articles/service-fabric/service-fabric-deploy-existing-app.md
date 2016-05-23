@@ -48,9 +48,7 @@ You need to go through the following, to complete the publishing:
     - *CodePackage* specifies that the working directory is going to be set to the root of the application package	(`MyServicePkg`).
 4. Give your service a name and click OK
 5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file (e.g.):
-      ```xml
-	- <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
-      ```
+	- ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />```
 6. Publish your guest executable to a Service Fabric cluster
 
 ### Check your running application
