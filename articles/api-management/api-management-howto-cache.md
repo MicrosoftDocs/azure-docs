@@ -3,7 +3,7 @@
 	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls."
 	services="api-management"
 	documentationCenter=""
-	authors="steved0x"
+	authors="erikre"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
-	ms.author="sdanie"/>
+	ms.date="05/23/2016"
+	ms.author="erikre"/>
 
 # Add caching to improve performance in Azure API Management
 

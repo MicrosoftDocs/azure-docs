@@ -3,7 +3,7 @@
 	description="Learn about APIs, products, roles, groups, and other API Management key concepts." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="erikre" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="03/23/2016" 
-	ms.author="sdanie"/>
+	ms.date="05/23/2016" 
+	ms.author="erikre"/>
 
 #What is API Management?
 

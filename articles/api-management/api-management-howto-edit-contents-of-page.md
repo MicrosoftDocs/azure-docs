@@ -3,7 +3,7 @@
 	description="How to edit the contents of a page in Azure API Management." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="erikre" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
-	ms.author="sdanie"/>
+	ms.date="05/23/2016" 
+	ms.author="erikre"/>
 
 # How to edit the contents of a page in Azure API Management
 

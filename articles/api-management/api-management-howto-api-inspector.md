@@ -3,7 +3,7 @@
 	description="Learn how to trace calls using the API Inspector in Azure API Management." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="erikre" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
-	ms.author="sdanie"/>
+	ms.date="05/23/2016" 
+	ms.author="erikre"/>
 
 # How to use the API Inspector to trace calls in Azure API Management
 

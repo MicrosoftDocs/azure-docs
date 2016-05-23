@@ -3,7 +3,7 @@
 	description="Learn how to use properties in Azure API Management policies." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="erikre" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/18/2016" 
-	ms.author="sdanie"/>
+	ms.date="05/23/2016" 
+	ms.author="erikre"/>
 
 
 # How to use properties in Azure API Management policies

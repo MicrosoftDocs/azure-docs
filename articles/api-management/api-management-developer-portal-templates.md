@@ -3,8 +3,8 @@
 	description="Learn how to customize the Azure API Management developer portal using templates." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
+	authors="erikre" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
-	ms.author="sdanie"/>
+	ms.date="05/23/2016" 
+	ms.author="erikre"/>
 
 
 # How to customize the Azure API Management developer portal using templates
