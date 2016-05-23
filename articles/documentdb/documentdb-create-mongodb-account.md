@@ -21,7 +21,7 @@
 
 To create a DocumentDB with protocol support for MongoDB account, you must:
 
-- Have an Azure account. You get a [free Azure account](https://azure.microsoft.com/free/) if you don't have one already.
+- Have an Azure account. You can get a [free Azure account](https://azure.microsoft.com/free/) if you don't have one already.
 
 ## Create the account  
 
@@ -49,15 +49,15 @@ To create a DocumentDB with protocol support for MongoDB account, perform the fo
 	![Screen shot of the New DocumentDB with protocol support for MongoDB blade](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.png)
 
 
-	- In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
+	- In the **ID** box, enter a name to identify the account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your account endpoint.
 
-	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
+	- For **Subscription**, select the Azure subscription that you want to use for the account. If your account has only one subscription, that account is selected by default.
 
-	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add your DocumentDB account. For more information, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
+	- In **Resource Group**, select or create a resource group for the account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add the account. For more information, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
 
-	- Use **Location** to specify the geographic location in which to host your DocumentDB account.   
+	- Use **Location** to specify the geographic location in which to host the account.   
 
-7.	Once the new account options are configured, click **Create**.  It can take a few minutes to create the DocumentDB account.  To check the status, you can monitor the progress on the Startboard.  
+7.	Once the new account options are configured, click **Create**.  It can take a few minutes to create the account.  To check the status, you can monitor the progress on the Startboard.  
 	![Screen shot of the Creating tile on the Startboard - Online database creator](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-3.png)  
 
 	Or, you can monitor your progress from the Notifications hub.  
