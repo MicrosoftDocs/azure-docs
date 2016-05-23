@@ -142,7 +142,7 @@ PowerShell has the ability to just restore the VM disks from backup and not crea
 
 In order to fully recreate the virtual machine post restoring disks, follow these steps:
 
-1. Restore the disks from backup vault using [Azure Backup PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Restore the disks from backup vault using [Azure Backup PowerShell](../backup-azure-vms-classic-automation.md#restore-an-azure-vm)
 
 2. Create the VM config required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
 	- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
