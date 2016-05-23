@@ -38,7 +38,9 @@ Following are descriptions of the different parameters:
 - 	**WorkerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard or Premium. Other options are Medium, and Large.)
 - 	**NumberofWorkers**: the number of workers in the app service plan (Default value is 1). 
 
-    `New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10`
+Example to use this cmdlet:
+
+    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
 ### List Existing App Service Plans ###
 
@@ -80,7 +82,9 @@ Following are descriptions of the different parameters:
 - **ResourceGroupName**: resource group that hosts the App service plan.
 - **Location**: the web app location.
 
-    `New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"`
+Example to use this cmdlet:
+
+    New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"
 
 ### Create a new Web App in an App Service Environment ###
 
