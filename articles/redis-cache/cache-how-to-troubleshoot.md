@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # How to troubleshoot Azure Redis Cache
 
 This article provides guidance for troubleshooting the following categories of Azure Redis Cache issues.
 
--	[Client side troubleshooting](#client-side-troubleshooting) - This section provides steps for identifying and resolving issues caused by cache client side issues. This section applies to all cache clients.
--	[Server side troubleshooting](#server-side-troubleshooting) - This section provides steps for identifying and resolving issues caused by cache server side issues.
+-	[Client side troubleshooting](#client-side-troubleshooting) - This section provides guidelines on identifying and resolving issues caused by the application connecting to Azure Redis Cache.
+-	[Server side troubleshooting](#server-side-troubleshooting) - This section provides guidelines on identifying and resolving issues caused on the Azure Redis Cache server side.
 -	[StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions) - This section provides information on troubleshooting issues when using the StackExchange.Redis client.
 
 
@@ -30,13 +30,14 @@ This article provides guidance for troubleshooting the following categories of A
 ## Client side troubleshooting
 
 
-This section discusses troubleshooting issues that occur because of a condition on the cache client.
+This section discusses troubleshooting issues that occur because of a condition on the client application.
 
 -	[Memory pressure on the client](#memory-pressure-on-the-client)
 -	[Burst of traffic](#burst-of-traffic)
 -	[High client CPU usage](#high-client-cpu-usage)
 -	[Client Side Bandwidth Exceeded](#client-side-bandwidth-exceeded)
 -	[Large Request/Response Size](#large-requestresponse-size)
+-	[What happened to my data in Redis?](#what-happened-to-my-data-in-redis)
 
 ### Memory pressure on the client
 
@@ -87,6 +88,8 @@ High CPU usage on the client is an indication that the system cannot keep up wit
 
 Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. As a result of high CPU, you may also see high `in: XXX` values in `TimeoutException` error messages as described in the [Burst of traffic](#burst-of-traffic) section.
 
+>[AZURE.NOTE] StackExchange.Redis 1.1.603 and later includes the `local-cpu` metric in `TimeoutException` error messages. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
+
 #### Resolution
 
 Upgrade to a larger VM size with more CPU capacity or investigate what is causing CPU spikes. 
@@ -136,6 +139,17 @@ This is a difficult one to measure. You basically have to instrument your client
 3.	Increase the number of `ConnectionMultiplexer` objects you use and round-robin requests over different connections.
 
 
+### What happened to my data in Redis?
+
+#### Problem
+
+I expected for certain data to be in my Azure Redis Cache instance but it didn't seem to be there.
+
+##### Resolution
+
+See [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) for possible causes and resolutions.
+
+
 ## Server side troubleshooting
 
 This section discusses troubleshooting issues that occur because of a condition on the cache server.
@@ -165,6 +179,7 @@ There are several possible changes that you can make to help keep memory usage h
 2. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
 3. Break up your large cached objects into smaller related objects.
 4. [Scale](cache-how-to-scale.md) to a larger cache size.
+5. If you are using a [premium cache with Redis cluster enabled](cache-how-to-premium-clustering.md) you can [increase the number of shards](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
 
 ### High CPU usage / Server Load
 
@@ -194,14 +209,6 @@ You can monitor the `Cache Read` metric, which is the amount of data read from t
 
 If you are consistently near the observed maximum bandwidth for your pricing tier and cache size, consider [scaling](cache-how-to-scale.md) to a pricing tier or size that has greater network bandwidth, using the values in [this table](cache-faq.md#cache-performance) as a guide.
 
-
-### Running Expensive Operations/Scripts
-
-`Problem:` [See SLOWLOG](http://redis.io/commands/slowlog). More coming soon...
-
-`Measurement:` coming soon...
-
-`Resolution:` coming soon... 
 
 ## StackExchange.Redis timeout exceptions
 
