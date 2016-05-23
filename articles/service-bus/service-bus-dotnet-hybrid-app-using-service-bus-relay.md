@@ -534,7 +534,9 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 ## Run the project locally
 
-To test the application locally, in Visual Studio press **F5**. The on-premises server (**ProductsServer**) should start first, then the **ProductsPortal** application should start in a browser window. This time, you will see that the product inventory lists data retrieved from the product service on-premises system. 
+To test the application locally, in Visual Studio press **F5**. The on-premises server (**ProductsServer**) should start first, then the **ProductsPortal** application should start in a browser window. This time, you will see that the product inventory lists data retrieved from the product service on-premises system.
+
+![][10]
 
 Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
@@ -571,10 +573,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
     ![][1]
 
-
 	> [AZURE.IMPORTANT] The **ProductsServer** console application must be running and able to serve the data to the **ProductsPortal** application. If the browser displays an error, wait a few more seconds for **ProductsServer** to load and display the following message. Then press **Refresh** in the browser.
-
-
 
 	![][37]
 
@@ -608,6 +607,7 @@ To learn more about Service Bus, see the following resources:
   [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-5.png
   [19]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-6.png
   [9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-9.png
+  [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App3.png
 
   [21]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App1.png
   [24]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
