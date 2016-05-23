@@ -36,7 +36,11 @@ DocumentDB supports the full grammar of MongoDB Query with a few exceptions. Que
 
 DocumentDB does not support the MongoDB aggregation pipeline or Map-Reduce operations. The aggregation pipeline is typically used to process documents through a multi-stage set of filters and transformations such as matching and grouping results. DocumentDB natively supports both JavaScript User Defined Functions and Stored Procedure.  Additionally, DocumentDB can easily act as both a source and sink for Hive, Pig, and MapReduce jobs using Azure HDInsight via the DocumentDB [Hadoop connector](documentdb-run-hadoop-with-hdinsight.md).
 
+## Portal Experience
+The Azure portal experience for MongoDB protocol enabled accounts is slightly different than the portal experience for standard DocumentDB accounts.  We are looking to expand the experience, but we need your [feedback](mailto:askdocdb@microsoft.com?subject=DocumentDB%20Protocol%20Support%20for%20MongoDB%20Preview%20Portal%20Experience) regarding what portal features would be of most use to you.
+
 ## Support Matrix
+
 
 ### CRUD and Query Operations
 
@@ -67,6 +71,7 @@ Bitwise| |-all-|
 Comment|-all-| | 
 Projection| |-all-| 
 
+
 ### Database Commands
 
 Feature|Supported|Will be supported|Not Supported 
@@ -82,10 +87,20 @@ Replication| | |-all-
 Administration|createIndex, listIndexes, dropIndexes, connectionStatus, reIndex| |Other commands.  For indexes, no support for the Unique, expireAfterSeconds, storageEngine, weights, default_language, textIndexVersion, min, max, bucketSize
 Diagnostic|listDatabases, collStats, dbStats| |Everything else
 
+
 ### Shell Commands
 
 Feature|Supported|Will be supported|Not Supported 
 ---|---|---|---
+Cursor| | |-all-
+QueryPlanCache| | |-all-
+BulkWrite| |-all-| 
+UserManagement| | |-all-
+RoleManagement| | |-all-
+Replication| | |-all-
+Sharding| |-most commands-| 
+Subprocess| | |-all-
+Native| | |-all-
 
 
 ## Next steps
