@@ -34,6 +34,7 @@ You need:
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
 * Visual Studio 2013 update 3 or later.
 
+
 ## <a name="ide"></a> Add Application Insights to your project in Visual Studio
 
 #### If it's a new project...
@@ -62,7 +63,7 @@ If this app is part of a bigger application, you might want to use **Configure s
 
 ####<a name="land"></a> What did 'Add Application Insights' do?
 
-The command did these steps (which you could instead [do manually](app-insights-start-monitoring-app-health-usage.md) if you prefer):
+The command did these steps (which you could instead [do manually](app-insights-asp-net-manual.md) if you prefer):
 
 1. Adds the Application Insights Web SDK NuGet package to your project. To see it in Visual Studio, right-click your project and choose Manage NuGet Packages.
 2. Creates an Application Insights resource in [the Azure portal][portal]. This is where you'll see your data. It retrieves the *instrumentation key,* which identifies the resource.
