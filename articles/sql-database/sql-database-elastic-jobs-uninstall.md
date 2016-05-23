@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to uninstall elastic database job tool" 
-	description="How to uninstall elastic database job tool" 
+	pageTitle="How to uninstall elastic database jobs tool" 
+	description="How to uninstall the elastic database jobs tool" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/17/2016" 
 	ms.author="ddove; sidneyh"/>
 
 #Uninstall Elastic Database jobs components

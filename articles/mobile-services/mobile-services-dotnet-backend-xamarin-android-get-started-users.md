@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="05/11/2015" 
 	ms.author="donnam"/>
 
 # Get started with authentication in Mobile Services
@@ -109,6 +109,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Get started with Mobile Services]: mobile-services-dotnet-backend-xamarin-android-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 

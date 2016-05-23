@@ -1,14 +1,14 @@
 <properties
    pageTitle="Monitoring Resources in Operations Management Suite Security and Audit Solution | Microsoft Azure"
    description="This document helps you to use OMS Security and Audit capabilities to monitor your resources and identify security issues."
-   services="log-analytics"
+   services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor=""/>
 
 <tags
-   ms.service="log-analytics"
+   ms.service="operations-management-suite"
    ms.topic="article" 
    ms.devlang="na"
    ms.tgt_pltfrm="na"

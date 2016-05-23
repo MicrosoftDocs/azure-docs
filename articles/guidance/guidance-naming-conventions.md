@@ -19,6 +19,8 @@
    
 # Recommended naming conventions for Azure resources
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 The choice of a name for any resource in Microsoft Azure is important because:
 
 - It is difficult to change a name at a later time.

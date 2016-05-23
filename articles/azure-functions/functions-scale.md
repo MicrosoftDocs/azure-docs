@@ -37,7 +37,7 @@ There are two main settings related to scaling:
 * [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Service Plan 
 * Memory Size for the execution environment 
 
-The cost of a function changes depending on the type of service plan you select. With Dynamic service plans, cost is a function of execution time, memory size, and number of executions. With changes only accruing when you are actually running code. 
+The cost of a function changes depending on the type of service plan you select. With Dynamic service plans, cost is a function of execution time, memory size, and number of executions. With charges only accruing when you are actually running code. 
 
 Regular service plans allow you to host your functions on existing VM’s which might also be used to run other code. After paying for these VM’s each month, there is no extra charge for execution functions on them. 
 

@@ -55,7 +55,7 @@ Now that you've completed this SQL Database tutorial and created a database with
 - If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) to learn more.
 
 
-## Additional resources
+## Learn More
 
-[SQL Database Overview](sql-database-technical-overview.md)
+[What is SQL Database?](sql-database-technical-overview.md)
 

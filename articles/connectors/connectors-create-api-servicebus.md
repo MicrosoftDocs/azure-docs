@@ -1,10 +1,10 @@
 <properties
-pageTitle="Use the Azure Service Bus API in your Logic Apps | Microsoft Azure"
-description="Get started using the Azure Service Bus API (connector) in your Microsoft Azure App service Logic apps"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Use the Azure Service Bus connector  in your Logic Apps | Microsoft Azure"
+description="Get started using the Azure Service Bus connector  (connector) in your Microsoft Azure App service Logic apps"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Azure Service Bus API
+# Get started with the Azure Service Bus connector 
 
 Connect to Azure Service Bus to send and receive messages. You can perform actions such as send to queue, send to topic, receive from queue, receive from subscription, etc.
 
@@ -31,9 +31,9 @@ To add an operation in logic apps, see [Create a logic app](../app-service-logic
 
 ## Let's talk about triggers and actions
 
-The Azure Service Bus API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
+The Azure Service Bus connector  can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
- The Azure Service Bus API has the following action(s) and/or trigger(s) available:
+ The Azure Service Bus connector  has the following action(s) and/or trigger(s) available:
 
 ### Azure Service Bus actions
 You can take these action(s):
@@ -51,7 +51,7 @@ You can listen for these event(s):
 
 
 ## Create a connection to Azure Service Bus
-To use the Azure Service Bus API, you first create a **connection** then provide the details for these properties: 
+To use the Azure Service Bus connector , you first create a **connection** then provide the details for these properties: 
 
 |Property| Required|Description|
 | ---|---|---|

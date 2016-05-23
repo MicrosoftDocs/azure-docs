@@ -19,6 +19,8 @@
    
 # Deploying a JMeter JUnit sampler for testing Elasticsearch performance
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series](guidance-elasticsearch.md). 
 
 This document describes how to create and use a JUnit sampler that can generate and upload data to an Elasticsearch cluster as part of a JMeter test plan. This approach provides a highly flexible approach to load testing that can generate large quantities of test data without depending on external data files.

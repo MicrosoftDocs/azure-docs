@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="04/11/2016"
+	ms.date="05/12/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch library for .NET
@@ -31,6 +31,8 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 - **Azure account**: If you don't already have an Azure subscription, [create a free Azure account][azure_free_account].
 - **Batch account**: Once you have an Azure subscription, [create an Azure Batch account](batch-account-create-portal.md).
 - **Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+
+> [AZURE.IMPORTANT] Batch currently supports *only* the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -92,6 +94,8 @@ private const string BatchAccountUrl  = "";
 private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
+
+> [AZURE.IMPORTANT] As mentioned above, you must currently specify the credentials for a **General purpose** storage account in Azure Storage. Your Batch applications will use blob storage within the **General purpose** storage account. Do not specify the credentials for a Storage account that was created by selecting the *Blob storage* account type.
 
 You can find your Batch and Storage account credentials within the account blade of each service in the [Azure portal][azure_portal]:
 
