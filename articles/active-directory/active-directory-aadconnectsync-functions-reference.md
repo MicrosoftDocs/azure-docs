@@ -44,7 +44,7 @@ The types are expressed with the following syntax:
 
 ## Functions Reference
 
-List of functions |  
+List of functions | | | | |  
 -- | -- | -- | -- | -- | --
 **Conversion** |  
 [CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64) | [ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex)
@@ -66,7 +66,7 @@ List of functions |
 **Text** |  
 [GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase) | [Left](#left) | [Len](#len)
 [LTrim](#ltrim) | [Mid](#mid) | [PadLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Replace](#replace)
-[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](rtrim)  [Trim](#trim) | [UCase](#ucase) | [Word](#word)
+[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim)  [Trim](#trim) | [UCase](#ucase) | [Word](#word)
 
 ----------
 ### BitAnd
