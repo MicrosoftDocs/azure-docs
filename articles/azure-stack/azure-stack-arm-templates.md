@@ -20,9 +20,9 @@
 
 Azure Resource Manager templates deploy and provision all of the resources for your application in a single, coordinated operation. You define the resources for the application and how it will be deployed.
 
-[AZURE.VIDEO microsoft-azure-stack-tp1-foundational-skills-1-deploying-json-templates]
-
 These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
+
+[AZURE.VIDEO microsoft-azure-stack-tp1-foundational-skills-1-deploying-json-templates]
 
 The following templates are available on [GitHub](http://aka.ms/azurestackgithub):
 
