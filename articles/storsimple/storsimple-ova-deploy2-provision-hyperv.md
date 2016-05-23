@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/23/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
@@ -104,49 +104,33 @@ Perform the following steps to provision a device in your hypervisor.
 
 	If you are running Hyper-V 2008 R2, open the Hyper-V Manager. In Server Manager, click **Roles > Hyper-V > Hyper-V Manager**.
 
-1.  In the **Hyper-V Manager**, in the scope pane, right-click your system node to open the context menu. Select **New** and then select **Virtual Machine**.
+1.  In **Hyper-V Manager**, in the scope pane, right-click your system node to open the context menu, and then click **New** > **Virtual Machine**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image2.png)
 
-1.  On **Before you begin** page, click **Next**.
-
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image3.png)
+1.  On the **Before you begin** page of the New Virtual Machine Wizard, click **Next**.
 
 1.  On the **Specify name and location** page, provide a **Name** for your virtual device. Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  On the **Specify generation** page, if using a VHD, choose **Generation 1**. If using a VHDX (for Windows Server 2012 or later), choose **Generation 2**. Click **Next**.
+1.  On the **Specify generation** page, choose **Generation 2** and then click **Next**. This page doesn't appear if you're using Hyper-V 2008 R2.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
-	This screen will not be presented if running Hyper-V 2008 R2.
-
-1.  On the **Assign memory** page:
-
-    a.  Specify a **Startup memory** of 8192 MB or higher. The minimum memory requirement for a StorSimple virtual device is 8 GB or higher. Do not check the option to **Use Dynamic Memory for this virtual machine**.
-
-    b.  Click **Next**.
+1.  On the **Assign memory** page, specify a **Startup memory** of at least 8192 MB (and don't enable dynamic memory), then click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image6.png)
 
-1.  On the **Configure networking** page:
-
-    a.  From the dropdown list for **Connection**, select a virtual switch. You will need to select a virtual switch that is connected to the Internet.
-
-    b.  Click **Next**.
+1.  On the **Configure networking** page, specify the virtual switch that is connected to the Internet and then click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image7.png)
 
-1.  On the **Connect virtual hard disk** page:
-
-    a.  Select the option to **use an existing virtual hard disk**. Point to the VHD that is downloaded on your host system.
-
-    b.  Click **Next**.
+1.  On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk** and then specify the location of the virtual device image — a .vdhx file if you're using Hyper-V 2012 or later, or a .vhd file if you're using Hyper-V 2008 R2.  Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
-1.  Review the **Summary** presented to you. Click **Finish** to create the virtual machine.
+1.  Review the **Summary** and then click **Finish** to create the virtual machine.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 
@@ -169,9 +153,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image13.png)
 
-1.  On the **Before you begin page**, click **Next**.
-
-	![](./media/storsimple-ova-deploy2-provision-hyperv/image14.png)
+1.  On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
 
 1.  On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**. This screen will not be presented if running Hyper-V 2008 R2.
 
@@ -255,7 +237,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 1. (Optional) Perform this step only if you are deploying your device in the Government Cloud. You will now enable the United States Federal Information Processing Standard (FIPS) mode on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data.
 	1. To enable the FIPS mode, run the following cmdlet:
-		
+
 		`Enter-HcsFIPSMode`
 
 	2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
