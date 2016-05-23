@@ -1,19 +1,19 @@
 <properties
    pageTitle="Microsoft Services in Cybersecurity | Microsoft Azure"
    description="The article provides an introduction about Microsoft services related to cybersecurity and how to obtain more information about these services."
-   services="azure-security"
+   services="security"
    documentationCenter="na"
    authors="TomShinder"
    manager="StevenPo"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/23/2016"
    ms.author="yurid"/>
 
 # Microsoft Services in Cybersecurity
@@ -35,4 +35,4 @@ Learn more about services provided by Microsoft Services:
 - [Microsoft Threat Detection Services](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-threat-detection-services-solution-brief.pdf)
 - [Incident Response and Recovery](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
-[Learn more](https://www.microsoft.com/microsoftservices/campaigns/security-identity.aspx) about Microsoft Services Security consulting services. 
+[Learn more](https://aka.ms/cyberserv) about Microsoft Services Security consulting services.

@@ -3,7 +3,7 @@
 	description="Learn to upload a Windows virtual machine image to use with the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/06/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Upload a Windows VM image to Azure for Resource Manager deployments
 
