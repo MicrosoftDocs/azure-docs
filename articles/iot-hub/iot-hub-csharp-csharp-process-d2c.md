@@ -47,7 +47,7 @@ At the end of this tutorial, you will run three Windows console apps:
 
 This tutorial is directly applicable to other ways to consume Event Hubs-compatible messages, such as [HDInsight (Hadoop)] projects. For more information, see [Azure IoT Hub developer guide - Device to cloud].
 
-In order to complete this tutorial you'll need the following:
+To complete this tutorial, you'll need the following:
 
 + Microsoft Visual Studio 2015.
 
