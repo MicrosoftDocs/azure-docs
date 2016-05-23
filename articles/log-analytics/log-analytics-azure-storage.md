@@ -145,7 +145,7 @@ Using Azure PowerShell you can more precisely specify the events that are writte
 
 ### Enable Azure diagnostics in a Web role for IIS log and event collection
 
-Refer to [How To Enable Diagnostics in a Cloud Service](../cloudservices/cloud-services-dotnet-diagnostics.md). You’ll use the basic information from there and customize the steps here for use with Log Analytics.
+Refer to [How To Enable Diagnostics in a Cloud Service](../cloud-services/cloud-services-dotnet-diagnostics.md). You’ll use the basic information from there and customize the steps here for use with Log Analytics.
 
 With Azure diagnostics enabled:
 
