@@ -1,6 +1,6 @@
 <properties
    pageTitle="Application Architecture on Azure | Microsoft Azure"
-   description=" This article will help you understand the application and services architecture on Azure. "
+   description=" This article will help you understand the application and services architecture on Azure to make it easier to integrate security into design and implementation. "
    services="security"
    documentationCenter="na"
    authors="TomShinder"
