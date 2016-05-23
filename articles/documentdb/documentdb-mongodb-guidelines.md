@@ -41,17 +41,17 @@ DocumentDB does not support the MongoDB aggregation pipeline or Map-Reduce opera
 Feature|Supported|Will be supported|Not Supported 
 ---|---|---|---
 Insert|InsertOne||
-|InsertMany||
-|Insert||
-|||
-Update|UpdateOne||
-|UpdateMany||
-|Update||
-|||
-Operators|||
-Field Update|$inc, $mul, $rename, $set, $unset, $min, $max|$currentDate|
-Array Update||-all-|
-Bitwise||-all-| 
+---|InsertMany|---|---
+---|Insert|---|---
+---|---|---|---
+Update|UpdateOne|---|---
+---|UpdateMany|---|---
+---|Update|---|---
+---|---|---|---
+Operators|---|---|---
+Field Update|$inc, $mul, $rename, $set, $unset, $min, $max|$currentDate|---
+Array Update|---|-all-|---
+Bitwise|---|-all-|--- 
 
 ## Next steps
 
