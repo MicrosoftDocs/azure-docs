@@ -36,7 +36,7 @@ To add your DocumentDB with protocol support for MongoDB account to the MongoChe
 	
 	![Screen shot of the MongoChef connection manager server tab](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. In the New Connection window, on the **Authentication Tab**, choose Authentication Mode **Standard (MONGODB-CR or SCARM-SHA-1) and enter the user and password information.  Accept the default authentication db (admin) or provide your own value.
+3. In the New Connection window, on the **Authentication Tab**, choose Authentication Mode **Standard (MONGODB-CR or SCARM-SHA-1)** and enter the user name and password information.  Accept the default authentication db (admin) or provide your own value.
 
 	![Screen shot of the MongoChef connection manager authentication tab](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
@@ -44,7 +44,7 @@ To add your DocumentDB with protocol support for MongoDB account to the MongoChe
 
 	![Screen shot of the MongoChef connection manager SSL tab](./media/documentdb-mongodb-mongochef/ConnectionManagerSSLTab.png)
 
-5. Click the **Test Connection** button to validate the connection information, then click save.
+5. Click the **Test Connection** button to validate the connection information, click **Ok** to return to the New Connection window, and then click **Save**.
 
 	![Screen shot of the MongoChef test connection window](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
@@ -56,7 +56,7 @@ To add your DocumentDB with protocol support for MongoDB account to the MongoChe
 
 	![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectToAccount.png)
 
-2. Right click the host and choose **Add Database**.  Provide a database name.
+2. Right click the host and choose **Add Database**.  Provide a database name and click **Ok**.
 	
 	![Screen shot of the MongoChef Add Database option](./media/documentdb-mongodb-mongochef/AddDatabase1.png)
 
