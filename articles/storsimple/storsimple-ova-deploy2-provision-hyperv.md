@@ -29,7 +29,7 @@ You will need administrator privileges to provision and configure a virtual devi
 
 ## Provisioning prerequisites
 
-Here you will find the prerequisites to provision a virtual device on a host system running Hyper-V on Windows Serer 2012 R2, Windows Server 2012, or Windows Server 2008 R2.
+Here you will find the prerequisites to provision a virtual device on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2.
 
 ### For the StorSimple Manager service
 
@@ -114,7 +114,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  On the **Specify generation** page, choose **Generation 2** and then click **Next**. This page doesn't appear if you're using Windows Server 2008 R2.
+1.  On the **Specify generation** page, choose **Generation 2** to use a .vhdx image, and then click **Next**. This page doesn't appear if you're using Windows Server 2008 R2.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 

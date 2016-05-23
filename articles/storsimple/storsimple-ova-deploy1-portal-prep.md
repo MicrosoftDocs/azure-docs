@@ -151,9 +151,9 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  Download the appropriate VHD or VHDX on a network share on your datacenter. Separate images are available for:
 
-	-   Windows Server 2012 and later
+	-   Hyper-V on Windows Server 2012 and later
 
-	-   Windows Server 2008 R2
+	-   Hyper-V on Windows Server 2008 R2 and later
 
 	-   VMWare ESXi 5.5 and later
 
@@ -162,7 +162,7 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  Click on the image for your host operating system that you will use to provision the virtual device. This will take you to Microsoft Download Center.
 
-1.  If using Hyper-V on Windows Server 2012 or later, you must download the VHDX image for Windows Server 2012 or later; if you're using Windows Server 2008 R2, download the VHD for Windows Server 2008 R2. If using VMware, download the VMDK image file.
+1.  If using Hyper-V on Windows Server 2012 or later, download the VHDX image for Hyper-V on Windows Server 2012 or later; if you're using Windows Server 2008 R2, download the VHD for Windows Server 2008 R2. If using VMware, download the VMDK image file.
 
     The image files are approximately 4.8 GB.
 
