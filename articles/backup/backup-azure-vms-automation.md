@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="05/19/2016"
+   ms.date="05/23/2016"
    ms.author="markgal; trinadhk"/>
 
 # Deploy and manage backup for ARM VMs using PowerShell
@@ -96,30 +96,30 @@ The following tasks can be automated with PowerShell:
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
 1. If you are using Azure Backup for the first time, you must use the **Register-AzureRMResourceProvider** cmdlet to register the Azure Recovery Service provider with your subscription.
-```
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-```
+    ```
+    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    ```
 
 2. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
 
-  ```
-  New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
-  ```
+    ```
+    New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    ```
 
 3. Use the **New-AzureRmRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
 
-  ```
-  New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
-  ```
+    ```
+    New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+    ```
 
 4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage-redundancy.md/#geo-redundant-storage) or [Geo Redundant Storage (GRS)](../storage-redundancy.md/#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
 
-  > [AZURE.TIP] Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+    > [AZURE.TIP] Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
 
-  ```
-  $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
-  Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
-  ```
+    ```
+    $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
+    Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    ```
 
 
 
@@ -131,7 +131,9 @@ Run the command.
 ```
 Get-AzureRmRecoveryServicesVault
 ```
+
 For each vault in the subscription, the following information is provided:
+
 ```
 Name              : Contoso-vault
 ID                : /subscriptions/1234
