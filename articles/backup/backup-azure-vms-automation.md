@@ -22,7 +22,7 @@
 - [Resource Manager PowerShell](backup-azure-vms-automation.md)
 - [Classic PowerShell](backup-azure-vms-classic-automation.md)
 
-This article shows you how to use Azure PowerShell to back up and recover an Azure virtual machine (VM) from a Recovery Services vault. A Recovery Services vault is an Azure Resource Manager (ARM) resource and is used to protect data and assets in both Azure Backup and Azure Site Recovery services. Use a Recovery Services vault when working in an ARM deployment. You can use a Recovery Services vault to protect Azure Service Manager (ASM)-deployed VMs, as well as ARM VMs.
+This article shows you how to use Azure PowerShell cmdlets to back up and recover an Azure virtual machine (VM) from a Recovery Services vault. A Recovery Services vault is an Azure Resource Manager (ARM) resource and is used to protect data and assets in both Azure Backup and Azure Site Recovery services. Use a Recovery Services vault when working in an ARM deployment. You can use a Recovery Services vault to protect Azure Service Manager (ASM)-deployed VMs, as well as ARM VMs.
 
 >[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This article is for use with VMs created using the Resource Manager model.
 
@@ -35,6 +35,10 @@ If you are not familiar with the Azure Backup service, for an overview of the se
 In order to use PowerShell effectively, it is necessary to understand the hierarchy of objects and from where to start.
 
 ![Recovery Services object hierarchy](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+
+To view the AzureRmRecoveryServicesBackup PowerShell cmdlet reference, see the [Azure Backup - Recovery Services Cmdlets](https://msdn.microsoft.com/en-us/library/mt723320.aspx) in the Azure library.
+To view the AzureRMRecoveryServicesVault PowerShell cmdlet reference, see the [Azure Recovery Service Cmdlets](https://msdn.microsoft.com/en-us/library/mt643905.aspx).
+
 
 ## Setup and Registration
 
@@ -87,32 +91,60 @@ The following tasks can be automated with PowerShell:
 - Monitor a backup job
 - Restore an Azure VM
 
-## Create a Recovery Services vault
+## Create a recovery services vault
 
-> [AZURE.TIP] For customers using Azure Backup for the first time, you must register the Azure Recovery Service provider to be used with your subscription. This can be done by running the following command: Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
-You can create a new Recovery Services vault using the **New-AzureRmRecoveryServicesVault** cmdlet. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
-
+1. If you are using Azure Backup for the first time, you must use the **Register-AzureRMResourceProvider** cmdlet to register the Azure Recovery Service provider with your subscription.
 ```
-PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
-PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
-To view a list of all Recovery Services vaults in a subscription use the **Get-AzureRmRecoveryServicesVault** cmdlet.
+2. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
 
-### Set storage redundancy
-When creating a Recovery Services vault, specify the type of storage redundancy to use - Locally Redundant Storage (LRS) or Geo Redundant Storage (GRS). The following example shows the BackupStorageRedundancy option for testVault is set to GeoRedundant.
+  ```
+  New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+  ```
+
+3. Use the **New-AzureRmRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
+
+  ```
+  New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+  ```
+
+4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](https://azure.microsoft.com/en-us/documentation/articles/storage-redundancy/#geo-redundant-storage) or [Geo Redundant Storage (GRS)](https://azure.microsoft.com/en-us/documentation/articles/storage-redundancy/#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
+
+  > [AZURE.TIP] Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+
+  ```
+  $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
+  Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+  ```
+
+
+
+## View the vaults in a subscription
+Use **Get-AzureRmRecoveryServicesVault** to view the list of all vaults in the current subscription. You can use this command to check that a new  vault was created, or to see what vaults are available in the subscription.
+
+Run the command.
 
 ```
-PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
-PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+Get-AzureRmRecoveryServicesVault
 ```
-
-
-> [AZURE.TIP] Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the backup Recovery Services vault object in a variable.
+For each vault in the subscription, the following information is provided:
+```
+Name              : Contoso-vault
+ID                : /subscriptions/1234
+Type              : Microsoft.RecoveryServices/vaults
+Location          : WestUS
+ResourceGroupName : Contoso-docs-rg
+SubscriptionId    : 1234-567f-8910-abc
+Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
+```
 
 
 ## Backup Azure VMs
+Now that you have created a recovery services vault, you can use it to protect a virtual machine. However before you apply the protection, you must set the vault context and you will want to verify the protection policy. Vault context defines the type of data that is protected in the vault. The protection policy is the schedule for when the backup job is run, and how long each backup snapshot is retained.
 
 Before enabling protection on a VM, you must set the vault context. The context is applied to all subsequent cmdlets.
 
@@ -122,9 +154,9 @@ PS C:\> Get-AzureRmRecoveryServicesVault -Name testvault | Set-AzureRmRecoverySe
 
 ### Create a protection policy
 
-When you create a new vault, it comes with a default policy. This  policy triggers a backup job each day at 9:30PM. The backup snapshot is retained for 30 days. You can use the default policy to quickly protect your VM and edit the policy later with different details.
+When you create a new vault, it comes with a default policy. This policy triggers a backup job each day at a specified time. Per the default policy, the backup snapshot is retained for 30 days. You can use the default policy to quickly protect your VM and edit the policy later with different details.
 
-To view the available list of the policies in the vault use the Get-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet:
+Use **Get-AzureRmRecoveryServicesBackupProtectionPolicy** to view the available list of policies in the vault :
 
 ```
 PS C:\WINDOWS\system32> get-AzureRMRecoveryServicesBackupProtectionPolicy -WorkloadType AzureVM
@@ -135,7 +167,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 
 > [AZURE.NOTE] The timezone of the BackupTime field in PowerShell is UTC. However, when the backup time is shown in the Azure portal, the time is adjusted to your local timezone.
 
-A backup protection policy is associated with at least one retention policy.  Retention policy defines how long a recovery point is kept with Azure Backup. Use Get-AzureRmRecoveryServicesBackupRetentionPolicyObject to view the default retention policy.  Similarly you can obtain the default schedule policy using Get-AzureRmRecoveryServicesBackupSchedulePolicyObject. The schedule and retention policy objects are used as inputs to the New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet.
+A backup protection policy is associated with at least one retention policy.  Retention policy defines how long a recovery point is kept with Azure Backup. Use **Get-AzureRmRecoveryServicesBackupRetentionPolicyObject** to view the default retention policy.  Similarly you can use **Get-AzureRmRecoveryServicesBackupSchedulePolicyObject** to obtain the default schedule policy. The schedule and retention policy objects are used as inputs to the **New-AzureRmRecoveryServicesBackupProtectionPolicy** cmdlet.
 
 A backup protection policy defines when and how often the backup of an item is done. The New-AzureRmRecoveryServicesBackupProtectionPolicy cmdlet creates a PowerShell object that holds backup policy information. The backup policy is used as an input to the Enable-AzureRmRecoveryServicesBackupProtection cmdlet.
 
@@ -150,7 +182,9 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 ### Enable protection
 
-Enabling protection involves two objects - the item and the policy. Both objects are required to enable protection on the vault. Once the policy has been associated with the item, the backup workflow is triggered at the time defined in the policy schedule.
+Enabling protection involves two objects - the item and the policy. Both objects are required to enable protection on the vault. Once the policy has been associated with the vault, the backup workflow is triggered at the time defined in the policy schedule.
+
+To enable the protection policy,
 
 ```
 PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
@@ -248,7 +282,7 @@ ContainerType               : AzureVM
 BackupManagementType        : AzureVM
 ```
 
-The variable $rp is an array of recovery points for the selected backup item, sorted in reverse order of time - the latest recovery point is at index 0. Use standard PowerShell array indexing to pick the recovery point. For example: $rp[0] will select the latest recovery point.
+The variable **$rp** is an array of recovery points for the selected backup item, sorted in reverse order of time - the latest recovery point is at index 0. Use standard PowerShell array indexing to pick the recovery point. For example: $rp[0] will select the latest recovery point.
 
 ### Restoring disks
 
@@ -257,8 +291,7 @@ There is a key difference between the restore operations done through the Azure 
 > [AZURE.WARNING] The Restore-AzureRMRecoveryServicesBackupItem does not create a VM, it only restores the disks to the specified storage account. This is different than what occurs in the Azure portal.
 
 ```
-PS C:\> $restorejob = Restore-AzureRMRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName DestAccount
- -StorageAccountResourceGroupName DestRG
+PS C:\> $restorejob = Restore-AzureRMRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName DestAccount -StorageAccountResourceGroupName DestRG
 PS C:\> $restorejob
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
