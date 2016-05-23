@@ -36,11 +36,12 @@ DocumentDB supports the full grammar of MongoDB Query with a few exceptions. Que
 
 DocumentDB does not support the MongoDB aggregation pipeline or Map-Reduce operations. The aggregation pipeline is typically used to process documents through a multi-stage set of filters and transformations such as matching and grouping results. DocumentDB natively supports both JavaScript User Defined Functions and Stored Procedure.  Additionally, DocumentDB can easily act as both a source and sink for Hive, Pig, and MapReduce jobs using Azure HDInsight via the DocumentDB [Hadoop connector](documentdb-run-hadoop-with-hdinsight.md).
 
-## Support Matrix	
+## Support Matrix
+
+### CRUD Operations
 
 Feature|Supported|Will be supported|Not Supported 
 ---|---|---|---
-CRUD| | | 
 Insert|InsertOne| | 
  |InsertMany| | 
  |Insert| | 
@@ -68,7 +69,11 @@ Array|$all, $size|$elemMatch|
 Bitwise| |-all-| 
 Comment|-all-| | 
 Projection| |-all-| 
-COMMANDS| | | 
+
+### Database Commands
+
+Feature|Supported|Will be supported|Not Supported 
+---|---|---|---
 Aggregation|Count| |aggregate, distinct, group, mapreduce
 GeoSpatial| |-all-| 
 Query & Write|find, insert, update, delete, getLastError, getMore, findAndModify| |Eval, parallelCollectionScan, getPrevError, resetError
@@ -77,6 +82,13 @@ Authentication|getnonce, logout, authenticate| |Copydbgetnone, authschemaUpgrade
 User Management| | |-all-
 Role Management| | |-all-
 Replication| | |-all-
+Administration|createIndex, listIndexes, dropIndexes, connectionStatus, reIndex| |Other commands.  For indexes, no support for the Unique, expireAfterSeconds, storageEngine, weights, default_language, textIndexVersion, min, max, bucketSize
+Diagnostic|listDatabases, collStats, dbStats| |Everything else
+
+### Shell Commands
+
+Feature|Supported|Will be supported|Not Supported 
+---|---|---|---
 
 
 ## Next steps
