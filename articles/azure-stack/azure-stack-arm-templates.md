@@ -22,6 +22,8 @@ Azure Resource Manager templates deploy and provision all of the resources for y
 
 These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
 
+[AZURE.VIDEO microsoft-azure-stack-tp1-foundational-skills-1-deploying-json-templates]
+
 The following templates are available on [GitHub](http://aka.ms/azurestackgithub):
 
 ## Deploy SharePoint (non-high availability)
