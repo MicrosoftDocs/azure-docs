@@ -47,26 +47,31 @@ The types are expressed with the following syntax:
 List of functions | | | | |  
 --------- | --------- | --------- | --------- | --------- | ---------
 **Conversion** |  
-[CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64) | [ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex)
-[ConvertToUTF8Hex](#converttoutf8hex) | [CNum](#cnum) | [CRef](#cref) | [CStr](#cstr) | [StringFromGuid](#StringFromGuid) | [StringFromSid](#stringfromsid)
+[CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64)
+[ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex) | [ConvertToUTF8Hex](#converttoutf8hex) | [CNum](#cnum)
+[CRef](#cref) | [CStr](#cstr) | [StringFromGuid](#StringFromGuid) | [StringFromSid](#stringfromsid)
 **Date / Time** |  
-[DateAdd](#dateadd) | [DateFromNum](#datefromnum) | [FormatDateTime](#formatdatetime) | [Now](#now) | [NumFromDate](#numfromdate)
+[DateAdd](#dateadd) | [DateFromNum](#datefromnum) | [FormatDateTime](#formatdatetime) | [Now](#now)
+[NumFromDate](#numfromdate) |  
 **Directory** |  
 [DNComponent](#dncomponent) | [DNComponentRev](#dncomponentrev) | [EscapeDNComponent](#escapedncomponent)
 **Evaluation** |  
-[IsBitSet](#isbitset) | [IsDate](#isdate) | [IsEmpty](#isempty) | [IsGuid](#isguid) | [IsNull](#isnull) | [IsNullOrEmpty](#isnullorempty)
-[IsNumeric](#isnumeric) | [IsPresent](#ispresent) |[IsString](#isstring)
+[IsBitSet](#isbitset) | [IsDate](#isdate) | [IsEmpty](#isempty) | [IsGuid](#isguid)
+[IsNull](#isnull) | [IsNullOrEmpty](#isnullorempty) | [IsNumeric](#isnumeric) | [IsPresent](#ispresent) |
+[IsString](#isstring) |  
 **Math** |  
 [BitAnd](#bitand) | [BitOr](#bitor) | [RandomNum](#randomnum)
 **Multi-valued** |  
-[Contains](#contains) | [Count](#count) | [Item](#item) | [ItemOrNull](#itemornull) | [Join](#join) | [RemoveDuplicates](#removeduplicates)
-[Split](#split) | | | | |
+[Contains](#contains) | [Count](#count) | [Item](#item) | [ItemOrNull](#itemornull)
+[Join](#join) | [RemoveDuplicates](#removeduplicates) | [Split](#split) |
 **Program Flow** |  
 [Error](#error) | [IIF](#iif)  | [Switch](#switch)
 **Text** |  
-[GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase) | [Left](#left) | [Len](#len)
-[LTrim](#ltrim) | [Mid](#mid) | [PadLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Replace](#replace)
-[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim)  [Trim](#trim) | [UCase](#ucase) | [Word](#word)
+[GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase)
+[Left](#left) | [Len](#len) | [LTrim](#ltrim) | [Mid](#mid)
+[PadLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Replace](#replace)
+[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim)  [Trim](#trim)
+[UCase](#ucase) | [Word](#word)
 
 ----------
 ### BitAnd
