@@ -3,7 +3,7 @@
    description="A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space."
    services="cloud-services"
    documentationCenter=""
-   authors="dalechen"
+   authors="simonxjx"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="04/20/2016"
-   ms.author="daleche" />
+   ms.date="05/23/2016"
+   ms.author="simonxjx" />
 
 # Default TEMP folder size is too small on a cloud service web/worker role
 
