@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get Started with Azure Security | Microsoft Azure"
+   pageTitle="Azure security overview | Microsoft Azure"
    description="The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/22/2016"
    ms.author="terrylan"/>
 
-# Get Started - Overview
+# Azure security overview
 
 The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions. If you are interested in Azure compliance and how Azure secures its own infrastructure, please visit the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 
@@ -27,9 +27,10 @@ This page, and this site, will continue to evolve over time – just as new Azur
 ## Using the Azure Security Information Site
 When you look on the left side of the page you’ll see a collection of categories of security topics. Click or tap the topic to see the articles we have for that category.
 
-Each category will have an Overview article. The goal of the Overview article is to provide you a summary of what Azure has to offer in term of security for that category. The Overview articles will help you understand the products, services and features available in Azure that you can use to enhance the security of your deployments. These Overview articles contain numerously links to technical content so that you can learn more about the topics and how to implement them.
+Each category will have an Overview article. The goal of the Overview article is to provide you a summary of what Azure has to offer in terms of security for that category. The Overview articles will help you understand the products, services and features available in Azure that you can use to enhance the security of your deployments. These Overview articles contain numerously links to technical content so that you can learn more about the topics and how to implement them.
 
 The Azure Security Information site currently addresses the following categories:
+
 - Resources
 - Network security
 - Storage security
