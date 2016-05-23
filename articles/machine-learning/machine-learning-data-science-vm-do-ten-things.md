@@ -849,8 +849,8 @@ You need to do the following per-requisites steps to access DocumentDB from the 
 
 1. Install DocumentDB Python SDK (Run ```pip install pydocumentdb``` from command prompt)
 1. Create DocumentDB account and Document DB database from [Azure portal](https://portal.azure.com)
-1. Download "DocumentDB Migration tool" from [here](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) and extract to a directory of your choice
-1. Import JSON data (volcano data) stored on a [public blob](https://cahandson.blob.core.windows.net/samples/volcano.json) into DocumentDB with following command parameters to the migration tool (dtui.exe from the directory where you installed the DocumentDB migration tool). Enter the source and target location parameters from below.
+1. Download "DocumentDB Migration Tool" from [here](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) and extract to a directory of your choice
+1. Import JSON data (volcano data) stored on a [public blob](https://cahandson.blob.core.windows.net/samples/volcano.json) into DocumentDB with following command parameters to the migration tool (dtui.exe from the directory where you installed the DocumentDB Migration Tool). Enter the source and target location parameters from below.
 
 	/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
