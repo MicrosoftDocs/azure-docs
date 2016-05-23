@@ -61,14 +61,14 @@ We recommend that you install updates through the Azure classic portal. The port
 
 Use the local web UI to apply updates when the Azure classic portal is not available. There are two steps when using the local web UI:
 
-- Download update or hotfix
-- Install update or hotfix
+- Download the update or the hotfix
+- Install the update or the hotfix
 
-### Download update or hotfix
+### Download the update or hotfix
 
 Perform the following steps to download the software update from the Microsoft Update Catalog.
 
-#### To download update or hotfix
+#### To download the update or hotfix
 
 1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
@@ -89,11 +89,11 @@ Perform the following steps to download the software update from the Microsoft U
 6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
 
-### Install update or hotfix
+### Install the update or the hotfix
 
 Prior to the update or hotfix installation, make sure that you have the update or the hotfix downloaded either locally on your host or accessible via a network share. Perform the following steps to install the update or hotfix.
 
-#### To install update or hotfix
+#### To install the update or the hotfix
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
 
