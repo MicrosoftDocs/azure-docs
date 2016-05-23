@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementing a Hybrid Network Architecture with Azure and On-premises VPN | Blueprint | Microsoft Azure"
+   pageTitle="Implementing a Hybrid Network Architecture with Azure and On-premises VPN | Reference Architecture | Microsoft Azure"
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using a VPN."
    services=""
    documentationCenter="na"
@@ -18,6 +18,8 @@
    ms.author="roshar"/>
 
 # Implementing a Hybrid Network Architecture with Azure and On-premises VPN
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article outlines a set of practices for extending an on-premises network onto Azure using a site-to-site virtual private network (VPN). The traffic flows between the on-premises network and an Azure Virtual Network (VNet) through an IPSec VPN tunnel. This architecture is suitable for hybrid applications with the following characteristics:
 

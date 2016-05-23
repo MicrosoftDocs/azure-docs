@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/06/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Embed a Power BI report with an IFrame
@@ -189,12 +189,12 @@ You can filter an embedded report using a URL syntax. To do this, you add a quer
 
 **Filter by a value**
 
-To filter by a value, you use a **$filter** query syntax as follows:
+To filter by a value, you use a **$filter** query syntax with an **eq** operator as follows:
 
 ```
 https://app.powerbi.com/reportEmbed
 ?reportId=d2a0ea38-0694-...-ee9655d54a4a&
-$filter={tableName/fieldName} eq '{fieldValue}'
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
 For example, you could filter where the Store Chain is 'Lindseys'. The filter part of the url would look like this:
