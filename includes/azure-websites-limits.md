@@ -1,7 +1,7 @@
 Resource|Free|Shared (Preview)|Basic|Standard|Premium (Preview)</th>
 ---|---|---|---|---|---
-[Web, mobile, or API apps](../services/app-service/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup>|10|100|Unlimited<sup>2</sup>|Unlimited<sup>2</sup>|Unlimited<sup>2</sup>
-[Logic apps](../services/app-service/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup>|10|10|10|20 per core|20 per core
+[Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup>|10|100|Unlimited<sup>2</sup>|Unlimited<sup>2</sup>|Unlimited<sup>2</sup>
+[Logic apps](https://azure.microsoft.com/services/app-service/logic/) per [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup>|10|10|10|20 per core|20 per core
 [App Service plan](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)|1 per region|10 per resource group|10 per resource group|10 per resource group|10 per resource group
 Compute instance type|Shared|Shared|Dedicated<sup>3</sup>|Dedicated<sup>3</sup>|Dedicated<sup>3</sup></p>
 [Scale-Out](../articles/app-service-web/web-sites-scale.md) (max instances)|1 shared|1 shared|3 dedicated<sup>3</sup>|10 dedicated<sup>3</sup>|20 dedicated (50 in ASE)<sup>3,4</sup>
@@ -20,7 +20,7 @@ Integrated Load Balancer||X|X|X|X
 [Scheduled Backups](../articles/app-service-web/web-sites-backup.md)||||Once per day|Once every 5 minutes<sup>8</sup>
 [Auto Scale](../articles/app-service-web/web-sites-scale.md)|||X|X|X
 [WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup>|X|X|X|X|X
-[Azure Scheduler](../services/scheduler/) support||X|X|X|X
+[Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support||X|X|X|X
 [Endpoint monitoring](../articles/app-service-web/web-sites-monitor.md)|||X|X|X
 [Staging Slots (Preview)](../articles/app-service-web/web-sites-staged-publishing.md)||||5|20
 Custom domains per app</a>||500|500|500|500
