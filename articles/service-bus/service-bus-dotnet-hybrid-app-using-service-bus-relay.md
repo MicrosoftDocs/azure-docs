@@ -569,7 +569,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
 ## Run the application
 
-2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. This time, you will see that the product inventory lists data retrieved from the product service on-premises system. 	Check the URL to make sure that **ProductsPortal** is running in the as an Azure web app. 
+2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. This time, you will see that the product inventory lists data retrieved from the product service on-premises system. 	Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app. 
 
     ![][1]
 
