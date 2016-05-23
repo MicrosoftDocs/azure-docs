@@ -40,18 +40,44 @@ DocumentDB does not support the MongoDB aggregation pipeline or Map-Reduce opera
 
 Feature|Supported|Will be supported|Not Supported 
 ---|---|---|---
+CRUD| | | 
 Insert|InsertOne| | 
  |InsertMany| | 
----|Insert|---|---
- ||| 
-Update|UpdateOne|---|---
----|UpdateMany|---|---
----|Update|---|---
----|---|---|---
-Operators|---|---|---
-Field Update|$inc, $mul, $rename, $set, $unset, $min, $max|$currentDate|---
-Array Update|---|-all-|---
-Bitwise|---|-all-|--- 
+ |Insert| | 
+Update|UpdateOne| | 
+ |UpdateMany| | 
+ |Update| | 
+OPERATORS| | | 
+Field Update|$inc, $mul, $rename, $set, $unset, $min, $max|$currentDate| 
+Array Update| |-all-| 
+Bitwise| |-all-| 
+Isolation| |-all-| 
+Replace|ReplaceOne| |
+Delete|DeleteOne | |
+ |DeleteMany| | 
+ |Remove| | 
+BulkWrite| |bulkWrite()| 
+QUERY| | | 
+Operators| | | 
+Comparison|-all-| | 
+Logical|-all-| | 
+Element Query| |-all-| 
+Evaluation|$mod|$regex, $text, $where| 
+GeoSpatial|2dsphere, 2d, polygon|Everything else| 
+Array|$all, $size|$elemMatch| 
+Bitwise| |-all-| 
+Comment|-all-| | 
+Projection| |-all-| 
+COMMANDS| | | 
+Aggregation|Count| |aggregate, distinct, group, mapreduce
+GeoSpatial| |-all-| 
+Query & Write|find, insert, update, delete, getLastError, getMore, findAndModify| |Eval, parallelCollectionScan, getPrevError, resetError
+QueryPlan Cache| | |-all-
+Authentication|getnonce, logout, authenticate| |Copydbgetnone, authschemaUpgrade
+User Management| | |-all-
+Role Management| | |-all-
+Replication| | |-all-
+
 
 ## Next steps
 
