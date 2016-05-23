@@ -58,7 +58,7 @@ In the Resource Manager deployment model, we enforce security of your applicatio
 
 In this scope, for most VM configurations, we are migrating only the metadata between the classic deployment model and the Resource Manager deployment model. The underlying VMs are running on the same hardware, in the same network, and with the same storage. So when we refer to migration of the metadata from classic to Resource Manager, the management-plane operations may not be allowed for a certain period of time during the migration. However, the data plane will continue to work. That is, your applications running on top of VMs (classic) will not incur downtime during the migration.
 
-At this time, the following configurations are not supported. If we add support for them in the future, some VMs in this configuration might incur downtime (stop, deallocate, and restart).
+At this time, the following configurations are not supported. If we add support for them in the future, some VMs in this configuration might incur downtime (will go through stop, deallocate, and restart VM operations).
 
 -	You have more than one availability set in a single cloud service.
 -	You have one or more availability sets and VMs that are not in an availability set in a single cloud service.
@@ -69,7 +69,7 @@ At this time, the following configurations are not supported. If we add support 
 
 Storage account migration is not supported for this public preview.
 
-To allow seamless migration, we have enabled the capability to deploy Resource Manager VMs in a classic storage account. With this capability, compute and network resources can be migrated independently of storage accounts.
+To allow seamless migration, we have enabled the capability to deploy Resource Manager VMs in a classic storage account. With this capability, compute and network resources can and should be migrated independently of storage accounts.
 
 ## Unsupported features and configurations
 
