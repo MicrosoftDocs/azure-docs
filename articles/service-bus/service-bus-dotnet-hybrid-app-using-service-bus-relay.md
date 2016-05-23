@@ -526,7 +526,9 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 ## Run the project locally
 
-To test the application locally, in Visual Studio press **F5**. The on-premises server (**ProductsServer**) should start first, then the **ProductsPortal** application should start in a browser window. This time, you will see that the product inventory lists data retrieved from the product service on-premises system.
+To test the application locally, in Visual Studio press **F5**. The on-premises server (**ProductsServer**) should start first, then the **ProductsPortal** application should start in a browser window. This time, you will see that the product inventory lists data retrieved from the product service on-premises system. 
+
+Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
 ## Deploy the ProductsPortal project to an Azure web app
 
@@ -536,6 +538,7 @@ Copy the URL of the deployed web app, as you will need the URL in the next step.
 
 ![][9] 
 
+<br />
 >AZURE.NOTE You may see an error in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
 
 After deployment is complete, return to this tutorial and proceed to the next step. 
@@ -562,6 +565,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
     ![][1]
 
+	<br />
 	> AZURE.IMPORTANT The **ProductsServer** console application must be running and able to serve the data to the **ProductsPortal** application. If the browser displays an error, wait a few more seconds for **ProductsServer** to load and display the following message. Then press **Refresh** in the browser.
 
 	![][37]
