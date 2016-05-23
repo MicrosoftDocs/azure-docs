@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/23/2016"
    ms.author="yurid"/>
 
 # Azure Security Services and Technologies
@@ -24,7 +24,7 @@ We understand that when you’re evaluating your cloud service provider technica
 
 The following is our initial effort at providing a list. Over time, this list will change and grow, just as Azure does. The list is categorized, and the list of categories will also grow over time. Make sure to check this page on a regular basis to stay up-to-date on our security-related services and technologies. 
 
-## Azure Security Center
+## Azure Security General
 - [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)
 - [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)
 - [Azure Disk Encryption](azure-security-disk-encryption.md)
