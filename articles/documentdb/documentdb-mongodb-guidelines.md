@@ -40,8 +40,8 @@ DocumentDB does not support the MongoDB aggregation pipeline or Map-Reduce opera
 
 Feature|Supported|Will be supported|Not Supported 
 ---|---|---|---
-Insert|InsertOne||
----|InsertMany|---|---
+Insert|InsertOne| | 
+ |InsertMany| | 
 ---|Insert|---|---
 ---|---|---|---
 Update|UpdateOne|---|---
