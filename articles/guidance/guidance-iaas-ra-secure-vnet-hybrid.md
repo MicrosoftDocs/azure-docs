@@ -55,7 +55,7 @@ The following diagram highlights the important components in this architecture (
 
 - **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs.
 
-	Additionally, each of the application subnets uses UDRs for redirecting Internet requests made by VMs running in that subnet. In this example, the UDRs for the web, business, and data access tiers redirect requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet. Note that any response received as a result of the request will return directly to the originator in the web, business, or data access tiers and won't pass through on-premises network, gateway, or NVAs.
+	Additionally, each of the application subnets uses UDRs for redirecting Internet requests made by VMs running in that subnet. In this example, the UDRs for the web, business, and data access tiers redirect requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet. Note that any return traffic will go directly to the originator in the web, business, or data access tiers and won't pass through on-premises network, gateway, or NVAs.
 
 	> [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network. However, such configurations do not support IPSec and are not encrypted, so you should not use this mechanism across the public Internet; BGP is more commonly used with [Azure ExpressRoute gateways][guidance-expressroute].
 	>
@@ -136,6 +136,8 @@ NVAs can provide different services for managing and monitoring network traffic.
 
 - [DenyAll Web Application Firewall][denyall]
 
+- [Check Point vSEC][checkpoint]
+
 You can also create an NVA by using your own custom VMs; this is the approach taken by the sample script and templates used to implement this reference architecture. As a further variation, you could connect multiple NVAs in series. Using this approach, you can create a service chain comprising specialised NVAs, each configured to perform a specific security task. For example, you could construct a sequence consisting of an NVA implementing a firewall with another running identity services.
 
 > [AZURE.NOTE] For some NVAs that expose a public interface, it may be feasible to create a direct tunnel to the NVA from an on-premises appliance.
@@ -169,7 +171,7 @@ Create an availability set that provides a pool of NVA devices. Use a load balan
 
 ### NSG recommendations
 
-The VPN gateway exposes a public IP address for handling the connection to the on-premises network. There is a risk that this endpoint could be used as a point of attack. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Consider creating a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that hasn't originated from the on-premises network (192.168.0.0/16 in the [Architecture diagram][architecture]). You can create rules similar to these:
+The VPN gateway exposes a public IP address for handling the connection to the on-premises network. This endpoint is potentially a security weak-point. Additionally, if any of the application tiers are compromised, unauthorized traffic could enter from there as well, enabling an invader to reconfigure your NVA. Consider creating a network security group (NSG) for the inbound NVA subnet and define rules that block all traffic that hasn't originated from the on-premises network (192.168.0.0/16 in the [Architecture diagram][architecture]). You can create rules similar to these:
 
 ```powershell
 azure network nsg create <<resource-group>> nva-nsg <<location>>
@@ -798,6 +800,7 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 [fortinet]: https://azure.microsoft.com/marketplace/partners/fortinet/fortinet-fortigate-singlevmfortigate-singlevm/
 [securesphere]: https://azure.microsoft.com/marketplace/partners/imperva/securesphere-waf-for-azr/
 [denyall]: https://azure.microsoft.com/marketplace/partners/denyall/denyall-web-application-firewall/
+[checkpoint]: https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/
 [vpn-failover]: ./guidance-hybrid-network-expressroute-vpn-failover.md
 [wireshark]: https://www.wireshark.org/
 [rbac-recommendations]: #rbac_recommendations
