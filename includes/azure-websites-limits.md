@@ -6,9 +6,9 @@ Resource|Free|Shared (Preview)|Basic|Standard|Premium (Preview)</th>
 Compute instance type|Shared|Shared|Dedicated<sup>3</sup>|Dedicated<sup>3</sup>|Dedicated<sup>3</sup></p>
 [Scale-Out](../articles/app-service-web/web-sites-scale.md) (max instances)|1 shared|1 shared|3 dedicated<sup>3</sup>|10 dedicated<sup>3</sup>|20 dedicated (50 in ASE)<sup>3,4</sup>
 Storage<sup>5</sup>|1 GB<sup>5</sup>|1 GB<sup>5</sup>|10 GB<sup>5</sup>|50 GB<sup>5</sup>|500 GB<sup>4,5</sup></p>
-CPU time (day)<sup>6</sup>|60 minutes|240 minutes|Unlimited, pay at standard [rates](../pricing/details/app-service/)</a>|Unlimited, pay at standard rates|Unlimited, pay at standard rates
+CPU time (day)<sup>6</sup>|60 minutes|240 minutes|Unlimited, pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/)</a>|Unlimited, pay at standard rates|Unlimited, pay at standard rates
 Memory (1 hour)|1024 MB per App Service plan|1024 MB per app|N/A|N/A|N/A
-Bandwidth|165 MB|Unlimited, [data transfer rates](../pricing/details/data-transfers/) apply|Unlimited, data transfer rates apply|Unlimited, data transfer rates apply|Unlimited, data transfer rates apply
+Bandwidth|165 MB|Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply|Unlimited, data transfer rates apply|Unlimited, data transfer rates apply|Unlimited, data transfer rates apply
 Application architecture|32-bit|32-bit|32-bit/64-bit|32-bit/64-bit|32-bit/64-bit
 Web Sockets per instance<sup>7</sup>|5|35|350|Unlimited|Unlimited
 Concurrent [debugger connections](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md) per application|1|1|1|5|5
@@ -28,7 +28,7 @@ SLA||<p>|99.9%|99.95%<sup>10</sup>|99.95%<sup>10</sup>
 
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
 <sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
-<sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](../../pricing/details/app-service/) for more details. Additional instances are available by opening a support request.  
+<sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) for more details. Additional instances are available by opening a support request.  
 <sup>4</sup>Premium tier allows up to 50 computes instances (subject to availability) and 500 GB of disk space when using App Service Environments, and 20 compute instances and 250 GB storage otherwise.  
 <sup>5</sup>The storage limit is the total content size across all apps in the
 same App Service plan. More storage options are available in [App Service Environment](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage) 
