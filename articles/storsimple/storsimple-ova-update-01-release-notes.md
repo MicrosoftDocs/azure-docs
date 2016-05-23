@@ -12,18 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="05/23/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array Update 0.1 release notes
 
 ## Overview
 
-The following release notes identify the critical open issues and the resolved issues for the Microsoft Azure StorSimple Virtual Array Update 0.1 release. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) This release corresponds to the software version **10.0.10279.0**. Update 0.1 is a disruptive update and will restart your device. If IO are in progress, the device will incur downtime.
+The following release notes identify the critical open issues and the resolved issues for the Microsoft Azure StorSimple Virtual Array Update 0.1 release. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) This release corresponds to the software version **10.0.10279.0**. 
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
-## What's new in Update 0.1
+> [AZURE.NOTE] Update 0.1 is a disruptive update and will restart your device. If IO are in progress, the device will incur downtime.
+
+## What's new in the Update 0.1
 
 Update 0.1 contains the following bug fixes and improvements. 
 
@@ -40,24 +42,23 @@ Update 0.1 contains the following bug fixes and improvements.
 - **Bug fixes related to domain-joining and renaming** of the device.
 
 
-## Issues fixed in Update 0.1
+## Issues fixed in the Update 0.1
 
 The following table provides a summary of issues fixed in this release.
 
 | No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Device renaming and   domain-joining | In the last release, when a   domain-joined device was renamed, it would result in an error such as "The network path was not found." or "The specified directory   service attribute or value does not exist." The domain-joining and renaming scenario were redesigned in this release and this issue is now resolved.  |
-| 2    | VMDK                                 | In some VMware versions, the OS disk was seen as sparse causing alerts and disrupting normal operations. This was fixed in this release.                                                                                                                                                                                    |
-| 3    | iSCSI server                         | In the last release, the user was required to specify a gateway for each enabled network interface of your StorSimple virtual device. This behavior is changed in this release so that the user has to configure at least one gateway for all the enabled network interfaces.                                                                              |
-| 4    | Support package                      | In the earlier version of software, Support package collection failed when the package sizes were larger than 1 GB. This issue is fixed in this release.                                                                                                                                                                               |
-| 5    | Cloud access                         |  In the last release, if the StorSimple Virtual Array did not have network connectivity and was restarted, the local UI would have connectivity issues. This problem is fixed in this release.                                                                                                                            |
-| 6    | Monitoring charts                    | In the previous release, following a device failover, the cloud capacity utilization charts displayed incorrect values in the Azure classic portal. This is fixed in the current release.                                                                                                                          |
-| 7    | Update                               | In the earlier release, the portal continued to indicate that the updates were available even though the device was updated. This issue is resolved in this release by updating the detection logic.                                                                       |
+| 1    | VMDK                                 | In some VMware versions, the OS disk was seen as sparse causing alerts and disrupting normal operations. This was fixed in this release.                                                                                                                                                                                    |
+| 2    | iSCSI server                         | In the last release, the user was required to specify a gateway for each enabled network interface of your StorSimple virtual device. This behavior is changed in this release so that the user has to configure at least one gateway for all the enabled network interfaces.                                                                              |
+| 3    | Support package                      | In the earlier version of software, Support package collection failed when the package sizes were larger than 1 GB. This issue is fixed in this release.                                                                                                                                                                               |
+| 4    | Cloud access                         |  In the last release, if the StorSimple Virtual Array did not have network connectivity and was restarted, the local UI would have connectivity issues. This problem is fixed in this release.                                                                                                                            |
+| 5    | Monitoring charts                    | In the previous release, following a device failover, the cloud capacity utilization charts displayed incorrect values in the Azure classic portal. This is fixed in the current release.                                                                                                                          |
 
 
-## Known issues in Update 0.1
 
-The following table provides a summary of known issues in this release.
+## Known issues in the Update 0.1
+
+The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases. **The issues release noted in this release are marked with an asterisk. Almost all the issues in this list have carried over from the GA release of StorSimple Virtual Array.**
 
 
 | No. | Feature | Issue | Workaround/comments |
@@ -75,7 +76,7 @@ The following table provides a summary of known issues in this release.
 | **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
 | **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you will need to take the volumes offline and then bring them online for the change to take effect. | These will be addressed in a later release. |
 | **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
-| **14.** | File server  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |
+| **14.** | File server*  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |
 
 
 ## Next step
