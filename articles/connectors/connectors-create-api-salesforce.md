@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="05/19/2016"
 ms.author="deonhe"/>
 
 # Get started with the Salesforce connector 
@@ -55,8 +55,7 @@ All connectors support data in JSON and XML formats.
 
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Salesforce.
 
-1. Sign in to your Salesforce account.
-2. Allow your logic apps to connect and use your Salesforce account. 
+>[AZURE.INCLUDE [Steps to create a connection to Salesforce](../../includes/connectors-create-api-salesforce.md)] 
 
 After you create the connection, you enter the Salesforce properties, like the table name. The **REST API reference** in this topic describes these properties.
 
