@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/20/2016"
+   ms.date="05/23/2016"
    ms.author="alkohli" />
 
 # Install Update 0.1 on your StorSimple Virtual Array
