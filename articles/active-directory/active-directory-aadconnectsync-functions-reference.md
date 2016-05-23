@@ -35,7 +35,8 @@ The types are expressed with the following syntax:
 - **enum** – Enumeration of known constants
 - **exp** – Expression, which is expected to evaluate to a Boolean
 - **mvbin** – Multi Valued Binary
-- **mvstr** – Multi Valued Reference
+- **mvstr** – Multi Valued String
+- **mvref** – Multi Valued Reference
 - **num** – Numeric
 - **ref** – Single Valued Reference
 - **str** – Single Valued String
@@ -70,7 +71,7 @@ List of functions | | | | |
 [GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase)
 [Left](#left) | [Len](#len) | [LTrim](#ltrim) | [Mid](#mid)
 [PadLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Replace](#replace)
-[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim)  [Trim](#trim)
+[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim) | [Trim](#trim)
 [UCase](#ucase) | [Word](#word)
 
 ----------
