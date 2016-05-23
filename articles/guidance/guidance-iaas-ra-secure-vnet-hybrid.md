@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="05/23/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture in Azure
@@ -37,9 +37,9 @@ Typical use cases for this architecture include:
 
 ## Architecture diagram
 
-The following diagram highlights the important components in this architecture:
+The following diagram highlights the important components in this architecture (*click to zoom in*):
 
-![IaaS: forced-tunneling](./media/guidance-iaas-ra-secure-vnet-hybrid/figure1.png)
+[![0]][0]
 
 - **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
@@ -56,6 +56,10 @@ The following diagram highlights the important components in this architecture:
 - **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs.
 
 	Additionally, each of the application subnets uses UDRs for redirecting Internet requests made by VMs running in that subnet. In this example, the UDRs for the web, business, and data access tiers redirect requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet. Note that any response received as a result of the request will return directly to the originator in the web, business, or data access tiers and won't pass through on-premises network, gateway, or NVAs.
+
+	> [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network. However, such configurations do not support IPSec and are not encrypted, so you should not use this mechanism across the public Internet; BGP is more commonly used with [Azure ExpressRoute gateways][guidance-expressroute].
+	>
+	> This article focusses on using UDRs.
 
 - **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The optional monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authorized DevOps staff to log in, configure, and manage the network. Note that the jump box and monitoring functions can be combined into a single VM, depending on the monitoring workload.
 
@@ -132,7 +136,9 @@ NVAs can provide different services for managing and monitoring network traffic.
 
 - [DenyAll Web Application Firewall][denyall]
 
-You can also create an NVA by using your own custom VMs; this is the approach taken by the sample script and templates used to implement this reference architecture.
+You can also create an NVA by using your own custom VMs; this is the approach taken by the sample script and templates used to implement this reference architecture. As a further variation, you could connect multiple NVAs in series. Using this approach, you can create a service chain comprising specialised NVAs, each configured to perform a specific security task. For example, you could construct a sequence consisting of an NVA implementing a firewall with another running identity services.
+
+> [AZURE.NOTE] For some NVAs that expose a public interface, it may be feasible to create a direct tunnel to the NVA from an on-premises appliance.
 
 Enable IP forwarding on any NICs used by the NVAs for routing traffic (the sample template implements this setting). If you're creating your own VMs manually, use the following Azure CLI command to enable IP forwarding for a NIC:
 
@@ -156,6 +162,8 @@ azure network route-table route create -a 10.0.0.0/16 -y VirtualAppliance -p 10.
 <# Associate the route table with the gateway subnet: #>
 azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> GatewaySubnet
 ```
+
+This approach enables you to segregate the duties of the DevOps staff who are responsible for implementing and configuring applications, from security staff who maintain the NVAs. All application traffic is forced to pass through the NVAs. Even if DevOps staff modify or add further workloads to the VNet without informing the security staff, the security rules implemented by the NVAs will still apply.
 
 Create an availability set that provides a pool of NVA devices. Use a load balancer to distribute requests across this pool. This strategy enables you to quickly start and stop NVAs to maintain performance, according to the load. Point the UDR in the gateway subnet that directs requests to the NVAs to this load balancer. In the preceding example, the load balancer is the virtual appliance with the address 10.0.1.254.
 
@@ -209,9 +217,9 @@ azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-
 
 Verify that the traffic is tunneled correctly. If you're using a VPN connection with the Routing and Remote Access Service on an on-premises server, use a tool such as [WireShark][wireshark] on this server to verify that Internet traffic from the VNet is being forwarded through this server.
 
-Configure the on-premises network security appliance to direct force-tunneled traffic to the Internet. This process will vary according to the device used to implement the appliance. For example, if you're using the Routing and Remote Access Service, you can add a static route as shown below:
+Configure the on-premises network security appliance to direct force-tunneled traffic to the Internet. This process will vary according to the device used to implement the appliance. For example, if you're using the Routing and Remote Access Service, you can add a static route as shown by the image below (*click to zoom in*):
 
-![IaaS: rras-static-route](./media/guidance-iaas-ra-secure-vnet-hybrid/figure2.png)
+[![1]][1]
 
 > [AZURE.NOTE] For detailed information and examples on implementing forced tunneling, see [Configure forced tunneling using PowerShell and Azure Resource Manager][azure-forced-tunneling].
 
@@ -518,7 +526,7 @@ The purpose of the jump box is to provide administrative access to DevOps staff 
 
 #### Blocking unexpected access to the management subnet
 
-It is imperative to protect direct access to the jump box from access by unauthorized staff. The [azuredeploy.json][azuredeploy] template creates three NSG rules named *on-prem-rdp-allow*, *on-prem-ssh-allow*, and *vnet-deny* for the management subnet:
+It is imperative to protect direct access to the jump box from access by unauthorized staff. The [azuredeploy.json][azuredeploy] template creates NSG rules named *on-prem-rdp-allow*, *on-prem-ssh-allow*, *gateway-allow*, *self-allow*, and *vnet-deny* for the management subnet:
 
 ```
 {
@@ -530,19 +538,20 @@ It is imperative to protect direct access to the jump box from access by unautho
     "parameters": {
       "baseName": { "value": "[parameters('baseName')]" },
       "nsgNamePrefix": { "value": "mgmt" },
-      "rulesNames": { "value": [ "on-prem-rdp-allow", "on-prem-ssh-allow", "self-allow","vnet-deny" ] },
-      "rulesDirections": { "value": [ "Inbound", "Inbound", "Inbound", "Inbound" ] },
-      "rulesAccess": { "value": [ "Allow", "Allow", "Allow", "Deny" ] },
-      "rulesSourceAddressPrefixes": { "value": [ "[parameters('onpremNetPrefix')]", "[parameters('onpremNetPrefix')]", "[parameters('vnetMgmtSubnetPrefix')]", "*" ] },
-      "rulesSourcePorts": { "value": [ "*", "*", "*", "*" ] },
-      "rulesDestinationAddressPrefixes": { "value": [ "*", "*", "*", "*" ] },
-      "rulesDestinationPorts": { "value": [ 3389, 22, "*", "*" ] },
-      "rulesProtocol": { "value": [ "*", "TCP", "*", "*" ] }
+      "rulesNames": { "value": [ "on-prem-rdp-allow", "on-prem-ssh-allow", "gateway-allow", "self-allow", "vnet-deny" ] },
+      "rulesDirections": { "value": [ "Inbound", "Inbound", "Inbound", "Inbound", "Inbound" ] },
+      "rulesAccess": { "value": [ "Allow", "Allow", "Allow", "Allow", "Deny" ] },
+      "rulesSourceAddressPrefixes": { "value": [ "[parameters('onpremNetPrefix')]", "[parameters('onpremNetPrefix')]", "[parameters('vnetGwSubnetPrefix')]", "[parameters('vnetMgmtSubnetPrefix')]", "*" ] },
+      "rulesSourcePorts": { "value": [ "*", "*", "*", "*", "*" ] },
+      "rulesDestinationAddressPrefixes": { "value": [ "*", "*", "*", "*", "*" ] },
+      "rulesDestinationPorts": { "value": [ 3389, 22, "*", "*", "*" ] },
+      "rulesProtocol": { "value": [ "*", "*", "*", "*", "*" ] }
+    }
   }
 }
 ```
 
-The on-prem-rdp-allow rule allows RDP access through port 3389 only to traffic that has originated from the on-premises network. The on-prem-ssh-allow rule performs the same function for SSH traffic through port 22. The self-allow rule permits all traffic from within the management subnet; this rule is necessary to connect from the jump box to the NVA VMs. The vnet-deny rule blocks all traffic that has originated elsewhere from the VNet.
+The on-prem-rdp-allow rule allows RDP access through port 3389 only to traffic that has originated from the on-premises network. The on-prem-ssh-allow rule performs the same function for SSH traffic through port 22. The gateway-allow rule enables incoming traffic through the VPN gateway. The self-allow rule permits all traffic from within the management subnet; this rule is necessary to connect from the jump box to the NVA VMs. The vnet-deny rule blocks all traffic that has originated elsewhere from the VNet.
 
 #### Permitting management access to the application subnets
 
@@ -602,26 +611,25 @@ To run the script that deploys the solution:
 
 7. Browse to the Azure portal and verify that the following resource groups have been created:
 
-	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDRs for forced tunneling for each application tier; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection, as shown below:
+	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDRs for forced tunneling for each application tier; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection, as shown below (*click to zoom in*):
 
-		![IaaS: myapp-netwk-rg](./media/guidance-iaas-ra-secure-vnet-hybrid/figure3.png)
+		[![2]][2]
 
-		The following image shows the subnets created in the VNet:
+		The following image shows the subnets created in the VNet (*click to zoom in*):
 
-		![IaaS: myapp-netwk-rg-subnets](./media/guidance-iaas-ra-secure-vnet-hybrid/figure4.png)
+		[![3]][3]
 
+	- ***myapp*-web-tier-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier by default), storage for each VM, the network interfaces, and the load balancer for this tier (*click to zoom in*):
 
-	- ***myapp*-web-tier-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier by default), storage for each VM, the network interfaces, and the load balancer for this tier:
-
-		![IaaS: myapp-web-tier-rg](./media/guidance-iaas-ra-secure-vnet-hybrid/figure5.png)
+		[![4]][4]
 
 	- ***myapp*-biz-tier-rg.**. This resource group holds the VMs and resources for the business tier. The structure is the same as that of the web tier.
 
 	- ***myapp*-db-tier-rg.** This resource group holds the VMs and resources for the data access tier. The structure is the same as that of the web and business tiers.
 
-	- ***myapp*-mgmt-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs (with storage) and a load balancer for the NVA, and a separate VM (with storage) for the jump box. Each NVA VM has three network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs. This resource group also contains the UDR for the gateway subnet.
+	- ***myapp*-mgmt-subnet-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs (with storage) and a load balancer for the NVA, and a separate VM (with storage) for the jump box. Each NVA VM has three network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs. This resource group also contains the UDR for the gateway subnet (*click to zoom in*):
 
-		![IaaS: myapp-mgmt-rg](./media/guidance-iaas-ra-secure-vnet-hybrid/figure6.png)
+	[![5]][5]
 
 8. Configure the VPN appliance on the on-premises network to connect to the Azure VPN gateway. For more information, seer the article [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway].
 
@@ -727,7 +735,7 @@ For specific information on maintaining availability for VPN and ExpressRoute co
 
 This architecture applies security at several points. The recommendations and solution components listed earlier describe the basic solution which you can customize according to your own requirements. However, you should bear in mind the points described in the following sections.
 
-> [AZURE.NOTE] For more extensive information, examples, and scenarios about managing network security with Azure, see [Microsoft cloud services and network security][clouds-services-network-security]. For detailed information about protecting resources in the cloud, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. For additional details on addressing security concerns across an Azure gateway connection, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
+> [AZURE.NOTE] For more extensive information, examples, and scenarios about managing network security with Azure, see [Microsoft cloud services and network security][cloud-services-network-security]. For detailed information about protecting resources in the cloud, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. For additional details on addressing security concerns across an Azure gateway connection, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
 
 ### Routing through the NVA
 
@@ -745,13 +753,15 @@ DevOps staff access the system through the jump box in the management subnet. Yo
 
 Apply NSG rules to to the management subnet to limit the sources of traffic that can gain access. Only permit requests that have originated from the on-premises network.
 
+If you have a security and/or network team that is distinct from the DevOps team, divide access accordingly. For example, only the security team should be granted logon access to the NVAs to set security policy.
+
 ## Scalability considerations
 
 Implement a pool of NVA devices (using an availability set), and use a load balancer to direct requests from the on-premises network to this pool. This will help to prevent the NVA becoming a bottleneck and improve scalability, although this strategy mightn't be effective to handle unexpected bursts. Monitor the throughput of the NVA devices over time, and be prepared to add further NVA devices to the pool if the workload shows an increasing trend. Adopt the same strategy for each of the subnets holding the application tiers.
 
 If you're creating a custom NVA incorporating your own code, make sure that any security checks performed are stateless and don't depend on the same client revisiting the same NVA for each request.
 
-A VPN gateway supports sustained throughput of up to 100 Mbps for the Basic and Standard SKUs. The High Performance SKU provides up to 200 Mbps. For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute gives you up to 2000 Mbps bandwidth with lower latency than a VPN connection, but requires increased expenditure and a greater configuration effort.
+A VPN gateway supports sustained throughput of up to 100 Mbps for the Standard SKU. The High Performance SKU provides up to 200 Mbps. For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute gives you up to 2000 Mbps bandwidth with lower latency than a VPN connection, but requires increased expenditure and a greater configuration effort.
 
 > [AZURE.NOTE] The articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute] describe issues surrounding the scalability of Azure gateways.
 
@@ -776,7 +786,7 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
 [azure-forced-tunneling]: https://azure.microsoft.com/en-gb/documentation/articles/vpn-gateway-forced-tunneling-rm/
-[clouds-services-network-security]: https://azure.microsoft.com/documentation/articles/best-practices-network-security/
+[cloud-services-network-security]: https://azure.microsoft.com/documentation/articles/best-practices-network-security/
 [rbac]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/
 [architecture]: #architecture_blueprint
 [security]: #security
@@ -812,3 +822,9 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 [ra-vpn]: ./guidance-hybrid-network-vpn.md
 [ra-expressroute]: ./guidance-hybrid-network-expressroute.md
 [bb-ntwk-forced-tunneling]: https://github.com/mspnp/blueprints/blob/master/ARMBuildingBlocks/ARMBuildingBlocks/Templates/bb-ntwk-forced-tunneling.json
+[0]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure1.png "Secure hybrid network architecture"
+[1]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure2.png "Defining a static route for Internet traffic"
+[2]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure3.png "The myapp-network-rg resource group"
+[3]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure4.png "Subnets in the VNet"
+[4]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure5.png "The myapp-web-tier-rg resource group"
+[5]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure6.png "The myapp-mgmt-subnet-rg resource group"
