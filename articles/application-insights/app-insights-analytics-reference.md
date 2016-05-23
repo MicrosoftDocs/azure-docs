@@ -25,28 +25,31 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-
 | | | | | 
 |---|---|---|---|---
-|[ago](#ago)|[dayofweek](#dayofweek)|[let clause](#let-clause)|[rand](#rand)|[sum](#sum)
-|[any](#any)|[dcount](#dcount)|[limit op](#limit-operator)|[range](#range)|[summarize op](#summarize-operator)
-|[argmax](#argmax)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[log](#log)|[range op](#range-operator)|[take op](#take-operator)
-|[argmin](#argmin)|[exp](#exp)|[makelist](#makelist)|[reduce op](#reduce-operator)|[todatetime](#todatetime)
-|[Arithmetic ops](#arithmetic-operators)|[extend op](#extend-operator)|[makeset](#makeset)|[render directive](#render-directive)|[todouble](#todouble)
-|[Array and object literals](#array-and-object-literals)|[extract](#extract)|[max](#max)|[replace](#replace)|[todynamic](#todynamic)
-|[arraylength](#arraylength)|[extractjson](#extractjson)|[min](#min)|[restrict clause](#restrict-clause)|[toint](#toint)
-|[avg](#avg)|[floor](#floor)|[mvexpand op](#mvexpand-operator)|[Scalar comparisons](#scalar-comparisons)|[tolong](#tolong)
-|[bin](#bin)|[getmonth](#getmonth)|[notempty](#notempty)|[sort op](#sort-operator)|[tolower](#tolower)
-|[Boolean Literals](#boolean-literals)|[gettype](#gettype)|[notnull](#notnull)|[split](#split)|[top op](#top-operator)
-|[Boolean ops](#boolean-operators)|[getyear](#getyear)|[now](#now)|[sqrt](#sqrt)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[hash](#hash)|[Numeric literals](#numeric-literals)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Casts](#casts)|[iff](#iff)|[Obfuscated String Literals](#obfuscated-string-literals)|[startofyear](#startofyear)|[treepath](#treepath)
-|[count](#count)|[isempty](#isempty)|[parse op](#parse-operator)|[stdev](#stdev)|[union op](#union-operator)
-|[count op](#count-operator)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[strcat](#strcat)|[variance](#variance)
-|[countif](#countif)|[isnotnull](#isnotnull)|[percentile](#percentile)|[String comparisons](#string-comparisons)|[where op](#where-operator)
-|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[String Literals](#string-literals)
-|[Date and time expressions](#date-and-time-expressions)|[join op](#join-operator)|[project op](#project-operator)|[strlen](#strlen)
-|[Date and time literals](#date-and-time-literals)|[JSON Path expressions](#json-path-expressions)|[project-away op](#project-away-operator)|[substring](#substring)
+|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[summarize op](#summarize-operator)
+|[ago](#ago)|[dayofyear](#dayofyear)|[join op](#join-operator)|[range](#range)|[take op](#take-operator)
+|[any](#any)|[dcount](#dcount)|[JSON Path expressions](#json-path-expressions)|[range op](#range-operator)|[todatetime](#todatetime)
+|[argmax](#argmax)|[dcountif](#dcountif)|[let clause](#let-clause)|[reduce op](#reduce-operator)|[todouble](#todouble)
+|[argmin](#argmin)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[limit op](#limit-operator)|[render directive](#render-directive)|[todynamic](#todynamic)
+|[Arithmetic ops](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
+|[Array and object literals](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[restrict clause](#restrict-clause)|[tolong](#tolong)
+|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Scalar comparisons](#scalar-comparisons)|[tolower](#tolower)
+|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[sort op](#sort-operator)|[top op](#top-operator)
+|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[top-nested op](#top-nested-operator)
+|[Boolean Literals](#boolean-literals)|[extend op](#extend-operator)|[mvexpand op](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
+|[Boolean ops](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
+|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
+|[Casts](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
+|[count](#count)|[getmonth](#getmonth)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[union op](#union-operator)
+|[count op](#count-operator)|[gettype](#gettype)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
+|[countif](#countif)|[getyear](#getyear)|[parse op](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
+|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[where op](#where-operator)
+|[Date and time expressions](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[String Literals](#string-literals)
+|[Date and time literals](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
+|[datepart](#datepart)|[isnotempty](#isnotempty)|[project op](#project-operator)|[substring](#substring)
+|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[project-away op](#project-away-operator)|[sum](#sum)
+
 
 
 ## Queries and operators
@@ -705,6 +708,26 @@ selection is actually from the "bottom" or "top" of the range.
 
 `top 5 by name` is superficially equivalent to `sort by name | take 5`. However, it runs faster and always returns sorted results, whereas `take` makes no such guarantee.
 
+### top-nested operator
+
+    requests 
+    | top-nested 5 of name by count()  
+    , top-nested 3 of performanceBucket by count() 
+    , top-nested 3 of client_CountryOrRegion by count()
+    | render barchart 
+
+Produces hierarchical results, where each level is a drill-down from the previous level. It's useful for answering questions that sound like "What are the top 5 requests, and for each of them, what are the top 3 performance buckets, and for each of them, which are the top 3 countries the requests come from?"
+
+**Syntax**
+
+   T | top-nested N of COLUMN by AGGREGATION [, ...]
+
+**Arguments**
+
+* N:int - number of rows to return or pass to the next level. In a query with three levels where N is 5, 3, and 3, the total number of rows will be 45.
+* COLUMN - A column to group by for aggregation. 
+* AGGREGATION - An [aggregation function](#aggregations) to apply to each group of rows. The results of these aggregations will determine the top groups to be displayed.
+
 
 ### union operator
 
@@ -1005,6 +1028,26 @@ Returns an estimate of the number of distinct values of *Expr* in the group. (To
 
 ![](./media/app-insights-analytics-reference/dcount.png)
 
+
+### dcountif
+
+    dcountif( Expression, Predicate [ ,  Accuracy ])
+
+Returns an estimate of the number of distinct values of *Expr* of rows in the group for which *Predicate* is true. (To list the distinct values, use [`makeset`](#makeset).)
+
+*Accuracy*, if specified, controls the balance between speed and accuracy.
+
+ * `0` = the least accurate and fastest calculation.
+ * `1` the default, which balances accuracy and calculation time; about 0.8% error.
+ * `2` = most accurate and slowest calculation; about 0.4% error.
+
+**Example**
+
+    pageViews 
+    | summarize cities=dcountif(client_City, client_City startswith "St") 
+      by client_CountryOrRegion
+
+
 ### makelist
 
     makelist(Expr [ ,  MaxListSize ] )
@@ -1152,6 +1195,11 @@ You can cast from one type to another. In general, if the conversion makes sense
     tostring(42.5)
     todynamic("{a:10, b:20}")
 
+Check whether a string can be converted to a specific type:
+
+    iff(notnull(todouble(customDimensions.myValue)),
+       ..., ...)
+
 ### Scalar comparisons
 
 ||
@@ -1172,7 +1220,7 @@ You can cast from one type to another. In general, if the conversion makes sense
 
 **Returns**
 
-A string representing the underlying storage type of its single argument. This is particularly useful when have values of kind `dynamic`: in this case `gettype()` will reveal how a value is encoded.
+A string representing the underlying storage type of its single argument. This is particularly useful when you have values of kind `dynamic`: in this case `gettype()` will reveal how a value is encoded.
 
 **Examples**
 
@@ -1180,7 +1228,7 @@ A string representing the underlying storage type of its single argument. This i
 ---|---
 `gettype("a")` |`"string" `
 `gettype(111)` |`"long" `
-`gettype(1==1)` |`"int8" (*) `
+`gettype(1==1)` |`"int8"`
 `gettype(now())` |`"datetime" `
 `gettype(1s)` |`"timespan" `
 `gettype(parsejson('1'))` |`"int" `
@@ -1190,8 +1238,7 @@ A string representing the underlying storage type of its single argument. This i
 `gettype(123.45)` |`"real" `
 `gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
 `gettype(parsejson(''))` |`"null"`
-
-
+`gettype(1.2)==real` | `true`
 
 ### hash
 
@@ -1333,9 +1380,22 @@ Notice that there are other ways of achieving this effect:
 |`!=`|Not Equals 
 
 
+### abs
 
+**Syntax**
 
-### bin
+	abs(x)
+
+**Arguments**
+
+* x - an integer, real or timespan
+
+**Returns**
+
+    iff(x>0, x, -x)
+
+<a name="bin"></a><a name="floor"></a>
+### bin, floor
 
 Rounds values down to an integer multiple of a given bin size. Used a lot in the [`summarize by`](#summarize-operator) query. If you have a scattered set of values, they will be grouped into a smaller set of specific values.
 
@@ -1344,6 +1404,7 @@ Alias `floor`.
 **Syntax**
 
      bin(value, roundTo)
+     floor(value, roundTo)
 
 **Arguments**
 
@@ -1372,6 +1433,7 @@ with a bucket size of 1 second:
 
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
+
 ### exp
 
     exp(v)   // e raised to the power v
@@ -1529,6 +1591,39 @@ All rows with a timestamp in the past hour:
     T | where timestamp > ago(1h)
 ```
 
+### datepart
+
+    datepart("Day", datetime(2015-12-14)) == 14
+
+Extracts a specified part of a date as an integer.
+
+**Syntax**
+
+    datepart(part, datetime)
+
+**Arguments**
+
+* `part:String` - {"Year", "Month", "Day", "Hour", "Minute", "Second", "Millisecond", "Microsecond", "Nanosecond"}
+* `datetime`
+
+**Returns**
+
+Long representing the specified part.
+
+
+### dayofmonth
+
+    dayofmonth(datetime("2016-05-15")) == 15 
+
+The ordinal number of the day in the month.
+
+**Syntax**
+
+    dayofmonth(a_date)
+
+**Arguments**
+
+* `a_date`: A `datetime`.
 
 
 ### dayofweek
@@ -1555,6 +1650,32 @@ The `timespan` since midnight at the beginning of the preceding Sunday, rounded 
 dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
 dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
+
+### dayofyear
+
+    dayofyear(datetime("2016-05-31")) == 152 
+    dayofyear(datetime("2016-01-01")) == 1 
+
+The ordinal number of the day in the year.
+
+**Syntax**
+
+    dayofyear(a_date)
+
+**Arguments**
+
+* `a_date`: A `datetime`.
+
+
+### endofday, endofweek, endofmonth, endofyear
+
+    dt = datetime("2016-05-23 12:34")
+
+    endofday(dt) == 2016-05-23T23:59:59.999
+    endofweek(dt) == 2016-05-28T23:59:59.999 // Saturday
+    endofmonth(dt) == 2016-05-31T23:59:59.999 
+    endofyear(dt) == 2016-12-31T23:59:59.999 
+
 
 ### getmonth
 
@@ -1605,17 +1726,16 @@ Determines the interval since the event identified by the predicate:
 T | where ... | extend Elapsed=now() - timestamp
 ```
 
-### startofmonth
+<a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
+### startofday, startofweek, startofmonth, startofyear
 
-    startofmonth(date)
+    date=datetime("2016-05-23 12:34:56")
 
-The start of the month containing the date.
+    startofday(date) == datetime("2016-05-23")
+    startofweek(date) == datetime("2016-05-22") // Sunday
+    startofmonth(date) == datetime("2016-05-01")
+    startofyear(date) == datetime("2016-01-01")
 
-### startofyear
-
-    startofyear(date)
-
-The start of the year containing the date.
 
 
 ### todatetime
@@ -1624,11 +1744,41 @@ Alias `datetime()`.
 
      todatetime("2016-03-28")
      todatetime("03/28/2016")
-     todatetime("2016-03-28 14:34")
+     todatetime("2016-03-28 14:34:00")
      todatetime("03/28/2016 2:34pm")
      todatetime("2016-03-28T14:34.5Z")
-     todatetime(a[0])  // cast a dynamic type
-     todatetime(b.c)   // cast a dynamic type
+     todatetime(a[0]) 
+     todatetime(b.c) 
+
+Check whether a string is a valid date:
+
+     iff(notnull(todatetime(customDimensions.myDate)),
+         ..., ...)
+
+### toscalar
+
+Evaluates a query or an expression and returns the result as a single value. This function is useful for staged calculations; for example, calculating a total count of events and then using that as a baseline.
+
+**Syntax**
+
+    toscalar(query)
+    toscalar(scalar)
+
+**Returns**
+
+The evaluated argument. If the argument is a table, returns the first column of the first row. (Good practice is to arrange that the argument has only one column and row.)
+
+**Example**
+
+```AIQL
+
+    // Get the count of requests 5 days ago:
+    let baseline = toscalar(requests  
+        | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
+    // List the counts relative to that baseline:
+    requests | summarize daycount = count() by floor(timestamp, 1d)  
+    | extend relative = daycount - baseline
+```
 
 ### totimespan
 
@@ -1637,6 +1787,14 @@ Alias `timespan()`.
     totimespan("21d")
     totimespan("21h")
     totimespan(request.duration)
+
+### weekofyear
+
+    weekofyear(datetime("2016-05-14")) == 21
+    weekofyear(datetime("2016-01-03")) == 1
+    weekofyear(datetime("2016-12-31")) == 53
+
+The integer result represents the week number by the ISO 8601 standard. The first day of a week is Sunday, and the first week of the year is the week that contains that year's first Thursday. (The last days of a year can therefore contain some of the days of week 1 of the next year, or the first days can contain some of week 52 or 53 of the previous year.)
 
 
 ## String
