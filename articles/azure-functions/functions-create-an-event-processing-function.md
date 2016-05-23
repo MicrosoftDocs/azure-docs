@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create an event processing function | Microsoft Azure"
-   description="Use Azure Functions to build your first function in less than two minutes."
+   description="Use Azure Functions create a C# function that runs based on an event timer."
    services="azure-functions"
    documentationCenter="na"
    authors="ggailey777"
@@ -15,16 +15,88 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="05/17/2016"
    ms.author="glenga"/>
    
 # Create an event processing Azure Function
 
-[AZURE.INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
+Azure Functions is an event-driven, compute-on-demand experience that enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
 
-In this short video, you will learn how to create an Azure Function in C# that runs based on an event timer to clean up rows in a database table.
+This topic shows you how to create a new function in C# that runs based on an event timer to clean-up rows in a database table. The new function is created based on a pre-defined template in the Azure Functions portal. To support this scenario, you must also set a database connection string as an App Service setting in the function app. 
+
+You can also watch a short video to see how these steps are performed in the portal.
+
+## Watch the video
+
+The following video show how to perform the basic steps in this tutorial 
 
 [AZURE.VIDEO create-an-event-processing-azure-function]
-&nbsp;
+
+## Prerequisites 
+
+Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
+
+This topic demonstrates a Transact-SQL command that executes a bulk cleanup operation in table named *TodoItems* in a SQL Database. This same TodoItems table is created when you complete the [Azure App Service Mobile Apps quickstart tutorial](../app-service-mobile/). If you choose to use a different table, you will need to modify the command.
+
+You can get the connection string used by a Mobile App backend in the portal under **All settings** > **Application settings** > **Connection strings** > **Show connection string values** > **MS_TableConnectionString**. You can also get the connection string direct from a SQL Database in the portal under **All settings** > **Properties** > **Show database connection strings** > **ADO.NET(SQL authentication)**.
+
+This scenario uses a bulk operation against the database. To have your function process individual CRUD operations in a Mobile Apps table, you should instead use Mobile Table binding.
+
+## Set a SQL Database connection string in the function app
+
+A function app hosts the execution of your functions in Azure. It is a best practice to store connection strings and other secrets in your function app settings. This prevents accidental disclosure when your function code ends-up in a repo somewhere. 
+
+1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
+
+2. If you have an existing function app to use, select it from **Your function apps** then click **Open**. To create a new function app, type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. 
+
+3. In your function app, click **Function app settings** > **Go to App Service settings**. 
+
+	![Create new GitHub webhook function](./media/functions-create-an-event-processing-function/functions-app-service-settings.png)
+
+4. In your function app, click **All settings** > **Application settings**, then under **Connection strings** type `sqldb_connection` for **Name**, paste the connection string into **Value**, click **Save**, then close the function app blade to return to the Functions portal.
+
+    ![Create new GitHub webhook function](./media/functions-create-an-event-processing-function/functions-app-service-settings-connection-strings.png)
+
+Now, you can add the C# function code that connects to your SQL Database.
+
+## Create a timer-triggered function from the template
+
+1. In your function app, click **+ New Function** > **TimerTrigger - C#** > **Create**. This creates a function with a default name that is run on the default schedule of once every minute. 
+
+	![Create new GitHub webhook function](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
+
+2. In the **Code** pane in the **Develop** tab, add the following assembly references at the top of the existing function code:
+
+		#r "System.Configuration"
+		#r "System.Data"
+
+3. Add the following `using` statements to the function:
+
+		using System.Configuration;
+		using System.Data.SqlClient;
+		using System.Threading.Tasks; 
+
+4. Replace the existing **Run** function with the following code:
+
+		public static async Task Run(TimerInfo myTimer, TraceWriter log)
+		{
+		    var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
+		    using (SqlConnection conn = new SqlConnection(str))
+		    {
+		        conn.Open();
+		        var text = "DELETE from TodoItems WHERE Complete='True'";
+		        using (SqlCommand cmd = new SqlCommand(text, conn))
+		        {
+		            var rows = await cmd.ExecuteNonQueryAsync();
+		            log.Verbose($"{rows} rows deleted");
+		        }
+		    }
+		}
+
+
+
+
+Because...
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
