@@ -80,7 +80,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual device, make sure that:
 
--   You have access to a host system running Hyper-V on Windows Server 2008 R2 or newer or VMware (ESXi 5.5 or newer) that can be used to a provision a device.
+-   You have access to a host system running Hyper-V on Windows Server 2008 R2 or later or VMware (ESXi 5.5 or later) that can be used to a provision a device.
 
 -   The host system is able to dedicate the following resources to provision your virtual device:
 

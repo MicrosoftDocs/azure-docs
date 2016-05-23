@@ -45,7 +45,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual device, make sure that:
 
--   You have access to a host system running Hyper-V on Windows Server 2008 R2 or newer that can be used to a provision a device.
+-   You have access to a host system running Hyper-V on Windows Server 2008 R2 or later that can be used to a provision a device.
 
 -   The host system is able to dedicate the following resources to provision your virtual device:
 
@@ -118,7 +118,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
-1.  On the **Assign memory** page, specify a **Startup memory** of at least 8192 MB (and don't enable dynamic memory), then click **Next**.
+1.  On the **Assign memory** page, specify a **Startup memory** of at least 8192 MB (and don't enable dynamic memory) and then click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image6.png)
 
@@ -126,7 +126,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image7.png)
 
-1.  On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk** and then specify the location of the virtual device image — a .vdhx file if you're using Windows Server 2012 or newer, or a .vhd file if you're using Windows Server 2008 R2.  Click **Next**.
+1.  On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk** and then specify the location of the virtual device image — a .vdhx file if you're using Windows Server 2012 or later, or a .vhd file if you're using Windows Server 2008 R2.  Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
