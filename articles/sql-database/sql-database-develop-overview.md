@@ -22,14 +22,17 @@ This article walks through the basic consderations that a developer should consi
 
 ## Language and platform
 There are code samples available for a variety of programming languages and platforms. You can find links to the code samples at: 
+
 * More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 ## Resource limitations
 Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
+
 * More Information: [Azure SQL Database resource limits](sql-database-resource-limits.md)
 
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
+
 * More Information: [Securing your SQL Database](sql-database-security.md)
 
 ## Authentication
@@ -40,6 +43,7 @@ Azure SQL Database provides resources for limiting access, protecting data, and 
 
 ## Resiliency
 When a transient error occurs while connecting to SQL Database, your code should retry the call.  We recommend that retry logic use backoff logic, so that it does not unecessarily overwhelm the SQL Database with multiple clients retrying simultaneously.
+
 * Code samples:  For code samples that illustrate retry logic, see samples for the language of your choice at: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 * More information: [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
 
@@ -54,5 +58,6 @@ When a transient error occurs while connecting to SQL Database, your code should
 
 ## Data Sharding with Elastic Scale
 Elastic Scale simplifies the process of scaling out (and in). 
+
 * [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 * [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)

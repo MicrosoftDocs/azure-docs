@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/19/2016"
+	ms.date="05/23/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -275,16 +275,38 @@ New Azure Redis Cache instances are configured with the following default Redis 
 
 |Setting|Default value|Description|
 |---|---|---|
-|databases|16|The default database is DB 0, you can select a different one on a per-connection basis using connection.GetDataBase(dbid) where dbid is a number between 0 and 15.|
-|maxclients|Depends on the pricing tier<sup>1</sup>|This is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis will close all the new connections sending an error 'max number of clients reached'.|
+|databases|16|The default number of databases is 16 but you can configure a different number based on the pricing tier.<sup>1</sup> The default database is DB 0, you can select a different one on a per-connection basis using `connection.GetDatabase(dbid)` where dbid is a number between `0` and `databases - 1`.|
+|maxclients|Depends on the pricing tier<sup>2</sup>|This is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis will close all the new connections sending an error 'max number of clients reached'.|
 |maxmemory-policy|volatile-lru|Maxmemory policy is the setting for how Redis will select what to remove when maxmemory (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is volatile-lru, which removes the keys with an expire set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|LRU and minimal TTL algorithms are not precise algorithms but approximated algorithms (in order to save memory), so you can select as well the sample size to check. For instance for default Redis will check three keys and pick the one that was used less recently.|
 |lua-time-limit|5,000|Max execution time of a Lua script in milliseconds. If the maximum execution time is reached Redis will log that a script is still in execution after the maximum allowed time and will start to reply to queries with an error.|
 |lua-event-limit|500|This is the max size of script event queue.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|The client output buffer limits can be used to force disconnection of clients that are not reading data from the server fast enough for some reason (a common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them). For more information, see [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
+<a name="databases"></a>
+<sup>1</sup>The limit for `databases` is different for each Azure Redis Cache pricing tier and can be set at cache creation. If no `databases` setting is specified during cache creation, the default is 16.
+
+-	Basic and Standard caches
+	-	C0 (250 MB) cache - up to 16 databases
+	-	C1 (1 GB) cache - up to 16 databases
+	-	C2 (2.5 GB) cache - up to 16 databases
+	-	C3 (6 GB) cache - up to 16 databases
+	-	C4 (13 GB) cache - up to 32 databases
+	-	C5 (26 GB) cache - up to 48 databases
+	-	C6 (53 GB) cache - up to 64 databases
+-	Premium caches
+	-	P1 (6 GB - 60 GB) - up to 16 databases
+	-	P2 (13 GB - 130 GB) - up to 32 databases
+	-	P3 (26 GB - 260 GB) - up to 48 databases
+	-	P4 (53 GB - 530 GB) - up to 64 databases
+	-   All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+
+
+>[AZURE.NOTE] The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+
+
 <a name="maxclients"></a>
-<sup>1</sup>`maxclients` is different for each Azure Redis Cache pricing tier.
+<sup>2</sup>`maxclients` is different for each Azure Redis Cache pricing tier.
 
 -	Basic and Standard caches
 	-	C0 (250 MB) cache - up to 256 connections
