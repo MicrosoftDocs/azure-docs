@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2016" 
+	ms.date="05/18/2016" 
 	ms.author="spelluru"/>
 
 # Move data between on-premises sources and cloud with Data Management Gateway
@@ -276,6 +276,8 @@ In this step, you will create two linked services: **AzureStorageLinkedService**
             		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\\<user>",
             		"password": "<Specify password for the user account>"
         		}
+                
+            > [AZURE.NOTE] If you are using Windows authentication (IntegratedSecurity=true), specifying username and password is optional. If you do not specify these properties, Data Management Gateway uses credentials of the user logged into the gateway machine to access the database. If you want the gateway to use different credentials to access the database, specify username and password explicitly. 
 
 	4. If you are using SQL Authentication:
 		1. Specify database **server name**, **database name**, **User ID**, and **Password** in the **connectionString**.       
