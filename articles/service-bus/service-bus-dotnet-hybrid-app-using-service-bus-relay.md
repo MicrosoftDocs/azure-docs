@@ -186,95 +186,98 @@ This project is a Visual Studio console application, and uses the [Azure Service
 10. In the **Name** box, type the name **ProductsContract.cs**. Then
     click **Add**.
 
-11. In **ProductsContract.cs**, replace the namespace definition with
-    the following code, which defines the contract for the service.
+11. In **ProductsContract.cs**, replace the namespace definition with the following code, which defines the contract for the service.
 
-        namespace ProductsServer
-        {
-            using System.Collections.Generic;
-            using System.Runtime.Serialization;
-            using System.ServiceModel;
-
-            // Define the data contract for the service
-            [DataContract]
-            // Declare the serializable properties.
-            public class ProductData
-            {
-                [DataMember]
-                public string Id { get; set; }
-                [DataMember]
-                public string Name { get; set; }
-                [DataMember]
-                public string Quantity { get; set; }
-            }
-
-            // Define the service contract.
-            [ServiceContract]
-            interface IProducts
-            {
-                [OperationContract]
-                IList<ProductData> GetProducts();
-
-            }
-
-            interface IProductsChannel : IProducts, IClientChannel
-            {
-            }
-        }
+	```
+	namespace ProductsServer
+	{
+	    using System.Collections.Generic;
+	    using System.Runtime.Serialization;
+	    using System.ServiceModel;
+	
+	    // Define the data contract for the service
+	    [DataContract]
+	    // Declare the serializable properties.
+	    public class ProductData
+	    {
+	        [DataMember]
+	        public string Id { get; set; }
+	        [DataMember]
+	        public string Name { get; set; }
+	        [DataMember]
+	        public string Quantity { get; set; }
+	    }
+	
+	    // Define the service contract.
+	    [ServiceContract]
+	    interface IProducts
+	    {
+	        [OperationContract]
+	        IList<ProductData> GetProducts();
+	
+	    }
+	
+	    interface IProductsChannel : IProducts, IClientChannel
+	    {
+	    }
+	}
+	```
 
 12. In Program.cs, replace the namespace definition with the following
     code, which adds the profile service and the host for it.
 
-        namespace ProductsServer
-        {
-            using System;
-            using System.Linq;
-            using System.Collections.Generic;
-            using System.ServiceModel;
-
-            // Implement the IProducts interface.
-            class ProductsService : IProducts
-            {
-
-                // Populate array of products for display on website.
-                ProductData[] products =
-                    new []
-                        {
-                            new ProductData{ Id = "1", Name = "Rock",
-                                             Quantity = "1"},
-                            new ProductData{ Id = "2", Name = "Paper",
-                                             Quantity = "3"},
-                            new ProductData{ Id = "3", Name = "Scissors",
-                                             Quantity = "5"},
-                            new ProductData{ Id = "4", Name = "Well",
-                                             Quantity = "2500"},
-                        };
-
-                // Display a message in the service console application
-                // when the list of products is retrieved.
-                public IList<ProductData> GetProducts()
-                {
-                    Console.WriteLine("GetProducts called.");
-                    return products;
-                }
-
-            }
-
-            class Program
-            {
-                // Define the Main() function in the service application.
-                static void Main(string[] args)
-                {
-                    var sh = new ServiceHost(typeof(ProductsService));
-                    sh.Open();
-
-                    Console.WriteLine("Press ENTER to close");
-                    Console.ReadLine();
-
-                    sh.Close();
-                }
-            }
-        }
+	```
+	namespace ProductsServer
+	{
+	    using System;
+	    using System.Linq;
+	    using System.Collections.Generic;
+	    using System.ServiceModel;
+	
+	    // Implement the IProducts interface.
+	    class ProductsService : IProducts
+	    {
+	
+	        // Populate array of products for display on website
+	        ProductData[] products =
+	            new []
+	                {
+	                    new ProductData{ Id = "1", Name = "Rock",
+	                                     Quantity = "1"},
+	                    new ProductData{ Id = "2", Name = "Paper",
+	                                     Quantity = "3"},
+	                    new ProductData{ Id = "3", Name = "Scissors",
+	                                     Quantity = "5"},
+	                    new ProductData{ Id = "4", Name = "Well",
+	                                     Quantity = "2500"},
+	                };
+	
+	        // Display a message in the service console application
+	        // when the list of products is retrieved.
+	        public IList<ProductData> GetProducts()
+	        {
+	            Console.WriteLine("GetProducts called.");
+	            return products;
+	        }
+	
+	    }
+	
+	    class Program
+	    {
+	        // Define the Main() function in the service application.
+	        static void Main(string[] args)
+	        {
+	            var sh = new ServiceHost(typeof(ProductsService));
+	            sh.Open();
+	
+	            Console.WriteLine("Press ENTER to close");
+	            Console.ReadLine();
+	
+	            sh.Close();
+	        }
+	    }
+	}
+	```
 
 13. In Solution Explorer, double-click the **App.config** file to open it in the Visual Studio editor. At the bottom of the **&lt;system.ServiceModel&gt;** element (but still within &lt;system.ServiceModel&gt;), add the following XML code. Be sure to replace *yourServiceNamespace* with the name of your namespace, and *yourKey* with the SAS key you retrieved earlier from the portal:
 
@@ -402,37 +405,39 @@ In this section you will build a simple ASP.NET application that displays data r
 7.  In Solution Explorer, expand the Views\Home folder, then double-click **Index.cshtml** to open it in the Visual Studio editor.
     Replace the entire contents of the file with the following code.
 
-		@model IEnumerable<ProductsWeb.Models.Product>
-
-		@{
-    		ViewBag.Title = "Index";
-		}
-
-		<h2>Prod Inventory</h2>
-
-		<table>
-    		<tr>
-        		<th>
-            		@Html.DisplayNameFor(model => model.Name)
-        		</th>
-                <th></th>
-        		<th>
-            		@Html.DisplayNameFor(model => model.Quantity)
-        		</th>
-    		</tr>
-
-		@foreach (var item in Model) {
-    		<tr>
-        		<td>
-            		@Html.DisplayFor(modelItem => item.Name)
-        		</td>
-        		<td>
-            		@Html.DisplayFor(modelItem => item.Quantity)
-        		</td>
-    		</tr>
-		}
-
-		</table>
+	```
+	@model IEnumerable<ProductsWeb.Models.Product>
+	
+	@{
+	 		ViewBag.Title = "Index";
+	}
+	
+	<h2>Prod Inventory</h2>
+	
+	<table>
+	  		<tr>
+	      		<th>
+	          		@Html.DisplayNameFor(model => model.Name)
+	      		</th>
+	              <th></th>
+	      		<th>
+	          		@Html.DisplayNameFor(model => model.Quantity)
+	      		</th>
+	  		</tr>
+	
+	@foreach (var item in Model) {
+	  		<tr>
+	      		<td>
+	          		@Html.DisplayFor(modelItem => item.Name)
+	      		</td>
+	      		<td>
+	          		@Html.DisplayFor(modelItem => item.Quantity)
+	      		</td>
+	  		</tr>
+	}
+	
+	</table>
+	```
 
 9.  To verify the accuracy of your work so far, you can press **Ctrl+Shift+B** to build the project.
 
@@ -467,43 +472,46 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 6.  Now open the **HomeController.cs** file in the Visual Studio  editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
 
-            namespace ProductsWeb.Controllers
-            {
-                using System.Linq;
-                using System.ServiceModel;
-                using System.Web.Mvc;
-                using Microsoft.ServiceBus;
-                using Models;
-                using ProductsServer;
+	```
+	namespace ProductsWeb.Controllers
+	{
+	    using System.Linq;
+	    using System.ServiceModel;
+	    using System.Web.Mvc;
+	    using Microsoft.ServiceBus;
+	    using Models;
+	    using ProductsServer;
+	
+	    public class HomeController : Controller
+	    {
+	        // Declare the channel factory.
+	        static ChannelFactory<IProductsChannel> channelFactory;
+	
+	        static HomeController()
+	        {
+	            // Create shared access signature token credentials for authentication.
+	            channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(),
+	                "sb://yourServiceNamespace.servicebus.windows.net/products");
+	            channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior {
+	                TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+	                    "RootManageSharedAccessKey", "yourKey") });
+	        }
+	
+	        public ActionResult Index()
+	        {
+	            using (IProductsChannel channel = channelFactory.CreateChannel())
+	            {
+	                // Return a view of the products inventory.
+	                return this.View(from prod in channel.GetProducts()
+	                                 select
+	                                     new Product { Id = prod.Id, Name = prod.Name,
+	                                         Quantity = prod.Quantity });
+	            }
+	        }
+	    }
+	}
+	```
 
-                public class HomeController : Controller
-                {
-                    // Declare the channel factory.
-                    static ChannelFactory<IProductsChannel> channelFactory;
-
-                    static HomeController()
-                    {
-                        // Create shared secret token credentials for authentication.
-                        channelFactory = new ChannelFactory<IProductsChannel>(new NetTcpRelayBinding(),
-                            "sb://yourServiceNamespace.servicebus.windows.net/products");
-                        channelFactory.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior {
-                            TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-                                "RootManageSharedAccessKey", "yourKey") });
-                    }
-
-                    public ActionResult Index()
-                    {
-                        using (IProductsChannel channel = channelFactory.CreateChannel())
-                        {
-                            // Return a view of the products inventory.
-                            return this.View(from prod in channel.GetProducts()
-                                             select
-                                                 new Product { Id = prod.Id, Name = prod.Name,
-                                                     Quantity = prod.Quantity });
-                        }
-                    }
-                }
-            }
 7.  In Solution Explorer, right-click the **ProductsPortal** solution, click **Add**, then click **Existing Project**.
 
 8.  Navigate to the **ProductsServer** project, then double-click the **ProductsServer.csproj** solution file to add it.
@@ -539,7 +547,7 @@ Copy the URL of the deployed web app, as you will need the URL in the next step.
 ![][9] 
    
 
-> [AZURE.NOTE] You may see an error in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
+> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
 
 ### Set ProductsPortal as web app
 
