@@ -19,7 +19,7 @@
 
 ## Overview
 
-The following release notes identify the critical open issues and the resolved issues for the Microsoft Azure StorSimple Virtual Array Update 0.1 release. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) This release corresponds to the software version **10.0.10279.0**.
+The following release notes identify the critical open issues and the resolved issues for the Microsoft Azure StorSimple Virtual Array Update 0.1 release. (Microsoft Azure StorSimple Virtual Array is also known as the StorSimple on-premises virtual device or the StorSimple virtual device.) This release corresponds to the software version **10.0.10279.0**. This is a disruptive portal and will restart your device. If IO are in progress, the device will incur downtime.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
@@ -33,7 +33,7 @@ Update 0.1 contains the following bug fixes and improvements.
 
 - **Automated space reclamation optimization**: When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
 
-- **New VHDs and VMDKs**: New VHDs and VMDKs are now available via the Azure classic portal. You can download these images to provision new Update 0.1 devices.
+- **New VHD, VHDX, and VMDK**: New VHD, VHDX, and VMDK are now available via the Azure classic portal. You can download these images to provision new Update 0.1 devices.
 
 - **Improving the accuracy of jobs status in the portal**: In the earlier version of software, job status reporting in the portal was not granular. This issue is resolved in this release.
 
