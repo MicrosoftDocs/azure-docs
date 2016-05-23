@@ -243,7 +243,7 @@ When you have a complete copy of the Gateway SDK repository on your Edison, you 
 
 In order to bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the Gateway SDK repository.
 
-The follwing sections describe how to edit this configuration file for the BLE samlple and assume that the gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Edison
+The following sections describe how to edit this configuration file for the BLE sample and assume that the gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Edison
 device. If the repository is elsewhere, you should adjust the paths accordingly:
 
 
@@ -264,7 +264,7 @@ Assuming the gateway repository is located in the folder **/home/root/azure-iot-
 
 #### BLE module configuration
 
-The sample configuration for the BLE device assumes a Texas Instruments SensorTag device. Any standard BLE device that can operate as a GATT peripheral should work but you will need to update the GATT characterstic IDs and data (for write instructions). Make sure to add the MAC address of your SensorTag device: 
+The sample configuration for the BLE device assumes a Texas Instruments SensorTag device. Any standard BLE device that can operate as a GATT peripheral should work but you will need to update the GATT characteristic IDs and data (for write instructions). Make sure to add the MAC address of your SensorTag device: 
 
 ```json
 {
@@ -373,13 +373,7 @@ When you run the sample, you can use the [Device Explorer or iothub-explorer][ln
 
 ## Sending cloud-to-device messages
 
-The BLE module also supports sending of instructions from the Azure IoT Hub to
-the device. You should be able to use the
-[Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer)
-to craft and send JSON messages that are handled and passed on to the BLE device
-by the BLE module. For example, if you were using a Texas Instruments SensorTag
-device then you'd send the following sequence of JSON messages to the device
-via IoT Hub to cause the red LED on the SensorTag to light up:
+The BLE module also supports sending of instructions from the Azure IoT Hub to the device. You should be able to use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer] https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to craft and send JSON messages that are handled and passed on to the BLE device by the BLE module. For example, if you were using a Texas Instruments SensorTag device then you'd send the following sequence of JSON messages to the device via IoT Hub to cause the red LED on the SensorTag to light up:
 
 - Reset all LEDs and the buzzer (turn them off)
 
