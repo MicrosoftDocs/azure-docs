@@ -51,6 +51,7 @@ For now, the services that support moving to both a new resource group and subsc
 - CDN
 - Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 - Data Factory
+- DNS
 - DocumentDB
 - HDInsight clusters
 - Key Vault
