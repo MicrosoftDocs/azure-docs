@@ -1,6 +1,6 @@
 <properties
    pageTitle="Deploy an existing executable to Azure Service Fabric | Microsoft Azure"
-   description="Walkthrough on how to package an existing application so it can be deployed on an Azure Service Fabric cluster"
+   description="Walkthrough on how to package an existing application as a guest executable, so it can be deployed on an Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -12,14 +12,14 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="bscholl"/>
+   ms.workload="na"
+   ms.date="05/23/2016"
+   ms.author="bscholl;mikhegn"/>
 
 # Deploy a guest executable to Service Fabric
 
-You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric terminologie refers to those types of applications as guest executables.
-Guest executables are treated by Service Fabric like stateless services. As a result they will be placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster.
+You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric terminology refers to those types of applications as guest executables.
+Guest executables are treated by Service Fabric like stateless services. As a result they will be placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command line utility
 
 ## Benefits of running a guest executable in Service Fabric
 
@@ -32,25 +32,58 @@ There are several advantages that come with running a guest executable in a Serv
 
 In this article, we cover the basic steps to package a guest executable and deploy it to Service Fabric.  
 
+## Using Visual Studio to easily package an existing application
+
+Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
+You need to go through the following, to complete the publishing:
+
+1. Choose File -> New Project and create a new Service Fabric Application
+2. Choose Guest Executable as the Service Template
+3. Click Browse to select the folder with your executable and fill in the rest of the parameters to create the new service
+  - `Code Package Behavior` can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable will not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.
+  - `Program` choose the executable that should be executed in order to start the service.
+  - `Arguments` specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
+  - `WorkingFolder` choose the working directory for the process that is going to be started. You can specify two values:
+  	- `CodeBase` specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the structure shown below).
+	  - `CodePackage` specifies that the working directory is going to be set to the root of the application package	(`MyServicePkg`).
+4. Give your service a name and click OK
+5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file (e.g.):
+```xml
+<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
+```
+6. Publish your guest executable to a Service Fabric cluster
+
+### Check your running application
+
+In Service Fabric Explorer, identify the node where the service is running. In this example, it runs on Node1:
+
+![Node where service is running](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
+
+If you navigate to the node and browse to the application, you will see the essential node information, including its location on disk.
+
+![Location on disk](./media/service-fabric-deploy-existing-app/locationondisk2.png)
+
+If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder as shown below.
+
+![Location of log](./media/service-fabric-deploy-existing-app/loglocation.png)
+
+The following sections describes the details of guest executables and the application and service package used by Service Fabric.
 
 ## Quick overview of application and service manifest files
 
-Before you get into the details of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two XML files: the application and service manifests. The schema definition for the ApplicationManifest.xml and ServiceManifest.xml files is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
-
+As part of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two XML files: the application and service manifests. The schema definition for the ApplicationManifest.xml and ServiceManifest.xml files is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 * **Application manifest**
 
-  The application manifest is used to describe the application. It lists the services that compose it plus other parameters that are used to define how the service(s) should be deployed (such as the number of instances).
+  The application manifest is used to describe the application. It lists the services that compose it as well as other parameters that are used to define how the service(s) should be deployed (such as the number of instances).
 
-  In the Service Fabric world, an application is the "upgradable unit." An application can be upgraded as a single unit where potential failures (and potential rollbacks) are managed by the platform. The platform guarantees that the upgrade process is either completely successful--or, if it fails, the platform does not leave the application in an unknown/unstable state.
-
+  In the Service Fabric world, an application is the "upgradable unit." An application can be upgraded as a single unit where potential failures (and potential rollbacks) are managed by the platform. The platform guarantees that the upgrade process is either completely successful, or, if it fails, the platform does not leave the application in an unknown/unstable state.
 
 * **Service manifest**
 
   The service manifest describes the components of a service. It includes data, such as the name and type of service (which is information that Service Fabric uses to manage the service), and its code, configuration, and data components. The service manifest also includes some additional parameters that can be used to configure the service once it is deployed.
 
-  We are not going into the details of all the different parameters that are available in the service manifest. We will go through the subset that is required to make an guest executable run on Service Fabric.
-
+  We are not going into the details of all the different parameters that are available in the service manifest. We will go through the subset that is required to make a guest executable run on Service Fabric.
 
 ## Application package file structure
 In order to deploy an application to Service Fabric, the application needs to follow a predefined directory structure. Below is an example of that structure.
@@ -60,9 +93,9 @@ In order to deploy an application to Service Fabric, the application needs to fo
 	|-- code
 		|-- existingapp.exe
 	|-- config
-		|--Settings.xml
-    |--data    
-    |-- ServiceManifest.xml
+		|-- Settings.xml
+  |-- data    
+  |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
 ```
 
@@ -270,21 +303,6 @@ The `InstanceCount` parameter of the `New-ServiceFabricService` cmdlet is used t
 
 This is a useful configuration for front-end applications (for example, a REST endpoint) because client applications just need to
 "connect" to any of the nodes in the cluster in order to use the endpoint. This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service that is running on all nodes in the cluster.
-
-### Check your running application
-
-In Service Fabric Explorer, identify the node where the service is running. In this example, it runs on Node1:
-
-![Node where service is running](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
-
-If you navigate to the node and browse to the application, you will see the essential node information, including its location on disk.
-
-![Location on disk](./media/service-fabric-deploy-existing-app/locationondisk2.png)
-
-If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder as shown below.
-
-![Location of log](./media/service-fabric-deploy-existing-app/loglocation.png)
-
 
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. As a next step, you can check out additional content for this topic.
