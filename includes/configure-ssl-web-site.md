@@ -203,7 +203,7 @@ If you are familiar with IIS Manager, you can use it to generate a certificate t
 
 	> [AZURE.NOTE] During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.
 
-	> [AZURE.NOTE] During the export process, be sure to select the option **include all certs in the certification path** and **Export all extended properties**. This will include any intermediate certificates in the exported certificate.
+	> During the export process, be sure to select the option **include all certs in the certification path** and **Export all extended properties**. This will include any intermediate certificates in the exported certificate.
 
 <a name="bkmk_subjectaltname"></a>
 ### Get a SubjectAltName certificate using OpenSSL
@@ -455,8 +455,10 @@ Before performing the steps in this section, you must have associated a custom d
 >
 > 2. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
 
-> [AZURE.NOTE] If you add an **IP based SSL** to a Web App that already had an **SNI binding** with a different certificate, as soon as IP SSL is enabled for the Web App, we'll remap the site's hostname to that IP address, so if any other hostname is CNAME'd to that site's hostname it will also get traffic on IP SSL address. 
-> For such cases we created one more DNS entry: sni.&lt;nameofyourWebApp&gt;.azurewebsites.net where &lt;nameofyourWebApp&gt; is the name of your Azure App Service Web App. So, you should change your DNS records pointing to the name used in your SNI binding so that it points to sni.&lt;nameofyourWebApp&gt;.azurewebsites.net instead.
+<br>
+If you add an **IP based SSL** to a Web App that already had an **SNI binding** with a different certificate, as soon as IP SSL is enabled for the Web App, we'll remap the site's hostname to that IP address, so if any other hostname is CNAME'd to that site's hostname it will also get traffic on IP SSL address. 
+
+For such cases we created one more DNS entry: sni.&lt;nameofyourWebApp&gt;.azurewebsites.net where &lt;nameofyourWebApp&gt; is the name of your Azure App Service Web App. So, you should change your DNS records pointing to the name used in your SNI binding so that it points to sni.&lt;nameofyourWebApp&gt;.azurewebsites.net instead.
 
 At this point, you should be able to visit your app using `HTTPS://` instead of `HTTP://` to verify that the certificate has been configured correctly.
 
