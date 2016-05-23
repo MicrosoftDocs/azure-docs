@@ -38,63 +38,63 @@ To begin, set up the logic app to use with the preconfigured solution.
 2. Search for __Logic App__, select it and then click **Create**.
 
 3. Fill out the __Name__ and use the same **Subscription**, **Resource group**, and **App Service Plan** that you used when you provisioned your remote monitoring solution. Click __Create__.
-  
-  ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)
+
+    ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)
 
 4. When your deployment completes, you will see the Logic App is now listed as a resource in your resource group.
 
 5. Click on the Logic App to navigate to the Logic App blade, this immediately opens the **Logic Apps Designer**.
-  
-  ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
+
+    ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 
 6. Select __Manual – When an HTTP request is received__. This specifies that an incoming HTTP request with a specific JSON formatted payload acts as a trigger.
 
 7. Paste the following into the Request Body JSON Schema:
 
-  ```
-  {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "/",
-    "properties": {
-      "DeviceId": {
-        "id": "DeviceId",
-        "type": "string"
+    ```
+    {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "id": "/",
+      "properties": {
+        "DeviceId": {
+          "id": "DeviceId",
+          "type": "string"
+        },
+        "measuredValue": {
+          "id": "measuredValue",
+          "type": "integer"
+        },
+        "measurementName": {
+          "id": "measurementName",
+          "type": "string"
+        }
       },
-      "measuredValue": {
-        "id": "measuredValue",
-        "type": "integer"
-      },
-      "measurementName": {
-        "id": "measurementName",
-        "type": "string"
-      }
-    },
-    "required": [
-      "DeviceId",
-      "measurementName",
-      "measuredValue"
-    ],
-    "type": "object"
-  }
-  ```
-  
-  Note: you can copy the URL for the HTTP post after you save the logic app, but first you must add an action.
+      "required": [
+        "DeviceId",
+        "measurementName",
+        "measuredValue"
+      ],
+      "type": "object"
+    }
+    ```
+    
+    Note: you can copy the URL for the HTTP post after you save the logic app, but first you must add an action.
 
 8. Click __(+)__ under your manual trigger. Then click **Add an action**.
-  
-  ![](media/iot-suite-logic-apps-tutorial/logicappcode.png)
+
+    ![](media/iot-suite-logic-apps-tutorial/logicappcode.png)
 
 9. Search for **SendGrid - Send email** and click on it.
-  
-  ![](media/iot-suite-logic-apps-tutorial/logicappaction.png)
+
+    ![](media/iot-suite-logic-apps-tutorial/logicappaction.png)
 
 10. Enter a name for the connection, such as **SendGridConnection**, enter the **SendGrid Api Key** you created when you set up your SendGrid account, and click **Create connection**.
-  
-  ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)
+
+    ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)
 
 11. Add email addresses you own to both the **From** and **To** fields. Add **Remote monitoring alert [DeviceId]** to the **Subject** field. In the **Email Body** field add **Device [DeviceId] has reported [measurementName] with value [measuredValue].** You can add **[DeviceId]**, **[measurementName]**, and **[measuredValue]** by clicking in the **You can insert data from previous steps** section.
-  
-  ![](media/iot-suite-logic-apps-tutorial/sendgridaction.png)
+
+    ![](media/iot-suite-logic-apps-tutorial/sendgridaction.png)
 
 12. Click __Save__ in the top menu.
 
@@ -107,24 +107,24 @@ To begin, set up the logic app to use with the preconfigured solution.
 In this section, you connect your preconfigured solution to the Logic App you created by adding the URL to trigger the Logic App to the action that fires when a device sensor value exceeds a threshold.
 
 1. Use your git client to clone the latest version of the [azure-iot-remote-monitoring github repository][lnk-rmgithub]. For example:
-  
-  ```
-  git clone https://github.com/Azure/azure-iot-remote-monitoring.git
-  ```
+
+    ```
+    git clone https://github.com/Azure/azure-iot-remote-monitoring.git
+    ```
 
 2. In Visual Studio, open the __RemoteMonitoring.sln__ from the local copy of the repository.
 
 3. Open the __ActionRepository.cs__ file in the **Infrastructure\\Repository** folder.
 
 4. Update the **actionIds** dictionary with the __Http Post to this URL__ you noted from your Logic App as shown below:
-  
-  ```
-  private Dictionary<string,string> actionIds = new Dictionary<string, string>()
-  {
-      { "Send Message", "<Http Post to this UR>" },
-      { "Raise Alarm", "<Http Post to this UR> }
-  };
-  ```
+
+    ```
+    private Dictionary<string,string> actionIds = new Dictionary<string, string>()
+    {
+        { "Send Message", "<Http Post to this UR>" },
+        { "Raise Alarm", "<Http Post to this UR> }
+    };
+    ```
 
 5. Save the changes in solution and exit Visual Studio.
 
@@ -137,12 +137,12 @@ In this section, you deploy your updated version of the remote monitoring soluti
 2.  To deploy locally, follow the [local deployment][lnk-localdeploy] instructions.
 
 3.  To deploy to the cloud and update your existing cloud deployment, follow the [cloud deployment][lnk-clouddeploy] instructions. Use the name of your original deployment as the deployment name. For example if the original deployment was called **demologicapp**, use the following command:
-  
-  ``
-  build.cmd cloud release demologicapp
-  ``
-  
-  When the build script runs, be sure to use the same Azure account, subscription, region, and Active Directory instance you used when you first provisioned the solution.
+
+    ``
+    build.cmd cloud release demologicapp
+    ``
+    
+    When the build script runs, be sure to use the same Azure account, subscription, region, and Active Directory instance you used when you first provisioned the solution.
 
 ## See your Logic App in action
 
