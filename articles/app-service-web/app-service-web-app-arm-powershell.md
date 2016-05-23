@@ -20,7 +20,7 @@
 
 With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use ARM based PowerShell commands to manage Web Apps.
 
-To learn about managing Resource Groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
+To learn about managing Resource Groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md). To Learn about the full list of parameters and options for the Web App ARM PowerShell Cmdlets, see the [full Cmdlet Reference of Web App ARM PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
 
 ## Managing App Service Plans ##
 
@@ -33,16 +33,16 @@ Following are descriptions of the different parameters:
 - 	**Location**: service plan location.
 - 	**ResourceGroupName**: resource group that includes the newly created app service plan.
 - 	**Tier**:  the desired pricing tier (Default is Free, other options are Shared, Basic, Standard, and Premium.)
-- 	**WorkerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard or Premium.)
+- 	**WorkerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard or Premium. Other options are Medium, and Large.)
 - 	**NumberofWorkers**: the number of workers in the app service plan (Default value is 1). 
 
-	New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName  ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
+    New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
 ### List Existing App Service Plans ###
 
 To list the existing app service plans, use **Get-AzureRmAppServicePlan** cmdlet.
 
-To list all app service plans under your subscription, use: Get-AzureRmAppServicePlan
+To list all app service plans under your subscription, use: **Get-AzureRmAppServicePlan**
 
 To list all app service plans under a specific resource group, use:
 
@@ -74,7 +74,7 @@ To create a new web app, use the **New-AzureRmWebApp** cmdlet.
 Following are descriptions of the different parameters:
 
 - **Name**: name for the web app.
-- **AppServicePlan**: service plan to host the web app.
+- **AppServicePlan**: name for the service plan used to host the web app.
 - **ResourceGroupName**: resource group that hosts the App service plan.
 - **Location**: the web app location.
 
@@ -87,6 +87,13 @@ To create a new web app in an App Service Environment (ASE), the same **New-Azur
     New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"  -ASEName ContosoASEName -ASEResourceGroupName ContosoASEResourceGroupName
 
 To learn more about app service environment, check [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
+
+### Delete an existing Web App ###
+
+To delete an existing web app you can use the **Remove-AzureRmWebApp** cmdlet, you need to specify the name of the web app and the resource group name.
+
+    Remove-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup
+
 
 ### List existing Web Apps ###
 
@@ -106,14 +113,20 @@ To get a specific web app, use:
 
 ### Configure an existing Web App ###
 
-To change the settings and configurations for an existing web app, use the **Set-AzureRmWebApp** cmdlet.  Settings can be changed for a full list. For more details, check the [Cmdlet reference link](https://msdn.microsoft.com/library/mt652487.aspx)
+To change the settings and configurations for an existing web app, use the **Set-AzureRmWebApp** cmdlet. For a full list of parameters, check the [Cmdlet reference link](https://msdn.microsoft.com/library/mt652487.aspx)
 
 Example (1): use this cmdlet to change connection strings
 
 	$connectionstring = @{ “ContosoConn1” = @{ Type = “MySql”; Value = “MySqlConn”}; “ContosoConn2” = @{ Type = “SQLAzure”; Value = “SQLAzureConn”} }
 	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -ConnectionStrings $connectionstring
 
-Example (2):  set the web app to run in 64-bit mode
+Example (2): add example for app settings
+
+	$appsettings = $appsettings = @{"appsetting1"="appsetting1value";"appsetting2"="appsetting2value"}
+	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -AppSettings $appsettings
+
+
+Example (3):  set the web app to run in 64-bit mode
 
 	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -Use32BitWorkerProcess $False
 
@@ -139,7 +152,7 @@ To start a web app, you must specify the name and resource group of the web app.
 
 ### Manage Web App Publishing profiles ###
 
-Each web app has a publishing profile that is needed to publish your apps, a number of operations can be executed on publishing profiles.
+Each web app has a publishing profile that can be used to publish your apps, a number of operations can be executed on publishing profiles.
 
 #### Get Publishing Profile ####
 
@@ -151,7 +164,7 @@ Note that this will echo the publishing profile to the command line as well outp
 
 #### Reset Publishing Profile ####
 
-To reset the publishing profile for a web app, use:
+To reset both the publishing password for ftp and web deploy for a web app, use:
 
     Reset-AzureRmWebAppPublishingProfile -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup
 
@@ -159,11 +172,6 @@ To reset the publishing profile for a web app, use:
 
 To learn about how to manage web app certificates, see [SSL Certificates binding using PowerShell](app-service-web-app-powerhell-ssl-binding.md)
 
-### Delete an existing Web App ###
-
-To delete an existing web app you can use the **Remove-AzureRmWebApp** cmdlet, you need to specify the name of the web app and the resource group name.
-
-    Remove-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup
 
 
 ### References ###
