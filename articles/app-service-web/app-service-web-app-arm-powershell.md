@@ -29,11 +29,11 @@ To create a new app service plan, use the **New-AzureRmAppServicePlan** cmdlet.
 
 Following are descriptions of the different parameters:
 
-- 	**Name**: name of the app service plan
-- 	**Location**: service plan location
-- 	**ResourceGroupName**: resource group that includes the newly created app service plan
-- 	**Tier**:  the desired pricing tier (Default is Free, other options are Shared, Basic, Standard, and Premium)
-- 	**WorkerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard or Premium)
+- 	**Name**: name of the app service plan.
+- 	**Location**: service plan location.
+- 	**ResourceGroupName**: resource group that includes the newly created app service plan.
+- 	**Tier**:  the desired pricing tier (Default is Free, other options are Shared, Basic, Standard, and Premium.)
+- 	**WorkerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard or Premium.)
 - 	**NumberofWorkers**: the number of workers in the app service plan (Default value is 1). 
 
 	New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName  ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
@@ -73,9 +73,9 @@ To create a new web app, use the **New-AzureRmWebApp** cmdlet.
 
 Following are descriptions of the different parameters:
 
-- **Name**: name for the web app
-- **AppServicePlan**: service plan to host the web app
-- **ResourceGroupName**: resource group that hosts the App service plan
+- **Name**: name for the web app.
+- **AppServicePlan**: service plan to host the web app.
+- **ResourceGroupName**: resource group that hosts the App service plan.
 - **Location**: the web app location.
 
     New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"
