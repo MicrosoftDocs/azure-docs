@@ -27,13 +27,13 @@ Running [Docker](https://www.docker.com/) containers requires a host VM running 
 
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver. 
 
-The Azure driver will need your subscription id. You can use the [Azure CLI](xplat-cli-install.md) or the [Azure Poral](https:/portal.azure.com) to retrieve your Azure Subscription. 
+The Azure driver will need your subscription ID. You can use the [Azure CLI](xplat-cli-install.md) or the [Azure Portal](https:/portal.azure.com) to retrieve your Azure Subscription. 
 
 **Using the Azure Portal**
-- Select Subscriptions from the left navigation page, and copy to subscription id.
+- Select Subscriptions from the left navigation page, and copy to subscription ID.
 
 **Using the Azure CLI**
-- Type ```azure account list``` and copy the subscription id.
+- Type ```azure account list``` and copy the subscription ID.
 
 
 Type `docker-machine create --driver azure` to see the options and their default values. You can also see the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/) for more info. 
@@ -65,7 +65,7 @@ docker info
 
 ## Run a container
 
-With a host configured, you can now you can run a simple web server to test whether your host was configured  correctly. Here we use a standard nginx image, specify that it should listen on port 80, and that if the host VM restarts, the container will restart as well (`--restart=always`). 
+With a host configured, you can now run a simple web server to test whether your host was configured correctly. Here we use a standard nginx image, specify that it should listen on port 80, and that if the host VM restarts, the container will restart as well (`--restart=always`). 
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
