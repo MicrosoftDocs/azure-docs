@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="05/23/2016"
 	ms.author="sethm"/>
 
 # .NET on-premises/cloud hybrid application using Azure Service Bus relay
@@ -437,21 +437,17 @@ In this section you will build a simple ASP.NET application that displays data r
 9.  To verify the accuracy of your work so far, you can press **Ctrl+Shift+B** to build the project.
 
 
-### Run your application locally
+### Run the app locally
 
 Run the application to verify that it works.
 
 1.  Ensure that **ProductsPortal** is the active project. Right-click
     the project name in Solution Explorer and select **Set As
     Startup Project**.
-2.  In **Visual Studio**, press F5.
+2.  In Visual Studio, press F5.
 3.  Your application should appear running in a browser.
 
     ![][21]
-
-## Deploy the ProductsPortal project to the Azure web app
-
-To deploy the ProductsPortal web project, follow all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). Copy the URL of the deployed web app, as you will need the URL later in the tutorial. Then, return to this tutorial and proceed to the next step. 
 
 ## Put the pieces together
 
@@ -528,15 +524,31 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 15. Click **OK** in the **Property Pages** dialog box.
 
-## Set ProductsPortal as web app
+## Run the project locally
 
-Before running the application, you must ensure that **ProductsPortal** is launched as a web app.
+To test the application locally, in Visual Studio press **F5**. The on-premises server (**ProductsServer**) should start first, then the **ProductsPortal** application should start in a browser window. This time, you will see that the product inventory lists data retrieved from the product service on-premises system.
+
+## Deploy the ProductsPortal project to an Azure web app
+
+The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). 
+
+Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
+
+![][9] 
+
+>AZURE.NOTE You may see an error in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
+
+After deployment is complete, return to this tutorial and proceed to the next step. 
+
+### Set ProductsPortal as web app
+
+Before running the application in the cloud, you must ensure that **ProductsPortal** is launched from within Visual Studio as a web app.
 
 1. In Visual Studio, right-click the **ProjectsPortal** project and then click **Properties**.
 
 3. In the left-hand column, click **Web**.
 
-5. Click the Start URL button, and in the text box enter the URL for your previously deployed web app; for example, `http://productsportal1234567890.azurewebsites.net/`.
+5. In the **Start Action** section, click the **Start URL** button, and in the text box enter the URL for your previously deployed web app; for example, `http://productsportal1234567890.azurewebsites.net/`.
 
 	![][27]
 
@@ -583,6 +595,7 @@ To learn more about Service Bus, see the following resources:
   [17]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.png
   [18]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-5.png
   [19]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-6.png
+  [9]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-9.png
 
   [21]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App1.png
   [24]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
