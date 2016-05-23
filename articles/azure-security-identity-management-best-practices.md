@@ -88,7 +88,7 @@ For example: you enforce Azure MFA for your users and configure it to use a phon
 
 One alternative for organizations that want to keep the entire authentication control on-premises is to use [Azure Multi-Factor Authentication Server](./multi-factor-authentication/multi-factor-authentication-get-started-server.md), also called MFA on-premises. By using this method you will still be able to enforce multi-factor authentication, while keeping the MFA server on-premises.
 
-For more information on Azure MFA, please read the article [Getting started with Azure Multi-Factor Authentication in the cloud](./multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+For more information on Azure MFA, please read the article [Getting started with Azure Multi-Factor Authentication in the cloud](./multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 ## Use role based access control (RBAC)
 
