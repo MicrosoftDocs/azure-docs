@@ -62,7 +62,7 @@ If you are creating a new VM using the portal, you can also create a new availab
 
 For each additional VM that you create that should belong in the set, make sure that you create it in the same **resource group** and then select the existing availability set in Step 3. 
 
-![Screenshot showing how to select an existing availability set to use for your VM.](add-vm-to-set.png)
+![Screenshot showing how to select an existing availability set to use for your VM.](./media/virtual-machines-windows-create-availability-set/add-vm-to-set.png)
 
 
 
