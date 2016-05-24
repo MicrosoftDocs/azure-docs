@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/22/2016"   
+	ms.date="05/24/2016"   
 	ms.author="juliako"/>
 
 # Azure Media Services Community  
@@ -38,8 +38,8 @@ Episode|Speaker|Date
 
 ###Twitter
 
-Use the @MSFTAzureMedia twitter handle to follow the AMS news and updates on Twitter. 
-You can use the @AzureSupport twitter handle to request support on Twitter.  
+Use the [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter handle to follow the AMS news and updates on Twitter. 
+You can use the [@AzureSupport](https://twitter.com/azuresupport) twitter handle to request support on Twitter.  
  
 ### Online forums
 
@@ -52,6 +52,10 @@ Currently, MSDN is AMS primary forum.
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## Contact the team
+
+Azure Media Services primary email is: [mediaservices@microsoft.com](mediaservices@microsoft.com).
+
+The following table lists email of feature subteams:
 
 Feature|Email
 ---|---
