@@ -159,8 +159,8 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
          $Connection
 
        )
-     }
-     ```
+    }
+    ```
 <br>
 3. Define output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It is especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.<br> ![Graphical Runbook Output Type](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br>  
 
