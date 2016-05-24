@@ -41,6 +41,7 @@ This walkthrough also contains a section that shows how to do these data science
 
 
 **Scripts**
+
 Only the principal steps are outlined In this walkthrough. You can download the full **U-SQL scripts** and **IPython Notebook** from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
 
