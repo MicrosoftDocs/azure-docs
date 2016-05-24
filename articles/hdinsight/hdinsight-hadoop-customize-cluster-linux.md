@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="05/23/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -26,6 +26,14 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 ## Understanding Script Actions
 
 A Script Action is simply a Bash script that you provide a URL to, and parameters for, and it is then ran on the HDInsight cluster nodes. The following are characteristics and features of script actions.
+
+* Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
+
+    * A blob storage account that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
+    
+    * A publicly readable URI such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
+    
+    For examples of the URI for scripts stored in blob container (publicly readable,) see the [Example script action scripts](#example-script-action-scripts) section.
 
 * Can be restricted to __run on only certain node types__, for example head nodes or worker nodes.
 
