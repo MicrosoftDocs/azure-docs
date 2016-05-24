@@ -20,7 +20,8 @@
 
 # Install Jupyter notebook on your computer and connect to Apache Spark cluster on Azure HDInsight (Preview)
 
-In this article you will learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magics, and connect the notebook to an HDInsight cluster. There are two key steps involved.
+
+
 
 * Install Jupyter notebook
 * Install the PySpark and Spark kernels with the Spark magic
@@ -53,7 +54,7 @@ In this section you install the Spark magic, the PySpark and Spark kernels, and 
 
 1. Download the latest public preview of the Spark magic from [Github](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip).
 
-2. Unzip the downloaded file to a location on the disk. In the instructions here, we refer to this path as `$SPARKMAGIC_PATH` in the instructions.
+2. Unzip the downloaded file to a location on the disk. In the instructions here, we refer to this path as `$SPARKMAGIC_PATH`.
 
 2. Run the following command
 
@@ -76,12 +77,12 @@ In this section you configure the Spark magic that you installed earlier to conn
 
 	Start the Python shell. On a command window, type the following:
 
-		Python
+		python
 
 	On the Python shell, enter the following command to find out the home directory.
 
 		import os
-		os.path.expanduser('~')
+		print os.path.expanduser('~')
 
 2. Navigate to the home directory and create a folder called **.sparkmagic** if it does not already exist.
 
