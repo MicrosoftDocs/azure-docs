@@ -29,35 +29,22 @@ Azure Redis Cache gives you access to a dedicated Redis cache, managed by Micros
 This topic shows you how to get started with Azure Redis Cache using Java.
 
 
-## Prerequisites
-
-[Jedis](https://github.com/xetorthio/jedis) - Java client for Redis
-
-This tutorial uses Jedis, but you can use any Java client listed at [http://redis.io/clients](http://redis.io/clients).
-
-
 ## Create a Redis cache on Azure
 
-In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-  ![][1]
+## Retrieve the host name and access keys
 
-Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Click **Create**.
-
-  ![][2]
-
-
-Once you create the cache, click on it in the Azure Portal to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
-
-  ![][4]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
 ## Enable the non-SSL endpoint
 
+Some Redis clients don't support SSL, and by default, the non-SSL port is disabled for Azure Redis Cache instances. At the time of this writing, the Jedis client doesn't support SSL. 
 
-Click the link under **Ports**, and click **No** for "Allow access only via SSL". This enables the non-SSL port for the cache. The Jedis client currently does not support SSL.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-  ![][3]
+
 
 
 ## Add something to the cache and retrieve it
@@ -86,9 +73,3 @@ Click the link under **Ports**, and click **No** for "Allow access only via SSL"
 - [Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache.
 - Read the official [Redis documentation](http://redis.io/documentation).
 
-
-<!--Image references-->
-[1]: ./media/cache-java-get-started/cache01.png
-[2]: ./media/cache-java-get-started/cache02.png
-[3]: ./media/cache-java-get-started/cache03.png
-[4]: ./media/cache-java-get-started/cache04.png

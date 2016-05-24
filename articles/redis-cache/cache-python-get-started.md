@@ -32,9 +32,13 @@ This topic shows you how to get started with Azure Redis Cache using Python.
 Install [redis-py](https://github.com/andymccurdy/redis-py).
 
 
-## Create an Azure Redis Cache instance
+## Create a Redis cache on Azure
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+
+## Retrieve the host name and access keys
+
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
 ## Add something to the cache and retrieve it
