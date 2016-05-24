@@ -39,35 +39,27 @@ This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you 
 
 ## Create a Redis cache on Azure
 
-In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
-
-  ![][1]
-
-Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Click **Create**.
-
-  ![][2]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 
   Once you create the cache, [browse to it](cache-configure.md#configure-redis-cache-settings) to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
 
   ![][4]
 
-  ## Add something to the cache and retrieve it
+## Add something to the cache and retrieve it
 
-```js
-  var redis = require("redis");
-
-  // Add your cache name and access key.
-var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
-
-client.set("key1", "value", function(err, reply) {
-	    console.log(reply);
-	});
-
-client.get("key1",  function(err, reply) {
-	    console.log(reply);
-	});
-```
+	  var redis = require("redis");
+	
+	  // Add your cache name and access key.
+	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
+	
+	client.set("key1", "value", function(err, reply) {
+		    console.log(reply);
+		});
+	
+	client.get("key1",  function(err, reply) {
+		    console.log(reply);
+		});
 
 Output:
 
