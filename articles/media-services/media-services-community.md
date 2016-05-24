@@ -53,12 +53,13 @@ Currently, MSDN is AMS primary forum.
 
 ## Contact the team
 
-Azure Media Services primary email is: [mediaservices@microsoft.com](mediaservices@microsoft.com).
+Azure Media Services primary email is: **mediaservices@microsoft.com**.
 
-The following table lists email of feature subteams:
+The following table lists email of feature sub teams:
 
 Feature|Email
 ---|---
-Azure Media Analytics|amsanalytics@microsfot.com
+Azure Media Analytics|amsanalytics@microsoft.com
+Azure Media Player|ampinfo@microsoft.com 
 Azure Media Explorer|amse@microsoft.com
 Workflow Designer|mepd@microsoft.com
