@@ -23,19 +23,7 @@ This topic describes how to review and update the configuration for your Azure R
 
 ## Configure Redis cache settings
 
-Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
-
-![Azure Redis Cache Browse Blade](./media/cache-configure/redis-cache-browse.png)
-
-Click **Browse > Redis Caches** to view your caches. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **Browse**.
-
-Select the desired cache to view the properties for that cache.
-
-![Azure Redis Cache Browse Cache List](./media/cache-configure/redis-caches.png)
-
-Click **Settings** or **All settings** to view and configure your cache.
-
-![Redis Cache All Settings](./media/cache-configure/redis-cache-blade.png)
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Azure Redis Cache provides the following settings on the **Settings** blade.
 

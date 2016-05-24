@@ -52,11 +52,9 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 
 Once your cache is created, you can access it from the **Browse** blade. 
 
-![Browse blade][BrowseCaches]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Click **Redis Caches** to view your caches.
-
-![Caches][Caches]
+For more information about configuring your cache, see [How to configure Azure Redis Cache](cache-configure.md).
 
 <a name="NuGet"></a>
 ## Configure the cache clients
