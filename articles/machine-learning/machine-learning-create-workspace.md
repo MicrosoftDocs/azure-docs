@@ -30,7 +30,9 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 ## To create a workspace
 
 1. Sign-in to the [Microsoft Azure classic portal].
+
 > [AZURE.NOTE] To sign-in, you need to be an Azure subscription admin. Being the owner of a Machine Learning workspace will not give you access to the [Microsoft Azure classic portal]. See [Privileges of Azure subscription admin and workspace owner](#subscriptionvsworkspace) for more details.
+
 2. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
 
     ![Machine Learning service][1]
