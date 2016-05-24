@@ -82,5 +82,4 @@ In addition to monitoring the inputs, outputs, and triggers of a run, it may be 
 [1]: ./media/app-service-logic-diagnosing-failures/triggerHistory.PNG
 [2]: ./media/app-service-logic-diagnosing-failures/runHistory.PNG
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
-[4]: ./media/app-service-logic-diagnosing-failures/actionOutputs.PNG
-  
+[4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
