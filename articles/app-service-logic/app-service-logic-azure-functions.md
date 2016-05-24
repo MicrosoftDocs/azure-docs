@@ -18,7 +18,7 @@
 
 # Using Azure Functions with Logic Apps
 
-You can run custom snippets of C# or Node.js by leveraging Azure Functions from within a logic app.  [Azure Functions](../azure-functions/functions-overview.md) offers server-less computing in Microsoft Azure. This is useful when doing the following tasks:
+You can run custom snippets of C# or Node.js by leveraging Azure Functions from within a logic app.  [Azure Functions](../azure-functions/functions-overview.md) offers server-free computing in Microsoft Azure. This is useful when performing the following tasks:
 
 * Formatting the value of an action (for example, converting from DateTime to a date string)
 * Performing calculations within a workflow
@@ -26,9 +26,9 @@ You can run custom snippets of C# or Node.js by leveraging Azure Functions from 
 
 ## Create an Azure Function for Logic Apps
 
-We recommend that you create a new Azure Function in the functions portal by using the **Generic Node Webhook** or the **Generic C# Webhook** templates. This auto-populates a template that accepts `application/json` from a logic app. Functions that use these templates are automatically discovered and listed in the Logic Apps designer under **Azure Functions in my region.**
+We recommend that you create a new Azure Function in the Functions portal by using the **Generic Node Webhook** or the **Generic C# Webhook** templates. This auto-populates a template that accepts `application/json` from a logic app. Functions that use these templates are automatically discovered and listed in the Logic Apps designer under **Azure Functions in my region.**
 
-Webhook functions accept a request and pass it into the method via a `data` variable.  You can access properties of your payload by using dot notation like `data.foo`.  For example, a simple javascript function that converts a DateTime value into a date string looks like the following:
+Webhook functions accept a request and pass it into the method via a `data` variable. You can access the properties of your payload by using dot notation like `data.foo`.  For example, a simple JavaScript function that converts a DateTime value into a date string looks like the following example:
 
 ```
 function start(req, res){
@@ -43,7 +43,7 @@ function start(req, res){
 
 In the designer, if you click the dropdown menu for actions, you can select **Azure Functions in my Region**.  This lists the containers in your subscription, and enables you to choose the function you want to call.  
 
-After selecting the function, you are prompted to specify an input payload object. This is the message the logic app sends to the function, and must be a JSON object. For example, if you wanted to pass in the **Last Modified** date from a salesforce trigger, the function payload could look like this:
+After selecting the function, you are prompted to specify an input payload object. This is the message that the logic app sends to the function, and it must be a JSON object. For example, if you want to pass in the **Last Modified** date from a salesforce trigger, the function payload might look like this:
 
 ![Last modfied date][1]
 
