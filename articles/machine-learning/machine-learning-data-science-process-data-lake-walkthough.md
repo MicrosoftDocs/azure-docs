@@ -672,7 +672,7 @@ In order to run the sample IPython Notebook or the Python script file, the follo
 		cnts = df1.count()
 		print cnts
 
-![32](./media/machine-learning-data-science-process-data-lake-walkthough/./media/machine-learning-data-science-process-data-lake-walkthough/py_valid_data.PNG)
+![32](./media/machine-learning-data-science-process-data-lake-walkthough/py_valid_data.PNG)
 
 - Check the basic statistics for all columns (only applied to numeric columns)
 		
