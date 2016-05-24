@@ -11,34 +11,35 @@
 	ms.service="log-analytics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="powershell"
+	ms.devlang=""
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/24/2016"
 	ms.author="richrund"/>
 
 # Connect Azure virtual machines to Log Analytics
 
-For virtual machines running in Azure you can easily install the Log Analytics agent by installing the Microsoft Monitoring Agent virtual machine extension.
+For virtual machines the recommended way of collecting data for use in Log Analytics is with the Log Analytics agent.
 
-The Microsoft Monitoring Agent is an [Azure virtual machine extension](../virtual-machines/virtual-machines-windows-extensions-features.md) that is available for both Windows and Linux computers.
-Using a virtual machine extension simplies the installation and configuration process. 
-The agent can also be automatically upgraded, ensuring you have the latest features and fixes.
+For virtual machines running in Azure you can easily install the Log Analytics agent by enabling the Microsoft Monitoring Agent virtual machine extension. Using a virtual machine extension simplies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be automatically upgraded, ensuring you have the latest features and fixes.
+
+The Microsoft Monitoring Agent is available as an [Azure virtual machine extension](../virtual-machines/virtual-machines-windows-extensions-features.md) for both Windows and Linux computers.
 
 For computers that are not in Azure you can install the Log Analytics agent using the following methods, based on the operating system being used:
 
 + [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md)
 + [Connect Linux computers to Log Analytics](log-analytics-linux-agents.md)
 
-The above methods can also be used for Azure virtual machines, however you may find that the virtual machine extension is much simpler.
+The above methods can also be used for Azure virtual machines, however you will find that the virtual machine extension is simpler and can also be incorporated into Azure resource manager templates.
 
-For Azure virtual machines, there are two easy ways to enable the virtual machine extension:
+For Azure virtual machines, there are three easy ways to enable the virtual machine extension:
 
 - In the Microsoft Azure management portal
 - Using PowerShell
+- In an Azure resource manager (ARM) template
 
-When using agent-based collection for log data, you must configure which logs to collect in the Log Management configuration page of the [OMS portal](https://www.microsoft.com/oms/).
+When using agent-based collection for log data, you must configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics to collect.
 
->[AZURE.NOTE] If you’ve configured Log Analytics to index log data using Azure diagnostics and you configure the agent to collect logs, then the same logs will be indexed twice. You will be charged normal data rates for both data sources. If you have the agent installed, then you should collect log data using the agent and not index the logs collected by Azure diagnostics.
+>[AZURE.NOTE] If you’ve configured Log Analytics to index log data using [Azure diagnostics](log-analytics-azure-storage.md) and you configure the agent to collect the same logs, then the logs will be collected twice. You will be charged normal data rates for both data sources. If you have the agent installed, then you should collect log data using the agent and not collect the logs using Azure diagnostics.
 
 ## Microsoft Azure Portal
 
@@ -59,7 +60,7 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
 7.	When the agent is installed and connected, you’ll see **OMS connection** status updated to show **This workspace**.  
     ![connected](./media/log-analytics-azure-storage/oms-connect-azure-05.png)
 
->[AZURE.NOTE] The [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md) must be installed to automatically install the agent for OMS. If you have an Azure Resource Manager virtual machine, it will not appear in the list and you must use PowerShell or create an ARM template to install the agent.
+>[AZURE.NOTE] The [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md) must be installed to automatically install the agent for Log Analytics.
 
 ## Use Azure PowerShell to install the Log Analytics VM extension
 
@@ -110,8 +111,248 @@ When configuring using PowerShell, you need to provide the Workspace ID and Prim
 
 ![workspace ID and primary key](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
+## Azure Resource Manager (ARM) template to deploy the Log Analytics agent
+
+With Azure Resource Manager, you can create a simple template (in JSON format) that defines deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state. 
+
+By including the Log Analytics agent as part of your resource manager template you can ensure each virtual machine is deployed in a consistent way and is pre-configured to report to your Log Analytics workspace.
+
+Refer to [authoring Azure Resource Manager templates](../resource-group/resource-group-authoring-templates.md) Find out more about resource manager templates.
+
+Below is an example ARM template for deploying a virtual machine running Windows with the MMA extension installed. This is very similar to a typicaly virtual machine template, with the following additions:
+
++ workspaceId and workspaceName parameters
++ Microsoft.EnterpriseCloud.Monitoring resource extension section
++ Outputs to look up the workspaceId and workspaceSharedKey
+ 
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Password for the Virtual Machine."
+      }
+    },
+	"dnsLabelPrefix": {
+	   "type": "string",
+	   "metadata": {
+		  "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
+	   }
+	},
+    "workspaceId": {
+      "type": "string",
+      "metadata": {
+        "description": "workspace id"
+      }
+    },
+    "workspaceName": {
+      "type": "string",
+      "metadata": {
+         "description": "workspaceName"
+      }
+    },
+    "windowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2012-R2-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "Windows-Server-Technical-Preview"
+      ],
+      "metadata": {
+        "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+      }
+    }
+  },
+  "variables": {
+	"storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]",
+	"apiVersion": "2015-06-15",
+    "imagePublisher": "MicrosoftWindowsServer",
+    "imageOffer": "WindowsServer",
+    "OSDiskName": "osdiskforwindowssimple",
+    "nicName": "myVMNic",
+    "addressPrefix": "10.0.0.0/16",
+    "subnetName": "Subnet",
+    "subnetPrefix": "10.0.0.0/24",
+    "storageAccountType": "Standard_GRS",
+    "publicIPAddressName": "myPublicIP",
+    "publicIPAddressType": "Dynamic",
+    "vmStorageAccountContainerName": "vhds",
+    "vmName": "MyWindowsVM",
+    "vmSize": "Standard_DS1",
+    "virtualNetworkName": "MyVNET",
+    "resourceId": "[resourceGroup().id]",
+    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "apiVersion": "[variables('apiVersion')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "accountType": "[variables('storageAccountType')]"
+      }
+    },
+    {
+      "apiVersion": "[variables('apiVersion')]",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[variables('publicIPAddressName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('dnsLabelPrefix')]"
+        }
+      }
+    },
+    {
+      "apiVersion": "[variables('apiVersion')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[variables('virtualNetworkName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('subnetPrefix')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "[variables('apiVersion')]",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[variables('nicName')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+              },
+              "subnet": {
+                "id": "[variables('subnetRef')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[variables('vmName')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+        "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('vmSize')]"
+        },
+        "osProfile": {
+          "computername": "[variables('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "[variables('imagePublisher')]",
+            "offer": "[variables('imageOffer')]",
+            "sku": "[parameters('windowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "name": "osdisk",
+            "vhd": {
+              "uri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+            },
+            "caching": "ReadWrite",
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+            }
+          ]
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+             "enabled": "true",
+             "storageUri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net')]"
+          }
+        }
+      },
+      "resources": [
+        {
+          "type": "extensions",
+          "name": "Microsoft.EnterpriseCloud.Monitoring",
+          "apiVersion": "[variables('apiVersion')]",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+          ],
+          "properties": {
+            "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+            "type": "MicrosoftMonitoringAgent",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+			  "workspaceId": "[parameters('workspaceId')]"
+            },
+            "protectedSettings": {
+			  "workspaceKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-03-20').primarySharedKey]"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {
+      "sharedKeyOutput": {
+         "value": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), '2015-03-20').primarySharedKey]",
+         "type": "string"
+      },
+      "workspaceIdOutput": {
+         "value": "[reference(concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), '2015-03-20').customerId]",
+        "type" : "string"
+      }
+  }
+}
+```
+
 ## Next Steps
 
-+ [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
-+ [Collect data from Azure Using Azure diagnostics and Log Analytics](log-analytics-powershell-azure-diagnostics-json.md)
++ [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to gather data from virtual machines.
++ [Collect data using Azure diagnostics](log-analytics-powershell-azure-diagnostics-json.md) for other resources running in Azure.
 
