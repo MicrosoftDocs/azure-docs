@@ -93,7 +93,7 @@ Create an Azure Blob storage account from the [Azure Portal](http://ms.portal.az
 
 
 ### Create an HDInsight Linux Cluster
-Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see [Create an HDInsight cluster with access to Azure Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal/#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
+Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see [Create an HDInsight cluster with access to Azure Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md/#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
 
  ![6](./media/machine-learning-data-science-process-data-lake-walkthough/create_HDI_cluster.PNG)
 
