@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/23/2016"
 	ms.author="mithal;garye" />
 
 # Cheat sheet for an automated data pipeline for Azure Machine Learning predictions
