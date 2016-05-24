@@ -146,7 +146,7 @@ Open Visual Studio, click **File --> New --> Project**, choose **U-SQL Project**
 
 ![12](./media/machine-learning-data-science-process-data-lake-walkthough/create_USQL_project.PNG)
 
-The location of the data is referenced as **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Since the file names are in same format, we can use **trip\_data_{\*\}.csv** to read in all 12 trip files. 
+The location of the data is referenced as **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Substitute your own container name and storage account name in for following scripts for container_name@blob_storage_account_name in the wasb address. Since the file names are in same format, we can use **trip\_data_{\*\}.csv** to read in all 12 trip files. 
 
 	///Read in Trip data
 	@trip0 =
@@ -166,7 +166,7 @@ The location of the data is referenced as **wasb://container_name@blob_storage_a
 	    dropoff_longitude string,
 	    dropoff_latitude string
     // This is reading 12 trip data from blob
-    FROM "wasb://test1@weigstoragefordsvm.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
+    FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
 Since there are headers in the first row, we need to remove the headers and change column types into appropriate ones. We can either save the processed data to Azure Data Lake Storage using **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ or to Azure Blob storage account using  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**. 
@@ -198,7 +198,7 @@ Since there are headers in the first row, we need to remove the headers and chan
 
 	////Output data to blob
 	OUTPUT @trip   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_trip.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
 	USING Outputters.Csv();  
 
 Similarly we can read in the fare data sets. Right click Azure Data Lake Store, you can choose to look at your data in **Azure Portal --> Data Explorer** or **File Explorer** within Visual Studio. 
@@ -256,7 +256,7 @@ Find those invalid records in terms of pickup_longitude:
 	    WHERE
 	    pickup_longitude <- 90 OR pickup_longitude > 90;
 	    OUTPUT @ex_3   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_3.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_3.csv"
 	USING Outputters.Csv(); 
 
 Find missing values for some variables:
@@ -276,7 +276,7 @@ Find missing values for some variables:
 	    FROM @res
 	    GROUP BY vendor_id;
 	OUTPUT @trip_summary6
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_16.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_16.csv"
 	USING Outputters.Csv();
 
 
@@ -299,7 +299,7 @@ Find the distribution of tipped and non-tipped trips:
 	    FROM @tip_or_not
 	    GROUP BY tipped;
 	    OUTPUT @ex_4   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_4.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
 	USING Outputters.Csv(); 
 
 Find the distribution of tip amount with cut-off values: 0,5,10,and 20 dollars.
@@ -315,7 +315,7 @@ Find the distribution of tip amount with cut-off values: 0,5,10,and 20 dollars.
 	    FROM @tip_class
 	    GROUP BY tip_class;
 	    OUTPUT @ex_5   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_5.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_5.csv"
 	USING Outputters.Csv(); 
 
 Find basic statistics of trip distance:
@@ -331,7 +331,7 @@ Find basic statistics of trip distance:
 	    FROM @trip
 	    GROUP BY vendor_id;
 	OUTPUT @trip_summary4
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_14.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_14.csv"
 	USING Outputters.Csv();
 
 Find the percentiles of trip distance:
@@ -345,7 +345,7 @@ Find the percentiles of trip distance:
 	    FROM @trip;
 	   // group by vendor_id;
 	OUTPUT @trip_summary3
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_13.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_13.csv"
 	USING Outputters.Csv(); 
 
 
@@ -366,7 +366,7 @@ Trip and fare tables can be joined by medallion, hack_license, and pickup_time.
 
 	//// output to blob
 	OUTPUT @model_data_full   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_7_full_data.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_7_full_data.csv"
 	USING Outputters.Csv(); 
 
 	////output data to ADL
@@ -388,7 +388,7 @@ For each level of passenger count, calculate the number of records, average tip 
 	    FROM @model_data_full
 	    GROUP BY passenger_count;
 	    OUTPUT @trip_summary8
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_17.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_17.csv"
 	USING Outputters.Csv();
 
 
@@ -408,7 +408,7 @@ First we randomly select 0.1% of data from the joined table:
 	WHERE rownum % 1000 == 0;
 	
 	OUTPUT @model_data_random_sample_1_1000   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_7_random_1_1000.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_7_random_1_1000.csv"
 	USING Outputters.Csv(); 
 
 Then we do stratified sampling by binary variable tip_class:
@@ -425,7 +425,7 @@ Then we do stratified sampling by binary variable tip_class:
 	WHERE rownum % 1000 == 0;
 	//// output to blob
 	OUTPUT @model_data_stratified_sample_1_1000   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_9_stratified_1_1000.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_9_stratified_1_1000.csv"
 	USING Outputters.Csv(); 
 	////output data to ADL
 	OUTPUT @model_data_stratified_sample_1_1000   
