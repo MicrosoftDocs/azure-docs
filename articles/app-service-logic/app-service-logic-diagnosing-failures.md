@@ -40,7 +40,7 @@ The different statuses you may see are:
 
 #### Start a trigger manually
 
-If you want the Logic App to check for an available trigger immediately (without waiting for the next recurrence) you can always click the "Select Trigger" button on the main blade to force a check.  For example, clicking this with a Dropbox trigger will cause the workflow to poll Dropbox immediately for new files.
+If you want the Logic App to check for an available trigger immediately (without waiting for the next recurrence) you can always click the **Select Trigger** button on the main blade to force a check.  For example, clicking this with a Dropbox trigger will cause the workflow to poll Dropbox immediately for new files.
 
 ### Run History
 
@@ -71,7 +71,9 @@ You can drill into the inputs and outputs that an action received.  This is usef
 
 ![][4]
 
+## Debugging Workflow Runtime
 
+In addition to monitoring the inputs, outputs, and triggers of a run, it may be useful to add some steps within a workflow to help debug.  One powerful tool you can add as a step in a workflow is [RequestBin](http://requestb.in).  RequestBin allows you to setup an HTTP Request inspector to understand exactly the size, shape, and format of an HTTP Request.  You can create a new RequestBin and paste the URL in a Logic App HTTP POST Action - with whatever body content you wish to test (an expression, another step output, etc.).  After running the Logic App you can refresh your RequestBin to see how the request was formed as it was generated from the Logic App engine.
 
 
 
