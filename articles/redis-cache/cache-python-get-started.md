@@ -41,6 +41,13 @@ Install [redis-py](https://github.com/andymccurdy/redis-py).
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
+## Enable the non-SSL endpoint
+
+Some Redis clients don't support SSL, and by default, the [non-SSL port is disabled for new Azure Redis Cache instances](cache-configure.md#access-ports). At the time of this writing, the [redis-py](https://github.com/andymccurdy/redis-py) client doesn't support SSL. 
+
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+
+
 ## Add something to the cache and retrieve it
 
 

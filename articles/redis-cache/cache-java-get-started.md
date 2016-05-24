@@ -45,7 +45,7 @@ This tutorial uses Jedis, but you can use any Java client listed at [http://redi
 
 ## Enable the non-SSL endpoint
 
-Some Redis clients don't support SSL, and by default, the [non-SSL port is disabled for new Azure Redis Cache instances](cache-configure.md#access-ports). At the time of this writing, the Jedis client doesn't support SSL. 
+Some Redis clients don't support SSL, and by default, the [non-SSL port is disabled for new Azure Redis Cache instances](cache-configure.md#access-ports). At the time of this writing, the [Jedis](https://github.com/xetorthio/jedis) client doesn't support SSL. 
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
