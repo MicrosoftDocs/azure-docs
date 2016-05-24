@@ -55,7 +55,7 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 
 ### Scenarios
 
-- [Azure Function as Service Bus Trigger](app-service-logic-function-sb-trigger.md)
+- [Azure Function as Service Bus Trigger](app-service-logic-scenario-function-sb-trigger.md)
 
 ## HTTP, REST, and SOAP
 
