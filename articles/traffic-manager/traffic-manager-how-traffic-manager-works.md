@@ -74,6 +74,6 @@ Learn more about Traffic Manager [endpoint monitoring and automatic failover](tr
 Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
 <!--Image references-->
-[1]: ./media/how-traffic-manager-works/dns-configuration.png
-[2]: ./media/how-traffic-manager-works/flow.png
+[1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
+[2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 
