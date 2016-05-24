@@ -31,7 +31,7 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 
 1. Sign-in to the [Microsoft Azure classic portal].
 
-> [AZURE.NOTE] To sign-in, you need to be an Azure subscription admin. Being the owner of a Machine Learning workspace will not give you access to the [Microsoft Azure classic portal]. See [Privileges of Azure subscription admin and workspace owner](#subscriptionvsworkspace) for more details.
+> [AZURE.NOTE] To sign-in, you need to be an Azure subscription admin. Being the owner of a Machine Learning workspace will not give you access to the [Microsoft Azure classic portal]. See [Privileges of Azure subscription administrator and workspace owner](#subscriptionvsworkspace) for more details.
 
 2. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
 
@@ -71,11 +71,11 @@ Each user you added will receive an email with instruction to log-in to the shar
 For information about managing your workspace, see [Manage an Azure Machine Learning workspace].
 If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to an Machine Learning workspace].
 
-## <a name="subscriptionvsworkspace"></a>Privileges of Azure subscription owner and of workspace owner
+## <a name="subscriptionvsworkspace"></a>Privileges of Azure subscription administrator and of workspace owner
 
-Below is a table clarifying the difference between an Azure subscription admin and a workspace owner.
+Below is a table clarifying the difference between an Azure subscription administrator and a workspace owner.
 
-| Actions        			| Azure subscription admin | Workspace owner  |
+| Actions        			| Azure subscription administrator | Workspace owner  |
 | --------------			|:------------------------:| :----------------:|
 | Access [Microsoft Azure classic portal]| Yes 	       | No				   |
 | Create a new workspace                 | Yes         | No				   |
@@ -86,7 +86,7 @@ Below is a table clarifying the difference between an Azure subscription admin a
 | Access [Machine Learning Studio]       | No *	       | Yes			   |
 
 
-> [AZURE.NOTE] * An Azure subscription admin automatically becomes a workspace owner upon creating a workspace, however the access is only granted because he is a workspace owner.
+> [AZURE.NOTE] * An Azure subscription administrator automatically becomes a workspace owner upon creating a workspace, however the access is only granted because he is a workspace owner.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
