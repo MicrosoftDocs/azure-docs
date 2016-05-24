@@ -19,27 +19,27 @@ To make sure that no message is resubmitted outside of the de-duplication window
 ### Provision an Azure Storage account and a Service Bus queue
 In order to use the [EventProcessorHost] class, you must have an Azure Storage account to enable the **EventProcessorHost** to record checkpoint information. You can use an existing storage account, or follow the instructions in [About Azure Storage] to create a new one. Make a note of the storage account connection string.
 
-> [AZURE.NOTE] When you copy and paste the storage account connection string, make sure there are no spaces included in the connection string.
+> [AZURE.NOTE] When you copy and paste the storage account connection string, make sure there are no spaces included.
 
-You also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically with a 1 hour deduplication window, as explained in [How to use Service Bus Queues][Service Bus Queue], or use the [Azure classic portal], following these steps:
+You also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically, with a one hour de-duplication window, as explained in [How to use Service Bus Queues][Service Bus Queue]. Alternatively, you can use the [Azure classic portal], by following these steps:
 
-1. Click **NEW** in the bottom left corner, then **App Services**, then **Service Bus**, then **Queue**, then **Custom Create**, enter the name **d2ctutorial**, select a  region, use an existing namespace or create a new one, then on the next page select **Enable duplicate detection** and set the **Duplicate detection history time window** to one hour. Then click the check mark to save your queue configuration.
+1. Click **New** in the lower-left corner. Then click **App Services** > **Service Bus** > **Queue** > **Custom Create**. Enter the name **d2ctutorial**, select a  region, and use an existing namespace or create a new one. On the next page, select **Enable duplicate detection**, and set the **Duplicate detection history time window** to one hour. Then click the check mark in the lower-right corner to save your queue configuration.
 
-    ![][30]
+    ![Create a queue in Azure portal][30]
 
-2. In the list of Service Bus queues, click **d2ctutorial**, and then click **Configure**. Create two shared access policies, one called **send** with **Send** permissions, and one called **listen** with **Listen** permissions. Click **Save** at the bottom, when done.
+2. In the list of Service Bus queues, click **d2ctutorial**, and then click **Configure**. Create two shared access policies, one called **send** with **Send** permissions, and one called **listen** with **Listen** permissions. When you are done, click **Save** at the bottom.
 
-    ![][31]
+    ![Configure a queue in Azure portal][31]
 
-3. Click **Dashboard** at the top, then **Connection information** at the bottom, make a note of the two connection strings.
+3. Click **Dashboard** at the top, and then **Connection information** at the bottom. Make a note of the two connection strings.
 
-    ![][32]
+    ![Queue dashboard in Azure portal][32]
 
 ### Create the event processor
 
-1. In the current Visual Studio solution, click **File**, then **Add**, and then **New Project** to create a new Visual C# Windows project using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or higher. Name the project **ProcessDeviceToCloudMessages**.
+1. In the current Visual Studio solution, to create a new Visual C# Windows project by using the **Console Application** project template, click **File** > **Add** > **New Project**. Make sure the .NET Framework version is 4.5.1 or later. Name the project **ProcessDeviceToCloudMessages**, and click **OK**.
 
-    ![][10]
+    ![New project in Visual Studio][10]
 
 2. In Solution Explorer, right-click the **ProcessDeviceToCloudMessages** project, and then click **Manage NuGet Packages**. The **NuGet Package Manager** dialog box appears.
 
@@ -196,22 +196,23 @@ You also need a Service Bus queue to enable reliable processing of interactive m
     }
     ```
 
-    The **EventProcessorHost** class calls this class to process device-to-cloud messages received from IoT Hub. The code in this class implements the logic to reliably store messages in a blob container and forward interactive messages to the Service Bus queue.
-    The **OpenAsync** method, initializes the **currentBlockInitOffset** variable which tracks the current offset of the first message read by this event processor. Remember that each processor is responsible for a single partition.
+    The **EventProcessorHost** class calls this class to process device-to-cloud messages received from IoT Hub. The code in this class implements the logic to store messages reliably in a blob container, and forward interactive messages to the Service Bus queue.
 
-    The **ProcessEventsAsync** method receives a batch of messages from IoT Hub and processes them as follows: it sends interactive messages to the Service Bus queue and appends data point messages to the memory buffer called **toAppend**. If the memory buffer reaches the 4Mb block limit, or the Service Bus deduplication time windows has elapsed since the last checkpoint (one hour in this tutorial), then it triggers a checkpoint.
+    The **OpenAsync** method initializes the **currentBlockInitOffset** variable, which tracks the current offset of the first message read by this event processor. Remember that each processor is responsible for a single partition.
 
-    The method **AppendAndCheckpoint** first generates a blockId for the block to append. Azure storage requires all block ids to have the same length, so the method pads the offset with leading zeroes - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Then, if a block with this id is already in the blob, the method overwrites it with the current contents of the buffer.
+    The **ProcessEventsAsync** method receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data point messages to the memory buffer called **toAppend**. If the memory buffer reaches the 4 MB block limit, or the Service Bus de-duplication time windows has elapsed since the last checkpoint (one hour in this tutorial), then it triggers a checkpoint.
 
-    > [AZURE.NOTE] To simplify the code, this tutorial uses a single blob file per partition to store the messages. A real solution would implement file rolling by creating additional files when they reach a certain size (note Azure block blob can be at most 195Gb in size), or after a certain amount of time.
+    The **AppendAndCheckpoint** method first generates a blockId for the block to append. Azure storage requires all block IDs to have the same length, so the method pads the offset with leading zeroes - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Then, if a block with this ID is already in the blob, the method overwrites it with the current contents of the buffer.
 
-8. In the **Program** class, add the following **using** statements at the top:
+    > [AZURE.NOTE] To simplify the code, this tutorial uses a single blob file per partition to store the messages. A real solution would implement file rolling by creating additional files after a certain amount of time, or when they reach a certain size (note that an Azure block blob can be at most 195 GB).
+
+8. In the **Program** class, add the following **using** statement at the top:
 
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
 
-9. Modify the **Main** method in the **Program** class as shown below, substituting the IoT Hub **iothubowner** connection string (from the [Get started with IoT Hub] tutorial), the storage connection string, and the Service Bus connection string with **Send** permissions for the queue named **d2ctutorial**:
+9. Modify the **Main** method in the **Program** class as shown below. Substitute the IoT Hub **iothubowner** connection string (from the [Get started with IoT Hub] tutorial), the storage connection string, and the Service Bus connection string with **Send** permissions for the queue named **d2ctutorial**:
 
     ```
     static void Main(string[] args)
@@ -232,25 +233,25 @@ You also need a Service Bus queue to enable reliable processing of interactive m
     }
     ```
 
-    > [AZURE.NOTE] For the sake of simplicity, this tutorial uses a single instance of the [EventProcessorHost] class. Please refer to [Event Hubs Programming Guide] for more information.
+    > [AZURE.NOTE] For the sake of simplicity, this tutorial uses a single instance of the [EventProcessorHost] class. For more information, see the [Event Hubs Programming Guide].
 
 ## Receive interactive messages
-In this section, you'll write a Windows console app that receives the interactive messages from the Service Bus queue. Refer to [Build multi-tier applications with Service Bus][] for more information on how to architect a solution using Service Bus.
+In this section, you'll write a Windows console app that receives the interactive messages from the Service Bus queue. For more information about how to architect a solution using Service Bus, see [Build multi-tier applications with Service Bus][].
 
-1. In the current Visual Studio solution, create a new Visual C# Windows project using the **Console Application** project template. Name the project **ProcessD2CInteractiveMessages**.
+1. In the current Visual Studio solution, create a new Visual C# Windows project by using the **Console Application** project template. Name the project **ProcessD2CInteractiveMessages**.
 
 2. In Solution Explorer, right-click the **ProcessD2CInteractiveMessages** project, and then click **Manage NuGet Packages**. This displays the **NuGet Package Manager** window.
 
 3. Search for **WindowsAzure.Service Bus**, click **Install**, and accept the terms of use. This downloads, installs, and adds a reference to the [Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus), with all its dependencies.
 
-4. Add the following **using** statement at the top of the **Program.cs** file:
+4. Add the following **using** statements at the top of the **Program.cs** file:
 
     ```
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
-5. Finally, add the following lines to the **Main** method, substituting the connection string with **Listen** permissions for the queue named **d2ctutorial**:
+5. Finally, add the following lines to the **Main** method. Substitute the connection string with **Listen** permissions for the queue named **d2ctutorial**:
 
     ```
     Console.WriteLine("Process D2C Interactive Messages app\n");
