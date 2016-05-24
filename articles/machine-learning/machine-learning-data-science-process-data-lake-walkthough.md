@@ -87,13 +87,13 @@ Create an ADLA account from the [Azure Portal](http://ms.portal.azure.com). For 
 
 
 ### Create an Azure Blob storage account
-Create an Azure Blob storage account from the [Azure Portal](http://ms.portal.azure.com). For details, see [Create a storage account](../storage/storage-create-storage-account.md/#create-a-storage-account).
+Create an Azure Blob storage account from the [Azure Portal](http://ms.portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthough/Create_Azure_Blob.PNG)
 
 
 ### Create an HDInsight Linux Cluster
-Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see [Create an HDInsight cluster with access to Azure Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md/#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
+Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see the Create an HDInsight cluster with access to Azure Data Lake Store section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![6](./media/machine-learning-data-science-process-data-lake-walkthough/create_HDI_cluster.PNG)
 
