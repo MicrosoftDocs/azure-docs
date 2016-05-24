@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="05/24/2016"
    ms.author="jeffstok"/>
 
 
@@ -36,7 +36,7 @@ In this article you will learn how to install the community (free) version of RS
 1. Identify the edge node of the cluster. For an HDInsight cluster with R Server, following is the naming convention for head node and edge node.
 
 	* Head node - `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Edge node - `rserver.CLUSTERNAME.ssh.azurehdinsight.net` 
+	* Edge node - `rserver.CLUSTERNAME-ssh.azurehdinsight.net` 
 
 3. SSH into the edge node of the cluster using the above naming pattern. 
  
