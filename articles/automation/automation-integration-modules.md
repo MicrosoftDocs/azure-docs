@@ -67,15 +67,15 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
 
 1. Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. For example, here’s how you can define a synopsis and help URI for a PowerShell module written in a .psm1 file.<br>  
 
-   ```
-   <#
-       .SYNOPSIS
-        Gets all outgoing phone numbers for this Twilio account 
-   #>
-   function Get-TwilioPhoneNumbers {
-   [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-   HelpUri='http://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
-   param(
+    ```
+    <#
+        .SYNOPSIS
+         Gets all outgoing phone numbers for this Twilio account 
+    #>
+    function Get-TwilioPhoneNumbers {
+    [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
+    HelpUri='http://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
+    param(
        [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
        [ValidateNotNullOrEmpty()]
        [string]
@@ -90,18 +90,18 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
        [ValidateNotNullOrEmpty()]
        [Hashtable]
        $Connection
-   )
+    )
 
-   $cred = CreateTwilioCredential -Connection $Connection -AccountSid $AccountSid -AuthToken $AuthToken
+    $cred = CreateTwilioCredential -Connection $Connection -AccountSid $AccountSid -AuthToken $AuthToken
 
-   $uri = "$TWILIO_BASE_URL/Accounts/" + $cred.UserName + "/IncomingPhoneNumbers"
+    $uri = "$TWILIO_BASE_URL/Accounts/" + $cred.UserName + "/IncomingPhoneNumbers"
     
-   $response = Invoke-RestMethod -Method Get -Uri $uri -Credential $cred
+    $response = Invoke-RestMethod -Method Get -Uri $uri -Credential $cred
 
-   $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
-   }
+    $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
+    }
 
-  ```
+   ```
 <br> 
   Providing this info will not only show this help using the **Get-Help** cmdlet in the PowerShell console, it will also expose this help functionality within Azure Automation, for example when inserting activities during runbook authoring. Clicking “View detailed help” will open the help URI in another tab of the web browser you’re using to access Azure Automation.<br> ![Integration Module Help](media/automation-integration-modules/automation-integration-module-activitydesc.png)<br>
 
@@ -115,32 +115,32 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
 
    Based on the runbook example above, it uses a Twilio connection asset called CorpTwilio to access Twilio and return all the phone numbers in the account.  Notice how it is mapping the fields of the connection to the parameters of the cmdlet?<br>
 
-   ```
-   workflow Get-CorpTwilioPhones
-   {
-     $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
+    ```
+    workflow Get-CorpTwilioPhones
+    {
+      $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
     
-     Get-TwilioPhoneNumbers 
-       -AccountSid $CorpTwilio.AccountSid  
-       -AuthToken $CorptTwilio.AuthToken
-   }
-   ```
-
+      Get-TwilioPhoneNumbers 
+        -AccountSid $CorpTwilio.AccountSid  
+        -AuthToken $CorptTwilio.AuthToken
+    }
+    ```
+<br>
   An easier and better way to approach this is directly passing the connection object to the cmdlet -
 
-   ```
-   workflow Get-CorpTwilioPhones
-   {
+    ```
+    workflow Get-CorpTwilioPhones
+    {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
 
       Get-TwilioPhoneNumbers -Connection $CorpTwilio
-   }
-   ```
-
+    }
+    ```
+<br>
    You can enable behavior like this for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you’ll want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. Parameter set **SpecifyConnectionFields** below is used to pass the connection field properties one by one. **UseConnectionObject** lets you pass the connection straight through. As you can see, the Send-TwilioSMS cmdlet in the [Twilio PowerShell module](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) allows passing either way: 
 
-   ```
-   function Send-TwilioSMS {
+    ```
+    function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
       HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
       param(
@@ -160,55 +160,55 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
          $Connection
 
        )
-    }
-    ```
+     }
+     ```
 <br>
 3. Define output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It is especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.<br> ![Graphical Runbook Output Type](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br>  
 
    This is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.<br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
 4. Cmdlets in the module should not take complex object types for parameters. PowerShell Workflow is different from PowerShell in that it stores complex types in deserialized form. Primitive types will stay as primitives, but complex types are converted to their deserialized versions, which are essentially property bags. For example, if you used the **Get-Process** cmdlet in a runbook (or a PowerShell Workflow for that matter), it would return an object of type [Deserialized.System.Diagnostic.Process], not the expected [System.Diagnostic.Process] type. This type has all the same properties as the non-deserialized type, but none of the methods. And if you try to pass this value as a parameter to a cmdlet, where the cmdlet expects a [System.Diagnostic.Process] value for this parameter, you’ll receive the following error: *Cannot process argument transformation on parameter 'process'. Error: "Cannot convert the "System.Diagnostics.Process (CcmExec)" value of type  "Deserialized.System.Diagnostics.Process" to type "System.Diagnostics.Process".*   This is because there is a type mismatch between the expected [System.Diagnostic.Process] type and the given [Deserialized.System.Diagnostic.Process] type. The way around this issue is to ensure the cmdlets of your module do not take complex types for parameters. Here is the wrong way to do it.
 
-   ```
-   function Get-ProcessDescription {
-     param (
+    ```
+    function Get-ProcessDescription {
+      param (
             [System.Diagnostic.Process] $process
-     )
-     $process.Description
-   }
-   ``` 
-
+      )
+      $process.Description
+    }
+    ``` 
+<br>
    And here is the right way, taking in a primitive that can be used internally by the cmdlet to grab the complex object and use it. Since cmdlets execute in the context of PowerShell, not PowerShell Workflow, inside the cmdlet $process becomes the correct [System.Diagnostic.Process] type.  
 
-   ```
-   function Get-ProcessDescription {
-     param (
+    ```
+    function Get-ProcessDescription {
+      param (
             [String] $processName
-     )
-     $process = Get-Process -Name $processName
+      )
+      $process = Get-Process -Name $processName
 
-     $process.Description
-   }
-   ```
-
+      $process.Description
+    }
+    ```
+<br>
    Connection assets in runbooks are hashtables, which are a complex type, and yet these hashtables seem to be able to be passed into cmdlets for their –Connection parameter perfectly, with no cast exception. Technically, some PowerShell types are able to cast properly from their serialized form to their deserialized form, and hence can be passed into cmdlets for parameters accepting the non- deserialized type. Hashtable is one of these. It’s possible for a module author’s defined types to be implemented in a way that they can correctly deserialize as well, but there are some tradeoffs to make. The type needs to have a default constructor, have all of its properties public, and have a PSTypeConverter. However, for already-defined types that the module author does not own, there is no way to “fix” them, hence the recommendation to avoid complex types for parameters all together. Runbook Authoring tip: If for some reason your cmdlets need to take a complex type parameter, or you are using someone else’s module that requires a complex type parameter, the workaround in PowerShell Workflow runbooks and PowerShel Workflows in local PowerShell, is to wrap the cmdlet that generates the complex type and the cmdlet that consumes the complex type in the same InlineScript activity. Since InlineScript executes its contents as PowerShell rather than PowerShell Workflow, the cmdlet generating the complex type would produce that correct type, not the deserialized complex type.
 
 5. Make all cmdlets in the module stateless. PowerShell Workflow runs every cmdlet called in the workflow in a different session. This means any cmdlets that depend on session state created / modified by other cmdlets in the same module will not work in PowerShell Workflow runbooks.  Here is an example of what not to do.
 
-   ```
-   $globalNum = 0
-   function Set-GlobalNum {
-      param(
-          [int] $num
-      )
+    ```
+    $globalNum = 0
+    function Set-GlobalNum {
+       param(
+           [int] $num
+       )
       
-      $globalNum = $num
-   }
+       $globalNum = $num
+    }
     function Get-GlobalNumTimesTwo {
-      $output = $globalNum * 2
+       $output = $globalNum * 2
      
-      $output
-   }
-   ```
+       $output
+    }
+    ```
 <br>
 6. The module should be fully contained in an Xcopy-able package. Because Azure Automation modules are distributed to the Automation sandboxes when runbooks need to execute, they need to work independently of the host they are running on. What this means is that you should be able to Zip up the module package, move it to any other host with the same or newer PowerShell version, and have it function as normal when imported into that host’s PowerShell environment. In order for that to happen, the module should not depend on any files outside the module folder (the folder that gets zipped up when importing into Azure Automation), or on any unique registry settings on a host, such as those set by the install of a product. If this best practice is not followed, the module will not be useable in Azure Automation.  
 
