@@ -18,7 +18,7 @@
 
 # Restore an app in Azure App Service
 
-This article shows you how to restore an App Service app that you have previously backed up by using the [App Service](app-service-value-prop-what-is) Backup feature. For more information, see [App Service Backups](web-sites-backup.md). 
+This article shows you how to restore an App Service app that you have previously backed up by using the [App Service](../app-service/app-service-value-prop-what-is.md) Backup feature. For more information, see [App Service Backups](web-sites-backup.md). 
 
 The App Service Restore feature lets you restore your app with its linked databases (SQL Database or MySQL) on-demand to a previous state, or create a new app based on one of your original app's backup. Creating a new app that runs in parallel to the latest version can be useful for A/B testing.
 

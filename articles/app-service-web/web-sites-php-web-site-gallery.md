@@ -3,7 +3,7 @@
 	description="Learn how to create a new Azure web app for a WordPress blog using the Azure Portal."
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="02/08/2016"
-	ms.author="tomfitz"/>
+	ms.date="04/08/2016"
+	ms.author="robmcm"/>
 
 # Create a WordPress web app in Azure App Service
+
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 This tutorial shows how to deploy a WordPress blog site from the Azure Marketplace.
 

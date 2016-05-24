@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/14/2016"
    ms.author="alkohli"/>
 
 # Disaster recovery and device failover for your StorSimple Virtual Array
@@ -25,7 +25,7 @@ This article describes the disaster recovery for your Microsoft Azure StorSimple
 
 Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type, and model are displayed.
 
-![](./media/storsimple-ova-failover-dr/image16.png)
+![](./media/storsimple-ova-failover-dr/image15.png)
 
 This article is applicable to StorSimple Virtual Arrays only. To fail over an 8000 series device, go to [Failover and Disaster Recovery of your StorSimple device](storsimple-device-failover-disaster-recovery.md).
 
@@ -48,9 +48,7 @@ For any device failover, the following prerequisites should be satisfied:
 
 - The target device needs to show up as **Active** in the Azure classic portal. You will need to provision a target virtual device of the same or higher capacity. You should then use the local web UI to configure and successfully register the virtual device.
 
-	> [AZURE.IMPORTANT]
-	> 
-	> Do not attempt to configure the registered virtual device through the service by clicking **complete device setup**. No device configuration should be performed through the service.
+	> [AZURE.IMPORTANT] Do not attempt to configure the registered virtual device through the service by clicking **complete device setup**. No device configuration should be performed through the service.
 
 - The source and target device have to be the same type. You can only fail over a virtual device configured as a file server to another file server. The same is true for an iSCSI server.
 
@@ -91,13 +89,17 @@ We recommend that you have a StorSimple virtual device provisioned, configured v
 
 > [AZURE.IMPORTANT]
 > 
-> You are not allowed to fail over from a StorSimple 8000 series device to a virtual device.
+> - You are not allowed to fail over from a StorSimple 8000 series device to a 1200 virtual device.
+> - You can fail over from a Federal Information Processing Standard (FIPS) enabled virtual device deployed in Government portal to a virtual device in Azure classic portal. The reverse is also true.
 
 Perform the following steps to restore the device to a target StorSimple virtual device.
 
 1. Take volumes/shares offline on the host. Refer to the operating system–specific instructions on the host to take the volumes/shares offline. If not already offline, you will need to take all the volumes/shares offline on the device by going to **Devices > Shares** (or **Device > Volumes**). Select a share/volume and click **Take offline** on the bottom of the page. When prompted for confirmation, click **Yes**. Repeat this process for all the shares/volumes on the device.
 
-2. On the **Devices** page, select the source device for failover and click **Deactivate**. You will be prompted for confirmation. Device deactivation is a permanent process that cannot be undone. You will also be reminded to take your shares/volumes offline on the host.
+2. On the **Devices** page, select the source device for failover and click **Deactivate**. 
+	![](./media/storsimple-ova-failover-dr/image16.png)
+
+3. You will be prompted for confirmation. Device deactivation is a permanent process that cannot be undone. You will also be reminded to take your shares/volumes offline on the host.
 
 	![](./media/storsimple-ova-failover-dr/image18.png)
 

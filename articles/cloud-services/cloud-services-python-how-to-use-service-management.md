@@ -39,11 +39,11 @@ To connect to the Service Management endpoint, you need your Azure subscription 
 ### Management certificates on Windows/Mac/Linux (OpenSSL)
 You can use [OpenSSL](http://www.openssl.org/) to create your management certificate.  You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute this:
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 To create the `.cer` certificate, execute this:
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 For more information about Azure certificates, see [Certificates Overview for Azure Cloud Services](./cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
@@ -401,9 +401,9 @@ To finally create the virtual machine using the captured image, use the **create
 		role_size='Small',
 		vm_image_name = image_name)
 
-To learn more about how to capture a Linux Virtual Machine, see [How to Capture a Linux Virtual Machine.](../virtual-machines/virtual-machines-linux-capture-image.md)
+To learn more about how to capture a Linux Virtual Machine, see [How to Capture a Linux Virtual Machine.](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
-To learn more about how to capture a Windows Virtual Machine, see [How to Capture a Windows Virtual Machine.](../virtual-machines/virtual-machines-capture-image-windows-server.md)
+To learn more about how to capture a Windows Virtual Machine, see [How to Capture a Windows Virtual Machine.](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
 
 ## <a name="What's Next"> </a>Next Steps
 

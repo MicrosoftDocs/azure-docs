@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="03/01/2016"
+	ms.topic="get-started-article"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 
 # Create a new logic app connecting SaaS services

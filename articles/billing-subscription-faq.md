@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="04/14/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -43,7 +43,11 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How will Azure Service Level Agreements work with current on-premises Microsoft licensing agreements?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
+- [I do not see an invoice for the last billing period. Why?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+
 **Subscriptions**
+
+- [I am unable to log in to the Azure portal](#i-am-unable-to-log-in-to-the-azure-portal)
 
 - [How do I purchase Azure Support?](#how-do-i-purchase-azure-support)
 
@@ -51,7 +55,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I upgrade to a higher tier Azure Support plan?](#how-do-i-upgrade-to-a-higher-tier-azure-support-plan)
 
--	[When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
+- [When will I be billed for Azure Support?](#when-will-i-be-billed-for-azure-support)
 
 - [What happens at the end of the term?](#what-happens-at-the-end-of-the-term)
 
@@ -119,7 +123,7 @@ You must submit a support ticket to request assistance. To create a support tick
 
 ### How can I update or change my credit card information?
 
-For instructions about how to use a different credit card as a payment method, or how to add a new credit card see [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
+If your credit card gets renewed and the number remains the same, you can simply update the details of the existing credit card, such as expiration date. If your card number changes or you would like to use a different card, you will need to add the new card. You can find instructions to update or add a credit card here: [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
 
 ### How do we know in advance about service downtime for planned maintenance?
 
@@ -127,7 +131,7 @@ Our Service Level Agreement for availability applies to customer applications wh
 
 **Planned maintenance (Classic Portal)**: For both single- and multi-instance configurations, Azure sends email communications in advance to alert you of upcoming planned maintenance (one week in advance for single-instance and 48 hours in advance for multi-instance). The email will be sent to the Account Administrator, Service Administrator and Co-administrator email accounts provided in the subscription.
 
-**NOTE:** For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](./virtual-machines/virtual-machines-planned-maintenance.md).
+**NOTE:** For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
 **Unplanned maintenance:** In the event of an unplanned service disruption on the Azure Platform, status updates will be made on our [service dashboard](http://status.azure.com/)  and customers will also receive notice in the [Azure classic portal](https://manage.windowsazure.com/).
 
@@ -143,7 +147,22 @@ Azure SLA Credits are calculated on a per subscription basis as a percentage of 
 
 Azure Service Level Agreements are independent of our on-premises Microsoft licensing agreements. Our SLAs for Azure provide you a monthly uptime guarantee for those services you consume in the cloud, with SLA credits against what we have billed you in the event we fail to meet the guarantee.
 
+### I do not see an invoice for the last billing period. Why?
+
+There could be several reasons for this:
+- It is less than 30 days from the day you subscribed to Azure.
+- Your subscription type is Free Trial or one of the member offers (MSDN/Open/BizSpark/DreamSpark) that doesn't have a credit card or other payment instrument associated with it.
+- The invoice generation date has not yet arrived.
+
 ## Subscriptions
+
+### I am unable to log in to the Azure portal
+
+The following article will help you troubleshoot some common causes of login issues:
+
+[I am unable to log in to manage my Azure subscription](billing-cannot-login-subscription.md)
+
+**Note** Make sure you are logging in as the right administrator: An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/).
 
 ### How do I purchase Azure Support?
 Azure Support plans may be purchased either online or through an Enterprise Agreement. The Developer, Standard, or Professional Direct Support plans are available online through the [Azure Support Plans](https://azure.microsoft.com/support/plans/) page. You must be the Microsoft Azure account owner to purchase a support plan.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="robmcm"/>
 
 #How to use Media Services with Java
@@ -78,7 +78,8 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 		private static String clientId = "account name";
 		private static String clientSecret = "account key";
 		private static String scope = "urn:WindowsAzureMediaServices";
-		
+		private static MediaContract mediaService;
+		    
 		// Encoder configuration
 		private static String preferedEncoder = "Media Encoder Standard";
 		private static String encodingPreset = "H264 Multiple Bitrate 720p";
@@ -141,7 +142,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 			// Create the Blob Writer using the Locator
 			uploader = mediaService.createBlobWriter(uploadLocator);
 			
-			File file = new File("BigBuckBunny.mp4");//(ConnectToAMSView.class.getClassLoader().getResource("").getPath() + fileName);
+			File file = new File("BigBuckBunny.mp4"); 
 			
 			// The local file that will be uploaded to your Media Services account
 			InputStream input = new FileInputStream(file);

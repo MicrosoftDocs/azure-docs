@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Best practices for improving performance Using Service Bus | Microsoft Azure"
-   description="Describes how to use Azure Service Bus to optimize performance when exchanging brokered messages. "
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Best practices for improving performance using Service Bus | Microsoft Azure"
+    description="Describes how to use Azure Service Bus to optimize performance when exchanging brokered messages."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Best Practices for performance improvements using Service Bus brokered messaging
 
@@ -31,7 +31,7 @@ Unless explicitly mentioned, all content in this topic assumes the use of the Se
 
 ## Reusing factories and clients
 
-Service Bus client objects, such as [QueueClient][] or [MessageSender][], are created through a [MessagingFactory][] object, which also provides internal management of connections. You should not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by re-using the same factory and client objects for multiple operations.
+Service Bus client objects, such as [QueueClient][] or [MessageSender][], are created through a [MessagingFactory][] object, which also provides internal management of connections. You should not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by re-using the same factory and client objects for multiple operations. You can safely use the [QueueClient][] object for sending messages from concurrent asynchronous operations and multiple threads. 
 
 ## Concurrent operations
 
@@ -81,7 +81,7 @@ When creating a queue or subscription client, you can specify a receive mode: *P
 
 When setting the receive mode to [ReceiveAndDelete][], both steps are combined in a single request. This reduces the overall number of operations, and can improve the overall message throughput. This performance gain comes at the risk of losing messages.
 
-Service Bus does not support transactions for receive-and-delete operations. In addition, peek-lock semantics are required for any scenarios in which the client wants to defer or deadletter a message.
+Service Bus does not support transactions for receive-and-delete operations. In addition, peek-lock semantics are required for any scenarios in which the client wants to defer or dead-letter a message.
 
 ## Client-side batching
 
@@ -130,7 +130,7 @@ Prefetching does not affect the number of billable messaging operations, and is 
 
 ## Express queues and topics
 
-Express entities enable high throughput and reduced latency scenarios. With express entities, if a message is sent to a queue or topic is, it is not immediately stored in the messaging store. Instead, the message is cached in memory. If a message remains in the queue for more than a few seconds, it is automatically written to stable storage, thus protecting it against loss due to an outage. Writing the message into a memory cache increases throughput and reduces latency because there is no access to stable storage at the time the message is sent. Messages that are consumed within a few seconds are not written to the messaging store. The following example creates an express topic.
+Express entities enable high throughput and reduced latency scenarios. With express entities, if a message is sent to a queue or topic, the message is not immediately stored in the messaging store. Instead, it is cached in memory. If a message remains in the queue for more than a few seconds, it is automatically written to stable storage, thus protecting it against loss due to an outage. Writing the message into a memory cache increases throughput and reduces latency because there is no access to stable storage at the time the message is sent. Messages that are consumed within a few seconds are not written to the messaging store. The following example creates an express topic.
 
 ```
 TopicDescription td = new TopicDescription(TopicName);

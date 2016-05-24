@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Active Directory Reporting Backfill Times | Microsoft Azure"
-   description="Amount of time it takes for previous reporting events to show up in your Azure Active Directory"
+   pageTitle="Azure Active Directory report backfill times | Microsoft Azure"
+   description="Amount of time it takes for previous reporting events to show up in your Azure AD directory"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevepo"
    editor=""/>
 
 <tags
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
-# Azure Active Directory Report Backfill Times
+# Azure Active Directory Report backfill times
 
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
-After a directory is opted-in to reports, the reports backfill data for a certain number of days, indicated here.
+After a directory is opted in to reports, the reports backfill data for a certain number of days, indicated here.
 
 Report                                                  | Description
 ------------------------------------------------------- | -----------
-Sign ins from unknown sources                           | 0 days
-Sign ins after multiple failures                        | 0 days
-Sign ins from multiple geographies                      | 0 days
-Sign ins from IP addresses with suspicious activity     | 0 days
-Sign ins from possibly infected devices                 | 0 days
-Irregular sign in activity                              | 0 days
-Users with anomalous sign in activity                   | 0 days
+Sign-ins from unknown sources                           | 0 days
+Sign-ins after multiple failures                        | 0 days
+Sign-ins from multiple geographies                      | 0 days
+Sign-ins from IP addresses with suspicious activity     | 0 days
+Sign-ins from possibly infected devices                 | 0 days
+Irregular sign-in activity                              | 0 days
+Users with anomalous sign-in activity                   | 0 days
 Users with leaked credentials                           | 0 days
 Audit report                                            | 30 days
 Password reset activity (Azure AD)                      | 0 days

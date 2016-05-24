@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/18/2016"
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> For the equivalent Mobile Apps version of this topic, see [Add push notifications to your Xamarin.iOS app](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md).
 
 ##Overview
 
@@ -33,7 +33,7 @@ This tutorial requires the following:
 
 + An iOS 8 device (you cannot test push notifications in the iOS Simulator)
 + iOS Developer Program membership
-+ [Xamarin.iOS Studio]
++ [Xamarin Studio]
 + [Azure Mobile Services Component]
 
 >[AZURE.IMPORTANT] Because of APNS requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
@@ -387,7 +387,6 @@ You have successfully completed this tutorial.
 [121]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
 [122]:./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -401,4 +400,4 @@ You have successfully completed this tutorial.
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download

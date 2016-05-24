@@ -17,7 +17,9 @@
    ms.date="02/16/2016"
    ms.author="mwasson"/>
 
-# Identity management for multitenant applications: Introduction
+# Introduction to identity management for multitenant applications in Microsoft Azure
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
@@ -82,9 +84,14 @@ If a customer with on-premise AD cannot use Azure AD Connect (due to corporate I
 
 This guidance does not consider other aspects of multitenancy such as data partitioning, per-tenant configuration, and so forth.
 
+## Next steps
+
+- Read the next article in this series: [About the Tailspin Surveys application][tailpin]
+
 <!-- Links -->
 [ADConnect]: ../active-directory/active-directory-aadconnect.md
 [AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
 [part of a series]: guidance-multitenant-identity.md
 [Federating with a customer's AD FS]: guidance-multitenant-identity-adfs.md
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[tailpin]: guidance-multitenant-identity-tailspin.md

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Best practices for designing Azure Resource Manager templates"
+	pageTitle="Best practices Azure Resource Manager templates | Microsoft Azure"
 	description="Show design patterns for Azure Resource Manager templates"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.date="03/23/2016"
+	ms.author="tomfitz"/>
 
 # Best practices for designing Azure Resource Manager templates
 
@@ -191,7 +191,7 @@ On the surface, free-form configurations sound ideal. They allow you to select a
 do so as parameters to a template. When you look closely, though, and consider templates that will deploy multiple virtual machines of different sizes, additional 
 considerations appear that make the choice less appropriate in a number of scenarios.
 
-In the article [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) on the Azure website, the different VM 
+In [Sizes for virtual machines](./virtual-machines/virtual-machines-windows-sizes.md), the different VM 
 types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS 
 and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with 
 configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
@@ -497,6 +497,5 @@ inbound parameter of tshirtSize to a variable embedded within the template.
 
 ## Next steps
 
-- To see contextual examples of how to implement the design priciples presented in this topic, see [Contextual examples of best practices for implementing templates](best-practices-resource-manager-examples.md).
 - For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
 - To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).

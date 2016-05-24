@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="04/26/2016"
 	ms.author="erikje"/>
 
 # Add a new Azure Stack tenant account in Azure Active Directory
 
-After [deploying Azure Stack POC](azure-stack-run-powershell-script.md), create at least one tenant user account so you can explore the tenant portal.
-
+After [deploying the Azure Stack POC](azure-stack-run-powershell-script.md), you'll need a tenant user account so you can explore the tenant portal and test your offers and plans. You can create a tenant account by [using the Azure portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) or by [using PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
 
 ## Create an Azure Stack tenant account using the Azure portal
 
@@ -57,11 +56,11 @@ You must have an Azure subscription to use the Azure portal.
 
 16. Log in to `https://portal.azurestack.local` with the new account to see the tenant portal.
 
-## Create an Azure Stack tenant account using the PowerShell
+## Create an Azure Stack tenant account using PowerShell
 
-If you don't have an Azure subscription, you could not be able to use the Azure portal to add tenant account. In that case, you may use AAD PowerShell instead.
+If you don't have an Azure subscription, you can't use the Azure portal to add a tenant user account. In this case, you can use the Azure Active Directory Module for Windows PowerShell instead.
 
-> [AZURE.NOTE] If you are using Microsoft Account (Live ID) to deploy Azure Stack PoC, you could not use AAD PowerShell to create tenant account. 
+> [AZURE.NOTE] If you are using Microsoft Account (Live ID) to deploy Azure Stack PoC, you can't use AAD PowerShell to create tenant account. 
 
 1.  Install the [Microsoft Online Services Sign-In Assistant for IT Professionals RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
 
@@ -85,9 +84,9 @@ If you don't have an Azure subscription, you could not be able to use the Azure 
 
 ```
 
-4.  Log in to Microsoft Azure with the new account. Change the password when prompted.
+4.  Sign in to Microsoft Azure with the new account. Change the password when prompted.
 
-5.  Log in to `https://portal.azurestack.local` with the new account to see the tenant portal.
+5.  Sign in to `https://portal.azurestack.local` with the new account to see the tenant portal.
 
 
 

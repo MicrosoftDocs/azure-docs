@@ -3,8 +3,8 @@
 	description="Learn how to deploy and manage Azure Backup using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
+	authors="nkolli1"
+	manager="shivamg"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/22/2016"
-	ms.author="markgal"; "aashishr"; "jimpark"/>
+	ms.author="markgal;jimpark;nkolli"/>
 
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
@@ -592,5 +592,5 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Next steps
 For more information about Azure Backup for Windows Server/Client see
 
-- [Introduction to Azure Backup](backup-configure-vault.md)
-- [Back up Windows Servers](backup-azure-backup-windows-server.md)
+- [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+- [Back up Windows Servers](backup-configure-vault.md)

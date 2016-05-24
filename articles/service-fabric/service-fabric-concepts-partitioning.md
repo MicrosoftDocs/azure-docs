@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="03/15/2016"
    ms.author="bscholl"/>
 
 # Partition Service Fabric reliable services
@@ -66,7 +66,7 @@ If you think about the example again, you can easily see that the partition that
 In order to avoid this, you should do two things, from a partitioning point of view:
 
 - Try to partition the state so that it is evenly distributed across all partitions.
-- [Report metrics from each of the replicas for the service](service-fabric-resource-balancer-dynamic-load-reporting.md). Service Fabric provides the capability to report metrics, such as amount of memory or number of records, on a service. Based on the metrics reported, Service Fabric detects that some partitions are serving higher loads than others and rebalances the cluster by moving replicas to more suitable nodes.
+- Report load from each of the replicas for the service. (For information on how, check out this article on [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric provides the capability to report load consumed by services, such as amount of memory or number of records. Based on the metrics reported, Service Fabric detects that some partitions are serving higher loads than others and rebalances the cluster by moving replicas to more suitable nodes, so that overall no node is overloaded.
 
 Sometimes, you cannot know how much data will be in a given partition. So a general recommendation is to do both--first, by adopting a partitioning strategy that spreads the data evenly across the partitions and second, by reporting load.  The first method prevents situations described in the voting example, while the second helps smooth out temporary differences in access or load over time.
 
@@ -135,9 +135,9 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    
+
     You also need to update the LowKey and HighKey properties of the StatefulService element as shown below.
-    
+
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -190,7 +190,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 
     It's also worth noting that the published URL is slightly different from the listening URL prefix.
     The listening URL is given to HttpListener. The published URL is the URL that is published to the Service Fabric Naming Service, which is used for service discovery. Clients will ask for this address through that discovery service. The address that clients get needs to have the actual IP or FQDN of the node in order to connect. So you need to replace '+' with the node's IP or FQDN as shown above.
-    
+
 9. The last step is to add the processing logic to the service as shown below.
 
     ```CSharp
@@ -234,17 +234,17 @@ As we literally want to have one partition per letter, we can use 0 as the low k
         }
     }
     ```
-        
+
     `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `dictionary`.
-    
+
 10. Let's add a stateless service to the project to see how you can call a particular partition.
 
     This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key, and sends it to the Alphabet.Processing service for processing.
-    
+
 11. In the **Create a Service** dialog box, choose **Stateless** service and call it "Alphabet.WebApi" as shown below.
-    
+
     ![Stateless service screenshot](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
-    
+
 12. Update the endpoint information in the ServiceManifest.xml of the Alphabet.WebApi service to open up a port as shown below.
 
     ```xml
@@ -267,7 +267,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
         return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
     }
     ```
-     
+
 14. Now you need to implement the processing logic. The HttpCommunicationListener calls `ProcessInputRequest` when a request comes in. So let's go ahead and add the code below.
 
     ```CSharp
@@ -300,7 +300,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
                     primaryReplicaAddress);
         }
         catch (Exception ex) { output = ex.Message; }
-        
+
         using (var response = context.Response)
         {
             if (output != null)
@@ -358,11 +358,11 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     ```
 
 16. Once you finish deployment, you can check the service and all of its partitions in the Service Fabric Explorer.
-    
+
     ![Service Fabric Explorer screenshot](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-    
+
 17. In a browser, you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
-    
+
     ![Browser screenshot](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).

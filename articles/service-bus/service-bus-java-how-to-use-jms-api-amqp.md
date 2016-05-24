@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 # How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0
@@ -33,7 +33,7 @@ This guide assumes that you already have a Service Bus namespace containing a qu
 
 ## Downloading the AMQP 1.0 JMS client library
 
-For information about where to download the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+For information about where to download the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 distribution archive to the Java CLASSPATH when building and running JMS applications with Service Bus:
 
@@ -53,7 +53,7 @@ JMS uses the Java Naming and Directory Interface (JNDI) to create a separation b
 	
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 	
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
@@ -77,13 +77,13 @@ Where **[jndi_name]** and **[ConnectionURL]** have the following meanings:
 The format of the **ConnectionURL** is as follows:
 
 ```
-amqps://[username]:[password]@[namespace].servicebus.windows.net
+amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-Where **[namespace]**, **[username]** and **[password]** have the following meanings:
+Where **[namespace]**, **[SASPolicyName]** and **[SASPolicyKey]** have the following meanings:
 
 - **[namespace]**: The Service Bus namespace.
-- **[username]**: The Service Bus issuer name.
-- **[password]**: URL-encoded form of the Service Bus issuer key.
+- **[SASPolicyName]**: The Queue Shared Access Signature policy name.
+- **[SASPolicyKey]**: The Queue Shared Access Signature policy key.
 
 > [AZURE.NOTE] You must URL-encode the password manually. A useful URL-encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 

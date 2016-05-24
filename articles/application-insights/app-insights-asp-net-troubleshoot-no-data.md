@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
  
 # Troubleshooting no data - Application Insights for .NET
@@ -50,7 +50,7 @@ Fix:
 + Check that you provided sign-in credentials for the right Azure account. 
 + In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
 + [Add Application Insights to your existing project](app-insights-asp-net.md): In Solution Explorer, right click your project and choose "Add Application Insights."
-+ If it still isn't working, follow the [manual procedure](app-insights-start-monitoring-app-health-usage.md) to add a resource in the portal and then add the SDK to your project. 
++ If it still isn't working, follow the [manual procedure](app-insights-asp-net-manual.md) to add a resource in the portal and then add the SDK to your project. 
 
 ## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 
@@ -167,6 +167,12 @@ The data comes from scripts in the web pages.
 ## No dependency or exception data
 
 See [dependency telemetry](app-insights-asp-net-dependencies.md) and [exception telemetry](app-insights-asp-net-exceptions.md).
+
+## No performance data
+
+Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). you'll find it under Settings, Servers.
+
+It isn't available for Azure websites.
 
 ## No (server) data since I published the app to my server
 

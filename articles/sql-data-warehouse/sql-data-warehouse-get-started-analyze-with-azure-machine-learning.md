@@ -3,7 +3,7 @@
    description="Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,10 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/18/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Analyze data with Azure Machine Learning
+
+> [AZURE.SELECTOR]
+- [Power BI][]
+- [Azure Machine Learning][]
+
 This tutorial will show you how to build a predictive machine learning model with Azure Machine Learning using your Azure SQL Data Warehouse data. In this tutorial, we will build a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
 
 > [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
@@ -29,35 +34,35 @@ To step through this tutorial, you need
 [Create a SQL Data Warehouse][] shows you how to provision a database with sample data. If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][]
 
 
-## Step 1: Get Data 
+## Step 1: Get Data
 We will read the data from dbo.vTargetMail view in the AdventureWorksDW database.
 
 1. Sign into [Azure Machine Learning studio][] and click on my experiments.
 2. Click **+NEW** and select **Blank Experiment**.
 3. Enter a name for your experiment: Targeted Marketing.
 4. Drag the **Reader** module from the modules pane into the canvas.
-5. Specify the details of your SQL Data Warehouse database in the Properties pane. 
+5. Specify the details of your SQL Data Warehouse database in the Properties pane.
 6. Specify the database **query** to read the data of interest.
-   
-   ```
-   SELECT [CustomerKey]
-      ,[GeographyKey]
-      ,[CustomerAlternateKey]
-      ,[MaritalStatus]
-      ,[Gender]
-      ,cast ([YearlyIncome] as int) as SalaryYear
-      ,[TotalChildren]
-      ,[NumberChildrenAtHome]
-      ,[EnglishEducation]
-      ,[EnglishOccupation]
-      ,[HouseOwnerFlag]
-      ,[NumberCarsOwned]
-      ,[CommuteDistance]
-      ,[Region]
-      ,[Age]
-      ,[BikeBuyer]
-  FROM [dbo].[vTargetMail]
-   ```
+
+```sql
+SELECT [CustomerKey]
+  ,[GeographyKey]
+  ,[CustomerAlternateKey]
+  ,[MaritalStatus]
+  ,[Gender]
+  ,cast ([YearlyIncome] as int) as SalaryYear
+  ,[TotalChildren]
+  ,[NumberChildrenAtHome]
+  ,[EnglishEducation]
+  ,[EnglishOccupation]
+  ,[HouseOwnerFlag]
+  ,[NumberCarsOwned]
+  ,[CommuteDistance]
+  ,[Region]
+  ,[Age]
+  ,[BikeBuyer]
+FROM [dbo].[vTargetMail]
+```
 
 Run the experiment by clicking **Run** under the experiment canvas.
 ![Run the experiment][1]
@@ -65,9 +70,6 @@ Run the experiment by clicking **Run** under the experiment canvas.
 
 After the experiment finishes running successfully, click the output port at the bottom of the Reader module and select **Visualize** to see the imported data.
 ![View imported data][3]
-
-
-
 
 
 ## Step 2: Clean Data
@@ -79,8 +81,6 @@ We will drop some columns that are not relevant for the model.
 
 3. Exclude two columns: CustomerAlternateKey and GeographyKey.
 ![Remove unnecessary columns][5]
-
-
 
 
 ## Step 3: Build Model
@@ -98,9 +98,6 @@ We will split the data 80-20: 80% to train a machine learning model and 20% to t
 ![Select Column to predict][8]
 
 
-
-
-
 ## Step 4: Score Model
 Now, we will test how the model performs on test data. We will compare the algorithm of our choice with a different algorithm to see which performs better.
 
@@ -116,8 +113,6 @@ Now, we will test how the model performs on test data. We will compare the algor
 6. Click the output port at the bottom of the Evaluate Model module and click Visualize.
 ![Visualize evaluation results][11]
 
-
-
 The metrics provided are the ROC curve, precision-recall diagram and lift curve. Looking at these metrics, we can see that the first model performed better than the second one. To look at the what the first model predicted, click on output port of the Score Model and click Visualize.
 ![Visualize score results][12]
 
@@ -126,11 +121,11 @@ You will see two more columns added to your test dataset.
 - Scored Probabilities: the likelihood that a customer is a bike buyer.
 - Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
 
-Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. As next steps, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse. 
+Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. As next steps, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse.
+
+## Next Steps
 
 To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure][].
-
-
 
 <!--Image references-->
 [1]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -152,4 +147,5 @@ To learn more about building predictive machine learning models, refer to [Intro
 [Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-get-started-manually-load-samples.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md

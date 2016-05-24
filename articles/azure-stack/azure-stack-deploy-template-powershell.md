@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="ErikjeMS"
-	manager="v-kiwhit"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -22,7 +22,7 @@ Use PowerShell to deploy Azure Resource Manager (ARM) templates to the Azure Sta
 
 ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
-> [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download]( http://aka.ms/webpi-azps) the latest Azure PowerShell SDK. 
+> [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download](http://aka.ms/azStackPsh) the latest Azure PowerShell SDK. 
 
 ## Authenticate PowerShell with Microsoft Azure Stack (required)
 
@@ -30,6 +30,7 @@ ARM templates deploy and provision all of the resources for your application in 
 
     - Replace *DIRECTORY_TENANT_NAME* with the fully qualified name of your directory tenant. Typically a directory tenant name will look like mydirectorytenant.onmicrosoft.com.
 	- Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
+	- If you're using China Azure AD, please use "chinacloudapi.cn" to replace "windows.net" in the following cmdlets. You also also need to add "https://*.microsoftonline.cn" and "https://*.microsoftonline-p.cn" to your trusted website list.
 
 ```PowerShell
 
@@ -90,7 +91,12 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -vmName "myVM$myNum" `
 		    -windowsOSVersion "2012-R2-Datacenter"
 ```
+
 3.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
+  
+## Video example: hybrid virtual machine deployment
+
+[AZURE.VIDEO microsoft-azure-stack-tp1-poc-hybrid-vm-deployment]
 
 ## Next steps
 

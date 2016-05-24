@@ -69,8 +69,8 @@ The account SAS and service SAS tokens include some common parameters, and also 
 
 - **Api version** An optional parameter that specifies the storage service version to use to execute the request.
 - **Service version** A required parameter that specifies the storage service version to use to  authenticate the request.
-- **Start time.** This is the time at which the SAS becomes valid. The start time for a shared access signature is optional; if omitted, the SAS is effective immediately.
-- **Expiry time.** This is the time after which the SAS is no longer valid. Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy (see more below).
+- **Start time.** This is the time at which the SAS becomes valid. The start time for a shared access signature is optional; if omitted, the SAS is effective immediately. Must be expressed in UTC (Coordinated Universal Time), with a special UTC designator ("Z") i.e. 1994-11-05T13:15:30Z.
+- **Expiry time.** This is the time after which the SAS is no longer valid. Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy. Must be expressed in UTC (Coordinated Universal Time), with a special UTC designator ("Z") i.e. 1994-11-05T13:15:30Z (see more below).
 - **Permissions.** The permissions specified on the SAS indicate what operations the client can perform against the storage resource using the SAS. Available permissions differ for an account SAS and a service SAS.
 - **IP.** An optional parameter that specifies an IP address or a range of IP addresses outside of Azure (see the section [Routing session configuration state](../expressroute/expressroute-workflows.md#routing-session-configuration-state) for Express Route) from which to accept requests.
 - **Protocol.** An optional parameter that specifies the protocol permitted for a request. Possible values are both HTTPS and HTTP (https,http), which is the default value, or HTTPS only (https). Note that HTTP only is not a permitted value.
@@ -102,8 +102,8 @@ Name|SAS portion|Description
 ---|---|---
 Blob URI|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |The address of the blob. Note that using HTTPS is highly recommended.
 Storage services version|sv=2015-04-05|For storage services version 2012-02-12 and later, this parameter indicates the version to use.
-Start time|st=2015-04-29T22%3A18%3A26Z|Specified in an ISO 8601 format. If you want the SAS to be valid immediately, omit the start time.
-Expiry time|se=2015-04-30T02%3A23%3A26Z|Specified in an ISO 8601 format.
+Start time|st=2015-04-29T22%3A18%3A26Z|Specified in UTC time. If you want the SAS to be valid immediately, omit the start time.
+Expiry time|se=2015-04-30T02%3A23%3A26Z|Specified in UTC time.
 Resource|sr=b|The resource is a blob.
 Permissions|sp=rw|The permissions granted by the SAS include Read (r) and Write (w).
 IP range|sip=168.1.5.60-168.1.5.70|The range of IP addresses from which a request will be accepted.

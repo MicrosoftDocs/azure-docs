@@ -1,10 +1,10 @@
 <properties
    pageTitle="Configure a Virtual Network and Gateway for ExpressRoute | Microsoft Azure"
-   description="This article walks you through setting up a virtual network (VNet) for ExpressRoute"
+   description="This article walks you through setting up a virtual network (VNet) for ExpressRoute using the classic deployment model."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,16 +14,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
-# Configure a Virtual Network for ExpressRoute
+# Configure a Virtual Network for ExpressRoute in the classic portal
 
-These steps will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model and Service Management. Currently, we do not have documentation for configuring a VNet for ExpressRoute using the Resource Manager deployment model. When we do have a published article, we'll add a link to it.
+The steps in this article will walk you through configuring a virtual network and a gateway for use with ExpressRoute using the classic deployment model and the classic portal.
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
+If you are looking instructions for the Resource Manager deployment model, you can use the following articles which will walk you through how to [Create a virtual network by using PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) and to [Add a VPN Gateway to a Resource Manager VNet for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-1. Log in to the **Azure Classic Portal**.
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+
+## To configure a VNet and gateway
+
+1. Log in to the [Azure classic portal](http://manage.windowsazure.com).
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 

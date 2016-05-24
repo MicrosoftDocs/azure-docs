@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="04/12/2016"
    ms.author="alkohli"/>
 
 
@@ -22,7 +22,7 @@
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## Overview 
-This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.
+This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above. This article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
 
 You will need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
@@ -59,7 +59,7 @@ Before you deploy a virtual device, make sure that:
 
 Before you begin, make sure that:
 
--   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see Microsoft Azure StorSimple Virtual Array System Requirements Guide.
+-   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see [StorSimple Virtual Array system requirements](storsimple-ova-system-requirements.md).
 
 ## Step-by-step provisioning 
 
@@ -91,7 +91,9 @@ To create a virtual device, you will need:
 
 Perform the following steps to provision a virtual device in your hypervisor.
 
-1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure classic portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
+1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure classic portal. 
+	1.  Ensure that this is the latest image file that you have downloaded. If you downloaded the image earlier, download it again to ensure you have the latest image. The latest image has two files (instead of one).
+	2.  Make a note of the location where you copied the image as you will be using this later in the procedure.
 
 2.  Log into the ESXi server using the vSphere client. You will need to have administrator privileges to create a virtual machine.
 
@@ -129,17 +131,18 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image11.png)
 
-1.  You should now browse and point to the VMDK that you downloaded.
+1.  You should now browse and point to the VMDK files that you downloaded. There will be two files. Select a file to upload.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image12.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image12m.png)
 
-1.  Click **Open**. This will now start the upload of the VMDK file to the specified datastore.
+1.  Click **Open**. This will now start the upload of the VMDK file to the specified datastore. It may take several minutes for the file to upload.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image13.png)
 
-1.  It may take several minutes for the file to upload. Once the upload is complete, you will see the file in the datastore in the folder you created.
+1.  After the upload is complete, you will see the file in the datastore in the folder you created. 
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image14.png)
+
+	You will now need to upload the second VMDK file to the same datastore.
 
 1.  Return to the vSphere client window. With ESXi server selected, right-click and select **New Virtual Machine**.
 
@@ -156,7 +159,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image18.png)
 
-1.  On the **Virtual Machine Version** page, select **Virtual Machine Version: 8**. Note this is the only supported option for this release.
+1.  On the **Virtual Machine Version** page, select **Virtual Machine Version: 8**. Note that versions 8 to 11 are all supported.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 
@@ -184,7 +187,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
 
-1.  On the **Select Existing Disk** page, under **Disk File Path**, click **Browse**. This opens a **Browse Datastores** dialog. Navigate to the location where you uploaded the VMDK. Select the file and click **OK**. Click **Next**.
+1.  On the **Select Existing Disk** page, under **Disk File Path**, click **Browse**. This opens a **Browse Datastores** dialog. Navigate to the location where you uploaded the VMDK. You will now see only one file in the datastore as the two files that you initially uploaded have been merged. Select the file and click **OK**. Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 
@@ -266,7 +269,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
-1.  Use the Set-HcsIpAddress cmdlet to configure the network. An example is shown below:
+1.  Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
@@ -275,7 +278,18 @@ Perform the following steps to start your virtual device and connect to it.
 
 1.  After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and registration.
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image45m.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
+
+
+1. (Optional) Perform this step only if you are deploying your device in the Government Cloud. You will now enable the United States Federal Information Processing Standard (FIPS) mode on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data.
+	1. To enable the FIPS mode, run the following cmdlet:
+		
+		`Enter-HcsFIPSMode`
+
+	2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
+
+		> [AZURE.NOTE] You can either enable or disable FIPS mode on your device. Alternating the device between FIPS and non-FIPS mode is not supported.
+
 
 If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 

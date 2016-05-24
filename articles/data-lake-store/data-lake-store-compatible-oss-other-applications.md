@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Big data applications compatible with Data Lake Store | Azure" 
-   description="List of open source applications that work with Azure Data Lake Store" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Big data applications compatible with Data Lake Store | Azure"
+   description="List of open source applications that work with Azure Data Lake Store"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="02/03/2016"
+   ms.workload="big-data"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Open Source Big Data applications that work with Azure Data Lake Store
 
-This article lists the open source big data applications that work with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](/hdinsight/hdinsight-component-versioning.md).
+This article lists the open source big data applications that work with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](../hdinsight/hdinsight-component-versioning.md).
 
 
 | Open Source Software | Distribution					   |
@@ -39,4 +39,3 @@ This article lists the open source big data applications that work with Azure Da
 ## See also
 
 - [Overview of Azure Data Lake Store](data-lake-store-overview.md)
- 

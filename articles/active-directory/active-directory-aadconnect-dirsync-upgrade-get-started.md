@@ -12,9 +12,9 @@
    ms.workload="identity"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="article"
-   ms.date="02/16/2016"
-   ms.author="shoatman;billmath"/>
+   ms.topic="get-started-article"
+   ms.date="05/19/2016"
+   ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Upgrade Windows Azure Active Directory sync (DirSync)
 
@@ -23,19 +23,19 @@ The following documentation will help you upgrade your existing DirSync installa
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics. The first two topics in bold are required before you start the upgrade from DirSync.
 
-| Topic |  |
-| --------- | --------- |
-| **Download Azure AD Connect** | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **Hardware and prerequisites** | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
-| **Accounts used for installation** | [More about Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md) |
+ Topic |  
+--------- | ---------
+**Download Azure AD Connect** | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+**Hardware and prerequisites** | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md)
+**Accounts used for installation** | [More about Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md)
 
 ## Upgrade from DirSync
 Depending on your current DirSync deployment there are different options for the upgrade. If the expected upgrade time is less than 3 hours then we recommend to do an in-place upgrade. If the expected upgrade time is more than 3 hours we recommend to do a parallel deployment on another server. It is estimated that if you have more than 50,000 objects it will take more than 3 hours to do the upgrade.
 
-| Scenario | |
-| ---- | ---- |
-| [In-place upgrade](#in-place-upgrade)  | Preferred option if the upgrade is expected to take less than 3 hours. |
-| [Parallel deployment](#parallel-deployment) | Preferred option if the upgrade is expected to take more than 3 hours. |
+Scenario |  
+---- | ----
+[In-place upgrade](#in-place-upgrade)  | Preferred option if the upgrade is expected to take less than 3 hours.
+[Parallel deployment](#parallel-deployment) | Preferred option if the upgrade is expected to take more than 3 hours.
 
 >[AZURE.NOTE] When you plan to upgrade from DirSync to Azure AD Connect, do not uninstall DirSync yourself before the upgrade. Azure AD Connect will read and migrate the configuration from DirSync and uninstall after inspecting the server.
 
@@ -108,7 +108,7 @@ If you receive an error and have problems with connectivity, please see [Trouble
 ![Enter your ADDS credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. You're now ready to configure.  When you click **Upgrade**, DirSync will be uninstalled and Azure AD Connect will be configured and begin synchronizing.
 ![Ready to configure](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
-
+8. After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager, Synchronization Rule Editor, or try to make any other configuration changes.
 
 ## Parallel deployment
 
@@ -163,6 +163,8 @@ These options can be seen on this screen:
 7. Click **Next**.
 8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked. The server will be in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) so changes will not be exported to Azure AD at this time.
 9. Click **Install**.
+10. After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager, Synchronization Rule Editor, or try to make any other configuration changes.
+
 
 >[AZURE.NOTE] Synchronization between Windows Server Active Directory and Azure Active Directory will begin, but no changes will be exported to Azure AD.  Only one synchronization tool can be actively exporting changes at a time. This is called [staging mode](active-directory-aadconnectsync-operations.md#staging-mode).
 

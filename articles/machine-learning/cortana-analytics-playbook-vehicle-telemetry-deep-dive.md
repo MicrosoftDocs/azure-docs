@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Vehicle telemetry analytics solution playbook: deep dive into the solution | Microsoft Azure" 
-	description="Use the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits." 
+	description="Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/28/2016" 
 	ms.author="bradsev" />
 
 
@@ -99,7 +99,7 @@ XUF99EW9OIQOMV7Q7 | Family Saloon
 
 
 ### To generate simulated data
-1.	Click on the arrow on the upper right on the Vehicle Telematics Simulator node in to download the data simulator package. Save and extract the files locally on your machine. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figure 3 – Vehicle Telemetry Analytics Solution Blueprint*
+1.	Click on the arrow on the upper right on the Vehicle Telematics Simulator node to download the data simulator package. Save and extract the files locally on your machine. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figure 3 – Vehicle Telemetry Analytics Solution Blueprint*
 
 2.	On your local machine, go to the folder where you extracted the Vehicle Telematics Simulator package. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *Figure 4 – Vehicle Telematics Simulator folder*
 
@@ -135,7 +135,7 @@ The stream analytics job ingests data from the Event Hub, performs a join with t
 *Figure 7 - Stream analytics job query for data ingestion*
 
 ### Batch analysis
-We are also generating an additional volume of simulated vehicle signals and diagnostic dataset for richer batch analytics. This is required to ensure a good representative data volume for batch processing. For this purpose, we are using a pipeline named ‘PrepareSampleDataPipeline’ in the Azure Data Factory workflow to generate one-year worth of simulated vehicle signals and diagnostic dataset. Click [Data Factory custom activity](http://go.microsoft.com/fwlink/?LinkId=717077) to download the Data Factory custom DotNet activity Visual Studio solution for customizations based on your requirements. 
+We are also generating an additional volume of simulated vehicle signals and diagnostic dataset for richer batch analytics. This is required to ensure a good representative data volume for batch processing. For this purpose, we are using a pipeline named "PrepareSampleDataPipeline" in the Azure Data Factory workflow to generate one year's worth of simulated vehicle signals and diagnostic dataset. Click [Data Factory custom activity](http://go.microsoft.com/fwlink/?LinkId=717077) to download the Data Factory custom DotNet activity Visual Studio solution for customizations based on your requirements. 
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
@@ -147,7 +147,7 @@ The pipeline consists of a custom ADF .Net Activity, show below:
 
 *Figure 9 - PrepareSampleDataPipeline*
 
-Once the pipeline executes successfully and ‘RawCarEventsTable’ dataset is marked ‘Ready’, one-year worth of simulated vehicle signals and diagnostic data are produced. You will see the following folder and file created in your storage account under the ‘connectedcar’ container
+Once the pipeline executes successfully and "RawCarEventsTable" dataset is marked "Ready", one-year worth of simulated vehicle signals and diagnostic data are produced. You will see the following folder and file created in your storage account under the "connectedcar" container:
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
@@ -155,10 +155,10 @@ Once the pipeline executes successfully and ‘RawCarEventsTable’ dataset is m
 
 ### References
 
-[Azure Event Hub SDK for stream ingestion](event-hubs-csharp-ephcs-getstarted.md)
+[Azure Event Hub SDK for stream ingestion](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Azure Data Factory data movement capabilities](data-factory-data-movement-activities.md)
-[Azure Data Factory DotNet Activity](data-factory-use-custom-activities.md)
+[Azure Data Factory data movement capabilities](../data-factory/data-factory-data-movement-activities.md)
+[Azure Data Factory DotNet Activity](../data-factory/data-factory-use-custom-activities.md)
 
 [Azure Data Factory DotNet activity visual studio solution for preparing sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 
 
@@ -166,19 +166,19 @@ Once the pipeline executes successfully and ‘RawCarEventsTable’ dataset is m
 ## Prepare
 >[AZURE.ALERT] This step in the solution is applicable only to batch processing. 
 
-The raw semi-structured vehicle signals and diagnostic dataset is partitioned in the data preparation step into a YEAR/MONTH format for efficient querying and scalable long term storage (i.e. it enables faulting over from one blob account to the next as the first fills up). The output data (labeled *PartitionedCarEventsTable*) is to be kept for a long period as the foundational/”rawest” form of data in the customer’s “Data Lake”.  The input data to this pipeline would typically be discarded as the output data has full fidelity to the input - it's just stored (partitioned) better for subsequent use.
+The raw semi-structured vehicle signals and diagnostic dataset is partitioned in the data preparation step into a YEAR/MONTH format for efficient querying and scalable long term storage (*i.e.*, it enables faulting over from one blob account to the next as the first fills up). The output data (labeled *PartitionedCarEventsTable*) is to be kept for a long period as the foundational/”rawest” form of data in the customer's “Data Lake”.  The input data to this pipeline would typically be discarded as the output data has full fidelity to the input - it's just stored (partitioned) better for subsequent use.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
 
 *Figure 11 – Partition Car Events workflow*
 
-The raw data is partitioned using a Hive HDInsight activity in ‘PartitionCarEventsPipeline’. A year worth of sample data generated in step 1 is partitioned by YEAR/MONTH to generate vehicle signals and diagnostic data partitions corresponding to each month (total 12 partitions) in a year. 
+The raw data is partitioned using a Hive HDInsight activity in "PartitionCarEventsPipeline". A year's worth of sample data generated in step 1 is partitioned by YEAR/MONTH to generate vehicle signals and diagnostic data partitions corresponding to each month (total 12 partitions) in a year. 
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partition-car-events-pipeline.png)
 
 *Figure 12 - PartitionCarEventsPipeline*
 
-The Hive script shown below, named ‘partitioncarevents.hql’, is used for partitioning and is located at ‘\demo\src\connectedcar\scripts’ folder of the downloaded zip. 
+The Hive script shown below, named "partitioncarevents.hql", is used for partitioning and is located in the "\demo\src\connectedcar\scripts" folder of the downloaded zip. 
 
 	SET hive.exec.dynamic.partition=true;
 	SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -317,7 +317,7 @@ The Hive script shown below, named ‘partitioncarevents.hql’, is used for par
 
 *Figure 13 - PartitionConnectedCarEvents Hive Script*
 
-Once the pipeline is executed successfully, you will see the following partitions generated in your storage account under the ‘connectedcar’ container.
+Once the pipeline is executed successfully, you will see the following partitions generated in your storage account under the "connectedcar" container.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-partitioned-output.png)
 
@@ -373,7 +373,7 @@ Figure 15 – Stream analytics query for real-time processing
 
 All the averages are calculated over a 3 seconds TumblingWindow. We are using TubmlingWindow in this case since we require non-overlapping and contiguous time intervals. 
 
-To learn more about all the ‘Windowing’ capabilities in Azure Stream Analytics, click [Windowing (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+To learn more about all the "Windowing" capabilities in Azure Stream Analytics, click [Windowing (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 **Real-time prediction**
 
@@ -392,14 +392,14 @@ Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717
 
 **To execute the Real-time Dashboard Application **
 
-1.	Click on the PowerBI node on the diagram view and click the Download Real-time Dashboard Application’ link on the properties pane. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png)  *Figure 17 – PowerBI dashboard setup instructions*
+1.	Click on the PowerBI node on the diagram view and click the Download Real-time Dashboard Application" link on the properties pane. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png)  *Figure 17 – PowerBI dashboard setup instructions*
 2.	Extract and save locally ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png)  *Figure 18 – RealtimeDashboardApp folder*
 3.	Execute the application RealtimeDashboardApp.exe
 4.	Provide valid Power BI credentials, sign in and click Accept ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Figure 19 – RealtimeDashboardApp: Sign-in to PowerBI*
 
->[AZURE.NOTE] Note: If you want to flush the PowerBI dataset, execute the RealtimeDashboardApp with ‘flushdata’ parameter: 
+>[AZURE.NOTE] Note: If you want to flush the PowerBI dataset, execute the RealtimeDashboardApp with the "flushdata" parameter: 
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -416,17 +416,17 @@ In this solution, we are targeting the following metrics:
 2.	**Fuel efficient driving behavior** Identifies the trend of the models, locations, driving conditions, and time of the year to gain insights on fuel efficient driving pattern allowing Contoso Motors to use it for marketing campaigns, driving new features and proactive reporting to the drivers for cost effective and environment friendly driving habits. 
 3.	**Recall models** Identifies models requiring recalls by operationalizing the anomaly detection machine learning experiment
 
-Let’s look into the details of each of these metrics,
+Let's look into the details of each of these metrics,
 
 
 **Aggressive driving pattern**
 
-The partitioned vehicle signals and diagnostic data are processed in the pipeline named ‘AggresiveDrivingPatternPipeline’ using Hive to determine the models, location, vehicle and driving conditions etc that exhibits aggressive driving pattern.
+The partitioned vehicle signals and diagnostic data are processed in the pipeline named "AggresiveDrivingPatternPipeline" using Hive to determine the models, location, vehicle and driving conditions etc that exhibits aggressive driving pattern.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-aggressive-driving-pattern.png) 
 *Figure 20 – Aggressive driving pattern workflow*
 
-The Hive script named ‘aggresivedriving.hql’ used for analyzing aggressive driving condition pattern is located at ‘\demo\src\connectedcar\scripts’ folder of the downloaded zip. 
+The Hive script named "aggresivedriving.hql" used for analyzing aggressive driving condition pattern is located at "\demo\src\connectedcar\scripts" folder of the downloaded zip. 
 
 	DROP TABLE IF EXISTS PartitionedCarEvents; 
 	CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -487,9 +487,9 @@ The Hive script named ‘aggresivedriving.hql’ used for analyzing aggressive d
 
 *Figure 21 – Aggressive driving pattern Hive query*
 
-It uses the combination of vehicle’s transmission gear position, brake pedal status and speed to detect reckless/aggressive driving behavior based on braking pattern at high speed. 
+It uses the combination of vehicle's transmission gear position, brake pedal status and speed to detect reckless/aggressive driving behavior based on braking pattern at high speed. 
 
-Once the pipeline is executed successfully, you will see the following partitions generated in your storage account under the ‘connectedcar’ container.
+Once the pipeline is executed successfully, you will see the following partitions generated in your storage account under the "connectedcar" container.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aggressive-driving-pattern-output.png) 
 
@@ -498,13 +498,13 @@ Once the pipeline is executed successfully, you will see the following partition
 
 **Fuel efficient driving pattern**
 
-The partitioned vehicle signals and diagnostic data are processed in the pipeline named ‘FuelEfficientDrivingPatternPipeline’ using Hive to determine the models, location, vehicle and driving conditions etc that exhibits fuel efficient driving pattern.
+The partitioned vehicle signals and diagnostic data are processed in the pipeline named "FuelEfficientDrivingPatternPipeline" using Hive to determine the models, location, vehicle and driving conditions etc that exhibits fuel efficient driving pattern.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-fuel-efficient-driving-pattern.png) 
 
 *Figure 23 – Fuel efficient driving pattern workflow*
 
-The Hive script named ‘fuelefficientdriving.hql’ used for analyzing aggressive driving condition pattern is located at ‘\demo\src\connectedcar\scripts’ folder of the downloaded zip. 
+The Hive script named "fuelefficientdriving.hql" used for analyzing aggressive driving condition pattern is located at "\demo\src\connectedcar\scripts" folder of the downloaded zip. 
 
 	DROP TABLE IF EXISTS PartitionedCarEvents; 
 	CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -566,9 +566,9 @@ The Hive script named ‘fuelefficientdriving.hql’ used for analyzing aggressi
 
 *Figure 24 – Fuel efficient driving pattern Hive query*
 
-It uses the combination of vehicle’s transmission gear position, brake pedal status, speed and accelerator pedal position to detect fuel efficient driving behavior based on acceleration, braking and speed patterns. 
+It uses the combination of vehicle's transmission gear position, brake pedal status, speed and accelerator pedal position to detect fuel efficient driving behavior based on acceleration, braking and speed patterns. 
 
-Once the pipeline is executed successfully, you will see the following partitions generated in your storage account under the ‘connectedcar’ container.
+Once the pipeline is executed successfully, you will see the following partitions generated in your storage account under the "connectedcar" container.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
 
@@ -656,7 +656,7 @@ Once the scoring is completed, an HDInsight activity is used to process and aggr
 
 *Figure 29  – Recall aggregation hive query*
 
-Once the pipeline is executed successfully, you will see the following partitions generated in your storage account under the ‘connectedcar’ container.
+Once the pipeline is executed successfully, you will see the following partitions generated in your storage account under the "connectedcar" container.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-detect-anamoly-pipeline-output.png) 
 

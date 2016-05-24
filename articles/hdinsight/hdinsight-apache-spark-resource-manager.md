@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Manage resources for the Apache Spark cluster in Azure HDInsight (Linux)
+# Manage resources for the Apache Spark cluster on HDInsight Linux (Preview)
 
 Spark on Azure HDInsight (Linux) provides the Ambari Web UI to manage the cluster resources and monitor the health of the cluster. You can also use the Spark History Server to track applications that have finished running on the cluster. You can use the YARN UI to monitor that are currently running on the cluster. This article provides instructions on how to access these UIs and how to perform some basic resource management tasks using these interfaces.
 
@@ -31,7 +31,7 @@ You must have the following:
 
 ## How do I launch the Ambari Web UI?
 
-1. From the [Azure Preview Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**. 
+1. From the [Azure Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**. 
  
 2. From the Spark cluster blade, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
@@ -43,7 +43,7 @@ You must have the following:
 
 ## How do I launch the Spark History Server?
 
-1. From the [Azure Preview Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).
+1. From the [Azure Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).
 
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**. In the **Cluster Dashboard** blade, click **Spark History Server**.
 

@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
-SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By spreading the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By dividing the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.
 
 When a table is created in SQL Data Warehouse, it is actually spread across all of the the distributions.
 
@@ -52,14 +52,16 @@ SQL Data Warehouse supports the common business data types:
 - **smalldatetime**
 - **smallint**
 - **smallmoney**
+- **sysname**
 - **time**
 - **tinyint**
+- **uniqueidentifier**
 - **varbinary**
 - **varchar**
 
 You can identify columns in your data warehouse that contain incompatible types using the following query:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -75,26 +77,17 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
+AND  y.[is_user_defined] = 1
 ;
 
 ```
 
-The query includes any user-defined data types, which are not supported.
-
-below are some alternatives you can use in place of unsupported data types.
+The query includes any user-defined data types, which are not supported.  Below are some alternatives you can use in place of unsupported data types.
 
 Instead of:
 
@@ -102,28 +95,28 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, CLR type not native
 - **image**, **text**, **ntext** when text based use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
-- **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
-- **sysname**, use nvarchar(128)
 - **table**, convert to temporary tables
 - **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use BINARY(8) or VARBINARY(8) for NOT NULL or NULL row version values.
-- **varchar(max)**, use varchar(8000) or smaller for better performance
-- **uniqueidentifier**, use varbinary(8)
 - **user defined types**, convert back to their native types where possible
-- **xml**, use a varchar(8000) or smaller for better performance - split across columns if needed
+- **xml**, use a varchar(max) or smaller for better performance
+
+For better performance, instead of:
+
+- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
+- **varchar(max)**, use varchar(8000) or smaller for better performance
 
 Partial support:
 
 - Default constraints support literals and constants only. Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.
 
-> [AZURE.NOTE] Define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, you will not be be able to insert data into the table. Also, try to limit the size of your variable length columns for even better throughput for running queries.
+> [AZURE.NOTE] If you are using Polybase to load your tables, define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, and load rows with BCP, you will not be be able to us Polybase to load this data quite yet.  Polybase support for wide rows will be added soon. Also, try to limit the size of your variable length columns for even better throughput for running queries.
 
 ## Principles of data distribution
 
 There are two choices for distributing data in SQL Data Warehouse:
 
-1. Distribute data evenly but randomly 
+1. Distribute data evenly but randomly
 2. Distribute data based on hashing values from a single column
 
 Data distribution is decided at the table level. All tables are distributed. You will assign distribution for each table in your SQL Data Warehouse database.
@@ -138,7 +131,7 @@ Round-Robin distribution is a method of spreading data as evenly as possible acr
 
 Below is an example of round robin distributed table:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +151,7 @@ WITH
 
 This is also an example of a round robin distributed table:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -179,7 +172,7 @@ WITH
 
 This table type is commonly used when there is no obvious key column to hash the data by. It can also be used by smaller or less significant tables where the movement cost may not be so great.
 
-Loading data into a round robin distributed table tends to be faster than loading into a hash distributed table. With a round-robin distributed table there is no need to understand the data or perform the hash prior to loading. For this reason Round-Robin tables often make good good loading targets.
+Loading data into a round robin distributed table tends to be faster than loading into a hash distributed table. With a round-robin distributed table there is no need to understand the data or perform the hash prior to loading. For this reason Round-Robin tables often make good loading targets.
 
 > [AZURE.NOTE] When data is round robin distributed the data is allocated to the distribution at the *buffer* level.
 
@@ -201,11 +194,11 @@ The predictability of the hash is extremely important. It means that hash distri
 
 As you will see below, hash distribution can be very effective for query optimization. This is why it is considered to be an optimized form of data distribution.
 
-> [AZURE.NOTE] Remember! The hash is not based on the value of the data but rather on the type of the data being hashed.
+> [AZURE.NOTE] Remember! The hash is not only based on the value of the data.  The hash is a combination of both the value and the data type.
 
 Below is a table that has been hash distributed by ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -228,9 +221,9 @@ WITH
 ## Table partitions
 Table partitions are supported and easy to define.
 
-Example SQL Data Warehouse partitioned `CREATE TABLE` command:
+Example of SQL Data Warehouse partitioned `CREATE TABLE` command:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -254,7 +247,7 @@ WITH
 ;
 ```
 
-Notice that there is no partitioning function or scheme in the definition. All that is taken care of when the table is created. All you have to do is identify the boundary points for the column that is going to be the partitioning key.
+Notice that there is no partitioning function or scheme in the definition. SQL Data Warehouse uses a simplified definition of partitions which is slightly different from SQL Server. All you have to do is identify the boundary points for the partitioned column.
 
 ## Statistics
 
@@ -279,28 +272,31 @@ Apply the following recommendations for generating statistics:
 ## Unsupported features
 SQL Data Warehouse does not use or support these features:
 
-- primary keys
-- foreign keys
-- check constraints
-- unique constraints
-- unique indexes
-- computed columns
-- sparse columns
-- user-defined types
-- indexed views
-- identities
-- sequences
-- triggers
-- synonyms
-
+| Feature | Workaround |
+| --- | --- |
+| identities | [Assigning Surrogate Keys]  |
+| primary keys | N/A |
+| foreign keys | N/A |
+| check constraints | N/A |
+| unique constraints | N/A |
+| unique indexes | N/A |
+| computed columns | N/A |
+| sparse columns | N/A |
+| user-defined types | N/A |
+| indexed views | N/A |
+| sequences | N/A |
+| triggers | N/A |
+| synonyms | N/A |
 
 ## Next steps
-For more development tips, see [development overview][].
+For more development tips, see [development overview][].  For more tips on best practices, see [SQL Data Warehouse Best Practices][].
 
 <!--Image references-->
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
+[Assigning Surrogate Keys]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 

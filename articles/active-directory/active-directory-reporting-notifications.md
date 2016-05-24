@@ -3,9 +3,9 @@
 	description="How to use the Azure Active Directory reporting notifications for suspicious sign ins."
 	services="active-directory"
 	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor="LisaToft"/>
+	authors="dhanyahk"
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
-	ms.author="saah;kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Azure Active Directory Reporting Notifications
 
@@ -24,7 +24,7 @@ At this time, only the Irregular Sign in Activity report triggers email notifica
 
 ## What is an "Irregular Sign in"?
 
-Irregular Sign ins are those that have been identified by our machine learning algorithms, on the basis of an "impossible travel" condition combined with an anomalous sign in location and device. This may indicate that a hacker has been trying to sign in using this account. 
+Irregular sign-ins are those that have been identified by our machine learning algorithms, on the basis of an "impossible travel" condition combined with an anomalous sign-in location and device. This may indicate that a hacker has been trying to sign in using this account.
 
 ## Who receives the email notifications?
 
@@ -32,18 +32,19 @@ The email is sent to all global admins who have been assigned an Active Director
 
 ## How often are these emails sent?
 
-The email is sent if 10 new Irregular Sign in Activities occur in the last 30 days, or since the last email was sent, whichever is less.
+The email is sent if 10 new irregular sign-in activities occur in the last 30 days, or since the last email was sent, whichever is less.
 
 ## How do I access the report mentioned in the email?
 
-When you click on the link, you will be redirected to the report page within the Azure Management Portal. In order to access the report, you need to be both:
+When you click on the link, you will be redirected to the report page within the Azure classic portal. In order to access the report, you need to be both:
 
 - An admin or co-admin of your Azure subscription
-- A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see Azure Active Directory editions.
+
+- A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 ## Can I turn off these emails?
 
-Yes, to turn off notifications related to anomalous sign ins within the Azure Management Portal, click **Configure**, and then select **Disabled** under the **Notifications** section.
+Yes, to turn off notifications related to anomalous sign-ins within the Azure classic portal, click **Configure**, and then select **Disabled** under the **Notifications** section.
 
 ## What's next
 - Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)

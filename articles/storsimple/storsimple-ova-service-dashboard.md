@@ -3,7 +3,7 @@
    description="Describes the StorSimple Manager service dashboard and explains how to use it to monitor the health of your StorSimple Virtual Array."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="04/07/2016"
+   ms.author="alkohli" />
 
-# Use the StorSimple Manager service dashboard for the StorSimple Virtual Array (preview)
+# Use the StorSimple Manager service dashboard for the StorSimple Virtual Array
 
 ## Overview
 

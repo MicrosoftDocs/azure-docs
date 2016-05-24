@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Monitor a DocumentDB account by using the Azure Portal | Microsoft Azure" 
-	description="Learn how to monitor your DocumentDB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption." 
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Monitor a DocumentDB account by using the Azure Portal | Microsoft Azure"
+	description="Learn how to monitor your DocumentDB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption."
+	services="documentdb"
+	documentationCenter=""
+	authors="mimig1"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/18/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/10/2016"
 	ms.author="mimig"/>
 
 # Monitor a DocumentDB account usage in the Azure portal
@@ -24,10 +24,10 @@ You can monitor your DocumentDB accounts in the [Microsoft Azure Portal](https:/
 1.	In the [Azure portal](https://portal.azure.com/), click **Browse**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
 2.	Within the **Monitoring** lens you can, by default, see:
 	*	Total requests for the current day.
-	*	Storage usage for the account. 
+	*	Storage usage for the account.
 
 	If your table displays **No data available** see the [Troubleshooting](#troubleshooting) section.
-	
+
 	![Screen shot of the Monitoring lens which shows the total requests for today and storage usage](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
@@ -48,17 +48,17 @@ You can monitor your DocumentDB accounts in the [Microsoft Azure Portal](https:/
 3.	To change the metrics displayed in the part, simply select or clear the available performance metrics, and then click **Save** at the bottom of the blade.  
 4.	To change the time range, choose a different range (for example, **Custom**), and then click **Save** at the bottom of the blade.  
 
-	![Screen shot of the Time Range part of the Edit Chart blade showing how to enter a custom time range](./media/documentdb-monitor-accounts/madocdb5.png) 
+	![Screen shot of the Time Range part of the Edit Chart blade showing how to enter a custom time range](./media/documentdb-monitor-accounts/madocdb5.png)
 
 
 ## Create side-by-side performance metric charts
 The Azure Portal allows you to create side-by-side metric charts.  
 
-1.	First, right-click on the chart you want to clone and modify and select **Customize**. 
+1.	First, right-click on the chart you want to clone and modify and select **Customize**.
 
 	![Screen shot of the Total Requests chart with the Customize option highlighted](./media/documentdb-monitor-accounts/madocdb6.png)
 
-2.	Click **Clone** on the menu to copy the part and then click **Done customizing**. 
+2.	Click **Clone** on the menu to copy the part and then click **Done customizing**.
 
 	![Screen shot of the Total Requests chart with the Clone and Done customizing options highlighted](./media/documentdb-monitor-accounts/madocdb7.png)  
 
@@ -66,26 +66,19 @@ The Azure Portal allows you to create side-by-side metric charts.
 You may now treat this part as any other metric part, customizing the metrics and time range displayed in the part.  By doing this, you can see two different metrics chart side-by-side at the same time.  
 	![Screen shot of the Total Requests chart and the new Total Requests past hour chart](./media/documentdb-monitor-accounts/madocdb8.png)  
 
-## View usage metrics for a DocumentDB account
-1.	In the [Azure Portal](https://portal.azure.com/), click **Browse**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to see usage metrics.
-2.	Within the **Usage** lens you can view the following by default:
-	*	Estimated cost to date of the DocumentDB account for the current billing period.
-	*	Storage consumed within the account.
-	*	Maximum available storage of the account (threshold).
-	*	User and permission usage.
-	*	Attachment usage.
-
-	![Screen shot of the Usage lens](./media/documentdb-monitor-accounts/madocdb9.png)
- 
 ## Set up performance metric alerts for a DocumentDB account
 1.	In the [Azure Portal](https://portal.azure.com/), click **Browse All**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to setup performance metric alerts.
-2.	Within the **Operations** lens, click the **Alert rules** part.  
-	![Screen shot of the Operations lens, with the Alert rules part selected](./media/documentdb-monitor-accounts/madocdb10.png)
 
-3.	In the Alert rules blade, click **Add alert**.  
+2.	If the **All Settings** blade is not open, click the **Settings** Command at the top left to open the blade.
+	![Screen shot of the Settings command on the Database Account Blade](./media/documentdb-monitor-accounts/madocdb10.png)
+
+3.	In the **All Settings** blade, click **Alert Rules** to open the Alert rules blade.  
+	![Screen shot of the Alert rules part selected](./media/documentdb-monitor-accounts/madocdb10.5.png)
+
+4.	In the Alert rules blade, click **Add alert**.  
 	![Screenshot of the Alert Rules blade, with the Add Alert button highlighted](./media/documentdb-monitor-accounts/madocdb11.png)
 
-4.	In the **Add an alert rule** blade, specify:
+5.	In the **Add an alert rule** blade, specify:
 	*	The name of the alert rule you are setting up.
 	*	A description of the new alert rule.
 	*	The metric for the alert rule.
@@ -116,5 +109,4 @@ If your monitoring tiles display the **No data available** message, and you rece
 	![Screen shot of the updated Total requests past hour tile](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## Next steps
-To learn more about DocumentDB capacity, see [Manage DocumentDB capacity](documentdb-manage.md). 
- 
+To learn more about DocumentDB capacity, see [Manage DocumentDB capacity](documentdb-manage.md).

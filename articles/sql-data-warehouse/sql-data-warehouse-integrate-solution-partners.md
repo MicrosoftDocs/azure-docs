@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/12/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL Data Warehouse solution partners
@@ -47,7 +47,7 @@ To create your end-to-end data warehouse solution, choose from a  wide variety o
 
 ## Next Steps
 
-To learn more about integrating with SQL Data Warehouse, see [Build integrated solutions with SQL Data Warehouse][]. 
+To learn more about integrating with SQL Data Warehouse, see [Build integrated solutions with SQL Data Warehouse][].
 
 
 <!--Image references-->

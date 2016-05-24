@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Web App Cloning"
-	description="Learn how to clone your Web Apps to new Web Apps."
+	pageTitle="Web App Cloning using PowerShell"
+	description="Learn how to clone your Web Apps to new Web Apps using PowerShell."
 	services="app-service\web"
 	documentationCenter=""
 	authors="ahmedelnably"
@@ -16,9 +16,9 @@
 	ms.date="01/13/2016"
 	ms.author="ahmedelnably"/>
 
-# Azure App Service App Cloning #
+# Azure App Service App Cloning Using PowerShell#
 
-With the release of Microsoft Azure PowerShell version 1.1.0 a new option has been added to New-AzureRMWebApp that would give the user the ability to clone an existing Web App to a newly created app in a different region or in the same region. This will enable customers to easily and quickly deploy a number of apps across different regions quickly and easily.
+With the release of Microsoft Azure PowerShell version 1.1.0 a new option has been added to New-AzureRMWebApp that would give the user the ability to clone an existing Web App to a newly created app in a different region or in the same region. This will enable customers to deploy a number of apps across different regions quickly and easily.
 
 App cloning is currently only supported for premium tier app service plans. The new feature uses the same limitations as Web Apps Backup feature, see [Back up a web app in Azure App Service](web-sites-backup.md).
 
@@ -97,7 +97,7 @@ After having the traffic manger id, the following demonstrates creating a clone 
 
 ## Current Restrictions ##
 
-This feature is currently in preview, we are working to add new capabilities over time, the following list are the known restriction on the current version of app cloning:
+This feature is currently in preview, we are working to add new capabilities over time, the following list are the known restrictions on the current version of app cloning:
 
 - Auto scale settings are not cloned
 - Backup schedule settings are not cloned
@@ -109,6 +109,7 @@ This feature is currently in preview, we are working to add new capabilities ove
 
 
 ### References ###
+- [Web App Cloning using Azure Portal](app-service-web-app-cloning-portal.md)
 - [Back up a web app in Azure App Service](web-sites-backup.md)
 - [Azure Resource Manager support for Azure Traffic Manager Preview](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [Introduction to App Service Environment](app-service-app-service-environment-intro.md)

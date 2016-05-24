@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="01/29/2016"
+	ms.topic="article"
+	ms.date="03/07/2016"
 	ms.author="jgao"/>
 
 
@@ -36,7 +36,9 @@ The following video shows the same content:
 
 
 
-**Prerequisites**
+###Before you begin
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Before you begin this HBase tutorial, you must have the following:
 
@@ -326,7 +328,9 @@ You must download the HBase REST API client library for .NET from GitHub and bui
 7. Set the first three variables in the **Main** function.
 8. Press **F5** to run the application.
 
+##Delete the cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## What's next?
 In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.

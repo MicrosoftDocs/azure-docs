@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Service Bus Pricing FAQ | Microsoft Azure"
-   description="Answers some frequently-asked questions about the Service Bus pricing structure."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Service Bus Pricing FAQ | Microsoft Azure"
+    description="Answers some frequently-asked questions about the Service Bus pricing structure."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Service Bus pricing FAQ
 
-This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
+This article answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
 
->[AZURE.NOTE] The pricing structure for Event Hubs is described in the [Event Hubs availability and support FAQ](../event-hubs/event-hubs-availability-and-support-faq.md) topic, with more information in the [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) topic.
+>[AZURE.NOTE] The pricing structure for Event Hubs is described in the [Event Hubs availability and support FAQ](../event-hubs/event-hubs-availability-and-support-faq.md) article, with more information in the [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) article.
 
 - [How do you charge for Service Bus?](#how-do-you-charge-for-service-bus)
 - [What usage of Service Bus is subject to data transfer? What is not?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@ This section answers some frequently-asked questions about the Service Bus prici
 
 ## How do you charge for Service Bus?
 
-For complete information about Service Bus pricing, see [Service Bus Pricing and Billing](https://msdn.microsoft.com/library/dn831889.aspx) and [Service Bus Pricing Details](https://azure.microsoft.com/pricing/details/service-bus/). In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned. You can find more details in the [What usage of Service Bus is subject to data transfer? What is not?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) section below.
+For complete information about Service Bus pricing, see [Service Bus pricing and billing](service-bus-pricing-billing.md) and [Service Bus Pricing Details](https://azure.microsoft.com/pricing/details/service-bus/). In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned. You can find more details in the [What usage of Service Bus is subject to data transfer? What is not?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) section below.
 
 ## What usage of Service Bus is subject to data transfer? What is not?
 
@@ -40,11 +40,11 @@ Any data transfer within a given Azure region is provided at no charge. Any data
 
 ## What exactly is a Service Bus "relay"?
 
-A relay is a Service Bus entity that relays messages between clients and Web services. The relay provides the service with a persistent, discoverable Service Bus address, reliable connectivity with firewall/NAT traversal capabilities, and additional features such as automatic load balancing. A relay is implicitly instantiated and opened at a given Service Bus address (namespace URL) whenever a relay-enabled WCF service, or “relay listener,” first connects to that address. Applications create relay listeners by using the Service Bus .NET managed API, which provides special relay-enabled versions of the standard WCF bindings.
+A relay is a Service Bus entity that relays messages between clients and Web services. The relay provides the service with a persistent, discoverable Service Bus address, reliable connectivity with firewall/NAT traversal capabilities, and additional features such as automatic load balancing. A relay is implicitly instantiated and opened at a given Service Bus address (namespace URL) whenever a relay-enabled WCF service, or "relay listener," first connects to that address. Applications create relay listeners by using the Service Bus .NET APIs, which provide special relay-enabled versions of the standard WCF bindings.
 
 ## How is the Relay Hours meter calculated?
 
-Relay hours are billed for the cumulative amount of time during which each Service Bus relay is “open” during a given billing period. A relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a relay-enabled WCF service, or “Relay listener,” first connects to that address. The relay is closed only when the last listener disconnects from its address. Therefore, for billing purposes a relay is considered “open” from the time the first relay listener connects, to the time the last relay listener disconnects from the Service Bus address of that relay. In other words, a relay is considered “open” whenever one or more relay listeners are connected to its Service Bus address.
+Relay hours are billed for the cumulative amount of time during which each Service Bus relay is "open" during a given billing period. A relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a relay-enabled WCF service, or "Relay listener," first connects to that address. The relay is closed only when the last listener disconnects from its address. Therefore, for billing purposes a relay is considered "open" from the time the first relay listener connects, to the time the last relay listener disconnects from the Service Bus address of that relay. In other words, a relay is considered open whenever one or more relay listeners are connected to its Service Bus address.
 
 ## What if I have more than one listener connected to a given relay?
 
@@ -54,7 +54,7 @@ In some cases, a single relay in Service Bus may have multiple connected listene
 
 In general, billable messages are calculated for relays using the same method as described above for brokered entities (queues, topics, and subscriptions). However, there are several notable differences:
 
-1. Sending a message to a Service Bus relay is treated as a “full through” send to the relay listener that receives the message, rather than a send to the Service Bus relay followed by a delivery to the relay listener. Therefore, a request-reply style service invocation (of up to 64 KB) against a relay listener will result in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also <= 64 KB). This differs from using a queue to mediate between a client and a service. In the latter case, the same request-reply pattern would require a request send to the queue, followed by a dequeue/delivery from the queue to the service, followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same (<= 64 KB) size assumptions throughout, the mediated queue pattern would thus result in four billable messages, twice the number billed to implement the same pattern using relay. Of course, there are benefits to using queues to achieve this pattern, such as durability and load leveling. These benefits may justify the additional expense.
+1. Sending a message to a Service Bus relay is treated as a "full through" send to the relay listener that receives the message, rather than a send to the Service Bus relay followed by a delivery to the relay listener. Therefore, a request-reply style service invocation (of up to 64 KB) against a relay listener will result in two billable messages: one billable message for the request and one billable message for the response (assuming the response is also <= 64 KB). This differs from using a queue to mediate between a client and a service. In the latter case, the same request-reply pattern would require a request send to the queue, followed by a dequeue/delivery from the queue to the service, followed by a response send to another queue, and a dequeue/delivery from that queue to the client. Using the same (<= 64 KB) size assumptions throughout, the mediated queue pattern would thus result in four billable messages, twice the number billed to implement the same pattern using relay. Of course, there are benefits to using queues to achieve this pattern, such as durability and load leveling. These benefits may justify the additional expense.
 
 2. Relays that are opened using the **netTCPRelay** WCF binding treat messages not as individual messages but as a stream of data flowing through the system. In other words, only the sender and listener have visibility into the framing of the individual messages sent/received using this binding. Thus, for relays using the **netTCPRelay** bindng, all data is treated as a stream for the purpose of calculating billable messages. In this case, Service Bus will calculate the total amount of data sent or received via each individual relay on a 5-minute basis and divide that total by 64 KB in order to determine the number of billable messages for the relay in question during that time period.
 
@@ -64,15 +64,15 @@ No, Service Bus does not charge for storage. However, there is a quota limiting 
 
 ## Does Service Bus have any usage quotas?
 
-By default, for any cloud service Microsoft sets an aggregate monthly usage quota that is calculated across all of a customer’s subscriptions. Because we understand that you may need more than these limits, please contact customer service at any time so that we can understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quotas are as follows:
+By default, for any cloud service Microsoft sets an aggregate monthly usage quota that is calculated across all of a customer's subscriptions. Because we understand that you may need more than these limits, please contact customer service at any time so that we can understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quotas are as follows:
 
 - 5 billion messages
 
 - 2 million relay hours
 
-While we do reserve the right to disable a customer's account that has exceeded its usage quotas in a given month, we will provide e-mail notification and make multiple attempts to contact a customer before taking any action. Customers exceeding these quotas will still be responsible for charges that exceed the quotas.
+While we do reserve the right to disable a customer account that has exceeded its usage quotas in a given month, we will provide e-mail notification and make multiple attempts to contact a customer before taking any action. Customers exceeding these quotas will still be responsible for charges that exceed the quotas.
 
-As with other services on Azure, Service Bus enforces a set of specific quotas to ensure that there is fair usage of resources. The following are the usage quotas that the service enforces:
+As with other services on Azure, Service Bus enforces a set of specific [quotas](service-bus-quotas.md) to ensure that there is fair usage of resources. The following are the usage quotas that the service enforces:
 
 - **Queue/topic size** – You specify the maximum queue or topic size upon creation of the queue or topic. This quota can have a value of 1, 2, 3, 4, or 5 GB. If the maximum size is reached, additional incoming messages will be rejected and an exception will be received by the calling code.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Build your Azure first data factory using Microsoft Visual Studio
@@ -32,7 +32,7 @@ In this article, you will learn how to use the Microsoft Visual Studio to create
 1. You **must** read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
 2. This article does not provide a conceptual overview of the Azure Data Factory service. We recommend that you go through [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of the service.  
 
-## Walkthrough: Create and deploy Data Factory entities using Visual Studio 
+## Create and deploy Data Factory entities  
 
 ### Pre-requisites
 
@@ -44,7 +44,7 @@ You must have the following installed on your computer:
 	
 	
 
-### Create the Visual Studio project 
+## Create Visual Studio project 
 1. Launch **Visual Studio 2013** or **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
 2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**.   
 
@@ -54,7 +54,7 @@ You must have the following installed on your computer:
 
 	![Solution Explorer](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
-### Create linked services
+## Create linked services
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. You will specify the name and settings for the data factory later when you publish your Data Factory solution.
 
 In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account will hold the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. You need to identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services.  
@@ -110,10 +110,10 @@ In this step, you will link an on-demand HDInsight cluster to your data factory.
 	See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details. 
 4. Save the **HDInsightOnDemandLinkedService1.json** file.
 
-### Create datasets
+## Create datasets
 In this step, you will create datasets to represent the input and output data for Hive processing. These datasets refer to the **AzureStorageLinkedService1** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
-#### Create the input dataset
+#### Create input dataset
 
 1. In the **Solution Explorer**, right-click **Tables**, point to **Add**, and click **New Item**. 
 2. Select **Azure Blob** from the list, change the name of the file to **InputDataSet.json**, and click **Add**.
@@ -159,7 +159,7 @@ In this step, you will create datasets to represent the input and output data fo
 3. Save the **InputDataset.json** file. 
 
  
-#### Create the output dataset
+#### Create output dataset
 Now, you will create the output dataset to represent the output data stored in the Azure Blob storage. 
 
 1. In the **Solution Explorer**, right-click **tables**, point to **Add**, and click **New Item**. 
@@ -192,7 +192,7 @@ Now, you will create the output dataset to represent the output data stored in t
 4. Save the **OutputDataset.json** file.
 
 
-### Creating your first pipeline
+### Create pipeline
 In this step, you will create your first pipeline with a **HDInsightHive** activity. Note that input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly (see below). The settings for the output dataset and the activity scheduler must match. At this time, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON are explained at the end of this section.
 
 1. In the **Solution Explorer**, right-click **Pipelines**, point to **Add**, and click **New Item.** 
@@ -238,8 +238,8 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-04-01T00:00:00Z",
+		        "end": "2016-04-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
@@ -256,6 +256,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
+	> [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the above example. 
 3. Save the **HiveActivity1.json** file.
 
 ### Add partitionweblogs.hql and input.log as a dependency 
@@ -277,9 +278,7 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 	1. select **Create New Data Factory** option.
 	2. Enter **FirstDataFactoryUsingVS** for **Name**. 
 	
-		> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts. 
-		> 
-		> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+		> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 	3. Select the right subscription for the **Subscription** field. 
 	4. Select the **resource group** for the data factory to be created. 
 	5. Select the **region** for the data factory. 
@@ -287,8 +286,24 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 23. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
+
+Please note the following: 
+
+- If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
+
+	- In Azure PowerShell, run the following command to register the Data Factory provider. 
+		
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+		You can run the following command to confirm that the Data Factory provider is registerd. 
+	
+			Get-AzureRmResourceProvider
+	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This automatically registers the provider for you.
+- 	The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+- 	To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
+
  
-## Step 4: Monitor the pipeline
+## Monitor pipeline
 
 6. Log in into the [Azure Portal](https://portal.azure.com/), do the following:
 	1. Click **Browse** and select **Data factories**.
@@ -326,7 +341,12 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 
 See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
 
-## Use Server Explorer to review Data Factory entities
+You can also Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application. 
+
+> [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
+ 
+
+## Use Server Explorer to view data factories
 
 1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
 2. In the Server Explorer window, expand **Azure** and expand **Data Factory**. If you see **Sign in to Visual Studio**, enter the **account** associated with your Azure subscription and click **Continue**. Enter **password**, and click **Sign in**. Visual Studio tries to get information about all Azure data factories in your subscription. You will see the status of this operation in the **Data Factory Task List** window.
@@ -445,6 +465,25 @@ To publish entities in an Azure Data Factory project using configuration file:
 
 When you deploy, the values from the configuration file are used to set values for properties in the JSON files for Data Factory entities (Linked services, tables, or pipelines) before the entities are deployed to Azure Data Factory service.   
 
+## Summary 
+In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure Portal to do the following steps:  
+
+1.	Created an Azure **data factory**.
+2.	Created two **linked services**:
+	1.	**Azure Storage** linked service to link your Azure blob storage that holds input/output files to the data factory.
+	2.	**Azure HDInsight** on-demand linked service to link an on-demand HDInsight Hadoop cluster to the data factory. Azure Data Factory creates a HDInsight Hadoop cluster just-in-time to process input data and produce output data. 
+3.	Created two **datasets** which describe input and output data for HDInsight Hive activity in the pipeline. 
+4.	Created a **pipeline** with a **HDInsight Hive** activity.  
+
+
 ## Next Steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](data-factory-get-started.md).
   
+## See Also
+| Topic | Description |
+| :---- | :---- |
+| [Data Transformation Activities](data-factory-data-transformation-activities.md) | This article provides a list of data transformation activities (such as HDInsight Hive transformation you used in this tutorial) supported by Azure Data Factory. | 
+| [Scheduling and execution](data-factory-scheduling-and-execution.md) | This article explains the scheduling and execution aspects of Azure Data Factory application model. |
+| [Pipelines](data-factory-create-pipelines.md) | This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. |
+| [Datasets](data-factory-create-datasets.md) | This article will help you understand datasets in Azure Data Factory.
+| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. 

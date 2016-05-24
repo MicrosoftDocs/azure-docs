@@ -17,16 +17,19 @@
    ms.date="02/16/2016"
    ms.author="mwasson"/>
 
-# Authorization in multitenant applications
+# Role-based and resource-based authorization in multitenant applications
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
-In this article we'll look at two general approaches to authorization.
+Our  [reference implementation] is an ASP.NET Core 1.0 application. In this article we'll look at two general approaches to authorization, using the authorization APIs provided in ASP.NET Core 1.0.
 
 -	**Role-based authorization**. Authorizing an action based on the roles assigned to a user. For example, some actions require an administrator role.
 -	**Resource-based authorization**. Authorizing an action based on a particular resource. For example, every resource has an owner. The owner can delete the resource; other users cannot.
 
 A typical app will employ a mix of both. For example, to delete a resource, the user must be the resource owner _or_ an admin.
+
 
 ## Role-Based Authorization
 
@@ -40,7 +43,7 @@ Roles apply to _users_ of the application. In the Surveys application, a user is
 
 For a discussion of how to define and manage roles, see [Application roles].
 
-Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core 1.0 introduces an abstraction called _authorization policies_. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
+Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core 1.0 introduces an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
 
 ### Create policies
 
@@ -249,17 +252,22 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
     };
 ```
 
-## Additional resources
 
-- [Resource Based Authorization](https://docs.asp.net/en/latest/security/authorization/resourcebased.html)
-- [Custom Policy-Based Authorization](https://docs.asp.net/en/latest/security/authorization/policies.html)
+## Next steps
+
+- Read the next article in this series: [Securing a backend web API in a multitenant application][web-api]
+- To learn more about resource based authorization in ASP.NET 1.0 Core, see [Resource Based Authorization][rbac].
 
 <!-- Links -->
 [Tailspin]: guidance-multitenant-identity-tailspin.md
 [part of a series]: guidance-multitenant-identity.md
 [Application roles]: guidance-multitenant-identity-app-roles.md
+[policies]: https://docs.asp.net/en/latest/security/authorization/policies.html
+[rbac]: https://docs.asp.net/en/latest/security/authorization/resourcebased.html
+[reference implementation]: guidance-multitenant-identity-tailspin.md
 [SurveyCreatorRequirement.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Security/Policy/SurveyCreatorRequirement.cs
 [Startup.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Startup.cs
 [Configuring the authentication middleware]: guidance-multitenant-identity-authenticate.md#configuring-the-authentication-middleware
 [SurveyAuthorizationHandler.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Security/Policy/SurveyAuthorizationHandler.cs
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[web-api]: guidance-multitenant-identity-web-api.md

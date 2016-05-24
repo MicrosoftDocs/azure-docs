@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="03/04/2016"
+ ms.date="04/20/2016"
  ms.author="larryfr"/>
 
 #Connect to Hive on Azure HDInsight using the Hive JDBC driver
@@ -150,6 +150,28 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 ##Connect from an example Java application
 
 An example of using a Java client to query Hive on HDInsight is available at [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Follow the instructions in the repository to build and run the sample.
+
+##Troubleshooting
+
+### Unexpected Error occurred attempting to open an SQL connection.
+
+__Symptoms__: When connecting to an HDInsight cluster that is version 3.3 or 3.4, you may receive an error that an unexpected error occurred. The stack trace for this error will begin with the following lines:
+
+    java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
+    at java.util.concurrent.FutureTas...(FutureTask.java:122)
+    at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+
+__Cause__: This error is caused by a mismatch in the version of the common-codec.jar file used by SQuirreL and the one required by the Hive JDBC components downloaded from the HDInsight cluster.
+
+__Resolution__: To fix this error, use the following steps.
+
+1. Download the common-codec jar file from your HDInsight cluster.
+
+        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/common-codec*.jar ./common-codec.jar
+
+2. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system. In the SquirreL directory, under the `lib` directory, replace the existing common-codec.jar with the one downloaded from the HDInsight cluster.
+
+3. Restart SQuirreL. The error should no longer occur when connecting to Hive on HDInsight.
 
 ##Next steps
 

@@ -21,7 +21,7 @@
 
 > [AZURE.IMPORTANT] You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.
 >
-> This document is useful only if you integrated the Reach module for any time campaign support. To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.
+> This document is useful only if you already integrated the Reach module and plan to push Amazon devices. To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.
 
 ##Introduction
 
@@ -102,10 +102,7 @@ Ensure you have the following permissions in your `AndroidManifest.xml` (before 
 
 ##Grant Engagement OAuth credentials
 
-Submit your OAuth Credentials (Client ID and Client Secret) at $/\#application/YOUR\_APPID/native-push.
-
-You can now select "Any Time" when creating Reach announcements and polls.
-
+Submit your OAuth Credentials (Client ID and Client Secret) in Engagement Portal.
 
 [<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
 [ADM client library]:https://developer.amazon.com/sdk/adm/setup.html

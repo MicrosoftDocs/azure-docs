@@ -3,7 +3,7 @@
    description="Azure Active Directory Reports in Public and Private Preview"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Azure Active Directory Report Previews
 
@@ -23,13 +23,13 @@
 Report                                                  | Availability
 ------------------------------------------------------- | --------------------
 **Security Reports**                                    |
-Irregular sign in activity                              | General Availability
-Sign ins from unknown sources                           | General Availability
-Sign ins after multiple failures                        | General Availability
-Sign ins from multiple geographies                      | General Availability
-Sign ins from IP addresses with suspicious activity     | General Availability
-Sign ins from possibly infected devices                 | General Availability
-Users with anomalous sign in activity                   | Public Preview
+Irregular sign-in activity                              | General Availability
+Sign-ins from unknown sources                           | General Availability
+Sign-ins after multiple failures                        | General Availability
+Sign-ins from multiple geographies                      | General Availability
+Sign-ins from IP addresses with suspicious activity     | General Availability
+Sign-ins from possibly infected devices                 | General Availability
+Users with anomalous sign-in activity                   | Public Preview
 Users with leaked credentials                           | Public Preview
 **Application Reports**                                 |
 Account provisioning activity                           | General Availability

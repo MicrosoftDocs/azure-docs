@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="03/30/2016"
 	ms.author="genli"/>
 
 # I am unable to log in to manage my Azure subscription
@@ -24,13 +24,9 @@ This article will help you troubleshoot some common causes of login issues.
 
 ## Which portal are you trying to access?
 
-An Account Owner can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) have access to [Azure Portal](https://manage.windowsazure.com/).
+An Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com/).
 
-Click the links below for instructions on updating the administrator roles:
-
-- [To update the SA on your account](./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)
-
-- [To add a new CA in the management portal](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription)
+For more information about Azure administrator roles, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
 
 ## Is your subscription associated with a Microsoft account or Organizational account?
 

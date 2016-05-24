@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
@@ -83,9 +83,9 @@ Another scenario for the LOB is to have a site to site VPN to the virtual networ
 
 ## Next Steps
 
-[Get started configuring an Internet facing load balancer](load-balancer-internet-getstarted.md)
+[Get started configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
-[Get started configuring an Internal load balancer](load-balancer-internal-getstarted.md)
+[Get started configuring an Internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 

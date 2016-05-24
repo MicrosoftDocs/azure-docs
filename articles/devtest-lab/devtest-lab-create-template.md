@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create VM templates | Microsoft Azure"
-	description="Learn how to create VM templates from VHD images"
+<properties
+	pageTitle="Create a DevTest Labs custom image from a VHD file | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,48 +13,47 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Create VM templates
+# Create a DevTest Labs custom image from a VHD file
 
 ## Overview
 
-Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to that lab](devtest-lab-add-vm-with-artifacts.md) from a list of VM templates. In this article, you'll learn how to upload and configure a Virtual Hard Disk (VHD) image file as a template from which to create your VMs. If you're unfamiliar with VHD images, refer to the [Create and upload a Windows Server VHD to Azure](/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) article to learn how to create a VHD image. Once you've created or obtained access to a VHD image, this article will walk you through uploading it, and creating a template from it.
+After you have [created a lab](devtest-lab-create-lab.md), you can [add virtual machines (VMs) to that lab](devtest-lab-add-vm-with-artifacts.md).
+When you create a VM, you specify a *base*, which can be either a *custom image* or a *Marketplace image*. 
+In this article, you'll see how to create a custom image from a VHD file.
+Note that you'll need access to a valid VHD file to perform all the steps in this article.   
 
-## Create a VM template
+## Create a custom image
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
 1. From the list of labs, tap the desired lab.  
 
-1. On the lab blade, tap **Settings**.
+1. The selected lab's **Settings** blade will be displayed. 
 
-    ![Lab settings](./media/devtest-lab-create-template/lab-blade-settings.png)
+1. On the lab **Settings** blade, tap **Custom images**.
 
-1. On the lab **Settings** blade, tap **Templates**.
+    ![Custom images option](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-    ![Templates option](./media/devtest-lab-create-template/lab-blade-settings-templates.png)
+1. On the **Custom images** blade, tap **+ Custom image**.
 
-1. On the **Templates** blade, tap **+ Template**.
+    ![Add Custom image](./media/devtest-lab-create-template/add-custom-image.png)
 
-    ![Add template](./media/devtest-lab-create-template/add-template.png)
+1. Enter the name of the custom image. This name is displayed in the list of base images when creating a new VM.
 
-1. On the **Add Template** blade:
+1. Enter the description of the custom image. This description is displayed in the list of base images when creating a new VM.
 
-	1. Enter the name of the template. This name is displayed in the list of templates when creating a new VM.
+1. Tap **VHD File**.
 
-	1. Enter the description of the template. This description is displayed in the list of templates when creating a new VM.
+1. If you have access to a VHD file that is not listed, add it by following the instructions in the [Upload a VHD file](#upload-a-vhd-file) section, and return here when finished.
 
-	1. Tap **Image**.
+1. Select the desired VHD file.
 
-	1. If the image you want is not listed and you want to add it, skip to the [Add a new template image](#add-a-new-template-image) section, and return here when finished.
-
-	1. Select the desired image.
-
-	1. Tap **OK** to close the **Add Template** blade.
+1. Tap **OK** to close the **VHD File** blade.
 
 1. Tap **OS Configuration**.
 
@@ -62,26 +61,23 @@ Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to th
 
 1. If **Windows** is selected, specify via the checkbox whether or not *Sysprep* has been run on the machine.
 
-1. Enter a **User name** for the machine.
-
-1. Enter a **Password** for the machine. **Note:** The password will display in clear text.
-
 1. Tap **OK** to close the **OS Configuration** blade.
 
-1. Specify the **Location**.
+1. Tap **OK** to create the custom image.
 
-1. Tap **OK** to create the template.
+1. Go to the [Next Steps](#next-steps) section.
 
-##Add a new template image
+##Upload a VHD file
 
-In order to add a new template image, you'll need to have access to a VHD image file.
+In order to add a new custom image, you'll need to have access to a VHD file.
 
-1. On the **Add Template Image** blade, tap **Upload an image using PowerShell**.
+1. On the **VHD File** blade, tap **Upload a VHD file using PowerShell**.
 
     ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD image file. **Note:** This process can be lengthy depending on the size of the image file and your connection speed.
+1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD file. 
+**Note:** This process can be lengthy depending on the size of the VHD file and your connection speed.
 
 ##Next steps
 
-Once you have added a VM template for use when creating a VM, the next step is to [add a VM to your DevTest Lab](devtest-lab-add-vm-with-artifacts).
+Once you have added a custom image for use when creating a VM, the next step is to [add a VM to your lab](./devtest-lab-add-vm-with-artifacts.md).

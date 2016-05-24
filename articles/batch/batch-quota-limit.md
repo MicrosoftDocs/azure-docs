@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/11/2016"
 	ms.author="danlep"/>
 
 # Quotas and limits for the Azure Batch service
@@ -35,7 +35,12 @@ Batch accounts per region per subscription|1|50
 ## Other limits
 Resource|Maximum Limit
 ---|---
-Tasks per compute node|4 x number of node cores
+Tasks per compute node                | 4 x number of node cores
+Applications per Batch account        | 20
+Application packages per application | 40
+Application package size (each)       | Approx. 195GB<sup>1</sup>
+
+<sup>1</sup> Azure Storage limit for maximum block blob size
 
 ## View Batch quotas
 

@@ -52,7 +52,7 @@ Let's focus on the feedback part of the cycle:
 ## Detect poor availability
 
 
-Marcela Markova is a test specialist on the OBS team, and takes the lead on monitoring online performance. She sets up several [web tests][availability]:
+Marcela Markova is a senior developer on the OBS team, and takes the lead on monitoring online performance. She sets up several [web tests][availability]:
 
 * A single-URL test for the main landing page for the app, http://fabrikambank.com/onlinebanking/. She sets criteria of HTTP code 200 and text 'Welcome!'. If this test fails, there's something seriously wrong with the network or the servers, or maybe a deployment issue. (Or someone has changed the Welcome! message on the page without letting her know.)
 
@@ -80,27 +80,50 @@ On the overview page in Application Insights, there's a chart that shows a varie
 
 Browser page load time is derived from telemetry sent directly from web pages. Server response time, server request count and failed request count are all measured in the web server and sent to Application Insights from there.
 
+Marcela is slightly concerned with at the server response graph, which shows the average time between when the server receives an HTTP request from a user's browser, and when it returns the response. It isn't unusual to see a variation in this chart, as load on the system varies. But in this case, there seems to be a correlation between small rises in the count of requests, and big rises in the response time. That could indicate that the system is operating just at its limits. 
 
-The Failed Request count indicates cases where users have seen an error - typically following an exception thrown in the code. Maybe they see a message saying "Sorry we couldn't update your details right now" or, at absolute embarrassing worst, a stack dump on the user's screen, courtesy of the web server.
+She opens the Servers charts:
 
+![Various metrics](./media/app-insights-detect-triage-diagnose/06.png)
 
-Marcela likes to look at these charts from time to time. The absence of failed requests is encouraging, although when she changes the range of the chart to cover the past week, occasional failures appear. This is an acceptable level in a busy server.  But if there is a sudden jump in failures, or in some of the other metrics such as server response time, Marcela wants to know about it immediately. It might indicate an unforeseen problem caused by a code release, or a failure in a dependency such as a database, or maybe an ungraceful reaction to a high load of requests.
-
-#### Alerts
-
-So she sets two [alerts][metrics]: one for response times greater than a typical threshold, and another for a rate of failed requests greater than the current background.
+There seems to be no sign of resource limitation there, so maybe the bumps in the server response charts are just a coincidence.
 
 
-Together with the availability alert, these give her confidence that she'll know about it as soon as anything unusual happens.  
+## Alerts
 
+Nevertheless, she'd like to keep an eye on the response times. If they go too high, she wants to know about it immediately.
 
-It's also possible to set alerts on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
-
+So she sets an [alerts][metrics], for response times greater than a typical threshold. This gives her confidence that she'll know about it if response times are slow.
 
 
 ![Add alert blade](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
+Alerts can be set on a wide variety of other metrics. For example, you can receive emails if the exception count becomes high, or the available memory goes low, or if there is a peak in client requests.
 
+## Proactive diagnostic alerts
+
+Next day, an alert email does arrive from Application Insights. But when she opens it, she finds isn't the response time alert that she set. Instead, it tells her there's been a sudden rise in failed requests - that is, requests that have returned failure codes of 500 or more.
+
+Failed requests are where users have seen an error - typically following an exception thrown in the code. Maybe they see a message saying "Sorry we couldn't update your details right now" or, at absolute embarrassing worst, a stack dump on the user's screen, courtesy of the web server.
+
+This alert is a surprise, because the last time she looked at it, the failed request count was encouragingly low. A small number of failures is to be expected in a busy server. 
+
+It was also a bit of a surprise for her because she didn't have to configure this alert. In fact, Proactive Diagnostics comes automatically with Application Insights. It automatically adjusts to your app's usual failure pattern, and "gets used to" failures on a particular page, or under high load, or linked to other metrics. It raises the alarm only if there's a rise above what it comes to expect.
+
+![proactive diagnostics email](./media/app-insights-detect-triage-diagnose/21.png)
+
+This is a very useful email. It doesn't just raise an alarm; it does a lot of the triage and diagnostic work, too.
+
+It shows how many customers are affected, and which web pages or operations. Marcela can decide whether she needs to get the whole team working on this as a fire drill, or whether it can be ignored until next week.
+
+The email also shows that a particular exception occurred, and - even more interesting - that the failure is associated with failed calls to a particular database. This explains why the fault suddenly appeared even though Marcela's team has not deployed any updates recently. 
+
+She pings the leader of the database team. Yes, they released a hot fix in the past half hour; and Oops, maybe there might have been a minor schema change....
+
+So the problem is on the way to being fixed, even before investigating logs, and within 15 minutes of it arising. However, Marcela clicks on the link to open Application Insights. It opens straight onto a failed request, and she can see the 
+failed database call in the associated list of dependency calls. 
+
+![failed request](./media/app-insights-detect-triage-diagnose/23.png)
 
 
 ## Detecting exceptions

@@ -15,11 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark;"/>
 
 
 # Restore virtual machines in Azure
+
+> [AZURE.SELECTOR]
+- [Restore VMs in Azure portal](backup-azure-arm-restore-vms.md)
+- [Restore VMs in Classic portal](backup-azure-restore-vms.md)
+
 
 Restore a virtual machine to a new VM from the backups stored in an Azure backup vault with the following steps.
 
@@ -57,7 +62,7 @@ Restore a virtual machine to a new VM from the backups stored in an Azure backup
 
 1. In the **Select restore instance** screen specify details of where to restore the virtual machine.
 
-  - Specify the virtual machine name: In a given cloud service, the virtual machine name should be unique. If you plan to replace an existing VM with the same name, first delete the existing VM and data disks and then restore the data from Azure Backup.
+  - Specify the virtual machine name: In a given cloud service, the virtual machine name should be unique. We don't support over-writing existing VM. 
   - Select a cloud service for the VM: This is mandatory for creating a VM. You can choose to either use an existing cloud service or create a new cloud service.
 
         Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
@@ -95,7 +100,13 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 
 ![Restore job complete](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](virtual-machines-set-up-endpoints) for the virtual machine in the Azure portal.
+After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) for the virtual machine in the Azure portal.
+
+## Backup for Restored VMs
+If you have restored VM to same cloud service with the same name as originally backed up VM, backup will continue on the VM post restore. If you have either restored Vm to a different cloud service or specified a different name for restored VM, this will be treated as a new VM and you need to setup backup for restored VM.
+
+## Restoring a VM during Azure DataCenter Disaster
+Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. 
 
 ## Restoring Domain Controller VMs
 Backup of Domain Controller (DC) virtual machines is a supported scenario with Azure Backup. However some care must be taken during the restore process. The restore experience is vastly different for Domain Controller VMs in a single-DC configuration vs. VMs in a multi-DC configuration.
@@ -131,7 +142,7 @@ PowerShell has the ability to just restore the VM disks from backup and not crea
 
 In order to fully recreate the virtual machine post restoring disks, follow these steps:
 
-1. Restore the disks from backup vault using [Azure Backup PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Restore the disks from backup vault using [Azure Backup PowerShell](../backup-azure-vms-classic-automation.md#restore-an-azure-vm)
 
 2. Create the VM config required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
 	- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)

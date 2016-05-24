@@ -58,7 +58,7 @@ Note that Web Apps do not use Azure Diagnostics. Find the equivalent information
 For more advanced topics, see
 - [Using Azure Diagnostics with Application Insights for Cloud Services](./application-insights/app-insights-cloudservices.md)
 - [Trace the flow of a Cloud Services application with Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-- [Use PowerShell to set up diagnostics on Cloud Services](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
+- [Use PowerShell to set up diagnostics on Cloud Services](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 
 
 ## Virtual Machines using Azure Diagnostics
@@ -66,8 +66,8 @@ For more advanced topics, see
 - [Set up Azure Diagnostics on an Azure Virtual Machine](./virtual-machines-dotnet-diagnostics.md)
 
 For more advanced topics, see
-- [Use PowerShell to set up diagnostics on Azure Virtual Machines](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
-- [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
+- [Use PowerShell to set up diagnostics on Azure Virtual Machines](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
+- [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
 ## Service Fabric using Azure Diagnostics
 Get started at [Monitor a Service Fabric application](./service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Many other Service Fabric diagnostics articles are available in the navigation tree on the left once you get to this article.

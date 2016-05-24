@@ -1,56 +1,25 @@
-## Setup a storage connection string
+## Set up a storage connection string
 
-The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. We recommend that you maintain your storage connection string in a configuration file, rather than hard-coding it into your application. You have two options for saving your connection string:
+The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file. 
 
-- If your application runs in an Azure cloud service, save your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files). See [How to Create and Deploy a Cloud Service](../articles/cloud-services/cloud-services-how-to-create-deploy.md) for details about Azure cloud service configuration.
-- If your application runs on Azure virtual machines, or if you are building .NET applications that will run outside of Azure, save your connection string using the .NET configuration system (e.g. `web.config` or `app.config` file).
+For more information about connection strings, see [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md).
 
-Later on in this guide, we will show how to retrieve your connection string from your code.
+> [AZURE.NOTE] Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key using the Azure Portal if you believe it may have been compromised.
 
-### Configuring your connection string from an Azure cloud service
+### Determine your target environment
 
-Azure Cloud Services has a unique service configuration mechanism that enables you to dynamically change configuration settings from the Azure Management Portal without redeploying your application.
+You have two environment options for running the examples in this guide:
 
-To configure your connection string in the Azure service configuration:
+- You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more details, see [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md)
+- You can run your code against an Azure Storage account in the cloud. 
 
-1.  Within the Solution Explorer of Visual Studio, in the **Roles**
-    folder of your Azure Deployment Project, right-click your
-    web role or worker role and click **Properties**.  
-    ![Select the properties on a Cloud Service role in Visual Studio][connection-string1]
+If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure Portal. For more information, see [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-2.  Click the **Settings** tab and press the **Add Setting** button.  
-    ![Add a Cloud Service setting in visual Studio][connection-string2]
-
-    A new **Setting1** entry will then show up in the settings grid.
-
-3.  In the **Type** drop-down of the new **Setting1** entry, choose
-    **Connection String**.  
-    ![Set connection string type][connection-string3]
-
-4.  Click the **...** button at the right end of the **Setting1** entry.
-    The **Storage Account Connection String** dialog will open.
-
-5.  Choose whether you want to target the storage emulator (Microsoft
-    Azure storage simulated on your local machine) or a storage
-    account in the cloud. The code in this guide works with either
-    option. 
-
-	> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
-
-	If you are targeting a storage account in the cloud, then enter the primary access key for that storage account. To learn how to copy your primary access key via the Azure Management Portal, see [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-
-	> [AZURE.NOTE] Your storage account key is similar to the root password for your storage account. Be sure to protect your key. Avoid distributing it to other users or saving it in a plain-text file that is accessible to others. Regenerate your key using the Management Portal if you believe it may have been compromised.
+> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
 	
-    ![Select target environment][connection-string4]
+### Configure your connection string using .NET configuration
 
-6.  Change the entry **Name** from **Setting1** to a friendlier name
-    like **StorageConnectionString**. You will reference this
-    connection string later in the code in this guide.  
-    ![Change connection string name][connection-string5]
-	
-### Configuring your connection string using .NET configuration
-
-If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`). This includes Azure Websites or Azure Virtual Machines, as well as applications designed to run outside of Azure. You store the connection string using the `<appSettings>` element as follows. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
+If your application runs on a desktop or mobile device, on an Azure virtual machine, or in an Azure Web App, save your connection string using .NET configuration (*e.g.*, in the application's `web.config` or `app.config` file). Store your connection string using the `<appSettings>` element as follows. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
 
 	<configuration>
   		<appSettings>
@@ -58,20 +27,14 @@ If you are writing an application that is not an Azure cloud service, (see previ
   		</appSettings>
 	</configuration>
 
-For example, the configuration setting in your config file may be similar to:
+For example, your configuration setting will be similar to:
 
-	<configuration>
-    	<appSettings>
-      		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln9fT7bvY+rxu2iWAEyzPNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
-    	</appSettings>
-	</configuration>
+	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=account-key" />
 
-You are now ready to perform the how-to tasks in this guide.
+To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting will be:
 
-[connection-string1]: ./media/storage-configure-connection-string-include/connection-string1.png
-[connection-string2]: ./media/storage-configure-connection-string-include/connection-string2.png
-[connection-string3]: ./media/storage-configure-connection-string-include/connection-string3.png
-[connection-string4]: ./media/storage-configure-connection-string-include/connection-string4.png
-[connection-string5]: ./media/storage-configure-connection-string-include/connection-string5.png
+	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-[Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+### Configure your connection string for an Azure cloud service
+
+If your application runs in an Azure cloud service, save your connection string using the Azure service configuration files (`*.csdef` and `*.cscfg` files). See [How to Create and Deploy a Cloud Service](../articles/cloud-services/cloud-services-how-to-create-deploy.md) for details about Azure cloud service configuration.

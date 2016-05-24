@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Mobile Engagement User Interface - Monitor" 
-   description="Learn how to monitor real-time data about your application using Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
+<properties
+   pageTitle="Azure Mobile Engagement User Interface - Monitor"
+   description="Learn how to monitor real-time data about your application using Azure Mobile Engagement"
+   services="mobile-engagement"
+   documentationCenter=""
+   authors="piyushjo"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
+   ms.workload="mobile"
    ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # How to monitor real time data about your application
 
-This article describes the **MONITOR** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+This article describes the **MONITOR** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. 
 
 
 The Monitor section of the UI provides real-time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the [ANALYTICS](mobile-engagement-user-interface-analytics.md) section of the UI. See the **Glossary** section in the [Concepts](http://go.microsoft.com/fwlink/?LinkId=525555) topic for definitions of terms and abbreviations in Analytics and Monitoring (such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info).
@@ -27,8 +27,8 @@ The Monitor section of the UI provides real-time analytics information and allow
 
 ## Monitor - Sessions, Jobs, Events, Errors, and Crashes
 
-You can see how many users are currently in session and on specific screens or doing specific actions. You can view user activity divided by Sessions, Jobs, Events, Errors, and Crashes. You can see the current information and show the information from the last hour, day, or week. You can see all of the information in each category or sort by the specific Session, Job, Event, Error, and Crash.  Live monitoring is helpful to use during events such as a Push campaign to see if there is an uptick in action right after you send your Push notification. 
- 
+You can see how many users are currently in session and on specific screens or doing specific actions. You can view user activity divided by Sessions, Jobs, Events, Errors, and Crashes. You can see the current information and show the information from the last hour, day, or week. You can see all of the information in each category or sort by the specific Session, Job, Event, Error, and Crash.  Live monitoring is helpful to use during events such as a Push campaign to see if there is an uptick in action right after you send your Push notification.
+
 ![Monitor1][14]  
 
 ## Troubleshooting with Monitor - Events - Details
@@ -41,15 +41,15 @@ For more information, see:  [SDK Documentation][Link 5]
 
 ## Troubleshooting with Monitor - Crashes - Details
 
-You can review crash information about your app from Monitor - Crashes - Details to help determine why your app is crashing. You should also look up known issues with each version of the SDK in the release notes for each version of the SDK for Android/iOS/Web/Windows/Windows Phone. 
+You can review crash information about your app from Monitor - Crashes - Details to help determine why your app is crashing. You should also look up known issues with each version of the SDK in the release notes for each version of the SDK for Android/iOS/Web/Windows/Windows Phone.
 
 For more information, see:  [SDK Documentation - Release notes][Link 5]
 
-![Monitor3][16] 
+![Monitor3][16]
 
 ## Monitor - Alerts
 You can also specify conditions for Alerts that will be automatically sent to you via e-mail or instant message. (Any XMPP-compliant services like Google's GTalk or Apple's iChat are supported.) Alerts are based on a pre-defined detection threshold greater than (>) or less than (<) a specific number of Sessions, Jobs, Events, Errors, or Crashes per second, minute, or hour. Alerts can monitor all activities of a given type, or just monitor a specific Job, Event, or Error activity. You can also specify a Minimum Detection Rate, which is the minimum amount of time that will separate two notifications for the same alert to make sure that when your alert is triggered, you will never receive more than 1 notification every X minutes.
- 
+
 ![Monitor4][17]
 
 
@@ -152,4 +152,3 @@ You can also specify conditions for Alerts that will be automatically sent to yo
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 

@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -14,33 +14,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="01/05/2016"
+   ms.date="03/22/2016"
    ms.author="carlrab"/>
 
 # SQL Server database migration to SQL Database in the cloud
 
-In this article you learn to how to migrate an on-premises SQL Server 2005 or later database to Azure SQL Database. In this database migration process, you migrate your schema and your data from the SQL Server database in your current environment into SQL Database, provided the existing database passes compatibility tests. With [SQL Database V12](sql-database-v12-whats-new.md), there are very few remaining compatibility issues other than server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](sql-database-transact-sql-information.md) will need some re-engineering  to [fix these incompatibilities](sql-database-cloud-migrate-fix-compatibility-issues.md) before the SQL Server database can be migrated.
+In this article you learn to how to migrate an on-premises SQL Server 2005 or later database to Azure SQL Database. In this database migration process, you migrate your schema and your data from the SQL Server database in your current environment into SQL Database, provided the existing database passes compatibility tests. With [SQL Database V12](sql-database-v12-whats-new.md), there are very few remaining compatibility issues other than server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](sql-database-transact-sql-information.md) will need some re-engineering  to fix these incompatibilities before the SQL Server database can be migrated.
 
-> [AZURE.NOTE] To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
+To migrate, these are the steps you will take:
+
+- **Test for Compatibility**: You must first validate database compatibility with [SQL Database V12](sql-database-v12-whats-new.md). 
+- **Fix Compatibility Issues, if any**: If validation fails, you must fix the validation errors.  
+- **Perform the migration** Once your database is compatible, you can use one or several methods to perform the migration. 
+
+SQL Server provides several methods to accomplish each of these tasks. This article will provide an overview of the available methods for each task. The following diagram illustrates the steps and the methods.
+
+  ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
+  
+ > [AZURE.NOTE] To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
 
 ## Database migration tools test SQL Server database compatibility with SQL Database
 
-> [AZURE.SELECTOR]
-- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-- [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-
 To test for SQL Database compatibility issues before you start the database migration process, use one of the following methods:
 
-- [Use SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage is a command-prompt utility will test for and, if found, generate a report containing detected compatibility issues.
-- [Use SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md): The Export Data Tier application wizard in SQL Server management studio will display detected errors to the screen.
+- [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT uses the most recent compatibilty rules to detect SQL Database V12 incompatibilities. If incompatibilities are detected, you can fix detected issues directly in this tool. This is currently the recommended method to test and fix SQL Database V12 compatibility issues. 
+- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage is a command-prompt utility will test for and, if found, generate a report containing detected compatibility issues. If you use this tool, make sure you use the most recent version to use the most recent compatiibility rules. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended.  
+- [The Export Data Tier application wizard in SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md): This wizard will detect and report errors to the screen. If not errors are detected, you can continue and complete the migration to SQL Database. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended.
+- [The Microsoft SQL Server 2016 Upgrade Advisor Preview](http://www.microsoft.com/download/details.aspx?id=48119): This standalone tool, that is currently in preview, will detect and generate a report of SQL Database V12 incompatibilites. This tool does not yet have the most recent compatibility rules. This If no errors are detected, you can continue and complete the migration to SQL Database. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended. 
+- [SQL Azure Migration Wizard ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW is a codeplex tool that uses the Azure SQL Database V11 compatability rules to detectAzure SQL Database V12 incompatibilities. If incompatibilities are detected, some issues can be fixed directly in this tool. This tool may find incompatibilities that do not need to be fixed, but it was the first Azure SQL Database migration assistance tool available and there is a lot of support for it from the SQL Server community. Also, this tool can complete the migration from within the tool itself. 
 
 ## Fix database migration compatibility issues
 
-If compatibility issues are detected, you must fix them before proceeding with the SQL Server database migration. Use the following database migration tools:
+If compatibility issues are detected, you must fix them before proceeding with the SQL Server database migration. There are a wide variety of compatibiility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the datbase you are migratng. The older the version of SQL Server for your source database, the more potential incompatibilities you will encounter. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
 
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Use [SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- [SQL Server database features not supported in Azure SQL Database](sql-database-transact-sql-information.md)
+- [Discontinued Database Engine Functionality in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
+- [Discontinued Database Engine Functionality in SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+- [Discontinued Database Engine Functionality in SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+- [Discontinued Database Engine Functionality in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
+- [Discontinued Database Engine Functionality in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
+
+In addition to searching the Internet and using these resources, another good resource to identiify how best to fix an incompatibility issue, use the [MSDN SQL Server coummunity forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](http://stackoverflow.com/).
+
+Use one of the the following database migration tools to fix the issues detected:
+
+- Use [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): To use SSDT, you import your database schema into SQL Server Data Tools for Visual Studion "SSDT"), build the project for a SQL Database V12 deployment, fix all deteteced compatibility issues in SSDT, and then synchronize the changes back to the source database (or a copy of the source database. This is currently the recommended method to test and fix SQL Database V12 compatibility issues. Follow the link for a [walk-through using SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+- Use [SQL Server Management Studio ("SSMS")](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): To use SSMS, you fix the errors detected using another tool to execute Transact-SQL commands to fix the errors detected. This method is primarly for advanced users to modify the database schema directly in the source database. 
+- Use [SQL Azure Migration Wizard ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): To use SAMW, you generate a Transact-SQL script from the source database that is then transformed by the wizard, whenever possible, to make the schema compatible with the SQL Database V12. When complete, SAMW can connect to SQL Database V12 to execute the script. This tool will also analyze trace files to determine compatiblity issues. The script can be generated with schema only or can include data in BCP format.
 
 ## Migrate a compatible SQL Server database to SQL Database
 

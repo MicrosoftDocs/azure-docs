@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2016" 
+	ms.date="03/18/2016" 
 	ms.author="sdanie"/>
 
 
@@ -132,6 +132,9 @@ To filter the property list by tag values, enter one or more tags into the **Fil
 	-	[Policy reference](https://msdn.microsoft.com/library/azure/dn894081.aspx)
 	-	[Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
+## Watch a video overview
+
+> [AZURE.VIDEO use-properties-in-policies]
 
 [api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
 [api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png

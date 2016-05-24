@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #Process vehicle sensor data from Azure Event Hubs using Apache Storm on HDInsight
@@ -52,7 +52,7 @@ The following is a diagram of this solution:
 
 ##Implementation
 
-A complete, automated solution for this scenario is available as part of the <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight-Storm-Examples</a> repository on GitHub. To use this example, follow the steps in the [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md).
+A complete, automated solution for this scenario is available as part of the [HDInsight-Storm-Examples](https://github.com/hdinsight/hdinsight-storm-examples) repository on GitHub. To use this example, follow the steps in the [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md).
 
 ## Next Steps
 

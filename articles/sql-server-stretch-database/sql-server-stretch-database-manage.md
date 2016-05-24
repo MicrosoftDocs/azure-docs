@@ -3,9 +3,9 @@
 	description="Learn how to manage and troubleshoot Stretch Database."
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Manage and troubleshoot Stretch Database
@@ -52,5 +52,7 @@ Queries that include Stretch\-enabled tables are expected to perform more slowly
 -   Your network conditions may have degraded. Contact your network administrator for info about recent issues or outages.
 
 ## See also
+
 [Monitor Stretch Database](sql-server-stretch-database-monitor.md)
+
 [Backup and restore Stretch-enabled databases](sql-server-stretch-database-backup.md)

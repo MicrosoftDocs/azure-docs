@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/01/2016"
+   ms.date="03/08/2016"
    ms.author="barbkess;sonyama"/>
 
 #Transact-SQL topics
@@ -115,12 +115,12 @@
 
 
 ## Next steps
-For more TSQL examples, see [SQL Data Warehouse development overview][].
+For more TSQL examples, see [SQL Data Warehouse reference overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-reference.md
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 

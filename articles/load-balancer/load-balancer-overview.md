@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 
-# What is Azure Load Balancer?
+# Azure Load Balancer overview
 
 Azure Load Balancer delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load-balancer set.
 
@@ -121,6 +121,7 @@ You can get more than one load-balanced public IP address assigned to a set of v
 
 Azure Resource Manager is the new management framework for services in Azure. Azure Load Balancer can now be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see [IaaS just got easier with Azure Resource Manager](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Next steps
 
@@ -128,4 +129,4 @@ Azure Resource Manager is the new management framework for services in Azure. Az
 
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](load-balancer-internet-getstarted.md)
+[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)

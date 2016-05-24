@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Create Application Insights resources using PowerShell
@@ -181,7 +181,7 @@ Azure should set up the resources in strict order. To make sure one setup comple
 
 ## Define metric alerts
 
-There is a [PowerShell method of setting alerts](app-insights-alerts.md/#set-alerts-by-using-powershell).
+There is a [PowerShell method of setting alerts](app-insights-alerts.md#set-alerts-by-using-powershell).
 
 
 ## An example
@@ -317,5 +317,6 @@ Other automation articles:
 
 * [Create an Application Insights resource](app-insights-powershell-script-create-resource.md) - quick method without using a template.
 * [Set up Alerts](app-insights-powershell-alerts.md)
+* [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

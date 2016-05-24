@@ -1,20 +1,20 @@
-<properties 
- pageTitle="Plans and Billing in Azure Scheduler" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="Plans and Billing in Azure Scheduler"
+ description="Plans and Billing in Azure Scheduler"
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # Plans and Billing in Azure Scheduler
 
 ## Job Collection Plans
@@ -54,23 +54,23 @@ A premium billable unit can include up to 10,000 premium job collections. Since 
 
 If you have between 1 and 10,000 premium job collections, you'll be billed for 1 premium billing unit. If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 premium billing units, and so on.
 
-Thus, premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections. 
+Thus, premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.
 
 ## Billing and Active Status
 
 Job collections are always active unless your entire subscription has gone into some temporary disabled state due to billing issues. The only way to ensure that a job collection is not billed is to either set it to the _Free_ plan or to delete the job collection.
 
-Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will _still_ be billed. Similarly, empty job collections are considered active and will be billed. 
+Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will _still_ be billed. Similarly, empty job collections are considered active and will be billed.
 
 ## Pricing
 
 For pricing details, please see [Scheduler Pricing](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## See Also
- 
+
 
  [What is Scheduler?](scheduler-intro.md)
- 
+
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
  [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
@@ -84,7 +84,3 @@ For pricing details, please see [Scheduler Pricing](https://azure.microsoft.com/
  [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
- 
-  
-
-  

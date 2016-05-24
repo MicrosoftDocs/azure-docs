@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Shared Access Signatures Overview | Microsoft Azure"
-   description="What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#."
-   services="service-bus,event-hubs"
-   documentationCenter="na"
-   authors="djrosanova"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Shared Access Signatures overview | Microsoft Azure"
+    description="What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#."
+    services="service-bus,event-hubs"
+    documentationCenter="na"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/09/2015"
-   ms.author="darosa"/>
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="darosa;sethm"/>
 
 # Shared Access Signatures
 
@@ -24,7 +24,7 @@
 
 Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. SAS is an extremely powerful mechanism that is used by all Service Bus services. In actual use, SAS has two components: a *Shared Access Policy* and a *Shared Access Signature* (often called a *token*).
 
-You can find more detailed information about Shared Access Signatures with Service Bus in [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
+You can find more detailed information about Shared Access Signatures with Service Bus in [Shared Access Signature authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Shared Access Policy
 
@@ -56,7 +56,7 @@ The hash looks similar to the following pseudo code and returns 32 bytes.
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-The non-hashed values are in the **SharedAccessSignature** string so that the recipient can compute the hash with the same parameters, to be sure that it returns the same result. The URI specifies the scope, and the key name identifies the policy to be used to compute the hash. This is important from a security standpoint. If the signature doesn't match that which the recipient (Service Bus) calculates, then access is denied. At this point we can be sure that the sender had access to the key and should be granted the rights specified in the policy.
+The non-hashed values are in the **SharedAccessSignature** string so that the recipient can compute the hash with the same parameters, to be sure that it returns the same result. The URI specifies the scope, and the key name identifies the policy to be used to compute the hash. This is important from a security standpoint. If the signature doesn't match that which the recipient (Service Bus) calculates, then access is denied. At this point you can be sure that the sender had access to the key and should be granted the rights specified in the policy.
 
 ## Generating a signature from a policy
 
@@ -182,11 +182,11 @@ If you give a sender or client a SAS token, they don't have the key directly, an
 
 ## Using the Shared Access Signature (at AMQP level)
 
-In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus. As you know, you can access Service Bus using the AMQP (Advanced Message Queue Protocol) protocol that is the mainly and preferred protocol to use for performance reasons in a lot of scenarios. The SAS token usage with AMQP is described in the following document [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) that is in working draft since 2013 but it's well supported by Azure today.
+In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus. As you know, you can access Service Bus using the Advanced Message Queuing Protocol (AMQP) that is the preferred protocol to use for performance reasons in a lot of scenarios. The SAS token usage with AMQP is described in the document [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) that is in working draft since 2013 but well supported by Azure today.
 
-Before starting to send data to the Service Bus, the publisher needs to send the SAS token inside an AMQP message to a well defined AMQP node named **"$cbs"** (you can see it like a "special" queue used by the service to acquire and validate all the SAS tokens). The publisher needs to specify the **"ReplyTo"** field inside the AMQP message; this is the node where the service will reply to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service). This reply node is created "on fly" speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification. After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.
+Before starting to send data to Service Bus, the publisher must send the SAS token inside an AMQP message to a well-defined AMQP node named **"$cbs"** (you can see it as a "special" queue used by the service to acquire and validate all the SAS tokens). The publisher must specify the **"ReplyTo"** field inside the AMQP message; this is the node in which the service replies to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service). This reply node is created "on the fly," speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification. After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.
 
-The following steps will show how to send the SAS token with AMQP protocol using the [AMQP.Net Lite](http://amqpnetlite.codeplex.com) library useful if you can't use the official Service Bus SDK (for example on WinRT, .Net Compact Framework, .Net Micro Framework and Mono) developing in C&#35;. Of corse, this library is useful to understand how Claim-Based Security works at AMQP level as you saw how it works at HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). However, don't worry ! If you don't need such deep knowledge about AMQP, you can use official Service Bus SDK with .Net Framework applications that will do it for you or the [Azure SB Lite](http://azuresblite.codeplex.com) library for all the other platforms (see above).
+The following steps show how to send the SAS token with AMQP protocol using the [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) library. This is useful if you can't use the official Service Bus SDK (for example on WinRT, .Net Compact Framework, .Net Micro Framework and Mono) developing in C&#35;. Of course, this library is useful to help understand how claims-based security works at the AMQP level, as you saw how it works at the HTTP level (with an HTTP POST request and the SAS token sent inside the "Authorization" header). If you don't need such deep knowledge about AMQP, you can use the official Service Bus SDK with .Net Framework applications that will do it for you.
 
 ### C&#35;
 
@@ -239,14 +239,15 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-The above *PutCbsToken()* method receives the *connection* (AMQP Connection class instance as provided by AMQP .Net Lite library) that represents the TCP connection to the service and the *sasToken* parameter that is the SAS token to send. 
-NOTE : it's important that the connection is created with **SASL authentication mechanism set to EXTERNAL** (and not the default PLAIN with username and password used when you don't need to send the SAS token).
+The `PutCbsToken()` method receives the *connection* (AMQP connection class instance as provided by the [AMQP .NET Lite library](https://github.com/Azure/amqpnetlite)) that represents the TCP connection to the service and the *sasToken* parameter that is the SAS token to send. 
 
-Next the publisher creates two AMQP links for sending the SAS token and receiving the reply (token validation result) from the service.
+> [AZURE.NOTE] It's important that the connection is created with **SASL authentication mechanism set to EXTERNAL** (and not the default PLAIN with username and password used when you don't need to send the SAS token).
 
-The AMQP message is a litte complex with a bunch of properties and more information than a simple message. The SAS token is put as the body of the message (using its constructor). The **"ReplyTo"** property is set to the node name for receiving the validation result on the receiver link (you can change its name as you want and it will be created dynamically by the service). The last three application/custom properties are used by the service to understand what kind of operation it has to execute. As described by the CBS draft specification they must be the **operation name** (so "put-token"), the **type of token** being put (so a "servicebus.windows.net:sastoken") and finally the **"name" of the audience** to which the token applies (the entire entity).
+Next, the publisher creates two AMQP links for sending the SAS token and receiving the reply (token validation result) from the service.
 
-After sending the SAS token on the sender link, the publisher needs to read the reply on the receiver link. The reply is a simple AMQP message with an application properties named **"status-code"** that can contain the same values as an HTTP status code. 
+The AMQP message contains a set of properties, and more information than a simple message. The SAS token is the body of the message (using its constructor). The **"ReplyTo"** property is set to the node name for receiving the validation result on the receiver link (you can change its name if you want, and it will be created dynamically by the service). The last three application/custom properties are used by the service to indicate what kind of operation it has to execute. As described by the CBS draft specification, they must be the **operation name** ("put-token"), the **type of token** (in this case, a "servicebus.windows.net:sastoken"), and the **"name" of the audience** to which the token applies (the entire entity).
+
+After sending the SAS token on the sender link, the publisher must read the reply on the receiver link. The reply is a simple AMQP message with an application property named **"status-code"** that can contain the same values as an HTTP status code. 
 
 ## Next steps
 

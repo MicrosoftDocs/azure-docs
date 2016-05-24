@@ -4,7 +4,7 @@
 	services="sql-database, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/03/2016"
 	ms.author="jolevy"/>
 
 

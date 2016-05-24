@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
 # Azure Resource Manager Support for Load Balancer 
 
-Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](../azure-preview-portal-using-resource-groups.md).
+Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. 
 
 ## Concepts
 
@@ -46,7 +46,7 @@ Templates include Virtual Machines, Virtual Networks, Availability Sets, Network
 
 [Learn more about templates](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[Learn more about Network Resources](../resource-groups-networking)
+[Learn more about Network Resources](../virtual-network/resource-groups-networking)
 
 Templates using Azure Load Balancer can be found in a [GitHub repository](https://github.com/Azure/azure-quickstart-templates) hosting a set of community generated templates
 
@@ -65,7 +65,7 @@ Examples of templates:
 
 - [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md)
 
-- [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager)
+- [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager.md)
 
 - [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 

@@ -18,7 +18,7 @@
 # Multiple VIPs per cloud service
 You can access Azure cloud services over the public Internet by using an IP address provided by Azure. This public IP address is referred to as a VIP (virtual IP) since it is linked to the Azure load balancer, and not really the VM instances within the cloud service. You can access any VM instance within a cloud service by using a single VIP. 
 
-However, there are scenarios in which you may need more than one VIP as an entry point to the same cloud service. For instance, your cloud service may host multiple websites that requires SSL connectivity using the default SLSL port of 443, each site being hosted for a different customer, or tenant. In such a scenario, you need to have a different public facing IP address for each website. The diagram below shows a typical multi-tenant web hosting with a need for multiple SSL certificates on the same public port.
+However, there are scenarios in which you may need more than one VIP as an entry point to the same cloud service. For instance, your cloud service may host multiple websites that require SSL connectivity using the default port of 443, each site being hosted for a different customer, or tenant. In such a scenario, you need to have a different public facing IP address for each website. The diagram below shows a typical multi-tenant web hosting with a need for multiple SSL certificates on the same public port.
 
 ![Multi VIP SSL scenario](./media/load-balancer-multivip/Figure1.png)
 
@@ -148,7 +148,7 @@ You can also update your load balancer to use a different VIP. For instance, if 
 
 [Internet facing load balancer overview](load-balancer-internet-overview.md)
 
-[Get started on Internet facing load balancer](load-balancer-internet-getstarted.md)
+[Get started on Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
 [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 

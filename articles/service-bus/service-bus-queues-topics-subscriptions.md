@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # Service Bus queues, topics, and subscriptions
@@ -169,6 +169,7 @@ See the following advanced topics for more information and examples of using Ser
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus brokered messaging .NET tutorial](service-bus-brokered-tutorial-dotnet.md)
 - [Service Bus brokered messaging REST tutorial](service-bus-brokered-tutorial-rest.md)
+- [Event Hubs documentation](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [Event Hubs developer guide](../event-hubs/event-hubs-programming-guide.md)
 - [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 

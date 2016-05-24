@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="04/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# Connect to SQL Data Warehouse 
-To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.
+# Connect to SQL Data Warehouse
+To connect to SQL Data Warehouse you will need to pass in security credentials for authentication purposes. Upon establishing a connection you will also find that certain connection settings are configured as part of establishing your query session.  You may also want to review the article [Secure a database in SQL Data Warehouse][] for more information on security and how to enable connections to your SQL Data Warehouse.
 
-This article details the following aspects of connecting to SQL Data warehouse:
+This article details the following aspects of connecting to SQL Data Warehouse:
 
 - Authentication
 - Connection Settings
@@ -29,9 +29,9 @@ This article details the following aspects of connecting to SQL Data warehouse:
 ## Authentication
 To connect to SQL Data Warehouse you will need to provide the following information:
 
-- Fully qualified servername 
+- Fully qualified servername
 - Specify SQL authentication
-- Username 
+- Username
 - Password
 - Default database (optional)
 
@@ -42,9 +42,9 @@ By default your connection will connect to the master database and not your user
 1. Specify the default database when registering your server with the SQL Server Object Explorer in SSDT or in your application connection string. For example by including the InitialCatalog parameter for an ODBC connection.
 2. First highlight the user database prior to creating a session in SSDT.
 
-> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT please refer back to the [connect and query][] getting started article. 
+> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT please refer back to the [connect and query][] getting started article.
 
-It is again important to note that the Transact-SQL statement **USE <your DB>** is not supported for changing the database for a connection 
+It is again important to note that the Transact-SQL statement **USE <your DB>** is not supported for changing the database for a connection
 
 ## Application connection protocols
 You can connect to SQL Data Warehouse using any of the following protocols:
@@ -52,29 +52,31 @@ You can connect to SQL Data Warehouse using any of the following protocols:
 - ADO.NET
 - ODBC
 - PHP
-- JDBC
+- JDBC 
+
+Below are some examples of connections strings for each protocol.  You can also use the Azure Portal to help you set up your connection string.  Simply navigate to your database on the Azure Portal.  Under *Essentials* click on *Show database connection strings*. 
 
 ### Sample ADO.NET connection string
 
-```
+```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### Sample ODBC connection string
 
-```
+```C#
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
 ### Sample PHP connection string
 
-```
+```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### Sample JDBC connection string
 
-```
+```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
@@ -95,10 +97,10 @@ Once a connection has been made and a session has been established you are ready
 
 Each query will be represented by one or more request identifiers. All queries submitted on that connection are part of a single session and will therefore be represented by a single session id.
 
-However, as SQL Data Warehouse is a distributed MPP system both session and request identifiers are exposed a little differently when compared to SQL Server. 
+However, as SQL Data Warehouse is a distributed MPP (Massively Parallel Processing) system both session and request identifiers are exposed a little differently when compared to SQL Server.
 
 Sessions and requests are logically represented by their respective identifiers.
-	
+
 | Identifier | Example value |
 | :--------- | :------------ |
 | Session ID | SID123456     |
@@ -110,14 +112,14 @@ You will need this information to help you identify your query when monitoring y
 
 To identify which session you are currently using the following function:
 
-```
+```sql
 SELECT SESSION_ID()
 ;
 ```
 
 To view all the queries that are either running or have recently run against your data warehouse you can use a query like the one below:
 
-```
+```sql
 CREATE VIEW dbo.vSessionRequests
 AS
 SELECT 	 s.[session_id]									AS Session_ID
@@ -153,6 +155,7 @@ Once connected you can begin designing your tables. Please refer to the [table d
 <!--Azure.com references-->
 [connect and query]: ./sql-data-warehouse-get-started-connect.md
 [table design]: ./sql-data-warehouse-develop-table-design.md
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-security.md
 
 <!--MSDN references-->
 

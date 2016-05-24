@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/05/2016"
+	ms.topic="article"
+	ms.date="04/27/2016"
 	ms.author="jgao"/>
 
 
@@ -29,7 +29,9 @@ The information in this document is specific to Windows-based HDInsight clusters
 
 > [AZURE.NOTE] HBase (version 0.98.0) on Windows-based HDInsight is only available for use with HDInsight 3.1 clusters (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
 
-###Prerequisites
+###Before you begin
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Before you begin this HBase tutorial, you must have the following:
 
@@ -291,7 +293,9 @@ To open the Web UI, you must RDP into the cluster, and then click the HMaster In
 
 In a high availability cluster, you'll find a link to the current active HBase master node that is hosting the Web UI.
 
+##Delete the cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## What's next?

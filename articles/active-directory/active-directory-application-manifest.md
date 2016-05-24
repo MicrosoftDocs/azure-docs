@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/18/2015"
+   ms.date="03/16/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Understanding the Azure Active Directory application manifest
@@ -105,7 +105,7 @@ Now that the manifest is saved, you can give a registered client application acc
 
 1. First go to the "Configure" page of the client application to which you wish to add access to the new API, and click the "Add application" button.
 2. Then you will be presented with the list of registered resource applications (APIs) in the tenant. Click the plus/+ symbol next to the resource application's name to select it.  
-3. Then click the check mark in the lower right. 
+3. Then click the check mark in the lower right.
 4. When you return to the "Add Application" section of your client's configuration page, you will see the new resource application in the list. If you hover over the "Delegated Permissions" section to the right of that row, you will see a drop down list show up. Click the list, then select the new permission in order to add it to the client's requested list of permissions. Note: this new permission will be stored in the client application's identity configuration, in the "requiredResourceAccess" collection property.
 
 ![Permissions to other applications][PERMS-TO-OTHER-APPS]

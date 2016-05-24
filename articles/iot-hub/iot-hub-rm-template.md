@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Create an IoT hub using a C# program with an ARM template
@@ -81,7 +81,7 @@ Use a JSON template and parameter file to create a new IoT hub in your resource 
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": {
@@ -115,11 +115,11 @@ Use a JSON template and parameter file to create a new IoT hub in your resource 
 
 3. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**.  Add a new JSON file called **parameters.json** to your project.
 
-4. Replace the contents of **parameters.json** with the following parameter information that sets the name of the new IoT hub to **mynewiothub**:
+4. Replace the contents of **parameters.json** with the following parameter information that sets a name for the new IoT hub such as **{your initials}mynewiothub**  (note that this name must be globally unique so it should include your name or initials):
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": { "value": "mynewiothub" }

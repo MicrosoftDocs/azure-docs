@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Restore a StorSimple volume from a backup set (Update 2)
@@ -23,7 +23,7 @@
 
 The **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
- ![Backup Catalog page](./media/storsimple-restore-from-backup-set-u2/HCS_BackupCatalog.png)
+ ![Backup Catalog page](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 This tutorial explains how to use the **Backup Catalog** page to restore your device from a backup set.
 
@@ -73,7 +73,7 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 
 1. On the StorSimple Manager service page, click the **Backup catalog** tab.
 
-    ![Backup catalog](./media/storsimple-restore-from-backup-set-u2/HCS_Restore.png)
+    ![Backup catalog](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 2. Select a backup set as follows:
   1. Select the appropriate device.

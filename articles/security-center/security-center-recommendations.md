@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -38,7 +38,7 @@ In [Setting security policies in Azure Security Center](security-center-policies
 - Turn on data collection.
 - Choose which recommendations to see as part of your security policy.
 
-Current policy recommendations center around system updates, baseline rules, antimalware programs, [ACLs for endpoints](../virtual-machines/virtual-machines-set-up-endpoints.md), [network security groups](../virtual-network/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, antimalware programs, [ACLs for endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), [network security groups](../virtual-network/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
 
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile on the **Security Center** blade lets you know the total number of recommendations identified by Security Center.
@@ -82,6 +82,7 @@ Use the table below as a reference to help you understand the available recommen
 |Enable Transparent Data Encryption on SQL databases|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
 |Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
 | [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM.|
+|Provide security contact details | Recommends that you  provide security contact information for each of your subscriptions. Contact information is an email address and phone number. The information will be used to contact you if our security team finds that your resources are compromised. |
 
 You can filter and dismiss recommendations.
 
@@ -106,7 +107,7 @@ Using the **Enable Antimalware** recommendation, let’s walk through an example
 5. Enter the required configuration settings on the **Add Extension** blade, and then select **OK**.
 ![][6]
 
-[Microsoft Antimalware](../azure-security-antimalware.md) is now active on the selected virtual machine.
+[Microsoft Antimalware](../security/azure-security-antimalware.md) is now active on the selected virtual machine.
 
 
 ## Next steps
@@ -115,6 +116,7 @@ In this document, you were introduced to security recommendations in Security Ce
 - [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 - [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 

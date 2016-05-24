@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: A helper tool used to demonstrate the page user interface (UI) customization feature
