@@ -47,6 +47,10 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 <a name="create-cache"></a>
 ## Create a cache
 
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+
+TESTTESTTEST
+
 To create a cache, first sign in to the [Azure Portal][], and click **New**, **Data + Storage**, **Redis Cache**.
 
 >[AZURE.NOTE] In addition to creating caches in the Azure Portal, you can also create them using ARM templates, PowerShell, or Azure CLI.
