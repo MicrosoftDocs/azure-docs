@@ -113,12 +113,14 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
-###   Scenario 4. Disable the Linux monitor extension
+###   Scenario 4. Stop the extension from collecting any logs
+This section describes how to stop the extension from collecting any logs. Note that the monitoring agent process will be still up and running even with this reconfiguration. Therefore, if you'd like to completely stop the monitoring agent process, currently the extension needs to be uninstalled. In the future, we may add a configuration property that just disables the extension (stopping the monitoring agent process entirely as well), not requiring the uninstallation of the whole extension.
+
 Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content.
 
 	{
      	"perfCfg":[],
-     	"enableSyslog":”False”
+     	"enableSyslog":"false"
 	}
 
 

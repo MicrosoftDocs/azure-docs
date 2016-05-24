@@ -64,6 +64,8 @@ In this step, you use the Azure Portal to create an Azure data factory named **A
 	![Data Factory name not available][image-data-factory-name-not-available]
 	
 	> [AZURE.NOTE] The name of the data factory may be registered as a DNS name in the future and hence become publically visible.  
+	> 
+	> To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
 
 9. Click **NOTIFICATIONS** hub on the left and look for notifications from the creation process. Click **X** to close the **NOTIFICATIONS** blade if it is open. 
 10. After the creation is complete, you will see the **DATA FACTORY** blade as shown below.
