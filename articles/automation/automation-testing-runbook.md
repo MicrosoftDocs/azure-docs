@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="05/23/2016"
+	ms.date="05/24/2016"
 	ms.author="magoedte;bwren" />
 
 # Testing a runbook in Azure Automation
@@ -33,18 +33,6 @@ You can work with any [runbook type](automation-runbook-types.md) in the Azure p
 4. If you want to run the test on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), then change **Run Settings** to **Hybrid Worker** and select the name of the target group.  Otherwise, keep the default **Azure** to run the test in the cloud.
 5. Click the **Start** button to start the test.
 6. If the runbook is [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) or [Graphical](automation-runbook-types.md#graphical-runbooks), then you can stop or suspend it while it is being tested with the buttons underneath the Output Pane. When you suspend the runbook, it completes the current activity before being suspended. Once the runbook is suspended, you can stop it or restart it.
-7. Inspect the output from the runbook in the output pane.
-
-
-
-## To test a runbook in the Azure portal
-
-You can only work with [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks) in the Azure portal.
-
-
-1. [Open the Draft version of the runbook](automation-edit-textual-runbook.md#to-edit-a-runbook-with-the-azure-portal).
-2. Click the **Test** button to start the test.  If the runbook has parameters, you will receive a dialog box to provide values to be used for the test.
-6. You can stop or suspend the runbook while it is being tested with the buttons underneath the Output Pane. When you suspend the runbook, it completes the current activity before being suspended. Once the runbook is suspended, you can stop it or restart it.
 7. Inspect the output from the runbook in the output pane.
 
 
