@@ -59,9 +59,7 @@ Before you deploy a virtual device, make sure that:
 
 ### For the network in the datacenter
 
-Before you begin, make sure that:
-
--   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see [StorSimple Virtual Array networking requirements](storsimple-ova-system-requirements.md#networking-requirements).
+Before you begin, review the networking requirements to deploy a StorSimple virtual device and configure the datacenter network appropriately. For more information, see [StorSimple Virtual Array networking requirements](storsimple-ova-system-requirements.md#networking-requirements).
 
 ## Step-by-step provisioning
 
@@ -114,7 +112,9 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  On the **Specify generation** page, choose **Generation 2** to use a .vhdx image, and then click **Next**. This page doesn't appear if you're using Windows Server 2008 R2.
+1.  On the **Specify generation** page, choose **Generation 2** if you downloaded a .vhdx image, or **Generation 1** if you downloaded a .vhd image, and then click **Next**.
+
+    This page doesn't appear if you're using Windows Server 2008 R2.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
@@ -126,7 +126,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image7.png)
 
-1.  On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk** and then specify the location of the virtual device image — a .vdhx file if you're using Windows Server 2012 or later, or a .vhd file if you're using Windows Server 2008 R2.  Click **Next**.
+1.  On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk**, specify the location of the virtual device image (.vhdx or .vhd), and then click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 

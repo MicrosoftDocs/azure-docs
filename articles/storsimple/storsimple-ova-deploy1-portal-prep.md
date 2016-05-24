@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/23/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Prepare the portal
@@ -148,23 +148,13 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  On the **StorSimple Manager service** page, click the service that you created. This will take you to the **Quick Start** page. (You can click the quick start icon ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) to access the **Quick Start** page at any time.)
 
+1.  Click the link corresponding to the image that you want to download from the Microsoft Download Center. The image files are approximately 4.8 GB.
 
-1.  Download the appropriate VHD or VHDX on a network share on your datacenter. Separate images are available for:
+	-   VHDX for Hyper-V on Windows Server 2012 and later
 
-	-   Hyper-V on Windows Server 2012 and later
+	-   VHD for Hyper-V on Windows Server 2008 R2 and later
 
-	-   Hyper-V on Windows Server 2008 R2 and later
-
-	-   VMWare ESXi 5.5 and later
-
-	> [AZURE.IMPORTANT] The software running on the StorSimple Virtual Array may only be used in conjunction with the Storsimple Manager service.
-
-
-1.  Click on the image for your host operating system that you will use to provision the virtual device. This will take you to Microsoft Download Center.
-
-1.  If using Hyper-V on Windows Server 2012 or later, download the VHDX image for Hyper-V on Windows Server 2012 or later; if you're using Windows Server 2008 R2, download the VHD for Windows Server 2008 R2. If using VMware, download the VMDK image file.
-
-    The image files are approximately 4.8 GB.
+	-   VMDK for VMWare ESXi 5.5 and later
 
 2.  Unzip the file and make a note of the unzipped location on your local drive.
 
