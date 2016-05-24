@@ -16,7 +16,7 @@
    ms.date="03/16/2016"
    ms.author="andkjell"/>
 
-# WIndows PowerShell Connector technical reference
+# Windows PowerShell Connector Technical Reference
 
 This article describes the Windows PowerShell Connector. The article applies to the following products:
 
