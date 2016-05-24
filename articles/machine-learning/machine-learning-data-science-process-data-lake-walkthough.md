@@ -42,7 +42,7 @@ This walkthrough also contains a section that shows how to do these data science
 
 **Scripts**
 
-Only the principal steps are outlined In this walkthrough. You can download the full **U-SQL script** and **IPython Notebook** from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
+Only the principal steps are outlined In this walkthrough. You can download the full **U-SQL script** and **Jupyter Notebook** from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
 
 ## Prerequisites
@@ -67,7 +67,6 @@ To prepare the data science environment for this walkthrough, create the followi
 - Azure Data Lake Store (ADLS) 
 - Azure Data Lake Analytics (ADLA)
 - Azure Blob storage account
-- HDInsight Linux Cluster
 - Azure Machine Learning Studio account
 - Azure Data Lake Tools for Visual Studio
 
@@ -92,25 +91,8 @@ Create an Azure Blob storage account from the [Azure Portal](http://ms.portal.az
  ![5](./media/machine-learning-data-science-process-data-lake-walkthough/Create_Azure_Blob.PNG)
 
 
-### Create an HDInsight Linux Cluster
-Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see the Create an HDInsight cluster with access to Azure Data Lake Store section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
-
- ![6](./media/machine-learning-data-science-process-data-lake-walkthough/create_HDI_cluster.PNG)
-
 ### Set up an Azure Machine Learning Studio account
-Sign up/into Azure Machine Learning Studio from the [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) page. Click on the **Get started now** button.
-
- ![7](./media/machine-learning-data-science-process-data-lake-walkthough/sign-in-aml_v2.PNG)
-
-Choose the **Free Workspace** (or one of the other options) and sign in with your Microsoft account. 
-
- ![8](./media/machine-learning-data-science-process-data-lake-walkthough/free_workspace.PNG)
-
-
-Then you will be able to create experiments in Azure ML studio:
-
- ![9](./media/machine-learning-data-science-process-data-lake-walkthough/aml_sign_in.PNG)
-
+Sign up/into Azure Machine Learning Studio from the [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) page. Click on the **Get started now** button and then choose a "Free Workspace" or "Standard Workspace". After this you will be able to create experiments in Azure ML Studio.  
 
 ### Install Azure Data Lake Tools 
 Install Azure Data Lake Tools for your version of Visual Studio from [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
@@ -471,114 +453,16 @@ Now you can check the output files in either Azure Blob storage or Azure Portal.
 
  ![19](./media/machine-learning-data-science-process-data-lake-walkthough/U-SQL-output-csv-portal.PNG)
 
+## Build and deploy models in Azure Machine Learning
+We will demonstrate two options for you to pull data into Azure Machine Learning. In the first option, you use the sampled data that is written to an Azure Blob (from the **Data sampling** step above) and use Python to build a model and deploy into Azure Machine Learning. In the second option, you can query the data in Azure Data Lake directly using a Hive query. This option will need to create a new HDInsight cluster or use an existing HDInsight cluster where the Hive tables pointing to the data in Azure Data Lake Storage.  We discuss both these options below. 
 
+### Option 1: Use Python to build and deploy machine learning models
 
-## Create Hive table in HDInsight
+Now let's build and deploy machine learning models using Python.  We can use Python to read the processed data from Azure Blob storage (saved with U-SQL in **Data sampling** step above) and build models. Create an Jupyter Notebook in your local machine or Azure Machine Learning Studio. We will show just the modeling and deployment steps in this article. The Jupyter Notebook contains the full code to explore, visualize data, feature engineering, modeling and deployment. 
 
-Now we create Hive tables in HDInsight cluster using the data stored in Azure Data Lake Store in the previous step. The Hive tables will be used in Azure Machine Learning Studio in the next step. Go to the HDInsight cluster created at the beginning of the walkthrough. Click **Settings** --> **Properties** --> **Cluster AAD Identity** --> **ADLS Access**, make sure your Azure Data Lake Store account is added in the list with read, write and execute rights. 
+#### Import Python libraries
 
- ![20](./media/machine-learning-data-science-process-data-lake-walkthough/HDI_cluster_add_ADLS.PNG)
-
-
-Then click **Dashboard** next to the Settings button and a window will pop up. Click **Hive View** in the upper right corner of the page and you will see the **Query Editor**.
-
- ![21](./media/machine-learning-data-science-process-data-lake-walkthough/HDI_dashboard.PNG)
-
- ![22](./media/machine-learning-data-science-process-data-lake-walkthough/Hive_Query_Editor_v2.PNG)
-
-
-Paste the following Hive scripts to create a table. The location of data source is in Azure Data Lake Store reference in this way: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
-
-	CREATE EXTERNAL TABLE nyc_stratified_sample
-	(
-	    medallion string,
-	    hack_license string,
-	    vendor_id string,
-	    rate_code string,
-	    store_and_fwd_flag string,
-	    pickup_datetime string,
-	    dropoff_datetime string,
-	    passenger_count string,
-	    trip_time_in_secs string,
-	    trip_distance string,
-	    pickup_longitude string,
-	    pickup_latitude string,
-	    dropoff_longitude string,
-	    dropoff_latitude string,
-	  payment_type string,
-	  fare_amount string,
-	  surcharge string,
-	  mta_tax string,
-	  tolls_amount string,
-	  total_amount string,
-	  tip_amount string,
-	  tipped string,
-	  tip_class string,
-	  rownum string
-	  )
-	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
-	LOCATION 'adl://cdsp.azuredatalakestore.net:443/nyctaxi_weig/demo_ex_9_stratified_1_1000_copy.csv';
-
-When the query finishes running, you will see the results like this:
-
- ![23](./media/machine-learning-data-science-process-data-lake-walkthough/Hive_Query_results.PNG)
-
-
-
-## Build and deploy models in Azure Machine Learning Studio
-
-We are now ready to proceed to model building and model deployment in Azure Machine Learning. The data is ready to be used in those prediction problems with our sampled data: binary classification (tip or not), multiclass classification (tip_class), and regression (tip_amount). Here we will illustrate how to build and deploy a binary classification model in Azure Machine Learning Studio.
-
-1. Get the data into Azure ML using the **Reader** module, available in the **Data Input and Output** section. For more information, see the [Reader module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) reference page.
-2. Select **Hive Query** as the **Data source** in the **Properties** panel.
-3. Paste the following Hive script in the **Hive database query** editor
-
-    	select * from nyc_stratified_sample;
-
-4. Enter the URI of HDInsight cluster (this can be found in Azure Portal), Hadoop credentials, location of output data, and Azure storage account name/key/container name.
-
- ![24](./media/machine-learning-data-science-process-data-lake-walkthough/reader_module_v3.PNG)  
-
-An example of a binary classification experiment reading data from Hive table is shown in the figure below.
-
- ![25](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp.PNG)
-
-After the experiment is created, click  **Set Up Web Service** --> **Predictive Web Service**
-
- ![26](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp_deploy.PNG)
-
-Run the automatically created scoring experiment, when it finishes, click **Deploy Web Service**
-
- ![27](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp_deploy_web.PNG)
-
-The web service dashboard will be displayed shortly:
-
- ![28](./media/machine-learning-data-science-process-data-lake-walkthough/AML_web_api.PNG)
-
-
-
-## Use Python to build and deploy machine learning models
-
-Now let's build and deploy machine learning models using Python.  We can use Python to read the processed data from Azure Blob storage (saved with U-SQL in step 2 above) and build models. Create an IPython Notebook in your local machine or Azure Machine Learning Studio. 
-
-Only the major steps are described here:
-
-- [Step 0. Import Python libraries](#step0)
-- [Step 1. Read in the data from blob](#step1)
-- [Step 2. Check data quality](#step2)
-- [Step 3. Handle Missing Value](#step3)
-- [Step 4. Data exploration with single variables](#step4)
-- [Step 5. Data exploration with multiple variables](#step5)
-- [Step 6. Feature engineering](#step6)
-- [Step 7. Build machine learning models](#step7)
-- [Step 8. Build Web Service API and consume it in Python](#step8)
-
-Only the principal steps are outlined in this walkthrough. You can download the whole **IPython Notebook** that contains some additional tasks from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
-
-
-### <a name="step0"></a> Step 0. Import Python libraries
-
-In order to run the sample IPython Notebook or the Python script file, the following Python packages are needed. If you are using the AzureML IPython Notebook service, these packages have been pre-installed.
+In order to run the sample Jupyter Notebook or the Python script file, the following Python packages are needed. If you are using the AzureML Notebook service, these packages have been pre-installed.
 
 	import pandas as pd
 	from pandas import Series, DataFrame
@@ -601,13 +485,13 @@ In order to run the sample IPython Notebook or the Python script file, the follo
 	from azureml import services
 
 
-### <a name="step1"></a> Step 1. Read in the data from blob
+#### Read in the data from blob
 
 - Connection String   
 
 		CONTAINERNAME = 'test1'
-		STORAGEACCOUNTNAME = 'weigstoragefordsvm'
-		STORAGEACCOUNTKEY = 'FUyNCM83pY4K2srBfZv4yDr6ru7d+BfbmHPPtucqS7EIgvUSQBG4zPkznpCuClWVOMitAQXG3aJFbvuD7mBkhQ=='
+		STORAGEACCOUNTNAME = 'XXXXXXXXX'
+		STORAGEACCOUNTKEY = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYY'
 		BLOBNAME = 'demo_ex_9_stratified_1_1000_copy.csv'
 		blob_service = BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
 	
@@ -637,172 +521,9 @@ In order to run the sample IPython Notebook or the Python script file, the follo
 		for col in cols_2_float:
 		    df1[col] = df1[col].astype(float)
 
+#### Build machine learning models
 
-### <a name="step2"></a> Step 2. Check data quality
-
-- Check the data frame
-
-		print df1.head(5)
-		print df1.tail(5)
-		print df1.shape
-
-![30](./media/machine-learning-data-science-process-data-lake-walkthough/py_check_data.PNG)
-
-- The last row of data is NaN, remove it
-	
-		df1 = df1.iloc[0:len(df1)-2,:]
-	
-- Remove the double quote in some columns
-
-		df1.medallion = df1.medallion.str.replace('"','')
-		df1.hack_license = df1.hack_license.str.replace('"','')
-		df1.vendor_id = df1.vendor_id.str.replace('"','')
-		df1.rate_code = df1.rate_code.str.replace('"','')
-		df1.store_and_fwd_flag = df1.store_and_fwd_flag.str.replace('"','')
-		df1.payment_type = df1.payment_type.str.replace('"','')
-
-- Show column names and types of the data frame
-
-		for col in df1.columns:
-		    print df1[col].name, ':\t', df1[col].dtype
-
-![31](./media/machine-learning-data-science-process-data-lake-walkthough/py_data_type.PNG)
-
-- Check the number of valid values (non-NA) for each column
-
-		cnts = df1.count()
-		print cnts
-
-![32](./media/machine-learning-data-science-process-data-lake-walkthough/py_valid_data.PNG)
-
-- Check the basic statistics for all columns (only applied to numeric columns)
-		
-		df1.describe()
-
-![33](./media/machine-learning-data-science-process-data-lake-walkthough/py_df_describe.PNG)
-
-
-### <a name="step3"></a> Step 3. Handle missing values
-
-- Check all possible values of store_and_fwd_flg
-
-		df1['store_and_fwd_flag'].value_counts()
-
-![34](./media/machine-learning-data-science-process-data-lake-walkthough/py_check_possible_value.PNG)
-
-- Set all missing values of store\_and\_fwd_flg as 'M'
-
-		df2 = df1.replace('', np.nan, regex=True)
-		df3 = df2.fillna({'store_and_fwd_flag':'M'})
-		df3.ix[990:1000,]
-
-![35](./media/machine-learning-data-science-process-data-lake-walkthough/py_replace_M.PNG)
-
-		df3.shape
-
-![36](./media/machine-learning-data-science-process-data-lake-walkthough/py_full_data_size.PNG)
-
-		df3['store_and_fwd_flag'].value_counts()
-
-![37](./media/machine-learning-data-science-process-data-lake-walkthough/py_after_impute_M.PNG)
-
-- Drop rows containing missing values
-
-		df1_noNA = df2.dropna()
-		df1_noNA.shape
-
-![38](./media/machine-learning-data-science-process-data-lake-walkthough/py_dropNA.PNG)
-
-
-### <a name="step4"></a> Step 4. Data Exploration with single variables
-
-- Show the distribution of vendor_id in bar chart
-
-		df1['vendor_id'].value_counts().plot(kind='bar')
-
-![39](./media/machine-learning-data-science-process-data-lake-walkthough/py_vendorID_chart.PNG)
-
-- Check categorical variable rate_code
-
-		df1['rate_code'].value_counts()
-
-![40](./media/machine-learning-data-science-process-data-lake-walkthough/py_ratecode_freq_v2.PNG)
-
-- Show the corresponding bar chart for rate_code
-
-		df1['rate_code'].value_counts().plot(kind='bar')
-
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_ratecode_chart1.PNG)
-
-- Show the bar chart for rate_code in log scale
-
-		np.log(df1['rate_code'].value_counts()).plot(kind='bar')
-
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_ratecode_chart2.PNG)
-
-- Plot the kernel density estimate of trip\_time\_in_secs. Since plotting the kernel density estimate is relatively slow, we sample the data to draw it; you can change the sampling ratio as desired.
-
-		sample_ratio = 0.01
-		sample_size = np.round(df1.shape[0] * sample_ratio)
-		sample_rows = np.random.choice(df1.index.values, sample_size)
-		df1_sample = df1.ix[sample_rows]
-		df1_sample.shape
-
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_sample_triptime.PNG)
-
-- Show histogram and kernel density estimate plot simultaneously for trip_time_in_secs
-
-		df1_sample['trip_time_in_secs'].hist(bins=50, color='k', normed=True)
-		df1_sample['trip_time_in_secs'].plot(kind='kde', style='b-')
-
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_hist_tripseconds.PNG)
-
-- Two plots can be shown together and each one is a separate subplot
-
-		fig = plt.figure()
-		ax1 = fig.add_subplot(1,2,1)
-		ax2 = fig.add_subplot(1,2,2)
-		df1_sample['trip_time_in_secs'].plot(ax=ax1,kind='kde', style='b-')
-		df1_sample['trip_time_in_secs'].hist(ax=ax2, bins=50, color='k')
-
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_two_plots.PNG)
-
-- Calculate the number of trip_distance in different groups
-
-		trip_dist_bins = [0, 1, 2, 4, 10, 1000]
-		df1['trip_distance']
-		trip_dist_bin_id = pd.cut(df1['trip_distance'], trip_dist_bins)
-		trip_dist_bin_id
-		trip_dist_bin_id.value_counts()
-		trip_dist_bin_id.value_counts().plot(kind='bar')
-		trip_dist_bin_id.value_counts().plot(kind='line')
-
-	   ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_bucket_tripdistance.PNG)
-
-### <a name="step5"></a> Step 5. Data Exploration with multiple variables
-
-- Explore multiple columns simultaneously using scatter plot, histogram and kde
-
-		df1_sample_3col = df1_sample[['passenger_count', 'trip_time_in_secs', 'trip_distance']]
-		pd.scatter_matrix(df1_sample_3col, diagonal='hist', color='r', alpha=0.7, hist_kwds={'bins':100})
-		pd.scatter_matrix(df1_sample_3col, diagonal='kde', color='r', alpha=0.7)
-
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_three_variables.PNG)
-
-- Explore the relationship between trip_distance and passenger_count
-
-		df1.boxplot(column='trip_distance', by='passenger_count')
-
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_tripdistance_bypassenger.PNG)
-
-
-### <a name="step6"></a> Step 6. Feature engineering 
-
-This section describes the code for procedures used to prepare data for use in ML modeling. It shows, for example, how to create a new feature by binning travel distances into buckets. See the IPython Notebook for details.
-
-### <a name="step7"></a> Step 7. Build machine learning models
-
-Here we built a binary classification model to predict whether a trip is tipped or not. In the IPython Notebook you can find other two models: multiclass classification, and regression models.
+Here we build a binary classification model to predict whether a trip is tipped or not. In the Jupyter Notebook you can find other two models: multiclass classification, and regression models.
 
 - First we need to create dummy variables that can be used in scikit-learn models
 
@@ -854,7 +575,7 @@ Here we built a binary classification model to predict whether a trip is tipped 
 
 
  
-### <a name="step8"></a> Step 8. Build Web Service API and consume it in Python
+#### Build Web Service API and consume it in Python
 
 We want to operationalize the machine learning model after it has been built. Here we use the binary logistic model as an example. Make sure the scikit-learn version in your local machine is 0.15.1. You don't have to worry about this if you use Azure ML studio service.
 
@@ -894,6 +615,97 @@ We want to operationalize the machine learning model after it has been built. He
 		NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
 
        ![](./media/machine-learning-data-science-process-data-lake-walkthough/call_API.PNG)
+
+### Option 2: Create and deploy models directly in Azure Machine Learning
+
+You can use the Azure Machine Learning Studio to read data directly from Azure Data Lake Store, create a model and deploy it. In order for Azure Machine Learning to read data from Azure Data Lake Store directly, you need to create a Hive table. For this a separate Azure HDInsight cluster needs to be provisioned and on that a Hive table is created pointing to the Azure Data Lake Store. The following sub-sections demonstrates how to do this. 
+
+#### Create an HDInsight Linux Cluster
+Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see the Create an HDInsight cluster with access to Azure Data Lake Store section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+ ![6](./media/machine-learning-data-science-process-data-lake-walkthough/create_HDI_cluster.PNG)
+
+#### Create Hive table in HDInsight
+
+Now we create Hive tables in HDInsight cluster using the data stored in Azure Data Lake Store in the previous step. The Hive tables will be used in Azure Machine Learning Studio in the next step. Go to the HDInsight cluster created at the beginning of the walkthrough. Click **Settings** --> **Properties** --> **Cluster AAD Identity** --> **ADLS Access**, make sure your Azure Data Lake Store account is added in the list with read, write and execute rights. 
+
+ ![20](./media/machine-learning-data-science-process-data-lake-walkthough/HDI_cluster_add_ADLS.PNG)
+
+
+Then click **Dashboard** next to the Settings button and a window will pop up. Click **Hive View** in the upper right corner of the page and you will see the **Query Editor**.
+
+ ![21](./media/machine-learning-data-science-process-data-lake-walkthough/HDI_dashboard.PNG)
+
+ ![22](./media/machine-learning-data-science-process-data-lake-walkthough/Hive_Query_Editor_v2.PNG)
+
+
+Paste the following Hive scripts to create a table. The location of data source is in Azure Data Lake Store reference in this way: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
+
+	CREATE EXTERNAL TABLE nyc_stratified_sample
+	(
+	    medallion string,
+	    hack_license string,
+	    vendor_id string,
+	    rate_code string,
+	    store_and_fwd_flag string,
+	    pickup_datetime string,
+	    dropoff_datetime string,
+	    passenger_count string,
+	    trip_time_in_secs string,
+	    trip_distance string,
+	    pickup_longitude string,
+	    pickup_latitude string,
+	    dropoff_longitude string,
+	    dropoff_latitude string,
+	  payment_type string,
+	  fare_amount string,
+	  surcharge string,
+	  mta_tax string,
+	  tolls_amount string,
+	  total_amount string,
+	  tip_amount string,
+	  tipped string,
+	  tip_class string,
+	  rownum string
+	  )
+	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
+	LOCATION 'adl://cdsp.azuredatalakestore.net:443/nyctaxi_weig/demo_ex_9_stratified_1_1000_copy.csv';
+
+When the query finishes running, you will see the results like this:
+
+ ![23](./media/machine-learning-data-science-process-data-lake-walkthough/Hive_Query_results.PNG)
+
+
+
+#### Build and deploy models in Azure Machine Learning Studio
+
+We are now ready to proceed to model building and model deployment in Azure Machine Learning. The data is ready to be used in those prediction problems with our sampled data: binary classification (tip or not), multiclass classification (tip_class), and regression (tip_amount). Here we will illustrate how to build and deploy a binary classification model in Azure Machine Learning Studio.
+
+1. Get the data into Azure ML using the **Reader** module, available in the **Data Input and Output** section. For more information, see the [Reader module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) reference page.
+2. Select **Hive Query** as the **Data source** in the **Properties** panel.
+3. Paste the following Hive script in the **Hive database query** editor
+
+    	select * from nyc_stratified_sample;
+
+4. Enter the URI of HDInsight cluster (this can be found in Azure Portal), Hadoop credentials, location of output data, and Azure storage account name/key/container name.
+
+ ![24](./media/machine-learning-data-science-process-data-lake-walkthough/reader_module_v3.PNG)  
+
+An example of a binary classification experiment reading data from Hive table is shown in the figure below.
+
+ ![25](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp.PNG)
+
+After the experiment is created, click  **Set Up Web Service** --> **Predictive Web Service**
+
+ ![26](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp_deploy.PNG)
+
+Run the automatically created scoring experiment, when it finishes, click **Deploy Web Service**
+
+ ![27](./media/machine-learning-data-science-process-data-lake-walkthough/AML_exp_deploy_web.PNG)
+
+The web service dashboard will be displayed shortly:
+
+ ![28](./media/machine-learning-data-science-process-data-lake-walkthough/AML_web_api.PNG)
 
 
 ## Summary
