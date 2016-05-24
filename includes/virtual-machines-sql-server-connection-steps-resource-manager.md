@@ -1,6 +1,8 @@
 ### Configure a DNS Label for the public IP address
 
-To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address. If you plan to only connect to the SQL Server instance within the same Virtual Network or only locally, you do not require a DNS Label.
+To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
+
+> [AZURE.NOTE] DNS Labels are not required if you plan to only connect to the SQL Server instance within the same Virtual Network or only locally.
 
 To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
 
