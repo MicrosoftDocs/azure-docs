@@ -63,6 +63,24 @@ To change the settings for an existing app service plan, use the **Set-AzureRmAp
 
     Set-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Tier Standard -WorkerSize Medium -NumberofWorkers 9
 
+#### Scaling an App Service Plan ####
+
+To scale an existing App Service Plan, use:
+
+    Set-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -NumberofWorkers 9
+
+#### Changing the worker size of an App Service Plan ####
+
+To Change the size of workers in an existing App Service Plan, use:
+
+    Set-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -WorkerSize Medium
+
+#### Changing the Tier of an App Service Plan ####
+
+To Change the tier of an existing App Service Plan, use:
+
+    Set-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Tier Standard
+
 ### Delete an existing App Service Plan ###
 
 To delete an existing app service plan, all assigned web apps need to be moved or deleted first and then using the **Remove-AzureRmAppServicePlan** cmdlet you can delete the app service plan.
