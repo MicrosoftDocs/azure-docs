@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/18/2016"
+   	ms.date="05/24/2016"
    	ms.author="jgao"/>
 
 # Install custom HDInsight applications
@@ -71,6 +71,8 @@ The files needed for deploying this application (Hue):
 
 2. Follow the instruction to create cluster and install Hue. For more information on creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
+In addition to the Azure portal, you can also use [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) and [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli) to call ARM templates.
+
 ## Validate the installation
 
 You can check the application status on the Azure portal to validate the application installation. In addition, you can also validate all HTTP endpoints came up as expected and the webpage if there is one:
@@ -108,6 +110,9 @@ If an application installation failed, you can see the error messages and debug 
 
 ## Remove HDInsight applications
 
+There are several options to delete HDInsight applications.
+
+### Use portal
 
 **To remove an application using the portal**
 
@@ -117,6 +122,16 @@ If an application installation failed, you can see the error messages and debug 
 4. From the **Settings** blade, click **Applications** under the **General** category. You shall see **hue** listed in the **Installed Apps** blade.
 5. Right-click the application you want to remove, and then click **Delete**.
 6. Click **Yes** to confirm.
+
+From the portal, you can also delete the cluster or the resource group which contains the application.
+
+### Use Azure PowerShell
+
+See [Delete clusters by using Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
+
+### Use Azure CLI
+
+See [Delete clusters by using Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## Next steps
 
