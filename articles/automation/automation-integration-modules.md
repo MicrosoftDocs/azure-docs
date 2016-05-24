@@ -100,8 +100,7 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
 
     $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
     }
-
-   ```
+    ```
 <br> 
   Providing this info will not only show this help using the **Get-Help** cmdlet in the PowerShell console, it will also expose this help functionality within Azure Automation, for example when inserting activities during runbook authoring. Clicking “View detailed help” will open the help URI in another tab of the web browser you’re using to access Azure Automation.<br> ![Integration Module Help](media/automation-integration-modules/automation-integration-module-activitydesc.png)<br>
 
