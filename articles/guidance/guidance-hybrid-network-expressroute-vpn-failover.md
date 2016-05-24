@@ -311,7 +311,7 @@ switch($PSCmdlet.ParameterSetName) {
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
 [implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
 [script]: #sample-solution-script
-[expressroute-prereq]: ../expressroute/expressroute-prerequisites
+[expressroute-prereq]: ../expressroute/expressroute-prerequisites.md
 [implementing-expressroute]: ./guidance-hybrid-network-expressroute.md#implementing-this-architecture
 [implementing-vpn]: ./guidance-hybrid-network-vpn.md#implementing-this-architecture
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
