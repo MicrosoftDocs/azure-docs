@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Python
@@ -32,36 +32,26 @@ This topic shows you how to get started with Azure Redis Cache using Python.
 Install [redis-py](https://github.com/andymccurdy/redis-py).
 
 
-## Create a Redis cache on Azure
+## Create an Azure Redis Cache instance
 
-In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-  ![][1]
 
-Enter a DNS hostname. It will have the form `<name>
-  .redis.cache.windows.net`. Click **Create**.
+## Add something to the cache and retrieve it
 
-  ![][2]
 
-  Once you create the cache, [browse to it](cache-configure.md#configure-redis-cache-settings) to view the cache settings. You will need:
+	>>> import redis
+	>>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
+	      port=6380, db=0, password='<key>', ssl=True)
+	>>> r.set('foo', 'bar')
+	True
+	>>> r.get('foo')
+	b'bar'
 
-  - **Hostname.** You entered this name when you created the cache.
-  - **Port.** Click the link under **Ports** to view the ports. Use the SSL port.
-  - **Access Key.** Click the link under **Keys** and copy the primary key.
 
-  ## Add something to the cache and retrieve it
-
-  >>> import redis
-  >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
-          port=6380, db=0, password='<key>', ssl=True)
-    >>> r.set('foo', 'bar')
-    True
-    >>> r.get('foo')
-    b'bar'
-
-Replace *&lt;name&gt;* with your cache name and *&lt;key&gt;* with your access key.
+Replace `<name>` with your cache name and `key` with your access key.
 
 
 <!--Image references-->
-[1]: ./media/cache-python-get-started/cache01.png
-[2]: ./media/cache-python-get-started/cache02.png
+[1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
+[2]: ./media/cache-python-get-started/redis-cache-cache-create.png

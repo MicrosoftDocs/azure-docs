@@ -265,9 +265,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 
   
 <!-- IMAGES -->
-[NewCacheMenu]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
 
-[CacheCreate]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png
 
 [StackExchangeNuget]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-stackexchange-redis.png
 
@@ -283,7 +281,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 
 [Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png
 
-[CacheCreated]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png
+
 
 
 
