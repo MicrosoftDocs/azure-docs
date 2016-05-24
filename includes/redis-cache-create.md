@@ -6,13 +6,13 @@ To create a cache, first sign in to the [Azure Portal](https://portal.azure.com)
 >-	To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 >-	To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](cache-manage-cli.md).
 
-![New cache](./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png)
+![New cache](media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png)
 
 >[AZURE.NOTE] If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
 
 In the **New Redis Cache** blade, specify the desired configuration for the cache.
 
-![Create cache](./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png)
+![Create cache](media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png)
 
 -	In **Dns name**, enter a cache name to use for the cache endpoint. The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.
 -	For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
@@ -26,5 +26,5 @@ In the **New Redis Cache** blade, specify the desired configuration for the cach
 
 Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with default settings.
 
-![Cache created](./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png)
+![Cache created](media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png)
 
