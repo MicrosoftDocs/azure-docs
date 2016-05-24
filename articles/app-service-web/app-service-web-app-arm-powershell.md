@@ -1,6 +1,6 @@
 <properties
-	pageTitle="ARM based PowerShell commands for Azure Web App"
-	description="Learn how to use the new ARM based PowerShell commands for Azure Web Apps."
+	pageTitle="Azure Resource Manager based PowerShell commands for Azure Web App | Microsoft Azure"
+	description="Learn how to use the new Azure Resource Manager based PowerShell commands to manage your Azure Web Apps."
 	services="app-service\web"
 	documentationCenter=""
 	authors="ahmedelnably"
@@ -14,15 +14,15 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="ahmedelnably"/>
+	ms.author="aelnably"/>
 
-# Azure Web App ARM PowerShell#
+# Using Azure Resource Manager Based PowerShell to Manage Azure Web Apps#
 
-With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use ARM based PowerShell commands to manage Web Apps.
+With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use Azure Resource Manager based PowerShell commands to manage Web Apps.
 
 To learn about managing Resource Groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md). 
 
-To Learn about the full list of parameters and options for the Web App ARM PowerShell Cmdlets, see the [full Cmdlet Reference of Web App ARM PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
+To Learn about the full list of parameters and options for the Web App Azure Resource Manager PowerShell Cmdlets, see the [full Cmdlet Reference of Web App Azure Resource Manager based PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
 
 ## Managing App Service Plans ##
 
@@ -202,4 +202,4 @@ To learn about how to manage web app certificates, see [SSL Certificates binding
 - [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 - [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
 - [SSL Certificates binding using PowerShell](app-service-web-app-powerhell-ssl-binding.md)
-- [Azure Cmdlet Reference of Web App ARM PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
+- [Azure Cmdlet Reference of Web App Azure Resource Manager PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
