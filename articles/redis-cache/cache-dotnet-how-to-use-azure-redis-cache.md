@@ -124,11 +124,7 @@ One approach to sharing a `ConnectionMultiplexer` instance in your application i
 
 For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][].
 
-The cache endpoint and keys can be obtained from the **Redis Cache** blade for your cache instance.
-
-![Cache properties][CacheProperties]
-
-![Manage keys][ManageKeys]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 Once the connection is established, return a reference to the redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
