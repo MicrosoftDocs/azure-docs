@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/08/2016"
+   ms.date="05/20/2016"
    ms.author="toddabel"/>
 
 
@@ -59,11 +59,11 @@ After exporting the files, a modification is needed. Edit the **parameters.json*
 ### Deploy the diagnostics extension as part of cluster creation by using Azure Resource Manager
 To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before creating the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). To see the Diagnostics setting in the Resource Manager template, open the **azuredeploy.json** file and search for **IaaSDiagnostics**. To create a cluster with this template, just press the **Deploy to Azure** button available at the link above.
 
-Alternatively, you can download the Resource Manager sample, makes changes to it, and create a cluster with the modified template by using the `New-AzureResourceGroupDeployment` command in an Azure PowerShell window. See the information below for the parameters you will need to pass in to the command. For detailed information on how to deploy a Resource Group using PowerShell, refer to the article [Deploy a Resource Group with Azure Resource Manager template](../resource-group-template-deploy.md)
+Alternatively, you can download the Resource Manager sample, makes changes to it, and create a cluster with the modified template by using the `New-AzureRmResourceGroupDeployment` command in an Azure PowerShell window. See the information below for the parameters you will need to pass in to the command. For detailed information on how to deploy a Resource Group using PowerShell, refer to the article [Deploy a Resource Group with Azure Resource Manager template](../resource-group-template-deploy.md)
 
 ```powershell
 
-New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
 ### Deploy the diagnostics extension to an existing cluster
@@ -173,7 +173,7 @@ After modifying the **template.json** file as described, republish the ARM templ
 
 
 ## Update Diagnostics to collect and upload logs from new EventSource channels
-To update diagnostics to collect logs from new EventSource channels that represent a new application that you are about to deploy, you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of diagnostics for an existing cluster.  You will need to update the *EtwEventSourceProviderConfiguration* section in the **template.json** to add entries for the new EventSources before you apply the configuration update using the *New-AzureResourceGroupDeployment* PowerShell command.
+To update diagnostics to collect logs from new EventSource channels that represent a new application that you are about to deploy, you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of diagnostics for an existing cluster.  You will need to update the *EtwEventSourceProviderConfiguration* section in the **template.json** to add entries for the new EventSources before you apply the configuration update using the *New-AzureRmResourceGroupDeployment* PowerShell command.
 
 
 ## Next steps

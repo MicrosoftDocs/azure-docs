@@ -60,7 +60,7 @@ Copy Activity copies data from one input dataset (**source**) to one output data
 Copy Activity provides the following capabilities:
 
 ### <a name="global"></a>Globally available data movement
-Even though the Azure Data Factory itself is available only in the West US and North Europe regions, the service powering the Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
+Even though the Azure Data Factory itself is available only in the West US, East US, and North Europe regions, the service powering the Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
 
 The **Data Management Gateway** or the **Azure Data Factory** performs data movement based on the location of source and destination data stores in a copy operation. See the following table for details:  
 
