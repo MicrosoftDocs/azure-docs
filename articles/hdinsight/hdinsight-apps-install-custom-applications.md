@@ -32,7 +32,7 @@ Other related articles:
 If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
 
 
-## Install HDInsight application
+## Install HDInsight applications
 
 HDInsight applications can be installed when you create a cluster or to an existing HDInsight cluster. For defining ARM templates, see [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx).
 
@@ -86,8 +86,37 @@ You can check the application status on the Azure portal to validate the applica
  
 ## Troubleshoot the installation
 
-See the [Troubleshoot](hdinsight-apps-install-applications.md#troubleshoot) section in Install HDInsight Applications.
+You can check the application installation status from the portal notification (Click the bell icon on the top of the portal). 
 
+If an application installation failed, you can see the error messages and debug information from 3 places:
+
+- HDInsight Applications: general error information.
+
+    Open the cluster from the portal, and click Applications from the Settings blade:
+
+    ![hdinsight applications application installation error](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+
+- HDInsight script action: If the HDInsight Applications' error message indicates a script action failure, more details about the script failure will be presented in the script actions pane.
+
+    Click Script Action from the Settings blade. Script action history shows the error messages
+
+    ![hdinsight applications script action error](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    
+- Ambari Web UI: If the install script was the cause of the failure, use Ambari Web UI to check full logs about the install scripts.
+
+    For more information, see [Troubleshooting](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+
+## Remove HDInsight applications
+
+
+**To remove an application using the portal**
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
+3. Click the cluster where you installed the application.
+4. From the **Settings** blade, click **Applications** under the **General** category. You shall see **hue** listed in the **Installed Apps** blade.
+5. Right-click the application you want to remove, and then click **Delete**.
+6. Click **Yes** to confirm.
 
 ## Next steps
 
