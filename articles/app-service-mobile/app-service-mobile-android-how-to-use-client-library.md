@@ -65,9 +65,9 @@ Change both **build.gradle** files:
 
 2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.1'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
-	Currently the latest version is 3.1. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	Currently the latest version is 3.1.0. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Enable internet permission
 To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
