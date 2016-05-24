@@ -27,7 +27,7 @@ See [Understanding Resource Manager and classic deployment models](../resource-m
 
 ## <a name="gwsub"></a>Gateway subnet
 
-To configure a VPN gateway, you first need to create a gateway subnet for your VNet. All gateway subnets must be named GatewaySubnet to work properly. 
+To configure a VPN gateway, you first need to create a gateway subnet for your VNet. All gateway subnets must be named *GatewaySubnet* to work properly. This name allows Azure to know that this subnet should be used for the gateway. If you are using the classic portal, the gateway subnet is named *Gateway*, but will show as *GatewaySubnet* if you are viewing the same subnet in the Azure portal.
 
 The gateway subnet minimum size depends entirely on the configuration that you want to create. Although it is possible to create a gateway subnet as small as /29 for some configurations, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26, etc.). 
 
