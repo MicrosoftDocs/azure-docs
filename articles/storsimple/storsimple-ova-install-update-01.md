@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/23/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Install Update 0.1 on your StorSimple Virtual Array
@@ -73,11 +73,11 @@ Use the local web UI to apply updates when the Azure classic portal is not avail
 - Download the update or the hotfix
 - Install the update or the hotfix
 
-### Download the update or hotfix
+### Download the update or the hotfix
 
 Perform the following steps to download the software update from the Microsoft Update Catalog.
 
-#### To download the update or hotfix
+#### To download the update or the hotfix
 
 1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
@@ -87,7 +87,7 @@ Perform the following steps to download the software update from the Microsoft U
 
 3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3160441**, and then click **Search**.
 
-    The hotfix listing appears, for example, **Cumulative Software Bundle Update 0.1 for StorSimple Virtual Array**.
+    The hotfix listing appears, for example, **Microsoft Azure StorSimple Virtual Array Update 0.1**.
 
     ![Search catalog](./media/storsimple-ova-install-update-01/download1.png)
 
