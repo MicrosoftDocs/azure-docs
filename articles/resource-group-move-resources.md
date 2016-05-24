@@ -34,7 +34,7 @@ There are some important steps to perform before moving a resource. By verifying
 1. The service must support the ability to move resources. See the list below for information about which [services support moving resources](#services-that-support-move).
 2. The destination subscription must be registered for the resource provider of the resource being moved. If not, you will receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
 with that resource type. To learn how to 
-check the registration status and register resource providers, see [Resource providers and types](../resource-manager-supported-services/#resource-providers-and-types).
+check the registration status and register resource providers, see [Resource providers and types](../resource-manager-supported-services.md#resource-providers-and-types).
 3. If you are using Azure PowerShell or Azure CLI, use the latest version. To update your version, run the Microsoft Web Platform Installer and check if a 
 new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md) and [Install the Azure CLI](xplat-cli-install.md).
 4. If you are moving App Service app, you have reviewed [App Service limitations](#app-service-limitations).
