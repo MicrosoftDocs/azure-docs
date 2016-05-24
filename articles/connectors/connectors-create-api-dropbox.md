@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="05/20/2016"
    ms.author="mandia"/>
 
 # Get started with the Dropbox connector 
@@ -57,8 +57,7 @@ All connectors support data in JSON and XML formats.
 
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Dropbox.
 
-1. Sign in to your Dropbox account.
-2. Select **Authorize**, and allow your logic apps to connect and use your Dropbox. 
+>[AZURE.INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
 
 After you create the connection, you enter the Dropbox properties, like the folder path or file name. The **REST API reference** in this topic describes these properties.
 
