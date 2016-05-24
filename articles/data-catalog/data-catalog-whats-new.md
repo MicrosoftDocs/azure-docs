@@ -13,12 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="05/20/2016"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the Azure Data Catalog service.
+
+## What's new for the week of May 20, 2016 release
+
+As of the week of May 20, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Enhancements to the Data Catalog Business Glossary that allows users to update multiple glossary terms in a single operation. Users can select multiple terms to edit the following fields:
+    - Parent Term: The user can select a new parent term, and all selected terms will be updated to be children of the selected parent term. If the selected terms all have the same parent, then that parent is shown in the textbox, otherwise the parent term field will be blank.   
+    - Tags and Stakeholders: Users can add and remove tags and stakeholders for multiple glossary terms using the same experience as tagging multiple data assets.
+
+For more information on the business glossary, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
 
 ## What's new for the week of May 6, 2016 release
 
