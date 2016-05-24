@@ -26,7 +26,7 @@
 
 Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This topic shows you how to get started with Azure Redis Cache using Node.js. For another example of using Azure Redis Cache with Node.js, see [Build a Node.js Chat Application with Socket.IO on an Azure Website][].
+This topic shows you how to get started with Azure Redis Cache using Node.js. For another example of using Azure Redis Cache with Node.js, see [Build a Node.js Chat Application with Socket.IO on an Azure Website](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
 
 
 ## Prerequisites
@@ -41,10 +41,10 @@ This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you 
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
+## Retrieve the host name and access keys
 
-  Once you create the cache, [browse to it](cache-configure.md#configure-redis-cache-settings) to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-  ![][4]
 
 ## Add something to the cache and retrieve it
 
@@ -73,10 +73,4 @@ Output:
 - Read the official [Redis documentation](http://redis.io/documentation).
 
 
-<!--Image references-->
-[1]: ./media/cache-nodejs-get-started/cache01.png
-[2]: ./media/cache-nodejs-get-started/cache02.png
-[3]: ./media/cache-nodejs-get-started/cache03.png
-[4]: ./media/cache-nodejs-get-started/cache04.png
 
-[Build a Node.js Chat Application with Socket.IO on an Azure Website]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
