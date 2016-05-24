@@ -82,7 +82,7 @@ If you move cursor over the system tray icon/notification message, you will see 
 ## To disable/enable auto-update feature
 You can disable/enable the auto-update feature by doing the following: 
 
-1. Launch Windows PowerShell on the gateway machine. 
+1. Launch Windows **PowerShell** on the gateway machine as an administrator (**Run as administrator**). 
 2. Switch to the C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript folder.
 3. Run the following command to turn the auto-update feature OFF (disable).   
 
@@ -105,7 +105,7 @@ At corporate firewall level,  you need configure the following domains and outbo
 | Domain names | Ports | Description |
 | ------ | --------- | ------------ |
 | *.servicebus.windows.net | 443, 80 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) | 
-| *.servicebus.windows.net | 9350-9354 | Optional service bus relay over TCP | 
+| *.servicebus.windows.net | 9350-9354, 5671 | Optional service bus relay over TCP | 
 | *.core.windows.net | 443 | HTTPS | 
 | *.clouddatahub.net | 443 | HTTPS | 
 | graph.windows.net | 443 | HTTPS |

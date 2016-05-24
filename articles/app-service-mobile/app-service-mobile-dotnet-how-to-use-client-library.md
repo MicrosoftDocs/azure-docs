@@ -89,6 +89,7 @@ topics are covered:
 * [Deleting data](#deleting)
 * [Conflict Resolution and Optimistic Concurrency](#optimisticconcurrency)
 * [Binding to a Windows User Interface](#binding)
+* [Changing the Page Size](#pagesize)
 
 ###<a name="instantiating"></a>How to: Create a table reference
 
@@ -475,6 +476,17 @@ it's expected that some times this loading will fail. To handle such failures, y
 
 Finally, imagine that your table has many fields, but you only want to display some of them in your control. You may use the guidance in the
 section "[Select specific columns](#selecting)" above to select specific columns to display in the UI.
+
+###<a name="pagesize"></a>Change the Page size
+
+Azure Mobile Apps returns a maxium of 50 items per request by default.  You can change this by increasing the maximum page size on the server and increasing the requested page size on the lient side.  To increase the requested page size, use an overload of `PullAsync` that lets you specify `PullOptions`:
+
+    PullOptions pullOptions = new PullOptions
+		{
+			MaxPageSize = 100
+		};
+
+Assuming you have made the PageSize equal to or greater than 100 within the server, this will return up to 100 items in each request.
 
 ##<a name="#customapi"></a>Work with a custom API
 
@@ -1003,4 +1015,3 @@ the following example:
 [Json.NET]: http://www.newtonsoft.com/json
 [SymbolSource]: http://www.symbolsource.org/
 [SymbolSource instructions]: http://www.symbolsource.org/Public/Wiki/Using
-

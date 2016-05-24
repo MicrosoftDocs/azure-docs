@@ -64,9 +64,22 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named **F
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
-	> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryPSH” is not available**, change the name (for example, yournameFirstDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
-	> 
-	> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+
+Please note the following:
+ 
+- The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryPSH” is not available**, change the name (for example, yournameFirstDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+- To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
+- The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+- If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
+
+	- In Azure PowerShell, run the following command to register the Data Factory provider. 
+		
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+		You can run the following command to confirm that the Data Factory provider is registerd. 
+	
+			Get-AzureRmResourceProvider
+	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This automatically registers the provider for you.
 
 Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent data in linked data stores, and then create the pipeline with a activity that use these datasets. 
 
