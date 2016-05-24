@@ -108,6 +108,7 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
     b. Each cmdlet in the module should be able to take in a connection object (an instance of that connection type) as a parameter.  
     Cmdlets in the module become easier to use in Azure Automation if you allow passing an object with the fields of the connection type as a parameter to the cmdlet. This way users don’t have to map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. 
     Based on the runbook example above, it uses a Twilio connection asset called CorpTwilio to access Twilio and return all the phone numbers in the account.  Notice how it is mapping the fields of the connection to the parameters of the cmdlet?<br>
+
     ```
     workflow Get-CorpTwilioPhones
     {
