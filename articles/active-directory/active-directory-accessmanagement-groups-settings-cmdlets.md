@@ -74,7 +74,7 @@ Here are the steps to retrieve a template, create a Settings object, and modify 
 
 	`Get-MsolAllSettingTemplates`
 
-	![List of settings templates](./media/list-of-templates.png)
+	![List of settings templates](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
 
 2. To add a usage guideline URL, first you need to get the SettingsTemplate object that defines the usage guideline URL value; that is, the Group.Unified template:
 
