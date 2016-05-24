@@ -65,7 +65,7 @@ If you have deployed Service Management Automation and created Integration Modul
 
 Just because Integration Modules are essentially  PowerShell modules, that doesn’t mean we don’t have a set of practices around authoring them. There’s still a number of things we recommend you consider while authoring a PowerShell module, to make it most usable in Azure Automation. Some of these are Azure Automation specific, and some of them are useful just to make your modules work well in PowerShell Workflow, regardless of whether or not you’re using Automation. 
 
-1. Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. For example, here’s how you can define a synopsis and help URI for a PowerShell module written in a .psm1 file.  
+1. Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. For example, here’s how you can define a synopsis and help URI for a PowerShell module written in a .psm1 file.<br>  
 
    ```
    <#
@@ -102,8 +102,8 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
    }
 
   ```
-
-   Providing this info will not only show this help using the **Get-Help** cmdlet in the PowerShell console, it will also expose this help functionality within Azure Automation, for example when inserting activities during runbook authoring. Clicking “View detailed help” will open the help URI in another tab of the web browser you’re using to access Azure Automation.<br> ![Integration Module Help](media/automation-integration-modules/automation-integration-module-activitydesc.png)
+<br> 
+  Providing this info will not only show this help using the **Get-Help** cmdlet in the PowerShell console, it will also expose this help functionality within Azure Automation, for example when inserting activities during runbook authoring. Clicking “View detailed help” will open the help URI in another tab of the web browser you’re using to access Azure Automation.<br> ![Integration Module Help](media/automation-integration-modules/automation-integration-module-activitydesc.png)<br>
 
 2. If the module runs against a remote system,
 
@@ -113,7 +113,7 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
 
    Cmdlets in the module become easier to use in Azure Automation if you allow passing an object with the fields of the connection type as a parameter to the cmdlet. This way users don’t have to map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. 
 
-   Based on the runbook example above, it uses a Twilio connection asset called CorpTwilio to access Twilio and return all the phone numbers in the account.  Notice how it is mapping the fields of the connection to the parameters of the cmdlet?
+   Based on the runbook example above, it uses a Twilio connection asset called CorpTwilio to access Twilio and return all the phone numbers in the account.  Notice how it is mapping the fields of the connection to the parameters of the cmdlet?<br>
 
    ```
    workflow Get-CorpTwilioPhones
@@ -140,29 +140,29 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
    You can enable behavior like this for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you’ll want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. Parameter set **SpecifyConnectionFields** below is used to pass the connection field properties one by one. **UseConnectionObject** lets you pass the connection straight through. As you can see, the Send-TwilioSMS cmdlet in the [Twilio PowerShell module](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) allows passing either way: 
 
    ```
-    function Send-TwilioSMS {
-       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-       HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
-       param(
-          [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
-          [ValidateNotNullOrEmpty()]
-          [string]
-          $AccountSid,
+   function Send-TwilioSMS {
+      [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
+      HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
+      param(
+         [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
+         [ValidateNotNullOrEmpty()]
+         [string]
+         $AccountSid,
 
-          [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
-          [ValidateNotNullOrEmpty()]
-          [string]
-          $AuthToken,
+         [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
+         [ValidateNotNullOrEmpty()]
+         [string]
+         $AuthToken,
 
-          [Parameter(ParameterSetName='UseConnectionObject', Mandatory=$true)]
-          [ValidateNotNullOrEmpty()]
-          [Hashtable]
-          $Connection
+         [Parameter(ParameterSetName='UseConnectionObject', Mandatory=$true)]
+         [ValidateNotNullOrEmpty()]
+         [Hashtable]
+         $Connection
 
-        )
-     }
+       )
+    }
     ```
-
+<br>
 3. Define output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It is especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.<br> ![Graphical Runbook Output Type](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br>  
 
    This is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.<br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
