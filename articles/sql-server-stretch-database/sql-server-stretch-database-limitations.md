@@ -30,7 +30,7 @@ Stretch\-enabled tables have the following limitations.
 
 ### DML operations
 
--   You can't UPDATE or DELETE rows in a Stretch\-enabled table, or in a view that includes Stretch\-enabled tables.
+-   You can't UPDATE or DELETE rows that have been migrated, or rows that are eligible for migration, in a Stretch\-enabled table or in a view that includes Stretch\-enabled tables.
 
 -   You can't INSERT rows into a Stretch\-enabled table on a linked server.
 
