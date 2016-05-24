@@ -26,15 +26,15 @@ An advantage of Azure Functions is that your running code consumes resources onl
 
 The mechanism for this new capability is the Dynamic Service plan. This new service plan provides a dynamic container for your code that scales up on demand. You are charged only for the amount of memory that your code uses and the time that it takes to execute as measured in gigabytes per second.  
 
-This article provides an overview of how the Dynamic Service plan works and how the platform scales on demand to run you code.
+This article provides an overview of how the Dynamic Service plan works and how the platform scales on demand to run your code.
 
 If you are not yet familiar with Azure Functions, make sure to check the [Azure Functions overview](functions-overview.md) article to better understand its capabilities.
 
-## Configure your Azure Function
+## Configure Azure Functions
 
 Two main settings are related to scaling:
 
-* [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Service plan
+* [Azure App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) or Dynamic Service plan
 * Memory size for the execution environment
 
 The cost of a function changes depending on the service plan that you select. With a Dynamic Service plan, cost is a function of execution time, memory size, and number of executions. Charges accrue only when your code is actually running.
@@ -43,8 +43,8 @@ An App Service plan hosts your functions on existing VMs, which might also be us
 
 ## Choose a service plan
 
-When you create Azure Functions, you can select to run them on a Dynamic Service plan or an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-In the App Service plan, your functions will run on a dedicated VM, just like web apps work today for Basic, Standard or Premium SKUs.
+When you create functions, you can select to run them on a Dynamic Service plan or an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+In the App Service plan, your functions will run on a dedicated VM, just like web apps work today for Basic, Standard, or Premium SKUs.
 This dedicated VM is allocated to your apps and functions and is always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the one or more VMs that they run on.
 
 [AZURE.INCLUDE [Dynamic Service plan](../../includes/functions-dynamic-service-plan.md)]
