@@ -103,4 +103,4 @@ Below is a table clarifying the difference between an Azure subscription admin a
 [Manage an Azure Machine Learning workspace]: machine-learning-manage-workspace.md
 [Troubleshooting guide: Create and connect to an Machine Learning workspace]: machine-learning-troubleshooting-creating-ml-workspace.md
 [Machine Learning Studio]: https://studio.azureml.net/  
-[Microsoft Azure classic portal]:(https://manage.windowsazure.com/)
+[Microsoft Azure classic portal]: https://manage.windowsazure.com/
