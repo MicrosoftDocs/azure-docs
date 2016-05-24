@@ -28,6 +28,11 @@ Azure Redis Cache gives you access to a dedicated Redis cache, managed by Micros
 
 This topic shows you how to get started with Azure Redis Cache using Java.
 
+## Prerequisites
+
+[Jedis](https://github.com/xetorthio/jedis) - Java client for Redis
+
+This tutorial uses Jedis, but you can use any Java client listed at [http://redis.io/clients](http://redis.io/clients).
 
 ## Create a Redis cache on Azure
 
