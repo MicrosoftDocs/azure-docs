@@ -102,8 +102,9 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
     }
 
     ```
-<br>
-   Providing this info will not only show this help using the **Get-Help** cmdlet in the PowerShell console, it will also expose this help functionality within Azure Automation, for example when inserting activities during runbook authoring. Clicking “View detailed help” will open the help URI in another tab of the web browser you’re using to access Azure Automation.<br> ![Integration Module Help](media/automation-integration-modules/automation-integration-module-activitydesc.png)<br>
+
+   Providing this info will not only show this help using the **Get-Help** cmdlet in the PowerShell console, it will also expose this help functionality within Azure Automation, for example when inserting activities during runbook authoring. Clicking “View detailed help” will open the help URI in another tab of the web browser you’re using to access Azure Automation.<br> ![Integration Module Help](media/automation-integration-modules/automation-integration-module-activitydesc.png)
+
 2. If the module runs against a remote system,
 
   a. It should contain an Integration Module metadata file that defines the information needed to connect to that remote system, meaning the connection type. 
@@ -159,9 +160,10 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
           $Connection
 
         )
+     }
     ```
-<br>
-3. Define output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It is especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.<br> ![Graphical Runbook Output Type](media/automation-integration-modules/runbook-graphical-module-output-type.png)  
+
+3. Define output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It is especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.<br> ![Graphical Runbook Output Type](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br>  
 
    This is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.<br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
 4. Cmdlets in the module should not take complex object types for parameters. PowerShell Workflow is different from PowerShell in that it stores complex types in deserialized form. Primitive types will stay as primitives, but complex types are converted to their deserialized versions, which are essentially property bags. For example, if you used the **Get-Process** cmdlet in a runbook (or a PowerShell Workflow for that matter), it would return an object of type [Deserialized.System.Diagnostic.Process], not the expected [System.Diagnostic.Process] type. This type has all the same properties as the non-deserialized type, but none of the methods. And if you try to pass this value as a parameter to a cmdlet, where the cmdlet expects a [System.Diagnostic.Process] value for this parameter, you’ll receive the following error: *Cannot process argument transformation on parameter 'process'. Error: "Cannot convert the "System.Diagnostics.Process (CcmExec)" value of type  "Deserialized.System.Diagnostics.Process" to type "System.Diagnostics.Process".*   This is because there is a type mismatch between the expected [System.Diagnostic.Process] type and the given [Deserialized.System.Diagnostic.Process] type. The way around this issue is to ensure the cmdlets of your module do not take complex types for parameters. Here is the wrong way to do it.
