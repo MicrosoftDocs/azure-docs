@@ -44,7 +44,7 @@ To run the deployment automatically, click the following button:
 
 ## Variables for names
 
-This template uses variables to construct names for the resources. It uses the [uniqueString](../resource-group-template-functions/#uniquestring) function to construct a value based on the 
+This template uses variables to construct names for the resources. It uses the [uniqueString](../resource-group-template-functions.md#uniquestring) function to construct a value based on the 
 resource group id.
 
     "variables": {
