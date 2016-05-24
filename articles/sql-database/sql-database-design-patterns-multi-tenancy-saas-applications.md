@@ -19,17 +19,17 @@
 
 # Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database
 
-In this article you learn about the requirements and common data architecture patterns of multi-tenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database service with its elastic database pools and elastic tools help in addressing these requirements in a no-compromise fashion.
+In this article you learn about the requirements and common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database service with its elastic database pools and elastic tools help in addressing these requirements in a no-compromise fashion.
 
 ## Introduction
 
 Having worked with SaaS application providers over the last few years, we see developers often making choices against their best long-term interests when designing the tenancy models for the data tiers of their multi-tenant applications. At least initially, ease of development and lower cloud provider cost are perceived as more important than tenant isolation or scalability of the applications. This oftentimes leads to customer satisfaction issues and costly course-corrections at a later point in time. 
 
-In the context of this document, a multi-tenant application is an application hosted in a cloud environment and provides the same set of services to multiple (hundreds or thousands) tenants who do not share or see each other’s data. An archetypical category of such service is a SaaS application providing services to its tenants in a cloud hosted environment. 
+In the context of this article, a multi-tenant application is an application hosted in a cloud environment and provides the same set of services to multiple (hundreds or thousands) tenants who do not share or see each other’s data. An archetypical category of such service is a SaaS application providing services to its tenants in a cloud hosted environment. 
 
 ## Multi-tenant applications
 
-Multi-tenant applications are a prominent example of a type of application whose data and workloads can be partitioned easily. For instance, with multi-tenant applications, data and workload can typically be partitioned along tenant boundaries since most requests are within the confines of a tenant. That property is inherent to the data and the workload and it favors the applications patterns discussed throughout the remainder of the document. 
+Multi-tenant applications are a prominent example of a type of application whose data and workloads can be partitioned easily. For instance, with multi-tenant applications, data and workload can typically be partitioned along tenant boundaries since most requests are within the confines of a tenant. That property is inherent to the data and the workload and it favors the applications patterns discussed throughout the remainder of the article. 
 
 We find such applications spread across the whole spectrum of cloud based applications including
 - ISV database applications transitioning into cloud as SaaS applications
@@ -71,10 +71,10 @@ Common design practices for placing tenant data follows these three distinct mod
     Figure 1: Common design practices for multi-tenant data models
   
 1.	***Database-per-tenant***: This approach places each tenant in its own database. All tenant specific data is confined to their database and isolated from other tenants and their data.
-2.	***Shared database-sharded***: This approach places uses multiple databases, with multiple tenants sharing a database. i.e. a distinct set of tenants are assigned to each database using a partitioning strategy such as hash, range or list partitioning. This data distribution strategy is oftentimes referred to as sharding.
+2.	***Shared database-sharded***: This approach uses multiple databases, with multiple tenants sharing a database. i.e. a distinct set of tenants are assigned to each database using a partitioning strategy such as hash, range or list partitioning. This data distribution strategy is oftentimes referred to as sharding.
 3.	***Shared database-single***: This approach uses a single, sometimes large database containing data for all tenants disambiguated with a tenant ID column. 
   
-> [AZURE.NOTE] Sometimes, different tenants are also placed in different database schemas where the schema name is used to disambiguate between different tenants. This is not a recommended approach since it usually requires the use of dynamic SQL and it cannot make effective use of plan caching. Therefore, the remainder of this document focuses on the shared table approach in this category. 
+> [AZURE.NOTE] Sometimes, different tenants are also placed in different database schemas where the schema name is used to disambiguate between different tenants. This is not a recommended approach since it usually requires the use of dynamic SQL and it cannot make effective use of plan caching. Therefore, the remainder of this article focuses on the shared table approach in this category. 
  
 ## Characterization of popular multi-tenant data models
 
