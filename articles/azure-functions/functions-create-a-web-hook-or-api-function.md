@@ -84,7 +84,7 @@ Now, it's time to test it out.
 See these topics for more information about Azure Functions.
 
 + [Azure Functions developer reference](functions-reference.md)  
-Programmer reference for coding functions and defining triggers and bindings.
+Programmer reference for coding functions.
 + [Testing Azure Functions](functions-test-a-function.md)  
 Describes various tools and techniques for testing your functions.
 + [How to scale Azure Functions](functions-scale.md)  
