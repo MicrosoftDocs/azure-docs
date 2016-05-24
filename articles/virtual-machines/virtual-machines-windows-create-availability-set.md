@@ -27,23 +27,24 @@ For more information about creating and using availability sets, see [Manage the
 
 ## Use the portal to create an availability set before creating your VMs
 
-1. Click **Browse** and select **Availability set**.
-2. At the top of the hub, click **Add**.
+1. In the hub menu, click **Browse** and select **Availability sets**.
+
+2. On the **Availability sets blade**, click **Add**.
 
 	![Screenshot that shows the add button for creating a new availability set.](./media/virtual-machines-windows-create-availability-set/add-availability-set.png)
 
-3. **Name** should be a unique name for your availability set. The name should be 1-80 characters made up of numbers, letters, periods, underscores and dashes. The first character must be a letter or number. The last character must be a letter, number or underscore.
-4. Make sure the correct subscription is chosen under **Subscription**.
-5. Under **Resource Group**, click **Select existing**. 
+3. On the **Create availability set** blade, complete the information for your set.
 
-	![The screenshot shows the Name, Resource Group and Create  items that are required for creating an availability set.](./media/virtual-machines-windows-create-availability-set/availability-set-settings.png)
+	![Screenshot that shows the information you need to enter to create the availability set.](./media/virtual-machines-windows-create-availability-set/create-availability-set.png)
 
-6. In **Resource Group**, click the arrow to select an existing resource group or click **New** to create a new group. If you create a new resource group, the name can contain any of the following characters: letters, numbers, periods, dashes, underscores and opening or closing parenthesis. The name cannot end in a period.
+	- **Name** - the name should be 1-80 characters made up of numbers, letters, periods, underscores and dashes. The first character must be a letter or number. The last character must be a letter, number or underscore.
+	- **Fault domains** - 
+	- **Update domains** - 
+	- **Subscription** - select the subscription to use if you have more than one.
+	- **Resource group** - select an existing resource group by clicking the arrow and selecting a resource group from the drop down. You can also create a new resource group by typing in a name. The name can contain any of the following characters: letters, numbers, periods, dashes, underscores and opening or closing parenthesis. The name cannot end in a period. All of the VMs in the availability group need to be created in the same resource group.
+	- **Location** - select a location from the drop-down.
 
-	![The screenshot shows the that you can either choose to create a new group or select and existing one.](./media/virtual-machines-windows-create-availability-set/new-resource-group.png)
-
-7. Click **Create** when you are finished.
-8. Once the availability group has been created, you can see it in the list after you refresh.
+4. When you are done entering the information, click **Create**. Once the availability group has been created, you can see it in the list after you refresh.
 
 ## Use the portal to create a virtual machine and an availability set at the same time
 
@@ -67,3 +68,7 @@ This example creates an availability set in the **RMResGroup** resource group in
 	New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "West US"
 	
 For more information, see [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
+
+## Next steps
+
+Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md).
