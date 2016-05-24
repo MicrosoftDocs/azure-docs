@@ -57,6 +57,7 @@ The following screen shot shows an example of a cost chart.
 
 The **Estimated Cost** value is the current calendar month's estimated cost-to-date while the **Projected Cost** is the estimated cost for the entire current calendar month. 
 Note that the cost amounts are rounded up to the next whole number. For example: 
+
 - 5.01 rounds up to 6 
 - 5.50 rounds up to 6
 - 5.99 rounds up to 6
