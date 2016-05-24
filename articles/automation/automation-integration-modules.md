@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/21/2016"
+   ms.date="05/24/2016"
    ms.author="magoedte" />
 
 # Azure Automation Integration Modules
@@ -22,7 +22,7 @@ PowerShell is the fundamental technology behind Azure Automation. Since Azure Au
 
 ## What is a PowerShell Module?
 
-A PowerShell module is a group of PowerShell cmdlets like **Get-Date** or **Copy-Item**, that can be used from the PowerShell console, scripts, workflows, runbooks, and PowerShell DSC resources like WindowsFeature or File, that can be used from PowerShell DSC configurations. All of the functionality of PowerShell is exposed through cmdlets and DSC resources, and every cmdlet/DSC resource is backed by a PowerShell module, many of which ship with PowerShell itself. For example, the **Get-Date ** cmdlet is part of the Microsoft.PowerShell.Utility PowerShell module, and **Copy-Item**  cmdlet is part of the Microsoft.PowerShell.Management PowerShell module and the Package DSC resource is part of the PSDesiredStateConfiguration PowerShell module. Both of these modules ship with PowerShell. But many PowerShell modules do not ship as part of PowerShell, and are instead distributed with first or third-party products like System Center 2012 Configuration Manager or by the vast PowerShell community on places like PowerShell Gallery.  The modules are useful because they make complex tasks simpler through encapsulated functionality.  You can learn more about [PowerShell modules on MSDN](https://msdn.microsoft.com/en-us/library/dd878324(v=vs.85).aspx). 
+A PowerShell module is a group of PowerShell cmdlets like **Get-Date** or **Copy-Item**, that can be used from the PowerShell console, scripts, workflows, runbooks, and PowerShell DSC resources like WindowsFeature or File, that can be used from PowerShell DSC configurations. All of the functionality of PowerShell is exposed through cmdlets and DSC resources, and every cmdlet/DSC resource is backed by a PowerShell module, many of which ship with PowerShell itself. For example, the **Get-Date ** cmdlet is part of the Microsoft.PowerShell.Utility PowerShell module, and **Copy-Item**  cmdlet is part of the Microsoft.PowerShell.Management PowerShell module and the Package DSC resource is part of the PSDesiredStateConfiguration PowerShell module. Both of these modules ship with PowerShell. But many PowerShell modules do not ship as part of PowerShell, and are instead distributed with first or third-party products like System Center 2012 Configuration Manager or by the vast PowerShell community on places like PowerShell Gallery.  The modules are useful because they make complex tasks simpler through encapsulated functionality.  You can learn more about [PowerShell modules on MSDN](https://msdn.microsoft.com/library/dd878324(v=vs.85).aspx). 
 
 ## What is an Azure Automation Integration Module?
 
