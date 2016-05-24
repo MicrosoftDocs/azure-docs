@@ -17,7 +17,7 @@
 	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
-#Use Sqoop with Hadoop in HDInsight (Windows)
+#Use Sqoop with Hadoop in HDInsight
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -36,14 +36,6 @@ database for your relational database.
 
 For Sqoop versions that are supported on HDInsight clusters, 
 see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
-
-###Prerequisites
-
-Before you begin this tutorial, you must have the following:
-
-- **A workstation with Azure PowerShell**.
-
-    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Understand the scenario
 
