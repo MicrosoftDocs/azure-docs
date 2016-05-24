@@ -37,7 +37,7 @@ These steps create settings at directory level.
 
 	`Get-MsolAllSettingTemplates`
 
-	![List of settings templates](./media/list-of-templates.png)
+	![List of settings templates](./media/active-directory-accessmanagement-groups-settings-cmdlets/list-of-templates.png)
 
 2. To add a usage guideline URL, first you need to get the SettingsTemplate object that defines the usage guideline URL value; that is, the Group.Unified template:
 
@@ -55,7 +55,7 @@ These steps create settings at directory level.
 
 	`New-MsolSettings –SettingsObject $setting`
 
-	![Add a usage guideline URL](./media/add-usage-guideline-url.png)
+	![Add a usage guideline URL](./media/active-directory-accessmanagement-groups-settings-cmdlets/add-usage-guideline-url.png)
 
 Here are the settings defined in the Group.Unified SettingsTemplate.
 
@@ -106,7 +106,7 @@ Here are the steps to retrieve a template, create a Settings object, and modify 
 
 	`Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
-	![Settings ID GUID](./media/settings-id-guid.png)
+	![Settings ID GUID](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
 
 ## Read settings for a specific group
 
