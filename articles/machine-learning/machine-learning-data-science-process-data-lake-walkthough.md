@@ -1,6 +1,6 @@
 <properties
-	pageTitle="TBD | Microsoft Azure"
-	description="TBD"  
+	pageTitle="Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough | Microsoft Azure"
+	description="How to use Azure Data Lake to do data exploration and binary classification tasks on a dataset."  
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,wguo123"
@@ -17,7 +17,7 @@
 	ms.author="bradsev;weig"/>
 
 
-# Scalable Data Science in Azure Data Lake: An end to end Walkthrough
+# Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough
 
 This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip will be paid by a fare. It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
 
@@ -458,7 +458,7 @@ We will demonstrate two options for you to pull data into Azure Machine Learning
 
 ### Option 1: Use Python to build and deploy machine learning models
 
-Now let's build and deploy machine learning models using Python.  We can use Python to read the processed data from Azure Blob storage (saved with U-SQL in **Data sampling** step above) and build models. Create an Jupyter Notebook in your local machine or Azure Machine Learning Studio. We will show just the modeling and deployment steps in this article. The Jupyter Notebook contains the full code to explore, visualize data, feature engineering, modeling and deployment. 
+Now let's build and deploy machine learning models using Python.  We can use Python to read the processed data from Azure Blob storage (saved with U-SQL in **Data sampling** step above) and build models. Create a Jupyter Notebook in your local machine or Azure Machine Learning Studio. We will show just the modeling and deployment steps in this article. The Jupyter Notebook contains the full code to explore, visualize data, feature engineering, modeling and deployment. 
 
 #### Import Python libraries
 
