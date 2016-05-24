@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/24/2016"
 	ms.author="ricksal"/>
 
 
@@ -265,9 +265,6 @@ To see how these asynchronous APIs are used in your Android app and how data is 
 #### <a name="use-adapter"></a>How to: Use the adapter
 
 You are now ready to use data binding. The following code shows how to get the items in the mobile service table, clear the adapter, and then call the adapter's *add* method to fill it with the returned items.
-
-
-**TBD**: Test this code!!
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
