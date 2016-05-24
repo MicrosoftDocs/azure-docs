@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Allow external access to a Azure VM | Microsoft Azure"
-   description="Learn how to open a port for external access to your VM using the resource manager deployment model"
+   pageTitle="Allow external access to a Linux VM | Microsoft Azure"
+   description="Learn how to open a port for external access to your Linux VM using the resource manager deployment model"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="05/20/2016"
+   ms.date="05/24/2016"
    ms.author="iainfou"/>
 
 # Allow external access to your VM

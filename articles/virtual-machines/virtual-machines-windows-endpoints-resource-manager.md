@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Allow external access to a Azure VM | Microsoft Azure"
-   description="Learn how to open a port for external access to your VM using the resource manager deployment model"
+   pageTitle="Allow external access to a Windows VM | Microsoft Azure"
+   description="Learn how to open a port for external access to your Windows VM using the resource manager deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/23/2016"
+   ms.date="05/24/2016"
    ms.author="iainfou"/>
 
-# Allow external access to your VM
-To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. This concept may also be known as creating an endpoint. Without a Network Security Group, a VM potentially has all ports open. To create a Network Security Group and ACL rules you will need [the latest version of Azure PowerShell installed](../powershell-install-configure.md).
+# Allow external access to your Windows VM
+To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. This concept may also be known as creating an endpoint. This article provides quick steps to open the required ports to your VM and allow external access. To create a Network Security Group and ACL rules you will need [the latest version of Azure PowerShell installed](../powershell-install-configure.md). You can also [perform these steps using the Azure Portal](virtual-machines-windows-endpoints-resource-manager-portal.md).
 
 ## Quick Commands
-In the following example you will create a Network Security Group, create a rule to allow HTTP traffic to your webserver, then assign this rule to your VM.
+In the following example you will create a Network Security Group, create a rule to allow HTTP traffic to a webserver, then assign this rule to your VM.
 
-First, you need to create a rule to allow HTTP traffic on TCP port 80, entering your own name and description as follows:
+First, you need to create a rule to allow HTTP traffic on TCP port 80 as follows, entering your own name and description:
 
 ```
 $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "Allow HTTP" `
@@ -31,20 +31,20 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "A
     -DestinationAddressPrefix * -DestinationPortRange 80
 ```
 
-Next, create your Network Security group and assign the HTTP rule you just created, entering your own resoure group name and location as follows:
+Next, create your Network Security group and assign the HTTP rule you just created as follows, entering your own resoure group name and location:
 
 ```
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus 
     -Name "TestNSG" -SecurityRules $httprule
 ```
 
-You will assign your Network Security Group to a subnet, so first select the virtual network that your subnet is a part of as follows:
+Now lets assign your Network Security Group to a subnet. First, select the virtual network as follows:
 
 ```
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 ```
 
-Now you associate your Network Security Group with your subnet as follows:
+Associate your Network Security Group with your subnet as follows:
 
 ```
 Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name TestSubnet `
