@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/23/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -61,6 +61,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - If you have firewalls on your Intranet and you need to open ports between the Azure AD Connect servers and your domain controllers then see [Azure AD Connect Ports](active-directory-aadconnect-ports.md) for more information.
 - If your proxy limits which URLs which can be accessed then the URLs documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened in the proxy.
     - If you are using the Microsoft Cloud in Germany or the Microsoft Azure Government cloud, then see [Azure AD Connect sync service instances considerations](active-directory-aadconnect-instances.md) for URLs.
+- Azure AD Connect is by default using TLS 1.0 to communicate with Azure AD. You can change this to TLS 1.2 by following the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-1.2-for-azure-ad-connect).
 - If you are using an outbound proxy for connecting to the Internet, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added for the installation wizard and Azure AD Connect sync to be able to connect to the Internet and Azure AD. This text must be entered at the bottom of the file.  In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.
 
 ```
@@ -97,6 +98,8 @@ If you have problems with connectivity, please see [Troubleshoot connectivity pr
 - Optional: A test user account to verify synchronization.
 
 ## Component prerequisites
+
+### PowerShell and .Net Framework
 Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You need this version or a later version installed on your server. Depending on your Windows Server version, do the following:
 
 - Windows Server 2012R2
@@ -108,6 +111,23 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You n
 - Windows Server 2008
   - The latest supported version of PowerShell is available in **Windows Management Framework 3.0**, available on [Microsoft Download Center](http://www.microsoft.com/downloads).
  - .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
+
+### Enable TLS 1.2 for Azure AD Connect
+Azure AD Connect is using TLS 1.0 by default for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .Net applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358 ](https://technet.microsoft.com/security/advisory/2960358).
+
+1. TLS 1.2 cannot be enabled on Windows Server 2008. You need Windows Server 2008R2 or later. Make sure you have the .Net 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358 ](https://technet.microsoft.com/security/advisory/2960358). You might have this or a later release installed on your server already.
+2. If you use Windows Server 2008R2, make sure TLS 1.2 is enabled. On Windows Server 2012 server and later versions of the server operating systems, TLS 1.2 should already be enabled.
+```
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+```
+3. For all operating systems, set this registry key and restart the server.
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
+"SchUseStrongCrypto"=dword:00000001
+```
+4. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, then make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
 ## Prerequisites for federation installation and configuration
 
