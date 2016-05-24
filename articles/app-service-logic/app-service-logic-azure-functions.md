@@ -43,7 +43,7 @@ function start(req, res){
 
 In the designer, if you click the dropdown menu for actions, you can select **Azure Functions in my Region**.  This lists the containers in your subscription, and enables you to choose the function you want to call.  
 
-After selecting the function, you are prompted to specify an input payload object. This is the message that the logic app sends to the function, and it must be a JSON object. For example, if you want to pass in the **Last Modified** date from a salesforce trigger, the function payload might look like this:
+After selecting the function, you are prompted to specify an input payload object. This is the message that the logic app sends to the function, and it must be a JSON object. For example, if you want to pass in the **Last Modified** date from a Salesforce trigger, the function payload might look like this:
 
 ![Last modfied date][1]
 
