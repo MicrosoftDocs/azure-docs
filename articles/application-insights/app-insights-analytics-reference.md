@@ -1165,7 +1165,7 @@ Returns the sum of *Expr* over the group.
 
 [casts](#casts) | [comparisons](#scalar-comparisons)
 <br/>
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[gettype](#gettype) | [hash](#hash) | [iff](#iff) |  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 The supported types are:
 
@@ -1331,6 +1331,30 @@ Notice that there are other ways of achieving this effect:
 
     T | summarize count(PossiblyNull)
 
+### toscalar
+
+Evaluates a query or an expression and returns the result as a single value. This function is useful for staged calculations; for example, calculating a total count of events and then using that as a baseline.
+
+**Syntax**
+
+    toscalar(query)
+    toscalar(scalar)
+
+**Returns**
+
+The evaluated argument. If the argument is a table, returns the first column of the first row. (Good practice is to arrange that the argument has only one column and row.)
+
+**Example**
+
+```AIQL
+
+    // Get the count of requests 5 days ago:
+    let baseline = toscalar(requests  
+        | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
+    // List the counts relative to that baseline:
+    requests | summarize daycount = count() by floor(timestamp, 1d)  
+    | extend relative = daycount - baseline
+```
 
 
 
@@ -1666,7 +1690,7 @@ The ordinal number of the day in the year.
 
 * `a_date`: A `datetime`.
 
-
+<a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
 ### endofday, endofweek, endofmonth, endofyear
 
     dt = datetime("2016-05-23 12:34")
@@ -1755,30 +1779,6 @@ Check whether a string is a valid date:
      iff(notnull(todatetime(customDimensions.myDate)),
          ..., ...)
 
-### toscalar
-
-Evaluates a query or an expression and returns the result as a single value. This function is useful for staged calculations; for example, calculating a total count of events and then using that as a baseline.
-
-**Syntax**
-
-    toscalar(query)
-    toscalar(scalar)
-
-**Returns**
-
-The evaluated argument. If the argument is a table, returns the first column of the first row. (Good practice is to arrange that the argument has only one column and row.)
-
-**Example**
-
-```AIQL
-
-    // Get the count of requests 5 days ago:
-    let baseline = toscalar(requests  
-        | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
-    // List the counts relative to that baseline:
-    requests | summarize daycount = count() by floor(timestamp, 1d)  
-    | extend relative = daycount - baseline
-```
 
 ### totimespan
 
