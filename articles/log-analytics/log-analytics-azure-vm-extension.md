@@ -11,7 +11,7 @@
 	ms.service="log-analytics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang=""
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/24/2016"
 	ms.author="richrund"/>
@@ -117,7 +117,7 @@ With Azure Resource Manager, you can create a simple template (in JSON format) t
 
 By including the Log Analytics agent as part of your resource manager template you can ensure each virtual machine is deployed in a consistent way and is pre-configured to report to your Log Analytics workspace.
 
-Refer to [authoring Azure Resource Manager templates](../resource-group/resource-group-authoring-templates.md) Find out more about resource manager templates.
+Refer to [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) Find out more about resource manager templates.
 
 Below is an example ARM template for deploying a virtual machine running Windows with the MMA extension installed. This is very similar to a typicaly virtual machine template, with the following additions:
 
@@ -354,5 +354,5 @@ Below is an example ARM template for deploying a virtual machine running Windows
 ## Next Steps
 
 + [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to gather data from virtual machines.
-+ [Collect data using Azure diagnostics](log-analytics-powershell-azure-diagnostics-json.md) for other resources running in Azure.
++ [Collect data using Azure diagnostics](log-analytics-azure-storage.md) for other resources running in Azure.
 
