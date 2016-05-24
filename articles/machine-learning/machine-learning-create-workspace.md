@@ -51,6 +51,7 @@ After your Machine Learning workspace is created, you will see it listed on the 
 ## Sharing an Azure Machine Learning workspace
 
 Once a Machine Learning workspace is created, you can invite users to your workspace and share access to your workspace and all of its experiments. We support two roles of users:
+
 - **User** - A workspace user can create, open, modify and delete datasets, experiments and web services in the workspace.
 - **Owner** - An owner can invite, remove, and list users with access to the workspace, in addition to what a user can do. He/she also have access to Notebooks.
 
