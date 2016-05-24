@@ -23,7 +23,7 @@ This walkthrough shows how to use Azure Data Lake to do data exploration and bin
 
 **Azure Data Lake Analytics**
 
-The [Microsoft Azure Data Lake](https://azure.microsoft.com/en-us/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and UDFs, and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and UDFs, and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Data Lake Analytics is also a key part of Cortana Analytics Suite and works with Azure SQL Data Warehouse, Power BI, and Data Factory. This gives you a complete cloud big data and advanced analytics platform.
 
@@ -50,7 +50,7 @@ Before you begin these topics, you must have the following:
 
 1. An Azure subscription. If you do not already have one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. Visual Studio 2012, 2013, or 2015. If you do not already have one of these installed, you can download a free Community edition from [here](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx). Click on the **Download Community 2015** button under the Visual Studio section. 
+2. Visual Studio 2012, 2013, or 2015. If you do not already have one of these installed, you can download a free Community edition from [here](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Click on the **Download Community 2015** button under the Visual Studio section. 
 
  ![1](./media/machine-learning-data-science-process-data-lake-walkthough/install_VS2015.PNG)
 
@@ -74,30 +74,30 @@ This section provides instructions on how to create each of these resources. Not
 
 ### Create an Azure Data Lake Store
 
-Create an ADLS from the [Azure Portal](http://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/data-lake-store-hdinsight-hadoop-use-portal/). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
+Create an ADLS from the [Azure Portal](http://ms.portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
 
  ![3](./media/machine-learning-data-science-process-data-lake-walkthough/create_ADLS.PNG)
 
 
 ### Create an Azure Data Lake Analytics account
-Create an ADLA account from the [Azure Portal](http://portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure Portal](https://azure.microsoft.com/en-us/documentation/articles/data-lake-analytics-get-started-portal/). 
+Create an ADLA account from the [Azure Portal](http://ms.portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure Portal](../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
 
  ![4](./media/machine-learning-data-science-process-data-lake-walkthough/create_ADLA_new.PNG)
 
 
 ### Create an Azure Blob storage account
-Create an Azure Blob storage account from the [Azure Portal](http://portal.azure.com). For details, see [Create a storage account](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#create-a-storage-account).
+Create an Azure Blob storage account from the [Azure Portal](http://ms.portal.azure.com). For details, see [Create a storage account](../storage/storage-create-storage-account.md/#create-a-storage-account).
 	
  ![5](./media/machine-learning-data-science-process-data-lake-walkthough/Create_Azure_Blob.PNG)
 
 
 ### Create an HDInsight Linux Cluster
-Create an HDInsight Cluster (Linux) from the [Azure Portal](http://portal.azure.com).For details, see [Create an HDInsight cluster with access to Azure Data Lake Store](https://azure.microsoft.com/en-us/documentation/articles/data-lake-store-hdinsight-hadoop-use-portal/#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
+Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see [Create an HDInsight cluster with access to Azure Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal/#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
 
  ![6](./media/machine-learning-data-science-process-data-lake-walkthough/create_HDI_cluster.PNG)
 
 ### Set up an Azure Machine Learning Studio account
-Sign up/into Azure Machine Learning Studio from the [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/) page. Click on the **Get started now** button.
+Sign up/into Azure Machine Learning Studio from the [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) page. Click on the **Get started now** button.
 
  ![7](./media/machine-learning-data-science-process-data-lake-walkthough/sign-in-aml_v2.PNG)
 
@@ -112,7 +112,7 @@ Then you will be able to create experiments in Azure ML studio:
 
 
 ### Install Azure Data Lake Tools 
-Install Azure Data Lake Tools for your version of Visual Studio from [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/en-us/download/details.aspx?id=49504).
+Install Azure Data Lake Tools for your version of Visual Studio from [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
  ![10](./media/machine-learning-data-science-process-data-lake-walkthough/install_ADL_tools_VS.PNG)
 
