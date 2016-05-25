@@ -56,7 +56,7 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 The following setup and registration tasks can be automated with PowerShell:
 
-- Create a backup vault
+- Create a Recovery Services vault
 - Installing the Azure Backup agent
 - Registering with the Azure Backup service
 - Networking settings
@@ -113,7 +113,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 
 ## Installing the Azure Backup agent on a DPM Server
-Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent) or from the backup vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
+Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](http://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
 
 To install the agent, run the following command in an elevated PowerShell console **on the DPM server**:
 
@@ -173,7 +173,7 @@ Machine registration succeeded.
 ```
 
 ### Initial configuration settings
-Once the DPM Server is registered with the Azure Backup vault, it will start with default subscription settings. These subscription settings include Networking, Encryption and the Staging area. To begin changing the subscription settings you need to first get a handle on the existing (default) settings using the [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet:
+Once the DPM Server is registered with the Recovery Services vault, it will start with default subscription settings. These subscription settings include Networking, Encryption and the Staging area. To begin changing the subscription settings you need to first get a handle on the existing (default) settings using the [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) cmdlet:
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
