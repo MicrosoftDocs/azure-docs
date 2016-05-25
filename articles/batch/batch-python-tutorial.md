@@ -421,7 +421,7 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 > [AZURE.IMPORTANT] When they access environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%` or execute an application not found in the node's `PATH`, task command lines must be prefixed with `/bin/bash` (Linux) or `cmd /c` (Windows). This will explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's `PATH` (such as *python* in the above snippet) and no environment variables are used.
 
-Within the `foreach` loop in the code snippet above, you can see that the command line for the task is constructed such that five command-line arguments are passed to *python_tutorial_task.py*:
+Within the `for` loop in the code snippet above, you can see that the command line for the task is constructed such that five command-line arguments are passed to *python_tutorial_task.py*:
 
 1. **filepath**: This is the local path to the file as it exists on the node. When the ResourceFile object in `upload_file_to_container` was created in Step 2 above, the file name was used for this property (as a parameter to the ResourceFile constructor). This indicates that the file can be found in the same directory on the node as *python_tutorial_task.py*.
 
@@ -431,41 +431,16 @@ Within the `foreach` loop in the code snippet above, you can see that the comman
 
 4. **storagecontainer**: The name of the Storage container to which the output files should be uploaded.
 
-5. **sastoken**: The shared access signature (SAS) that provides write access to the **output** container in Azure Storage. The *python_tutorial_task.py* script uses this shared access signature when it uploads the output file to Azure Storage. You can find the code for this in the `UploadFileToContainer` method in the TaskApplication project's `Program.cs` file:
+5. **sastoken**: The shared access signature (SAS) that provides write access to the **output** container in Azure Storage. The *python_tutorial_task.py* script uses this shared access signature when creates its BlockBlobService reference:
 
-```
-// NOTE: From project TaskApplication Program.cs
+```python
+# NOTE: Taken from python_tutorial_task.py
 
-private static void UploadFileToContainer(string filePath, string containerSas)
-{
-		string blobName = Path.GetFileName(filePath);
-
-		// Obtain a reference to the container using the SAS URI.
-		CloudBlobContainer container = new CloudBlobContainer(new Uri(containerSas));
-
-		// Upload the file (as a new blob) to the container
-		try
-		{
-				CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
-				blob.UploadFromFile(filePath, FileMode.Open);
-
-				Console.WriteLine("Write operation succeeded for SAS URL " + containerSas);
-				Console.WriteLine();
-		}
-		catch (StorageException e)
-		{
-
-				Console.WriteLine("Write operation failed for SAS URL " + containerSas);
-				Console.WriteLine("Additional error information: " + e.Message);
-				Console.WriteLine();
-
-				// Indicate that a failure has occurred so that when the Batch service
-                // sets the CloudTask.ExecutionInformation.ExitCode for the task that
-                // executed this application, it properly indicates that there was a
-                // problem with the task.
-				Environment.ExitCode = -1;
-		}
-}
+# Create the blob client using the container's SAS token.
+# This allows us to create a client that provides write
+# access only to the container.
+blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
+                                         sas_token=args.sastoken)
 ```
 
 ## Step 6: Monitor tasks
@@ -475,242 +450,149 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties for you. There are many approaches to monitoring task execution. DotNetTutorial shows a simple example that reports only on completion and task failure or success states.
 
-Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are three Batch .NET concepts that warrant discussion. They are listed below in their order of appearance:
+The `wait_for_tasks_to_complete` function in *python_tutorial_client.py* provides a simple example of monitoring tasks for a certain state, in this case, the [completed][py_taskstate] state.
 
-1. **ODATADetailLevel**: Specifying [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of a job's tasks) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of status monitoring within your Batch applications.
+```python
+def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
+    """
+    Returns when all tasks in the specified job reach the Completed state.
 
-2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, *DotNetTutorial* waits for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit. Then it terminates the job.
+    :param batch_service_client: A Batch service client.
+    :type batch_service_client: `azure.batch.BatchServiceClient`
+    :param str job_id: The id of the job whose tasks should be to monitored.
+    :param timedelta timeout: The duration to wait for task completion. If all
+    tasks in the specified job do not reach Completed state within this time
+    period, an exception will be raised.
+    """
+    timeout_expiration = datetime.datetime.now() + timeout
 
-3. **TerminateJobAsync**: Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](batch-job-prep-release.md).
+    print("Monitoring all tasks for 'Completed' state, timeout in {}..."
+          .format(timeout), end='')
 
-The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
+    while datetime.datetime.now() < timeout_expiration:
+        print('.', end='')
+        sys.stdout.flush()
+        tasks = batch_service_client.task.list(job_id)
 
-```
-private static async Task<bool> MonitorTasks(
-    BatchClient batchClient,
-    string jobId,
-    TimeSpan timeout)
-{
-    bool allTasksSuccessful = true;
-    const string successMessage = "All tasks reached state Completed.";
-    const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
+        incomplete_tasks = [task for task in tasks if
+                            task.state != batchmodels.TaskState.completed]
+        if not incomplete_tasks:
+            print()
+            return True
+        else:
+            time.sleep(1)
 
-    // Obtain the collection of tasks currently managed by the job. Note that we use
-    // a detail level to specify that only the "id" property of each task should be
-    // populated. Using a detail level for all list operations helps to lower
-    // response time from the Batch service.
-    ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
-    List<CloudTask> tasks =
-        await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
-
-    Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
-
-    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
-    // will wait for all tasks to reach the Completed state.
-    TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(
-        tasks,
-        TaskState.Completed,
-        timeout);
-
-    if (timedOut)
-    {
-        allTasksSuccessful = false;
-
-        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
-
-        Console.WriteLine(failureMessage);
-    }
-    else
-    {
-        await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
-
-        // All tasks have reached the "Completed" state. However, this does not
-        // guarantee that all tasks were completed successfully. Here we further
-        // check each task's ExecutionInfo property to ensure that it did not
-        // encounter a scheduling error or return a non-zero exit code.
-
-        // Update the detail level to populate only the task id and executionInfo
-        // properties. We refresh the tasks below, and need only this information
-        // for each task.
-        detail.SelectClause = "id, executionInfo";
-
-        foreach (CloudTask task in tasks)
-        {
-            // Populate the task's properties with the latest info from the Batch service
-            await task.RefreshAsync(detail);
-
-            if (task.ExecutionInformation.SchedulingError != null)
-            {
-                // A scheduling error indicates a problem starting the task on the
-                // node. It is important to note that the task's state can be
-                // "Completed," yet the task still might have encountered a
-                // scheduling error.
-
-                allTasksSuccessful = false;
-
-                Console.WriteLine(
-                    "WARNING: Task [{0}] encountered a scheduling error: {1}",
-                    task.Id,
-                    task.ExecutionInformation.SchedulingError.Message);
-            }
-            else if (task.ExecutionInformation.ExitCode != 0)
-            {
-                // A non-zero exit code may indicate that the application executed by
-                // the task encountered an error during execution. As not every
-                // application returns non-zero on failure by default (e.g. robocopy),
-                // your implementation of error checking may differ from this example.
-
-                allTasksSuccessful = false;
-
-                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
-            }
-        }
-    }
-
-    if (allTasksSuccessful)
-    {
-        Console.WriteLine("Success! All tasks completed successfully within the specified timeout period.");
-    }
-
-    return allTasksSuccessful;
-}
+    print()
+    raise RuntimeError("ERROR: Tasks did not reach 'Completed' state within "
+                       "timeout period of " + str(timeout))
 ```
 
 ## Step 7: Download task output
 
 ![Download task output from Storage][7]<br/>
 
-Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `DownloadBlobsFromContainerAsync` in *DotNetTutorial*'s `Program.cs`:
+Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `download_blobs_from_container` in *python_tutorial_client.py*:
 
+```python
+def download_blobs_from_container(block_blob_client,
+                                  container_name, directory_path):
+    """
+    Downloads all blobs from the specified Azure Blob storage container.
+
+    :param block_blob_client: A blob service client.
+    :type block_blob_client: `azure.storage.blob.BlockBlobService`
+    :param container_name: The Azure Blob storage container from which to
+     download files.
+    :param directory_path: The local directory to which to download the files.
+    """
+    print('Downloading all files from container [{}]...'.format(
+        container_name))
+
+    container_blobs = block_blob_client.list_blobs(container_name)
+
+    for blob in container_blobs.items:
+        destination_file_path = os.path.join(directory_path, blob.name)
+
+        block_blob_client.get_blob_to_path(container_name,
+                                           blob.name,
+                                           destination_file_path)
+
+        print('  Downloaded blob [{}] from container [{}] to {}'.format(
+            blob.name,
+            container_name,
+            destination_file_path))
+
+    print('  Download complete!')
 ```
-private static async Task DownloadBlobsFromContainerAsync(
-    CloudBlobClient blobClient,
-    string containerName,
-    string directoryPath)
-{
-		Console.WriteLine("Downloading all files from container [{0}]...", containerName);
 
-		// Retrieve a reference to a previously created container
-		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-
-		// Get a flat listing of all the block blobs in the specified container
-		foreach (IListBlobItem item in container.ListBlobs(
-                    prefix: null,
-                    useFlatBlobListing: true))
-		{
-				// Retrieve reference to the current blob
-				CloudBlob blob = (CloudBlob)item;
-
-				// Save blob contents to a file in the specified folder
-				string localOutputFile = Path.Combine(directoryPath, blob.Name);
-				await blob.DownloadToFileAsync(localOutputFile, FileMode.Create);
-		}
-
-		Console.WriteLine("All files downloaded to {0}", directoryPath);
-}
-```
-
-> [AZURE.NOTE] The call to `DownloadBlobsFromContainerAsync` in the *DotNetTutorial* application specifies that the files should be downloaded to your `%TEMP%` folder. Feel free to modify this output location.
+> [AZURE.NOTE] The call to `download_blobs_from_container` in *python_tutorial_client.py* specifies that the files should be downloaded to your user's home directory. Feel free to modify this output location.
 
 ## Step 8: Delete containers
 
-Because you are charged for data that resides in Azure Storage, it is always a good idea to remove any blobs that are no longer needed for your Batch jobs. In DotNetTutorial's `Program.cs`, this is done with three calls to the helper method `DeleteContainerAsync`:
+Because you are charged for data that resides in Azure Storage, it is always a good idea to remove any blobs that are no longer needed for your Batch jobs. In *python_tutorial_client.py*, this is done with three calls to [BlockBlobService.delete_container][py_delete_container]:
 
 ```
-// Clean up Storage resources
-await DeleteContainerAsync(blobClient, appContainerName);
-await DeleteContainerAsync(blobClient, inputContainerName);
-await DeleteContainerAsync(blobClient, outputContainerName);
-```
-
-The method itself merely obtains a reference to the container, and then calls [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]:
-
-```
-private static async Task DeleteContainerAsync(
-    CloudBlobClient blobClient,
-    string containerName)
-{
-    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-
-    if (await container.DeleteIfExistsAsync())
-    {
-        Console.WriteLine("Container [{0}] deleted.", containerName);
-    }
-    else
-    {
-        Console.WriteLine("Container [{0}] does not exist, skipping deletion.",
-            containerName);
-    }
-}
+# Clean up storage resources
+print('Deleting containers...')
+blob_client.delete_container(app_container_name)
+blob_client.delete_container(input_container_name)
+blob_client.delete_container(output_container_name)
 ```
 
 ## Step 9: Delete the job and the pool
 
 In the final step, the user is prompted to delete the job and the pool that were created by the DotNetTutorial application. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process.
 
-The BatchClient's [JobOperations][net_joboperations] and [PoolOperations][net_pooloperations] both have corresponding deletion methods, which are called if the user confirms deletion:
+The BatchServiceClient's [JobOperations][py_job] and [PoolOperations][py_pool] both have corresponding deletion functions, which are called if the user confirms deletion:
 
-```
-// Clean up the resources we've created in the Batch account if the user so chooses
-Console.WriteLine();
-Console.WriteLine("Delete job? [yes] no");
-string response = Console.ReadLine().ToLower();
-if (response != "n" && response != "no")
-{
-    await batchClient.JobOperations.DeleteJobAsync(JobId);
-}
+```python
+# Clean up Batch resources (if the user so chooses).
+if query_yes_no('Delete job?') == 'yes':
+    batch_client.job.delete(_JOB_ID)
 
-Console.WriteLine("Delete pool? [yes] no");
-response = Console.ReadLine();
-if (response != "n" && response != "no")
-{
-    await batchClient.PoolOperations.DeletePoolAsync(PoolId);
-}
+if query_yes_no('Delete pool?') == 'yes':
+    batch_client.pool.delete(_POOL_ID)
 ```
 
 > [AZURE.IMPORTANT] Keep in mind that you are charged for compute resources--deleting unused pools will minimize cost. Also, be aware that deleting a pool deletes all compute nodes within that pool, and that any data on the nodes will be unrecoverable after the pool is deleted.
 
-## Run the *DotNetTutorial* sample
+## Run the sample script
 
-When you run the sample application, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
+When you run the *python_tutorial_client.py* script, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
 
-Typical execution time is **approximately 5 minutes** when you run the application in its default configuration.
+Typical execution time is **approximately 5-7 minutes** when you run the application in its default configuration.
 
 ```
-Sample start: 1/8/2016 09:42:58 AM
+Sample start: 2016-05-20 22:47:10
 
-Container [application] created.
-Container [input] created.
-Container [output] created.
-Uploading file C:\repos\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial\bin\Debug\TaskApplication.exe to container [application]...
-Uploading file Microsoft.WindowsAzure.Storage.dll to container [application]...
-Uploading file ..\..\taskdata1.txt to container [input]...
-Uploading file ..\..\taskdata2.txt to container [input]...
-Uploading file ..\..\taskdata3.txt to container [input]...
-Creating pool [DotNetTutorialPool]...
-Creating job [DotNetTutorialJob]...
-Adding 3 tasks to job [DotNetTutorialJob]...
-Awaiting task completion, timeout in 00:30:00...
-Success! All tasks completed successfully within the specified timeout period.
+Uploading file /home/user/py_tutorial/python_tutorial_task.py to container [application]...
+Uploading file /home/user/py_tutorial/data/taskdata1.txt to container [input]...
+Uploading file /home/user/py_tutorial/data/taskdata2.txt to container [input]...
+Uploading file /home/user/py_tutorial/data/taskdata3.txt to container [input]...
+Creating pool [PythonTutorialPool]...
+Creating job [PythonTutorialJob]...
+Adding 3 tasks to job [PythonTutorialJob]...
+Monitoring all tasks for 'Completed' state, timeout in 0:20:00.................................................................................
+  Success! All tasks reached the 'Completed' state within the specified timeout period.
 Downloading all files from container [output]...
-All files downloaded to C:\Users\USERNAME\AppData\Local\Temp
-Container [application] deleted.
-Container [input] deleted.
-Container [output] deleted.
+  Downloaded blob [taskdata1_OUTPUT.txt] from container [output] to /home/user/taskdata1_OUTPUT.txt
+  Downloaded blob [taskdata2_OUTPUT.txt] from container [output] to /home/user/taskdata2_OUTPUT.txt
+  Downloaded blob [taskdata3_OUTPUT.txt] from container [output] to /home/user/taskdata3_OUTPUT.txt
+  Download complete!
+Deleting containers...
 
-Sample end: 1/8/2016 09:47:47 AM
-Elapsed time: 00:04:48.5358142
+Sample end: 2016-05-20 22:53:12
+Elapsed time: 0:06:02
 
-Delete job? [yes] no: yes
-Delete pool? [yes] no: yes
+Delete job? [Y/n]
+Delete pool? [Y/n]
 
-Sample complete, hit ENTER to exit...
+Press ENTER to exit...
 ```
 
 ## Next steps
 
-Feel free to make changes to *DotNetTutorial* and *TaskApplication* to experiment with different compute scenarios. For example, try adding an execution delay to *TaskApplication*, such as with [Thread.Sleep][net_thread_sleep], to simulate long-running tasks and monitor them with the Batch Explorer's *Heat Map* feature. Try adding more tasks or adjusting the number of compute nodes. Add logic to check for and allow the use of an existing pool to speed execution time (*hint*: check out `ArticleHelpers.cs` in the [Microsoft.Azure.Batch.Samples.Common][github_samples_common] project in [azure-batch-samples][github_samples]).
+Feel free to make changes to *python_tutorial_client.py* and *python_tutorial_task.py* to experiment with different compute scenarios. For example, try adding an execution delay to *python_tutorial_task.py* to simulate long-running tasks and monitor them with the Batch Explorer's *Heat Map* feature. Try adding more tasks or adjusting the number of compute nodes. Add logic to check for and allow the use of an existing pool to speed execution time.
 
 Now that you're familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
@@ -762,6 +644,10 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [py_starttask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.StartTask
 [py_poolinfo]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.PoolInformation
 [py_task]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.CloudTask
+[py_taskstate]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.TaskState
+[py_delete_container]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html#azure.storage.blob.baseblobservice.BaseBlobService.delete_container
+[py_job]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.JobOperations
+[py_pool]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.PoolOperations
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [storage_explorer]: http://storageexplorer.com/
