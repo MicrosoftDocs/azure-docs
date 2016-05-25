@@ -21,7 +21,7 @@
 ## Overview
 
 The Cost Management feature of DevTest Labs helps you track the cost of your lab. 
-This article illustrates how to use the **Monthly Estimated Cost Trend** chart  
+This article illustrates how to use the **Monthly Estimated Cost Trend** chart 
 to view the current calendar month's estimated cost-to-date as well as the projected end-of-month cost for the current calendar month.
 
 ## Viewing the Monthly Estimated Cost Trend chart
