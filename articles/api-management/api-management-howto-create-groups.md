@@ -3,7 +3,7 @@
 	description="Learn how to manage developer accounts using groups in Azure API Management" 
 	services="api-management" 
 	documentationCenter="" 
-	authors="erikre" 
+	authors="steved0x" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
-	ms.author="erikre"/>
+	ms.date="05/25/2016" 
+	ms.author="sdanie"/>
 
 # How to create and use groups to manage developer accounts in Azure API Management
 

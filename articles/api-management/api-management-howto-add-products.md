@@ -3,7 +3,7 @@
 	description="Learn how to create and publish products in Azure API Management." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="erikre" 
+	authors="steved0x" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
-	ms.author="erikre"/>
+	ms.date="05/25/2016" 
+	ms.author="sdanie"/>
 
 # How to create and publish a product in Azure API Management
 

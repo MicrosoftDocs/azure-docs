@@ -3,7 +3,7 @@
 	description="Learn about APIs, products, roles, groups, and other API Management key concepts." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="erikre" 
+	authors="steved0x" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
-	ms.author="erikre"/>
+	ms.date="05/25/2016" 
+	ms.author="sdanie"/>
 
 # How to import the definition of an API with operations in Azure API Management
 

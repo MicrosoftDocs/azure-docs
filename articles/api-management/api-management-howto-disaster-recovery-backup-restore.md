@@ -3,7 +3,7 @@
 	description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="erikre" 
+	authors="steved0x" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/24/2016" 
-	ms.author="erikre"/>
+	ms.author="sdanie"/>
 
 # How to implement disaster recovery using service backup and restore in Azure API Management
 
