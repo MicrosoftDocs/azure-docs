@@ -99,14 +99,13 @@ These articles provide a foundation reference for REST and authentication librar
 
 ### Authentication protocols
 
-- [SAML 2.0 protocol reference](https://msdn.microsoft.com/library/azure/dn195591.aspx): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
+- [Azure AD authentication protocols](active-directory-protocols.md): Learn about the different authentication and authorization protocols supported by Azure AD.
 
+- [SAML 2.0 protocol reference](active-directory-saml-protocol-reference.md): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
 
-- [OAuth 2.0 protocol reference](https://msdn.microsoft.com/library/azure/dn645545.aspx): You can use the OAuth 2.0 protocol to authorize access to web applications and web APIs in your Azure Active Directory tenant.
+- [OAuth 2.0 protocol reference](active-directory-protocols-oauth-code.md): You can use the OAuth 2.0 protocol to authorize access to web applications and web APIs in your Azure Active Directory tenant.
 
-
-- [OpenID Connect 1.0 protocol reference](https://msdn.microsoft.com/library/azure/dn645541.aspx): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol.
-
+- [OpenID Connect 1.0 protocol reference](active-directory-protocols-openid-connect-code.md): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol.
 
 - [WS-Federation 1.2 protocol](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): Azure Active Directory supports WS-Federation 1.2 as per the Web Services Federation Version 1.2 Specification.
 
