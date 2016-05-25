@@ -43,7 +43,7 @@ You must have the following:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Create a new notebook. Click **New**, and then click **PySpark**.
+2. Create a new notebook. Click **New**, and then click **Spark**.
 
 	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
@@ -77,6 +77,8 @@ You must have the following:
         option("header", "true").
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+
+7. You can then run the snippets, like shown below, to view the data from the dataframe you created in the previous step.
 
 		df.show()
 
