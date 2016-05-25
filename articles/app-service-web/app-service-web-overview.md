@@ -48,7 +48,7 @@ Here are some key features of App Service that apply to Web Apps:
 
 - **Testing in Production** - Take staged deployments to the next level and [perform A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md) to verify your new code with a configurable fraction of your live traffic. 
 
-- **Authentication and authorization** - Protect an app from unauthenticated access with no changes to your code. Built-in authentication services secure your apps for access by users, by clients representing users, or by services. Supported identity providers include Azure Active Directory, Facebook, Twitter, Google, and Microsoft Account. For more information, see [Authentication and authorization in Azure App Service](app-service-authentication-overview.md).
+- **Authentication and authorization** - Protect an app from unauthenticated access with no changes to your code. Built-in authentication services secure your apps for access by users, by clients representing users, or by services. Supported identity providers include Azure Active Directory, Facebook, Twitter, Google, and Microsoft Account. For more information, see [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md).
 
 - **Connect to any service** - Connect your app to enterprise systems or software-as-a-service (SaaS) platforms in minutes with built-in [connectors](../connectors/apis-list.md). Choose from more than 50 connectors for enterprise systems such as SAP, Siebel, and Oracle, popular enterprise SaaS services like Salesforce and Office 365, and popular internet services such as Facebook, Twitter, and Dropbox.
 
