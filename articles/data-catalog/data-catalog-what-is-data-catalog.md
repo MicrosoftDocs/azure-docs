@@ -32,7 +32,7 @@ Traditionally, discovering enterprise data sources has been an organic process b
 
 ## Discovery challenges for data producers
 
-While these challenges face data consumers, users responsible for producing and maintaining information assets face challenges of their own.
+While data consumers face these challenges, users responsible for producing and maintaining information assets face challenges of their own.
 
 -	Annotating data sources with descriptive metadata is often a lost effort; client applications typically ignore descriptions stored in the data source.
 -	Creating documentation for data sources is often a lost effort; keeping documentation in sync with the data source is an ongoing responsibility, and users lack trust in documentation as it is often perceived as being out of date.
@@ -54,13 +54,13 @@ Discovering and understanding data sources and their use is the primary purpose 
 
 ![Data Catalog Capabilities](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
-## Get started
+## Get started with Data Catalog
 
 To get started with Data Catalog today, visit [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
 A getting started guide is available [here](data-catalog-get-started.md).
 
-## Learn more
+## Learn more about Data Catalog
 
 To learn more about the capabilities of Data Catalog, see:
 
