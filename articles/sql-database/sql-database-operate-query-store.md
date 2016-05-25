@@ -19,24 +19,23 @@
 
 # Operating the Query Store in Azure SQL Database 
 
-Query Store in Azure is a fully managed database feature that continuously collects and presents detailed historic information about all queries. You can think about Query Store as similar to an airplane's flight data recorder that significantly simplifies query performance troubleshooting both for cloud and on premise customers. This article explains specific aspects of operating Query Store in Azure. Using this pre-collected query data, users are able to quickly diagnose and resolve performance problems and thus spend more time focusing on their business. Hence, many DBAs, database experts, developers as well as members of Microsoft CSS team start performance troubleshooting with the Query Store.
+Query Store in Azure is a fully managed database feature that continuously collects and presents detailed historic information about all queries. You can think about Query Store as similar to an airplane's flight data recorder that significantly simplifies query performance troubleshooting both for cloud and on-premises customers. This article explains specific aspects of operating Query Store in Azure. Using this pre-collected query data, users can quickly diagnose and resolve performance problems and thus spend more time focusing on their business. 
 
-Query Store has been [globally available](https://azure.microsoft.com/en-us/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database since November 2015. Query Store is also foundation for performance analysis and tuning features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/en-us/updates/sqldatabaseadvisorga/). At the moment of publishing this article, Query Store is running in more than 200K user databases in Azure, collecting query related information for several months, without interruption.
+Query Store has been [globally available](https://azure.microsoft.com/en-us/updates/general-availability-azure-sql-database-query-store/) in Azure SQL Database since November, 2015. Query Store is the foundation for performance analysis and tuning features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/en-us/updates/sqldatabaseadvisorga/). At the moment of publishing this article, Query Store is running in more than 200,000 user databases in Azure, collecting query related information for several months, without interruption.
 
-> [AZURE.IMPORTANT] Over the next couple of months, Query Store will be activated for all Azure SQL databases (existing and new. This process currently includes only singleton databases with intention to expand to Elastic Pool databases in the final stages of the light up.  When using Elastic Pools, enable Query Store for only the small subset of databases. Enabling Query Store for all databases in an Elastic Pool can lead to excessive resource usage and could make your system unresponsive.  
-
+> [AZURE.IMPORTANT] Microsoft is in the process of activating Query Store for all Azure SQL databases (existing and new. This activation process currently includes only singleton databases, but will expand to Elastic Pool databases in the near future.  When using Elastic Pools, enable Query Store for only the small subset of databases. Enabling Query Store for all databases in an Elastic Pool can lead to excessive resource usage and could make your system unresponsive. 
 
 ## Query Store as a managed feature in Azure SQL Database
 
-Query Store operates in Azure SQL Database based on these two fundamental principles:
+Query Store operates in Azure SQL Database is based on these two fundamental principles:
 
 - Cause is no visible impact on the customer workload
-- Continuously monitor queries as long as customer workload is not affected
+- Continuously monitor queries unless a customer workload is affected
 
 Impact on the customer workload has two dimensions:
 
-- ***Availability***: SLA for SQL Database is not reduced when Query Store is running.
-- ***Performance***: average overhead introduced by the Query Store is typically in range of 1-2%
+- ***Availability***: The SLA for SQL Database is not reduced when Query Store is running.
+- ***Performance***: The average overhead introduced by the Query Store is typically in range of 1-2%
 
 Query Store in Azure operates using limited resources (CPU, memory, disk I/O, size on disk, etc). It respects various system limitations in order to minimally affect regular workload. In general, Query Store respects resource restrictions in two aspects:
 
@@ -56,14 +55,14 @@ Azure SQL Database uses collected data to:
 - ***Solve or mitigate issues caused by the Query Store:*** Azure SQL Database can detect and mitigate issues having substantial impact on the customer workload, with low latency (less than an hour). Most frequently, issues are handled by setting Query Store to ***OFF*** temporarily.
 - ***Learn usage patterns on a large number of databases and consequently improve feature reliability and quality:*** Query Store is improved with every update of Azure SQL Database. 
 
-From time to time, feature updates introduce changes to defaults applied to internal and rarely external (customer facing) configuration. Consequently, the customer experience with Query Store on Azure SQL Database can differ from on–premise environments, because of the automatic actions performed by the platform:
+From time to time, Query Store updates introduce changes to the defaults applied to internal and rarely external (customer-facing) configurations. Consequently, the customer experience with Query Store on Azure SQL Database can differ from on–premise environments because of the automatic actions performed by the Query Store platform:
 
 - Query Store state can be changed to ***OFF*** to mitigate issues and back to ***ON*** when the problem is solved.
 - Query Store configuration can be changed to ensure reliable work. This can be performed as:
-    - Individual database change addressing instability or unreliability issues.
-    - Global rollout of optimal configuration providing benefits to all databases with Query Store.
+    - Individual database changes that address instability or unreliability issues.
+    - Global rollout of optimal configuration changes providing benefits to all databases using Query Store.
 
-Turning Query Store ***OFF*** is an automatic action that scoped to individual databases. It occurs when there is a product behavior that negatively impacts user database(s) for which detection mechanism fired an alert. For that particular database Query Store remains ***OFF*** until new version with the improved implementation becomes available. When transition to ***OFF*** state occurs, the customer is informed over email and advised to refrain from enabling Query Store until a new version is rolled out. After a new rollout, Azure SQL Database infrastructure automatically activates Query Store for any database for which it was set to ***OFF***. 
+Turning Query Store ***OFF*** is an automatic action that scoped to individual databases. It occurs when there is a product behavior that negatively impacts user database(s) for which the detection mechanism fired an alert. For that particular database, Query Store remains ***OFF*** until a new version with the improved Query Store implementation becomes available. When a transition to the ***OFF*** state occurs, the customer is informed over e-mail and advised to refrain from re-enabling Query Store until a new version is rolled out. After a new rollout, Azure SQL Database infrastructure automatically activates Query Store for any database for which it was set to ***OFF***. 
 
 Less frequently, Azure SQL Database may enforce new configuration defaults for all user databases, optimized for reliable work and continuous data collection. 
 
