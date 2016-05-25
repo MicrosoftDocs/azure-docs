@@ -51,10 +51,11 @@ Before you begin these topics, you must have the following:
 
 1. An Azure subscription. If you do not already have one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. Visual Studio 2012, 2013, or 2015. If you do not already have one of these installed, you can download a free Community edition from [here](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Click on the **Download Community 2015** button under the Visual Studio section. 
+2. [Recommended] Visual Studio 2013, or 2015. If you do not already have one of these installed, you can download a free Community edition from [here](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Click on the **Download Community 2015** button under the Visual Studio section. 
 
- ![1](./media/machine-learning-data-science-process-data-lake-walkthough/install_VS2015.PNG)
+>[AZURE.NOTE] Instead of Visual Studio, you can also use the Azure Portal to submit Azure Data Lake queries. We will provide instructions on how to do so both with Visual Studio and on the portal in the section titled **Process data with U-SQL**. 
 
+3. Signup for Azure Data Lake Preview
 >[AZURE.NOTE] You need to get approval to use Azure Data Lake Store (ADLS) and Azure Data Lake Analytics (ADLA) as these services are in preview. You will be prompted to sign up when you create your first ADLS or ADLA. To sigh up, click on **Sign up to preview**, read the agreement, and click **OK**. Here, for example, is the ADLS sign up page:
 
  ![2](./media/machine-learning-data-science-process-data-lake-walkthough/ADLA-preview-signup.PNG)
@@ -68,7 +69,7 @@ To prepare the data science environment for this walkthrough, create the followi
 - Azure Data Lake Analytics (ADLA)
 - Azure Blob storage account
 - Azure Machine Learning Studio account
-- Azure Data Lake Tools for Visual Studio
+- Azure Data Lake Tools for Visual Studio (Recommended)
 
 This section provides instructions on how to create each of these resources. Note that the Azure Data Lake Store can be created either separately or when you create the Azure Data Lake Analytics as the default storage, and, similarly, the Azure Blob storage account can be created either separately or as the default storage when your create an HDInsight Linux Cluster. Instructions are referenced for creating each of these resources separately below, but the two storage accounts need not be created in separate steps.
 
@@ -136,17 +137,22 @@ The data processing tasks illustrated in this section include ingesting, checkin
 - [Data exploration](#explore)
 - [Join trip and fare tables](#join)
 - [Data sampling](#sample)
-- [Run U-SQL jobs from the portal](#run)
+- [Run U-SQL jobs](#run)
 
 The U-SQL scripts are described here and provided in a separate file. You can download the full **U-SQL scripts** from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-### <a name="ingest"></a>Data Ingestion: Read in data from public blob
-
-Open Visual Studio, click **File --> New --> Project**, choose **U-SQL Project**, name and save it to a folder.
+To execute U-SQL, Open Visual Studio, click **File --> New --> Project**, choose **U-SQL Project**, name and save it to a folder.
 
 ![12](./media/machine-learning-data-science-process-data-lake-walkthough/create_USQL_project.PNG)
 
-The location of the data is referenced as **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Substitute your own container name and storage account name in for following scripts for container_name@blob_storage_account_name in the wasb address. Since the file names are in same format, we can use **trip\_data_{\*\}.csv** to read in all 12 trip files. 
+>[AZURE.NOTE] If are using the Azure Portal to execute U-SQL instead of Visual Studio,  you can navigate to the Azure Data Lake Analytics resource and following these illustrated steps to submit queries. 
+
+
+![29](./media/machine-learning-data-science-process-data-lake-walkthough/portal_submit_job.PNG)
+
+### <a name="ingest"></a>Data Ingestion: Read in data from public blob
+
+The location of the data in the Azure blob is referenced as **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Substitute your own container name and storage account name in for following scripts for container_name@blob_storage_account_name in the wasb address. Since the file names are in same format, we can use **trip\_data_{\*\}.csv** to read in all 12 trip files. 
 
 	///Read in Trip data
 	@trip0 =
