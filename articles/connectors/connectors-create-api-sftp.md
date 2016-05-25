@@ -53,6 +53,10 @@ When you add this connector to your logic apps, enter the following values:
 |Password | Yes | Enter the user name's password.|
 |SSH Server Host Key Finger Print | Yes | Enter the fingerprint of the public host key for the SSH server. <br/><br/>Typically, the server administrator can give you this key. You can also use the ```WinSCP``` or ```ssh-keygen-g3 -F``` tools to get the key fingerprint. | 
 
+Here's a walk through of the steps to create the connection:  
+
+>[AZURE.INCLUDE [Steps to create a connection to sftp](../../includes/connectors-create-api-sftp.md)]
+
 After you create the connection, you enter the SFTP properties, like the folder path or file. The **REST API reference** in this topic describes these properties.
 
 >[AZURE.TIP] You can use this same SFTP connection in other logic apps.

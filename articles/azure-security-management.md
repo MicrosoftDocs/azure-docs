@@ -1,19 +1,19 @@
 <properties
    pageTitle="Security Management in Azure | Microsoft Azure"
    description=" This article discusses steps for enhancing remote management security while administering Microsoft Azure environments, including cloud services, Virtual Machines and custom applications."
-   services="azure-security, virtual-machines, cloud-services"
+   services="security"
    documentationCenter="na"
    authors="TerryLanfear"
    manager="StevenPo"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="05/23/2016"
    ms.author="terrylan"/>
 
 # Security management in Azure
