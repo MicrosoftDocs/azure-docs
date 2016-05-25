@@ -209,7 +209,7 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -Retenti
 
 ## Run an initial backup
 
-The backup schedule triggers a full back up on the initial back up for the item. On subsequent back ups, the back up is an incremental copy. If you want to force the initial backup to happen at a certain time or even immediately then use the Backup-AzureRmRecoveryServicesBackupItem cmdlet:
+The backup schedule triggers a full back up on the initial back up for the item. On subsequent back ups, the back up is an incremental copy. If you want to force the initial backup to happen at a certain time or even immediately then use the **[Backup-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723312.aspx)** cmdlet:
 
 ```
 PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -Name "V2VM"
@@ -217,7 +217,7 @@ PS C:\> $item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer
 PS C:\> $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
-V2VM        Backup               InProgress            4/23/2016 5:00:30 PM            cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+V2VM              Backup               InProgress            4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
 > [AZURE.NOTE: The timezone of the StartTime and EndTime fields in PowerShell is UTC. However, when the time is shown in the Azure portal, the time is adjusted to your local timezone.
@@ -233,7 +233,7 @@ PS C:\ > $joblist = Get-AzureRmRecoveryservicesBackupJob –Status InProgress
 PS C:\ > $joblist[0]
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
 ------------     ---------            ------               ---------                 -------                   ----------
-V2VM        Backup               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+V2VM             Backup               InProgress            4/23/2016 5:00:30 PM           cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
 Instead of polling these jobs for completion - which is unnecessary additional code - use the  **[Wait-AzureRmRecoveryServicesBackupJob](https://msdn.microsoft.com/library/mt723321.aspx)** cmdlet. This  cmdlet pauses the execution until either the job completes or the specified timeout value is reached.
@@ -268,7 +268,7 @@ PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedC
 
 ### Choose a recovery point
 
-Use the **[Get-AzureRmRecoveryServicesVaultSettingsFilmRecoveryServicesBackupRecoveryPoint](https://msdn.microsoft.com/library/mt723308.aspx)** cmdlet to list all the recovery points for the backup item. Then choose the recovery point to restore. If you are unsure which recovery point to use, it is a good practice to choose the most recent RecoveryPointType = AppConsistent point in the list.
+Use the **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://msdn.microsoft.com/library/mt723308.aspx)** cmdlet to list all the recovery points for the backup item. Then choose the recovery point to restore. If you are unsure which recovery point to use, it is a good practice to choose the most recent RecoveryPointType = AppConsistent point in the list.
 
 In the following script, the variable, **$rp**, is an array of recovery points for the selected backup item. The array is sorted in reverse order of time with the latest recovery point at index 0. Use standard PowerShell array indexing to pick the recovery point. For example: $rp[0] will select the latest recovery point.
 
@@ -320,7 +320,7 @@ Once you restore the disks, go to the next section for information on creating t
 
 After you have restored the disks, use these steps to create and configure an ARM virtual machine from disk.
 
-1. Fetch the restored disk's properties by querying the job details.
+1. Query the restored disk properties for the job details.
 
     ```
     PS C:\> $properties = $details.properties
