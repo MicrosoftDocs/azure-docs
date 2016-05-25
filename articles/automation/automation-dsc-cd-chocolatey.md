@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="03/04/2016"
+   ms.date="05/24/2016"
    ms.author="golive"/>
 
 # Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
@@ -171,7 +171,7 @@ Each time a version passes QA and is approved for deployment, the package is cre
 
 ## Notes
 
-This usage example starts with a VM from a generic Windows 2012 R2 image from the Azure gallery.  You can start it from any stored image and then proceeded to tweak from there with the DSC configuration.  However, tweaking configuration that is baked into an image is much harder than dynamically updating the configuration using DSC.
+This usage example starts with a VM from a generic Windows 2012 R2 image from the Azure gallery.  You can start it from any stored image and then tweak from there with the DSC configuration.  However, changing configuration that is baked into an image is much harder than dynamically updating the configuration using DSC.
 
 You don’t have to use an ARM template and the VM extension to use this technique with your VMs.  And your VMs don’t have to be on Azure to be under CD management.  All that’s necessary is that Chocolatey be installed and the LCM configured on the VM so it knows where the pull server is.  
 

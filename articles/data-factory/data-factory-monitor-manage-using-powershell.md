@@ -76,9 +76,22 @@ In this step, you use the Azure PowerShell to create an Azure data factory named
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
-	The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryPSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	
+Please note the following:
+ 
+- The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactoryPSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+- To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
+- The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+- If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
 
-	> [AZURE.NOTE] The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+	- In Azure PowerShell, run the following command to register the Data Factory provider. 
+		
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+		You can run the following command to confirm that the Data Factory provider is registerd. 
+	
+			Get-AzureRmResourceProvider
+	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This automatically registers the provider for you.
 
 ## Create linked services
 Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database that contains input data or stores output data for a Data Factory pipeline. A compute service is the service that processes  input data and produces output data. 
