@@ -3,7 +3,7 @@
 	description="Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud"
 	services="batch"
 	documentationCenter=""
-	authors="dlepow"
+	authors="mmacy"
 	manager="timlt"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="05/24/2016"
 	ms.author="marsma"/>
 
 # Create and manage an Azure Batch account in the Azure portal
@@ -22,19 +22,19 @@
 - [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-The [Azure portal][azure_portal] provides you with the tools you need to create and manage an Azure Batch account, which you can use for large-scale parallel workload processing. In this article, we'll walk though Batch account creation using the portal, as well as discuss several of the most important settings and properties of a Batch account. For example, the applications and services you develop with Batch need your account's URL and an access key to communicate with the Batch service APIs, both of which are found in the Azure portal.
+The [Azure portal][azure_portal] provides you with the tools you need to create and manage an Azure Batch account, which you can use for large-scale parallel workload processing. In this article, we'll walk though Batch account creation using the portal, and point out important settings and properties of a Batch account. For example, the applications and services you develop with Batch need your account's URL and an access key to communicate with the Batch service APIs, both of which are found in the Azure portal.
 
->[AZURE.NOTE] The Azure portal currently supports a subset of the features available in the Batch service, including account creation and the management of account settings and properties. The full feature set of Batch, including creating and running jobs and tasks, is available to developers through the Batch APIs.
+>[AZURE.NOTE] The Azure portal currently supports a subset of the features in the Batch service, including account creation, management of Batch account settings and properties, and creation and monitoring of pools and jobs. The full feature set of Batch is available to developers through the Batch APIs.
 
 ## Create a Batch account
 
 1. Sign in to the [Azure portal][azure_portal].
 
-2. Click **New** > **Compute** > **Batch Service**.
+2. Click **New** > **Virtual Machines** > **Batch Service**.
 
 	![Batch in the Marketplace][marketplace_portal]
 
-3. Review the information on the **Batch Service** blade, then click **Create**. Note that deployment model selection is disabled. This is because Batch uses the resource group deployment model only.
+3. Review the information on the **Batch Service** blade, then click **Create**. Note that Batch uses the Resource Manager deployment model only.
 
 	![Batch Service create blade in Azure portal][3]
 
@@ -78,7 +78,7 @@ The Batch account blade displays several properties for the account, as well as 
 
 * You can also create and manage Batch accounts with the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md) and the [Batch Management .NET](batch-management-dotnet.md) library.
 
-* You are not charged for the Batch account itself. You are charged for any Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools, and if you use the [application packages](batch-application-packages.md) feature, you are charged for the Azure Storage resources used for storing your application package versions. See [Batch pricing][batch_pricing] for more information.
+* You aren't charged for the Batch account itself. You are charged for any Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools, and if you use the [application packages](batch-application-packages.md) feature, you are charged for the Azure Storage resources used for storing your application package versions. See [Batch pricing][batch_pricing] for more information.
 
 * You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in different Azure regions.
 
