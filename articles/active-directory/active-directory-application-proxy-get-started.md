@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="kgremban"/>
 
 # How to provide secure remote access to on-premises applications
@@ -33,10 +33,14 @@ Azure AD Application Proxy provides single sign-on (SSO) and secure remote acces
 Azure AD Application Proxy provides a simple, secure, and cost-effective remote access solution to all your on-premises applications.
 
 Azure AD Application Proxy:  
-- works in the cloud, so you can save time and money. On-premises solutions require you to set up and maintain DMZs, edge servers, or other complex infrastructures.  
-- is easier to set up and secure than on-premises solutions because you don't have to open any inbound connections through your firewall.
-- offers great security. When you publish your apps using Azure AD Application Proxy, you can take advantage of the rich authorization controls and security analytics in Azure. This means that you get advanced security capabilities for all your existing apps without having to change any app.  
-- gives your users a consistent authentication experience. Single sign-on gives your end users the ease and simplicity of access to all the apps they need to be productive with one password.  
+
+- Works in the cloud, so you can save time and money. On-premises solutions require you to set up and maintain DMZs, edge servers, or other complex infrastructures.  
+
+- Is easier to set up and secure than on-premises solutions because you don't have to open any inbound connections through your firewall.  
+
+- Offers great security. When you publish your apps using Azure AD Application Proxy, you can take advantage of the rich authorization controls and security analytics in Azure. This means that you get advanced security capabilities for all your existing apps without having to change any app.  
+
+- Gives your users a consistent authentication experience. Single sign-on gives your end users the ease and simplicity of access to all the apps they need to be productive with one password.  
 
 ## What kind of applications work with Azure AD Application Proxy?
 With Azure AD Application Proxy you can access different types of internal applications:
