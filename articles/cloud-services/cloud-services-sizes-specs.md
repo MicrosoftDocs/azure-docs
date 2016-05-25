@@ -45,7 +45,7 @@ The following considerations might help you decide on a size:
 
 >[AZURE.NOTE] All machine sizes provide an **application disk** that stores all the files from your cloud service package; it is around 1.5 GB in size. 
 
-Please make sure you review the [pricing](pricing/details/cloud-services/) of each Cloud Service size.
+Please make sure you review the [pricing](https://azure.microsoft.com/pricing/details/cloud-services/) of each Cloud Service size.
 
 ## General purpose
 
