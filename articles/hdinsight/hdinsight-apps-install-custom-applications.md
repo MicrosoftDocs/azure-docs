@@ -110,7 +110,7 @@ If an application installation failed, you can see the error messages and debug 
 
 ## Remove HDInsight applications
 
-There are several options to delete HDInsight applications.
+There are several ways to delete HDInsight applications.
 
 ### Use portal
 
