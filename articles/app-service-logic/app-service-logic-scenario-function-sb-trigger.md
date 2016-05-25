@@ -61,8 +61,6 @@ Next, you need to create an Azure Function that will act as the trigger and list
    }
    ```
 
-4. Save the function
-
 You can test by adding a queue message via a tool like [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) and see the Logic App fire immediately after the Function receives the message.
 
 <!-- Image References -->
