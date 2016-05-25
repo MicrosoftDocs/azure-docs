@@ -82,10 +82,12 @@ The hotfix method involves the following three steps:
 
 | Order  | KB        | Description                    | Update type  | Install time |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1.      | KB3162954 | Software update         |  Regular     | ~ 45 mins |
+| 1.      | KB3162954 | Software update &#42;          |  Regular     | ~ 45 mins |
 | 2.      | KB3146621 | iSCSI package | Regular | ~ 20 mins |
 | 3.      | KB3103616 | WMI package |  Regular     | ~ 12 mins |
 
+
+ &#42;  *Note, software update consists of two binary files: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` and `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. The device software update `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` must be installed before the Cis and Mds agent `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.* 
 
 #### Download updates for a device running pre-Update 2 software
 
