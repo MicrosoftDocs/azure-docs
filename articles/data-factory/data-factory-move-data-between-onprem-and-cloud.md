@@ -1,4 +1,4 @@
-P<properties 
+<properties 
 	pageTitle="Move data between on-premises and cloud using Azure Data Factory" 
 	description="Learn about moving data between on-premises and cloud using Data Management Gateway and Azure Data Factory." 
 	services="data-factory" 
