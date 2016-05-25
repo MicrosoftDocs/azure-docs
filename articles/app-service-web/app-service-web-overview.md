@@ -38,7 +38,7 @@ Here are some key features of App Service that apply to Web Apps:
 
 - **Fully managed platform** - Automatic OS and framework patching, built-in support for backup and disaster recovery. 
 
-- **Use your existing skills** - Code in your favorite language, framework, and development environment. App Service supports .NET, Node.js, Java, PHP, and Python. You can also run scripts that use [PowerShell and other scripting languages](../app-service-web/web-sites-create-web-jobs.md#acceptablefiles). 
+- **Use your existing skills** - Code in your favorite language, framework, and development environment. App Service supports .NET, Node.js, Java, PHP, and Python. 
 
 - **Fast deployment** - Provision new apps and deploy code to them in seconds.
 
