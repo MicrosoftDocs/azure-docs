@@ -171,13 +171,14 @@ You can grant permissions in the following ways:
 
 * **Hub-level shared access policies**. Shared access policies can grant any combination of the permissions listed in the previous section. You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
 
-    - *iothubowner*: Policy with all permissions.
-    - *service*: Policy with ServiceConnect permission.
-    - *device*: Policy with DeviceConnect permission.
-    - *registryRead*: Policy with RegistryRead permission.
-    - *registryReadWrite*: Policy with RegistryRead and RegistryWrite permissions.
+    - **iothubowner**: Policy with all permissions.
+    - **service**: Policy with ServiceConnect permission.
+    - **device**: Policy with DeviceConnect permission.
+    - **registryRead**: Policy with RegistryRead permission.
+    - **registryReadWrite**: Policy with RegistryRead and RegistryWrite permissions.
 
-* **Per-device security credentials**. Each IoT Hub contains a [device identity registry](#device-identity-registry). For each device in this registry, you can configure security credentials that grant DeviceConnect permissions scoped to the corresponding device endpoints.
+
+* **Per-device security credentials**. Each IoT Hub contains a [device identity registry](#device-identity-registry). For each device in this registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
 - The device management component uses the *registryReadWrite* policy.
@@ -191,7 +192,7 @@ For guidance on IoT Hub security topics, see the security section in [Design you
 
 Azure IoT Hub grants access to endpoints by verifying a token against the shared access policies and device identity registry security credentials.
 
-Security credentials, such as symmetric keys, are never sent over the Internet.
+Security credentials, such as symmetric keys, are never sent over the wire.
 
 > [AZURE.NOTE] The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
 
@@ -236,7 +237,7 @@ When using SASL PLAIN, a client connecting to an IoT hub can use a single token 
 
 ### Scope hub-level credentials
 
-You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use a hub-level shared access policy with DeviceConnect permissions to sign a token whose resourceURI is **/devices/{deviceId}**. This creates a token that is only usable to send devices on behalf of device **deviceId**.
+You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**. This creates a token that is only usable to send devices on behalf of device **deviceId**.
 
 This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-publisher-policy], and enables you to implement custom authentication methods. For more information, see the security section of [Design your solution][lnk-guidance-security].
 
@@ -282,8 +283,8 @@ This is the set of system properties in IoT Hub messages.
 Iot Hub supports [AMQP][lnk-amqp], AMQP over WebSockets, MQTT, and HTTP/1 protocols for device-side communications. Consider the following regarding their uses.
 
 * **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when you are using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This is very inefficient for both the device and IoT Hub. Under current HTTP/1 guidelines, each device polls every 25 minutes or more. On the other hand, AMQP and MQTT support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP or MQTT is the best protocol to use. For rarely connected devices, HTTP/1 works as well.
-* **Field gateways**. When using HTTP/1 and MQTT, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. Thus, for [Field gateway scenarios][lnk-azure-gateway-guidance], these protocols are suboptimal. They require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
-* **Low resource devices**. MQTT and HTTP/1 libraries have a smaller footprint than the AMQP libraries. As such, if the device has few resources (for example, less than 1 Mb RAM), these protocols might be the only protocol implementation available.
+* **Field gateways**. When using HTTP/1 and MQTT, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. Thus, for [Field gateway scenarios][lnk-azure-gateway-guidance], these protocols are suboptimal because they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
+* **Low resource devices**. MQTT and HTTP/1 libraries have a smaller footprint than the AMQP libraries. As such, if the device has few resources (for example, less than 1 MB RAM), these protocols might be the only protocol implementation available.
 * **Network traversal**. MQTT standard listens on port 8883. This could cause problems in networks that are closed to non-HTTP protocols. Both HTTP and AMQP (over WebSockets) are available to be used in this scenario.
 * **Payload size**. AMQP and MQTT are binary protocols, which are significantly more compact than HTTP/1.
 
@@ -313,7 +314,7 @@ This implementation has the following implications:
 * Similarly to Event Hubs events, device-to-cloud messages are durable and retained in an IoT hub for up to seven days (see [Device-to-cloud configuration options](#d2cconfiguration)).
 * Device-to-cloud messages are partitioned across a fixed set of partitions that is set at creation time (see [Device-to-cloud configuration options](#d2cconfiguration)).
 * Analogously to Event Hubs, clients reading device-to-cloud messages must handle partitions and checkpointing. See [Event Hubs - Consuming events][lnk-event-hubs-consuming-events].
-* Like Event Hubs events, device-to-cloud messages can be at most 256 Kb in size, and can be grouped in batches to optimize sends. Batches can be at most 256 Kb, and at most 500 messages.
+* Like Event Hubs events, device-to-cloud messages can be at most 256 KB in size, and can be grouped in batches to optimize sends. Batches can be at most 256 KB, and at most 500 messages.
 
 There are, however, a few important distinctions between IoT Hub device-to-cloud messaging and Event Hubs:
 
