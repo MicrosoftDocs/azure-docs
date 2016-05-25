@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/23/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -23,19 +23,7 @@ This topic describes how to review and update the configuration for your Azure R
 
 ## Configure Redis cache settings
 
-Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
-
-![Azure Redis Cache Browse Blade](./media/cache-configure/redis-cache-browse.png)
-
-Click **Browse > Redis Caches** to view your caches. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **Browse**.
-
-Select the desired cache to view the properties for that cache.
-
-![Azure Redis Cache Browse Cache List](./media/cache-configure/redis-caches.png)
-
-Click **Settings** or **All settings** to view and configure your cache.
-
-![Redis Cache All Settings](./media/cache-configure/redis-cache-blade.png)
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Azure Redis Cache provides the following settings on the **Settings** blade.
 
@@ -50,7 +38,7 @@ Azure Redis Cache provides the following settings on the **Settings** blade.
 	-	[Access ports](#access-ports)
 	-	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
 	-	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
-	-	[Redis Cache Advisor](#recommendations)
+	-	[Redis Cache Advisor](#redis-cache-advisor)
 -	[Data management settings](#data-management-settings)
 	-	[Redis data persistence](#redis-data-persistence)
 	-	[Import/Export](#importexport)
@@ -71,7 +59,7 @@ Click **Troubleshoot** to be provided with common issues and strategies for reso
 
 Click **Audit logs** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../azure-portal/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
-**Resource health** is an Azure portal wide setting that is not currently supported for Azure Redis Cache. For information and instructions for monitoring the health of your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and the [Redis Cache Advisor](#recommendations) section later in this topic.
+**Resource health** is an Azure portal wide setting that is not currently supported for Azure Redis Cache. For information and instructions for monitoring the health of your Azure Redis Cache instances, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md) and the [Redis Cache Advisor](#redis-cache-advisor) section later in this topic.
 
 Click **New support request** to open a support request for your cache.
 
@@ -86,7 +74,7 @@ The settings in the **General** section allow you to access and configure the fo
 -	[Access ports](#access-ports)
 -	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
 -	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
--	[Redis Cache Advisor](#recommendations)
+-	[Redis Cache Advisor](#redis-cache-advisor)
 
 ### Properties
 
