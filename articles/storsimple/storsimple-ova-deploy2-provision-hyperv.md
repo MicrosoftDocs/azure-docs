@@ -94,7 +94,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 #### To provision a virtual device
 
-1.  On your Windows Server host, copy the virtual device image on the local drive. This is the image (VHD or VHDX) that you have downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
+1.  On your Windows Server host, copy the virtual device image to a local drive. This is the image (VHD or VHDX) that you downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
 
 2.  Open **Server Manager**. In the top right corner, click **Tools** and select **Hyper-V Manager**.
 
