@@ -47,7 +47,7 @@ Note that when the parent profile uses the ‘Performance’ traffic-routing met
 
 ## Example 2: Endpoint monitoring in Nested Profiles
 
-Traffic Manager actively monitors the health of each service endpoint.  If an endpoint is determined to be unhealthy, Traffic Manager will direct users to alternative endpoints instead, thereby preserving the overall availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods.  See [Traffic Manager Endpoint Monitoring](#traffic-manager-monitoring.md) for further details.
+Traffic Manager actively monitors the health of each service endpoint.  If an endpoint is determined to be unhealthy, Traffic Manager will direct users to alternative endpoints instead, thereby preserving the overall availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods.  See [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md) for further details.
 
 For nested profiles, some special endpoint monitoring rules apply. Where a parent profile is configured with a child profile as a nested endpoint, the parent doesn’t perform health checks on the child directly. Instead, the health of the child profile’s endpoints is used to calculate the overall health of the child profile, and this information is propagated up the nested profile hierarchy to determine the health of the nested endpoint within the parent profile.  This determines whether the parent profile will direct traffic to the child.  Full details of exactly how the health of the nested endpoint in the parent profile is calculated from the health of the child profile is given [below](#faq).
 
@@ -137,8 +137,7 @@ The following table describes the behavior of Traffic Manager health checks for 
 |Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
 |Disabled. The child profile has been disabled by the user.|Stopped|The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.|
-|Degraded. At least one child profile endpoint is in a Degraded state.|Online:
- the number of Online endpoints in the child profile is at least the value of MinChildEndpoints. CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints. Degraded: otherwise.|Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint will always be degraded.|
+|Degraded. At least one child profile endpoint is in a Degraded state.|Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints. CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints. Degraded: otherwise.|Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint will always be degraded.|
 |Online. At least one child profile endpoint is an Online state and none are in the Degraded state.|See above.||
 |CheckingEndpoints. At least one child profile endpoint is ‘CheckingEndpoint’; none are ‘Online’ or ‘Degraded’|Same as above.||
 |Inactive. All child profile endpoints are either Disabled or Stopped, or this is a profile with no endpoints|Stopped||
@@ -146,7 +145,7 @@ The following table describes the behavior of Traffic Manager health checks for 
 
 ## Next steps
 
-Learn more about [How Traffic Manager Works](traffic-manager-how-traffic-manager-works.md)
+Learn more about [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
 
 Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
 
