@@ -31,7 +31,7 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
             await serviceClient.SendAsync("myFirstDevice", commandMessage);
         }
 
-	This method will send a new cloud-to-device message to the device with the ID, `myFirstDevice`. Change this parameter accordingly, in case you modified it from the one used in [Get started with IoT Hub].
+	This method sends a new cloud-to-device message to the device with the ID, `myFirstDevice`. Change this parameter accordingly, in case you modified it from the one used in [Get started with IoT Hub].
 
 7. Finally, add the following lines to the **Main** method:
 
