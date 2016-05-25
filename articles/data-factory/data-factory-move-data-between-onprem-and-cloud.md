@@ -1,4 +1,4 @@
-<properties 
+P<properties 
 	pageTitle="Move data between on-premises and cloud using Azure Data Factory" 
 	description="Learn about moving data between on-premises and cloud using Data Management Gateway and Azure Data Factory." 
 	services="data-factory" 
@@ -98,7 +98,7 @@ There are two firewalls you need to consider: **corporate firewall** running on 
 ![firewalls](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
 
 ### Connect gateway with cloud services
-To maintain gateway’s connectivity with Azure Data Factory and other cloud services, you need to make sure that the outbound rule for **TCP** ports **80** and **443** are configured. And optionally enable ports **9350** to **9354**, which are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway and may improve performance of communication between them.
+To maintain gateway’s connectivity with Azure Data Factory and other cloud services, you need to make sure that the outbound rule for **TCP** ports **80** and **443** are configured. And optionally enable ports **9350** to **9354** and **5671**, which are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway and may improve performance of communication between them.
 
 At corporate firewall level,  you need configure the following domains and outbound ports:
 
