@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/24/2016" 
 	ms.author="sdanie"/>
 
 # Create a Web App plus Redis Cache using a template
@@ -44,7 +44,7 @@ To run the deployment automatically, click the following button:
 
 ## Variables for names
 
-This template uses variables to construct names for the resources. It uses the [uniqueString](../resource-group-template-functions/#uniquestring) function to construct a value based on the 
+This template uses variables to construct names for the resources. It uses the [uniqueString](../resource-group-template-functions.md#uniquestring) function to construct a value based on the 
 resource group id.
 
     "variables": {
