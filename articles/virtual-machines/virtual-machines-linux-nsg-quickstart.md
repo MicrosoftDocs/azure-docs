@@ -1,6 +1,6 @@
 <properties
    pageTitle="Allow external access to a Linux VM | Microsoft Azure"
-   description="Learn how to open a port for external access to your Linux VM using the resource manager deployment model"
+   description="Learn how to open a port / create an endpoint that allows external access to your Linux VM using the resource manager deployment model and the Azure CLI"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -17,10 +17,10 @@
    ms.author="iainfou"/>
 
 # Allow external access to your VM
-To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create a Network Security Group access control list (ACL) rule that is associated with your virtual machine. This concept may also be known as opening a port or creating an endpoint. To create a Network Security Group and ACL rules you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
+[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick Commands
-In the following example you will create a Network Security Group, create a rule to allow HTTP traffic to your webserver, then assign this rule to your VM.
+To create a Network Security Group and rules you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
 Create your Network Security Group as follows, entering your own names and location appropriately:
 
@@ -35,7 +35,7 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1000
     --destination-port-range 80 --access allow --resource-group TestRG --nsg-name TestNSG --name AllowHTTP
 ```
 
-Associate the NSG with your VM's network interface:
+Associate the Network Security Group with your VM's network interface:
 
 ```
 azure network nic set --resource-group TestRG --name TestNIC --network-security-group-name TestNSG

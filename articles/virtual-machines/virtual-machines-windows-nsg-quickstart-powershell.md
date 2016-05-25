@@ -1,6 +1,6 @@
 <properties
    pageTitle="Allow external access to a VM using PowerShell | Microsoft Azure"
-   description="Learn how to open a port for external access to your Windows VM using the resource manager deployment model"
+   description="Learn how to open a port / create an endpoint that allows external access to your Windows VM using the resource manager deployment mode and Azure PowerShell"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -17,10 +17,10 @@
    ms.author="iainfou"/>
 
 # Allow external access to your VM using PowerShell
-To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. This concept may also be known as opening a port or creating an endpoint. This article provides quick steps to open the required ports to your VM and allow external access. To create a Network Security Group and ACL rules you will need [the latest version of Azure PowerShell installed](../powershell-install-configure.md). You can also [perform these steps using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md).
+[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick Commands
-In the following example you will create a Network Security Group, create a rule to allow HTTP traffic to a webserver, then assign this rule to your VM.
+To create a Network Security Group and ACL rules you will need [the latest version of Azure PowerShell installed](../powershell-install-configure.md). You can also [perform these steps using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md).
 
 First, you need to create a rule to allow HTTP traffic on TCP port 80 as follows, entering your own name and description:
 

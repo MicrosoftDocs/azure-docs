@@ -1,6 +1,6 @@
 <properties
    pageTitle="Allow external access to a VM using the portal | Microsoft Azure"
-   description="Learn how to open a port for external access to your VM using the resource manager deployment model"
+   description="Learn how to open a port / create an endpoint that allows access to your VM using the resource manager deployment model in the Azure Portal"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -17,10 +17,10 @@
    ms.author="iainfou"/>
 
 # Allow external access to your VM using the Azure Portal
-To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. This concept may also be known as opening a port or creating an endpoint. This article provides quick steps to open access to your VMs using the Azure Portal. You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
+[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick Commands
-In the following example you will create a Network Security Group, create a rule to allow HTTP traffic to a webserver, then assign this rule to your VM.
+You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
 First, create your Network Security Group. Select a resource group in the portal, click 'Add', then search for a select 'Network Security Group':
 
