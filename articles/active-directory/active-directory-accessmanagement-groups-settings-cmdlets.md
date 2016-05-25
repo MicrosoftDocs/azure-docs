@@ -148,7 +148,7 @@ To update a setting once you have created it:
 
 	`Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value`
 
-## Update settings for a specific group
+### Update settings for a specific group
 
 Use the same steps to retrieve settings for a specific group. The get settings values are the same, but the last cmdlet is different.
 
