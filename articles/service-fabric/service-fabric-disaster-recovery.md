@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/23/2016"
+   ms.date="05/25/2016"
    ms.author="seanmck"/>
 
 # Disaster recovery in Azure Service Fabric
@@ -98,8 +98,8 @@ As a cause of data loss, code defects in services, human operational errors, and
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/en-us/library/mt163522.aspx
-[azure-status-dashboard]:https://azure.microsoft.com/en-us/status/
+[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[azure-status-dashboard]:https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
 [dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
 
