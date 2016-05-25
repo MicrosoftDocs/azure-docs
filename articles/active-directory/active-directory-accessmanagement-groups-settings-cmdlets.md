@@ -179,7 +179,7 @@ Use the same steps to retrieve settings for a specific group. The get settings v
 	`Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –TargetType Groups –TargetObjectId <groupObjectId>`
 
 
-## Cmdlet reference
+## Cmdlet syntax reference
 
 - Get-MsolAllSettings
 
@@ -206,5 +206,12 @@ Use the same steps to retrieve settings for a specific group. The get settings v
 - "name": "ClassificationList", "type": "System.String", "defaultValue": "", "description": "A comma-delimited list of valid classification values that can be applied to Unified Groups."
 
 - "name": "UsageGuidelinesUrl", "type": "System.String", "defaultValue": "", "description": "A link to the Group Usage Guidelines."
+
+name | type | defaultValue | description
+----------  | ----------  | ---------  | ----------
+"EnableGroupCreation"  | "System.Boolean"  | "true"  | "A boolean flag indicating if the Unified Group creation feature is on."
+"GroupCreationAllowedGroupId"  | "System.Guid"  | ""  | "GUID of the security group that is whitelisted to create Unified Groups."
+"ClassificationList"  | "System.String"  | ""  | "A comma-delimited list of valid classification values that can be applied to Unified Groups."
+"UsageGuidelinesUrl"  | "System.String"  | ""  | "A link to the Group Usage Guidelines."
 
 ## Next steps
