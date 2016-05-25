@@ -38,7 +38,7 @@ A: Depending on what Update Rollup of SCOM you are in, you may see a node for *S
 
 The text string update to *OMS* is included in a management pack, which needs to be imported manually. Follow the instructions on the latest SCOM Update Rollup KB article and refresh the OMS console to see the latest updates in the *OMS* node.
 
-**Q: Is there an *on premises* version of OMS?**
+**Q: Is there an *on-premises* version of OMS?**
 
 A: No. Log Analytics processes and stores very large amounts of data. As a cloud service, Log Analytics is able to scale-up if necessary and avoid any performance impact to your environment.
 
@@ -91,8 +91,7 @@ Under **Azure Log Analytics (OMS)**, remove all workspaces listed.
 ## Agent data
 
 **Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?**  
-
-A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service OMS log analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
+A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics in OMS designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
 
 The Log Analytics agent was designed to ensure it has a small footprint and does some basic data compression. One of our customers actually wrote a blog on the tests they performed against our agent and how impressed they were. The data volume will vary based on the solutions your customers enables. You can find detailed information on the data volume and see the breakup by solution under the **Usage** tile in the OMS overview page.
 
