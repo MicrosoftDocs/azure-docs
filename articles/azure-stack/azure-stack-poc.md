@@ -33,3 +33,5 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
 ## Next steps
 
 [Key features and concepts](azure-stack-key-features.md)
+
+[Taking the cloud to your datacenter whitepaper (pdf)](http://download.microsoft.com/download/3/F/3/3F3811C0-969D-422C-9EDA-42CB79BABA96/Bring-the-cloud-to-your-datacenter-Microsoft-Azure-Stack.pdf)
