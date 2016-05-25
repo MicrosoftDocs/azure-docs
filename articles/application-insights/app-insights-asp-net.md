@@ -58,8 +58,9 @@ Right click the project in Solution Explorer, and choose **Add Application Insig
 
 If this is your first time, you'll be invited to sign in or sign up to Microsoft Azure. 
 
-If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components. 
+If this app is part of a bigger application, you might want to use **Configure settings** to put it in the same resource group as the other components. You can also change the name of the resource to be different from the project name, which is useful if you want to separate the telemetry from different stamps of your app.
 
+![Choose resource and group names](./media/app-insights-asp-net/15.png)
 
 ####<a name="land"></a> What did 'Add Application Insights' do?
 
