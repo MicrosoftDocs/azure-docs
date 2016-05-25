@@ -1,6 +1,6 @@
 <properties
    pageTitle="Allow external access to a VM using the portal | Microsoft Azure"
-   description="Learn how to open a port for external access to your Windows VM using the resource manager deployment model"
+   description="Learn how to open a port for external access to your VM using the resource manager deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,7 +16,7 @@
    ms.date="05/24/2016"
    ms.author="iainfou"/>
 
-# Allow external access to your Windows VM using the Azure Portal
+# Allow external access to your VM using the Azure Portal
 To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. This concept may also be known as opening a port or creating an endpoint. This article provides quick steps to open access to your VMs using the Azure Portal. You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
 ## Quick Commands
@@ -34,13 +34,9 @@ Select your new Network Security Group. You now create an inbound rule:
 
 ![Add an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
 
-Provide a name for your new rule, and note that port 80 is already entered. This is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group:
+Provide a name for your new rule. Note that port 80 is already entered by default. This is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group:
 
 ![Create an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
-
-Once created, you will your new rule listed:
-
-![View inbound rules for a Network Security Group](./media/virtual-machines-windows-nsg-quickstart-portal/list-inbound-rules.png)
 
 Your final step is to associate your Network Security Group with a subnet or a specific network interface. Lets associate the Network Security Group with a subnet:
 
