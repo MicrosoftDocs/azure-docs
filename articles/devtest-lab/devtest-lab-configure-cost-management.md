@@ -46,7 +46,9 @@ In order to view the Monthly Estimated Cost Trend chart, follow these steps:
 
     ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 
-The **Estimated Cost** value is the current calendar month's estimated cost-to-date while the **Projected Cost** is the estimated cost for the entire current calendar month. 
+The **Estimated cost** value is the current calendar month's estimated cost-to-date while the **Projected cost** is the estimated cost for the entire current calendar month,
+calculated using the the lab cost for the previous 5 days.
+ 
 Note that the cost amounts are rounded up to the next whole number. For example: 
 
 - 5.01 rounds up to 6 
