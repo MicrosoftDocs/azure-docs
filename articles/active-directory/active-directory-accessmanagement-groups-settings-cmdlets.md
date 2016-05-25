@@ -29,7 +29,9 @@ The following settings for Unified Groups can be configured in your directory:
 
 These settings are configured using a Settings and SettingsTemplate objects. Initially, you will not see any Settings objects in your directory. This means your directory is configured with the default settings. To change the default settings, you will create a new settings object using a settings template. Settings templates are defined by Microsoft.
 
-## Create settings at the directory level
+## Create settings
+
+### Create settings at the directory level
 
 These steps create settings at directory level.
 
@@ -66,7 +68,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate.
  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “”         | GUID of the security group that is allowed to create Unified Groups even when EnableGroupCreation == false.
  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: “”                  | A link to the Group Usage Guidelines.                                                                       
 
-## Create settings for a specific group
+### Create settings for a specific group
 
 Here are the steps to retrieve a template, create a Settings object, and modify the Settings object value for a group. They differ from the steps at the directory level only in the last cmdlet.
 
@@ -92,7 +94,9 @@ Here are the steps to retrieve a template, create a Settings object, and modify 
 
 	`New-MsolSettings -SettingsObject $setting -TargetType Groups –TargetObjectId <groupObjectId>`
 
-## Read settings at the directory level
+## Read settings
+
+### Read settings at the directory level
 
 1. Read all existing directory settings:
 
@@ -108,7 +112,7 @@ Here are the steps to retrieve a template, create a Settings object, and modify 
 
 	![Settings ID GUID](./media/active-directory-accessmanagement-groups-settings-cmdlets/settings-id-guid.png)
 
-## Read settings for a specific group
+### Read settings for a specific group
 
 1. Read all existing directory settings:
 
@@ -122,7 +126,9 @@ Here are the steps to retrieve a template, create a Settings object, and modify 
 
 	`Get-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –TargetType Groups –TargetObjectId <groupObjectId>`
 
-## Update settings at the directory level
+## Update settings
+
+### Update settings at the directory level
 
 To update a setting once you have created it:
 
@@ -162,11 +168,13 @@ Use the same steps to retrieve settings for a specific group. The get settings v
 
 	`Set-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –SettingsValue $value -TargetType Groups -TargetObjectId <groupObjectId>`
 
-## Remove settings at the directory level
+## Remove settings
+
+### Remove settings at the directory level
 
 	`Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c`
 
-## Remove settings for a specific group
+### Remove settings for a specific group
 
 	`Remove-MsolSettings –SettingId dbbcb0ea-a6ff-4b44-a1f3-9d7cef74984c –TargetType Groups –TargetObjectId <groupObjectId>`
 
