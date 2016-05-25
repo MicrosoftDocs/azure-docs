@@ -63,6 +63,6 @@ These links will be useful for exploring the service in depth:
 - Read the [Azure Active Directory B2C FAQs](active-directory-b2c-faqs.md).
 - [File support requests for Azure Active Directory B2C](active-directory-b2c-support.md).
 
-## Get security updates for our product
+## Get security updates for our products
 
 We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/en-us/security/dd252948) and subscribing to Security Advisory Alerts.
