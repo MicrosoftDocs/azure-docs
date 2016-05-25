@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Azure subscription and service limits, quotas, and constraints
@@ -74,6 +74,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Subscription](#subscription-limits)
 - [Traffic Manager](#traffic-manager-limits)
 - [Virtual Machines](#virtual-machines-limits)
+- [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 
 ### Subscription limits
@@ -91,7 +92,6 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-
 ### Virtual Machines limits
 #### Virtual Machine limits
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
@@ -103,6 +103,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+### Virtual Machine Scale Sets limits
+
+[AZURE.INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Networking limits
 
