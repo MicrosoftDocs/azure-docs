@@ -38,13 +38,13 @@ For more information about creating and using availability sets, see [Manage the
 	![Screenshot that shows the information you need to enter to create the availability set.](./media/virtual-machines-windows-create-availability-set/create-availability-set.png)
 
 	- **Name** - the name should be 1-80 characters made up of numbers, letters, periods, underscores and dashes. The first character must be a letter or number. The last character must be a letter, number or underscore.
-	- **Fault domains** - 
-	- **Update domains** - 
+	- **Fault domains** - fault domains define the group of virtual machines that share a common power source and network switch. By default, the VMs  are separated across up to three fault domains and can be changed to between 1 and 3.
+	- **Update domains** -  five update domains are assigned by default and this can be set to between 1 and 20. Update domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. For example, if we specify five update domains, when more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same update domain as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of the reboots may not be sequential, but only one update domain will be rebooted at a time.
 	- **Subscription** - select the subscription to use if you have more than one.
 	- **Resource group** - select an existing resource group by clicking the arrow and selecting a resource group from the drop down. You can also create a new resource group by typing in a name. The name can contain any of the following characters: letters, numbers, periods, dashes, underscores and opening or closing parenthesis. The name cannot end in a period. All of the VMs in the availability group need to be created in the same resource group.
 	- **Location** - select a location from the drop-down.
 
-4. When you are done entering the information, click **Create**. Once the availability group has been created, you can see it in the list after you refresh.
+4. When you are done entering the information, click **Create**. Once the availability group has been created, you can see it in the list after you refresh the portal.
 
 ## Use the portal to create a virtual machine and an availability set at the same time
 
