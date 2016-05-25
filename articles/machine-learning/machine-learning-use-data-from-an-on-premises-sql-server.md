@@ -37,7 +37,7 @@ experiments, *etc*..
 >[AZURE.NOTE] This feature is not available for free workspaces. For more
 information about Machine Learning pricing and tiers, see [Azure Machine
 Learning
-Pricing](https://azure.microsoft.com/en-us/pricing/details/machine-learning/).
+Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -56,7 +56,7 @@ You can find detailed information on installation prerequisites,
 installation steps, and troubleshooting tips in the beginning sections
 of the article [Move data between on-premises sources and cloud with
 Data Management
-Gateway](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/).
+Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL server database into Azure Machine Learning
 
