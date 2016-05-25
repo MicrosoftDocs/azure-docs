@@ -34,18 +34,18 @@ This article assumes that you have a working knowledge of Python, and familiarit
 
 ### Code sample
 
-The Python tutorial code sample is one of the many Batch Python code samples found in the [azure-batch-samples][py_samples_github] repository on GitHub. You can download all of the samples by clicking the **Download ZIP** button on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, you will find the two scripts for this tutorial in the following folder:
+The Python tutorial code sample is one of the many Batch Python code samples found in the [azure-batch-samples][py_samples_github] repository on GitHub. You can download all of the samples by clicking the **Download ZIP** button on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, the two scripts for this tutorial are found in the `article_samples` directory:
 
-`/azure-batch-samples/tree/master/Python/Batch/article_samples`
-
-In this directory, you'll find these files we'll be discussing:
-
-*python_tutorial_client.py*<br/>
-*python_tutorial_task.py*
+`/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
+`/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
 ### Python environment
 
-In order to run the *python_tutorial_client* sample, you will need a Python interpreter compatible with version **2.7** or **3.3-3.5**. You will also need to install the Azure Batch and Azure Storage Python packages. This can be done using `requirements.txt` found in `/azure-batch-samples/Python/Batch` and the following **pip** command:
+In order to run the *python_tutorial_client* sample, you will need a Python interpreter compatible with version **2.7** or **3.3-3.5**. You will also need to install the Azure Batch and Azure Storage Python packages. This can be done using the *requirements.txt* found here:
+
+`/azure-batch-samples/Python/Batch/requirements.txt`
+
+Issue following **pip** command to install the Batch and Storage packages:
 
 `pip install -r requirements.txt`
 
@@ -53,11 +53,11 @@ Or, you can install the [azure-batch][pypi_batch] and [azure-storage][pypi_stora
 
 ### Azure Batch Explorer (optional)
 
-The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete the tutorial, we *highly* recommend it for use in the debugging and administration of entities in your Batch account. You can read about an older version of the Batch Explorer in the [Azure Batch Explorer sample walkthrough][batch_explorer_blog] blog post.
+The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
 
-## DotNetTutorial sample project overview
+## Batch Python tutorial code sample
 
-The *python_tutorial_client* code sample consists of two Python scripts: *python_tutorial_client.py* and *python_tutorial_task.py*.
+The Batch Python tutorial code sample consists of two Python scripts: *python_tutorial_client.py* and *python_tutorial_task.py*.
 
 - *python_tutorial_client.py* acts as the script that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). The *python_tutorial_client.py* script runs on your local workstation.
 
@@ -242,7 +242,7 @@ Shared access signatures are strings that provide secure access to containers an
 ![Create a Batch pool][3]
 <br/>
 
-After it uploads the application and data files to the Storage account, *python_tutorial_client.py* starts its interaction with the Batch service by using the Batch Python module. To do so, a [BatchServiceClient][py_batchserviceclient] is first created:
+After it uploads the task script and data files to the Storage account, *python_tutorial_client.py* starts its interaction with the Batch service by using the Batch Python module. To do so, a [BatchServiceClient][py_batchserviceclient] is first created:
 
 ```python
  # Create a Batch service client. We'll now be interacting with the Batch
@@ -331,8 +331,6 @@ Along with these physical node properties, you may also specify a [StartTask][py
 
 In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the StartTask's **resource_files** property) from the StartTask working directory to the shared directory that *all* tasks running on the node can access. Essentially, this copies `python_tutorial_task.py` to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
-> [AZURE.TIP] The **application packages** feature of Azure Batch provides another way to get your application onto the compute nodes in a pool. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for details.
-
 Also notable in the code snippet above is the use of two environment variables in the *CommandLine* property of the StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` and `%AZ_BATCH_NODE_SHARED_DIR%`. Each compute node within a Batch pool is automatically configured with a number of environment variables that are specific to Batch. Any process that is executed by a task has access to these environment variables.
 
 > [AZURE.TIP] To find out more about the environment variables that are available on compute nodes in a Batch pool, as well as information on task working directories, see the "Environment settings for tasks" and "Files and directories" sections in the [overview of Azure Batch features](batch-api-basics.md).
@@ -419,7 +417,7 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] When they access environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%` or execute an application not found in the node's `PATH`, task command lines must be prefixed with `/bin/bash` (Linux) or `cmd /c` (Windows). This will explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's `PATH` (such as *python* in the above snippet) and no environment variables are used.
+> [AZURE.IMPORTANT] When they access environment variables such as `$AZ_BATCH_NODE_SHARED_DIR` or execute an application not found in the node's `PATH`, task command lines must be prefixed with `/bin/bash` (Linux) or `cmd /c` (Windows). This will explicitly execute the command shell and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's `PATH` (such as *python* in the above snippet).
 
 Within the `for` loop in the code snippet above, you can see that the command line for the task is constructed such that five command-line arguments are passed to *python_tutorial_task.py*:
 
@@ -448,9 +446,9 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 ![Monitor tasks][6]<br/>
 *The script (1) monitors the tasks for completion and success status, and (2) the tasks upload result data to Azure Storage*
 
-When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties for you. There are many approaches to monitoring task execution. DotNetTutorial shows a simple example that reports only on completion and task failure or success states.
+When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties for you.
 
-The `wait_for_tasks_to_complete` function in *python_tutorial_client.py* provides a simple example of monitoring tasks for a certain state, in this case, the [completed][py_taskstate] state.
+There are many approaches to monitoring task execution. The `wait_for_tasks_to_complete` function in *python_tutorial_client.py* provides a simple example of monitoring tasks for a certain state, in this case, the [completed][py_taskstate] state.
 
 ```python
 def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
@@ -541,7 +539,7 @@ blob_client.delete_container(output_container_name)
 
 ## Step 9: Delete the job and the pool
 
-In the final step, the user is prompted to delete the job and the pool that were created by the DotNetTutorial application. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process.
+In the final step, the user is prompted to delete the job and the pool that were created by the *python_tutorial_client.py* script. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process.
 
 The BatchServiceClient's [JobOperations][py_job] and [PoolOperations][py_pool] both have corresponding deletion functions, which are called if the user confirms deletion:
 
@@ -558,7 +556,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Run the sample script
 
-When you run the *python_tutorial_client.py* script, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
+When you run the *python_tutorial_client.py* script, the console output will be similar to the following. You will see a pause at `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` while the pool's compute nodes are created and started. Use the [Azure portal][azure_portal] or the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
 
 Typical execution time is **approximately 5-7 minutes** when you run the application in its default configuration.
 
@@ -607,7 +605,6 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
