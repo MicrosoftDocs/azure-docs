@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/19/2016"
+	ms.date="05/25/2016"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
@@ -54,7 +54,7 @@ Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|
 
 To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a a URL reference to the resource.
 
-## Workload limits##
+## Workload limits (Queries per second) ##
 
 Resource|Free|Basic (Preview) |S1|S2
 ---|---|---|---|----
@@ -62,14 +62,11 @@ QPS|N/A|~3 per replica|~15 per replica|~60 per replica
 
 Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
 
-## API-key limits
+Although rough estimates are provided above, actual queries-per-second (QPS) is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. The compute and storage resources backing the shared service are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time. 
 
-Api-keys are used for service authentication. There are two types. Admin keys are specified in the request header and grant full read-write access to the service. Query keys are read-only, specified on the URL, and typically distributed to client applications.
+At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads. 
 
-- Maximum of 2 admin keys per service
-- Maximum of 50 query keys per service
-
-## Request limits
+## API Request limits
 
 - Maximum of 16 MB per request <sup>1</sup>
 - Maximum 8 KB URL length
@@ -77,15 +74,16 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 - Maximum 32 fields in $orderby clause
 - Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-## Response limits
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or Collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
+
+## API Response limits
 
 - Maximum 1000 documents returned per page of search results
 - Maximum 100 suggestions returned per Suggest API request
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or Collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions). 
+## API Key limits
 
-## Queries per second
+Api-keys are used for service authentication. There are two types. Admin keys are specified in the request header and grant full read-write access to the service. Query keys are read-only, specified on the URL, and typically distributed to client applications.
 
-Although rough estimates are provided in the pricing page and in the [Tier Limits](#TierLimits) chart provided above, actual queries-per-second (QPS) is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. The compute and storage resources backing the shared service are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time. 
-
-At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads. 
+- Maximum of 2 admin keys per service
+- Maximum of 50 query keys per service
