@@ -69,6 +69,10 @@ This example creates an availability set in the **RMResGroup** resource group in
 	
 For more information, see [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
 
+## Use the CLI to create an availability set
+
+	availset create [options] <resource-group> <name> <location> [tags]
+
 ## Troubleshooting
 
 - When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.
