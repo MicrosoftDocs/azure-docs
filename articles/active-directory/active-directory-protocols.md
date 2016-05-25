@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Active Directory Authentication Protocols | Microsoft Azure"
-	description="Active Directory Authentication Protocols"
+	description="This article provides an overview of the various authentication and authorization protocols that Azure Active Directory supports."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -11,14 +11,14 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
 
 # Active Directory Authentication Protocols
 
-Azure AD supports several of the most widely used authentication and authorization protocols.
+Azure Active Directory (Azure AD) supports several of the most widely used authentication and authorization protocols.
 
 In this set of articles, we'll look at the supported protocols and their implementation in Azure AD. We'll have sample requests and responses, and since we're integrating directly with the protocols, these articles are largely language-independent.
 
@@ -27,7 +27,7 @@ In this set of articles, we'll look at the supported protocols and their impleme
 - [SAML Protocol Reference](active-directory-saml-protocol-reference.md): Learn how to use the SAML protocol to support [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) and [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) in Azure AD.
 
 
-## Troubleshooting Azure AD Authentication Protocols
+## Reference and Troubleshooting
 
 This set of articles provides additional information that could be useful for troubleshooting your Azure AD applications, as well as help you understand Azure AD at a deeper level.
 

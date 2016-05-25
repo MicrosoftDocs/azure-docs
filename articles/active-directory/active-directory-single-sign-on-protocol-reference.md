@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Single Sign On SAML Protocol | Microsoft Azure"
-	description="Single Sign On SAML Protocol"
+	description="This article describes the Single Sign On SAML profile in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -11,20 +11,20 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
 
-# Single Sign-On (SAML Protocol)
+# Single Sign-On SAML protocol
 
 [AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
-In this article, we will learn the SAML 2.0 authentication requests and responses that Azure AD supports for Single Sign-On.
+In this article, we will learn the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
 
-![Single Sign On Workflow](../media/active-directory-authentication-protocols/Active-Directory-SAML-Single-Sign-On-Workflow.png)
+![Single Sign On Workflow](../media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
 
 ## AuthnRequest
 
@@ -170,7 +170,7 @@ Azure AD signs the `Response` element upon successful sign-on. The `Signature` e
 
 Azure AD uses the signing key specificied in the `IDPSSODescriptor` element of its metadata document. For more information, see [Federation Metadata Document](active-directory-federation-metadata.md).
 
-Azure Active Directory also signs the `Assertion` element, but the two Signature elements are independent.
+Azure AD also signs the `Assertion` element, but the two Signature elements are independent.
 
 A sample `Signature` element in the response could look like this:
 
@@ -207,7 +207,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the followi
 
 #### Issuer
 
-This is set to `https://sts.windows.net/<TenantIDGUID>/`where <TenantIDGUID> is the Tenant ID of the Azure Active Directory tenant.
+This is set to `https://sts.windows.net/<TenantIDGUID>/`where <TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -254,7 +254,7 @@ This element specifies conditions that define the acceptable use of SAML asserti
 
 The `NotBefore` and `NotOnOrAfter` attributes specify the interval during which the assertion is valid.
 
-- The value of the `NotBefore` attribute is equal to or slightly (less than a second) later than the value of `IssueInstant` attribute of the `Assertion` element. Azure Active Directory does not account for any time difference between itself and the cloud service (service provider), and does not add any buffer to this time.
+- The value of the `NotBefore` attribute is equal to or slightly (less than a second) later than the value of `IssueInstant` attribute of the `Assertion` element. Azure AD does not account for any time difference between itself and the cloud service (service provider), and does not add any buffer to this time.
 - The value of the `NotOnOrAfter` attribute is 70 minutes later than the value of the `NotBefore` attribute.
 
 #### Audience
@@ -292,7 +292,7 @@ This contains claims about the subject or user. The following excerpt contains a
 
 This element asserts that the assertion subject was authenticated by a particular means at a particular time.
 
-- The `AuthnInstant` attribute specifies the time at which the user authenticated with Azure Active Directory.
+- The `AuthnInstant` attribute specifies the time at which the user authenticated with Azure AD.
 - The `AuthnContext` element specifies the authentication context used to authenticate the user.
 
 ```

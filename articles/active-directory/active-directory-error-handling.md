@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Error handling in OAuth 2.0 | Microsoft Azure"
-	description="Error Handling in OAuth 2.0"
+	description="This article describes the common classes of errors in OAuth 2.0 with Azure Active Directory and the best practices for handling them."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -11,20 +11,22 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
 
-# Error Handling in OAuth 2.0
+# Error handling in OAuth 2.0
 
 [AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
-In this article, we will learn some best practices for handling common classes of errors that you may encounter when authorizing your application with Azure AD.
+In this article, we will learn some best practices for handling common classes of errors that you may encounter when authorizing your application with Azure Active Directory (Azure AD). For more information about the authorization endpoint and the token issuance endpoint, please see [Authentication flow for an application in Azure AD](active-directory-protocols-oauth-code.md).
 
-## Authorization Endpoint errors
+## Authorization endpoint errors
 
-These are errors that originate at the Azure AD authorization endpoint. These are returned either as HTTP 200 errors on a web page, or using an HTTP 302 redirect code when a client application is available to handle the error.
+In the first step of the authorization process, the client application sends a request to Azure AD's `/authorize` endpoint, with the list of permissions it needs from the user.
+
+The authorization endpoint errors originate at the `/authorize` endpoint.. These are returned either as HTTP 200 errors on a web page, or using an HTTP 302 redirect code when a client application is available to handle the error.
 
 Here is a sample HTTP 302 error response from the Azure AD authorization endpoint, when a request is missing the required `response_type` parameter.
 
@@ -39,7 +41,7 @@ Location: http://localhost/myapp/?error=invalid_request&error_description=AADSTS
 | error_description | A more detailed description of the error. This message is not intended to be end-user friendly. |
 | state | The state value is a randomly generated non-reused value that is sent in the request and returned in the response to prevent cross-site request forgery (CSRF) attacks. |
 
-### Error codes for Authorization Endpoint Errors
+### Error codes for authorization endpoint errors
 
 The following table describes the various error codes that can be returned in the `error` parameter of the error response.
 
@@ -53,9 +55,11 @@ The following table describes the various error codes that can be returned in th
 | temporarily_unavailable | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed due a temporary condition. |
 | invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured.| This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 
-## Token Issuance Endpoint errors
+## Token issuance endpoint errors
 
-These are HTTP error codes, because the client calls the token issuance endpoint directly. In addition to the HTTP status code, the Azure AD token issuance endpoint also returns a JSON document with objects that describe the error.
+Once the application receives an authorization code from the `/authorize` endpoint, it passes it on to the `/token` endpoint to receive an access token for the specified resource.
+
+The token issuance endpoint errors originate at the `/token` endpoint. These are HTTP error codes, because the client calls the token issuance endpoint directly. In addition to the HTTP status code, the Azure AD token issuance endpoint also returns a JSON document with objects that describe the error.
 
 For example, an error if the `client_id` parameter in the request is invalid could look like:
 
@@ -65,7 +69,7 @@ Content-Type: application/json; charset=utf-8
 
 {"error":"invalid_request","error_description":"AADSTS90011: Request is ambiguous, multiple application identifiers found. Application identifiers: '197451ec-ade4-40e4-b403-02105abd9049, 597451ec-ade4-40e4-b403-02105abd9049'.\r\nTrace ID: 4457d068-2a03-42b2-97f2-d55325289d86\r\nCorrelation ID: 6b3474d8-233e-463f-b0a3-86433d8ba889\r\nTimestamp: 2013-12-31 06:31:41Z","error_codes":[90011],"timestamp":"2013-12-31 06:31:41Z","trace_id":"4457d068-2a03-42b2-97f2-d55325289d86","correlation_id":"6b3474d8-233e-463f-b0a3-86433d8ba889"}
 ```
-### HTTP Status codes
+### HTTP status codes
 
 The following table lists the HTTP status codes that the token issuance endpoint returns. In some cases, the error code is sufficient to describe the response, but in case of errors, you will need to parse the accompanying JSON document and examine its error code.
 
@@ -76,7 +80,7 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | 403       | Authorization failed. For example, the user does not have permission to access the resource. |
 | 500       | An internal error has occurred at the service. Retry the request. |
 
-### JSON Document Objects in the Error response
+### JSON document objects in the error response
 
 | JSON Object | Description |
 |-------------|-------------|
@@ -87,7 +91,7 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | correlation_id | 	A value generated by the client. This ID is included in the JSON error document when the request to the token issuance endpoint includes this value in the `client-request-id` header. This ID may be used by other calls in the same session. |
 | error_codes | Contains a list of error codes that map to different conditions of the service. Do not use these codes in your application logic. However, you can use them to diagnose an issue and search for information online by error code. |
 
-### JSON Document Error Code values
+### JSON document error code values
 
 | Error Code | Description | Client Action |
 |------------|-------------|---------------|
@@ -100,7 +104,7 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | interaction_required | The request requires user interaction. For example, an additional authentication step is required. | Retry the request with the same resource. |
 | temporarily_unavailable | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed due a temporary condition.|
 
-## Errors from Secured resources
+## Errors from secured resources
 
 These are the errors that a secured resource, such as a Web API might return, if it implements the [RFC 6750](http://tools.ietf.org/html/rfc6750) specification of the OAuth 2.0 Authorization Framework.
 
@@ -122,7 +126,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.window.net/contoso.com
 | error_description | A more detailed description of the error. This message is not intended to be end-user friendly.|
 | resource_id | Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is very important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be htttps://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
 
-## Bearer Scheme Error codes
+## Bearer scheme error codes
 
 The RFC 6750 specification defines the following errors for resources that use using the WWW-Authenticate header and Bearer scheme in the response.
 

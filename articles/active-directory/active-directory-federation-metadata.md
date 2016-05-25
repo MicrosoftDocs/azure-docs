@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Federation Metadata | Microsoft Azure"
-	description="Explain the federation metadata document that Azure AD publishes for services that accept Azure AD tokens."
+	description="This article describes the federation metadata document that Azure Active Directory publishes for services that accept Azure Active Directory tokens."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -11,7 +11,7 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
-Azure Active Directory (Azure AD) publishes a federation metadata document for services that configured to accept the security tokens that Azure Active Directory issues. The federation metadata document format is described in the [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), which extends [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+Azure Active Directory (Azure AD) publishes a federation metadata document for services that configured to accept the security tokens that Azure AD issues. The federation metadata document format is described in the [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), which extends [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
-## Tenant-Specific and Tenant-Independent Metadata Endpoints
+## Tenant-specific and Tenant-independent metadata endpoints
 
 Azure AD publishes tenant-specific and tenant-independent endpoints.
 
@@ -31,7 +31,7 @@ Tenant-specific endpoints are designed for a particular tenant. The tenant-speci
 
 Tenant-independent endpoints provide information that is common to all Azure AD tenants. This information applies to tenants hosted at *login.microsoftonline.com* and is shared across tenants. Tenant-independent endpoints are recommended for multi-tenant applications, since they are not associated with any particular tenant.
 
-## Federation Metadata Endpoints
+## Federation metadata endpoints
 
 Azure AD publishes federation metadata at `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
@@ -44,7 +44,7 @@ For **tenant-independent endpoints**, the `TenantDomainName` is `common`. This d
 
 For example, a tenant-specific endpoint might be `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. The tenant-independent endpoint is [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). You can view the federation metadata document by typing this URL in a browser.
 
-## Contents of Federation Metadata
+## Contents of federation eetadata
 
 The following section provides information needed by services that consume the tokens issued by Azure AD.
 
@@ -71,11 +71,11 @@ ID="="_0e5bd9d0-49ef-4258-bc15-21ce143b61bd"
 entityID="https://sts.windows.net/{tenant}/">
 ```
 
-### Token Signing certificates
+### Token signing certificates
 
 When a service receives a token that is issued by a Azure AD tenant, the signature of the token must be validated with a signing key that is published in the federation metadata document. The federation metadata includes the public portion of the certificates that the tenants use for token signing. The certificate raw bytes appear in the `KeyDescriptor` element. The token signing certificate is valid for signing only when the value of the `use` attribute is `signing`.
 
-A federation metadata document published by Azure AD can have multiple signing keys , such as when Azure AD is preparing to update the signing certificate. When a federation metadata document includes more than one certificate, a service that is validating the tokens should support all certificates in the document.
+A federation metadata document published by Azure AD can have multiple signing keys, such as when Azure AD is preparing to update the signing certificate. When a federation metadata document includes more than one certificate, a service that is validating the tokens should support all certificates in the document.
 
 The following metadata shows a sample `KeyDescriptor` element with a signing key.
 
@@ -110,7 +110,7 @@ The following metadata shows a sample `IDPSSODescriptor` element.
 ```
 There are no differences in the format of tenant-specific and tenant-independent certificates.
 
-### WS-Federation Endpoint URL
+### WS-Federation endpoint URL
 
 The federation metadata includes the URL that is Azure AD uses for single sign-in and single sign-out in WS-Federation protocol. This endpoint appears in the `PassiveRequestorEndpoint` element.
 
@@ -137,7 +137,7 @@ https://login.microsoftonline.com/common/wsfed
 </fed:PassiveRequestorEndpoint>
 ```
 
-### SAML Protocol Endpoint URL
+### SAML protocol endpoint URL
 
 The federation metadata includes the URL that Azure AD uses for single sign-in and single sign-out in SAML 2.0 protocol. These endpoints appear in the `IDPSSODescriptor` element.
 

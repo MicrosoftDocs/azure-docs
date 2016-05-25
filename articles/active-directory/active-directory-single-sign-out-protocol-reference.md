@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Single Sign Out SAML Protocol | Microsoft Azure"
-	description="Single Sign Out SAML Protocol"
+	description="This article describes the Single Sign-Out SAML Protocol in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -11,7 +11,7 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
@@ -21,17 +21,17 @@
 
 [AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
-Azure Active Directory supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, Azure Active Directory must register its metadata URL during application registration. Azure Active Directory gets the logout URL and the signing key of the cloud service from the metadata. Azure Active Directory uses the signing key to verify the signature on the incoming LogoutRequest, and it uses the LogoutURL to redirect users after they are signed out.
+Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, Azure AD must register its metadata URL during application registration. Azure AD gets the logout URL and the signing key of the cloud service from the metadata. Azure AD uses the signing key to verify the signature on the incoming LogoutRequest, and it uses the LogoutURL to redirect users after they are signed out.
 
 If the cloud service does not support a metadata endpoint, after the application is registered, the developer must contact Microsoft support to provide the logout URL and signing key.
 
-This diagram shows the workflow of the Azure Active Directory single sign-out process.
+This diagram shows the workflow of the Azure AD single sign-out process.
 
 <!-- TODO: Include Diagram Link -->
 
 ## LogoutRequest
 
-The cloud service sends a `LogoutRequest` message to Azure Active Directory to indicate that a session has been terminated. The following excerpt shows a sample `LogoutRequest` element.
+The cloud service sends a `LogoutRequest` message to Azure AD to indicate that a session has been terminated. The following excerpt shows a sample `LogoutRequest` element.
 
 ```
 <samlp:LogoutRequest xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="idaa6ebe6839094fe4abc4ebd5281ec780" Version="2.0" IssueInstant="2013-03-28T07:10:49.6004822Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -78,7 +78,7 @@ Azure AD sets the `ID`, `Version` and `IssueInstant` values in the `LogoutRespon
 
 ### Issuer
 
-Azure AD sets this value to `https://login.microsoftonline.com/<TenantIdGUID>/` where <TenantIdGUID> is the tenant ID of the Azure Active Directory tenant.
+Azure AD sets this value to `https://login.microsoftonline.com/<TenantIdGUID>/` where <TenantIdGUID> is the tenant ID of the Azure AD tenant.
 
 To evaluate the value of the `Issuer` element, use the value of the **App ID URI** provided during application registration.
 

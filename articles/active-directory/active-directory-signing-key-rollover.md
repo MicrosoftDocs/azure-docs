@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Signing Key Rollover in Azure AD | Microsoft Azure"
-	description="Signing Key Rollover in Azure AD"
+	description="This article discusses the signing key rollover best practices for Azure Active Directory"
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -11,18 +11,18 @@
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/21/2016"
 	ms.author="priyamo"/>
 
-# Signing Key Rollover in Azure AD
+# Signing key rollover in Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
-This topic discusses what you need to know about the public keys that are used in Azure AD to sign security tokens. It is important to note that these keys rollover on a 6 week schedule. In an emergency, a key could be changed much sooner than 6 weeks. All applications that use Azure AD should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, and how to update your application to handle key rollover.
+This topic discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a 6 week schedule. In an emergency, a key could be changed much sooner than 6 weeks. All applications that use Azure AD should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, and how to update your application to handle key rollover.
 
-## Overview of Signing Keys in Azure AD
+## Overview of signing keys in Azure AD
 
 Azure AD uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: Azure AD uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses Azure AD for authentication, Azure AD creates a security token that contains information about the user. This token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s federation metadata document. This public key – and the signing key from which it derives – is the same one used for all tenants in Azure AD.
 
@@ -30,11 +30,11 @@ For security purposes, Azure AD’s public key rolls on a 6 week interval. In th
 
 Because a key may be rolled at any moment, there is always more than one valid public key available in the federation metadata document. Your application should be prepared to use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth. It is recommended that your application cache these keys in a database or a configuration file to increase the efficiency of communicating with Azure AD during the sign-in process and to quickly validate a token using a different key.
 
-## How to Update Your Application with Key Rollover logic
+## How to update your application with key rollover logic
 
 How your application handles key rollover depends on variables such as what identity framework was used, the framework version, or type of application. Each section below will show you how to update the most common application types and configurations. You can also follow the steps to make sure the logic is working properly.
 
-### Web Applications created with Visual Studio 2013
+### Web applications created with Visual Studio 2013
 
 If your application was built using a web application template in Visual Studio 2013 and you selected **Organizational Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover. This logic stores your organization’s unique identifier and the signing key information in two database tables associated with the project. You can find the connection string for the database in the project’s Web.config file.
 
@@ -50,7 +50,7 @@ The following steps will help you verify that the logic is working properly in y
 6. Build and run the application. After you have logged in to your account, you can stop the application.
 7. Return to the **Server Explorer** and look at the values in the **IssuingAuthorityKeys** and **Tenants** table. You’ll notice that they have been automatically repopulated with the appropriate information from the federation metadata document.
 
-### Web Applications Created with Visual Studio 2012
+### Web applications created with Visual Studio 2012
 
 If your application was built in Visual Studio 2012, you probably used the Identity and Access Tool to configure your application. It’s also likely that you are using the [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). The VINR is responsible for maintaining information about trusted identity providers (Azure AD) and the keys used to validate tokens issued by them. The VINR also makes it easy to automatically update the key information stored in a Web.config file by downloading the latest federation metadata document associated with your directory, checking if the configuration is out of date with the latest document, and updating the application to use the new key as necessary.
 
@@ -99,7 +99,7 @@ Follow the steps below to verify that the key rollover logic is working.
 3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) topic, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 
-### Web Applications Created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v. 1.0 for .NET 3.5
+### Web applications created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v1.0 for .NET 3.5
 
 If you built an application on WIF v1.0, there is no provided mechanism to automatically refresh your application’s configuration to use a new key. The easiest way to update the key is to use the FedUtil tooling included in the WIF SDK, which can retrieve the latest metadata document and update your configuration. These instructions are included below. Alternatively, you can do one of the following:
 
@@ -151,7 +151,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Management Portal]",
+                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
@@ -208,7 +208,7 @@ namespace JWTValidation
 }
 ```
 
-### Manually Retrieve the Latest Key and Update Your Application
+### Manually retrieve the latest key and update your application
 
 If your application type or platform does not currently support an automatic mechanism for updating the key, you can perform the following steps:
 
