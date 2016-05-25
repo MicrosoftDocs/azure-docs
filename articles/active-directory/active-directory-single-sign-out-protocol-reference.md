@@ -27,7 +27,7 @@ If the cloud service does not support a metadata endpoint, after the application
 
 This diagram shows the workflow of the Azure AD single sign-out process.
 
-<!-- TODO: Include Diagram Link -->
+![Single Sign Out Workflow](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## LogoutRequest
 

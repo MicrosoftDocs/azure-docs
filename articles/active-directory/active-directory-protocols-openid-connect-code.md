@@ -29,7 +29,7 @@ OpenID Connect is our recommendation if you are building a web application that 
 
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
 
-![OpenId Connect Authentication Flow](../media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
+![OpenId Connect Authentication Flow](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
 
 ## Send the sign-in request

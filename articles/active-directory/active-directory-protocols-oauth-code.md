@@ -32,7 +32,7 @@ The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 
 
 At a high level, the entire authorization flow for an application looks a bit like this:
 
-![OAuth Auth Code Flow](../media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
+![OAuth Auth Code Flow](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 
 ## Request an authorization code

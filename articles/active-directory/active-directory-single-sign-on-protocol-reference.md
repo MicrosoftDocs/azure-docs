@@ -24,7 +24,7 @@ In this article, we will learn the SAML 2.0 authentication requests and response
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
 
-![Single Sign On Workflow](../media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
+![Single Sign On Workflow](media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
 
 ## AuthnRequest
 
