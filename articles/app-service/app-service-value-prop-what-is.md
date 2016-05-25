@@ -14,47 +14,72 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/05/2016" 
+	ms.date="05/24/2016" 
 	ms.author="omark"/>
 
 # What is Azure App Service?
-Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device. Built for developers, App Service is a fully managed platform with powerful capabilities such as built-in DevOps, continuous integration with Visual Studio Team Services and GitHub, staging and production support, and automatic patching.
 
-Azure App Service is a single service that includes all of the existing capabilities from Azure Websites, Azure Mobile Services, and Azure Biztalk Services, while adding new capabilities.  [Learn more](https://azure.microsoft.com/documentation/services/app-service/) about how App Service relates to these existing services.
+*App Service* is a [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure that enables you to create web and mobile apps for any platform or device. You can easily integrate your apps with SaaS solutions (such as Office 365, Dynamics CRM, Salesforce, Twilio), easily connect with on-premises applications (such as SAP, Oracle, Siebel), and easily automate business processes while meeting stringent security, reliability, and scalability needs. 
 
-## Why App Service?
-Focused on rapid development of web and mobile apps, as well as automating business processes, Azure App Service provides an integrated set of enterprise capabilities through a single development and management experience offering you the following benefits:
+App Service includes the web and mobile capabilities that we previously delivered separately as Azure Websites and Azure Mobile Services.  It also includes new capabilities for automating business processes and hosting cloud APIs.
 
-- **Build Web and Mobile Apps Fast** - Rapidly build, deploy, and manage web and mobile apps for employees or customers using a single back-end. Use your existing languages skills -- .NET, Java, NodeJS, PHP, or Python. Accelerate development with access to a rich gallery of APIs, connectors, and logic available in the Azure Marketplace.
+## App types in App Service
 
-- **Connect to any service and unlock your data** - Connect your web or mobile app to enterprise systems or SaaS in minutes with built-in connectors. Choose from more than 50 connectors for enterprise systems such as SAP, Siebel, and Oracle, popular enterprise SaaS services like Salesforce and Office 365, and popular internet services such as Facebook, Twitter, and Dropbox.
+App Service offers the following app types for running your application code or workflow processes.
 
-- **Integration made simple** - Integrate data across clouds and automate business processes in minutes with a simple visual design experience. Easily integrate your logic with any mobile or web app via standard REST APIs.  Build sophisticated enterprise application integration, B2B solutions using EDI, business policies (rules engine), and more, based on the industry leading BizTalk platform.
+- [**Web Apps**](../app-service-web/app-service-web-overview.md) - For hosting websites and web applications.
 
-- **Unparalleled developer productivity** - Optimized for DevOps, with continuous integration support for Visual Studio Team Services and Github, so you can focus on rapidly improving your apps without worrying about infrastructure. Deploy app updates with built-in staging, roll-back, and in-production testing capabilities.
-
-- **Enterprise Ready** - Enjoy peace of mind with enterprise grade security and management. Provide delegated and role-based administration; easily secure and manage data flowing to your mobile apps; and protect your assets with built-in backup and restore capability. Rest confidently knowing App Service is PCI compliant. Stay in control with dedicated environments, and the ability to deploy across public and private clouds.  Benefit from over 25 years of Microsoft experience and our enterprise Service Level Agreement.
-
-##App Service Concepts
-The following high-level concepts describe what you can do with App Service.
-
-### App Types
-App Service allows you to create the following app types from a single development experience:
-
-- [**Web Apps**](../app-service-web/app-service-web-overview.md) - Quickly create and deploy mission critical Web apps that scale with your business.
-- [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) - Engage employees, partners and customers on any device at any time.
-- [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - Easily build and consume cloud APIs.
-- [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - Automate the access and use of data across clouds without writing code.
-
-As a single integrated service, App Service makes it easy to compose the above app types into a single solution, allowing you to easily build apps that target both web and mobile clients using the same back-end and integrate with on-premises systems as well as popular services such as Office 365 and salesforce.com.
-
-### App Service Plans
-App Service Plans represent a set of features and capacity that you can share across your apps. App Service Plans support a few pricing tiers (e.g. Free, Shared, Basic, Standard, and Premium) where each tier has its own capabilities. You can quickly change which App Service Plan an app is hosted on with no downtime. [Learn more about App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md).
-
-##Get Started with App Service
-Want a taste? Get going in seconds.
-
-With Azure App Service, this is as easy as selecting a language! 
-
-[Create a new app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free. No credit card required, no commitments, no hassles.
+- [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) For hosting mobile app back ends.
+   
+- [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - For hosting cloud APIs. 
  
+- [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating the access and use of data across clouds without writing code.
+
+As a single integrated service, App Service makes it easy to compose multiple app types into a single solution.
+
+## App Service Plans and Environments
+
+[App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) represent the compute resources that your apps run on. At lower pricing tiers, your apps run on shared virtual machines (VMs). At higher tiers, your apps run on dedicated VMs. You have a choice of several VM sizes, and you can change your pricing tier with no downtime. If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md).
+
+## Why use App Service?
+
+Here are some key features and capabilities of App Service: 
+
+- **Fully managed platform** - Automatic OS and framework patching, built-in support for backup and disaster recovery. 
+
+- **Use your existing skills** - Code in your favorite language, framework, and development environment. App Service supports .NET, Node.js, Java, PHP, and Python. You can also run scripts that use [PowerShell and other scripting languages](../app-service-web/web-sites-create-web-jobs.md#acceptablefiles). 
+
+- **Fast deployment** - Provision new apps and deploy code to them in seconds.
+
+- **Continuous Integration** - Set up [continuous integration and deployment](../app-service-web/app-service-continous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket.
+
+- **Staging and test environments** - Implement [staged deployment](../app-service-web/web-sites-staged-publishing.md) to verify your code in a preproduction environment that is identical to your production environment. When you're ready, release a new version of your app with zero downtime by performing a swap operation. 
+
+- **Testing in Production** - Take staged deployments to the next level and [perform A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md) to verify your new code with a configurable fraction of your live traffic. 
+
+- **Authentication and authorization** - Protect an app from unauthenticated access with no changes to your code. Built-in authentication services secure your apps for access by users, by clients representing users, or by services. Supported identity providers include Azure Active Directory, Facebook, Twitter, Google, and Microsoft Account. For more information, see [Authentication and authorization in Azure App Service](app-service-authentication-overview.md).
+
+- **Connect to any service** - Connect your app to enterprise systems or software-as-a-service (SaaS) platforms in minutes with built-in [connectors](../connectors/apis-list.md). Choose from more than 50 connectors for enterprise systems such as SAP, Siebel, and Oracle, popular enterprise SaaS services like Salesforce and Office 365, and popular internet services such as Facebook, Twitter, and Dropbox.
+
+- **Global scale** - Scale [up](../app-service/app-service-scale.md) or [out](../azure-portal/insights-how-to-scale.md) to handle any incoming customer load. Manually select the number and size of VMs or set up auto-scaling based on load or schedule. Microsoft's global datacenter infrastructure hosts your apps and makes it easy to replicate data and hosting services in multiple locations. 
+
+- **Enterprise-grade** - App Service is designed for building and hosting secure mission-critical applications. Build Active Directory integrated business apps that connect securely to on-premises resources, then host them on a secure cloud platform that is [ISO](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [SOC](https://www.microsoft.com/TrustCenter/Compliance/SOC), and [PCI](https://www.microsoft.com/TrustCenter/Compliance/pci) compliant. All with an enterprise-level [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
+
+- **Azure Marketplace** - Select from an ever-growing [list of application templates](https://azure.microsoft.com/marketplace/). Leverage the best of the OSS app community with one-click installation of packages such as WordPress, Joomla and Drupal.
+
+- **WebJobs** - [Run any program or script](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs. Run jobs continuously, on a schedule, or triggered by events. The Azure [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md) simplifies the code you write to integrate with other Azure and third-party services.
+
+- **Hybrid connections** - Access on-premises data using [hybrid connections](../biztalk-services/integration-hybrid-connection-overview.md) and [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
+
+- **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, consuming, debugging, and managing web apps, mobile apps, and API apps.
+
+## Get Started with App Service
+
+[Create a temporary web app, mobile app, or logic app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free, with no credit card required, no commitments, no hassles.
+
+Or open a [free Azure account](https://azure.microsoft.com/pricing/free-trial/), and try one of our getting-started tutorials:
+
+* [Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
+* [Mobile Apps](https://azure.microsoft.com/documentation/services/app-service/mobile/)
+* [API Apps](https://azure.microsoft.com/documentation/services/app-service/api/)
+* [Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/)
