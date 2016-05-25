@@ -20,7 +20,7 @@
 # What is Azure App Service?
 Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device. Built for developers, App Service is a fully managed platform with powerful capabilities such as built-in DevOps, continuous integration with Visual Studio Team Services and GitHub, staging and production support, and automatic patching.
 
-Azure App Service is a single service that includes all of the capabilities from Azure Websites, Azure Mobile Services, and Azure Biztalk Services. Azure Functions is an example of ongoing additions to App Service that enable the next generation of applications.
+Azure App Service is a single service that includes all of the existing capabilities from Azure Websites, Azure Mobile Services, and Azure Biztalk Services, while adding new capabilities.  [Learn more](https://azure.microsoft.com/documentation/services/app-service/) about how App Service relates to these existing services.
 
 ## Why App Service?
 Focused on rapid development of web and mobile apps, as well as automating business processes, Azure App Service provides an integrated set of enterprise capabilities through a single development and management experience offering you the following benefits:
@@ -44,7 +44,6 @@ App Service allows you to create the following app types from a single developme
 - [**Web Apps**](../app-service-web/app-service-web-overview.md) - Quickly create and deploy mission critical Web apps that scale with your business.
 - [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) - Engage employees, partners and customers on any device at any time.
 - [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - Easily build and consume cloud APIs.
-- [**Function Apps**](../azure-functions/functions-overview.md) - Create lightweight functions that respond to events across Azure, on premises, and SaaS providers.
 - [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - Automate the access and use of data across clouds without writing code.
 
 As a single integrated service, App Service makes it easy to compose the above app types into a single solution, allowing you to easily build apps that target both web and mobile clients using the same back-end and integrate with on-premises systems as well as popular services such as Office 365 and salesforce.com.
