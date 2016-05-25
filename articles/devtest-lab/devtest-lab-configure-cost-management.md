@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Monthly estimated cost trend | Microsoft Azure"
-	description="Learn how to use the DevTest Labs monthly estimated cost trend chart."
+	description="Learn about the DevTest Labs monthly estimated cost trend chart."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="tarcher"/>
 
-# Configure cost management
+# Monthly estimated cost trend
 
 ## Overview
 
@@ -24,9 +24,9 @@ The Cost Management feature of DevTest Labs helps you track the cost of your lab
 This article illustrates how to use the **Monthly Estimated Cost Trend** chart  
 to view the current calendar month's estimated cost-to-date as well as the projected end-of-month cost for the current calendar month.
 
-## Enabling the Monthly Estimated Cost Trend chart
+## Viewing the Monthly Estimated Cost Trend chart
 
-In order to enable the Monthly Estimated Cost Trend chart, follow these steps: 
+In order to view the Monthly Estimated Cost Trend chart, follow these steps: 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -38,22 +38,13 @@ In order to enable the Monthly Estimated Cost Trend chart, follow these steps:
 
 	![Settings](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. On the lab's **Settings** blade, under **Cost Policies**, tap **Cost Thresholds**.
+1. On the lab's **Settings** blade, under **Cost Management**, tap **Thresholds**.
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
-1. On the **Cost Thresholds** blade, tap **On** to enable this feature, and **Off** to disable it.
+1. The following screen shot shows an example of a cost chart. 
 
-1. Tap **Save**.
-
-Once you enable this feature, it can take several hours before the chart will display your estimated and projected costs.
-This is because a service runs every hour to gather this information, but runs a few hours behind the live data being collected.
-For example, let's say you start a VM at 1:00 AM. The cost associated with that VM probably won't be incorporated into
-the cost chart for a couple of hours.
- 
-The following screen shot shows an example of a cost chart. 
-
-![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
+    ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 
 The **Estimated Cost** value is the current calendar month's estimated cost-to-date while the **Projected Cost** is the estimated cost for the entire current calendar month. 
 Note that the cost amounts are rounded up to the next whole number. For example: 
