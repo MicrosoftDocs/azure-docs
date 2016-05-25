@@ -18,21 +18,29 @@
    
 # Logic App Scenario: Azure Function Service Bus Trigger
 
-Azure Functions can be utilized as a trigger for Logic Apps whenever long-running listeners or tasks need to be deployed.  In this case, I wanted to create a listener that would trigger the instant something was added to a Service Bus Queue, and immediately fire a Logic App as a push trigger.
+Azure Functions can be utilized as a trigger for Logic Apps whenever long-running listeners or tasks need to be deployed.  For example, you can create an Azure Function that would listen on a queue, and immediately fire a Logic App as a push trigger.
 
 ## Building the Logic App
 
-For this scenario I want to have 1:1 mapping between queue receiver and Logic App.  I will create a Logic App with an HTTP Request trigger, so I can program my Azure Function to call that endpoint whenever a queue message is received.  I open a new Logic App and select the **Manual - When an HTTP Request is Received** trigger.  I can then add any steps I want to happen after a queue message is received.  In this case I'm going to add a step to send me an email message via Office 365.  After I save the Logic App, I can see the callback URL I need to make an HTTP POST to trigger this Logic App.  In addition, if I wanted to specify a JSON Schema the queue message will have, I could generate one via a tool like [jsonschema.net](http://jsonschema.net) and paste it in the trigger so that I could easily flow the trigger body properties through the Logic App.
+In this example you will have a function running for each Logic App needing to be triggered.  So first you need to create a Logic App with an HTTP Request trigger - the Azure Function will call that endpoint whenever a queue message is received.  
+
+1. Open a new Logic App and select the **Manual - When an HTTP Request is Received** trigger.  
+    * You can optionally specify a JSON Schema that queue message will have via a tool like [jsonschema.net](http://jsonschema.net) and paste it in the trigger.  This will allow the designer to understand the shape of the data and easily flow properties through the workflow.
+1. Add any steps you want to happen after a queue message is received.  For example, you could send an email message via Office 365.  
+1. Save the Logic App to generate the callback URL for the trigger to this Logic App.  The URL will appear on the trigger card.
 
 ![][1]
 
 ## Building the Azure Function
 
-First I opened the [Azure Functions Portal](https://functions.azure.com/signin) and selected to create a **New Function** with the **ServiceBusQueueTrigger - C#** template.
+Next, you need to create an Azure Function that will act as the trigger and listen to the queue.
 
-![][2]
+1. Open the [Azure Functions Portal](https://functions.azure.com/signin) and select **New Function** with a **ServiceBusQueueTrigger - C#** template.
 
-After I configure the Azure Function to trigger with an input from a Service Bus Queue (which will use the Service Bus SDK `OnMessageReceive()` listener), I can write a simple function to call the Logic App endpoint from above with the queue message.  In this case I'm assuming I will be getting and sending content-type of `application/json`, but this could be changed as needed.
+    ![][2]
+
+2. Configure the connection to the Service Bus Queue (which will use the Service Bus SDK `OnMessageReceive()` listener)
+3. Write a simple function to call the Logic App endpoint (from above) with the queue message.  Here's a full example of a function below with a message content-type of `application/json`, but this could be changed as needed.
 
 
 ```
@@ -54,7 +62,9 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
-After I save, I can then test by adding a queue message via a tool like [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to add a JSON message to a queue and see the Logic App fire within a second.
+1. Save the function
+
+You can test by adding a queue message via a tool like [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) and see the Logic App fire immediately after the Function receives the message.
 
 <!-- Image References -->
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
