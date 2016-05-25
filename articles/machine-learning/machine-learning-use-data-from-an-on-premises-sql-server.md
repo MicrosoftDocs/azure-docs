@@ -38,7 +38,7 @@ experiments, *etc*..
 information about Machine Learning pricing and tiers, see [Azure Machine
 Learning
 Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
-
+</br>
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
