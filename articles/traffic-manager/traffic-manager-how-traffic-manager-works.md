@@ -16,7 +16,7 @@
    ms.date="05/25/2016"
    ms.author="jonatul"/>
 
-# How Traffic Manager Works
+# How Traffic Manager works
 
 Azure Traffic Manager enables you to control how traffic is distributed across your application endpoints.  An endpoint can be any Internet-facing endpoint, hosted in Azure or outside Azure.
 
@@ -29,7 +29,7 @@ When an end user attempts to connect to a service endpoint, their client (PC, ph
 
 **The most important point to understand is that Traffic Manager works at the DNS level.**  Traffic Manager uses DNS to direct end users to particular service endpoints, based on the chosen traffic-routing method and the current endpoint health.  Clients then connect to the selected endpoint **directly**.  Traffic Manager is not a proxy, and does not see the traffic passing between the client and the service.
 
-## Traffic Manager Example
+## Traffic Manager example
 
 Contoso Corp have developed a new partner portal.  The URL for this portal will be https://partners.contoso.com/login.aspx.  The application is hosted in Azure, and to improve availability and maximize global performance, they wish to deploy the application to 3 regions worldwide and use Traffic Manager to distribute end users to their closest available endpoint.
 
@@ -67,7 +67,7 @@ c.	The chosen traffic-routing method.  For more information, see Traffic Manager
 
 Note that the recursive DNS service will cache the DNS responses it receives, as will the DNS client on the end-user’s device.  This enables subsequent DNS queries to be answered more quickly, by using data from the cache rather than querying other name servers.  The duration of the cache is determined by the ‘time-to-live’ (TTL) property of each DNS record.  Shorter values result in faster cache expiry and thus more round-trips to the Traffic Manager name servers; longer values mean in can take longer to direct traffic away from a failed endpoint.  Traffic Manager allows you to configure the TTL used in Traffic Manager DNS responses, enabling you to choose the value that best balances the needs of your application.
 
-## Next Steps
+## Next steps
 
 Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 
