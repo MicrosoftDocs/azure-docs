@@ -156,7 +156,7 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 	-   VMDK for VMWare ESXi 5.5 and later
 
-2.  Download and unzip the file to a local drive, making a note of the where the unzipped file is located.
+2.  Download and unzip the file to a local drive, making a note of where the unzipped file is located.
 
 ![video icon](./media/storsimple-ova-deploy1-portal-prep/video_icon.png) **Video available**
 
