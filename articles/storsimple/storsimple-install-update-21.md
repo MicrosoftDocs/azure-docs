@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/19/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Install Update 2.1 on your StorSimple device
