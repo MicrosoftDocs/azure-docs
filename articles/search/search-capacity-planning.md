@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure resource levels for query and indexing workloads in Azure Search | Microsoft Azure"
+	pageTitle="Scale resource levels for query and indexing workloads in Azure Search | Microsoft Azure"
 	description="Capacity planning in Azure Search is based on combinations of partition and replica computer resources, where each resource priced in billable search units."
 	services="search"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="05/25/2016"
 	ms.author="heidist"/>
 
-# Configure resource levels for projected capacity in Azure Search
+# Scale resource levels for query and indexing workloads in Azure Search
 
 In Azure Search, you can incrementally adjust capacity of specific computational resources by increasing partitions if you need more storage and IO, or replicas for improved query and indexing performance.
 
@@ -30,7 +30,7 @@ For both tiers, capacity is purchased in increments of *search units* (SU) where
 
 Be sure to choose a combination of partitions and replicas that stays below the tier limit. If you use the portal to scale up, the portal will enforce limits on allowable combinations.
 
-As a general rule, search applications need more replicas than partitions. See the section on [high availability](#HA) for details.
+As a general rule, search applications need more replicas than partitions. The next section, [high availability](#HA), explains why.
 
 <a id="HA"></a>
 ## Resourcing for high availability
