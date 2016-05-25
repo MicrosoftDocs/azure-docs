@@ -28,6 +28,8 @@ These tools will be used to perform some of the operations in this document:
 * [Azure Resource Manager](../resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
+* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
 
 ## Different log sources that you may want to collect
 1. **Service Fabric logs:** Emitted by the platform to standard ETW and EventSource channels. Logs can be one of several types:
@@ -67,7 +69,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ```
 
 ### Deploy the diagnostics extension to an existing cluster
-If you have an existing cluster that doesn't have diagnostics deployed, you can add it by following these steps. Modify the ARM template used to create the existing cluster or download the template from the portal as described above. Modify the **template.json** file by performing the following tasks:
+If you have an existing cluster that doesn't have diagnostics deployed or you want to modify an existing configuration, you can add or update it by following these steps. Modify the ARM template used to create the existing cluster or download the template from the portal as described above. Modify the **template.json** file by performing the following tasks:
 
 Add a new storage resource to the template by adding to the resources section.
 
@@ -178,3 +180,11 @@ To update diagnostics to collect logs from new EventSource channels that represe
 
 ## Next steps
 Check out the diagnostic events emitted for [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) and [Reliable Services](service-fabric-reliable-services-diagnostics.md) to understand in more detail what events you should look into while troubleshooting issues.
+
+
+## Related articles
+* [Learn how to collect performance counters or logs using diagnostic extensions](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template/#diagnostics-configuration-variables.md)
+
+
+
+
