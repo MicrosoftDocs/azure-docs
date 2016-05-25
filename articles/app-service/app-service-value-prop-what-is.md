@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="What is Azure App Service" 
-	description="Learn why Azure App Service is the best platform for developing web and mobile apps." 
-	keywords="app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment"
+	pageTitle="What is Azure App Service | Microsoft Azure" 
+	description="Learn how Azure App Service helps you develop, deploy, and manage web and mobile apps." 
+	keywords="app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment, paas, platform-as-a-service"
 	services="app-service" 
 	documentationCenter="" 
 	authors="omarkmsft" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/24/2016" 
+	ms.date="05/25/2016" 
 	ms.author="omark"/>
 
 # What is Azure App Service?
