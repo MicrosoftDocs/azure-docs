@@ -40,8 +40,8 @@ The Python tutorial code sample is one of the many Batch Python code samples fou
 
 In this directory, you'll find these files we'll be discussing:
 
-`python_tutorial_client.py`<br/>
-`python_tutorial_task.py`
+*python_tutorial_client.py*<br/>
+*python_tutorial_task.py*
 
 ### Python environment
 
@@ -57,11 +57,11 @@ The [Azure Batch Explorer][github_batchexplorer] is a free utility that is inclu
 
 ## DotNetTutorial sample project overview
 
-The *python_tutorial_client* code sample consists of two Python scripts: **python_tutorial_client.py** and **python_tutorial_task.py**.
+The *python_tutorial_client* code sample consists of two Python scripts: *python_tutorial_client.py* and *python_tutorial_task.py*.
 
-- **python_tutorial_client.py** acts as the script that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). The `python_tutorial_client.py` script runs on your local workstation.
+- *python_tutorial_client.py* acts as the script that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). The *python_tutorial_client.py* script runs on your local workstation.
 
-- **python_tutorial_task.py** is the script that runs on compute nodes in Azure to perform the actual work. In the sample, `python_tutorial_task.py` parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, `python_tutorial_task.py` uploads the file to Azure Storage. This makes it available for download to the client script running on your workstation. The `python_tutorial_task.py` script runs in parallel on multiple compute nodes in the Batch service.
+- *python_tutorial_task.py* is the script that runs on compute nodes in Azure to perform the actual work. In the sample, *python_tutorial_task.py* parses the text in a file downloaded from Azure Storage (the input file). Then it produces a text file (the output file) that contains a list of the top three words that appear in the input file. After it creates the output file, *python_tutorial_task.py* uploads the file to Azure Storage. This makes it available for download to the client script running on your workstation. The *python_tutorial_task.py* script runs in parallel on multiple compute nodes in the Batch service.
 
 The following diagram illustrates the primary operations that are performed by the client and task scripts. This basic workflow is typical of many compute solutions that are created with Batch. While it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
 
@@ -83,7 +83,7 @@ As mentioned, not every Batch solution will perform these exact steps, and may i
 
 ## Prepare the *python_tutorial_client.py* script
 
-Before you can successfully run the sample, you must specify both Batch and Storage account credentials in **python_tutorial_client.py**. If you have not done so already, open the file in your favorite editor and update the following lines with your credentials.
+Before you can successfully run the sample, you must specify both Batch and Storage account credentials in *python_tutorial_client.py*. If you have not done so already, open the file in your favorite editor and update the following lines with your credentials.
 
 ```python
 # Update the Batch and Storage account credential strings below with the values
@@ -107,7 +107,7 @@ You can find your Batch and Storage account credentials within the account blade
 
 In the following sections, we analyze the steps used by the scripts to process a workload in the Batch service, and discuss those steps in detail. We encourage you to refer regularly to the scripts in your editor while you work your way through the rest of the article.
 
-Navigate to the following line in the **python_tutorial_client.py** script to start with Step 1:
+Navigate to the following line in the *python_tutorial_client.py* script to start with Step 1:
 
 ```python
 if __name__ == '__main__':
@@ -124,154 +124,116 @@ Batch includes built-in support for interacting with Azure Storage. Containers i
 - **input**: Tasks will download the data files to process from the *input* container.
 - **output**: When tasks complete input file processing, they will upload the results to the *output* container.
 
-In order to interact with a Storage account and create containers, we use the [azure-storage][pypi_storage] package. We create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that create a [CloudBlobClient][net_cloudblobclient]:
+In order to interact with a Storage account and create containers, we use the [azure-storage][pypi_storage] package to create a reference to the account with [BlockBlobService][py_blockblobservice]. We then create three containers in the Storage account.
 
-```
-// Construct the Storage account connection string
-string storageConnectionString = String.Format(
-    "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-    StorageAccountName,
-    StorageAccountKey);
+```python
+ # Create the blob client, for use in obtaining references to
+ # blob storage containers and uploading files to containers.
+ blob_client = azureblob.BlockBlobService(
+     account_name=_STORAGE_ACCOUNT_NAME,
+     account_key=_STORAGE_ACCOUNT_KEY)
 
-// Retrieve the storage account
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-
-// Create the blob client, for use in obtaining references to blob storage containers
-CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-```
-
-We use the `blobClient` reference throughout the application and pass it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
-
-```
-// Use the blob client to create the containers in Azure Storage if they don't
-// yet exist
-const string appContainerName    = "application";
-const string inputContainerName  = "input";
-const string outputContainerName = "output";
-await CreateContainerIfNotExistAsync(blobClient, appContainerName);
-await CreateContainerIfNotExistAsync(blobClient, inputContainerName);
-await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
-```
-
-```
-private static async Task CreateContainerIfNotExistAsync(
-    CloudBlobClient blobClient,
-    string containerName)
-{
-		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-
-		if (await container.CreateIfNotExistsAsync())
-		{
-				Console.WriteLine("Container [{0}] created.", containerName);
-		}
-		else
-		{
-				Console.WriteLine("Container [{0}] exists, skipping creation.",
-                    containerName);
-		}
-}
+ # Use the blob client to create the containers in Azure Storage if they
+ # don't yet exist.
+ app_container_name = 'application'
+ input_container_name = 'input'
+ output_container_name = 'output'
+ blob_client.create_container(app_container_name, fail_on_exist=False)
+ blob_client.create_container(input_container_name, fail_on_exist=False)
+ blob_client.create_container(output_container_name, fail_on_exist=False)
 ```
 
 Once the containers have been created, the application can now upload the files that will be used by the tasks.
 
-> [AZURE.TIP] [How to use Blob Storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
+> [AZURE.TIP] [How to use Azure Blob storage from Python](../storage/storage-python-how-to-use-blob-storage.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
 
 ## Step 2: Upload task application and data files
 
 ![Upload task application and input (data) files to containers][2]
 <br/>
 
-In the file upload operation, *DotNetTutorial* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
+In the file upload operation, *python_tutorial_client.py* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
 
-```
-// Paths to the executable and its dependencies that will be executed by the tasks
-List<string> applicationFilePaths = new List<string>
-{
-    // The DotNetTutorial project includes a project reference to TaskApplication,
-    // allowing us to determine the path of the task application binary dynamically
-    typeof(TaskApplication.Program).Assembly.Location,
-    "Microsoft.WindowsAzure.Storage.dll"
-};
+```python
+ # Paths to the task script. This script will be executed by the tasks that
+ # run on the compute nodes.
+ application_file_paths = [os.path.realpath('python_tutorial_task.py')]
 
-// The collection of data files that are to be processed by the tasks
-List<string> inputFilePaths = new List<string>
-{
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt",
-    @"..\..\taskdata3.txt"
-};
+ # The collection of data files that are to be processed by the tasks.
+ input_file_paths = [os.path.realpath('./data/taskdata1.txt'),
+                     os.path.realpath('./data/taskdata2.txt'),
+                     os.path.realpath('./data/taskdata3.txt')]
 
-// Upload the application and its dependencies to Azure Storage. This is the
-// application that will process the data files, and will be executed by each
-// of the tasks on the compute nodes.
-List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(
-    blobClient,
-    appContainerName,
-    applicationFilePaths);
+ # Upload the application script to Azure Storage. This is the script that
+ # will process the data files, and is executed by each of the tasks on the
+ # compute nodes.
+ application_files = [
+     upload_file_to_container(blob_client, app_container_name, file_path)
+     for file_path in application_file_paths]
 
-// Upload the data files. This is the data that will be processed by each of
-// the tasks that are executed on the compute nodes within the pool.
-List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
-    blobClient,
-    inputContainerName,
-    inputFilePaths);
+ # Upload the data files. This is the data that will be processed by each of
+ # the tasks executed on the compute nodes in the pool.
+ input_files = [
+     upload_file_to_container(blob_client, input_container_name, file_path)
+     for file_path in input_file_paths]
 ```
 
-There are two methods in `Program.cs` that are involved in the upload process:
-
-- `UploadFilesToContainerAsync`: This method returns a collection of [ResourceFile][net_resourcefile] objects (discussed below) and internally calls `UploadFileToContainerAsync` to upload each file that is passed in the *filePaths* parameter.
-- `UploadFileToContainerAsync`: This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. After uploading the file, it obtains a shared access signature (SAS) for the file and returns a ResourceFile object that represents it. Shared access signatures are also discussed below.
+Using list comprehension, the `upload_file_to_container` function is called for each file in the collections, and two [ResourceFile][py_resource_file] collections are populated. These are used by both this script and the task script to access the files in Azure Storage.
 
 ```
-private static async Task<ResourceFile> UploadFileToContainerAsync(
-    CloudBlobClient blobClient,
-    string containerName,
-    string filePath)
-{
-		Console.WriteLine(
-            "Uploading file {0} to container [{1}]...", filePath, containerName);
+def upload_file_to_container(block_blob_client, container_name, file_path):
+    """
+    Uploads a local file to an Azure Blob storage container.
 
-		string blobName = Path.GetFileName(filePath);
+    :param block_blob_client: A blob service client.
+    :type block_blob_client: `azure.storage.blob.BlockBlobService`
+    :param str container_name: The name of the Azure Blob storage container.
+    :param str file_path: The local path to the file.
+    :rtype: `azure.batch.models.ResourceFile`
+    :return: A ResourceFile initialized with a SAS URL appropriate for Batch
+    tasks.
+    """
+    blob_name = os.path.basename(file_path)
 
-		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-		CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
-		await blobData.UploadFromFileAsync(filePath, FileMode.Open);
+    print('Uploading file {} to container [{}]...'.format(file_path,
+                                                          container_name))
 
-		// Set the expiry time and permissions for the blob shared access signature.
-        // In this case, no start time is specified, so the shared access signature
-        // becomes valid immediately
-		SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
-		{
-				SharedAccessExpiryTime = DateTime.UtcNow.AddHours(2),
-				Permissions = SharedAccessBlobPermissions.Read
-		};
+    block_blob_client.create_blob_from_path(container_name,
+                                            blob_name,
+                                            file_path)
 
-		// Construct the SAS URL for blob
-		string sasBlobToken = blobData.GetSharedAccessSignature(sasConstraints);
-		string blobSasUri = String.Format("{0}{1}", blobData.Uri, sasBlobToken);
+    sas_token = block_blob_client.generate_blob_shared_access_signature(
+        container_name,
+        blob_name,
+        permission=azureblob.BlobPermissions.READ,
+        expiry=datetime.datetime.utcnow() + datetime.timedelta(hours=2))
 
-		return new ResourceFile(blobSasUri, blobName);
-}
+    sas_url = block_blob_client.make_blob_url(container_name,
+                                              blob_name,
+                                              sas_token=sas_token)
+
+    return batchmodels.ResourceFile(file_path=blob_name,
+                                    blob_source=sas_url)
 ```
 
 ### ResourceFiles
 
-A [ResourceFile][net_resourcefile] provides tasks in Batch with the URL to a file in Azure Storage that will be downloaded to a compute node before that task is run. The [ResourceFile.BlobSource][net_resourcefile_blobsource] property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most tasks types within Batch .NET include a *ResourceFiles* property, including:
+A [ResourceFile][py_resource_file] provides tasks in Batch with the URL to a file in Azure Storage that will be downloaded to a compute node before that task is run. The **blob_source** property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most tasks types in Batch Python include a *ResourceFiles* property, including:
 
-- [CloudTask][net_task]
-- [StartTask][net_pool_starttask]
-- [JobPreparationTask][net_jobpreptask]
-- [JobReleaseTask][net_jobreltask]
+- [CloudTask][py_task]
+- [StartTask][py_starttask]
+- [JobPreparationTask][py_jobpreptask]
+- [JobReleaseTask][py_jobreltask]
 
-The DotNetTutorial sample application does not use the JobPreparationTask or JobReleaseTask task types, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
+These sample scripts do not use the JobPreparationTask or JobReleaseTask task types, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
 ### Shared access signature (SAS)
 
-Shared access signatures are strings which--when included as part of a URL--provide secure access to containers and blobs in Azure Storage. The DotNetTutorial application uses both blob and container shared access signature URLs, and demonstrates how to obtain these shared access signature strings from the Storage service.
+Shared access signatures are strings that provide secure access to containers and blobs in Azure Storage. The *python_tutorial_client.py* script uses both blob and container shared access signatures, and demonstrates how to obtain these shared access signature strings from the Storage service.
 
-- **Blob shared access signatures**: The pool's StartTask in DotNetTutorial uses blob shared access signatures when it downloads the application binaries and input data files from Storage (see Step #3 below). The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's shared access signature. It does so by calling [CloudBlob.GetSharedAccessSignature][net_sas_blob].
+- **Blob shared access signatures**: The pool's StartTask uses blob shared access signatures when it downloads the task script and input data files from Storage (see Step #3 below). The `upload_file_to_container` function in *python_tutorial_client.py* contains the code that obtains each blob's shared access signature. It does so by calling [BlockBlobService.make_blob_url][py_make_blob_url] in the Storage module.
 
-- **Container shared access signatures**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, TaskApplication uses a container shared access signature that provides write access to the container as part of the path when it uploads the file. Obtaining the container shared access signature is done in a similar fashion as when obtaining the blob shared access signature. In DotNetTutorial, you will find that the `GetContainerSasUrl` helper method calls [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] to do so. You'll read more about how TaskApplication uses the container shared access signature in "Step 6: Monitor Tasks."
+- **Container shared access signature**: As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, *python_tutorial_task.py* uses a container shared access signature that provides write access to the container when it creates its instance of [BlockBlobService][py_blockblobservice]. Obtaining the container shared access signature is done in a similar fashion as when obtaining the blob shared access signature. In *python_tutorial_client.py*, the `get_container_sas_token` helper function calls [BlockBlobService.generate_container_shared_access_signature][py_gen_container_sas] to do so. You'll read more about how *python_tutorial_task.py* uses the container shared access signature in "Step 6: Monitor Tasks."
 
 > [AZURE.TIP] Check out the two-part series on shared access signatures, [Part 1: Understanding the shared access signature (SAS) model](../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and use a shared access signature (SAS) with the Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 
@@ -280,69 +242,94 @@ Shared access signatures are strings which--when included as part of a URL--prov
 ![Create a Batch pool][3]
 <br/>
 
-After it uploads the application and data files to the Storage account, *DotNetTutorial* starts its interaction with the Batch service by using the Batch .NET library. To do so, a [BatchClient][net_batchclient] is first created:
+After it uploads the application and data files to the Storage account, *python_tutorial_client.py* starts its interaction with the Batch service by using the Batch Python module. To do so, a [BatchServiceClient][py_batchserviceclient] is first created:
 
+```python
+ # Create a Batch service client. We'll now be interacting with the Batch
+ # service in addition to Storage.
+ credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
+                                              _BATCH_ACCOUNT_KEY)
+
+ batch_client = batch.BatchServiceClient(
+     batch.BatchServiceClientConfiguration(
+         credentials,
+         base_url=_BATCH_ACCOUNT_URL))
 ```
-BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
-    BatchAccountUrl,
-    BatchAccountName,
-    BatchAccountKey);
 
-using (BatchClient batchClient = BatchClient.Open(cred))
-{
-	...
-```
+Next, a pool of compute nodes is created in the Batch account with a call to `create_pool`.
 
-Next, a pool of compute nodes is created in the Batch account with a call to `CreatePoolAsync`. `CreatePoolAsync` uses the [BatchClient.PoolOperations.CreatePool][net_pool_create] method to actually create a pool in the Batch service.
+```python
+def create_pool(batch_service_client, pool_id,
+                resource_files, distro, version):
+    """
+    Creates a pool of compute nodes with the specified OS settings.
 
-```
-private static async Task CreatePoolAsync(
-    BatchClient batchClient,
-    string poolId,
-    IList<ResourceFile> resourceFiles)
-{
-    Console.WriteLine("Creating pool [{0}]...", poolId);
+    :param batch_service_client: A Batch service client.
+    :type batch_service_client: `azure.batch.BatchServiceClient`
+    :param str pool_id: An ID for the new pool.
+    :param list resource_files: A collection of resource files for the pool's
+    start task.
+    :param str distro: The Linux distribution that should be installed on the
+    compute nodes, e.g. 'Ubuntu' or 'CentOS'.
+    :param str version: The version of the operating system for the compute
+    nodes, e.g. '15' or '14.04'.
+    """
+    print('Creating pool [{}]...'.format(pool_id))
 
-    // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(),
-    // no pool is actually created in the Batch service. This CloudPool instance is
-    // therefore considered "unbound," and we can modify its properties.
-    CloudPool pool = batchClient.PoolOperations.CreatePool(
-			poolId: poolId,
-			targetDedicated: 3,           // 3 compute nodes
-			virtualMachineSize: "small",  // single-core, 1.75 GB memory, 224 GB disk
-			cloudServiceConfiguration:
-			    new CloudServiceConfiguration(osFamily: "4")); // Win Server 2012 R2
+    # Create a new pool of Linux compute nodes using an Azure Virtual Machines
+    # Marketplace image. For more information about creating pools of Linux
+    # nodes, see:
+    # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
 
-    // Create and assign the StartTask that will be executed when compute nodes join
-    // the pool. In this case, we copy the StartTask's resource files (that will be
-    // automatically downloaded to the node by the StartTask) into the shared
-    // directory that all tasks will have access to.
-    pool.StartTask = new StartTask
-    {
-        // Specify a command line for the StartTask that copies the task application
-        // files to the node's shared directory. Every compute node in a Batch pool
-        // is configured with several pre-defined environment variables that you can
-        // reference by using commands or applications run by tasks.
+    # Specify the commands for the pool's start task. The start task is run
+    # on each node as it joins the pool, and when it's rebooted or re-imaged.
+    # We use the start task to prep the node for running our task script.
+    task_commands = [
+        # Copy the python_tutorial_task.py script to the "shared" directory
+        # that all tasks that run on the node have access to.
+        'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
+        # Install pip and then the azure-storage module so that the task
+        # script can access Azure Blob storage
+        'apt-get update',
+        'apt-get -y install python-pip',
+        'pip install azure-storage']
 
-        // Since a successful execution of robocopy can return a non-zero exit code
-        // (e.g. 1 when one or more files were successfully copied) we need to
-        // manually exit with a 0 for Batch to recognize StartTask execution success.
-        CommandLine = "cmd /c (robocopy %AZ_BATCH_TASK_WORKING_DIR% %AZ_BATCH_NODE_SHARED_DIR%) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
-        ResourceFiles = resourceFiles,
-        WaitForSuccess = true
-    };
+    # Get the virtual machine configuration for the desired distro and version.
+    # For more information about the virtual machine configuration, see:
+    # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
+    vm_config = get_vm_config_for_distro(batch_service_client, distro, version)
 
-    await pool.CommitAsync();
+    new_pool = batch.models.PoolAddParameter(
+        id=pool_id,
+        virtual_machine_configuration=vm_config,
+        vm_size=_POOL_VM_SIZE,
+        target_dedicated=_POOL_NODE_COUNT,
+        start_task=batch.models.StartTask(
+            command_line=wrap_commands_in_shell('linux', task_commands),
+            run_elevated=True,
+            wait_for_success=True,
+            resource_files=resource_files),
+        )
+
+    try:
+        batch_service_client.pool.add(new_pool)
+    except batchmodels.batch_error.BatchErrorException as err:
+        print_batch_exception(err)
+        raise
 }
 ```
 
-When you create a pool with [CreatePool][net_pool_create], you specify a number of parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images--see [Introducing Linux support on Azure Batch][blog_linux] for more information.
+When you create a pool, you define a [PoolAddParameter][py_pooladdparam] which specifies several properties of the pool:
 
-> [AZURE.IMPORTANT] You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicated` to 1 before you run the sample.
+1. **Number of compute nodes**. All Batch accounts have default quotas that limit the number of compute nodes in a Batch pool. You can see the default quotas and information about increasing these quotas in [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
 
-Along with these physical node properties, you may also specify a [StartTask][net_pool_starttask] for the pool. The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data by using Python scripts, you could use a StartTask to install Python on the compute nodes.
+2. **Operating system** for compute nodes. In *python_tutorial_client.py*, we create a pool of Linux nodes using a [VirtualMachineConfiguration][py_vm_config] obtained with our `get_vm_config_for_distro` helper function. This helper function uses [list_node_agent_skus][py_list_skus] to obtain and select an image from a list of compatible [Azure Virtual Machines Marketplace][vm_marketplace] images. You have the option to instead specify a [CloudServiceConfiguration][py_cs_config] and create pool of Windows nodes from Cloud Services. See [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two configurations.
 
-In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] property) from the StartTask working directory to the shared directory that *all* tasks running on the node can access. Essentially, this copies `TaskApplication.exe` and its dependencies to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
+3. **Size of compute nodes**. Since we are specifying Linux nodes for our [VirtualMachineConfiguration][py_vm_config], we specify a node size (`STANDARD_A1` in this sample) from [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md). Again, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
+
+Along with these physical node properties, you may also specify a [StartTask][py_starttask] for the pool. The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for preparing compute nodes for the execution of tasks, such as installing applications that your tasks require.
+
+In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the StartTask's **resource_files** property) from the StartTask working directory to the shared directory that *all* tasks running on the node can access. Essentially, this copies `python_tutorial_task.py` to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
 > [AZURE.TIP] The **application packages** feature of Azure Batch provides another way to get your application onto the compute nodes in a pool. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for details.
 
@@ -356,22 +343,29 @@ Also notable in the code snippet above is the use of two environment variables i
 
 A Batch job is essentially a collection of tasks that are associated with a pool of compute nodes. You can use it not only for organizing and tracking tasks in related workloads, but also for imposing certain constraints--such as the maximum runtime for the job (and by extension, its tasks), as well as job priority in relation to other jobs in the Batch account. In this example, however, the job is associated only with the pool that was created in step #3. No additional properties are configured.
 
-All Batch jobs are associated with a specific pool. This association indicates which nodes the job's tasks will execute on.  You specify this by using the [CloudJob.PoolInformation][net_job_poolinfo] property, as shown in the code snippet below.
+All Batch jobs are associated with a specific pool. This association indicates which nodes the job's tasks will execute on. You specify this by using the [PoolInformation][py_poolinfo] property, as shown in the code snippet below.
 
-```
-private static async Task CreateJobAsync(
-    BatchClient batchClient,
-    string jobId,
-    string poolId)
-{
-    Console.WriteLine("Creating job [{0}]...", jobId);
+```python
+def create_job(batch_service_client, job_id, pool_id):
+    """
+    Creates a job with the specified ID, associated with the specified pool.
 
-    CloudJob job = batchClient.JobOperations.CreateJob();
-    job.Id = jobId;
-    job.PoolInformation = new PoolInformation { PoolId = poolId };
+    :param batch_service_client: A Batch service client.
+    :type batch_service_client: `azure.batch.BatchServiceClient`
+    :param str job_id: The ID for the job.
+    :param str pool_id: The ID for the pool.
+    """
+    print('Creating job [{}]...'.format(job_id))
 
-    await job.CommitAsync();
-}
+    job = batch.models.JobAddParameter(
+        job_id,
+        batch.models.PoolInformation(pool_id=pool_id))
+
+    try:
+        batch_service_client.job.add(job)
+    except batchmodels.batch_error.BatchErrorException as err:
+        print_batch_exception(err)
+        raise
 ```
 
 Now that a job has been created, tasks are added to perform the work.
@@ -381,54 +375,63 @@ Now that a job has been created, tasks are added to perform the work.
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
-To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured by using a command-line property and [ResourceFiles][net_task_resourcefiles] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the *DotNetTutorial* sample project, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
+To actually perform work, tasks must be added to a job. Each [CloudTask][py_task] is configured with a command line property and [ResourceFiles][py_resource_file] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the sample, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
 
+```python
+def add_tasks(batch_service_client, job_id, input_files,
+              output_container_name, output_container_sas_token):
+    """
+    Adds a task for each input file in the collection to the specified job.
+
+    :param batch_service_client: A Batch service client.
+    :type batch_service_client: `azure.batch.BatchServiceClient`
+    :param str job_id: The ID of the job to which to add the tasks.
+    :param list input_files: A collection of input files. One task will be
+     created for each input file.
+    :param output_container_name: The ID of an Azure Blob storage container to
+    which the tasks will upload their results.
+    :param output_container_sas_token: A SAS token granting write access to
+    the specified Azure Blob storage container.
+    """
+
+    print('Adding {} tasks to job [{}]...'.format(len(input_files), job_id))
+
+    tasks = list()
+
+    for input_file in input_files:
+
+        command = ['python $AZ_BATCH_NODE_SHARED_DIR/python_tutorial_task.py '
+                   '--filepath {} --numwords {} --storageaccount {} '
+                   '--storagecontainer {} --sastoken "{}"'.format(
+                    input_file.file_path,
+                    '3',
+                    _STORAGE_ACCOUNT_NAME,
+                    output_container_name,
+                    output_container_sas_token)]
+
+        tasks.append(batch.models.TaskAddParameter(
+                'topNtask{}'.format(input_files.index(input_file)),
+                wrap_commands_in_shell('linux', command),
+                resource_files=[input_file]
+                )
+        )
+
+    batch_service_client.task.add_collection(job_id, tasks)
 ```
-private static async Task<List<CloudTask>> AddTasksAsync(
-    BatchClient batchClient,
-    string jobId,
-    List<ResourceFile> inputFiles,
-    string outputContainerSasUrl)
-{
-    Console.WriteLine("Adding {0} tasks to job [{1}]...", inputFiles.Count, jobId);
 
-    // Create a collection to hold the tasks that we'll be adding to the job
-    List<CloudTask> tasks = new List<CloudTask>();
+> [AZURE.IMPORTANT] When they access environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%` or execute an application not found in the node's `PATH`, task command lines must be prefixed with `/bin/bash` (Linux) or `cmd /c` (Windows). This will explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's `PATH` (such as *python* in the above snippet) and no environment variables are used.
 
-    // Create each of the tasks. Because we copied the task application to the
-    // node's shared directory with the pool's StartTask, we can access it via
-    // the shared directory on the node that the task runs on.
-    foreach (ResourceFile inputFile in inputFiles)
-    {
-        string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format(
-            "cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"",
-            inputFile.FilePath,
-            outputContainerSasUrl);
+Within the `foreach` loop in the code snippet above, you can see that the command line for the task is constructed such that five command-line arguments are passed to *python_tutorial_task.py*:
 
-        CloudTask task = new CloudTask(taskId, taskCommandLine);
-        task.ResourceFiles = new List<ResourceFile> { inputFile };
-        tasks.Add(task);
-    }
+1. **filepath**: This is the local path to the file as it exists on the node. When the ResourceFile object in `upload_file_to_container` was created in Step 2 above, the file name was used for this property (as a parameter to the ResourceFile constructor). This indicates that the file can be found in the same directory on the node as *python_tutorial_task.py*.
 
-    // Add the tasks as a collection, as opposed to issuing a separate AddTask call
-    // for each. Bulk task submission helps to ensure efficient underlying API calls
-    // to the Batch service.
-    await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
+2. **numwords**: The top *N* words should be written to the output file. In the sample, this is hard-coded so that the top three words will be written to the output file.
 
-    return tasks;
-}
-```
+3. **storageaccount**: The storage account name containing the container to which the task output should be uploaded.
 
-> [AZURE.IMPORTANT] When they access environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%` or execute an application not found in the node's `PATH`, task command lines must be prefixed with `cmd /c`. This will explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's `PATH` (such as *robocopy.exe* or *powershell.exe*) and no environment variables are used.
+4. **storagecontainer**: The name of the Storage container to which the output files should be uploaded.
 
-Within the `foreach` loop in the code snippet above, you can see that the command line for the task is constructed such that three command-line arguments are passed to *TaskApplication.exe*:
-
-1. The **first argument** is the path of the file to process. This is the local path to the file as it exists on the node. When the ResourceFile object in `UploadFileToContainerAsync` was first created above, the file name was used for this property (as a parameter to the ResourceFile constructor). This indicates that the file can be found in the same directory as *TaskApplication.exe*.
-
-2. The **second argument** specifies that the top *N* words should be written to the output file. In the sample, this is hard-coded so that the top three words will be written to the output file.
-
-3. The **third argument** is the shared access signature (SAS) that provides write access to the **output** container in Azure Storage. *TaskApplication.exe* uses this shared access signature URL when it uploads the output file to Azure Storage. You can find the code for this in the `UploadFileToContainer` method in the TaskApplication project's `Program.cs` file:
+5. **sastoken**: The shared access signature (SAS) that provides write access to the **output** container in Azure Storage. The *python_tutorial_task.py* script uses this shared access signature when it uploads the output file to Azure Storage. You can find the code for this in the `UploadFileToContainer` method in the TaskApplication project's `Program.cs` file:
 
 ```
 // NOTE: From project TaskApplication Program.cs
@@ -727,38 +730,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
-[net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
-[net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
-[net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
-[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
-[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[net_cloudserviceconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudserviceconfiguration.aspx
-[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
-[net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
-[net_joboperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.joboperations
-[net_joboperations_terminatejob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.terminatejobasync.aspx
-[net_jobpreptask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
-[net_jobreltask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobreleasetask.aspx
-[net_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.aspx
-[net_odatadetaillevel]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
-[net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
-[net_pool_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
-[net_pool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
-[net_pooloperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.pooloperations
-[net_resourcefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.aspx
-[net_resourcefile_blobsource]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.blobsource.aspx
-[net_sas_blob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature.aspx
-[net_sas_container]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.getsharedaccesssignature.aspx
-[net_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.aspx
-[net_starttask_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.resourcefiles.aspx
-[net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-[net_task_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.resourcefiles.aspx
-[net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
-[net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
-[net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
-[net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
+
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 
@@ -766,14 +738,32 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
 [py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
+[py_batchserviceclient]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html#azure.batch.BatchServiceClient
+[py_blockblobservice]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.blockblobservice.html#azure.storage.blob.blockblobservice.BlockBlobService
+[py_cloudtask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.CloudTask
 [py_computenodeuser]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ComputeNodeUser
 [py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.models.html#azure.batch.models.ImageReference
+[py_jobpreptask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.JobPreparationTask
+[py_jobreltask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.JobReleaseTask
 [py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
+[py_make_blob_url]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html#azure.storage.blob.baseblobservice.BaseBlobService.make_blob_url
+[py_resource_file]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.ResourceFile
 [py_samples_github]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch/
+[py_starttask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.StartTask
 [pypi_batch]: https://pypi.python.org/pypi/azure-batch
 [pypi_storage]: https://pypi.python.org/pypi/azure-storage
+[py_gen_container_sas]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html#azure.storage.blob.baseblobservice.BaseBlobService.generate_container_shared_access_signature
+[py_gen_blob_sas]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html#azure.storage.blob.baseblobservice.BaseBlobService.generate_blob_shared_access_signature
+[py_pooladdparam]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.PoolAddParameter
+[py_vm_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.VirtualMachineConfiguration
+[py_cs_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.CloudServiceConfiguration
+[py_image_ref]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.ImageReference
+[py_list_skus]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
+[py_starttask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.StartTask
+[py_poolinfo]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.PoolInformation
+[py_task]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.CloudTask
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [storage_explorer]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
