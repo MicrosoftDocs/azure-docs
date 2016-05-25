@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Allow external access to a Windows VM | Microsoft Azure"
+   pageTitle="Allow external access to a VM using the portal | Microsoft Azure"
    description="Learn how to open a port for external access to your Windows VM using the resource manager deployment model"
    services="virtual-machines-windows"
    documentationCenter=""
@@ -17,40 +17,40 @@
    ms.author="iainfou"/>
 
 # Allow external access to your Windows VM using the Azure Portal
-To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. This concept may also be known as creating an endpoint. This article provides quick steps to open the required ports to your VM and allow external access using the Azure Portal. You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
+To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. This concept may also be known as opening a port or creating an endpoint. This article provides quick steps to open access to your VMs using the Azure Portal. You can also [perform these steps using Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
 
 ## Quick Commands
 In the following example you will create a Network Security Group, create a rule to allow HTTP traffic to a webserver, then assign this rule to your VM.
 
 First, create your Network Security Group. Select a resource group in the portal, click 'Add', then search for a select 'Network Security Group':
 
-![Screenshot](./media/virtual-machines-windows-nsg-quickstart-portal/add-nsg.png)
+![Add a Network Security Group](./media/virtual-machines-windows-nsg-quickstart-portal/add-nsg.png)
 
 Enter a name for your Network Security Group and selection a location:
 
-![Screenshot](./media/virtual-machines-windows-nsg-quickstart-portal/create-nsg.png)
+![Create a Network Security Group](./media/virtual-machines-windows-nsg-quickstart-portal/create-nsg.png)
 
 Select your new Network Security Group. You now create an inbound rule:
 
-![Screenshot](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
+![Add an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
 
 Provide a name for your new rule, and note that port 80 is already entered. This is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group:
 
-![Screenshot](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
+![Create an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
 Once created, you will your new rule listed:
 
-![Screenshot](./media/virtual-machines-windows-nsg-quickstart-portal/list-inbound-rules.png)
+![View inbound rules for a Network Security Group](./media/virtual-machines-windows-nsg-quickstart-portal/list-inbound-rules.png)
 
 Your final step is to associate your Network Security Group with a subnet or a specific network interface. Lets associate the Network Security Group with a subnet:
 
-![Screenshot](./media/virtual-machines-windows-nsg-quickstart-portal/associate-subnet.png)
+![Associate a Network Security Group with a subnet](./media/virtual-machines-windows-nsg-quickstart-portal/associate-subnet.png)
 
 Select your virtual network, then select the appropriate subnet:
 
-![Screenshot](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)
+![Associating a Network Security Group with virtual networking](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)
 
-You have now created a Network Security Group, created an inbound rule that allows traffic on port 80, and associated it with a subnet. Any VMs that you connect to that subnet will be reachable on prot 80.
+You have now created a Network Security Group, created an inbound rule that allows traffic on port 80, and associated it with a subnet. Any VMs you connect to that subnet will be reachable on port 80.
 
 
 ## More Information on Network Security Groups

@@ -17,7 +17,7 @@
    ms.author="iainfou"/>
 
 # Allow external access to your VM
-To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create an Access Control List (ACL) rule in a Network Security Group that is associated with your virtual machine. This concept may also be known as creating an endpoint. Without a Network Security Group, a VM potentially has all ports open. To create a Network Security Group and ACL rules you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (azure config mode arm).
+To allow external traffic to reach your virtual machine (VM) when using the Resource Manager model, you create a Network Security Group access control list (ACL) rule that is associated with your virtual machine. This concept may also be known as opening a port or creating an endpoint. To create a Network Security Group and ACL rules you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
 ## Quick Commands
 In the following example you will create a Network Security Group, create a rule to allow HTTP traffic to your webserver, then assign this rule to your VM.
@@ -28,7 +28,7 @@ Create your Network Security Group as follows, entering your own names and locat
 azure network nsg create --resource-group TestRG --name TestNSG --location westus
 ```
 
-Add a rule to allow HTTP traffic to your webserver:
+Add a rule to allow HTTP traffic to your webserver (this can be adjusted for your own scenario, such as SSH access or database connectivity):
 
 ```
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
