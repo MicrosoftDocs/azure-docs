@@ -73,7 +73,7 @@ Currently, two items are assumed to be purchased in the same session if they occ
 FBT builds do not support cold items today, as they by definition expect two items to be actually purchased in the same transaction.   While FBT builds can return sets of items (triplets), they do not support personalized recommendations since they accept a single seed item as the input.
 
 <a name="SelectBuild"></a>
-### How do I select the exact build to use? ###
+## How do I select the exact build to use? ##
 
 The guidance above may be sufficient to allow you to determine whether you should use a Recommendations build or an FBT build… but it is not a definite answer in cases where you could use either of them. Also, even if you know that you want to use an FBT build type, you may still want to decide whether to use Jaccard or Lift as the similarity function.
 
@@ -82,9 +82,9 @@ The best way to select among two different builds is to actually test them in th
 In some cases, you may want to evaluate the model offline before you put it in production. While offline evaluation is not a replacement for online evaluation, it can serve us as a metric.
 
 <a name="OfflineEvaluation"></a>
-#### How offline evaluation works ####
+## Offline evaluation  ##
 
-The goal of offline evaluation is to predict precision (the number of users that will actually purchase one of the recommended items) and the diversity of recommendations (the actual number of items that are recommended).
+The goal of an offline evaluation is to predict precision (the number of users that will actually purchase one of the recommended items) and the diversity of recommendations (the actual number of items that are recommended).
 As part of the precision and diversity metrics evaluation, the system finds a sample of users, and then the transactions for those users are split into two groups: the training dataset and the test dataset.
 
 > Note:
@@ -96,7 +96,7 @@ As part of the precision and diversity metrics evaluation, the system finds a sa
 > we expect a minimum of 1000 usage points in the test dataset.
 
 <a name="Precision"></a>
-#### Precision-at-K ####
+### Precision-at-K ###
 The table below represents the output of the precision-at-k offline evaluation.
 
 | K | 1 | 2 | 3 | 	4 | 	5
@@ -106,46 +106,47 @@ The table below represents the output of the precision-at-k offline evaluation.
 |Users Considered |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
 |Users Not Considered |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
 
-##### K
+#### K
 In the table above, *K* represents the number of recommendations shown to the customer.  So the table reads as follows: “If during the test period, only one recommendations would have been shown to the customers, only 13.75 of the users would have actually purchased that recommendation”. (Assuming the model was trained with purchase data). Another way to says this is that the “precision at 1” is 13.75.
 
 You will notice that as more items are shown to the customer, the likelihood of the customer purchasing a recommended item goes up. For the experiment above, the probability almost doubles to 26.61 percent when 5 items are recommended.
 
-##### Percentage
+#### Percentage
 The percentage of users that interacted with at least one of the K recommendations shown. The percentage is calculated by dividing the number users that interacted with at least one recommendations over the total number of users considered. (See users considered definition).
 
-##### Users in Test
+#### Users in Test
 The total number of users in the test dataset.
 
-##### Users Considered
+#### Users Considered
 A user is only considered if the system recommended at least K items based on the model generated using the training dataset.
 
-##### Users Not Considered
+#### Users Not Considered
 Any users not considered; the users that did not receive at least K recommended items.
 
 <a name="Diversity"></a>
-#### Diversity ####
+### Diversity ###
 Diversity metrics measure the type of items recommended. The table below represents the output of the diversity offline evaluation.
 
-|Percentile-bucket |	0-90|		90-99|		99-100
-|-               --|---|---|---|
-|Percentage	| 34.258 |	55.127| 10.615
+|Percentile-bucket |	0-90|  90-99| 99-100
+|------------------|--------|-------|---------
+|Percentage        | 34.258 | 55.127| 10.615
+
 
 Total items recommended: 100,000
 
 Unique items recommended: 954
 
-##### Percentile Buckets
+#### Percentile Buckets
 Each percentile bucket is represented by a span (min/max values that range between 0 and 100). The items close to 100 are the most popular items, and the items close to 0 are the least popular.  For instance, if the percentage value for the 99-100 percentile bucket is 10.6, it means that 10.6 percent of the recommendations returned only the top 1% most popular items. The percentile bucket min value is inclusive, and the max value is exclusive except for 100.
-##### Unique Items Recommended
+#### Unique Items Recommended
 Number of distinct items that were returned for evaluation.
-##### Total items Recommended
+#### Total items Recommended
 The total number of items recommended. (some may be duplicates)
-##### Unique Seed Items
+#### Unique Seed Items
 Number of distinct items in the train dataset.
 
 <a name="ImplementingEvaluation"></a>
-#### How to get offline evaluations? ####
+### How to get offline evaluations? ###
 The precision and diversity offline metrics may be useful to you in selecting which build to use.  In order to get offline metrics you need to do the following:
 
 At build time, as part of the respective FBT or Recommendation build parameters:
