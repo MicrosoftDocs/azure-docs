@@ -68,7 +68,7 @@ Less frequently, Azure SQL Database may enforce new configuration defaults for a
 
 ## Optimal Query Store Configuration
 
-This section describes optimal configuration defaults which are designed to ensure reliable operation of the Query Store as well as dependent features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/en-us/updates/sqldatabaseadvisorga/). Default configuration is optimized for continuous data collection, i.e. minimal time spent in OFF/READ_ONLY states.
+This section describes optimal configuration defaults which are designed to ensure reliable operation of the Query Store as well as dependent features, such as [SQL Database Advisor and Performance Dashboard](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). Default configuration is optimized for continuous data collection, i.e. minimal time spent in OFF/READ_ONLY states.
 
 | Configuration | Description | Default | Comment |
 | ------------- | ----------- | ------- | ------- |
