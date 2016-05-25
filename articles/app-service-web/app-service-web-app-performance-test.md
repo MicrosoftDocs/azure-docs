@@ -52,29 +52,29 @@ sign in as the account owner.
 
 0.  Go to your web app.
 
-  ![Go to Browse All, Web Apps, your web app](./media/app-service-web-app-performance-test/azure-np-web-apps.png)
+    ![Go to Browse All, Web Apps, your web app](./media/app-service-web-app-performance-test/azure-np-web-apps.png)
 
 0.  Go to **Performance Test**.
 
-  ![Go to Tools, Performance Test](./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png)
+    ![Go to Tools, Performance Test](./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png)
  
 0. Now you'll link a [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) 
 account to keep your performance test history.
 
-  If you have a Team Services account to use, select that account. If you don't, create a new account.
+    If you have a Team Services account to use, select that account. If you don't, create a new account.
 
-  ![Select existing Team Services account, or create a new account](./media/app-service-web-app-performance-test/azure-np-no-vso-account.png)
+    ![Select existing Team Services account, or create a new account](./media/app-service-web-app-performance-test/azure-np-no-vso-account.png)
 
 0.  Create your performance test. Set the details and run the test. 
+
 You can watch the results in real time while the test runs.
 
-  For example, suppose we have an app that gave out coupons at last year's holiday sale. 
-  This event lasted 15 minutes with a peak load of 100 concurrent customers. 
-  We want to double the number of customers this year. We also want to improve 
-  customer satisfaction by reducing the page load time from 5 seconds to 2 seconds. 
-  So, we'll test our updated app's performance with 250 users for 15 minutes.
+For example, suppose we have an app that gave out coupons at last year's holiday sale. 
+This event lasted 15 minutes with a peak load of 100 concurrent customers. 
+We want to double the number of customers this year. We also want to improve customer satisfaction by reducing the page load time from 5 seconds to 2 seconds. 
+So, we'll test our updated app's performance with 250 users for 15 minutes.
 
-  We'll simulate load on our app by generating virtual users (customers) 
+We'll simulate load on our app by generating virtual users (customers) 
   who visit our web site at the same time. This will show us how many 
   requests are failing or responding slowly.
 
@@ -113,32 +113,30 @@ To upload and run a Visual Studio Web Test file:
    In this blade, choose the CONFIGFURE TEST USING option to open the 
    **Configure test using** blade.  
 
- ![Opening the Configure load testing blade](./media/app-service-web-app-performance-test/multiple-01-authoring-blade.png)
+    ![Opening the Configure load testing blade](./media/app-service-web-app-performance-test/multiple-01-authoring-blade.png)
 
 0. Check that the TEST TYPE is set to **Visual Studio Web Test** and select your HTTP Archive file.
-   Use the "folder" icon to open the file selector dialog.
+    Use the "folder" icon to open the file selector dialog.
 
- ![Uploading a multiple URL Visual Studio Web Test file](./media/app-service-web-app-performance-test/multiple-01-authoring-blade2.png)
+    ![Uploading a multiple URL Visual Studio Web Test file](./media/app-service-web-app-performance-test/multiple-01-authoring-blade2.png)
 
-   After the file has been uploaded, you see the list of URLs to be tested in the URL DETAILS section.
+    After the file has been uploaded, you see the list of URLs to be tested in the URL DETAILS section.
  
 0. Specify the user load and test duration, then choose **Run test**.
 
- ![Selecting the user load and duration](./media/app-service-web-app-performance-test/multiple-01-authoring-blade3.png)
+    ![Selecting the user load and duration](./media/app-service-web-app-performance-test/multiple-01-authoring-blade3.png)
 
-   After the test has finished, you see the results in two panes. The left pane
-   shows the performnace information as a series of charts.
+    After the test has finished, you see the results in two panes. The left pane shows the performnace information as a series of charts.
 
- ![The performance results pane](./media/app-service-web-app-performance-test/multiple-01a-results.png)
+    ![The performance results pane](./media/app-service-web-app-performance-test/multiple-01a-results.png)
 
-   The right pane shows a list of failed requests, with the type of error and the number
-   of times it occurred.
+    The right pane shows a list of failed requests, with the type of error and the number of times it occurred.
 
- ![The request failures pane](./media/app-service-web-app-performance-test/multiple-01b-results.png)
+    ![The request failures pane](./media/app-service-web-app-performance-test/multiple-01b-results.png)
 
 0. Rerun the test by choosing the **Rerun** icon at the top of the right pane.
 
- ![Rerunning the test](./media/app-service-web-app-performance-test/multiple-rerun-test.png)
+    ![Rerunning the test](./media/app-service-web-app-performance-test/multiple-rerun-test.png)
 
 ##  Q & A
 
