@@ -184,7 +184,7 @@ environment. Currently you can’t share a gateway between workspaces and
 only one gateway can be installed on a single computer. For more
 considerations when installing the gateway, see [Considerations for
 using Data Management
-Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md/#considerations-for-using-data-management-gateway)
+Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#considerations-for-using-data-management-gateway)
 in the article, [Move data between on-premises sources and cloud with
 Data Management
 Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
