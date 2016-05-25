@@ -43,24 +43,24 @@ Next, you need to create an Azure Function that will act as the trigger and list
 3. Write a simple function to call the Logic App endpoint (from above) with the queue message.  Here's a full example of a function below with a message content-type of `application/json`, but this could be changed as needed.
 
 
-```
-using System;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Text;
-
-private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
-
-public static void Run(string myQueueItem, TraceWriter log)
-{
-    
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-    using (var client = new HttpClient())
-    {
-        var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-    }
-}
-```
+   ```
+   using System;
+   using System.Threading.Tasks;
+   using System.Net.Http;
+   using System.Text;
+   
+   private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
+   
+   public static void Run(string myQueueItem, TraceWriter log)
+   {
+       
+       log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+       using (var client = new HttpClient())
+       {
+           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
+       }
+   }
+   ```
 
 1. Save the function
 
