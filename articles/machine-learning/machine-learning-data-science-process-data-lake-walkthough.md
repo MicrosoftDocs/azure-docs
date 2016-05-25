@@ -51,11 +51,12 @@ Before you begin these topics, you must have the following:
 
 1. An Azure subscription. If you do not already have one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-2. [Recommended] Visual Studio 2013, or 2015. If you do not already have one of these installed, you can download a free Community edition from [here](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Click on the **Download Community 2015** button under the Visual Studio section. 
+2. [Recommended] Visual Studio 2013, or 2015. If you do not already have one of these versions installed, you can download a free Community edition from [here](https://www.visualstudio.com/visual-studio-homepage-vs.aspx). Click on the **Download Community 2015** button under the Visual Studio section. 
 
 >[AZURE.NOTE] Instead of Visual Studio, you can also use the Azure Portal to submit Azure Data Lake queries. We will provide instructions on how to do so both with Visual Studio and on the portal in the section titled **Process data with U-SQL**. 
 
 3. Signup for Azure Data Lake Preview
+
 >[AZURE.NOTE] You need to get approval to use Azure Data Lake Store (ADLS) and Azure Data Lake Analytics (ADLA) as these services are in preview. You will be prompted to sign up when you create your first ADLS or ADLA. To sigh up, click on **Sign up to preview**, read the agreement, and click **OK**. Here, for example, is the ADLS sign up page:
 
  ![2](./media/machine-learning-data-science-process-data-lake-walkthough/ADLA-preview-signup.PNG)
@@ -152,7 +153,7 @@ To execute U-SQL, Open Visual Studio, click **File --> New --> Project**, choose
 
 ### <a name="ingest"></a>Data Ingestion: Read in data from public blob
 
-The location of the data in the Azure blob is referenced as **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Substitute your own container name and storage account name in for following scripts for container_name@blob_storage_account_name in the wasb address. Since the file names are in same format, we can use **trip\_data_{\*\}.csv** to read in all 12 trip files. 
+The location of the data in the Azure blob is referenced as **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Substitute your own container name and storage account name in following scripts for container_name@blob_storage_account_name in the wasb address. Since the file names are in same format, we can use **trip\_data_{\*\}.csv** to read in all 12 trip files. 
 
 	///Read in Trip data
 	@trip0 =
@@ -236,7 +237,7 @@ Find the number of medallions and unique number of medallions:
 	    FROM @trip2
 	    GROUP BY pickup_month;
 	    OUTPUT @ex_1   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_1.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_1.csv"
 	USING Outputters.Csv(); 
 
 Find those medallions that had more than 100 trips:
@@ -250,7 +251,7 @@ Find those medallions that had more than 100 trips:
 	    GROUP BY medallion
 	    HAVING COUNT(medallion) > 100;
 	    OUTPUT @ex_2   
-	TO "wasb://test1@weigstoragefordsvm.blob.core.windows.net/demo_ex_2.csv"
+	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_2.csv"
 	USING Outputters.Csv(); 
 
 Find those invalid records in terms of pickup_longitude:
@@ -718,6 +719,6 @@ The web service dashboard will be displayed shortly:
 
 To recap what we have done in this walkthrough:
 
-- created a data science environment for building end-to-end solutions in Azure Data Lake, 
-- worked with a large public dataset using both U-SQL and Python, taking it through the Data Science Process, from data acquisition to model training, and then to the deployment of the model as a web service.
+- created a data science environment for building scalable end-to-end solutions in Azure Data Lake;
+- taken a large public dataset through the canonical steps of the Data Science Process using U-SQL and Python, from data acquisition through model training, and then to the deployment of the model as a web service.
 
