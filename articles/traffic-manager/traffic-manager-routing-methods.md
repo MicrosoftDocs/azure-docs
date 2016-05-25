@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="05/25/2016"
    ms.author="jtuliani" />
 
 # Traffic Manager traffic-routing methods
@@ -33,7 +33,7 @@ Azure Traffic Manager supports a number of algorithms to determine how end users
 
 There are three traffic routing methods available in Traffic Manager:
 
-- **Priority:** Select ‘Priority’ when you want to use a primary service endpoint for all traffic, but provide backups in case the primary or the backup endpoints are unavailable. For more information, see [Priority traffic-routing method](#wriority-traffic-routing-method).
+- **Priority:** Select ‘Priority’ when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable. For more information, see [Priority traffic-routing method](#wriority-traffic-routing-method).
 
 - **Weighted:** Select ‘Weighted’ when you want to distribute traffic across a set of endpoints, either evenly or according to weights which you define. For more information, see [Weighted traffic-routing method](#weighted-traffic-routing-method).
 
