@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use blob storage from PHP | Microsoft Azure"
+	pageTitle="How to use blob storage (object storage) from PHP | Microsoft Azure"
 	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	documentationCenter="php"
 	services="storage"
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
+
+Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
 
 This guide shows you how to perform common scenarios using the Azure blob service. The samples are written in PHP and use the [Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next steps](#next-steps) section.
 
