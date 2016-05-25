@@ -25,11 +25,42 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 - **Basic (Preview)** provides dedicated computing resources for production workloads at a smaller scale. This tier is currently in Preview and offered at a [50% reduced rate during the Preview period](https://azure.microsoft.com/pricing/details/search/).
 - **Standard** runs on dedicated machines, with more storage and processing capacity at every level, including the minimum configuration. Standard comes in two levels (S1 and S2). 
 
-All tiers can be [provisioned in the portal](search-create-service-portal.md), with the exception of S2, which requires a support ticket. Send e-email to azuresearch_contact@microsoft.com to get started with S2.
+All tiers can be [provisioned in the portal](search-create-service-portal.md), with the exception of S2, which requires a support ticket. Please contact Support or azuresearch_contact@microsoft.com to get started with S2.
 
 ## Tier limits
 
-[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-all.md)]
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-tier.md)]
+
+## Storage limits ##
+
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-storage.md)]
+
+## Data limits ##
+
+Resource|Free|Basic (Preview) |S1|S2
+---|---|---|---|----
+Index: maximum fields per index|1000|100 <sup>1</sup>|1000|1000
+Index: maximum scoring profiles per index|16|16|16|16
+Index: maximum functions per profile|8|8|8|8
+Document size <sup>2</sup> in MB|<16|<16|<16|<16
+Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents
+Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours
+Blob indexer: maximum blob size, MB|16|16|128|256
+Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|4 million|4 million
+
+<sup>1</sup> Basic tier is the only tier with a lower limit of 100 fields per index.
+
+<sup>2</sup> Maximum document size when calling an Index API. Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit depends on how many documents are in the batch. For a batch with a single document, the maximum document size will be to 16 MB of JSON.
+
+To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a a URL reference to the resource.
+
+## Workload limits##
+
+Resource|Free|Basic (Preview) |S1|S2
+---|---|---|---|----
+QPS|N/A|~3 per replica|~15 per replica|~60 per replica
+
+Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
 
 ## API-key limits
 
