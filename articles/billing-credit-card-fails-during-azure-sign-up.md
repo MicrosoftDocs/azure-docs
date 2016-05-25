@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="05/25/2016"
 	ms.author="cjiang"/>
 
 # My credit card doesn’t go through when I try to sign up for Azure
