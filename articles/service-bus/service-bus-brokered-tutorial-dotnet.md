@@ -455,7 +455,7 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, secon
     }
 ```
 
-### End the `Queue()` method and clean up resources
+### End the Queue method and clean up resources
 
 Directly after the previous code, add the following code to clean up the message factory and queue resources:
 
@@ -465,7 +465,7 @@ myQueueClient.Close();
 namespaceClient.DeleteQueue("IssueTrackingQueue");
 ```
 
-### Call the `Queue()` method
+### Call the Queue method
 
 The last step is to add a statement that calls the `Queue()` method from `Main()`. Add the following highlighted line of code at the end of Main():
 	
