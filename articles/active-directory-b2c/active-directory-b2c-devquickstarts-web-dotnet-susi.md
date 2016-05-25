@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory B2C preview | Microsoft Azure"
-	description="How to build a web application that has sign-in, sign-up, and profile management by using Azure Active Directory B2C."
+	description="How to build a web application that has sign-up, sign-in, and password reset using Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="04/07/2016"
 	ms.author="dastrock"/>
 
-# Azure AD B2C preview: Build a .NET web app
+# Azure AD B2C preview: Sign-Up & Sign-In in a ASP.NET Web App
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your web app in a few short steps. This article will discuss how to create a .NET Model-View-Controller (MVC) web app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email, and by using social accounts such as Facebook and Google.
+By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your web app in a few short steps. This article will discuss how to create an ASP.NET web app that includes user sign-up, sign-in, and password reset. The app will include support for sign-up and sign-in by using a user name or email, and by using social accounts such as Facebook and Google.
+
+This tutorial differs from [our other .NET web tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) in that it uses a [sign up or sign in policy](active-directory-b2c-reference-policies.md#create-a-sign-up-or-sign-in-policy) to provide user registration & sign-in using a single button, instead of two (one for sign-up and one for sign-in).  In a nutshell, a sign up or sign in policy allows users to sign-in with an existing account if they have one, or create a new one if it is their first time using the app.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -40,32 +42,26 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 
 ## Create your policies
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
-
->[AZURE.NOTE] Azure AD B2C also supports a combined sign up or sign in policy which is not featured in this tutorial.  The sign up or sign in policy is shown in [this equivalent tutorial](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
-
-When you create the three policies, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains two identity experiences: **sign-up & sign-in**, and **password reset**.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md). When you create the two policies, be sure to:
 
 - Choose **User ID sign-up** or **Email sign-up** in the identity providers blade.
-- Choose the **Display name** and other sign-up attributes in your sign-up policy.
+- Choose the **Display name** and other sign-up attributes in your sign-up & sign-in policy.
 - Choose the **Display name** claim as an application claim in every policy. You can choose other claims as well.
 - Copy the **Name** of each policy after you create it. You'll need those policy names later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-After you create your three policies, you're ready to build your app.  
+After you create your two policies, you're ready to build your app.
 
 ## Download the code and configure authentication
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
-
-The code for this sample [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). To build the sample as you go, you can [download the skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). You can also clone the skeleton:
+The code for this sample [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI). To build the sample as you go, you can [download the skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI/archive/skeleton.zip). You can also clone the skeleton:
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI.git
 ```
 
-The completed sample is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
+The completed sample is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI/archive/complete.zip) or on the `complete` branch of the same repository.
 
 After you download the sample code, open the Visual Studio .sln file to get started.
 
@@ -74,27 +70,26 @@ Your app communicates with Azure AD B2C by sending HTTP authentication requests 
 To begin, add the OWIN middleware NuGet packages to the project by using the Visual Studio Package Manager Console.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
-PM> Install-Package Microsoft.Owin.Security.Cookies
-PM> Install-Package Microsoft.Owin.Host.SystemWeb
+Install-Package Microsoft.Owin.Security.OpenIdConnect
+Install-Package Microsoft.Owin.Security.Cookies
+Install-Package Microsoft.Owin.Host.SystemWeb
+Intsall-Package System.IdentityModel.Tokens.Jwt
 ```
 
-Next, open the `web.config` file in the root of the project and enter your app's configuration values in the `<appSettings>` section.
+Next, open the `web.config` file in the root of the project and enter your app's configuration values in the `<appSettings>` section, replacing the values below with your own.  You may leave the `ida:RedirectUri` and the `ida:AadInstance` values as is, unchanged.
 
 ```
 <configuration>
   <appSettings>
-    <add key="webpages:Version" value="3.0.0.0" />
-    <add key="webpages:Enabled" value="false" />
-    <add key="ClientValidationEnabled" value="true" />
-    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:Tenant" value="[Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com]" />
-    <add key="ida:ClientId" value="[Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609]" />
+
+    ...
+
+    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
+    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
     <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
-    <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
-    <add key="ida:SignInPolicyId" value="[Enter your sign in policy name, e.g. b2c_1_sign_in]" />
-    <add key="ida:UserProfilePolicyId" value="[Enter your edit profile policy name, e.g. b2c_1_profile_edit]" />
+    <add key="ida:SusiPolicyId" value="b2c_1_susi" />
+    <add key="ida:PasswordResetPolicyId" value="b2c_1_reset" />
   </appSettings>
 ...
 ```
@@ -134,9 +129,8 @@ public partial class Startup
     private static string redirectUri = ConfigurationManager.AppSettings["ida:RedirectUri"];
 
     // B2C policy identifiers
-    public static string SignUpPolicyId = ConfigurationManager.AppSettings["ida:SignUpPolicyId"];
-    public static string SignInPolicyId = ConfigurationManager.AppSettings["ida:SignInPolicyId"];
-    public static string ProfilePolicyId = ConfigurationManager.AppSettings["ida:UserProfilePolicyId"];
+    public static string SusiPolicyId = ConfigurationManager.AppSettings["ida:SusiPolicyId"];
+    public static string PasswordResetPolicyId = ConfigurationManager.AppSettings["ida:PasswordResetPolicyId"];
 
     public void ConfigureAuth(IAppBuilder app)
     {
@@ -151,22 +145,21 @@ public partial class Startup
             RedirectUri = redirectUri,
             PostLogoutRedirectUri = redirectUri,
             Notifications = new OpenIdConnectAuthenticationNotifications
-            {
+            { 
                 AuthenticationFailed = AuthenticationFailed,
                 RedirectToIdentityProvider = OnRedirectToIdentityProvider,
+                SecurityTokenValidated = OnSecurityTokenValidated,
             },
             Scope = "openid",
             ResponseType = "id_token",
 
             // The PolicyConfigurationManager takes care of getting the correct Azure AD authentication
-            // endpoints from the OpenID Connect metadata endpoint. It is included in the PolicyAuthHelpers folder.
-            // The first parameter is the metadata URL of your B2C directory.
-            // The second parameter is an array of the policies that your app will use.
+            // endpoints from the OpenID Connect metadata endpoint.  It is included in the PolicyAuthHelpers folder.
             ConfigurationManager = new PolicyConfigurationManager(
                 String.Format(CultureInfo.InvariantCulture, aadInstance, tenant, "/v2.0", OIDCMetadataSuffix),
-                new string[] { SignUpPolicyId, SignInPolicyId, ProfilePolicyId }),
+                new string[] { SusiPolicyId, PasswordResetPolicyId }),
 
-            // This piece is optional. It is used to display the user's name in the navigation bar.
+            // This piece is optional - it is used for displaying the user's name in the navigation bar.
             TokenValidationParameters = new TokenValidationParameters
             {  
                 NameClaimType = "name",
@@ -174,78 +167,60 @@ public partial class Startup
         };
 
         app.UseOpenIdConnectAuthentication(options);
-
+            
     }
+    
+...
 ```
 
 ## Send authentication requests to Azure AD
 Your app is now properly configured to communicate with Azure AD B2C by using the OpenID Connect authentication protocol.  OWIN has taken care of all of the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to initiate each user's flow.
 
-When a user selects **Sign up**, **Sign in**, or **Edit profile** in the web app, the associated action is invoked in `Controllers\AccountController.cs`. In each case, you can use built-in OWIN methods to trigger the right policy:
+When a user selects **Login** or  **Forgot your password?** in the web app, the associated action is invoked in `Controllers\AccountController.cs`. In each case, you can use built-in OWIN methods to trigger the right policy:
 
 ```C#
 // Controllers\AccountController.cs
 
-public void SignIn()
+public void Login()
 {
     if (!Request.IsAuthenticated)
     {
         // To execute a policy, you simply need to trigger an OWIN challenge.
-        // You can indicate which policy to use by adding it to the AuthenticationProperties by using the PolicyKey provided.
+        // You can indicate which policy to use by adding it to the AuthenticationProperties using the PolicyKey provided.
 
         HttpContext.GetOwinContext().Authentication.Challenge(
             new AuthenticationProperties (
-                new Dictionary<string, string>
-                {
-                    {Startup.PolicyKey, Startup.SignInPolicyId}
+                new Dictionary<string, string> 
+                { 
+                    {Startup.PolicyKey, Startup.SusiPolicyId}
                 })
-            {
-                RedirectUri = "/",
+            { 
+                RedirectUri = "/", 
             }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
     }
 }
 
-public void SignUp()
+public void ResetPassword()
 {
-    if (!Request.IsAuthenticated)
-    {
-        HttpContext.GetOwinContext().Authentication.Challenge(
-            new AuthenticationProperties(
-                new Dictionary<string, string>
-                {
-                    {Startup.PolicyKey, Startup.SignUpPolicyId}
-                })
+    HttpContext.GetOwinContext().Authentication.Challenge(
+        new AuthenticationProperties(
+            new Dictionary<string, string>
             {
-                RedirectUri = "/",
-            }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
-    }
-}
-
-
-public void Profile()
-{
-    if (Request.IsAuthenticated)
-    {
-        HttpContext.GetOwinContext().Authentication.Challenge(
-            new AuthenticationProperties(
-                new Dictionary<string, string>
-                {
-                    {Startup.PolicyKey, Startup.ProfilePolicyId}
-                })
-            {
-                RedirectUri = "/",
-            }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
-    }
+                {Startup.PolicyKey, Startup.PasswordResetPolicyId}
+            })
+        {
+            RedirectUri = "/",
+        }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
 }
 ```
 
-You can also use a custom `PolicyAuthorize` tag in your controllers that requires the execution of a certain policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[PolicyAuthorize]` tag to the claims controller. Replace the sample policy with your own sign-in policy.
+You can also use a custom `PolicyAuthorize` tag in your controllers that requires the execution of a certain policy if the user is not signed in. Open `Controllers\HomeController.cs` and add the `[PolicyAuthorize]` tag to the claims controller. Replace the sample policy with your own sign up or sign-in policy.
 
 ```C#
 // Controllers\HomeController.cs
 
-// You can use the PolicyAuthorize decorator to execute a certain policy if the user is not already signed in the app.
-[PolicyAuthorize(Policy = "b2c_1_sign_in")]
+// You can use the PolicyAuthorize decorator to execute a certain policy if the user is not already signed into the app.
+[PolicyAuthorize(Policy = "b2c_1_susi")]
 public ActionResult Claims()
 {
   ...
@@ -256,15 +231,15 @@ You can also use OWIN to sign out the user from the app. In `Controllers\Account
 ```C#
 // Controllers\AccountController.cs
 
-public void SignOut()
+public void Logout()
 {
-    // To sign out the user, you should issue an OpenID Connect sign-out request by using the last policy that the user executed.
+    // To sign out the user, you should issue an OpenIDConnect sign out request using the last policy that the user executed.
     // This is as easy as looking up the current value of the ACR claim, adding it to the AuthenticationProperties, and making an OWIN SignOut call.
 
     HttpContext.GetOwinContext().Authentication.SignOut(
         new AuthenticationProperties(
-            new Dictionary<string, string>
-            {
+            new Dictionary<string, string> 
+            { 
                 {Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
             }), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
 }
@@ -299,7 +274,7 @@ Open the `Controllers\HomeController.cs` file. You can access user claims in you
 ```C#
 // Controllers\HomeController.cs
 
-[PolicyAuthorize(Policy = "b2c_1_sign_in")]
+[PolicyAuthorize(Policy = "b2c_1_susi")]
 public ActionResult Claims()
 {
 	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
@@ -329,10 +304,10 @@ After you add the identity providers to your B2C directory, you need to edit eac
 
 You can experiment with your policies and observe the effect on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and OWIN tie together.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip). You can also clone it from GitHub:
+For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI/archive/complete.zip). You can also clone it from GitHub:
 
 ```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet-SUSI.git
 ```
 
 <!--
