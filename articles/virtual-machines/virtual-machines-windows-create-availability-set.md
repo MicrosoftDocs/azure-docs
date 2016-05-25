@@ -69,6 +69,11 @@ This example creates an availability set in the **RMResGroup** resource group in
 	
 For more information, see [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
 
+## Troubleshooting
+
+- When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.
+
+
 ## Next steps
 
 Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md).
