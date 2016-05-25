@@ -877,6 +877,9 @@ Debugging consists of a few basic techniques:
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
     **Note:** you will see a **container** in your Azure Blob storage named: **adfjobs**. This container is not automatically delete, but you can safely delete it after you are done testing the solution. Similarly, the Data Factory solution creates an Azure Batch **job** named: **adf-\<pool ID/name\>:job-0000000001**. You can delete this job after you done testing the solution if you like.
+7. The custom activity does not use the app.config file from your package, so if your code reads any connection strings from the configuration file, it won't work at runtime. The best practice when using Azure Batch is to hold any secrets in a KeyVault, use a certificate-based service principal to protect the keyvault, and distribute the certificate to Azure Batch pool. The .NET custom activity then can access secrets from the KeyVault at runtime. This is a generic solution and can scale to any type of secret, not just connection string.
+
+	There is an easier workaround (but not a best practice): you can create a new Azure SQL linked service with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
 
 ### Extend the sample
 
