@@ -29,6 +29,7 @@ Also make sure that the payment method is active and your bank is not blocking o
 - The name you enter must exactly match the name printed on the credit/debit card, without any additional symbols/characters.
 - The address you enter must exactly match the address that appears on the credit/debit card statement, including street address, city, state, country, and zip/postal code.
 - The CVV code you enter must exactly match the code that appears on the back or front of the credit/debit card.
+- If your credit card number ever changes, due to being lost, stolen or expired, you will need to add the new credit card to your account. This is because the CVV security code on the card is changed when the credit card number changes. For more information see [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
 
 ## Are you trying to activate an Azure Free Trial?
 The Azure Free Trial offer is limited to one free trial activation per user. If you have already activated a free trial earlier or had an Azure subscription in the past but are trying to activate a free trial now, the system will not allow you to proceed. Instead, use one of the other available Azure plans listed on the [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/) page.
