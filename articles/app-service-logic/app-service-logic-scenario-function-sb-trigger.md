@@ -42,7 +42,6 @@ Next, you need to create an Azure Function that will act as the trigger and list
 2. Configure the connection to the Service Bus Queue (which will use the Service Bus SDK `OnMessageReceive()` listener)
 3. Write a simple function to call the Logic App endpoint (from above) with the queue message.  Here's a full example of a function below with a message content-type of `application/json`, but this could be changed as needed.
 
-
    ```
    using System;
    using System.Threading.Tasks;
@@ -62,7 +61,7 @@ Next, you need to create an Azure Function that will act as the trigger and list
    }
    ```
 
-1. Save the function
+4. Save the function
 
 You can test by adding a queue message via a tool like [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) and see the Logic App fire immediately after the Function receives the message.
 
