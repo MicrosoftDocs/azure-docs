@@ -42,7 +42,7 @@ Resource|Free|Basic (Preview) |S1|S2
 Index: maximum fields per index|1000|100 <sup>1</sup>|1000|1000
 Index: maximum scoring profiles per index|16|16|16|16
 Index: maximum functions per profile|8|8|8|8
-Document size <sup>2</sup> in MB|<16|<16|<16|<16
+Document size per Index API<sup>2</sup> in MB|<16|<16|<16|<16
 Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents
 Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours
 Blob indexer: maximum blob size, MB|16|16|128|256
@@ -74,7 +74,7 @@ At the standard level, you can estimate QPS more closely because you have contro
 - Maximum 32 fields in $orderby clause
 - Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or Collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
 
 ## API Response limits
 
