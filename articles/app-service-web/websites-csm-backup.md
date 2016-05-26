@@ -4,7 +4,7 @@
 	services="app-service"
 	documentationCenter=""
 	authors="NKing92"
-	manager="zhey"
+	manager="wpickett"
     editor="" />
 
 <tags
