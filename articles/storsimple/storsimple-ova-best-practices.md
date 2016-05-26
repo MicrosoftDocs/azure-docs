@@ -67,28 +67,30 @@ Examples
 
 ### Group policy
 
-Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory directory service containers: sites, domains, or organizational units (OUs). If your virtual array is domain-joined, then GPOs can be applied to it. These GPOs GPOs can install applications such as an anti-virus software that can adversely impact the operation of the StorSimple Virtual Array.
+Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory service containers: sites, domains, or organizational units (OUs). 
+
+If your virtual array is domain-joined, then GPOs can be applied to it. These GPOs can install applications such as an anti-virus software that can adversely impact the operation of the StorSimple Virtual Array.
 
 Hence, we recommend that you:
 
 -   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. 
 
--   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
+-   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
 
 ### Networking
 
-The network configuration for your virtual array is done through the local web UI. The [Network Settings](storsimple-ova-deploy3-fs-setup.md) page allows the user to configure the network interface IP address, subnet, and gateway. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
+The network configuration for your virtual array is done through the local web UI. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. The [Network Settings](storsimple-ova-deploy3-fs-setup.md) page allows the user to configure the virtual network interface IP address, subnet, and gateway.  You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
 
 When deploying your virtual array, we recommend that you follow these best practices:
 
 -   Ensure that the network in which the virtual array is deployed has the capacity to dedicate 5 Mbps Internet bandwidth (or more) at all times. 
 
-    -   Internet bandwidth need will vary depending on your workload characteristics and rate of data change.
+    -   Internet bandwidth need will vary depending on your workload characteristics and the rate of data change.
 
-    -   The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours whereas with 20 Mbps bandwidth, you can handle a data change of up to 72 GB (4 times higher) in the same time. 
+    -   The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours whereas with a 20 Mbps bandwidth, you can handle a data change of up to 72 GB (4 times higher) in the same time. 
 
--   Ensure connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices may result in loss of access to data in the cloud and could result in an unsupported configuration.
+-   Ensure connectivity to the Internet is available at all times. Sporadic or unreliable Internet connections to the devices may result in a loss of access to data in the cloud and could result in an unsupported configuration.
 
 -   If you plan to deploy your device as an iSCSI server: 
 	-   We recommend that you disable the **Get IP address automatically** option (DHCP). 
@@ -96,13 +98,13 @@ When deploying your virtual array, we recommend that you follow these best pract
 
 -   If defining multiple network interfaces on your virtual array, note that only the first network interface (by default, this is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those to different subnets.
 
--   If only the cloud bandwidth needs to be controlled, configure throttling on the router or the firewall. We recommend that you do not define throttling in your hypervisor as it will throttle all the protocols including iSCSI and SMB whereas in this instance only the Internet bandwidth needs to be throttled. 
+-   If only the cloud bandwidth needs to be controlled, configure throttling on the router or the firewall. We recommend that you do not define throttling in your hypervisor as it will throttle all the protocols including iSCSI and SMB whereas only the cloud bandwidth needs to be throttled. 
 
 -   Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services** and ensure that the **Time synchronization** is checked.
 
 ### Storage accounts
 
-StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
+StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service, or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
 
 Use the following recommendations for storage accounts associated with your virtual array.
 
@@ -130,7 +132,7 @@ Keep in mind the following best practices when provisioning shares or volumes on
 
 -   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB in size. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
 
--   When creating shares, we recommend that the depth of directory (levels of folders) should not exceed 3. Also the number of files and folders should not exceed 6000. Beyond these numbers, you will see a degradation in the performance. 
+-   When creating shares, we recommend that the depth of the directory (levels of folders) should not exceed 3. Also the number of files and folders should not exceed 6000. Beyond these numbers, you will see a degradation in the performance. 
 
 -   When creating a volume, factor in the expected data consumption as well as future growth. Note that while the volume cannot be expanded later, you can always restore to a larger volume.
 
