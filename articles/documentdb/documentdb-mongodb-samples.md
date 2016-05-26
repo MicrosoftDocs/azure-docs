@@ -41,7 +41,7 @@ The following instructions can be used to connect a Node.js MongoDB application 
 
 		mongoose.connect(database.documentdb.url);
 
-5. `npm install && node server.js`.
+5. From the mean-google-maps directory, run `npm install && node server.js`.
 6. Open http://localhost:3000.
 7. Use the app!
 
