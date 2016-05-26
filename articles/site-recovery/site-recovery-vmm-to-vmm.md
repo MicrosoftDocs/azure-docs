@@ -61,6 +61,18 @@ These are the scenario components:
 
 ![E2E Topology](./media/site-recovery-vmm-to-vmm/architecture.png)
 
+### Data privacy overview
+
+This table summarizes how data is stored in this scenario:
+****
+Action | **Details** | **Collected data** | **Use** | **Required** 
+--- | --- | --- | --- | ---
+**Registration** | You register a VMM server in a Recovery Services vault. If you later want to unregister a server, you can do so by deleting the server information from the Azure portal. | After a VMM server is registered Site Recovery collects, processes, and transfers metadata about the VMM server and the names of the VMM clouds detected by Site Recovery. | The data is used to identify and communicate with the appropriate VMM server and configure settings for appropriate VMM clouds. | This feature is required. If you don't want to send this information to Site Recovery you shouldn't use the Site Recovery service. 
+**Enable replication** | The Azure Site Recovery Provider is installed on the VMM server and is the conduit for communication with the Site Recovery service. The Provider is a dynamic-link library (DLL) hosted in the VMM process. After the Provider is installed, the "Datacenter Recovery" feature gets enabled in the VMM administrator console. New and existing VMs can enable this setting to enable protection for a VM. | With this property set, the Provider sends the name and ID of the VM to Site Recovery.  Replication is enabled by Windows Server 2012 or Windows Server 2012 R2 Hyper-V Replica. The virtual machine data gets replicated from one Hyper-V host to another (typically located in a different “recovery” data center). | Site Recovery uses the metadata to populate the VM information in the Azure portal. | This feature is an essential part of the service and can't be turned off. If you don't want to send this information, don't enable Site Recovery protection for VMs. Note that all data sent by the Provider to Site Recovery is sent over HTTPS.
+**Recovery plan** | Recovery plans help you build an orchestration plan for the recovery data center. You can define the order in which VMs or a group of virtual machines should be started at the recovery site. You can also specify any automated scripts to be run, or any manual action to be taken, at the time of recovery for each VM. Failover  is typically triggered at the recovery plan level for coordinated recovery. | Site Recovery collects, processes, and transmits metadata for the recovery plan, including virtual machine metadata, and metadata of any automation scripts and manual action notes. | The metadata is used to build the recovery plan in the Azure portal. | This feature is an essential part of the service and can't be turned off. If you don't want to send this information to Site Recovery, don't create recovery plans.
+**Network mapping** | Maps network information from the primary data center to the recovery data center. When VMs are recovered on the recovery site, network mapping helps in establishing network connectivity. | Site Recovery collects, processes, and transmits the metadata of the logical networks for each site (primary and datacenter). | The metadata is used to populate network setting so that you can map the network information. | This feature is an essential part of the service and can't be turned off. If you don't want to send this information to Site Recovery, don't use network mapping.
+**Failover (planned/unplanned/test)** | Failover fails over VMs from one VMM-managed data center to another. The failover action is triggered manually in the Azure portal. | The Provider on the VMM server is notified of the failover event by Site Recovery and runs a failover action on the Hyper-V host through VMM interfaces. Actual failover of a VM is from one Hyper-V host to another and handled by Windows Server 2012 or Windows Server 2012 R2 Hyper-V Replica. After failover is complete, the Provider on the VMM server in the recovery data center sends success information to Site Recovery. | Site Recovery uses the information sent to populate the status of the failover action information in the Azure portal. | This feature is an essential part of the service and can't be turned off. If you don't want to send this information to Site Recovery, don't use failover.
+
 
 ## Azure prerequisites
 
@@ -470,67 +482,3 @@ Run this sample script to update DNS, specifying the IP address you retrieved us
 ## Next steps
 
 After your deployment is set up and running, [learn more](site-recovery-failover.md) about different types of failovers.
-
-
-## Privacy information for Site Recovery
-
-This section provides additional privacy information for the Microsoft Azure Site Recovery service (“Service”). To view the privacy statement for Microsoft Azure services, see the
-[Microsoft Azure Privacy Statement](http://go.microsoft.com/fwlink/?LinkId=324899)
-
-**Feature: Registration**
-
-- **What it does**: Registers server with service so that virtual machines can be protected
-- **Information collected**: After registering the Service collects, processes and transmits management certificate information from the VMM server that’s designated to provide disaster recovery using the Service name of the VMM server, and the name of virtual machine clouds on your VMM server.
-- **Use of information**:
-	- Management certificate—This is used to help identify and authenticate the registered VMM server for access to the Service. The Service uses the public key portion of the certificate to secure a token that only the registered VMM server can gain access to. The server needs to use this token to gain access to the Service features.
-	- Name of the VMM server—The VMM server name is required to identify and communicate with the appropriate VMM server on which the clouds are located.
-	- Cloud names from the VMM server—The cloud name is required when using the Service cloud pairing/unpairing feature described below. When you decide to pair your cloud from a primary data center with another cloud in the recovery data center, the names of all the clouds from the recovery data center are presented.
-
-- **Choice**: This information is an essential part of the Service registration process because it helps you and the Service to identify the VMM server for which you want to provide Azure Site Recovery protection, as well as to identify the correct registered VMM server. If you don’t want to send this information to the Service, do not use this Service. If you register your server and then later want to unregister it, you can do so by deleting the VMM server information from the Service portal (which is the Azure portal).
-
-**Feature: Enable Azure Site Recovery protection**
-
-- **What it does**: The Azure Site Recovery Provider installed on the VMM server is the conduit for communicating with the Service. The Provider is a dynamic-link library (DLL) hosted in the VMM process. After the Provider is installed, the “Datacenter Recovery” feature gets enabled in the VMM administrator console. Any new or existing virtual machines in a cloud can enable a property called “Datacenter Recovery” to help protect the virtual machine. Once this property is set, the Provider sends the name and ID of the virtual machine to the Service. The virtual protection is enabled by Windows Server 2012 or Windows Server 2012 R2 Hyper-V replication technology. The virtual machine data gets replicated from one Hyper-V host to another (typically located in a different “recovery” data center).
-
-- **Information collected**: The Service collects, processes, and transmits metadata for the virtual machine, which includes the name, ID, virtual network, and the name of the cloud to
-which it belongs.
-
-- **Use of information**: The Service uses the above information to populate the virtual machine information on your Service portal.
-
-- **Choice**: This is an essential part of the service and can’t be turned off. If you don’t want this information sent to the Service, don’t enable Azure Site Recovery protection for any virtual machines. Note that all data sent by the Provider to the Service is sent over HTTPS.
-
-**Feature: Recovery plan**
-
-- **What it does**: This feature helps you to build an orchestration plan for the “recovery” data center. You can define the order in which the virtual machines or a group of virtual machines should be started at the recovery site. You can also specify any automated scripts to be run, or any manual action to be taken, at the time of recovery for each virtual machine. Failover (covered in the next section) is typically triggered at the Recovery Plan level for coordinated recovery.
-
-- **Information collected**: The Service collects, processes, and transmits metadata for the recovery plan, including virtual machine metadata, and metadata of any automation scripts and manual action notes.
-
-- **Use of information**: The metadata described above is used to build the recovery plan in your Service portal.
-
-- **Choice**: This is an essential part of the service and can’t be turned off. If you don’t want this information sent to the Service, don’t build Recovery Plans in this Service.
-
-**Feature: Network mapping**
-
-- **What it does**: This feature allows you to map network information from the primary data center to the recovery data center. When the virtual machines are recovered on the recovery site, this mapping helps in establishing network connectivity for them.
-
-- **Information collected**: As part of the network mapping feature, the Service collects, processes, and transmits the metadata of the logical networks for each site (primary and datacenter).
-
-- **Use of information**:The Service uses the metadata to populate your Service portal where you can map the network information.
-
-- **Choice**: This is an essential part of the Service and can’t be turned off. If you don’t want this information sent to the Service, don’t use the network mapping feature.
-
-**Feature: Failover - planned, unplanned, test**
-
-- **What it does**: This feature helps failover of a virtual machine from one VMM managed data center to another VMM managed data center. The failover action is triggered by the user on their Service portal. Possible reasons for a failover include an unplalled event (for example in the case of a natural disaster0; a planned event (for example datacenter load balancing); a test failover (for example a recovery plan rehearsal).
-
-The Provider on the VMM server gets notified of the event from the Service, and executes a failover action on the Hyper-V host through VMM interfaces. Actual failover of the virtual machine from one Hyper-V host to another (typically running in a different “recovery” data center) is handled by the Windows Server 2012 or Windows Server 2012 R2 Hyper-V replication technology. After the failover is complete, the Provider installed on the VMM server of the “recovery” data center sends the success information to the Service.
-
-- **Information collected**: The Service uses the above information to populate the status of the failover action information on your Service portal.
-
-- **Use of information**: The Service uses the above information as follows:
-
-	- Management certificate—This is used to help identify and authenticate the registered VMM server for access to the Service. The Service uses the public key portion of the certificate to secure a token that only the registered VMM server can gain access to. The server needs to use this token to gain access to the Service features.
-	- Name of the VMM server—The VMM server name is required to identify and communicate with the appropriate VMM server on which the clouds are located.
-	- Cloud names from the VMM server—The cloud name is required when using the Service cloud pairing/unpairing feature described below. When you decide to pair your cloud from a primary data center with another cloud in the recovery data center, the names of all the clouds from the recovery data center are presented.
-
-- **Choice**: This is an essential part of the service and can’t be turned off. If you don’t want this information sent to the Service, don’t use this Service.
