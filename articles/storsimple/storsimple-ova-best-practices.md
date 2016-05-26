@@ -47,10 +47,10 @@ Implement the following best practices when provisioning the virtual array:
 
 When sizing a tiered share or a volume, take into account the following factors:
 
-- local reservation for volumes or shares. Approximately 10% space is reserved on the local tier for each provisioned tiered volume/share.
-- snapshot overhead. Roughly 25% space on the local tier is reserved for snapshots.
-- need for restores. Sizing should account for space needed for restore if doing restore as a new operation.
-- some buffer should be allocated for any unexpected growth
+- Local reservation for volumes or shares. Approximately 10% space is reserved on the local tier for each provisioned tiered volume/share.
+- Snapshot overhead. Roughly 25% space on the local tier is reserved for snapshots.
+- Need for restores. Sizing should account for space needed for restore if doing restore as a new operation.
+- Some buffer should be allocated for any unexpected growth
 
 For example, if you wanted to provision a 5 TB tiered volume, the breakdown will be:
 
