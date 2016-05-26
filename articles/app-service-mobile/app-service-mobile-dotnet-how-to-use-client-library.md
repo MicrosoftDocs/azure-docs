@@ -503,19 +503,18 @@ Note that this a typed method call, which requires that the **MarkAllResult** re
 Mobile Apps supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the tutorial
 [Add authentication to your app].
 
-Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server managed_ and a _client managed_ flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
 In either case, you must register your app with your identity provider.  Your identity provider will provide a client ID and a client secret.  You must then configure Azure App Service Authentication / Authorization with the client ID and client secret provided by your identity provider.  For more information, follow the detailed instructions in the tutorial [Add authentication to your app]. 
 
 The following topics are covered in this section:
 
-+ [Server flow](#serverflow)
-+ [Client flow](#client-flow)
++ [Server managed authentication](#serverflow)
++ [Client managed authentication](#client-flow)
 + [Caching the authentication token](#caching)
 
-###<a name="serverflow"></a>Server flow
-Once you have registered your identity provider, call the MobileServiceClient.[LoginAsync method] with the [MobileServiceAuthenticationProvider] value
-of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
+###<a name="serverflow"></a>Server managed authentication
+Once you have registered your identity provider, call the [LoginAsync] method on the [MobileServiceClient] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -544,13 +543,13 @@ of your provider. For example, the following code initiates a server flow sign-i
 If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.
 
 In a server flow, Azure App Service manages the OAuth 2.0 authentication flow by displaying the sign-in page of the selected provider and generating an App Service
-authentication token after successful sign-on with the identity provider. The [LoginAsync method] returns a [MobileServiceUser], which provides both the [UserId]
+authentication token after successful sign-on with the identity provider. The [LoginAsync] method returns a [MobileServiceUser], which provides both the [UserId]
 of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more
 information, see [Caching the authentication token](#caching).
 
-###<a name="client-flow"></a>Client flow
+###<a name="client-flow"></a>Client managed authentication
 
-Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. 
+Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. This may be preferred to using a server flow as it provides a more native UX feel and allows for additional customization.
 
 Examples are provided for the following client-flow authentication patterns:
 
@@ -560,11 +559,11 @@ Examples are provided for the following client-flow authentication patterns:
 
 #### <a name="adal"></a>Authenticate users with the Active Directory Authentication Library
 
-You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use the Active Directory Authentication Library (ADAL) to initiate user authentication from the client using Azure Active Directory authentication. 
 
-1. Configure your mobile app backend for AAD sign-in by followin the [How to configure App Service for Active Directory login] tutorial. Make sure to complete the optional step of registering a native client application.
+1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login] tutorial. Make sure to complete the optional step of registering a native client application.
 
-2. In Visual Studio or Xamarin Studio, open your project and add a reference to the `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet package. When searching, include prerelease versions.
+2. In Visual Studio or Xamarin Studio, open your project and add a reference to the `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
 
 3. Add the below code to your application, according to the platform you are using. In each, make the following replacements:
 
@@ -597,10 +596,12 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 	            try
 	            {
 	                AuthenticationContext ac = new AuthenticationContext(authority);
-	                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+	                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+						new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
 	                JObject payload = new JObject();
 	                payload["access_token"] = ar.AccessToken;
-	                user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	                user = await App.MobileService.LoginAsync(
+						MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
 	                message = string.Format("You are now logged in - {0}", user.UserId);
 	            }
 	            catch (InvalidOperationException)
@@ -625,10 +626,12 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 	        try
 	        {
 	            AuthenticationContext ac = new AuthenticationContext(authority);
-	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+					new Uri(redirectUri), new PlatformParameters(view));
 	            JObject payload = new JObject();
 	            payload["access_token"] = ar.AccessToken;
-	            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	            user = await client.LoginAsync(
+					MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
 	        }
 	        catch (Exception ex)
 	        {
@@ -648,10 +651,12 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 	        try
 	        {
 	            AuthenticationContext ac = new AuthenticationContext(authority);
-	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, 
+					new Uri(redirectUri), new PlatformParameters(this));
 	            JObject payload = new JObject();
 	            payload["access_token"] = ar.AccessToken;
-	            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	            user = await client.LoginAsync(
+					MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
 	        }
 	        catch (Exception ex)
 	        {
@@ -669,7 +674,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 ####<a name="client-facebook"></a>Single sign-in using a token from Facebook or Google
 
-In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.
+You can use the client flow as shown in this snippet for Facebook or Google.
 
 	var token = new JObject();
 	// Replace access_token_value with actual value of your access token obtained
@@ -702,10 +707,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 ####<a name="client-livesdk"></a>Single sign-in using Microsoft Account with the Live SDK
 
-To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with
-your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login] to create a Microsoft account registration and
-connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the
-Windows Store version first.
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login] to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
 The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
@@ -758,7 +760,6 @@ The following code authenticates using Live SDK and uses the returned token to s
 
 Refer to the documentation for more information about the [Windows Live SDK].
 
-
 ###<a name="caching"></a>Caching the authentication token
 In some cases, the call to the login method can be avoided after the first successful authentication. Windows Store and UWP apps can use [PasswordVault] to cache the current authentication token after a successful sign-in, as follows:
 
@@ -799,7 +800,6 @@ When you use client-managed authentication, you can also cache the access token 
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 Xamarin	apps use the [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) APIs to securely store credentials in an **Account** object. 
-
 
 ##<a name="pushnotifications">Push Notifications
 
