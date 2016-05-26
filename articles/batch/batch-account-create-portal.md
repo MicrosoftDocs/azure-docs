@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/24/2016"
+	ms.date="05/26/2016"
 	ms.author="marsma"/>
 
 # Create and manage an Azure Batch account in the Azure portal
@@ -42,15 +42,15 @@ The [Azure portal][azure_portal] provides you with the tools you need to create 
 
     ![Create a Batch account][account_portal]
 
-	a. **Account Name** -- Specify a unique name for your Batch account. This name must be unique within the Azure region the account is created (see *Location* below). It may contain only lowercase characters, numbers, and must be 3-24 characters in length.
+	a. **Account Name** -- A unique name for your Batch account. This name must be unique within the Azure region the account is created (see *Location* below). It may contain only lowercase characters, numbers, and must be 3-24 characters in length.
 
-	b. **Subscription** -- Select a subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
+	b. **Subscription** -- A subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
 
-	c. **Resource group** -- Select a resource group for your new Batch account, or create a new one if there are no resource groups in your subscription.
+	c. **Resource group** -- A resource group for your new Batch account, or optionally create a new one.
 
-	d. **Location** -- Select an Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group will be displayed as options.
+	d. **Location** -- An Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group will be displayed as options.
 
-    e. **Storage Account** (optional) -- You can associate (link) a **General purpose** storage account to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch will use the linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
+    e. **Storage Account** (optional) -- A **General purpose** storage account you associate (link) to your new Batch account. The [application packages](batch-application-packages.md) feature of Batch will use the linked storage account for the storage and retrieval of application packages. See [Application deployment with Azure Batch application packages](batch-application-packages.md) for more information on this feature.
 
      > [AZURE.TIP] Regenerating keys in a linked Storage account requires special considerations. See [Considerations for Batch accounts](#considerations-for-batch-accounts) below for more details.
 
@@ -64,15 +64,15 @@ The Batch account blade displays several properties for the account, as well as 
 
 * **Batch account URL** -- This URL provides access to your Batch account when using APIs such as the [Batch REST][api_rest] API or [Batch .NET][api_net] client library, and adheres to the following format:
 
-  `https://<account_name>.<region>.batch.azure.com`
+    `https://<account_name>.<region>.batch.azure.com`
 
 * **Access keys** -- To view and manage your Batch account's access keys, click the key icon to open the **Manage keys** blade, or click **All settings** > **Keys**. An access key is required when communicating with the Batch service APIs, such as with [Batch REST][api_rest] or the [Batch .NET][api_net] client library.
 
- ![Batch account keys][account_keys]
+    ![Batch account keys][account_keys]
 
 * **All settings** -- To manage all settings for the Batch account or to view its properties, click **All settings** to open the **Settings** blade. This blade provides access to all settings and properties for the account, including viewing the account quotas, selecting an Azure Storage account to link to the Batch account, and managing users.
 
- ![Batch account settings and properties blades][5]
+    ![Batch account settings and properties blades][5]
 
 ## Considerations for Batch accounts
 
