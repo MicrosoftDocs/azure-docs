@@ -503,49 +503,17 @@ Note that this a typed method call, which requires that the **MarkAllResult** re
 Mobile Apps supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the tutorial
 [Add authentication to your app].
 
-Two authentication flows are supported: a _server managed_ and a _client managed_ flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: _client managed_ and _server managed_  flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
-In either case, you must register your app with your identity provider.  Your identity provider will provide a client ID and a client secret.  You must then configure Azure App Service Authentication / Authorization with the client ID and client secret provided by your identity provider.  For more information, follow the detailed instructions in the tutorial [Add authentication to your app]. 
+>[AZURE.NOTE] We recommend using a client-managed flow in your production apps.
+
+To set-up authentication, you must register your app with one or more identity providers.  The identity provider generates a client ID and a client secret for your app, which are then set in your backend to enable Azure App Service authentication/authorization using that identity provider.  For more information, follow the detailed instructions in the tutorial [Add authentication to your app]. 
 
 The following topics are covered in this section:
 
-+ [Server-managed authentication](#serverflow)
 + [Client-managed authentication](#client-flow)
++ [Server-managed authentication](#serverflow)
 + [Caching the authentication token](#caching)
-
-###<a name="serverflow"></a>Server-managed authentication
-Once you have registered your identity provider, call the [LoginAsync] method on the [MobileServiceClient] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
-
-	private MobileServiceUser user;
-	private async System.Threading.Tasks.Task Authenticate()
-	{
-		while (user == null)
-		{
-			string message;
-			try
-			{
-				user = await client
-					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-				message =
-					string.Format("You are now logged in - {0}", user.UserId);
-			}
-			catch (InvalidOperationException)
-			{
-				message = "You must log in. Login Required";
-			}
-
-			var dialog = new MessageDialog(message);
-			dialog.Commands.Add(new UICommand("OK"));
-			await dialog.ShowAsync();
-		}
-	}
-
-If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.
-
-In a server flow, Azure App Service manages the OAuth 2.0 authentication flow by displaying the sign-in page of the selected provider and generating an App Service
-authentication token after successful sign-on with the identity provider. The [LoginAsync] method returns a [MobileServiceUser], which provides both the [UserId]
-of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more
-information, see [Caching the authentication token](#caching).
 
 ###<a name="client-flow"></a>Client-managed authentication
 
@@ -760,8 +728,42 @@ The following code authenticates using Live SDK and uses the returned token to s
 
 Refer to the documentation for more information about the [Windows Live SDK].
 
+###<a name="serverflow"></a>Server-managed authentication
+Once you have registered your identity provider, call the [LoginAsync] method on the [MobileServiceClient] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
+
+	private MobileServiceUser user;
+	private async System.Threading.Tasks.Task Authenticate()
+	{
+		while (user == null)
+		{
+			string message;
+			try
+			{
+				user = await client
+					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+				message =
+					string.Format("You are now logged in - {0}", user.UserId);
+			}
+			catch (InvalidOperationException)
+			{
+				message = "You must log in. Login Required";
+			}
+
+			var dialog = new MessageDialog(message);
+			dialog.Commands.Add(new UICommand("OK"));
+			await dialog.ShowAsync();
+		}
+	}
+
+If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.
+
+In a server flow, Azure App Service manages the OAuth 2.0 authentication flow by displaying the sign-in page of the selected provider and generating an App Service authentication token after successful sign-on with the identity provider. The [LoginAsync] method returns a [MobileServiceUser], which provides both the [UserId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more information, see [Caching the authentication token](#caching).
+
 ###<a name="caching"></a>Caching the authentication token
-In some cases, the call to the login method can be avoided after the first successful authentication. Windows Store and UWP apps can use [PasswordVault] to cache the current authentication token after a successful sign-in, as follows:
+
+In some cases, the call to the login method can be avoided after the first successful authentication by storing the authentication token and even the access token from the provider, when using client flow. 
+
+Windows Store and UWP apps can use [PasswordVault] to cache the current authentication token after a successful sign-in, as follows:
 
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);		
 
@@ -790,6 +792,8 @@ When you sign-out a user, you must also remove the stored credential, as follows
 	client.Logout();
 	vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 
+Xamarin	apps use the [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) APIs to securely store credentials in an **Account** object. For an example of using these APIs, see the [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs) code file in the [ContosoMoments photo sharing sample](https://github.com/azure-appservice-samples/ContosoMoments/tree/dev).
+
 When you use client-managed authentication, you can also cache the access token obtained from your provider such as Facebook or Twitter. This token can be supplied to request a new authentication token from the backend, as follows:
 
 	var token = new JObject();
@@ -799,7 +803,6 @@ When you use client-managed authentication, you can also cache the access token 
 	// Authenticate using the access token.
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
-Xamarin	apps use the [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) APIs to securely store credentials in an **Account** object. For an example of using these APIs, see the [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs) code file in the [ContosoMoments photo sharing sample](https://github.com/azure-appservice-samples/ContosoMoments/tree/dev).
 
 ##<a name="pushnotifications">Push Notifications
 
