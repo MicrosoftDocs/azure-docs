@@ -22,9 +22,9 @@
 
 ## Introduction
 
-An advantage of Azure Functions is that your running code consumes resources only when your code needs resources. This means that you don’t pay for idle VMs or have to reserve capacity for when you might need it. Instead, the platform allocates computing power when your code is running, scales up as necessary to handle load, and then scales down when code is not running.
+An advantage of Azure Functions is that compute resources are only consumed when needed. This means that you don’t pay for idle VMs or have to reserve capacity for when you might need it. Instead, the platform allocates compute power when your code is running, scales up as necessary to handle load, and then scales down when code is not running.
 
-The mechanism for this new capability is the Dynamic Service plan. This new service plan provides a dynamic container for your code that scales up on demand. You are charged only for the amount of memory that your code uses and the time that it takes to execute as measured in gigabytes per second.  
+The mechanism for this new capability is the Dynamic Service plan.  
 
 This article provides an overview of how the Dynamic Service plan works and how the platform scales on demand to run your code.
 
