@@ -43,7 +43,7 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 
 >[AZURE.IMPORTANT] The first 4 addresses in a subnet are reserved and can't be used. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Once the cache is created, you can view the configuration for the VNET by clicking **Virtual Network** from the **Settings** blade.
+After the cache is created, you can view the configuration for the VNET by clicking **Virtual Network** from the **Settings** blade.
 
 ![Virtual network][redis-cache-vnet-info]
 
