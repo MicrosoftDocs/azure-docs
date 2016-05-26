@@ -164,7 +164,7 @@ See also [About virtual machine extensions and features (Windows)](./virtual-mac
 
 
 ### <a name="vnet"></a>virtual network  
-A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](./vpn-gateway-about-vpngateways.md) and to your on-premises network using [multiple options](./vpn-gateway-cross-premises-options.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  
+A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](./vpn-gateway/vpn-gateway-about-vpngateways.md) and to your on-premises network using [multiple options](./vpn-gateway/vpn-gateway-cross-premises-options.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  
 See also [Virtual Network Overview](./virtual-network/virtual-networks-overview.md)  
 
 ###**See also**  
