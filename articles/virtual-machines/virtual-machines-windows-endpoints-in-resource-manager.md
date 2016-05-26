@@ -17,7 +17,7 @@
    ms.author="iainfou"/>
 
 # Classic Endpoints in Resource Manager
-[AZURE.INCLUDE [virtual-machines-common-classic-endpoints-in-resource-manager](../../includes/virtual-machines-common-classic-endpoints-in-resource-manager.md)]
+[AZURE.INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## Next steps
 - [Quick-start - Create a Network Security Group and ACL rules using the Azure Portal](../virtual-machines-windows-nsg-quickstart-portal.md)  
