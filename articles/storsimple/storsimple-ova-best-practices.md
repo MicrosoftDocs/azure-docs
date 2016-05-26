@@ -58,7 +58,7 @@ For example, if you wanted to provision a 5 TB tiered volume, the breakdown will
 - Space needed for restore: 564 GB
 - Snapshot overhead: 25%
  
-Taking these things into account, for the 5 TB tiered share, you can provision a 1.5 to 2 TB local disk.  Thin provisioned should give you a better usage as the restore as new space is required only if you want to restore older than 5 days data.
+Accounting for the above factors, for the 5 TB tiered share, you can provision a 1.5 to 2 TB local disk.  Thin provisioned should give you a better usage as the restore as new space is required only if you want to restore older than 5 days data.
 
 
 Total usable disk size = Total provisioned volume size + (Max (Provisioned volume size) for all the existing volumes) + some buffer
@@ -252,7 +252,7 @@ Keep the following best practices in mind when deactivating your virtual array:
 
 -   Take a cloud snapshot of all the data prior to deactivating a virtual device. When you deactivate a virtual array, all the local device data will be lost. Taking a cloud snapshot will allow you to recover data at a later stage.
 
--   Before you deactivate a StorSimple virtual array, make sure to stop or delete clients and hosts that depend on that device.
+-   Before you deactivate a StorSimple Virtual Array, make sure to stop or delete clients and hosts that depend on that device.
 
 -   Delete a deactivated device if you are no longer using it else it will accrue charges.
 
