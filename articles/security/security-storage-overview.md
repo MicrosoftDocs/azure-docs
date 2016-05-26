@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/24/2016"
    ms.author="terrylan"/>
 
 # Azure Storage Security Overview
@@ -28,7 +28,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 This article will provide an overview of each of these core security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can learn more.  
 
-For a more detailed look at security in Azure Storage see the [Azure Storage security guide](https://azure.microsoft.com/documentation/articles../storage/storage-security-guide.md).
+For a more detailed look at security in Azure Storage see the [Azure Storage security guide](../storage/storage-security-guide.md).
 
 Here are the core features to be covered in this article:
 

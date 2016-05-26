@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/25/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -434,13 +434,11 @@ This section provides examples on the different ways you can apply script action
 
 1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
 
-2. From the HDInsight cluster blade, select __Settings__.
+2. From the HDInsight cluster blade, select the __Script Actions__ tile.
 
-    ![Settings icon](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. From the Settings blade, select __Script Actions__.
-
-    ![Script Actions link](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] You can also select __All settings__ and then select __Script Actions__ from the Settings blade.
 
 4. From the top of the Script Actions blade, select __Submit new__.
 
