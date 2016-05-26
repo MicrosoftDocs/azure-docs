@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Create a DocumentDB for MongoDB account | Microsoft Azure" 
 	description="Learn how to create a DocumentDB with protocol support for MongoDB account, now available for preview." 
-	keywords="mongodb protocol, mongodb, mongo database"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -27,24 +26,24 @@ To create a DocumentDB with protocol support for MongoDB account, you must:
 
 To create a DocumentDB with protocol support for MongoDB account, perform the following steps.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
-2. Click **NEW**, click **Data + Storage**, click **See all**, click **More**, and then click **DocumentDB - Protocol Support for MongoDB**.
-
-	![Screen shot of the Marketplace and Data + Storage blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo database](./media/documentdb-create-mongodb-account/marketplacegallery1.png)
-
-3. Alternatively, search the **Data + Storage** category for "DocumentDB protocol".
+1. In a new window, sign in to the [Azure Portal](https://portal.azure.com).
+2. Click **NEW**, click **Data + Storage**, click **See all**, and then search the **Data + Storage** category for "DocumentDB protocol". Click **DocumentDB - Protocol Support for MongoDB**.
 
 	![Screen shot of the Marketplace and Data + Storage search blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo database](./media/documentdb-create-mongodb-account/marketplacegallery2.png)
 
-4. Click **Create** to launch the preview signup process.
+3. Alternatively, in the **Data + Storage** category, under **Storage**, click **More**, and then click **Load more** one or more times to display **DocumentDB - Protocol Support for MongoDB**. Click **DocumentDB - Protocol Support for MongoDB**.
+
+	![Screen shot of the Marketplace and Data + Storage blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo database](./media/documentdb-create-mongodb-account/marketplacegallery1.png)
+
+4. In the **DocumentDB - Protocol Support for MongoDB (preview)** blade, click **Create** to launch the preview signup process.
 
 	![The DocumentDB - Protocol Support for MongoDB blade in the Azure portal](./media/documentdb-create-mongodb-account/marketplacegallery3.png)
 
-5. In the **New DocumentDB Account** blade, click **Sign up to preview**. Read the information and then click **OK**.
+5. In the **DocumentDB account** blade, click **Sign up to preview**. Read the information and then click **OK**.
 
 	![The Sign up to preview today blade for DocumentDB - Protocol Support for MongoDB in the Azure portal](./media/documentdb-create-mongodb-account/registerforpreview.png)
 
-6.  After accepting the preview terms, you will be returned to the create blade.  In the **New DocumentDB account** blade, specify the desired configuration for the account.
+6.  After accepting the preview terms, you will be returned to the create blade.  In the **DocumentDB account** blade, specify the desired configuration for the account.
 
 	![Screen shot of the New DocumentDB with protocol support for MongoDB blade](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.png)
 
