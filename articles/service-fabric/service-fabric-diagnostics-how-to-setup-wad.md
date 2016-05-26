@@ -56,7 +56,14 @@ The Support Logs are **required** by the Azure support team to revolve any suppo
 5. Select Export Template to display the Template panel
 6. Select Save to file to export a .zip file containing the template, parameter and PowerShell files.
 
-After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run.
+After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run. 
+To use the downloaded template to update a configuration
+
+1. Extract the contents to a folder on your local computer
+2. Modify the content to reflect the new configuration
+3. Start PowerShell and change to the folder where you extracted the content
+4. Run **deploy.ps1** and fill in the subscriptionId, resource group name (use the same name to update the configuration) and a unique deployment name
+
 
 ### Deploy the diagnostics extension as part of cluster creation by using Azure Resource Manager
 To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before creating the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). To see the Diagnostics setting in the Resource Manager template, open the **azuredeploy.json** file and search for **IaaSDiagnostics**. To create a cluster with this template, just press the **Deploy to Azure** button available at the link above.
@@ -183,7 +190,7 @@ Check out the diagnostic events emitted for [Reliable Actors](service-fabric-rel
 
 
 ## Related articles
-* [Learn how to collect performance counters or logs using diagnostic extensions](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template/#diagnostics-configuration-variables.md)
+* [Learn how to collect performance counters or logs using diagnostic extensions](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
 
 
