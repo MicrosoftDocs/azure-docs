@@ -47,7 +47,7 @@ The following instructions can be used to connect a Node.js MongoDB application 
 
 ## Get started with a sample ASP.NET MVC task list application
 
-You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm/) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to a DocumentDB account with protocol support for MongoDB.  
+You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to a DocumentDB account with protocol support for MongoDB.  
 
 1. Follow the tutorial, with one modification.  Replace the Dal.cs code with this:
 	
