@@ -20,7 +20,7 @@
 # DocumentDB protocol support for MongoDB
 
 ## What is Azure DocumentDB?
-Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, automatic scaling, and ease of development. Its flexible data model, consistent low latencies, and rich query capabilities make it a great fit for web, mobile, gaming, IoT, and many other applications that need seamless scale. Read more about DocumentDB [here](documentdb-introduction.md).
+Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, automatic scaling, and ease of development. Its flexible data model, consistent low latencies, and rich query capabilities make it a great fit for web, mobile, gaming, IoT, and many other applications that need seamless scale. Read more in the [DocumentDB introduction](documentdb-introduction.md).
 
 ## What is DocumentDB protocol support for MongoDB?
 DocumentDB databases can now be used as the data store for apps written for MongoDB. Using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB, applications can easily and transparently communicate with DocumentDB, in many cases by simply changing a connection string.  Using this preview functionality, customers can easily build and run applications in the Azure cloud - leveraging DocumentDB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
