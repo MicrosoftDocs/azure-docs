@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connect to a DocumentDB with protocol support for MongoDB account | Microsoft Azure" 
-	description="Learn how to connect to a DocumentDB with protocol support for MongoDB account, now available for preview. Connect by using your MongoDB connection string." 
+	pageTitle="Connect to a DocumentDB account with protocol support for MongoDB | Microsoft Azure" 
+	description="Learn how to connect to a DocumentDB account with protocol support for MongoDB, now available for preview. Connect by using your MongoDB connection string." 
 	keywords="mongodb connection string"
 	services="documentdb" 
 	authors="stephbaron" 
@@ -17,14 +17,14 @@
 	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
-# How to connect to a DocumentDB with protocol support for MongoDB account
+# How to connect to a DocumentDB account with protocol support for MongoDB
 
-Learn how to connect to a DocumentDB with protocol support for MongoDB account using the standard MongoDB connection string URI format.  
+Learn how to connect to a DocumentDB account with protocol support for MongoDB using the standard MongoDB connection string URI format.  
 
 ## Get the account's connection string information
 
 1. In a new window, sign in to the [Azure Portal](https://portal.azure.com).
-2. In the **All Settings** blade, click **Connection String**. To navigate to the **All Settings**, on the Jumpbar click **Browse**, click **DocumentDB** accounts, and then select the DocumentDB with protocol support for MongoDB account.
+2. In the **All Settings** blade, click **Connection String**. To navigate to the **All Settings**, on the Jumpbar click **Browse**, click **DocumentDB** accounts, and then select the DocumentDB account with protocol support for MongoDB.
 
 	![Screen shot of the All Settings blade](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
 
@@ -79,7 +79,7 @@ As already mentioned, all DocumentDB accounts require both authentication and se
 ## Next steps
 
 
-- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB with protocol support for MongoDB account.
+- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
 - Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
 
  

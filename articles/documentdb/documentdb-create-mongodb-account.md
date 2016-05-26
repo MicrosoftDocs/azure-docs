@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create a DocumentDB for MongoDB account | Microsoft Azure" 
-	description="Learn how to create a DocumentDB with protocol support for MongoDB account, now available for preview." 
+	pageTitle="Create a DocumentDB account with protocol support for MongoDB | Microsoft Azure" 
+	description="Learn how to create a DocumentDB account with protocol support for MongoDB, now available for preview." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -16,15 +16,15 @@
 	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
-# How to create a DocumentDB with protocol support for MongoDB account using the Azure portal
+# How to create a DocumentDB account with protocol support for MongoDB using the Azure portal
 
-To create a DocumentDB with protocol support for MongoDB account, you must:
+To create a DocumentDB account with protocol support for MongoDB, you must:
 
 - Have an Azure account. You can get a [free Azure account](https://azure.microsoft.com/free/) if you don't have one already.
 
 ## Create the account  
 
-To create a DocumentDB with protocol support for MongoDB account, perform the following steps.
+To create a DocumentDB account with protocol support for MongoDB, perform the following steps.
 
 1. In a new window, sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, click **Data + Storage**, click **See all**, and then search the **Data + Storage** category for "DocumentDB protocol". Click **DocumentDB - Protocol Support for MongoDB**.
@@ -75,6 +75,6 @@ To create a DocumentDB with protocol support for MongoDB account, perform the fo
 ## Next steps
 
 
-- Learn how to [connect](documentdb-connect-mongodb-account.md) to a DocumentDB with protocol support for MongoDB account.
+- Learn how to [connect](documentdb-connect-mongodb-account.md) to a DocumentDB account with protocol support for MongoDB.
 
  

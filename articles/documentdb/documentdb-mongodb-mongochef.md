@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use MongoChef with a DocumentDB with protocol support for MongoDB account | Microsoft Azure" 
-	description="Learn how to use MongoChef with a DocumentDB with protocol support for MongoDB account, now available for preview." 
+	pageTitle="Use MongoChef with a DocumentDB account with protocol support for MongoDB | Microsoft Azure" 
+	description="Learn how to use MongoChef with a DocumentDB account with protocol support for MongoDB, now available for preview." 
 	keywords="mongochef"
 	services="documentdb" 
 	authors="stephbaron" 
@@ -17,22 +17,22 @@
 	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
-# Use MongoChef with a DocumentDB with protocol support for MongoDB account
+# Use MongoChef with a DocumentDB account with protocol support for MongoDB
 
-To connect to a DocumentDB with protocol support for MongoDB account using MongoChef, you must:
+To connect to a DocumentDB account with protocol support for MongoDB using MongoChef, you must:
 
 - Download and install [MongoChef](http://3t.io/mongochef)
-- Have your DocumentDB with protocol support for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information
+- Have your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information
 
 ## Create the connection in MongoChef  
 
-To add your DocumentDB with protocol support for MongoDB account to the MongoChef connection manager, perform the following steps.
+To add your DocumentDB account with protocol support for MongoDB to the MongoChef connection manager, perform the following steps.
 
 1. Click **Connect** to open the Connection Manager, then click **New Connection**
 
 	![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. In the **New Connection** window, on the **Server** tab, enter the FQDN of the DocumentDB with protocol support for MongoDB account and the port.
+2. In the **New Connection** window, on the **Server** tab, enter the FQDN of the DocumentDB account with protocol support for MongoDB and the port.
 	
 	![Screen shot of the MongoChef connection manager server tab](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 

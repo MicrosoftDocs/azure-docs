@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Preview development guidelines for DocumentDB with protocol support for MongoDB accounts | Microsoft Azure" 
-	description="Learn about preview development guidelines for DocumentDB with protocol support for MongoDB accounts, now available for preview." 
+	pageTitle="Preview development guidelines for DocumentDB accounts with protocol support for MongoDB | Microsoft Azure" 
+	description="Learn about preview development guidelines for DocumentDB accounts with protocol support for MongoDB, now available for preview." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -16,7 +16,7 @@
 	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
-# Preview development guidelines for DocumentDB with protocol support for MongoDB accounts
+# Preview development guidelines for DocumentDB accounts with protocol support for MongoDB
 
 You can communicate with DocumentDB through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers/). The protocol support for MongoDB assumes that the MongoDB client drivers are communicating with a MongoDB 2.6 or later server endpoint. DocumentDB supports this by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/), version 2.6 (note that wire protocol version 3.2 is nearly fully supported, but certain client experiences such as version 3.2 MongoDB shell sessions may indicate that they are “degrading to 'legacy' mode”).
 
@@ -108,7 +108,7 @@ Native| | |-all-
 
 ## Next steps
 
-- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB with protocol support for MongoDB account.
+- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
 - Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
 
  

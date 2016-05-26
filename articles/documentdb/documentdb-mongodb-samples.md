@@ -20,12 +20,12 @@
 # DocumentDB protocol support for MongoDB examples
 To use these examples, you must:
 
-- [Create](documentdb-create-mongodb-account.md) a DocumentDB with protocol support for MongoDB account.
-- Retrieve your DocumentDB with protocol support for MongoDB account [connection string](documentdb-connect-mongodb-account.md) information.
+- [Create](documentdb-create-mongodb-account.md) a DocumentDB account with protocol support for MongoDB.
+- Retrieve your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information.
 
 ## Get started with a sample Node.js appplication
 
-The following instructions can be used to connect a Node.js MongoDB application to a DocumentDB with Protocol Support for MongoDB account.
+The following instructions can be used to connect a Node.js MongoDB application to a DocumentDB account with Protocol Support for MongoDB.
 
 1. Use git to `git clone https://github.com/scotch-io/mean-google-maps`.
 2. Navigate to your mean-google-maps directory.
@@ -193,6 +193,6 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 ## Next steps
 
 - Read about the DocumentDB with protocol support for MongoDB [preview development guidelines](documentdb-mongodb-guidelines.md).
-- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB with protocol support for MongoDB account.
+- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
 
  
