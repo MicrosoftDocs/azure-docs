@@ -509,11 +509,11 @@ In either case, you must register your app with your identity provider.  Your id
 
 The following topics are covered in this section:
 
-+ [Server managed authentication](#serverflow)
-+ [Client managed authentication](#client-flow)
++ [Server-managed authentication](#serverflow)
++ [Client-managed authentication](#client-flow)
 + [Caching the authentication token](#caching)
 
-###<a name="serverflow"></a>Server managed authentication
+###<a name="serverflow"></a>Server-managed authentication
 Once you have registered your identity provider, call the [LoginAsync] method on the [MobileServiceClient] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
 
 	private MobileServiceUser user;
@@ -547,7 +547,7 @@ authentication token after successful sign-on with the identity provider. The [L
 of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more
 information, see [Caching the authentication token](#caching).
 
-###<a name="client-flow"></a>Client managed authentication
+###<a name="client-flow"></a>Client-managed authentication
 
 Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. This may be preferred to using a server flow as it provides a more native UX feel and allows for additional customization.
 
