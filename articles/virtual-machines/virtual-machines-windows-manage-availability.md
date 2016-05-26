@@ -29,4 +29,4 @@ For instructions on creating and using availability sets when using the classic 
 
 ## Next steps
 
-To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](../articles/virtual-machines/virtual-machines-windows-load-balance.md).
+To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](virtual-machines-windows-load-balance.md).
