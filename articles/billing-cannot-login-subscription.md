@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="msmbaldwin"
 	editor="na"
 	tags="billing"
 	/>
@@ -50,4 +50,6 @@ Now that it is possible to log into Azure with an organizational account, here a
 |Microsoft Account |Yes|No|No|
 |Organizational Account|Yes|Yes|No|
 
-## Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser
+## Is there something wrong in the Internet Browser?
+
+Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser.
