@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Connect to a DocumentDB with protocol support for MongoDB account | Microsoft Azure" 
-	description="Learn how to connect to a DocumentDB with protocol support for MongoDB account, now available for preview." 
-	keywords="mongodb protocol, mongodb, mongo database"
+	description="Learn how to connect to a DocumentDB with protocol support for MongoDB account, now available for preview. Connect by using your MongoDB connection string." 
+	keywords="mongodb connection string"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -23,12 +23,12 @@ Learn how to connect to a DocumentDB with protocol support for MongoDB account u
 
 ## Get the account's connection string information
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
-2. In the All Settings blade, click **Connection String**.
+1. In a new window, sign in to the [Azure Portal](https://portal.azure.com).
+2. In the **All Settings** blade, click **Connection String**. To navigate to the **All Settings**, on the Jumpbar click **Browse**, click **DocumentDB** accounts, and then select the DocumentDB with protocol support for MongoDB account.
 
 	![Screen shot of the All Settings blade](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
 
-3. The Connection String blade opens and has all the information necessary to connect to the account using a driver for MongoDB, including a pre-constructed connection string.
+3. The **Connection String Information** blade opens and has all the information necessary to connect to the account using a driver for MongoDB, including a pre-constructed connection string.
 
 	![Screen shot of the connection string blade](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
@@ -80,6 +80,6 @@ As already mentioned, all DocumentDB accounts require both authentication and se
 
 
 - Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB with protocol support for MongoDB account.
-- Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md)
+- Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
 
  
