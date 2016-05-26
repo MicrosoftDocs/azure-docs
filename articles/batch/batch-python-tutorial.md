@@ -431,11 +431,11 @@ Within the `for` loop in the code snippet above, you can see that the command li
 
 2. **numwords**: The top *N* words should be written to the output file.
 
-3. **storageaccount**: The storage account name containing the container to which the task output should be uploaded.
+3. **storageaccount**: The name of the Storage account that owns the container to which the task output should be uploaded.
 
 4. **storagecontainer**: The name of the Storage container to which the output files should be uploaded.
 
-5. **sastoken**: The shared access signature (SAS) that provides write access to the **output** container in Azure Storage. The *python_tutorial_task.py* script uses this shared access signature when creates its BlockBlobService reference:
+5. **sastoken**: The shared access signature (SAS) that provides write access to the **output** container in Azure Storage. The *python_tutorial_task.py* script uses this shared access signature when creates its BlockBlobService reference. This provides write access to the container without requiring an access key for the storage account.
 
 ```python
 # NOTE: Taken from python_tutorial_task.py
@@ -450,7 +450,7 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 ## Step 6: Monitor tasks
 
 ![Monitor tasks][6]<br/>
-*The script (1) monitors the tasks for completion and success status, and (2) the tasks upload result data to Azure Storage*
+*The script (1) monitors the tasks for completion status, and (2) the tasks upload result data to Azure Storage*
 
 When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties for you.
 
@@ -547,7 +547,7 @@ blob_client.delete_container(output_container_name)
 
 In the final step, the user is prompted to delete the job and the pool that were created by the *python_tutorial_client.py* script. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process.
 
-The BatchServiceClient's [JobOperations][py_job] and [PoolOperations][py_pool] both have corresponding deletion functions, which are called if the user confirms deletion:
+The BatchServiceClient's [JobOperations][py_job] and [PoolOperations][py_pool] both have corresponding deletion methods, which are called if the user confirms deletion:
 
 ```python
 # Clean up Batch resources (if the user so chooses).
@@ -562,7 +562,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Run the sample script
 
-When you run the *python_tutorial_client.py* script, the console output will be similar to the following. You will see a pause at `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` while the pool's compute nodes are created and started. Use the [Azure portal][azure_portal] or the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
+When you run the *python_tutorial_client.py* script, the console output will be similar to the following. You will see a pause at `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` while the pool's compute nodes are created, started, and the commands in the pool's start task are executed. Use the [Azure portal][azure_portal] or the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
 
 Typical execution time is **approximately 5-7 minutes** when you run the application in its default configuration.
 
@@ -576,7 +576,7 @@ Uploading file /home/user/py_tutorial/data/taskdata3.txt to container [input]...
 Creating pool [PythonTutorialPool]...
 Creating job [PythonTutorialJob]...
 Adding 3 tasks to job [PythonTutorialJob]...
-Monitoring all tasks for 'Completed' state, timeout in 0:20:00.................................................................................
+Monitoring all tasks for 'Completed' state, timeout in 0:20:00..........................................................................
   Success! All tasks reached the 'Completed' state within the specified timeout period.
 Downloading all files from container [output]...
   Downloaded blob [taskdata1_OUTPUT.txt] from container [output] to /home/user/taskdata1_OUTPUT.txt
@@ -602,7 +602,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 
 - Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
 - Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path].
-- Check out a different implementation of processing the "top N words" workload by using Batch in the [TopNWords][github_topnwords] sample.
+- Check out a different implementation of processing the "top N words" workload with Batch in the [TopNWords][github_topnwords] sample.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
