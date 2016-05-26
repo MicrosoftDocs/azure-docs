@@ -3,7 +3,7 @@
    description="Here are some common reasons why a Cloud Service role may fail to start. Solutions to these problems are also provided."
    services="cloud-services"
    documentationCenter=""
-   authors="v-six"
+   authors="simonxjx"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>

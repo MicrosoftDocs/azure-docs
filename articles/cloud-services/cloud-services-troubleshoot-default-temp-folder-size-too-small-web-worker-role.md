@@ -3,7 +3,7 @@
    description="A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space."
    services="cloud-services"
    documentationCenter=""
-   authors="v-six"
+   authors="simonxjx"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>

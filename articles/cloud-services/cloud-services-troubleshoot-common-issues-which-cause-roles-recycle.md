@@ -3,7 +3,7 @@
    description="A cloud service role that suddenly recycles can cause significant downtime. Here are some common issues that cause roles to be recycled, which may help you reduce downtime."
    services="cloud-services"
    documentationCenter=""
-   authors="v-six"
+   authors="simonxjx"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>

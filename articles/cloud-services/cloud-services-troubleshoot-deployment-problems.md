@@ -3,7 +3,7 @@
  description="There are a few common problems you may run into when deploying a cloud service to Azure. This article provides solutions to some of them."
    services="cloud-services"
    documentationCenter=""
-   authors="v-six"
+   authors="simonxjx"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
