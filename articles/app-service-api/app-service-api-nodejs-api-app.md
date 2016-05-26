@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Node.js API app in Azure App Service| Microsoft Azure"
+	pageTitle="Node.js API app in Azure App Service | Microsoft Azure"
 	description="Learn how to create a Node.js RESTful API and deploy it to an API app in Azure App Service."
 	services="app-service\api"
 	documentationCenter="node"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="bradygaster"/>
 
 # Build a Node.js RESTful API and deploy it to an API app in Azure
@@ -25,26 +25,30 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 
 ## Prerequisites
 
+1. Microsoft Azure account ([open a free account here](https://azure.microsoft.com/pricing/free-trial/))
 1. [Node.js](http://nodejs.org) installed (this sample assumes that you have Node.js version 4.2.2)
 2. [Git](https://git-scm.com/) installed
 1. [GitHub](https://github.com/) account
-1. Microsoft Azure [free trial account](https://azure.microsoft.com/pricing/free-trial/)
+
+While App Service supports many ways to deploy your code to an API app, this tutorial shows the Git method and assumes that you have basic knowledge of how to work with Git. For information about other deployment methods, see [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md).
 
 ## Get the sample code
 
 1. Open a command line interface that can run Node.js and Git commands.
 
-1. Navigate to a folder you can use for a local Git repository, and clone the [GitHub repository containing the sample code](https://github.com/Azure-Samples/app-service-api-node-contact-list).
+1. Navigate to a folder that you can use for a local Git repository, and clone the [GitHub repository containing the sample code](https://github.com/Azure-Samples/app-service-api-node-contact-list).
 
 		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
 
 	The sample API provides two endpoints: a Get request to `/contacts` returns a list of names and email addresses in JSON format, while `/contacts/{id}` returns only the selected contact.
 
-## Scaffold Node.js code based on Swagger metadata
+## Scaffold (auto-generate) Node.js code based on Swagger metadata
 
-[Swagger](http://swagger.io/) is a file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md). This tutorial models an API development workflow that proceeds by creating the Swagger metadata first and using that to scaffold server code for the API. In this part of the tutorial, you learn how to scaffold Node.js server code based on a Swagger metadata file. 
+[Swagger](http://swagger.io/) is a file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md). This section of the tutorial models an API development workflow in which you create Swagger metadata first and use that to scaffold (auto-generate) server code for the API. 
 
->[AZURE.NOTE] If you don't want to go through the scaffolding steps, you can just deploy sample code to a new API app by going directly to the [Create an API app in Azure](#createapiapp) section.
+>[AZURE.NOTE] You can skip this section if you don't want to learn how to scaffold Node.js code from a Swagger metadata file. If you want to just deploy sample code to a new API app, go directly to the [Create an API app in Azure](#createapiapp) section.
+
+### Install and execute Swaggerize
 
 1. Execute the following commands to install the **yo** and **generator-swaggerize** NPM modules globally.
 
@@ -85,7 +89,7 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
         
     ![Swaggerize Ui Install](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-## Customize the scaffolded code
+### Customize the scaffolded code
 
 1. Copy the **lib** folder from the **start** folder into the **ContactList** folder created by the scaffolder. 
 
@@ -150,7 +154,7 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
         server.listen(port, function () { // fifth and final change
         });
 
-## Test with the API running locally
+### Test with the API running locally
 
 1. Activate the server using the Node.js command-line executable. 
 
@@ -172,9 +176,9 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and 
 
     ![Swagger Ui](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a> Create a new API App in the Azure Portal
+## <a id="createapiapp"></a> Create a new API App
 
-In this section you walk through the process of creating a new, empty API App in Azure. Then in the following section you wire up the app to a Git repository so you can enable continuous delivery of your code changes. 
+In this section you use the Azure portal to create a new API App in Azure. This API app represents the compute resources that Azure will provide to run your code. In later sections you'll deploy your code to the new API app.
 
 1. Browse to the [Azure Portal](https://portal.azure.com/). 
 
@@ -184,9 +188,9 @@ In this section you walk through the process of creating a new, empty API App in
 
 4. Enter an **App name** that is unique in the *azurewebsites.net* domain, such as NodejsAPIApp plus a number to make it unique. 
 
-	If you enter a name that someone else has already used, you see a red exclamation mark to the right instead of a green check mark, and you need to enter a different name.
+	For example, if the name is `NodejsAPIApp`, the URL will be `nodejsapiapp.azurewebsites.net`.
 
-	Azure uses this name as the prefix for your API's URL. The complete URL consists of this name plus *.azurewebsites.net*. For example, if the name is `NodejsAPIApp`, the URL is `nodejsapiapp.azurewebsites.net`.
+	If you enter a name that someone else has already used, you see a red exclamation mark to the right.
 
 6. In the **Resource Group** drop-down, click **New**, and then in **New resource group name** enter "NodejsAPIAppGroup" or another name if you prefer. 
 
@@ -216,21 +220,19 @@ In this section you walk through the process of creating a new, empty API App in
 
 ## Set up your new API app for Git deployment
 
-In this section of the tutorial, you create credentials you'll use for deployment, and a Git repository for the API app in Azure App Service. You deploy your code to the API app by pushing commits to this repository in Azure App Service. 
+You'll deploy your code to the API app by pushing commits to a Git repository in Azure App Service. In this section of the tutorial, you create the credentials and Git repository in Azure that you'll use for deployment.  
 
 1. After your API app has been created, click **App Services > {your API app}** from the portal home page. 
 
 	The portal displays the **API App** and **Settings** blades.
 
-    ![Portal API app blade](media/app-service-api-nodejs-api-app/portalapiappblade.png)
-
-    ![Portal Settings blade](media/app-service-api-nodejs-api-app/portalsettingsblade.png)
+    ![Portal API app and Settings blade](media/app-service-api-nodejs-api-app/portalapiappblade.png)
 
 1. In the **Settings** blade, scroll down to the **Publishing** section, and then click **Deployment credentials**.
  
 3. In the **Set deployment credentials** blade, enter a user name and password, and then click **Save**.
 
-	You'll use these credentials for publishing your Node.js code to your API app. In the next step, you create the Azure Git repository that is associated with your API app.  
+	You'll use these credentials for publishing your Node.js code to your API app. 
 
     ![Deployment Credentials](media/app-service-api-nodejs-api-app/deployment-credentials.png)
 
@@ -252,15 +254,9 @@ Now that you have an API App with a Git repository backing it up, you can push c
 
 ## Deploy your API code to Azure
 
-In this section you do the following steps:
+In this section you create a local Git repository that contains your server code for the API, and then you push your code from that repository to the repository in Azure that you created earlier.
 
-* Create a local Git repository that contains your server code for the API.
-* In that repository create a remote that points to the repository that you created for your API app in Azure.
-* Push your code from the local repository to the remote repository. 
-
-The built-in continuous delivery features of Azure App Service enable you to deploy code simply by pushing commits to a Git repository associated with your API app.
-
-1. If you did the first part of the tutorial, copy the `start\ContactList` folder that you created by using the swaggerize scaffolder to some other folder. Otherwise, copy the `end\ContactList` folder to some other folder.
+1. Copy the `ContactList` folder to a location that you can use for a new local Git repository. If you did the first part of the tutorial, copy `ContactList` from the `start` folder; otherwise, copy `ContactList` from the `end` folder.
 
 1. In your command line tool, navigate to the new folder, then execute the following command to create a new local Git repository. 
 
@@ -317,4 +313,4 @@ Now that you have continuous delivery wired up, you can make code changes and de
 
 ## Next steps
 
-At this point you've successfully created and deployed your first API App using Node.js. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md). Later tutorials in the series show how to implement authentication and authorization.
+At this point you've successfully created an API App and deployed Node.js API code to it. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
