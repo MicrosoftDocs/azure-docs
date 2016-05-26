@@ -555,7 +555,7 @@ Your app can also independently contact the identity provider and then provide t
 Examples are provided for the following client-flow authentication patterns:
 
 + [Active Directory Authentication Library](#adal)
-+ [Facebook or Google](client-facebook)
++ [Facebook or Google](#client-facebook)
 + [Live SDK](#client-livesdk)
 
 #### <a name="adal"></a>Authenticate users with the Active Directory Authentication Library
