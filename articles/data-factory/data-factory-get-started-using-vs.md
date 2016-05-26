@@ -210,8 +210,7 @@ You have created input/output linked services and tables so far. Now, you will c
 	
 		> [AZURE.NOTE]  
 		> The name of the Azure data factory must be globally unique. If you receive an eror about the name of data factory when publishing, change the name of the data factory (for example, yournameVSTutorialFactory) and try publishing again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
-		> 
-		> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+		
 	3. Select the right subscription for the **Subscription** field. 
 	4. Select the **resource group** for the data factory to be created. 
 	5. Select the **region** for the data factory. 
@@ -220,16 +219,20 @@ You have created input/output linked services and tables so far. Now, you will c
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
 
-If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
+Please note the following: 
 
-- In Azure PowerShell, run the following command to register the Data Factory provider. 
+- If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
+
+	- In Azure PowerShell, run the following command to register the Data Factory provider. 
 		
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-	You can run the following command to confirm that the Data Factory provider is registerd. 
+		You can run the following command to confirm that the Data Factory provider is registerd. 
 	
-		Get-AzureRmResourceProvider
-- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This automatically registers the provider for you.
+			Get-AzureRmResourceProvider
+	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This automatically registers the provider for you.
+- 	The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+- 	To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
 
 ## Summary
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used Visual Studio to create the data factory, linked services, datasets, and a pipeline. Here are the high level steps you performed in this tutorial:  

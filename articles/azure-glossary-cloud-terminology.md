@@ -60,7 +60,7 @@ See also [How to install and configure Azure PowerShell](powershell-install-conf
 One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Microsoft Azure (the other is the classic deployment model). Some Azure resources can be deployed in one model or the other, while others can be deployed in both models. Guidance for individual Azure resources detail which model(s) a resource can be deployed with.
 
 
-### <a name="faultdomain"></a>fault domain  
+### <a name="fault-domain"></a>fault domain  
 The collection of virtual machines in an availability set that can possibly fail at the same time. An example is a group of machines in a rack that share a common power source and network switch. In Azure, the virtual machines in an availability set are automatically separated across multiple fault domains.  
 See also [Manage the availability of Windows virtual machines](./virtual-machines/virtual-machines-windows-manage-availability.md) or [Manage the availability of Linux virtual machines](./virtual-machines/virtual-machines-linux-manage-availability.md)  
 
@@ -164,7 +164,7 @@ See also [About virtual machine extensions and features (Windows)](./virtual-mac
 
 
 ### <a name="vnet"></a>virtual network  
-A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](vpn-gateway-about-vpngateways/) and to your on-premises network using [multiple options](vpn-gateway-cross-premises-options/). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  
+A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. It can be connected to other Azure virtual networks through an [Azure VPN Gateway](./vpn-gateway/vpn-gateway-about-vpngateways.md) and to your on-premises network using [multiple options](./vpn-gateway/vpn-gateway-cross-premises-options.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network.  
 See also [Virtual Network Overview](./virtual-network/virtual-networks-overview.md)  
 
 ###**See also**  
