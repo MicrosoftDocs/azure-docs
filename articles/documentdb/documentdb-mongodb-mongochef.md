@@ -32,7 +32,7 @@ To add your DocumentDB with protocol support for MongoDB account to the MongoChe
 
 	![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. In the **New Connection** window, on the **Server** Tab, enter the FQDN of the DocumentDB with protocol support for MongoDB account and the port.
+2. In the **New Connection** window, on the **Server** tab, enter the FQDN of the DocumentDB with protocol support for MongoDB account and the port.
 	
 	![Screen shot of the MongoChef connection manager server tab](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
