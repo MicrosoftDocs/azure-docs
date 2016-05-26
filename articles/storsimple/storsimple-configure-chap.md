@@ -37,7 +37,7 @@ In each of these cases, the portal for the device and the server iSCSI initiator
 
 In unidirectional authentication, the target authenticates the initiator. This authentication requires that you configure the CHAP initiator settings on the StorSimple device and the iSCSI Initiator software on the host. The detailed procedures for your StorSimple device and Windows host are described next.
 
-### To configure your device for one-way authentication
+#### To configure your device for one-way authentication
 
 1. In the Azure classic portal, on the **Devices** page, click the **Configure** tab.
 
@@ -54,7 +54,8 @@ In unidirectional authentication, the target authenticates the initiator. This a
 	3. Confirm the password.
 
 4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
-### To configure one-way authentication on the Windows host server
+
+#### To configure one-way authentication on the Windows host server
 
 1. On the Windows host server, start the iSCSI Initiator.
 
