@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/23/2016"
+   ms.date="05/26/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
@@ -112,13 +112,14 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  On the **Specify generation** page, choose **Generation 2** if you downloaded a .vhdx image, or **Generation 1** if you downloaded a .vhd image, and then click **Next**.
+1.  On the **Specify generation** page, choose the device image type and then click **Next**. This page doesn't appear if you're using Windows Server 2008 R2.
 
-    This page doesn't appear if you're using Windows Server 2008 R2.
+    * Choose **Generation 2** if you downloaded a .vhdx image for Windows Server 2012 or later.
+    * Choose **Generation 1** if you downloaded a .vhd image for Windows Server 2008 R2 or later.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
-1.  On the **Assign memory** page, specify a **Startup memory** of at least 8192 MB (and don't enable dynamic memory) and then click **Next**.
+1.  On the **Assign memory** page, specify a **Startup memory** of at least **8192 MB**, don't enable dynamic memory, and then click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image6.png)
 
