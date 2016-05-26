@@ -96,7 +96,7 @@ When deploying your virtual array, we recommend that you follow these best pract
 	-   We recommend that you disable the **Get IP address automatically** option (DHCP). 
 	-   Configure static IP addresses. You must also configure a primary and a secondary DNS server.
 
--   If defining multiple network interfaces on your virtual array, note that only the first network interface (by default, this is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those to different subnets.
+	-   If defining multiple network interfaces on your virtual array, note that only the first network interface (by default, this is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those to different subnets.
 
 -   If only the cloud bandwidth needs to be controlled, configure throttling on the router or the firewall. We recommend that you do not define throttling in your hypervisor as it will throttle all the protocols including iSCSI and SMB whereas only the cloud bandwidth needs to be throttled. 
 
@@ -108,7 +108,7 @@ StorSimple Virtual Array can be associated with a single storage account. This s
 
 Use the following recommendations for storage accounts associated with your virtual array.
 
--   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity of a virtual array and the maximum limit for a storage account. The maximum virtual array capacity is 64 TB and there is a 500 TB limit for a storage account. This limits the number of full-sized virtual arrays (~7) that can be associated with that storage account.
+-   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity (of 64 TB) for a virtual array  and the maximum limit (of 500 TB) for a storage account. This limits the number of full-sized virtual arrays (~7) that can be associated with that storage account.
 
 -   When creating a new storage account
 	-   We recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
