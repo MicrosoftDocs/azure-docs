@@ -77,7 +77,7 @@ The following table shows data collection methods and other details about how da
 |---|---|---|---|---|---|---|
 |Windows|![No](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![No](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|            ![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)| twice per day|
 
-The following table shows examples of data types collected by XXX:
+The following table shows examples of data types collected by Configuration Assessment:
 
 |**Data type**|**Fields**|
 |---|---|
