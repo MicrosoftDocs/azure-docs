@@ -18,13 +18,15 @@
 
 
 
-# How to Use Azure Storage for SQL Server Backup and Restore
+# Use Azure Storage for SQL Server Backup and Restore
 
 ## Overview
 
 Starting with SQL Server 2012 SP1 CU2, you can now write SQL Server backups directly to the Azure Blob storage service. You can use this functionality to back up to and restore from the Azure Blob service with an on-premises SQL Server database or a SQL Server database in an Azure virtual machine. Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud. You can issue BACKUP or RESTORE statements by using Transact-SQL or SMO. 
 
 SQL Server 2016 introduces new capabilities; you can use [file-snapshot backup](http://msdn.microsoft.com/library/mt169363.aspx) to perform nearly instantaneous backups and incredibly quick restores.
+
+This topic explains why you might choose to use Azure storage for SQL backups and then describes the components involved. You can use the resources provided at the end of the article to access walkthroughs and additional information to start using this service with your SQL Server backups.
 
 ## Benefits of Using the Azure Blob Service for SQL Server Backups
 
@@ -33,7 +35,7 @@ There are several challenges that you face when backing up SQL Server. These cha
 | Benefit               | Description                          |
 |---------------------|-------------------------------|
 | **Ease of use** | Storing your backups in Azure blobs can be a convenient, flexible, and easy to access off-site option. Creating off-site storage for your SQL Server backups can be as easy as modifying your existing scripts/jobs to use the **BACKUP TO URL** syntax. Off-site storage should typically be far enough from the production database location to prevent a single disaster that might impact both the off-site and production database locations. By choosing to [geo-replicate your Azure blobs](../storage/storage-redundancy.md), you have an extra layer of protection in the event of a disaster that could affect the whole region. |
-| **Backup Archive** | The Azure Blob Storage service offers a better alternative to the often used tape option to archive backups. Tape storage might require physical transportation to an off-site facility and measures to protect the media. Storing your backups in Azure Blob Storage provides an instant, highly available, and a durable archiving option.  |
+| **Backup archive** | The Azure Blob Storage service offers a better alternative to the often used tape option to archive backups. Tape storage might require physical transportation to an off-site facility and measures to protect the media. Storing your backups in Azure Blob Storage provides an instant, highly available, and a durable archiving option.  |
 | **Managed hardware** | There is no overhead of hardware management with Azure services. Azure services manage the hardware and provide geo-replication for redundancy and protection against hardware failures. |
 | **Unlimited storage** | By enabling a direct backup to Azure blobse, you have access to virtually unlimited storage. Alternatively, backing up to an Azure virtual machine disk has limits based on machine size. There is a limit to the number of disks you can attach to an Azure virtual machine for backups. This limit is 16 disks for an extra large instance and fewer for smaller instances.  |
 | **Backup availability** | Backups stored in Azure blobs are available from anywhere and at any time and can easily be accessed for restores to either an on-premises SQL Server or another SQL Server running in an Azure Virtual Machine, without the need for database attach/detach or downloading and attaching the VHD. |
@@ -43,8 +45,6 @@ There are several challenges that you face when backing up SQL Server. These cha
 For more details, see [SQL Server Backup and Restore with Azure Blob Storage Service](http://go.microsoft.com/fwlink/?LinkId=271617).
 
 The following two sections introduce the Azure Blob storage service, including the required SQL Server components. It is important to understand the components and their interaction to successfully use backup and restore from the Azure Blob storage service.
-
-First, create an Azure account if you don't already have one. For a complete walkthrough of creating a storage account and performing a simple restore using SQL Server 2014, see [Getting Started with Azure Storage Service for SQL Server Backup and Restore](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx). For a complete walkthrough of creating a storage account and performing a simple restore using SQL Server 2014, see [Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx).
 
 ## Azure Blob Storage Service Components
 
@@ -67,16 +67,17 @@ The following SQL Server components are used when backing up to the Azure Blob s
 
 > [AZURE.NOTE] If you choose to copy and upload a backup file to the Azure Blob storage service, you must use a page blob type as your storage option if you are planning to use this file for restore operations. RESTORE from a block blob type will fail with an error.
 
-## SQL Server Database Backups and Restore with Azure Blobs- Concepts and Tasks:
+## Next steps
 
-**Concepts, Considerations, and Code samples:**
+1. Create an Azure account if you don't already have one. If you are evaluating Azure, consider the [free trial](https://azure.microsoft.com/free/).
 
-[SQL Server Backup and Restore with Azure Blob Storage Service](http://go.microsoft.com/fwlink/?LinkId=271617)
+1. Then go through one of the following tutorials that walk you through creating a storage account and performing a restore. 
 
-**Getting Started Tutorial:**
+	- **SQL Server 2014**: [Tutorial: SQL Server 2014 Backup and Restore to Windows Azure Blob Storage Service](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+	- **SQL Server 2016**: [Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx)
 
-[Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx)
+1. Review additional documentation starting with [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx).
 
-**Best Practices, Troubleshooting:**
+If you have any problems, review the topic [SQL Server Backup to URL Best Practices and Troubleshooting](https://msdn.microsoft.com/library/jj919149.aspx).
 
-[Back and Restore Best Practices (Azure Blob Storage Service)](http://go.microsoft.com/fwlink/?LinkId=272394)
+For other SQL Server backup and restore options, see [Backup and Restore for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md).
