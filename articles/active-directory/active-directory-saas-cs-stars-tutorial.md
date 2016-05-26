@@ -118,7 +118,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 	![Configure App Settings][8]
  
-     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your CS Stars application (e.g.: *https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2*).
+     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your CS Stars application (e.g.: `https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2`).
 
      > [AZURE.NOTE] If you don't know what the right value is, contact your Marsh ClearSight representative.
 

@@ -33,6 +33,9 @@ The scenario outlined in this tutorial consists of the following building blocks
 4.  Assigning users
 
 ![Configuration](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768996.png "Configuration")
+
+
+
 ##Enabling the application integration for Citrix GoToMeeting
 
 The objective of this section is to outline how to enable the application integration for Citrix GoToMeeting.

@@ -120,7 +120,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-domo-tutorial/tutorial_domo_04.png) 
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Domo application using the following pattern: **“https://companyname.domo.com”**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Domo application using the following pattern: `https://<company name>.domo.com`
 
     b. Click **Next**.
 

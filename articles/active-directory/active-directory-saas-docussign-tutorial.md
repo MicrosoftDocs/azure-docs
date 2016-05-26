@@ -99,10 +99,13 @@ The objective of this section is to outline how to enable users to authenticate 
 
 	![Configuring single sign-on ][8]
 
-3. On the **Configure App URL** page, in the **Docusign sign on URL** textbox, type the URL of your Docusign tenant, and then click **Next**. 
-The URL has the following schema: *https://<yourcompanyname>.docusign.net/Member/MemberLogin.aspx?ssoname=<yourSSOInstanceName>*
+3. On the **Configure App Settings** page, perform the following steps:
 
 	![Configuring single sign-on ][9]
+
+	a. in the **Sign on URL** textbox, type the URL of your Docusign tenant using the following pattern: `https://<company name>.docusign.net/Member/MemberLogin.aspx?ssoname=<SSO instance name>`
+
+	b. Click **Next**. 
 
 
     > [AZURE.TIP] If you don’t know what your app URL for your tenant is, try contacting Docusign via SSOSetup@Docusign.com to get the SP Initiated SSO URL for your tenant.
