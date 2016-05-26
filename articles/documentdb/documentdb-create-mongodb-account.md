@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a DocumentDB with protocol support for MongoDB account | Microsoft Azure" 
+	pageTitle="Create a DocumentDB for MongoDB account | Microsoft Azure" 
 	description="Learn how to create a DocumentDB with protocol support for MongoDB account, now available for preview." 
 	keywords="mongodb protocol, mongodb, mongo database"
 	services="documentdb" 
