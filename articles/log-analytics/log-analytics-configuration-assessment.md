@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="05/26/2016"
 	ms.author="banders"/>
 
 # Configuration Assessment solution in Log Analytics
 
-The Configuration Assessment solution in Log Analytics helps you find potential server configuration problems through alerts and knowledge recommendations. 
+The Configuration Assessment solution in Log Analytics helps you find potential server configuration problems through alerts and knowledge recommendations.
 
 This solution requires System Center Operations Manager. Configuration Assessment isn’t available if you only use directly-connected agents.
 
@@ -69,12 +69,21 @@ Use the following information to install and configure the solution.
 
 ## Configuration Assessment data collection details
 
+Configuration Assessment collects configuration data, metadata, and state data using the agents that you have enabled.
+
 The following table shows data collection methods and other details about how data is collected for Configuration Assessment.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 |---|---|---|---|---|---|---|
 |Windows|![No](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![No](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|            ![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)| twice per day|
 
+The following table shows examples of data types collected by XXX:
+
+|**Data type**|**Fields**|
+|---|---|
+|Configuration|CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate|
+|Metadata|BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime|
+|State|StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified|
 
 ## Configuration Assessment alerts
 You can view and manage alerts from the Configuration Assessment with the Alerts page. Alerts tell you the issue that was detected, the cause, and how to address the issue. They also provide information about configuration settings in your environment that might cause performance issues.
