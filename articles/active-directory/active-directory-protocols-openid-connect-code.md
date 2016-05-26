@@ -195,4 +195,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
-Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described [above](#validate-the-id-token). To get access tokens, you can follow the steps described in our [OAuth protocol documentation](active-directory-protocols-oauth-code.md#Use-the-Authorization-Code-to-Request-an-Access-Token).
+Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in our [OAuth protocol documentation](active-directory-protocols-oauth-code.md#Use-the-Authorization-Code-to-Request-an-Access-Token).
