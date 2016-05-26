@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/24/2016"
    ms.author="terrylan"/>
 
 # Azure Virtual Machines security overview
@@ -92,7 +92,7 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 
 Learn more:
 
-- [Azure Disk Encryption for Windows and Linux IaaS VMs](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0/file/150942/1/Azure%25)
+- [Azure Disk Encryption for Windows and Linux IaaS VMs](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 - [Azure Disk Encryption for Linux and Windows Virtual Machines](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
 - [Encrypt a virtual machine](../security-center/security-center-disk-encryption.md)
 

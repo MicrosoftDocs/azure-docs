@@ -33,7 +33,7 @@ There are three key steps involved in installing Jupyter and the Spark magic on 
 
 For more information about the custom kernels and the Spark magic available for Jupyter notebooks with HDInsight cluster, see [Kernels available for Jupyter notebooks with Apache Spark Linux clusters on HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
-**Prerequisites:**
+##Prerequisites
 
 The prerequisites listed here are not for installing Jupyter. These are for connecting the Jupyter notebook to an HDInsight cluster once the notebook is installed.
 
