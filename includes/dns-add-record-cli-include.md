@@ -41,7 +41,7 @@ In this example, we use the record set name "@" to create the MX record at the z
 
 #### Create an SRV record set with a single record
 
-If you are creating an SRV record in the root of the zone, you can specify "_service" and "_protocol" in the record name. There is no need to include ‘.@’ in the record name.
+If you are creating an SRV record in the root of the zone, you can specify "_service" and "_protocol" in the record name. There is no need to include "@" in the record name.
 
 
 	azure network dns record-set create myresourcegroup contoso.com "_sip._tls" SRV --ttl 300
