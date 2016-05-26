@@ -86,7 +86,7 @@ Below is a table clarifying the difference between an Azure subscription adminis
 | Access [Machine Learning Studio]       | No *	       | Yes			   |
 
 
-> [AZURE.NOTE] * An Azure subscription administrator automatically becomes a workspace owner upon creating a workspace, however the access is only granted because he is a workspace owner.
+> [AZURE.NOTE] * An Azure subscription administrator is automatically added to the the workspace he/she creates as workspace Owner. However, simply being an Azure subscription administrator doesn't grant him/her access to any workspace under that subscription.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
