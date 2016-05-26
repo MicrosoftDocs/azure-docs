@@ -735,10 +735,10 @@ By completing this walkthrough you have created a data science environment for b
 ## What's next?
 
 The learning path for the
-[Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs linked off of the **Full Data Science Process in Action** node that showcase how to use resources and services in the Cortana suite various predictive analytics scenarios:
+[Cortana Analytics Process (CAP)](http://aka.ms/datascienceprocess) provides links to topics describing each step in the advanced analytics process. There are a series of walkthroughs linked off of the **Full Data Science Process in Action** node that showcase how to use resources and services in the Cortana suite various predictive analytics scenarios:
 
-- [The Cortana Analytics Process in action: using SQL Data Warehouse](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sqldw-walkthrough/)
-- [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-hive-walkthrough/)
-- [The Cortana Analytics Process in action: using SQL Server](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/)
-- [Overview of Data Science using Spark on Azure HDInsight](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-spark-overview/)
+- [The Cortana Analytics Process in action: using SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+- [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
+- [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md)
 
