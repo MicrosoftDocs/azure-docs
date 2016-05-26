@@ -21,7 +21,7 @@
 - [PowerShell](websites-powershell-backup.md)
 - [REST API](../app-service-web/websites-csm-backup.md)
 
-Learn how to use Azure PowerShell to back up and restore [App Service apps](https://azure.microsoft.com/services/app-service/web/). For more information about web app backups, including requirements and restrictions, see [Back up a web app in Azure App Service](./web-sites-backup.md).
+Learn how to use Azure PowerShell to back up and restore [App Service apps](https://azure.microsoft.com/services/app-service/web/). For more information about web app backups, including requirements and restrictions, see [Back up a web app in Azure App Service](../app-service-web/web-sites-backup.md).
 
 ## Prerequisites
 In order to use PowerShell to manage your app backups, you will need the following:
