@@ -500,18 +500,18 @@ Note that this a typed method call, which requires that the **MarkAllResult** re
 
 ##<a name="authentication"></a>Authenticate users
 
-Mobile Apps supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account,
-Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You
-can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the tutorial
+Mobile Apps supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the tutorial
 [Add authentication to your app].
 
-Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it
-relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies
-on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
-In either case, you must register your app with your identity provider.  Your identity provider will provide a client ID and a client secret.  You
-must then configure Azure App Service Authentication / Authorization with the client ID and client secret provided by your identity provider.  For
-more information, follow the detailed instructions in the tutorial [Add authentication to your app].
+In either case, you must register your app with your identity provider.  Your identity provider will provide a client ID and a client secret.  You must then configure Azure App Service Authentication / Authorization with the client ID and client secret provided by your identity provider.  For more information, follow the detailed instructions in the tutorial [Add authentication to your app]. 
+
+The following topics are covered in this section:
+
++ [Server flow](#serverflow)
++ [Client flow](#client-flow)
++ [Caching the authentication token](#caching)
 
 ###<a name="serverflow"></a>Server flow
 Once you have registered your identity provider, call the MobileServiceClient.[LoginAsync method] with the [MobileServiceAuthenticationProvider] value
@@ -550,10 +550,124 @@ information, see [Caching the authentication token](#caching).
 
 ###<a name="client-flow"></a>Client flow
 
-Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you
-to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
+Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. 
 
-####Single sign-in using a token from Facebook or Google
+Examples are provided for the following client-flow authentication patterns:
+
++ [Active Directory Authentication Library](#adal)
++ [Facebook or Google](client-facebook)
++ [Live SDK](#client-livesdk)
+
+#### <a name="adal"></a>Authenticate users with the Active Directory Authentication Library
+
+You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+
+1. Configure your mobile app backend for AAD sign-in by followin the [How to configure App Service for Active Directory login] tutorial. Make sure to complete the optional step of registering a native client application.
+
+2. In Visual Studio or Xamarin Studio, open your project and add a reference to the `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet package. When searching, include prerelease versions.
+
+3. Add the below code to your application, according to the platform you are using. In each, make the following replacements:
+
+	* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be
+	  https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory
+	  in the [Azure Classic portal].
+	
+	* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain this from the **Advanced**
+	  tab under **Azure Active Directory Settings** in the portal.
+	
+	* Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
+	
+	* Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be
+	  similar to _https://contoso.azurewebsites.net/.auth/login/done_.
+	
+	The code needed for each platform follows:
+	
+	**Windows:**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync()
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        while (user == null)
+	        {
+	            string message;
+	            try
+	            {
+	                AuthenticationContext ac = new AuthenticationContext(authority);
+	                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+	                JObject payload = new JObject();
+	                payload["access_token"] = ar.AccessToken;
+	                user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	                message = string.Format("You are now logged in - {0}", user.UserId);
+	            }
+	            catch (InvalidOperationException)
+	            {
+	                message = "You must log in. Login Required";
+	            }
+	            var dialog = new MessageDialog(message);
+	            dialog.Commands.Add(new UICommand("OK"));
+	            await dialog.ShowAsync();
+	        }
+	    }
+	
+	**Xamarin.iOS**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync(UIViewController view)
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        try
+	        {
+	            AuthenticationContext ac = new AuthenticationContext(authority);
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
+	            JObject payload = new JObject();
+	            payload["access_token"] = ar.AccessToken;
+	            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	        }
+	        catch (Exception ex)
+	        {
+	            Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+	        }
+	    }
+	
+	**Xamarin.Android**
+	
+	    private MobileServiceUser user;
+	    private async Task AuthenticateAsync()
+	    {
+	        string authority = "INSERT-AUTHORITY-HERE";
+	        string resourceId = "INSERT-RESOURCE-ID-HERE";
+	        string clientId = "INSERT-CLIENT-ID-HERE";
+	        string redirectUri = "INSERT-REDIRECT-URI-HERE";
+	        try
+	        {
+	            AuthenticationContext ac = new AuthenticationContext(authority);
+	            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
+	            JObject payload = new JObject();
+	            payload["access_token"] = ar.AccessToken;
+	            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+	        }
+	        catch (Exception ex)
+	        {
+	            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	            builder.SetMessage(ex.Message);
+	            builder.SetTitle("You must log in. Login Required");
+	            builder.Create().Show();
+	        }
+	    }
+	    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+	    {
+	        base.OnActivityResult(requestCode, resultCode, data);
+	        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+	    }
+
+####<a name="client-facebook"></a>Single sign-in using a token from Facebook or Google
 
 In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.
 
@@ -586,7 +700,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 		}
 	}
 
-####Single sign-in using Microsoft Account with the Live SDK
+####<a name="client-livesdk"></a>Single sign-in using Microsoft Account with the Live SDK
 
 To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with
 your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login] to create a Microsoft account registration and
@@ -644,6 +758,7 @@ The following code authenticates using Live SDK and uses the returned token to s
 
 Refer to the documentation for more information about the [Windows Live SDK].
 
+
 ###<a name="caching"></a>Caching the authentication token
 In some cases, the call to the login method can be avoided after the first successful authentication. Windows Store and UWP apps can use [PasswordVault] to cache the current authentication token after a successful sign-in, as follows:
 
@@ -685,117 +800,6 @@ When you use client-managed authentication, you can also cache the access token 
 
 Xamarin	apps use the [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) APIs to securely store credentials in an **Account** object. 
 
-### <a name="adal"></a>Authenticate users with the Active Directory Authentication Library
-
-You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is
-often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
-
-1. Configure your mobile app backend for AAD sign-in by followin the [How to configure App Service for Active Directory login] tutorial.
-Make sure to complete the optional step of registering a native client application.
-
-2. In Visual Studio or Xamarin Studio, open your project and add a reference to the `Microsoft.IdentityModel.CLients.ActiveDirectory`
-NuGet package. When searching, include prerelease versions.
-
-3. Add the below code to your application, according to the platform you are using. In each, make the following replacements:
-
-* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be
-  https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory
-  in the [Azure Classic portal].
-
-* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain this from the **Advanced**
-  tab under **Azure Active Directory Settings** in the portal.
-
-* Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
-
-* Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be
-  similar to _https://contoso.azurewebsites.net/.auth/login/done_.
-
-The code needed for each platform follows:
-
-**Windows:**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        while (user == null)
-        {
-            string message;
-            try
-            {
-                AuthenticationContext ac = new AuthenticationContext(authority);
-                AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
-                JObject payload = new JObject();
-                payload["access_token"] = ar.AccessToken;
-                user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-                message = string.Format("You are now logged in - {0}", user.UserId);
-            }
-            catch (InvalidOperationException)
-            {
-                message = "You must log in. Login Required";
-            }
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-    }
-
-**Xamarin.iOS**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync(UIViewController view)
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try
-        {
-            AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
-            JObject payload = new JObject();
-            payload["access_token"] = ar.AccessToken;
-            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-        }
-    }
-
-**Xamarin.Android**
-
-    private MobileServiceUser user;
-    private async Task AuthenticateAsync()
-    {
-        string authority = "INSERT-AUTHORITY-HERE";
-        string resourceId = "INSERT-RESOURCE-ID-HERE";
-        string clientId = "INSERT-CLIENT-ID-HERE";
-        string redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try
-        {
-            AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
-            JObject payload = new JObject();
-            payload["access_token"] = ar.AccessToken;
-            user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
-        }
-        catch (Exception ex)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetMessage(ex.Message);
-            builder.SetTitle("You must log in. Login Required");
-            builder.Create().Show();
-        }
-    }
-    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-    {
-        base.OnActivityResult(requestCode, resultCode, data);
-        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
-    }
 
 ##<a name="pushnotifications">Push Notifications
 
