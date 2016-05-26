@@ -30,11 +30,11 @@ A Logic App is made up of 3 basic components:
 
 You can view all of these pieces for existing Logic Apps using tools like the [Azure Resource Explorer](http://resources.azure.com).
 
-In order to make a template for a Logic App that can work with resource group deployments, you need to take those pieces above and parametrize as needed.  For example if deploying to a development, test, and production environment you likely want to use different connection strings to a SQL database in each environment, or deploy within different subscriptions or resource groups.  
+In order to make a template for a Logic App that can work with resource group deployments, you need to define the resources and parametrize as needed.  For example, if deploying to a development, test, and production environment you likely want to use different connection strings to a SQL database in each environment, or deploy within different subscriptions or resource groups.  
 
 ## Creating a Logic App Deployment Template
 
-There are a few tools to assist you in creating a Logic App Deployment Template.  You could author by hand by taking the resources above and creating parameters as needed.  We are also working to make Logic Apps and Connections exportable via the [Export Template](../resource-manager-export-template.md) feature in preview with Resource Groups.  In the meantime you can make use of the PowerShell module [LogicAppTemplateCreator](https://github.com/jeffhollan/LogicAppTemplateCreator) to generate Logic Apps templates.  The open source script works by evaluating the Logic App and any connections it is using, and generating template resources with the necessary parameters to deploy.  For example, if you had a Logic App that received a message from a Service Bus Queue and added data to a SQL Azure database, the tool would preserve all the orchestration logic and parametrize the SQL and Service Bus connection strings so they could be set at deployment.
+There are a few tools to assist you in creating a Logic App Deployment Template.  You could author by hand by taking the resources above and creating parameters as needed.  You can also make use of a [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell module.  The open source module works by evaluating the Logic App and any connections it is using, and generating template resources with the necessary parameters to deploy.  For example, if you had a Logic App that received a message from a Service Bus Queue and added data to a SQL Azure database, the tool would preserve all the orchestration logic and parametrize the SQL and Service Bus connection strings so they could be set at deployment.
 
 >[AZURE.NOTE] Connections must be within the same Resource Group as the Logic App
 
@@ -47,7 +47,7 @@ You can also install manually:
 1. Download the latest release of the [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
 1. Extract the folder into your PowerShell module folder (usually `%UserProfile%\Documents\WindowsPowerShell\Modules`)
 
-In order for the module to work with any tenant and subscription access token, it is recommend you use with the [armclient](https://github.com/projectkudu/ARMClient) command line tool.  Details on `armclient` can be found [here](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
+In order for the module to work with any tenant and subscription access token, it is recommended you use with the [armclient](https://github.com/projectkudu/ARMClient) command line tool.  Details on `armclient` can be found [here](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
 
 ### Generating a Logic App Template through PowerShell
 
@@ -67,11 +67,11 @@ Once you have a template, you can deploy using any number of tools including Pow
 
 ### Authorizing OAuth Connections
 
-After deployment, the Logic App will work end-to-end with valid parameters, but OAuth connections will still need to be authorized to generate a valid access token.  You can do this by opening the Logic App in the designer, but if you wish to automate you can also use a script to get the link and open for consent.  The script can be found on our GitHub under the [Connection Auth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
+After deployment, the Logic App will work end-to-end with valid parameters, but OAuth connections will still need to be authorized to generate a valid access token.  You can do this by opening the Logic App in the designer and authorizing connections, or if you wish to automate you can also use a script to consent for each OAuth connection.  An example script can be found on our GitHub under the [Connection Auth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
 ## Using Visual Studio Release Management
 
-A common scenario is to use a tool like Visual Studio Release Management with a Logic App deployment template.  VSTS includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that can be added into any build or release pipeline.  You need to have a [Service Principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and can then generate the release definition.
+A common scenario to deploy and manage environments is to use a tool like Visual Studio Release Management with a Logic App deployment template.  VSTS includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that can be added into any build or release pipeline.  You need to have a [Service Principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and can then generate the release definition.
 
 1. Under **Release** select to begin a **New Definition** with an **Empty** definition.
 
@@ -79,7 +79,7 @@ A common scenario is to use a tool like Visual Studio Release Management with a 
 
 1. Choose any artifacts you need for this.  This would likely be the Logic App Template generated manually or as part of the build process.
 1. Add a **Azure Resource Group Deployment** task.
-1. Configure with a [Service Principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/), and reference the **Template** and **Template Parameters** files generated.
+1. Configure with a [Service Principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/), and reference the **Template** and **Template Parameters** files.
 1. Continue to build out steps in the release process for any other environments, automated tests, or approvers as needed.
     
 <!-- Image References -->
