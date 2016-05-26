@@ -37,13 +37,11 @@ To configure the VNET for your new cache, click **Virtual Network** on the **New
 
 ![Virtual network][redis-cache-vnet]
 
-Select the desired subnet from the **Subnet** drop-down list, and pecify the desired **Static IP address**. If you are using a classic VNET the **Static IP address** field is optional, and if none is specified, one will be chosen from the selected subnet.
-
->[AZURE.IMPORTANT] The first 4 addresses in a subnet are reserved and can't be used.
+Select the desired subnet from the **Subnet** drop-down list, and specify the desired **Static IP address**. If you are using a classic VNET the **Static IP address** field is optional, and if none is specified, one will be chosen from the selected subnet.
 
 ![Virtual network][redis-cache-vnet-ip]
 
-
+>[AZURE.IMPORTANT] The first 4 addresses in a subnet are reserved and can't be used. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
 Once the cache is created, you can view and modify the configuration for the VNET by clicking **Virtual Network** from the **Settings** blade.
 
