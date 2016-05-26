@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="03/24/2016"
+   ms.date="05/26/2016"
    ms.author="sstein"/>
 
-# Try SQL Database: Use C&#x23; to create a SQL database with the SQL Database Library for .NET
+# Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET
 
 **Single database**
 
@@ -47,7 +47,7 @@ To complete the steps in this article you need the following:
 To set up a SQL database with C#, get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -268,8 +268,8 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
 
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
