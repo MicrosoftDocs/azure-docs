@@ -392,7 +392,7 @@ The elements in the `with` clause are matched against the source text in turn. E
 * In a regex parse, a regular expression can use the minimization operator '?' to move as soon as possible to the following match.
 * A column name with a type parses the text as the specified type. Unless kind=relaxed, an unsuccessful parse invalidates matching the whole pattern.
 * A column name without a type, or with the type 'string', copies the minimum number of characters to get to the following match.
-* '*' Skips the minimum number of characters to get to the following match. You can use '*' at the start and end of the pattern, or after a type other than string, or between string matches.
+* ' * ' Skips the minimum number of characters to get to the following match. You can use '*' at the start and end of the pattern, or after a type other than string, or between string matches.
 
 All of the elements in a parse pattern must match correctly; otherwise, no results will be produced. The exception to this rule is that when kind=relaxed, if parsing a typed variable fails, the rest of the parse continues.
 
