@@ -259,7 +259,10 @@ Note that the **softDeleteMarkerValue** must be a string – use the string repr
 
 **Q:** Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?
 
-A: Yes, as long as you allow Azure services to connect to your database by opening appropriate ports and configuring your database with a trusted certificate.
+A: Yes. However, you need to allow your search service to connect to your database: 
+
+1. Configure the firewall to allow access to the IP address of your search service. 
+2. You may also need to configure your database with a trusted certificate so that the search service can open SSL connections to the database.
 
 **Q:** Can I use Azure SQL indexer with SQL databases running on-premises? 
 
