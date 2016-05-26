@@ -45,12 +45,20 @@ Implement the following best practices when provisioning the virtual array:
 
 ### Sizing
 
-Sizing should take into account the following factors:
+When sizing a tiered share or a volume, take into account the following factors:
 
 - local reservation for volumes or shares. Approximately 10% space is reserved on the local tier for each provisioned tiered volume/share.
 - snapshot overhead. Roughly 25% space on the local tier is reserved for snapshots.
 - need for restores. Sizing should account for space needed for restore if doing restore as a new operation.
 - some buffer should be allocated for any unexpected growth
+
+For example, if you wanted to provision a 5 TB tiered volume, the breakdown will be:
+
+- Local reservation: 564 GB
+- Space needed for restore: 564 GB
+- Snapshot overhead: 25%
+ 
+Taking these things into account, for the 5 TB tiered share, you can provision a 1.5 to 2 TB local disk.  Thin provisioned should give you a better usage as the restore as new space is required only if you want to restore older than 5 days data.
 
 
 Total usable disk size = Total provisioned volume size + (Max (Provisioned volume size) for all the existing volumes) + some buffer
@@ -59,7 +67,7 @@ Examples
 
 ### Group policy
 
-Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory directory service containers: sites, domains, or organizational units (OUs). If your virtual array is domain-joined, then GPOs can be applied to it. These GPOs can adversely affect the operation of your StorSimple Virtual Array.
+Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory directory service containers: sites, domains, or organizational units (OUs). If your virtual array is domain-joined, then GPOs can be applied to it. These GPOs GPOs can install applications such as an anti-virus software that can adversely impact the operation of the StorSimple Virtual Array.
 
 Hence, we recommend that you:
 
@@ -67,7 +75,6 @@ Hence, we recommend that you:
 
 -   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child-node) will not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
 
--  GPOs can install applications such as an anti-virus software that can adversely impact the operation of the StorSimple Virtual Array.
 
 ### Networking
 
@@ -295,8 +302,13 @@ Multiple virtual arrays may need to be deployed to account for a growing working
 
 -   deploy new workloads to the new appliance(s).
 
-Multiple virtual arrays when configured as a file server can be deployed under a DFS namespace. In this instance, DFS-R is not supported.
+
+### Integration with Distributed File System Namespace (DFS-N) and Distributed File System Replication service (DFS-R)
+
+Multiple virtual arrays when configured as a file server can be deployed under a DFS-N. 
+
+For DFS-R, only the locally pinned volumes are supported on the StorSimple Virtual Array as the syncs are always local. The tiered volumes are not supported as DFS-R will crawl through all the content on a folder to be replicated, potentially recalling data from the cloud and churning the working set.
 
 
 ## See also
-
+Learn how to [administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) via the StorSimple Manager service.
