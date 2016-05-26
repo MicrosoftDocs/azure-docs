@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="05/26/2016"
 	ms.author="curtand"/>
 
 # Setting up Azure Active Directory for self-service group management
@@ -23,9 +23,7 @@ Self-service group management enables users to create and manage security groups
 
 Self-service group management currently comprises two essential scenarios: delegated group management and self-service group management.
 
-
 - **Delegated group management** - An example is an administrator who is managing access to a SaaS application that her company is using. Managing these access rights is becoming cumbersome, so this administrator asks the business owner to create a new group. The administrator now assigns access for the application to a new group that the business owner just created and puts all the people who currently have access to the application into this group. The business owner then can add more users, and those users are automatically provisioned to the application moments later. The business owner does not need to wait for the administrator to do the work but can manage access himself for his users. The administrator can do the same thing for an administrative assistant for a different business group, and both the business owner and this administrative assistant can now manage access for their users – without being able to touch or see each other’s users. The administrator can still see all users who have access to the application and block access rights if needed.
-
 
 - **Self-service group management** - An example of this scenario is two users who both have SharePoint Online sites that they set up independently, but who would want to give each other’s teams access to their sites. To accomplish they, they can create one group in Azure AD, and in SharePoint Online each of them picks that same group to provide access to their sites. When someone wants access, they request it from the Access Panel, and after approval they get access to both SharePoint Online sites automatically. Later one of them decides that all people accessing his site should also get access to a particular SaaS application. He asks administrator of this SaaS application to add access rights for this application to his site. From then on, any requests that he approves will give access to the two SharePoint Online sites and also to this SaaS application.
 
