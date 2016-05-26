@@ -566,7 +566,7 @@ Here we build a binary classification model to predict whether a trip is tipped 
 		print ('Coefficients: \n', logit_fit.coef_)
 		Y_train_pred = logit_fit.predict(X_train)
 
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_logit_coefficient.PNG)
+       ![c1](./media/machine-learning-data-science-process-data-lake-walkthough/c1-py-logit-coefficient.PNG)
 
 - Score testing data set
 
@@ -588,7 +588,7 @@ Here we build a binary classification model to predict whether a trip is tipped 
 		print metrics.confusion_matrix(Y_train,Y_train_pred)
 		print metrics.confusion_matrix(Y_test,Y_test_pred)
 
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/py_logit_evaluation.PNG)
+       ![c2](./media/machine-learning-data-science-process-data-lake-walkthough/c2-py-logit-evaluation.PNG)
 
 
  
@@ -598,7 +598,7 @@ We want to operationalize the machine learning model after it has been built. He
 
 - Find your workspace credentials from Azure ML studio settings. In Azure Machine Learning Studio, click **Settings** --> **Name** --> **Authorization Tokens**. 
 
-	![](./media/machine-learning-data-science-process-data-lake-walkthough/workspace_id.PNG)
+	![c3](./media/machine-learning-data-science-process-data-lake-walkthough/c3-workspace-id.PNG)
 
 
 		workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
@@ -631,7 +631,7 @@ We want to operationalize the machine learning model after it has been built. He
 
 		NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
 
-       ![](./media/machine-learning-data-science-process-data-lake-walkthough/call_API.PNG)
+       ![c4](./media/machine-learning-data-science-process-data-lake-walkthough/c4-call-API.PNG)
 
 
 ## Option 2: Create and deploy models directly in Azure Machine Learning
