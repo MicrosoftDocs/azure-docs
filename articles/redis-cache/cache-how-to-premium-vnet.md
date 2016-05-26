@@ -47,7 +47,7 @@ Once the cache is created, you can view the configuration for the VNET by clicki
 
 ![Virtual network][redis-cache-vnet-info]
 
->[AZURE.IMPORTANT] To access your Azure Redis cache instance when using a VNET, pass the static IP address of the cache in the VNET as the first parameter in the connection string, and pass in an `sslhost` parameter with the endpoint of your cache. In the following example the static IP address is `10.14.0.5` and the cache endpoint is `contoso5premium.redis.cache.windows.net`.
+>[AZURE.IMPORTANT] To connect to your Azure Redis cache instance when using a VNET, pass the static IP address of the cache in the VNET as the first parameter in the connection string, and pass in an `sslhost` parameter with the endpoint of your cache. In the following example the static IP address is `10.14.0.5` and the cache endpoint is `contoso5premium.redis.cache.windows.net`.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
