@@ -18,6 +18,12 @@
 
 # Create an Active Directory application with Azure PowerShell to access resources
 
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [Azure CLI](resource-group-authenticate-service-principal-cli.md)
+- [Portal](resource-group-create-service-principal-portal.md)
+
+
 This topic shows you how to use [Azure PowerShell](powershell-install-configure.md) to create an Active Directory (AD) application, such as an automated process, application, or service, that can access other resources in your subscription. With Azure Resource Manager, you can use role-based access control to grant permitted actions to the application.
 
 In this article, you will create two objects - the AD application and the service principal. The AD application resides in the tenant where the app is registered, and defines the process to run. The service principal contains the identity of the AD application and is used for assigning permissions. From the AD application, you can create many service principals. For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](./active-directory/active-directory-application-objects.md). 
@@ -160,7 +166,7 @@ In this section, you will perform the steps to create an AD application with a c
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
-### Prepare values needed for script
+### Prepare values for your script
 
 In your script you will pass in three values that are needed to log in as the service principal. You will need:
 

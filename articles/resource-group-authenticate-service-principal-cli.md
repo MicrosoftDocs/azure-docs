@@ -18,6 +18,11 @@
 
 # Create an Active Directory application with Azure CLI to access resources
 
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-authenticate-service-principal.md)
+- [Azure CLI](resource-group-authenticate-service-principal-cli.md)
+- [Portal](resource-group-create-service-principal-portal.md)
+
 This topic shows you how to use [Azure CLI for Mac, Linux and Windows](xplat-cli-install.md) to create an Active Directory (AD) application, such as an automated process, application, or service, that can access other resources in your subscription. With Azure Resource Manager, you can use role-based access control to grant permitted actions to the application.
 
 In this article, you will create two objects - the AD application and the service principal. The AD application resides in the tenant where the app is registered, and defines the process to run. The service principal contains the identity of the AD application and is used for assigning permissions. From the AD application, you can create many service principals. For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](./active-directory/active-directory-application-objects.md). 
@@ -41,7 +46,7 @@ In this section, you will perform the steps to create the AD application with a 
 
         azure ad app create --name "exampleapp" --home-page "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your_Password>
         
-    The AD application is returned. The AppId property is needed for creating service principals, role assignments and acquiring access tokens. 
+    The AD application is returned. The AppId property is needed for creating service principals and acquiring access tokens. 
 
         data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
         data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
@@ -112,7 +117,7 @@ To complete these steps you must have [OpenSSL](http://www.openssl.org/) install
 
         azure ad app create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
 
-    The Active Directory application is returned. The AppId property is needed for creating service principals, role assignments and acquiring access tokens. 
+    The Active Directory application is returned. The AppId property is needed for creating service principals and acquiring access tokens. 
 
         data:    AppId:          4fd39843-c338-417d-b549-a545f584a745
         data:    ObjectId:       4f8ee977-216a-45c1-9fa3-d023089b2962
@@ -141,9 +146,7 @@ To complete these steps you must have [OpenSSL](http://www.openssl.org/) install
 
         azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
 
-You have created an Active Directory application and a service principal for that application. You have assigned the service principal to a role. Now, you need to login as the service principal to perform operations as the service principal. 
-
-### Prepare values for script
+### Prepare values for your script
 
 In your script you will pass in three values that are needed to log in as the service principal. You will need:
 
@@ -152,7 +155,6 @@ In your script you will pass in three values that are needed to log in as the se
 - certificate thumbprint
 
 You have seen the application id and certificate thumbprint in previous steps. However, if you need to retrieve these values later, the commands are shown below, along with the command to get the tenant id.
-
 
 1. To retrieve the certificate thumbprint and remove unneeded characters, use:
 
