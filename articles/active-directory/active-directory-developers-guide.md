@@ -99,7 +99,7 @@ These articles provide a foundation reference for REST and authentication librar
 
 ### Authentication protocols
 
-- [Azure AD authentication protocols](active-directory-protocols.md): Learn about the different authentication and authorization protocols supported by Azure AD.
+- [Azure Active Directory authentication protocols](active-directory-protocols.md): Learn about the different authentication and authorization protocols supported by Azure Active Directory.
 
 - [SAML 2.0 protocol reference](active-directory-saml-protocol-reference.md): The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.
 
