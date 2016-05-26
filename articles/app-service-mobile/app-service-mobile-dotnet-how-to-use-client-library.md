@@ -517,7 +517,7 @@ The following topics are covered in this section:
 
 ###<a name="client-flow"></a>Client-managed authentication
 
-Your app can also independently contact the identity provider and then provide the returned token to App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. This may be preferred to using a server flow as it provides a more native UX feel and allows for additional customization.
+Your app can independently contact the identity provider and then provide the returned token during login with your backend. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. This may be preferred to using a server flow as it provides a more native UX feel and allows for additional customization.
 
 Examples are provided for the following client-flow authentication patterns:
 
