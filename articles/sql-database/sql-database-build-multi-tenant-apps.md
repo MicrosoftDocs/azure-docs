@@ -21,7 +21,7 @@
 
 ## Leverage elastic pools and build more efficient multi-tenant apps
 
-If you're a SaaS dev writing a multi-tenant app and handling many customers, you often make tradeoffs in customer performance, management, and security. With Azure SQL Database Elastic Database Pools, you no longer have to make that compromise. These Pools help you manage and monitor multi-tenant apps and gain isolation benefits of one-customer-per-database.
+If you're a SaaS dev writing a multi-tenant app and handling many customers, you often make tradeoffs in customer performance, management, and security. With Azure SQL Database Elastic Database Pools, you no longer have to make that compromise. These pools help you manage and monitor multi-tenant apps and gain isolation benefits of one-customer-per-database. See [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
