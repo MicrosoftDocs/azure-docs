@@ -20,7 +20,7 @@
 
 You can communicate with DocumentDB through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers/). The protocol support for MongoDB assumes that the MongoDB client drivers are communicating with a MongoDB 2.6 or later server endpoint. DocumentDB supports this by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/), version 2.6 (note that wire protocol version 3.2 is nearly fully supported, but certain client experiences such as version 3.2 MongoDB shell sessions may indicate that they are “degrading to 'legacy' mode”).
 
-DocumentDB supports the core MongoDB API functions to Create, Read, Update and Delete (CRUD) data as well as query the database. The implemented capabilities have been prioritized based on the needs of common platforms, frameworks, and tools application patterns.
+DocumentDB supports the core MongoDB API functions to Create, Read, Update and Delete (CRUD) data as well as query the database. The implemented capabilities have been prioritized based on the needs of common platforms, frameworks, tools, and application patterns.
 
 ## Collections
 Collections in DocumentDB are billable entities. The cost of a collection is determined by the provisioned throughput of the collection measured in request units per second along with the total consumed storage in gigabytes. The provisioned throughput can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application. For more information, see [DocumentDB performance levels](documentdb-performance-levels.md).  
