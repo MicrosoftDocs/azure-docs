@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create AD application with PowerShell | Microsoft Azure"
-   description="Describes how to create an Active Directory application and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
+   description="Describes how to use Azure PowerShell to create an Active Directory application and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/25/2016"
+   ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Creating and authenticating an Active Directory application with Azure Resource Manager
+# Create an Active Directory application with Azure PowerShell to access resources
 
 This topic shows you how to use [Azure PowerShell](powershell-install-configure.md) to create an Active Directory (AD) application, such as an automated process, application, or service, that can access other resources in your subscription. With Azure Resource Manager, you can use role-based access control to grant permitted actions to the application.
 
@@ -160,27 +160,39 @@ In this section, you will perform the steps to create an AD application with a c
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
+### Prepare values needed for script
+
+In your script you will pass in three values that are needed to log in as the service principal. You will need:
+
+- application id
+- tenant id 
+- certificate thumbprint
+
+You have seen the application id and certificate thumbprint in previous steps. However, if you need to retrieve these values later, the commands are shown below, along with the command to get the tenant id.
+
+1. To retrieve the tenant id, use:
+
+        (Get-AzureRmSubscription).TenantId 
+
+    Or, if you have more than one subscription, provide the name of the subscription:
+
+        (Get-AzureRmSubscription -SubscriptionName "Windows Azure MSDN - Visual Studio Ultimate").TenantId
+        
+2. To retrieve the application id, use:
+
+        (Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example").ApplicationId
+        
+3. To retrieve the certificate thumbprint, use:
+
+        (Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp).Thumbprint
+
 ### Provide certificate through automated PowerShell script
 
 You have created an Active Directory application and a service principal for that application. You have assigned the service principal to a role. Now, you need to login as the service principal to perform operations as the service principal.
 
-1. In your script you will pass in three values that are needed to log in as the service principal. You will need:
+To authenticate in your script, specify the account is a service principal and provide the certificate thumbprint, the application id, and tenant id.
 
-   - application id
-   - tenant id 
-   - certificate thumbprint
-
-   You have seen the application id and certificate thumbprint in previous steps. You can retrieve the tenant id with:
-
-      $tenantid = (Get-AzureRmSubscription).TenantId 
-
-   Or, if you have more than one subscription, you can specify a specific one:
-
-      $tenantid = (Get-AzureRmSubscription -SubscriptionName "Windows Azure MSDN - Visual Studio Ultimate").TenantId
-
-4. To authenticate in your script, specify the account is a service principal and provide the certificate thumbprint, the application id, and tenant id.
-
-        Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint {thumbprint} -ApplicationId {applicationId} -TenantId {tenantid}
+    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint {thumbprint} -ApplicationId {applicationId} -TenantId {tenantid}
 
 You are now authenticated as the service principal for the Active Directory application that you created.
 
