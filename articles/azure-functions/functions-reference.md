@@ -129,7 +129,7 @@ Function apps are built on App Service, so all of the [deployment options availa
 
 3. Navigate to `D:\home\site\wwwroot\` to update *host.json* or `D:\home\site\wwwroot\<function_name>` to update a function's files.
 
-4. Drag-and-drop a file you want to upload into the appropriate folder in the file grid. There are two areas in the file grid where you can drop a file. For .zip files, a box appears with the label "Drag here to upload and unzip." For other file types, drop in the file grid but outside "unzip" box.
+4. Drag-and-drop a file you want to upload into the appropriate folder in the file grid. There are two areas in the file grid where you can drop a file. For *.zip* files, a box appears with the label "Drag here to upload and unzip." For other file types, drop in the file grid but outside the "unzip" box.
 
 #### To use FTP
 
