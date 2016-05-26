@@ -57,6 +57,8 @@ Now that you have Azure AD Connect installed you can [verify the installation an
 
 Learn more about these features, which were enabled with the installation: [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), and [Azure AD Connect Health](active-directory-aadconnect-health-sync.md).
 
+Learn more about these common topics: [scheduler and how to trigger sync](active-directory-aadconnectsync-feature-scheduler.md).
+
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 ## Related documentation
