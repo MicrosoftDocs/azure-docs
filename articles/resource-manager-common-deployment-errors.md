@@ -39,7 +39,7 @@ review the expression syntax.
 ## Resource name already exists
 
 For some resources, most notably Storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. 
-You can create a unique name by concatenating your naming convention with the result of the [uniqueString](./resource-group-template-functions/#uniquestring) function.
+You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
