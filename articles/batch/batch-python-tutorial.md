@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/27/2016"
+	ms.date="05/30/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch Python client
@@ -41,7 +41,7 @@ The Python tutorial code sample is one of the many Batch code samples found in t
 
 ### Python environment
 
-In order to run the sample scripts, you will need a **Python interpreter** compatible with version **2.7** or **3.3-3.5**.
+In order to run the *python_tutorial_client.py* sample script on your local workstation, you will need a **Python interpreter** compatible with version **2.7** or **3.3-3.5**. The script has been tested on both Linux and Windows.
 
 You will also need to install the **Azure Batch** and **Azure Storage** Python packages. This can be done using the *requirements.txt* found here:
 
@@ -61,7 +61,7 @@ The [Azure Batch Explorer][github_batchexplorer] is a free utility that is inclu
 
 ## Batch Python tutorial code sample
 
-The Batch Python tutorial code sample consists of two Python scripts and a few data files:
+The Batch Python tutorial code sample consists of two Python scripts and a few data files.
 
 - **python_tutorial_client.py**: Interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). The *python_tutorial_client.py* script runs on your local workstation.
 
@@ -224,7 +224,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 ### ResourceFiles
 
-A [ResourceFile][py_resource_file] provides tasks in Batch with the URL to a file in Azure Storage that will be downloaded to a compute node before that task is run. The [ResourceFile][py_resource_file].**blob_source** property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most tasks types in Batch Python include a *ResourceFiles* property, including:
+A [ResourceFile][py_resource_file] provides tasks in Batch with the URL to a file in Azure Storage that will be downloaded to a compute node before that task is run. The [ResourceFile][py_resource_file].**blob_source** property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most task types in Batch include a *ResourceFiles* property, including:
 
 - [CloudTask][py_task]
 - [StartTask][py_starttask]
@@ -337,9 +337,11 @@ When you create a pool, you define a [PoolAddParameter][py_pooladdparam] which s
 
 - **Start task** (*start_task* - not required)<p/>Along with the above physical node properties, you may also specify a [StartTask][py_starttask] for the pool (it is not required). The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks will run.<p/>In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the StartTask's **resource_files** property) from the StartTask *working directory* to the *shared* directory that all tasks running on the node can access. Essentially, this copies `python_tutorial_task.py` to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
+You may notice the call to the `wrap_commands_in_shell` helper function. This function takes a collection of separate commands and creates a single command line appropriate for a task's command line property.
+
 Also notable in the code snippet above is the use of two environment variables in the **command_line** property of the StartTask: `AZ_BATCH_TASK_WORKING_DIR` and `AZ_BATCH_NODE_SHARED_DIR`. Each compute node within a Batch pool is automatically configured with several environment variables that are specific to Batch. Any process that is executed by a task has access to these environment variables.
 
-> [AZURE.TIP] To find out more about the environment variables that are available on compute nodes in a Batch pool, as well as information on task working directories, see [Environment settings for tasks](batch-api-basics.md#environment) and [Files and directories](batch-api-basics.md#files) in the [overview of Azure Batch features](batch-api-basics.md).
+> [AZURE.TIP] To find out more about the environment variables that are available on compute nodes in a Batch pool, as well as information on task working directories, see [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) and [Files and directories](batch-api-basics.md#files-and-directories) in the [overview of Azure Batch features](batch-api-basics.md).
 
 ## Step 4: Create Batch job
 
@@ -378,6 +380,8 @@ Now that a job has been created, tasks are added to perform the work.
 
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
+
+Tasks are the individual units of work that execute on the compute nodes. A task has a command line and runs the scripts or executables that you specify in that command line.
 
 To actually perform work, tasks must be added to a job. Each [CloudTask][py_task] is configured with a command line property and [ResourceFiles][py_resource_file] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the sample, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
 
@@ -425,7 +429,7 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 > [AZURE.IMPORTANT] When they access environment variables such as `$AZ_BATCH_NODE_SHARED_DIR` or execute an application not found in the node's `PATH`, task command lines must be prefixed with `/bin/bash` (Linux) or `cmd /c` (Windows). This will explicitly execute the command shell and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's `PATH` (such as *python* in the above snippet).
 
-Within the `for` loop in the code snippet above, you can see that the command line for the task is constructed such that five command-line arguments are passed to *python_tutorial_task.py*:
+Within the `for` loop in the code snippet above, you can see that the command line for the task is constructed with five command-line arguments that are passed to *python_tutorial_task.py*:
 
 1. **filepath**: This is the local path to the file as it exists on the node. When the ResourceFile object in `upload_file_to_container` was created in Step 2 above, the file name was used for this property (the `file_path` parameter in the ResourceFile constructor). This indicates that the file can be found in the same directory on the node as *python_tutorial_task.py*.
 
