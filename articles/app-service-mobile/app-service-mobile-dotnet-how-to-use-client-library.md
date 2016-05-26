@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="05/25/2016"
 	ms.author="glenga"/>
 
 # How to use the managed client for Azure Mobile Apps
@@ -22,15 +22,12 @@
 
 ##Overview
 
-This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If
-you are new to Mobile Apps, you should consider first completing the [Azure Mobile Apps quickstart] tutorial. In this guide, we focus on the client-side
-managed SDK. To learn more about the server-side SDKs for Mobile Apps, see the HOWTO documentation for the [.NET Server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
-or the [Node.js Server SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
+This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Azure Mobile Apps quickstart] tutorial. In this guide, we focus on the client-side managed SDK. To learn more about the server-side SDKs for Mobile Apps, see the documentation for the [.NET Server SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or the [Node.js Server SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
 ## Reference documentation
 
-The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET Client Reference].
-You can also find several client samples in the [Azure-Samples GitHub Repository].
+The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET client reference].
+You can also find several client samples in the [Azure-Samples GitHub repository].
 
 ##<a name="setup"></a>Setup and Prerequisites
 
@@ -648,39 +645,45 @@ The following code authenticates using Live SDK and uses the returned token to s
 Refer to the documentation for more information about the [Windows Live SDK].
 
 ###<a name="caching"></a>Caching the authentication token
-In some cases, the call to the login method can be avoided after the first time the user authenticates. You can use [PasswordVault] for
-Windows Store apps to cache the current user identity the first time they log in and every subsequent time you check whether you already
-have the user identity in our cache. When the cache is empty, you still need to send the user through the login process.
+In some cases, the call to the login method can be avoided after the first successful authentication. Windows Store and UWP apps can use [PasswordVault] to cache the current authentication token after a successful sign-in, as follows:
 
-	// After logging in
+	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);		
+
 	PasswordVault vault = new PasswordVault();
-	vault.Add(new PasswordCredential("Facebook", user.UserId, user.MobileServiceAuthenticationToken));
+	vault.Add(new PasswordCredential("Facebook", client.currentUser.UserId, 
+		client.currentUser.MobileServiceAuthenticationToken));
 
-	// Log in
+The UserId value is stored as the UserName of the credential and the token is the stored as the Password. On subsequent start-ups, you can check the **PasswordVault** for cached credentials. The following example uses cached credentials when they are found, and otherwise attempts to authenticate again with the backend:
+
+	// Try to retrieve stored credentials.
 	var creds = vault.FindAllByResource("Facebook").FirstOrDefault();
 	if (creds != null)
 	{
-		user = new MobileServiceUser(creds.UserName);
-		user.MobileServiceAuthenticationToken = vault.Retrieve("Facebook", creds.UserName).Password;
+		// Create the current user from the stored credentials.
+		client.currentUser = new MobileServiceUser(creds.UserName);
+		client.currentUser.MobileServiceAuthenticationToken = 
+			vault.Retrieve("Facebook", creds.UserName).Password;
 	}
 	else
 	{
-		// Regular login flow
-		user = new MobileServiceuser( await client
-			.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-		var token = new JObject();
-		// Replace access_token_value with actual value of your access token
-		token.Add("access_token", "access_token_value");
+		// Regular login flow and cache the token as shown above.
 	}
 
-	 // Log out
+When you sign-out a user, you must also remove the stored credential, as follows:
+
 	client.Logout();
-	vault.Remove(vault.Retrieve("Facebook", user.UserId));
+	vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 
+When you use client-managed authentication, you can also cache the access token obtained from your provider such as Facebook or Twitter. This token can be supplied to request a new authentication token from the backend, as follows:
 
-For Windows Phone apps, you may encrypt and cache data using the [ProtectedData] class and store sensitive information in isolated storage.
+	var token = new JObject();
+	// Replace <your_access_token_value> with actual value of your access token
+	token.Add("access_token", "<your_access_token_value>");
 
--->
+	// Authenticate using the access token.
+	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
+
+Xamarin	apps use the [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) APIs to securely store credentials in an **Account** object. 
 
 ### <a name="adal"></a>Authenticate users with the Active Directory Authentication Library
 
@@ -969,7 +972,7 @@ the following example:
 [How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
-[Azure Mobile Apps .NET Client Reference]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
+[Azure Mobile Apps .NET client reference]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
 [MobileServiceClient]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408(v=azure.10).aspx
@@ -1006,7 +1009,7 @@ the following example:
 [Notification Hubs APIs]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [Mobile Apps Files Sample]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
-[Azure-Samples GitHub Repository]: https://github.com/Azure-Samples
+[Azure-Samples GitHub repository]: https://github.com/Azure-Samples
 
 <!-- External URLs -->
 [JsonPropertyAttribute]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
