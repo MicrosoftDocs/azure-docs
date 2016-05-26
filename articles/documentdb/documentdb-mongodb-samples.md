@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="DocumentDB protocol support for MongoDB | Microsoft Azure" 
-	description="Learn about DocumentDB protocol support for MongoDB, now available in public preview." 
-	keywords="mongodb protocol, mongodb, mongo database"
+	pageTitle="DocumentDB for MongoDB examples | Microsoft Azure" 
+	description="Find examples for DocumentDB's protocol support for MongoDB." 
+	keywords="mongodb examples"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -27,8 +27,8 @@ To use these examples, you must:
 
 The following instructions can be used to connect a Node.js MongoDB application to a DocumentDB with Protocol Support for MongoDB account.
 
-1. Use git to git clone https://github.com/scotch-io/mean-google-maps
-2. Navigate to your mean-google-maps directory
+1. Use git to `git clone https://github.com/scotch-io/mean-google-maps`.
+2. Navigate to your mean-google-maps directory.
 3. Edit /app/config.js and add the following entry (with connection string information for your account):
 
 		documentdb:
@@ -41,15 +41,15 @@ The following instructions can be used to connect a Node.js MongoDB application 
 
 		mongoose.connect(database.documentdb.url);
 
-5. npm install && node server.js
-6. Open http://localhost:3000
+5. `npm install && node server.js`.
+6. Open http://localhost:3000.
 7. Use the app!
 
 ## Get started with a sample ASP.NET MVC task list application
 
-You can use the Create a web app in Azure that connects to MongoDB running on a virtual machine [tutorial](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-store-data-mongodb-vm/), with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to a DocumentDB account with protocol support for MongoDB.  
+You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to a DocumentDB account with protocol support for MongoDB.  
 
-1. Follow the tutorial, with one modification.  replace the dal.cs code with this:
+1. Follow the tutorial, with one modification.  Replace the Dal.cs code with this:
 	
 		using System;
 		using System.Collections.Generic;
