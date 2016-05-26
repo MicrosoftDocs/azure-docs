@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Use MongoChef with a DocumentDB with protocol support for MongoDB account | Microsoft Azure" 
 	description="Learn how to use MongoChef with a DocumentDB with protocol support for MongoDB account, now available for preview." 
-	keywords="mongodb protocol, mongodb, mongo database"
+	keywords="mongochef"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -32,19 +32,19 @@ To add your DocumentDB with protocol support for MongoDB account to the MongoChe
 
 	![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 	
-2. In the New Connection window, on the **Server Tab**, enter the FQDN of the DocumentDB with protocol support for MongoDB account and the port.
+2. In the **New Connection** window, on the **Server** tab, enter the FQDN of the DocumentDB with protocol support for MongoDB account and the port.
 	
 	![Screen shot of the MongoChef connection manager server tab](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 
-3. In the New Connection window, on the **Authentication Tab**, choose Authentication Mode **Standard (MONGODB-CR or SCARM-SHA-1)** and enter the user name and password information.  Accept the default authentication db (admin) or provide your own value.
+3. In the **New Connection** window, on the **Authentication** tab, choose Authentication Mode **Standard (MONGODB-CR or SCARM-SHA-1)** and enter the user name and password information.  Accept the default authentication db (admin) or provide your own value.
 
 	![Screen shot of the MongoChef connection manager authentication tab](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 
-4. In the New Connection window, on the **SSL** tab, check the **Use SSL protocol to connect** check box and the **Accept self-signed SSL certificates** radio button.
+4. In the **New Connection** window, on the **SSL** tab, check the **Use SSL protocol to connect** check box and the **Accept self-signed SSL certificates** radio button.
 
 	![Screen shot of the MongoChef connection manager SSL tab](./media/documentdb-mongodb-mongochef/ConnectionManagerSSLTab.png)
 
-5. Click the **Test Connection** button to validate the connection information, click **Ok** to return to the New Connection window, and then click **Save**.
+5. Click the **Test Connection** button to validate the connection information, click **OK** to return to the New Connection window, and then click **Save**.
 
 	![Screen shot of the MongoChef test connection window](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
@@ -52,11 +52,11 @@ To add your DocumentDB with protocol support for MongoDB account to the MongoChe
 
 To create a database, collection, and documents using MongoChef, perform the following steps.
 
-1. In the Connection Manager, highlight the connection and click Connect.
+1. In **Connection Manager**, highlight the connection and click **Connect**.
 
 	![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectToAccount.png)
 
-2. Right click the host and choose **Add Database**.  Provide a database name and click **Ok**.
+2. Right click the host and choose **Add Database**.  Provide a database name and click **OK**.
 	
 	![Screen shot of the MongoChef Add Database option](./media/documentdb-mongodb-mongochef/AddDatabase1.png)
 
