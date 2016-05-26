@@ -799,7 +799,7 @@ When you use client-managed authentication, you can also cache the access token 
 	// Authenticate using the access token.
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
-Xamarin	apps use the [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) APIs to securely store credentials in an **Account** object. 
+Xamarin	apps use the [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth/) APIs to securely store credentials in an **Account** object. For an example of using these APIs, see the [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs) code file in the [ContosoMoments photo sharing sample](https://github.com/azure-appservice-samples/ContosoMoments/tree/dev).
 
 ##<a name="pushnotifications">Push Notifications
 
