@@ -26,7 +26,7 @@ You can search the [Maven repository](http://search.maven.org/) for the complete
 
 In this article, you will learn how to use the [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter notebook.
 
-**Prerequisites:**
+##Prerequisites
 
 You must have the following:
 
