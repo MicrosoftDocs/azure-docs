@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB protocol support for MongoDB | Microsoft Azure" 
 	description="Learn about DocumentDB protocol support for MongoDB, now available in public preview." 
-	keywords="mongodb protocol, mongodb, mongo database"
+	keywords="mongodb"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
