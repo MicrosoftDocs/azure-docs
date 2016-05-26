@@ -23,7 +23,7 @@ In Azure Search, you can incrementally adjust capacity of specific computational
 
 Scalability becomes available when you provision a service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md).  
 
-For both tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. 
+For all billable tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. 
 
 - Basic provides up to 3 SU per service.
 - Standard provides up to 36 SU per service.
@@ -37,7 +37,7 @@ As a general rule, search applications need more replicas than partitions. The n
 
 Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. For many deployments,  one partition provides sufficient storage and IO (at 15 million documents per partition).
 
-Query workloads, however, rely on replicas. You could require additional replicas if you need more throughput or high availability.
+Query workloads, however, execute primarily on replicas. You could require additional replicas if you need more throughput or high availability.
 
 General recommendations for high availability are:
 
@@ -48,7 +48,7 @@ General recommendations for high availability are:
 
 Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. Instead, you might consider adding redundancy at the service level. For a deeper discussion of the workarounds, see [this forum post](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE] Recall that service level agreements and scalability are features of the standard service. The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers. If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the standard level and then reload indexes and data to the new service. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on service provisioning.
+> [AZURE.NOTE] Recall that service level agreements and scalability are features of basic and standard services. The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers. If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the basic or standard level and then reload indexes and data to the new service. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on service provisioning.
 
 ## Terminology: partitions and replicas
 
@@ -97,7 +97,7 @@ Search units, pricing, and capacity are explained in detail on the Azure web sit
 
 > [AZURE.NOTE] The number of replicas and partitions must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 
-## Calculate Search Units for Specific Resourcing Combinations: R X P = SU**
+## Calculate Search Units for Specific Resourcing Combinations: R X P = SU
 
 The formula for calculating how many SUs you need is replicas multiplied by partitions. For example, 3 replicas multiplied by 3 partitions is billed as 9 search units.
 
