@@ -160,7 +160,10 @@ To use NuGet packages in a C# function, upload a *project.json* file to the the 
 }
 ```
 
+Only the .NET Framework 4.6 is supported, so make sure that your *project.json* file specifies `net46` as shown here.
+
 When you upload a *project.json* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. Just add the required `using` statements to your *run.csx* file to use the types defined in the NuGet packages.
+
 
 ### How to upload a project.json file
 
