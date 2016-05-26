@@ -20,7 +20,7 @@
 # Troubleshoot Azure Sign-up Issues
 This article will help you troubleshoot common causes of issues that can occur when you sign up for Azure.
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## I am getting an error when entering my information to sign up.
 Is the account profile information correct?
