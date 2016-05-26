@@ -63,7 +63,7 @@ Once you have a Logic App template, you can continue to add or modify any additi
 
 ## Deploying a Logic App Template
 
-Once you have a template, you can deploy using any number of tools including PowerShell, REST API, Visual Studio, Release Management, or the Azure Portal Template Deployment.  Details on deployment can be found [here](../resource-group-template-deploy.md).  It is recommended you also create a [parameter file](../resource-group-template-deploy/#parameter-file) to store values for the parameter.
+Once you have a template, you can deploy using any number of tools including PowerShell, REST API, Visual Studio, Release Management, or the Azure Portal Template Deployment.  Details on deployment can be found [here](../resource-group-template-deploy.md).  It is recommended you also create a [parameter file](../resource-group-template-deploy.md#parameter-file) to store values for the parameter.
 
 ### Authorizing OAuth Connections
 
