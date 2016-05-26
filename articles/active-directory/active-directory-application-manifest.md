@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/16/2016"
+   ms.date="05/26/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Understanding the Azure Active Directory application manifest
