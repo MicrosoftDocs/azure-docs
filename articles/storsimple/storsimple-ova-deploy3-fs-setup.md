@@ -95,7 +95,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 	> [AZURE.NOTE]
 	> 
 	> Ensure that your virtual array is in its own organizational unit (OU) for Active Directory and no group policy objects 
-	> (GPO) are applied to it or inherited. The group policy could install an application such as the anti-virus software that could potentially lead to data corruption. 
+	> (GPO) are applied to it or inherited. Group policy may install applications such as anti-virus software on the StorSimple Virtual Array. Installing additional software is not supported and could lead to data corruption. 
 
 1.  (Optionally) configure your web proxy server. Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here.
 
