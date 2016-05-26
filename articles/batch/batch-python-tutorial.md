@@ -248,7 +248,7 @@ Shared access signatures are strings that provide secure access to containers an
 ![Create a Batch pool][3]
 <br/>
 
-After it uploads the task script and data files to the Storage account, *python_tutorial_client.py* starts its interaction with the Batch service by using the Batch Python module. To do so, a [BatchServiceClient][py_batchserviceclient] is first created:
+After it uploads the task script and data files to the Storage account, *python_tutorial_client.py* starts its interaction with the Batch service by using the Batch Python module. To do so, a [BatchServiceClient][py_batchserviceclient] is created:
 
 ```python
  # Create a Batch service client. We'll now be interacting with the Batch
@@ -327,23 +327,23 @@ def create_pool(batch_service_client, pool_id,
 
 When you create a pool, you define a [PoolAddParameter][py_pooladdparam] which specifies several properties for the pool:
 
-1. **ID** of the pool (*id* - required)
+- **ID** of the pool (*id* - required)
 
  As with most entities in Batch, your new pool must have a unique ID within your Batch account. Your code will refer to this pool using its ID, and it's how you identify the pool in the Azure [portal][azure_portal].
 
-1. **Number of compute nodes** (*target_dedicated* - required)
+- **Number of compute nodes** (*target_dedicated* - required)
 
  This specifies how many VMs should be deployed in the pool. It is important to note that all Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You will find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
 
-1. **Operating system** for nodes (*virtual_machine_configuration* **or** *cloud_service_configuration* - required)
+- **Operating system** for nodes (*virtual_machine_configuration* **or** *cloud_service_configuration* - required)
 
  In *python_tutorial_client.py*, we create a pool of Linux nodes using a [VirtualMachineConfiguration][py_vm_config] obtained with our `get_vm_config_for_distro` helper function. This helper function uses [list_node_agent_skus][py_list_skus] to obtain and select an image from a list of compatible [Azure Virtual Machines Marketplace][vm_marketplace] images. You have the option to instead specify a [CloudServiceConfiguration][py_cs_config] and create pool of Windows nodes from Cloud Services. See [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two configurations.
 
-1. **Size of compute nodes** (*vm_size* - required)
+- **Size of compute nodes** (*vm_size* - required)
 
  Since we're specifying Linux nodes for our [VirtualMachineConfiguration][py_vm_config], we specify a VM size (`STANDARD_A1` in this sample) from [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md). Again, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
 
-1. **Start task** (*start_task* - not required)
+- **Start task** (*start_task* - not required)
 
  Along with the above physical node properties, you may also specify a [StartTask][py_starttask] for the pool (it is not required). The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks will run.
 
@@ -439,9 +439,9 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 Within the `for` loop in the code snippet above, you can see that the command line for the task is constructed such that five command-line arguments are passed to *python_tutorial_task.py*:
 
-1. **filepath**: This is the local path to the file as it exists on the node. When the ResourceFile object in `upload_file_to_container` was created in Step 2 above, the file name was used for this property (as a parameter to the ResourceFile constructor). This indicates that the file can be found in the same directory on the node as *python_tutorial_task.py*.
+1. **filepath**: This is the local path to the file as it exists on the node. When the ResourceFile object in `upload_file_to_container` was created in Step 2 above, the file name was used for this property (the `file_path` parameter in the ResourceFile constructor). This indicates that the file can be found in the same directory on the node as *python_tutorial_task.py*.
 
-2. **numwords**: The top *N* words should be written to the output file. In the sample, this is hard-coded so that the top three words will be written to the output file.
+2. **numwords**: The top *N* words should be written to the output file.
 
 3. **storageaccount**: The storage account name containing the container to which the task output should be uploaded.
 
