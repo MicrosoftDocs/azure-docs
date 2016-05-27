@@ -20,7 +20,7 @@
 
 # Azure Functions Event Hub bindings
 
-This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.md) bindings for Azure Functions. Azure functions supports trigger and output bindings for Azure Event Hubs.
+This article explains how to configure and code [Azure Event Hub](../event-hubs/event-hubs-overview.m) bindings for Azure Functions. Azure functions supports trigger and output bindings for Azure Event Hubs.
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
 
@@ -39,18 +39,18 @@ The *function.json* file for an Azure Event Hub trigger specifies the following 
 - `path` : The name of the event hub.
 - `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have at least read permissions to activate the trigger.
 
-	{
-	  "bindings": [
-	    {
-	      "type": "eventHubTrigger",
-	      "name": "myEventHubMessage",
-	      "direction": "in",
-	      "path": "MyEventHub",
-	      "connection": "myEventHubReadConnectionString"
-	    }
-	  ],
-	  "disabled": false
-	}
+		{
+		  "bindings": [
+		    {
+		      "type": "eventHubTrigger",
+		      "name": "myEventHubMessage",
+		      "direction": "in",
+		      "path": "MyEventHub",
+		      "connection": "myEventHubReadConnectionString"
+		    }
+		  ],
+		  "disabled": false
+		}
 
 #### Azure Event Hub trigger C# example
  
@@ -87,13 +87,13 @@ The *function.json* file for an Azure Event Hub output binding specifies the fol
 - `connection` : The name of an app setting that contains the connection string to the namespace that the event hub resides in. Copy this connection string by clicking the **Connection Information** button for the namespace, not the event hub itself.  This connection string must have send permissions to send the message to the Event Hub stream.
 - `direction` : Must be set to *out*. 
 
-    {
-      "type": "eventHub",
-      "name": "outputEventHubMessage",
-      "path": "wesmceventhub",
-      "connection": "WesmcEventHubSend",
-      "direction": "out"
-    }
+	    {
+	      "type": "eventHub",
+	      "name": "outputEventHubMessage",
+	      "path": "myeventhub",
+	      "connection": "MyEventHubSend",
+	      "direction": "out"
+	    }
 
 
 #### Azure Event Hub C# code example for output binding
