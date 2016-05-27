@@ -4,15 +4,15 @@
 	keywords="elastic database,sql databases"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="srinia"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/23/2016"
-	ms.author="sidneyh"
+	ms.date="05/27/2016"
+	ms.author="srinia"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
