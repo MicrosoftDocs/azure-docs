@@ -346,6 +346,7 @@ Below is an example ARM template for deploying a virtual machine running Windows
 ```
 
 You can deploy a template using the following PowerShell:
+
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
