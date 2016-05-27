@@ -210,6 +210,8 @@ You must now add code that implements the behavior defined in the model. You wil
         config.iotHubName = hubName;
         config.iotHubSuffix = hubSuffix;
         config.protocol = HTTP_Protocol;
+        config.deviceSasToken = NULL;
+        config.protocolGatewayHostName = NULL;
         iotHubClientHandle = IoTHubClient_Create(&config);
         if (iotHubClientHandle == NULL)
         {

@@ -26,7 +26,7 @@ This article provides step-by-step guidance on developing Spark applications wri
 * To access your Azure HDInsight Spark cluster resources
 * To develop and run a Scala Spark application locally
 
-You can also follow a vide [here](https://mix.office.com/watch/1nqkqjt5xonza) to get you started.
+You can also follow a video [here](https://mix.office.com/watch/1nqkqjt5xonza) to get you started.
 
 >[AZURE.IMPORTANT] This tool can be used to create and submit applications only for an HDInsight Spark cluster on Linux.
 
