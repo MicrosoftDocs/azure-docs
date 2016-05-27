@@ -60,7 +60,7 @@ Here's how to install the Adventure Works sample database:
 
 Now, let's see how to register data assets from the Adventure Works sample database with **Azure Data Catalog**.
 
-## Exercise 1: Register data assets
+## Register data assets
 
 In this exercise you use the **Azure Data Catalog** publishing tool to register data assets from the Adventure Works database with the catalog. Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
@@ -116,7 +116,7 @@ In this exercise you use the **Azure Data Catalog** publishing tool to register 
 In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization.
 In the next exercise you learn how to discover registered data assets.
 
-## Exercise 2: Discover registered data assets
+## Discover registered data assets
 
 In this exercise you will use the **Azure Data Catalog** portal to discover registered data assets and view their metadata. **Azure Data Catalog** has a simple but powerful search syntax that enables you to easily build queries that return data users need. **Azure Data Catalog** has the following search options:
 
@@ -155,7 +155,7 @@ In this exercise you used the **Azure Data Catalog** portal to discover and view
 2. Confirm that you see all the data assets you published today. 
 
 <a name="annotating"/>
-## Exercise 4: Annotating registered data sources
+## Annotate registered data sources
 
 In this exercise you use the **Azure Data Catalog** portal to annotate data assets that have been previously registered in the catalog. The annotations you provide will supplement and enhance the structural metadata extracted from the data source during registration and will make the data assets much easier to discover and understand. Because each **Data Catalog** user can provide his own annotations, it’s easy for every user with a perspective on the data to share it.
 
@@ -173,7 +173,7 @@ In this exercise you added descriptive information to registered data assets so 
 
 > [AZURE.NOTE] The Standard Edition of Data Catalog includes a business glossary that allows catalog administrators to define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
 
-## Exercise 5: Crowdsourcing metadata
+## Crowdsource metadata
 
 In this exercise you work with another user to add metadata to data assets in the catalog. **Azure Data Catalog’s** crowdsourced approach to annotations allows any user to add tags, descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
 
@@ -187,7 +187,7 @@ Ask a colleague to repeat the [Annotating Registered Data Sources](#annotating) 
 
 In this exercise you explored **Azure Data Catalog’s** capabilities for crowdsourced metadata, where any catalog user can annotate the data assets he discovers.
 
-## Exercise 6: Connecting to data sources
+## Connect to data sources
 
 In this exercise you will use the **Azure Data Catalog** portal to connect to a data source using Microsoft Excel.
 
@@ -210,7 +210,7 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to a 
 
 In this exercise you connected to data sources discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
 
-## Exercise 7: Removing data source metadata
+## Remove data source metadata
 
 In this exercise you will use the **Azure Data Catalog** portal to remove preview data from registered data assets, and to delete data assets from the catalog.
 
