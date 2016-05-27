@@ -35,7 +35,7 @@ You should use the built-in protection if your application meets the following c
 2. The rate of data change is low (e.g. transactions per hour). The RPO of 1 hour will not result in a massive data loss.
 3. The application is cost sensitive and cannot justify the additional cost of Geo-Replication 
 
-To enable Geo-Restore, see [Geo-Restore an Azure SQL Database from a geo-redundant backup](https://azure.microsoft.com/en-us/documentation/articles/sql-database-geo-restore-portal.md).
+To enable Geo-Restore, see [Geo-Restore an Azure SQL Database from a geo-redundant backup](sql-database-geo-restore-portal.md).
 
 > [AZURE.NOTE] Geo-Restore does not pre-allocate the compute capacity in any particular region to restore active databases from the backup during the outage. The service will manage the workload associated with the geo-restore requests in a manner that minimizes the impact on the existing databases in that region and their capacity demands will have priority. Therefore, the recovery time of your database will depend on how many other databases will be recovering in the same region at the same time. 
 
@@ -49,7 +49,7 @@ You should use the Geo-Replication if your application meets the following crite
 2. The rate of data change is high (e.g. transactions per minute or seconds). The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.
 3. The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.
 
-To enable Active Geo-Replication, see [Configure geo-replication for Azure SQL Database](https://azure.microsoft.com/en-us/documentation/articles/sql-database-geo-replication-portal.md)
+To enable Active Geo-Replication, see [Configure geo-replication for Azure SQL Database](sql-database-geo-replication-portal.md)
 
 > [AZURE.NOTE] Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads. 
 
