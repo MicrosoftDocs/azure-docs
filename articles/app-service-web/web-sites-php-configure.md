@@ -160,6 +160,31 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 
 	![Save configuration settings][save-button]
 
+<a name="composer" />
+## How to: Enable Composer automation in Azure
+
+By default, App Service doesn't do anything with composer.json, if you have one in your PHP
+project. If you use [Git deployment](app-service-web-php-get-started.md), you can enable composer.json 
+processing during `git push` by enabling the Composer extension.
+
+1. In your PHP web app's blade in the [Azure portal](https://portal.azure.com), click **Tools** > **Extensions**.
+
+    ![Azure Portal settings blade to enable Composer automation in Azure](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+
+2. Click **Add**, then click **Composer**.
+
+    ![Add Composer extension to enable Composer automation in Azure](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    
+3. Click **OK** to accept legal terms. Click **OK** again to add the extension.
+
+    The **Installed extensions** blade will now show the Composer extension.  
+    ![Accept legal terms to enable Composer automation in Azure](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    
+4. Now, perform `git add`, `git commit`, and `git push` like in the previous section. You'll now see that Composer
+is installing dependencies defined in composer.json.
+
+    ![Git deployment with Composer automation in Azure](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
+
 ## Next steps
 
 For more information, see the [PHP Developer Center](/develop/php/).
