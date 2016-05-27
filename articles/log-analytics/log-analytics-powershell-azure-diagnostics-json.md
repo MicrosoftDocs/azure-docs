@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use PowerShell to collect data from Azure Diagnostics Using Log Analytics  | Microsoft Azure"
-	description="Azure resources can write logs and metrics to an Azure storage account, often by using Azure Diagnostics. Log Analytics can index this data and make it searchable. Use PowerShell to configure Log Analytics to collect data from Azure diagnostics storage."
+	pageTitle="Use PowerShell to configure Log Analytics to collect data from Azure Diagnostics | Microsoft Azure"
+	description="Azure resources can write logs and metrics to an Azure storage account, often by using Azure Diagnostics. Log Analytics can collect this data and make it easily searchable. Use PowerShell to configure Log Analytics to collect data from Azure diagnostics storage."
 	services="log-analytics"
 	documentationCenter=""
 	authors="richrundmsft"
@@ -16,16 +16,13 @@
 	ms.date="05/23/2016"
 	ms.author="richrund"/>
 
-# Collect data from Azure Using Azure diagnostics and Log Analytics
+# Configure Log Analytics to collect data from Azure Diagnostics
 
-Many Azure resources are able to write logs and metrics to an Azure storage account. Log Analytics can consume this data and make it 
-easier to monitor your Azure resources.
+Many Azure resources are able to write logs and metrics to an Azure storage account. Log Analytics can collect this data and make it easily searchable, allowing you to better monitor your Azure resources. 
+
+This article describes how to use PowerShell to configure Log Analytics to collect data from Azure diagnostics storage.
 
 Refer to [Collect data from Azure Using Azure diagnostics and Log Analytics](log-analytics-azure-storage.md) for more information on Azure diagnostics.
-
-[How to install and configure Azure PowerShell](../powershell-install-configure.md)
-
-This article describes how to use PowerShell to configure Log Analytics to read from the storage used by Azure diagnostics.
 
 >[AZURE.NOTE] You'll be charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
 
@@ -33,9 +30,9 @@ This article describes how to use PowerShell to configure Log Analytics to read 
 
 Log Analytics can read the logs for the following services write diagnostics to blob storage in JSON format:
 
-+ Automation (Private Preview)
++ Automation (Preview)
 + Key Vault (Preview)
-+ Application Gateway (Private Preview)
++ Application Gateway (Preview)
 + Network Security Group (Preview)
 
 Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. Refer to the following articles for how 
@@ -48,10 +45,11 @@ to enable diagnostic logging:
  
 The following sections will walk you through how to:
 
-+ Enable the Log Analytics solution for the Azure service 
 + Configure Log Analytics to collect the logs for each resource  
++ Enable the Log Analytics solution for the Azure service 
 
-### Enabling Log Analytics to Collect Azure Diagnostics Written to Blob in JSON
+
+### Configure Log Analytics to Collect Azure Diagnostics Written to Blob in JSON
 
 We have provided two PowerShell scripts to assist with configuring Log Analytics: 
 
@@ -62,6 +60,7 @@ We have provided two PowerShell scripts to assist with configuring Log Analytics
 
 1. Azure PowerShell with version 1.0.8 or newer of the Operational Insights cmdlets.
   - Verify your version of cmdlets: `Import-Module AzureRM.OperationalInsights -MinimumVersion 1.0.8 `
+  - [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 2. You have configured diagnostic logging for the Azure resource
   - Automation (details coming)
   - [Key Vault](../key-vault/key-vault-logging.md)
