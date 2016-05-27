@@ -322,6 +322,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 >-	SAVE
 >-	SHUTDOWN
 >-	SLAVEOF
+>-	CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
 
 For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 

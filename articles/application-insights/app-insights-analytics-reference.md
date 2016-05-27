@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/26/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -351,102 +351,129 @@ Splits an exception record into rows for each item in the details field.
 
 ### parse operator
 
-    T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T | parse kind=regex "My 62nd birthday" 
-        with "My" Year:regex("[0..9]+") regex("..") "birthday"
+
+    T | parse kind="relaxed"
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
+
+    T |  parse kind=regex "I got socks for my 63rd birthday" 
+    with "(I|She) got" present "for .*?" year:long * 
 
 Extracts values from a string. Can use simple or regular expression matching.
 
-The elements in the `with` clause are matched against the source string in turn. Each element chews off a chunk of the source text. If it's a plain string, the matching cursor moves along as far as the match. If it's a column with a type name, the cursor moves along far enough to parse the specified type. (String matches move along until a match to the next element is found.) If it's a regex, the regular expression is matched (and the resulting column always has string type).
-
 **Syntax**
 
-    T | parse StringExpression with [SimpleMatch | Column:Type] ...
-
-    T | parse kind=regex StringExpression 
-        with [SimpleMatch | Column : regex("Regex")] ...
+    T | parse [kind=regex|relaxed] SourceText 
+        with [Match | Column [: Type [*]] ]  ...
 
 **Arguments**
 
-* *T:* The input table.
-* *kind:* simple or regex. The default is simple.
-* *StringExpression:* An expression that evaluates to or can be converted to a string.
-* *SimpleMatch:* A string that matches the next part of the text.
-* *Column:* Specifies the new column to assign a match to.
-* *Type:* Specifies how to parse the next part of the source string.
-* *Regex:* A regular expression to match the next part of the string. 
+* `T`: The input table.
+* `kind`: 
+ * `simple` (default): the `Match` strings are plain strings.
+ * `relaxed`: if the text doesn't parse as the type of a column, the column is set to null and the parse continues 
+ * `regex`: the `Match` strings are regular expressions.
+* `Text`: A column or other expression that evaluates to or can be converted to a string.
+* *Match:* Match the next part of the string, and discard it.
+* *Column:* Assign the next part of the string to this column. The column is created if it does not exist.
+* *Type:* Parse the next part of the string as the specified type, such as int, date, double. 
+
 
 **Returns**
 
 The input table, extended according to the list of Columns.
 
+The elements in the `with` clause are matched against the source text in turn. Each element chews off a chunk of the source text: 
+
+* A literal string or regular expression moves the matching cursor by the length of the match.
+* In a regex parse, a regular expression can use the minimization operator '?' to move as soon as possible to the following match.
+* A column name with a type parses the text as the specified type. Unless kind=relaxed, an unsuccessful parse invalidates matching the whole pattern.
+* A column name without a type, or with the type 'string', copies the minimum number of characters to get to the following match.
+* ' * ' Skips the minimum number of characters to get to the following match. You can use '*' at the start and end of the pattern, or after a type other than string, or between string matches.
+
+All of the elements in a parse pattern must match correctly; otherwise, no results will be produced. The exception to this rule is that when kind=relaxed, if parsing a typed variable fails, the rest of the parse continues.
 
 **Examples**
 
-The `parse` operator provides a streamlined way to `extend` a table
-by using multiple `extract` applications on the same `string` expression.
-This is most useful when the table has a `string` column that contains
-several values that you want to break into individual columns, such as a
-column that was produced by a developer trace ("`printf`"/"`Console.WriteLine`")
-statement.
-
-In the example below, assume that the column `EventNarrative` of table `StormEvents` contains
-strings of the form `{0} at {1} crested at {2} feet around {3} on {4} {5}`. The operation
-below will extend the table with two columns: `SwathSize`, and `FellLocation`.
-
-
-|EventNarrative|
-|---|
-|The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12. Flood stage at Brownsville is 18 feet. Minor flooding occurs at this level. The river overflows lock walls and some of the lower banks, along with some agricultural bottom land.|
-|The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12. Flood stage at Boston is 35 feet. Minor flooding occurs at this level, with some agricultural bottom land covered.|
-|The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16. Flood stage at Woodbury is 33 feet. Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water.|
-|The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18. Flood stage at Tell City is 38 feet. At this level, the river begins to overflow its banks above the gage. Indiana Highway 66 floods between Rome and Derby.|
+*Simple:*
 
 ```AIQL
 
-StormEvents 
-|  parse EventNarrative 
-   with RiverName:string 
-        "at" 
-        Location:string 
-        "crested at" 
-        Height:double  
-        "feet around" 
-        Time:string 
-        "on" 
-        Month:string 
-        " " 
-        Day:long 
-        "." 
-        notImportant:string
-| project RiverName , Location , Height , Time , Month , Day
-
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
-|RiverName|Location|Height|Time|Month|Day|
-|---|---|---|---|---|---|
-|The Green River | Woodbury |36.7| 0600EST | December|16|
-|The Rolling Fork River | Boston |39.3| 1700EST | December|12|
-|The Green River | Brownsville |18.8| 0930EST | December|12|
-|The Ohio River | Tell City |39| 7 AM EST | December|18|
+x | counter | present | Year
+---|---|---|---
+1 | 2 | socks | 63
 
-It is also possible to match using regular expressions. This produces the same result but all the result columns have string type:
+*Relaxed:*
+
+When the input contains a correct match for every typed column, a relaxed parse produces the same results as a simple parse. But if one of the typed columns doesn't parse correctly, a relaxed parse continues to process the rest of the pattern, whereas a simple parse stops and fails to generate any result.
+
 
 ```AIQL
 
-StormEvents
-| parse kind=regex EventNarrative 
-  with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") 
-  "at" Location:regex(".*") 
-  "crested at " Height:regex("\\d+\\.\\d+") 
-  " feet around" Time:regex(".*") 
-  "on " Month:regex("(December|November|October)") 
-   " " Day:regex("\\d+") 
-   "." notImportant:regex(".*")
-| project RiverName , Location , Height , Time , Month , Day
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
+
+x  | present | Year
+---|---|---
+1 |  socks | 63
+
+
+*Regex:*
+
+```AIQL
+
+// Run a test without reading a table:
+range x from 1 to 1 step 1 
+// Test string:
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+// Parse it:
+| parse kind=regex s 
+  with ".*?[a-zA-Z]*=" resource 
+       ", total.*?sliceNumber=" slice:long *
+       "lockTime=" lock
+       ",.*?releaseTime=" release 
+       ",.*?previousLockTime=" previous:date 
+       ".*\\)"
+| project-away x, s
+```
+
+resource | slice | lock | release | previous
+---|---|---|---|---
+Scheduler | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
 ### project operator
 
