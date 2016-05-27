@@ -62,7 +62,7 @@ The following code example creates a container and writes some of its property v
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call the **SetMetadata** method to save the values to the service.
 
-> [AZURE.NOTE]: The name of your metadata must conform to the naming conventions for C# identifiers.
+> [AZURE.NOTE] The name of your metadata must conform to the naming conventions for C# identifiers.
  
 The following code example sets metadata on a container. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax. Both are valid.
 
