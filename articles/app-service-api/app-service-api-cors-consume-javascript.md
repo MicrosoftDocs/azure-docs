@@ -100,7 +100,7 @@ In the [ToDoList sample application](https://github.com/Azure-Samples/app-servic
 
 ### Create a new web app for the ToDoListAngular project
 
-The procedure to create a new App Service web app and deploy a project to it is similar to what you saw for [creating and deploying an API app in the first tutorial in this series](app-service-api-dotnet-get-started.md#create-an-api-app-in-azure-and-deploy-the-todolistapi-project-to-it). The only difference is that the app type is **Web App** instead of **API App**.  For screen shots of the dialogs, see 
+The procedure to create a new App Service web app and deploy a project to it is similar to what you saw for [creating and deploying an API app in the first tutorial in this series](app-service-api-dotnet-get-started.md#createapiapp). The only difference is that the app type is **Web App** instead of **API App**.  For screen shots of the dialogs, see 
 
 1. In **Solution Explorer**, right-click the ToDoListAngular project, and then click **Publish**.
 
