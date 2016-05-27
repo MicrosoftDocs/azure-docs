@@ -1,6 +1,6 @@
 ## Receiving messages on the simulated device
 
-In this section, you'll modify the simulated device application you created in [Get started with IoT Hub][https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/] to receive cloud-to-device messages from the IoT hub.
+In this section, you'll modify the simulated device application you created in [Get started with IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/) to receive cloud-to-device messages from the IoT hub.
 
 1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **Program** class.
 
