@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/11/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption for Data at Rest (Preview)
@@ -25,7 +25,7 @@ The following sections provide detailed guidance on how to use the Storage Servi
 ## Overview
 
 
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPs, or SMB 3.0. Storage Service Encryption is a new feature of Azure Storage that will encrypt data when it is written to your Azure Storage supporting block blobs, page blobs and append blobs. This feature can be enabled for new storage accounts using the Azure Resource Manager (ARM) deployment model and is available for all redundancy levels (LRS, ZRS, GRS, RA-GRS). Storage Service Encryption is available for both Standard and Premium Storage, handling encryption, decryption, and key management in a totally transparent fashion. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. The Preview section below has details on how one can on board the preview program for Storage Service Encryption. 
+Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPs, or SMB 3.0. Storage Service Encryption is a new feature of Azure Storage that will encrypt data when it is written to your Azure Storage supporting block blobs, page blobs and append blobs. This feature can be enabled for new storage accounts using the Azure Resource Manager (ARM) deployment model and is available for all redundancy levels (LRS, ZRS, GRS, RA-GRS). Storage Service Encryption is available for both Standard and Premium Storage, handling encryption, decryption, and key management in a totally transparent fashion. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. The Preview section below has details on how one can on board the preview program for Storage Service Encryption.
 
 This screenshot shows where to find the Storage Service Encryption setting using the [Azure Portal](https://azure.portal.com). On this screen, you would click on Encryption to continue.
 
@@ -37,7 +37,7 @@ After you click the Encryption setting, you can enable or disable Storage Servic
 
 ##Availability
 
-Please note this feature is currently available in East Asia for Standard Storage and Japan East for Premium Storage. We will update this document as we roll this feature out in additional regions.
+Please note this feature is currently available in East Asia and West Europe for Standard Storage and Japan East for Premium Storage. We will update this document as we roll this feature out in additional regions.
 
 ##Encryption Scenarios
 
@@ -77,11 +77,11 @@ This feature is supported only for newly created Azure Storage accounts using th
 
 -   To register for the feature, you can use the Register-AzureRmProviderFeature PowerShell cmdlet.
 
-    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
-        
+    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
+
 -   To query the state of your registration to see if the subscription has been approved, you can use the Get-AzureRmProviderFeature PowerShell cmdlet.
 
-    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
+    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
 
 When the registration status is returned as “Registered”, your subscription has been approved. Please also visit our Azure Storage Service Encryption Preview group on Yammer.
 
@@ -215,7 +215,7 @@ A: When did you create the storage account? During the preview, you will need to
 
 **Q: Is the SSE Preview only permitted in specific regions?**
 
-A: The SSE Preview is available in East Asia for Standard storage and Japan East for Premium Storage. As we roll this out to additional regions in the following months, we will update this document.
+A: The SSE Preview is available in East Asia and West Europe for Standard storage and Japan East for Premium Storage. As we roll this out to additional regions in the following months, we will update this document.
 
 **Q: How do I contact someone if I have any issues or want to provide feedback?**
 

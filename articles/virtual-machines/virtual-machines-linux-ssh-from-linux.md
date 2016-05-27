@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="04/15/2016" 
 	ms.author="rasquill"/>
 
 #How to Use SSH with Linux and Mac on Azure
@@ -39,7 +39,7 @@ Here are the deployment scenarios, and the types of files you use in each:
 
 ## Create keys for use with SSH
 
-Azure requires **ssh-rsa** format key files of 2048 bits or the equivalent .pem files, depending upon your scenario. If you already have such files, pass the public key file when creating your Azure VM. 
+If you already have SSH keys, pass the public key file when creating your Azure VM. 
 
 If you need to create the files:
 
@@ -48,17 +48,14 @@ If you need to create the files:
 	- For Mac, be sure to visit the [Apple Product Security web site](https://support.apple.com/HT201222) and choose the proper updates if necessary.
 	- For Debian-based Linux distributions such as Ubuntu, Debian, Mint, and so on:
 
-			sudo apt-get update ssh-keygen
-			sudo apt-get update openssl
+			sudo apt-get install --upgrade-only openssl
 
 	- For RPM-based Linux distributions such as CentOS and Oracle Linux:
 
-			sudo yum update ssh-keygen
 			sudo yum update openssl
 
 	- For SLES and OpenSUSE
 
-			sudo zypper update ssh-keygen
 			sudo zypper update openssl
 
 2. Use **ssh-keygen** to create a 2048-bit RSA public and private key files, and unless you have a specific location or specific names for the files, accept the default location and name of `~/.ssh/id_rsa`. The basic command is:
@@ -73,11 +70,9 @@ If you need to create the files:
 
 	If you want to create a .pem file from a different private key file, modify the `-key` argument. 
 
-> [AZURE.NOTE] If you plan to manage services deployed with the classic deployment model, you may also want to create a **.cer** format file to upload to the portal -- although this doesn't involve **ssh** or connecting to Linux VMS, which is the subject of this article. To create those files on Linux or Mac, type:
+> [AZURE.NOTE] If you plan to manage services deployed with the classic deployment model, you may also want to create a **.cer** format file to upload to the portal -- although this doesn't involve **ssh** or connecting to Linux VMS, which is the subject of this article. To convert your .pem file into a DER encoded X509 certificate file on Linux or Mac, type:
 <br />
-> openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
-
-To convert your .pem file into a DER encoded X509 certificate file.
+  openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Use SSH keys you already have
 
@@ -89,7 +84,7 @@ Once you've created the files you need, there are many ways to create a VM to wh
 
 ### Example: Creating a VM with the id_rsa.pub file
 
-The most common usage is when imperatively creating a VM -- or uploading a template to create a VM. The following code example shows creating a new, secure Linux VM in Azure by passing the public file name (in this case, the default `~/.ssh/id_rsa.pub` file) to the `azure vm create` command. (The other arguments were previously created.)
+The most common usage is when imperatively creating a VM -- or uploading a template to create a VM. The following code example shows creating a new, secure Linux VM in Azure by passing the public file name (in this case, the default `~/.ssh/id_rsa.pub` file) to the `azure vm create` command. (The other arguments, such as resource group and storage account, were previously created.). This example uses the Resource Manager deployment method, so ensure your Azure CLI is set accordingly with `azure config mode arm`:
 
 	azure vm create \
 	--nic-name testnic \
@@ -97,7 +92,7 @@ The most common usage is when imperatively creating a VM -- or uploading a templ
 	--vnet-name testvnet \
 	--vnet-subnet-name testsubnet \
 	--storage-account-name computeteststore 
-	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
+	--image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
 	--username ops \
 	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
@@ -136,23 +131,23 @@ The next example shows the use of the **ssh-rsa** format with a Resource Manager
 	data:    location               String  West Europe
 	data:    vmSize                 String  Standard_A2
 	data:    vmName                 String  sshvm
-	data:    ubuntuOSVersion        String  14.04.2-LTS
+	data:    ubuntuOSVersion        String  14.04.4-LTS
 	info:    group deployment create command OK
 
 
 ### Example: Creating a VM with a .pem file
 
-You can then use the .pem file with either the classic portal or with the classic deployment mode and `azure vm create`, as in the following example:
+You can then use the .pem file with either the classic portal or with the classic deployment mode (`azure config mode asm`) and `azure vm create`, as in the following example:
 
 	azure vm create \
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-en-us-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-en-us-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -266,30 +261,32 @@ If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, yo
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-
+	
+    Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-49-generic x86_64)
+	
 	* Documentation:  https://help.ubuntu.com/
 
-	System information as of Sat Oct 10 20:53:08 UTC 2015
+    System information as of Fri Apr 15 18:51:42 UTC 2016
 
-	System load: 0.52              Memory usage: 5%   Processes:       80
-	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
+    System load: 0.31              Memory usage: 2%   Processes:       213
+    Usage of /:  42.1% of 1.94GB   Swap usage:   0%   Users logged in: 0
 
-	Graph this data and manage this system at:
-		https://landscape.canonical.com/
+    Graph this data and manage this system at:
+    https://landscape.canonical.com/
 
-	Get cloud support with Ubuntu Advantage Cloud Guest:
-		http://www.ubuntu.com/business/services/cloud
+    Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
 
-	0 packages can be updated.
+    0 packages can be updated.
 	0 updates are security updates.
-
+	
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-
+	
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
+
 
 ## If you have trouble connecting
 

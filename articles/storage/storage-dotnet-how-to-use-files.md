@@ -199,14 +199,14 @@ With support for SMB 3.0, File storage now supports encryption and persistent ha
 
 When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. The table below provides a summary of support for Windows clients. Please refer to this blog for more details on [SMB versions](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
-| Windows Client         | SMB Version Supports |
-|------------------------|----------------------|
-| Windows 7              | SMB 2.1              |
-| Windows Server 2008 R2 | SMB 2.1              |
-| Windows 8              | SMB 3.0              |
-| Windows Server 2012    | SMB 3.0              |
-| Windows Server 2012 R2 | SMB 3.0              |
-| Windows 10             | SMB 3.0              |
+| Windows Client         | SMB Version Supported |
+|------------------------|-----------------------|
+| Windows 7              | SMB 2.1               |
+| Windows Server 2008 R2 | SMB 2.1               |
+| Windows 8              | SMB 3.0               |
+| Windows Server 2012    | SMB 3.0               |
+| Windows Server 2012 R2 | SMB 3.0               |
+| Windows 10             | SMB 3.0               |
 
 ### Mount the file share from an Azure virtual machine running Windows
 
@@ -259,11 +259,36 @@ To mount the file share from an on-premises client, you must first take these st
 
 ## Develop with File storage
 
-To work with File storage programmatically, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
+To write code that calls File storage, you can use the storage client libraries for .NET and Java, or the Azure Storage REST API. The example in this section demonstrates how to work with a file share by using the [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/mt347887.aspx) from a simple console application running on the desktop.
 
-[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
+### Create the console application and obtain the assembly
 
-[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
+To create a new console application in Visual Studio and install the NuGet package containing the Azure Storage Client Library:
+
+1. In Visual Studio, choose **File > New Project**, and then choose **Windows > Console Application** from the list of Visual C# templates.
+2. Provide a name for the console application, and then click **OK**.
+3. Once your project has been created, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage Client Library for .NET package and dependencies.
+
+The code examples in this article also use the [Microsoft Azure Configuration Manager Library](https://msdn.microsoft.com/library/azure/mt634646.aspx) to retrieve the storage connection string from an app.config file in the console application. With Azure Configuration Manager, you can retrieve your connection string at runtime regardless of whether your application is running in Microsoft Azure or from a desktop, mobile, or web application. 
+
+To install the Azure Configuration Manager package, right-click the project in Solution Explorer and choose **Manage NuGet Packages**. Search online for "ConfigurationManager" and click **Install** to install the package.
+
+Using Azure Configuration Manager is optional. You can also use an API such as the .NET Framework's [ConfigurationManager class](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
+
+### Save your storage account credentials to the app.config file
+
+Next, save your credentials in your project's app.config file. Edit the app.config file so that it appears similar to the following example, replacing `myaccount` with your storage account name, and `mykey` with your storage account key.
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	    <startup>
+	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	    <appSettings>
+	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+	    </appSettings>
+	</configuration>
+
 
 > [AZURE.NOTE] The latest version of the Azure storage emulator does not support File storage. Your connection string must target an Azure storage account in the cloud to work with File storage.
 

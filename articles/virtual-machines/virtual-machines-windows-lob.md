@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: High-availability line of business application
@@ -52,7 +52,7 @@ The baseline, representative configuration for a high-availability line of busin
 This consists of:
 
 - An intranet-only line of business application with two servers at the web and database tiers.
-- A SQL Server AlwaysOn configuration with two virtual machines running SQL Server and a majority node computer in a cluster.
+- A SQL Server Always On configuration with two virtual machines running SQL Server and a majority node computer in a cluster.
 - Active Directory Domain Services in the virtual network with two replica domain controllers.
 
 For an overview of line of business applications, see the [Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664).
@@ -75,9 +75,9 @@ To deploy this configuration, use the following process:
 
 	Create the web server virtual machines and add your line of business application to it. For the detailed configuration, see [Phase 4](virtual-machines-windows-ps-lob-ph4.md).
 
-- Phase 5: Configure a SQL Server AlwaysOn Availability Group.
+- Phase 5: Configure a SQL Server Always On Availability Group.
 
-	Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
+	Prepare the application databases, create a SQL Server Always On Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-windows-ps-lob-ph5.md).
 
 Once configured, you can easily expand this line of business application by adding more web servers or virtual machines running SQL Servers to the cluster.
 

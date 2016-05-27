@@ -10,10 +10,10 @@
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/08/2016"
+   ms.date="04/29/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using REST APIs
@@ -35,24 +35,66 @@ In this article, you will learn how to use WebHDFS REST APIs and Data Lake Store
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
-- **Create an Azure Active Directory Application**. See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md). Once you have created the application, retrieve the following values related to the application.
-	- Get client ID and tenant ID for the application.
-	- Create an authentication key
-	- Set delegated permissions
+- **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Direcotry - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
+	* **For interactive authentication** (used in this article) - In Azure Active Directory, you must create a **Native Client application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID** and **redirect URI** for the application
+		- Set delegated permissions
 
-	Instructions on how to retrieve these values are available in the link provided above.
-- **Assign the Azure Active Directory application to a role**. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group. For instructions, see [Assign application to a role](../resource-group-create-service-principal-portal.md#assign-application-to-role).
+	* **For non-interactive authentication** - In Azure Active Directory, you must create a **Web application**. Once you have created the application, retrieve the following values related to the application.
+		- Get **client ID**, **client secret**,  and **redirect URI** for the application
+		- Set delegated permissions
+		- Assign the Azure Active Directory application to a role. The role can be at the level of the scope at which you want to give permission to the Azure Active Directory application. For example, you can assign the application at the subscription level or at the level of a resource group. For instructions, see [Assign application to a role](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
+
+	See [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md) for instructions on how to retrieve these values, set the permissions, and assign roles.
+
 - [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against a Data Lake Store account.
 
 ## How do I authenticate using Azure Active Directory?
 
 You can use two approaches to authenticate using Azure Active Directory.
 
-* **Interactive**, where the application prompts the user to log in. For more information, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+### Interactive (user authentication)
 
-* **Non-interactive**, where the application provides its own credentials. For more information, see [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+In this scenario, the application prompts the user to log in and all the operations are performed in the context of the user. Perform the following steps for interactive authentication.
 
-This article uses **non-interactive** approach. For this, you must issue a POST request like the one shown below. 
+1. Through your application, redirect the user to the following URL:
+
+		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+
+	>[AZURE.NOTE] \<REDIRECT-URI> needs to be encoded for use in a URL. So, https://localhost, use `https%3A%2F%2Flocalhost`)
+
+	For the purpose of this tutorial, you can replace the placeholder values in the URL above and paste it in a web browser's address bar. You will be redirected to authenticate using your Azure login. Once you succesfully log in, the response is displayed in the browser's address bar. The response will be in the following format:
+		
+		http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+
+2. Capture the authorization code from the response. For this tutorial, you can copy the authorization code from the address bar of the web browser and pass it in the POST request to the token endpoint, as shown below:
+
+		curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+        -F redirect_uri=<REDIRECT-URI> \
+        -F grant_type=authorization_code \
+        -F resource=https://management.core.windows.net/ \
+        -F client_id=<CLIENT-ID> \
+        -F code=<AUTHORIZATION-CODE>
+
+	>[AZURE.NOTE] In this case, the \<REDIRECT-URI> need not be encoded.
+
+3. The response is a JSON object that contains an access token (e.g., `"access_token": "<ACCESS_TOKEN>"`) and a refresh token (e.g., `"refresh_token": "<REFRESH_TOKEN>"`). Your application uses the access token when accessing Azure Data Lake Store and the refresh token to get another access token when an access token expires.
+
+		{"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":	"1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+
+4.  When the access token expires, you can request a new access token using the refresh token, as shown below:
+
+		 curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+      		-F grant_type=refresh_token \
+      		-F resource=https://management.core.windows.net/ \
+      		-F client_id=<CLIENT-ID> \
+      		-F refresh_token=<REFRESH-TOKEN>
+ 
+For more information on interactive user authentication, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+
+### Non-interactive
+
+In this scenario, the the application provides its own credentials to perform the operations. For this, you must issue a POST request like the one shown below. 
 
 	curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -64,13 +106,15 @@ The output of this request will include an authorization token (denoted by `acce
 
 	{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
+This article uses the **non-interactive** approach. For more information on non-interactive (service-to-service calls), see [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+
 ## Create a Data Lake Store account
 
 This operation is based on the REST API call defined [here](https://msdn.microsoft.com/library/mt694078.aspx).
 
 Use the following cURL command. Replace **\<yourstorename>** with your Data Lake Store name.
 
-	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@C:\temp\input.json
+	curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
 In the above command, replace \<`REDACTED`\> with the authorization token you retrieved earlier. The request payload for this command is contained in the **input.json** file that is provided for the `-d` parameter above. The contents of the input.json file resemble the following:
 

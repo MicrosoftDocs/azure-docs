@@ -14,7 +14,7 @@
    ms.topic="support-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Troubleshooting Azure Linux VM extension failures
@@ -73,4 +73,3 @@ Where "publsher-name" corresponds to the extension type from the output of "azur
 and name is the name of the extension resource from the template
 
 Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
-

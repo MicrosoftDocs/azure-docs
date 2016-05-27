@@ -13,11 +13,13 @@
 
 ### Add or remove prefixes if you've already created a VPN gateway connection
 
-If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local network gateway, you'll need to do the following steps in order. This will result in some downtime for your VPN connection, as you will need to remove and rebuild the gateway.  However, because you have requested an IP address for the connection, you won't need to re-configure your on-premises VPN router unless you decide to change the values you previously used.
+If you have created your VPN connection and want to add or remove the IP address prefixes contained in your local network gateway, you'll need to do the following steps in order. This will result in some downtime for your VPN connection.
+
+>[AZURE.IMPORTANT] Don’t delete the VPN gateway. If you do so, you’ll have to go back through the steps to recreate it, as well as reconfigure your on-premises router with the new settings.
  
-1. Remove the gateway connection. 
+1. Remove the IPsec connection. 
 2. Modify the prefixes for your local network gateway. 
-3. Create a new gateway connection. 
+3. Create a new IPsec connection. 
 
 You can use the following sample as a guideline.
 

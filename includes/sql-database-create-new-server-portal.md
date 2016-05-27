@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create an Aure SQL Database logical server
+## Create an Azure SQL Database logical server
 
 Use the following steps in the Azure portal to create an Azure SQL Database logical server.
 

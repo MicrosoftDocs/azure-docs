@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/26/2016"
 	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
@@ -382,6 +382,8 @@ The `/XO` and `/XN` parameters allow you to exclude older or newer source resour
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 
+Note: This is not supported when either the source or destination is a table.
+
 ### Use a response file to specify command-line parameters
 
 	AzCopy /@:"C:\responsefiles\copyoperation.txt"
@@ -477,7 +479,7 @@ Note that if you specify a relative path following option `/V`, such as `/V:test
 
 ### Specify the number of concurrent operations to start
 
-Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy will begin concurrent operations at eight times the number of core processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for this option to avoid failure caused by resource competition.
+Option `/NC` specifies the number of concurrent copy operations. By default, AzCopy starts a certain number of concurrent operations to increase the data transfer throughput. For Table operations, the number of concurrent operations is equal to the number of processors you have. For Blob and File operations, the number of concurrent operations is equal 8 times the number of processors you have. If you are running AzCopy across a low-bandwidth network, you can specify a lower number for /NC to avoid failure caused by resource competition.
 
 ### Run AzCopy against Azure Storage Emulator
 
@@ -583,7 +585,7 @@ AzCopy always sets the Content-MD5 property for an Azure blob or file after uplo
 
 Indicates whether to transfer snapshots. This option is only valid when the source is a blob.
 
-The transferred blob snapshots are renamed in this format: [blob-name] (snapshot-time)[extension].
+The transferred blob snapshots are renamed in this format: blob-name (snapshot-time).extension
 
 By default, snapshots are not copied.
 

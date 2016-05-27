@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Monitoring database performance in Azure SQL Database" | Microsoft Azure"
+	pageTitle="Monitoring database performance in Azure SQL Database | Microsoft Azure"
 	description="Learn about the options for monitoring your database with Azure tools and dynamic management views."
 	keywords="database monitoring, cloud database performance"
 	services="sql-database"

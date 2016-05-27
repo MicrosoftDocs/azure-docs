@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Using reference data or lookup tables in a Stream Analytics input stream

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
@@ -145,6 +145,9 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		using Newtonsoft.Json.Linq;
 		using System.Text;
 		using System.Linq;
+		using Android.Support.V4.App;
+		using Android.Media;
+
 
 9. Add the following permission requests at the top of the file, after the `using` statments and before the `namespace` declaration.
 
@@ -189,12 +192,9 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		    Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
 		    RegistrationID = registrationId;
 
-		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
-
             var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-
 		}
 
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
@@ -206,7 +206,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
                 JObject templates = new JObject();
                 templates["genericMessage"] = new JObject
                 {
-                  {"body", templateBodyGCM}
+                	{"body", templateBodyGCM}
                 };
 
                 await push.RegisterAsync(RegistrationID, templates);
@@ -256,28 +256,35 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		    createNotification("Unknown message details", msg.ToString());
 		}
 
-		void createNotification(string title, string desc)
-		{
-		    //Create notification
-		    var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
+        void createNotification(string title, string desc)
+        {
+            //Create notification
+            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
 
-		    //Create an intent to show ui
-		    var uiIntent = new Intent(this, typeof(MainActivity));
+            //Create an intent to show ui
+            var uiIntent = new Intent(this, typeof(MainActivity));
 
-		    //Create the notification
-		    var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
+            //Use Notification Builder
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 
-		    //Auto cancel will remove the notification once the user touches it
-		    notification.Flags = NotificationFlags.AutoCancel;
+            //Create the notification
+            //we use the pending intent, passing our ui intent over which will get called
+            //when the notification is tapped.
+            var notification = builder.SetContentIntent(PendingIntent.GetActivity(this, 0, uiIntent, 0))
+                    .SetSmallIcon(Android.Resource.Drawable.SymActionEmail)
+                    .SetTicker(title)
+                    .SetContentTitle(title)
+                    .SetContentText(desc)
 
-		    //Set the notification info
-		    //we use the pending intent, passing our ui intent over which will get called
-		    //when the notification is tapped.
-		    notification.SetLatestEventInfo(this, title, desc, PendingIntent.GetActivity(this, 0, uiIntent, 0));
+                    //Set the notification sound
+                    .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
 
-		    //Show the notification
-		    notificationManager.Notify(1, notification);
-		}
+                    //Auto cancel will remove the notification once the user touches it
+                    .SetAutoCancel(true).Build();
+
+            //Show the notification
+            notificationManager.Notify(1, notification);
+        }
 
 14. You must also implement `OnUnRegistered` and `OnError` handlers for the receiver.
 
@@ -297,13 +304,11 @@ This section is for running the Xamarin droid project for Android. You can skip 
 
 1. In Visual Studio or Xamarin Studio, right click the **droid** project and click **Set as startup project**.
 
-2. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
+2. Press the **Run** button to build the project and start the app on your Android device.
 
-	> [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+3. In the app, type a task, and then click the plus (**+**) icon.
 
-2. In the app, type a task, and then click the plus (**+**) icon.
-
-3. Verify that a notification is received, then click **OK** to dismiss the notification.
+4. Verify that a notification is received when an item is added.
 
 
 
@@ -405,7 +410,7 @@ Your app is now updated to support push notifications.
 
 1. Right click the iOS project, and click **Set as StartPp Project**.
 
-2. Press the **Run** button or **F5** in Visual Studio to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
+2. Press the **Run** button or **F5** in Visual Studio to build the project and start the app in an iOS device, then click **OK** to accept push notifications.
 
 	> [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
@@ -437,9 +442,13 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
-		using WesmcMobileAppGaTest;
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
+
+	Also add a `using` statement for the namespace in your portable project that contains the `TodoItemManager` class.
+
+		using <Your namespace for the TodoItemManager class>;
+ 
 
 2. In App.xaml.cs add the following `InitNotificationsAsync` method. This method gets the push notification channel and registers a template to receive template notifications from notification hub. A template notification that supports `messageParam` will be delivered to this client.
 
@@ -455,15 +464,15 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
-                {
-                  {"body", templateBodyWNS},
-                  {"headers", headers} // Only needed for WNS & MPNS
-                };
+			{
+				{"body", templateBodyWNS},
+				{"headers", headers} // Only needed for WNS & MPNS
+			};
 
             await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
-3. In App.xaml.cs update the `OnLaunched` event handler with the `async` attribute and call `InitNotificationsAsync`
+3. In App.xaml.cs update the `OnLaunched` event handler with the `async` attribute and add a call to `InitNotificationsAsync` at the bottom of the method.
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -510,13 +519,11 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 1. In Visual Studio, right click the **WinApp** project and click **Set as startup project**.
 
 
-2. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
+2. Press the **Run** button to build the project and start the app.
 
-	> [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+3. In the app, type a name for a new todoitem, and then click the plus (**+**) icon to add it.
 
-3. In the app, type a task, and then click the plus (**+**) icon.
-
-4. Verify that a notification is received, then click **OK** to dismiss the notification.
+4. Verify that a notification is received when the item is added.
 
 
 

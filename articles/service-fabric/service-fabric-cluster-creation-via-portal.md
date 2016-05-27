@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -76,7 +76,7 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 	b. Select the VM size/pricing tier. The default is D4 Standard, but if you are just going to use this cluster for testing your application, you can select D2 or any smaller VM.
 
-	c. The minumum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-reliability-and-durability.md) document.
+	c. The minumum number of VMs for the primary node type is driven by the reliablity tier you choose. The default for the reliablity tier is Silver. Read more on how to [choose the Service Fabric cluster reliability and durability](service-fabric-cluster-capacity.md) document.
 
 	c. Choose the number of VMs for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minumum is driven by the reliablity level that you have choosen. Other node types can have a minumum of 1 VM.
 
@@ -145,39 +145,39 @@ With the cluster setup completed, you can now connect and begin deploying applic
 
 ### Connect to an unsecure cluster
 
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
-    ```
+```powershell
+Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+```
 
 ### Connect to a secure cluster
 
-    1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
+1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
 
-        ```powershell
-        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-        ```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-    2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
+2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
-        For example, the PowerShell command above should look similar to the following:
+    For example, the PowerShell command above should look similar to the following:
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
 ### Deploy your app
 Now that you are connected, run the following commands to deploy your application, replacing the paths shown with the appropriate ones on your machine. The example below deploys the word count sample application:
@@ -209,9 +209,9 @@ Now that you are connected, run the following commands to deploy your applicatio
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## Remote connect to a Virtual Machine Scale Set (VMSS) instance or a cluster node
+## Remote connect to a Virtual Machine Scale Set instance or a cluster node
 
-Each of the NodeTypes you specify in your cluster results in a VMSS getting set up. Refer to [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md) for details.
+Each of the NodeTypes you specify in your cluster results in a VM Scale Set getting set up. Refer to [Remote connect to a VM Scale Set instance](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node) for details.
 
 ## Next steps
 

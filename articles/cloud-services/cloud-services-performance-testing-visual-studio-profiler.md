@@ -133,7 +133,7 @@ If you added the string concatenation code in this article, you should see a war
 
 ![][14]
 
-## 5: Make changes and compare performance
+## 4: Make changes and compare performance
 
 You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
 

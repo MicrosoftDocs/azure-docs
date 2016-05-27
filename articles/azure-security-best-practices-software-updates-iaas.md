@@ -1,7 +1,7 @@
 <properties
    pageTitle="Best Practices for Software Updates on Microsoft Azure IaaS | Microsoft Azure"
    description="Article provides a collection of best practices for software updates in an Microsoft Azure IaaS environment.  It is intended for IT professionals and security analysts who deal with change control, software update and asset management on a daily basis, including those responsible for their organization's security and compliance efforts."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
@@ -9,12 +9,12 @@
    tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="05/23/2016"
    ms.author="yurid"/>
 
 #Best practices for software updates on Microsoft Azure IaaS

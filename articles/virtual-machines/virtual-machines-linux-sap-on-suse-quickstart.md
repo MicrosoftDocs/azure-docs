@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/04/2016"
    ms.author="hermannd"/>
 
 # Test SAP NetWeaver on Microsoft Azure SUSE Linux VMs

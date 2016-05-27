@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 5: Create the availability group and add the application databases
@@ -80,7 +80,7 @@ Use these steps to restore a database.
 After at least one database is prepared (using the backup and restore method), you create an Availability Group.
 
 1.	Return to the remote desktop session for the primary database server.
-2.	In **SQL Server Management Studio**, in the left pane, right-click **AlwaysOn High Availability**, and then click **New Availability Group Wizard**.
+2.	In **SQL Server Management Studio**, in the left pane, right-click **Always On High Availability**, and then click **New Availability Group Wizard**.
 3.	On the **Introduction** page, click **Next**. 
 4.	On the **Specify Availability Group Name** page, type the name of your availability group in **Availability group name** (example: AG1), and then click **Next**.
 5.	On the **Select Databases** page, select the databases for the application that were backed up, and click **Next**. These databases meet the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
@@ -103,7 +103,7 @@ Secondary | Readable Secondary | Yes
 12.	On the **Summary** page, click **Finish**. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created. If so, click **Close** to exit the wizard. 
 13.	From the Start screen, type **Failover**, and then click **Failover Cluster Manager**. In the left pane, open the name of your cluster, and then click **Roles**. A new role with the name of your availability group should be present.
 
-You have successfully configured a SQL Server AlwaysOn Availability Group for your application databases.
+You have successfully configured a SQL Server Always On Availability Group for your application databases.
 
 ![](./media/virtual-machines-windows-ps-lob-ph5/workload-lobapp-phase4.png)
 

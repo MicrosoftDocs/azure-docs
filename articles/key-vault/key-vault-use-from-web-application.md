@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="adhurwit"
 	manager=""
-	tags="azure-resource-manager"//>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"

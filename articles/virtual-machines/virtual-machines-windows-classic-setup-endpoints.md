@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # How to set up endpoints on a classic virtual machine in Azure
@@ -36,4 +36,4 @@ When you create a Windows virtual machine in the Azure classic portal, common en
 
 * To use an Azure PowerShell cmdlet to manage an ACL on an endpoint, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
-* If you created a virtual machine in the Resource Manager deployment model, you can also use Azure PowerShell to [create an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+* If you created a virtual machine in the Resource Manager deployment model, you can use Azure PowerShell to [create network security groups](../virtual-network/virtual-networks-create-nsg-arm-ps.md) to control traffic to the VM.

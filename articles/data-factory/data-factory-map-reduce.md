@@ -217,8 +217,13 @@ You can use MapReduce activity to run Spark programs on your HDInsight Spark clu
 
 [adfgetstarted]: data-factory-get-started.md
 [adfgetstartedmonitoring]:data-factory-get-started.md#monitor-pipelines 
-[adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
  
+## See Also
+- [Hive Activity](data-factory-hive-activity.md)
+- [Pig Activity](data-factory-pig-activity.md)
+- [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
+- [Invoke Spark programs](data-factory-spark.md)
+- [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)

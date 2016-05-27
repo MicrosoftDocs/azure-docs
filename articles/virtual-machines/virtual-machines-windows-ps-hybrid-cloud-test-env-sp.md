@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -222,6 +222,6 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 
 ## Next step
 
-- Deploy the [production workload](virtual-machines-windows-sp-intranet-overview.md).
+- [Configure](https://technet.microsoft.com/library/ee836142.aspx) your SharePoint farm.
 
 

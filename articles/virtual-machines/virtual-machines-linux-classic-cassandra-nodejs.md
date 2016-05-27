@@ -6,7 +6,7 @@
 	authors="hanuk" 
 	manager="wpickett" 
 	editor=""
-	azure-service-management"/>
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 

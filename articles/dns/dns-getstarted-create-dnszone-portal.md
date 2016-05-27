@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
+   ms.date="05/09/2016"
    ms.author="cherylmc"/>
 
-# Creating and managing a DNS zone in the Azure portal
+# Create a DNS zone in the Azure portal
 
 
 > [AZURE.SELECTOR]
@@ -29,13 +29,8 @@
 
 This article will walk you through the steps to create a DNS zone by using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
 
-The domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site).  A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain, you will first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
 
-### <a name="names"></a>About DNS zone names
- 
-- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
-
-- The same zone name can be re-used in a different resource group or a different Azure subscription.  Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. See [Delegate a Domain to Azure DNS](#delegate) for more information.
 
 ### About Tags for Azure DNS
 
@@ -57,7 +52,7 @@ You can add Tags in the Azure portal by using the **Settings** blade for your DN
 
 	![Create zone](./media/dns-getstarted-create-dnszone-portal/newzone250.png)
 
-4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. [See About DNS Zone Names](#names) in the section above.
+4. On the **Create DNS zone** blade, Name your DNS zone. For example, *contoso.com*. See [About DNS Zone Names](#names) in the section above.
 
 5. Next, specify the resource group that you want to use. You can either create a new resource group, or select one that already exists. 
 
@@ -74,12 +69,12 @@ You can add Tags in the Azure portal by using the **Settings** blade for your DN
 9. When your new zone has been created, the blade for your new zone will open on the dashboard.
 
 
-## View DNS zone records
+## View records
 
 Creating a DNS zone also creates the following records:
 
 - The "Start of Authority" (SOA) record. The SOA is present at the root of every DNS zone.
-- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
+- The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [Delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
 
 You can view the records from the Azure portal
 
@@ -92,6 +87,29 @@ You can view the records from the Azure portal
 
 
 	![zone](./media/dns-getstarted-create-dnszone-portal/viewzone500.png)
+
+## Test
+
+You can test your DNS zone by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
+
+If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by `Get-AzureRmDnsRecordSet` above. Be sure the substitute the correct values for your zone into the command below.
+
+	nslookup
+	> set type=SOA
+	> server ns1-01.azure-dns.com
+	> contoso.com
+
+	Server: ns1-01.azure-dns.com
+	Address:  208.76.47.1
+
+	contoso.com
+        	primary name server = ns1-01.azure-dns.com
+        	responsible mail addr = msnhst.microsoft.com
+        	serial  = 1
+        	refresh = 900 (15 mins)
+        	retry   = 300 (5 mins)
+        	expire  = 604800 (7 days)
+        	default TTL = 300 (5 mins)
 
 
 
@@ -106,4 +124,4 @@ You can delete the DNS zone directly from the portal. Before deleting a DNS zone
 
 ## Next steps
 
-After creating your DNS zone, see [Get started creating record sets and records](dns-getstarted-create-recordset-portal.md), [How to manage DNS zones](dns-operations-dnszones.md), and [How to manage DNS records](dns-operations-recordsets-portal.md).
+After creating a DNS zone, create [record sets and records](dns-getstarted-create-recordset-portal.md) to start resolving names for your Internet domain.

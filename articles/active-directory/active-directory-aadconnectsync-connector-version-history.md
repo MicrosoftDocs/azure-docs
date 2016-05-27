@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Connector Version Release History

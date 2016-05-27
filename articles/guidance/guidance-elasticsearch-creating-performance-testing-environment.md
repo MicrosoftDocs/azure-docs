@@ -3,8 +3,8 @@
    description="How to set up an environment for testing the performance of an Elasticsearch cluster."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
-   manager="marksou"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -15,9 +15,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/18/2016"
-   ms.author="masimms"/>
+   ms.author="masashin"/>
    
 # Creating a performance testing environment for Elasticsearch on Azure
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-elasticsearch.md). 
 

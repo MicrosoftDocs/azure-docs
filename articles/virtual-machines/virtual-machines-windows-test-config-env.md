@@ -11,10 +11,10 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Base Configuration test environment
@@ -302,9 +302,10 @@ This is your final configuration.
 
 Your base configuration in Azure is now ready for application development and testing or for additional test environments.
 
-## Next step
+## Next steps
 
-- Add a new virtual machine using the the [Azure portal](virtual-machines-windows-hero-tutorial.md) or build the [simulated hybrid cloud test environment](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
+- Add a new virtual machine using the the [Azure portal](virtual-machines-windows-hero-tutorial.md).
+- Build the [simulated hybrid cloud test environment](virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure

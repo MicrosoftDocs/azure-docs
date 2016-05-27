@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Python web and worker roles with Python Tools 2.2 for Visual Studio | Microsoft Azure"
 	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
-	services=""
+	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="thraka"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="hero-article"
 	ms.date="08/30/2015"
-	ms.author="huvalo"/>
+	ms.author="adegeo"/>
 
 
 
@@ -116,17 +116,17 @@ For more details about using Azure services from your web and worker roles, such
 
 <!--Link references-->
 
-[What is a Cloud Service?]: /manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: fundamentals-application-models.md#WebSites
-[execution model-vms]: fundamentals-application-models.md#VMachine
-[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[What is a Cloud Service?]: ./cloud-services/cloud-services-choose-me.md
+[execution model-web sites]: ./app-service-web/app-service-web-overview.md
+[execution model-vms]: ./virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: ./cloud-services/cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: storage-python-how-to-use-blob-storage.md
-[Queue Service]: storage-python-how-to-use-queue-storage.md
-[Table Service]: storage-python-how-to-use-table-storage.md
-[Service Bus Queues]: service-bus-python-how-to-use-queues.md
-[Service Bus Topics]: service-bus-python-how-to-use-topics-subscriptions.md
+[Blob Service]: ./storage/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ./storage/storage-python-how-to-use-queue-storage.md
+[Table Service]: ./storage/storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: ./service-bus/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ./service-bus/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->

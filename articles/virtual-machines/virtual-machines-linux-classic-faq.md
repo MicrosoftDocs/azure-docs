@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 # Frequently asked question about Azure Virtual Machines created with the classic deployment model

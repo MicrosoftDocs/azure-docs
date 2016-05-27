@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="05/10/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -25,7 +25,7 @@ This document helps you use monitoring capabilities in Azure Security Center to 
 Security Center helps you prevent, detect, and respond to threats with increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions
 
 ##What is security health monitoring?
-We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices. 
+We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices.
 
 ##Monitoring security health
 After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  Information about your network configuration is available instantly, it may take an hour or more for information about virtual machine configuration - such as security update status and OS configuration - to become available. You can view the security state of your resources, along with any issues in the **Resource Security Health** blade. You can also view a list of those issues on the **Recommendations** blade.
@@ -36,7 +36,7 @@ On the **Resources security health** tile you can to monitor the security state 
 
 ![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
 
-If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here. 
+If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here.
 
 ###Monitor virtual machines
 When you click on **Virtual machines** in the **Resources security health** tile, the **Virtual machines** blade will open with more details about onboarding and prevention steps as well as a list of all VMs that are monitored by Security Center as shown below.
@@ -69,11 +69,11 @@ The **Missing system updates** blade will show a table with the following inform
 - **VIRTUAL MACHINE**: The name of the virtual machine that is missing updates.
 - **SYSTEM UPDATES**: The number of system updates that are missing.
 - **LAST SCAN TIME**: The time that Security Center last scanned the VM for updates.
-- **STATE**: The current state of the recommendation: 
+- **STATE**: The current state of the recommendation:
 	- **Open**: The recommendation has not been addressed yet
 	- **In Progress**: The recommendation is currently being applied to those resources, no action is required by you
 	- **Resolved**: The recommendation was already completed (when the issue has been resolved, the entry is grayed out).
-- **SEVERITY**: Describes the severity of that particular recommendation: 
+- **SEVERITY**: Describes the severity of that particular recommendation:
 	- **High**: A vulnerability exists with a meaningful resource (application, VM, network security group) and requires attention
 	- **Medium**: Non-critical or additional steps required to complete a process or eliminate a vulnerability
 	- **Low**: A vulnerability should be addressed but does not require immediate attention. (By default, low recommendations are not presented, but you can filter on low recommendations if you want to view them.)
@@ -89,7 +89,7 @@ The virtual machines section gives you an overview of all VMs and recommendation
 
 ![VMs](./media/security-center-monitoring/security-center-monitoring-fig7-new.png)
 
-The icon that appears under each recommendation helps you to quickly identify which VMs need attention and what type of recommendation. 
+The icon that appears under each recommendation helps you to quickly identify which VMs need attention and what type of recommendation.
 
 In the example above, one VM has a critical recommendation regarding antimalware programs. To obtain more information about the VM, click on it. A new blade open that represents this VM as shown below.
 
@@ -98,54 +98,50 @@ In the example above, one VM has a critical recommendation regarding antimalware
 This blade has the security details for the VM. At the bottom of this blade you can see the recommended action and the severity of each issue.
 
 ###Monitor virtual networks
-The prevention status section for networking lists the virtual networks that are monitored by Security Center. When you click on **Networking** in the **Resources security health** tile, the **Networking** blade will open with more details as shown below:
+When you click on **Networking** in the **Resources security health** tile, the **Networking** blade will open with more details as shown below:
 
 ![Networking](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
-
-Once you open this blade you will see two sections:
-- Networking recommendations
-- Networking
- 
-In each section you can select an individual option for more details about the recommendation. The sections below will cover these areas in more detail.
 
 ####Networking recommendations
 
 Similar to the virtual machines resource health information, this blade provides a summarized list of issues at the top of the blade and a list of monitored networks on the bottom.
 
-![Endpoint](./media/security-center-monitoring/security-center-monitoring-fig10-new.png)
+![Networking blade](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
 
 The networking status breakdown section lists potential security issues and offers recommendations. Possible issues can include:
 
-- [ACLs on endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) not enabled
-- [Network Security Groups](../virtual-network/virtual-networks-nsg.md) not enabled
-- Healthy Subnets and access in NSG not restricted are listed. 
- 
-When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below. 
+- Network Security Groups (NSGs) on subnets not enabled
+- NSGs on VMs not enabled
+- Restrict external access through public external endpoint
+- Healthy Subnets
 
-![Restrict endpoint](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
+When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below.
 
-In this example the **Restrict access through public external endpoint** blade has a list of network security groups (NSGs) that are part of this alert, the subnet and network with which this NSG is associated, the current state of this recommendation and the severity of the issue. If you click on the network security group, another blade will open as shown below.
+![Restrict endpoint](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-This blade has the network security group information and location. It also has the list of inbound rules that are currently enabled. The bottom part of this blade has the VM that is associated with this network security group. If you want to enable the inbound rules to block an undesired port that is currently opened or change source of the current inbound rule, click the **Edit inbound rule** button at the top of the blade.
+In this example the **Configure Missing Network Security Groups for Subnets** blade has a list of subnets and virtual machines with which are missing NSG protection. If you click on the subnet that you want to apply the NSG, another blade will open.
+
+In the **Choose network security group** blade you will select the most appropriate Network Security Group for the subnet or your can create a new Network Security Group. 
 
 ####Networking section
 
-In the **Networking** section, there is a hierarchical view of the resource group, subnet and network interface that's associated with your VM as shown below.
+In the **Networking** section, there is a hierarchical view of the resources as shown below:
 
-![Network tree](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
+![Network tree](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
 
-This section divides [Resource Manager-based VMs from classic VMs](../resource-manager-deployment-model.md). This helps you to quickly identify whether Azure Service Management or Azure Resource Management networking capabilities are available to the virtual machine. If you decide to access the properties of a network interface card from this location, you will need to expand the subnet and click on the VM name. If you perform this action for a Resource Manager-based VM, a new blade similar to the one below will appear.
+This table is sorted (VMs and Subnets) by severity, as described below:
+- Red (on top): high priority and should be addressed immediately 
+- Orange: medium priority and should be addressed as soon as possible
+- Green (last one): health state
 
-![Network tree](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
+In this hierarchy, the first level has [Virtual Networks](../virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md) and [Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets and the third level has the VMs that belongs to those subnets. The right column has the current status of the Network Security Group (NSG) for those resources. The example below is the result of selecting the VM VM-CL-W1:
 
-This blade has a summary of the network interface card and the current recommendations for it. If the VM that you selected is a classic VM, a new blade with different options will appear as shown below.
+![Network tree](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
-![ACL](./media/security-center-monitoring/security-center-monitoring-fig14-new.png)
-
-On this blade, you can make changes to the public and private ports, and create an ACL for this VM.
+The bottom part of this blade has the recommendations for this VM, similar to what is described above. You can click on a recommendation to learn more or apply the needed security control/configuration.
 
 ###Monitor SQL resources
-When you click **SQL** in the **Resources security health** tile, the SQL blade will open with recommendations for issues such as auditing, transparent data encryption not being enabled. It also has recommendations for the general health state of the database. 
+When you click **SQL** in the **Resources security health** tile, the SQL blade will open with recommendations for issues such as auditing, transparent data encryption not being enabled. It also has recommendations for the general health state of the database.
 
 ![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
@@ -186,5 +182,6 @@ In this document, you learned how to use monitoring capabilities in Azure Securi
 - [Setting security policies in Azure Security Center](security-center-policies.md)
 – Learn how to configure security settings in Azure Security Center
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance

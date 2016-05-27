@@ -24,7 +24,7 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-This article provides directions for archiving your Azure SQL database to a BACPAC file stored in Azurte blob storage using PowerShell.
+This article provides directions for archiving your Azure SQL database to a BACPAC file stored in Azure blob storage using PowerShell.
 
 When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of BACPAC. A BACPAC file can later be stored in Azure blob storage or in local storage in an on-premises location and later inmported back into Azure SQL Database or into a SQL Server on-premises installation. 
 
@@ -34,7 +34,7 @@ When you need to create an archive of an Azure SQL database, you can export the 
 - The mazimum size of a BACPAC file archived to Azure blob storage is 200 GB. Use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility to archive a larger BACPAC file to local storage. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 - Archiving to Azure premium storage using a BACPAC file is not supported.
 - If the export operation goes over 20 hours it may be canceled. To increase performance during export, you can:
- - Tempporarily increase your service level 
+ - Temporarily increase your service level 
  - Cease all read and write activity during the export
  - Use a clustered index on all large tables. Without clustered indexes, an export may fail if it takes longer than 6-12 hours. This is because the export services needs to complete table scan to try to export entire table
  

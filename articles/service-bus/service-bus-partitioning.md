@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Partitioned messaging entities | Microsoft Azure"
-   description="Describes how to partition messaging entities by using multiple message brokers."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Partitioned messaging entities | Microsoft Azure"
+    description="Describes how to partition messaging entities by using multiple message brokers."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Partitioned messaging entities
 
@@ -23,9 +23,9 @@ For more details about Service Bus internals, see the [Service Bus architecture]
 
 ## Partitioned queues and topics
 
-Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by a partition key that the sender can specify.
+Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
 
-When a client wants to receive a message from a partitioned queue, or from a subscription of a partitioned topic, Service Bus queries all fragments for messages, then returns the first message that is returned from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
+When a client wants to receive a message from a partitioned queue, or from a subscription of a partitioned topic, Service Bus queries all fragments for messages, then returns the first message that is obtained from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 
@@ -125,7 +125,7 @@ In its current implementation, Service Bus imposes the following limitations on 
 
 ## Next steps
 
-See the discussion of [AMQP 1.0 support for Service Bus partitioned queues and topics][] to learn more about paritioning messaging entities. 
+See the discussion of [AMQP 1.0 support for Service Bus partitioned queues and topics][] to learn more about partitioning messaging entities. 
 
   [Service Bus architecture]: service-bus-architecture.md
   [Azure classic portal]: http://manage.windowsazure.com

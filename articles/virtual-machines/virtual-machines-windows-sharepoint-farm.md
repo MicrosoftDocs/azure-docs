@@ -11,10 +11,10 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="05/04/2016"
 	ms.author="josephd"/>
 
 # Create SharePoint server farms
@@ -42,7 +42,7 @@ The high-availability SharePoint farm consists of nine virtual machines in this 
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
+You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server Always On for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
 
 To create the high-availability (nine-server) SharePoint farm:
 
@@ -53,15 +53,16 @@ To create the high-availability (nine-server) SharePoint farm:
 
 > [AZURE.NOTE] You cannot create the **SharePoint 2013 non-HA Farm** or **SharePoint 2013 HA Farm** with an Azure Free Trial.
 
+The Azure portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
+
 ## Managing the SharePoint farms
 
 You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
 From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE] The Azure portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
+> [AZURE.NOTE] With the [SharePoint Server 2016 Trial image](https://azure.microsoft.com/blog/test-sharepoint-server-2016/), you can create a virtual machine running SharePoint Server 2016.
 
 ## Next steps
 
-- Deploy a [SharePoint 2013 intranet farm](virtual-machines-windows-sp-intranet-overview.md) as a production workload in Azure infrastructure services.
 - Discover additional [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) configurations in Azure infrastructure services.

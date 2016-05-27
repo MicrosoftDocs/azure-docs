@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Common Azure deployment errors | Microsoft Azure"
+   pageTitle="Troubleshoot common Azure deployment errors | Microsoft Azure"
    description="Describes how to resolve common errors during deploy with Azure Resource Manager."
    services="azure-resource-manager"
    documentationCenter=""
-   tags=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,20 +14,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/24/2016"
+   ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
-# Resolve common errors when deploying resources to Azure with Azure Resource Manager
+# Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager
 
-This topic describes how you can resolve some of the common errors you may encounter when deploying resources to Azure. For information about troubleshooting deployments, see 
-[Troubleshooting resource group deployments](resource-manager-troubleshoot-deployments-portal.md).
+This topic describes how you can resolve some of the common errors you may encounter when deploying resources to Azure. Hopefully, you have already seen a helpful error message. If you have not seen a good error message or you need more details about why your deployment failed, first see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md) and then come back to this article for help with resolving the error.
 
-You can avoid some errors by validating your template and parameters prior to deployment. For examples of validating your template, see [Deploy resources with Azure Resource Manager template](resource-group-template-deploy.md).
+## Invalid template or resource
+
+If you receive an error stating that either the template or a property on a resource is invalid, you may have a missing character in your template. This error 
+is easy to make when using template expressions because the expression is wrapped in quotes, so the JSON still validates and your editor may not 
+detect the error. For example, the following name assignment for a storage account contains one set of brackets, three functions, 
+three sets of parentheses, one set of single quotes, and one property:
+
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+
+If you do not provide all of the matching syntax, the template will produce a value that is very different than your intention.
+
+Depending on where the missing character is located in your template, you will receive an error stating that either the template or a resource is invalid. 
+The error may also state the deployment process was unable to process the template language expression. When you receive this type of error, carefully 
+review the expression syntax.
 
 ## Resource name already exists
 
 For some resources, most notably Storage accounts, database servers, and web sites, you must provide a name for the resource that is unique across all of Azure. 
-You can create a unique name by concatenating your naming convention with the result of the [uniqueString](./resource-group-template-functions/#uniquestring) function.
+You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
@@ -108,7 +120,7 @@ For REST API, see [Get information about a resource provider](https://msdn.micro
 
 You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. 
 If you attempt to deploy a virtual machine with more cores than the permitted amount, you will receive an error stating the quota has been exceeded. 
-For complete quota information, see [Azure subscription and service limits, quotas, and constraints](./azure-subscription-service-limits.md).
+For complete quota information, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).
 
 To examine your subscription's quotas for cores, you can use the `azure vm list-usage` command in the Azure CLI. The following example illustrates that the core quota for a 
 free trial account is 4:
@@ -159,9 +171,9 @@ able to create new resources. In that case, you should see an error message indi
 
 For more information about role-based access control, see [Azure Role-Based Access Control](./active-directory/role-based-access-control-configure.md).
 
-In addition to role-based access control, you deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the 
+In addition to role-based access control, your deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the 
 subscription. For example, an administrator can require that a particular tag value be provided for a resource type. If you have not fulfilled the policy requirements, you will receive an error during 
-deployment. For more information about policies, see [Use Policy to manage resources and control access](./resource-manager-policy.md).
+deployment. For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## Check resource provider registration
 
@@ -230,6 +242,10 @@ To register a provider, see [Register a subscription with a resource provider](h
 If you encounter an error with a custom script extension when deploying a virtual machine, see [Troubleshooting Azure Windows VM extension failures](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) 
 or [Troubleshooting Azure Linux VM extension failures](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
 
+## Virtual machine provisioning and allocation failures
+
+If you are trying to deploy a virtual machine and have encountered an OS image provisioning error or an allocation error, see [Troubleshoot creating a new VM](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) and [Troubleshoot allocation failures](./virtual-machines/virtual-machines-windows-allocation-failure.md).
+
 ## Understand when a deployment is ready 
 
 Azure Resource Manager reports success on a deployment when all providers return from deployment successfully. However, that this does not necessarily mean that your resource group is "active and ready for your users". 
@@ -243,5 +259,7 @@ system-wide readiness and returns successfully only when users can interact with
 
 ## Next steps
 
-- To learn about auditing actions, see [Audit operations with Resource Manager](./resource-group-audit.md).
-- To learn about actions to determine the errors during deployment, see [Troubleshooting resource group deployments](./resource-manager-troubleshoot-deployments-portal.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md).
+- To troubleshoot Remote Desktop Protocol errors to your Windows-based virtual machine, see [Troubleshoot Remote Desktop connections](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
+- To troubleshoot Secure Shell errors to your Linux-based virtual machine, see [Troubleshoot Secure Shell connections](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
