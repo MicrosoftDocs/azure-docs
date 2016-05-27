@@ -604,7 +604,7 @@ To learn more about multi-tier scenarios, or to learn how to deploy an applicati
 
 * [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
 
-You might want to implement the front-end of a multi-tier application in an Azure website instead of an Azure cloud service. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels].
+You might want to implement the front-end of a multi-tier application in an Azure website instead of an Azure cloud service. 
 
 To implement the application you create in this tutorial as a standard web project instead of as a cloud service web role, follow the steps in this tutorial with the following differences:
 
@@ -667,4 +667,4 @@ To learn how to deploy the front end to an Azure website, see [Create an ASP.NET
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  

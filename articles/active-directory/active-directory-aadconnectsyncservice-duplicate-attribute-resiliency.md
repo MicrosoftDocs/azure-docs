@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/26/2016"
 	ms.author="markusvi"/>
 
 
@@ -25,17 +25,17 @@ These two attributes are generally required to be unique across all **User**, **
 
 > [AZURE.NOTE] Only Users can have UPNs.
 
-The new behavior that this feature enables is in the cloud portion of the sync pipeline, therefore it is client agnostic and relevant for any Microsoft synchronization product including Azure AD Connect, DirSync and MIM + Connector. The generic term “sync client” will be used in this document to represent any one of these products.
+The new behavior that this feature enables is in the cloud portion of the sync pipeline, therefore it is client agnostic and relevant for any Microsoft synchronization product including Azure AD Connect, DirSync and MIM + Connector. The generic term “sync client” is used in this document to represent any one of these products.
 
 ## Current behavior
-If there is an attempt to provision a new object with a UPN or ProxyAddress value that violates this uniqueness constraint, Azure Active Directory blocks that object from being created. Similarly, if an object is updated with a non-unique UPN or ProxyAddress, the update fails. The provisioning attempt or update is retried by the sync client upon each export cycle, and will continue to fail until the conflict is resolved. An error report email is generated upon each attempt and an error is logged by the sync client.
+If there is an attempt to provision a new object with a UPN or ProxyAddress value that violates this uniqueness constraint, Azure Active Directory blocks that object from being created. Similarly, if an object is updated with a non-unique UPN or ProxyAddress, the update fails. The provisioning attempt or update is retried by the sync client upon each export cycle, and continues to fail until the conflict is resolved. An error report email is generated upon each attempt and an error is logged by the sync client.
 
 ## Behavior with Duplicate Attribute Resiliency
-Instead of completely failing to provision or update an object with a duplicate attribute, Azure Active Directory “quarantines” the duplicate attribute which would violate the uniqueness constraint. If this attribute is required for provisioning, like UserPrincipalName, the service will assign a placeholder value. The format of these temporary values is  
+Instead of completely failing to provision or update an object with a duplicate attribute, Azure Active Directory “quarantines” the duplicate attribute which would violate the uniqueness constraint. If this attribute is required for provisioning, like UserPrincipalName, the service assigns a placeholder value. The format of these temporary values is  
 “***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
 If the attribute is not required, like a  **ProxyAddress**, Azure Active Directory simply quarantines the conflict attribute and proceeds with the object creation or update.
 
-Upon quarantining the attribute, information about the conflict is sent in the same error report email used in the old behavior. However, this info only appears in the error report one time, when the quarantine happens, it will not continue to be logged in future emails. Also, since the export for this object has succeeded, the sync client does not log an error and does not retry the create / update operation upon subsequent sync cycles.
+Upon quarantining the attribute, information about the conflict is sent in the same error report email used in the old behavior. However, this info only appears in the error report one time, when the quarantine happens, it does not continue to be logged in future emails. Also, since the export for this object has succeeded, the sync client does not log an error and does not retry the create / update operation upon subsequent sync cycles.
 
 To support this behavior a new attribute has been added to the User, Group, and Contact object classes:  
 **DirSyncProvisioningErrors**
@@ -83,7 +83,7 @@ Once connected, to see a general list of attribute provisioning errors in the te
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-This will produce a result like the following:  
+This produces a result like the following:  
  ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 
@@ -123,45 +123,36 @@ There are two flags that can be used to sort the results of a given query:
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## Office365 admin portal
-The report in the O365 portal only displays **User** objects that have these errors. It will not show info about conflicts between **Groups**, **Contacts** or **PublicFolders**.
+## Office 365 admin portal
 
-**To see these errors in the Office365 Admin Portal**:
+You can view directory synchronization errors in the Office 365 admin center. The report in the Office 365 portal only displays **User** objects that have these errors. It does not show info about conflicts between **Groups**, **Contacts** or **PublicFolders**.
 
-1.	Log in to **portal.office.com** as a tenant administrator
 
-2.	Click **Users -> Active Users**  
-![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/2.png "Active Users")  
+![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1234.png "Active Users")
 
-3.	A warning at the top of the page will be displayed if there duplicate attribute errors on any object(s) in the tenant:  
-![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/3.png "Active Users")  
+For instructions on how to view directory synchronization errors in the Office 365 admin center, see [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
-4.	To see object specific details, choose “Users with errors” from the “Select a view” dropdown:  
-![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/4.png "Active Users")  
-
-5.	Click an object to see more details on the conflict, which will be displayed in the bottom right corner of the screen:  
-![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/5.png "Active Users")  
 
 ### Identity synchronization error report
-When an object with a duplicate attribute conflict is handled with this new behavior a notification is included in the standard Identity Synchronization Error Report email that is sent to the Technical Notification contact for the tenant. However, there is an important change in this behavior. In the past, information about a duplicate attribute conflict would be included in every subsequent error report until the conflict was resolved. With this new behavior, the error notification for a given conflict will only appear once- at the time the conflicting attribute is quarantined.
+When an object with a duplicate attribute conflict is handled with this new behavior a notification is included in the standard Identity Synchronization Error Report email that is sent to the Technical Notification contact for the tenant. However, there is an important change in this behavior. In the past, information about a duplicate attribute conflict would be included in every subsequent error report until the conflict was resolved. With this new behavior, the error notification for a given conflict does only appear once- at the time the conflicting attribute is quarantined.
 
-Here is an example of what the email notification will look like for a ProxyAddress conflict:  
+Here is an example of what the email notification looks like for a ProxyAddress conflict:  
     ![Active Users](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Active Users")  
 
 ## Resolving conflicts
-Troubleshooting strategy and resolution tactics for these errors should not differ from the way duplicate attribute errors were handled in the past. The only difference is that the timer task will sweep through the tenant on the service-side to automatically add the attribute in question to the proper object once the conflict is resolved.
+Troubleshooting strategy and resolution tactics for these errors should not differ from the way duplicate attribute errors were handled in the past. The only difference is that the timer task sweeps through the tenant on the service-side to automatically add the attribute in question to the proper object once the conflict is resolved.
 
 The following article outlines various troubleshooting and resolution strategies: [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098).
 
 ## Known issues
-None of these known issues will cause data loss or service degradation. Several of them are aesthetic, others cause standard “*pre-resiliency*” duplicate attribute errors to be thrown instead of quarantining the conflict attribute, and another causes certain errors to require extra manual fix-up.
+None of these known issues causes data loss or service degradation. Several of them are aesthetic, others cause standard “*pre-resiliency*” duplicate attribute errors to be thrown instead of quarantining the conflict attribute, and another causes certain errors to require extra manual fix-up.
 
 **Core behavior:**
 
 1. User with specific attribute configuration continues receiving export errors as opposed to attributes being quarantined.  
 For example:
 
-    a. New user with is created in AD with a UPN of **Joe@contoso.com** and ProxyAddress **smtp:Joe@contoso.com**
+    a. New user is created in AD with a UPN of **Joe@contoso.com** and ProxyAddress **smtp:Joe@contoso.com**
 
     b. The properties of this object conflict with an existing Group, where ProxyAddress is **SMTP:Joe@contoso.com**.
 
@@ -177,7 +168,7 @@ For example:
 
     d. UserA's UPN is never fixed automatically; it must be updated manually.
 
-3. If two Groups are created on-premises with the same SMTP address, one will fail to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value will be properly quarantined upon the next sync cycle.
+3. If two Groups are created on-premises with the same SMTP address, one fails to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value is properly quarantined upon the next sync cycle.
 
 **PowerShell cmdlets**:
 
@@ -209,4 +200,6 @@ For example:
 
 - [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md)
 
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+- [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

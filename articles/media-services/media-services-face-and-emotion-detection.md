@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/13/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 #Detect Face and Emotion with Azure Media Analytics
 
 ##Overview
@@ -164,14 +164,17 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 	}
 
 
+####Attribute descriptions
+
 Attribute name|Description
 ---|---
 Mode|Faces: Only face detection <br/>AggregateEmotion: Return average emotion values for all faces in frame.
 AggregateEmotionWindowMs|Use if AggregateEmotion mode selected. Specifies the length of video used to produce each aggregate result, in milliseconds.
 AggregateEmotionIntervalMs|Use if AggregateEmotion mode selected. Specifies with what frequency to produce aggregate results.
 
-Aggregate defaults
-Below are recommended values for the aggregate window and interval settings. Window should be longer than Interval.
+####Aggregate defaults
+
+Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
    |Defaults(s)|Max(s)|Min(s)
 ---|---|---|---
@@ -532,4 +535,4 @@ The following program shows how to:
 
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-
+[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Get started by running the Enable Database for Stretch Wizard
@@ -44,7 +44,7 @@ Select the tables that you want to enable for Stretch.
 |**Name**|Specifies the name of the column in the table.|
 |(no title)|A symbol in this column typically indicates that you can't enable the selected table for Stretch because of a blocking issue. This may be because the table uses an unsupported data type. Hover over the symbol to display more info in a tooltip. For more info, see [Surface area limitations and blocking issues for Stretch Database](sql-server-stretch-database-limitations.md).|
 |**Stretched**|Indicates whether the table is already enabled.|
-|**Migrate**|In RC3, you can migrate an entire table (**Entire Table**) or you can specify a date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, run the ALTER TABLE statement to specify the filter predicate after you exit the wizard. For more info about the filter predicate, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md). For more info about how to apply the predicate, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) or [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrate**|You can migrate an entire table (**Entire Table**) or you can specify a date-based filter predicate in the wizard. If you want to use a different filter predicate to select rows to migrate, run the ALTER TABLE statement to specify the filter predicate after you exit the wizard. For more info about the filter predicate, see [Use a filter predicate to select rows to migrate (Stretch Database)](sql-server-stretch-database-predicate-function.md). For more info about how to apply the predicate, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) or [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Rows**|Specifies the number of rows in the table.|
 |**Size (KB)**|Specifies the size of the table in KB.|
 

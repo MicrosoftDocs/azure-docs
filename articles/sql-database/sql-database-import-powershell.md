@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/05/2016"
+    ms.date="05/10/2016"
     ms.author="sstein"/>
 
 # Import a BACPAC file to create a new Azure SQL database using PowerShell
@@ -41,10 +41,6 @@ To import a SQL database you need the following:
 - A .bacpac file (BACPAC) of the database you want to import. The BACPAC needs to be in an [Azure Storage account (classic)](../storage/storage-create-storage-account.md) blob container.
 
 
-> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
-
-
-
 ## Configure your credentials and select your subscription
 
 First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
@@ -67,7 +63,7 @@ After successfully running **Select-AzureSubscription** you are returned to the 
 
 There are a few variables where you need to replace the example values with the specific values for your database and your storage account.
 
-The server name needs to be a server that currently exists in the subscription selected in the previous step and is the server you want the database to be created in.
+The server name needs to be a server that currently exists in the subscription selected in the previous step and is the server you want the database to be created in. Note that importing a database directly into an elastic pool is not supported, but you can first import into a single database and then move the database into a pool.
 
 The database name is the name you want for the new database.
 

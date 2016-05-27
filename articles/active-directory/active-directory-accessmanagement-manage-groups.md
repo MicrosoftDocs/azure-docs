@@ -1,7 +1,7 @@
 <properties
 
-	pageTitle="Managing security groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage security groups to manage Azure resource access using Azure Active Directory."
+	pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
+	description="How to create and manage groups to manage Azure resource access using Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -22,7 +22,7 @@
 
 One of the major features of Azure Active Directory (Azure AD) is the ability to manage access to resources. These resources can be objects in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, SharePoint sites, or on-premises resources. In addition, a resource owner can assign access to a resource to an Azure AD group. This grants the members of that group access to the resource. Then, the owner of the group manages membership in the group. Effectively, the resource owner delegates to the owner of the group the permission to assign users to their resource.
 
-## How do I create a security group?
+## How do I create a group?
 
 **To create a group**
 
@@ -69,9 +69,12 @@ This task can be completed using either the Office 365 account portal, the Windo
 
 In Azure AD, you can very easily set up a simple rule (a rule that makes only a single comparison) to determine which users are to be members of the group. For example, if a group is assigned to a SaaS application, and you set up a rule to add users who have a job title of "Sales Rep," all users within your Azure AD directory with that job title will have access to this SaaS application.
 
-> [AZURE.NOTE] You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships are not supported for group-based assignment to applications at this time. Dynamic memberships for groups require that an Azure AD Premium license is assigned to
->- The administrator who manages the rule on a group
->- All users who are selected by the rule to be a member of the group
+> [AZURE.NOTE] You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships are not supported for group-based assignment to applications at this time.
+>
+> Dynamic memberships for groups require an Azure AD Premium license to be assigned to
+> 
+> - The administrator who manages the rule on a group
+> - All users who are selected by the rule to be a member of the group
 
 **To enable dynamic membership for a group**
 

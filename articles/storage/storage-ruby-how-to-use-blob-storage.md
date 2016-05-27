@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to use Blob storage from Ruby | Microsoft Azure"
-	description="Learn how to use Blob storage to upload, download, list, and delete blob content. Samples written in Ruby."
+	pageTitle="How to use Blob storage (object storage) from Ruby | Microsoft Azure"
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter="ruby"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="04/08/2016"
+    ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 
@@ -22,6 +22,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Overview
+
+Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
 
 This guide will show you how to perform common scenarios using Blob storage. The samples are written using the Ruby API. The scenarios covered include **uploading, listing, downloading,** and **deleting** blobs.
 

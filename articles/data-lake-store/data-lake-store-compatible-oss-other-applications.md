@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/03/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Open Source Big Data applications that work with Azure Data Lake Store

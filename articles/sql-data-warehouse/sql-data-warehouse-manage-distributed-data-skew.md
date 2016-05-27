@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="04/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Manage data skew for distributed tables in Azure SQL Data Warehouse
 This tutorial identifies data skew in your hash distributed tables, and gives suggestions for fixing the problem. 
 
-When table data is distributed using the hash distribution method there is a chance that some distributions will be skewed to have disproportionately more data than others. Excessive data skew can impact query performance because the final result of a distributed query will not be ready until the longest-running distribution finishes.  Depending on the degree of the data skew you might need to address it. 
+When table data is distributed using the hash distribution method there is a chance that some distributions will be skewed to have disproportionately more data than others. Excessive data skew can impact query performance because the final result of a distributed query will not be ready until the longest-running distribution finishes. Depending on the degree of the data skew you might need to address it.
 
 In this tutorial you will:
 
@@ -27,6 +27,18 @@ In this tutorial you will:
 - Learn tips for knowing when to resolve data skew
 - Re-create the table to resolve data skew
 
+## DBCC PDW_SHOWSPACEUSED
+
+One method of identifying data skew is to use [DBCC PDW_SHOWSPACEUSED()][]
+
+```sql
+-- Find data skew for a distributed table
+DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
+```
+
+This is a very quick and simple way to see the number of table rows that are stored in each of the 60 distributions of your database. Remember that for the most balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
+
+However, if you query the Azure SQL Data Warehouse dynamic management views (DMV) you can perform a more detailed analysis. The rest of this article shows you how to do this.
 
 ## Step 1: Create a view that finds data skew
 
@@ -218,5 +230,6 @@ For more details on table distribution refer to the following articles:
 [Hash distribution]: sql-data-warehouse-develop-hash-distribution-key.md
 
 <!--MSDN references-->
+[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/en-us/library/mt204028.aspx
 
 <!--Other Web references-->

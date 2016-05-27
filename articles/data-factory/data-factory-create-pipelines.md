@@ -12,7 +12,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" y
+	ms.topic="article"
 	ms.date="04/08/2016" 
 	ms.author="spelluru"/>
 
@@ -238,6 +238,10 @@ start | Start date-time for the pipeline. Must be in [ISO format](http://en.wiki
 end | End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41Z <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. | No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property.
 isPaused | If set to true the pipeline will not get executed. Default value = false. You can use this property to enable or disable. | No 
 scheduler | “scheduler” property is used to define desired scheduling for the activity. Its sub-properties are the same as those under [availability property in a dataset](data-factory-create-datasets.md#Availability). | No |   
+| pipelineMode | The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline will run at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline will run only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details about onetime setting. | No | 
+| expirationTime | Duration of time after creation for which the pipeline is valid and should remain provisioned. The pipeline will be deleted automatically once it reaches the expiration time if it does not have any active, failed or pending runs. | No | 
+| datasets | List of datasets to be used by activities defined in the pipeline. This can be used to define datasets that are specific to this pipeline and not defined within the data factory. Datasets defined within this pipeline can only be used by this pipeline and cannot be shared. See [Scoped datasets](data-factory-create-datasets.md#scoped-datasets) for details.| No |  
+ 
 
 ### Activity types
 Azure Data Factory provides a wide range of [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) activities.

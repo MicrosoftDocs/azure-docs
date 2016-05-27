@@ -188,6 +188,14 @@ The following example initializes a table controller that uses Entity Framework 
 
 For an example of a table controller that uses Entity Framework to access data from an Azure SQL Database, see the **TodoItemController** class in the quickstart server project download from the Azure portal.
 
+### How to: Adjust the table paging size
+
+By default, Azure Mobile Apps returns 50 records per request.  This ensures that the client does not tie up their UI thread nor the server for too long, ensuring a good user experience. You must increase the server side "allowed query size" and the client side page size to effect a change in the table paging size. To increase the paging size, adjust your table controller with this line:
+
+    [EnableQuery(PageSize = 500)]
+
+Ensure the PageSize is the same or bigger than the size that will be requested by the client.  Refer to the specific client HOWTO documentation for details on changing the client page size.
+
 ## How to: Define a custom API controller
 
 The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the [MobileAppController] attribute. This attribute registers the route and also sets up the Mobile Apps JSON serializer.
@@ -283,7 +291,7 @@ In the above, LoginResult and LoginResultUser are just simple objects exposing t
 			}
 		}
 
-The `MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
+The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
 You also need to provide a lifetime for the issued token, as well as any claims you would like included. It is required that you provide a subject claim, as shown in the example code.
 
@@ -333,10 +341,6 @@ The following code calls the **GetAppServiceIdentityAsync** extension method to 
     }
 
 Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method  work.
-
-###<a name="authorize"></a>How to: Restrict data access for authorized users
-
-It is often desired to restrict the data that is returned to a specific authenticated user. This kind of data partitioning is done by including a userId column on the table and storing the SID of the user when the data is inserted 
 
 ## How to: Add push notifications to a server project
 

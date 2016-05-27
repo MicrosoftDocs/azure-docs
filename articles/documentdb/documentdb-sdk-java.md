@@ -3,7 +3,7 @@
 	description="Learn all about the Java SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
 	services="documentdb" 
 	documentationCenter="java" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.date="05/02/2016" 
+	ms.author="andrl"/>
 
 # DocumentDB SDK
 
@@ -35,6 +35,12 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+- Added retry policy support for throttling.  
+
+### <a name="1.7.0"/>[1.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+- Added time to live (TTL) support for documents. 
 
 ### <a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
 - Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
@@ -77,6 +83,8 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.7.1](#1.7.1) | April 30, 2016 |---
+| [1.7.0](#1.7.0) | April 27, 2016 |---
 | [1.6.0](#1.6.0) | March 29, 2016 |---
 | [1.5.1](#1.5.1) | December 31, 2015 |--- 
 | [1.5.0](#1.5.0) | December 04, 2015 |---

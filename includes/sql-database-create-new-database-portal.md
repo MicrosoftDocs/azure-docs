@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create a new Aure SQL database
+## Create a new Azure SQL database
 
 Use the following steps in the Azure portal to create a new Azure SQL database on a new or existing Azure SQL Database logical server.
 

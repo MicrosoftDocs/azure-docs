@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="04/26/2016"
    ms.author="dobett"/>
 
 
-# Connect your device to the IoT Suite remote monitoring preconfigured solution
+# Connect your device to the remote monitoring preconfigured solution (mbed)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -199,7 +199,7 @@ For reference, here is a sample **Command** received from IoT Hub:
 
     ![][11]
 
-4. In PuTTY, click the **Serial** connection type. The device typically connects at 115200 baud, so enter 115200 in the **Speed** box. Then click **Open**.
+4. In PuTTY, click the **Serial** connection type. The device typically connects at 9600 baud, so enter 9600 in the **Speed** box. Then click **Open**.
 
 5. The program starts executing. You may have to reset the board (press CTRL+Break or press on the board's reset button) if the program does not start automatically when you connect.
 

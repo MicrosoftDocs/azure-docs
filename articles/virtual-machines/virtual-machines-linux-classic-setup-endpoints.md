@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # How to set up endpoints on a classic virtual machine in Azure
@@ -23,11 +23,13 @@ All Linux virtual machines that you create in Azure using the classic deployment
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-When you create a Linux virtual machine in the Azure classic portal, common endpoints such as for Secure Shell (SSH) are typically created for you automatically. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+When you create a Linux virtual machine in the Azure classic portal, an endpoint for Secure Shell (SSH) is typically created for you automatically. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
  
 
 [AZURE.INCLUDE [virtual-machines-common-classic-setup-endpoints](../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
 ## Next steps
 
-* You can also create a VM endpoint by using the Azure Command-Line Interface in [Service Management mode](../virtual-machines-command-line-tools.md). Run the **azure vm endpoint create** command.
+* You can also create a VM endpoint by using the [Azure Command-Line Interface](../virtual-machines-command-line-tools.md). Run the **azure vm endpoint create** command.
+
+* If you created a virtual machine in the Resource Manager deployment model, you can use the Azure CLI in Resource Manager mode to [create network security groups](../virtual-network/virtual-networks-create-nsg-arm-cli.md) to control traffic to the VM.

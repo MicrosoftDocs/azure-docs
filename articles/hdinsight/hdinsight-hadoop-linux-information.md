@@ -27,6 +27,9 @@ Many of the steps in this document use the following utilities, which may need t
 
 * [cURL](https://curl.haxx.se/) - used to communicate with web-based services
 * [jq](https://stedolan.github.io/jq/) - used to parse JSON documents
+* [Azure CLI](../xplat-cli-install.md) - used to remotely manage Azure services
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)] 
 
 ## Domain names
 
@@ -83,7 +86,7 @@ Example data and JAR files can be found on Hadoop Distributed File System (HDFS)
 
 ## HDFS, Azure Blob storage, and storage best practices
 
-In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.
+In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
 HDInsight uses Azure Blob storage as the default store, which provides the following benefits:
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vertically scale Azure virtual machine with Azure Automation | Microsoft Azure"
+	pageTitle="Vertically scale Azure virtual machines with Azure Automation | Microsoft Azure"
 	description="How to vertically scale a Windows Virtual Machine in response to monitoring alerts with Azure Automation"
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="03/29/2016"
 	ms.author="singhkay"/>
 
-# Vertically scale Azure virtual machine with Azure Automation
+# Vertically scale Azure virtual machines with Azure Automation
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model
 
@@ -53,7 +53,7 @@ The outline for the steps to accomplish this is as below
 
 ## Setup Azure Automation to access your Virtual Machines
 
-The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale the VM Scale Set instances. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:
+The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale a Virtual Machine. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:
 
 * [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 

@@ -13,10 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="05/18/2016"
    ms.author="subramar"/>
 
 # Service Fabric application upgrade: advanced topics
+
+## Adding or removing services during an application upgrade
+
+If a new service is added to an application that is already deployed, and published as an upgrade, the new service will be added to the deployed application (without the upgrade affecting any of the services that were already part of the application). However, an instance of the service that was added will have to be started for the new service to be active (using the `New-ServiceFabricService` cmdlet).
+
+Services can also be removed from an application as part of an upgrade, however, one needs to ensure that all current instances of the service (that is to be removed as part of the upgrade) are stopped before proceeding with the upgrade (using the `Remove-ServiceFabricService` cmdlet). 
 
 ## Manual upgrade mode
 
@@ -46,6 +52,40 @@ Occasions when using a diff package would be a good choice:
 * A diff package is preferred when you have a large application package that references several service manifest files and/or several code packages, config packages, or data packages.
 
 * A diff package is preferred when you have a deployment system that generates the build layout directly from your application build process. In this case, even though nothing in the code has changed, newly built assemblies will have a different checksum. Using a full application package would require you to update the version on all code packages. Using a diff package, you only provide the files that changed and the manifest files where the version has changed.
+
+When an application is upgraded using Visual Studio, the diff package is published automatically. If you wanted to create a diff package manually (e.g., for upgrading using PowerShell), you should update the application and service manifests, but only include the packages that were changed in the final application package. 
+
+For example, let's start with the following application (version numbers provided for ease of understanding):
+
+```text
+app1       	1.0.0
+  service1 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+  service2 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+```
+
+Now, let's assume you wanted to update only the code package of service1 using a diff package using PowerShell. Now, your updated application will look like the following:
+
+```text
+app1       	2.0.0      <-- new version
+  service1 	2.0.0      <-- new version
+    code   	2.0.0      <-- new version
+    config 	1.0.0
+  service2 	1.0.0
+    code   	1.0.0
+    config 	1.0.0
+```
+
+In this case, you update the application manifest to 2.0.0, and the service manifest for service1 to reflect the code package update. The folder structure for your application package would look like the following:
+
+```text
+app1/
+  service1/
+    code/
+```
 
 ## Next steps
 

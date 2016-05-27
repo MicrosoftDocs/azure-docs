@@ -20,6 +20,8 @@
 
 Although Logic Apps has a rich set of 40+ connectors for a variety of services, you may want to call into your own custom API that can run your own code. One of the easiest and most scalable ways to host your own custom web API's is to use App Service. This article covers how to call into any web API hosted in an App Service API app, web app or mobile app.
 
+For information on building APIs as a trigger or action within Logic Apps, check out [this article](app-service-logic-create-api-app.md).
+
 ## Deploy your Web App
 
 First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](../app-service-web/web-sites-dotnet-get-started.md).  While you can call into any API from a Logic App, for the best experience we recommend you add Swagger metadata to integrate easily with Logic Apps actions.  You can find details on [adding swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).

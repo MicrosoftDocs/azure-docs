@@ -482,6 +482,8 @@ This command deletes a virtual machine image.
 
 This command creates a virtual machine image. Your custom .vhd files are uploaded to blob storage, and then the virtual machine image is created from there. You then use this virtual machine image to create a virtual machine. The Location and OS parameters are required.
 
+>[AZURE.NOTE]Currently this command only supports uploading fixed .vhd files. To upload a dynamic .vhd file, use the [Azure VHD utilities for Go](https://github.com/Microsoft/azure-vhd-utils-for-go).
+
 Some systems impose per-process file descriptor limits. If this limit is exceeded, the tool displays a file descriptor limit error. You can run the command again using the -p &lt;number> parameter to reduce the maximum number of parallel uploads. The default maximum number of parallel uploads is 96.
 
 	~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US"

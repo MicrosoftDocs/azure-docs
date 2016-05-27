@@ -19,6 +19,8 @@
 
 # Identity management for multitenant applications in Microsoft Azure
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This series describes best practices for multitenancy, when using Azure AD for authentication and identity management.
 
 When you're building a multitenant application, one of the first challenges is managing user identities, because now every user belongs to a tenant. For example:

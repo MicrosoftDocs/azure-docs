@@ -94,7 +94,7 @@ In this Step, you will learn how to place an Store an SSL Certificate that you p
     ![insert image of create new KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
     > [AZURE.NOTE]
-    Azure Key Vault has very minimal charges for storing this certificate. The cost will be roughly around $0.03 cents (USD)
+    Azure Key Vault has very minimal charges for storing this certificate. 
     See **[Azure Key Vault Pricing Details](https://azure.microsoft.com/pricing/details/key-vault/)** for more information.
 
 4. Once you have selected the Key Vault Repository to store this certificate in, go ahead and store it by clicking on **“Store”** button at the top of **“Key Vault Status”** blade.  
@@ -203,7 +203,7 @@ At this point, you should be able to visit your app using HTTPS:// instead of HT
     ![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.jpg)
 
 3. Rekeying your certificate will roll the certificate with a new certificate issued from the certificate authority.
-4. You will not be charged for the Rekeing for the lifetime of the certificate. 
+4. You will not be charged for the Rekeying for the lifetime of the certificate. 
 5. Rekeying your certificate will go through Pending Issuance state. 
 6. Once the certificate is ready make sure you sync your resources using this certificate to prevent disruption to the service.
 7. Sync option is not available for Certificates that are not yet assigned to the Web App. 

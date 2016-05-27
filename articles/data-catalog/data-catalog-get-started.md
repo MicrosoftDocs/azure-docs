@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Data Catalog get started with data catalog | Microsoft Azure"
+   pageTitle="Azure Data Catalog - get started with Data Catalog | Microsoft Azure"
    description="End-to-end tutorial presenting the scenarios and capabilities of Azure Data Catalog."
    documentationCenter=""
    services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/07/2016"
-   ms.author="derrickv"/>
+   ms.date="05/06/2016"
+   ms.author="maroche"/>
 
 # Get started with Azure Data Catalog
 
@@ -27,6 +27,8 @@ Before you begin this tutorial you must have the following:
 - **An Azure subscription** -  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 - **Azure Active Directory** -  Azure Data Catalog uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for identity and access management.
 - **Data sources** - Azure Data Catalog has capabilities to discover data sources. This tutorial uses the Adventure Works sample database, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+
+> [AZURE.NOTE] For more information on Azure subscriptions and Azure Active Directory, please see [Azure Data Catalog prerequisites](data-catalog-prerequisites.md).
 
 Let's get started installing the Adventure Works sample database.
 
@@ -159,7 +161,7 @@ For this example, you will use a keyword search. **Azure Data Catalog** search h
 In this example, you do a **Grouping** search for data assets where name equals product and tags equal illustration or tags equal photo.
 
 1. Go to https://azure.microsoft.com/services/data-catalog, click **Get started**, and log into the **Azure Data Catalog** portal.
-2. In the **Search Data Catalog** box, enter a **Grouping** as: query: (tags:description OR tags:photo).
+2. In the **Search Data Catalog** box, enter a **Grouping** query: (**tags:description OR tags:photo**).
 3. Click the search icon, or press Enter. **Azure Data Catalog** will display data assets for this search query.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
@@ -182,6 +184,8 @@ In this exercise you use the **Azure Data Catalog** portal to annotate data asse
     ![](media/data-catalog-get-started/data-catalog-annotate.png)
 
 In this exercise you added descriptive information to registered data assets so that catalog users can discover data sources using terms they understand.
+
+> [AZURE.NOTE] The Standard Edition of Data Catalog includes a business glossary that allows catalog administrators to define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
 
 ## Exercise 5: Crowdsourcing metadata
 

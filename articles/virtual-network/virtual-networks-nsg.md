@@ -173,7 +173,7 @@ You need to take into account the special rules listed below. Make sure you do n
 
 ### ICMP traffic
 
-The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a specific tag for *ICMP*. However, ICMP traffic is allowed within a Virtual Network by default through the Inbound VNet rule(Default rule 65500 inbound) that allows traffic from/to any port and protocol within the VNet.
+The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a specific tag for *ICMP*. However, ICMP traffic is allowed within a Virtual Network by default through the Inbound VNet rule(Default rule 65000 inbound) that allows traffic from/to any port and protocol within the VNet.
 
 ### Subnets
 
