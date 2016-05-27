@@ -27,7 +27,7 @@ have a working [Laravel](https://www.laravel.com/) web app running live in [Azur
 As a PHP developer, you can bring your favorite PHP framework to Azure. This tutorial uses Laravel simply as a concrete 
 app example. You can apply what you learn here generally to other PHP web apps that you deploy to Azure, such as:
 
-- Deploy using FTP and Git
+- Deploy using Git
 - Set PHP version
 - Use a start file that is not in the root application directory
 - Access environment-specific variables
@@ -147,16 +147,16 @@ Let's configure these tasks sequentially, even though that's not required.
 
     That's it for the third task!
     
-    >[AZURE.NOTE] Wait, let's slow down a bit and explain a little bit here what Laravel does and what Azure does. 
+    >[AZURE.NOTE] Wait, let's slow down a bit and explain what Laravel does and what Azure does. 
     Laravel uses the `.env` file in the root directory to supply environment variables to the app, where you'll find 
     the line `APP_DEBUG=true` (and also `APP_KEY=&lt;...>`). This variable is accessed in `config/app.php` by the code 
     `'debug' => env('APP_DEBUG', false),`. [env()](https://laravel.com/docs/5.2/helpers#method-env) is a Laravel helper 
     method that uses the PHP [getenv()](http://php.net/manual/en/function.getenv.php) under the covers.
     >
     >However, `.env` is ignored by Git because it's called out by the `.gitignore` file in the root directory. Simply put, `.env` 
-    in your local Git repository is not being pushed to Azure with the rest of the files. Of course, you can just remove that line 
+    in your local Git repository is not pushed to Azure with the rest of the files. Of course, you can just remove that line 
     from `.gitignore`, but we've already established that committing this file into source control is not recommended. Nevertheless, 
-    you would still need a way to specify these environment variables in Azure. 
+    you still need a way to specify these environment variables in Azure. 
     >
     >The good news is that app settings in Azure App Service supports [getenv()](http://php.net/manual/en/function.getenv.php) 
     in PHP. So while you can use FTP or other means to manually upload a `.env` file into Azure, you can just specify the variables
