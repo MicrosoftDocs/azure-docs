@@ -87,7 +87,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 2. When the topology has been successfully submitted, the Storm Topologies for the cluster should appear. Select the SqlAzureWriterTopology entry from the list to view information about the running topology.
 
-    ![The topologies, with the WordCount topology selected](./media/hdinsight-storm-power-bi-topology/topologyview.png)
+    ![The topologies, with the topology selected](./media/hdinsight-storm-power-bi-topology/topologyview.png)
 
     You can use this view to see information on the topology, or double-click on entries (such as the SqlAzureBolt) to see information specific to a component in the topology.
 
@@ -122,29 +122,29 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 3. From __Fields__, expand the __IISLOGS__ entry. Select the checkbox for __URISTEM__. This will create a new report that lists the URI stems (/foo, /bar, etc.) logged in the database.
 
-    ![WordCount chart](./media/hdinsight-storm-power-bi-topology/createreport.png)
+    ![Creating a report](./media/hdinsight-storm-power-bi-topology/createreport.png)
 
-5. Next, drag __METHOD__ to the report. The report will udpate to list the stems and the corresponding HTTP method used for the HTTP request.
+5. Next, drag __METHOD__ to the report. The report will update to list the stems and the corresponding HTTP method used for the HTTP request.
 
-    ![WordCount chart](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
+    ![adding the method data](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
 
 4. From the __Visualizations__ column, select the __Fields__ icon, and then select the down arrow next to __METHOD__ in the __Values__ section. From the list that appears, select __Count__. This will change the report to list a count of how many times a specific URI has been accessed.
 
-    ![WordCount chart](./media/hdinsight-storm-power-bi-topology/count.png)
+    ![Changing to a count of methods](./media/hdinsight-storm-power-bi-topology/count.png)
 
 6. Next, select the __Stacked column chart__ to change how the information is displayed.
 
-    ![WordCount chart](./media/hdinsight-storm-power-bi-topology/stackedcolumn.png)
+    ![Changing to a stacked chart](./media/hdinsight-storm-power-bi-topology/stackedcolumn.png)
 
 7. Once you have the report how you want it, use the __Save__ entry on the menu to enter a name and save the report.
 
-## Stop the WordCount topology
+## Stop the topology
 
 The topology will continue to run until you stop it or delete the Storm on HDInsight cluster. Perform the following steps to stop the topology.
 
-1. In Visual Studio, open the **Topology Summary** window for the WordCount topology. If the Topology Summary is not already open, go to **Server Explorer**, expand the **Azure** and **HDInsight** entries, right-click on the Storm on HDInsight cluster and select **View Storm Topologies**. Finally, select the **WordCount** topology.
+1. In Visual Studio, return to the topology viewer and select the topology.
 
-2. Select the **Kill** button to stop the **WordCount** topology.
+2. Select the **Kill** button to stop the topology.
 
     ![Kill button on the toplogy summary](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
