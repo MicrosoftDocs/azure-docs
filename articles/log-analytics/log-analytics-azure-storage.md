@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Collect data from Azure Diagnostics Using Log Analytics  | Microsoft Azure"
+	pageTitle="Use Log Analytics to collect data from Azure Diagnostics  | Microsoft Azure"
 	description="Azure resources can write logs and metrics to an Azure storage account, often by using Azure Diagnostics. Log Analytics can index this data and make it searchable."
 	services="log-analytics"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="05/27/2016"
 	ms.author="banders"/>
 
-# Collect data from Azure Using Azure diagnostics and Log Analytics
+# Use Log Analytics to collect data from Azure storage accounts
 
 Many Azure resources are able to write logs and metrics to an Azure storage account. Log Analytics can consume this data and make it easier to monitor your Azure resources.
 
@@ -26,7 +26,7 @@ To write to Azure storage a resource may use Azure diagnostics, or have its own 
 + Azure blob
 + EventHub
 
-Log Analytics is building support for Azure services that write data using Azure diagnostics to blob storage in JSON format. In addition, Log Analytics supports several other services that output logs and metrics in different formats and locations.  
+Log Analytics supports Azure services that write data using Azure diagnostics to blob storage in JSON format. In addition, Log Analytics supports other services that output logs and metrics in different formats and locations.  
 
 >[AZURE.NOTE] You'll be charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
 
@@ -51,7 +51,7 @@ Log Analytics can collect data for the following Azure resources:
 You can help us prioritize additional logs for OMS to analyze by voting on our [feedback page](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 
-## Collect data from Application Insights (Private Preview)
+## Collect data from Application Insights (Preview)
 
 This functionality is currently in private preview. To join the private preview contact your Microsoft Account team or refer to the details on the [feedback site](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
 
@@ -59,9 +59,9 @@ This functionality is currently in private preview. To join the private preview 
 
 Log Analytics can read the logs for the following services write diagnostics to blob storage in JSON format:
 
-+ Automation (Private Preview)
++ Automation (Preview)
 + Key Vault (Preview)
-+ Application Gateway (Private Preview)
++ Application Gateway (Preview)
 + Network Security Group (Preview)
 
 Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. Refer to the following articles for how to enable diagnostic logging:
@@ -73,14 +73,10 @@ Before Log Analytics can collect data for these resources, Azure diagnostics mus
  
 >[AZURE.NOTE] For the resource you want Log Analytics to collect logs, you will need to enable each log Category in Azure diagnostics. I.e. For Automation you need to collect both JobLogs and JobStreams; For Network Security Groups you need to collect both NetworkSecurityGroupEvent and NetworkSecurityGroupRuleCounter. If you only enable diagnostics for one of these Categories, then the data for the selected category will not be collected.   
 
-The following sections will walk you through how to:
 
-+ Enable the Log Analytics solution for the Azure service 
-+ Configure Log Analytics to collect the logs for each resource  
+### Configure Log Analytics to collect Azure Diagnostics written to Blob in JSON format
 
-### Enabling Log Analytics to Collect Azure Diagnostics Written to Blob in JSON
-
-Collecting logs for these services is performed using PowerShell scripts.
+Collecting logs for these services and enabling the solution to visualize the logs is performed using PowerShell scripts.
 
 Refer to [Configure Azure Diagnostics Written to Blob in JSON](log-analytics-powershell-azure-diagnostics-json.md).
 
@@ -89,7 +85,7 @@ This documentation also includes details on:
 + Troublehshooting data collection
 + Stopping data collection
 
-In the future you will also be able to perform this configuration from the portal. 
+It is not currently possible to perform the above configuration from the portal. 
 
 ## Collect data using Azure diagnostics written to table storage or IIS Logs written to blob 
 
