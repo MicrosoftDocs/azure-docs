@@ -228,76 +228,82 @@ In this section, you create the various pages that your application displays.
 1.  In the OnlineOrder.cs file in Visual Studio, replace the
     existing namespace definition with the following code:
 
-        namespace FrontendWebRole.Models
-        {
-            public class OnlineOrder
-            {
-                public string Customer { get; set; }
-                public string Product { get; set; }
-            }
-        }
+	```
+	namespace FrontendWebRole.Models
+	{
+	    public class OnlineOrder
+	    {
+	        public string Customer { get; set; }
+	        public string Product { get; set; }
+	    }
+	}
+	```
 
 2.  In **Solution Explorer**, double-click
     **Controllers\HomeController.cs**. Add the following **using**
     statements at the top of the file to include the namespaces for the
     model you just created, as well as Service Bus.
 
-        using FrontendWebRole.Models;
-        using Microsoft.ServiceBus.Messaging;
-        using Microsoft.ServiceBus;
+	```
+	using FrontendWebRole.Models;
+	using Microsoft.ServiceBus.Messaging;
+	using Microsoft.ServiceBus;
+	```
 
 3.  Also in the HomeController.cs file in Visual Studio, replace the
     existing namespace definition with the following code. This code
     contains methods for handling the submission of items to the queue.
 
-        namespace FrontendWebRole.Controllers
-        {
-            public class HomeController : Controller
-            {
-                public ActionResult Index()
-                {
-                    // Simply redirect to Submit, since Submit will serve as the
-                    // front page of this application.
-                    return RedirectToAction("Submit");
-                }
-
-                public ActionResult About()
-                {
-                    return View();
-                }
-
-                // GET: /Home/Submit.
-                // Controller method for a view you will create for the submission
-                // form.
-                public ActionResult Submit()
-                {
-                    // Will put code for displaying queue message count here.
-
-                    return View();
-                }
-
-                // POST: /Home/Submit.
-                // Controller method for handling submissions from the submission
-                // form.
-                [HttpPost]
-				// Attribute to help prevent cross-site scripting attacks and
-				// cross-site request forgery.  
-    			[ValidateAntiForgeryToken]
-                public ActionResult Submit(OnlineOrder order)
-                {
-                    if (ModelState.IsValid)
-                    {
-                        // Will put code for submitting to queue here.
-
-                        return RedirectToAction("Submit");
-                    }
-                    else
-                    {
-                        return View(order);
-                    }
-                }
-            }
-        }
+	```
+	namespace FrontendWebRole.Controllers
+	{
+	    public class HomeController : Controller
+	    {
+	        public ActionResult Index()
+	        {
+	            // Simply redirect to Submit, since Submit will serve as the
+	            // front page of this application.
+	            return RedirectToAction("Submit");
+	        }
+	
+	        public ActionResult About()
+	        {
+	            return View();
+	        }
+	
+	        // GET: /Home/Submit.
+	        // Controller method for a view you will create for the submission
+	        // form.
+	        public ActionResult Submit()
+	        {
+	            // Will put code for displaying queue message count here.
+	
+	            return View();
+	        }
+	
+	        // POST: /Home/Submit.
+	        // Controller method for handling submissions from the submission
+	        // form.
+	        [HttpPost]
+			// Attribute to help prevent cross-site scripting attacks and
+			// cross-site request forgery.  
+			[ValidateAntiForgeryToken]
+	        public ActionResult Submit(OnlineOrder order)
+	        {
+	            if (ModelState.IsValid)
+	            {
+	                // Will put code for submitting to queue here.
+	
+	                return RedirectToAction("Submit");
+	            }
+	            else
+	            {
+	                return View(order);
+	            }
+	        }
+	    }
+	}
+	```
 
 4.  On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
 
@@ -330,7 +336,9 @@ In this section, you create the various pages that your application displays.
     editor. Add the following line after **&lt;h2>Submit&lt;/h2>**. For now,
     the **ViewBag.MessageCount** is empty. You will populate it later.
 
-        <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
+	```
+	<p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
+	```
 
 12. You now have implemented your UI. You can press **F5** to run your
     application and confirm that it looks as expected.
@@ -427,38 +435,42 @@ Service Bus queue.
 7.  Update the `Submit()` method (the overload that takes no parameters) as follows to get the message count
     for the queue.
 
-        public ActionResult Submit()
-        {
-            // Get a NamespaceManager which allows you to perform management and
-            // diagnostic operations on your Service Bus queues.
-            var namespaceManager = QueueConnector.CreateNamespaceManager();
-
-            // Get the queue, and obtain the message count.
-            var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
-            ViewBag.MessageCount = queue.MessageCount;
-
-            return View();
-        }
+	```
+	public ActionResult Submit()
+	{
+	    // Get a NamespaceManager which allows you to perform management and
+	    // diagnostic operations on your Service Bus queues.
+	    var namespaceManager = QueueConnector.CreateNamespaceManager();
+	
+	    // Get the queue, and obtain the message count.
+	    var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
+	    ViewBag.MessageCount = queue.MessageCount;
+	
+	    return View();
+	}
+	```
 
 8.  Update the `Submit(OnlineOrder order)` method (the overload that takes one parameter) as follows to submit
     order information to the queue.
 
-        public ActionResult Submit(OnlineOrder order)
-        {
-            if (ModelState.IsValid)
-            {
-                // Create a message from the order.
-                var message = new BrokeredMessage(order);
-
-                // Submit the order.
-                QueueConnector.OrdersQueueClient.Send(message);
-                return RedirectToAction("Submit");
-            }
-            else
-            {
-                return View(order);
-            }
-        }
+	```
+	public ActionResult Submit(OnlineOrder order)
+	{
+	    if (ModelState.IsValid)
+	    {
+	        // Create a message from the order.
+	        var message = new BrokeredMessage(order);
+	
+	        // Submit the order.
+	        QueueConnector.OrdersQueueClient.Send(message);
+	        return RedirectToAction("Submit");
+	    }
+	    else
+	    {
+	        return View(order);
+	    }
+	}
+	```
 
 9.  You can now run the application again. Each time you submit an
     order, the message count increases.
@@ -490,28 +502,30 @@ receiving messages.
 
 To instantiate a client (for example, a Service Bus [QueueClient][]), you can represent the configuration information as a connection string. On the client side, there is a `CreateFromConnectionString()` method that instantiates that client type by using that connection string. For example, given the following configuration section
 
-	<ConfigurationSettings>
-    ...
-    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
-	</ConfigurationSettings>
+```
+<ConfigurationSettings>
+...
+<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
+</ConfigurationSettings>
+```
 
 The following code retrieves the connection string, creates a queue, and initializes the connection to the queue.
 
-	QueueClient Client;
+```
+QueueClient Client;
 
-	string connectionString =
-     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-    var namespaceManager =
-     NamespaceManager.CreateFromConnectionString(connectionString);
+var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
 
-	if (!namespaceManager.QueueExists(QueueName))
-    {
-        namespaceManager.CreateQueue(QueueName);
-    }
+if (!namespaceManager.QueueExists(QueueName))
+{
+    namespaceManager.CreateQueue(QueueName);
+}
 
-	// Initialize the connection to Service Bus queue.
-	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
+// Initialize the connection to Service Bus queue.
+Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
+```
 
 The code in the following section uses the [CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] class.
 
@@ -549,20 +563,26 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 11. In **WorkerRole.cs**, change the value of the **QueueName** variable from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
 
-		// The name of your queue.
-		const string QueueName = "OrdersQueue";
+	```
+	// The name of your queue.
+	const string QueueName = "OrdersQueue";
+	```
 
 12. Add the following using statement at the top of the WorkerRole.cs file.
 
-		using FrontendWebRole.Models;
+	```
+	using FrontendWebRole.Models;
+	```
 
 13. In the `Run()` function, inside the `OnMessage()` call, replace the contents of the `try` clause with the following code.
 
-		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-		// View the message as an OnlineOrder.
-		OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
-		Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
-		receivedMessage.Complete();
+	```
+	Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+	// View the message as an OnlineOrder.
+	OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+	receivedMessage.Complete();
+	```
 
 14. You have completed the application. You can test the full
     application by right-clicking the MultiTierApp project in Solution Explorer,
