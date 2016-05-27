@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="05/25/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -175,7 +175,7 @@ provide your own home page or enable a temporary home page.  To enable a tempora
 
 You can add this setting to your `azureMobile.js` file if you only want this option available when developing locally.
 
-## <a name="TableOperations"></a>Overview: Table operations
+## <a name="TableOperations"></a>Section: Table operations 
 
 The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tables stored in Azure SQL Database as a WebAPI.  Five operations are provided.
 
@@ -189,7 +189,7 @@ The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tabl
 
 This WebAPI supports [OData] and extends the table schema to support [offline data sync].
 
-## <a name="howto-dynamicschema"></a>How to: Define tables using a dynamic schema
+### <a name="howto-dynamicschema"></a>How to: Define tables using a dynamic schema
 
 Before a table can be used, it must be defined.  Tables can be defined with a static schema (where the developer defines the columns within the schema) or dynamically (where the SDK controls the schema based on incoming requests). In addition, the developer can control specific aspects of the WebAPI by adding Javascript code to the definition.
 
@@ -228,7 +228,7 @@ Tables use dynamic schema by default.  To turn off dynamic schema globally, set 
 
 You can find a complete example in the [todo sample on GitHub].
 
-## <a name="howto-staticschema"></a>How to: Define tables using a static schema
+### <a name="howto-staticschema"></a>How to: Define tables using a static schema
 
 You can explicitly define the columns to expose via the WebAPI.  The azure-mobile-apps Node.js SDK will automatically add any additional columns required for offline data sync to the list that you provide.  For example, the QuickStart client applications require a table with two columns: text (a string) and complete (a boolean).  This can be defined in the table definition JavaScript file (located in the tables directory) as follows:
 
@@ -249,7 +249,7 @@ You can explicitly define the columns to expose via the WebAPI.  The azure-mobil
 
 If you define tables statically, then you must also call the tables.initialize() method to create the database schema on startup.  The tables.initialize() method returns a [Promise] - this is used to ensure that the web service does not serve requests prior to the database being initialized.
 
-## <a name="howto-sqlexpress-setup"></a>How to: Use SQL Express as a development data store on your local machine
+### <a name="howto-sqlexpress-setup"></a>How to: Use SQL Express as a development data store on your local machine
 
 The Azure Mobile Apps The AzureMobile Apps Node SDK provides three options for serving data out of the box: SDK provides three options for serving data out of the box:
 
@@ -310,7 +310,7 @@ The Node.js application will read the **SQLCONNSTR_MS_TableConnectionString** en
 
 Note that you must access the database through a TCP/IP connection and provide a username and password for the connection.
 
-## <a name="howto-config-localdev"></a>How to: Configure your project for local development
+### <a name="howto-config-localdev"></a>How to: Configure your project for local development
 
 Azure Mobile Apps reads a JavaScript file called _azureMobile.js_ from the local filesystem.  You should not use this file to configure the Azure Mobile Apps SDK in production - use App Settings within the [Azure Portal] instead.  The _azureMobile.js_ file should export a configuration object.  The most common settings are:
 
@@ -339,7 +339,7 @@ An example _azureMobile.js_ file implementing the database settings given above 
 We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
 being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
 
-## <a name="howto-appsettings"></a>How: Configure App Settings for your Mobile App
+### <a name="howto-appsettings"></a>How: Configure App Settings for your Mobile App
 
 Most settings in the _azureMobile.js_ file have an equivalent App Setting in the [Azure Portal].  Use the following list to configure your
 app in App Settings:
@@ -367,7 +367,7 @@ To set an App Setting:
 
 Changing most app settings will require a service restart.
 
-## <a name="howto-use-sqlazure"></a>How to: Use SQL Database as your production data store
+### <a name="howto-use-sqlazure"></a>How to: Use SQL Database as your production data store
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
@@ -405,7 +405,7 @@ Once the Mobile App backend is created, you can choose to either connect an exis
 
 Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress until the database has been deployed sucessfully.  Once successfully deployed, a Connection String will be created for the SQL Database instance in your Mobile backend App Settings.  You can see this app setting in the **Settings** > **Application settings** > **Connection strings**.
 
-## <a name="howto-tables-auth"></a>How to: Require Authentication for access to tables
+### <a name="howto-tables-auth"></a>How to: Require Authentication for access to tables
 
 If you wish to use App Service Authentication with the tables endpoint, you must configure App Service Authentication in the [Azure Portal] first.  For
 more details about configuring authentication in an Azure App Service, review the Configuration Guide for the identity provider you intend to use:
@@ -444,7 +444,7 @@ The access property can take one of three values
 
 If the access property is undefined, unauthenticated access is allowed.
 
-## <a name="howto-tables-getidentity"></a>How to: Use Authentication Claims with your tables
+### <a name="howto-tables-getidentity"></a>How to: Use Authentication Claims with your tables
 
 You can set up a number of claims that are requested when authentication is set up.  These claims are not normally available through the `context.user` object.
 However, they can be retrieved using the `context.user.getIdentity()` method.  The `getIdentity()` method returns a Promise that resolves to an object.  The object
@@ -507,7 +507,7 @@ For example, if you set up Microsoft Account authentication and request the emai
 
 To see what claims are available, use a web browser to view the `/.auth/me` endpoint of your site.
 
-## <a name="howto-tables-disabled"></a>How to: Disable access to specific table operations
+### <a name="howto-tables-disabled"></a>How to: Disable access to specific table operations
 
 In addition to appearing on the table, the access property can be used to control individual operations.  There are four operations:
 
@@ -530,7 +530,7 @@ For example, you may wish to provide a read-only unauthenticated table.  This ca
 
     module.exports = table;
 
-## <a name="howto-tables-query"></a>How to: Adjust the query that is used with table operations
+### <a name="howto-tables-query"></a>How to: Adjust the query that is used with table operations
 
 A common requirement for table operations is to provide a restricted view of the data.  For example, you may provide a table that is
 tagged with the authenticated user ID such that the user can only read or update their own records.  The following table definition
@@ -571,7 +571,7 @@ a [QueryJS] object that is used to convert an OData query to something that the 
 
     context.query.where('myfield eq ?', 'value');
 
-## <a name="howto-tables-softdelete"></a>How to: Configure Soft Delete on a table
+### <a name="howto-tables-softdelete"></a>How to: Configure Soft Delete on a table
 
 Soft Delete does not actually delete records.  Instead it marks them as deleted within the database by setting the deleted column to true.  The Azure Mobile Apps SDK automatically removes soft-deleted records from results unless the Mobile Client SDK uses IncludeDeleted().  To configure a table for soft delete, set the softDelete property in the table definition file.  An example might be:
 
@@ -598,7 +598,7 @@ Soft Delete does not actually delete records.  Instead it marks them as deleted 
 
 You will need to establish a mechanism for purging records - either from a client application, via a WebJob or through a custom mechanism.
 
-## <a name="howto-tables-seeding"></a>How to: Seed your database with data
+### <a name="howto-tables-seeding"></a>How to: Seed your database with data
 
 When creating a new application, you may wish to seed a table with data.  This can be done within the table definition JavaScript file as
 follows:
@@ -631,7 +631,7 @@ the seeded data.
 
 We recommend that you explicitly call the initialize() method to create the table when the service starts running.
 
-## <a name="Swagger"></a>How to: Enable Swagger Support
+### <a name="Swagger"></a>How to: Enable Swagger Support
 
 Azure App Service Mobile Apps comes with built-in [Swagger] support.  To enable Swagger support, first install the swagger-ui as a dependency:
 
@@ -652,10 +652,9 @@ authentication using the `table.access` property.
 
 You can also add the Swagger option to your `azureMobile.js` file if you only want Swagger support when developing locally.
 
-## <a name="push"></a>Overview: Push notifications
-Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android and Windows devices. To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
+## <a name="push"></a><a name="send-push"></a>How to: Send push notifications
 
-## <a name="send-push"></a>How to: Send push notifications
+Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android and Windows devices. To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
 
 The following code shows how to use the push object to send a broadcast push notification to registered iOS devices:
 
@@ -689,6 +688,7 @@ By creating a template push registration from the client, you can instead send a
 
 
 ##<a name="push-user"></a>How to: Send push notifications to an authenticated user using tags
+
 When an authenticated user registers for push notifications, a user ID tag is automatically added to the registration. By using this tag, you can send push notifications to all devices registered by a specific user. The following code gets the SID of user making the request and sends a template push notification to every device registration for that user:
 
     // Only do the push if configured
@@ -703,7 +703,8 @@ When an authenticated user registers for push notifications, a user ID tag is au
 
 When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration.
 
-## <a name="CustomAPI"></a>Overview: Custom APIs
+##  <a name="CustomAPI"></a><a name="howto-customapi-basic"></a>How to: Define a simple custom API
+
 
 In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom
 APIs are defined in a similar way to the table definitions and can access all the same facilities, including authentication.
@@ -717,8 +718,6 @@ the Configuration Guide for the identity provider you intend to use:
 - [How to configure Google Authentication]
 - [How to configure Microsoft Authentication]
 - [How to configure Twitter Authentication]
-
-## <a name="howto-customapi-basic"></a>How to: Define a simple custom API
 
 Custom APIs are defined in much the same way as the Tables API.
 
@@ -786,7 +785,7 @@ You can also specify authentication on specific operations:
 
 The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
 
-## <a name="howto-customapi-auth"></a>How to: Handle Large File Uploads
+## <a name="howto-customapi-auth"></a>How to: Handle large file uploads
 
 Azure Mobile Apps SDK uses the [body-parser middleware](https://github.com/expressjs/body-parser) to accept and decode body content in your submission.  You can pre-configure
 body-parser to accept larger file uploads:
@@ -814,7 +813,7 @@ body-parser to accept larger file uploads:
 You can adjust the 50Mb limit we have shown above.  Note that the file will be base-64 encoded before transmission, which will
 increase the size of the actual upload.
 
-## <a name="howto-customapi-sql"></a>How to: Execute Custom SQL Statements
+## <a name="howto-customapi-sql"></a>How to: Execute custom SQL statements
 
 The Azure Mobile Apps SDK allows access to the entire Context through the request object, allowing you to execute
 parameterized SQL statements to the defined data provider easily:
@@ -846,7 +845,7 @@ parameterized SQL statements to the defined data provider easily:
     api.get.access = 'authenticated';
     module.exports = api;
 
-## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>How to: Debug, Diagnose and Troubleshoot Azure Mobile Apps
+## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>How to: Debug, diagnose and troubleshoot Azure Mobile apps
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
 Refer to the following articles to get started in troubleshooting your Node.js Mobile backend:
