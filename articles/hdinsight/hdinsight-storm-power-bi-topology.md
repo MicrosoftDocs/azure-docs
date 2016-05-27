@@ -61,7 +61,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 2. Connect to the database by following the steps in the [Connect to a SQL Database with Visual Studio](../sql-database/sql-database-connect-query.md) document to connect to the database.
 
-4. Right click on the database in Object Explorer and create a __New Query__. Paste the contents of the __IISLogsTable.sql__ included in the downloaded project into the query window, and then use Ctrl + Shift + E to execute the query. You should receive a message that the command(s) completed successfully.
+4. Right click on the database in Object Explorer and create a __New Query__. Paste the contents of the __IISLogsTable.sql__ file included in the downloaded project into the query window, and then use Ctrl + Shift + E to execute the query. You should receive a message that the command(s) completed successfully.
 
     Once this completes, there will be a new table named __IISLOGS__ in the database.
 
