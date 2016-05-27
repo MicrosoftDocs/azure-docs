@@ -95,9 +95,7 @@ The figure below shows the progression of resources as different resource groups
 
 > [AZURE.NOTE] For more information, see [Best practices for designing Azure Resource Manager templates][arm-template-best-practices].
 
-If you are familiar with resource groups, you can use the diagram below to understand how the ARM templates used for this reference architecture are used as building blocks, and view each template.
-
-[![6]][6]
+If you are familiar with resource groups, you can use [this diagram][6] to understand how different nested templates were used, and see the code behind each template.
 
 ### RBAC recommendations
 
