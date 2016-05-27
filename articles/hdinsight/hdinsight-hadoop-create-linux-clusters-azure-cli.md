@@ -69,7 +69,7 @@ The following steps should be performed from a command-prompt, shell or terminal
 
 5. Create a new storage account. This will be used as the default storage for the HDInsight cluster.
 
-        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage --access-tier hot storagename
+        azure storage account create -g groupname --type RAGRS -l location storagename
         
      * Replace __groupname__ with the name of the group created in the previous step.
      * Replace __location__ with the same location used in the previous step. 
