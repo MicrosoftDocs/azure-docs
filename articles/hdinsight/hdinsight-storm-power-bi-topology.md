@@ -67,7 +67,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 ## Configure the sample
 
-1. From the [Azure portal](https://portal.azure.com,) select your SQL database. From the __Essentials__ section of the SQL database blade, select __Show database connection strings__. From the list that appears, copy the __ADO.NET (SQL authentication)__ information.
+1. From the [Azure portal](https://portal.azure.com), select your SQL database. From the __Essentials__ section of the SQL database blade, select __Show database connection strings__. From the list that appears, copy the __ADO.NET (SQL authentication)__ information.
 
 1. Open the sample in Visual Studio. From **Solution Explorer**, open the **App.config** file, and then find the following entry:
 
