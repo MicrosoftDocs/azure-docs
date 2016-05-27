@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
 #Request Units in DocumentDB
+Now available: DocumentDB [throughput calculator](https://www.documentdb.com/capacityplanner).
+
+![Throughput calculator][5]
 
 This article provides an overview of request units in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
 
@@ -209,3 +212,4 @@ To get started with scale and performance testing with DocumentDB, see [Performa
 [2]: ./media/documentdb-request-units/RUEstimatorUpload.png
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
+[5]: ./media/documentdb-request-units/RUCalculator.png
