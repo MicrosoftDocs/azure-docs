@@ -20,7 +20,7 @@
 
 For Windows and Linux computers the recommended way to collect logs and metrics is by installing the Log Analytics agent.
 
-For virtual machines running in Azure you can easily install the Log Analytics agent by enabling the Microsoft Monitoring Agent virtual machine extension. Using a virtual machine extension simplies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be automatically upgraded, ensuring you have the latest features and fixes.
+For virtual machines running in Azure you can easily install the Log Analytics agent by enabling the Microsoft Monitoring Agent virtual machine extension. Using a virtual machine extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be automatically upgraded, ensuring you have the latest features and fixes.
 
 The Microsoft Monitoring Agent is available as an [Azure virtual machine extension](../virtual-machines/virtual-machines-windows-extensions-features.md) for both Windows and Linux computers.
 
