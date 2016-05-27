@@ -1,6 +1,6 @@
 <properties 
    pageTitle="SQL Database Business Continuity during Application Upgrade" 
-   description="This section provides guidance for business continuity to prevent downtime during an application upgrade." 
+   description="This section provides guidance for preventing downtime during an application upgrade." 
    services="sql-database"
    documentationCenter="" 
    authors="elfisher" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="05/27/2016"
    ms.author="elfish"/>
 
-#Upgrade application without downtime
+#Upgrade an application without downtime
 
 In the context of Microsoft Azure the term 'application' refers to components such as front ends, services deployed in a cloud service, and the data tier used to persist application data or meta-data. Cloud applications are often designed to provide uninterrupted service 24x7. Rolling out a new version of the application, when changes in the data tier are applied in the live site could potentially cause some disruption, such as reduced features being available or even complete downtime. 
 
@@ -27,6 +27,7 @@ When designing the application upgrade process the main goal should be eliminati
 3.	Ability to roll back in case of any errors during upgrade.
 4.	Total dollar cost involved.  This includes the cost of additional application components needed to create a temporary copy (such as additional premium databases for active geo-replication) and incremental costs for temporary deployments used by the upgrade process. 
 
-If the application can temporarily operate in read-only mode the upgrade workflow could be designed to effectively eliminate the downtime altogether. To understand how to implement the upgrade work-flow for your specific application topology please refer to [Best Practices for minimal disruption to Azure SQL DB during application rolling upgrades](https://msdn.microsoft.com/library/azure/dn790385.aspx)
+If the application can temporarily operate in read-only mode the upgrade workflow could be designed to effectively eliminate the downtime altogether. To understand how to implement the upgrade work-flow for your specific application topology please refer to [Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication](sql-database-manage-application-rolling-upgrade.md)
+ 
  
  
