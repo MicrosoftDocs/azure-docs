@@ -92,7 +92,7 @@ You have created an Active Directory application and a service principal for tha
 
      If your account is linked to more than one subscription, provide a subscription name or id to get the subscription you wish to work with.
      
-        $subscription = Get-AzureRmSubscription -SubscriptionName "Windows Azure MSDN - Visual Studio Ultimate"
+        $subscription = Get-AzureRmSubscription -SubscriptionName "Azure MSDN - Visual Studio Ultimate"
 
 4. Login as the service principal by specifying that this account is a service principal and by providing the credentials object.
 
@@ -182,7 +182,7 @@ You have seen the application id and certificate thumbprint in previous steps. H
 
     Or, if you have more than one subscription, provide the name of the subscription:
 
-        (Get-AzureRmSubscription -SubscriptionName "Windows Azure MSDN - Visual Studio Ultimate").TenantId
+        (Get-AzureRmSubscription -SubscriptionName "Azure MSDN - Visual Studio Ultimate").TenantId
         
 2. To retrieve the application id, use:
 
