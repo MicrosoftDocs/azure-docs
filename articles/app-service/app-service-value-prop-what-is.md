@@ -67,7 +67,7 @@ Here are some key features and capabilities of App Service:
 
 - **Azure Marketplace** - Select from an ever-growing [list of application templates](https://azure.microsoft.com/marketplace/). Leverage the best of the OSS app community with one-click installation of packages such as WordPress, Joomla and Drupal.
 
-- **WebJobs** - [Run any program or script](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs. Run jobs continuously, on a schedule, or triggered by events. The Azure [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md) simplifies the code you write to integrate with other Azure and third-party services.
+- **WebJobs** - [Run any program or script](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs. Run jobs continuously, on a schedule, or triggered by events. The Azure [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) simplifies the code you write to integrate with other Azure and third-party services.
 
 - **Hybrid connections** - Access on-premises data using [hybrid connections](../biztalk-services/integration-hybrid-connection-overview.md) and [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
 
