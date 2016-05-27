@@ -17,7 +17,7 @@
 	ms.author="stbaro"/>
 
 #Request Units in DocumentDB
-Now available: DocumentDB [throughput calculator](https://www.documentdb.com/capacityplanner).
+Now available: DocumentDB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).
 
 ![Throughput calculator][5]
 
