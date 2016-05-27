@@ -292,8 +292,7 @@ Examples:
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] Wildcards cannot be used within quotations today. Message=`"\*This text\*"` will consider the (\*) used as a literal (\*) character.
-<!-- Loc Comment: The backslashes "\" within the inline code is not working as escape character, so it's displayed as "\*This text\*" in live page. Is this intended or should the backslashes be deleted, so it displays as "*This text*"?  -->
+>[AZURE.NOTE] Wildcards cannot be used within quotations today. Message=`"*This text*"` will consider the (\*) used as a literal (\*) character.
 ## Commands
 
 The commands apply to the results that are returned by the query. Use the pipe character ( | ) to apply a command to the retrieved results. Multiple commands must be separated by the pipe character.
@@ -350,8 +349,8 @@ Example:
 
 	Type:Alert errors detected | select Name, Severity
 
-Limits the returned results fields to *Name** and *Severity*.
-<!-- Loc Comment: It appears that there is an extra asterisk "*" after "*Name*", so it's displayed live as "Name** and *Severity" in italic. Is this intended or should the extra asterisk be deleted, so only "Name" and "Severity" are in italic?  -->
+Limits the returned results fields to *Name* and *Severity*.
+
 ### Measure
 
 The *measure* command is used to apply statistical functions to the raw search results. This is very useful to get *group-by* views over the data. When you use the *measure* command, Log Analytics search displays a table with aggregated results.
