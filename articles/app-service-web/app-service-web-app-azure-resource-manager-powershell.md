@@ -194,12 +194,12 @@ To reset both the publishing password for ftp and web deploy for a web app, use:
 
 ### Manage Web App Certificates ###
 
-To learn about how to manage web app certificates, see [SSL Certificates binding using PowerShell](app-service-web-app-powerhell-ssl-binding.md)
+To learn about how to manage web app certificates, see [SSL Certificates binding using PowerShell](app-service-web-app-powershell-ssl-binding.md)
 
 
 
 ### Next Steps ###
 - To learn about Azure Resource Manager PowerShell support, see [Using Azure PowerShell with Azure Resource Manager.](../powershell-azure-resource-manager.md)
 - To learn about App Service Environments, see [Introduction to App Service Environment.](app-service-app-service-environment-intro.md)
-- To learn about managing App Service SSL certificates using PowerShell, see [SSL Certificates binding using PowerShell.](app-service-web-app-powerhell-ssl-binding.md)
+- To learn about managing App Service SSL certificates using PowerShell, see [SSL Certificates binding using PowerShell.](app-service-web-app-powershell-ssl-binding.md)
 - To learn about the full list of Azure Resource Manager based PowerShell cmdlets for Azure Web Apps, see [Azure Cmdlet Reference of Web Apps Azure Resource Manager PowerShell Cmdlets.](https://msdn.microsoft.com/library/mt619237.aspx)
