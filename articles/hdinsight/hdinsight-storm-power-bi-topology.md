@@ -51,19 +51,19 @@ The following is a list of the files that implement the main functionality of th
 
 > [AZURE.WARNING] You must create the table in SQL Database before starting the topology on your HDInsight cluster.
 
+## Download the example
+
+Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). To download it, either fork/clone it using [git](http://git-scm.com/), or use the **Download** link to download a .zip of the archive.
+
 ## Create a database
 
 1. Use the steps in the [SQL Database tutorial](../sql-database/sql-database-get-started.md) document to create a new SQL Database.
 
 2. Connect to the database by following the steps in the [Connect to a SQL Database with Visual Studio](../sql-database/sql-database-connect-query.md) document to connect to the database.
 
-4. Right click on the database in Object Explorer and create a __New Query__. Paste the contents of the __IISLogsTable.sql__ into the query window and use Ctrl + Shift + E to execute the query. You should receive a message that the command(s) completed successfully.
+4. Right click on the database in Object Explorer and create a __New Query__. Paste the contents of the __IISLogsTable.sql__ included in the downloaded project into the query window, and then use Ctrl + Shift + E to execute the query. You should receive a message that the command(s) completed successfully.
 
     Once this completes, there will be a new table named __IISLOGS__ in the database.
-
-## Download the example
-
-Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). To download it, either fork/clone it using [git](http://git-scm.com/), or use the **Download** link to download a .zip of the archive.
 
 ## Configure the sample
 
