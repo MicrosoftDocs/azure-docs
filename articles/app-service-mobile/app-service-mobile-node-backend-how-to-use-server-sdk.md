@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="05/27/2016"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -165,7 +165,7 @@ Azure App Service has specific advice for Node.js application that you should re
 - How to [specify the Node Version]
 - How to [use Node modules]
 
-## <a name="howto-enable-homepage"></a>How to: Enable a Home Page for your application
+### <a name="howto-enable-homepage"></a>How to: Enable a Home Page for your application
 
 Many applications are a combination of web and mobile apps and the ExpressJS framework allows you to combine the two facets.  Sometimes, however, you
 may wish to only implement a mobile interface.  It is useful to provide a landing page to ensure the app service is up and running.  You can either
