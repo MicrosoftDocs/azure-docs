@@ -50,6 +50,6 @@ Now that it is possible to log into Azure with an organizational account, here a
 |Microsoft Account |Yes|No|No|
 |Organizational Account|Yes|Yes|No|
 
-## Is there a problem the Internet Browser?
+## Is there a problem with the Internet Browser?
 
 Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser.
