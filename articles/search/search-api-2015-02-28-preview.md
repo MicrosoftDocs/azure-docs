@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/18/2016"
+   ms.date="05/27/2016"
    ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
@@ -1494,7 +1494,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hôtel",
-      "searchFields": [ "description_fr" ]
+      "searchFields": "description_fr"
     }
 
 6) Search the Index across multiple fields. For example, you can store and query searchable fields in multiple languages, all within the same index.  If English and French descriptions co-exist in the same document, you can return any or all in the query results:
@@ -1505,7 +1505,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hotel",
-      "searchFields": [ "description", "description_fr" ]
+      "searchFields": "description, description_fr"
     }
 
 Note that you can only query one index at a time. Do not create multiple indexes for each language unless you plan to query one at a time.
