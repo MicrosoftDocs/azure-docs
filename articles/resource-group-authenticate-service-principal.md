@@ -16,7 +16,7 @@
    ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Create an Active Directory application with Azure PowerShell to access resources
+# Use Azure PowerShell to create an Active Directory application to access resources
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
