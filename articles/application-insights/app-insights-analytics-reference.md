@@ -351,8 +351,13 @@ Splits an exception record into rows for each item in the details field.
 
 ### parse operator
 
-    T | parse "I got socks for my birthday when I was 63 years old" 
-    with * "got" present "for" * "was" year:long * 
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
+
+
+    T | parse kind="relaxed"
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
 
     T |  parse kind=regex "I got socks for my 63rd birthday" 
     with "(I|She) got" present "for .*?" year:long * 
@@ -369,6 +374,7 @@ Extracts values from a string. Can use simple or regular expression matching.
 * `T`: The input table.
 * `kind`: 
  * `simple` (default): the `Match` strings are plain strings.
+ * `relaxed`: if the text doesn't parse as the type of a column, the column is set to null and the parse continues 
  * `regex`: the `Match` strings are regular expressions.
 * `Text`: A column or other expression that evaluates to or can be converted to a string.
 * *Match:* Match the next part of the string, and discard it.
@@ -384,11 +390,11 @@ The elements in the `with` clause are matched against the source text in turn. E
 
 * A literal string or regular expression moves the matching cursor by the length of the match.
 * In a regex parse, a regular expression can use the minimization operator '?' to move as soon as possible to the following match.
-* A column name with a type parses the text as the specified type.
+* A column name with a type parses the text as the specified type. Unless kind=relaxed, an unsuccessful parse invalidates matching the whole pattern.
 * A column name without a type, or with the type 'string', copies the minimum number of characters to get to the following match.
-* '*' Skips the minimum number of characters to get to the following match. You can use '*' at the start and end of the pattern, or after a type other than string, or between string matches.
+* ' * ' Skips the minimum number of characters to get to the following match. You can use '*' at the start and end of the pattern, or after a type other than string, or between string matches.
 
-
+All of the elements in a parse pattern must match correctly; otherwise, no results will be produced. The exception to this rule is that when kind=relaxed, if parsing a typed variable fails, the rest of the parse continues.
 
 **Examples**
 
@@ -398,10 +404,12 @@ The elements in the `with` clause are matched against the source text in turn. E
 
 // Test without reading a table:
  range x from 1 to 1 step 1 
- | parse "I got socks for my birthday when I was 63 years old" 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
     with 
      *   // skip until next match
      "got" 
+     counter: long // read a number
+     " " // separate fields
      present // copy string up to next match
      "for" 
      *  // skip until next match
@@ -410,9 +418,38 @@ The elements in the `with` clause are matched against the source text in turn. E
      *  // skip rest of string
 ```
 
-x | present | Year
+x | counter | present | Year
+---|---|---|---
+1 | 2 | socks | 63
+
+*Relaxed:*
+
+When the input contains a correct match for every typed column, a relaxed parse produces the same results as a simple parse. But if one of the typed columns doesn't parse correctly, a relaxed parse continues to process the rest of the pattern, whereas a simple parse stops and fails to generate any result.
+
+
+```AIQL
+
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
+```
+
+
+x  | present | Year
 ---|---|---
-1 | socks | 63
+1 |  socks | 63
 
 
 *Regex:*

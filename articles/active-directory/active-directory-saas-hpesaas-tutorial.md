@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="05/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -78,12 +78,12 @@ To configure the integration of HPE SaaS into Azure AD, you need to add HPE SaaS
 	![Applications][4]
 
 6. In the search box, type **HPE SaaS**.
-	
+
 	![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_01.png)
 
 7. In the results pane, select **HPE SaaS**, and then click **Complete** to add the application.
 
-![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
+	![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with HPE SaaS based on a test user called "Britta Simon".
@@ -120,11 +120,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_04.png) 
 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your HPE SaaS application using the following pattern: `https://<tenant name>.saas.hpe.com`
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your HPE SaaS application: **“https://login.saas.hpe.com/msg”**. Customers can also change this to application specific URL.
 
-    b. In the **Reply URL** textbox, type the URL using the following pattern: `https://<tenant name>.saas.hpe.com/sp/ACS.saml2` 
-
-    c. Click **Next**.
+    b. Click **Next**.
 
 
 4. On the **Configure single sign-on at HPE SaaS** page, perform the following steps:
@@ -150,9 +148,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-
 The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
-In the Users list, select **Britta Simon**.
 
 ![Create Azure AD User][20]
 
@@ -160,7 +156,7 @@ In the Users list, select **Britta Simon**.
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png) 
+![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png) 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
@@ -169,6 +165,7 @@ In the Users list, select **Britta Simon**.
 	![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_03.png) 
 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+
 	![Creating an Azure AD test user](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png) 
 
 5. On the **Tell us about this user** dialog page, perform the following steps:
