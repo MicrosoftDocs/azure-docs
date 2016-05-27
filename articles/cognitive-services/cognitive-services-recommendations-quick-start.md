@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - Quick Start Guide"
 	services="cognitive-services"
 	documentationCenter=""
-	authors="luisca"
+	authors="luiscabrer"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/26/2016"
 	ms.author="luisca"/>
 
 # Quick start guide for the Cognitive Services Recommendations API
@@ -150,6 +150,8 @@ In this task, you will use the sample application to build your first model.
 
 1. When the model is created, take note of the **model ID** as you will need it when
 requesting recommendations in your production environment.
+
+>  Learn more about build types and how to evaluate the quality of builds [here](cognitive-services-recommendations-buildtypes.md).
 
 <a name="Ex1Task4"></a>
 ### Putting your model in production! ###
