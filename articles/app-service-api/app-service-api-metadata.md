@@ -34,12 +34,18 @@ In the [Azure portal](https://portal.azure.com/) the endpoint URL can be seen an
 
 ### Azure Resource Manager property
 
-You can also configure the API definition URL for an API app by using Azure Resource Manager tooling such as Azure PowerShell, CLI or [Resource Explorer](https://resources.azure.com/). 
+You can also configure the API definition URL for an API app by using [Azure Resource Manager templates](../resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](../powershell-install-configure.md) and the [Azure CLI](../xplat-cli-install.md). 
 
 Set the `apiDefinition` property on the Microsoft.Web/sites/config resource type for your <site name>/web resource. For example, in **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the cors property:
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
+		}
+
+For an example of an Azure Resource Manager template that sets the API definition property, open the [azuredeploy.json file in this repository for a sample application](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Find the section of the template that looks like the following example:
+
+		"apiDefinition": {
+		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
 ### Default value
