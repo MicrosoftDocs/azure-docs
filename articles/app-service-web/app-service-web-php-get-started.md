@@ -101,6 +101,7 @@ of command. Let's do this.
     
     This command creates a new Git repository on the current directory (with `git init`) 
     and connects it to the repository in Azure as a Git remote (with `git remote add`).
+
 <a name="configure"/>
 ## Configure the Azure web app
 
