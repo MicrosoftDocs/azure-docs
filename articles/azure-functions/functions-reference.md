@@ -129,7 +129,7 @@ Function apps are built on App Service, so all of the [deployment options availa
 
 3. Navigate to `D:\home\site\wwwroot\` to update *host.json* or `D:\home\site\wwwroot\<function_name>` to update a function's files.
 
-4. Drag-and-drop a file you want to upload into the appropriate folder in the file grid.
+4. Drag-and-drop a file you want to upload into the appropriate folder in the file grid. There are two areas in the file grid where you can drop a file. For *.zip* files, a box appears with the label "Drag here to upload and unzip." For other file types, drop in the file grid but outside the "unzip" box.
 
 #### To use FTP
 
@@ -144,6 +144,16 @@ When multiple triggering events occur faster than a single-threaded function run
 ## Azure Functions Pulse  
 
 Pulse is a live event stream which shows how often your function runs, as well as successes and failures. You can also monitor your average execution time. We’ll be adding more features and customization to it over time. You can access the **Pulse** page from the **Monitoring** tab.
+
+## Repositories
+
+The code for Azure Functions is open source and stored in GitHub repositories:
+
+* [Azure Functions runtime](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [Azure Functions portal](https://github.com/projectkudu/AzureFunctionsPortal)
+* [Azure Functions templates](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
+* [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## Bindings
 
@@ -162,3 +172,9 @@ For more information, see the following resources:
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) on the Azure App Service team blog. A history of how Azure Functions was developed.
+
+
+
+
+

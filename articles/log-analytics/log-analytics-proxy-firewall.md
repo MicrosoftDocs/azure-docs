@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -56,7 +56,7 @@ Use the following procedure to create a PowerShell script that you can run to se
 ```
 param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
 
-# First we get the health service configuration object.  We need to determine if we
+# First we get the Health Service configuration object.  We need to determine if we
 # have the right update rollup with the API we need.  If not, no need to run the rest of the script.
 $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 
@@ -68,22 +68,20 @@ if (!$proxyMethod)
     return
 }
 
-
 Write-Output "Clearing proxy settings."
 $healthServiceSettings.SetProxyInfo('', '', '')
 
-$ProxyUserName = $cred.username;
+$ProxyUserName = $cred.username
 
-
-Write-Output "Setting Proxy to ${ProxyDomainName} with proxy username of (${ProxyUserName})."
+Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
 $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 ```
 
 ## Configure proxy and firewall settings with Operations Manager
 
-For an Operations Manager management group to connect to and register with the OMS service, it must have access to the port numbers of your domains and URLs. If you use a proxy server for communication between the Operations Manager management server and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. Even if an Operations Manager management server is not behind a proxy server, it's agents might. In this case, the proxy server should to be configured the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the OMS web service.
+For an Operations Manager management group to connect to and register with the OMS service, it must have access to the port numbers of your domains and URLs. If you use a proxy server for communication between the Operations Manager management server and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. Even if an Operations Manager management server is not behind a proxy server, its agents might be. In this case, the proxy server should be configured in the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the OMS web service.
 
-In order for Operations Manager agents to communicate with the OMS service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version. The proxy setting for agents is specified in the Operations Manager console. Your version should be one of the of the following:
+In order for Operations Manager agents to communicate with the OMS service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version. The proxy setting for agents is specified in the Operations Manager console. Your version should be one of the following:
 
 - Operations Manager 2012 SP1 Update Rollup 7 or later
 - Operations Manager 2012 R2 Update Rollup 3 or later
@@ -132,7 +130,7 @@ Use the following procedures to register your Operations Manager management grou
 
 1. Use the information from the first table presented previously to ensure that the resources needed for the Operations Manager management server are accessible through any firewalls you might have.
 2. Use the information from the second table presented previously to ensure that the resources needed for the Operations console in Operations Manager and OMS are accessible through any firewalls you might have.
-3. If you use a proxy server with Internet Explorer, ensure that it is configured and works correctly. To verify, you can open a secure web connection (https), for example [https://bing.com](https://bing.com). If the secure web connection doesn’t work in a browser, it probably won’t work in the Operations Manager management console with web services in the cloud.
+3. If you use a proxy server with Internet Explorer, ensure that it is configured and works correctly. To verify, you can open a secure web connection (HTTPS), for example [https://bing.com](https://bing.com). If the secure web connection doesn’t work in a browser, it probably won’t work in the Operations Manager management console with web services in the cloud.
 
 ### To configure the proxy server in the Operations Manager console
 
@@ -169,11 +167,10 @@ Use the following procedures to register your Operations Manager management grou
 
 - If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
     ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
-- Or, you can also check for OMS management packs by using the following Windows PowerShell commands in the Operations Manager management server:
+- Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
 
-        get-scommanagementpack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
+        Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
 
-        get-scommanagementpack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version | ft
 
 ### To validate that Operations Manager is sending data to the OMS service
 
@@ -189,7 +186,7 @@ Use the following procedures to register your Operations Manager management grou
 
 There are no inbound firewall requirements to support Hybrid Runbook Workers.
 
-For the on-premise machine running Hybrid Runbook Worker, it must have outbound access to \*.cloudapp.net on ports 443, 9354, and 30000-30199.
+For the on-premises machine running Hybrid Runbook Worker, it must have outbound access to \*.cloudapp.net on ports 443, 9354, and 30000-30199.
 
 ## Next Steps
 

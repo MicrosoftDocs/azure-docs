@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines-windows"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="required"
    ms.date="05/12/2016"

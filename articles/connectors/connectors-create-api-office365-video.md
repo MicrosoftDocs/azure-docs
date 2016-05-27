@@ -1,10 +1,10 @@
 <properties
-pageTitle="Use the Office 365 Video API in your Logic apps | Microsoft Azure"
-description="Get started using the Office 365 Video API (connector) in your Microsoft Azure App service Logic apps"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Use the Office 365 Video connector in your Logic apps | Microsoft Azure"
+description="Get started using the Office 365 Video connector in your Microsoft Azure App service Logic apps"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,38 +14,37 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/23/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the Office365 Video API
-Connect to Office 365 Video to get information about an Office 365 video, get a list of videos, and more. The Office 365 Video API can be used from:
+# Get started with the Office365 Video connector
+Connect to Office 365 Video to get information about an Office 365 video, get a list of videos, and more. The Office 365 Video connector can be used from:
 
 - Logic apps 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. This API is not supported on any previous schema versions.
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. This connector is not supported on any previous schema versions.
 
 With Office 365 Video, you can:
 
 - Build your business flow based on the data you get from Office 365 Video. 
-- Use actions that check the video portal status, get a list of all video in a channel, and more. These actions get a response, and then make the output available for other actions. For example, you can use the Bing Search API to search for Office 365 videos, and then use the Office 365 video API to get information about that video. If the video meets your requirements, you can post this video on Facebook. 
+- Use actions that check the video portal status, get a list of all video in a channel, and more. These actions get a response, and then make the output available for other actions. For example, you can use the Bing Search connector to search for Office 365 videos, and then use the Office 365 video connector to get information about that video. If the video meets your requirements, you can post this video on Facebook. 
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
 
-The Office 365 Video API has the following actions available. There are no triggers.
+The Office 365 Video connector has the following actions available. There are no triggers.
 
 | Triggers | Actions|
 | --- | --- |
 | None | <ul><li>Checks video portal status</li><li>Get all viewable Channels</li><li>Get playback url of the Azure Media Services manifest for a video</li><li>Get the bearer token to get access to decrypt the video</li><li>Gets information about a particular office365 video</li><li>Lists all the office365 videos present in a channel</li></ul>
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
-## Create a connection to Office365 Video API
-When you add this API to your logic apps, you must sign-in to your Office 365 Video  account and allow logic apps to connect to your account.
+## Create a connection to Office365 Video connector
+When you add this connector to your logic apps, you must sign-in to your Office 365 Video account and allow logic apps to connect to your account.
 
-1. Sign in to your Office 365 Video account.
-2. Allow your logic apps to connect and use your Office 365 account. 
+>[AZURE.INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
 
 After you create the connection, you enter the Office 365 video properties, like the tenant name or channel ID. The **REST API reference** in this topic describes these properties.
 

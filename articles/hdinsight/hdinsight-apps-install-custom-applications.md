@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/16/2016"
+   	ms.date="05/24/2016"
    	ms.author="jgao"/>
 
 # Install custom HDInsight applications
@@ -84,6 +84,28 @@ You can check the application status on the Azure portal to validate the applica
 5. Click **hue** from the list to list the properties.  
 6. Click the Webpage link to validate the website; open the HTTP endpoint in a brower to validate the Hue web UI, open the SSH endpoint using [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) or other [SSH clients](hdinsight-hadoop-linux-use-ssh-unix.md).
  
+## Troubleshoot the installation
+
+You can check the application installation status from the portal notification (Click the bell icon on the top of the portal). 
+
+If an application installation failed, you can see the error messages and debug information from 3 places:
+
+- HDInsight Applications: general error information.
+
+    Open the cluster from the portal, and click Applications from the Settings blade:
+
+    ![hdinsight applications application installation error](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+
+- HDInsight script action: If the HDInsight Applications' error message indicates a script action failure, more details about the script failure will be presented in the script actions pane.
+
+    Click Script Action from the Settings blade. Script action history shows the error messages
+
+    ![hdinsight applications script action error](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    
+- Ambari Web UI: If the install script was the cause of the failure, use Ambari Web UI to check full logs about the install scripts.
+
+    For more information, see [Troubleshooting](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+
 ## Next steps
 
 - [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): learn how to develop ARM templates for deploying HDInsight applications.

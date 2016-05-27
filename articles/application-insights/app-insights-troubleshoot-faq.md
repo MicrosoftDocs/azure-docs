@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/13/2016" 
 	ms.author="awills"/>
  
 # Questions - Application Insights for ASP.NET
@@ -39,7 +39,7 @@
 * You have to provide your credit card data to register with Microsoft Azure, but no charges will be made unless you use another paid-for Azure service, or you explicitly upgrade to a paying tier.
 * If your app sends more data than the monthly quota for the free tier, it stops being logged. If that happens, you can either choose to start paying, or wait until the quota is reset at the end of the month.
 * Basic usage and session data is not subject to a quota.
-* There is also a free 30-day trial, during which you get the Premium features free of charge.
+* There is also a free 30-day trial, during which you get the paid features free of charge.
 * Each application resource has a separate quota, and you set its pricing tier independently of any others.
 
 #### What do I get if I pay?
@@ -126,7 +126,6 @@ See [Data Retention and Privacy][data].
 <tr><td>Server custom metrics</td><td><a href="../app-insights-api-custom-events-metrics/">Tracking calls in server code</a></td><td>Business intelligence</td></tr>
 </table>
 
-If your web service is running in an Azure VM, you can also [get diagnostics][azurediagnostic] there.
 
 ## Automation
 
@@ -139,7 +138,6 @@ You can [write PowerShell scripts](app-insights-powershell.md) to create and upd
 
 <!--Link references-->
 
-[azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
