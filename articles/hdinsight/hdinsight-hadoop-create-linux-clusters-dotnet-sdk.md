@@ -167,7 +167,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 ## Use bootstrap
 
-For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap).
+For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 Modify the sample in [Create clusters](#create-clusters) to configure a Hive setting:
 
@@ -348,7 +348,7 @@ Now that you have successfully created an HDInsight cluster, use the following t
 ###HBase clusters
 
 * [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Storm clusters
 

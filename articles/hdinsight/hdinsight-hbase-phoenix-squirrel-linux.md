@@ -43,7 +43,7 @@ When you connect to an HBase cluster, you will need to connect to one of the Zoo
 
 **To use SQLLine**
 
-1. Connect to the cluster using SSH. For instructions, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows) depending on your client computer OS.
+1. Connect to the cluster using SSH. For instructions, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) depending on your client computer OS.
 
 2. From SSH, run the following commands to run SQLLine:
 
