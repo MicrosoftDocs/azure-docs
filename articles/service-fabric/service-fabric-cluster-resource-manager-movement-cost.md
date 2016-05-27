@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Service movement cost for influencing Resource Manager choices
@@ -33,11 +33,11 @@ Code
 this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 ```
 
-MoveCost has four levels, Zero, Low, Medium, and High. Again – these are just relative to each other, except for Zero which means that moving a replica is free and should not count against the score of the solution. Setting your move cost to High is not a guarantee that the replica won’t move, just that we won’t move it unless there’s a good reason to.
+MoveCost has four levels, Zero, Low, Medium, and High. Again – these are just relative to each other, except for Zero which means that moving a replica is free and should not count against the score of the solution. Setting your move cost to High is *not* a guarantee that the replica won’t move, just that we won’t move it unless there’s a good reason to.
 
 ![Move Cost as a Factor in Selecting Replicas for Movement][Image1]
 
-Move Cost helps us find the solutions that cause overall the least disruption while achieving equivalent balance. A service’s notion of cost can be relative to many things, but the most common things are:
+Move Cost helps us find the solutions that cause overall the least disruption while achieving equivalent balance. A service’s notion of cost can be relative to many things, but the most common factors in calculating your move cost are:
 
 1.	The amount of state or data that the service has to move
 2.	The cost of disconnection of clients (so the cost of moving a Primary replica would be higher than the cost of moving a Secondary replica)

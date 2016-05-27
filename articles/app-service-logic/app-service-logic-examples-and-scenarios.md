@@ -24,16 +24,42 @@ This document details common scenarios and examples to help you to understand so
 
 There are several ways you can trigger a Logic app from another app. Here are some of those ways: 
 
-- [Use Web Hooks](https://azure.microsoft.com/updates/webhooks-available-for-logic-apps/)
-- [Use REST API](app-service-logic-http-endpoint.md)
+- [HTTP Request (POST)](app-service-logic-http-endpoint.md)
+- [Receive a webhook](app-service-logic-create-api-app.md)
+- [Poll an endpoint](app-service-logic-create-api-app.md)
+
+### Scenarios
+
+- [Logic App Request Synchronous Response](app-service-logic-http-endpoint.md)
+
+## Content-Types, Conversions, and Transformations
+
+The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) contains many functions to allow you to convert and work with different content types.  In addition the engine will do all it can to preserve content-types as data flows through the workflow.
+
+- [Handling of Content-Types](app-service-logic-content-type.md) like application/json, application/xml, and plain/text
+- [Workflow Definition Language](http://aka.ms/logicappsdocs)
+
+## Long-Running Actions
+
+- [Creating a long running action](app-service-logic-create-api-app.md)
+
+## Batches and Looping
+
+- [SplitOn](app-service-logic-loops-and-scopes.md)
+- [ForEach](app-service-logic-loops-and-scopes.md)
+- [Until](app-service-logic-loops-and-scopes.md)
+
+## Integrating with Nested Workflows and Azure Functions
+
+- [Azure Functions Integration](app-service-logic-azure-functions.md)
+
+### Scenarios
+
+- [Azure Function as a Service Bus Trigger](app-service-logic-scenario-function-sb-trigger.md)
+
+## HTTP, REST, and SOAP
+
+ - [Calling SOAP](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 
 We will keep adding examples and scenarios to this document. Use the comments section below to let us know what examples or scenarios you'd like to see here.
-
-
-
-
-
-
-
-

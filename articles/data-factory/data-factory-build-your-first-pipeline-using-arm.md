@@ -258,8 +258,56 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
 10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
 
-See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
+See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure portal blades to monitor the pipeline and datasets you have created in this tutorial.
 
-You can also Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application. 
+You can also use Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application. 
 
 > [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
+
+## ARM template for creating a gateway
+Here is a sample ARM template for creating a logical gateway in the back. Note that you need to install a gateway on your on-premises computer or Azure IaaS VM and register the gateway with Data Factory service using a key. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for details.
+
+	{
+	    "contentVersion": "1.0.0.0",
+	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "parameters": {
+	    },
+	    "variables": {
+	        "dataFactoryName":  "GatewayUsingArmDF",
+	        "apiVersion": "2015-10-01",
+	        "singleQuote": "'"
+	    },
+	    "resources": [
+	        {
+	            "name": "[variables('dataFactoryName')]",
+	            "apiVersion": "[variables('apiVersion')]",
+	            "type": "Microsoft.DataFactory/datafactories",
+	            "location": "eastus",
+	            "resources": [
+	                {
+	                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
+	                    "type": "gateways",
+	                    "apiVersion": "[variables('apiVersion')]",
+	                    "name": "GatewayUsingARM",
+	                    "properties": {
+	                    	"description": "my gateway"
+						}
+	                }            
+				]
+	        }
+	    ]
+	}
+
+This template creates a data factory named GatewayUsingArmDF with a gateway named: GatewayUsingARM. 
+
+## See Also
+| Topic | Description |
+| :---- | :---- |
+| [Data Transformation Activities](data-factory-data-transformation-activities.md) | This article provides a list of data transformation activities (such as HDInsight Hive transformation you used in this tutorial) supported by Azure Data Factory. |
+| [Scheduling and execution](data-factory-scheduling-and-execution.md) | This article explains the scheduling and execution aspects of Azure Data Factory application model. |
+| [Pipelines](data-factory-create-pipelines.md) | This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. |
+| [Datasets](data-factory-create-datasets.md) | This article will help you understand datasets in Azure Data Factory.
+| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) | This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. 
+
+  
+

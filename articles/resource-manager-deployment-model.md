@@ -109,7 +109,7 @@ Here are the components and their relationships for Azure Service Management.
 
 ## Benefits of using Resource Manager and resource groups
 
-Resource Manager added the concept of the resource group. Every resource you create through Resource Manager exists within a resource group. The Resource Manager deployment model provide several benefits:
+Resource Manager added the concept of the resource group. Every resource you create through Resource Manager exists within a resource group. The Resource Manager deployment model provides several benefits:
 
 - You can deploy, manage, and monitor all of the services for your solution as a group, rather than handling these services individually.
 - You can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
