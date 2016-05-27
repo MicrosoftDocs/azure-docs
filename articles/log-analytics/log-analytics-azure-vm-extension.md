@@ -18,28 +18,23 @@
 
 # Connect Azure virtual machines to Log Analytics
 
-The recommended way to collect data in Log Analytics from virtual machines is to use the Log Analytics agent.
+For Windows and Linux computers the recommended way to collect logs and metrics is by installing the Log Analytics agent.
 
 For virtual machines running in Azure you can easily install the Log Analytics agent by enabling the Microsoft Monitoring Agent virtual machine extension. Using a virtual machine extension simplies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be automatically upgraded, ensuring you have the latest features and fixes.
 
 The Microsoft Monitoring Agent is available as an [Azure virtual machine extension](../virtual-machines/virtual-machines-windows-extensions-features.md) for both Windows and Linux computers.
 
-For computers that are not in Azure you can install the Log Analytics agent using the methods described in the following articles:
-
-+ [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md)
-+ [Connect Linux computers to Log Analytics](log-analytics-linux-agents.md)
-
-The above methods can also be used for Azure virtual machines, however you will find that the virtual machine extension is simpler and can also be incorporated into Azure resource manager templates.
-
-For Azure virtual machines, there are three easy ways to enable the virtual machine extension:
-
-- In the Microsoft Azure management portal
-- Using PowerShell
-- In an Azure resource manager (ARM) template
+>[AZURE.NOTE] The [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md) must be installed to before you can install the agent for Log Analytics.
 
 When using agent-based collection for log data, you must configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics to collect.
 
->[AZURE.NOTE] If you’ve configured Log Analytics to index log data using [Azure diagnostics](log-analytics-azure-storage.md) and you configure the agent to collect the same logs, then the logs will be collected twice. You will be charged normal data rates for both data sources. If you have the agent installed, then you should collect log data using the agent and not collect the logs using Azure diagnostics.
+>[AZURE.IMPORTANT] If you’ve configured Log Analytics to index log data using [Azure diagnostics](log-analytics-azure-storage.md) and you configure the agent to collect the same logs, then the logs will be collected twice. You will be charged normal data rates for both data sources. If you have the agent installed, then you should collect log data using the agent and not collect the logs using Azure diagnostics.
+
+For Azure virtual machines, there are three easy ways to enable the Log Analytics virtual machine extension:
+
++ In the Microsoft Azure management portal
++ Using Azure PowerShell
++ Using an Azure resource manager (ARM) template
 
 ## Use the Azure portal to enable the Log Analytics VM extension
 
@@ -60,11 +55,10 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
 7.	When the agent is installed and connected, you’ll see **OMS connection** status updated to show **This workspace**.  
     ![connected](./media/log-analytics-azure-storage/oms-connect-azure-05.png)
 
->[AZURE.NOTE] The [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md) must be installed to automatically install the agent for Log Analytics.
 
-## Use Azure PowerShell to install the Log Analytics VM extension
+## Use Azure PowerShell to enable the Log Analytics VM extension
 
-If you prefer scripting to make changes to your Azure virtual machines, then you can enable the Microsoft Monitoring Agent using PowerShell.
+You will need to use slightly different commands depending on whether your virtual machine is a classic virtual machine or a resource manager virtual machine. Examples for both classic and resource manager virtual machines are provided below.
 
 For classic Azure virtual machines, use the following PowerShell example:
 
@@ -119,7 +113,7 @@ By including the Log Analytics agent as part of your resource manager template y
 
 Refer to [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) Find out more about resource manager templates.
 
-Below is an example ARM template for deploying a virtual machine running Windows with the MMA extension installed. This is very similar to a typicaly virtual machine template, with the following additions:
+Below is an example ARM template for deploying a virtual machine running Windows with the MMA extension installed. This is a typical virtual machine template, with the following additions:
 
 + workspaceId and workspaceName parameters
 + Microsoft.EnterpriseCloud.Monitoring resource extension section
@@ -351,8 +345,18 @@ Below is an example ARM template for deploying a virtual machine running Windows
 }
 ```
 
+You can deploy a template using the following PowerShell:
+```
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
+```
+
 ## Next Steps
 
++ Configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics to collect.
 + [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to gather data from virtual machines.
 + [Collect data using Azure diagnostics](log-analytics-azure-storage.md) for other resources running in Azure.
 
+For computers that are not in Azure you can install the Log Analytics agent using the methods described in the following articles:
+
++ [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md)
++ [Connect Linux computers to Log Analytics](log-analytics-linux-agents.md)
