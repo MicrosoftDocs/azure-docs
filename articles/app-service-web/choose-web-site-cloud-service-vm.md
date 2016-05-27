@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure App Service, Cloud Services, Virtual Machines, and Service Fabric comparison"
-	description="Learn when to use Azure App Service, Cloud Services, Virtual Machines, and Service Fabric for hosting web applications."
+	pageTitle="Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison | Microsoft Azure"
+	description="Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications."
 	services="app-service\web, virtual-machines, cloud-services"
 	documentationCenter=""
 	authors="tdykstra"
@@ -16,7 +16,7 @@
 	ms.date="02/22/2016"
 	ms.author="tdykstra"/>
 
-# Azure App Service, Cloud Services, Virtual Machines, and Service Fabric comparison
+# Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
 
 ## Overview
 
@@ -24,7 +24,7 @@ Azure offers several ways to host web sites: [Azure App Service][], [Cloud Servi
 
 Azure App Service is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure App Service easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature makes it easy to add background job processing to your App Service web app.
 
-If you need more control over the web server environment, such as the ability to remote into your server or configure server startup tasks, Azure Cloud Services is typically the best option.
+Service Fabric is a good choice if you’re creating a new app or re-writing an existing app to use a microservice architecture. Apps, which run on a shared pool of machines, can start small and grow to massive scale with hundreds or thousands of machines as needed. Stateful services make it easy to consistently and reliably store app state, and Service Fabric automatically manages service partitioning, scaling, and availability for you.  Service Fabric also supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.NET Core.  Compared to App Service, Service Fabric also provides more control over, or direct access to, the underlying infrastructure. You can remote into your servers or configure server startup tasks. Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development.
 
 If you have an existing application that would require substantial modifications to run in Azure App Service or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Cloud Services. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.  
 
