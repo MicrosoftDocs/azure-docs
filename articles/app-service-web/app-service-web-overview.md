@@ -30,7 +30,12 @@ The compute resources may be on shared or dedicated virtual machines (VMs), depe
 
 Your code can be in any language or framework that is supported by [Azure App Service](../app-service/app-service-value-prop-what-is.md), such as ASP.NET, Node.js, Java, PHP, or Python. You can also run scripts that use [PowerShell and other scripting languages](web-sites-create-web-jobs.md#acceptablefiles) in a web app.
 
-For examples of typical application scenarios that you can use Web Apps for, see [Web app scenarios](https://azure.microsoft.com/documentation/scenarios/web-app/). 
+For examples of application scenarios that you can use Web Apps for, see the following articles:
+
+* [Web app scenarios](https://azure.microsoft.com/documentation/scenarios/web-app/)
+* [Global Web Presence](web-sites-global-web-presence-solution-overview.md)
+* [Digital Marketing Campaigns](web-sites-digital-marketing-application-solution-overview.md)
+* [Business Applications](web-sites-business-application-solution-overview.md).
 
 ## Why use Web Apps?
 
