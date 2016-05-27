@@ -33,6 +33,7 @@ The design guidance links below are design and architectural guidance that has b
 | [Storage](https://azure.microsoft.com/services/storage/ "Azure Storage")                            | [link](../storage/storage-disaster-recovery-guidance.md "Azure Storage disaster recovery guidance")          | Not Available |
 | [SQL Databases](https://azure.microsoft.com/services/sql-database/ "Azure SQL Databases")           | [link](../sql-database/sql-database-disaster-recovery.md  "Azure SQL Database disaster recovery guidance")    | [link](../sql-database/sql-database-business-continuity-design.md "Azure SQL Databases design guidance") |
 | [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/ "Azure Virtual Machines") | [link](../virtual-machines/virtual-machines-disaster-recovery-guidance.md "Azure Virtual Machines disaster recovery guidance") | Not Available |
+| [Virtual Network](https://azure.microsoft.com/services/virtual-network/ "Azure Virtual Network")    | [link](../virtual-network/virtual-network-disaster-recovery-guidance.md "Azure Virtual Network disaster recovery guidance")  | Not Available |
 
 ##Next steps
 If you are looking for guidance that focuses more broadly on systems and solutions, please read [Disaster recovery and high availability for applications built on Microsoft Azure](https://aka.ms/drtechguide).
