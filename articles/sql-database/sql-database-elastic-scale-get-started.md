@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2016" 
-	ms.author="sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 # Get started with Elastic Database tools
 
