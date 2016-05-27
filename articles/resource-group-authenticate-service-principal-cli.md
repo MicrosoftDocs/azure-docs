@@ -16,7 +16,7 @@
    ms.date="05/26/2016"
    ms.author="tomfitz"/>
 
-# Create an Active Directory application with Azure CLI to access resources
+# Use Azure CLI to create an Active Directory application to access resources
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-authenticate-service-principal.md)
@@ -98,7 +98,7 @@ You have created an AD application and a service principal for that application.
 
 You are now authenticated as the service principal for the AD application that you created.
 
-## Authenticate with certificate - Azure CLI
+## Create AD application with certificate
 
 In this section, you will perform the steps to create a service principal for an AD application that uses a certificate for authentication. 
 To complete these steps you must have [OpenSSL](http://www.openssl.org/) installed.
