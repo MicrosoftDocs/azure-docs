@@ -3,7 +3,7 @@
 	description="Learn how to create a copy of your Azure virtual machine running Windows, in the Resource Manager deployment model, by creating a *specialized image*."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/26/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Create a copy of a Windows virtual machine in the Azure Resource Manager deployment model
 

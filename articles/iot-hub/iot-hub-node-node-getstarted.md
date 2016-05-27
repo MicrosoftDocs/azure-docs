@@ -248,7 +248,7 @@ In this section, you'll create a Node.js console app that simulates a device tha
 2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device-amqp** package:
 
     ```
-    npm install azure-iot-device-amqp --save
+    npm install azure-iot-device azure-iot-device-amqp --save
     ```
 
 3. Using a text editor, create a new **SimulatedDevice.js** file in the **simulateddevice** folder.

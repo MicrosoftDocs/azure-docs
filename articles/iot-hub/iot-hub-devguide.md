@@ -204,7 +204,7 @@ Refer to the [IoT Hub security tokens][lnk-sas-tokens] article, for more informa
 
 Each supported protocol, such as AMQP, MQTT, and HTTP, transports tokens in different ways.
 
-HTTP implements authentication by including a valid token in the **Authorization** request header. A query parameter called **Authorization** can also transport the token.
+HTTP implements authentication by including a valid token in the **Authorization** request header.
 
 When using [AMQP][lnk-amqp], IoT Hub supports [SASL PLAIN][lnk-sasl-plain] and [AMQP Claims-Based-Security][lnk-cbs].
 
