@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/07/2015"
+	ms.date="05/27/2016"
 	ms.author="sethm"/>
 
 # .NET multi-tier application using Azure Service Bus queues
 
 ## Introduction
 
-Developing for Microsoft Azure is easy using Visual Studio and the free Azure SDK for .NET. If you do not already have Visual Studio, the SDK will automatically install Visual Studio Express, so you can start developing for Azure entirely for free. This article assumes you have no prior experience using Azure. After completing this tutorial, you will have an application that uses
-multiple Azure resources running in your local environment and
-that demonstrates how a multi-tier application works.
+This tutorial walks you through the steps to create an application that uses multiple Azure resources running in your local environment. The steps assume you have no prior experience using Azure.
 
-You will learn:
+You will learn the following:
 
 -   How to enable your computer for Azure development with a
     single download and install.
@@ -40,8 +38,6 @@ In this tutorial you'll build and run the multi-tier application in an Azure clo
 The following screen shot shows the completed application.
 
 ![][0]
-
-> [AZURE.NOTE] Azure also provides storage queue functionality. For more information about Azure storage queues and Service Bus queues, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
 
 ## Scenario overview: inter-role communication
 
@@ -101,32 +97,23 @@ The following sections discuss the code that implements this architecture.
 
 ## Set up the development environment
 
-Before you can begin developing your Azure application, download the tools and set up your development environment:
+Before you can begin developing Azure applications, get the tools and set up your development environment.
 
-1.  To install the Azure SDK for .NET, click the following link.
+1.  Install the Azure SDK for .NET at [Get Tools and SDK][].
 
-    [Get Tools and SDK][]
+2. 	Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
 
-2. 	Click the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013.
+4.  When prompted to run or save the installer, click **Run**.
 
-	![][32]
+5.  In the **Web Platform Installer**, click **Install** and proceed with the installation.
 
-4. 	When prompted to run or save the installation file, click
-    **Run**.
+6.  Once the installation is complete, you will have everything
+    necessary to start to develop the app. The SDK includes tools that let you
+    easily develop Azure applications in Visual Studio. If you
+    do not have Visual Studio installed, the SDK also installs the free
+    Visual Studio Express.
 
-    ![][3]
-
-5.  In the Web Platform Installer, click **Install** and proceed with the installation.
-
-    ![][33]
-
-6.  Once the installation is complete, you have everything
-    necessary to start developing the app. The SDK includes tools that enable you
-    to develop Azure applications in Visual Studio. If you
-    do not have Visual Studio installed, it also installs the free
-    Visual Studio Express for Web.
-
-## Set up the Service Bus namespace
+## Create a Service Bus namespace
 
 The next step is to create a service namespace, and obtain a Shared Access Signature (SAS) key. A namespace provides an application boundary for
 each application exposed through Service Bus. A SAS key is
@@ -137,7 +124,7 @@ application.
 
 ### Set up the namespace using the Azure classic portal
 
-1.  Log on to the [Azure classic portal][].
+1.  Sign in to the [Azure classic portal][].
 
 2.  In the left navigation pane of the portal, click
     **Service Bus**.
@@ -162,21 +149,21 @@ application.
     namespace and enables it. You might have to wait several minutes as
     the system provisions resources for your account.
 
-	![][27]
-
 7.  In the main window, click the name of your service namespace.
 
-	![][30]
-
 8. Click **Connection Information**.
-
-	![][31]
 
 9.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.
 
     ![][35]
 
 10.  Make a note of these credentials, or copy them to the clipboard.
+
+11. In the same portal page, click the **Configure** tab at the top of the page.
+
+12. Copy the primary key for the **RootManageSharedAccessKey** policy to the clipboard, or paste it into Notepad. You will use this value later in this tutorial.
+
+	![][36]
 
 ## Create a web role
 
@@ -187,18 +174,13 @@ queue and displaying status information about the queue.
 
 ### Create the project
 
-1.  Using administrator privileges, start either Microsoft Visual Studio
-    2013 or Microsoft Visual Studio Express. To start Visual
-    Studio with administrator privileges, right-click **Microsoft Visual
-    Studio 2013 (or Microsoft Visual Studio Express)** and
-    then click **Run as administrator**. The Azure compute emulator,
+1.  Using administrator privileges, start Microsoft Visual
+    Studio. To start Visual Studio with administrator privileges, right-click the **Visual Studio** program icon, and then click **Run as administrator**. The Azure compute emulator,
     discussed later in this article, requires that Visual Studio be
     started with administrator privileges.
 
     In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
-
-    ![][8]
 
 2.  From **Installed Templates**, under **Visual C#**, click **Cloud** and
     then click **Azure Cloud Service**. Name the project
@@ -216,22 +198,24 @@ queue and displaying status information about the queue.
 
     ![][11]
 
-5.  From the **New ASP.NET Project** dialog box, in the **Select a template** list, click **MVC**,
-    then click **OK**.
+5.  From the **New ASP.NET Project** dialog box, in the **Select a template** list, click **MVC**.
 
     ![][12]
 
-6.  In **Solution Explorer**, right-click **References**, then click
-    **Manage NuGet Packages** or **Add Library Package Reference**.
+6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
 
-7.  Select **Online** on the left side of the dialog box. Search for
-    "**Service Bus**" and select the **Microsoft Azure Service
-    Bus** item. Then complete the installation and close this dialog box.
+	![][16]
+
+7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
+
+6.  In **Solution Explorer**, in the **FrontendWebRole** project, right-click **References**, then click
+    **Manage NuGet Packages**.
+
+7.  Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Click **Install**, and accept the terms of use.
 
     ![][13]
 
-8.  Note that the required client assemblies are now referenced and some
-    new code files have been added.
+	Note that the required client assemblies are now referenced and some new code files have been added.
 
 9.  In **Solution Explorer**, right-click **Models** and click **Add**,
     then click **Class**. In the **Name** box, type the name
@@ -317,8 +301,8 @@ In this section, you create the various pages that your application displays.
 
 4.  On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
 
-5.  Now, create the view for the **Submit()** method you
-    created earlier. Right-click within the **Submit()** method, and then choose
+5.  Now, create the view for the `Submit()` method you
+    created earlier. Right-click within the `Submit()` method (the overload of `Submit()` that takes no parameters), and then choose
     **Add View**.
 
     ![][14]
@@ -364,82 +348,83 @@ Service Bus queue.
 
 1.  In **Solution Explorer**, right-click **FrontendWebRole** (right-click the project, not the role). Click **Add**, and then click **Class**.
 
-2.  Name the class QueueConnector.cs. Click **Add** to create the class.
+2.  Name the class **QueueConnector.cs**. Click **Add** to create the class.
 
-3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. In QueueConnector.cs, add the following code, and enter values for **Namespace** (your service namespace) and **yourKey**, which is the SAS key you previously obtained from the [Azure classic portal][].
+3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. Replace the entire contents of QueueConnector.cs with the following code, and enter values for `your Service Bus namespace` (your namespace name) and `yourKey`, which is the **primary key** you previously obtained from the [Azure classic portal][] in step 12 of the "Create a Service Bus namespace" section.
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Web;
-        using Microsoft.ServiceBus.Messaging;
-        using Microsoft.ServiceBus;
-
-        namespace FrontendWebRole
-        {
-            public static class QueueConnector
-            {
-                // Thread-safe. Recommended that you cache rather than recreating it
-                // on every request.
-                public static QueueClient OrdersQueueClient;
-
-                // Obtain these values from the portal.
-                public const string Namespace = "your service bus namespace";
-
-                // The name of your queue.
-                public const string QueueName = "OrdersQueue";
-
-                public static NamespaceManager CreateNamespaceManager()
-                {
-                    // Create the namespace manager which gives you access to
-                    // management operations.
-                    var uri = ServiceBusEnvironment.CreateServiceUri(
-                        "sb", Namespace, String.Empty);
-                    var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-                        "RootManageSharedAccessKey", "yourKey");
-                    return new NamespaceManager(uri, tP);
-                }
-
-                public static void Initialize()
-                {
-                    // Using Http to be friendly with outbound firewalls.
-                    ServiceBusEnvironment.SystemConnectivity.Mode =
-                        ConnectivityMode.Http;
-
-                    // Create the namespace manager which gives you access to
-                    // management operations.
-                    var namespaceManager = CreateNamespaceManager();
-
-                    // Create the queue if it does not exist already.
-                    if (!namespaceManager.QueueExists(QueueName))
-                    {
-                        namespaceManager.CreateQueue(QueueName);
-                    }
-
-                    // Get a client to the queue.
-                    var messagingFactory = MessagingFactory.Create(
-                        namespaceManager.Address,
-                        namespaceManager.Settings.TokenProvider);
-                    OrdersQueueClient = messagingFactory.CreateQueueClient(
-                        "OrdersQueue");
-                }
-            }
-        }
-
-    Later in this tutorial you will learn how to store the name of your **Namespace** and your SAS key value in a configuration file.
+	```
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Web;
+	using Microsoft.ServiceBus.Messaging;
+	using Microsoft.ServiceBus;
+	
+	namespace FrontendWebRole
+	{
+	    public static class QueueConnector
+	    {
+	        // Thread-safe. Recommended that you cache rather than recreating it
+	        // on every request.
+	        public static QueueClient OrdersQueueClient;
+	
+	        // Obtain these values from the portal.
+	        public const string Namespace = "your Service Bus namespace";
+	
+	        // The name of your queue.
+	        public const string QueueName = "OrdersQueue";
+	
+	        public static NamespaceManager CreateNamespaceManager()
+	        {
+	            // Create the namespace manager which gives you access to
+	            // management operations.
+	            var uri = ServiceBusEnvironment.CreateServiceUri(
+	                "sb", Namespace, String.Empty);
+	            var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+	                "RootManageSharedAccessKey", "yourKey");
+	            return new NamespaceManager(uri, tP);
+	        }
+	
+	        public static void Initialize()
+	        {
+	            // Using Http to be friendly with outbound firewalls.
+	            ServiceBusEnvironment.SystemConnectivity.Mode =
+	                ConnectivityMode.Http;
+	
+	            // Create the namespace manager which gives you access to
+	            // management operations.
+	            var namespaceManager = CreateNamespaceManager();
+	
+	            // Create the queue if it does not exist already.
+	            if (!namespaceManager.QueueExists(QueueName))
+	            {
+	                namespaceManager.CreateQueue(QueueName);
+	            }
+	
+	            // Get a client to the queue.
+	            var messagingFactory = MessagingFactory.Create(
+	                namespaceManager.Address,
+	                namespaceManager.Settings.TokenProvider);
+	            OrdersQueueClient = messagingFactory.CreateQueueClient(
+	                "OrdersQueue");
+	        }
+	    }
+	}
+	```
 
 4.  Now, ensure that your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
 
-5.  Add the following line to the bottom of the **Application_Start**
-    method.
+5.  Add the following line of code at the end of the **Application_Start** method.
 
-        FrontendWebRole.QueueConnector.Initialize();
+	```
+	FrontendWebRole.QueueConnector.Initialize();
+	```
 
 6.  Finally, update the web code you created earlier, to
     submit items to the queue. In **Solution Explorer**,
     double-click **Controllers\HomeController.cs**.
 
-7.  Update the **Submit()** method as follows to get the message count
+7.  Update the `Submit()` method (the overload that takes no parameters) as follows to get the message count
     for the queue.
 
         public ActionResult Submit()
@@ -455,7 +440,7 @@ Service Bus queue.
             return View();
         }
 
-8.  Update the **Submit(OnlineOrder order)** method as follows to submit
+8.  Update the `Submit(OnlineOrder order)` method (the overload that takes one parameter) as follows to submit
     order information to the queue.
 
         public ActionResult Submit(OnlineOrder order)
@@ -481,6 +466,8 @@ Service Bus queue.
     ![][18]
 
 ## Cloud configuration manager
+
+> [AZURE.NOTE] This section is optional, and not part of the steps in this tutorial. It is presented only for your information.
 
 The [GetSetting][] method in the
 [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class
@@ -531,7 +518,7 @@ The code in the following section uses the [CloudConfigurationManager][Microsoft
 ## Create the worker role
 
 You will now create the worker role that processes the order
-submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, use Server Explorer in Visual Studio to obtain the required credentials.
+submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. You already obtained the required credentials from the portal.
 
 1. Make sure you have connected Visual Studio to your Azure account.
 
@@ -548,9 +535,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 5.  In the **Name** box, name the project **OrderProcessingRole**. Then click **Add**.
 
-6.  In **Server Explorer**, right-click the name of your service namespace, then click **Properties**. In the Visual Studio **Properties** pane, the first entry contains a connection string that is populated with the namespace endpoint containing the required authorization credentials. For example, see the following screen shot. Double-click **ConnectionString**, and then press **Ctrl+C** to copy this string to the clipboard.
-
-	![][24]
+6.  Copy the connection string that you obtained in step 9 of the "Create a Service Bus namespace" section to the clipboard.
 
 7.  In **Solution Explorer**, right-click the **OrderProcessingRole** you created in step 5 (make sure that you right-click **OrderProcessingRole** under **Roles**, and not the class). Then click **Properties**.
 
@@ -558,11 +543,11 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 	![][25]
 
-9.  Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In **Solution Explorer**, right-click the **OrderProcessingRole** project (right-click the project, not the role). Click **Add**, then click **Existing Item**.
+9.  Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In **Solution Explorer**, right-click the **OrderProcessingRole** class (right-click the class icon, not the role). Click **Add**, then click **Existing Item**.
 
 10. Browse to the subfolder for **FrontendWebRole\Models**, and then double-click **OnlineOrder.cs** to add it to this project.
 
-11. In **WorkerRole.cs**, replace the value of the **QueueName** variable in **WorkerRole.cs** from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
+11. In **WorkerRole.cs**, change the value of the **QueueName** variable from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
 
 		// The name of your queue.
 		const string QueueName = "OrdersQueue";
@@ -571,7 +556,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 		using FrontendWebRole.Models;
 
-13. In the `Run()` function, inside the `OnMessage` call, add the following code inside the `try` clause.
+13. In the `Run()` function, inside the `OnMessage()` call, replace the contents of the `try` clause with the following code.
 
 		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
 		// View the message as an OnlineOrder.
@@ -619,10 +604,8 @@ To learn how to deploy the front end to an Azure website, see [Create an ASP.NET
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-  [sbqueuecomparison]: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-  [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
   [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
@@ -638,7 +621,6 @@ To learn how to deploy the front end to an Azure website, see [Create an ASP.NET
   [Azure classic portal]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
-  [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -646,23 +628,19 @@ To learn how to deploy the front end to an Azure website, see [Create an ASP.NET
   [13]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png
   [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
   [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
-  [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
+  [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
   [17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
   [18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
 
   [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
   [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
   [23]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
-  [24]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
-  [27]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [30]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
-  [31]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
-  [32]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-42-webpi.png
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
+  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
+
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md  
