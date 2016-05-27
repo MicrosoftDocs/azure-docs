@@ -144,6 +144,6 @@ Yes, see the [Azure API Management Service](http://aka.ms/apimtemplate) quicksta
 
 Yes. Please follow below steps:
 
-1. Create a [Backend](https://msdn.microsoft.com/en-us/library/azure/dn935030.aspx) entity using the Management API
+1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity using the Management API
 2. Set the skipCertificateChainValidation property to true
 3. Once you no longer want to allow self-signed certificate, you can delete the Backend entity or set the skipCertificateChainValidation property to false
