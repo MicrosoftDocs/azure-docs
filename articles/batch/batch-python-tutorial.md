@@ -18,6 +18,10 @@
 
 # Get started with the Azure Batch Python client
 
+> [AZURE.SELECTOR]
+- [.NET](batch-dotnet-get-started.md)
+- [Python](batch-python-tutorial.md)
+
 Learn the basics of [Azure Batch][azure_batch] and the [Batch Python][py_azure_sdk] client as we discuss a small Batch application written in Python. We'll look at how two sample scripts leverage the Batch service to process a parallel workload in the cloud, as well as how they interact with [Azure Storage](./../storage/storage-introduction.md) for file staging and retrieval. You'll learn a common Batch application workflow and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
 ![Batch solution workflow (basic)][11]<br/>
