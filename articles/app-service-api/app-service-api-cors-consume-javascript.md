@@ -18,11 +18,7 @@
 
 # Consume an API app from JavaScript using CORS
 
-## Overview
-
-App Service offers built-in support for Cross Origin Resource Sharing (CORS), which enables JavaScript clients to make cross-domain calls to APIs that are hosted in API apps, web apps, or mobile apps. This feature of App Service lets you take advantage of CORS without writing any code in your API.
-
-[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is an internet protocol that lets you make API calls from JavaScript to a domain other than the one that the browser loaded the JavaScript from. Without CORS you can make a call from a contoso.com web page to a contoso.com API endpoint but not to a fabrikam.com endpoint. 
+App Service offers built-in support for [Cross Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), which enables JavaScript clients to make cross-domain calls to APIs that are hosted in API apps. App Service lets you configure CORS access to your API without writing any code in your API.
 
 This article contains two sections:
 
@@ -104,7 +100,7 @@ In the [ToDoList sample application](https://github.com/Azure-Samples/app-servic
 
 ### Create a new web app for the ToDoListAngular project
 
-The procedure to create a new web app and deploy a project to it is similar to what you saw in the first tutorial in this series. The only difference is that the app type is **Web App** instead of **API App**.
+The procedure to create a new App Service web app and deploy a project to it is similar to what you saw for [creating and deploying an API app in the first tutorial in this series](app-service-api-dotnet-get-started.md#create-an-api-app-in-azure-and-deploy-the-todolistapi-project-to-it). The only difference is that the app type is **Web App** instead of **API App**.  For screen shots of the dialogs, see 
 
 1. In **Solution Explorer**, right-click the ToDoListAngular project, and then click **Publish**.
 
@@ -190,8 +186,8 @@ The procedure to create a new web app and deploy a project to it is similar to w
 
 ## Configure CORS for the middle tier API app
 
-In this section, you configure the ToDoListAPI API app to allow JavaScript calls from the web app that you created for the ToDoListAngular project.
- 
+In this section, you configure the CORS setting in Azure for the middle tier ToDoListAPI API app. This setting will allow the middle tier API app to receive JavaScript calls from the web app that you created for the ToDoListAngular project.
+
 8. In a browser, go to the [Azure portal](https://portal.azure.com/).
 
 2. Click **App Services**, and then click the ToDoListAPI (middle tier) API app.
@@ -273,14 +269,15 @@ If you use Azure API Management with an API app, configure CORS in API Managemen
  
 ## Troubleshooting
 
-If you run into a problem as you go through this tutorial, make sure that you're using the latest version of the Azure SDK for .NET. The easiest way to do that is to [download the Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) -- if you have the current version installed, the Web Platform Installer lets you know that no installation is needed.
+In case you run into a problem while going through this tutorial, here are some troubleshooting ideas.
 
-If you continue getting CORS errors after you set a URL on the CORS blade of the portal, double-check that the correct changes were made in the correct places. For example:
+* Make sure that you're using the latest version of the [Azure SDK for .NET for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
 
-* Make sure that you entered the protocol correctly (`https`, not `http`), and make sure that you're using `https` to run the front-end web app.
+* Make sure that you entered `https` in the CORS setting, and make sure that you're using `https` to run the front-end web app.
+
 * Make sure that you entered the CORS setting in the middle tier API app, not in the front-end web app.
 
-If you're configuring CORS in both application code and Azure App Service, note that the App Service CORS setting will override whatever you're doing in application code. 
+* If you're configuring CORS in both application code and Azure App Service, note that the App Service CORS setting will override whatever you're doing in application code. 
 
 To learn more about Visual Studio features that simplify troubleshooting, see [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
