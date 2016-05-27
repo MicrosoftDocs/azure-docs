@@ -147,9 +147,9 @@ Let's configure these tasks sequentially, even though that's not required.
 
     That's it for the third task!
     
-    >[AZURE.NOTE] Wait, let's slow down a bit and explain what Laravel does and what Azure does. 
+    >[AZURE.NOTE] Wait, let's slow down a bit and explain what Laravel does and what Azure does here. 
     Laravel uses the `.env` file in the root directory to supply environment variables to the app, where you'll find 
-    the line `APP_DEBUG=true` (and also `APP_KEY=&lt;...>`). This variable is accessed in `config/app.php` by the code 
+    the line `APP_DEBUG=true` (and also `APP_KEY=...`). This variable is accessed in `config/app.php` by the code 
     `'debug' => env('APP_DEBUG', false),`. [env()](https://laravel.com/docs/5.2/helpers#method-env) is a Laravel helper 
     method that uses the PHP [getenv()](http://php.net/manual/en/function.getenv.php) under the covers.
     >
