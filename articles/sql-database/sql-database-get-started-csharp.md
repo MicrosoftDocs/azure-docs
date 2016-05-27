@@ -19,7 +19,6 @@
 
 # Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET
 
-**Single database**
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-get-started.md)
