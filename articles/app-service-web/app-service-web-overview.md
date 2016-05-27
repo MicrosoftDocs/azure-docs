@@ -64,7 +64,7 @@ Here are some key features of App Service that apply to Web Apps:
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, consuming, debugging, and managing web apps, mobile apps, and API apps.
 
-In addition, a web app can take advantage of features offered by [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (such as CORS support) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (such as push notifications). The reverse is also true: you can use an API app or mobile app to host a web application and take advantage of Web Apps features such as auto scaling and staged deployment. The only difference between these three app types (API, web, mobile) is the name and icon used for them in the Azure portal. For more information about app types in App Service, see [Azure App Service overview](../app-service/app-service-value-prop-what-is.md).
+In addition, a web app can take advantage of features offered by [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (such as CORS support) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (such as push notifications). The only difference between these three app types (API, web, mobile) is the name and icon used for them in the Azure portal. For more information about app types in App Service, see [Azure App Service overview](../app-service/app-service-value-prop-what-is.md).
 
 ## Getting started
 
