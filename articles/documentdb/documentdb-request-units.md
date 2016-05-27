@@ -21,6 +21,7 @@ Now available: DocumentDB [throughput calculator](https://www.documentdb.com/cap
 
 ![Throughput calculator][5]
 
+##Introduction
 This article provides an overview of request units in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
 
 After reading this article, you'll be able to answer the following questions:  
@@ -212,4 +213,4 @@ To get started with scale and performance testing with DocumentDB, see [Performa
 [2]: ./media/documentdb-request-units/RUEstimatorUpload.png
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
-[5]: ./media/documentdb-request-units/RUCalculator.png
+[5]: ./media/documentdb-request-units/RUCalculator2.png
