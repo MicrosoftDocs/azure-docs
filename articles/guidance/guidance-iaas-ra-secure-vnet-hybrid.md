@@ -95,6 +95,10 @@ The figure below shows the progression of resources as different resource groups
 
 > [AZURE.NOTE] For more information, see [Best practices for designing Azure Resource Manager templates][arm-template-best-practices].
 
+If you are familiar with resource groups, you can use the diagram below to understand how the ARM templates used for this reference architecture are used as building blocks, and view each template.
+
+[![6]][6]
+
 ### RBAC recommendations
 
 Within a resource group, create separate RBAC roles for DevOps staff who can create and administer VMs, and centralized IT administrators who can manage the network (assign a public IP address to a network interface, change NSG rules on the network, create VPN connections, and so on). Segregating staff across roles in this way allows an IT administrator to change NSG rules and assign public IP addresses to VMs. DevOps staff will be unable to perform these tasks, but can manage VMs. To implement this scheme:
@@ -851,3 +855,4 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 [3]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure4.png "Subnets in the VNet"
 [4]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure5.png "The myapp-web-tier-rg resource group"
 [5]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure6.png "The myapp-mgmt-subnet-rg resource group"
+[6]: http://mspnp.github.io/Blueprint%20Forced%20Tunnelling.svg
