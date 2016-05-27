@@ -168,9 +168,9 @@ application.
 ## Create a web role
 
 In this section, you build the front end of your application. First, you
-create the various pages that your application displays.
-After that, you add the code for submitting items to a Service Bus
-queue and displaying status information about the queue.
+create the pages that your application displays.
+After that, add code that submits items to a Service Bus
+queue and displays status information about the queue.
 
 ### Create the project
 
@@ -333,8 +333,8 @@ In this section, you create the various pages that your application displays.
 11. Finally, modify the submission page to include some information about
     the queue. In **Solution Explorer**, double-click the
     **Views\Home\Submit.cshtml** file to open it in the Visual Studio
-    editor. Add the following line after **&lt;h2>Submit&lt;/h2>**. For now,
-    the **ViewBag.MessageCount** is empty. You will populate it later.
+    editor. Add the following line after `<h2>Submit</h2>`. For now,
+    the `ViewBag.MessageCount` is empty. You will populate it later.
 
 	```
 	<p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
@@ -476,58 +476,6 @@ Service Bus queue.
     order, the message count increases.
 
     ![][18]
-
-## Cloud configuration manager
-
-> [AZURE.NOTE] This section is optional, and not part of the steps in this tutorial. It is presented only for your information.
-
-The [GetSetting][] method in the
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class
-enables you to read configuration settings from the configuration store for your
-platform. For example, if your code is running
-in a web or worker role the [GetSetting][] method reads the
-ServiceConfiguration.cscfg file, and if your code is running in a standard
-console app the [GetSetting][] method reads the app.config file.
-
-If you store a connection string for your Service Bus namespace in a
-configuration file, you can use the [GetSetting][] method to read a connection
-string that you can use to instantiate a [NamespaceMananger][] object. You can
-use a [NamespaceMananger][] instance to configure your Service Bus namespace
-programmatically. You can use the same connection string to instantiate a client
-objects (such as [QueueClient][], [TopicClient][], and [EventHubClient][]
-object) that you can use to perform run-time operations such as sending and
-receiving messages.
-
-### Connection string
-
-To instantiate a client (for example, a Service Bus [QueueClient][]), you can represent the configuration information as a connection string. On the client side, there is a `CreateFromConnectionString()` method that instantiates that client type by using that connection string. For example, given the following configuration section
-
-```
-<ConfigurationSettings>
-...
-<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
-</ConfigurationSettings>
-```
-
-The following code retrieves the connection string, creates a queue, and initializes the connection to the queue.
-
-```
-QueueClient Client;
-
-string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-
-var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-
-if (!namespaceManager.QueueExists(QueueName))
-{
-    namespaceManager.CreateQueue(QueueName);
-}
-
-// Initialize the connection to Service Bus queue.
-Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
-```
-
-The code in the following section uses the [CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] class.
 
 ## Create the worker role
 
