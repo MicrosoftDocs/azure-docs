@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a record set and records for a DNS Zone using the Azure portal | Microsoft Azure"
-   description="How to create host records for Azure DNS and create record sets and records using the Azure portal | Microsoft Azure"
+   description="How to create host records for Azure DNS and create record sets and records using the Azure portal"
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
@@ -35,7 +35,7 @@ This article walks you through the process of creating records and records sets 
 
 ## Create a record set and record
 
-The following example walks you through the process of creating a record set and record by using the Azure portal. We'll use the DNS 'A' record type.
+The following example walks you through the process of creating a record set and record by using the Azure portal. We'll use the DNS "A" record type.
 
 1. Sign in to the portal.
 
@@ -51,7 +51,7 @@ The following example walks you through the process of creating a record set and
 
 5. Select the type of record you want to create. For example, select **A**.
 
-6. Set the **TTL**. The default time-to-live in the portal is one hour.
+6. Set the **TTL**. The default time to live in the portal is one hour.
 
 7. Add the IP addresses, one IP address per line. When you use the suggested record set name and record type described earlier, you add the IPv4 IP addresses to the **A** record for the www record set.
 

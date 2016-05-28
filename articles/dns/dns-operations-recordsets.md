@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Manage DNS record sets and records on Azure DNS | Microsoft Azure"
+   pageTitle="Manage DNS record sets and records by using the Azure portal| Microsoft Azure"
    description="Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records."
    services="dns"
    documentationCenter="na"
@@ -37,7 +37,7 @@ In order to manage your record sets and records, you need the latest version of 
 
 ## Create a new record set and a record
 
-To create a record set in the Azure portal, see [Create DNS records using the Azure portal](dns-getstarted-create-recordset.md).
+To create a record set by using PowerShell, see [Create DNS record sets and records by using PowerShell](dns-getstarted-create-recordset.md).
 
 ## Get a record set
 
@@ -118,7 +118,7 @@ In this example, we change the IP address of an existing A record:
 	$rs.Records[0].Ipv4Address = "134.170.185.46"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-The `Set-AzureRmDnsRecordSet` cmdlet uses *etag* checks to ensure that concurrent changes are not overwritten. Use the *-Overwrite* flag to suppress these checks. For more information, see [About etags and tags](dns-getstarted-creatednszone.md#tagetag).
+The `Set-AzureRmDnsRecordSet` cmdlet uses *etag* checks to ensure that concurrent changes are not overwritten. Use the *-Overwrite* flag to suppress these checks. For more information, see [About etags and tags](dns-getstarted-create-dnszone.md#tagetag).
 
 ### To modify an SOA record
 
@@ -208,7 +208,7 @@ Record sets can be deleted by using the `Remove-AzureRmDnsRecordSet` cmdlet. You
 
 Use one of the following three methods to remove a record set:
 
-### Specify the all parameters by name
+### Specify all the parameters by name
 
 The optional *-Force* switch can be used to suppress the confirmation prompt.
 
