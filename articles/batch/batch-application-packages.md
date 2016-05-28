@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/12/2016"
+	ms.date="05/20/2016"
 	ms.author="marsma" />
 
 # Application deployment with Azure Batch application packages
@@ -29,6 +29,8 @@ In this article, you will learn how to upload and manage application packages us
 The application packages feature discussed in this article is compatible *only* with Batch pools created after 10 March 2016. Application packages will not be deployed to compute nodes in pools created before this date.
 
 This feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2, and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
+
+> [AZURE.IMPORTANT] Application packages are currently only supported by pools created with **CloudServiceConfiguration**. You cannot use Application packages in pools created with VirtualMachineConfiguration images. See the [Virtual Machine Configuration](batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two different configurations.
 
 ## About applications and application packages
 
@@ -222,7 +224,11 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## Update a pool's application packages
 
-If an existing pool has already been configured with an application package, you can specify a new package for the pool. All new nodes that join the pool will install the newly specified package, as will any existing node that is rebooted or reimaged. Compute nodes that are already in the pool when you update the package references do not automatically install the new application package.
+If an existing pool has already been configured with an application package, you can specify a new package for the pool. If you specify a new a package reference for a pool, the following applies:
+
+* All new nodes that join the pool will install the newly specified package, as will any existing node that is rebooted or reimaged.
+* Compute nodes that are already in the pool when you update the package references do not automatically install the new application package--they must be rebooted or reimaged to receive the new package.
+* When a new package is deployed, the environment variables created reflect the new application package references.
 
 In this example, the existing pool has version 2.7 of the *blender* application configured as one of its [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. To update the pool's nodes with version 2.76b, specify a new [ApplicationPackageReference][net_pkgref] with the new version, and commit the change.
 
