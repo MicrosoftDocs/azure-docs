@@ -26,9 +26,9 @@ Azure App Service is the best choice for most web apps. Deployment and managemen
 
 Service Fabric is a good choice if you’re creating a new app or re-writing an existing app to use a microservice architecture. Apps, which run on a shared pool of machines, can start small and grow to massive scale with hundreds or thousands of machines as needed. Stateful services make it easy to consistently and reliably store app state, and Service Fabric automatically manages service partitioning, scaling, and availability for you.  Service Fabric also supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.NET Core.  Compared to App Service, Service Fabric also provides more control over, or direct access to, the underlying infrastructure. You can remote into your servers or configure server startup tasks. Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development.
 
-If you have an existing application that would require substantial modifications to run in Azure App Service or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Cloud Services. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.  
+If you have an existing application that would require substantial modifications to run in App Service or Service Fabric, you could choose Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Service Fabric. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.  
 
-The following diagram illustrates the relative degree of control versus ease of use for each of these web hosting options on Azure.
+The following diagram illustrates the relative degree of control versus ease of use for each of these web hosting options on Azure. Service Fabric is similar to Cloud Services on this scale.
 
 ![ChoicesDiagram][ChoicesDiagram]
 
@@ -100,9 +100,9 @@ For web developers and designers, Azure App Service integrates easily with a var
 
 If you’re running a multi-tier application, such as a web server that connects to a database, Azure App Service is a good option that offers tight integration with Azure SQL Database. And you can use the WebJobs feature for running backend processes.
 
-Choose Cloud Service for one or more of your tiers if you need more control over the server environment, such as the ability to remote into your server or configure server startup tasks.
+Choose Service Fabric for one or more of your tiers if you need more control over the server environment, such as the ability to remote into your server or configure server startup tasks.
 
-Choose Virtual Machines for one or more of your tiers if you want to use your own machine image or run server software or services that you can't configure on Cloud Services.
+Choose Virtual Machines for one or more of your tiers if you want to use your own machine image or run server software or services that you can't configure on Service Fabric.
 
 ### <a id="custom"></a>My application depends on highly customized Windows or Linux environments and I want to move it to the cloud.
 
@@ -119,7 +119,7 @@ If your open source framework is supported on App Service, the languages and fra
 - Set up WordPress, Drupal, Umbraco, DNN, and many other third-party web applications.
 - Migrate an existing application or create a new one from the Application Gallery.
 
-If your open source framework is not supported on App Service, you can run it on either of the other two Azure web hosting options. With Cloud Services, you use startup tasks to install and configure any required open source software that runs on Windows. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
+If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Cloud Services, you use startup tasks to install and configure any required open source software that runs on Windows. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
 
