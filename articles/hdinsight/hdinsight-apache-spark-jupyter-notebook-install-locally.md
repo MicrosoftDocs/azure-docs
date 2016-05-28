@@ -20,7 +20,7 @@
 
 # Install Jupyter notebook on your computer and connect to Apache Spark cluster on Azure HDInsight (Preview)
 
-In this article you will learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magic, and connect the notebook to an HDInsight cluster. There can be a number of reasons to install Jupyter on your local computer, and there can be some challenges as well. For a list of reasons and challenges, see the section [Why should I install Jupyter on my computer](#why-should-i-install-Jupyter-on-my-computer) at the end of this article.
+In this article you will learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magic, and connect the notebook to an HDInsight cluster. There can be a number of reasons to install Jupyter on your local computer, and there can be some challenges as well. For a list of reasons and challenges, see the section [Why should I install Jupyter on my computer](#why-should-i-install-jupyter-on-my-computer) at the end of this article.
 
 There are three key steps involved in installing Jupyter and the Spark magic on your computer.
 
