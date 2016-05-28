@@ -18,38 +18,29 @@
 
 # Configure Log Analytics to collect data from Azure Diagnostics storage
 
-Many Azure resources using Azure diagnostics to write logs and metrics to an Azure storage account. Log Analytics can collect this data and make it easily searchable, allowing you to better monitor your Azure resources. 
+Many Azure resources use Azure diagnostics to write logs and metrics to an Azure storage account. Log Analytics can collect this data and make it easily searchable, allowing you to better monitor your Azure resources. 
 
 This article describes how to use PowerShell to configure Log Analytics to collect data from Azure diagnostics storage.
 
-Refer to [Collect data from Azure Using Azure diagnostics and Log Analytics](log-analytics-azure-storage.md) for more information on Azure diagnostics.
+Refer to [Use Log Analytics to collect data from Azure storage accounts](log-analytics-azure-storage.md) for more information on using Log Analytics with Azure diagnostics.
 
 >[AZURE.NOTE] You'll be charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
 
-## Collect data using Azure diagnostics written to blob in JSON (Preview)
+## Collect JSON logs from Azure blob storage (Preview)
 
-Log Analytics can read the logs for the following services write diagnostics to blob storage in JSON format:
+Log Analytics can read the JSON logs written to blob storage for the following services:
 
 + Automation (Preview)
 + Key Vault (Preview)
 + Application Gateway (Preview)
 + Network Security Group (Preview)
 
-Before Log Analytics can collect data for these resources, Azure diagnostics must be enabled. Refer to the following articles for how 
-to enable diagnostic logging:
-
-+ Automation (details coming)
-+ [Key Vault](../key-vault/key-vault-logging.md)
-+ [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
-+ [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
- 
-The following sections will walk you through how to:
+The following sections will walk you through using PowerShell to:
 
 + Configure Log Analytics to collect the logs from storage for each resource  
 + Enable the Log Analytics solution for the Azure service 
 
-
-### Configure Log Analytics to collect Azure Diagnostics written to blob storage in JSON format
+### Configure Log Analytics to collect JSON logs from Azure blob storage
 
 We have provided a PowerShell script module that exports two cmdlets to assist with configuring Log Analytics: 
 
@@ -91,7 +82,7 @@ Add-AzureDiagnostiToLogAnalytics-UI
 You are shown a list of available selections and given a prompt to make your selection. 
 You’ll be asked to make selections for each of the following: 
 
-+ Resource types (Azure Service) to collect logs from 
++ Resource types (Azure Services) to collect logs from 
 + Resource instances to collect logs from
 + Log Analytics workspace that will collect the data 
 
@@ -147,6 +138,7 @@ If you need to delete the Log Analytics configuration for a resource use the cmd
 ### Troubleshooting configuration for Azure Diagnostics written to blob in JSON
 
 *Issue*
+
 When configuring a resource that is logging to classic storage you get an exception saying "subscription not found": e.g.
 
 ```
@@ -156,13 +148,16 @@ Parameter name: id
 ```
 
 *Resolution*
-Add your login account with the cmdlet: `Add-AzureAccount`
+
+Login to the service management API with `Add-AzureAccount`
 
 *Issue*
+
 When attempting to import the module, you get an error of ‘\<Script Name\>’ is not digitally signed. 
 You cannot run this script on the current system. 
 
 *Resolution*
+
 To enable importing the module on your machine, right click on the file in a file explorer and choose *properties*. 
 On the properties screen, check the *unblock* button in the file security section to enable the file to run on your machine, click *apply* and try importing it again . 
 
@@ -200,9 +195,9 @@ To check if a solution is enabled, run the following PowerShell:
 
 If the solution is not enabled, you can enable it using the following PowerShell:
 
-`Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $logAnalyticsResourceGroup -WorkspaceName $logAnalyticsWorkspaceName -IntelligencePackName $solution -Enabled $true
+`Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $logAnalyticsResourceGroup -WorkspaceName $logAnalyticsWorkspaceName -IntelligencePackName $solution -Enabled $true`
 
-See the name of the solution to enable for each resource type, use the following PowerShell (this variable is available once you have imported the module)
+To find the name of the solution to enable for each resource type, use the following PowerShell (this variable is available once you have imported the module):
 
 `$MonitorableResourcesToOMSSolutions`
 
@@ -252,10 +247,11 @@ Using Azure PowerShell you can more precisely specify the events that are writte
 Refer to [Enabling Diagnostics in Azure Virtual Machines](../virtual-machines-dotnet-diagnostics.md) for more details.
 
 You can enable and update the Agent using the following PowerShell script. 
-You can also use this script with custom logging configuration. 
+You can also use this script with a custom logging configuration. 
 You will need to modify the script to set the storage account, service name and virtual machine name.
+The script using cmdlets for classic virtual machines.
 
-Review the following script sample that is designed for classic virtual machines, copy it, modify it as needed, save the sample as a PowerShell script file, and then run the script.
+Review the following script sample, copy it, modify it as needed, save the sample as a PowerShell script file, and then run the script.
 
 ```
 	#Connect to Azure
