@@ -1449,7 +1449,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "orderby": [ "lastRenovationDate desc" ]
+      "orderby": "lastRenovationDate desc"
     }
 
 2)	In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
@@ -1542,7 +1542,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "*",
-      "select": [ "hotelName", "description" ]
+      "select": "hotelName, description"
     }
 
 10)  Retrieve documents matching a specific filter expression
@@ -1574,7 +1574,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
-      "orderby": [ "geo.distance(location, geography'POINT(-122.12315 47.88121)')" ]
+      "orderby": "geo.distance(location, geography'POINT(-122.12315 47.88121)')"
     }
 
 13) Search the index assuming there's a scoring profile called "geo" with two distance scoring functions, one defining a parameter called "currentLocation" and one defining a parameter called "lastLocation"
