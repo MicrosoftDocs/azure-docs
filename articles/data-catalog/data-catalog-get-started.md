@@ -17,7 +17,7 @@
 	ms.author="maroche"/>
 
 # Tutorial: Get started with Azure Data Catalog
-Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md). This article provides a tutorial that walks you through registering data assets with Data Catalog, discovering and annotating registered data assets, and connecting to data assets.    
+Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md). This article provides a tutorial that walks you through registering data assets with Data Catalog, discovering and annotating registered data assets, and connecting to data assets.    
  
 ## Tutorial prerequisites
 
@@ -155,60 +155,58 @@ In this exercise you used the **Azure Data Catalog** portal to discover and view
 2. Confirm that you see all the data assets you published today. 
 
 <a name="annotating"/>
-## Annotate registered data sources
-
-In this exercise you use the **Azure Data Catalog** portal to annotate data assets that have been previously registered in the catalog. The annotations you provide will supplement and enhance the structural metadata extracted from the data source during registration and will make the data assets much easier to discover and understand. Because each **Data Catalog** user can provide his own annotations, it’s easy for every user with a perspective on the data to share it.
+## Annotate registered data assets
+In this exercise you use the **Azure Data Catalog** portal to annotate data assets that you have previously registered in the catalog. The annotations you provide will supplement and enhance the structural metadata extracted from the data source during registration and will make the data assets much easier to discover and understand. 
 
 ### Here’s how you annotate data assets
 
-1. Go to https://azure.microsoft.com/services/data-catalog, click **Get started**, and log into the **Azure Data Catalog** portal.
-2. Click **Discover**.
-3. Choose one or more **Data Assets**. In this example, choose **ProductPhoto**, and enter “Product photos for marketing materials.”
-4. Enter a **Description** that will help others discover and understand why and how to use the selected data asset. For example, enter “Product images”. You can also add more tags, and view columns.
-5. Now you can try searching and filtering to discover data assets using the descriptive metadata you’ve added to the catalog.
+1. Navigate to [https://www.azurecatalog.com](https://www.azuredatacatalog.com).
+2. Click **ProductPhoto** under **My Assets**. 
 
-    ![](media/data-catalog-get-started/data-catalog-annotate.png)
+	![Azure Data Catalog - My Assets](media/data-catalog-get-started/data-catalog-myassets-productphoto.png)
+3. Enter **Product photos** for **friendly name** and **Product photos for marketing materials** for the **Description** field.
 
-In this exercise you added descriptive information to registered data assets so that catalog users can discover data sources using terms they understand.
+	![Azure Data Catalog - Product Photo description](media/data-catalog-get-started/data-catalog-productphoto-description.png)
 
-> [AZURE.NOTE] The Standard Edition of Data Catalog includes a business glossary that allows catalog administrators to define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
+	The **Description** will help others discover and understand why and how to use the selected data asset. You can also add more tags, and view columns. Now you can try searching and filtering to discover data assets using the descriptive metadata you’ve added to the catalog.
 
-## Crowdsource metadata
+Note that you can also do the following on this page:
 
-In this exercise you work with another user to add metadata to data assets in the catalog. **Azure Data Catalog’s** crowdsourced approach to annotations allows any user to add tags, descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
+- Add experts for the data asset. Click **Add...** under **Experts:** in the right pane. 
+- Add tags at the dataset level. Click **Add...** under **Tags:** in the right pane. A tag can be a user tag or a glossary tag. The Standard Edition of Data Catalog includes a business glossary that allows catalog administrators to define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)
+- Add tags at the column level. In the bottom pane in the middle, click **Add...** under **Tags** for the column you want to annotate. 
+- Add description at the column level. In the bottom pane in the middle, enter **Description** for a column. You can also view the description metadata extracted from the data source. 
+- Add **Request access** information that specifies users how to request access to the data asset. 
 
-> [AZURE.NOTE] If you don’t have another user to work with on this tutorial, don’t worry! Any user who accesses the data catalog can add his own perspective when he chooses to do so. This crowdsourcing approach to metadata allows the contents of the catalog and the richness of the catalog’s metadata to grow over time.
+Azure Data Catalog supports crowd sourcing approach to annotations allows any user to add tags (user or glossary), descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
 
-### Here’s how you can Crowdsource metadata about data assets
-
-Ask a colleague to repeat the [Annotating Registered Data Sources](#annotating) exercise above. After your colleagues add descriptions to a data asset, such as ProductPhoto, you will see multiple annotations.
-
-![](media/data-catalog-get-started/data-catalog-crowdsource.png)
-
-In this exercise you explored **Azure Data Catalog’s** capabilities for crowdsourced metadata, where any catalog user can annotate the data assets he discovers.
-
-## Connect to data sources
+See [How to annotate data assets](data-catalog-how-to-annotate.md) for detailed information about annotating data assets.
+ 
+## Connect to data assets
 
 In this exercise you will use the **Azure Data Catalog** portal to connect to a data source using Microsoft Excel.
 
 > [AZURE.NOTE] It’s important to remember that **Azure Data Catalog** doesn’t give users access to the actual data source – it simply makes it easier for users to discover and understand them. When users connect to a data source, the client application they choose will use their Windows credentials or will prompt them for credentials as necessary. If the user has not previously been granted access to the data source, he will need to be granted access before he can connect.
 
-### Here’s how to connect to a data source from Excel
+### Here’s how to connect to a data asset from Excel
 
-1. Go to https://azure.microsoft.com/services/data-catalog, click **Get started**, and log into the **Azure Data Catalog** portal.
-2. Click **Discover**.
-3. Choose a data asset. In this example, choose ProductCategory.
-4. Choose **Open In** > **Excel**.
+1. Click **Open In** on the toolbar and select **Excel**.
+ 
+    ![Azure Data Catalog - Connect to data asset](media/data-catalog-get-started/data-catalog-connect1.png)	
+5. Click **Open** in the download pop-up window at the bottom (this experience may vary depending on the browser). 
 
-    ![](media/data-catalog-get-started/data-catalog-connect1.png)
+	![Azure Data Catalog - downloaded excel connection file](media/data-catalog-get-started/data-catalog-download-open.png)
+6. In the **Microsoft Excel Security Notice** window, click **Enable**.
 
-5. In the **Microsoft Excel Security Notice** window, click **Enable**.
-6. Open the **ProductCategory.odc** file.
-7. The data source is opened in Excel.
+	![Azure Data Catalog - excel security popup](media/data-catalog-get-started/data-catalog-excel-security-popup.png)
+7. In the **Import Data** dialog box, keep the defaults, and click **OK**.
+
+	![Azure Data Catalog - Excel import data](media/data-catalog-get-started/data-catalog-excel-import-data.png) 
+8. The data source is opened in Excel.
 
     ![](media/data-catalog-get-started/data-catalog-connect2.png)
 
-In this exercise you connected to data sources discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
+In this exercise you connected to data assets discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
 
 ## Remove data source metadata
 
