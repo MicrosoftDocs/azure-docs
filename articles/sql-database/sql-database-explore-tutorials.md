@@ -97,7 +97,7 @@ In the following tutorials, you will learn about [migrating an existing SQL Serv
 | [Import a BACPAC file into Azure SQL Database using the Azure portal](sql-database-import.md) | In this tutorial, you will learn how to import a database into Azure SQL Database from a BACPAC file that is stored in an Azure blob using the Azure Portal.|
 | [Import a BACPAC file into Azure SQL Database using PowerShell](sql-database-import-powershell.md) | In this tutorial, you will learn how to import a database into Azure SQL Database from a BACPAC file using PowerShell.|
 | [Archive an Azure SQL database using the Azure portal](sql-database-export.md#export-your-database) | In this tutorial, you learn how to archive an Azure SQL database to a BACPAC file using the Azure portal. |
-| [Archive an Azure SQL database using PowerShell](sql-database-export-powershell.md) | In this tutorial, you learn how to archive an Azure SQL database to a BACPAC file using the Azure portal. |
+| [Archive an Azure SQL database using PowerShell](sql-database-export-powershell.md) | In this tutorial, you learn how to archive an Azure SQL database to a BACPAC file using PowerShell. |
 | [Copy an Azure SQL database using the Azure portal](sql-database-copy.md#copy-your-sql-database) | In this tutorial, you learn how to copy an Azure SQL database using the Azure portal. |
 | [Copy an Azure SQL database using PowerShell](sql-database-copy-powershell#copy-your-sql-database) | In this tutorial, you learn how to copy an Azure SQL database using PowerShell. |
 | [Copy an Azure SQL database using Transact-SQL](sql-database-copy-transact-sql.md#copy-your-sql-database) | In this tutorial, you learn how to copy an Azure SQL database using Transact-SQL. |
