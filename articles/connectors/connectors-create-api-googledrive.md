@@ -53,8 +53,7 @@ All connectors support data in JSON and XML formats.
 
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Google Drive.
 
-1. Sign in to your Google Drive account.
-2. Allow your logic apps to connect and use your Google Drive. 
+>[AZURE.INCLUDE [Steps to create a connection to googledrive](../../includes/connectors-create-api-googledrive.md)]
 
 After you create the connection, you enter the Google Drive properties, like the folder path or file name. The **REST API reference** in this topic describes these properties.
 
