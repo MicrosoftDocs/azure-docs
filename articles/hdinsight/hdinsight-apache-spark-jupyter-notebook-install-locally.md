@@ -14,16 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="05/27/2016" 
 	ms.author="nitinme"/>
 
 
 # Install Jupyter notebook on your computer and connect to Apache Spark cluster on Azure HDInsight (Preview)
 
-In this article you will learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magic, and connect the notebook to an HDInsight cluster. 
-
-Even though Jupyter notebooks are already available on the Spark cluster in Azure HDInsight, installing Jupyter on your computer provides you the option to create your notebooks locally, test your application against a running cluster, and then upload the notebooks to the cluster. To upload the notebooks to the cluster, you can either upload them using the Jupyter notebook that is running or the cluster, or save them to the /HdiNotebooks folder in the storage account associated with the cluster. For more information on how notebooks are stored on the cluster, see [Where are Jupyter notebooks stored](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
-
+In this article you will learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magic, and connect the notebook to an HDInsight cluster. There can be a number of reasons to install Jupyter on your local computer, and there can be some challenges as well. For a list of reasons and challenges, see the section [Why should I install Jupyter on my computer](#why-should-i-install-Jupyter-on-my-computer) at the end of this article.
 
 There are three key steps involved in installing Jupyter and the Spark magic on your computer.
 
@@ -131,6 +128,18 @@ In this section you configure the Spark magic that you installed earlier to conn
 		If you can successfully retrieve the output, your connection to the HDInsight cluster is tested.
 
 	>[AZURE.TIP] If you want to update the notebook configuration to connect to a different cluster, update the config.json with the new set of values, as shown in Step 3 above. 
+
+## Why should I install Jupyter on my computer?
+
+There can be a number of reasons why you might want to install Jupyter on your computer and then connect it to a Spark cluster on HDInsight.
+
+* Even though Jupyter notebooks are already available on the Spark cluster in Azure HDInsight, installing Jupyter on your computer provides you the option to create your notebooks locally, test your application against a running cluster, and then upload the notebooks to the cluster. To upload the notebooks to the cluster, you can either upload them using the Jupyter notebook that is running or the cluster, or save them to the /HdiNotebooks folder in the storage account associated with the cluster. For more information on how notebooks are stored on the cluster, see [Where are Jupyter notebooks stored](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
+* With the notebooks available locally, you can connect to different Spark clusters based on your application requirement.
+* You can use GitHub to implement a source control system and have version control for the notebooks. You can also have a collaborative environment where multiple users can work with the same notebook.
+* You can work with notebooks locally without even having a cluster up. You only need a cluster to test your notebooks against, not to manually manage your notebooks or a development environment.
+* It may be easier to configure your own local development environment than it is to configure the Jupyter installation on the cluster.  You can take advantage of all the software you have installed locally without configuring one or more remote clusters.
+
+>[AZURE.WARNING] With Jupyter installed on your local computer, multiple users can run the same notebook on the same Spark cluster at the same time. In such a situation, multiple Livy sessions are created. If you run into an issue and want to debug that, it will be a complex task to track which Livy session belongs to which user.
 
 
 
