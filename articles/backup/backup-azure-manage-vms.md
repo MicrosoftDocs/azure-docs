@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Manage and monitor Azure virtual machine backups | Microsoft Azure"
-	description="Learn how to manage and monitor an Azure virtual machine backups"
+	pageTitle="Manage and monitor ARM virtual machine backups | Microsoft Azure"
+	description="Learn how to manage and monitor ARM virtual machine backups"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
@@ -14,155 +14,193 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
-	ms.author="trinadhk; jimpark; markgal;"/>
+	ms.date="05/26/2016"
+	ms.author="jimpark; markgal;"/>
 
 # Manage and monitor Azure virtual machine backups
 
+> [AZURE.SELECTOR]
+- [Manage Azure VM backups](backup-azure-manage-vms.md)
+- [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
+
+This article provides guidance on how to manage the backups for your virtual machines (VM), as well as explain the backup information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of VMs. For a primer on protecting Azure Resource Manager (ARM)-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up ARM VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).   
+
 ## Manage protected virtual machines
 
-To manage protected virtual machines:
+In the Azure portal, the Recovery Services vault dashboard provides access to all information about the vault including:
+- the most recent backup snapshot, which is also the latest restore point
+- the backup policy
+- total size of all backup snapshots
+- number of virtual machines that are protected with the vault
 
-1. To view and manage backup settings for a virtual machine click the **Protected Items** tab.
+Any management task with a virtual machine backup begins with opening the vault in the dashboard.
 
-2. Click on the name of a protected item to see the **Backup Details** tab, which shows you information about the last backup.
+To open a Recovery Services vault in the dashboard:
 
-    ![Virtual machine backup](./media/backup-azure-manage-vms/backup-vmdetails.png)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-3. To view and manage backup policy settings for a virtual machine click the **Policies** tab.
+2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
 
-    ![Virtual machine policy](./media/backup-azure-manage-vms/manage-policy-settings.png)
+    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
 
-    The **Backup Policies** tab shows you the existing policy. You can modify as needed. If you need to create a new policy click **Create** on the **Policies** page. Note that if you want to remove a policy it shouldn't have any virtual machines associated with it.
+    The list of Recovery Services vaults are displayed.
 
-    ![Virtual machine policy](./media/backup-azure-manage-vms/backup-vmpolicy.png)
+    ![List of Recovery Services vaults ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
 
-4. You can get more information about actions or status for a virtual machine on the **Jobs** page. Click a job in the list to get more details, or filter jobs for a specific virtual machine.
+3. From the list of vaults, select the vault to open its dashboard. When you select the vault, the vault dashboard and the **Settings** blade open.
 
-    ![Jobs](./media/backup-azure-manage-vms/backup-job.png)
+    ![Open vault dashboard and Settings blade](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+
+4. In the **Settings** blade, click **Backup Items** to open that blade.
+
+    ![Open backup items tile](./media/backup-azure-manage-vms/settings-blade-backup-items.png)
+
+    Use the drop-down menu to choose the type of items that are displayed. You can choose between a list of Files and folders, or Azure Virtual Machines. The **Backup Items** blade lists the last backup job for each item. In this example, there is one virtual machine, demovm-markgal, protected by this vault.  
+
+    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade.png)
+
+    >[AZURE.TIP] If you have multiple blades open, you can use the dark-blue slider at the bottom of the window to slide back to the dashboard or the vault list.
+
+    ![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
+
+5. In the **Backup Items** blade, click the item to open its dashboard.
+
+    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+
+    The dashboard and its **Settings** blade opens.
+
+    ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+
+    From the item dashboard, you can accomplish many key management tasks, such as
+    - run an on-demand back up
+	- view restore points, and see their consistency state
+	- create a new backup policy
+	- stop a backup job
+	- delete a restore point
+	- restore a backup
+
+### Change policies or Create a new backup policy
+
+1. On the vault item dashboard, click **All Settings** to open the **Settings** blade.
+
+    ![Backup policy blade](./media/backup-azure-manage-vms/all-settings-button.png)
+
+2. On the **Settings** blade, click **Backup policy** to open that blade.
+
+    On the blade, the backup frequency and retention range details are shown.
+
+    ![Backup policy blade](./media/backup-azure-manage-vms/backup-policy-blade.png)
+
+3. From the **Choose backup policy** menu:
+    - To change policies, select a different policy and click **Save**. The new policy is immediately applied to the vault. <br\>
+    - To create a new policy, select **Create New**.
+
+    ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+
+    For instructions on creating a backup policy, see [Defining a backup policy](#backup-create-policy-for-vm).
+
 
 ## On-demand backup of a virtual machine
-You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault i.e. it is always incremental. 
+You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in the Recovery Services vault. If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault i.e. it is always incremental.
 
->[AZURE.NOTE] Retention range of an On-Demand backup is set to retention value specified for Daily retention in backup policy corresponding to the VM.  
+>[AZURE.NOTE] The retention range for an on-demand backup is the retention value specified for the Daily backup point in the policy. If no Daily backup point is selected, then the weekly backup point is used.
 
 To take an on-demand backup of a virtual machine:
 
-1. Navigate to the **Protected Items** page and select **Azure Virtual Machine** as **Type** (if not already selected) and click on **Select** button.
+1. On the vault item dashboard, click **Backup now**.
 
-    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
+    ![Backup now button](./media/backup-azure-manage-vms/backup-now-button.png)
 
-2. Select the virtual machine on which you want to take an on-demand backup and click on **Backup Now** button at the bottom of the page.
+    The portal makes sure that you want to start an on-demand backup job. Click **Yes** to start the backup job.
 
-    ![Back up now](./media/backup-azure-manage-vms/backup-now.png)
+    ![Backup now button](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    This will create a backup job on the selected virtual machine. Retention range of recovery point created through this job will be same as that specified in the policy associated with the virtual machine.
+    The backup job creates a new recovery point. The retention range of the recovery point created is the same as that specified in the policy associated with the virtual machine. To track the progress for the job, in the vault dashboard, click the **Backup Jobs** tile.  
 
-    ![Creating backup job](./media/backup-azure-manage-vms/creating-job.png)
-
-    >[AZURE.NOTE] To view the policy associated with a virtual machine, drill down into virtual machine in the **Protected Items** page and go to backup policy tab.
-
-3. Once the job is created, you can click on **View job** button in the toast bar to see the corresponding job in the jobs page.
-
-    ![Backup job created](./media/backup-azure-manage-vms/created-job.png)
-
-4. After successful completion of the job, a recovery point will be created which you can use to restore the virtual machine. This will also increment the recovery point column value by 1 in **Protected Items** page.
 
 ## Stop protecting virtual machines
-You can choose to stop the future backups of a virtual machine with the following options:
+If you choose to stop protecting a virtual machine, you are asked if you want to retain the recovery points. There are two ways to stop protecting virtual machines: stop all future backup jobs and delete all recovery points, or stop all future backup jobs but leave the recovery points. There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For pricing details for such virtual machines, click [here](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, there is no option for restoring the virtual machine.
 
-- Retain backup data associated with virtual machine in Azure Backup vault
-- Delete backup data associated with virtual machine
+To stop protection for a virtual machine:
 
-If you have selected to retain backup data associated with virtual machine, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](https://azure.microsoft.com/pricing/details/backup/).
+1. On the vault item dashboard, click **Stop backup**.
 
-To Stop protection for a virtual machine:
+    ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-1. Navigate to **Protected Items** page and select **Azure virtual machine** as the filter type (if not already selected) and click on **Select** button.
+    The Stop Backup blade opens.
 
-    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
+    ![Stop backup blade](./media/backup-azure-manage-vms/stop-backup-blade.png)
 
-2. Select the virtual machine and click on **Stop Protection** at the bottom of the page.
+2. On the **Stop Backup** blade, choose whether to retain or delete the backup data. The information box provides details about your choice.
 
-    ![Stop protection](./media/backup-azure-manage-vms/stop-protection.png)
+    ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
-3. By default, Azure Backup doesn’t delete the backup data associated with the Virtual machine.
+3. If you chose to retain backup data, skip to the step 4. If you chose to delete backup data, confirm that you want to stop the backup jobs and delete the recovery points - type the name of the item.
 
-    ![Confirm stop protection](./media/backup-azure-manage-vms/confirm-stop-protection.png)
+    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
 
-    If you want to delete backup data, select the check box.
+    If you aren't sure of the item name, hover over the exclamation mark to view the name. Also, the name of the item is under **Stop Backup** at the top of the blade.
 
-    ![Checkbox](./media/backup-azure-manage-vms/checkbox.png)
+4. Optionally provide a **Reason** or **Comment**.
 
-    Please select a reason for stopping the backup. While this is optional, providing a reason will help Azure Backup to work on the feedback and prioritize the customer scenarios.
+5. To stop the backup job for the current item, click
+    ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
-4. Click on **Submit** button to submit the **Stop protection** job. Click on **View Job** to see the corresponding the job in **Jobs** page.
+    A notification message lets you know the backup jobs have been stopped.
 
-    ![Stop protection](./media/backup-azure-manage-vms/stop-protect-success.png)
+    ![Confirm stop protection](./media/backup-azure-manage-vms/stop-message.png)
 
-    If you have not selected **Delete associated backup data** option during **Stop Protection** wizard, then post job completion, protection status changes to **Protection Stopped**. The data remains with Azure Backup until it is explicitly deleted. You can always delete the data by selecting the virtual machine in the **Protected Items** page and clicking **Delete**.
 
-    ![Stopped protection](./media/backup-azure-manage-vms/protection-stopped-status.png)
+## Resume protection of a virtual machine
+If the **Retain Backup Data** option was chosen when protection for the virtual machine was stopped, then it is possible to resume protection. If the **Delete Backup Data** option was chosen, then protection for the virtual machine cannot resume.
 
-    If you have selected the **Delete associated backup data** option, the virtual machine won’t be part of the **Protected Items** page.
+To resume protection for the virtual machine
 
-## Re-protect Virtual machine
-If you have not selected the **Delete associate backup data** option in **Stop Protection**, you can re-protect the virtual machine by following the steps similar to backing up registered virtual machines. Once protected, this virtual machine will have backup data retained prior to stop protection and recovery points created after re-protect.
+1. On the vault item dashboard, click **Resume backup**.
 
-After re-protect, the virtual machine’s protection status will be changed to **Protected** if there are recovery points prior to **Stop Protection**.
+    ![Resume protection](./media/backup-azure-manage-vms/resume-backup-button.png)
 
-  ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+    The Backup Policy blade opens.
 
->[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
+    >[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
 
-## Unregister virtual machines
+2. Follow the steps in [Change policies or Create a new backup policy](#change-policies-or-create-a-new-backup-policy), to assign the policy for the virtual machine.
 
-If you want to remove the virtual machine from the backup vault:
+    Once the backup policy is applied to the virtual machine, you will see the following message.
 
-1. Click on the **UNREGISTER** button at the bottom of the page.
-
-    ![Disable protection](./media/backup-azure-manage-vms/unregister-button.png)
-
-    A toast notification will appear at the bottom of the screen requesting confirmation. Click **YES** to continue.
-
-    ![Disable protection](./media/backup-azure-manage-vms/confirm-unregister.png)
+    ![Successfully protected VM](./media/backup-azure-manage-vms/success-message.png)
 
 ## Delete Backup data
-You can delete the backup data associated with a virtual machine, either:
+You can delete the backup data associated with a virtual machine during the **Stop backup** job, or anytime after the backups have stopped. If it is beneficial to allow to stop the backup job for a virtual machine, and wait days or weeks before deciding whether to delete the recovery points, then that is possible. Unlike restoring recovery points, when deleting backup data, you cannot choose specific recovery points to delete. If you choose to delete it, you delete all recovery points associated with the item.
 
-- During Stop Protection Job
-- After a stop protection job is completed on a virtual machine
+The following procedure assumes the Backup job for the virtual machine has been stopped or disabled. Only when the Backup job has been disabled, will the **Resume backup** and **Delete backup** options be available in the vault item dashboard.
 
-To delete backup data on a virtual machine, which is in the *Protection Stopped* state post successful completion of a **Stop Backup** job:
+![Resume and delete buttons](./media/backup-azure-manage-vms/resume-delete-buttons.png)
 
-1. Navigate to the **Protected Items** page and select **Azure Virtual Machine** as *type* and click the **Select** button.
+To delete backup data on a virtual machine with the *Backup disabled*:
 
-    ![VM Type](./media/backup-azure-manage-vms/vm-type.png)
+1. On the vault item dashboard, click **Delete backup**.
 
-2. Select the virtual machine. The virtual machine will be in **Protection Stopped** state.
+    ![VM Type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Protection stopped](./media/backup-azure-manage-vms/protection-stopped-b.png)
+    The **Delete Backup Data** blade opens.
 
-3. Click the **DELETE** button at the bottom of the page.
+    ![VM Type](./media/backup-azure-manage-vms/delete-backup-blade.png)
 
-    ![Delete backup](./media/backup-azure-manage-vms/delete-backup.png)
+2. You must type the name of the item to confirm that you want to delete the recovery points.
 
-4. In the **Delete backup data** wizard, select a reason for deleting backup data (highly recommended) and click **Submit**.
+    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
 
-    ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data.png)
+    If you aren't sure of the item name, hover over the exclamation mark to view the name. Also, the name of the item is under **Delete Backup Data** at the top of the blade.
 
-5. This will create a job to delete backup data of selected virtual machine. Click **View job** to see corresponding job in Jobs page.
+3. Optionally provide a **Reason** or **Comment**.
 
-    ![Data deletion successful](./media/backup-azure-manage-vms/delete-data-success.png)
+4. To delete the backup data for the current item, click
+    ![Stop backup button](./media/backup-azure-manage-vms/delete-button.png)
 
-    Once the job is completed, the entry corresponding to the virtual machine will be removed from **Protected items** page.
+    A notification message lets you know the backup data has been deleted.
 
-## Dashboard
-On the **Dashboard** page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors.
 
-![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
-
->[AZURE.NOTE] Values in the dashboard are refreshed once every 24 hours.
 
 ## Auditing Operations
 Azure backup provides review of the "operation logs" of backup operations triggered by the customer making it easy to see exactly what management operations were performed on the backup vault. Operations logs enable great post-mortem and audit support for the backup operations.
@@ -213,7 +251,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **OperationName**: This will be of the format "Microsoft.Backup/backupvault/<EventName>" where EventName is one of Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Status**: Supported values are- Started, Succeeded and Failed. 
+**Status**: Supported values are- Started, Succeeded and Failed.
 
 **ResourceGroup**:ResourceGroup of the resource on which operation is triggered. You can obtain this from ResourceId value. Value between fields */resourceGroups/* and */providers/* in ResourceId value is the value for ResourceGroup.
 
@@ -226,9 +264,11 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 ### Limitations on Alerts
 Event based alerts are subjected to following limitations:
 
-1. Alerts are triggered on all Virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
+1. Alerts are triggered on all virtual machines in the Recovery Services vault. You cannot customize the alerts for a specific set of virtual machines in a Recovery Services vault.
 2. This feature in in Preview. [Learn more](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
-3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender. 
+3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
+
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Next steps
 
