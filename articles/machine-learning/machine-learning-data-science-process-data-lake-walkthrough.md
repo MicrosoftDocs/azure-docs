@@ -64,7 +64,7 @@ Before you begin these topics, you must have the following:
 
 >[AZURE.NOTE] You need to get approval to use Azure Data Lake Store (ADLS) and Azure Data Lake Analytics (ADLA) as these services are in preview. You will be prompted to sign up when you create your first ADLS or ADLA. To sigh up, click on **Sign up to preview**, read the agreement, and click **OK**. Here, for example, is the ADLS sign up page:
 
- ![2](./media/machine-learning-data-science-process-data-lake-walkthough/2-ADLA-preview-signup.PNG)
+ ![2](./media/machine-learning-data-science-process-data-lake-walkthrough/2-ADLA-preview-signup.PNG)
 
 
 ## Prepare data science environment for Azure Data Lake
@@ -84,19 +84,19 @@ This section provides instructions on how to create each of these resources. If 
 
 Create an ADLS from the [Azure Portal](http://ms.portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
 
- ![3](./media/machine-learning-data-science-process-data-lake-walkthough/3-create-ADLS.PNG)
+ ![3](./media/machine-learning-data-science-process-data-lake-walkthrough/3-create-ADLS.PNG)
 
 
 ### Create an Azure Data Lake Analytics account
 Create an ADLA account from the [Azure Portal](http://ms.portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure Portal](../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
 
- ![4](./media/machine-learning-data-science-process-data-lake-walkthough/4-create-ADLA-new.PNG)
+ ![4](./media/machine-learning-data-science-process-data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 
 ### Create an Azure Blob storage account
 Create an Azure Blob storage account from the [Azure Portal](http://ms.portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 	
- ![5](./media/machine-learning-data-science-process-data-lake-walkthough/5-Create-Azure-Blob.PNG)
+ ![5](./media/machine-learning-data-science-process-data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
 
 ### Set up an Azure Machine Learning Studio account
@@ -105,11 +105,11 @@ Sign up/into Azure Machine Learning Studio from the [Azure Machine Learning](htt
 ### Install Azure Data Lake Tools [Recommended]
 Install Azure Data Lake Tools for your version of Visual Studio from [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
- ![6](./media/machine-learning-data-science-process-data-lake-walkthough/6-install-ADL-tools-VS.PNG)
+ ![6](./media/machine-learning-data-science-process-data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
 
 After the installation finishes successfully, open up Visual Studio. You should see the Data Lake tab the menu at the top. Your Azure resources should appear in the left panel when you sign into your Azure account.
 
- ![7](./media/machine-learning-data-science-process-data-lake-walkthough/7-install-ADL-tools-VS-done.PNG)
+ ![7](./media/machine-learning-data-science-process-data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 
 ## The NYC Taxi Trips dataset
@@ -150,11 +150,11 @@ The U-SQL scripts are described here and provided in a separate file. You can do
 
 To execute U-SQL, Open Visual Studio, click **File --> New --> Project**, choose **U-SQL Project**, name and save it to a folder.
 
-![8](./media/machine-learning-data-science-process-data-lake-walkthough/8-create-USQL-project.PNG)
+![8](./media/machine-learning-data-science-process-data-lake-walkthrough/8-create-USQL-project.PNG)
 
 >[AZURE.NOTE] It is possible to use the Azure Portal to execute U-SQL instead of Visual Studio. You can navigate to the Azure Data Lake Analytics resource on the portal and submit queries directly as illustrated in the following figure.
 
-![9](./media/machine-learning-data-science-process-data-lake-walkthough/9-portal-submit-job.PNG)
+![9](./media/machine-learning-data-science-process-data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Data Ingestion: Read in data from public blob
 
@@ -215,9 +215,9 @@ Since there are headers in the first row, we need to remove the headers and chan
 
 Similarly we can read in the fare data sets. Right click Azure Data Lake Store, you can choose to look at your data in **Azure Portal --> Data Explorer** or **File Explorer** within Visual Studio. 
 
- ![10](./media/machine-learning-data-science-process-data-lake-walkthough/10-data-in-ADL-VS.PNG)
+ ![10](./media/machine-learning-data-science-process-data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
- ![11](./media/machine-learning-data-science-process-data-lake-walkthough/11-data-in-ADL.PNG)
+ ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
 
 
 ### <a name="quality"></a>Data quality checks
@@ -449,21 +449,21 @@ Then we do stratified sampling by binary variable tip_class:
 
 When you finish editing U-SQL scripts, you can submit them to the server using your Azure Data Lake Analytics account. Click **Data Lake**, **Submit Job**, select your **Analytics Account**, choose **Parallelism**, and click **Submit** button.  
 
- ![12](./media/machine-learning-data-science-process-data-lake-walkthough/12-submit-USQL.PNG)
+ ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
 
 When the job is complied successfully, the status of your job will be displayed in Visual Studio for monitoring. After the job finishes running, you can even replay the job execution process and find out the bottleneck steps to improve your job efficiency. You can also go to Azure Portal to check the status of your U-SQL jobs.
 
- ![13](./media/machine-learning-data-science-process-data-lake-walkthough/13-USQL-running-v2.PNG)
+ ![13](./media/machine-learning-data-science-process-data-lake-walkthrough/13-USQL-running-v2.PNG)
 
 
- ![14](./media/machine-learning-data-science-process-data-lake-walkthough/14-USQL-jobs-portal.PNG)
+ ![14](./media/machine-learning-data-science-process-data-lake-walkthrough/14-USQL-jobs-portal.PNG)
 
 
 Now you can check the output files in either Azure Blob storage or Azure Portal. We will use the stratified sample data for our modeling in the next step.
 
- ![15](./media/machine-learning-data-science-process-data-lake-walkthough/15-U-SQL-output-csv.PNG)
+ ![15](./media/machine-learning-data-science-process-data-lake-walkthrough/15-U-SQL-output-csv.PNG)
 
- ![16](./media/machine-learning-data-science-process-data-lake-walkthough/16-U-SQL-output-csv-portal.PNG)
+ ![16](./media/machine-learning-data-science-process-data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG)
 
 
 ## Build and deploy models in Azure Machine Learning
@@ -519,7 +519,7 @@ In order to run the sample Jupyter Notebook or the Python script file, the follo
 		t2 = time.time()
 		print(("It takes %s seconds to read in "+BLOBNAME) % (t2 - t1))
 
- ![17](./media/machine-learning-data-science-process-data-lake-walkthough/17-python_readin_csv.PNG)	
+ ![17](./media/machine-learning-data-science-process-data-lake-walkthrough/17-python_readin_csv.PNG)	
  
 - Add column names and separate columns
 
@@ -566,7 +566,7 @@ Here we build a binary classification model to predict whether a trip is tipped 
 		print ('Coefficients: \n', logit_fit.coef_)
 		Y_train_pred = logit_fit.predict(X_train)
 
-       ![c1](./media/machine-learning-data-science-process-data-lake-walkthough/c1-py-logit-coefficient.PNG)
+       ![c1](./media/machine-learning-data-science-process-data-lake-walkthrough/c1-py-logit-coefficient.PNG)
 
 - Score testing data set
 
@@ -588,7 +588,7 @@ Here we build a binary classification model to predict whether a trip is tipped 
 		print metrics.confusion_matrix(Y_train,Y_train_pred)
 		print metrics.confusion_matrix(Y_test,Y_test_pred)
 
-       ![c2](./media/machine-learning-data-science-process-data-lake-walkthough/c2-py-logit-evaluation.PNG)
+       ![c2](./media/machine-learning-data-science-process-data-lake-walkthrough/c2-py-logit-evaluation.PNG)
 
 
  
@@ -598,7 +598,7 @@ We want to operationalize the machine learning model after it has been built. He
 
 - Find your workspace credentials from Azure ML studio settings. In Azure Machine Learning Studio, click **Settings** --> **Name** --> **Authorization Tokens**. 
 
-	![c3](./media/machine-learning-data-science-process-data-lake-walkthough/c3-workspace-id.PNG)
+	![c3](./media/machine-learning-data-science-process-data-lake-walkthrough/c3-workspace-id.PNG)
 
 
 		workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
@@ -631,7 +631,7 @@ We want to operationalize the machine learning model after it has been built. He
 
 		NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
 
-       ![c4](./media/machine-learning-data-science-process-data-lake-walkthough/c4-call-API.PNG)
+       ![c4](./media/machine-learning-data-science-process-data-lake-walkthrough/c4-call-API.PNG)
 
 
 ## Option 2: Create and deploy models directly in Azure Machine Learning
@@ -642,20 +642,20 @@ Azure Machine Learning Studio can read data directly from Azure Data Lake Store 
 
 Create an HDInsight Cluster (Linux) from the [Azure Portal](http://ms.portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
- ![18](./media/machine-learning-data-science-process-data-lake-walkthough/18-create_HDI_cluster.PNG)
+ ![18](./media/machine-learning-data-science-process-data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### Create Hive table in HDInsight
 
 Now we create Hive tables to be used in Azure Machine Learning Studio in the HDInsight cluster using the data stored in Azure Data Lake Store in the previous step. Go to the HDInsight cluster just created. Click **Settings** --> **Properties** --> **Cluster AAD Identity** --> **ADLS Access**, make sure your Azure Data Lake Store account is added in the list with read, write and execute rights. 
 
- ![19](./media/machine-learning-data-science-process-data-lake-walkthough/19-HDI-cluster-add-ADLS.PNG)
+ ![19](./media/machine-learning-data-science-process-data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
 
 Then click **Dashboard** next to the **Settings** button and a window will pop up. Click **Hive View** in the upper right corner of the page and you will see the **Query Editor**.
 
- ![20](./media/machine-learning-data-science-process-data-lake-walkthough/20-HDI-dashboard.PNG)
+ ![20](./media/machine-learning-data-science-process-data-lake-walkthrough/20-HDI-dashboard.PNG)
 
- ![21](./media/machine-learning-data-science-process-data-lake-walkthough/21-Hive-Query-Editor-v2.PNG)
+ ![21](./media/machine-learning-data-science-process-data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
 
 Paste in the following Hive scripts to create a table. The location of data source is in Azure Data Lake Store reference in this way: **adl://data_lake_store_name.azuredatalakestore.net:443/folder_name/file_name**.
@@ -693,7 +693,7 @@ Paste in the following Hive scripts to create a table. The location of data sour
 
 When the query finishes running, you will see the results like this:
 
- ![22](./media/machine-learning-data-science-process-data-lake-walkthough/22-Hive-Query-results.PNG)
+ ![22](./media/machine-learning-data-science-process-data-lake-walkthrough/22-Hive-Query-results.PNG)
 
 
 
@@ -709,23 +709,23 @@ We are now ready to build and deploy a model that predicts whether or not a tip 
 
 4. Enter the URI of HDInsight cluster (this can be found in Azure Portal), Hadoop credentials, location of output data, and Azure storage account name/key/container name.
 
- ![23](./media/machine-learning-data-science-process-data-lake-walkthough/23-reader-module-v3.PNG)  
+ ![23](./media/machine-learning-data-science-process-data-lake-walkthrough/23-reader-module-v3.PNG)  
 
 An example of a binary classification experiment reading data from Hive table is shown in the figure below.
 
- ![24](./media/machine-learning-data-science-process-data-lake-walkthough/24-AML-exp.PNG)
+ ![24](./media/machine-learning-data-science-process-data-lake-walkthrough/24-AML-exp.PNG)
 
 After the experiment is created, click  **Set Up Web Service** --> **Predictive Web Service**
 
- ![25](./media/machine-learning-data-science-process-data-lake-walkthough/25-AML-exp-deploy.PNG)
+ ![25](./media/machine-learning-data-science-process-data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
 Run the automatically created scoring experiment, when it finishes, click **Deploy Web Service**
 
- ![26](./media/machine-learning-data-science-process-data-lake-walkthough/26-AML-exp-deploy-web.PNG)
+ ![26](./media/machine-learning-data-science-process-data-lake-walkthrough/26-AML-exp-deploy-web.PNG)
 
 The web service dashboard will be displayed shortly:
 
- ![27](./media/machine-learning-data-science-process-data-lake-walkthough/27-AML-web-api.PNG)
+ ![27](./media/machine-learning-data-science-process-data-lake-walkthrough/27-AML-web-api.PNG)
 
 
 ## Summary
