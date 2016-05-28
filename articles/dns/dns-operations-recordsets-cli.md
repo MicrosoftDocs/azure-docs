@@ -67,7 +67,7 @@ This example returns all record sets that match the given record type (in this c
 
 ## Add a record to a record set
 
-You add records to record sets by using the `azure network dns record-set add-record`command. The parameters for adding records to a record set vary depending on the type of the record that's being set. For example, when you use a record set of type *A*, you can only specify records with the parameter `-a <IPv4 address>`.
+You add records to record sets by using the `azure network dns record-set add-record`command. The parameters for adding records to a record set vary depending on the type of the record that's being set. For example, when you use a record set of type "A", you can only specify records with the parameter `-a <IPv4 address>`.
 
 To create a record set, use the `azure network dns record-set create`command. Specify the resource group, zone name, record set relative name, record type, and time to live (TTL). If the --ttl parameter is not defined, the value (in seconds) defaults to four.
 
@@ -163,7 +163,7 @@ Removing the last record from a record set does not delete the record set. For m
 
 ## <a name="delete"></a>Delete a record set
 
-Record sets can be deleted by using the `Remove-AzureRmDnsRecordSet` cmdlet. You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that were created automatically when the zone was created. They will be deleted automatically if the zone is deleted.
+Record sets can be deleted by using the `Remove-AzureRmDnsRecordSet` cmdlet. You cannot delete the SOA and NS record sets at the zone apex (name = "@") that were created automatically when the zone was created. They will be deleted automatically if the zone is deleted.
 
 In the example below, the A record set "test-a" will be removed from contoso.com DNS zone:
 

@@ -58,11 +58,11 @@ For more information about working with PowerShell, see [Using Windows PowerShel
 
 ### 2. Create a record set
 
-You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. When creating a record set, you need to specify the record set name, the zone, the time-to-Live (TTL), and the record type.
+You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. When creating a record set, you need to specify the record set name, the zone, the time to live (TTL), and the record type.
 
-To create a record set in the apex of the zone (in this case, 'contoso.com'), use the record name "@", including the quotation marks. This is a common DNS convention.
+To create a record set in the apex of the zone (in this case, "contoso.com"), use the record name "@", including the quotation marks. This is a common DNS convention.
 
-The following example creates a record set with the relative name *www* in the DNS Zone *contoso.com*. The fully-qualified name of the record set is *www.contoso.com*. The record type is *A*, and the TTL is 60 seconds. After completing this step, you will have an empty *www* record set that is assigned to the variable *$rs*.
+The following example creates a record set with the relative name "www" in the DNS Zone "contoso.com". The fully-qualified name of the record set is "www.contoso.com". The record type is "A", and the TTL is 60 seconds. After completing this step, you will have an empty "www" record set that is assigned to the variable *$rs*.
 
 	$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 

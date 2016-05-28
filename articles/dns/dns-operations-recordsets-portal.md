@@ -96,7 +96,7 @@ You can use the Azure portal to remove records from a record set. Note that remo
 
 3. Click **Save** at the top of the blade to save your settings.
 
-3. Once the record has been removed, the values for the record on the **DNS zone** blade will reflect the removal.
+3. After the record has been removed, the values for the record on the **DNS zone** blade will reflect the removal.
 
 
 ## <a name="delete"></a>Delete a record set
@@ -105,7 +105,7 @@ You can use the Azure portal to remove records from a record set. Note that remo
 
 	![Delete a record set](./media/dns-operations-recordsets-portal/deleterecordset500.png)
 
-2. A message appears asking if you want to delete the record set 'name_ of _ record _set'.
+2. A message appears asking if you want to delete the record set *name_ of _ record _set*.
 
 3. Verify that the name matches the record set that you want to delete, and then click **Yes**.
 
@@ -118,15 +118,15 @@ NS and SOA records that are automatically created are managed differently from o
 
 ### Modify SOA records
 
-You cannot add or remove records from the automatically created SOA record set at the zone apex (name = ‘@’). However, you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL.
+You cannot add or remove records from the automatically created SOA record set at the zone apex (name = "@"). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
 
 ### Modify NS records at the zone apex
 
-You cannot add to, remove, or modify the records in the automatically created NS record set at the zone apex (name = ‘@’). The only change that's permitted is to modify the record set TTL.
+You cannot add to, remove, or modify the records in the automatically created NS record set at the zone apex (name = "@"). The only change that's permitted is to modify the record set TTL.
 
 ### Delete SOA or NS record sets
 
-You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that are created automatically when the zone is created. They are deleted automatically when you delete the zone.
+You cannot delete the SOA and NS record sets at the zone apex (name = "@") that are created automatically when the zone is created. They are deleted automatically when you delete the zone.
 
 ## Next steps
 

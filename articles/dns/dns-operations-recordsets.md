@@ -79,9 +79,9 @@ The zone can be specified by using either the *–ZoneName* and *–ResourceGrou
 
 You add records to record sets by using the `Add-AzureRmDnsRecordConfig` cmdlet. This is an offline operation. Only the local object that represents the record set is changed.
 
-The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type *A*, you can only specify records with the parameter *-IPv4Address*.
+The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type "A", you can only specify records with the parameter *-IPv4Address*.
 
-Additional records can be added to each record set by additional calls to `Add-AzureRmDnsRecordConfig`. You can add up to 20 records to any record set. However, record sets of type *CNAME* can contain at most one record, and a record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers.
+Additional records can be added to each record set by additional calls to `Add-AzureRmDnsRecordConfig`. You can add up to 20 records to any record set. However, record sets of type "CNAME" can contain at most one record, and a record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers.
 
 After the record set contains the desired collection of records, you need to commit it by using the `Set-AzureRmDnsRecordSet` cmdlet. After a record set has been committed, it replaces the existing record set in Azure DNS.
 
@@ -122,7 +122,7 @@ The `Set-AzureRmDnsRecordSet` cmdlet uses *etag* checks to ensure that concurren
 
 ### To modify an SOA record
 
-You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = ‘@’). However, you can modify any of the parameters within the SOA record (except 'Host') and the record set TTL.
+You cannot add or remove records from the automatically-created SOA record set at the zone apex (name = "@"). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
 
 The following example shows how to change the *Email* property of the SOA record:
 
@@ -132,7 +132,7 @@ The following example shows how to change the *Email* property of the SOA record
 
 ### To modify NS records at the zone apex
 
-You cannot add to, remove, or modify the records in the automatically-created NS record set at the zone apex (name = ‘@’). The only change that's permitted is to modify the record set TTL.
+You cannot add to, remove, or modify the records in the automatically-created NS record set at the zone apex (name = "@"). The only change that's permitted is to modify the record set TTL.
 
 The following example shows how to change the TTL property of the NS record set:
 
@@ -204,7 +204,7 @@ Because a CNAME record set can contain at most one record, removing that record 
 
 ## Delete a record set
 
-Record sets can be deleted by using the `Remove-AzureRmDnsRecordSet` cmdlet. You cannot delete the SOA and NS record sets at the zone apex (name = ‘@’) that were created automatically when the zone was created. They will be deleted automatically if the zone is deleted.
+Record sets can be deleted by using the `Remove-AzureRmDnsRecordSet` cmdlet. You cannot delete the SOA and NS record sets at the zone apex (name = "@") that were created automatically when the zone was created. They will be deleted automatically if the zone is deleted.
 
 Use one of the following three methods to remove a record set:
 
