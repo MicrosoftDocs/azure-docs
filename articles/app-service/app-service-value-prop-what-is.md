@@ -69,7 +69,7 @@ Here are some key features and capabilities of App Service:
 
 - **WebJobs** - [Run any program or script](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs. Run jobs continuously, on a schedule, or triggered by events. The Azure [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) simplifies the code you write to integrate with other Azure and third-party services.
 
-- **Hybrid connections** - Access on-premises data using [hybrid connections](../biztalk-services/integration-hybrid-connection-overview.md) and [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Hybrid connections** - Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, consuming, debugging, and managing web apps, mobile apps, and API apps.
 
