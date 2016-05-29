@@ -36,7 +36,7 @@ To create a record set in the apex of the zone (in this case, "contoso.com"), us
 
 ### 1. Create a record set
 
-To create record set, use `azure network dns record-set create`. Specify the resource group, zone name, record set relative name, the record type, and the TTL. If the --ttl parameter is not defined, the value defaults to four (in seconds). After completing this step, you will have an empty "www" record set.
+To create record set, use `azure network dns record-set create`. Specify the resource group, zone name, record set relative name, the record type, and the TTL. If the `--ttl` parameter is not defined, the value defaults to four (in seconds). After completing this step, you will have an empty "www" record set.
 
 *Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
 
