@@ -31,7 +31,7 @@ This article shows you how to manage record sets and records for your DNS zone b
 
 It's important to understand the difference between DNS record sets and individual DNS records. A record set is the collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
-In order to manage your record sets and records, you need the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). For more information about working with PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+To manage your record sets and records, you need the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). For more information about working with PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 
 
@@ -66,7 +66,7 @@ This example returns all record sets, regardless of name or record type:
 
 ### To list record sets of a given record type
 
-This example returns all record sets that match the given record type. In this case, the record set that is returned is A records:
+This example returns all record sets that match the given record type. In this case, the record set that is returned is "A" records:
 
 	$list = Get-AzureRmDnsRecordSet –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
@@ -105,20 +105,20 @@ The steps for modifying an existing record set are similar to the steps you take
 
 1.	Retrieve the existing record set by using `Get-AzureRmDnsRecordSet`.
 
-2.	Modify the record set by either adding records, removing records, changing the record parameters, or changing the record set TTL. This is an offline operation. Only the local object that represents the record set is changed.
+2.	Modify the record set by either adding records, removing records, changing the record parameters, or changing the record set time to live (TTL). This is an offline operation. Only the local object that represents the record set is changed.
 
 3.	Commit your changes by using the `Set-AzureRmDnsRecordSet` cmdlet. This replaces the existing record set in Azure DNS.
 
 
 ### To update a record in an existing record set
 
-In this example, we change the IP address of an existing A record:
+In this example, we change the IP address of an existing "A" record:
 
 	$rs = Get-AzureRmDnsRecordSet -name "test-a" -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	$rs.Records[0].Ipv4Address = "134.170.185.46"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-The `Set-AzureRmDnsRecordSet` cmdlet uses *etag* checks to ensure that concurrent changes are not overwritten. Use the *-Overwrite* flag to suppress these checks. For more information, see [About etags and tags](dns-getstarted-create-dnszone.md#tagetag).
+The `Set-AzureRmDnsRecordSet` cmdlet uses etag checks to ensure that concurrent changes are not overwritten. Use the *-Overwrite* flag to suppress these checks. For more information, see [About etags and tags](dns-getstarted-create-dnszone.md#tagetag).
 
 ### To modify an SOA record
 
