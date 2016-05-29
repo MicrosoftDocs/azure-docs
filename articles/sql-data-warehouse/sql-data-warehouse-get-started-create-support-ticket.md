@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a support ticket for SQL Data Warehouse | Microsoft Azure"
+   pageTitle="How to create a support ticket for SQL Data Warehouse | Microsoft Azure"
    description="How to create a support ticket in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -50,7 +50,7 @@ If you having any issues with your SQL Data Warehouse, please create a support t
     - **Break-fix** support is provided through Developer, Standard, Pro Direct, or Premier support. **Break-fix** issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
     - **Developer mentoring** and **advisory services** are available at the Professional Direct and Premier support levels.
     
-    Read more about Azure support including scope, response times, pricing, etc., at [Azure support plans][].
+    See [Azure support plans][] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][].
 
     ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 
@@ -79,12 +79,13 @@ After you have submitted the support request, the Azure support team will contac
 
 ## Other Resources
 
-Additionally, you can connect with the SQL Data Warehouse community on [Stack Overflow][] or on the [Azure SQL Data Warehouse MSDN forum][].
+Additionally, you can connect with the SQL Data Warehouse community on [Stack Overflow][] or on the [Azure SQL Data Warehouse MSDN forum][].
 
 <!-- External links -->
+[Azure portal]: https://portal.azure.com/
+[Azure support plans]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
+[Microsoft Premier online portal]: https://premier.microsoft.com/
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-[Azure portal]:https://portal.azure.com/
-[Azure support plans]:http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
-[Microsoft Premier online portal]:https://premier.microsoft.com/
-[Stack Overflow]:http://stackoverflow.com/questions/tagged/azure-sqldw/
-[Azure SQL Data Warehouse MSDN forum]:https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
