@@ -66,6 +66,8 @@ Here are some key features of App Service that apply to Web Apps:
 
 In addition, a web app can take advantage of features offered by [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (such as CORS support) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (such as push notifications). The only difference between these three app types (API, web, mobile) is the name and icon used for them in the Azure portal. For more information about app types in App Service, see [Azure App Service overview](../app-service/app-service-value-prop-what-is.md).
 
+Besides Web Apps in App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios Web Apps is the best choice.  For microservice architecture consider [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), and if you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).  For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services](choose-web-site-cloud-service-vm.md).
+
 ## Getting started
 
 To get started by deploying sample code to a new web app in App Service, follow the [Deploy your first web app to Azure in 5 minutes](app-service-web-get-started.md) tutorial. You'll need a free Azure account.
