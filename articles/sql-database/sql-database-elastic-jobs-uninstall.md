@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 #Uninstall Elastic Database jobs components
 **Elastic Database jobs** components can be uninstalled using either the Portal or PowerShell.

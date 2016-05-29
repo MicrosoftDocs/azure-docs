@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016"
+	ms.author="ddove"/>
 
 # Create and manage scaled out SQL Azure databases (preview)
 

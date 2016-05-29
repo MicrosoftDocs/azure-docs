@@ -41,8 +41,8 @@ For newer ARM based Virtual Machines (Virtual Machine scale sets), you can confi
 ## Authentication in webhooks
 There are two authentication URI forms:
 
-	1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-	2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
 ## Autoscale notification webhook payload schema
 When the autoscale notification is generated, the following metadata is included in the webhook payload:
