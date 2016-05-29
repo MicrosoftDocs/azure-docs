@@ -13,16 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/29/2016"
    ms.author="sonyam;barbkess;sonyama"/>
 
-# Create a support ticket for SQL Data Warehouse
- This article shows how to create a support ticket for SQL Data Warehouse.
+# How to create a support ticket for SQL Data Warehouse
+ 
+If you having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
 
-
-## How to create a support ticket
+## Create a support ticket
 
 1. Open the [Azure portal][].
+
 2. On the Home screen, click the **Help + support** tile.
 
     ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -45,10 +46,11 @@
 
 7. Select your **Support plan**.
 
-    - Support for billing and subscription management-related issues is available at all support levels.
-    - Support for break-fix issues is provided through Developer, Standard, Pro Direct, or Premier support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
-    - Developer mentoring and advisory services are available at the Professional Direct and Premier support levels.
-    - Read more about Azure support including scope, response times, pricing, etc., at [Azure support plans][].
+    - **Billing and subscription management-related** support is available at all support levels.
+    - **Break-fix** support is provided through Developer, Standard, Pro Direct, or Premier support. **Break-fix** issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
+    - **Developer mentoring** and **advisory services** are available at the Professional Direct and Premier support levels.
+    
+    Read more about Azure support including scope, response times, pricing, etc., at [Azure support plans][].
 
     ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 
@@ -69,12 +71,15 @@
 11. Click **Create** to submit the support request.
 
 
-## Next Steps
+## Monitor a support ticket
+
 After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **Manage support requests** on the dashboard.
 
 ![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
-Additionally, you can connect with the SQL Data Warehouse community using the azure-sqldw tag on [Stack Overflow][] or the [Azure SQL Data Warehouse MSDN forum][].
+## Other Resources
+
+Additionally, you can connect with the SQL Data Warehouse community on [Stack Overflow][] or on the [Azure SQL Data Warehouse MSDN forum][].
 
 <!-- External links -->
 
