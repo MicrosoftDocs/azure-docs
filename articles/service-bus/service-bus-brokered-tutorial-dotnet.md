@@ -254,14 +254,14 @@ From the **Build** menu in Visual Studio, you can click **Build Solution** or pr
 
 In this step, you define the management operations you will use to create shared access signature (SAS) credentials with which your application will be authorized.
 
-1. For clarity, this tutorial places all the queue operations in a separate method. Create a `Queue()` method in the `Program` class, after the `Main()` method. For example:
+1. For clarity, this tutorial places all the queue operations in a separate method. Create an async `Queue()` method in the `Program` class, after the `Main()` method. For example:
  
 	```
 	public static void Main(string[] args)
 	{
 	…
 	}
-	static void Queue()
+	static async void Queue()
 	{
 	}
 	```
@@ -269,7 +269,7 @@ In this step, you define the management operations you will use to create shared
 1. The next step is to create a SAS credential using a [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) object. The creation method takes the SAS key name and value obtained in the `CollectUserInput()` method. Add the following code to the `Queue()` method:
 
 	```
-	static void Queue()
+	static async void Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -314,10 +314,10 @@ namespace Microsoft.ServiceBus.Samples
       CollectUserInput();
 
       // Add this call
-      Queue();
+      Task.WaitAll(Queue());
     }
 
-    static void Queue()
+    static async void Queue()
     {
       // Create management credentials
       TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName, sasKeyValue);
@@ -429,7 +429,7 @@ In this step, you create a queue, then send the messages contained in the list o
 	{
 	    var issue = MessageList[count];
 	    issue.Label = issue.Properties["IssueTitle"].ToString();
-	    myQueueClient.Send(issue);
+	    await myQueueClient.SendAsync(issue);
 	    Console.WriteLine(string.Format("Message sent: {0}, {1}", issue.Label, issue.MessageId));
 	}
 	```
@@ -440,12 +440,12 @@ In this step, you obtain the list of messages from the queue you created in the 
 
 ### Create a receiver and receive messages from the queue
 
-In the `Queue()` method, iterate through the queue and receive the messages using the [QueueClient.Receive](https://msdn.microsoft.com/library/azure/hh322678.aspx) method, printing out each message to the console. Add the following code directly after the code you added in the previous step:
+In the `Queue()` method, iterate through the queue and receive the messages using the [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/hh322678.aspx) method, printing out each message to the console. Add the following code directly after the code you added in the previous step:
 
 ```
 Console.WriteLine("Now receiving messages from Queue.");
 BrokeredMessage message;
-while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
+while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
     {
         Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
         message.Complete();
@@ -454,6 +454,8 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, secon
         Thread.Sleep(1000);
     }
 ```
+
+Note that the `Thread.Sleep` is only used to simulate the message processing and you probably wouldn't need it in a real messaging application.
 
 ### End the Queue method and clean up resources
 
@@ -522,7 +524,7 @@ namespace Microsoft.ServiceBus.Samples
 
         }
 
-        static void Queue()
+        static async void Queue()
         {
             // Create management credentials
             TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName, sasKeyValue);
@@ -547,13 +549,13 @@ namespace Microsoft.ServiceBus.Samples
             {
                 var issue = MessageList[count];
                 issue.Label = issue.Properties["IssueTitle"].ToString();
-                myQueueClient.Send(issue);
+                await myQueueClient.SendAsync(issue);
                 Console.WriteLine(string.Format("Message sent: {0}, {1}", issue.Label, issue.MessageId));
             }
 
             Console.WriteLine("Now receiving messages from Queue.");
             BrokeredMessage message;
-            while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
+            while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
             {
                 Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
                 message.Complete();
