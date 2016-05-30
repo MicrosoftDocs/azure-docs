@@ -188,8 +188,6 @@ Find all the documentation you need to create and manage Windows-based virtual m
 
 [Troubleshoot allocation failures when you create, restart, or resize VMs in Azure](virtual-machines-windows-allocation-failure.md)
 
+[Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
 
-
-
-
-
+[Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)

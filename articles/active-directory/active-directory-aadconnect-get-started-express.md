@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/25/2016"
+	ms.date="05/10/2016"
 	ms.author="billmath;andkjell"/>
 
 # Getting started with Azure AD Connect using express settings
@@ -49,12 +49,15 @@ and allows your users to use their on-premises password to sign in to the cloud.
 If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. On the Connect to AD DS screen, enter the username and password for an enterprise admin account. You can enter the domain part in either NetBios or FQDN format, i.e. FABRIKAM\administrator or fabrikam.com\administrator. Click **Next**.  
 ![Connect to AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. On the Ready to configure screen, click **Install**.
+7. If you have UPN domains registered in your on-premises Active Directory that are not present or verified, then this page will appear. If all UPN domains in your on-premises AD DS have been verified, then this page will not appear.  
+![Unverified domains](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
+If you see this page, then review every domain marked **Not Added** and **Not Verified**. Make sure those you use have been verified in Azure AD. Click on the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](active-directory-add-domain.md)
+8. On the Ready to configure screen, click **Install**.
 	- Optionally on the Ready to configure page, you can unselect the **Start the synchronization process as soon as configuration completes** checkbox. You should unselect this checkbox if you want to do additional configuration, such as [filtering](active-directory-aadconnectsync-configure-filtering.md). If you unselect this option, the wizard configures sync but leaves the scheduler disabled. It will not run until you enable it manually by re-running the installation wizard.
 	- Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by selecting the corresponding checkbox. Enable this option if you plan to have Exchange mailboxes both in the cloud and on-premises at the same time.
 ![Ready to configure Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
-8. When the installation completes, click **Exit**.
-9. After the installation has completed, sign off and sign in again before you use Synchronization Service Manager or Synchronization Rule Editor.
+9. When the installation completes, click **Exit**.
+10. After the installation has completed, sign off and sign in again before you use Synchronization Service Manager or Synchronization Rule Editor.
 
 For a video on using the express installation, see:
 

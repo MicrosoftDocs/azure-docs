@@ -12,8 +12,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/28/2016" 
+	ms.topic="hero-article" 
+	ms.date="05/05/2016" 
 	ms.author="sdanie"/>
 
 # How to create a Web App with Redis Cache
@@ -24,7 +24,7 @@ You'll learn:
 
 -	How to create an ASP.NET MVC 5 web application in Visual Studio.
 -	How to access data from a database using Entity Framework.
--	How to improve data throughout and reduce database load by storing and retrieving data using Azure Redis Cache.
+-	How to improve data throughput and reduce database load by storing and retrieving data using Azure Redis Cache.
 -	How to use a Redis sorted set to retrieve the top 5 teams.
 -	How to provision the Azure resources for the application using an ARM template.
 -	How to publish the application to Azure using Visual Studio.

@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Get started with the Facebook API
 Connect to Facebook and post to a timeline, get a page feed, and more. The Facebook API can be used from:
 
-- Logic apps 
+- Logic apps (discussed in this topic)
+- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
@@ -48,7 +49,7 @@ When you add this API to your logic apps, you must authorize logic apps to conne
 1. Sign in to your Facebook account
 2. Select **Authorize**, and allow your logic apps to connect and use your Facebook. 
 
-After you create the connection, you enter the Facebook properties. The **REST API reference** in this topic describes these properties.
+>[AZURE.INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 
 >[AZURE.TIP] You can use this same Facebook connection in other logic apps.
 

@@ -47,23 +47,7 @@ To use the Yammer API, you first create a **connection** then provide the detail
 | ---|---|---|
 |Token|Yes|Provide Yammer Credentials|
 
-Follow these steps to sign into Yammer and complete the configuration of the Yammer **connection** in your logic app:
-
-1. Select **Recurrence**
-2. Select a **Frequency** and enter an **Interval**
-3. Select **Add an action**  
-![Configure Yammer][1]
-4. Enter yammer in the search box and wait for the search to return all entries with Yammer in the name
-5. Select **Yammer - Get all messages**
-6. Select **Sign in to Yammer**:  
-![Configure Yammer][2]
-7. Provide your Yammer credentials to sign in to authorize the application  
-![Configure Yammer][3]  
-8. You'll be redirected to your organization's Log in page. **Allow** Yammer to interact with your logic app:  
-![Configure Yammer][4] 
-9. After signing in, return to your logic app to complete it by configuring the **Yammer - Get all messages** section and adding other triggers and actions that you need.  
-![Configure Yammer][5]  
-10. Save your work by selecting **Save** on the menu bar above.
+>[AZURE.INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 
 
 >[AZURE.TIP] You can use this connection in other logic apps.

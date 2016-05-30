@@ -45,7 +45,7 @@ For a list of Data Factory data transformation activities in addition to Hive ac
 
 There are many benefits with using HDInsight with Data factory:
 
-- HDInsight clusters are billed hourly, whether you are using them or not. Using Data Factory, the clusters are created on demand. And the clusters are deleted automatically when the jobs are completed.  So you only pay for the job running time and the brief idle time (time-to-live).
+- HDInsight clusters billing is pro-rated per minute, whether you are using them or not. Using Data Factory, the clusters are created on demand. And the clusters are deleted automatically when the jobs are completed.  So you only pay for the job running time and the brief idle time (time-to-live).
 - You can create a workflow using Data Factory pipeline.
 - You can schedule recursive jobs .  
 

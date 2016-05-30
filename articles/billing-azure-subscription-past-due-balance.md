@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2016"
+	ms.date="05/12/2016"
 	ms.author="genli"/>
 
 # Why have you received a notification that your Azure subscription has a past due balance?
@@ -30,7 +30,9 @@ Pay your outstanding balance in full.
 
 **Scenario 1**: If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice. If you need help, contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-**Scenario 2**: If the bill is not paid because the credit card on file was declined, or has expired, use another credit card or payment method for the subscriptions, or contact your bank to resolve the issue. For instructions about how to change the payment method in Azure, see [How to change the credit card used to pay for an Azure subscription](./billing-how-to-change-credit-card.md). You must log on as an Account Administrator to make this change.
+**Scenario 2**: If the bill is not paid because the credit card on file was declined, or has expired, use another credit card or payment method for the subscriptions, or contact your bank to resolve the issue. If you update the payment method, all outstanding charges against that payment method will automatically be settled immediately. This includes outstanding charges for Azure as well as any other Microsoft services for which that card was used.
+
+For instructions about how to change the payment method in Azure, see [How to change the credit card used to pay for an Azure subscription](./billing-how-to-change-credit-card.md). You must log on as an Account Administrator to make this change.
 
 
 **Scenario 3**:  If the bill notice was not received because the Account Administrator has left the company or changed roles, contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.

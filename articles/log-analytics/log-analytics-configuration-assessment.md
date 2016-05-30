@@ -18,8 +18,13 @@
 
 # Configuration Assessment solution in Log Analytics
 
-The Configuration Assessment solution in Log Analytics provides you with detailed information about the current state of your System Center Operations Manager server infrastructure when using Operations Manager agents or an Operations Manager management group. Configuration Assessment isn’t available if you only use directly-connected agents.
+The Configuration Assessment solution in Log Analytics helps you find potential server configuration problems through alerts and knowledge recommendations. 
 
+This solution requires System Center Operations Manager. Configuration Assessment isn’t available if you only use directly-connected agents.
+
+Viewing some information in Configuration Assessment solution requires the Silverlight plugin for your browser.
+
+>[AZURE.NOTE] The Configuration Assessment solution is only available for workspaces in the East US region and it will not be added to additional regions. The Configuration Assessment solution capabilities are being replaced by workload specific assessments, including Active Directory Assessment and SQL Server Assessment.
 
 ![Configuration Assessment tile](./media/log-analytics-configuration-assessment/oms-config-assess-tile.png)
 
@@ -71,10 +76,12 @@ The following table shows data collection methods and other details about how da
 |Windows|![No](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![No](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|            ![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Yes](./media/log-analytics-configuration-assessment/oms-bullet-green.png)| twice per day|
 
 
-## OM alerts
-You can view and manage alerts from Operations Manager with the Alerts page. Alerts tell you the issue that was detected, the cause, and how to address the issue. They also provide information about configuration settings in your environment that might cause performance issues.
+## Configuration Assessment alerts
+You can view and manage alerts from the Configuration Assessment with the Alerts page. Alerts tell you the issue that was detected, the cause, and how to address the issue. They also provide information about configuration settings in your environment that might cause performance issues.
 
 ![alerts view](./media/log-analytics-configuration-assessment/oms-config-assess-alerts01.png)
+
+>[AZURE.NOTE] The Configuration Assessment alerts are different from the other alerts in Log Analytics. Viewing alerts requires a Silverlight plugin for your browser.
 
 When you select an item or category of items on the Alerts page, you’ll see a list of servers or workloads with alerts that apply to each item.
 

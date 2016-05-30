@@ -146,7 +146,7 @@ For reference, the following is the Java code for the word count MapReduce job:
 	  }
 	}
 
-For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md).
+For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
 ##<a id="run"></a>Run the MapReduce
 
@@ -163,7 +163,7 @@ HDInsight can run HiveQL jobs by using a variety of methods. Use the following t
 
 Although MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. There are several Java-based frameworks that make it easier to define MapReduce applications, as well as technologies such as Pig and Hive, which provide an easier way to work with data in HDInsight. To learn more, see the following articles:
 
-* [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+* [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 
 * [Develop Python streaming MapReduce programs for HDInsight](hdinsight-hadoop-streaming-python.md)
 
@@ -178,7 +178,7 @@ Although MapReduce provides powerful diagnostic abilities, it can be a bit chall
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-samples]: hdinsight-run-samples.md

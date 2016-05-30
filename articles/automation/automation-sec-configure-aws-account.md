@@ -5,14 +5,15 @@
    documentationCenter=""
    authors="mgoedtel"
    manager="jwhit"
-   editor="tysonn"/>
+   editor="tysonn"
+   keywords="aws authentication, configure aws"/>
 <tags
    ms.service="automation"
    ms.workload="tbd"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="04/08/2016"
+   ms.date="05/10/2016"
    ms.author="magoedte"/>
 
 # Authenticate Runbooks with Amazon Web Services

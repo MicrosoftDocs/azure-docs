@@ -148,7 +148,7 @@ There are several forms of sampling. We recommend [adaptive sampling](app-insigh
 
 As an alternative, you can set *ingestion sampling* on the Quotas + pricing blade. This form of sampling operates at the point where telemetry from your app enters the Application Insights service. It doesn't affect the volume of telemetry sent from your app, but it reduces the volume retained by the service.
 
-![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-sampling/04.png)
+![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/04.png)
 
 Sampling is an effective way to reduce charges and stay within your monthly quota. The sampling algorithm retains related items of telemetry, so that, for example, when you use Search, you can find the request related to a particular exception. The algorithm also retains correct counts, so that you see the correct values in Metric Explorer for request rates, exception rates, and other counts.
 

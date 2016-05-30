@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Create an HDInsight cluster with Data Lake Store using Azure Portal
@@ -45,6 +45,12 @@ Before you begin this tutorial, you must have the following:
 	* [Create a folder in your Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
 	* [Upload a file to your Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
+## Do you learn fast with videos?
+
+Watch the following videos to understand how to provision HDInsight clusters with access to Data Lake Store.
+
+* [Create an HDInsight cluster with access to Data Lake Store](https://mix.office.com/watch/l93xri2yhtp2)
+* Once the cluster is set up, [Access data in Data Lake Store using Hive and Pig scripts](https://mix.office.com/watch/1n9g5w0fiqv1q)
 
 ## Create an HDInsight cluster with access to Azure Data Lake Store
 

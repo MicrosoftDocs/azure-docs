@@ -19,6 +19,8 @@
 
 # Authentication in multitenant apps, using Azure AD and OpenID Connect
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series](guidance-multitenant-identity.md). There is also a complete [sample application] that accompanies this series.
 
 This article describes how a multitenant application can authenticate users from Azure Active Directory (Azure AD), using OpenID Connect (OIDC) to authenticate.

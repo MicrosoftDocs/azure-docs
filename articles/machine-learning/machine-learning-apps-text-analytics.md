@@ -19,7 +19,7 @@
 
 # Machine Learning APIs: Text Analytics for Sentiment, Key Phrase Extraction, Language Detection and Topic Detection
 
->[AZURE.NOTE] This guide is for version 1 of the API. For version 2, [**refer to this document**](../cognitive-services-text-analytics-quick-start/).
+>[AZURE.NOTE] This guide is for version 1 of the API. For version 2, [**refer to this document**](../cognitive-services-text-analytics-quick-start/). Version 2 is now the preferred version of this API.
 
 ## Overview
 

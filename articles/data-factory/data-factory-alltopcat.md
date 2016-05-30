@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/12/2016"
 	ms.author="spelluru"/>
 
 
@@ -22,14 +22,6 @@
 This topic lists every topic that applies directly to the Data Factory service of Azure. You can search this webpage for keywords by using **Ctrl+F**, to find the topics of current interest.
 
 
-
-
-## New
-
-
-| Title | Description |
-| :-- | :-- |
-| [Invoke Spark Programs from Data Factory](data-factory-spark.md) | Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity. |
 
 
 ## Core Concepts
@@ -105,6 +97,7 @@ This topic lists every topic that applies directly to the Data Factory service o
 | [Hive Activity](data-factory-hive-activity.md) | Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster. |
 | [HPC and data orchestration using Azure Batch and Data Factory](data-factory-data-processing-using-batch.md) | Describes how to process huge amounts of data in an Azure Data Factory pipeline by using parallel processing capability of Azure Batch. |
 | [Invoke MapReduce Programs from Data Factory](data-factory-map-reduce.md) | Learn how to process data by running MapReduce programs on an Azure HDInsight cluster from an Azure data factory. |
+| [Invoke Spark Programs from Data Factory](data-factory-spark.md) | Learn how to invoke Spark programs from an Azure data factory using the MapReduce Activity. |
 | [Pig Activity](data-factory-pig-activity.md) | Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster. |
 | [Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory](data-factory-usql-activity.md) | Learn how to process data by running U-SQL scripts on Azure Data Lake Analytics compute service. |
 | [SQL Server Stored Procedure Activity](data-factory-stored-proc-activity.md) | Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline. |

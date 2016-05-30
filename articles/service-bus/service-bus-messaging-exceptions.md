@@ -100,7 +100,7 @@ For the Service Bus relay, this exception wraps the [System.ServiceModel.QuotaEx
 
 ## TimeoutException 
 
-A [TimeoutException][] indicates that a user-initiated operation is taking longer than the operation timeout. 
+A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indicates that a user-initiated operation is taking longer than the operation timeout. 
 
 ### Queues and topics
 

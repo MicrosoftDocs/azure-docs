@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/09/2016" 
 	ms.author="sstein"/>
 
 # Manage Azure SQL Database with PowerShell
@@ -26,29 +26,8 @@
 
 This topic provides PowerShell commands to perform many Azure SQL Database tasks.
 
+[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-
-
-## Configure your credentials
-
-To run PowerShell cmdlets against your Azure subscription you must first establish access to your Azure account. Run the following and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure Classic Portal.
-
-	Login-AzureRmAccount
-
-After successfully signing in you should see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
-
-
-## Select your Azure subscription
-
-To select the subscription you want to work with you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset.
-
-Run the following cmdlet with your subscription information to set your current subscription:
-
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-The following commands will be run against the subscription you just selected above.
 
 ## Create a resource group
 

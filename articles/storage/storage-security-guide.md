@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 #Azure Storage security guide

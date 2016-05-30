@@ -14,12 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="05/06/2016"
 	ms.author="dkshir"/>
 
 # Upload a Windows VM image to Azure for Resource Manager deployments
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-createupload-vhd.md).
 
 
 This article shows you how to upload a virtual hard disk (VHD) with a Windows operating system so that you can use it to create new Windows virtual machines (VMs) by using the Azure Resource Manager deployment model. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
@@ -30,20 +28,24 @@ This article shows you how to upload a virtual hard disk (VHD) with a Windows op
 
 This article assumes that you have:
 
-- **An Azure subscription**. If you don't have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits to try out paid Azure services. Even after they're used up, you can keep the account and use free Azure services, such as Azure App Service. Your credit card won't be charged, unless you explicitly change your settings. You can also [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). The MSDN subscription gives credits every month that you can use for paid Azure services.
+- **An Azure subscription** - If you don't already have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) and [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-- **Azure PowerShell 1.0.x**. If you don't already have Azure PowerShell version 1.0.x installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md). We recommend using at least version 1.0 because new Azure Resource Manager features will not be added to older PowerShell versions. Read [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) to learn more about the version differences.
+- **Azure PowerShell version 1.0 or above** - If you don't already have it installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-- **A virtual machine running the Windows operating system**. There are many tools for creating virtual machines on-premises. For example, you can use Hyper-V Manager to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about which Windows operating systems are supported, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
+- **A virtual machine running Windows** - There are many tools for creating virtual machines on-premises. For example, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). To know which Windows operating systems are supported by Azure, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
 
 ## Make sure that the VM has the right file format
 
-Azure can accept images only for [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are saved in the VHD file format. The VHD size must be fixed and a whole number of megabytes. The maximum size allowed for the VHD is 1,023 GB.
+Azure can accept images only for [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are saved in the VHD file format. The VHD size must be fixed and a whole number of megabytes, i.e. a number divisible by 8. The maximum size allowed for the VHD is 1,023 GB.
 
-- Hyper-V Manager will typically save your VM image in a VHDX format, which is not supported in Azure. You can convert it to VHD format by using either Hyper-V or the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For steps to use PowerShell, read [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/). Or in Hyper-V, select your local computer on the left. Then in the menu above it, click **Actions** > **Edit Disk...**. Move through the screens by clicking **Next** and entering these options: *Path for your VHDX file* > **Convert** > **VHD** > **Fixed size** > *Path for the new VHD file*. Click **Finish** to close.
+- If you have a Windows VM image in VHDX format, convert it to a VHD using either of the following:
 
-- If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), you can convert it to VHD format by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
+	- Hyper-V: Open Hyper-V and select your local computer on the left. Then in the menu above it, click **Action** > **Edit Disk...**. Navigate through the screens by clicking **Next** and entering these options: *Path for your VHDX file* > **Convert** > **VHD** > **Fixed size** > *Path for the new VHD file*. Click **Finish** to close.
+
+	- [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx): Read the blog post [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) for more information.
+
+- If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
 
 ## Prepare the VHD for upload
@@ -81,14 +83,14 @@ You will need a storage account in Azure to upload the VM image. You can either 
 4. If you want to create a new storage account, click **Add** and enter the following information:
 
 	1. Enter the **Name** for the storage account. It should contain between 3 to 24 lowercase letters and numbers only. This name becomes part of the URL that you will use to access blobs, files, and other resources from the storage account.
+	
+	2. Select *Resource Manager* as the **Deployment model**. 
 
-	2. Select the **Type** of the storage account that you want to create. For more information, read [About Azure storage accounts](../storage/storage-create-storage-account.md).
+	3. Select the appropriate **Account kind**, **Performance**, and **Replication** values. You can hower over the information icons to know more about these values.
 
-	3. Enter the name of the **Resource Group**. The portal will create a new resource group if it cannot find an existing one with that name.
+	4. Select either *+ New* for the **Resource Group** or an existing one. Enter the name of the new resource group if you want to create a new one.
 
-	4. Choose the **Location** for the storage account.
-
-	5. Click **Create**. The account now appears under the **Storage accounts** panel.
+	5. Choose the **Location** for the storage account and click **Create**. The account now appears under the **Storage accounts** panel.
 
 		![Enter storage account details](./media/virtual-machines-windows-upload-image/portal_create_storage_account.png)
 
@@ -163,7 +165,7 @@ Use these steps in Azure PowerShell to upload the VM image to your storage accou
 	- **TargetVHDName** is the name that you want to save the image as.
 	- **LocalPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
 
-	A successful `Add-AzureRmVhd` execution will look like this:
+	A successful `Add-AzureRmVhd` execution will look similar to the following:
 
 		C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
 		MD5 hash is being calculated for the file C:\temp\WinServer12.vhd.

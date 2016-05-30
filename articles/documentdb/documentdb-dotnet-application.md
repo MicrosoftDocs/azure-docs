@@ -393,6 +393,10 @@ The first thing to do here is add a class that contains all the logic to connect
 			return View(items);
 		}
 	
+7. Open **Global.asax.cs** and add the following line to the **Application_Start** method 
+ 
+		DocumentDBRepository<todo.Models.Item>.Initialize();
+	
 At this point your solution should be able to build without any errors.
 
 If you ran the application now, you would go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start but we don't want that! Let's change the routing on this MVC application to alter this behavior.

@@ -1040,10 +1040,10 @@ These models were described in the introduction. Each model building code sectio
 3. **Saving model** in blob for future consumption   
 
 
->AZURE NOTE: Cross-validation is not used with the three regression models in this section. But an example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
+>AZURE NOTE: Cross-validation is not used with the three regression models in this section, since this was shown in detail for the logistic regression models. An example showing how to use CV with Elastic Net for linear regression is provided in the Appendix of this topic.
 
 
->AZURE NOTE: In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. Elastic net regression, shown in the Appendix to this topic, can also be use to improve convergence.
+>AZURE NOTE: In our experience, there can be issues with convergence of LinearRegressionWithSGD models, and parameters need to be changed/optimized carefully for obtaining a valid model. Scaling of variables significantly helps with convergence. Elastic net regression, shown in the Appendix to this topic, can also be used instead of LinearRegressionWithSGD.
 
 
 ### Linear regression with SGD

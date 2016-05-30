@@ -561,7 +561,7 @@ a small, ad-hoc, dimension table which is then used to introduce zeros where the
 Tries to group together similar records. For each group, the operator outputs the `Pattern` it thinks best describes that group, and the `Count` of records in that group.
 
 
-![](./media/app-insights-analytics-queries/reduce.png)
+![](./media/app-insights-analytics-reference/reduce.png)
 
 **Syntax**
 
@@ -867,7 +867,7 @@ Find the lowest value of each metric, together with its timestamp and other data
       by name
 
 
-![](./media/app-insights-analytics-aggregations/argmin.png)
+![](./media/app-insights-analytics-reference/argmin.png)
  
 
 
@@ -1003,7 +1003,7 @@ Returns an estimate of the number of distinct values of *Expr* in the group. (To
     | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/dcount.png)
+![](./media/app-insights-analytics-reference/dcount.png)
 
 ### makelist
 
@@ -1027,7 +1027,7 @@ Returns a `dynamic` (JSON) array of the set of distinct values that *Expr* takes
     | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
-![](./media/app-insights-analytics-aggregations/makeset.png)
+![](./media/app-insights-analytics-reference/makeset.png)
 
 See also the [`mvexpand` operator](#mvexpand-operator) for the opposite function.
 
@@ -1076,7 +1076,7 @@ Simultaneously calculate several percentiles for different request names:
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
-![](./media/app-insights-analytics-aggregations/percentiles.png)
+![](./media/app-insights-analytics-reference/percentiles.png)
 
 The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
 
@@ -1955,7 +1955,7 @@ Converts a string to upper case.
 
 Here's the result of a query on an Application Insights exception. The value in `details` is an array.
 
-![](./media/app-insights-analytics-scalars/310.png)
+![](./media/app-insights-analytics-reference/310.png)
 
 **Indexing:** Index arrays and objects just as in JavaScript:
 
@@ -1987,7 +1987,7 @@ Here's the result of a query on an Application Insights exception. The value in 
     | mvexpand details[0].parsedStack[0]
 
 
-![](./media/app-insights-analytics-scalars/410.png)
+![](./media/app-insights-analytics-reference/410.png)
 
 
 **treepath:** To find all the paths in a complex object:
@@ -1997,7 +1997,7 @@ Here's the result of a query on an Application Insights exception. The value in 
     | mvexpand path
 
 
-![](./media/app-insights-analytics-scalars/420.png)
+![](./media/app-insights-analytics-reference/420.png)
 
 **buildschema:** To find the minimum schema that admits all values of the expression in the table:
 

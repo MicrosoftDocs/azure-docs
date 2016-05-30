@@ -86,7 +86,7 @@ Example data and JAR files can be found on Hadoop Distributed File System (HDFS)
 
 ## HDFS, Azure Blob storage, and storage best practices
 
-In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.
+In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
 HDInsight uses Azure Blob storage as the default store, which provides the following benefits:
 

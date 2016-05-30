@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configure cost management | Microsoft Azure"
-	description="Learn how to configure your DevTest Lab cost management features."
+	description="Learn how to configure your DevTest Labs cost management features."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Configure cost management
@@ -28,7 +28,7 @@ to view the current calendar month's estimated cost-to-date as well as the proje
 
 In order to enable the Monthly Estimated Cost Trend chart, follow these steps: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 

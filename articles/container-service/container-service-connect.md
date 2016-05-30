@@ -44,7 +44,7 @@ Now open a shell and run the following command where:
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
-### DC/OS tunnel
+## DC/OS tunnel
 
 To open a tunnel to the DC/OS-related endpoints, execute a command that is similar to the following:
 
@@ -62,7 +62,7 @@ You can now access the DC/OS-related endpoints at:
 
 Similarly, you can reach the rest APIs for each application through this tunnel.
 
-### Swarm tunnel
+## Swarm tunnel
 
 To open a tunnel to the Swarm endpoint, execute a command that looks similar to the following:
 

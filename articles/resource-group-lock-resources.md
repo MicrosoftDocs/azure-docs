@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/16/2016" 
 	ms.author="tomfitz"/>
 
 # Lock resources with Azure Resource Manager
 
-As an administrator, you may need to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting critical resources. When locked, authorized users can still read and modify the resources, but they can't delete the resources.
+As an administrator, you may need to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. 
+You can set the lock level to **CanNotDelete** or **ReadOnly**. **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete it. 
+**ReadOnly** means authorized users can only read from a resource, but they can't modify or delete it. 
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles To learn about setting permissions for users and roles, see 
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see 
 [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
 When you apply a lock at a parent scope, all child resources inherit the same lock.
@@ -28,6 +30,24 @@ When you apply a lock at a parent scope, all child resources inherit the same lo
 ## Who can create or delete locks in your organization
 
 To create or delete management locks, you must have access to **Microsoft.Authorization/\*** or **Microsoft.Authorization/locks/\*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
+
+## Creating a lock through the portal
+
+In the Settings blade for the resource, resource group, or subscription that you wish to lock, select **Locks**.
+
+![select lock](./media/resource-group-lock-resources/select-lock.png)
+
+To add a lock, select **Add**. If you want to instead create a lock at a parent level which will be inherited by the currently selected resource, select the parent (such as subscription shown below).
+
+![add lock](./media/resource-group-lock-resources/add-lock.png) 
+
+Give the lock a name and lock level. Optionally, you can add notes that describe why the lock is needed.
+
+![set lock](./media/resource-group-lock-resources/set-lock.png) 
+
+To delete the lock, select the ellipsis and **Delete** from the available options.
+
+![delete lock](./media/resource-group-lock-resources/delete-lock.png) 
 
 ## Creating a lock in a template
 

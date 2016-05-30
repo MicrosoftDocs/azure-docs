@@ -14,13 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="garye;bradsev" />
 
 
 # Import your training data into Azure Machine Learning Studio from various data sources
-
-## Introduction
 
 To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can: 
 

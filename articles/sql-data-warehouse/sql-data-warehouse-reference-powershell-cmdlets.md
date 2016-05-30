@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="05/14/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse

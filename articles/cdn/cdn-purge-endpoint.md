@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Purge an Azure CDN endpoint
@@ -48,13 +48,13 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
 
 	> [AZURE.TIP] More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
 	>
-	> Paths must be a relative URL that fit the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^\/(?:[a-zA-Z0-9-_.\u0020]+\/)*\*$";`.  Asterisk (\*) may be used as a wildcard (e.g., `/music/*`).
-
+	> Paths must be a relative URL that fit the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^\/(?:[a-zA-Z0-9-_.\u0020]+\/)*\*$";`.  For **Azure CDN from Verizon** (Standard and Premium), asterisk (\*) may be used as a wildcard (e.g., `/music/*`).  Wildcards and  **Purge all** are not allowed with **Azure CDN from Akamai**.
+	
 5. Click the **Purge** button.
 
 	![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
-> [AZURE.NOTE] Purge requests take approximately 2-3 minutes to process. There is a limitation of 10 purge requests per minute per CDN profile.
+> [AZURE.IMPORTANT] Purge requests take approximately 2-3 minutes to process with **Azure CDN from Verizon** (Standard and Premium), and approximately 7 minutes with **Azure CDN from Akamai**.  Azure CDN has a limit of 50 concurrent purge requests at any given time. 
 
 ## See also
 - [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)

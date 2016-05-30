@@ -27,7 +27,7 @@ This article describes how to create an Azure ExpressRoute circuit by using the 
 
 **About Azure deployment models**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 
 ## Before you begin
@@ -65,12 +65,12 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 **View all the circuits**
 
 You can view all the circuits that you created by selecting **All resources** on the left-side menu.
-
+	
 ![View circuits](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
 
 **View the properties**
 
-You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
+	You can view the properties of the circuit by selecting it. On this blade, note the service key for the circuit. You must copy the circuit key for your circuit and pass it down to the service provider to complete the provisioning process. The circuit key is specific to your circuit.
 
 ![View properties](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
@@ -117,7 +117,7 @@ Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virt
 
 ## Getting the status of an ExpressRoute circuit
 
-You can view the status of a circuit by selecting it.
+You can view the status of a circuit by selecting it. 
 
 ![Status of an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
@@ -130,7 +130,7 @@ You can do the following with no downtime:
 
 - Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 
-- Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported.
+- Increase the bandwidth of your ExpressRoute circuit. Note that downgrading the bandwidth of a circuit is not supported. 
 
 - Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
 
@@ -143,7 +143,7 @@ For more information on limits and limitations, refer to the [ExpressRoute FAQ](
 
 You can delete your ExpressRoute circuit by selecting the **delete** icon. Note the following:
 
-- You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check to see whether any virtual networks are linked to the circuit.
+- You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
 
 - If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to **Disabling** from an enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
