@@ -29,6 +29,14 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
         -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
+If it is a self-signed certificate, you will need to import it to your machine's "trusted people" store before you can use this certificate to connect to a secure cluster.
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+-FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+-Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+```
+
 ## Connect to a secure cluster using PowerShell
 
 Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave when setting up the cluster.
@@ -44,7 +52,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 For example, the PowerShell command above should look similar to the following:
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
           -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
@@ -55,31 +63,28 @@ Connect-ServiceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.a
 The following [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) set on [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). This enables mutual authentication between the client and the cluster node.
 
 ```csharp
-const string Thumbprint = " aa 11 bb 22 cc 33 dd 44 ee 55 ff 66 aa 77 bb 88 cc 99 dd 00";
-const string CommonName = "sfcluster4doc.westus.cloudapp.azure.com";
-const string connection = "sfcluster4doc.westus.cloudapp.azure.com:19000";
+string thumb = "C179E609BBF0B227844342535142306F3913D6ED";
+string CommonName = "www.clustername.westus.azure.com";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
 
-static void Connect()
+X509Credentials xc = GetCredentials(thumb, CommonName);
+FabricClient fc = new FabricClient(xc, connection);
+Task<bool> t = fc.PropertyManager.NameExistsAsync(new Uri("fabric:/any"));
+try
 {
-    string thumb = Thumbprint.Trim().Replace(" ", "").ToUpper();
-
-    X509Credentials xc = GetCredentials(thumb, CommonName);
-    FabricClient fc = new FabricClient(xc, connection);
-    Task<bool> t = fc.PropertyManager.NameExistsAsync(new Uri("fabric:/any"));
-    try
-    {
-        bool result = t.Result;
-        Console.WriteLine("Cluster is connected");
-    }
-    catch (AggregateException ae)
-    {
-        Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine("Connect failed: {0}", e.Message);
-    }
+    bool result = t.Result;
+    Console.WriteLine("Cluster is connected");
 }
+catch (AggregateException ae)
+{
+    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+
+...
 
 static X509Credentials GetCredentials(string thumb, string name)
 {
