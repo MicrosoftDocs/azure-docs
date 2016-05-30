@@ -440,7 +440,7 @@ In this step, you obtain the list of messages from the queue you created in the 
 
 ### Create a receiver and receive messages from the queue
 
-In the `Queue()` method, iterate through the queue and receive the messages using the [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/hh322678.aspx) method, printing out each message to the console. Add the following code directly after the code you added in the previous step:
+In the `Queue()` method, iterate through the queue and receive the messages using the [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130423.aspx) method, printing out each message to the console. Add the following code directly after the code you added in the previous step:
 
 ```
 Console.WriteLine("Now receiving messages from Queue.");
