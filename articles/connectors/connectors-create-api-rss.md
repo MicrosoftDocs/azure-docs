@@ -52,11 +52,8 @@ You can listen for these event(s):
 
 
 ## Create a connection to RSS
-To create Logic apps with RSS, you must first create a **connection** then provide the details for the following properties: 
 
-|Property| Required|Description|
-| ---|---|---|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+>[AZURE.INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
 
 >[AZURE.TIP] You can use this connection in other logic apps.
 

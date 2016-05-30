@@ -52,7 +52,7 @@ November 201511-02 Guest OS was released on January 4, 2016 for deployment. This
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
+Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] Dates with a * are subject to change
 
