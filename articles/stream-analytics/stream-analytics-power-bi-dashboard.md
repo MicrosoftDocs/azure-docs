@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/31/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics & Power BI: A real-time analytics dashboard for streaming data
@@ -204,9 +204,18 @@ You will need to re-authenticate your Power BI account if its password has chang
 
 ![graphic12][graphic12]
 
+Similarly, if a job attempts to start while the token is expired, an error will occur and the job start will fail. The error will look something like below:
+
+![PowerBI validation error](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png) 
+ 
+
 To resolve this issue, stop your running job and go to your Power BI output.  Click the “Renew authorization” link, and restart your job from the Last Stopped Time to avoid data loss.
 
-![graphic13][graphic13]
+![PowerBI validation renewal](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png) 
+
+Once the authorization is refreshed with Power BI you will see a green alert in the authorization area:
+
+![PowerBI validation renewal](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png) 
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
