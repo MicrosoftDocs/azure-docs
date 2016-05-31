@@ -28,10 +28,6 @@ Service Fabric is a good choice if you’re creating a new app or re-writing an 
 
 If you have an existing application that would require substantial modifications to run in App Service or Service Fabric, you could choose Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Service Fabric. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.  
 
-The following diagram illustrates the relative degree of control versus ease of use for each of these web hosting options on Azure. Service Fabric is similar to Cloud Services on this scale.
-
-![ChoicesDiagram][ChoicesDiagram]
-
 ##<a name="scenarios"></a>Scenarios and recommendations
 
 Here are some common application scenarios with recommendations as to which Azure web hosting option might be most appropriate for each.
@@ -119,11 +115,11 @@ If your open source framework is supported on App Service, the languages and fra
 - Set up WordPress, Drupal, Umbraco, DNN, and many other third-party web applications.
 - Migrate an existing application or create a new one from the Application Gallery.
 
-If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Cloud Services, you use startup tasks to install and configure any required open source software that runs on Windows. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
+If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
 
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Cloud Services, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 
