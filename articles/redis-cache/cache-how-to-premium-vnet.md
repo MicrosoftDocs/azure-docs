@@ -19,38 +19,38 @@
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including the new Premium tier.
 
-The Azure Redis Cache premium tier includes clustering, persistence, and virtual network (VNET) support. A VNET is a private network in the cloud. When an Azure Redis Cache instance is configured with a VNET, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNET. This article describes how to configure virtual network support for a premium Azure Redis Cache instance.
+The Azure Redis Cache premium tier includes clustering, persistence, and virtual network (VNet) support. A VNet is a private network in the cloud. When an Azure Redis Cache instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet. This article describes how to configure virtual network support for a premium Azure Redis Cache instance.
 
->[AZURE.NOTE] Azure Redis Cache supports both classic and ARM VNETs.
+>[AZURE.NOTE] Azure Redis Cache supports both classic and ARM VNets.
 
 For information on other premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md) and [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
-## Why VNET?
-[Azure Virtual Network (VNET)](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access to Azure Redis Cache.
+## Why VNet?
+[Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access to Azure Redis Cache.
 
 ## Virtual network support
-Virtual Network (VNET) support is configured on the **New Redis Cache** blade during cache creation. 
+Virtual Network (VNet) support is configured on the **New Redis Cache** blade during cache creation. 
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Once you have selected a premium pricing tier, you can configure Azure Redis Cache VNET integration by selecting a VNET that is in the same subscription and location as your cache. To use a new VNET, create it first  by following the steps in [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [Create a virtual network (classic) by using the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md) and then return to the **New Redis Cache** blade to create and configure your premium cache.
+Once you have selected a premium pricing tier, you can configure Azure Redis Cache VNet integration by selecting a VNet that is in the same subscription and location as your cache. To use a new VNet, create it first  by following the steps in [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [Create a virtual network (classic) by using the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md) and then return to the **New Redis Cache** blade to create and configure your premium cache.
 
-To configure the VNET for your new cache, click **Virtual Network** on the **New Redis Cache** blade, and select the desired VNET from the drop-down list.
+To configure the VNet for your new cache, click **Virtual Network** on the **New Redis Cache** blade, and select the desired VNet from the drop-down list.
 
 ![Virtual network][redis-cache-vnet]
 
-Select the desired subnet from the **Subnet** drop-down list, and specify the desired **Static IP address**. If you are using a classic VNET the **Static IP address** field is optional, and if none is specified, one will be chosen from the selected subnet.
+Select the desired subnet from the **Subnet** drop-down list, and specify the desired **Static IP address**. If you are using a classic VNet the **Static IP address** field is optional, and if none is specified, one will be chosen from the selected subnet.
 
 ![Virtual network][redis-cache-vnet-ip]
 
 >[AZURE.IMPORTANT] The first 4 addresses in a subnet are reserved and can't be used. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-After the cache is created, you can view the configuration for the VNET by clicking **Virtual Network** from the **Settings** blade.
+After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Settings** blade.
 
 ![Virtual network][redis-cache-vnet-info]
 
 
-To connect to your Azure Redis cache instance when using a VNET, specify the host name of your cache in the connection string as shown in the following example.
+To connect to your Azure Redis cache instance when using a VNet, specify the host name of your cache in the connection string as shown in the following example.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -65,17 +65,17 @@ To connect to your Azure Redis cache instance when using a VNET, specify the hos
 	    }
 	}
 
-## Azure Redis Cache VNET FAQ
+## Azure Redis Cache VNet FAQ
 
 The following list contains answers to commonly asked questions about the Azure Redis Cache scaling.
 
--	[What are some common misconfiguration issues with Azure Redis Cache and VNETs?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
--	[Can I use VNETs with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
+-	[What are some common misconfiguration issues with Azure Redis Cache and VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+-	[Can I use VNets with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 
 
-## What are some common misconfiguration issues with Azure Redis Cache and VNETs?
+## What are some common misconfiguration issues with Azure Redis Cache and VNets?
 
-When Azure Redis Cache is hosted in a VNET, the ports in the following table are used. If these ports are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNET.
+When Azure Redis Cache is hosted in a VNet, the ports in the following table are used. If these ports are blocked, the cache may not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when using Azure Redis Cache in a VNet.
 
 | Port(s)     | Direction        | Transport Protocol | Purpose                                                                           | Remote IP                           |
 |-------------|------------------|--------------------|-----------------------------------------------------------------------------------|-------------------------------------|
@@ -99,9 +99,9 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 
 
 
-### Can I use VNETs with a standard or basic cache?
+### Can I use VNets with a standard or basic cache?
 
-VNETs can only be used with premium caches.
+VNets can only be used with premium caches.
 
 ## Use ExpressRoute with Azure Redis Cache
 
