@@ -14,7 +14,6 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
@@ -54,23 +53,73 @@ You must have the following:
 
 ## How do I launch the Yarn UI?
 
-You can use the YARN UI to monitor applications that are currently running on the Spark cluster. Before accessing the YARN UI, you should have enabled SSH tunneling to the cluster. For instructions, see [Use SSH Tunneling to access Ambari web UI](hdinsight-linux-ambari-ssh-tunnel.md)
+You can use the YARN UI to monitor applications that are currently running on the Spark cluster. 
 
-1. Launch the Ambari Web UI as shown in the section above.
+1. From the cluster blade, click **Cluster Dashboard**, and then click **YARN**.
 
-2. From the Ambari Web UI, select YARN from the list on the left of the page.
+	![Launch YARN UI](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
 
-3. 3.When the YARN service information is displayed, select **Quick Links**. A list of the cluster head nodes will appear. Select one of the head nodes, and then select **ResourceManager UI**.
-
-	![Launch YARN UI](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png "Launch YARN UI")
-
-4. This should launch the YARN UI and you should see a page similar to the following:
-
-	![YARN UI](./media/hdinsight-apache-spark-resource-manager/yarn-ui.png "YARN UI")
+	>[AZURE.TIP] Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active resource manager, and then click **ResourceManager UI**.
 
 ##<a name="scenariosrm"></a>How do I manage resources using the Ambari Web UI?
 
 Here are some common scenarios that you might run into with your Spark cluster, and the instructions on how to address those using the Ambari Web UI.
+
+### What is the optimum cluster configuration to run Spark applications?
+
+The three key parameters that can be used for Spark configuration depending on application requirements are `spark.executor.instances`, `spark.executor.cores`, and `spark.executor.memory`. An Executor is a process launched for a Spark application. It runs on the worker node and is responsible to carry out the tasks for the application. The default number of executors and the executor sizes for each cluster is calculated based on the number of worker nodes and the worker node size. These are stored in `spark-defaults.conf` on the cluster head nodes. 
+
+The three configuration parameters can be configured at the cluster level (for all applications that run on the cluster) or can be specified for each individual application as well.
+
+#### Change the parameters using Ambari UI
+
+1. Launch the Ambari UI. Click **Spark**, click **Configs**, and then expand **Custom spark-defaults**.
+
+	![Set parameters using Ambari](./media/hdinsight-apache-spark-resource-manager/set-parameters-using-ambari.png)
+
+2. The default values will allow to run 4 Spark applications concurrently on the cluster. You can changes these values from the user interface, as shown below.
+
+	![Set parameters using Ambari](./media/hdinsight-apache-spark-resource-manager/set-executor-parameters.png)
+
+3. Click **Save** to save the configuration changes. At the top of the page, you will be prompted to restart all the affected services. Click **Restart**.
+
+	![Restart services](./media/hdinsight-apache-spark-resource-manager/restart-services.png)
+
+
+#### Change the parameters for an application running in Jupyter notebook
+
+For applications running in the Jupyter notebook, you can use the `%%configure` magic to make the configuration changes. Ideally, you must make such changes at the beginning of the application, before you run your first code cell. This ensures that the configuration is applied to the Livy session, when it gets created. If you want to change the configuration at a later stage in the application, you must use the `-f` parameter. However, by doing so all progress in the application will be lost.
+
+The snippet below shows how to change the configuration for an application running in Jupyter.
+
+	%%configure 
+	{"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+
+Configuration parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. 
+
+#### Change the parameters for an application submitted using spark-submit
+
+Following command is an example of how to change the configuration parameters for a batch application that is submitted using `spark-submit`.
+
+	spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+
+#### Change the parameters for an application submitted using cURL
+
+Following command is an example of how to change the configuration parameters for a batch application that is submitted using using cURL.
+
+	curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+
+#### How do I change these parameters on a Spark Thrift Server?
+
+Spark Thrift Server provides JDBC/ODBC access to a Spark cluster. Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.executor.instances` is not used. Instead, Spark Thrift Server uses `spark.dynamicAllocation.minExecutors` and `spark.dynamicAllocation.maxExecutors` to specify the executor count. The configuration parameters `spark.executor.cores` and `spark.executor.memory` is used to modify the executor size. You can change these parameters as shown below.
+
+* Expand the **Advanced spark-thrift-sparkconf** category to update the parameters `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors`, and `spark.executor.memory`.
+
+	![Configure Spark thrift server](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-1.png)	
+
+* Expand the **Custom spark-thrift-sparkconf** category to update the parameter `spark.executor.cores`.
+
+	![Configure Spark thrift server](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-2.png)
 
 ### I do not use BI with Spark cluster. How do I take the resources back?
 
