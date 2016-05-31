@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Troubleshooting and visualization of Stream Analytics jobs | Microsoft Azure"
+	pageTitle="Visualize and troubleshoot Stream Analytics jobs | Microsoft Azure"
 	description="Learn how to visualize a Stream Analytics job pipeline for self-service troubleshooting using the diagnostics diagram feature."
 	keywords=""
 	documentationCenter=""
@@ -20,13 +20,11 @@
 />
 
 
-# Visualize a Stream Analytics job pipeline for troubleshooting
+# Visualize and troubleshoot Stream Analytics jobs
 
-Stream Analytics provides the ability to visualize the pipeline showing the inputs, outputs and high level processing components to enable the identification and isolation of issues. In addition, it provides information on the state of all of the inputs, outputs along with intermediate query steps. 
+In Stream Analytics, as with other cloud-based technologies, troubleshooting is sometimes needed to look into why a job does not produce the expected output (or any output for that matter). With this in mind, Stream Analytics provides the capability for visualizing a streaming job. This is also handy as a modeling tool and has the side benefit for those requiring documentation of their work.
 
-When a job that was previously producing the expected output stops producing the expected output the visualization solution can be used by customers to quickly isolate the source of the problem. For example, when one or more inputs stop producing events, the visualization tool can help identify the inputs that have diagnostic messages.
- 
-Additionally when the connectivity with one or more inputs and outputs is broken the visualization can, at a glance, assist to identify the inputs and outputs with connectivity problems.
+In the visualization panel the inputs are visible as well as the query being executed and then all the outputs configured. Connectivity or configuration issues can become more apparent and it can also be helpful to see a visual representation of your configuration.
 
 ## Using the diagnosis diagram tool
 
