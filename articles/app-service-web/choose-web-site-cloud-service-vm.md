@@ -125,12 +125,10 @@ If you want to create a line-of-business application, your website might require
 
 HTTP-based web services enable you to support a wide variety of clients, including mobile clients. Frameworks like ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, App Service is a great choice for hosting REST APIs. With App Service, you can:
 
-- Quickly create a web app to host the HTTP web service in one of Azure’s globally distributed datacenters.
+- Quickly create a [mobile app](../app-service-mobile/app-service-mobile-value-prop.md) or [API app](../app-service-api/app-service-api-apps-why-best-platform.md) to host the HTTP web service in one of Azure’s globally distributed datacenters.
 - Migrate existing services or create new ones.
 - Achieve SLA for availability with a single instance, or scale out to multiple dedicated machines.
 - Use the published site to provide REST APIs to any HTTP clients, including mobile clients.
-
-In addition, Azure App Service has a new preview feature for REST APIs:  API apps.  For more information about API apps, see [What are API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 ##<a name="features"></a>Feature Comparison
 
