@@ -67,6 +67,44 @@ c.	The chosen traffic-routing method.  For more information, see Traffic Manager
 
 Note that the recursive DNS service will cache the DNS responses it receives, as will the DNS client on the end-user’s device.  This enables subsequent DNS queries to be answered more quickly, by using data from the cache rather than querying other name servers.  The duration of the cache is determined by the ‘time-to-live’ (TTL) property of each DNS record.  Shorter values result in faster cache expiry and thus more round-trips to the Traffic Manager name servers; longer values mean in can take longer to direct traffic away from a failed endpoint.  Traffic Manager allows you to configure the TTL used in Traffic Manager DNS responses, enabling you to choose the value that best balances the needs of your application.
 
+## FAQ
+
+### What IP address does Traffic Manager use?
+
+As explained in How Traffic Manager Works, Traffic Manager works at the DNS level.  It uses DNS responses to direct clients to the appropriate service endpoint.  Clients then connect to the service endpoint directly, not through Traffic Manager.
+
+Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to.  So if for example a static IP address is required, that must be configured at the service, not in Traffic Manager.
+
+### Does Traffic Manager support ‘sticky’ sessions?
+
+As explained in How Traffic Manager Works, Traffic Manager works at the DNS level.  It uses DNS responses to direct clients to the appropriate service endpoint.  Clients then connect to the service endpoint directly, not through Traffic Manager.  Therefore, Traffic Manager does not see HTTP traffic between client and server, including cookies.
+
+In addition, note that the source IP address of the DNS query received by Traffic Manager is the IP address of the recursive DNS service, not the IP address of the client.
+
+Therefore, Traffic Manager has no way to identify or track individual clients, and therefore cannot implement ‘sticky’ sessions.  This is common to all DNS-based traffic management systems, it is not a restriction of using Traffic Manager.
+
+### I’m seeing an HTTP error when using Traffic Manager…why?
+
+As explained [above](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level.  It uses DNS responses to direct clients to the appropriate service endpoint.  Clients then connect to the service endpoint directly, not through Traffic Manager.
+
+Therefore, Traffic Manager does not see HTTP traffic between client and server, and cannot generate HTTP-level errors.  Any HTTP error you see must be coming from your application.  Since the client is connecting to the application, this also means that DNS resolution including the role of Traffic Manager must have been completed.
+
+Further investigation should therefore focus on the application.
+
+A common problem is that when using Traffic Manager, the ‘host’ HTTP header passed by the browser to the application will show the domain name used in the browser.  This may be the Traffic Manager domain name (e.g. myprofile.trafficmanager.net) if you are using that domain name during testing, or may be the vanity domain CNAME configured to point to the Traffic Manager domain name.  In either case, check that the application is configured to accept this host header.
+
+If your application is hosted in the Azure App Service, please see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+
+### What is the performance impact of using Traffic Manager?
+
+As explained [above](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level.  It uses DNS responses to direct clients to the appropriate service endpoint.  Clients then connect to the service endpoint directly, not through Traffic Manager.
+
+Since clients connect to your service endpoints directly, there is no performance impact incurred when using Traffic Manager once the connection is established.
+
+The impact of Traffic Manager on DNS resolution time is minimal.  Traffic Manager uses a global network of name servers, and uses anycast networking to ensure DNS queries are always routed to the closest available name server.
+
+In addition, caching of DNS responses means that the additional DNS latency incurred by using Traffic Manager applies only to a fraction of sessions.
+
 ## Next steps
 
 Learn more about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
