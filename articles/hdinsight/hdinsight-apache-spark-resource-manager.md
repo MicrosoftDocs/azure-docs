@@ -74,7 +74,7 @@ The three configuration parameters can be configured at the cluster level (for a
 
 	![Set parameters using Ambari](./media/hdinsight-apache-spark-resource-manager/set-parameters-using-ambari.png)
 
-2. The default values will allow to run 4 Spark applications concurrently on the cluster. You can changes these values from the user interface, as shown below.
+2. The default values are good to have 4 Spark applications run concurrently on the cluster. You can changes these values from the user interface, as shown below.
 
 	![Set parameters using Ambari](./media/hdinsight-apache-spark-resource-manager/set-executor-parameters.png)
 
@@ -108,7 +108,9 @@ Following command is an example of how to change the configuration parameters fo
 
 ### How do I change these parameters on a Spark Thrift Server?
 
-Spark Thrift Server provides JDBC/ODBC access to a Spark cluster. Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.executor.instances` is not used. Instead, Spark Thrift Server uses `spark.dynamicAllocation.minExecutors` and `spark.dynamicAllocation.maxExecutors` to specify the executor count. The configuration parameters `spark.executor.cores` and `spark.executor.memory` is used to modify the executor size. You can change these parameters as shown below.
+Spark Thrift Server provides JDBC/ODBC access to a Spark cluster and is used to service Spark SQL queries. Tools like Power BI, Tableau etc. use ODBC protocol to communicate with Spark Thrift Server to execute Spark SQL queries as a Spark Application. When a Spark cluster is created, two instances of the Spark Thrift Server are started, one on each head node. Each Spark Thrift Server is visible as a Spark application in the YARN UI. 
+
+Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.executor.instances` is not used. Instead, Spark Thrift Server uses `spark.dynamicAllocation.minExecutors` and `spark.dynamicAllocation.maxExecutors` to specify the executor count. The configuration parameters `spark.executor.cores` and `spark.executor.memory` is used to modify the executor size. You can change these parameters as shown below.
 
 * Expand the **Advanced spark-thrift-sparkconf** category to update the parameters `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors`, and `spark.executor.memory`.
 
@@ -128,15 +130,23 @@ Spark Thrift Server driver memory is configured to 25% of the head node RAM size
 
 ## I do not use BI with Spark cluster. How do I take the resources back?
 
-1. Launch the Ambari Web UI as shown above. From the left navigation pane, click **Spark**, and then click **Configs**.
+Since we use Spark dynamic allocation, the only resources that are consumed by thrift server are the resources for the two application masters. To reclaim these resources you must stop the Thrift Server services running on the cluster.
 
-2. In the list of configurations available, look for **Custom spark-thrift-sparkconf** and change the values for **spark.executor.memory** and **spark.drivers.core** to **0**.
+1. From the Ambari UI, from the left pane, click **Spark**.
 
-	![Resources for BI](./media/hdinsight-apache-spark-resource-manager/spark-bi-resources.png "Resources for BI")
+2. In the next page, click **Spark Thrift Servers**.
 
-3. Click **Save**. Enter a description for the changes you made and then click **Save** again.
+	![Restart thrift server](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-1.png)
 
-4. At the top of the page, you should see a prompt to restart the Spark service. Click **Restart** for the changes to take affect.
+3. You should see the two headnodes on which the Spark Thrift Server is running. Click one of the headnodes.
+
+	![Restart thrift server](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-2.png)
+
+4. The next page lists all the services running on that headnode. From the list click the drop-down button next to Spark Thrift Server, and then click **Stop**.
+
+	![Restart thrift server](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-3.png)
+
+5. Repeat these steps on the other headnode as well.
 
 
 ## My Jupyter notebooks are not running as expected. How can I restart the service?
