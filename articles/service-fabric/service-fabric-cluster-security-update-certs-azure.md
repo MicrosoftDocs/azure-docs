@@ -18,7 +18,8 @@
 
 # Update the certificates for a cluster in Azure
 
-Service fabric lets you specify two certificates, a primary and a secondary, when you configure certificate security during cluster creation. By default, the one that you specify at creation time is the primary certificate. After cluster creation, you can add a new certificate as a secondary or remove an existing certificate.
+Service fabric lets you specify two certificates, a primary and a secondary, when you configure certificate security during cluster creation. By default, the one that you specify at creation time is the primary certificate. After cluster creation, you can add a new certificate as a secondary or remove an existing certificate. For more information on how Service Fabric uses X.509 certificates, read [Cluster security scenarios](service-fabric-cluster-security.md).
+
 >[AZURE.NOTE] For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate (primary or secondary) deployed or you will not be able to access the cluster.
 
 ## Add a secondary certificate
