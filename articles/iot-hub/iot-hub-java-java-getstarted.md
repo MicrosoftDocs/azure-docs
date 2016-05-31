@@ -190,95 +190,93 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
     import java.util.logging.*;
     ```
 
-7. Add the following class-level variables to the **App** class:
+7. Add the following class-level variables to the **App** class. Replace **{youriothubkey}**, **{youreventhubcompatiblenamespace}**, and **{youreventhubcompatiblename}** with the values you noted previously. The value of the **{youreventhubcompatiblenamespace}** placeholder comes from the **Event Hub-compatible endpoint** - it takes the form **xyznamespace** (in other words, remove the **sb://** prefix and **.servicebus.windows.net** suffix from the Event Hub-compatible endpoint value from the portal):
 
     ```
-    private static EventHubClient client;
+    private static String namespaceName = "{youreventhubcompatiblenamespace}";
+    private static String eventHubName = "{youreventhubcompatiblename}";
+    private static String sasKeyName = "iothubowner";
+    private static String sasKey = "{youriothubkey}";
     private static long now = System.currentTimeMillis();
     ```
 
-10. Add the following **receiveMessages** method to the **App** class. This method creates an **PartitionReceiver** instance to read from an Event Hub partition. It loops continuously and prints the message details to the application terminates.
+8. Add the following **receiveMessages** method to the **App** class. This method creates an **EventHubClient** instance to connect to the Event Hubs-compatible endpoint and then asynchronously creates a **PartitionReceiver** instance to read from an Event Hub partition. It loops continuously and prints the message details until the application terminates.
 
     ```
-    private static void receiveMessages(final String partitionId)
+    private static EventHubClient receiveMessages(final String partitionId)
     {
-        try{
+      EventHubClient client = null;
+      try {
+        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+      }
+      catch(Exception e) {
+        System.out.println("Failed to create client: " + e.getMessage());
+        System.exit(1);
+      }
+      try {
         client.createReceiver( 
-            EventHubClient.DEFAULT_CONSUMER_GROUP_NAME,  
-            partitionId,  
-            Instant.now()).thenAccept(new Consumer<PartitionReceiver>()
-            {
-            public void accept(PartitionReceiver receiver)
-            {
-                System.out.println("** Created receiver on partition " + partitionId);
-                
-                try
-                {
-                while (true) {
-                    Iterable<EventData> receivedEvents = receiver.receive().get();
-                    int batchSize = 0;
-                    if (receivedEvents != null)
-                    {
-                    for(EventData receivedEvent: receivedEvents)
-                    {
-                        System.out.print(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s", 
-                            receivedEvent.getSystemProperties().getOffset(), 
-                            receivedEvent.getSystemProperties().getSequenceNumber(), 
-                            receivedEvent.getSystemProperties().getEnqueuedTime()));
-                        System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(), Charset.defaultCharset())));
-                        batchSize++;
-                    }
-                    }
-                    
-                    System.out.println(String.format("Partition: %s, ReceivedBatch Size: %s", partitionId,batchSize));
-                }
-                }
-                catch (Exception e)
-                {
-                System.out.println("Failed to receive messages: " + e.getMessage());
-                }
-            }
-            });
-        }
-        catch (Exception e)
+          EventHubClient.DEFAULT_CONSUMER_GROUP_NAME,  
+          partitionId,  
+          Instant.now()).thenAccept(new Consumer<PartitionReceiver>()
         {
+          public void accept(PartitionReceiver receiver)
+          {
+            System.out.println("** Created receiver on partition " + partitionId);
+            try {
+              while (true) {
+                Iterable<EventData> receivedEvents = receiver.receive().get();
+                int batchSize = 0;
+                if (receivedEvents != null)
+                {
+                  for(EventData receivedEvent: receivedEvents)
+                  {
+                    System.out.print(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s", 
+                      receivedEvent.getSystemProperties().getOffset(), 
+                      receivedEvent.getSystemProperties().getSequenceNumber(), 
+                      receivedEvent.getSystemProperties().getEnqueuedTime()));
+                    System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
+                      Charset.defaultCharset())));
+                    batchSize++;
+                  }
+                }
+                System.out.println(String.format("Partition: %s, ReceivedBatch Size: %s", partitionId,batchSize));
+              }
+            }
+            catch (Exception e)
+            {
+              System.out.println("Failed to receive messages: " + e.getMessage());
+            }
+          }
+        });
+      }
+      catch (Exception e)
+      {
         System.out.println("Failed to create receiver: " + e.getMessage());
-        }
+      }
+      return client;
     }
     ```
 
     > [AZURE.NOTE] This method uses a filter when it creates the receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This is useful in a test environment so you can see the current set of messages, but in a production environment your code should make sure that it processes all the messages - see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial for more information.
 
-11. Modify the signature of the **main** method to include the exceptions shown below:
+9. Modify the signature of the **main** method to include the exception shown below:
 
     ```
     public static void main( String[] args ) throws IOException
     ```
 
-12. Add the following code to the **main** method in the **App** class. This code creates an **EventHubClient** instance to connect to the Event Hub-compatible endpoint on your IoT hub. It then creates a receiver to read from one of the two partitions. Replace **{youriothubkey}**, **{youreventhubcompatiblenamespace}**, and **{youreventhubcompatiblename}** with the values you noted previously. The value of the **{youreventhubcompatiblenamespace}** placeholder comes from the **Event Hub-compatible endpoint** - it takes the form **xxxxnamespace** (in other words, remove the **sb://** prefix and **.servicebus.windows.net** suffix from the Event Hub-compatible endpoint value from the portal).
+10. Add the following code to the **main** method in the **App** class. This code creates the two **EventHubClient** and **PartitionReceiver** instances and enables you to close the application when you have finished processing messages:
 
     ```
-    String sasKeyName = "iothubowner";
-    String sasKey = "{youriothubkey}";
-    String namespaceName = "{youreventhubcompatiblenamespace}";
-    String eventHubName = "{youreventhubcompatiblename}";
-    
-    try {
-      ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
-      client = EventHubClient.createFromConnectionString(connStr.toString()).get();
-    }
-    catch(Exception e) {
-        System.out.println("Failed to create client: " + e.getMessage());
-        System.exit(1);
-    }
-    
-    receiveMessages(args[0]);
+    EventHubClient client0 = receiveMessages("0");
+    EventHubClient client1 = receiveMessages("1");
     System.out.println("Press ENTER to exit.");
     System.in.read();
     try
     {
-      client.closeSync();
-      System.out.println("Closed client.");
+      client0.closeSync();
+      client1.closeSync();
       System.exit(0);
     }
     catch (ServiceBusException sbe)
@@ -289,9 +287,9 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
 
     > [AZURE.NOTE] This code assumes you created your IoT hub in the F1 (free) tier. A free IoT hub has two partitions named "0" and "1".
 
-13. Save and close the App.java file.
+11. Save and close the App.java file.
 
-14. To build the **read-d2c-messages** application using Maven, execute the following command at the command-prompt in the read-d2c-messages folder:
+12. To build the **read-d2c-messages** application using Maven, execute the following command at the command-prompt in the read-d2c-messages folder:
 
     ```
     mvn clean package -DskipTests
