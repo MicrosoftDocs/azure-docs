@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Setting up Key Vault for Virtual Machines in Azure Resource Manager | Microsoft Azure"
 	description="How to setup a Key Vault for use with an Azure Resource Manager virtual machine"
-	services="virtual-machines-windows"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="singhkay"
 	manager="drewm"
@@ -9,9 +9,9 @@
 	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/31/2016"
