@@ -20,7 +20,7 @@
 
 # Azure Storage options for R Server on HDInsight (preview)
 
-R Server on HDInsight (preview) has access to both Azure Blob, and soon Azure Data Lake storage, as means of persisting data, code, result objects from analysis, etc.
+R Server on HDInsight (preview) has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/), as means of persisting data, code, result objects from analysis, etc.
 
 When you create a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated to hold the file system for the cluster you create, i.e. the Hadoop Distributed File System (HDFS).  For the purposes of performance, the HDInsight cluster is created in the same data center as the primary storage account you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
 
@@ -161,6 +161,7 @@ hadoop fs -copyFromLocal /usr/lib64/R Server-7.4.1/library/RevoScaleR/SampleData
 
 hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 ````
+
 ## Use Azure Files on the Edge Node 
 
 There is also a convenient data storage option for use on the edge node called [Azure Files](../storage/storage-how-to-use-files-linux.md "Azure Files") that allows you to mount an Azure Storage file share to the Linux file system. This can be handy for storing data files, R scripts, and result objects that may be needed later when it makes sense to use the native file system on the edge node rather than HDFS. A big benefit of using Azure Files is that the file shares can be mounted and used by any system with a supported OS (Win, Linux), e.g. another HDInsight cluster you or someone on your team has, an Azure VM, or even an on-premises system.
