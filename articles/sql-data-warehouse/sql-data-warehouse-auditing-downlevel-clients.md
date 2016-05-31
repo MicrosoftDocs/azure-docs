@@ -19,7 +19,7 @@
 # SQL Data Warehouse -  Downlevel clients support for auditing and Dynamic Data Masking
 
 
-[Auditing](sql-data-warehouse-auditing-overview.md) works with SQL clients that support TDS redirection.
+[Auditing](sql-data-warehouse-auditing-get-started.md) works with SQL clients that support TDS redirection.
 
 Any client which implements TDS 7.4 should also support redirection. Exceptions to this include JDBC 4.0 in which the redirection feature is not fully supported and Tedious for Node.JS in which redirection was not implemented.
 
