@@ -13,10 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard
+
+
+> [AZURE.SELECTOR]
+- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 The Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio migrates a [compatible SQL Server database](sql-database-cloud-migrate.md) directly into your Azure SQL Database server.
 
@@ -50,7 +57,13 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 7.	Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
 8.	Using the Azure Portal, view your database and its properties.
 
-## Next step: Fix compatibility issues, if any
+## Next steps
 
-[Fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md), if any.
+[Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+[SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+
+## Learn More
+
+[Fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md)
+[BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)
 

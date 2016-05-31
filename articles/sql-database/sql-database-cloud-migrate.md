@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # SQL Server database migration to SQL Database in the cloud
@@ -36,6 +36,13 @@ SQL Server provides several methods to accomplish each of these tasks. This arti
 ## Database migration tools test SQL Server database compatibility with SQL Database
 
 To test for SQL Database compatibility issues before you start the database migration process, use one of the following methods:
+
+> [AZURE.SELECTOR]
+- [SSDT)](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
+- [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 
 - [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT uses the most recent compatibilty rules to detect SQL Database V12 incompatibilities. If incompatibilities are detected, you can fix detected issues directly in this tool. This is currently the recommended method to test and fix SQL Database V12 compatibility issues. 
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage is a command-prompt utility will test for and, if found, generate a report containing detected compatibility issues. If you use this tool, make sure you use the most recent version to use the most recent compatiibility rules. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended.  

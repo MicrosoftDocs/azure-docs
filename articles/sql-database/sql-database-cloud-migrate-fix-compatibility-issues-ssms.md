@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Fix SQL Server database compatibility issues using SQL Server Management Studio before migration to SQL Database
-
-If you determine that your source SQL Server database is not compatible, you have a number of options to fix the  identified database compatibility issues.
 
 > [AZURE.SELECTOR]
 - Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
 - Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+
+Advanced users can fix SQL Server database compatibility issues using SQL Server Management Studio before migration to Azure SQL Database.
 
 ## Using SQL Server Management Studio
 
