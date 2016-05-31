@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/31/2016" 
 	ms.author="sdanie"/>
 
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
@@ -55,7 +55,7 @@ The following list contains answers to commonly asked questions about the Azure 
 
 -	[What are some common misconfiguration issues with Azure Redis Cache and VNETs?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 -	[Can I use VNETs with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
--	[Can I connect to my cache from an on-premises app using ExpressRoute with my VNET?](#can-i-connect-to-my-cache-from-an-on-premises-app-using-expressroute-with-my-vnet)
+-	[Can I use ExpressRoute with Azure Redis Cache?](#can-i-use-expressroute-with-azure-redis-cache)
 
 ## What are some common misconfiguration issues with Azure Redis Cache and VNETs?
 
@@ -81,7 +81,7 @@ When Azure Redis Cache is hosted in a VNET, the ports in the following table are
 
 VNETs can only be used with premium caches.
 
-## Can I connect to my cache from an on-premises app using ExpressRoute with my VNET?
+### Can I use ExpressRoute with Azure Redis Cache?
 
 Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure, thus extending their on-premises network to Azure. 
 
@@ -91,7 +91,7 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 -  Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com* and *crl.microsoft.com*. This is needed to support SSL functionality.
 -  The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points.
 	-   These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
--  Although this is not a typical usage scenario when using Azure Redis Cache due to performance reasons, the outbound network path cannot travel through internal corporate proxies, nor can it be force tunneled to on-premises. Doing so changes the effective NAT address of outbound network traffic from the App Service Environment. Changing the NAT address of an App Service Environment's outbound network traffic will cause connectivity failures to many of the endpoints listed above. This results in failed App Service Environment creation attempts, as well as previously healthy App Service Environments being marked as unhealthy. 
+-  Although this is not a typical usage scenario when using Azure Redis Cache due to performance reasons, the outbound network path cannot travel through internal corporate proxies, nor can it be force tunneled to on-premises. Doing so changes the effective NAT address of outbound network traffic from the Azure Redis Cache. Changing the NAT address of an Azure Redis Cache instance's outbound network traffic will cause connectivity failures to many of the endpoints listed above. This results in failed Azure Redis Cache creation attempts. 
 -  Inbound network access to required ports for Azure Redis Cache must be allowed as described in the ports table in the previous [What are some common misconfiguration issues with Azure Redis Cache and VNETs?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets) section. These network access requirements can be met by configuring a [network security group](../virtual-network/virtual-networks-nsg.md) on the subnet to allow the required access.
 
 By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity. With this configuration client applications will be able to connect to other Azure endpoints including Azure Redis Cache.
@@ -103,13 +103,13 @@ The solution is to define one (or more) user defined routes (UDRs) on the subnet
 If possible, it is recommended to use the following configuration:
 
 - The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
-- The UDR applied to the subnet containing the App Service Environment defines 0.0.0.0/0 with a next hop type of Internet (an example of this is farther down in this article).
+- The UDR applied to the subnet containing the Azure Redis Cache defines 0.0.0.0/0 with a next hop type of Internet (an example of this is farther down in this article).
 
-The combined effect of these steps is that the subnet level UDR will take precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the App Service Environment.
+The combined effect of these steps is that the subnet level UDR will take precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the Azure Redis Cache.
 
 **IMPORTANT:**  The routes defined in a UDR **must** be specific enough to  take precedence over any routes advertised by the ExpressRoute configuration. The example below uses the broad 0.0.0.0/0 address range, and as such can potentially be accidentally overridden by route advertisements using more specific address ranges.
 
-**VERY IMPORTANT:**  App Service Environments are not supported with ExpressRoute configurations that **incorrectly cross-advertise routes from the public peering path to the private peering path**. ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges. If these address ranges are incorrectly cross-advertised on the private peering path, the end result is that all outbound network packets from the App Service Environment's subnet will be incorrectly force-tunneled to a customer's on-premises network infrastructure. This network flow will break App Service Environments. The solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
+**VERY IMPORTANT:**  Azure Redis Cache is not supported with ExpressRoute configurations that **incorrectly cross-advertise routes from the public peering path to the private peering path**. ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges. If these address ranges are incorrectly cross-advertised on the private peering path, the end result is that all outbound network packets from the Azure Redis Cache instance's subnet will be incorrectly force-tunneled to a customer's on-premises network infrastructure. This network flow will break Azure Redis Cache. The solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
 
 Background information on user defined routes is available in this [overview](../virtual-network/virtual-networks-udr-overview.md). 
 
