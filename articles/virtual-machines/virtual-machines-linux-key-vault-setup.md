@@ -21,13 +21,13 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model
 
-In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the Key Vault Resource Provider. To learn more about Key Vaults see [What is Azure Key Vault?](../articles/key-vault-whatis.md)
+In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the Key Vault Resource Provider. To learn more about Key Vaults see [What is Azure Key Vault?](../articles/key-vault/key-vault-whatis.md)
 
 ## Setup
 In order for a Key Vault to be used with Azure Resource Manager Virtual Machines, the *EnabledForDeployment* property on the Key Vault must be set to true. You can do this in the various clients as shown below.”
 
 #### CLI
-For creating the Key Vault using CLI see [Manage Key Vault using CLI](../articles/key-vault-manage-with-cli.md/#create-a-key-vault)
+For creating the Key Vault using CLI see [Manage Key Vault using CLI](../articles/key-vault/key-vault-manage-with-cli.md/#create-a-key-vault)
 
 For CLI, you have to create the Key Vault first, then enable the deployment policy. You can do this using the following command
 
