@@ -152,7 +152,7 @@ The OMS agent listens for Syslog messages on the local client at port 25224.  Yo
 The OMS agent listens for Syslog messages on the local client at port 25224. The configuration file for the Syslog daemon forwards Syslog messages sent from application to this port where they are collected by Log Analytics.
 
 
-# Syslog record properties
+## Syslog record properties
 
 Syslog records have a type of **Syslog** and have the properties in the following table.
 
