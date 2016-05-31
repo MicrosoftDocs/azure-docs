@@ -123,30 +123,49 @@ The example image below shows the three configuration steps necessary to use an 
 To use an HTTP proxy to communicating to the public Internet, follow these steps:
 
 #### Step 1. Configure outgoing network connections
+###### For Windows machines
+This will setup proxy server configuration for Local System Account. 
 
-To establish a machine-wide proxy configuration for any outgoing HTTP/HTTPS traffic, follow the instructions for the appropriate VM platform.
+1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+2. Run following command from elevated prompt,
 
-For Windows machines run the following command in an elevated command prompt:
+     ```
+     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
+     ```
+     It will open internet explorer window.
+3. Go to Tools -> Internet Options -> Connections -> LAN settings.
+4. Verify proxy settings for System account. Set Proxy IP and port. 
+5. Close Internet Explorer.
+
+This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+   
+If you have setup a proxy server on a current user account(not a Local System Account), use the following script to apply them to SYSTEMACCOUNT:
 
 ```
-netsh winhttp set proxy http://<proxy IP>:<proxy port>
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
+>[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly. 
 
-For Linux machines:
+######For Linux machines 
 
-- Add the following line to the ```/etc/environment``` file:
+Add the following line to the ```/etc/environment``` file:
 
-    ```
-    http_proxy=http://<proxy IP>:<proxy port>
-    ```
+```
+http_proxy=http://<proxy IP>:<proxy port>
+```
 
-- Add the following lines to the ```/etc/waagent.conf``` file:
-
-    ```
-    HttpProxy.Host=<proxy IP>
-    HttpProxy.Port=<proxy port>
-    ```
+Add the following lines to the ```/etc/waagent.conf``` file:
+   
+```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
 
 #### Step 2. Allow incoming connections on the proxy server:
 

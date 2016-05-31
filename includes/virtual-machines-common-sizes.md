@@ -5,7 +5,7 @@ The standard sizes consist of several series: A, D, DS, G, and GS. Consideration
 
 *   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-*   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+*   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
 *   G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
 
@@ -49,7 +49,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 |[D1-14](#standard-tier-d-series)	|160 |
 |[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
 |[DS1-14](#standard-tier-ds-series)	|160 |
-|[DS1-14v2](#standard-tier-dsv2-series)	|210-250* |
+|[DS1-15v2](#standard-tier-dsv2-series)	|210-250* |
 |[G1-5](#standard-tier-g-series)	|180 - 240 *|
 |[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
 
@@ -150,6 +150,7 @@ Note: For information and considerations about using these sizes, see [About the
 |Standard_DS12_v2 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  192 MB per second | high |
 |Standard_DS13_v2 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  384 MB per second | high |
 |Standard_DS14_v2 |16|112|8|Local SSD disk = 224 GB |32|576| 50,000  768 MB per second | very high |
+|Standard_DS15_v2 |20|140 GB|10|Local SSD disk = 280 GB |40| 720|62,500 960 MB per second | very high |
 
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).

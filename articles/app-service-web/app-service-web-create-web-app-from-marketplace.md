@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="05/08/2016"
+	ms.topic="get-started-article"
+	ms.date="05/10/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -22,9 +22,7 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-This tutorial shows how to create a new web app from the Azure Marketplace. For the purpose of this tutorial, you will deploy a WordPress blog site from the Azure Marketplace. When you have completed the steps in this tutorial, you'll have your own WordPress site up and running in the cloud.
-
-![Example WordPress wep app dashboard][WordPressDashboard]
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. For example, WordPress, Umbraco CMS, Drupal, etc. These web apps are built on a wide range of popular frameworks, such as [PHP] in this WordPress example, [.NET], [Node.js], [Java], and [Python], to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal].
 
 In this tutorial you'll learn how to:
 
@@ -32,7 +30,9 @@ In this tutorial you'll learn how to:
 * Create a web app in Azure App Service that is based on the template.
 * Configure Azure App Service settings for the new web app and database.
 
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. For example, WordPress, Umbraco CMS, Drupal, etc. These web apps are built on a wide range of popular frameworks, such as [PHP] in this WordPress example, [.NET], [Node.js], [Java], and [Python], to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal].
+For the purpose of this tutorial, you will deploy a WordPress blog site from the Azure Marketplace. When you have completed the steps in this tutorial, you'll have your own WordPress site up and running in the cloud.
+
+![Example WordPress wep app dashboard][WordPressDashboard]
 
 The WordPress site that you'll deploy in this tutorial uses MySQL for the database. If you wish to instead use SQL Database for the database, see [Project Nami], which is also available through the Azure Marketplace.
 
@@ -139,9 +139,7 @@ In this tutorial you've seen how to create and deploy an example web app from th
 
 For more information about how to work with App Service Web Apps, see the links on the left side of the page (for wide browser windows) or at the top of the page (for narrow browser windows).
 
-## What's changed
-
-For a guide to the change from Websites to App Service, see [Azure App Service and existing Azure services][AzureAppServiceChanges].
+For more information about developing WordPress web apps on Azure, see [Developing WordPress on Azure App Service][WordPressOnAzure]. 
 
 <!-- URL List -->
 
@@ -156,9 +154,9 @@ For a guide to the change from Websites to App Service, see [Azure App Service a
 [ResourceGroups]: ../azure-portal/resource-group-portal.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
-[AzureAppServiceChanges]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Azure Portal]: https://portal.azure.com/
 [Project Nami]: http://projectnami.org/
+[WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
 
 <!-- IMG List -->
 

@@ -19,7 +19,11 @@
 
 # Load data from Azure blob storage into SQL Data Warehouse (PolyBase)
 
-Learn how to use PolyBase to load data from Azure blob storage. 
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+
+Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse. 
 
 To keep it simple, this tutorial loads two tables from a public Azure Storage Blob into the Contoso Retail Data Warehouse schema. To load the full data set, run the example [Load the full Contoso Retail Data Warehouse][] from the Microsoft SQL Server Samples repository.
 
@@ -33,13 +37,13 @@ In this tutorial you will:
 ## Before you begin
 To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database. If you don't already have this, see [Create a SQL Data Warehouse][].
 
-## 1. Configure data connectivity
+## 1. Configure the data source
 
 PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in SQL Data Warehouse. The data itself is stored externally.
 
 ### 1.1. Create a credential
 
-**Skip this step** if you are loading the Contoso public data. You don't need secure access to the data since it is already accessible to anyone.
+**Skip this step** if you are loading the Contoso public data. You don't need secure access to the public data since it is already accessible to anyone.
 
 **Don't skip this step** if you are using this tutorial as a template for loading your own data. To access data through a credential, use the following script to create a database-scoped credential, and then use it when defining the location of the data source.
 
@@ -329,7 +333,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 You have successfully loaded public data into Azure SQL Data Warehouse. Great job!
 
-You can now start querying the tables using queries like this. :
+You can now start querying the tables using queries like the following:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]

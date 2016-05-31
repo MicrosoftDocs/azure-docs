@@ -32,7 +32,7 @@
 
 From your app's home resource in Application Insights, click Analytics.
 
-![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
+![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-using/001.png)
 
 The inline tutorial will give you some ideas about what you can do.
 
@@ -40,7 +40,7 @@ There's a [more extensive tour here](app-insights-analytics-tour.md).
 
 ## Write queries
 
-Write a query beginning with the names of any of the tables listed on the left. Use `|` to create a pipeline of [operators](app-insights-analytics-queries.md). 
+Write a query beginning with the names of any of the tables listed on the left. Use `|` to create a pipeline of [operators](app-insights-analytics-reference.md#queries-and-operators). 
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -63,9 +63,9 @@ You can pick the columns you'd like to see. Expand any item to see all the retur
 
 ![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] Click the head of a column as a quick way to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. So, sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the [top](app-insights-analytics-queries.md#top-operator) or [sort](app-insights-analytics-queries.md#sort-operator) operator. 
+> [AZURE.NOTE] Click the head of a column as a quick way to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. So, sorting this way doesn't always show you the actual highest or lowest items. For that, you should use the [top](app-insights-analytics-reference.md#top-operator) or [sort](app-insights-analytics-reference.md#sort-operator) operator. 
 
-But it's good practice to use the [take](app-insights-analytics-queries.md#take-operator), [top](app-insights-analytics-queries.md#top-operator) or [summarize](app-insights-analytics-queries.md#summarize-operator) operators to avoid downloading huge tables from the server. There is anyway an automatic limit of about 10k rows per query.
+But it's good practice to use the [take](app-insights-analytics-reference.md#take-operator), [top](app-insights-analytics-reference.md#top-operator) or [summarize](app-insights-analytics-reference.md#summarize-operator) operators to avoid downloading huge tables from the server. There is anyway an automatic limit of about 10k rows per query.
 
 
 ## Diagrams
@@ -78,7 +78,7 @@ If you have several columns of the right types, you can choose the x and y axes,
 
 ![](./media/app-insights-analytics-using/100.png)
 
-By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-queries.md#render-directive) at the end of a query to select a diagram.
+By default, results are initially displayed as a table, and you select the diagram manually. But you can use the [render directive](app-insights-analytics-reference.md#render-directive) at the end of a query to select a diagram.
 
 ## Export to Excel
 
@@ -101,6 +101,7 @@ After you've run a query, you can download a .csv file. Click **Export, to Excel
 4. Edit credentials if needed and now you can build your report.
 
     ![](./media/app-insights-analytics-using/260.png)
+
 
 
 

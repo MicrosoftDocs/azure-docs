@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="05/26/2016"
 	ms.author="banders"/>
 
 # Optimize your environment with the SQL Assessment solution in Log Analytics
@@ -48,6 +48,8 @@ Use the following information to install and configure the solution.
 >[AZURE.NOTE] After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
 
 ## SQL Assessment data collection details
+
+SQL Assessment collects WMI data, registry data, performance data, and SQL Server dynamic management view results using the agents that you have enabled.
 
 The following table shows data collection methods for agents, whether Operations Manager (SCOM) is required, and how often data is collected by an agent.
 

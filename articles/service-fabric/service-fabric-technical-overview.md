@@ -3,7 +3,7 @@
    description="A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation."
    services="service-fabric"
    documentationCenter=".net"
-   authors="msfussell"
+   authors="rwike77"
    manager="timlt"
    editor="chackdan;subramar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/05/2016"
-   ms.author="msfussell"/>
+   ms.author="ryanwi"/>
 
 # Service Fabric terminology overview
 
@@ -23,10 +23,10 @@ Service Fabric is a distributed systems platform that makes it easy to package, 
 ## Infrastructure concepts
 **Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.
 
-**Node**: A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe` which starts running upon boot and then this service starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single PC, VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`. 
+**Node**: A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe` which starts running upon boot and then this service starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single PC, VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
 ## Application concepts
-**Application Type**: The name/version assigned to a collection of service types. This information is defined in an `ApplicationManifest.xml` file, embedded in an application package directory which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster. 
+**Application Type**: The name/version assigned to a collection of service types. This information is defined in an `ApplicationManifest.xml` file, embedded in an application package directory which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
 Read the [Application Model](service-fabric-application-model.md) article for more information.
 
@@ -69,7 +69,7 @@ There are system services that are created in every cluster that provide the pla
 
 Read the [Communicate with services](service-fabric-connect-and-communicate-with-services.md) article for more information on using the client and service communication API that work in conjunction with the Naming service.
 
-**Image Store Service**: Each Service Fabric cluster has an Image store service where deployed, versioned application packages are kept. You must copy the contents of an application package to the image store service and then register the application type contained within that application package. Then, after the application type has been provisioned, you can create named applications of it. You can unregister an application type from the Image store service after all its named applications have been deleted. 
+**Image Store Service**: Each Service Fabric cluster has an Image store service where deployed, versioned application packages are kept. You must copy the contents of an application package to the image store service and then register the application type contained within that application package. Then, after the application type has been provisioned, you can create named applications of it. You can unregister an application type from the Image store service after all its named applications have been deleted.
 
 Read the [Deploy an application](service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
 

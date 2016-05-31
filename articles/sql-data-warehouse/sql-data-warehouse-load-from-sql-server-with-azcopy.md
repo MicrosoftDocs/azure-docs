@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (AZCopy) | Microsoft Azure"
+   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Microsoft Azure"
    description="Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -19,28 +19,8 @@
 
 # Load data from SQL Server into Azure SQL Data Warehouse (AZCopy)
 
-> [AZURE.SELECTOR]
-- [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-- [AZCopy](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-
 Use bcp and AZCopy command-line utilities to load data from SQL Server to Azure blob storage. Then use PolyBase or Azure Data Factory to load the data into Azure SQL Data Warehouse. 
 
-
-**[bcp][]** is a command-line bulk load utility that allows you to copy data between SQL Server, data files, and SQL Data Warehouse. Use bcp to import large numbers of rows into SQL Data Warehouse tables or to export data from SQL Server tables into data files. Except when used with the queryout option, bcp requires no knowledge of Transact-SQL.
-
-bcp is a quick and easy way to move smaller data sets into and out of a SQL Data Warehouse database. The exact amount of data that is recommended to load/extract via bcp will depend on you network connection to the Azure data center.  Generally, dimension tables can be loaded and extracted readily with bcp, however, bcp is not recommended for loading or extracting large volumes of data.  Polybase is the recommended tool for loading and extracting large volumes of data as it does a better job leveraging the massively parallel processing architecture of SQL Data Warehouse.
-
-With bcp you can:
-
-- Use a simple command-line utility to load data into SQL Data Warehouse.
-- Use a simple command-line utility to extract data from SQL Data Warehouse.
-
-This tutorial will show you how to:
-
-- Import data into a table using the bcp in command
-- Export data from a table uisng the bcp out command
-
->[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
 
 ## Prerequisites
 

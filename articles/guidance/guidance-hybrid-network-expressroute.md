@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementing a Hybrid Network Architecture with Azure ExpressRoute | Blueprint | Microsoft Azure"
+   pageTitle="Implementing a Hybrid Network Architecture with Azure ExpressRoute | Reference Architecture | Microsoft Azure"
    description="How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected by using Azure ExpressRoute."
    services=""
    documentationCenter="na"
@@ -17,7 +17,9 @@
    ms.date="04/19/2016"
    ms.author="telmos"/>
 
-# Azure blueprints: Implementing a hybrid network architecture with Azure ExpressRoute
+# Implementing a hybrid network architecture with Azure ExpressRoute
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute. ExpressRoute connections are made using a private dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure providing access to your own IaaS infrastructure in Azure, public endpoints used in PaaS services, and Office365 SaaS services. This document focuses on using ExpressRoute to connect to a single Azure virtual network (VNet) using what is called private peering.
 

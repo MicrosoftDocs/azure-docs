@@ -28,11 +28,11 @@ This article focuses on using resource manager templates to deploy the Docker VM
 
 ## Azure Docker VM Extension for template deployments
 
-The Azure Docker VM Extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine. The extension can also be used to define and deploy container application using Docker compose. By using resource manager templates, the environment can then be re-deployed in a consistent fashion. Using the Azure Docker VM Extension is well suited for a more robust developer or production environments as you have some additional controls over simply using Docker Machine or creating the Docker host yourself.
+The Azure Docker VM Extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine. The extension can also be used to define and deploy container applications using Docker compose. By using resource manager templates, the environment can then be re-deployed in a consistent fashion. Using the Azure Docker VM Extension is well suited for a more robust developer or production environments as you have some additional controls over simply using Docker Machine or creating the Docker host yourself.
 
 Using Azure Resource Manager, you can create and deploy templates that define the entire structure of your environment, such as the Docker hosts, storage, Role Based Access Controls (RBAC), diagnostics, etc. You can [read more about Resource Manager](../resource-group-overview.md) and templates to better understand some of the benefits. The advantage of using Resource Manager templates over simply using Docker Machine is that you can define additional Docker hosts, storage, access controls, etc. and be able to reproduce the deployments as needed in the future. 
 
-## Deploy a template with the Docker VM Extension: <!-- Note 4 -->
+## Deploy a template with the Docker VM Extension:
 
 Let's use an existing quick-start template to show how to deploy an Ubuntu VM which has the Docker VM Extension installed. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
 

@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/11/2016" 
+	 ms.date="05/24/2016" 
 	 ms.author="casoper"/>
 
 # Using Azure CDN  
@@ -25,7 +25,7 @@ This topic walks through enabling Azure CDN by creating a new CDN profile and en
 
 A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
 
-> [AZURE.NOTE] By default, a single Azure subscription is limited to four CDN profiles. Each CDN profile is limited to ten CDN endpoints.
+> [AZURE.NOTE] By default, a single Azure subscription is limited to eight CDN profiles. Each CDN profile is limited to ten CDN endpoints.
 >
 > CDN pricing is applied at the CDN profile level. If you wish to use a mix of Azure CDN pricing tiers, you will need multiple CDN profiles.
 
@@ -60,6 +60,8 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 6. In the **Origin path** text box, enter the path to the resources you want to cache, or leave blank to allow cache any resource at the domain you specified in step 5.
 
 7. In the **Origin host header**, enter the host header you want the CDN to send with each request, or leave the default.
+
+	> [AZURE.WARNING] Some types of origins, such as Azure Storage and Web Apps, require the host header to match the domain of the origin. Unless you have an origin that requires a host header different from its domain, you should leave the default value.
 
 8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin.  At least one protocol (HTTP or HTTPS) must be selected.
 	

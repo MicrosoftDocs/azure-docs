@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Load public data into SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Load sample data into SQL Data Warehouse | Microsoft Azure"
    description="Load sample data into SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-#Load public data into SQL Data Warehouse
+#Load sample data into SQL Data Warehouse
 
 Once you've [created a SQL Data Warehouse database instance][create a SQL Data Warehouse database instance] the next step is to create and load some tables.  You can use the Adventure Works sample scripts we've created for SQL Data Warehouse to create and load tables for the fictional company called Adventure Works.  These scripts use sqlcmd to run SQL and bcp to load data.  If you don't already have these tools installed, follow these links to [install bcp][] and to [install sqlcmd][].
 
@@ -88,7 +88,7 @@ Now that you've had a chance to try some queries with sample data, check out how
 [migrate code]: ./sql-data-warehouse-migrate-code.md
 [create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
 [install bcp]: ./sql-data-warehouse-load-with-bcp.md
-[install sqlcmd]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
+[install sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Adventure Works Sample Scripts for SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip

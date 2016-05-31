@@ -3,7 +3,7 @@
    description="Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -14,18 +14,19 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="05/08/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lodipalm;sonyama;barbkess"/>
 
 # Load data from SQL Server into Azure SQL Data Warehouse (SSIS)
 
 > [AZURE.SELECTOR]
 - [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-- [AZCopy](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+- [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+- [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
 
 Create a SQL Server Integration Services (SSIS) package to load data from SQL Server into Azure SQL Data Warehouse. You can optionally restructure, transform, and cleanse the data as it passes through the SSIS data flow.
 
-After you finish this tutorial, you’ll know how to do the following things.
+In this tutorial, you will:
 
 - Create a new Integration Services project in Visual Studio.
 - Connect to data sources, including SQL Server (as a source) and SQL Data Warehouse (as a destination).
@@ -44,11 +45,11 @@ SQL Server Integration Services (SSIS) is a flexible set of tools that provides 
 
 1. Use an ADO NET Destination to connect to SQL Data Warehouse. This tutorial uses an ADO NET Destination because it has the fewest configuration options.
 2. Use an OLE DB Destination to connect to SQL Data Warehouse. This option may provide slightly better performance than the ADO NET Destination.
-3. Use the Azure Blob Upload Task to stage the data in Azure Blob Storage. Then use the SSIS Execute SQL task to launch a Polybase script that loads the data into SQL Data Warehouse. This option provides the best performance of the three options listed here. To get the Azure Blob Upload task, you have to download the [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][]. To learn more about Polybase, see [PolyBase Guide][].
+3. Use the Azure Blob Upload Task to stage the data in Azure Blob Storage. Then use the SSIS Execute SQL task to launch a Polybase script that loads the data into SQL Data Warehouse. This option provides the best performance of the three options listed here. To get the Azure Blob Upload task, download the [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][]. To learn more about Polybase, see [PolyBase Guide][].
 
 ## Before you start
 
-To step through this tutorial, you have to have the following things.
+To step through this tutorial, you need:
 
 1. **SQL Server Integration Services (SSIS)**. SSIS is a component of SQL Server and requires an evaluation version or a licensed version of SQL Server. To get an evaluation version of SQL Server 2016 Preview, see [SQL Server Evaluations][].
 2. **Visual Studio**. To get the free Visual Studio 2015 Community Edition, see [Visual Studio Community][].
