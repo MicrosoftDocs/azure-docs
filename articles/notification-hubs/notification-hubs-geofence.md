@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/16/2016"
+	ms.date="05/31/2016"
 	ms.author="dendeli"/>
     
 # Geo-fenced push notifications with Azure Notification Hubs and Bing Spatial Data
