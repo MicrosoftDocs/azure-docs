@@ -8,7 +8,7 @@ GitHub is a relatively easy way (once you get over the Git hump) to author and p
 
 - **Conceptual and procedural articles** belong in the azure-content​/azure-content-pr repositories for publication to http://azure.microsoft.com/documentation/articles​.
 
-- **Reference content** (managed reference, REST APIs, PowerShell cmdlet help, schema reference, error reference) belongs in the MSDN scoped Azure library (http://msdn.microsoft.com/library/azure/). Node, Ruby, and other language reference content belongs on http://azure.github.io/​.
+- **Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference belongs in the MSDN scoped Azure library (http://msdn.microsoft.com/library/azure/). Node, Ruby, and other language reference content belongs on http://azure.github.io/​.
 
 - **First person/announcements**: Content written in the first person voice and that is generally related to announcements and promotions typically belongs on the Azure blog.
 
