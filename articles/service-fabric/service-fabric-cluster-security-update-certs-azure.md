@@ -43,7 +43,7 @@ Here is the process to remove an old certificate so that the cluster does not us
 Read these articles for more information on cluster management:
 
 - [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
-- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+- [Setup role-based access for clients](service-fabric-cluster-security-roles.md).
 
 
 <!--Image references-->
