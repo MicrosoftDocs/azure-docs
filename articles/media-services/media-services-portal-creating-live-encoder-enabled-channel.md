@@ -72,7 +72,7 @@ In this tutorial, the Azure Classic Portal is used to accomplish the following t
 The following are required to complete the tutorial.
 
 - To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
-For details, see [Azure Free Trial](azure.microsoft.com).
+For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - A webcam and an encoder that can send a single bitrate live stream.
 
