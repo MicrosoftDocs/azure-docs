@@ -47,9 +47,7 @@ The timer trigger handles multi-instance scale-out automatically: only a single 
 
 ## Format of schedule expression
 
-The schedule expression can be a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  {second} {minute} {hour} {day} {month} {day of the week}. Many of the cron expression documents you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
-
-The schedule expression may also be in the format *hh:mm:ss* to specify the delay between each time the function is triggered. 
+The schedule expression is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields:  {second} {minute} {hour} {day} {month} {day of the week}. Many of the cron expression documents you find online omit the {second} field, so if you copy from one of those you'll have to adjust for the extra field. 
 
 Here are some schedule expression examples.
 
@@ -65,13 +63,6 @@ To trigger immediately and then every two hours thereafter:
 ```json
 "schedule": "0 0 */2 * * *",
 "runOnStartup": true,
-```
-
-To trigger every 15 seconds:
-
-```json
-"schedule": "00:00:15",
-"runOnStartup": false,
 ```
 
 ## Timer trigger C# code example

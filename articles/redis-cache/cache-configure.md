@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -126,7 +126,7 @@ Click **Advanced settings** to configure Redis keyspace notifications. Keyspace 
 For more information, see [Redis Keyspace Notifications](http://redis.io/topics/notifications). For sample code, see the [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) file in the [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
 <a name="recommendations"></a>
-### Redis Cache Advisor
+## Redis Cache Advisor
 
 The **Recommendations** blade displays recommendations for your cache. During normal operations, no recommendations are displayed. 
 
@@ -322,6 +322,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 >-	SAVE
 >-	SHUTDOWN
 >-	SLAVEOF
+>-	CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
 
 For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 

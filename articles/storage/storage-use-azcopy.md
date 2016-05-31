@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
@@ -374,13 +374,15 @@ You can run the following command to import entities into a table using the mani
 
 ### Only copy data that doesn't exist in the destination
 
-The `/XO` and `/XN` parameters allow you to exclude older or newer source resources from being copied, respectively. Not supported when either the source or destination is a table. If you only want to copy source resources that don't exist in the destination, you can specify both parameters in the AzCopy command:
+The `/XO` and `/XN` parameters allow you to exclude older or newer source resources from being copied, respectively. If you only want to copy source resources that don't exist in the destination, you can specify both parameters in the AzCopy command:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
 	/Source:C:\myfolder /Dest:http://myaccount.file.core.windows.net/myfileshare /DestKey:<destkey> /S /XO /XN
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
+
+Note: This is not supported when either the source or destination is a table.
 
 ### Use a response file to specify command-line parameters
 
