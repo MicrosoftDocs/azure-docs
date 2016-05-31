@@ -93,7 +93,29 @@ To create and change the number of streaming reserved units, do the following:
 
 	>[AZURE.NOTE]The allocation of any new units can take up to 20 minutes to complete.
 	
-##Create and start a pass-through channel
+##Create and start pass-through channels and events
+
+###Overview
+
+A channel is associated with events/programs that enable you to control the publishing and storage of segments in a live stream. Channels manage events. 
+	
+You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Events can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
+
+Each event is associated with an asset. To publish the event you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
+
+A channel supports up to three concurrently running events so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
+
+You should not reuse existing live events. Instead, create and start a new event for each event.
+
+Start the event when you are ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event. 
+
+To delete archived content, stop and delete the event and then delete the associated asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
+
+Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
+
+If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
+
+###Create the channel 
 
 This sections shows how to use the **Quick Create** option to create a pass-through channel.
 
@@ -110,6 +132,8 @@ For more details about pass-through channels, see [Live streaming with on-premis
 	![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
 	The channel also adds, starts and publishes a default live event/program. This event is configured to have 8 hours of archive window. 
+
+	
 3. To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
  
 	![Created](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
@@ -123,10 +147,11 @@ For more details about pass-through channels, see [Live streaming with on-premis
 - A channel can be stopped only when all events/programs on the channel have been stopped.
 - A channel can be deleted only when all programs on the channel have been deleted.
 
-1. Select an event and press **Stop** and then **Delete**.
+##View assets
 
-	Do it for all events in this channel.  
-2. Stop and delete the channel.
+In the **Setting** window, click **Assets**.
+
+![Assets](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
 ##Media Services learning paths
 
