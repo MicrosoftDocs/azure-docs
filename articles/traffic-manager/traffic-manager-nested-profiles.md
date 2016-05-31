@@ -106,7 +106,7 @@ Nested Traffic Manager profiles can be configured using both Azure Resource Mana
 ### How many layers of nesting does Traffic Manger support?
 You can nest profiles up to 10 levels deep.  ‘Loops’ are not permitted.
 
-### Can I mix other endpoint types (e.g. Public IP addresses, Cloud Services, Web Apps, and External Endpoints) with nested ‘child’ profiles, in the same Traffic Manager profile?
+### Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?
 
 Yes. There are no restrictions on how you combine endpoints of different types within a profile.
 
@@ -126,9 +126,9 @@ No, there is no performance impact incurred when using nested profiles.
 
 The Traffic Manager name servers will traverse the profile hierarchy internally when processing each DNS query, so a DNS query to a parent profile can receive a DNS response with an endpoint from a child profile.
 
-Thus only a single CNAME record is used, the same as when using a single Traffic Manager profile. A chain of CNAME records, one for each profile in the hierarchy, is not required, and thus no performance penalty is incurred.
+Thus only a single CNAME record is used, the same as when using a single Traffic Manager profile. A chain of CNAME records, one for each profile in the hierarchy, is **not** required, and thus no performance penalty is incurred.
 
-### How exactly does Traffic Manager compute the health of a nested endpoint in a parent profile, based on the health of the child profile?
+### How does Traffic Manager compute the health of a nested endpoint in a parent profile, based on the health of the child profile?
 
 Where a parent profile is configured with a child profile as a nested endpoint, the parent doesn’t perform health checks on the child directly. Instead, the health of the child profile’s endpoints is used to calculate the overall health of the child profile, and this information is propagated up the nested profile hierarchy to determine the health of the nested endpoint within the parent profile.  This determines whether the parent profile will direct traffic to the child.
 
