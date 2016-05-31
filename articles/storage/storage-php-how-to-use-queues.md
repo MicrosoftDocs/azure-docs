@@ -3,8 +3,8 @@
 	description="Learn how to use the Azure Queue storage service to create and delete queues, and insert, get, and delete messages. Samples are written in PHP."
 	documentationCenter="php"
 	services="storage"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="allclark"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/08/2016"
-	ms.author="robmcm"/>
+	ms.date="05/31/2016"
+	ms.author="allclark,yaqiyang"/>
 
 # How to use Queue storage from PHP
 
