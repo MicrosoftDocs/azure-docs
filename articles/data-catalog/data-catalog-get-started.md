@@ -208,24 +208,30 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to a 
 
 In this exercise you connected to data assets discovered using **Azure Data Catalog**. The **Azure Data Catalog** portal allows users to connect directly using the client applications integrated into its **Open in…** menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.
 
-## Remove data source metadata
+## Remove data assets
 
 In this exercise you will use the **Azure Data Catalog** portal to remove preview data from registered data assets, and to delete data assets from the catalog.
-
-> [AZURE.NOTE] The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered. The management capabilities included in the **Standard Edition of Azure Data Catalog** provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.
 
 In **Azure Data Catalog**, you can delete an individual asset or delete multiple assets.
 
 ### Here’s how to delete multiple data assets
 
-1. Go to https://azure.microsoft.com/services/data-catalog, click **Get started**, and log into the **Azure Data Catalog** portal.
-2. Click **Discover**.
-3. Choose one or more data assets.
-4. Click **Delete**.
+1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+2. In the Search text box, enter **(**tags:description AND timestamp > "5/22/2016"**)** and press **ENTER**. 
+	
+	> [AZURE.NOTE] Replace the date with the yesterday's date.
+3. Select an item in the result list, for example, ProductDescription by clicking the check box in the top-right corner and click Delete on the toolbar as shown in the following image. 
 
-In this exercise you removed registered data assets from the catalog.
+	![Azure Data Catalog - Delete grid item](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
+	
+	If you are using the list view (instead of grid view), check box is to the left of the item as shown in the following image. 
 
-## Exercise 8: Managing registered data sources
+	![Azure Data Catalog - Delete list item](media/data-catalog-get-started/data-catalog-delete-list-item.png)
+
+
+> [AZURE.NOTE] The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered. The management capabilities included in the **Standard Edition of Azure Data Catalog** provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.
+
+## Manage registered data assets
 
 In this exercise you will use the management capabilities of **Azure Data Catalog** to take ownership of data assets and to control what users can discover and how users manage those assets.
 
@@ -234,15 +240,18 @@ In **Azure Data Catalog**, you can take ownership of data assets, add co-owners 
 
 ### Here’s how to take ownership of data assets and restrict visibility
 
-1. Go to https://azure.microsoft.com/services/data-catalog, click **Get started**, and log into the **Azure Data Catalog** portal.
-2. Click **Discover**.
-3. Choose one or more data assets.
-4. In the **Properties** panel, **Management** section, click **Take Ownership**.
-5. To restrict visibility, click **Owners & These Users**.
+1. Navigate to [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+2. In the Search text box, enter **(**tags:description AND timestamp > "5/22/2016"**)** and press **ENTER**. 
+	
+	> [AZURE.NOTE] Replace the date with the yesterday's date.
+3. Select an item in the result list, for example, **Product** by clicking the check box in the top-right corner and click Take Ownership on the toolbar as shown in the following image. 
+4. In the **Properties** panel, **Management** section, click **Take Ownership** under **Management** section in the right pane. 
+
+	![Azure Data Catalog - Take ownership](media/data-catalog-get-started/data-catalog-take-ownership.png)
+5. To restrict visibility, click **Owners & These Users** in the **Visibility** section and click **Add**. Enter user email address in the text box and press ENTER. 
 
     ![](media/data-catalog-get-started/data-catalog-ownership.png)
 
-In this exercise you explored the management capabilities of **Azure Data Catalog**, and restricted visibility on selected data assets.
 
 ## Summary
 
