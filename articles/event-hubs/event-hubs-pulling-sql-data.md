@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="05/31/2016"
-   ms.author="spyros;spyrossak" />
+   ms.author="spyros;sethm" />
 
 # Pulling data from SQL into an Azure Event Hub
 
