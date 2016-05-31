@@ -103,7 +103,7 @@ To migrate with minimal downtime, use [SQL Server transaction replication](sql-d
 - [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-#Learn More
+##Learn More
 
 - [SQL Database V12](sql-database-v12-whats-new.md)
 [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
