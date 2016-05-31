@@ -19,7 +19,7 @@
 
 # Implementing a highly available hybrid network architecture
 
-[AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-include.md)]
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article describes best practices for connecting an on-premises network to virtual networks on Azure by using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. The traffic flows between the on-premises network and an Azure virtual network (VNet) through an ExpressRoute connection.  If there is a loss of connectivity in the ExpressRoute circuit, traffic will be routed through an IPSec VPN tunnel. 
 
@@ -311,7 +311,7 @@ switch($PSCmdlet.ParameterSetName) {
 [getting-started-with-azure-security]: ./../azure-security-getting-started.md
 [implementing-a-multi-tier-architecture-on-Azure]: ./iaas-multi-tier.md
 [script]: #sample-solution-script
-[expressroute-prereq]: ../expressroute/expressroute-prerequisites
+[expressroute-prereq]: ../expressroute/expressroute-prerequisites.md
 [implementing-expressroute]: ./guidance-hybrid-network-expressroute.md#implementing-this-architecture
 [implementing-vpn]: ./guidance-hybrid-network-vpn.md#implementing-this-architecture
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md

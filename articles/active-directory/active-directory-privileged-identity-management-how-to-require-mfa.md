@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # How to require MFA in Azure AD Privileged Identity Management
@@ -26,7 +26,7 @@ You can also require that users complete an MFA challenge when they activate a r
 
 ## Requiring MFA in Azure AD Privileged Identity Management
 
-When you manage identities in PIM as a security administrator, you may see alerts that recommend MFA for privileged accounts. Click the security alert in the PIM dashboard, and a new blade will open with a list of the administrator accounts that should require MFA.  You can require MFA by selecting multiple roles and then clicking the **Fix** button, or you can click the ellipses next to individual roles and then click the **Fix** button.
+When you manage identities in PIM as a privileged role administrator, you may see alerts that recommend MFA for privileged accounts. Click the security alert in the PIM dashboard, and a new blade will open with a list of the administrator accounts that should require MFA.  You can require MFA by selecting multiple roles and then clicking the **Fix** button, or you can click the ellipses next to individual roles and then click the **Fix** button.
 
 > [AZURE.IMPORTANT] Since Microsoft accounts (e.g. @outlook.com, @live.com, or @hotmail.com) are not currently supported to register for Azure MFA, they will not be permitted as temporary admins for highly privileged roles. If users need to continue managing workloads using a Microsoft account, please convert them to permanent administrators for now.
 
