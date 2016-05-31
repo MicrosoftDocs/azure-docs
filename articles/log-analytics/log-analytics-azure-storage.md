@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="05/31/2016"
 	ms.author="banders"/>
 
 # Use Log Analytics to collect data from Azure storage accounts
@@ -36,11 +36,11 @@ Log Analytics can collect data for the following Azure resources:
 
 | Resource Type | Logs (Diagnostic Categories) | Log Analytics Solution |
 | --------------------------------------- | -------------------------------- | --------------- |
-| Application Insights | Availability <br> Custom Events <br> Exceptions <br> Requests <br> | Application Insights (Private Preview) |
-| API Management | | *none* (Private Preview) |
-| Automation <br> Microsoft.Automation/AutomationAccounts | JobLogs <br> JobStreams          | AzureAutomation (Private Preview) | 
+| Application Insights | Availability <br> Custom Events <br> Exceptions <br> Requests <br> | Application Insights (Preview) |
+| API Management | | *none* (Preview) |
+| Automation <br> Microsoft.Automation/AutomationAccounts | JobLogs <br> JobStreams          | AzureAutomation (Preview) | 
 | Key Vault <br> Microsoft.KeyVault/Vaults               | AuditEvent                       | KeyVault (Preview) |
-| Application Gateway <br> Microsoft.Network/ApplicationGateways   | ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog | AzureNetworking (Private Preview) |
+| Application Gateway <br> Microsoft.Network/ApplicationGateways   | ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog | AzureNetworking (Preview) |
 | Network Security Group <br> Microsoft.Network/NetworkSecurityGroups | NetworkSecurityGroupEvent <br> NetworkSecurityGroupRuleCounter | AzureNetworking (Preview) |
 | Service Fabric                          | ETWEvent <br> Operational Event <br> Reliable Actor Event <br> Reliable Service Event| ServiceFabric (Preview) |
 | Virtual Machines | Linux Syslog <br> Windows Event <br> IIS Log <br> Windows ETWEvent | *none* |
@@ -71,8 +71,6 @@ Before Log Analytics can collect data for these resources, Azure diagnostics mus
 + [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
 + [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md)
  
->[AZURE.NOTE] For the resource you want Log Analytics to collect logs, you will need to enable each log Category in Azure diagnostics. I.e. For Automation you need to collect both JobLogs and JobStreams; For Network Security Groups you need to collect both NetworkSecurityGroupEvent and NetworkSecurityGroupRuleCounter. If you only enable diagnostics for one of these Categories, then the data for the selected category will not be collected.   
-
 
 ### Configure Log Analytics to collect Azure Diagnostics written to Blob in JSON format
 
