@@ -20,7 +20,7 @@
 
 ## Overview
 
-Azure offers several ways to host web sites: [Azure App Service][], [Cloud Services][], [Virtual Machines][], and [Service Fabric][]. This article helps you understand the options and make the right choice for your web application.
+Azure offers several ways to host web sites: [Azure App Service][], [Virtual Machines][], [Service Fabric][], and [Cloud Services][]. This article helps you understand the options and make the right choice for your web application.
 
 Azure App Service is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure App Service easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature makes it easy to add background job processing to your App Service web app.
 
