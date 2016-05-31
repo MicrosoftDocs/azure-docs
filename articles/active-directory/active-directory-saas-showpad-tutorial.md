@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Novatus | Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with Showpad | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and Showpad."
 	services="active-directory"
 	documentationCenter=""
