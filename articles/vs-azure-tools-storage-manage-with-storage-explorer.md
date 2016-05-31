@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher" />
 
 # Manage Azure storage resources with Storage Explorer (Preview)
@@ -42,8 +42,8 @@ To see your Azure storage resources in Storage Explorer, you need to log in to a
 ### Attach an external storage
 
 1. Get the account name and key for the storage account you want to attach.
-	1.	In the Azure preview portal, choose the storage account that want to attach.
-	1.	In the **Manage** section of the **Settings** pane in the Azure preview portal, choose the **Keys** button.
+	1.	In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), choose the storage account that want to attach.
+	1.	In the **Manage** section of the **Settings** pane, choose the **Keys** button.
 	1.	Copy the **Storage Account Name** and **Primary Access Key** values.
 
 		![][2]

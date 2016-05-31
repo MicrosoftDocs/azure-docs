@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure SQL Database Builds Multi-Tenant Apps"
+   pageTitle="Azure SQL Database Builds Multi-Tenant Apps With Isolation and Efficiency"
    description="Learn how SQL Database builds multi-tenant apps"
    keywords=""
    services="sql-database"
@@ -17,11 +17,11 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Azure SQL Database Builds Multi-tenant Apps
+# Builds Multi-tenant Apps with Azure SQL Database With Isolation and Efficiency
 
 ## Leverage elastic pools and build more efficient multi-tenant apps
 
-If you're a SaaS dev writing a multi-tenant app and handling many customers, you often make tradeoffs in customer performance, management, and security. With Azure SQL Database Elastic Database Pools, you no longer have to make that compromise. These Pools help you manage and monitor multi-tenant apps and gain isolation benefits of one-customer-per-database.
+If you're a SaaS dev writing a multi-tenant app and handling many customers, you often make tradeoffs in customer performance, management, and security. With Azure SQL Database Elastic Database Pools, you no longer have to make that compromise. These pools help you manage and monitor multi-tenant apps and gain isolation benefits of one-customer-per-database. See [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
@@ -58,3 +58,13 @@ In addition to elastic pools, there are SQL Database features to help manage ope
 
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 
+
+## Next Steps
+
+Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+
+## Learn More
+
+Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+ 
+Review the [technical overview of SQL Database](sql-database-technical-overview.md).  

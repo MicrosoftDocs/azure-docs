@@ -28,7 +28,7 @@ be followed on any operating system that is capable of running Node.js.
 ## Prerequisites
 
 - Node.js. Installation binaries are [here](https://nodejs.org/).
-- Yoeman. Installation instructions are [here](http://yeoman.io/).
+- Yeoman. Installation instructions are [here](http://yeoman.io/).
 - Git. Installation binaries are [here](http://www.git-scm.com/downloads).
 - Azure CLI. Installation instructions are [here](../xplat-cli-install.md).
 - A Microsoft Azure account. If you don't have an account, you can
@@ -37,7 +37,7 @@ be followed on any operating system that is capable of running Node.js.
 
 ## Create and deploy a simple Node.js web app
 
-1. Open the command-line terminal of your choice install the [Express generator for Yoeman](https://github.com/petecoop/generator-express).
+1. Open the command-line terminal of your choice install the [Express generator for Yeoman](https://github.com/petecoop/generator-express).
 
         npm install -g generator-express
 

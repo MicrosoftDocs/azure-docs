@@ -44,7 +44,7 @@ Don't have time to complete the tutorial and just want to get the full sample Po
 	<tr><th>Script Uri</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
 	<tr><th>Date Modified</th>
-		<td>04/26/2015</td></tr>
+		<td>04/26/2016</td></tr>
 	<tr><th>Supported HDInsight Versions</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Change Log</th>

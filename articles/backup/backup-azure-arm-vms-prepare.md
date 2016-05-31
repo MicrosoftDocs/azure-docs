@@ -21,12 +21,12 @@
 # Prepare your environment to back up ARM virtual machines
 
 > [AZURE.SELECTOR]
-- [Prepare to back up ARM VMs](backup-azure-arm-vms-prepare.md)
-- [Prepare to back up Azure VMs](backup-azure-vms-prepare.md)
+- [Resource manager model](backup-azure-arm-vms-prepare.md)
+- [Classic model](backup-azure-vms-prepare.md)
 
 This article provides the steps for preparing your environment to back up an Azure Resource Manager (ARM) virtual machine (VM). The steps shown in the procedures use the Azure portal.  
 
-The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects both Classic-deployed or ARM-deployed VMs. You must use a Recovery Services vault to protect an ARM-deployed VM.
+The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects ** both Classic-deployed or ARM-deployed VMs** . You must use a Recovery Services vault to protect an ARM-deployed VM.
 
 >[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 
@@ -46,7 +46,7 @@ Before you prepare your environment, please understand the limitations.
 
 - Backing up virtual machines with more than 16 data disks is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
-- Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup. If you attempt to restore the VM before deleting the existing VM, the restore operation fails.
+- Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 - Cross-region backup and restore is not supported.
 - You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - You can back up virtual machines only for select operating system versions:
@@ -90,19 +90,29 @@ To create a recovery services vault:
 
     >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, you will need to create a Recovery Services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the Recovery Services vault and the Azure Backup service handle this automatically.
 
-8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal.
-Once your vault is created, it opens in the portal.
+8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it appears in the list of Recovery Services vaults.
 
-9. In your vault, click **All settings** > **Backup Configuration** to view the **Storage replication type**. Choose the storage replication option for your vault.
+    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration.png)
+    Now that you've created your vault, learn how to set the storage replication.
 
-    By default, your vault has geo-redundant storage. Choose geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+## Set Storage Replication
+
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+
+To edit the storage replication setting:
+
+1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
+
+2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
+
+    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
     After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
 
-## Select a scenario set policy and define items to protect
+## Select a backup goal, set policy and define items to protect
+
 Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
 
 1. If you already have a Recovery Services vault open, proceed to step 2. If you do not have a Recovery Services vault open, but are in the Azure portal,
@@ -128,31 +138,33 @@ on the Hub menu, click **Browse**.
 
     ![Discover VMs](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
 
-3. On the Backup blade, click **Scenario** to open the Scenario blade.
+3. On the Backup blade, click **Backup goal** to open the Backup Goal blade.
 
-    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-scenario-one.png)
+    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
 
-4. On the Scenario blade, from the **Backup Type** menu, select **Azure virtual machine backup** and click **OK**.
+4. On the Backup Goal blade, set **Where is your workload running** to Azure and  **What do you want to backup** to Virtual machine, then click **OK**.
 
-    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-rs-backup-scenario-two.png)
+    The Backup Goal blade closes and the Backup policy blade opens.
 
-    The Scenario blade closes and the Backup Policy blade opens.
+    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
 
-5. On the Backup blade, select the backup policy you want to apply to the vault and click **OK**.
+5. On the Backup policy blade, select the backup policy you want to apply to the vault and click **OK**.
 
-    ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy.png)
+    ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    The default policy is listed in the details. If you want to create a new policy, select **Create New**. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click OK, the backup policy is associated with the vault. Next choose the VMs to associate with the vault.
+    The details of the default policy is listed in the details. If you want to create a new policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
+
+    Next choose the VMs to associate with the vault.
 
 6. Choose the virtual machines to associate with the specified policy and click **Select**.
 
-    ![Select workload](./media/backup-azure-vms-first-look-arm/select-vms-to-backup.png)
+    ![Select workload](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
 
-    If you do not see the desired VM in the list, click **Refresh**. If you still do not see the desired VM, check that it exists in the same Azure location as the Recovery Services vault.
+    If you do not see the desired VM, check that it exists in the same Azure location as the Recovery Services vault.
 
 7. Now that you have defined all settings for the vault, in the Backup blade click **Enable Backup** at the bottom of the page. This deploys the policy to the vault and the VMs.
 
-    ![Enable Backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings.png)
+    ![Enable Backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
 
 The next phase in preparation is installing the VM Agent or making sure the VM Agent is installed.
 
@@ -216,28 +228,49 @@ To use an HTTP proxy to communicating to the public Internet, follow these steps
 
 #### Step 1. Configure outgoing network connections
 
-To establish a machine-wide proxy configuration for any outgoing HTTP/HTTPS traffic, follow the instructions for the appropriate VM platform.
+###### For Windows machines
+This will setup proxy server configuration for Local System Account. 
 
-For Windows machines run the following command in an elevated command prompt:
+1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+2. Run following command from elevated prompt,
+
+     ```
+     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
+     ```
+     It will open internet explorer window.
+3. Go to Tools -> Internet Options -> Connections -> LAN settings.
+4. Verify proxy settings for System account. Set Proxy IP and port. 
+5. Close Internet Explorer.
+
+This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+   
+If you have setup a proxy server on a current user account(not a Local System Account), use the following script to apply them to SYSTEMACCOUNT:
 
 ```
-netsh winhttp set proxy http://<proxy IP>:<proxy port>
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
+>[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly. 
 
-For Linux machines: <br/>
-- Add the following line to the ```/etc/environment``` file:
+######For Linux machines 
 
-  ```
-  http_proxy=http://<proxy IP>:<proxy port>
-  ```
+Add the following line to the ```/etc/environment``` file:
 
-- Add the following lines to the ```/etc/waagent.conf``` file:
+```
+http_proxy=http://<proxy IP>:<proxy port>
+```
 
-  ```
-  HttpProxy.Host=<proxy IP>
-  HttpProxy.Port=<proxy port>
-  ```
+Add the following lines to the ```/etc/waagent.conf``` file:
+   
+```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
 
 #### Step 2. Allow incoming connections on the proxy server:
 

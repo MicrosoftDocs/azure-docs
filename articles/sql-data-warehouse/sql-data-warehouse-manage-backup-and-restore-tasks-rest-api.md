@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Backup and restore in Azure SQL Data Warehouse (PowerShell) | Microsoft Azure"
+   pageTitle="Backup and restore in Azure SQL Data Warehouse (REST) | Microsoft Azure"
    description="REST API tasks for restoring a live, deleted, or inaccessible database in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -16,7 +16,7 @@
    ms.date="05/05/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
-# Backup and restore a database in Azure SQL Data Warehouse (PowerShell)
+# Backup and restore a database in Azure SQL Data Warehouse (REST)
 
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-manage-backup-and-restore.md)
@@ -59,7 +59,7 @@ To restore a deleted database
 
 >[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
-## Restore from an Azure geographical region
+## Geo-Restore a data warehouse from a geo-redundant backup
 
 To perform a geo-restore:
 

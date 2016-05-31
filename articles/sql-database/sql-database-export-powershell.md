@@ -24,7 +24,7 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-This article provides directions for archiving your Azure SQL database to a BACPAC file stored in Azurte blob storage using PowerShell.
+This article provides directions for archiving your Azure SQL database to a BACPAC file stored in Azure blob storage using PowerShell.
 
 When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of BACPAC. A BACPAC file can later be stored in Azure blob storage or in local storage in an on-premises location and later inmported back into Azure SQL Database or into a SQL Server on-premises installation. 
 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configure cost management | Microsoft Azure"
-	description="Learn how to configure your DevTest Lab cost management features."
+	pageTitle="Monthly estimated cost trend | Microsoft Azure"
+	description="Learn about the DevTest Labs monthly estimated cost trend chart."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/25/2016"
 	ms.author="tarcher"/>
 
-# Configure cost management
+# Monthly estimated cost trend
 
 ## Overview
 
 The Cost Management feature of DevTest Labs helps you track the cost of your lab. 
-This article illustrates how to use the **Monthly Estimated Cost Trend** chart  
+This article illustrates how to use the **Monthly Estimated Cost Trend** chart 
 to view the current calendar month's estimated cost-to-date as well as the projected end-of-month cost for the current calendar month.
 
-## Enabling the Monthly Estimated Cost Trend chart
+## Viewing the Monthly Estimated Cost Trend chart
 
-In order to enable the Monthly Estimated Cost Trend chart, follow these steps: 
+In order to view the Monthly Estimated Cost Trend chart, follow these steps: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -38,28 +38,28 @@ In order to enable the Monthly Estimated Cost Trend chart, follow these steps:
 
 	![Settings](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. On the lab's **Settings** blade, under **Cost Policies**, tap **Cost Thresholds**.
+1. On the lab's **Settings** blade, under **Cost Management**, tap **Thresholds**.
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
-1. On the **Cost Thresholds** blade, tap **On** to enable this feature, and **Off** to disable it.
+1. The following screen shot shows an example of a cost chart. 
 
-1. Tap **Save**.
+    ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 
-Once you enable this feature, it can take several hours before the chart will display your estimated and projected costs.
-This is because a service runs every hour to gather this information, but runs a few hours behind the live data being collected.
-For example, let's say you start a VM at 1:00 AM. The cost associated with that VM probably won't be incorporated into
-the cost chart for a couple of hours.
+The **Estimated cost** value is the current calendar month's estimated cost-to-date while the **Projected cost** is the estimated cost for the entire current calendar month,
+calculated using the the lab cost for the previous 5 days.
  
-The following screen shot shows an example of a cost chart. 
+Note that the cost amounts are rounded up to the next whole number. For example: 
 
-![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
-
-The **Estimated Cost** value is the current calendar month's estimated cost-to-date while the **Projected Cost** is the estimated cost for the entire current calendar month. 
+- 5.01 rounds up to 6 
+- 5.50 rounds up to 6
+- 5.99 rounds up to 6
 
 As it states above the chart, the costs you see in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer rates.
 Additionally, the following are *not* included in the cost calculation:
 
+- CSP and Dreamspark subscriptions are currently not supported as DevTest Labs uses the [Azure billing APIs](../billing-usage-rate-card-overview.md) 
+to calculate the lab cost, and the Azure billing APIs do not support CSP or Dreamspark subscriptions.
 - Your offer rates. Currently, we are not able to use your offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. We are using Pay-As-You-Go rates.
 - Your taxes
 - Your discounts

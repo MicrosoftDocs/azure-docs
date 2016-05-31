@@ -206,29 +206,29 @@ Announcing the following new features:
 
 ##<a id="april_changes_15"></a>April 2015 Release
 
-###General Media Services Updates
+        ###General Media Services Updates
 
-- [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
-- Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-manage-channels-overview.md#channel_input)
-- Azure Media Indexer updates
-	- Support for Spanish Language
-	- New configuration xml format
-	
-	For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
-###Media Services .NET SDK Updates
+        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+        - Azure Media Indexer updates
+        - Support for Spanish Language
+        - New configuration xml format
 
-Azure Media Services .NET SDK is now version 3.2.0.0.
+        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+        ###Media Services .NET SDK Updates
 
-The following are some of the customer facing updates:
- 
-- **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type. 
-- Updates related to creating custom retry policies. 
-- Bug fixes related to uploading/downloading files. 
-- The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
+        Azure Media Services .NET SDK is now version 3.2.0.0.
+
+        The following are some of the customer facing updates:
+
+        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
+        - Updates related to creating custom retry policies.
+        - Bug fixes related to uploading/downloading files.
+        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
 
 
 
-##<a id="march_changes_15"></a>March 2015 Release
+        ##<a id="march_changes_15"></a>March 2015 Release
 
 ### General Media Services Updates
 

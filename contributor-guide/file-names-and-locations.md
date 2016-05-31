@@ -24,6 +24,7 @@ Here's what you need to know:
 - Use action verbs that are specific, such as develop, buy, build, troubleshoot. No -ing words.
 - No small words - don't include a, and, the, in, or, etc.
 - All files must be in markdown and use the .md file extension.
+- Spell the words out; don't use unnapproved or unnecessary acronyms in file names
 
 ##Pattern
 
@@ -45,6 +46,7 @@ Here are a few examples of valid names that follow the pattern. :
 - virtual-machines-install-windows-server-2008r2.md
 - cache-aspnet-session-state-provider
 - azure-sdk-dotnet-release-notes-2-8
+- storsimple-disaster-recovery-using-azure-site-recovery
 
 ##Marketplace content
 
@@ -55,6 +57,10 @@ To distinguish content that focuses on partner contributions to the Azure market
 ##File name approval
 
 It's the job of our group of pull request reviewers to review file names when a new file is submitted to the repository for the first time. Pull request reviewers should review the file name and provide feedback via the pull request comment stream if changes are needed. The file name needs to be corrected before the pull request is accepted. Contributors can easily push the update to the pending pull request.
+
+##Folder names in the repo
+
+Folders should be created only for services, and the file name should match the service slug. Use only letters and hyphens, and use all lowercase letters. Obtain approval from the repository admin before you create a new folder that is not for a released service.
 
 ##Changing case in file names
 

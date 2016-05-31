@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
+	pageTitle="Customize HDInsight clusters using script actions | Microsoft Azure"
 	description="Learn how to add custom components to Linux-based HDInsight clusters using Script Actions. Script Actions are Bash scripts that on the cluster nodes, and can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="05/25/2016"
 	ms.author="larryfr"/>
 
 # Customize Linux-based HDInsight clusters using Script Action
@@ -26,6 +26,14 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 ## Understanding Script Actions
 
 A Script Action is simply a Bash script that you provide a URL to, and parameters for, and it is then ran on the HDInsight cluster nodes. The following are characteristics and features of script actions.
+
+* Must be stored on a URI that is accessible from the HDInsight cluster. The following are possible storage locations:
+
+    * A blob storage account that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
+    
+    * A publicly readable URI such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
+    
+    For examples of the URI for scripts stored in blob container (publicly readable,) see the [Example script action scripts](#example-script-action-scripts) section.
 
 * Can be restricted to __run on only certain node types__, for example head nodes or worker nodes.
 
@@ -91,6 +99,8 @@ When applying a script to a cluster, the cluster state will change to from __Run
     StartTime         : 2/23/2016 7:40:55 PM
     EndTime           : 2/23/2016 7:41:05 PM
     Status            : Succeeded
+
+> [AZURE.NOTE] If you have changed the cluster user (admin) password after the cluster was created, this may cause script actions ran against this cluster to fail. If you have any persisted script actions that target worker nodes, these may fail when you add nodes to the cluster through resize operations.
 
 ## Example Script Action scripts
 
@@ -424,13 +434,11 @@ This section provides examples on the different ways you can apply script action
 
 1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster.
 
-2. From the HDInsight cluster blade, select __Settings__.
+2. From the HDInsight cluster blade, select the __Script Actions__ tile.
 
-    ![Settings icon](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![Script actions tile](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. From the Settings blade, select __Script Actions__.
-
-    ![Script Actions link](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] You can also select __All settings__ and then select __Script Actions__ from the Settings blade.
 
 4. From the top of the Script Actions blade, select __Submit new__.
 
