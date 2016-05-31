@@ -97,6 +97,20 @@ Note that you will have to configure the /user/RevoShare/<SSH username> director
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
+## Using an Azure Data Lake Store
+
+To use Azure Data Lake Stores with your HDInsight account you’ll need to give your cluster access to each Azure Data Lake Store you’d like to use, and then reference the store in your R script in a manner similar to the use of a secondary Azure storage account described above.
+
+## Adding Cluster access to your Azure Data Lake Stores
+
+Access to an Azure Data Lake Store is established through use of an Azure Active Directory (AAD) Service Principal associated with your HDInsight cluster.  To add a Service Principal when creating your HDInsight cluster, click on the "Cluster AAD Identity" option from the Data Source tab and then click on "Create New" Service Principal. After giving it a name and password, a new tab will open that allows you to associate the Service Principal with your Azure Data Lake Stores.
+
+Note that you can also add access to an Azure Data Lake Store later by opening the Azure Data Lake Store in the Azure Portal and going to “Data Explorer -> Access”.  Here’s a sample dialog that shows creating a Service Principal and associating it with the “rkadl11” Azure Data Lake Store.
+
+![Create ADL Store Service Principle 1](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png) 
+
+
+![Create ADL Store Service Principle 2](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp2.png) 
 
 ## Use Azure Files on the Edge Node 
 
