@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Secure a Service Fabric cluster | Microsoft Azure"
-   description="How to secure a Service Fabric cluster. What are the options?"
+   pageTitle="Update certificates for an Azure cluster | Microsoft Azure"
+   description="Describes how to upload a new certificate to Azure Key Vault and update or remove a certificate for an existing Service Fabric cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -39,11 +39,11 @@ Here is the process to remove an old certificate so that the cluster does not us
 3. Click **Save**, which starts a new deployment. Once that deployment is complete, the certificate that you removed can no longer be used to connect to the cluster.
 
 ## Next steps
+Read these articles for more information on cluster management:
 
 - [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Service Fabric Health model introduction](service-fabric-health-introduction.md)
-- [Application Security and RunAs](service-fabric-application-runas-security.md)
+
 
 <!--Image references-->
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
