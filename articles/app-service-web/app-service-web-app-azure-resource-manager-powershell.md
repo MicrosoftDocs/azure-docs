@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Resource Manager based PowerShell commands for Azure Web App | Microsoft Azure"
-	description="Learn how to use the new Azure Resource Manager based PowerShell commands to manage your Azure Web Apps."
+	pageTitle="Azure Resource Manager-based PowerShell commands for Azure Web App | Microsoft Azure"
+	description="Learn how to use the new Azure Resource Manager-based PowerShell commands to manage your Azure Web Apps."
 	services="app-service\web"
 	documentationCenter=""
 	authors="ahmedelnably"
@@ -16,13 +16,13 @@
 	ms.date="05/23/2016"
 	ms.author="aelnably"/>
 
-# Using Azure Resource Manager Based PowerShell to Manage Azure Web Apps#
+# Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps#
 
-With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use Azure Resource Manager based PowerShell commands to manage Web Apps.
+With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use Azure Resource Manager-based PowerShell commands to manage Web Apps.
 
 To learn about managing Resource Groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md). 
 
-To Learn about the full list of parameters and options for the Web App Azure Resource Manager PowerShell Cmdlets, see the [full Cmdlet Reference of Web App Azure Resource Manager based PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
+To learn about the full list of parameters and options for the Web App Azure Resource Manager PowerShell cmdlets, see the [full Cmdlet Reference of Web App Azure Resource Manager-based PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
 
 ## Managing App Service Plans ##
 
@@ -71,13 +71,13 @@ To scale an existing App Service Plan, use:
 
 #### Changing the worker size of an App Service Plan ####
 
-To Change the size of workers in an existing App Service Plan, use:
+To change the size of workers in an existing App Service Plan, use:
 
     Set-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -WorkerSize Medium
 
 #### Changing the Tier of an App Service Plan ####
 
-To Change the tier of an existing App Service Plan, use:
+To change the tier of an existing App Service Plan, use:
 
     Set-AzureRmAppServicePlan -Name ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Tier Standard
 
@@ -141,12 +141,12 @@ To change the settings and configurations for an existing web app, use the **Set
 
 Example (1): use this cmdlet to change connection strings
 
-	$connectionstring = @{ “ContosoConn1” = @{ Type = “MySql”; Value = “MySqlConn”}; “ContosoConn2” = @{ Type = “SQLAzure”; Value = “SQLAzureConn”} }
-	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -ConnectionStrings $connectionstring
+	$connectionstrings = @{ ContosoConn1 = @{ Type = “MySql”; Value = “MySqlConn”}; ContosoConn2 = @{ Type = “SQLAzure”; Value = “SQLAzureConn”} }
+	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -ConnectionStrings $connectionstrings
 
 Example (2): add example for app settings
 
-	$appsettings = $appsettings = @{"appsetting1"="appsetting1value";"appsetting2"="appsetting2value"}
+	$appsettings = @{appsetting1 = "appsetting1value"; appsetting2 = "appsetting2value"}
 	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -AppSettings $appsettings
 
 
@@ -188,7 +188,7 @@ Note that this will echo the publishing profile to the command line as well outp
 
 #### Reset Publishing Profile ####
 
-To reset both the publishing password for ftp and web deploy for a web app, use:
+To reset both the publishing password for FTP and web deploy for a web app, use:
 
     Reset-AzureRmWebAppPublishingProfile -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup
 
@@ -202,4 +202,4 @@ To learn about how to manage web app certificates, see [SSL Certificates binding
 - To learn about Azure Resource Manager PowerShell support, see [Using Azure PowerShell with Azure Resource Manager.](../powershell-azure-resource-manager.md)
 - To learn about App Service Environments, see [Introduction to App Service Environment.](app-service-app-service-environment-intro.md)
 - To learn about managing App Service SSL certificates using PowerShell, see [SSL Certificates binding using PowerShell.](app-service-web-app-powershell-ssl-binding.md)
-- To learn about the full list of Azure Resource Manager based PowerShell cmdlets for Azure Web Apps, see [Azure Cmdlet Reference of Web Apps Azure Resource Manager PowerShell Cmdlets.](https://msdn.microsoft.com/library/mt619237.aspx)
+- To learn about the full list of Azure Resource Manager-based PowerShell cmdlets for Azure Web Apps, see [Azure Cmdlet Reference of Web Apps Azure Resource Manager PowerShell Cmdlets.](https://msdn.microsoft.com/library/mt619237.aspx)
