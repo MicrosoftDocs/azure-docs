@@ -156,9 +156,11 @@ For more details about pass-through channels, see [Live streaming with on-premis
 - A channel can be stopped only when all events/programs on the channel have been stopped.  Once the Channel is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 - A channel can be deleted only when all live events on the channel have been deleted.
 
-##View assets
+##View archived content
 
-In the **Setting** window, click **Assets**.
+Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
+
+To manage your assets select **Setting** and click **Assets**.
 
 ![Assets](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
