@@ -119,7 +119,7 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 
 
 ###   Scenario 4. Stop the extension from collecting any logs
-This section describes how to stop the extension from collecting any logs. Note that the monitoring agent process will be still up and running even with this reconfiguration. Therefore, if you'd like to completely stop the monitoring agent process, currently the extension needs to be turned off on the new Azure Portal, or needs to be uninstalled if you have to use Azure Powershell or XPLAT CLI. In the future, we may add a configuration property that just disables the extension (stopping the monitoring agent process entirely as well) through Azure Powershell or XPLAT CLI, not requiring the uninstallation of the whole extension.
+This section describes how to stop the extension from collecting any logs. Note that the monitoring agent process will be still up and running even with this reconfiguration. If you'd like to completely stop the monitoring agent process, you can do so by disabling the extension. The command to disable the extension is **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
 Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content.
 
