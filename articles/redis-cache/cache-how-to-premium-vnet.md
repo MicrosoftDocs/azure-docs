@@ -50,11 +50,11 @@ After the cache is created, you can view the configuration for the VNET by click
 ![Virtual network][redis-cache-vnet-info]
 
 
->[AZURE.IMPORTANT] To connect to your Azure Redis cache instance when using a VNET, specify the host name of your cache in the connection string using an `sslhost` parameter with the endpoint of your cache as shown in the following example.
+To connect to your Azure Redis cache instance when using a VNET, specify the host name of your cache in the connection string as shown in the following example.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
-	    return ConnectionMultiplexer.Connect("sslhost=contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+	    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
 	});
 	
 	public static ConnectionMultiplexer Connection
