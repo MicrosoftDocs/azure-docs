@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/26/2016"
+    ms.date="05/31/2016"
     ms.author="spyros;sethm" />
 
 # Pulling public data into Azure Event Hubs
