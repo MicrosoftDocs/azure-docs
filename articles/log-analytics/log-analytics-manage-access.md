@@ -106,7 +106,7 @@ Use the following steps to add a user or group to an OMS workspace. The user or 
     - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or  group.
     - Use Microsoft Support to give a Microsoft Support engineer temporary access to your workspace to help with troubleshooting.
 
-    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors and one for readonly users. Using more groups might impact the performance of Log Analytics.
+    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
 7. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
 8. Click **Add**.
