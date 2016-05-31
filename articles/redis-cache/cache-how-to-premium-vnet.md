@@ -75,6 +75,12 @@ When Azure Redis Cache is hosted in a VNET, the ports in the following table are
 | 20226       | Inbound+Outbound | TCP                | Implementation Detail for Redis Clusters                                          | VIRTUAL_NETWORK                     |
 
 
+There are network connectivity requirements for Azure Redis Cache that may not be initially met in a virtual network. Azure Redis Cache requires all of the following in order to function properly when used within a virtual network.
+
+-  Outbound network connectivity to Azure Storage endpoints worldwide. This includes endpoints located in the same region as the Azure Redis Cache instance, as well as storage endpoints located in **other** Azure regions. Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* and *file.core.windows.net*. 
+-  Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com* and *crl.microsoft.com*. This is needed to support SSL functionality.
+-  The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
+
 
 
 ### Can I use VNETs with a standard or basic cache?
@@ -84,15 +90,6 @@ VNETs can only be used with premium caches.
 ### Can I use ExpressRoute with Azure Redis Cache?
 
 Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure, thus extending their on-premises network to Azure. 
-
-There are network connectivity requirements for Azure Redis Cache that may not be initially met in a virtual network connected to an ExpressRoute. Azure Redis Cache requires all of the following in order to function properly when used with ExpressRoute.
-
--  Outbound network connectivity to Azure Storage endpoints worldwide. This includes endpoints located in the same region as the Azure Redis Cache instance, as well as storage endpoints located in **other** Azure regions. Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* and *file.core.windows.net*. 
--  Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com* and *crl.microsoft.com*. This is needed to support SSL functionality.
--  The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points.
-	-   These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
--  Although this is not a typical usage scenario when using Azure Redis Cache due to performance reasons, the outbound network path cannot travel through internal corporate proxies, nor can it be force tunneled to on-premises. Doing so changes the effective NAT address of outbound network traffic from the Azure Redis Cache. Changing the NAT address of an Azure Redis Cache instance's outbound network traffic will cause connectivity failures to many of the endpoints listed above. This results in failed Azure Redis Cache creation attempts. 
--  Inbound network access to required ports for Azure Redis Cache must be allowed as described in the ports table in the previous [What are some common misconfiguration issues with Azure Redis Cache and VNETs?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets) section. These network access requirements can be met by configuring a [network security group](../virtual-network/virtual-networks-nsg.md) on the subnet to allow the required access.
 
 By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity. With this configuration client applications will be able to connect to other Azure endpoints including Azure Redis Cache.
 
