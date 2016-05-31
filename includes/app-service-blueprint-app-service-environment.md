@@ -7,3 +7,4 @@
 * [Securing Inbound Traffic](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
 * [Connecting to Backend Resources](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [ExpressRoute and App Service Environments](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
+* [Custom Configuration Settings for App Service Environments](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)

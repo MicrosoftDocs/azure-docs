@@ -16,46 +16,46 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
-  # Logic Apps Loops, Scopes, and Debatching
+# Logic Apps Loops, Scopes, and Debatching
   
-  >[AZURE.NOTE] This version of the article applies to Logic Apps 2016-04-01-preview schema and later.  Concepts are similar for older schemas, but scopes are only available for this schema and later.
+>[AZURE.NOTE] This version of the article applies to Logic Apps 2016-04-01-preview schema and later.  Concepts are similar for older schemas, but scopes are only available for this schema and later.
   
-  ## ForEach Loop and Arrays
+## ForEach Loop and Arrays
   
-  Logic Apps allows you to loop over a set of data and perform an action for each item.  This is possible via the `foreach` action.  In the designer, you can specify to add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  Currently you are limited to only one action per foreach loop, but this restriction will be lifted in the coming weeks.  Once within the loop you can begin to specify what should occur at each value of the array.
-  
-  If using code-view, you can specify a for each loop like below.  This is an example of a for each loop that sends an email for each email address that contains 'microsoft.com':
-  
-  ```
-  {
-      "forEach_email": {
-          "type": "foreach",
-          "foreach": "@triggerBody()['emails']",
-          "expression": "@contains(item(), 'microsoft.com')",
-          "actions": {
-              "send_email": {
-                  "type": "ApiConnection",
-                  "inputs": {
-                    "body": {
-                        "to": "@item()",
-                        "from": "me@contoso.com",
-                        "message": "Hello, thank you for ordering"
+Logic Apps allows you to loop over a set of data and perform an action for each item.  This is possible via the `foreach` action.  In the designer, you can specify to add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  Currently you are limited to only one action per foreach loop, but this restriction will be lifted in the coming weeks.  Once within the loop you can begin to specify what should occur at each value of the array.
+
+If using code-view, you can specify a for each loop like below.  This is an example of a for each loop that sends an email for each email address that contains 'microsoft.com':
+
+```
+{
+    "forEach_email": {
+        "type": "foreach",
+        "foreach": "@triggerBody()['emails']",
+        "expression": "@contains(item(), 'microsoft.com')",
+        "actions": {
+            "send_email": {
+                "type": "ApiConnection",
+                "inputs": {
+                "body": {
+                    "to": "@item()",
+                    "from": "me@contoso.com",
+                    "message": "Hello, thank you for ordering"
+                }
+                "host": {
+                    "connection": {
+                        "id": "@parameters('$connections')['office365']['connection']['id']"
                     }
-                    "host": {
-                        "connection": {
-                            "id": "@parameters('$connections')['office365']['connection']['id']"
-                        }
-                    }
-                  }
-              }
-          }
-      }
-  }
-  ```
+                }
+                }
+            }
+        }
+    }
+}
+```
   
   A `foreach` action can iterate over arrays up to 5,000 rows.  Each iteration can execute in parallel, so it may be necessary to add messages to a queue if flow control is needed.
   
-  ## Until Loop
+## Until Loop
   
   You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.  There is a 1 minute delay between loop cycles.
   

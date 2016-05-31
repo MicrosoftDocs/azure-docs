@@ -55,9 +55,7 @@ The following diagram highlights the important components in this architecture (
 
 	Additionally, each of the application subnets uses UDRs for redirecting Internet requests made by VMs running in that subnet. In this example, the UDRs for the web, business, and data access tiers redirect requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet. Note that any return traffic will go directly to the originator in the web, business, or data access tiers and won't pass through on-premises network, gateway, or NVAs.
 
-	> [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network. However, such configurations do not support IPSec and are not encrypted, so you should not use this mechanism across the public Internet; BGP is more commonly used with [Azure ExpressRoute gateways][guidance-expressroute].
-	>
-	> This article focusses on using UDRs.
+	> [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The optional monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authorized DevOps staff to log in, configure, and manage the network. Note that the jump box and monitoring functions can be combined into a single VM, depending on the monitoring workload.
 
@@ -182,7 +180,7 @@ azure network nsg rule create --protocol * --source-address-prefix 192.168.0.0/1
 azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 120 --direction Inbound <<resource-group>> nva-nsg deny-other-traffic
 ```
 
-Create NSGs for each application tier subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled. For example, the web tier subnet shown in the [Architecture diagram][architecture] diagram defines an NSG with rules that block all requests other than those for port 80 that have been received from the on-premises network (192.168.0.0/16) or the VNet:
+Create NSGs for each application tier subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled. For example, the web tier subnet shown in the [Architecture diagram][architecture] defines an NSG with rules that block all requests other than those for port 80 that have been received from the on-premises network (192.168.0.0/16) or the VNet:
 
 ```cli
 azure network nsg create <<resource-group>> myapp-web-nsg <<location>>
@@ -205,7 +203,7 @@ azure network nsg rule create --protocol * --source-address-prefix * --source-po
 
 Control outbound traffic from the web, business, and data access tiers to prevent accidental disclosure of confidential information. In the example architecture, the web, business, and data access tiers are permitted access to the Internet, but all such traffic is force-tunneled through the on-premises network (as described in the [Recommendations][recommendations] section) so that it can be audited and controlled.
 
-> [AZURE.NOTE] Don't completely block Internet traffic from the web, business and application tiers as this will prevent these tiers from recording Azure diagnostic information. Azure diagnostics requires that components can read and write to an Azure storage account, which in turn requires access to the Internet.
+> [AZURE.NOTE] Don't completely block Internet traffic from the web, business and application tiers as this will prevent these tiers from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, download of VM extensions, and use of Windows KMS, among others. Azure diagnostics requires that components can read and write to an Azure storage account, which in turn requires access to the Internet.
 
 The following snippet illustrates how you can create a UDR that provides forced tunneling for the business tier:
 
@@ -326,8 +324,8 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement
 
 	```bash
     #!/bin/bash
-    sudo bash -c "echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf"
-    sudo sysctl -p /etc/sysctl.conf
+    bash -c "echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf"
+    sysctl -p /etc/sysctl.conf
 	```
 
 It is important that both of these tasks complete successfully, otherwise traffic could be blocked by the NVA.

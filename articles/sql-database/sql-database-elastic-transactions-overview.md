@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="torsteng"
    manager="jhubbard"
-   editor="sidneyh"/>
+   editor="torsteng"/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="02/23/2016"
+   ms.date="05/27/2016"
    ms.author="torsteng"/>
 
 # Distributed transactions across cloud databases
