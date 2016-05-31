@@ -77,7 +77,7 @@ Therefore, Traffic Manager does not provide an endpoint or IP address for client
 
 ### Does Traffic Manager support ‘sticky’ sessions?
 
-As explained in How Traffic Manager Works, Traffic Manager works at the DNS level.  It uses DNS responses to direct clients to the appropriate service endpoint.  Clients then connect to the service endpoint directly, not through Traffic Manager.  Therefore, Traffic Manager does not see HTTP traffic between client and server, including cookies.
+As explained [above](#how-clients-connect-using-traffic-manager), Traffic Manager works at the DNS level.  It uses DNS responses to direct clients to the appropriate service endpoint.  Clients then connect to the service endpoint directly, not through Traffic Manager.  Therefore, Traffic Manager does not see HTTP traffic between client and server, including cookies.
 
 In addition, note that the source IP address of the DNS query received by Traffic Manager is the IP address of the recursive DNS service, not the IP address of the client.
 
