@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="powershell"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="05/31/2016"
 	ms.author="richrund"/>
 
 # Configure Log Analytics to collect data from Azure Diagnostics storage
@@ -44,8 +44,8 @@ The following sections will walk you through using PowerShell to:
 
 We have provided a PowerShell script module that exports two cmdlets to assist with configuring Log Analytics: 
 
-1. `Add-AzureDiagnostiToLogAnalytics-UI` will prompt you for input and is able to set up simple configurations 
-2. `Add-AzureDiagnostiToLogAnalytics` takes the resources to monitor as input and then configures Log Analytics  
+1. `Add-AzureDiagnosticsToLogAnalyticsUI` will prompt you for input and is able to set up simple configurations 
+2. `Add-AzureDiagnosticsToLogAnalytics` takes the resources to monitor as input and then configures Log Analytics  
 
 #### Pre-requisites
 
@@ -72,10 +72,10 @@ Login-AzureRmAccount
 Add-AzureAccount
 
 # Import the module
-Import-Module Add-AzureDiagnosticsToLogAnalytics.psm1
+Import-Module ./Add-AzureDiagnosticsToLogAnalytics.psm1
 
 # Run the UI configuration script
-Add-AzureDiagnostiToLogAnalytics-UI
+Add-AzureDiagnosticsToLogAnalyticsUI
 
 ```
 
@@ -86,7 +86,7 @@ You’ll be asked to make selections for each of the following:
 + Resource instances to collect logs from
 + Log Analytics workspace that will collect the data 
 
-After this has been run you should see data collected in about 20 minutes, if not refer to the troubleshooting section below. 
+After running this script you should see records in Log Analytics about 30 minutes after new diagnostic data is written to storage. If records are not available after this time refer to the troubleshooting section below. 
 
 #### Option 2: Build a list of resources and pass them to the configuration cmdlet 
 
@@ -126,7 +126,7 @@ Add-AzureDiagnosticsToLogAnalytics $resource $workspace
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -intelligencepackname KeyVault -Enabled $true 
 
 ```
-After this has been run you should see data collected in about 20 minutes, if not refer to the troubleshooting section below. 
+After running this script you should see records in Log Analytics about 30 minutes after new diagnostic data is written to storage. If records are not available after this time refer to the troubleshooting section below.  
 
 >[AZURE.NOTE] You will not be able to see the configuration in the Azure portal. You can verify configuration using the `Get-AzureRmOperationalInsightsStorageInsight` cmdlet.  
 
