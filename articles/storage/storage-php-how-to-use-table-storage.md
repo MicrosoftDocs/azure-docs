@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="04/08/2016"
-	ms.author="allclark,yaqiyang"/>
+	ms.author="allclark;yaqiyang"/>
 
 
 # How to use table storage from PHP
