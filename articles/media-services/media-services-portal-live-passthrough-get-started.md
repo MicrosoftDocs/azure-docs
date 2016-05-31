@@ -137,17 +137,20 @@ For more details about pass-through channels, see [Live streaming with on-premis
 	The channel also adds, starts and publishes a default live event/program. This event is configured to have 8 hours of archive window. 
 
 	To add more events, press **Live Event** button.
-3. To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
- 
-	![Created](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
-
-	Live event will automatically convert to on-demand content when stopped.
 
 ##Get ingest URLs
 
 Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
 
 ![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+
+##Watch an event
+
+To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
+ 
+![Created](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
+
+Live event will automatically convert to on-demand content when stopped.
 
 ##Clean up
 
