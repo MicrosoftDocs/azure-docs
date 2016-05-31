@@ -89,6 +89,7 @@ Perform the following steps to restore your device to a target physical device.
 1. In the wizard that opens up, under **Choose volume container to failover**:
 
 	1. In the list of volume containers, select the volume containers you would like to fail over.
+	
 
 		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
