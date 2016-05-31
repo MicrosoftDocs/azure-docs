@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Secure a Service Fabric cluster | Microsoft Azure"
-   description="How to secure a Service Fabric cluster. What are the options?"
+   pageTitle="Secure a Service Fabric cluster with certificates | Microsoft Azure"
+   description="How to secure a Service Fabric cluster using X.509 certificates."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -18,9 +18,7 @@
 
 # Secure a Service Fabric cluster on Azure using certificates
 
-An Azure Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. This article walks you through the process of how to secure a cluster on Azure using certificates and how to update a certificate.
-
-To set up a secure Service Fabric cluster, you need at least one server X.509 certificate, which you upload to Azure Key Vault and use in the cluster creation process.
+An Azure Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource you must secure it, especially when it has production workloads running on it. To set up a secure Service Fabric cluster using X.509 certificates, you need at least one server X.509 certificate which you upload to Azure Key Vault and use in the cluster creation process. For more information on how Service Fabric uses X.509 certificates, see [Cluster security scenarios](service-fabric-cluster-security.md).
 
 There are three distinct steps:
 
@@ -169,7 +167,9 @@ The needed certificates are specified at the Node Type level under Security Conf
 - **Issuer Thumbprint** This provides an additional level of check that the server can perform when a client presents its credential to the server.
 
 ## Next steps
-After configuring certificate security on your cluster, resume the cluster creation process in [](service-fabric-cluster-creation-via-portal.md#step-4--complete-the-cluster-creation).
+After configuring certificate security on your cluster, resume the cluster creation process in [Step 4: Complete the cluster creation](service-fabric-cluster-creation-via-portal.md#step-4--complete-the-cluster-creation).
+
+After the cluster has been created, you can [Update a certificate](service-fabric-cluster-security-update-certs-azure.md).
 
 
 <!--Image references-->
