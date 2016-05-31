@@ -268,7 +268,7 @@ Event based alerts are subjected to following limitations:
 2. This feature in in Preview. [Learn more](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
 3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
-[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../includes/backup-create-backup-policy-for-vm.md)]
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Next steps
 

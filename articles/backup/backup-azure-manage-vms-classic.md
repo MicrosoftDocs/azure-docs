@@ -42,7 +42,7 @@ To manage protected virtual machines:
     ![Jobs](./media/backup-azure-manage-vms/backup-job.png)
 
 ## On-demand backup of a virtual machine
-You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault i.e. it is always incremental. 
+You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault i.e. it is always incremental.
 
 >[AZURE.NOTE] Retention range of an On-Demand backup is set to retention value specified for Daily retention in backup policy corresponding to the VM.  
 
@@ -213,7 +213,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **OperationName**: This will be of the format "Microsoft.Backup/backupvault/<EventName>" where EventName is one of Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Status**: Supported values are- Started, Succeeded and Failed. 
+**Status**: Supported values are- Started, Succeeded and Failed.
 
 **ResourceGroup**:ResourceGroup of the resource on which operation is triggered. You can obtain this from ResourceId value. Value between fields */resourceGroups/* and */providers/* in ResourceId value is the value for ResourceGroup.
 
@@ -224,11 +224,11 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 **SendToServiceOwners**: This option sends alert notification to all administrators and co-administrators of the subscription. It can be used in **New-AzureRmAlertRuleEmail** cmdlet
 
 ### Limitations on Alerts
-Event based alerts are subjected to following limitations:
+Event-based alerts are subjected to the following limitations:
 
-1. Alerts are triggered on all Virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
-2. This feature in in Preview. [Learn more](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
-3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender. 
+1. Alerts are triggered on all virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
+2. This feature in in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
+3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
 ## Next steps
 
