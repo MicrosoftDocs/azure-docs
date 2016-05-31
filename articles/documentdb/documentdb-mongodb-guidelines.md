@@ -23,7 +23,11 @@ You can communicate with DocumentDB through any of the open source MongoDB clien
 DocumentDB supports the core MongoDB API functions to Create, Read, Update and Delete (CRUD) data as well as query the database. The implemented capabilities have been prioritized based on the needs of common platforms, frameworks, tools, and application patterns.
 
 ## Collections
-Collections in DocumentDB are billable entities. The cost of a collection is determined by the provisioned throughput of the collection measured in request units per second along with the total consumed storage in gigabytes. The provisioned throughput can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application. For more information, see [DocumentDB performance levels](documentdb-performance-levels.md).  
+
+> [AZURE.IMPORTANT] Collections in DocumentDB are billable entities.
+
+
+DocumentDB uses reserved throughput to deliver guaranteed, predictable performance levels.  Performance reservations are applied at the collection level so that applications can adjust performance at the lowest level of data containers in the system. The cost of a collection is therefore determined by the provisioned throughput of the collection measured in request units per second along with the total consumed storage in gigabytes. The provisioned throughput can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application. For more information, see [DocumentDB performance levels](documentdb-performance-levels.md).  
 
 DocumentDB with protocol support for MongoDB collections are, by default, created at the Standard pricing tier with 1,000 RU/s of provisioned throughput.  You can adjust the provisioned throughput of each of your collections, as documented in [Changing performance levels using the Azure Portal](documentdb-performance-levels.md#changing-performance-levels-using-the-azure-portal).  
 
