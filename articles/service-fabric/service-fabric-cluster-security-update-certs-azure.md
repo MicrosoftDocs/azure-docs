@@ -43,7 +43,7 @@ Here is the process to remove an old certificate so that the cluster does not us
 Read these articles for more information on cluster management:
 
 - [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
-- [Setup role-based access for clients](service-fabric-cluster-security-roles.md).
+- [Setup role-based access for clients](service-fabric-cluster-security-roles.md)
 
 
 <!--Image references-->

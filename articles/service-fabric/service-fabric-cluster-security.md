@@ -18,7 +18,7 @@
 
 # Service Fabric Cluster security scenarios
 
-An Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. Service Fabric provides cluster security for the following scenarios:
+A Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. Service Fabric provides cluster security for the following scenarios:
 
 - **Node-to-node security:** This secures communication between the VMs and computers in the cluster. This ensures that only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster.
 
@@ -30,9 +30,9 @@ An Service Fabric cluster is a resource that you own. To prevent unauthorized ac
 
 	For either node-to-node or client-to-node security, you can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). The choices for node-to-node or client-to-node security are independent from each other, and can be the same or different.
 
-	Azure Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. A quick overview of what these certificates are and how you can acquire or create them is provided at the end of this article.
+	Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. A quick overview of what these certificates are and how you can acquire or create them is provided at the end of this article.
 
-- **Role Based Access Control (RBAC):** This restricts admin operations on the cluster to a particular set of certificates.
+- **Role Based Access Control (RBAC):** Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure. Two different access control types are supported for clients connecting to a cluster: administrator and user. Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services. You specify the administrator and user client roles at the time of cluster creation by providing separate certificates for each. For more information on the default access control settings and how to change the default settings, see [Role based access control for clients](service-fabric-cluster-security-roles).
 
 
 ## X.509 certificates and Service Fabric
