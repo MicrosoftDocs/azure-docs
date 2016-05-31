@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="05/31/2016"
 	ms.author="jimpark; markgal;"/>
 
 # Manage and monitor Azure virtual machine backups
@@ -97,7 +97,7 @@ To open a Recovery Services vault in the dashboard:
 
     ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-    For instructions on creating a backup policy, see [Defining a backup policy](#backup-create-policy-for-vm).
+    For instructions on creating a backup policy, see [Defining a backup policy](backup-azure-manage-vms.md#defining-a-backup-policy).
 
 
 ## On-demand backup of a virtual machine
@@ -164,7 +164,7 @@ To resume protection for the virtual machine
 
     >[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
 
-2. Follow the steps in [Change policies or Create a new backup policy](#change-policies-or-create-a-new-backup-policy), to assign the policy for the virtual machine.
+2. Follow the steps in [Change policies or Create a new backup policy](backup-azure-manage-vms.md#change-policies-or-create-a-new-backup-policy), to assign the policy for the virtual machine.
 
     Once the backup policy is applied to the virtual machine, you will see the following message.
 
