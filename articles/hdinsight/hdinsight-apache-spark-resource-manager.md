@@ -20,7 +20,7 @@
 
 # Manage resources for the Apache Spark cluster on HDInsight Linux (Preview)
 
-Spark on Azure HDInsight (Linux) provides the Ambari Web UI to manage the cluster resources and monitor the health of the cluster. You can also use the Spark History Server to track applications that have finished running on the cluster. You can use the YARN UI to monitor that are currently running on the cluster. This article provides instructions on how to access these UIs and how to perform some basic resource management tasks using these interfaces.
+In this article you will learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You will also learn about how to tune the cluster configuration for optimal performance.
 
 **Prerequisites:**
 
@@ -62,19 +62,15 @@ You can use the YARN UI to monitor applications that are currently running on th
 
 	>[AZURE.TIP] Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active resource manager, and then click **ResourceManager UI**.
 
-##<a name="scenariosrm"></a>How do I manage resources using the Ambari Web UI?
-
-Here are some common scenarios that you might run into with your Spark cluster, and the instructions on how to address those using the Ambari Web UI.
-
-### What is the optimum cluster configuration to run Spark applications?
+## What is the optimum cluster configuration to run Spark applications?
 
 The three key parameters that can be used for Spark configuration depending on application requirements are `spark.executor.instances`, `spark.executor.cores`, and `spark.executor.memory`. An Executor is a process launched for a Spark application. It runs on the worker node and is responsible to carry out the tasks for the application. The default number of executors and the executor sizes for each cluster is calculated based on the number of worker nodes and the worker node size. These are stored in `spark-defaults.conf` on the cluster head nodes. 
 
 The three configuration parameters can be configured at the cluster level (for all applications that run on the cluster) or can be specified for each individual application as well.
 
-#### Change the parameters using Ambari UI
+### Change the parameters using Ambari UI
 
-1. Launch the Ambari UI. Click **Spark**, click **Configs**, and then expand **Custom spark-defaults**.
+1. From the Ambari UI click **Spark**, click **Configs**, and then expand **Custom spark-defaults**.
 
 	![Set parameters using Ambari](./media/hdinsight-apache-spark-resource-manager/set-parameters-using-ambari.png)
 
@@ -87,7 +83,7 @@ The three configuration parameters can be configured at the cluster level (for a
 	![Restart services](./media/hdinsight-apache-spark-resource-manager/restart-services.png)
 
 
-#### Change the parameters for an application running in Jupyter notebook
+### Change the parameters for an application running in Jupyter notebook
 
 For applications running in the Jupyter notebook, you can use the `%%configure` magic to make the configuration changes. Ideally, you must make such changes at the beginning of the application, before you run your first code cell. This ensures that the configuration is applied to the Livy session, when it gets created. If you want to change the configuration at a later stage in the application, you must use the `-f` parameter. However, by doing so all progress in the application will be lost.
 
@@ -98,19 +94,19 @@ The snippet below shows how to change the configuration for an application runni
 
 Configuration parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. 
 
-#### Change the parameters for an application submitted using spark-submit
+### Change the parameters for an application submitted using spark-submit
 
 Following command is an example of how to change the configuration parameters for a batch application that is submitted using `spark-submit`.
 
 	spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 
-#### Change the parameters for an application submitted using cURL
+### Change the parameters for an application submitted using cURL
 
 Following command is an example of how to change the configuration parameters for a batch application that is submitted using using cURL.
 
 	curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
-#### How do I change these parameters on a Spark Thrift Server?
+### How do I change these parameters on a Spark Thrift Server?
 
 Spark Thrift Server provides JDBC/ODBC access to a Spark cluster. Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.executor.instances` is not used. Instead, Spark Thrift Server uses `spark.dynamicAllocation.minExecutors` and `spark.dynamicAllocation.maxExecutors` to specify the executor count. The configuration parameters `spark.executor.cores` and `spark.executor.memory` is used to modify the executor size. You can change these parameters as shown below.
 
@@ -122,7 +118,15 @@ Spark Thrift Server provides JDBC/ODBC access to a Spark cluster. Spark Thrift S
 
 	![Configure Spark thrift server](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-2.png)
 
-### I do not use BI with Spark cluster. How do I take the resources back?
+### How do I change the driver memory of the Spark Thrift Server?
+
+Spark Thrift Server driver memory is configured to 25% of the head node RAM size, provided the total RAM size of the head node is greater than 14GB. You can use the Ambari UI to change the driver memory configuration, as shown below.
+
+* From the Ambari UI click **Spark**, click **Configs**, expand **Advanced spark-env**, and then provide the value for **spark_thrift_cmd_opts**.
+
+	![Configure Spark thrift server RAM](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-ram.png)
+
+## I do not use BI with Spark cluster. How do I take the resources back?
 
 1. Launch the Ambari Web UI as shown above. From the left navigation pane, click **Spark**, and then click **Configs**.
 
@@ -135,7 +139,7 @@ Spark Thrift Server provides JDBC/ODBC access to a Spark cluster. Spark Thrift S
 4. At the top of the page, you should see a prompt to restart the Spark service. Click **Restart** for the changes to take affect.
 
 
-### My Jupyter notebooks are not running as expected. How can I restart the service?
+## My Jupyter notebooks are not running as expected. How can I restart the service?
 
 1. Launch the Ambari Web UI as shown above. From the left navigation pane, click **Jupyter**, click **Service Actions**, and then click **Restart All**. This will start the Jupyter service on all the headnodes.
 
