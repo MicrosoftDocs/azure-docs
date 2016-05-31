@@ -19,6 +19,10 @@
 
 # Manage and monitor Azure virtual machine backups
 
+> [AZURE.SELECTOR]
+- [Manage Azure VM backups](backup-azure-manage-vms.md)
+- [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
+
 ## Manage protected virtual machines
 
 To manage protected virtual machines:
