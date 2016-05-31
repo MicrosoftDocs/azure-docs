@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#How to perform live streaming with on-premise encoders using the Azure portal
+#How to perform live streaming with on-premise encoders using the Azure portal (preview)
 
 This tutorial walks you through the steps of creating a **Channel** that is configured for a pass-through delivery. 
 
@@ -124,27 +124,36 @@ For more details about pass-through channels, see [Live streaming with on-premis
 1. In the **Settings** window, click **Live streaming**. 
 
 	![Getting started](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
+	
+	The **Live streaming** window appears.
 
-2. In the **CREATE A NEW CHANNEL** window, click **Quick Create**. 
+3. Click **Quick Create** to create a pass-through channel with the RTMP ingest protocol.
+
+	The **CREATE A NEW CHANNEL** window appears.
+4. Give the new channel a name and click **Create**. 
 
 	This will create a pass-through channel with the RTMP ingest protocol.
 
-	![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
-
 	The channel also adds, starts and publishes a default live event/program. This event is configured to have 8 hours of archive window. 
 
-	
+	To add more events, press **Live Event** button.
 3. To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
  
 	![Created](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
 	Live event will automatically convert to on-demand content when stopped.
 
-##Stop and delete events and channels
+##Get ingest URLs
+
+Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
+
+![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
+
+##Clean up
 
 For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
-- A channel can be stopped only when all events/programs on the channel have been stopped.
+- A channel can be stopped only when all events/programs on the channel have been stopped.  Once the Channel is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
 - A channel can be deleted only when all live events on the channel have been deleted.
 
 ##View assets
