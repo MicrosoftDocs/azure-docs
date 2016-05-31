@@ -3,8 +3,8 @@
 	description="Learn how to download and install the Azure SDK for PHP."
 	documentationCenter="php"
 	services="app-service\web"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="allclark"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/08/2016"
-	ms.author="robmcm"/>
+	ms.date="05/31/2016"
+	ms.author="allclark,yaqiyang"/>
 
 #Download the Azure SDK for PHP
 
