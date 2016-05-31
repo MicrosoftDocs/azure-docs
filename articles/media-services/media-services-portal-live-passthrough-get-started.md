@@ -115,7 +115,7 @@ Even after you stop and delete the event, the users would be able to stream your
 
 If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
 
-###Create the channel 
+###Create a channel 
 
 This sections shows how to use the **Quick Create** option to create a pass-through channel.
 
@@ -145,7 +145,7 @@ For more details about pass-through channels, see [Live streaming with on-premis
 For more details about pass-through channels, see [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
 
 - A channel can be stopped only when all events/programs on the channel have been stopped.
-- A channel can be deleted only when all programs on the channel have been deleted.
+- A channel can be deleted only when all live events on the channel have been deleted.
 
 ##View assets
 
