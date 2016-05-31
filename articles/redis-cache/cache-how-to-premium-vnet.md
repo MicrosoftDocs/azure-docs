@@ -21,7 +21,7 @@ Azure Redis Cache has different cache offerings which provide flexibility in the
 
 The Azure Redis Cache premium tier includes clustering, persistence, and virtual network (VNET) support. A VNET is a private network in the cloud. When an Azure Redis Cache instance is configured with a VNET, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNET. This article describes how to configure virtual network support for a premium Azure Redis Cache instance.
 
->[AZURE.NOTE] Azure Redis Cache supports both classic and ARM VNETs. Azure Redis Cache support for ARM VNETs is in preview.
+>[AZURE.NOTE] Azure Redis Cache supports both classic and ARM VNETs.
 
 For information on other premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md) and [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
@@ -49,13 +49,29 @@ After the cache is created, you can view the configuration for the VNET by click
 
 ![Virtual network][redis-cache-vnet-info]
 
+
+>[AZURE.IMPORTANT] To connect to your Azure Redis cache instance when using a VNET, specify the host name of your cache in the connection string using an `sslhost` parameter with the endpoint of your cache as shown in the following example.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+	    return ConnectionMultiplexer.Connect("sslhost=contoso5premium.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
 ## Azure Redis Cache VNET FAQ
 
 The following list contains answers to commonly asked questions about the Azure Redis Cache scaling.
 
 -	[What are some common misconfiguration issues with Azure Redis Cache and VNETs?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 -	[Can I use VNETs with a standard or basic cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
--	[Can I use ExpressRoute with Azure Redis Cache?](#can-i-use-expressroute-with-azure-redis-cache)
+
 
 ## What are some common misconfiguration issues with Azure Redis Cache and VNETs?
 
@@ -87,7 +103,7 @@ There are network connectivity requirements for Azure Redis Cache that may not b
 
 VNETs can only be used with premium caches.
 
-### Can I use ExpressRoute with Azure Redis Cache?
+## Use ExpressRoute with Azure Redis Cache
 
 Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure, thus extending their on-premises network to Azure. 
 
