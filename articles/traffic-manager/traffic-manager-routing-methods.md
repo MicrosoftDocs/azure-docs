@@ -42,7 +42,7 @@ There are three traffic routing methods available in Traffic Manager:
 > [AZURE.NOTE] All Traffic Manager profiles include continuous monitoring of endpoint health and automatic endpoint failover.  This is supported for all traffic-routing methods.  For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md).
 
 A single Traffic Manager profile can use only one traffic routing method.  You can select a different traffic routing method for your profile at any time.  Changes are applied within 1 minute, and no downtime is incurred.
-Traffic-routing methods can be combined by using nested Traffic Manager profiles.  This enables sophisticated and flexible traffic-routing configurations to be created to meet the needs of larger and more complex applications.  
+Traffic-routing methods can be combined by using nested Traffic Manager profiles.  This enables sophisticated and flexible traffic-routing configurations to be created to meet the needs of larger and more complex applications.  For more information, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
 ## Priority traffic-routing method
 
@@ -104,9 +104,9 @@ Performance traffic-routing does not take into account the load on a given servi
 
 Points to note:
 
-- If your profile contains multiple endpoints in the same Azure region, then traffic directed to that region is distributed evenly across the available endpoints (based on the configured endpoint enabled/disabled status and the ongoing endpoint monitoring).  If you prefer a different traffic distribution within a region, this can be achieved using nested Traffic Manager profiles.
+- If your profile contains multiple endpoints in the same Azure region, then traffic directed to that region is distributed evenly across the available endpoints (based on the configured endpoint enabled/disabled status and the ongoing endpoint monitoring).  If you prefer a different traffic distribution within a region, this can be achieved using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
-- If all enabled endpoints in a given Azure region are degraded (based on the ongoing endpoint monitoring), traffic for those endpoints will be distributed across all other available endpoints that are specified in the profile, and not to the next-closest endpoint(s). This is to help avoid a cascading failure that could potentially occur if the next-closest endpoint becomes overloaded.  If you prefer to define the endpoint failover sequence, this can be achieved using nested Traffic Manager profiles.
+- If all enabled endpoints in a given Azure region are degraded (based on the ongoing endpoint monitoring), traffic for those endpoints will be distributed across all other available endpoints that are specified in the profile, and not to the next-closest endpoint(s). This is to help avoid a cascading failure that could potentially occur if the next-closest endpoint becomes overloaded.  If you prefer to define the endpoint failover sequence, this can be achieved using [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
 - When using the Performance traffic routing method with external endpoints or nested endpoints, you will need to specify the location of those endpoints. Choose the Azure region closest to your deployment—the options available are the Azure regions, since those are the locations supported by the Internet Latency Table.
 
