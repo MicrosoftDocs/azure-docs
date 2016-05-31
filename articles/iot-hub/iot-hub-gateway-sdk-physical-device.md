@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Use a real device with the Gateway SDK | Microsoft Azure"
-	description="Azure IoT Hub Gateway SDK walkthrough using a Texas Instruments SensorTag to send data to IoT hub through a gateway running on an Intel Edison Compute Module"
+	description="Azure IoT Hub Gateway SDK walkthrough using a Texas Instruments SensorTag to send data to IoT Hub through a gateway running on an Intel Edison Compute Module"
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/06/2016"
+     ms.date="05/31/2016"
      ms.author="cstreet"/>
 
 
@@ -52,8 +52,7 @@ The following block diagram illustrates the telemetry upload data flow pipeline:
 
 ![](media/iot-hub-gateway-sdk-physical-device/gateway_ble_upload_data_flow.png)
 
-Here are the steps in the journey that an item of telemetry takes from a BLE
-device to IoT Hub.
+The steps that an item of telemetry takes travelling from a BLE device to IoT Hub are:
 
 1. The BLE device generates a temperature sample and sends it over Bluetooth to the BLE module in the gateway.
 2. The BLE module receives the sample and publishes it to the message bus along with the MAC address of the device.
@@ -71,11 +70,7 @@ The following block diagram illustrates the device command data flow pipeline:
 4. The BLE module picks up this message and executes the I/O instruction by communicating with the BLE device.
 5. The logger module logs all messages from the message bus into a disk file.
 
-## Building the sample
-
-At the time of writing, the Gateway SDK only supports gateways that use BLE modules on Linux. 
-
-## Preparing your hardware
+## Prepare your hardware
 
 This tutorial assumes you are using a [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) device connected to an Intel Edison board.
 
@@ -88,7 +83,7 @@ Before you get started you should make sure that you can connect your Edison dev
 - [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx].
 - [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux].
 
-To set up your Edison device and familiarize yourself with it, you should complete all the steps in these "Get started" articles except for the last step, "Choose IDE", which is not necessary for the current tutorial. At the end of the Edison setup process you have:
+To set up your Edison device and familiarize yourself with it, you should complete all the steps in these "Get started" articles except for the last step, "Choose IDE", which is unnecessary for the current tutorial. At the end of the Edison setup process you have:
 
 - Flashed your Edison with the latest firmware.
 - Established a serial connection from your host to the Edison.
@@ -139,13 +134,13 @@ Next you need to verify that your Edison can connect to the SensorTag device.
     bluetoothctl --version
     ```
 
-2. Execute the **bluetoothctl** command. You should see output similar to the following:
+2. Execute the **bluetoothctl** command. You should see output similar to:
     
     ```
     [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
     ```
 
-3. You are now in an interactive bluetooth shell. Enter the command **scan on** to start scanning for bluetooth devices. You should see output similar to the following:
+3. You are now in an interactive bluetooth shell. Enter the command **scan on** to scan for bluetooth devices. You should see output similar to:
     
     ```
     Discovery started
@@ -208,6 +203,8 @@ To run the BLE sample on your Edison, you need to complete three tasks:
 - Build the Gateway SDK on your Edison device.
 - Configure and run the BLE sample on your Edison device.
 
+At the time of writing, the Gateway SDK only supports gateways that use BLE modules on Linux.
+
 ### Configure two sample devices in your IoT Hub
 
 - [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't already have an Azure subscription, you can get a [free account][lnk-free-trial].
@@ -241,10 +238,9 @@ When you have a complete copy of the Gateway SDK repository on your Edison, you 
 
 ### Configure and run the BLE sample on your Edison device
 
-In order to bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the Gateway SDK repository.
+To bootstrap and run the sample, you need to configure each module that participates in the gateway. This configuration is provided in a JSON file and you need to configure all five participating modules. There is a sample JSON file provided in the repository called **gateway_sample.json** which you can use as the starting point for building your own configuration file. This file is in the **samples/ble_gateway_hl/src** folder in local copy of the Gateway SDK repository.
 
-The following sections describe how to edit this configuration file for the BLE sample and assume that the gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Edison
-device. If the repository is elsewhere, you should adjust the paths accordingly:
+The following sections describe how to edit this configuration file for the BLE sample and assume that the gateway SDK repository is in the **/home/root/azure-iot-gateway-sdk/** folder on your Edison device. If the repository is elsewhere, you should adjust the paths accordingly:
 
 
 #### Logger configuration
@@ -264,7 +260,7 @@ Assuming the gateway repository is located in the folder **/home/root/azure-iot-
 
 #### BLE module configuration
 
-The sample configuration for the BLE device assumes a Texas Instruments SensorTag device. Any standard BLE device that can operate as a GATT peripheral should work but you will need to update the GATT characteristic IDs and data (for write instructions). Make sure to add the MAC address of your SensorTag device: 
+The sample configuration for the BLE device assumes a Texas Instruments SensorTag device. Any standard BLE device that can operate as a GATT peripheral should work but you will need to update the GATT characteristic IDs and data (for write instructions). Add the MAC address of your SensorTag device: 
 
 ```json
 {
@@ -320,7 +316,7 @@ The sample configuration for the BLE device assumes a Texas Instruments SensorTa
 
 #### IoT Hub HTTP module
 
-Make sure you add the name of your IoT Hub. The suffix value is typically **azure-devices.net**:
+Add the name of your IoT Hub. The suffix value is typically **azure-devices.net**:
 
 ```json
 {
@@ -335,7 +331,7 @@ Make sure you add the name of your IoT Hub. The suffix value is typically **azur
 
 #### Identity mapping module configuration
 
-Make sure you add the MAC address of your SensorTag device and the device Id and key of the **SensorTag_01** device you added to your IoT Hub:
+Add the MAC address of your SensorTag device and the device Id and key of the **SensorTag_01** device you added to your IoT Hub:
 
 ```json
 {
@@ -361,7 +357,7 @@ Make sure you add the MAC address of your SensorTag device and the device Id and
 }
 ```
 
-In order to run the sample you run the **ble_gateway_hl** binary passing the path to the JSON configuration file. If you used the **gateway_sample.json** file, the command to execute looks like this:
+To run the sample you run the **ble_gateway_hl** binary passing the path to the JSON configuration file. If you used the **gateway_sample.json** file, the command to execute looks like this:
 
 ```
 ./build/samples/ble_gateway_hl/ble_gateway_hl ./samples/ble_gateway_hl/src/gateway_sample.json
@@ -371,9 +367,9 @@ You may need to press the small button on the SensorTag to make it discoverable 
 
 When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
-## Sending cloud-to-device messages
+## Send cloud-to-device messages
 
-The BLE module also supports sending of instructions from the Azure IoT Hub to the device. You should be able to use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer] https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to craft and send JSON messages that are handled and passed on to the BLE device by the BLE module. For example, if you were using a Texas Instruments SensorTag device then you'd send the following sequence of JSON messages to the device via IoT Hub to cause the red LED on the SensorTag to light up:
+The BLE module also supports sending instructions from the Azure IoT Hub to the device. You can use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer] https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to send JSON messages that the BLE gateway module passes on to the BLE device. For example, if you are using the Texas Instruments SensorTag device then you can send the following JSON messages to the device from IoT Hub.
 
 - Reset all LEDs and the buzzer (turn them off)
 
@@ -395,7 +391,7 @@ The BLE module also supports sending of instructions from the Azure IoT Hub to t
     }
     ```
 
-- Turn on red LED
+- Turn on the red LED
 
     ```json
     {
@@ -405,7 +401,33 @@ The BLE module also supports sending of instructions from the Azure IoT Hub to t
     }
     ```
 
+- Turn on the green LED
 
+    ```json
+    {
+      "type": "write_once",
+      "characteristic_uuid": "F000AA65-0451-4000-B000-000000000000",
+      "data": "Ag=="
+    }
+    ```
+
+- Turn on the buzzer
+
+    ```json
+    {
+      "type": "write_once",
+      "characteristic_uuid": "F000AA65-0451-4000-B000-000000000000",
+      "data": "BA=="
+    }
+    ```
+
+The default behavior for a device using the HTTP protocol to connect to IoT Hub is to check every 25 minutes for a new command. Therefore, if you send several separate commands you need to wait 25 minutes for the device to receive each command.
+
+> [AZURE.NOTE] The gateway also checks for new commands whenever it starts so you can force it to process a command by stopping and starting the gateway.
+
+## Next steps
+
+For more information, see the [Azure IoT Gateway SDK][lnk-sdk].
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
