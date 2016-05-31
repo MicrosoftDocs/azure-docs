@@ -17,7 +17,7 @@
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: Upgrade from DirSync
-Azure AD Connect is the successor to DirSync. You will find the ways you can upgrade from DirSync in this topic. These steps will not work for upgrading from another release of Azure AD Connect or from Azure AD Sync.
+Azure AD Connect is the successor to DirSync. You find the ways you can upgrade from DirSync in this topic. These steps do not work for upgrading from another release of Azure AD Connect or from Azure AD Sync.
 
 Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md).
 
