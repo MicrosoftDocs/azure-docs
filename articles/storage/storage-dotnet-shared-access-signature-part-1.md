@@ -158,8 +158,8 @@ The following code example creates an account SAS that is valid for the Blob and
     static string GetAccountSASToken()
     {
         // To create the account SAS, you need to use your shared key credentials. Modify for your account.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
         // Create a new access policy for the account.
         SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()
@@ -181,8 +181,8 @@ To use the account SAS to access service-level APIs for the Blob service, constr
     {
         // In this case, we have access to the shared key credentials, so we'll use them
         // to get the Blob service endpoint.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+	    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
         // Create new storage credentials using the SAS token.
@@ -226,8 +226,8 @@ To use the account SAS to access service-level APIs for the Blob service, constr
 The following code example creates a stored access policy on a container and then generates a service SAS for the container. This SAS can then be given to clients for read-write permissions on the container. Change the code to use your own account name:
 
     // Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);

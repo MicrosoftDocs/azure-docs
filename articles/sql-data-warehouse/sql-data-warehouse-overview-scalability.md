@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/28/2016"
+   ms.date="05/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Performance scalability for Azure SQL Data Warehouse
@@ -56,7 +56,7 @@ For a list of the DWUs, see the Service Level Objectives in the [capacity limits
 
 ### How do I scale performance?
 
-To elastically increase or decrease your compute power, simply change the Data Warehouse Units (DWUs) setting for your database. Behind the scenes, SQL Data Warehouse changes CPU and memory allocations by using SQL Database's quick and simple deployment capabilities.
+To elastically increase or decrease your compute power, simply change the Data Warehouse Units (DWUs) setting for your database. Behind the scenes, SQL Data Warehouse stops your instance, changes CPU and memory allocations, then restarts your instance.
 
 DWUs are allocated in blocks of 100, but not all blocks are available. As DWUs increase performance increases linearly. At higher DWU levels, you need to add more than 100 DWUs to notice a significant improvement in performance. To help you select meaningful jumps in DWUs, we offer the DWU levels that will give the best results.
  
@@ -142,13 +142,11 @@ Please refer to the following articles to help you understand some additional ke
 [Resume compute with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
 [Resume compute with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
 
-[concurrency model]: sql-data-warehouse-develop-concurrency.md
-[designing tables]: sql-data-warehouse-develop-table-design.md
-[choose a hash distribution key for your table]: sql-data-warehouse-develop-hash-distribution-key.md
-[statistics to improve performance]: sql-data-warehouse-develop-statistics.md
-[development overview]: sql-data-warehouse-overview-develop.md
-
-
+[concurrency model]: ./sql-data-warehouse-develop-concurrency.md
+[designing tables]: ./sql-data-warehouse-develop-table-design.md
+[choose a hash distribution key for your table]: ./sql-data-warehouse-develop-hash-distribution-key.md
+[statistics to improve performance]: ./sql-data-warehouse-develop-statistics.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
