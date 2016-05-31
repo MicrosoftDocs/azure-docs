@@ -38,7 +38,7 @@ SQL Server provides several methods to accomplish each of these tasks. This arti
 To test for SQL Database compatibility issues before you start the database migration process, use one of the following methods:
 
 > [AZURE.SELECTOR]
-- [SSDT)](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 - [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
 - [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
@@ -64,6 +64,11 @@ If compatibility issues are detected, you must fix them before proceeding with t
 In addition to searching the Internet and using these resources, another good resource to identiify how best to fix an incompatibility issue, use the [MSDN SQL Server coummunity forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](http://stackoverflow.com/).
 
 Use one of the the following database migration tools to fix the issues detected:
+
+> [AZURE.SELECTOR]
+- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+- [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 
 - Use [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): To use SSDT, you import your database schema into SQL Server Data Tools for Visual Studion "SSDT"), build the project for a SQL Database V12 deployment, fix all deteteced compatibility issues in SSDT, and then synchronize the changes back to the source database (or a copy of the source database. This is currently the recommended method to test and fix SQL Database V12 compatibility issues. Follow the link for a [walk-through using SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
 - Use [SQL Server Management Studio ("SSMS")](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): To use SSMS, you fix the errors detected using another tool to execute Transact-SQL commands to fix the errors detected. This method is primarly for advanced users to modify the database schema directly in the source database. 
