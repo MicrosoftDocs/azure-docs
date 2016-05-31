@@ -33,6 +33,14 @@ Use the [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/) CodePlex t
 
   > [AZURE.NOTE] Note that not all incompatible schema that can be detected by the wizard can be fixed by its built-in transformations. Incompatible script that cannot be addressed will be reported as errors, with comments injected into the generated script. If many errors are detected, use either Visual Studio or SQL Server Management Studio to step through and fix each error that could not be fixed using the SQL Server Migration Wizard.
 
-## Next step: Select migration method and perform migration
+## Next Steps
 
-[Select migration method](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
+
+## Learn More
+
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)

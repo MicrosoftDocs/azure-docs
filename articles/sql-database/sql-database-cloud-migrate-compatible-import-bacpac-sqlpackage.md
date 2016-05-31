@@ -48,3 +48,14 @@ Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/libra
 	| < source_file >  | the file name and location for the BACPAC file being imported  |
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
+
+## Next Steps
+
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Learn More
+
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)

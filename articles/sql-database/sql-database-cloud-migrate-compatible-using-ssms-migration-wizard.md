@@ -57,13 +57,13 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 7.	Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
 8.	Using the Azure Portal, view your database and its properties.
 
-## Next steps
+## Next Steps
 
-[Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-[SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
 ## Learn More
 
-[Fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md)
-[BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)
-
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)

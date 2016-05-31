@@ -27,8 +27,18 @@ Advanced users can fix SQL Server database compatibility issues using SQL Server
 
 ## Using SQL Server Management Studio
 
-Use SQL Server Management Studio to fix compatibility issues using various Transact-SQL commands, such as **ALTER DATABASE**.
+Use SQL Server Management Studio to fix compatibility issues using various Transact-SQL commands, such as **ALTER DATABASE**. This method is primarily for advanced users that are comfortable working Transact-SQL on a live database. Otherwise, it is recommended that you use SSDT. 
 
-## Next step: Select migration method and perform migration
 
-[Select migration method](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
+
+## Next Steps
+
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
+
+## Learn More
+
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)

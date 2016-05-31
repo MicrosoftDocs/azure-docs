@@ -88,3 +88,14 @@ Use SQL Server Data Tools for Visual Studio ("SSDT") to import the database sche
 	![alt text](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)    
     
 6.	Choose a deployment methos. See [Migrate a compatible SQL Server database to SQL Database.](sql-database-cloud-migrate.md)  
+
+## Next Steps
+
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Learn More
+
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)

@@ -54,9 +54,13 @@ Transactional replication is a technology built-in and integrated with SQL Serve
 
 ## Next Steps
 
-[Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-[SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
 
 ## Learn More
 
-[Transactional Replication](https://msdn.microsoft.com/library/mt589530.aspx)
+- [Transactional Replication](https://msdn.microsoft.com/library/mt589530.aspx)
+- [SQL Database V12](sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
