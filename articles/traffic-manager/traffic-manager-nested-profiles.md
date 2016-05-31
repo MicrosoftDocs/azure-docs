@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Traffic Manager Nested Profiles | Microsoft Azure"
+   pageTitle="Nested Traffic Manager Profiles | Microsoft Azure"
    description="This article explains the 'Nested Profiles' feature of Azure Traffic Manager"
    services="traffic-manager"
    documentationCenter=""
@@ -15,7 +15,7 @@
    ms.date="05/25/2016"
    ms.author="jtuliani" />
 
-# Traffic Manager nested profiles
+# Nested Traffic Manager profiles
 
 Traffic Manager includes a range of traffic-routing methods, allowing you to control how Traffic Manager chooses which endpoint should receive traffic from each end user.  These are described in [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md) and they enable Traffic Manager to meet the most common traffic-routing requirements.
 
