@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="05/31/2016"
    ms.author="jeffstok"
 />
 
@@ -112,6 +112,55 @@ Note that you can also add access to an Azure Data Lake Store later by opening t
 
 ![Create ADL Store Service Principle 2](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp2.png) 
 
+## Using the Azure Data Lake Store with R Server
+Once you’ve given access to an Azure Data Lake Store through use of the cluster’s Service Principal you can use it in R Server on HDInsight in the same manner as a secondary Azure storage account. The only difference is that the wasb:// prefix changes to adl://, e.g. 
+
+````
+# point to the ADL store (e.g. ADLtest) 
+myNameNode <- "adl://rkadl1.azuredatalakestore.net"
+myPort <- 0
+
+# Location of the data (assumes a /share directory on the ADL account) 
+bigDataDirRoot <- "/share"  
+
+# define Spark compute context
+mySparkCluster <- RxSpark(consoleOutput=TRUE)
+
+# set compute context
+rxSetComputeContext(mySparkCluster)
+
+# define HDFS file system
+hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
+
+# specify the input file in HDFS to analyze
+inputFile <-file.path(bigDataDirRoot,"AirlineDemoSmall.csv")
+
+# create Factors for days of the week
+colInfo <- list(DayOfWeek = list(type = "factor",
+               levels = c("Monday", "Tuesday", "Wednesday", "Thursday",
+                          "Friday", "Saturday", "Sunday")))
+
+# define the data source 
+airDS <- RxTextData(file = inputFile, missingValueString = "M",
+                    colInfo  = colInfo, fileSystem = hdfsFS)
+
+# Run a linear regression
+model <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS)
+````
+
+Note: Here are the commands used to configure the Azure Data Lake storage account with the RevoShare directory and add the sample CSV file for the above example: 
+
+````
+hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user 
+hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare 
+hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user/RevoShare/<user>
+
+hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/share
+
+hadoop fs -copyFromLocal /usr/lib64/R Server-7.4.1/library/RevoScaleR/SampleData/AirlineDemoSmall.csv adl://rkadl1.azuredatalakestore.net/share
+
+hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
+````
 ## Use Azure Files on the Edge Node 
 
 There is also a convenient data storage option for use on the edge node called [Azure Files](../storage/storage-how-to-use-files-linux.md "Azure Files") that allows you to mount an Azure Storage file share to the Linux file system. This can be handy for storing data files, R scripts, and result objects that may be needed later when it makes sense to use the native file system on the edge node rather than HDFS. A big benefit of using Azure Files is that the file shares can be mounted and used by any system with a supported OS (Win, Linux), e.g. another HDInsight cluster you or someone on your team has, an Azure VM, or even an on-premises system.
