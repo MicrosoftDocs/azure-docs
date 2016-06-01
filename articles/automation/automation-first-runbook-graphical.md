@@ -74,7 +74,7 @@ Before we publish the runbook to make it available in production, we want to tes
 
 The runbook that we just created is still in Draft mode. We need to publish it before we can run it in production.  When you publish a runbook, you overwrite the existing Published version with the Draft version.  In our case, we don't have a Published version yet because we just created the runbook.
 
-1.	Click **Publish** to publish the runbook and then **Yes** when prompted.<br> ![Publish](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20165.png)
+1.	Click **Publish** to publish the runbook and then **Yes** when prompted.<br> ![Publish](media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
 2.	If you scroll left to view the runbook in the **Runbooks** blade, it will show an **Authoring Status** of **Published**.
 3.	Scroll back to the right to view the blade for **MyFirstRunbook**.  
 	The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
