@@ -20,6 +20,8 @@
 [AZURE.INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## Next steps
+You can read more detailed information on the technologies discussed here, along with quick-start guides for using Network Security Groups, in the following articles:
+
 - [Quick-start - Create a Network Security Group and ACL rules using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md)  
 - [Quick-start - Create a Network Security Group and ACL rules using the Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md)  
 - [Azure Resource Manager overview](../resource-group-overview.md)  
