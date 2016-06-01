@@ -65,7 +65,7 @@ PollToAlterData | No | UPDATE or DELETE statement to use with a Logic app trigge
 ![][1]
 
 
-## Logic app with DB2 connector action to add aata ##
+## Logic app with DB2 connector action to add data ##
 You can define a Logic app action to add data to a DB2 table using an API Insert or Post to Entity OData operation. For example, you can insert a new customer order record, by processing a SQL INSERT statement against a table defined with an identity column, returning the identity value or the rows affected to the Logic app (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
 > [AZURE.TIP] DB2 Connection "*Post to EntitySet*" returns the identity column value and "*API Insert*" returns rows affected
