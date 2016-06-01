@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="05/12/2016"
+	ms.date="06/01/2016"
 	ms.author="billmath"/>
 
 # What is Azure Multi-Factor Authentication?
@@ -118,7 +118,7 @@ Customization of caller ID for phone calls| | | *
 Event Confirmation| | | *
 Trusted IPs| | | *
 Remember MFA for trusted devices |* | * | *
-MFA SDK| | | *
+MFA SDK | | | * requires Multi-Factor Auth provider and full Azure subscription
 MFA for on-premises applications using MFA server| | | *
 
 
