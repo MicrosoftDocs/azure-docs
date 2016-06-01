@@ -28,12 +28,13 @@ This article provides guidance on how to manage the backups for your virtual mac
 ## Manage protected virtual machines
 
 In the Azure portal, the Recovery Services vault dashboard provides access to all information about the vault including:
-- the most recent backup snapshot, which is also the latest restore point
-- the backup policy
-- total size of all backup snapshots
-- number of virtual machines that are protected with the vault
 
-Any management task with a virtual machine backup begins with opening the vault in the dashboard.
+- the most recent backup snapshot, which is also the latest restore point <br\>
+- the backup policy <br\>
+- total size of all backup snapshots <br\>
+- number of virtual machines that are protected with the vault <br\>
+
+Many management tasks with a virtual machine backup begins with opening the vault in the dashboard. However, you will need to open the individual vault in the vault item dashboard, to execute the tasks. The following procedure shows you how to open the vault item dashboard.
 
 To open a Recovery Services vault in the dashboard:
 
@@ -63,7 +64,7 @@ To open a Recovery Services vault in the dashboard:
 
     ![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
 
-5. In the **Backup Items** blade, click the item to open its dashboard.
+5. In the **Backup Items** blade, click the item to open the vault item dashboard.
 
     ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -71,13 +72,17 @@ To open a Recovery Services vault in the dashboard:
 
     ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    From the item dashboard, you can accomplish many key management tasks, such as
-    - run an on-demand back up
-	- view restore points, and see their consistency state
-	- create a new backup policy
-	- stop a backup job
-	- delete a restore point
-	- restore a backup
+    From the vault item dashboard, you can accomplish many key management tasks, such as:
+
+    - change policies or create a new backup policy<br\>
+	- view restore points, and see their consistency state <br\>
+	- on-demand back up of a virtual machine <br\>
+	- stop protecting virtual machines <br\>
+	- resume protection of a virtual machine <br\>
+	- delete a backup data (or recovery point) <br\>
+	- [restore a backup (or recovery point)](./backup-azure-arm-restore-vms.md#restore-a-recovery-point)  <br\>
+
+The details for accomplishing each of these tasks, follows. For each task, you will need to start the procedure from the vault item dashboard (as noted in the procedure).
 
 ### Change policies or Create a new backup policy
 
@@ -203,9 +208,9 @@ To delete backup data on a virtual machine with the *Backup disabled*:
 
 
 ## Auditing Operations
-Azure backup provides review of the "operation logs" of backup operations triggered by the customer making it easy to see exactly what management operations were performed on the backup vault. Operations logs enable great post-mortem and audit support for the backup operations.
+Using the operations logs, you can review the backup operations performed on the Recovery Services vault.  This makes it easy to see exactly which management operations were performed on the vault. Operations logs enable great post-mortem and audit support for the backup operations.
 
-The following operations are logged in Operation logs:
+The following operations are available in the Operation logs:
 
 - Register
 - Unregister
@@ -219,7 +224,7 @@ The following operations are logged in Operation logs:
 - Update policy
 - Cancel job
 
-To view operation logs corresponding to a backup vault:
+To view operation logs corresponding to a Recovery Services vault:
 
 1. Navigate to **Management services** in Azure portal, and then click the **Operation Logs** tab.
 
