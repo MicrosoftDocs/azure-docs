@@ -9,10 +9,10 @@
 <tags 
    ms.service="operations-management-suite"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/17/2016"
+   ms.date="05/31/2016"
    ms.author="bwren" />
 
 # Operations Management Suite (OMS) overview
@@ -35,9 +35,9 @@ You can easily add solutions to Log Analytics that define data to be collected a
 
 IT Automation in OMS is implemented with [Azure Automation](../automation/automation-intro.md) which provides both process automation and configuration management.
 
-Azure Automation automates administrative processes with [runbooks](../automation/automation-runbook-types) that are based on PowerShell and run in the Azure cloud.  Runbooks can access any product or service that can be managed with PowerShell including resources in other clouds such as Amazon Web Services (AWS).  Runbooks can also be executed on a server in your local data center to manage local resources.
+Azure Automation automates administrative processes with [runbooks](../automation/automation-runbook-types.md) that are based on PowerShell and run in the Azure cloud.  Runbooks can access any product or service that can be managed with PowerShell including resources in other clouds such as Amazon Web Services (AWS).  Runbooks can also be executed on a server in your local data center to manage local resources.
   
-Azure Automation provides configuration management with [PowerShell DSC](../automation/automation-dsc-overview).  You can create and manage DSC resources hosted in Azure and apply them to cloud and on-premises systems to define and automatically enforce their configuration.
+Azure Automation provides configuration management with [PowerShell DSC](../automation/automation-dsc-overview.md).  You can create and manage DSC resources hosted in Azure and apply them to cloud and on-premises systems to define and automatically enforce their configuration.
 
 
 ## ![OMS Backup and Disaster Recovery](media/operations-management-suite-overview/icon-backup.png) Backup and Disaster Recovery
@@ -61,6 +61,6 @@ OMS is hosted in the United States. Although the language of OMS is English, the
 
 ## Next steps
 - Learn about [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics).
-- Learn about [Azure Automation](../automation/automation-intro).
+- Learn about [Azure Automation](../automation/automation-intro.md).
 - Learn about [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 - Learn about [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
