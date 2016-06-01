@@ -105,7 +105,7 @@ When a dependent of a module in this application goes down, how does the module 
 
 For instance, if the database for hosting orders goes down, the Order Processing module loses its ability to process sales transactions. Depending on the architecture, it might be hard or impossible for the Order Submission and Order Processing parts of the application to continue. If the application is not designed to handle this scenario, the entire application might go offline.
 
-However, in this same scenario, it is possible that the product data is stored in a different location. In that case, the Product Catalog module can still be used for viewing products. In degraded mode, the application continues to be available to users for available functionality like viewing the product catalog. Other parts of the application, however, are unavailable, such as ordering or inventory queries.
+However, in this same scenario, it's possible that the product data is stored in a different location. In that case, the Product Catalog module can still be used for viewing products. In degraded mode, the application continues to be available to users for available functionality like viewing the product catalog. Other parts of the application, however, are unavailable, such as ordering or inventory queries.
 
 Another variation of degraded mode centers on performance rather than capabilities. For example, consider a scenario where the product catalog is being cached through Azure Redis Cache. If caching becomes unavailable, the application might go directly to the server storage to retrieve product catalog information. But this access might be slower than the cached version. Because of this, the application performance is degraded until the caching service is fully restored.
 
@@ -125,19 +125,19 @@ Regular backups of application data can support some disaster recovery scenarios
 
 For the Basic, Standard, and Premium SQL Database tiers, you can take advantage of point-in-time restore to recover your database. For more information, see [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md). Another option is to use Active Geo-Replication for SQL Database. This automatically replicates database changes to secondary databases in the same Azure region or even in a different Azure region. This provides a potential alternative to some of the more manual data synchronization techniques presented in this article. For more information, see [Overview: SQL Database Active Geo-Replication](../sql-database/sql-database-geo-replication-overview.md).
 
-You can also use a more manual approach for backup and restore. Use the DATABASE COPY command to create a copy of the database. You must use this command to get a backup with transactional consistency. You can also leverage the import/export service of Azure SQL Database. This supports exporting databases to BACPAC files that are stored in Azure Blob storage.
+You can also use a more manual approach for backup and restore. Use the DATABASE COPY command to create a copy of the database. You must use this command to get a backup with transactional consistency. You can also use the import/export service of Azure SQL Database. This supports exporting databases to BACPAC files that are stored in Azure Blob storage.
 
-The built-in redundancy of Azure Storage creates two replicas of the backup file in the same region. However, the frequency of running the backup process determines your RPO, which is the amount of data you might lose in disaster scenarios. For example, you perform a backup at the top of the hour, and a disaster occurs two minutes before the top of the hour. You lose 58 minutes of data that happened after the last backup was performed. Also, to protect against a region-wide service disruption, you should copy the BACPAC files to an alternate region. You then have the option of restoring those backups in the alternate region. For more details, see [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md).
+The built-in redundancy of Azure Storage creates two replicas of the backup file in the same region. However, the frequency of running the backup process determines your RPO, which is the amount of data you might lose in disaster scenarios. For example, imagine that you perform a backup at the top of the hour, and a disaster occurs two minutes before the top of the hour. You lose 58 minutes of data that happened after the last backup was performed. Also, to protect against a region-wide service disruption, you should copy the BACPAC files to an alternate region. You then have the option of restoring those backups in the alternate region. For more details, see [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md).
 
-For Azure Storage, you can develop your own custom backup process or use one of many third-party backup tools. Note that there are additional complexities in most application designs where storage resources reference each other. For example, consider a SQL database that has a column that links to a blob in Azure Storage. If the backups do not happen simultaneously, the database might have the pointer to a blob that was not backed up before the failure. The application or disaster recovery plan must implement processes to handle this inconsistency after a recovery.
+For Azure Storage, you can develop your own custom backup process or use one of many third-party backup tools. Note that most application designs have additional complexities where storage resources reference each other. For example, consider a SQL database that has a column that links to a blob in Azure Storage. If the backups do not happen simultaneously, the database might have the pointer to a blob that was not backed up before the failure. The application or disaster recovery plan must implement processes to handle this inconsistency after a recovery.
 
 ###Reference data pattern for disaster recovery
 
 Reference data is read-only data that supports application functionality. It typically does not change frequently. Although backup and restore is one method to handle region-wide service disruptions, the RTO is relatively long. When you deploy the application to a secondary region, some strategies can improve the RTO for reference data.
 
-Because reference data changes infrequently, you can improve the RTO by maintaining a permanent copy of the reference data in the secondary region. This eliminates the time required to restore backups in the event of a disaster. To meet the multiple-region disaster recovery requirements, you must deploy the application and the reference data together in multiple regions. As mentioned in [Reference data pattern for high availability](./resiliency-high-availability-azure-applications.md#reference-data-pattern-for-high-availability), you can deploy reference data to the role itself, external storage, or a combination of both.
+Because reference data changes infrequently, you can improve the RTO by maintaining a permanent copy of the reference data in the secondary region. This eliminates the time required to restore backups in the event of a disaster. To meet the multiple-region disaster recovery requirements, you must deploy the application and the reference data together in multiple regions. As mentioned in [Reference data pattern for high availability](./resiliency-high-availability-azure-applications.md#reference-data-pattern-for-high-availability), you can deploy reference data to the role itself, to external storage, or to a combination of both.
 
-The reference data deployment model within compute nodes implicitly satisfies the disaster recovery requirements. Reference data deployment to SQL Database requires that you deploy a copy of the reference data to each region. The same strategy applies to Azure Storage. You must deploy a copy of any reference data that's stored on Azure Storage to the primary and secondary regions.
+The reference data deployment model within compute nodes implicitly satisfies the disaster recovery requirements. Reference data deployment to SQL Database requires that you deploy a copy of the reference data to each region. The same strategy applies to Azure Storage. You must deploy a copy of any reference data that's stored in Azure Storage to the primary and secondary regions.
 
 ![Reference data publication to both primary and secondary regions](./media/resiliency-disaster-recovery-azure-applications/reference-data-publication-to-both-primary-and-secondary-regions.png)
 
@@ -151,7 +151,9 @@ The following architecture examples provide some ideas on different ways of hand
 
 ####Replication of transactional data in preparation for disaster recovery
 
-Consider an application that uses Azure Storage queues to hold transactional data. This allows worker roles to process the transactional data to the server database in a decoupled architecture. This requires the transactions to use some form of temporary caching if the front-end roles require the immediate query of that data. Depending on the level of data-loss tolerance, you might choose to replicate the queues, the database, or all of the storage resources. With only database replication, if the primary region goes down, you can still recover the data in the queues when the primary region comes back. The following diagram shows an architecture where the server database is synchronized across regions.
+Consider an application that uses Azure Storage queues to hold transactional data. This allows worker roles to process the transactional data to the server database in a decoupled architecture. This requires the transactions to use some form of temporary caching if the front-end roles require the immediate query of that data. Depending on the level of data-loss tolerance, you might choose to replicate the queues, the database, or all of the storage resources. With only database replication, if the primary region goes down, you can still recover the data in the queues when the primary region comes back.
+
+The following diagram shows an architecture where the server database is synchronized across regions.
 
 ![Replication of transactional data in preparation for disaster recovery](./media/resiliency-disaster-recovery-azure-applications/replicate-transactional-data-in-preparation-for-disaster-recovery.png)
 
@@ -159,7 +161,7 @@ The biggest challenge to implementing this architecture is the replication strat
 
 One potential implementation might make use of the intermediate queue in the previous example. The worker role that processes the data to the final storage destination might make the change in both the primary region and the secondary region. These are not trivial tasks, and complete guidance for replication code is beyond the scope of this article. The important point is that a lot of your time and testing should focus on how you replicate your data to the secondary region. Additional processing and testing can help ensure that the failover and recovery processes correctly handle any possible data inconsistencies or duplicate transactions.
 
->[AZURE.NOTE]Most of this paper focuses on platform as a service (PaaS). However, additional replication and availability options for hybrid applications use Azure Virtual Machines. These hybrid applications use infrastructure as a service (IaaS) to host SQL Server on virtual machines in Azure. This allows traditional availability approaches in SQL Server, such as AlwaysOn Availability Groups or Log Shipping. Some techniques, such as AlwaysOn, work only between on-premises SQL Server instances and Azure virtual machines. For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+>[AZURE.NOTE] Most of this paper focuses on platform as a service (PaaS). However, additional replication and availability options for hybrid applications use Azure Virtual Machines. These hybrid applications use infrastructure as a service (IaaS) to host SQL Server on virtual machines in Azure. This allows traditional availability approaches in SQL Server, such as AlwaysOn Availability Groups or Log Shipping. Some techniques, such as AlwaysOn, work only between on-premises SQL Server instances and Azure virtual machines. For more information, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
 
 ####Degraded application mode for transaction capture
 
@@ -179,7 +181,7 @@ Multiple-region deployments might involve IT-pro processes to publish the applic
 
 Part of a successful Azure disaster recovery is architecting that recovery into the solution from the start. The cloud provides additional options for recovering from failures during a disaster that are not available in a traditional hosting provider. Specifically, you can dynamically and quickly allocate resources to a different region. Therefore, you won’t pay a lot for idle resources while you're waiting for a failure to occur.
 
-The following sections cover different deployment topologies for disaster recovery. Typically, there is a tradeoff in increased cost or complexity for additional availability.
+The following sections cover different deployment topologies for disaster recovery. Typically, there's a tradeoff in increased cost or complexity for additional availability.
 
 ###Single-region deployment
 
@@ -197,7 +199,7 @@ Let’s take a look now at specific patterns to support failover across differen
 
 ###Redeployment to a secondary Azure region
 
-In the pattern of redeployment to a secondary region, only the primary region has applications and databases running. The secondary region is not set up for an automatic failover. So when disaster occurs, you must spin up all the parts of the service in the new region. This includes uploading a cloud service to Azure, deploying the cloud service, restoring the data, and changing the DNS to reroute the traffic.
+In the pattern of redeployment to a secondary region, only the primary region has applications and databases running. The secondary region is not set up for an automatic failover. So when a disaster occurs, you must spin up all the parts of the service in the new region. This includes uploading a cloud service to Azure, deploying the cloud service, restoring the data, and changing DNS to reroute the traffic.
 
 Although this is the most affordable of the multiple-region options, it has the worst RTO characteristics. In this model, the service package and database backups are stored either on-premises or in the Azure Blob storage instance of the secondary region. However, you must deploy a new service and restore the data before it resumes operation. Even if you fully automate the data transfer from backup storage, spinning up the new database environment consumes a lot of time. Moving data from the backup disk storage to the empty database on the secondary region is the most expensive part of the restore process. You must do this, however, to bring the new database to an operational state because it isn't replicated.
 
@@ -210,7 +212,7 @@ This option is practical only for non-critical applications that can tolerate a 
 ###Active-passive
 
 The active-passive pattern is the choice that many companies favor. This pattern provides improvements to the RTO with a relatively small increase in cost over the redeployment pattern.
-In this scenario, there is again a primary and a secondary Azure region. All of the traffic goes to the active deployment on the primary region. The secondary region is better prepared for disaster recovery because the database is running on both regions. Additionally, there is a synchronization mechanism in place between them. This standby approach can involve two variations: a database-only approach or a complete deployment in the secondary region.
+In this scenario, there is again a primary and a secondary Azure region. All of the traffic goes to the active deployment on the primary region. The secondary region is better prepared for disaster recovery because the database is running on both regions. Additionally, a synchronization mechanism is in place between them. This standby approach can involve two variations: a database-only approach or a complete deployment in the secondary region.
 
 ####Database only
 
@@ -226,9 +228,9 @@ In the second variation of the active-passive pattern, both the primary region a
 
 Failover occurs faster than the database-only variation because the services are already deployed. This pattern provides a very low RTO. The secondary failover region must be ready to go immediately after failure of the primary region.
 
-Along with a quicker response time, this pattern has the additional advantage of pre-allocating and deploying backup services. You don’t have to worry about a region not having the space to allocate new instances in a disaster. This is important if your secondary Azure region is nearing capacity. There is no guarantee (SLA) that you will instantly be able to deploy a number of new cloud services in any region.
+Along with a quicker response time, this pattern has the advantage of pre-allocating and deploying backup services. You don’t have to worry about a region not having the space to allocate new instances in a disaster. This is important if your secondary Azure region is nearing capacity. There is no guarantee (service-level agreement) that you will instantly be able to deploy a number of new cloud services in any region.
 
-For the fastest response time with this model, you must have similar scale (number of role instances) in the primary and secondary regions. Despite the advantages, paying for unused compute instances is costly, and this might not be the most prudent financial choice. Because of this, it's more common to use a slightly scaled-down version of cloud services on the secondary region. Then you can quickly fail over and scale out the secondary deployment if necessary. You should automate the failover process so that, after the primary region is inaccessible, you activate additional instances depending upon the load. This might involve the use of an autoscaling mechanism like [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
+For the fastest response time with this model, you must have similar scale (number of role instances) in the primary and secondary regions. Despite the advantages, paying for unused compute instances is costly, and this might not be the most prudent financial choice. Because of this, it's more common to use a slightly scaled-down version of cloud services on the secondary region. Then you can quickly fail over and scale out the secondary deployment if necessary. You should automate the failover process so that after the primary region is inaccessible, you activate additional instances, depending on the load. This might involve the use of an autoscaling mechanism like [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
 
 The following diagram shows the model where the primary and secondary regions contain a fully deployed cloud service in an active-passive pattern.
 
@@ -236,7 +238,9 @@ The following diagram shows the model where the primary and secondary regions co
 
 ###Active-active
 
-By now, you’re probably figuring out the evolution of the patterns: decreasing the RTO increases costs and complexity. The active-active solution actually breaks this tendency with regard to cost. In an active-active pattern, the cloud services and database are fully deployed in both regions. Unlike the active-passive model, both regions receive user traffic. This option yields the quickest recovery time. The services are already scaled to handle a portion of the load at each region. The DNS is already enabled to use the secondary region. There is additional complexity in determining how to route users to the appropriate region. Round-robin scheduling might be possible. It's more likely that certain users would use a specific region where the primary copy of their data resides.
+By now, you’re probably figuring out the evolution of the patterns: decreasing the RTO increases costs and complexity. The active-active solution actually breaks this tendency with regard to cost.
+
+In an active-active pattern, the cloud services and database are fully deployed in both regions. Unlike the active-passive model, both regions receive user traffic. This option yields the quickest recovery time. The services are already scaled to handle a portion of the load at each region. DNS is already enabled to use the secondary region. There's additional complexity in determining how to route users to the appropriate region. Round-robin scheduling might be possible. It's more likely that certain users would use a specific region where the primary copy of their data resides.
 
 In case of failover, simply disable DNS to the primary region. This routes all traffic to the secondary region.
 
@@ -246,7 +250,7 @@ Even in this model, there are some variations. For example, the following diagra
 
 There is a downside to the active-active architecture in the preceding diagram. The second region must access the database in the first region because the master copy resides there. Performance significantly drops off when you access data from outside a region. In cross-region database calls, you should consider some type of batching strategy to improve the performance of these calls. For more information, see [How to use batching to improve SQL Database application performance](../sql-database/sql-database-use-batching-to-improve-performance.md).
 
-An alternative architecture might involve each region accessing its own database directly. In that model, some type of bidirectional replication would be required to synchronize the databases in each region.
+An alternative architecture might involve each region accessing its own database directly. In that model, some type of bidirectional replication is required to synchronize the databases in each region.
 
 In the active-active pattern, you might not need as many instances on the primary region as you would in the active-passive pattern. If you have 10 instances on the primary region in an active-passive architecture, you might need only 5 in each region in an active-active architecture. Both regions now share the load. This might be a cost savings over the active-passive pattern if you keep a warm standby on the passive region with 10 instances waiting for failover.
 
@@ -264,7 +268,7 @@ IaaS solutions also provide an easier path for on-premises applications to use A
 
 ##Alternative cloud
 
-There are situations when even the robustness of the Microsoft Cloud might not meet internal compliance rules or policies that your organization requires. Even the best preparation and design to implement backup systems during a disaster fall short if there's a global service disruption of a cloud service provider.
+There are situations where even the robustness of the Microsoft Cloud might not meet internal compliance rules or policies that your organization requires. Even the best preparation and design to implement backup systems during a disaster fall short if there's a global service disruption of a cloud service provider.
 
 You’ll want to compare availability requirements with the cost and complexity of increased availability. Perform a risk analysis, and define the RTO and RPO for your solution. If your application cannot tolerate any downtime, it might make sense for you to consider using another cloud solution. Unless the entire Internet goes down, another cloud solution might still be available if Azure becomes globally inaccessible.
 
@@ -274,7 +278,7 @@ If you decide to split your DR among different platforms, it would make sense to
 
 ##Automation
 
-Some of the patterns we just discussed require quick activation of offline deployments as well as restoration of specific parts of a system. Automation, or scripting, supports the ability to activate resources on demand and deploy solutions rapidly. In this article, DR-related automation is equated with [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx), but the [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) is also an option.
+Some of the patterns that we just discussed require quick activation of offline deployments as well as restoration of specific parts of a system. Automation, or scripting, supports the ability to activate resources on demand and deploy solutions rapidly. In this article, DR-related automation is equated with [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx), but the [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) is also an option.
 
 Developing scripts helps to manage the parts of DR that Azure does not transparently handle. This has the benefit of producing consistent results each time, which minimizes the chance of human error. Having predefined DR scripts also reduces the time to rebuild a system and its constituent parts in the midst of a disaster. You don’t want to try to manually figure out how to restore your site while it's down and losing money every minute.
 
@@ -290,7 +294,7 @@ Although these tools are vital, they do not replace the need to plan for fault d
 
 ##Disaster simulation
 
-Simulation testing involves creating small real-life situations on the work floor to observe how the team members react. Simulations also show how effective the solutions are outlined in the recovery plan. Carry out simulations in such a way that the scenarios created do not disrupt actual business while still feeling like real situations.
+Simulation testing involves creating small real-life situations on the work floor to observe how the team members react. Simulations also show how effective the solutions are in the recovery plan. Carry out simulations in such a way that the created scenarios don't disrupt actual business while still feeling like real situations.
 
 Consider architecting a type of “switchboard” in the application to manually simulate availability issues. For instance, through a soft switch, trigger database access exceptions for an ordering module by causing it to malfunction. You can take similar lightweight approaches for other modules at the network interface level.
 
