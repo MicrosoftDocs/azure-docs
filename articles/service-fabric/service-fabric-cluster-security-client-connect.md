@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Secure client access to a cluster | Microsoft Azure"
-   description="How to secure a Service Fabric cluster. What are the options?"
+   pageTitle="Authenticate client access to a cluster | Microsoft Azure"
+   description="Describes how to authenticate client access to a Service Fabric cluster using certificates and how to secure communication between clients and a cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/27/2016"
+   ms.date="06/01/2016"
    ms.author="ryanwi"/>
 
 # Authenticate and secure communication between a client and a cluster using certificate security

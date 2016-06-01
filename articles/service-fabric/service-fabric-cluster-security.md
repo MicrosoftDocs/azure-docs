@@ -18,7 +18,7 @@
 
 # Service Fabric Cluster security scenarios
 
-A Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. Service Fabric provides cluster security for the following scenarios:
+A Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. Service Fabric provides certificate and Windows security for clusters in the following scenarios:
 
 - **Node-to-node security:** This secures communication between the VMs and computers in the cluster. This ensures that only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster.
 
