@@ -30,7 +30,7 @@ This article explains how you can update a live Virtual Machine offer in the Azu
 - Removal of billing regions**
 
 
-## 1. How to update the technical details of a SKU?
+## 1. How to update the technical details of a SKU
 
 You can update a VM image and re-publish your offer by following the steps given below:
 
@@ -42,8 +42,9 @@ You can update a VM image and re-publish your offer by following the steps given
 6. After making the changes, navigate to the **PUBLISH** tab and click on the button *PUSH TO STAGING*. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
+![drawing](media\marketplace-publishing-vm-image-post-publishing\img01.png)
 
-## 2. How to update the non-technical details of an offer or a SKU?
+## 2. How to update the non-technical details of an offer or a SKU
 
 You can update the non-technical (marketing, legal, support, categories) details of your live offer or SKU in the Azure Marketplace.
 
@@ -59,12 +60,16 @@ You can update the offer details and re-publish your offer by following the step
 
   >[AZURE.NOTE] Please take care of the following while you are updating the SKU details. **Do not enter duplicate text under the offer description and the SKU description. Do not enter duplicate text under the SKU title and the offer long summary. Do not enter duplicate text under the SKU title and the offer summary.**
 
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.png)
+
 6. Under the *LOGOS* section of the **DETAILS** tab, you can update the logos. However, ensure that the logos follow the Azure Marketplace guidelines (refer to the section Step 1: Provide Marketplace marketing content -> Details-> Azure Marketplace Logo Guidelines).
 
   >[AZURE.NOTE] Hero icon is optional. You can choose not to upload a Hero icon. However, once Hero icon is uploaded, then there is no provision to delete it from the Publishing portal. In that case, you must follow the [Hero icon guidelines](marketplace-publishing-push-to-staging.md/#step-1-provide-marketplace-marketing-content) (refer to the section Step 1: Provide Marketplace marketing content -> Details-> Additional guidelines for the Hero logo banner).
 
 7. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
 8. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.1.png)
 
 ### 2.2. Update the SKU description
 
@@ -80,6 +85,8 @@ You can update the SKU details and re-publish your offer by following the steps 
 
 6. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this link
 7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.2.png)
 
 ### 2.3 Change the existing links or add new links
 
@@ -97,6 +104,10 @@ You can change the existing links or add new links and then re-publish your offe
 
 8. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
 9. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.3.png)
+
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.3-2.png)
 
 ### 2.4 Change an existing sample image or add a new sample image
 
@@ -118,6 +129,8 @@ You can change an existing sample images or add new sample images and then re-pu
 8. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md).
 9. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.4.png)
+
 ### 2.5 Update the legal content
 
 You can update the legal content and re-publish your offer by following the steps below:
@@ -130,6 +143,8 @@ You can update the legal content and re-publish your offer by following the step
 6. The character limit for the legal terms of use is 1,000,000 characters.
 7. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 8. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
+
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.5.png)
 
 ### 2.6 Update the support information
 
@@ -146,6 +161,8 @@ You can update the support information and re-publish your offer by following th
 6. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 7. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.7.png)
+
 ### 2.7 Update the categories
 
 You can update the categories section for your offer and re-publish your offer by following the steps below:
@@ -157,7 +174,9 @@ You can update the categories section for your offer and re-publish your offer b
 5. After making the changes, navigate to the **PUBLISH** tab and click on the button **PUSH TO STAGING**. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 6. Once you have tested your offer in staging, navigate to the **PUBLISH** tab in the Publishing portal and click on the button **REQUEST APPROVAL TO PUSH TO PRODUCTION** to re-publish your offer in the Azure Marketplace.
 
-## 3. How to add a new SKU under a live offer?
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img02.7.png)
+
+## 3. How to add a new SKU under a live offer
 
 You can add a new SKU under your live offer by following the steps given below:
 
@@ -166,6 +185,10 @@ You can add a new SKU under your live offer by following the steps given below:
 3. From the left hand side menu, click on the **SKUs** tab. After that click on the button **ADD A SKU**.  A new dialog box will open. Enter a SKU identifier in lower case. Check the checkbox for bring-your-own billing model(BYOL) if you want to publish the new SKU with BYOL billing model. Otherwise, uncheck the check box for BYOL. After that click on the tick mark in the dialog box to create a new SKU. If you did not opt for the BYOL billing model for the new SKU, then the billing model will be automatically set to Hourly for the new SKU. If you want to enable the 30days free trial for Hourly billing model, then click on the “One Month” option for “Is a free a free trial available?”. Otherwise select “NO TRIAL”. [Note: The option “Is a free a free trial available?” is only shown if you have NOT selected BYOL in the dialog box while creating the new SKU.]
 
   >[AZURE.IMPORTANT] The option “Hide this SKU from the Marketplace because it should always be bought via a solution template” should be marked as “YES” ONLY if you are approved for publishing a solution template offer in the Azure Marketplace. Otherwise, this option should always be marked as “NO”.
+
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img03.1-1.png)
+
+  ![drawing](media\marketplace-publishing-vm-image-post-publishing\img03.1-2.png)
 
 4. Now from the left hand side menu, click on the **VM IMAGES** tab and find out the new SKU which you have created.
 5. To set up the new SKU, refer to the STEP 5 of this [link](https://azure.microsoft.com/en-us/documentation/articles/marketplace-publishing-vm-image-creation/#5-obtain-certification-for-your-vm-image) for guidance.
