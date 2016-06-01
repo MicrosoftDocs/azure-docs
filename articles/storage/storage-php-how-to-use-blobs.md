@@ -51,7 +51,7 @@ The following example shows how to include the autoloader file and reference the
 
 > [AZURE.NOTE] This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the `WindowsAzure.php` autoloader file.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
@@ -79,7 +79,7 @@ To create any Azure service client, you need to use the **ServicesBuilder** clas
 
 For the examples outlined here, the connection string will be passed directly.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 
@@ -147,7 +147,7 @@ For more information about Blob service error codes, see [Blob Service Error Cod
 
 To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation creates the blob if it doesn't exist, or overwrites it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -178,7 +178,7 @@ Note that the previous sample uploads a blob as a stream. However, a blob can al
 
 To list the blobs in a container, use the **BlobRestProxy->listBlobs** method with a **foreach** loop to loop through the result. The following code displays the name of each blob as output in a container and displays its URI to the browser.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -211,7 +211,7 @@ To list the blobs in a container, use the **BlobRestProxy->listBlobs** method wi
 
 To download a blob, call the **BlobRestProxy->getBlob** method, then call the **getContentStream** method on the resulting **GetBlobResult** object.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -240,7 +240,7 @@ Note that the example above gets a blob as a stream resource (the default behavi
 
 To delete a blob, pass the container name and blob name to **BlobRestProxy->deleteBlob**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -266,7 +266,7 @@ To delete a blob, pass the container name and blob name to **BlobRestProxy->dele
 
 Finally, to delete a blob container, pass the container name to **BlobRestProxy->deleteContainer**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
