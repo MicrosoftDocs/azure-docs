@@ -30,8 +30,6 @@ Tasks in this topic:
 
 - Restore a live database
 - Restore a deleted database
-- Restore an inaccessible database from a different Azure geographical region
-
 
 ## Before you begin
 
@@ -63,16 +61,6 @@ To restore a deleted database:
 6. The database restore process will begin and can be monitored using **NOTIFICATIONS**.
 
 
-## Restore from an Azure geographical region
-
-To perform a geo-restore:
-
-1. Log in to the [Azure portal][]
-2. On the left side of the screen select **+NEW**, then select **Data and Storage**, and then select **SQL Data Warehouse**
-3. Select **BACKUP** as the source and then select the geo-redundant backup you want to recover from
-4. Specify the rest of the database properties and click **Create**
-5. The database restore process will begin and can be monitored using **NOTIFICATIONS**
-
 ## Next steps
 For more information, see [Azure SQL Database business continuity overview][] and [Management overview][].
 
@@ -80,7 +68,6 @@ For more information, see [Azure SQL Database business continuity overview][] an
 
 <!--Article references-->
 [Azure SQL Database business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
 [Management overview]: sql-data-warehouse-overview-manage.md
 
