@@ -3,8 +3,8 @@
    description="Learn how to connect to SQL Data Warehouse by using Azure Active Directory Authentication."
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="BYHAM"
-   manager="jhubbard"
+   authors="byham"
+   manager="barbkess"
    editor=""
    tags=""/>
 
@@ -14,10 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/11/2016"
-   ms.author="rick.byham@microsoft.com"/>
+   ms.date="05/31/2016"
+   ms.author="rickbyh;barbkess;sonyama"/>
 
 # Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication
+
+> [AZURE.SELECTOR]
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 
 Azure Active Directory authentication is a mechanism of connecting to Microsoft Azure SQL Data Warehouse by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. 
