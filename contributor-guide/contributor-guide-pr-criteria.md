@@ -4,7 +4,7 @@ These criteria are intended for authors who create and maintain technical articl
 
 ## Blocking content quality items
 
-The updates in the pull request must comply with the following criteria to be merged. Pull request reviewers provide feedback in pull request comments for these items and type ``#hold-off` in the pull request to return it to you (the author) with feedback.
+The updates in the pull request must comply with the following criteria to be merged. Pull request reviewers provide feedback in pull request comments for these items and type `#hold-off` in the pull request to return it to you (the author) with feedback.
 
 | Category | Quality review item |
 |----------|---------------------|
