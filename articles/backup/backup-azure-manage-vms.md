@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/01/2016"
 	ms.author="jimpark; markgal;"/>
 
 # Manage and monitor Azure virtual machine backups
@@ -206,75 +206,8 @@ To delete backup data on a virtual machine with the *Backup disabled*:
     A notification message lets you know the backup data has been deleted.
 
 
-
-## Auditing Operations
-Using the operations logs, you can review the backup operations performed on the Recovery Services vault.  This makes it easy to see exactly which management operations were performed on the vault. Operations logs enable great post-mortem and audit support for the backup operations.
-
-The following operations are available in the Operation logs:
-
-- Register
-- Unregister
-- Configure protection
-- Backup ( Both scheduled as well as on-demand backup through BackupNow)
-- Restore
-- Stop protection
-- Delete backup data
-- Add policy
-- Delete policy
-- Update policy
-- Cancel job
-
-To view operation logs corresponding to a Recovery Services vault:
-
-1. Navigate to **Management services** in Azure portal, and then click the **Operation Logs** tab.
-
-    ![Operation Logs](./media/backup-azure-manage-vms/ops-logs.png)
-
-2. In the filters, select **Backup** as *Type* and specify the backup vault name in *service name* and click on **Submit**.
-
-    ![Operation Logs Filter](./media/backup-azure-manage-vms/ops-logs-filter.png)
-
-3. In the operations logs, select any operation and click  **Details** to see details corresponding to an operation.
-
-    ![Operation Logs-Fetching details](./media/backup-azure-manage-vms/ops-logs-details.png)
-
-    The **Details wizard** contains information about the operation triggered, job Id, resource on which this operation is triggered, and start time of the operation.
-
-    ![Operation Details](./media/backup-azure-manage-vms/ops-logs-details-window.png)
-
-## Alert notifications
-You can get custom alert notifications for the jobs in portal. This is achieved by defining PowerShell based alert rules on operational logs events. We recommend using *PowerShell version 1.3.0 or above*.
-
-To define a custom notification to alert for backup failures, a sample command will look like:
-
-```
-PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
-PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
-```
-
-**ResourceId**: You can get this from Operations Logs popup as described in above section. ResourceUri in details popup window of an operation is the ResourceId to besupplied for this cmdlet.
-
-**OperationName**: This will be of the format "Microsoft.Backup/backupvault/<EventName>" where EventName is one of Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
-
-**Status**: Supported values are- Started, Succeeded and Failed.
-
-**ResourceGroup**:ResourceGroup of the resource on which operation is triggered. You can obtain this from ResourceId value. Value between fields */resourceGroups/* and */providers/* in ResourceId value is the value for ResourceGroup.
-
-**Name**: Name of the Alert Rule.
-
-**CustomEmail**: Specify the custom email address to which you want to send alert notification
-
-**SendToServiceOwners**: This option sends alert notification to all administrators and co-administrators of the subscription. It can be used in **New-AzureRmAlertRuleEmail** cmdlet
-
-### Limitations on Alerts
-Event based alerts are subjected to following limitations:
-
-1. Alerts are triggered on all virtual machines in the Recovery Services vault. You cannot customize the alerts for a specific set of virtual machines in a Recovery Services vault.
-2. This feature in in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
-3. You will receive alerts from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
-
 [AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Next steps
 
-- [Restore Azure VMs](backup-azure-restore-vms.md)
+For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up ARM VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
