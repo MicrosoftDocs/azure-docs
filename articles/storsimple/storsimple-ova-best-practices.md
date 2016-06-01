@@ -86,7 +86,7 @@ The total local space requirement would be 660 GB (local reservation) + 300 GB (
 
 Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.75 TB.
 
-> [AZURE.NOTE] We also recommend that the local disk be thinly provisioned. This is because the restore space is only needed when you want to restore data that is older than 5 days. Item-level recovery will allow you to restore data for the last 5 days without the needing the extra space for restore.
+> [AZURE.NOTE] We also recommend that the local disk be thinly provisioned. This is because the restore space is only needed when you want to restore data that is older than 5 days. Item-level recovery will allow you to restore data for the last 5 days without requiring the extra space for restore.
 
 #### Example 2: 
 On your virtual array, you want to be able to 
