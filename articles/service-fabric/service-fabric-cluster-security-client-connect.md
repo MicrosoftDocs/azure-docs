@@ -16,10 +16,10 @@
    ms.date="06/01/2016"
    ms.author="ryanwi"/>
 
-# Authenticate and secure communication between a client and a cluster using certificate security
-When a client connects to a Service Fabric cluster node, certificate security can be used to authenticate the client and secure communication with the cluster. This ensures that only authorized users can access the cluster and the applications deployed on the cluster.  Certificate security must have been previously enabled on the cluster when the cluster was created.
+# Authenticate and secure communication between a client and a cluster
+When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security. This ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md).
 
-To secure the communication between a client and a  cluster node using Certificate Security, you first need to obtain and install the client certificate into the personal (My) store on the local computer or the Personal store for the current user. Note that if My store is used, the certificates needs to be added to the access control list (ACL).
+To secure the communication between a client and a cluster node using certificate security, you first need to obtain and install the client certificate into the personal (My) store on the local computer or the Personal store for the current user.
 
 Run the following PowerShell cmdlet to set up the certificate on the computer from which you will use to access the cluster.
 
@@ -39,7 +39,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 
 ## Connect to a secure cluster using PowerShell
 
-Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave when setting up the cluster.
+Run the following PowerShell command to connect to a secure cluster. The certificate details must match a certificate on the cluster nodes.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
