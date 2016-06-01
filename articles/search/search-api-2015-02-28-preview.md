@@ -169,6 +169,7 @@ The main parts of an index include the following:
 - `fields` that will be fed into this index, including name, data type, and properties that define allowable actions on that field.
 - `suggesters` used for auto-complete or type-ahead queries.
 - `scoringProfiles` used for custom search score ranking. See [Add scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
+- `analyzers`, `charFilters`, `tokenizers`, `tokenFilters` used to define how your documents/queries are broken into indexable/searchable tokens. See [Analysis in Azure Search](https://aka.ms//azsanalysis) for details.
 - `defaultScoringProfile` used to overwrite the default scoring behaviors.
 - `corsOptions` to allow cross-origin queries against your index.
 
@@ -234,6 +235,10 @@ The syntax for structuring the request payload is as follows. A sample request i
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -808,6 +813,10 @@ The schema syntax used to create an index is reproduced here for convenience. Se
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
+	  "analyzers":(optional)[ ... ],
+	  "charFilters":(optional)[ ... ],
+	  "tokenizers":(optional)[ ... ],
+	  "tokenFilters":(optional)[ ... ],
       "defaultScoringProfile": (optional) "...",
       "corsOptions": (optional) {
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
@@ -821,6 +830,14 @@ The schema syntax used to create an index is reproduced here for convenience. Se
 For a successful request: "204 No Content".
 
 By default the response body will be empty. However, if the `Prefer` request header is set to `return=representation`, the response body will contain the JSON for the index definition that was updated. In this case, the success status code will be "200 OK".
+
+**Updating index definition with custom analyzers**
+
+Once an analyzer, a tokenizer, a token filter or a char filter is defined, it cannot be modified. New ones can be added to an existing index only if the `allowIndexDowntime` flag is set to true in the index update request: 
+
+`PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true`
+
+Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes.
 
 <a name="ListIndexes"></a>
 ## List Indexes
@@ -992,6 +1009,100 @@ The response body is in the following format:
       "documentCount": number,
 	  "storageSize": number (size of the index in bytes)
     }
+
+<a name="AnalyzeAPI"></a>
+## Analyze API
+
+The **Analyze API** allows to see how an analyzer configuration breaks given text into tokens.
+
+	POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+	Content-Type: application/json
+    api-key: [admin key]
+
+**Request**
+
+HTTPS is required for all services requests. The **Analyze API** request can be constructed using the POST method.
+
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
+
+
+**Request Headers**
+
+The following list describes the required and optional request headers.
+
+- `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Analyze API** request must include an `api-key` set to an admin key (as opposed to a query key).
+
+You will also need the index name and the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+
+**Request Body**
+
+    {
+      "text": "Text to analyze",
+	  "analyzer": "analyzer_name"
+    }
+
+or 
+
+	{ 
+	   "text": "Text to analyze",
+	   "tokenizer": "tokenizer_name",
+	   "tokenFilters”: (optional) [ "token_filter_name" ],
+	   "charFilters”: (optional) [ "char_filter_name” ]
+	}
+
+The `analyzer_name`, `tokenizer_name`, `token_filter_name`, `char_filter_name` need to be valid names of predefined or custom analyzers, tokenizers, token filters and char filters for the index. To learn more about the process of lexical analysis see [Analysis in Azure Search](https://aka.ms/azsanalysis).
+
+**Response**
+
+Status Code: 200 OK is returned for a successful response.
+
+The response body is in the following format:
+
+	{
+	  "tokens": [
+	    {
+	      "token": string (token),
+	      "startOffset": number (index of the first character of the token),
+	      "endOffset": number (index of the last character of the token),	      
+	      "position": number (position of the token in the input text)
+	    },
+		...
+	  ]
+	}
+
+**Analyze API example**
+
+**Request**
+
+    {
+      "text": "Text to analyze",
+	  "analyzer": "standard"
+    }
+
+**Response**
+
+	{
+	  "tokens": [
+	    {
+	      "token": "text",
+	      "startOffset": 0,
+	      "endOffset": 4,
+	      "position": 0
+	    },
+	    {
+	      "token": "to",
+	      "startOffset": 5,
+	      "endOffset": 7,
+	      "position": 1
+	    },
+	    {
+	      "token": "analyze",
+	      "startOffset": 8,
+	      "endOffset": 15,
+	      "position": 2
+	    }
+	  ]
+	}
 
 ________________________________________
 <a name="DocOps"></a>
