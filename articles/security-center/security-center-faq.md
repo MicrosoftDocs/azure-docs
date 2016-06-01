@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/01/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -113,8 +113,6 @@ To edit a security policy, you must be an Owner or Contributor of the subscripti
 ### What types of virtual machines will be supported?
 Virtual machines created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md) are supported, including virtual machines that are part of Azure Service Fabric clusters.
 
-Access Control List recommendations currently apply to virtual machines (classic). Network Security Groups currently only apply to virtual machines (Resource Manager).
-
 Supported Windows virtual machines:
 
 - Windows Server 2008 R2
@@ -124,7 +122,7 @@ Supported Windows virtual machines:
 Supported Linux virtual machines:
 
 - Ubuntu versions 12.04, 14.04, 15.10, 16.04
-- Debian versions 7.0, 8.0
-- CentOS versions 6.0, 7.0
-- Red Hat Enterprise Linux (RHEL) versions 6, 7
-- SUSE Linux Enterprise Server (SLES) versions 11, 12
+- Debian versions 7, 8
+- CentOS versions 6.\*, 7.*
+- Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
+- SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*
