@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Azure subscription and service limits, quotas, and constraints
@@ -74,6 +74,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Subscription](#subscription-limits)
 - [Traffic Manager](#traffic-manager-limits)
 - [Virtual Machines](#virtual-machines-limits)
+- [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 
 ### Subscription limits
@@ -91,7 +92,6 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-
 ### Virtual Machines limits
 #### Virtual Machine limits
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
@@ -103,6 +103,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+### Virtual Machine Scale Sets limits
+
+[AZURE.INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Networking limits
 
@@ -184,13 +187,19 @@ The following table shows the limits for Azure Biztalk Services.
 
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
-- **Free** multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
-- **Basic (Preview)** provides dedicated computing resources for production workloads at a smaller scale. This tier is currently in Preview and offered at a reduced rate.
-- **Standard (S1 and S2)** is for production workloads. A larger capacity version (**S2**) is available upon request (send email to azuresearch_contact@microsoft.com).
+- *Free* multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
+- *Basic (Preview)* provides dedicated computing resources for production workloads at a smaller scale. This tier is currently in Preview and offered at a reduced rate.
+- *Standard (S1 and S2)* is for production workloads. A larger capacity version (*S2*) is available upon request (contact Support or azuresearch_contact@microsoft.com for help).
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
+**Tier Limits**
 
-To learn more about other limits, such as document size, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-tier.md)]
+
+**Storage Limits**
+
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-storage.md)]
+
+For information about other limits, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services limits
 
@@ -226,7 +235,10 @@ To learn more about other limits, such as document size, keys, requests, and res
 
 ### Stream Analytics limits
 
-[AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
+| Limit identifier | Limit       | Comments |
+|----------------- | ------------|--------- |
+| Maximum number of Streaming Units per subscription per region | 50 | A request to increase streaming units for your subscription beyond 50 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
+| Maximum throughput of a Streaming Unit | 1MB/s* | Maximum throughput per SU depends on the scenario. Actual throughput may be lower and depends upon query complexity and partitioning. Further details can be found in the [Scale Azure Stream Analytics jobs to increase throughput](../articles/stream-analytics/stream-analytics-scale-jobs.md) article. |
 
 ### Active Directory limits
 

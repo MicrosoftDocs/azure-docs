@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Container Service container management through the web UI | Microsoft Azure"
-   description="Deploy containers to an Azure Container Service cluster service using the Marathon web UI."
+   description="Deploy containers to an Azure Container Service cluster service by using the Marathon web UI."
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
@@ -22,26 +22,26 @@
 
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
-While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles.
+While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
-- [Deploying an Azure Container Service cluster](./container-service-deployment.md)
-- [Connecting to an Azure Container Service cluster](./container-service-connect.md)
+- [Deploy an Azure Container Service cluster](container-service-deployment.md)
+- [Connect to an Azure Container Service cluster](container-service-connect.md)
 
 ## Explore the DC/OS UI
 
-With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This will load the DC/OS web UI, and show information about the cluster such as used resources, active agents, and running services can be seen.
+With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This loads the DC/OS web UI and shows information about the cluster, such as used resources, active agents, and running services.
 
-![](media/dcos/dcos2.png)
+![DC/OS UI](media/dcos/dcos2.png)
 
 ## Explore the Marathon UI
 
-To see the Marathon UI, browse to http://localhost/Marathon. From this screen, you can start a new container or other application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
+To see the Marathon UI, browse to http://localhost/Marathon. From this screen, you can start a new container or another application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
 
-![](media/dcos/dcos3.png)
+![Marathon UI](media/dcos/dcos3.png)
 
 ## Deploy a Docker-formatted container
 
-To deploy a new container using Marathon, click the **Create Application** button and enter the following information into the form. Click **Create Application** when ready.
+To deploy a new container by using Marathon, click the **Create Application** button, and enter the following information into the form:
 
 Field           | Value
 ----------------|-----------
@@ -51,48 +51,48 @@ Network         | Bridged
 Host Port       | 80
 Protocol        | TCP
 
-![](media/dcos/dcos4.png)
+![New Application UI--General](media/dcos/dcos4.png)
 
-![](media/dcos/dcos5.png)
+![New Application UI--Docker Container](media/dcos/dcos5.png)
 
-![](media/dcos/dcos6.png)
+![New Application UI--Ports and Service Discovery](media/dcos/dcos6.png)
 
-If you would like to statically map the container port to a port on the agent, this must be completed using ‘JSON Mode’. To do so, switch the New Application wizard to JSON Mode using the toggle, and then enter the following under the ‘portMappings’ section of the application definition. This example bind port 80 of the container to port 80 of the DC/OS agent. This Wizard can be switch out of JSON Mode once this change has been made.
+If you want to statically map the container port to a port on the agent, you need to use JSON Mode. To do so, switch the New Application wizard to **JSON Mode** by using the toggle. Then enter the following under the `portMappings` section of the application definition. This example binds port 80 of the container to port 80 of the DC/OS agent. You can switch this wizard out of JSON Mode after you make this change.
 
 ```none
 “hostPort”: 80,
 ```
 
-![](media/dcos/dcos13.png)
+![New Application UI--port 80 example](media/dcos/dcos13.png)
 
-The DC/OS cluster is deployed with set of private and public agents. To access application from the internet, they must be deployed to a public agent. To do so, select the ‘optional’ tab of the New Application wizard and enter ‘slave_public’ for the ‘Accepted Resource Roles’.
+The DC/OS cluster is deployed with set of private and public agents. For the cluster to be able to access applications from the Internet, you need to deploy the applications to a public agent. To do so, select the **Optional** tab of the New Application wizard and enter **slave_public** for the **Accepted Resource Roles**.
 
-![](media/dcos/dcos14.png)
+![New Application UI--public agent setting](media/dcos/dcos14.png)
 
 Back on the Marathon main page, you can see the deployment status for the container.
 
-![](media/dcos/dcos7.png)
+![Marathon main page UI--container deployment status](media/dcos/dcos7.png)
 
-If you switch back to the DC/OS app (http://localhost/), you will now see that a task, in this case a Docker-formatted container, is running on the DC/OS cluster.
+When you switch back to the DC/OS web UI (http://localhost/), you will see that a task (in this case, a Docker-formatted container) is running on the DC/OS cluster.
 
-![](media/dcos/dcos8.png)
+![DC/OS web UI--task running on the cluster](media/dcos/dcos8.png)
 
 You can also see the cluster node that the task is running on.
 
-![](media/dcos/dcos9.png)
+![DC/OS web UI--task cluster node](media/dcos/dcos9.png)
 
 ## Scale your containers
 
-The Marathon UI can be used to scale the instance count of a container. To do so, navigate to the Marathon page, select the container that you would like to scale, and click the **Scale** button. In the **Scale Application** dialog box, enter the number of container instances that you would like, and select **Scale Application**.
+You can use the Marathon UI to scale the instance count of a container. To do so, navigate to the **Marathon** page, select the container that you want to scale, and click the **Scale** button. In the **Scale Application** dialog box, enter the number of container instances that you want, and select **Scale Application**.
 
-![](media/dcos/dcos10.png)
+![Marathon UI--Scale Application dialog box](media/dcos/dcos10.png)
 
-After the scale operation is complete, you will see multiple instances of the same task spread across DC/OS agents.
+After the scale operation finishes, you will see multiple instances of the same task spread across DC/OS agents.
 
-![](media/dcos/dcos11.png)
+![DC/OS web UI dashboard--task spread across agents](media/dcos/dcos11.png)
 
-![](media/dcos/dcos12.png)
+![DC/OS web UI--nodes](media/dcos/dcos12.png)
 
 ## Next steps
 
-[Work with the DC/OS and Marathon API](./container-service-mesos-marathon-rest.md)
+- [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)

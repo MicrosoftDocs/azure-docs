@@ -48,6 +48,11 @@ None | <ul><li>Detect language</li><li>Text to speech</li><li>Translate text</li
 All connectors support data in JSON and XML formats.
 
 
+## Create a connection to Microsoft Translator
+
+>[AZURE.INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
+
+
 ## Swagger REST API reference
 Applies to version: 1.0.
 
