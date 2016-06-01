@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/03/2016"
+   ms.date="06/01/2016"
    ms.author="vittorib;bryanla"/>
 
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)
@@ -22,9 +22,9 @@ The OAuth2 implicit grant is notorious for being the grant with the longest list
 
 ## What is the OAuth2 implicit grant?
 
-The quintessential OAuth2 [TODO] authorization code grant is the authorization grant which uses two separate endpoints. The authorization endpoint is used for the user interaction phase, which results in an authorization code; the token endpoint is then used by the client for exchanging the code for an access token, and often a refresh token as well. Web applications are required to present their own application credentials to the token endpoint, so that the authorization server can authenticate the client.
+The quintessential [OAuth2 authorization code grant](https://tools.ietf.org/html/rfc6749#section-1.3.1) is the authorization grant which uses two separate endpoints. The authorization endpoint is used for the user interaction phase, which results in an authorization code; the token endpoint is then used by the client for exchanging the code for an access token, and often a refresh token as well. Web applications are required to present their own application credentials to the token endpoint, so that the authorization server can authenticate the client.
 
-The OAuth2 implicit grant is defined as a variant in which a client can obtain an access token (and, in the case of OpenId Connect, an id_token) directly from the authorization endpoint, without the need to contact the token endpoint nor authenticate the client application. This variant was specifically designed for JavaScript based apps running in a Web browser: in the original OAuth2 specification, tokens are returned in a URI fragment. That makes the token bits available to the JavaScript code in the client, but it guarantees they won’t be included in redirects toward the server. Returning tokens via browser redirects directly from the authorization endpoints also has the advantage of eliminating any requirements for cross origin calls, which would be necessary if the JavaScript app would be required to contact the token endpoint.
+The [OAuth2 implicit grant](https://tools.ietf.org/html/rfc6749#section-1.3.2) is defined as a variant in which a client can obtain an access token (and, in the case of [OpenId Connect](http://openid.net/specs/openid-connect-core-1_0.html), an id_token) directly from the authorization endpoint, without the need to contact the token endpoint nor authenticate the client application. This variant was specifically designed for JavaScript based apps running in a Web browser: in the original OAuth2 specification, tokens are returned in a URI fragment. That makes the token bits available to the JavaScript code in the client, but it guarantees they won’t be included in redirects toward the server. Returning tokens via browser redirects directly from the authorization endpoints also has the advantage of eliminating any requirements for cross origin calls, which would be necessary if the JavaScript app would be required to contact the token endpoint.
 
 An important characteristic of the OAuth2 implicit grant is the fact that such flows never return refresh tokens to the client. As we will see in the next section, that isn’t really necessary and would in fact be a security issue.
 
@@ -60,7 +60,7 @@ If you are developing a Web application which includes a backend, and that is me
 ## Next steps
 
 - For a complete list of developer resources, including reference information for the full set of protocols and OAuth2 authorization grant flows support by Azure AD, refer to the [Azure AD Developer's Guide][AAD-Developers-Guide]
-- See [How to integrate an application with Azure AD] [ACOM-How-To-Integrate] and [How and why applications are added to Azure AD][ACOM-How-And-Why-Apps-Added-To-AAD] for additional depth on the application integration process.
+- See [How to integrate an application with Azure AD] [ACOM-How-To-Integrate] for additional depth on the application integration process.
 
 <!--Image references-->
 [Scenario-Topology]: ./media/active-directory-devhowto-auth-using-any-aad/multi-tenant-aad-components.png
@@ -72,29 +72,3 @@ If you are developing a Web application which includes a backend, and that is me
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16 
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
 
-<!--Reference style links unused-->
-[AAD-App-Manifest]: ./active-directory-application-manifest.md
-[AAD-App-SP-Objects]: ./active-directory-application-objects.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes
-[ACOM-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[ACOM-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[ACOM-Azure-Trial]: https://azure.microsoft.com/pricing/free-trial/
-[ACOM-How-And-Why-Apps-Added-To-AAD2]: ./active-directory-how-applications-are-added.md/#how-are-applications-represented-in-the-directory
-[ACOM-Key-Vault]: https://azure.microsoft.com/documentation/services/key-vault/
-[ACOM-Key-Vault-Get-Started]: ./key-vault-get-started.md
-[ACOM-Key-Vault-Web-App]: ./key-vault-use-from-web-application.md
-[AZURE-Azure-portal]: https://manage.windowsazure.com
-[AZURE-Subscription-Admin-Roles]: ./billing-add-change-azure-subscription-administrator.md
-[GH-MSOT-IntellJ]: https://github.com/MSOpenTech/msopentech-tools-for-intellij
-[GH-Sample-WebApp]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect
-[GH-Sample-WebApp-WebAPI]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-multitenant-openidconnect
-[GH-Sample-NativeApp-WebAPI]: https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store
-[JWT-Handler-Extension]: https://msdn.microsoft.com/library/dn205065.aspx
-[JWT-Spec]: http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html
-[O365-Tools-VS2013]: https://visualstudiogallery.msdn.microsoft.com/a15b85e6-69a7-4fdf-adda-a38066bb5155
-[OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
-[OAuth2-Client-Types]: http://tools.ietf.org/html/rfc6749#section-2.1
-[OAuth2-In-AAD]: https://msdn.microsoft.com/library/azure/dn645545.aspx 
-[OAuth2-Spec]: http://tools.ietf.org/html/rfc6749
-[OpenID-Connect1-Spec]: http://openid.net/connect/
-[VS-Downloads]: https://www.visualstudio.com/downloads/download-visual-studio-vs
