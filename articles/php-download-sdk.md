@@ -50,7 +50,7 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 
         {
 			"require": {
-				"microsoft/windowsazure": "^0.4"
+				"microsoft/windowsazure": "^0.4.3"
 			}
         }
 
