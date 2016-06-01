@@ -81,7 +81,7 @@ It is very easy to get started with Azure AD Connect Health. Follow the steps be
 
 
 ## Azure AD Connect Health Portal
-The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics. https://aka.ms/aadconnecthealth takes you to the main blade of Azure AD Connect Health.  You can think of a blade as a window. On The main blade you see Quick Start, Services within Azure AD Connect Health and additional configuration options. Below the screenshot is a brief explanation of each of these.  After you've deployed the agents, the service identifiers for the services Azure AD Connect Health is monitoring.
+The Azure AD Connect Health portal allows you to view alerts, performance monitoring, and usage analytics. https://aka.ms/aadconnecthealth takes you to the main blade of Azure AD Connect Health.  You can think of a blade as a window. On The main blade you see Quick Start, Services within Azure AD Connect Health and additional configuration options. Below the screenshot is a brief explanation of each of these.  After you've deployed the agents, the service identifies for the services Azure AD Connect Health is monitoring.
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/portal2.png)
 
