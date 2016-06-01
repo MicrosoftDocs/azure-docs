@@ -1,6 +1,6 @@
 <properties
    pageTitle="Deploy resources with REST API and template | Microsoft Azure"
-   description="Use Azure Resource Manager to deploy a resources to Azure. A template is a JSON file and can be used from the Portal, PowerShell, the Azure Command-Line Interface for Mac, Linux, and Windows, or REST."
+   description="Use Azure Resource Manager and Azure PowerShell to deploy a resources to Azure. The resources are defined in a Resource Manager template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -17,6 +17,13 @@
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Resource Manager REST API
+
+> [AZURE.SELECTOR]
+- [PowerShell](resource-group-template-deploy.md)
+- [Azure CLI](resource-group-template-deploy-cli.md)
+- [Portal](resource-group-portal.md)
+- [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+- [REST API](resource-group-template-deploy-rest.md)
 
 This article explains how to use the Resource Manager REST API with Resource Manager templates to deploy your resources to Azure.  
 

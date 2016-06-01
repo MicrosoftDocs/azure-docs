@@ -1,7 +1,4 @@
-The template for your deployment can be:
-
-- a local file
-- an external file available through URI - This option works well for templates stored in github or a storage account. In a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+Your template can be either a local file or an external file that is available through a URI. When you template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
 
 ## Incremental and complete deployments
 
