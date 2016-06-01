@@ -26,9 +26,9 @@ Currently we support two build types: *Recommendation* and *FBT* builds. Each of
 <a name="RecommendationBuild"></a>
 ### Recommendation build type ###
 
-The *recommendation* build type uses latent matrix factorization to provide recommendations. The short version is that it will use the user’s transactions to generate [latent feature](https://en.wikipedia.org/wiki/Latent_variable) vectors to describe each item, and then use those latent vectors to compare items that are similar.
+The *recommendation* build type uses matrix factorization to provide recommendations. The short version is that it will use the user’s transactions to generate [latent feature](https://en.wikipedia.org/wiki/Latent_variable) vectors to describe each item, and then use those latent vectors to compare items that are similar.
 
-Assuming you train the model based on purchases made in your electronics store, and at scoring time you provide a Lumia 650 phone as the input to the model, it will return a set of items that tend to be purchased by people that are likely to purchase a Lumia 650 phone. In this example, it is possible that other phones will be returned since people that like the Lumia 650 may like other phones.
+Assuming you train the model based on purchases made in your electronics store, and at scoring time you provide a Lumia 650 phone as the input to the model, it will return a set of items that tend to be purchased by people that are likely to purchase a Lumia 650 phone. Note that the items may not be complementary. For instance, in this example, it is possible that other phones will be returned since people that like the Lumia 650 may like other phones.
 
 The recommendation build has two capabilities that make it attractive:
 
@@ -40,24 +40,26 @@ The recommendation build has two capabilities that make it attractive:
  If you want to use cold item placement you need to provide features information for each of your items in the catalog,
  this is what the first few lines of your catalog may look like (note the key=value format for the features):
 
-         6CX-00001,Surface Pro2, Surface, Type=Hardware,  Storage=128GB,  Memory=4G, Manufacturer=Microsoft
-         73H-00013,Wake Xbox 360,Gaming, Type=Software, Language=English, Rating=Mature
-         WAH-0F05,Minecraft Xbox 360,Gaming, * Type=Software, Language=Spanish, Rating=Youth
-         …
+> 6CX-00001,Surface Pro2, Surface, Type=Hardware,  Storage=128GB,  Memory=4G, Manufacturer=Microsoft
+> 73H-00013,Wake Xbox 360,Gaming, Type=Software, Language=English, Rating=Mature
+> WAH-0F05,Minecraft Xbox 360,Gaming, * Type=Software, Language=Spanish, Rating=Youth
+> ...
 
  In addition, as part of the build parameters, you need to set the following build parameters:
 
 | Build parameter	      | Notes
 |------------------     |-----------
-|useFeaturesInModel     |	Set to true.  Indicates if features can be used in order to enhance the recommendation model.
+|useFeaturesInModel     | Set to true.  Indicates if features can be used in order to enhance the recommendation model. 
 |allowColdItemPlacement	| Set to true. Indicates if the recommendation should also push cold items via feature similarity.
-| modelingFeatureList	  | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. For instance “Language,Storage” for the example above.
+| modelingFeatureList   | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. For instance “Language,Storage” for the example above.
 
 -	It supports user recommendations.
 
  A Recommendation build supports [user recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). This means that it can use the history of transactions for a user in order to provide personalized recommendations for that user. For user recommendations you may provide the user id and/or the recent history of transactions for that user.
 
- One example where you may want to apply user recommendations is when the user is about to check-out. At that point you have the list of items the customer is about to purchase, and this is your chance to provide recommendations based on the current market basket.
+ One classic example where you may want to apply user recommendations is when the user first logs into your store/site, on the welcome page. There you can promote content that applies to the specific user. 
+ 
+ You may also want to apply a Recommendations build type when the user is about to check-out. At that point you have the list of items the customer is about to purchase, and this is your chance to provide recommendations based on the current market basket.
 
 <a name="FBTBuild"></a>
 ### FBT build type ###
@@ -104,7 +106,7 @@ The table below represents the output of the precision-at-k offline evaluation.
 |Percentage |	13.75 |	18.04	| 21 |	24.31 |	26.61
 |Users in Test |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
 |Users Considered |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
-|Users Not Considered |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
+|Users Not Considered |	0 |	0 |	0 |	0 |	0
 
 #### K
 In the table above, *K* represents the number of recommendations shown to the customer.  So the table reads as follows: “If during the test period, only one recommendations would have been shown to the customers, only 13.75 of the users would have actually purchased that recommendation”. (Assuming the model was trained with purchase data). Another way to says this is that the “precision at 1” is 13.75.
@@ -122,6 +124,8 @@ A user is only considered if the system recommended at least K items based on th
 
 #### Users Not Considered
 Any users not considered; the users that did not receive at least K recommended items.
+
+User Not Considered = User in Test – Users Considered
 
 <a name="Diversity"></a>
 ### Diversity ###
@@ -142,8 +146,7 @@ Each percentile bucket is represented by a span (min/max values that range betwe
 Number of distinct items that were returned for evaluation.
 #### Total items Recommended
 The total number of items recommended. (some may be duplicates)
-#### Unique Seed Items
-Number of distinct items in the train dataset.
+
 
 <a name="ImplementingEvaluation"></a>
 ### How to get offline evaluations? ###
