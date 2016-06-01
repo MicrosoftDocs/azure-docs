@@ -108,7 +108,7 @@ VNets can only be used with premium caches.
 
 ### Why does creating a Redis cache fail in some subnets but not others?
 
-If you are deploying an Azure Redis Cache to an ARM VNet, the cache must be in a dedicated subnet that contains no other resources. If an attempt is made to deploy an Azure Redis Cache to an ARM VNet subnet that contains other resources, the deployment will fail. You must delete the existing resources inside the subnet before you can create a new Redis cache.
+If you are deploying an Azure Redis Cache to an ARM VNet, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Redis Cache to an ARM VNet subnet that contains other resources, the deployment will fail. You must delete the existing resources inside the subnet before you can create a new Redis cache.
 
 You can deploy multiple types of resources to a classic VNet as long as you have enough IP addresses available.
 
