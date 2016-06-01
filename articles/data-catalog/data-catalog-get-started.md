@@ -116,7 +116,7 @@ In this exercise you use the **Azure Data Catalog** publishing tool to register 
 In this exercise you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization.
 In the next exercise you learn how to discover registered data assets.
 
-## Discover registered data assets
+## Discover data assets
 
 In this exercise you will use the **Azure Data Catalog** portal to discover registered data assets and view their metadata. **Azure Data Catalog** has a simple but powerful search syntax that enables you to easily build queries that return data users need. **Azure Data Catalog** has the following search options:
 
@@ -155,7 +155,7 @@ In this exercise you used the **Azure Data Catalog** portal to discover and view
 2. Confirm that you see all the data assets you published today. 
 
 <a name="annotating"/>
-## Annotate registered data assets
+## Annotate data assets
 In this exercise you use the **Azure Data Catalog** portal to annotate data assets that you have previously registered in the catalog. The annotations you provide will supplement and enhance the structural metadata extracted from the data source during registration and will make the data assets much easier to discover and understand. 
 
 ### Here’s how you annotate data assets
@@ -231,7 +231,7 @@ In **Azure Data Catalog**, you can delete an individual asset or delete multiple
 
 > [AZURE.NOTE] The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered. The management capabilities included in the **Standard Edition of Azure Data Catalog** provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.
 
-## Manage registered data assets
+## Manage data assets
 
 In this exercise you will use the management capabilities of **Azure Data Catalog** to take ownership of data assets and to control what users can discover and how users manage those assets.
 
