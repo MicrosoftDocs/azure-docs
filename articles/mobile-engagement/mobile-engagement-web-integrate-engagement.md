@@ -84,7 +84,7 @@ Or
 
 ## Alias
 
-Once loaded the SDK script creates the **engagement** alias to access the SDK APIs (it can't be used to define the SDK configuration). This alias will be used as reference in this documentation. 
+Once loaded the SDK script creates the **engagement** alias to access the SDK APIs (it can't be used to define the SDK configuration). This alias will be used as a reference in this documentation. 
 
 Note that if the default alias is conflicting with another global variable from your page then you can redefine it in the configuration before loading the SDK as follow:
 
@@ -114,8 +114,7 @@ Either way, to start or change the current user activity, call the `engagement.a
       engagement.agent.startActivity('welcome');
 	};
 
-A session will expire 30 minutes after the last call to `engagement.agent.startActivity`. Calling this function
-after more than 30 minutes of inactivity will create a new user session.
+An opened session will automatically be ended by the Engagement server within 3 minutes after the application page is closed.
 
 Alternatively you can also end a session manually by calling `engagement.agent.endActivity`, this will set the current user activity as 'idle' and will actually end the session 10 seconds after that unless a new call to `engagement.agent.startActivity` resumes the session in the meantime.
  

@@ -18,7 +18,7 @@
 
 # How to Use the Engagement API in a Web application
 
-This document is an add-on to the document [How to Integrate Engagement on Android](mobile-engagement-web-integrate-engagement.md). It provides in depth details about how to use the Engagement API to report your application statistics.
+This document is an add-on to the document [How to Integrate Engagement on a Web application](mobile-engagement-web-integrate-engagement.md). It provides in depth details about how to use the Engagement API to report your application statistics.
 
 The Engagement API is provided by the `engagement.agent` object. `engagement` is the default Engagement SDK alias which can be redefined from the SDK configuration.
 
@@ -30,9 +30,7 @@ The following parts refine the common [Mobile Engagement Concepts](mobile-engage
 
 If the user stays more than a few seconds idle between two *activities*, then his sequence of *activities* is split in two distinct *sessions*. These few seconds are called the *session timeout*.
 
-If your Web application doesn't declare the end of the user activities by itself (by calling the
-`engagement.agent.endActivity` function), the Engagement server will automatically expire the user session 30 minutes
-after the last call to the `engagement.agent.startActivity` function.  This behavior is called the server *session timeout*.
+If your Web application doesn't declare the end of the user activities by itself (by calling the `engagement.agent.endActivity` function), the Engagement server will automatically expire the user session within 3 minutes after the application page is closed. This behavior is called the server *session timeout*.
 
 ### `Crash`
 
@@ -44,8 +42,7 @@ There is no automated report of JavaScript uncaught exceptions. Nevertheless, yo
 
 	engagement.agent.startActivity("MyUserActivity");
 
-You need to call `startActivity()` each time the user activity changes. The first call to this function starts a new
-user session.
+You need to call `startActivity()` each time the user activity changes. The first call to this function starts a new user session.
 
 ### User ends his current Activity
 
@@ -53,7 +50,7 @@ user session.
 
 You need to call `endActivity()` at least once when the user finishes his last activity. This informs the Engagement SDK that the user is currently idle, and that the user session need to be closed once the session timeout will expire (if you call `startActivity()` before the session timeout expires, the session is simply resumed).
 
-It is often difficult or impossible to catch the end of user activities inside web environments (no reliable call when the navigator window is closed). That's why the Engagement server automatically expires the user sessions 30 minutes after the last call to the `engagement.agent.startActivity` function.
+It is often difficult or impossible to catch the end of user activities inside web environments (no reliable call when the navigator window is closed). That's why the Engagement server automatically expires the user session within 3 minutes after the application page is closed.
 
 ## Reporting Events
 
