@@ -45,8 +45,6 @@ The following diagram highlights the important components in this architecture (
 
 - **On-premises network.** This is a network of computers and devices, connected through a private local-area network running within an organization.
 
-- **Network security appliance (NSA).** This is an on-premises appliance that inspects requests intended for the Internet. All outbound Internet requests are directed through this device.
-
 - **Azure virtual network (VNet).** The VNet hosts the application and other resources running in the cloud.
 
 - **Gateway.** The gateway provides the connectivity between routers in the on-premises network and the VNet.
