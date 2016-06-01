@@ -47,10 +47,9 @@ To create a MySQL database in the Azure portal, do the following:
 	- **Pin to dashboard**: Select if you want to access it directly from the dashboard. This is especially helpful if you aren't familiar with
 	portal navigation yet.
 	
-    The following screenshot is just an example of how you can configure your MySQL database.
-	
+    The following screenshot is just an example of how you can configure your MySQL database.  
 	![Create a MySQL database in Azure - configure](./media/store-php-create-mysql-database/create-db-2-configure.png)
-	
+
 3. When you're done configuring, click **Create**.
 
 	![Create a MySQL database in Azure - create](./media/store-php-create-mysql-database/create-db-3-create.png)
