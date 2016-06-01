@@ -76,7 +76,7 @@ In order for your users to access your published application, you need to assign
 
 You can modify published apps or set up advanced options on the Configure page. On this page, you can customize your app by changing the name or uploading a logo. You can also manage access rules like the preauthentication method or multi-factor authentication.
 
-![Advanced configuration](./media/active-directory-application-proxy-publish/aad_appproxyconfigure.png)
+![Advanced configuration](./media/active-directory-application-proxy-publish/aad_appproxy_configure.png)
 
 
 After you publish applications using Azure Active Directory Application Proxy, they appear in the Applications list in Azure AD, and you can manage them there.
