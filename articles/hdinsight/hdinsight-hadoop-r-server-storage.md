@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="06/01/2016"
    ms.author="jeffstok"
 />
 
@@ -32,13 +32,17 @@ If needed, it is possible to access multiple Azure storage accounts or container
 1.	Suppose you create an HDInsight cluster with a storage account name of “storage1” with default container “container1”.  You also specify an additional storage account “storage2".  
 2.	Now you copy a file “mycsv.csv” to directory “/share” and want to perform analysis on that file.  
 
-    hadoop fs –mkdir /share
-    hadoop fs –copyFromLocal myscsv.scv /share  
+````
+hadoop fs –mkdir /share
+hadoop fs –copyFromLocal myscsv.scv /share  
+````
 
 3.	In R code you set the name node to “default” and set your directory and file to process  
 
-    myNameNode <- "default"
-    myPort <- 0
+````
+myNameNode <- "default"
+myPort <- 0
+````
 
   Location of the data  
 
