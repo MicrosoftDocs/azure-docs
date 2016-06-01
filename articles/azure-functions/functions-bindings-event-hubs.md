@@ -27,7 +27,7 @@ This article explains how to configure and code [Azure Event Hub](../event-hubs/
 
 ## Azure Event Hub trigger binding
 
-An Azure Event Hub trigger can be used to respond to an event sent to an event hub event stream. You have have read access to the event hub to setup a trigger binding.
+An Azure Event Hub trigger can be used to respond to an event sent to an event hub event stream. You must have read access to the event hub to setup a trigger binding.
 
 #### function.json for Event Hub trigger binding
 
