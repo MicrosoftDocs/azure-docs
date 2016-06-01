@@ -238,6 +238,7 @@ Please refer to the [DocumentDB Pricing] [pricing] for pricing information.
 
 Please refer to the [DocumentDB SLA] [sla] page for more info
 
+
 <!--Image references-->
 [1]: ./media/documentdb-global-database/documentdb_add_region.png
 [2]: ./media/documentdb-global-database/documentdb_change_write_region.png
