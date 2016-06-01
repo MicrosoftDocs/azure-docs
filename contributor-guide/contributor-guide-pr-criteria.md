@@ -1,4 +1,4 @@
-# Pull request review quality criteria
+# Quality criteria for pull request review
 
 These criteria are intended for authors who create and maintain technical articles and for pull request reviewers who review content pull requests. If your pull request does not qualify for [automatic merging](contributor-guide-pull-request-etiquette.md#in-a-hurry-submit-prs-that-can-be-accepted-automatically), it will be reviewed by a human pull request reviewer. Pull request reviewers generally review only what is new or changed. Pull request reviewers evaluate the changes in a pull request according to the blocking and non-blocking quality review items listed in this article.
 
