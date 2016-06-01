@@ -163,12 +163,6 @@ When you deploy your template, you retrieve a SAS token and include it in the UR
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName sasgroup -TemplateUri $templateuri
 
-### Video
-
-Here's a video demonstrating working with Resource Manager templates with PowerShell.
-
-[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
-
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
 ## Next steps
