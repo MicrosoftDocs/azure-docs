@@ -38,7 +38,7 @@ The different statuses you may see are:
 * **Succeeded** - The trigger received a response that data was available. This could be from a manual trigger, a recurrence trigger, or a polling trigger. This likely will be accompanied with a status of **Fired**, but it might not, if you have a condition or SplitOn command in code view that wasn't satisfied.
 * **Failed** - An error was generated.
 
-#### Start a trigger manually
+#### Starting a trigger manually
 
 If you want the logic app to check for an available trigger immediately (without waiting for the next recurrence), you can click **Select Trigger** on the main blade to force a check. For example, clicking this link with a Dropbox trigger will cause the workflow to immediately poll Dropbox for new files.
 
