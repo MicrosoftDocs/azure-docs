@@ -13,10 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/12/2016"
+	ms.date="05/27/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch library for .NET
+
+> [AZURE.SELECTOR]
+- [.NET](batch-dotnet-get-started.md)
+- [Python](batch-python-tutorial.md)
 
 Learn the basics of [Azure Batch][azure_batch] and the [Batch .NET][net_api] library in this article as we discuss a C# sample application step by step. We'll look at how this sample application leverages the Batch service to process a parallel workload in the cloud, as well as how it interacts with [Azure Storage](../storage/storage-introduction.md) for file staging and retrieval. You'll learn common Batch application workflow techniques. You'll also gain a base understanding of the major components of Batch, such as jobs, tasks, pools, and compute nodes.
 
@@ -46,7 +50,7 @@ The [DotNetTutorial][github_dotnettutorial] sample is one of the many code sampl
 
 ### Azure Batch Explorer (optional)
 
-The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While the Batch Explorer is not required to complete this tutorial, we highly recommend it for use in the debugging and administration of entities in your Batch account. You can read about an older version of the Batch Explorer in the [Azure Batch Explorer sample walkthrough][batch_explorer_blog] blog post.
+The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
 
 ## DotNetTutorial sample project overview
 
@@ -333,7 +337,7 @@ private static async Task CreatePoolAsync(
 }
 ```
 
-When you create a pool with [CreatePool][net_pool_create], you specify a number of parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images--see [Introducing Linux support on Azure Batch][blog_linux] for more information.
+When you create a pool with [CreatePool][net_pool_create], you specify a number of parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images--see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
 
 > [AZURE.IMPORTANT] You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicated` to 1 before you run the sample.
 

@@ -65,10 +65,10 @@ If you want to enable extra data, continue with steps in scenario 2 and 3.
 
 Step 1. Create a file named PrivateConfig.json with the following content.
 
-	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account"
-	}
+    {
+        "storageAccountName" : "the storage account to receive data",
+        "storageAccountKey" : "the key of the account"
+    }
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
@@ -82,12 +82,15 @@ For all supported providers and variables, reference this [document](https://scx
 
 By default, the Rsyslog data is always collected.
 
-	{
-      	"perfCfg":[
-           	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
-           	}
-          ]
-	}
+    {
+      	"perfCfg":
+      	[
+      	    {
+      	        "query" : "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+      	        "table" : "LinuxMemory"
+      	    }
+      	]
+    }
 
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'
@@ -100,26 +103,30 @@ You need to specify the path to your log file, and specify the table name to sto
 
 Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content.
 
-	{
-      	"fileCfg":[
-           	{"file":"/var/log/mysql.err",
-             "table":"mysqlerr"
-           	}
-          ]
-	}
+    {
+        "fileCfg" : 
+        [
+            {
+                "file" : "/var/log/mysql.err",
+                "table" : "mysqlerr"
+             }
+        ]
+    }
 
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'
 --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
-###   Scenario 4. Disable the Linux monitor extension
+###   Scenario 4. Stop the extension from collecting any logs
+This section describes how to stop the extension from collecting any logs. Note that the monitoring agent process will be still up and running even with this reconfiguration. If you'd like to completely stop the monitoring agent process, you can do so by disabling the extension. The command to disable the extension is **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
+
 Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content.
 
-	{
-     	"perfCfg":[],
-     	"enableSyslog":”False”
-	}
+    {
+        "perfCfg" : [],
+        "enableSyslog" : "false"
+    }
 
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'

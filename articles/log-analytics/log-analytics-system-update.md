@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="banders"/>
 
 # System Update Assessment solution in Log Analytics
@@ -30,11 +30,20 @@ Use the following information to install and configure the solution.
 
 ## System Update data collection details
 
+System Update Assessment collects metadata and state data using the agents that you have enabled.
+
 The following table shows data collection methods and other details about how data is collected for System Update Assessment.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 |---|---|---|---|---|---|---|
 |Windows|![Yes](./media/log-analytics-system-update/oms-bullet-green.png)|![Yes](./media/log-analytics-system-update/oms-bullet-green.png)|![No](./media/log-analytics-system-update/oms-bullet-red.png)|            ![No](./media/log-analytics-system-update/oms-bullet-red.png)|![Yes](./media/log-analytics-system-update/oms-bullet-green.png)| At least 2 times per day and 15 minutes after installing an update|
+
+The following table shows examples of data types collected by System Update Assessment:
+
+|**Data type**|**Fields**|
+|---|---|
+|Metadata|BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime|
+|State|StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified|
 
 
 ### To work with updates

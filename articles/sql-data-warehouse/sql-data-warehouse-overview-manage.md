@@ -39,7 +39,7 @@ You can use a variety of tools to manage databases in SQL Data Warehouse. As you
 ### Azure portal
 The [Azure portal][] is a web-based portal where you can create, update, and delete databases and monitor database resources. This tool is great is if you're just getting started with Azure, managing a small number of data warehouse databases, or need to quickly do something.
 
-To get started with the Azure portal, see [Create a SQL Data Warehouse (Azure Portal)][].
+To get started with the Azure portal, see [Create a SQL Data Warehouse (Azure portal)][].
 
 ### SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools][] (SSDT) in Visual Studio allows you to connect to, manage, and develop your databases. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), try using SSDT in Visual Studio.
