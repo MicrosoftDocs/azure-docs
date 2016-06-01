@@ -29,29 +29,29 @@ Global Databases enable single-click replication of DocumentDB databases across 
 
 For each of your existing or new DocumentDB Database Accounts, you can now add regions where you want your data to be replicated. You can add any number of regions that DoucmentDB is available in.
 
-Each of these regions can serve read requests with the same RUs available to each collecioon. For example, if you have a collection with 10,000 RU/s provisioned to it, the same collection will be able to serve up to 10,000 RU/s in each of the regions. Each client can specify its own order of read region selection, with reads being served from the region at the top of the list. If one or more regions fail or are unreachable for the client, the client will automatically fail over down this list of preferred regions until a region is found that is serving requests. 
+Each of these regions can serve read requests with the same RUs available to each collection. For example, if you have a collection with 10,000 RU/s provisioned to it, the same collection will be able to serve up to 10,000 RU/s in each of the regions. Each client can specify its own order of read region selection, with reads being served from the region at the top of the list. If one or more regions fail or are unreachable for the client, the client will automatically fail over down this list of preferred regions until a region is found that is serving requests. 
 
 Writes go to one region at any given time. The service allows you to set your preferred order of write region selection in the Azure Portal. Once this is set, the service will select the top most region in this list as the write region. If one or more regions fail, the service will automatically select the first available region down the list as the write region. 
 
 Finally, you can set a consistency level for replication (more below).
 
-Once global databases is set up, there is no further day-to-day management necessary. The service will handle replication, and in the case of a regional failure, automatically handle failing over and recovering with minimal loss in availability.
+Once the global database is set up, there is no further day-to-day management necessary. The service will handle replication, and in the case of a regional failure, automatically handle failing over and recovering with minimal loss in availability.
 
 
 ## Selecting regions
 
-When deploying to 2 or more regions, it is recommended that regions are selected based on the region pairs described in[Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr].
+When deploying to 2 or more regions, it is recommended that regions are selected based on the region pairs described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr].
 
 Specifically, when deploying multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. 
 
 
 ## Throughput and Performance
 
-When you add one or more regions to a Database Account, each regoin is provisioned with the same throughput on a per-Collection basis. This means that each colleciton has an independant, identical RU budget in each region. 
+When you add one or more regions to a Database Account, each region is provisioned with the same throughput on a per-Collection basis. This means that each collection has an independent, identical RU budget in each region. 
 
-When a read of write operation is performed on a collection in a region, it will consume RUs from that Collection's budget in that specific reigon only. Unlike other distributed database systems, the RU charge for write operations does not increase as the number of regions is increased. Also, there is no additional RU charge for receiving and persisiting the replicated writes at the receiving regions. 
+When a read of write operation is performed on a collection in a region, it will consume RUs from that Collection's budget in that specific region only. Unlike other distributed database systems, the RU charge for write operations does not increase as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
 
-For example, assume that the client was performing 10 RU reads and 50 RU writes against a single region Database Account. Now, when additional regions are added to this database account, the RU charge for those same operations does not change. Each write is continues to be charged 50 RUs from the collection RU budget in the write region only (no impact on other regions). Similarly, each read is charged 10 RUs from the budget of the colleciton in the region serving the operation, with no impact to other reigons.
+For example, assume that the client was performing 10 RU reads and 50 RU writes against a single region Database Account. Now, when additional regions are added to this database account, the RU charge for those same operations does not change. Each write will continue to be charged 50 RUs from the collection RU budget in the write region only (no impact on other regions). Similarly, each read will be charged 10 RUs from the budget of the collection in the region serving the operation, with no impact to other regions.
 
 
 ## Adding regions
@@ -74,9 +74,9 @@ The impact of failover on active clients is discussed in the Failover & Recovery
 
 ## Read region selection
 
-DocumentDB client SDKs provide an optional parameter "PreferredLocations" that is an ordered list of Azure regions. The SDK will automatically send all reads to the first availabe region in this list. If the first region returns is returns an error or is not reachable, the client will retry 2 more times with that region, and then fail down the list to the next region, and so on. The SDK will check for region availability every 30s (?) and switch back to a more preferred region if it becomes available again. 
+DocumentDB client SDKs provide an optional parameter "PreferredLocations" that is an ordered list of Azure regions. The SDK will automatically send all reads to the first available region in this list. If the first region returns is returns an error or is not reachable, the client will retry 2 more times with that region, and then fail down the list to the next region, and so on. The SDK will check for region availability every 30s (?) and switch back to a more preferred region if it becomes available again. 
 
-The client SDKs will only attemmpt to read to the regions specified in PreferedLocations. So, for example, if the Database Account is replicated to 3 regions, but the clients only specify 2 of the non-write regions for PreferedLocations, then no reads will be served out of the write region, even in the case of failover. This behavior can be used to 
+The client SDKs will only attempt to read to the regions specified in PreferedLocations. So, for example, if the Database Account is replicated to 3 regions, but the clients only specify 2 of the non-write regions for PreferedLocations, then no reads will be served out of the write region, even in the case of failover. This behavior can be used to 
 1. fully reserve the RU budget of the write region for writes
 2. deploy additional regions for data analytics without affecting production throughput, by sp3ecifying different PreferedLocations in production and analytics clients respectively.
 
@@ -92,7 +92,7 @@ In the context of geo-replication, each of the available consistency levels come
 
 ### Types
 1.  Strong Consistency
-    -   Strong consistency comes with a high cost in terms of latency and availability when implementaed at a global scale. DocumentBD currently does not support Strong Consistency for global databases.
+    -   Strong consistency comes with a high cost in terms of latency and availability when implemented at a global scale. DocumentDB currently does not support Strong Consistency for global databases.
 
 2.  Bounded Staleness Consistency
     -   Reads follow write(s) at write region.
@@ -143,7 +143,7 @@ Support for global databases is NOT a breaking change for any of the DocumentDB 
 ### .Net SDK
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
 
-The ConnectionPolicy parameter for the DocumentClient constructor has a new property, Microsoft.Azure.Documents.ConnectionPolicy.PreferredRegions. This property is of type Collection`<string`> and should contain a list of region names. The names are formatted per the Region Name column  in the [Azure Regions] [regions] page. You can also use the predefined constants in the convenience class Microsoft.Azure.Documents.Regions.
+The ConnectionPolicy parameter for the DocumentClient constructor has a new property, Microsoft.Azure.Documents.ConnectionPolicy.PreferredRegions. This property is of type Collection`<string`> and should contain a list of region names. The names are formatted per the Region Name column on the [Azure Regions] [regions] page. You can also use the predefined constants in the convenience class Microsoft.Azure.Documents.Regions.
 
 The current write and read endpoints are availabe in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
 
@@ -158,7 +158,8 @@ The current write and read endpoints are availabe in DocumentClient.WriteEndpoin
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDbUri);
     string accountKey = Properties.Settings.Default.GlobalDbKey;
 
-    // Setting Direct TCP mode for low latency access
+    // Setting Direct TCP mode for low latency access - note required but highly recommended
+    // More info: https://azure.microsoft.com/en-us/blog/performance-tips-for-azure-documentdb-part-1-2/
     ConnectionPolicy connectionPolicy = new ConnectionPolicy
     {
         ConnectionMode = ConnectionMode.Direct,
@@ -183,21 +184,21 @@ The current write and read endpoints are availabe in DocumentClient.WriteEndpoin
 ### NodeJS, JavaScript and Python SDKs
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
 
-The ConnectionPolicy parameter for the DocumentClient constructor has a new property, DocumentClient.ConnectionPolicy.PreferredRegions. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions] [regions] page . You can also use the predefined constants in the convenience object AzureDocuments.Regions
+The ConnectionPolicy parameter for the DocumentClient constructor has a new property, DocumentClient.ConnectionPolicy.PreferredRegions. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions] [regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
 
-The current write and read endpoints are availabe in DocumentClient.getWriteEndpoint and DocumentClient.getReadEndpoint respectively.
+The current write and read endpoints are available in DocumentClient.getWriteEndpoint and DocumentClient.getReadEndpoint respectively.
 
 > [AZURE.NOTE] The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK will handle this change automatically.
 
-Below is a code exalple for NodeJS
+Below is a code example for NodeJS/Javascripte. Python will follow the same pattern.
 
-    // Createing a ConnectionPolicy object
+    // Creating a ConnectionPolicy object
     var connectionPolicy = new DocumentBase.ConnectionPolicy();
     
     // Setting read region selection preference, in the following order -
-    // 1- West US
+    // 1 - West US
     // 2 - East US
-    // 3- North Europe
+    // 3 - North Europe
     connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Eurpope'];
     
     // initialize the connection
@@ -223,7 +224,7 @@ In the event that DocumentDB suffers downtime in a region, the following will oc
 1. Any Database Accounts with write region set to the unavailable region will fail over writes to the next region configured for the account. If no other region is left to fail over to, write requests will fail.
 2. Any clients performing reads from that region will fail over to the next region in their PreferredRegion list, if specified. If no other region is left to fail over to, read requests will fail.
 
-When such availability loss occurs, there is a small window where writes (acknowledged to client) may have been persisted to the affected region, but may not have been replicated to other regions. In order to enable the recovery of this data, we will restore affected regions in a read-only state and notify all affected customers. At this point, the client SDKs can be configured to read from this region (set single PrefferedLocation) and recover any unreplicated data by comparing it to other live regions.
+When such availability loss occurs, there is a small window where writes (acknowledged to client) may have been persisted to the affected region, but may not have been replicated to other regions. In order to enable the recovery of this data, we will restore affected regions in a read-only state and notify all affected customers. At this point, the client SDKs can be configured to read from this region (set single PrefferedLocation) and recover any un-replicated data by comparing it to other live regions.
 
 Once data has been recovered, the affected region can be restored to active state from the Azure Portal. DocumentDB will rebuild the data in that region for that Database Account, and make it available in full operation state again.
 
