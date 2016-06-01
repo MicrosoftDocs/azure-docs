@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
 # My credit card doesn’t go through when I try to sign up for Azure
@@ -31,7 +31,7 @@ Also make sure that the payment method is active and your bank is not blocking o
 - The CVV code you enter must exactly match the code that appears on the back or front of the credit/debit card.
 
 ## Are you trying to activate an Azure Free Trial?
-The Azure Free Trial offer is limited to one free trial activation per user. If you have already activated a free trial earlier or had an Azure subscription in the past but are trying to activate a free trial now, the system will not allow you to proceed. Instead, use one of the other available Azure plans listed on the [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/) page.
+The Azure Free Trial offer is limited to one free trial activation per user. If you have already activated a free trial earlier with this credit card or had an Azure subscription in the past that was linked to this credit card, the system will not allow you to activate a free trial now. Instead, use one of the other available Azure plans listed on the [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/) page.
 
 ## Do you want another option to pay besides a credit or debit card?
 You can also pay for your Azure subscription via invoicing payment methods such as checks, overnight checks, and wire transfers.
