@@ -42,11 +42,11 @@ Since SQL Data Warehouse restores to a new database on your logical SQL server, 
 
 ### Install PowerShell
 
-In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
+In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -Name Azure -ListAvailable**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
 ## Restore a live database
 
-To restore a database from a snapshot use the [Restore-AzureRmSqlDatabase][] PowerShell cmdlet.
+To restore a database from a snapshot use the [Restore-AzureRmSqlDatabase][] cmdlet.
 
 1. Open Windows PowerShell.
 2. Connect to your Azure account and list all the subscriptions associated with your account.
@@ -56,7 +56,7 @@ To restore a database from a snapshot use the [Restore-AzureRmSqlDatabase][] Pow
 6. Restore the database to the desired restore point.
 7. Verify that the restored database is online.
 
-```Powershell
+```PowerShell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -69,7 +69,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
+((Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
@@ -88,7 +88,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
+>[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above PowerShell cmdlets.
 
 After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
@@ -103,7 +103,7 @@ To restore a deleted database, use the [Restore-AzureRmSqlDatabase][] cmdlet.
 5. Restore the deleted database.
 6. Verify that the restored database is online.
 
-```Powershell
+```PowerShell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -126,7 +126,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above powershell cmdlets.
+>[AZURE.NOTE] For server foo.database.windows.net, use "foo" as the -ServerName in the above PowerShell cmdlets.
 
 After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
 
@@ -141,7 +141,7 @@ To recover a database, use the [Restore-AzureRmSqlDatabase][] cmdlet.
 5. Create the recovery request for the database.
 6. Verify the status of the geo-restored database.
 
-```Powershell
+```PowerShell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -187,7 +187,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Blog references-->
-[how to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
+[How to view and increase DTU quota]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
