@@ -274,7 +274,7 @@ You can also retrieve the output of an activity in a **PowerShell Expression** d
 
 ### Checkpoints
 
-You can set [checkpoints](automation-powershell-workflow/#checkpoints) in a Graphical PowerShell Workflow runbook by selecting *Checkpoint runbook* on any activity.  This causes a checkpoint to be set after the activity runs.
+You can set [checkpoints](automation-powershell-workflow.md/#checkpoints) in a Graphical PowerShell Workflow runbook by selecting *Checkpoint runbook* on any activity.  This causes a checkpoint to be set after the activity runs.
 
 ![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
@@ -289,7 +289,7 @@ The next activity, Add-AzureRmAccount, adds the authenticated Run As account for
 ![Add-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 For the parameters **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID** you will need to specify the name of the property for the Field path because the activity outputs an object with multiple properties.  Otherwise when you execute the runbook, it will fail attempting to authenticate.  This is what you need at a minimum to authenticate your runbook with the Run As account.
 
-To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](automation-sec-configure-aduser-account) to manage Azure Service Management (ASM) or Azure Resource Manager (ARM) resources, the method to authenticate is the Add-AzureAccount cmdlet with a [credential asset](http://msdn.microsoft.com/library/dn940015.aspx) that represents an Active Directory user with access to the Azure account.
+To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](automation-sec-configure-aduser-account.md) to manage Azure Service Management (ASM) or Azure Resource Manager (ARM) resources, the method to authenticate is the Add-AzureAccount cmdlet with a [credential asset](http://msdn.microsoft.com/library/dn940015.aspx) that represents an Active Directory user with access to the Azure account.
 
 You can add this functionality to a graphical runbook by adding a credential asset to the canvas followed by an Add-AzureAccount activity.  Add-AzureAccount uses the credential activity for its input.  This is illustrated in the following example.
 
