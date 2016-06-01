@@ -18,7 +18,10 @@
 
 # Troubleshoot connection issues to Azure SQL Database
 
-You receive [error messages](sql-database-develop-error-messages.md) when the connection to Azure SQL Database fails. This article is a centralized topic which helps you to troubleshooting the Azure SQL Database connectivity issues. It introduces [the common causes](#cause) of the connection issues, recommends [a troubleshooting tool](#Try-the-troubleshooter-for-Azure-SQL-Database-connectivity-issues) helps you to identity the problem, provides the troubleshoot steps to solve [the transient errors](#Troubleshoot-the-transient-errors) and [persistent or non-transient errors](#troubleshoot-the-persistent-errors). Finally, this article lists [all of Azure SQL Database connectivity issues relevant articles that are recommended by Microsoft](#All-topics-for-Azure-SQL-Database-connection-problems).
+You receive [error messages](sql-database-develop-error-messages.md) when the connection to Azure SQL Database fails. This article is a centralized topic which helps you to troubleshooting the Azure SQL Database connectivity issues. It introduces [the common causes](#cause) of the connection issues, recommends [a troubleshooting tool](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) helps you to identity the problem, provides the troubleshoot steps to solve [the transient errors](#troubleshoot-the-transient-errors) and [persistent or non-transient errors](#troubleshoot-the-persistent-errors). Finally, this article lists [all of Azure SQL Database connectivity issues relevant articles that are recommended by Microsoft](#all-topics-for-azure-sql-database-connection-problems).
+
+If you encounter the connection issues, try the troubleshoot steps that are described in this article.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Cause
 The connection problems can be caused by any of the following problems:
@@ -33,9 +36,6 @@ Generally, connection issues to Azure SQL Database can be broadly classified as 
 
 - [Transient errors (short-lived or intermittent)](#troubleshoot-the-transient-errors)
 - [Persistent or non-transient errors (errors that regularly recur)](#troubleshoot-the-persistent-errors-non-transient-errors)
-
-If you encounter the connection issues, try the troubleshoot steps that are described in this article.
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Try the troubleshooter for Azure SQL Database connectivity issues
 If you receive a specific connection error, try [this tool](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) which help you to identity your problem quickly, and guides you to solve the connect errors.
@@ -91,5 +91,5 @@ The following table lists every topic of connection problems that applies direct
 - [Connecting to SQL Database: Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
 - [Retry general guidance](../best-practices-retry-general.md)
 - [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-- [The learning path of using Azure SQL Database](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database.md)
+- [The learning path of using Azure SQL Database](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
 - [The learning path of using elastic database features and tools](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
