@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/01/2016"
 	ms.author="allclark;yaqiyang"/>
 
 #Download the Azure SDK for PHP
@@ -50,7 +50,7 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 
         {
 			"require": {
-				"microsoft/windowsazure": "^0.4.3"
+				"microsoft/windowsazure": "^0.4"
 			}
         }
 
