@@ -19,7 +19,7 @@
 # Allow external access to your VM
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## Quick Commands
+## Quick commands
 To create a Network Security Group and rules you will need [the Azure CLI](../xplat-cli-install.md) in resource manager mode (`azure config mode arm`).
 
 Create your Network Security Group as follows, entering your own names and location appropriately:
@@ -47,14 +47,15 @@ Alternatively, you can associate your Network Security Group with a virtual netw
 azure network vnet subnet set --resource-group TestRG --name TestSubnet --network-security-group-name TestNSG
 ```
 
-## More Information on Network Security Groups
+## More information on Network Security Groups
 The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide a lot of great features and granularity for controlling access to the your resources. You can read more about [creating a Network Security Group and ACL rules here](../virtual-network/virtual-networks-create-nsg-arm-cli.md).
 
 Network Security Groups and ACL rules can also be defined as part of Azure Resouce Manager templates. Read more about [creating Network Security Groups with templates](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
 If you need to use port-forwarding to map a unique external port to an internal port on your VM, you need use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
-## Next Steps
+## Next steps
+In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
 - [Azure Resource Manager overview](../resource-group-overview.md)
 - [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
