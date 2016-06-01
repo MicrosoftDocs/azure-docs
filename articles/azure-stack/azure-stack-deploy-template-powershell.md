@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/25/2016"
 	ms.author="erikje"/>
 
 # Deploy templates in Azure Stack using PowerShell
@@ -40,10 +40,10 @@ ARM templates deploy and provision all of the resources for your application in 
 
 # Configure the environment with the Add-AzureRmEnvironment cmdlet
 		Add-AzureRmEnvironment -Name 'Azure Stack' `
-    		-ActiveDirectoryEndpoint ("https://login.windows.net/$AadTenantId/") `
+    		-ActiveDirectoryEndpoint "https://login.windows.net/$AadTenantId/" `
     		-ActiveDirectoryServiceEndpointResourceId "https://azurestack.local-api/"`
-    		-ResourceManagerEndpoint ("https://api.azurestack.local/") `
-    		-GalleryEndpoint ("https://gallery.azurestack.local/") `
+    		-ResourceManagerEndpoint "https://api.azurestack.local/" `
+    		-GalleryEndpoint "https://gallery.azurestack.local/" `
     		-GraphEndpoint "https://graph.windows.net/"
 
 		# Authenticate a user to the environment (you will be prompted during authentication)

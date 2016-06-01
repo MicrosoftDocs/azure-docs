@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="yuaxu;ricksal"/>
 
 # Add Push Notifications to your Android App
