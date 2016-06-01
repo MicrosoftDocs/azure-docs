@@ -42,8 +42,8 @@ Define the following extension resource in the Resource section of the template
       "type": "CustomScriptForLinux",
       "typeHandlerVersion": "1.2",
       "settings": {
-      "fileUris": [ "https: //raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh                        ],
-      "commandToExecute": "shmongo-install-ubuntu.sh"
+      "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"],
+      "commandToExecute": "sh mongo-install-ubuntu.sh"
       }
     }
     }
