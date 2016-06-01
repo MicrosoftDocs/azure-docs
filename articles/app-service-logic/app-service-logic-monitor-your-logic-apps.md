@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Monitor your Logic Apps in Azure App Service | Microsoft Azure" 
-	description="How to see what your Logic Apps have done" 
+	pageTitle="Monitor your Logic apps in Azure App Service | Microsoft Azure" 
+	description="How to see what your Logic apps have done" 
 	authors="stepsic-microsoft-com" 
 	manager="erikre" 
 	editor="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
-# Monitor your Logic Apps
+# Monitor your Logic apps
 
-After you [create a Logic App](app-service-logic-create-a-logic-app.md), you can see the full history of its execution in the Azure portal. To view the history, select **Browse**, and select **Logic Apps**. A list of all Logic Apps in your subscription is displayed. You can select any logic app, and can **Enable** or **Disable** it. **Enabled** Logic Apps means that triggers run your Logic App in response to trigger events. **Disabled** Logic App do not run in response to events.
+After you [create a Logic app](app-service-logic-create-a-logic-app.md), you can see the full history of its execution in the Azure portal. To view the history, select **Browse**, and select **Logic apps**. A list of all Logic Apps in your subscription is displayed. You can select any Logic app, and can **Enable** or **Disable** it. **Enabled** Logic apps means that triggers run your Logic app in response to trigger events. **Disabled** Logic app do not run in response to events.
 
 ![Overview](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
-When the blade for your Logic App appears, there are 2 sections that are useful:
+When the blade for your Logic app appears, there are 2 sections that are useful:
 
-- **Summary** shows you the latest status and is an entry point to editing your Logic App.
-- **All runs** shows you a list of the runs this Logic App has had.
+- **Summary** shows you the latest status and is an entry point to editing your Logic app.
+- **All runs** shows you a list of the runs this Logic app has had.
 
 ## View the runs of your app
 
@@ -43,7 +43,7 @@ Another important piece of information is the **Tracking ID**. This identifier i
 
 ## View the Trigger history 
 
-Polling triggers check an API on some interval but don't necessarily start a run, depending on the response (for example a `200` means to run and a `202` means to not run). The trigger history gives you a way to see all of the calls that happen but that don't run the Logic App (the `202` responses):  
+Polling triggers check an API on some interval but don't necessarily start a run, depending on the response (for example a `200` means to run and a `202` means to not run). The trigger history gives you a way to see all of the calls that happen but that don't run the Logic app (the `202` responses):  
 
 ![Trigger History](./media/app-service-logic-monitor-your-logic-apps/triggerhistory.png)
 
@@ -53,5 +53,5 @@ Note that for *Push* triggers, you do *not* see the times that the runs started 
 
 ## Enable versioning
 
-There is an additional capability that is not currently possible in the UI (coming soon) but is available using the [REST API](https://msdn.microsoft.com/library/azure/mt643788.aspx). When you update the definition of a Logic App, the previous version of the definition is stored. This is because if you already have a run in progress, that run references the version of the Logic App that existed when the run started. Definitions of runs cannot change while they are in progress. The Version history REST API gives you access to this information.
+There is an additional capability that is not currently possible in the UI (coming soon) but is available using the [REST API](https://msdn.microsoft.com/library/azure/mt643788.aspx). When you update the definition of a Logic app, the previous version of the definition is stored. This is because if you already have a run in progress, that run references the version of the Logic app that existed when the run started. Definitions of runs cannot change while they are in progress. The Version history REST API gives you access to this information.
  
