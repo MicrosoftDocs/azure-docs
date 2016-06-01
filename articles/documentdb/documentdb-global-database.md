@@ -30,9 +30,9 @@ Each of these regions can serve read requests with the same RUs available to eac
 
 Writes go to one region at any given time. The service allows you to set your preferred order of write region selection in the Azure Portal. Once this is set, the service will select the top most region in this list as the write region. If one or more regions fail, the service will automatically select the first available region down the list as the write region. 
 
-Finally, you can set a consistency level for replication (more below).
+Finally, you can set a consistency level for global availabiltiy (more below).
 
-Once the global database is set up, there is no further day-to-day management necessary. The service will handle replication, and in the case of a regional failure, automatically handle failing over and recovering with minimal loss in availability.
+Once the global database is set up, there is no further day-to-day management necessary. The service will handle global availability of your data, and in the case of a regional failure, automatically handle failing over and recovering with minimal loss in availability.
 
 
 ## Selecting regions
@@ -65,6 +65,8 @@ It is strongly suggested that you familiarize yourself with the available consis
 In the context of geo-replication, each of the available consistency levels come with tradeoffs that empower you to choose the right balance of consistency and availability for your application.
 
 > [AZURE.NOTE] Strong consistency comes with a high cost in terms of latency and availability when implemented at a global scale. DocumentDB supports Strong consisency within a single region (when configured to Bounded Staleness globally)
+
+![Alt text; Add regions under DocumentDB Account > Settings > Add/Remove Regions][1]
 
 
 ## Write region selection
@@ -175,7 +177,6 @@ If the write region changes after the client’s initial discovery phase, subseq
 ## Failover & Recovery
 
 Global Databses will ensure data availabiltiy in the face of all classes of failures, from short-term connectivity losses and failed single nodes, to natural disasters resulting in the lsos of entire datacenters.
-
 
 In the event that DocumentDB suffers downtime in a region, the following will occur:
 1. Any Database Accounts with write region set to the unavailable region will fail over writes to the next region configured for the account. If no other region is left to fail over to, write requests will fail.
