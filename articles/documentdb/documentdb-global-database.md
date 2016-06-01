@@ -20,9 +20,124 @@
    
 # Global Database
 
-Leveraging the global scale of Azure to enable geo-redundancy is a key part of enabling high availability, low latency access to your data.
+DocumentDB is challenging what availability and scale means when it comes to databases. Global Database builds on the foundation of DocumentDB’s distributed infrastructure and predictable consistency models to offer globally distributed databases. 
 
-Global Databases enable single-click replication of DocumentDB databases across multiple Azure regions globally. The service takes care of replicating your data enabling you to stop worrying about geo-redundancy and free you to innovate on your application or service. You can now build globally distributed applications easily that can read data from the nearest Azure region with single-digit latencies, and are regional failure resistant and massively scalable.
+When it comes to databases and multi-datacenter replication, current technology has limited what is available, putting customers in the position of having to make difficult tradeoffs for cost, consistency and availability. Today’s databases can be divided into the following categories:
+1. Single Site databases - Originally never designed to be globally distributed, many of these databases have implemented geo-replication as a means to recover from regional disasters (aka “disaster recovery”). These offer strong consistency in the local data center but remain completely silent about any guarantees in the remote data centers. A subset of these databases offer the two extreme consistency choices - strong vs. eventual within the data center.
+2. Globally distributed databases – Designed as globally distributed from the start, these databases can be further categorized as follows: (a) Two well-defined consistency levels – typically, strong and eventual consistency and (b) No well-defined consistency guarantees - these burden the application developers with minutia of their replication protocol and expect them to make reasoned tradeoffs between consistency, availability and performance. 
+
+Global Database is an evolution of Azure DocumentDB that allows customers to store, query and process JSON data at global scale. You can now can create databases that span multiple geographic locations. The databases are replicated globally for low latency data access from anywhere in the world while offering predictable data consistency guarantees for applications and systems interacting with the database. 
+
+Global Database is designed for systems that require continuously available, global access to data. Global Database operates under the presumption that failures of all classes happen frequently including the degradation or loss of a regions. Global Databases are configured with multiple regions for global reads and conflict free writes. Regions can be independently reconfigured at any time to adapt to business needs, changing customer patterns or to deliver business continuity in the face of service or application failures. Put together, this enables building globally distributed applications with the same ease that DocumentDB enables in a single region today.
+
+Global Database aims to bring global availability to the masses. Instead of multi-region replication being deployable only by larger customers with lots of management and engineering resources, Global Database enables even single-developer efforts to scale globally at affordable cost.
+
+
+## Scaling up, Scaling out
+
+Global Database enables you to reason about your data as one logical dataset that is available globally across multiple datacenters with well-defined, relaxed consistency levels, availability and latency guarantees.
+
+Traditional database systems view "scale up" as the act of scaling up the single machine running the database, and "scale out" as the replication of this dataset to multiple machines. 
+
+With Global Database, this changes by orders of magnitude. You can now reason about "scale up" as the act of scaling up a single collection within an entire datacenter across hundres of machines using [Partitioned Collections] [pcolls], and then scaling out globally across 18+ datacenters with Global Databases.
+
+
+## Latency and Availability
+
+DocumentDB offers single digit 99th percentile latencies for point reads and 30ms 99th percentile latencies for writes within the same datacenter today.
+
+With Global Database, you can make your data available closer to your customers, reducing read and write latencies globally - instead of reaching out across continuents to get to your date, you can bring your data closer to your customers.
+
+As latencies go down, availability goes up at a per-request level. Your application continues to function without failures even when there is momentary or permanent loss of connectivity or endpoints.
+
+
+### SLA
+
+Please refer to the [DocumentDB SLA] [sla] page for more info
+
+
+## Tuning Consistency
+
+It is strongly suggested that you familiarize yourself with the available consistency levels in DocumentDB here: [Using consistency levels to maximize availability and performance in DocumentDB] [consistency]
+
+In the context of geo-replication, each of the available consistency levels come with tradeoffs that empower you to choose the right balance of consistency and availability for your application.
+
+![Alt text; Global Database onsistency tradeoffs][3]
+
+### Types
+
+1.	Eventual Consistency
+    -   Gaurentees
+        -   Once write subsides, eventually every read version will converge.
+    - Tradeoffs
+        -   No Monotonic reads - Clients may read older versions of the same document within the same client session.
+        -   No ordering - Clients may read different versions of the same document
+    - Scenario examples
+        -   Messaging applications
+        
+2.  Session Consistency
+This is the default consistency level.
+    -   Gaurentees
+        -   Read your own write(s).
+            -   Once a value is written in a session, subsequent read within the session will see the written version or higher
+            -   This even applies to cases when the read is occurring in a region other than the write region. 
+            -   Note that in the case that the read request gets to the read region before the write has been replicated there, there will an increase in latency as the read region will have to forward the request to the write region
+        -   Monotonic read within session.
+            -   Once a value is read in a session, subsequent reads within the session will see the read version or higher.
+    -   Tradeoffs
+        -   Unbounded staleness for reads across sessions.
+            -   There is no user controlled bound on read staleness with respect to write(s) performed outside session. i.e. cross session reads over eventual consistency.
+        -   No total ordering across session - i.e. client A may see an older version of a document even though client B has seen the latest version
+    -   Scenarios:
+        -   Shopping carts 
+        -   Applications saving and retrieivng user preferences and settings. The user will be guarenteed to see that his settings were persisted every time, while getting low latency local reads
+
+3.  Bounded Staleness Consistency
+    -   Gaurentees
+        -   Reads follow write(s) at write region.
+            -   Once a value is written, subsequent reads are guaranteed to see the written version or higher in the write region.
+            -   i.e. strong consistency within Write Region.
+        -   Bounded stale reads at read region(s).
+            -   Once a value is written, subsequent readers are guaranteed to see version or higher between (written version and written version – User specified staleness bound).
+            -   Staleness bound can be expressed in two dimensions.
+                -   maxPrefix – Staleness expressed in terms of absolute write versions.
+                -   maxInterval – Staleness expressed in terms of time interval;
+                -   E.g. maxPrefix = 1000, maxInterval = 30 seconds 
+                    -   No reads will be staler than 30 seconds of last committed data.
+                    -   No reads will be staler than 1000 version of last committed data.
+    -   Tradeoffs
+        -   Higher latency if replicas fall behind. The write region will experience backpressure 
+        -   Note if a client attempts to read a document from a different region than the write region, it may see any value equal or older than its write, but guaranteed to be newer than the staleness bound.
+    -   Scenarios
+        -   Stock markets and other real-time systems that have low tolerance for  staleness and read latencies
+        
+4.  Strong Consistency
+    - Guarentees
+        -   No stale read – Once a value is written (acknowledged), every subsequent read is guaranteed to see the written version or higher.
+        -   Total global ordering – Once a value is read, every subsequent read is guaranteed to see the read version or higher. 
+    -   Tradeoffs
+        -   Strong consistency comes with a high cost in terms of latency and availability when implemented at a global scale. DocumentDB supports Strong consisency within a single region (when configured to Bounded Staleness globally)
+
+
+## Failover & Recovery
+
+Global Databses will ensure data availabiltiy in the face of all classes of failures, from short-term connectivity losses and failed single nodes, to natural disasters resulting in the lsos of entire datacenters.
+
+
+### Temporary failures
+
+With temporary failures, 
+
+
+### Region loss
+
+In the event that DocumentDB suffers downtime in a region, the following will occur:
+1. Any Database Accounts with write region set to the unavailable region will fail over writes to the next region configured for the account. If no other region is left to fail over to, write requests will fail.
+2. Any clients performing reads from that region will fail over to the next region in their PreferredRegion list, if specified. If no other region is left to fail over to, read requests will fail.
+
+When such availability loss occurs, there is a small window where writes (acknowledged to client) may have been persisted to the affected region, but may not have been replicated to other regions. In order to enable the recovery of this data, we will restore affected regions in a read-only state and notify all affected customers. At this point, the client SDKs can be configured to read from this region (single region in PreferedLocations list) and recover any un-replicated data by comparing it to other live regions.
+
+Once data has been recovered, the affected region can be restored to active state from the Azure Portal. DocumentDB will rebuild the data in that region for that Database Account, and make it available in full operation state again.
 
 
 ## How it works
@@ -83,58 +198,6 @@ The client SDKs will only attempt to read to the regions specified in PreferedLo
 If the PreferedLocations property is not set, all reads will be served from the current write region. 
 
 
-## Tuning Consistency
-
-It is strongly suggested that you familiarize yourself with the available consistency levels in DocumentDB here: Using consistency levels to maximize availability and performance in DocumentDB
-
-In the context of geo-replication, each of the available consistency levels come with tradeoffs that empower you to choose the right balance of consistency and availability for your application.
-
-
-### Types
-1.  Strong Consistency
-    -   Strong consistency comes with a high cost in terms of latency and availability when implemented at a global scale. DocumentDB currently does not support Strong Consistency for global databases.
-
-2.  Bounded Staleness Consistency
-    -   Reads follow write(s) at write region.
-        -   Once a value is written, subsequent reads are guaranteed to see the written version or higher in the write region.
-        -   i.e. strong consistency within Write Region.
-    -   Total global ordering
-       -    Once a value is read (in any region, including the write region), every subsequent read at every other region is guaranteed to see the read version or higher.
-        -   i.e. For all clients, time always moves forward. 
-    -   Bounded stale reads at read region(s).
-        -   Once a value is written, subsequent readers are guaranteed to see version or higher between (written version and written version – User specified staleness bound).
-        -   Staleness bound can be expressed in two dimensions.
-            -   maxPrefix – Staleness expressed in terms of absolute write versions.
-            -   maxInterval – Staleness expressed in terms of time interval;
-            -   E.g. maxPrefix = 1000, maxInterval = 30 seconds 
-                -   No reads will be staler than 30 seconds of last committed data.
-                -   No reads will be staler than 1000 version of last committed data.
-    -   Note if a client attempts to read a document from a different region than the write region, it may see any value equal or older than its write, but guaranteed to be newer than the staleness bound.
-
-3.  Session Consistency
-This is the default consistency level.
-
-    -   Read your own write(s).
-        -   Once a value is written in a session, subsequent read within the session will see the written version or higher
-        -   This even applies to cases when the read is occurring in a region other than the write region. 
-        -   Note that in the case that the read request gets to the read region before the write has been replicated there, there will an increase in latency as the read region will have to forward the request to the write region
-    -   Monotonic read within session.
-        -   Once a value is read in a session, subsequent reads within the session will see the read version or higher.
-    -   Unbounded staleness for reads across sessions.
-        -   There is no user controlled bound on read staleness with respect to write(s) performed outside session.
-        -   i.e. cross session reads over eventual consistency.
-    -   No total ordering across session.
-        -   There are no ordering guarantees between read version seen across sessions. 
-        -   i.e. client A may see an older version of a document even though client B has seen the latest version
-
-4.	Eventual Consistency
-    -   Once write subsides, eventually every read version will converge.
-    -   No Monotonic reads 
-        -   Clients may read older versions of the same document within the same client session.
-    -   No ordering
-        -   Clients may read different versions of the same document
-
-
 ## SDKs
 
 Support for global databases is NOT a breaking change for any of the DocumentDB client SDKs or the REST API.
@@ -155,8 +218,8 @@ The current write and read endpoints are availabe in DocumentClient.WriteEndpoin
     ServicePointManager.DefaultConnectionLimit = 10000;
 
     // Getting endpoints
-    Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDbUri);
-    string accountKey = Properties.Settings.Default.GlobalDbKey;
+    Uri accountEndPoint = new Uri(Properties.Settings.Default.Global DatabaseUri);
+    string accountKey = Properties.Settings.Default.Global DatabaseKey;
 
     // Setting Direct TCP mode for low latency access - note required but highly recommended
     // More info: https://azure.microsoft.com/en-us/blog/performance-tips-for-azure-documentdb-part-1-2/
@@ -218,32 +281,20 @@ Write requests to read-only regions will fail with HTTP error code 405 (“Metho
 If the write region changes after the client’s initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 405 (“Method not allowed”). The client should then GET the list of regions again to get the updated write region.
 
 
-## Failover & Recovery
-
-In the event that DocumentDB suffers downtime in a region, the following will occur:
-1. Any Database Accounts with write region set to the unavailable region will fail over writes to the next region configured for the account. If no other region is left to fail over to, write requests will fail.
-2. Any clients performing reads from that region will fail over to the next region in their PreferredRegion list, if specified. If no other region is left to fail over to, read requests will fail.
-
-When such availability loss occurs, there is a small window where writes (acknowledged to client) may have been persisted to the affected region, but may not have been replicated to other regions. In order to enable the recovery of this data, we will restore affected regions in a read-only state and notify all affected customers. At this point, the client SDKs can be configured to read from this region (single region in PreferedLocations list) and recover any un-replicated data by comparing it to other live regions.
-
-Once data has been recovered, the affected region can be restored to active state from the Azure Portal. DocumentDB will rebuild the data in that region for that Database Account, and make it available in full operation state again.
-
-
 ## Pricing
 
 Please refer to the [DocumentDB Pricing] [pricing] for pricing information.
 
 
-## SLA
-
-Please refer to the [DocumentDB SLA] [sla] page for more info
-
 
 <!--Image references-->
 [1]: ./media/documentdb-global-database/documentdb_add_region.png
 [2]: ./media/documentdb-global-database/documentdb_change_write_region.png
+[3]: ./media/documentdb-global-database/documentdb_globaldb_consistency.jpg
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+[pcolls]: https://azure.microsoft.com/documentation/articles/documentdb-partition-data/
+[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [regions]: https://azure.microsoft.com/regions/ 
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
