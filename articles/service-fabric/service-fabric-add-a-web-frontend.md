@@ -21,7 +21,7 @@
 
 By default, Azure Service Fabric services do not provide a public interface to the web. To expose your application's functionality to HTTP clients, you will need to create a web project to act as an entry point and then communicate from there to your individual services.
 
-In this tutorial, we will walk through adding an ASP.NET Core Web API front end to an application that already includes a reliable service based on the stateful service project template. If you have not already done so, consider walking through [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) before starting this tutorial.
+In this tutorial, we will pick up where we left off in the [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) tutorial and add a web service in front of the stateful counter service. If you have not already done so, you should go back and step through that tutorial first.
 
 
 ## Add an ASP.NET Core service to your application
@@ -42,19 +42,19 @@ ASP.NET Core is a lightweight, cross-platform web development framework that you
 
     Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way. Each can be independently versioned and upgraded.
 
->[AZURE.NOTE] As of the November Public Preview release of Service Fabric, there are known issues with long paths when dealing with ASP.NET projects.  When creating these these types of projects it is best to choose short names for application and service types, as well as code and config package names, in order to avoid any issues.
+>[AZURE.TIP] To learn more about building ASP.NET Core services, see the [ASP.NET Core Documentation](https://docs.asp.net).
 
 ## Run the application
 
-To get a sense of what we've done, let's deploy the new application and take a look at the default behavior that the ASP.NET 5 Web API template provides.
+To get a sense of what we've done, let's deploy the new application and take a look at the default behavior that the ASP.NET Core Web API template provides.
 
 1. Press F5 in Visual Studio to debug the app.
 
-2. When deployment is complete, Visual Studio will launch the browser to the root of the ASP.NET Web API service--something like http://localhost:33003. The port number is randomly assigned and may be different on your machine. The ASP.NET 5 Web API template doesn't provide default behavior for the root, so you will get an error in the browser.
+2. When deployment is complete, Visual Studio will launch the browser to the root of the ASP.NET Web API service--something like http://localhost:33003. The port number is randomly assigned and may be different on your machine. The ASP.NET Core Web API template doesn't provide default behavior for the root, so you will get an error in the browser.
 
 3. Add `/api/values` to the location in the browser. This will invoke the `Get` method on the ValuesController in the Web API template. It will return the default response that is provided by the template--a JSON array that contains two strings:
 
-    ![Default values returned from ASP.NET 5 Web API template][browser-aspnet-template-values]
+    ![Default values returned from ASP.NET Core Web API template][browser-aspnet-template-values]
 
     By the end of the tutorial, we will have replaced these default values with the most recent counter value from our stateful service.
 
@@ -68,11 +68,11 @@ In the `ServiceProxy` approach (modeled on remote procedure calls or RPCs), you 
 
 ### Create the interface
 
-We will start by creating the interface to act as the contract between the stateful service and its clients, including the ASP.NET 5 project.
+We will start by creating the interface to act as the contract between the stateful service and its clients, including the ASP.NET Core project.
 
 1. In Solution Explorer, right-click your solution and choose **Add** > **New Project**.
 
-2. Choose the **Visual C#** entry in the left navigation pane and then select the **Class Library** template. Ensure that the .NET Framework version is set to **4.5.1**.
+2. Choose the **Visual C#** entry in the left navigation pane and then select the **Class Library** template. Ensure that the .NET Framework version is set to **4.5.2**.
 
     ![Creating an interface project for your stateful service][vs-add-class-library-project]
 
