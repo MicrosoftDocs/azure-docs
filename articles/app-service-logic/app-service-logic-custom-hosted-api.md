@@ -24,7 +24,7 @@ For information on building APIs as a trigger or action within Logic apps, check
 
 ## Deploy your Web App
 
-First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](../app-service-web/web-sites-dotnet-get-started.md).  While you can call into any API from a Logic app, for the best experience we recommend you add Swagger metadata to integrate easily with Logic apps actions.  You can find details on [adding swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-api-metadata-and-ui).
+First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).  While you can call into any API from a Logic app, for the best experience we recommend you add Swagger metadata to integrate easily with Logic apps actions.  You can find details on [adding swagger](https://azure.microsoft.com/documentation/articles/app-service-api-dotnet-get-started/#use-swagger-api-metadata-and-ui).
 
 ### API Settings
 
@@ -138,7 +138,7 @@ The above template already has this set up, but if you are authoring the Logic a
 
 ### Certificate auth
 
-You can use Client certificates to validate the incoming requests to your Web app. See [How To Configure TLS Mutual Authentication for Web App](../app-service-web/app-service-web-configure-tls-mutual-auth.md) for how to set up your code.
+You can use Client certificates to validate the incoming requests to your Web app. See [How To Configure TLS Mutual Authentication for Web App](https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/) for how to set up your code.
 
 In the *Authorization* section you should provide: `{"type": "clientcertificate","password": "test","pfx": "long-pfx-key"}`.
 
@@ -166,6 +166,6 @@ By default, the Azure Active Directory authentication that you enable in the Por
 
 If you want to restrict the API to just the Logic app, for example, in code, you can extract the header which contains the JWT and check who the caller is, rejecting any requests that do not match.
 
-Going further, if you want to implement it entirely in your own code, and not leverage the Portal feature, you can read this article: [Use Active Directory for authentication in Azure App Service](../app-service-web/web-sites-authentication-authorization.md).
+Going further, if you want to implement it entirely in your own code, and not leverage the Portal feature, you can read this article: [Use Active Directory for authentication in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-authentication-authorization/).
 
 You still need to follow the above steps to create an Application identity for your Logic app and use that to call the API.
