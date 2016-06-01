@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Secure a Service Fabric cluster | Microsoft Azure"
+   pageTitle="Secure client access to a cluster | Microsoft Azure"
    description="How to secure a Service Fabric cluster. What are the options?"
    services="service-fabric"
    documentationCenter=".net"
