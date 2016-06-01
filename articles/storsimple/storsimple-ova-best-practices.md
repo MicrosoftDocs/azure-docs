@@ -54,15 +54,15 @@ When sizing your StorSimple Virtual Array, you will need to consider the followi
 
 Based on the above factors, the sizing requirements can be represented by the following equation:
 
-Total usable disk size = Total provisioned volume/share size + (Max (local reservation for a volume/share) for all the existing volumes/share) + some buffer (unexpected growth or new share or volume)
+`Total usable local disk size = Total provisioned locally pinned volume/share size + (Max (local reservation for a volume/share) for all tiered volumes/share)`
 
-Data disk size = Total usable disk size + Snapshot overhead (25% of total usable disk size)
+`Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
 
 The following examples illustrate how you can size a virtual array based on your requirements.
 
 #### Example 1:
-On your virtual array, you should be able to 
+On your virtual array, you want to be able to 
 
 - provision 2 TB tiered volumes or shares.
 - provision a 1 TB tiered volume or share.
@@ -89,7 +89,7 @@ Factoring in unexpected growth and new restores, you should provision a local di
 > [AZURE.NOTE] We also recommend that the local disk be thinly provisioned. This is because the restore space is only needed when you want to restore data that is older than 5 days. Item-level recovery will allow you to restore data for the last 5 days without the needing the extra space for restore.
 
 #### Example 2: 
-On your virtual array, you should be able to 
+On your virtual array, you want to be able to 
 
 - provision a 2 TB tiered volume
 - provision a 300 GB locally pinned volume
