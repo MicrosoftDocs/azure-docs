@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/31/2016" 
+	ms.date="06/01/2016" 
 	ms.author="cephalin"/>
 
 # Create, configure, and deploy a PHP web app to Azure

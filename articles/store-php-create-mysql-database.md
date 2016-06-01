@@ -3,7 +3,7 @@
 	description="Learn how to use ClearDB to create a MySQL database in an Azure data center."
 	documentationCenter="php"
 	services=""
-	authors="rmcmurray"
+	authors="cephalin"
 	manager="wpickett"
 	editor=""
 	tags="mysql"/>
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="robmcm,cephalin"/>
+	ms.date="06/01/2016"
+	ms.author="robmcm;cephalin"/>
 
 # Create and connect to a MySQL database in Azure
 
 This guide will show you how to create a MySQL database in the [Azure portal](https://portal.azure.com) (provider is [ClearDB]) and how to connect to it from a PHP web app running in 
-[Azure App Service](../app-service/app-service-value-prop-what-is.md). [ClearDB].  
+[Azure App Service](./app-service/app-service-value-prop-what-is.md). [ClearDB].  
 
 > [AZURE.NOTE] You can also create a MySQL database as part of a [Marketplace app template](./app-service-web/app-service-web-create-web-app-from-marketplace.md).
 
@@ -32,7 +32,7 @@ To create a MySQL database in the Azure portal, do the following:
 
 	![Create a MySQL database in Azure - start](./media/store-php-create-mysql-database/create-db-1-start.png)
 
-2. In the New MySQL Database [blade](../azure-portal-overview.md), configure your new MySQL database as follows (*blade*: a portal page that opens horizontally):
+2. In the New MySQL Database [blade](azure-portal-overview.md), configure your new MySQL database as follows (*blade*: a portal page that opens horizontally):
 
 	- **Database Name**: Type a uniquely identifiable name
 	- **Subscription**: Choose the subscription to use
