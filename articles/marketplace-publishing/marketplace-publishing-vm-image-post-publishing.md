@@ -191,9 +191,9 @@ You can add a new SKU under your live offer by following the steps given below:
   ![drawing](media/marketplace-publishing-vm-image-post-publishing/img03.1-2.png)
 
 4. Now from the left hand side menu, click on the **VM IMAGES** tab and find out the new SKU which you have created.
-5. To set up the new SKU, refer to the STEP 5 of this [link](https://azure.microsoft.com/en-us/documentation/articles/marketplace-publishing-vm-image-creation/#5-obtain-certification-for-your-vm-image) for guidance.
-6. To add the marketing material for the new SKU, refer to the section Step 1: Provide Marketplace marketing content -> Details-> point numbers 2 to 5 of this [link](https://azure.microsoft.com/en-us/documentation/articles/marketplace-publishing-push-to-staging/#step-1-provide-marketplace-marketing-content).
-7. To add the pricing information for the new SKU, refer to the section 2.1. Set your VM prices of this [link](https://azure.microsoft.com/en-us/documentation/articles/marketplace-publishing-push-to-staging/#step-2-set-your-prices)
+5. To set up the new SKU, refer to the STEP 5 of this [link](https://azure.microsoft.com/documentation/articles/marketplace-publishing-vm-image-creation/#5-obtain-certification-for-your-vm-image) for guidance.
+6. To add the marketing material for the new SKU, refer to the section Step 1: Provide Marketplace marketing content -> Details-> point numbers 2 to 5 of this [link](https://azure.microsoft.com/documentation/articles/marketplace-publishing-push-to-staging/#step-1-provide-marketplace-marketing-content).
+7. To add the pricing information for the new SKU, refer to the section 2.1. Set your VM prices of this [link](https://azure.microsoft.com/documentation/articles/marketplace-publishing-push-to-staging/#step-2-set-your-prices)
 8. After making the changes, navigate to the PUBLISH tab and click on the button PUSH TO STAGING. For detailed guidance on testing your offer in the staging environment please refer to this [link](marketplace-publishing-vm-image-test-in-staging.md)
 9. Once you have tested your offer in staging, navigate to the PUBLISH tab in the Publishing portal and click on the button REQUEST APPROVAL TO PUSH TO PRODUCTION to re-publish your offer in the Azure Marketplace.
 
@@ -211,10 +211,10 @@ The support team will guide you through the offer/SKU deletion process.
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Understanding seller insights reporting][suppt-rpt-insights]
-- [Understanding payout reporting][suppt-rpt-payouts]
+- [Understanding seller insights reporting](marketplace-publishing-report-seller-insights.md)
+- [Understanding payout reporting](marketplace-publishing-report-payout.md)
 - [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
-- [Troubleshooting common publishing problems in the Marketplace][suppt-common]
-- [Get support as a publisher][suppt-general]
+- [Troubleshooting common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
+- [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
 - [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
