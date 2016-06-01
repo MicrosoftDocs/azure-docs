@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="05/31/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Get started with SQL Data Warehouse database auditing
@@ -133,11 +133,11 @@ When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to lis
 
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
-[2]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-inherit.png
-[3]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-enable.png
-[4]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-storage-account.png
-[5]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-dashboard.png
+[1]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing.png
+[2]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-inherit.png
+[3]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-enable.png
+[4]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-storage-account.png
+[5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
 <!--Link references-->

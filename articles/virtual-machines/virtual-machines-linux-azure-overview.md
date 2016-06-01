@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="02/01/2016"
+   ms.date="05/24/2016"
    ms.author="rclaus"/>
 
 # Azure and Linux

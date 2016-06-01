@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="05/27/2016"
 	ms.author="mimig"/>
 
 # Using consistency levels to maximize availability and performance in DocumentDB
@@ -66,9 +66,9 @@ Eventual consistency provides the weakest read consistency but offers the lowest
 
 	![Screen shot highlighting the Settings icon and Default Consistency entry](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-5. In the **Default Consistency** blade, select the new consistency level and click **Save**.
+5. In the **Default Consistency** blade, select the new consistency level and click **OK**.
 
-	![Screen shot highlighting the Consistency level and the Save button ](./media/documentdb-consistency-levels/database-consistency-level-2.png)
+	![Screen shot highlighting the Consistency level and the OK button ](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Consistency levels for queries
 

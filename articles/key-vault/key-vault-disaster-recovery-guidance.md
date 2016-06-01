@@ -31,17 +31,17 @@ There are a few caveats you should be aware of:
 
 * In the event of a region fail-over, it may take a few minutes for the service to fail over. Requests made during this time may fail until the fail-over completes.
 * After a fail-over completes, your key vault is in ___read-only___ mode. The requests supported in this mode are:
-  * list key vaults
-  * get properties of key vaults
-  * list secrets 
-  * get secrets
-  * list keys
-  * get (properties of) keys
-  * encrypt
-  * decrypt
-  * wrap
-  * unwrap
-  * verify
-  * sign
-  * backup
+ * list key vaults
+ * get properties of key vaults
+ * list secrets 
+ * get secrets
+ * list keys
+ * get (properties of) keys
+ * encrypt
+ * decrypt
+ * wrap
+ * unwrap
+ * verify
+ * sign
+ * backup
 * Once a failover is failed back, all request types (i.e. read ___and___ write requests) are available. 
