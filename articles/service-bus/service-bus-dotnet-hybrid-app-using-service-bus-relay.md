@@ -549,7 +549,7 @@ Copy the URL of the deployed web app, as you will need the URL in the next step.
 ![][9] 
    
 
-> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
+> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
 
 ### Set ProductsPortal as web app
 
@@ -569,7 +569,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
 ## Run the application
 
-2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. This time, you will see that the product inventory lists data retrieved from the product service on-premises system. 	Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app. 
+2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. Notice again that the product inventory lists data retrieved from the product service on-premises system, and displays that data in the web app. Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app. 
 
     ![][1]
 

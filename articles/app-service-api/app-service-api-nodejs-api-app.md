@@ -248,7 +248,7 @@ You'll deploy your code to the API app by pushing commits to a Git repository in
 
     ![Get The Git Url From The Portal](media/app-service-api-nodejs-api-app/get-the-git-url-from-the-portal.png)
 
-    **Note**: You will need the Git clone URL in the next step so make sure to save it somewhere for the moment.
+    **Note**: You will need the Git clone URL in the next section so make sure to save it somewhere for the moment.
 
 Now that you have an API App with a Git repository backing it up, you can push code into the repository to deploy the code to the API app. 
 
@@ -299,9 +299,7 @@ In this section you create a local Git repository that contains your server code
 
     ![Deployment Completed](media/app-service-api-nodejs-api-app/deployment-completed.png)
 
-1. Using a REST API client such as Postman or Fiddler (or your web browser), provide the URL of your contacts API call, which is the `/contacts` endpoint of your API app. 
-
-    **Note:** The URL will be `https://{your API app name}.azurewebsites.net/contacts`
+1. Using a REST API client such as Postman or Fiddler (or your web browser), provide the URL of your contacts API call, which is the `/contacts` endpoint of your API app. The URL will be `https://{your API app name}.azurewebsites.net/contacts`
 
     When you issue a GET request to this endpoint, you get the JSON output of your API app.
 

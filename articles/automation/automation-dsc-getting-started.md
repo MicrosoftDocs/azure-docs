@@ -154,7 +154,7 @@ compilation job was started.
 
 ## Viewing node configurations
 
-Successful completion of a compilation job creates one or more new node configurations. A node configuration is a MOF document that is deployed to the pull server and ready to be pulld and 
+Successful completion of a compilation job creates one or more new node configurations. A node configuration is a MOF document that is deployed to the pull server and ready to be pulled and 
 applied by one or more nodes. You can view the node configurations in your Automation account in the **DSC Node Configurations** blade. A node configuration has a name with the form 
 *ConfigurationName*.*NodeName*.
 
@@ -166,7 +166,7 @@ applied by one or more nodes. You can view the node configurations in your Autom
 
     ![Screenshot of the DSC Node Configurations blade](./media/automation-dsc-getting-started/NodeConfigs.png)
     
-## Onboarding an Azure VM for managment with Azure Automation DSC
+## Onboarding an Azure VM for management with Azure Automation DSC
 
 You can use Azure Automation DSC to manage Azure VMs (both Classic and Resource Manager), on-premises VMs, Linux machines, AWS VMs, and on-premises physical machines. In this topic, 
 we cover how to onboard only Azure Resource Manager VMs. For information about onboarding other types of machines, see 
