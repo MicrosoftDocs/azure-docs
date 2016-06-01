@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Logic Apps Diagnosing Apps | Microsoft Azure"
-   description="Understand common approaches to understanding where apps are failing"
+   pageTitle="Diagnosing logic apps failures | Microsoft Azure"
+   description="Common approaches to understanding where logic apps are failing"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -34,9 +34,9 @@ This lists all of the trigger attempts your logic app has made. You can click ea
 
 The different statuses you may see are:
 
-* **Skipped** - It polled the endpoint to check for data and received a response that no data was available.
-* **Succeeded** - The trigger received a response that data was available. This could be from a manual trigger, a recurrence trigger, or a polling trigger. This likely will be accompanied with a status of **Fired**, but it might not, if you have a condition or SplitOn command in code view that wasn't satisfied.
-* **Failed** - An error was generated.
+* **Skipped**. It polled the endpoint to check for data and received a response that no data was available.
+* **Succeeded**. The trigger received a response that data was available. This could be from a manual trigger, a recurrence trigger, or a polling trigger. This likely will be accompanied with a status of **Fired**, but it might not, if you have a condition or SplitOn command in code view that wasn't satisfied.
+* **Failed**. An error was generated.
 
 #### Starting a trigger manually
 
@@ -50,10 +50,10 @@ Every trigger that is fired results in a run. You can access run information fro
 
 A run displays one of the following statuses:
 
-* **Succeeded** - All actions succeeded, or, if there was a failure, it was handled by an action that occurred later in the workflow (that is, by an action that was set to run after a failed action).
-* **Failed** - At least one action had a failure that was not handled by an action later in the workflow.
-* **Cancelled** - The workflow was running but received a cancel request.
-* **Running** - The workflow is currently running. This may occur for workflows that are being throttled, or because of the current App Service plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
+* **Succeeded**. All actions succeeded, or, if there was a failure, it was handled by an action that occurred later in the workflow (that is, by an action that was set to run after a failed action).
+* **Failed**. At least one action had a failure that was not handled by an action later in the workflow.
+* **Cancelled**. The workflow was running but received a cancel request.
+* **Running**. The workflow is currently running. This may occur for workflows that are being throttled, or because of the current App Service plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
 
 When you are looking at a run history, you can drill in for more details.  
 
