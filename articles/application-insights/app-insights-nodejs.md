@@ -34,8 +34,8 @@ The SDK provides automatic collection of incoming HTTP request rates and respons
 
 You need:
 
+* Visual Studio 2013 or later. Later is better.
 * A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
-* Visual Studio 2013 or later.
 
 ## <a name="add"></a>Create an Application Insights resource
 
@@ -141,7 +141,7 @@ client.trackMetric("custom metric", 3);
 client.trackTrace("trace message");
 ```
 
-[Learn more about the telemetry API](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/).
+[Learn more about the telemetry API](app-insights-api-custom-events-metrics.md).
 
 ### Using multiple instrumentation keys
 

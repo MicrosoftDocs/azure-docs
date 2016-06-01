@@ -65,7 +65,7 @@ In Visual Studio, you'll see a count of the events that have been logged.
 
 ### ... in Visual Studio
 
-To open the Application Insights window in Visual Studio, either click the Application Insights button, or right-click your project in Solution Explorer:
+Open the Application Insights window in Visual Studio: Either click the Application Insights button, or right-click your project in Solution Explorer:
 
 ![In Visual Studio, the Application Insights button shows during debugging.](./media/app-insights-asp-net/55.png)
 
@@ -81,12 +81,28 @@ Unless you chose *Install SDK only,* you can also see the telemetry at the Appli
 The portal has more charts, analytic tools, and dashboards than Visual Studio. 
 
 
-Open your Application Insights resource in the [Azure portal][portal].
+Open your Application Insights resource in the [Azure portal](https://portal.azure.com/).
 
 ![Right-click your project and open the Azure portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 The portal opens on a view of the telemetry from your app:
 ![](./media/app-insights-asp-net/18.png)
+
+
+
+##<a name="land"></a> What did 'Add Application Insights' do?
+
+Application Insights sends telemetry from your app to the Application Insights portal (which is hosted in Microsoft Azure):
+
+![](./media/app-insights-asp-net/01-scheme.png)
+
+So the command did three things:
+
+1. Add the Application Insights Web SDK NuGet package to your project. To see it in Visual Studio, right-click your project and choose Manage NuGet Packages.
+2. Create an Application Insights resource in [the Azure portal](https://portal.azure.com/). This is where you'll see your data. It retrieves the *instrumentation key,* which identifies the resource.
+3. Inserts the instrumentation key in `ApplicationInsights.config`, so that the SDK can send telemetry to the portal.
+
+If you want, you can [do these steps manually](app-insights-asp-net-manual.md).
 
 
 ## Setup options
@@ -105,21 +121,22 @@ The portal opens on a view of the telemetry from your app:
 
 
 
-##<a name="land"></a> What did 'Add Application Insights' do?
-
-Application Insights sends telemetry from your app to the Application Insights portal (which is hosted in Microsoft Azure):
-
-![](./media/app-insights-asp-net/01-scheme.png)
-
-So the command did three things:
-
-
-1. Add the Application Insights Web SDK NuGet package to your project. To see it in Visual Studio, right-click your project and choose Manage NuGet Packages.
-2. Create an Application Insights resource in [the Azure portal][portal]. This is where you'll see your data. It retrieves the *instrumentation key,* which identifies the resource.
-3. Inserts the instrumentation key in `ApplicationInsights.config`, so that the SDK can send telemetry to the portal.
-
-
 ## What's next?
+
+
+**Debugging with telemetry**<br/>Working with Application Insights in Visual Studio
+
+**Monitor your app in production**<br/>Working with the Application Insights portal
+
+**Monitor a release with Live Insights**<br/>Watch performance with a latency of seconds
+
+**Monitor dependencies**
+
+**Detect and diagnose failures**
+
+**Analytics: fast answers to deep questions**
+
+
 
 - [View debugging telemetry in Visual Studio](app-insights-visual-studio.md)
 - [View live telemetry in the Azure portal](app-insights-dashboards.md)
@@ -130,24 +147,3 @@ So the command did three things:
 
 
 
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[apikey]: app-insights-api-custom-events-metrics.md#ikey
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
-
- 
