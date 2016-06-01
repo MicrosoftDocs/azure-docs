@@ -27,7 +27,7 @@ Global Databases enable single-click replication of DocumentDB databases across 
 
 ## How it works
 
-For each of your existing or new DocumentDB Database Accounts, you can now add regions where you want your data to be replicated. You can add any number of regions that DoucmentDB is available in.
+For each of your existing or new DocumentDB Database Accounts, you can now add regions where you want your data to be replicated. You can add any number of regions that DocumentDB is available in.
 
 Each of these regions can serve read requests with the same RUs available to each collection. For example, if you have a collection with 10,000 RU/s provisioned to it, the same collection will be able to serve up to 10,000 RU/s in each of the regions. Each client can specify its own order of read region selection, with reads being served from the region at the top of the list. If one or more regions fail or are unreachable for the client, the client will automatically fail over down this list of preferred regions until a region is found that is serving requests. 
 
@@ -49,7 +49,7 @@ Specifically, when deploying multiple regions, make sure to select the same numb
 
 When you add one or more regions to a Database Account, each region is provisioned with the same throughput on a per-Collection basis. This means that each collection has an independent, identical RU budget in each region. 
 
-When a read of write operation is performed on a collection in a region, it will consume RUs from that Collection's budget in that specific region only. Unlike other distributed database systems, the RU charge for write operations does not increase as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
+When a read or write operation is performed on a collection in a region, it will consume RUs from that Collection's budget in that specific region only. Unlike other distributed database systems, the RU charge for write operations does not increase as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
 
 For example, assume that the client was performing 10 RU reads and 50 RU writes against a single region Database Account. Now, when additional regions are added to this database account, the RU charge for those same operations does not change. Each write will continue to be charged 50 RUs from the collection RU budget in the write region only (no impact on other regions). Similarly, each read will be charged 10 RUs from the budget of the collection in the region serving the operation, with no impact to other regions.
 
@@ -224,7 +224,7 @@ In the event that DocumentDB suffers downtime in a region, the following will oc
 1. Any Database Accounts with write region set to the unavailable region will fail over writes to the next region configured for the account. If no other region is left to fail over to, write requests will fail.
 2. Any clients performing reads from that region will fail over to the next region in their PreferredRegion list, if specified. If no other region is left to fail over to, read requests will fail.
 
-When such availability loss occurs, there is a small window where writes (acknowledged to client) may have been persisted to the affected region, but may not have been replicated to other regions. In order to enable the recovery of this data, we will restore affected regions in a read-only state and notify all affected customers. At this point, the client SDKs can be configured to read from this region (set single PrefferedLocation) and recover any un-replicated data by comparing it to other live regions.
+When such availability loss occurs, there is a small window where writes (acknowledged to client) may have been persisted to the affected region, but may not have been replicated to other regions. In order to enable the recovery of this data, we will restore affected regions in a read-only state and notify all affected customers. At this point, the client SDKs can be configured to read from this region (single region in PreferedLocations list) and recover any un-replicated data by comparing it to other live regions.
 
 Once data has been recovered, the affected region can be restored to active state from the Azure Portal. DocumentDB will rebuild the data in that region for that Database Account, and make it available in full operation state again.
 
