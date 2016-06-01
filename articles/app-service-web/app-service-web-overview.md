@@ -36,35 +36,21 @@ For examples of typical application scenarios that you can use Web Apps for, see
 
 Here are some key features of App Service that apply to Web Apps:
 
-- **Fully managed platform** - Automatic OS and framework patching, built-in support for backup and disaster recovery. 
+- **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [PowerShell and other scripts or executables](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs.
 
-- **Use your existing skills** - Code in your favorite language, framework, and development environment. App Service supports .NET, Node.js, Java, PHP, and Python. 
+- **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md).
+ 
+- **Global scale with high availability** - Scale [up](../app-service/app-service-scale.md) or [out](../azure-portal/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 
-- **Fast deployment** - Provision new apps and deploy code to them in seconds.
+- **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP, Siebel, and Oracle), SaaS services (such as Salesforce and Office 365), and internet services (such as Facebook and Twitter). Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 
-- **Continuous Integration** - Set up [continuous integration and deployment](../app-service-web/app-service-continous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket.
+- **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
 
-- **Staging and test environments** - Implement [staged deployment](../app-service-web/web-sites-staged-publishing.md) to verify your code in a preproduction environment that is identical to your production environment. When you're ready, release a new version of your app with zero downtime by performing a swap operation. 
+- **Azure Marketplace** - Choose from an extensive [list of application templates](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla and Drupal.
 
-- **Testing in Production** - Take staged deployments to the next level and [perform A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md) to verify your new code with a configurable fraction of your live traffic. 
+- **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 
-- **Authentication and authorization** - Protect an app from unauthenticated access with no changes to your code. Built-in authentication services secure your apps for access by users, by clients representing users, or by services. Supported identity providers include Azure Active Directory, Facebook, Twitter, Google, and Microsoft Account. For more information, see [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md).
-
-- **Connect to any service** - Connect your app to enterprise systems or software-as-a-service (SaaS) platforms in minutes with built-in [connectors](../connectors/apis-list.md). Choose from more than 50 connectors for enterprise systems such as SAP, Siebel, and Oracle, popular enterprise SaaS services like Salesforce and Office 365, and popular internet services such as Facebook, Twitter, and Dropbox.
-
-- **Global scale** - Scale [up](../app-service/app-service-scale.md) or [out](../azure-portal/insights-how-to-scale.md) to handle any incoming customer load. Manually select the number and size of VMs or set up auto-scaling based on load or schedule. Microsoft's global datacenter infrastructure hosts your apps and makes it easy to replicate data and hosting services in multiple locations. 
-
-- **Enterprise-grade** - App Service is designed for building and hosting secure mission-critical applications. Build Active Directory integrated business apps that connect securely to on-premises resources, then host them on a secure cloud platform that is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/). All with an enterprise-level [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
-
-- **Azure Marketplace** - Select from an ever-growing [list of application templates](https://azure.microsoft.com/marketplace/). Leverage the best of the OSS app community with one-click installation of packages such as WordPress, Joomla and Drupal.
-
-- **WebJobs** - [Run any program or script](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs. Run jobs continuously, on a schedule, or triggered by events. The Azure [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) simplifies the code you write to integrate with other Azure and third-party services.
-
-- **Hybrid connections** - Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
-
-- **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, consuming, debugging, and managing web apps, mobile apps, and API apps.
-
-In addition, a web app can take advantage of features offered by [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (such as CORS support) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (such as push notifications). The only difference between these three app types (API, web, mobile) is the name and icon used for them in the Azure portal. For more information about app types in App Service, see [Azure App Service overview](../app-service/app-service-value-prop-what-is.md).
+In addition, a web app can take advantage of features offered by [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (such as CORS support) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (such as push notifications). For more information about app types in App Service, see [Azure App Service overview](../app-service/app-service-value-prop-what-is.md).
 
 Besides Web Apps in App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, Web Apps is the best choice.  For microservice architecture, consider [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), and if you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md).
 
