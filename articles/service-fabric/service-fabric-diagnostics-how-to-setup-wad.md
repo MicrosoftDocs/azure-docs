@@ -28,6 +28,8 @@ These tools will be used to perform some of the operations in this document:
 * [Azure Resource Manager](../resource-group-overview.md)
 * [Azure PowerShell](../powershell-install-configure.md)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
+* [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
 
 ## Different log sources that you may want to collect
 1. **Service Fabric logs:** Emitted by the platform to standard ETW and EventSource channels. Logs can be one of several types:
@@ -54,7 +56,14 @@ The Support Logs are **required** by the Azure support team to revolve any suppo
 5. Select Export Template to display the Template panel
 6. Select Save to file to export a .zip file containing the template, parameter and PowerShell files.
 
-After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run.
+After exporting the files, a modification is needed. Edit the **parameters.json** file and remove the **adminPassword** element. This will cause a prompt for the password when the deployment script is run. 
+To use the downloaded template to update a configuration
+
+1. Extract the contents to a folder on your local computer
+2. Modify the content to reflect the new configuration
+3. Start PowerShell and change to the folder where you extracted the content
+4. Run **deploy.ps1** and fill in the subscriptionId, resource group name (use the same name to update the configuration) and a unique deployment name
+
 
 ### Deploy the diagnostics extension as part of cluster creation by using Azure Resource Manager
 To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before creating the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). To see the Diagnostics setting in the Resource Manager template, open the **azuredeploy.json** file and search for **IaaSDiagnostics**. To create a cluster with this template, just press the **Deploy to Azure** button available at the link above.
@@ -67,7 +76,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ```
 
 ### Deploy the diagnostics extension to an existing cluster
-If you have an existing cluster that doesn't have diagnostics deployed, you can add it by following these steps. Modify the ARM template used to create the existing cluster or download the template from the portal as described above. Modify the **template.json** file by performing the following tasks:
+If you have an existing cluster that doesn't have diagnostics deployed or you want to modify an existing configuration, you can add or update it by following these steps. Modify the ARM template used to create the existing cluster or download the template from the portal as described above. Modify the **template.json** file by performing the following tasks:
 
 Add a new storage resource to the template by adding to the resources section.
 
@@ -178,3 +187,11 @@ To update diagnostics to collect logs from new EventSource channels that represe
 
 ## Next steps
 Check out the diagnostic events emitted for [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) and [Reliable Services](service-fabric-reliable-services-diagnostics.md) to understand in more detail what events you should look into while troubleshooting issues.
+
+
+## Related articles
+* [Learn how to collect performance counters or logs using diagnostic extensions](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
+
+
+

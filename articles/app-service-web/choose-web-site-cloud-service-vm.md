@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure App Service, Cloud Services, Virtual Machines, and Service Fabric comparison"
-	description="Learn when to use Azure App Service, Cloud Services, Virtual Machines, and Service Fabric for hosting web applications."
+	pageTitle="Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison | Microsoft Azure"
+	description="Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications."
 	services="app-service\web, virtual-machines, cloud-services"
 	documentationCenter=""
 	authors="tdykstra"
@@ -16,21 +16,17 @@
 	ms.date="02/22/2016"
 	ms.author="tdykstra"/>
 
-# Azure App Service, Cloud Services, Virtual Machines, and Service Fabric comparison
+# Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
 
 ## Overview
 
-Azure offers several ways to host web sites: [Azure App Service][], [Cloud Services][], [Virtual Machines][], and [Service Fabric][]. This article helps you understand the options and make the right choice for your web application.
+Azure offers several ways to host web sites: [Azure App Service][], [Virtual Machines][], [Service Fabric][], and [Cloud Services][]. This article helps you understand the options and make the right choice for your web application.
 
 Azure App Service is the best choice for most web apps. Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability. You can move existing sites to Azure App Service easily with an [online migration tool](https://www.migratetoazure.net/), use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice. The [WebJobs][] feature makes it easy to add background job processing to your App Service web app.
 
-If you need more control over the web server environment, such as the ability to remote into your server or configure server startup tasks, Azure Cloud Services is typically the best option.
+Service Fabric is a good choice if you’re creating a new app or re-writing an existing app to use a microservice architecture. Apps, which run on a shared pool of machines, can start small and grow to massive scale with hundreds or thousands of machines as needed. Stateful services make it easy to consistently and reliably store app state, and Service Fabric automatically manages service partitioning, scaling, and availability for you.  Service Fabric also supports WebAPI with Open Web Interface for .NET (OWIN) and ASP.NET Core.  Compared to App Service, Service Fabric also provides more control over, or direct access to, the underlying infrastructure. You can remote into your servers or configure server startup tasks. Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development.
 
-If you have an existing application that would require substantial modifications to run in Azure App Service or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Cloud Services. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.  
-
-The following diagram illustrates the relative degree of control versus ease of use for each of these web hosting options on Azure.
-
-![ChoicesDiagram][ChoicesDiagram]
+If you have an existing application that would require substantial modifications to run in App Service or Service Fabric, you could choose Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Service Fabric. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.  
 
 ##<a name="scenarios"></a>Scenarios and recommendations
 
@@ -100,9 +96,9 @@ For web developers and designers, Azure App Service integrates easily with a var
 
 If you’re running a multi-tier application, such as a web server that connects to a database, Azure App Service is a good option that offers tight integration with Azure SQL Database. And you can use the WebJobs feature for running backend processes.
 
-Choose Cloud Service for one or more of your tiers if you need more control over the server environment, such as the ability to remote into your server or configure server startup tasks.
+Choose Service Fabric for one or more of your tiers if you need more control over the server environment, such as the ability to remote into your server or configure server startup tasks.
 
-Choose Virtual Machines for one or more of your tiers if you want to use your own machine image or run server software or services that you can't configure on Cloud Services.
+Choose Virtual Machines for one or more of your tiers if you want to use your own machine image or run server software or services that you can't configure on Service Fabric.
 
 ### <a id="custom"></a>My application depends on highly customized Windows or Linux environments and I want to move it to the cloud.
 
@@ -119,22 +115,20 @@ If your open source framework is supported on App Service, the languages and fra
 - Set up WordPress, Drupal, Umbraco, DNN, and many other third-party web applications.
 - Migrate an existing application or create a new one from the Application Gallery.
 
-If your open source framework is not supported on App Service, you can run it on either of the other two Azure web hosting options. With Cloud Services, you use startup tasks to install and configure any required open source software that runs on Windows. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
+If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
 
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Cloud Services, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 
 HTTP-based web services enable you to support a wide variety of clients, including mobile clients. Frameworks like ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, App Service is a great choice for hosting REST APIs. With App Service, you can:
 
-- Quickly create a web app to host the HTTP web service in one of Azure’s globally distributed datacenters.
+- Quickly create a [mobile app](../app-service-mobile/app-service-mobile-value-prop.md) or [API app](../app-service-api/app-service-api-apps-why-best-platform.md) to host the HTTP web service in one of Azure’s globally distributed datacenters.
 - Migrate existing services or create new ones.
 - Achieve SLA for availability with a single instance, or scale out to multiple dedicated machines.
 - Use the published site to provide REST APIs to any HTTP clients, including mobile clients.
-
-In addition, Azure App Service has a new preview feature for REST APIs:  API apps.  For more information about API apps, see [What are API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 ##<a name="features"></a>Feature Comparison
 

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
@@ -42,12 +42,12 @@ Running SQL Server on an Azure VM is one option for storing relational data in A
 
 To create a SQL Server virtual machine in Azure, you must first obtain an Azure Platform subscription. You can purchase an Azure subscription at [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/). To try it free, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure](virtual-machines-windows-portal-sql-server-provision.md). Those images include licensing of SQL Server in the pricing for the VM.
+After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Those images include licensing of SQL Server in the pricing for the VM.
 
 It is important to note that there are two models for creating and managing Azure virtual machines: classic and Resource Manager. Microsoft recommends that most new deployments use the Resource Manager model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md). Each topic should clearly state its targeted model, unless it applies to both classic and Resource Manager, such as this article.
 
 ## Choose a SQL VM image
-The following table provides a matrix of available SQL Server images in the virtual machine gallery. Do you want to quickly create a SQL VM? Click on any of the links in the table to create a VM for that version, edition, and operating system. On the marketplace page, click the **Create Virtual Machine** button. This takes you to the Azure Portal. Then follow the guidance in the [provisioning tutorial](virtual-machines-windows-portal-sql-server-provision.md).
+The following table provides a matrix of available SQL Server images in the virtual machine gallery. Click on any of the links in the table based on version, edition, and operating system. Then click the **Create Virtual Machine** button on the marketplace page. 
 
 |SQL Server version|Operating system|SQL Server edition|
 |---|---|---|
@@ -60,6 +60,8 @@ The following table provides a matrix of available SQL Server images in the virt
 |**SQL Server 2008 R2 SP3**|Windows Server 2012|[Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3expresswindowsserver2012/)|
 
 >[AZURE.NOTE] The Customer Experience Improvement Program (CEIP) is enabled by default. If necessary, you can customize or disable the CEIP after provisioning the virtual machine. Connect to the VM with remote desktop, and run the **SQL Server Error and Usage Reporting** utility.
+
+Need more help with creating a new SQL VM? See the detailed walkthrough in the [provisioning tutorial](virtual-machines-windows-portal-sql-server-provision.md).
 
 In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-hero-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](https://azure.microsoft.com/pricing/details/virtual-machines/) associated with the virtual machine.
 

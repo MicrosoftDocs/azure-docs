@@ -600,22 +600,9 @@ To learn more about Service Bus, see the following resources:
 * [Service Bus service page][sbwacom]  
 * [How to Use Service Bus Queues][sbwacomqhowto]  
 
-To learn more about multi-tier scenarios, or to learn how to deploy an application to a cloud service, see:  
+To learn more about multi-tier scenarios, see:  
 
 * [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
-
-You might want to implement the front-end of a multi-tier application in an Azure website instead of an Azure cloud service. 
-
-To implement the application you create in this tutorial as a standard web project instead of as a cloud service web role, follow the steps in this tutorial with the following differences:
-
-1. When you create the project, choose the **ASP.NET MVC Web Application** project template in the **Web** category instead of the **Cloud Service** template in the **Cloud** category. Then follow the same directions for creating the MVC application, until you get to the **Cloud configuration manager** section.
-
-2. When you create the worker role, create it in a new, separate solution, similar to the original instructions for the web role. Now however, you're creating just the worker role in the cloud service project. Then follow the same directions for creating the worker role.
-
-3. You can test the front-end and back-end separately, or you can run both simultaneously in separate Visual Studio instances.
-
-To learn how to deploy the front end to an Azure website, see [Create an ASP.NET web app in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md). To learn how to deploy the back end to an Azure cloud service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
-
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
