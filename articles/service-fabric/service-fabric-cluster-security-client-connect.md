@@ -93,6 +93,7 @@ static X509Credentials GetCredentials(string thumb, string name)
     xc.StoreName = "MY";
     xc.FindType = X509FindType.FindByThumbprint;
     xc.FindValue = thumb;
+    xc.RemoteCertThumbprints.Add(thumb);
     xc.RemoteCommonNames.Add(name);
     xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
     return xc;
