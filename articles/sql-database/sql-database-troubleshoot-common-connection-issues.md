@@ -60,7 +60,7 @@ If the application persistently fails to connect to SQL Azure Database, it usual
 3.	Verify your connection string and other connection settings. See the Connection String section in the [connectivity issues topic](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4.	Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
 
-# All topics for Azure SQL Database connection problems
+## All topics for Azure SQL Database connection problems
 
 The following table lists every topic of connection problems that applies directly to the SQL Database service of Azure.
 
@@ -76,7 +76,6 @@ The following table lists every topic of connection problems that applies direct
 | 7 | [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) | This topic provides guidance to help you determine which service tier is right for your application and provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
 | 8 | [Connecting to SQL Database: Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md) | This topic provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
 | 9 | Upgrade to Azure SQL Database v12 page ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) | The articles provide directions for upgrading existing Azure SQL Database V11 servers and databases to Azure SQL Database V12 by using Azure portal or by using PowerShell. |
-
 
 
 ## Next steps
