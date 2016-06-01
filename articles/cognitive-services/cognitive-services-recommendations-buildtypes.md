@@ -106,7 +106,7 @@ The table below represents the output of the precision-at-k offline evaluation.
 |Percentage |	13.75 |	18.04	| 21 |	24.31 |	26.61
 |Users in Test |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
 |Users Considered |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
-|Users Not Considered |	10,000 |	10,000 |	10,000 |	10,000 |	10,000
+|Users Not Considered |	0 |	0 |	0 |	0 |	0
 
 #### K
 In the table above, *K* represents the number of recommendations shown to the customer.  So the table reads as follows: “If during the test period, only one recommendations would have been shown to the customers, only 13.75 of the users would have actually purchased that recommendation”. (Assuming the model was trained with purchase data). Another way to says this is that the “precision at 1” is 13.75.
