@@ -45,7 +45,7 @@ Let us take a look at how SQL Data Warehouse enhances the reliability of your da
 
 ### Data redundancy
 
-SQL Data Warehouse stores all data on [locally redundant (LRS)](https://azure.microsoft.com/en-us/documentation/articles/storage-redundancy/#locally-redundant-storage) Azure Premium Storage keeping 3 copies of your data. 
+SQL Data Warehouse stores all data on [locally redundant (LRS)](../../storage/storage-redundancy.md) Azure Premium Storage keeping 3 copies of your data. 
 
 ### Database Restore
 
