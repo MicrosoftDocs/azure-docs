@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/27/2016"
+   	ms.date="06/01/2016"
    	ms.author="jgao"/>
 
 # Publish HDInsight applications into the Azure Marketplace
