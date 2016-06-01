@@ -34,7 +34,7 @@ Storage | Article explaining WASB and Data Lake Storeas storage options | 2 | Pe
 Performance  | Performance tuning guidelines for MapReduce applications 		| 1 |  Pending | [@blackmist](https://github.com/blackmist) | -
 Performance | Performance tuning guidelines for Spark clusters |1 | Pending | [@nitinme](https://github.com/nitinme) | -
 Development | Curl and Rest API sample on using Sqoop | 2 | [Completed](hdinsight-hadoop-use-sqoop-curl.md) | [@mumian](https://github.com/mumian) | Jon Kennerly |
-Development | [non-interactive authentication with HDInsight .NET application](hdinsight-create-non-interactive-authentication-dotnet-applications) |2| [Completed](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
+Development | [non-interactive authentication with HDInsight .NET application](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |2| [Completed](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## How to Give Feedback on the Backlog
