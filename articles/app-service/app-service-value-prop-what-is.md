@@ -37,7 +37,7 @@ Here are some key features and capabilities of App Service:
 
 - **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
 
-- **Azure Marketplace** - Choose from an extensive [list of application templates](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla and Drupal.
+- **Azure Marketplace** - Choose from an extensive [list of application templates](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla, and Drupal.
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 
