@@ -51,7 +51,11 @@ For each trigger you can see if it **Fired**, if it didn't fire, or if it had so
 
 Note that for *Push* triggers, you do *not* see the times that the runs started here. Instead you see the *callback registration* calls; which are when the Logic app registers to get called back. If your push trigger is not working, it may be a problem with the registration (which you can see on the Outputs), but otherwise you many need to investigate that API specifically.
 
+## Enabling Azure Diagnostics
+
+You can enable Diagnostic information to retrieve and store runtime data for your workflows.  On the Logic App blade, scroll down to thee **Monitoring** charts and select **Click here to enable diagnostics**.  You can then configure against a storage account in the region of the Logic App and subscribe to **Logs** or **Metrics** from the Logic App.  **Logs** will send an event whenever a run, action, or event starts or completes.  **Metrics** give aggregated data around how many runs executed within a time window.   
+
 ## Enable versioning
 
-There is an additional capability that is not currently possible in the UI (coming soon) but is available using the [REST API](https://msdn.microsoft.com/library/azure/mt643788.aspx). When you update the definition of a Logic app, the previous version of the definition is stored. This is because if you already have a run in progress, that run references the version of the Logic app that existed when the run started. Definitions of runs cannot change while they are in progress. The Version history REST API gives you access to this information.
- 
+There is an additional capability that is not currently possible in the UI (coming soon) but is available using the [REST API](https://msdn.microsoft.com/library/azure/mt643788.aspx). When you update the definition of a Logic App, the previous version of the definition is stored. This is because if you already have a run in progress, that run references the version of the Logic App that existed when the run started. Definitions of runs cannot change while they are in progress. The Version history REST API gives you access to this information.  
+
