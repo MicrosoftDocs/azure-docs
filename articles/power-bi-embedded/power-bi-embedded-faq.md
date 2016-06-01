@@ -61,7 +61,7 @@
 
     You may use the Power BI Embedded service within an application you develop only if your application (1) adds primary and significant functionality to our service and is not primarily a substitute for any Power BI service, and (2) is provided solely for external users.  You may not use the Power BI Embedded service within internal business applications.
 
-  ![](media\power-bi-embedded-faq\price.png)
+   ![](media\power-bi-embedded-faq\price.png)
 
 11.	**What is a render and how is it billed?**
 
