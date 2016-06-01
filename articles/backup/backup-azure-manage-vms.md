@@ -236,17 +236,17 @@ To view operation logs corresponding to a Recovery Services vault:
 
     ![Filtered for Recovery Services](./media/backup-azure-manage-vms/filtered-logs.png)
 
-3. To use all available filters, on the Audit logs menu, click **Filter** to open the **Filter** blade.
+3. To use all available filters, on the Audit logs menu, click **Filter** to open that blade.
 
     ![open filter blade](./media/backup-azure-manage-vms/audit-logs-filter-button.png)
 
-4. On the Filter blade, use the filters that provide the information you want.
+4. On the **Filter** blade, use the filters that provide the information you want.
 
     ![Audit Logs-query details](./media/backup-azure-manage-vms/filter-blade.png)
 
-    On the **Filter** blade, there are four types of filters: **Subscription**, **Resource Group**, **Resource type**, and **Resource**. In addition, you can filter on the **Level** of event: Critical, Error, Warning, or Informational. You can choose any combination of event Levels, but you must have at least one Level selected. Toggle the event on or off. The **Time span** filter allows you to specify the length of time to use for capturing events. If you use a Custom Time span, you can set the start and end times.
+    On the **Filter** blade, there are four types of filters: **Subscription**, **Resource Group**, **Resource type**, and **Resource**. In addition, you can filter on the **Level** of event: Critical, Error, Warning, or Informational. You can choose any combination of event Levels, but you must have at least one Level selected. Toggle the Level on or off. The **Time span** filter allows you to specify the length of time for capturing events. If you use a Custom Time span, you can set the start and end times.
 
-5. Once you are ready to execute your filter, click **Update**. The results display in the **Audit Logs** blade.
+5. Once you are ready to query the operations logs using your filter, click **Update**. The results display in the **Audit Logs** blade.
 
     ![Operation Details](./media/backup-azure-manage-vms/list-of-operations.png)
 
@@ -257,6 +257,8 @@ To view operation logs corresponding to a Recovery Services vault:
 7. In the details blade, click an Event to open its details blade.
 
     ![Event Details](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
+
+For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../insights-debugging-with-events.md) 
 
 ## Alert notifications
 You can get custom alert notifications for the jobs in the portal. To get these jobs, define PowerShell-based alert rules on the operational logs events. Use *PowerShell version 1.3.0 or later*.
