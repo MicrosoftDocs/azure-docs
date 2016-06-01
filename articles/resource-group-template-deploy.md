@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="06/01/2016"
    ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure PowerShell
@@ -27,6 +27,8 @@
 
 
 This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure.  
+
+If you have received an error during deployment, see [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) to learn about getting information that will help you troubleshoot your error, and see [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors.
 
 [AZURE.INCLUDE [resource-manager-deployments](../includes/resource-manager-deployments.md)]
 
@@ -82,20 +84,20 @@ This topic explains how to use Azure PowerShell with Resource Manager templates 
    
      1. Use inline parameters.
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
 
      2. Use a parameter object.
 
-        $parameters = @{"<ParameterName>"="<Parameter Value>"}
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterObject $parameters
+            $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterObject $parameters
 
      3. Use a local parameter file. For information about the template file, see [Parameter file](#parameter-file).
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
 
      4. Use an external parameter file. For information about the template file, see [Parameter file](#parameter-file).
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
+            New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
 
      After the resources have been deployed, you will see a summary of the deployment.
 
@@ -112,11 +114,17 @@ This topic explains how to use Azure PowerShell with Resource Manager templates 
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
-     For more infommation about using this debugging content to troubleshoot deployments, see [Troubleshooting resource group deployments with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     For more information about using this debugging content to troubleshoot deployments, see [Troubleshooting resource group deployments with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
 
-## Add private template to storage account
+## Deploy template from storage with SAS token
 
-You can keep your templates in a storage account and link to them during deployment with a SAS token. The following steps set up a storage account for templates:
+You can add your templates to a storage account and link to them during deployment with a SAS token.
+
+> [AZURE.NOTE] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Therefore, using a SAS token is a good way of preventing other users from accessing your templates, but you should not include sensitive data like passwords directly in the template.
+
+### Add private template to storage account
+
+The following steps set up a storage account for templates:
 
 1. Create a new resource group.
 
@@ -138,21 +146,21 @@ You can keep your templates in a storage account and link to them during deploym
 
         Set-AzureStorageBlobContent -Container templates -File c:\Azure\Templates\azuredeploy.json
         
-## Deploy template with SAS token
+### Provide SAS token during deployment
 
 To deploy a private template in a storage account, retrieve a SAS token and include it in the URI for the template.
 
-1. Set the current stoage account.
+1. Set the current storage account.
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-2. Create a SAS token and retrieve the full URI of the template and the SAS token.
+2. Create a SAS token with read permissions and retrieve the full URI of the template including the SAS token.
 
         $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob azuredeploy.json -Permission r -FullUri
 
-3. Deploy the template by providing the URI that includes the SAS token..
+3. Deploy the template by providing the URI that includes the SAS token.
 
-        New-AzureRmResourceGroupDeployment -ResourceGroupName sasgroup -TemplateUri $templateuri
+        New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateuri
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
