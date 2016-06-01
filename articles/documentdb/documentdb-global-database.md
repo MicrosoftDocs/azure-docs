@@ -74,11 +74,11 @@ The impact of failover on active clients is discussed in the Failover & Recovery
 
 ## Read region selection
 
-DocumentDB client SDKs provide an optional parameter "PreferredLocations" that is an ordered list of Azure regions. The SDK will automatically send all reads to the first available region in this list. If the first region returns is returns an error or is not reachable, the client will retry 2 more times with that region, and then fail down the list to the next region, and so on. The SDK will check for region availability every 30s (?) and switch back to a more preferred region if it becomes available again. 
+DocumentDB client SDKs provide an optional parameter "PreferredLocations" that is an ordered list of Azure regions. The SDK will automatically send all reads to the first available region in this list. If the first region returns an error or is not reachable, the client will retry 2 more times with that region, and then fail down the list to the next region, and so on. The SDK will check for region availability every 30s (?) and switch back to a more preferred region if it becomes available again. 
 
 The client SDKs will only attempt to read to the regions specified in PreferedLocations. So, for example, if the Database Account is replicated to 3 regions, but the clients only specify 2 of the non-write regions for PreferedLocations, then no reads will be served out of the write region, even in the case of failover. This behavior can be used to 
 1. fully reserve the RU budget of the write region for writes
-2. deploy additional regions for data analytics without affecting production throughput, by sp3ecifying different PreferedLocations in production and analytics clients respectively.
+2. deploy additional regions for data analytics without affecting production throughput, by specifying different PreferedLocations in production and analytics clients respectively.
 
 If the PreferedLocations property is not set, all reads will be served from the current write region. 
 
