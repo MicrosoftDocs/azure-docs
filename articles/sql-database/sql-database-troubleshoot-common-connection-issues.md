@@ -89,7 +89,7 @@ The following table lists every topic of connection problems that applies direct
 
 ## Learn more
 - [Connecting to SQL Database: Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
-- [Retry general guidance](best-practices-retry-general.md)
+- [Retry general guidance](../best-practices-retry-general.md)
 - [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 - [The learning path of using Azure SQL Database](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database.md)
 - [The learning path of using elastic database features and tools](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
