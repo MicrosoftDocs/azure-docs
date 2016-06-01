@@ -50,7 +50,7 @@ The following example shows how to include the autoloader file and reference the
 
 > [AZURE.NOTE] This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the <code>WindowsAzure.php</code> autoloader file.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
@@ -78,7 +78,7 @@ To create any Azure service client, you need to use the **ServicesBuilder** clas
 
 For the examples outlined here, the connection string will be passed directly.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 
@@ -115,7 +115,7 @@ For information about restrictions on table names, see [Understanding the Table 
 
 To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity, you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -149,7 +149,7 @@ For information about Table properties and types, see [Understanding the Table S
 
 The **TableRestProxy** class offers two alternative methods for inserting entities: **insertOrMergeEntity** and **insertOrReplaceEntity**. To use these methods, create a new **Entity** and pass it as a parameter to either method. Each method will insert the entity if it does not exist. If the entity already exists, **insertOrMergeEntity** updates property values if the properties already exist and adds new properties if they do not exist, while **insertOrReplaceEntity** completely replaces an existing entity. The following example shows how to use **insertOrMergeEntity**. If the entity with `PartitionKey` "tasksSeattle" and `RowKey` "1" does not already exist, it will be inserted. However, if it has previously been inserted (as shown in the example above), the `DueDate` property will be updated, and the `Status` property will be added. The `Description` and `Location` properties are also updated, but with values that effectively leave them unchanged. If these latter two properties were not added as shown in the example, but existed on the target entity, their existing values would remain unchanged.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -192,7 +192,7 @@ The **TableRestProxy** class offers two alternative methods for inserting entiti
 
 The **TableRestProxy->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -220,7 +220,7 @@ The **TableRestProxy->getEntity** method allows you to retrieve a single entity 
 
 Entity queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). To retrieve all entities in partition, use the filter "PartitionKey eq *partition_name*". The following example shows how to retrieve all entities in the `tasksSeattle` partition by passing a filter to the **queryEntities** method.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -252,7 +252,7 @@ Entity queries are constructed using filters (for more information, see [Queryin
 
 The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve are determined by the filter you use (for more information, see [Querying Tables and Entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -284,7 +284,7 @@ The same pattern used in the previous example can be used to retrieve any subset
 
 A query can retrieve a subset of entity properties. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. To specify a property to be retrieved, pass the name of the property to the **Query->addSelectField** method. You can call this method multiple times to add more properties. After executing **TableRestProxy->queryEntities**, the returned entities will only have the selected properties. (If you want to return a subset of Table entities, use a filter as shown in the queries above.)
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -322,7 +322,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 
 An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that you can remove a property by setting its value to **null**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -358,7 +358,7 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 
 To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **TableRestProxy->deleteEntity** method.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -394,7 +394,7 @@ The **TableRestProxy->batch** method allows you to execute multiple operations i
 
 The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request:
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
@@ -441,7 +441,7 @@ For more information about batching Table operations, see [Performing Entity Gro
 
 Finally, to delete a table, pass the table name to the **TableRestProxy->deleteTable** method.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use MicrosoftAzure\Storage\Common\ServiceException;
