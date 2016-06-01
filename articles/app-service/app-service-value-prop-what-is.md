@@ -23,8 +23,6 @@
 
 App Service includes the web and mobile capabilities that we previously delivered separately as Azure Websites and Azure Mobile Services.  It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service lets you compose various components -- websites, mobile app back ends, RESTful APIs, and business processes -- into a single solution.
 
-For a 4-minute history of how App Service developed out of Websites and Mobile Services, see [App Service history lesson by Brady Gaster (video)](). 
-
 ## Why use App Service?
 
 Here are some key features and capabilities of App Service: 
