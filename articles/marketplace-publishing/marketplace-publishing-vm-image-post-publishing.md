@@ -58,7 +58,10 @@ You can update the offer details and re-publish your offer by following the step
 4. Click on the **ENGLISH (US)** button.
 5. From the left hand side menu, click on the **DETAILS** tab. Under the *DESCRIPTION* section of the **DETAILS** tab you can update the offer title, offer summary, offer long summary and save the changes.
 
-    >[AZURE.NOTE] Please take care of the following while you are updating the SKU details. **Do not enter duplicate text under the offer description and the SKU description. Do not enter duplicate text under the SKU title and the offer long summary. Do not enter duplicate text under the SKU title and the offer summary.**
+    >[AZURE.NOTE] Please take care of the following while you are updating the SKU details.
+    - **Do not enter duplicate text under the offer description and the SKU description. **
+    - **Do not enter duplicate text under the SKU title and the offer long summary. **
+    - **Do not enter duplicate text under the SKU title and the offer summary.**
 
     ![drawing](media/marketplace-publishing-vm-image-post-publishing/img02.png)
 
