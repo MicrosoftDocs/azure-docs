@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create and connect to a MySQL database in Azure"
-	description="Learn how to use ClearDB to create a MySQL database in an Azure data center."
+	description="Learn how to use the Azure portal to create a MySQL database and then connect to it from a PHP web app in Azure."
 	documentationCenter="php"
 	services=""
 	authors="cephalin"
@@ -24,6 +24,8 @@ This guide will show you how to create a MySQL database in the [Azure portal](ht
 
 > [AZURE.NOTE] You can also create a MySQL database as part of a [Marketplace app template](./app-service-web/app-service-web-create-web-app-from-marketplace.md).
 
+## Create a MySQL database in Azure portal
+
 To create a MySQL database in the Azure portal, do the following:
 
 1. Log in to the [Azure portal](https://portal.azure.com).
@@ -45,7 +47,7 @@ To create a MySQL database in the Azure portal, do the following:
 	- **Pin to dashboard**: Select if you want to access it directly from the dashboard. This is especially helpful if you aren't familiar with
 	portal navigation yet.
 	
-   The following screenshot is just an example of how you can configure your MySQL database.
+    The following screenshot is just an example of how you can configure your MySQL database.
 	
 	![Create a MySQL database in Azure - configure](./media/store-php-create-mysql-database/create-db-2-configure.png)
 	
@@ -59,7 +61,7 @@ To create a MySQL database in the Azure portal, do the following:
 
 	You will get another pop-up once deployment has succeeded. The portal will also open your MySQL database blade automatically.
 
-## Connect to you MySQL database from a PHP web app in Azure
+## Connect to your MySQL database from a PHP web app in Azure
 
 To see the connection information for your new MySQL database, just click **Properties**. If you don't see the **Settings** blade,
 click **Settings** > **Properties**.
@@ -68,6 +70,8 @@ click **Settings** > **Properties**.
 
 You can now use that connection information in any web app. A sample that shows how to use the connection information from a simple
 PHP app is available [here](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql).
+
+### Connect a Laravel web app (from the PHP get started tutorial)
 
 Suppose you just finished the tutorial [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md)
 and have a [Laravel](https://www.laravel.com/) web app running in Azure, you can easily add database capabilities to your Laravel
@@ -111,7 +115,7 @@ In the command-line terminal, run the following commands from your Laravel app's
 
 	Follow the UI prompt complete the registration. Once registration completes, you will be logged in.
 	
-	![Connect to MySQL database in Azure - register user](./media/store-php-create-mysql-database/connect-db-3-registered-user.png
+	![Connect to MySQL database in Azure - register user](./media/store-php-create-mysql-database/connect-db-3-registered-user.png)
 
 	You are now developing your app against the MySQL database in Azure.
 
