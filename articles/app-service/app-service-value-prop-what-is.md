@@ -59,7 +59,7 @@ App Service offers the following app types.
 
 [App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) specify the kind of compute resources that your apps run on. If you expect light traffic loads, you can use shared virtual machines (VMs). For higher loads, you can choose from several sizes of dedicated VMs. If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md). 
 
-For information about how much App Service costs, see [App Service Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/). 
+For information about how much App Service costs, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/). 
 
 ## Get Started with App Service
 
@@ -68,6 +68,6 @@ For information about how much App Service costs, see [App Service Pricing](http
 Or open a [free Azure account](https://azure.microsoft.com/pricing/free-trial/), and try one of our getting-started tutorials:
 
 * [Tutorial: Create a web app](../app-service-web/app-service-web-get-started.md)
-* [Tutorial: Create a mobile app](../app-service-/mobile/app-service-mobile-android-get-started.md)
-* [Tutorial: Create an API app](../app-service-api/app-serice-api-dotnet-get-started.md)
-* [Tutorial: Create a logic app](../app-service-logic/pp-service-logic-create-a-logic-app.md)
+* [Tutorial: Create a mobile app](../app-service-mobile/app-service-mobile-android-get-started.md)
+* [Tutorial: Create an API app](../app-service-api/app-service-api-dotnet-get-started.md)
+* [Tutorial: Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
