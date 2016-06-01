@@ -24,7 +24,7 @@ For information on building APIs as a trigger or action within Logic apps, check
 
 ## Deploy your Web App
 
-First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](../app-service-web/web-sites-dotnet-get-started.md).  While you can call into any API from a Logic app, for the best experience we recommend you add Swagger metadata to integrate easily with Logic apps actions.  You can find details on [adding swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
+First, you'll need to deploy your API as a Web App in App Service. The instructions here cover basic deployment: [Create an ASP.NET web app](../app-service-web/web-sites-dotnet-get-started.md).  While you can call into any API from a Logic app, for the best experience we recommend you add Swagger metadata to integrate easily with Logic apps actions.  You can find details on [adding swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-api-metadata-and-ui).
 
 ### API Settings
 
