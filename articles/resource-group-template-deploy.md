@@ -120,7 +120,7 @@ If you have received an error during deployment, see [View deployment operations
 
 You can add your templates to a storage account and link to them during deployment with a SAS token.
 
-> [AZURE.NOTE] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Therefore, using a SAS token is a good way of preventing other users from accessing your templates, but you should not include sensitive data like passwords directly in the template.
+> [AZURE.NOTE] By following the steps below, the blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
 ### Add private template to storage account
 
@@ -138,7 +138,7 @@ The following steps set up a storage account for templates:
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Create a new container. The permission is set to **Off** which means the container only accessible to the owner.
+4. Create a new container. The permission is set to **Off** which means the container is only accessible to the owner.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
@@ -154,9 +154,9 @@ To deploy a private template in a storage account, retrieve a SAS token and incl
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-2. Create a SAS token with read permissions and retrieve the full URI of the template including the SAS token.
+2. Create a SAS token with read permissions and an expiry time to limit access. Retrieve the full URI of the template including the SAS token.
 
-        $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob azuredeploy.json -Permission r -FullUri
+        $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob azuredeploy.json -Permission r -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 3. Deploy the template by providing the URI that includes the SAS token.
 
