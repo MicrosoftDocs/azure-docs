@@ -17,12 +17,12 @@
 	
 # How to get technical support from Application Insights development team
 	
-When you have a technical issue with [Visual Studio Application Insights](app-insight-overview.md), here are your options for getting help:
+When you have a technical issue with [Visual Studio Application Insights](app-insights-overview.md), here are your options for getting help:
 
 ## 1. Check the documents
 
-* Missing data? Check [sampling](app-insights-sampling.md), [quotas and throttling](app-insights-pricing.md).
-* Troubleshooting: [ASP.NET](app-insights-asp-net-troubleshoot.md) | [Java](app-insights-java-troubleshoot.md)
+* Missing data? Check: [sampling](app-insights-sampling.md), [quotas and throttling](app-insights-pricing.md).
+* Troubleshooting: [ASP.NET](app-insights-troubleshoot-faq.md) | [Java](app-insights-java-troubleshoot.md)
 
 ## 2. Search the forums
 
@@ -40,22 +40,28 @@ If you have a [support plan with Microsoft Azure](https://azure.microsoft.com/su
 If you don't have a support plan, our development team is happy to offer best effort support to Application Insights customers as we prepare for the General Availability milestone. We are introducing **a new support option**: You can describe your case to us by submitting a feedback form on Azure portal and have a developer on the Application Insights team contact you back to help resolve your issue.
 
 
-Click the smiley face at the top right corner:  
-![image](./media/app-insights-get-dev-support/01.png)   
+1. In the [Application Insights portal](https://portal.azure.com), click the smiley face at the top right corner:  
 
-In the comment box please make sure to specify **AppInsights** as the first line and then include the following information:   
+    ![image](./media/app-insights-get-dev-support/01.png)   
 
-```
+2. In the comment box please make sure to specify **AppInsights** as the first line and then include the following information:   
+
+    ```
 
     AppInsights   
     ikey: <instrumentation key>   
     sdk: <SDK that you are using, including name and version>  
     email: <email address that we should use to contact you. This is the most important field>  
     issue: <please describe the problem you are having>
-```   
-![image](./media/app-insights-get-dev-support/02.png)   
-Please check the "Yes, it is ok to email you" checkbox at the bottom of the Feedback panel and click Submit.  
-![image](./media/app-insights-get-dev-support/03.png)  
+
+    ```   
+
+    ![image](./media/app-insights-get-dev-support/02.png)   
+
+3. Check "Yes, it is ok to email you". 
+
+    ![image](./media/app-insights-get-dev-support/03.png)  
+
 An engineer on Application Insights team will get in touch with you soon. As we are providing this service on best effort basis, no formal SLA can be given at this point.
 
 
