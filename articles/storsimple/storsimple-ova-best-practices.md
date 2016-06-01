@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/26/2016"
+   ms.date="06/01/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array best practices
@@ -45,25 +45,68 @@ Implement the following best practices when provisioning the virtual array:
 
 ### Sizing
 
-When sizing a tiered share or a volume, take into account the following factors:
+When sizing your StorSimple Virtual Array, you will need to consider the following factors:
 
-- Local reservation for volumes or shares. Approximately 10% space is reserved on the local tier for each provisioned tiered volume/share.
+- Local reservation for volumes or shares. Approximately 10% of the space is reserved on the local tier for each provisioned tiered volume or share.
 - Snapshot overhead. Roughly 25% space on the local tier is reserved for snapshots.
-- Need for restores. Sizing should account for space needed for restore if doing restore as a new operation.
-- Some buffer should be allocated for any unexpected growth
+- Need for restores. Sizing should account for space needed for restore if doing restore as a new operation. Note that restore is done to a share or volume of the same size or larger.
+- Some buffer should be allocated for any unexpected growth.
 
-For example, if you wanted to provision a 5 TB tiered volume, the breakdown will be:
+Based on the above factors, the sizing requirements can be represented by the following equation:
 
-- Local reservation: 564 GB
-- Space needed for restore: 564 GB
-- Snapshot overhead: 25%
- 
-Accounting for the above factors, for the 5 TB tiered share, you can provision a 1.5 to 2 TB local disk.  Thin provisioned should give you a better usage as the restore as new space is required only if you want to restore older than 5 days data.
+Total usable disk size = Total provisioned volume/share size + (Max (local reservation for a volume/share) for all the existing volumes/share) + some buffer (unexpected growth or new share or volume)
+
+Data disk size = Total usable disk size + Snapshot overhead (25% of total usable disk size)
 
 
-Total usable disk size = Total provisioned volume size + (Max (Provisioned volume size) for all the existing volumes) + some buffer
+The following examples illustrate how you can size a virtual array based on your requirements.
 
-Examples
+#### Example 1:
+On your virtual array, you should be able to 
+
+- provision 2 TB tiered volumes or shares.
+- provision a 1 TB tiered volume or share.
+- provision a 300 GB of locally pinned volume or share.
+
+
+For the above volumes or shares, let us calculate the space requirements on the local tier. Based on 10-12 % of local space reservation for tiered volumes/shares,
+we will need
+
+- 240 GB local reservation (for 2 TB tiered volume/share)
+- 120 GB local reservation (for 1 TB tiered volume/share)
+- 300 GB for locally pinned volume or share
+
+Total space required on the local tier will be: 240 GB + 120 GB + 300 GB = 660 GB
+
+For the above volumes/shares, we will need at least 300 GB of free space corresponding to the one that needs the largest space on the local tier in case we need to perform restore from a cloud snapshot. The minimum space need would be 300 GB. If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
+
+The snapshot overhead will be 0.25% of (660 + 300) GB, that is roughly 0.25 TB
+
+The total local space requirement would be 660 GB (local reservation) + 300 GB (for restore) + 250 GB (snapshot overhead) = 1.240, rounding off to 1.25 TB. 
+
+Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.75 TB.
+
+> [AZURE.NOTE] We also recommend that the local disk be thinly provisioned. This is because the restore space is only needed when you want to restore data that is older than 5 days. Item-level recovery will allow you to restore data for the last 5 days without the needing the extra space for restore.
+
+#### Example 2: 
+On your virtual array, you should be able to 
+
+- provision a 2 TB tiered volume
+- provision a 300 GB locally pinned volume
+
+Based on 10-12 % of local space reservation for tiered volumes/shares, we will need
+
+- 240 GB local reservation (for 2 TB tiered volume/share)
+- 300 GB for locally pinned volume or share
+
+Total space required on the local tier will be: 240 GB + 300 GB = 540 GB
+
+The minimum local space needed for restore would be 300 GB. 
+
+The snapshot overhead would be 0.25% of (540 + 300) GB, that is roughly 0.21 TB on the local tier.
+
+Based on all the above factors, you can provision a 540 GB (local reservation) + 300 GB (restore) + 500 GB (snapshot overhead) = 1.05, rounding off to 1.25 TB of local disk. Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
+
 
 ### Group policy
 
@@ -262,7 +305,7 @@ Keep the following best practices in mind when deactivating your virtual array:
 
 To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
 
-- Configure monitoring to track the disk usage of your virtual array data disk as well as the guest OS disk. You can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
+- Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
 
 - Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
 
@@ -298,18 +341,13 @@ Recommended measures to alleviate this include:
 
 ## Multiple arrays
 
-Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This will require one or more devices to be added in the on-premises data center. This can be done in the one of the following two ways:
+Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This will require one or more devices to be added in the on-premises data center. When adding the devices, you could:
 
--   split the current set of data.
+-   Split the current set of data.
+-   Deploy new workloads to the new appliance(s).
+-   If deploying multiple virtual arrays, we recommend that from load-balancing perspective, distribute the array across different hypervisor hosts.
 
--   deploy new workloads to the new appliance(s).
-
-
-### Integration with Distributed File System Namespace (DFS-N) and Distributed File System Replication service (DFS-R)
-
-Multiple virtual arrays when configured as a file server can be deployed under a DFS-N. 
-
-For DFS-R, only the locally pinned volumes are supported on the StorSimple Virtual Array as the syncs are always local. The tiered volumes are not supported as DFS-R will crawl through all the content on a folder to be replicated, potentially recalling data from the cloud and churning the working set.
+-  Multiple virtual arrays (when configured as a file server or an iSCSI server) can be deployed under a DFS-N. For detailed steps, go to [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). DFS-R is currently not recommended for use with the virtual array. 
 
 
 ## See also
