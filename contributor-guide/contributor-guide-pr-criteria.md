@@ -39,6 +39,7 @@ For these items, pull request reviewers provide feedback and instructions for th
 |----------|---------------------|
 |Content|Articles should have a “Next steps” at the end with 1-3 relevant and compelling next steps. Brief text should be included that helps the customer understand why the next steps are relevant. (New articles only). Example: <https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/><br>![](media/contributor-guide-pr-criteria/nextstepsexample.PNG)|
 |Images|Images use the correct callout style and color, and screenshots use the correct border and placeholder style. [See the image guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/create-images-markdown.md).|
+|Images|Images include alt text. [See the image guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/create-images-markdown.md).|
 |Site/design functionality|The H2 headings, when rendered in the on-page TOC, should ideally wrap to no more than 2 lines. Longer headings make the article TOC harder to scan.|
 |Style conventions|All titles and headings are sentence case, per Azure style.|
 |Process|If the pull request could have easily been reconfigured to benefit from PRmerger automation, pull request reviewers provide feedback to the author about how to use branches so the changes could be merged automatically. See [the PR etiquette article](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-pull-request-etiquette.md#in-a-hurry-submit-prs-that-can-be-accepted-automatically).|
