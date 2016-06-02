@@ -53,7 +53,7 @@ Azure Search service API supports two URL syntaxes for API operations: simple an
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
 
-[Test Analyzers](#TestAnalyzers)
+[Test Analyzer](#TestAnalyzer)
 
     GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
@@ -1014,8 +1014,8 @@ The response body is in the following format:
 	  "storageSize": number (size of the index in bytes)
     }
 
-<a name="TestAnalyzers"></a>
-## Test Analyzers
+<a name="TestAnalyzer"></a>
+## Test Analyzer
 
 The **Analyze API** shows how an analyzer breaks text into tokens.
 
