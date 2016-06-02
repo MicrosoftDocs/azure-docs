@@ -23,17 +23,17 @@
 
 In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the Key Vault Resource Provider. To learn more about Key Vaults see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
 
-### Setup
+## Setup
 In order for a Key Vault to be used with Azure Resource Manager Virtual Machines, the *EnabledForDeployment* property on the Key Vault must be set to true. You can do this in the various clients as shown below.”
 
-#### CLI
+## CLI
 For creating the Key Vault using CLI see [Manage Key Vault using CLI](../key-vault/key-vault-manage-with-cli.md#create-a-key-vault)
 
 For CLI, you have to create the Key Vault first, then enable the deployment policy. You can do this using the following command
 
 	azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
-### Templates
+## Templates
 While using templates, you need to set the `enabledForDeployment` property to `true` for the Key Vault resource.
 
 	{
