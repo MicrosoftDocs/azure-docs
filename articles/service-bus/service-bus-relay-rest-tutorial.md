@@ -591,6 +591,8 @@ After building the solution, do the following to run the application:
 
 2. Copy and paste the address from the command prompt into a browser to see the image.
 
+3. When you are finished, press **Enter** in the command prompt window to close the app.
+
 ## Next steps
 
 Now that you've built an application that uses the Service Bus relay service, see the following articles to learn more about relayed messaging:
