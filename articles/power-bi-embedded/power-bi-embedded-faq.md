@@ -50,7 +50,7 @@
 
     The Power BI Embedded service is available in North America as of our announcement at BUILD 2016 (in the US South Central Data Center).  You can expect us to roll out this service to the rest of the Azure data centers very shortly after.  
 
-9.	**What is the available SLA for the service?**
+9. **What is the available SLA for the service?**
 
     Power BI Embedded is now available as a preview Azure service without a formal SLA. An SLA will be provided when the service moves from preview to general availability.
 
