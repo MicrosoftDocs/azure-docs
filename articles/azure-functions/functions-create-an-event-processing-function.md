@@ -54,7 +54,7 @@ A function app hosts the execution of your functions in Azure. It is a best prac
 
 	![Function app settings blade](./media/functions-create-an-event-processing-function/functions-app-service-settings.png)
 
-4. In your function app, click **All settings** > **Application settings**, then under **Connection strings** type `sqldb_connection` for **Name**, paste the connection string into **Value**, click **Save**, then close the function app blade to return to the Functions portal.
+4. In your function app, click **All settings**, scroll down to **Application settings**, then under **Connection strings** type `sqldb_connection` for **Name**, paste the connection string into **Value**, click **Save**, then close the function app blade to return to the Functions portal.
 
     ![App Service setting connection string](./media/functions-create-an-event-processing-function/functions-app-service-settings-connection-strings.png)
 
