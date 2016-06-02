@@ -323,7 +323,7 @@ You can also upload data from the local file in your VM using Azure Storage Expl
 
 **Read data from Azure Blob: AML reader module**
 
-In Azure Machine Learning Studio you can use a **Reader module** to read data from your blob.
+In Azure Machine Learning Studio you can use an **Import Data module** to read data from your blob.
 
 
 ![AML_ReaderBlob_Module_v3](./media/machine-learning-data-science-vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
