@@ -45,9 +45,7 @@ In addition to the [Resiliency technical guidance](https://aka.ms/bctechguide) s
 Although Azure provides multiple features that support high availability, it's important to understand their limitations:
 
 - For compute, Azure guarantees that your roles are available and running, but it does not know if your application is running or overloaded.
-
 - For Azure SQL Database, data is replicated synchronously within the region. These database replicas are not point-in-time backups.
-
 - For Azure Storage, table and blob data is replicated by default to an alternate region. However, you cannot access the replicas until Microsoft chooses to fail over to the alternate site. A region failover occurs only in the case of a prolonged region-wide service disruption, and there is no SLA for geo-failover time. It's also important to note that any data corruption quickly spreads to the replicas.
 
 For these reasons, you must supplement the platform availability features with application-specific availability features. Application-specific availability features include the blob snapshot feature to create point-in-time backups of blob data.
