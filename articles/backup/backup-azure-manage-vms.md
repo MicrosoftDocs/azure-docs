@@ -214,7 +214,7 @@ To delete backup data on a virtual machine with the *Backup disabled*:
     A notification message lets you know the backup data has been deleted.
 
 ## Auditing Operations
-You can review the "operation logs" to see what management operations were performed on the Recovery Services vault. Operations logs enable great post-mortem and audit support for the backup operations. You can use the Audit logs feature to view the logs for all operations *in the subscription*. For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../insights-debugging-with-events.md). Use the **Audit logs** setting to view the events and operations logs specific to a Recovery Services vault or to a vault item.
+You can review the "operation logs" to see what management operations were performed on the Recovery Services vault. Operations logs enable great post-mortem and audit support for the backup operations. You can use the Audit logs feature to view the logs for all operations *in the subscription*. For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../azure-portal/insights-debugging-with-events.md). Use the **Audit logs** setting to view the events and operations logs specific to a Recovery Services vault or to a vault item.
 
 The following operations are logged in Audit logs:
 
