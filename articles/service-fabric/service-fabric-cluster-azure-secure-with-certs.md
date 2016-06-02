@@ -169,7 +169,7 @@ The needed certificates are specified at the Node Type level under Security Conf
 ## Next steps
 After configuring certificate security on your cluster, resume the cluster creation process in [Step 4: Complete the cluster creation](service-fabric-cluster-creation-via-portal.md#step-4--complete-the-cluster-creation).
 
-After the cluster has been created, you can [Update a certificate](service-fabric-cluster-security-update-certs-azure.md).
+After the cluster has been created certificate security, you can later [Update a certificate](service-fabric-cluster-security-update-certs-azure.md).
 
 
 <!--Image references-->
