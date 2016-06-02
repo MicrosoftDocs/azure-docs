@@ -40,7 +40,7 @@ The Active Directory item appears in the left navigation menu when any of the fo
 
     OR
 
-* The Azure tenant has at least one Azure Multi-Factor Authentication provider. For more information, see [Administering Azure Multi-Factor Authentication Providers](../multi-factory-authentication/multi-factor-authentication-get-started-cloud.md).
+* The Azure tenant has at least one Azure Multi-Factor Authentication provider. For more information, see [Administering Azure Multi-Factor Authentication Providers](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 To create an Access Control namespace or a Multi-Factor Authentication provider, click **+New** > **App Services** > **Active Directory**.
 
