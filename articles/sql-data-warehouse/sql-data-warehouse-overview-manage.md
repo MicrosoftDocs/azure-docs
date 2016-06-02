@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/04/2016"
+   ms.date="06/02/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Manage databases in Azure SQL Data Warehouse
@@ -95,7 +95,7 @@ SQL Data Warehouse automatically backs up your database at regular intervals.For
 
 ### Database Restore
 
-Database restore is designed to restore your database to an earlier point in time. SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic backup and restore features come with no additional charges and provide a zero-cost and zero-admin way to protect databases from accidental corruption or deletion. 
+Database restore is designed to restore your database to an earlier point in time. SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic backup and restore features provide a zero-admin way to protect databases from accidental corruption or deletion. 
 
 To learn more about database restore, head over to [Restore from snapshot][].
 
