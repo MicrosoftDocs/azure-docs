@@ -1017,7 +1017,7 @@ The response body is in the following format:
 <a name="TestAnalyzers"></a>
 ## Test Analyzers
 
-The **Analyze API** shows to see how an analyzer configuration breaks given text into tokens.
+The **Analyze API** shows how an analyzer configuration breaks given text into tokens.
 
     POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
     Content-Type: application/json
