@@ -20,11 +20,7 @@
 
 This article discusses some of the common causes of deployment problems and provides troubleshooting tips to help you resolve these problems. An indication that a problem exists with an application is when the role instance fails to start, or it cycles between the initializing, busy, and stopping states.
 
-## Contact Azure Customer Support
-
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/).
-
-Alternatively, you can file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Missing runtime dependencies
 

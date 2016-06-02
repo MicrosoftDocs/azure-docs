@@ -20,11 +20,7 @@
 
 Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.
 
-## Contact Azure Customer Support
-
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/).
-
-Alternatively, you can file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Missing DLLs or dependencies
 
