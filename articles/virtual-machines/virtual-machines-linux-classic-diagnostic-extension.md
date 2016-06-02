@@ -29,7 +29,7 @@ The Linux Diagnostic Extension helps a user monitor the Linux VMs that are runni
 - Enables users to customize the data metrics that will be collected and uploaded.
 - Enables users to upload specified log files to a designated storage table.
 
-For version 2.0, the data includes:
+In version 2.0, the data includes:
 
 - All Linux Rsyslog logs, including system, security, and application logs.
 - All system data that's specified on [the System Center Cross Platform Solutions site]("https://scx.codeplex.com/wikipage?title=xplatproviders").
@@ -44,7 +44,7 @@ You can enable this extension by using the [Azure portal](https://ms.portal.azur
 To view and configure the system and performance data directly from the Azure portal, follow [these steps on the Azure blog](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog"/).
 
 
-This article focuses on how to enable and configure the extension by using Azure CLI commands. This allows you to read and view the data from the storage table directly.
+This article focuses on how to enable and configure the extension by using Azure CLI commands. This allows you to read and view the data directly from the storage table.
 
 Note that the configuration methods that are described here won't work for the Azure portal. To view and configure the system and performance data directly from the Azure portal, the extension must be enabled through the portal.
 
@@ -63,7 +63,7 @@ Note that most Azure VM Linux gallery images include version 2.0.6 or later. You
 ## Use the Azure CLI command to enable the Linux Diagnostic Extension
 
 ### Scenario 1. Enable the extension with the default data set
-For version 2.0 or later, the default data that will be collected includes:
+In version 2.0 or later, the default data that will be collected includes:
 
 - All Rsyslog information (including system, security, and application logs).  
 - A core set of basis system data. Note that the full data set is described on the [System Center Cross Platform Solutions site](https://scx.codeplex.com/wikipage?title=xplatproviders).
