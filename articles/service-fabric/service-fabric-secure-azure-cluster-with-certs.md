@@ -18,7 +18,9 @@
 
 # Secure a Service Fabric cluster on Azure using certificates
 
-An Azure Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource you must secure it, especially when it has production workloads running on it. To set up a secure Service Fabric cluster using X.509 certificates, you need at least one server X.509 certificate which you upload to Azure Key Vault and use in the cluster creation process. For more information on how Service Fabric uses X.509 certificates, see [Cluster security scenarios](service-fabric-cluster-security.md).
+An Azure Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource you must secure it, especially when it has production workloads running on it. To set up a secure Service Fabric cluster using X.509 certificates, you need at least one server X.509 certificate which you upload to Azure Key Vault and use in the cluster creation process.
+
+This article corresponds to [Step 3: Configure security](service-fabric-cluster-creation-via-portal.md#step-3--configure-security) of the cluster creation process. For more information on how Service Fabric uses X.509 certificates, see [Cluster security scenarios](service-fabric-cluster-security.md).
 
 There are three distinct steps:
 
