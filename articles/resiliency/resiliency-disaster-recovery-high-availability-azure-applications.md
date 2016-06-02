@@ -70,27 +70,27 @@ Cloud deployments should be seen as a collection of scale-units. This allows the
 
 ###Fault tolerance
 
-Applications need to assume that every dependent cloud capability can and will go down at some point in time. A fault tolerant application detects and maneuvers around failed elements to continue and return the correct results within a specific timeframe. For transient error conditions, a fault tolerant system will employ a retry policy. For more serious faults, the application can detect problems and fail over to alternative hardware or contingency plans until the failure is corrected. A reliable application can properly manage the failure of one or more parts and continue operating properly. Fault tolerant applications can use one or more design strategies, such as redundancy, replication, or degraded functionality.
+Applications should assume that every dependent cloud capability can and will go down at some point in time. A fault tolerant application detects and maneuvers around failed elements, to continue and return the correct results within a specific timeframe. For transient error conditions, a fault tolerant system will employ a retry policy. For more serious faults, the application can detect problems and fail over to alternative hardware or contingency plans until the failure is corrected. A reliable application can properly manage the failure of one or more parts, and continue operating properly. Fault tolerant applications can use one or more design strategies, such as redundancy, replication, or degraded functionality.
 
 ##Disaster recovery
 
-A cloud deployment might cease to function due to a systemic outage of the dependent services or the underlying infrastructure. Under such conditions, a business continuity plan triggers the disaster recovery (DR) process. This process typically involves both operations personnel and automated procedures in order to reactivate the application in an available region. This requires the transfer of application users, data, and services to the new region. It also involves the use of backup media or ongoing replication.
+A cloud deployment might cease to function due to a systemic outage of the dependent services or the underlying infrastructure. Under such conditions, a business continuity plan triggers the disaster recovery process. This process typically involves both operations personnel and automated procedures in order to reactivate the application in an available region. This requires the transfer of application users, data, and services to the new region. It also involves the use of backup media or ongoing replication.
 
-Consider the previous analogy that compared high availability to the ability to recover from a flat tire through the use of a spare. In contrast, disaster recovery involves the steps taken after a car crash where the car is no longer operational. In that case, the best solution is to find an efficient way to change cars by calling a travel service or a friend. In this scenario, there is likely going to be a longer delay in getting back on the road. There is also more complexity in repairing and returning to the original vehicle. In the same way, disaster recovery to another region is a complex task that typically involves some downtime and potential loss of data. To better understand and evaluate disaster recovery strategies, it is important to define two terms: recovery time objective (RTO) and recovery point objective (RPO).
+Consider the previous analogy that compared high availability to the ability to recover from a flat tire through the use of a spare. In contrast, disaster recovery involves the steps taken after a car crash, where the car is no longer operational. In that case, the best solution is to find an efficient way to change cars, by calling a travel service or a friend. In this scenario, there is likely going to be a longer delay in getting back on the road. There is also more complexity in repairing and returning to the original vehicle. In the same way, disaster recovery to another region is a complex task that typically involves some downtime and potential loss of data. To better understand and evaluate disaster recovery strategies, it is important to define two terms: recovery time objective (RTO) and recovery point objective (RPO).
 
-###RTO
+###Recovery time objective
 
-The recovery time objective (RTO) is the maximum amount of time allocated for restoring application functionality. This is based on business requirements and is related to the importance of the application. Critical business applications require a low RTO.
+The RTO is the maximum amount of time allocated for restoring application functionality. This is based on business requirements, and it is related to the importance of the application. Critical business applications require a low RTO.
 
-###RPO
+###Recovery point objective
 
-The recovery point objective (RPO) is the acceptable time window of lost data due to the recovery process. For example, if the RPO is one hour, you must completely back up or replicate the data at least every hour. Once you bring up the application in an alternate region, the backup data may be missing up to an hour of data. Like RTO, critical applications target a much smaller RPO.
+The RPO is the acceptable time window of lost data due to the recovery process. For example, if the RPO is one hour, you must completely back up or replicate the data at least every hour. Once you bring up the application in an alternate region, the backup data may be missing up to an hour of data. Like RTO, critical applications target a much smaller RPO.
 
 ##Checklist
 
-Let’s summarize the key points that have been covered in this article (and it's realted articles on [high availability](./resiliency-high-availability-azure-applications.md) and [disaster recovery](./resiliency-disaster-recovery-azure-applications.md) for azure applications. This summary will act as a checklist of items you should consider for your own availability and disaster recovery planning. These are best practices that have been useful for customers seeking to get serious about implementing a successful solution. This type of solution truly works, recovering in a timely and successful manner when system failure hits.
+Let’s summarize the key points that have been covered in this article (and its related articles on [high availability](./resiliency-high-availability-azure-applications.md) and [disaster recovery](./resiliency-disaster-recovery-azure-applications.md) for Azure applications). This summary will act as a checklist of items you should consider for your own availability and disaster recovery planning. These are best practices that have been useful for customers seeking to get serious about implementing a successful solution.
 
-1. Conduct a risk assessment for each application because each can have different requirements. Some applications are more critical than others and would justify the extra cost to architect them for disaster recovery.
+1. Conduct a risk assessment for each application, because each can have different requirements. Some applications are more critical than others and would justify the extra cost to architect them for disaster recovery.
 1. Use this information to define the RTO and RPO for each application.
 1. Design for failure, starting with the application architecture.
 1. Implement best practices for high availability, while balancing cost, complexity, and risk.
@@ -105,11 +105,11 @@ Let’s summarize the key points that have been covered in this article (and it'
 
 ##Summary
 
-When hardware or applications fail within Azure, the techniques and strategies for managing them are different than when failure occurs on on-premises systems. The main reason for this is that cloud solutions typically have more dependencies on infrastructure that is distributed across an Azure region and managed as separate services. You must deal with partial failures using high availability techniques. To manage more severe failures, possibly due to a disaster event, use disaster recovery strategies.
+When hardware or applications fail within Azure, the techniques and strategies for managing them are different than when failure occurs on on-premises systems. The main reason for this is that cloud solutions typically have more dependencies on infrastructure that is distributed across an Azure region, and managed as separate services. You must deal with partial failures using high availability techniques. To manage more severe failures, possibly due to a disaster event, use disaster recovery strategies.
 
 Azure detects and handles many failures, but there are many types of failures that require application-specific strategies. You must actively prepare for and manage the failures of applications, services, and data.
 
-When creating your application’s availability and disaster recovery plan, consider the business consequences of the application’s failure. Defining the processes, policies, and procedures to restore critical systems after a catastrophic event takes time, planning, and commitment. And once you establish the plans, you cannot stop there. You must regularly analyze, test, and continually improve the plans based on your application portfolio, business needs, and the technologies available to you. Azure provides both new capabilities and new challenges to creating robust applications that withstand failures.
+When creating your application’s availability and disaster recovery plan, consider the business consequences of the application’s failure. Defining the processes, policies, and procedures to restore critical systems after a catastrophic event takes time, planning, and commitment. And once you establish the plans, you cannot stop there. You must regularly analyze, test, and continually improve the plans based on your application portfolio, business needs, and the technologies available to you. Azure provides new capabilities and raises new challenges to creating robust applications that withstand failures.
 
 ##Additional resources
 
