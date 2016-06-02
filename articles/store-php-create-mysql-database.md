@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="06/02/2016"
 	ms.author="robmcm;cephalin"/>
 
 # Create and connect to a MySQL database in Azure

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/01/2016" 
+	ms.date="06/02/2016" 
 	ms.author="cephalin"/>
 
 # Create, configure, and deploy a PHP web app to Azure
@@ -96,13 +96,13 @@ of command. Let's do this.
     
     Follow the help message to continue the login process.
     
-    ![Log in to Azure to deploy your PHP (Laravel) app to Azure](./media/app-service-web-get-started/3-azure-login.png)
+    ![Log in to Azure to deploy your PHP (Laravel) app to Azure](./media/app-service-web-php-get-started/log-in-to-azure-cli.png)
 
 4. Run the command to create the Azure web app with Git deployment. When prompted, specify the number of the desired region.
 
         azure site create --git <app_name>
     
-    ![Create the Azure resource  for your PHP (Laravel) app in Azure](./media/app-service-web-get-started/4-create-site.png)
+    ![Create the Azure resource  for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/create-site-cli.png)
     
     >[AZURE.NOTE] If you've never set up deployment credentials for your Azure subscription, you'll be prompted to create them. These credentials, not your
     Azure account credentials, are used by App Service only for Git deployments and FTP logins. 
