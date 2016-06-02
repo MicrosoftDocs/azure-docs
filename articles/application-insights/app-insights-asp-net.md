@@ -124,26 +124,27 @@ If you want, you can [do these steps manually](app-insights-asp-net-manual.md).
 ## What's next?
 
 
-**Debugging with telemetry**<br/>Working with Application Insights in Visual Studio
+**[Debugging with telemetry](app-insights-visual-studio.md)**<br/>Working with Application Insights in Visual Studio.
 
-**Monitor your app in production**<br/>Working with the Application Insights portal
+**[Monitor your app in production](app-insights-dashboards.md)**<br/>Working with the Application Insights portal.
 
-**Monitor a release with Live Insights**<br/>Watch performance with a latency of seconds
+**Monitor a release with Live Insights**<br/>Watch performance with a latency of seconds.
 
-**Monitor dependencies**
+**[Analyze users, sessions and page views](app-insights-javascript.md)**<br/>
 
-**Detect and diagnose failures**
+**[Monitor dependencies](app-insights-asp-net-dependencies.md)**<br/>REST, SQL and AJAX calls from your app.
 
-**Analytics: fast answers to deep questions**
+**[Availability](app-insights-monitor-web-app-availability.md#selector1)**<br/>Ping your essential pages from around the world.
+
+**[Alerts](app-insights-alerts.md)**<br/>Know what's happening before your users do.
+
+**[Analytics: fast answers to deep questions](app-insights-analytics.md)**<br/>A powerful query language for your telemetry.
+
+**[Custom telemetry](app-insights-api-custom-events-metrics.md)**<br/>Instrument your app for business intelligence.
+
+**[Automation](app-insights-powershell.md)**<br/>Set up multiple components and stamps.
 
 
-
-- [View debugging telemetry in Visual Studio](app-insights-visual-studio.md)
-- [View live telemetry in the Azure portal](app-insights-dashboards.md)
-- [Get user & page view data](app-insights-javascript.md#selector1)
-- [Exceptions](app-insights-asp-net-exceptions.md#selector1)
-- [Dependencies](app-insights-asp-net-dependencies.md#selector1)
-- [Availability](app-insights-monitor-web-app-availability.md#selector1)
 
 
 
