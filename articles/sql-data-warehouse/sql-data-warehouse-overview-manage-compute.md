@@ -135,12 +135,12 @@ Please refer to the following articles to help you understand some additional ke
 
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-scale-out-tasks.md#task-2-pause-compute
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-2-pause-compute
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-2-pause-compute
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-scale-out-tasks.md#task-3-resume-compute
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
+[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-tasks-portal.md#task-2-pause-compute
+[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-tasks-powershell.md#task-2-pause-compute
+[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-tasks-rest-api.md#task-2-pause-compute
+[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-tasks.md#task-3-resume-compute
+[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-tasks-powershell.md#task-3-resume-compute
+[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-tasks-rest-api.md#task-3-resume-compute
 
 [concurrency model]: sql-data-warehouse-develop-concurrency.md
 [designing tables]: sql-data-warehouse-develop-table-design.md
