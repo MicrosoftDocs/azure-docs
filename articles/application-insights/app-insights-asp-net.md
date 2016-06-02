@@ -130,7 +130,7 @@ If you want, you can [do these steps manually](app-insights-asp-net-manual.md).
 
 **Monitor a release with Live Insights**<br/>Watch performance with a latency of seconds.
 
-**[Analyze users, sessions and page views](app-insights-javascript.md)**<br/>
+**[Analyze users, sessions and page views](app-insights-javascript.md)**<br/>Instrument web pages.
 
 **[Monitor dependencies](app-insights-asp-net-dependencies.md)**<br/>REST, SQL and AJAX calls from your app.
 
