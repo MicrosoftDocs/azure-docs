@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="06/03/2016" 
 	ms.author="nitinme"/>
 
 
-# Spark Streaming: Process events from Azure Event Hubs with Apache Spark on HDInsight Linux (Preview)
+# Spark Streaming: Process events from Azure Event Hubs with Apache Spark cluster on HDInsight Linux
 
 Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications. Data can be ingested from many sources. In this article we use Azure Event Hubs to ingest data. Event Hubs is a highly scalable ingestion system that can intake millions of events per second. 
 
@@ -361,9 +361,15 @@ You should see output similar to the following:
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Use external packages with Jupyter notebooks](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-use-external-packages/)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-install-locally/)
+
 ### Manage resources
 
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-job-debugging/)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md

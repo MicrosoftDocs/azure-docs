@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="06/03/2016"
 	ms.author="nitinme"/>
 
 
-# Submit Spark jobs remotely to an HDInsight Spark cluster on Linux using Livy (Preview)
+# Submit Spark jobs remotely to an Apache Spark cluster on HDInsight Linux using Livy
 
 Apache Spark cluster on Azure HDInsight includes Livy, a REST interface for submitting jobs remotely to a Spark cluster. For detailed documentation, see [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
@@ -193,6 +193,12 @@ Perform the following steps.
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Use external packages with Jupyter notebooks](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-use-external-packages/)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-install-locally/)
+
 ### Manage resources
 
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-job-debugging/)

@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/03/2016" 
 	ms.author="nitinme"/>
 
 
-# Machine learning: Predictive analysis on food inspection data using MLlib with Spark on HDInsight Linux (Preview)
+# Machine learning: Predictive analysis on food inspection data using MLlib with Apache Spark cluster on HDInsight Linux
 
 > [AZURE.TIP] This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** under the **Python** folder.
 
@@ -408,6 +408,12 @@ After you have finished running the application, you should shutdown the noteboo
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Use external packages with Jupyter notebooks](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-use-external-packages/)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-install-locally/)
+
 ### Manage resources
 
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-job-debugging/)

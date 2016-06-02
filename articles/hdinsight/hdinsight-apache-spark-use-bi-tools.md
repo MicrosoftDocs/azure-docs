@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2016" 
+	ms.date="06/03/2016" 
 	ms.author="nitinme"/>
 
 
-# Use BI tools with Apache Spark on HDInsight Linux (Preview)
+# Use BI tools with Apache Spark cluster on HDInsight Linux
 
 Learn how to use Apache Spark in Azure HDInsight to do the following:
 
@@ -218,9 +218,15 @@ Once you have saved the data as a Hive table, you can use Power BI to connect to
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Use external packages with Jupyter notebooks](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-use-external-packages/)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-install-locally/)
+
 ### Manage resources
 
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-job-debugging/)
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

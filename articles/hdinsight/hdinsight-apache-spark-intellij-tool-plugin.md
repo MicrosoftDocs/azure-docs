@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="06/03/2016"
 	ms.author="nitinme"/>
 
 
-# Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark Scala applications for HDInsight Spark Linux cluster
+# Use HDInsight Tools Plugin for IntelliJ IDEA to create Spark applications for HDInsight Spark Linux cluster
 
 This article provides step-by-step guidance on developing Spark applications written in Scala and submitting it to an HDInsight Spark cluster using HDInsight plugin for IntelliJ IDEA. You can use the plugin in a few different ways:
 
@@ -270,7 +270,7 @@ This is because the heap size is not large enough for Spark to run, since Spark 
 
 ![Spark Application local run result](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
 
-## Feedbacks & Known issues
+## Feedback & Known issues
 
 Currently viewing Spark outputs directly is not supported and we are working on that.
 
@@ -295,6 +295,8 @@ If you have any suggestions or feedbacks, or if you encounter any problems when 
 
 ### Create and run applications
 
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
@@ -303,6 +305,12 @@ If you have any suggestions or feedbacks, or if you encounter any problems when 
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Use external packages with Jupyter notebooks](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-use-external-packages/)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-jupyter-notebook-install-locally/)
+
 ### Manage resources
 
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-job-debugging/)
