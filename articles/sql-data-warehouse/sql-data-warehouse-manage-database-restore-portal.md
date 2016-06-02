@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/02/2016"
    ms.author="elfish;barbkess;sonyama"/>
 
 # Backup and restore a database in Azure SQL Data Warehouse (Azure portal)
