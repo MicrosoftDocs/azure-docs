@@ -25,19 +25,14 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
-
-
-This tutorial describes how to host a Django-based website on Microsoft 
-Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
+This tutorial describes how to host a Django-based website on Microsoft Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
 
 * Setup an Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Linux**, the same could also be done with a Windows Server VM hosted in Azure. 
 * Create a new Django application from Linux.
 
-By following this tutorial, you will build a simple Hello World web
-application. The application will be hosted in an Azure virtual machine.
+By following this tutorial, you will build a simple Hello World web application. The application will be hosted in an Azure virtual machine.
 
 A screenshot of the completed application is below:
 
