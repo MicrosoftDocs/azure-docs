@@ -64,4 +64,4 @@ For more information, see [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/
 
 ## Next steps
 
-If you want to reuse the data disk, you can just [attach it to another VM](virtual-machines-windows-attach-disk.md)
+If you want to reuse the data disk, you can just [attach it to another VM](virtual-machines-windows-attach-disk-portal.md)
