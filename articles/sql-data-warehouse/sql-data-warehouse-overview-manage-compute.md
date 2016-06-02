@@ -128,19 +128,19 @@ Please refer to the following articles to help you understand some additional ke
 
 <!--Article references-->
 
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-tasks-portal.md#task-1-scale-performance
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-tasks-powershell.md#task-1-scale-performance
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-tasks-rest-api.md#task-1-scale-performance
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tasks-tsql.md
+[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#task-1-scale-performance
+[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#task-1-scale-performance
+[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#task-1-scale-performance
+[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md
 
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-tasks-portal.md#task-2-pause-compute
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-tasks-powershell.md#task-2-pause-compute
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-tasks-rest-api.md#task-2-pause-compute
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-tasks.md#task-3-resume-compute
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-tasks-powershell.md#task-3-resume-compute
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-tasks-rest-api.md#task-3-resume-compute
+[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#task-2-pause-compute
+[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#task-2-pause-compute
+[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#task-2-pause-compute
+[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#task-3-resume-compute
+[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#task-3-resume-compute
+[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#task-3-resume-compute
 
 [concurrency model]: sql-data-warehouse-develop-concurrency.md
 [designing tables]: sql-data-warehouse-develop-table-design.md
