@@ -46,23 +46,23 @@ To view and configure the system and performance data directly from the Azure po
 
 This article focuses on how to enable and configure the extension by using Azure CLI commands. This allows you to read and view the data from the storage table directly.
 
-Note that the configuration methods that described here won't work for the Azure portal. To view and configure the system and performance data directly from the Azure portal, the extension must be enabled through the portal.
+Note that the configuration methods that are described here won't work for the Azure portal. To view and configure the system and performance data directly from the Azure portal, the extension must be enabled through the portal.
 
 
 ## Prerequisites
 - **Azure Linux Agent version 2.0.6 or later**.
-Note that most Azure VM Linux gallery images include version 2.0.6 or later. You can run **WAAgent -version** to confirm which version is installed on the VM. If the VM is running a version that's earlier than 2.0.6 you can follow [these instructions on GitHub](https://github.com/Azure/WALinuxAgent "instructions") to update it.
+Note that most Azure VM Linux gallery images include version 2.0.6 or later. You can run **WAAgent -version** to confirm which version is installed on the VM. If the VM is running a version that's earlier than 2.0.6, you can follow [these instructions on GitHub](https://github.com/Azure/WALinuxAgent "instructions") to update it.
 
 - **[Azure CLI](../xplat-cli-install.md)**. Follow [this guidance](../xplat-cli-install.md) to set up the Azure CLI environment on your machine. After Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, or command prompt) to access the Azure CLI commands. For example:
 	- Run **azure vm extension set --help** for detailed usage.
 	- Run **azure login** to sign in to Azure.
-	- Run **azure vm list** to list all the virtual that you have on Azure.
+	- Run **azure vm list** to list all the virtual machines that you have on Azure.
 - A storage account to store the data. You will need a storage account name that was created previously and an access key to upload the data to your storage.
 
 
 ## Use the Azure CLI command to enable the Linux Diagnostic Extension
 
-###  Scenario 1. Enable the extension with the default data set
+### Scenario 1. Enable the extension with the default data set
 For version 2.0 or later, the default data that will be collected includes:
 
 - All Rsyslog information (including system, security, and application logs).  
@@ -124,9 +124,9 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 
 
 ###   Scenario 4. Stop the extension from collecting any logs
-This section describes how to stop the extension from collecting logs. Note that the monitoring agent process will be still up and running even with this reconfiguration. If you'd like to completely stop the monitoring agent process, you can do so by disabling the extension. The command to disable the extension is **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
+This section describes how to stop the extension from collecting logs. Note that the monitoring agent process will be still up and running even with this reconfiguration. If you'd like to stop the monitoring agent process completely, you can do so by disabling the extension. The command to disable the extension is **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
-Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content:
+Step 1. Create a file named PrivateConfig.json with the content that was described in Scenario 1. Create another file named PublicConfig.json with the following content:
 
     {
         "perfCfg" : [],
@@ -143,8 +143,9 @@ The performance and diagnostic data are stored in an Azure Storage table. Review
 
 In addition, you can use following UI tools to access the data:
 
-1. **Visual Studio Server Explorer**. Go to your storage account. After the VM runs for about five minutes, you'll see the four default tables: “LinuxCpu”, ”LinuxDisk”, ”LinuxMemory”, and ”Linuxsyslog”. Double-click the table names to view the data.
-2.	Use [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer") to access the data.
+1. Visual Studio Server Explorer. Go to your storage account. After the VM runs for about five minutes, you'll see the four default tables: “LinuxCpu”, ”LinuxDisk”, ”LinuxMemory”, and ”Linuxsyslog”. Double-click the table names to view the data.
+
+2. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 ![image](./media/virtual-machines-linux-classic-diagnostic-extension/no1.png)
 
