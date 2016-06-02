@@ -90,7 +90,7 @@ The high-level strategy within your code is:
 
 Test your retry logic in simulated failures to ensure that retries on successive operations do not result in an unanticipated lengthy delay. Do this before deciding to fail the overall task.
 
-##Reference data pattern for high availability
+###Reference data pattern for high availability
 
 Reference data is the read-only data of an application. This data provides the business context within which the application generates transactional data during the course of a business operation. Transactional data is a point-in-time function of the reference data. Therefore, its integrity depends on the snapshot of the reference data at the time of the transaction. This is a somewhat loose definition, but it should suffice for our purpose here.
 
@@ -104,7 +104,7 @@ To increase availability, the roles should also contain a set of reference data 
 
 One consideration for this pattern is the deployment and startup speed for your roles. If you are deploying or downloading large amounts of reference data on startup, this can increase the amount of time it takes to spin up new deployments or role instances. This might be an acceptable tradeoff for the autonomy of having the reference data immediately available on each role rather than depending on external storage services.
 
-##Transactional data pattern for high availability
+###Transactional data pattern for high availability
 
 Transactional data is the data that the application generates in a business context. Transactional data is a combination of the set of business processes that the application implements and the reference data that supports these processes. Examples of transactional data can include orders, advanced shipping notices, invoices, and customer relationship management (CRM) opportunities. The transactional data thus generated will be fed to external systems for record keeping or for further processing.
 
@@ -136,7 +136,7 @@ Note that the previous diagram shows one implementation of this decoupled approa
  * The final destination might be Azure Storage or a different database provider.
  * Azure Cache can be used at the web layer to provide the immediate caching requirements after the transaction.
 
-##Scalability patterns
+###Scalability patterns
 
 It's important to note that the scalability of the cloud service directly affects availability. If increased load causes your service to be unresponsive, the user impression is that the application is down. Follow best practices for scalability based on your expected application load and future expectations. The highest scale involves many considerations, such as the use of single versus multiple storage accounts, sharing across multiple databases, and caching strategies. For an in-depth look at these patterns, see [Best Practices for the Design of Large-Scale Services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
 
