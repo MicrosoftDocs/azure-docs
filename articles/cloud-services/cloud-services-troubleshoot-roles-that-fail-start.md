@@ -20,7 +20,7 @@
 
 Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Missing DLLs or dependencies
 

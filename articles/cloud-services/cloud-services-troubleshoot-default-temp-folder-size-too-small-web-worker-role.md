@@ -22,7 +22,7 @@ The default temporary directory of a cloud service worker or web role has a maxi
 
 >[AZURE.NOTE] This applies only to using web and worker roles in Azure SDK 1.0 through 1.4.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Why do I run out of space?
 

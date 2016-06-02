@@ -27,7 +27,7 @@ You can find the **Properties** pane as follows:
 
 > [AZURE.NOTE] You can copy the contents of the **Properties** pane to the clipboard by clicking the icon in the upper-right corner of the pane.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Problem: I cannot access my website, but my deployment is started and all role instances are ready
 
