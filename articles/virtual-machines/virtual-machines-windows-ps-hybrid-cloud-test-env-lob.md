@@ -19,8 +19,6 @@
 
 # Set up a web-based LOB application in a hybrid cloud for testing
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
 This topic steps you through creating a hybrid cloud environment for testing a web-based line-of-business (LOB) application hosted in Microsoft Azure. Here is the resulting configuration.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)

@@ -22,8 +22,6 @@
 
 This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Windows VM images are:
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
 ## Table of commonly used Windows images
 
 
