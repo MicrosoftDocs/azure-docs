@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="06/02/2016"
    ms.author="allclark" />
 
 # Troubleshooting Visual Studio Docker Development
