@@ -54,7 +54,7 @@ When sizing your StorSimple Virtual Array, you will need to consider the followi
 
 Based on the above factors, the sizing requirements can be represented by the following equation:
 
-`Total usable local disk size = Total provisioned locally pinned volume/share size + (Max (local reservation for a volume/share) for all tiered volumes/share)`
+`Total usable local disk size = (Total provisioned locally pinned volume/share size) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
 `Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
