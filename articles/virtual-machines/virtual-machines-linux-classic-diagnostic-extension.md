@@ -32,7 +32,7 @@ The Linux Diagnostic Extension helps a user monitor the Linux VMs that are runni
 For version 2.0, the data includes:
 
 - All Linux Rsyslog logs, including system, security, and application logs.
-- All system data that's specified in [the documentation about providers for Linux and UNIX](https://scx.codeplex.com/wikipage?title=xplatproviders").
+- All system data that's specified on [the System Center Cross Platform Solutions site]("https://scx.codeplex.com/wikipage?title=xplatproviders").
 - User-specified log files.
 
 This extension works with both the classic and Resource Manager deployment models.
@@ -67,7 +67,7 @@ For version 2.0 or later, the default data that will be collected includes:
 
 - All Rsyslog information (including system, security, and application logs).  
 - A core set of basis system data. Note that the full data set is described on the [System Center Cross Platform Solutions site](https://scx.codeplex.com/wikipage?title=xplatproviders).
-If you want to enable extra data, continue with the steps in scenarios 2 and 3.
+If you want to enable extra data, continue with the steps in Scenarios 2 and 3.
 
 Step 1. Create a file named PrivateConfig.json with the following content:
 
@@ -126,7 +126,7 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 ###   Scenario 4. Stop the extension from collecting any logs
 This section describes how to stop the extension from collecting logs. Note that the monitoring agent process will be still up and running even with this reconfiguration. If you'd like to completely stop the monitoring agent process, you can do so by disabling the extension. The command to disable the extension is **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
-Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content.
+Step 1. Create a file named PrivateConfig.json with the content described in Scenario 1. Create another file named PublicConfig.json with the following content:
 
     {
         "perfCfg" : [],
