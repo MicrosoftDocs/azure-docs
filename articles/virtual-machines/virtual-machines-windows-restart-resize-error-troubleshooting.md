@@ -10,7 +10,7 @@
 
 <tags
    ms.service="virtual-machines-windows"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.devlang="na"
    ms.workload="required"
@@ -53,7 +53,7 @@ The request to start the stopped VM has to be attempted at the original cluster 
 
 *	Retry the restart request at a later time.
 
-## Issue: Error when restarting an existing VM
+## Issue: Error when resizing an existing VM
 
 You try to resize an existing VM but get an allocation failure.
 
