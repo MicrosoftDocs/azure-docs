@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Basic web application | Azure reference architecture"
+   pageTitle="Basic web application | Azure reference architecture | Microsoft Azure"
    description="Recommended architecture for a basic web application running in Microsoft Azure."
    services="app-service,app-service\web,sql-database"
    documentationCenter="na"
@@ -125,7 +125,7 @@ For more information, see [Azure Resource Manager overview][resource-group].
 
 Deployment involves two steps:
 
-- Provisioning the Azure resources. We recommend that you use [ARM templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI. 
+- Provisioning the Azure resources. We recommend that you use [Azure Resoure Manager (ARM) templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI. 
 
 - Deploying the application (code, binaries, and content files). Here you have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].  
  
