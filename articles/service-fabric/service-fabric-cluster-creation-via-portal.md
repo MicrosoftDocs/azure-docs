@@ -104,7 +104,7 @@ In the Basics blade you need to provide the basic details for your cluster.
 
 ## Step 3- Configure security
 
-Security scenarios and concepts are documented at [Service Fabric cluster security](service-fabric-cluster-security.md). At this time, Service Fabric supports securing clusters only via an X509 certificate. Before starting this process, you will need to upload your certificate to Key Vault. Refer to [Secure a Service Fabric cluster on Azure using certificates](service-fabric-secure-azure-cluster-with-certs.md) for more details on how to do this.
+Security scenarios and concepts are documented at [Service Fabric cluster security](service-fabric-cluster-security.md). At this time, Service Fabric supports securing clusters only via an X509 certificate, refer to [Secure a Service Fabric cluster on Azure using certificates](service-fabric-secure-azure-cluster-with-certs.md) for steps on how to do this.
 
 Securing your cluster is optional but is highly recommended. If you choose not to secure your cluster, toggle the **Security Mode** to **Unsecure**. Please note - you **will not** be able to update an unsecure cluster to a secure one at a later time.
 
