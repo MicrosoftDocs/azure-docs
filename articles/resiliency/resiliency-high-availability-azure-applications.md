@@ -81,6 +81,7 @@ The Transient Fault Handling Application Block is a simplified way for you to ha
 Developers have three options for managing their retry logic: incremental, fixed interval, and exponential. Incremental waits longer before each retry in an increasing linear fashion (for example, 1, 2, 3, and 4 seconds). Fixed interval waits the same amount of time between each retry (for example, 2 seconds). For a more random option, the exponential back-off waits longer between retries. However, it uses exponential behavior (for example, 2, 4, 8, and 16 seconds).
 
 The high-level strategy within your code is:
+
 1. Define your retry strategy and policy.
 1. Try the operation that might result in a transient fault.
 1. If transient fault occurs, invoke the retry policy.
