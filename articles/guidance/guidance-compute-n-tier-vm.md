@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Virtual datacenter | Reference Architecture | Microsoft Azure"
+   pageTitle="Adding reliability to an N-tier architecture on Azure | Microsoft Azure"
    description="How to run Windows VMs for an N-tier architecture in Microsoft Azure."
    services=""
    documentationCenter="na"
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
+   ms.date="06/06/2016"
    ms.author="mikewasson"/>
 
-# Azure reference architecture: Virtual datacenter (Windows VMs)
+# Adding reliability to an N-tier architecture on Azure 
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article outlines a set of proven practices for running a reliable N-tier architecture in Microsoft Azure. This article builds on [Running Windows VMs for an N-tier architecture on Azure][blueprints-3-tier]. In this article, we include additional components that can increase the reliability of the application:
+This article outlines a set of proven practices for running a reliable N-tier architecture on Windows virtual machines (VMs) in Microsoft Azure. This article builds on [Running VMs for an N-tier architecture on Azure][blueprints-3-tier]. In this article, we include additional components that can increase the reliability of the application:
 
 - A network virtual appliance for greater network security.
 - SQL Server AlwaysOn Availability Groups for high availability in the data tier.
