@@ -29,6 +29,7 @@ The updates in the pull request must comply with the following criteria to be me
 |SEO	|The H1 title contains sufficient information to describe the content of the article, to differentiate it from other Azure articles, and to map to likely customer keywords. For example "Overview" as the H1 title is a fail.|
 |Terminology| The use of the ARM acronym, V1, or V2 as references to the classic and Resource Manager deployment models is a blocking terminology item.|
 |Images	|Animated GIFs are not accepted into the repo.|
+|Images | Images have clear resolution, are free of misspelled words, and contain no private information | 
 |Staging|The article preview must be clean on staging. It cannot contain any obvious formatting issues: <br><br>- A numbered or bulleted list that appears as a paragraph <br> - Code in a code block appearing partly in the code block and partly outside it <br>- Numbered steps numbered incorrectly due to faulty indentation|
 
 ## Non-blocking content quality items
