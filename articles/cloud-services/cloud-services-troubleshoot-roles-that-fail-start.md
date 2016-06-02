@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="06/02/2016"
    ms.author="v-six" />
 
 # Troubleshoot Cloud Service roles that fail to start
