@@ -48,7 +48,9 @@ If your firewall enforces traffic according to originating users, open these por
 ## Step 1: Enable Application Proxy in Azure AD
 1. Sign in as an administrator in the [Azure classic portal](https://manage.windowsazure.com/).
 2. Go to Active Directory and select the directory in which you want to enable Application Proxy.
+
 	![Active Directory - icon](./media/active-directory-application-proxy-enable/ad_icon.png)
+
 3. Select **Configure** from the directory page, and scroll down to **Application Proxy**.
 4. Toggle **Enable Application Proxy Services for this Directory** to **Enabled**.
 

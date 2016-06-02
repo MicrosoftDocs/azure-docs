@@ -24,7 +24,7 @@ After you enable Microsoft Azure Active Directory (AD) Application Proxy, you ca
 
 This article walks you through the steps to publish applications that are running on your local network and provide secure remote access from outside your network. If you haven't set up Application Proxy or installed any Connectors, follow the steps in [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md) before continuing here.
 
-If this is your first time using Azure AD Application Proxy, we recommend you test the Connector by publishing a website from your private network. Once you know that it's set up properly, then move on to publishing applications.
+If this is your first time using Azure AD Application Proxy, we recommend you test the Connector by publishing a website from your private network before publishing applications.
 
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
@@ -32,16 +32,18 @@ If this is your first time using Azure AD Application Proxy, we recommend you te
 
 1. Sign in as an administrator in the [Azure classic portal](https://manage.windowsazure.com/).
 2. Go to Active Directory and select the directory where you enabled Application Proxy.
+
 	![Active Directory - icon](./media/active-directory-application-proxy-publish/ad_icon.png)
-4. Click the **Applications** tab, and then click the **Add** button at the bottom of the screen
+
+3. Click the **Applications** tab, and then click the **Add** button at the bottom of the screen
 
 	![Add application](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
 
-5. Select **Publish an application that will be accessible from outside your network**.
+4. Select **Publish an application that will be accessible from outside your network**.
 
 	![Publish an application that will be accessible from outside your network](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
 
-6. Provide the following information about your application:
+5. Provide the following information about your application:
 
 	- **Name**: The user-friendly name for your application. It must be unique within your directory.
 	- **Internal URL**: The address that the Application Proxy Connector uses to access the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way you can publish different sites on the same server, and give each one its own name and access rules.
@@ -50,9 +52,9 @@ If this is your first time using Azure AD Application Proxy, we recommend you te
 		- Azure Active Directory: Application Proxy will redirect users to sign in with Azure AD, which authenticates their permissions for the directory and application.
 		- Passthrough: Users don't have to authenticate to access the application.
 
-	![Application properties](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)
+	![Application properties](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)  
 
- 7. To finish the wizard, click the check mark at the bottom of the screen. The application is now defined in Azure AD.
+6. To finish the wizard, click the check mark at the bottom of the screen. The application is now defined in Azure AD.
 
 
 ## Assign users and groups to the application
