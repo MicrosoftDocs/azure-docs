@@ -53,7 +53,7 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "./build/modules/iothub_http/libiothub_http_hl.so",
+            "module path" : "./build/modules/iothubhttp/libiothubhttp_hl.so",
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
@@ -62,7 +62,7 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name" : "mapping",
-            "module path" : "./build/modules/mac_iothub_id_map/libmac_iothub_id_map_hl.so",
+            "module path" : "./build/modules/identitymap/libidentitymap_hl.so",
             "args" : 
             [
                 {
