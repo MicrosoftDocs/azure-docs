@@ -1,6 +1,6 @@
 <properties
    pageTitle="Secure a Service Fabric cluster | Microsoft Azure"
-   description="How to secure a Service Fabric cluster. What are the options?"
+   description="Describes the security scenarios for a Service Fabric cluster and the different technologies used to implement those scenarios."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/27/2016"
+   ms.date="06/01/2016"
    ms.author="chackdan"/>
 
 # Service Fabric Cluster security scenarios
@@ -29,14 +29,14 @@ Secures communication between the VMs and computers in the cluster. This ensures
 
 	![Diagram of node-to-node communication][Node-to-Node]
 
-Clusters running on Azure or standalone clusters running on Windows can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). Certificate security is enabled at cluster creation time by specifying a primary certificate and an optional secondary certificate.  See [Secure a Service Fabric cluster on Azure using certificates](service-fabric-cluster-azure-secure-with-certs.md) for information on setting up certificate security in a cluster running on Azure.
+Clusters running on Azure or standalone clusters running on Windows can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). Certificate security is configured while creating the cluster (either through the Azure Portal or through ARM templates) by specifying a primary certificate and an optional secondary certificate. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](#client-to-node security). See [Secure a Service Fabric cluster on Azure using certificates](service-fabric-cluster-azure-secure-with-certs.md) or [Set up a cluster by using an ARM template](service-fabric-cluster-creation-via-arm.md) to learn how to configure certificate security in a cluster running on Azure.
 
 ## Client-to-node security
 Authenticates clients and secures communication between a client and individual nodes in the cluster. This type of security authenticates and secures client communications, which ensures that only authorized users can access the cluster and the applications deployed on the cluster. Clients are uniquely identified through either their Windows Security credentials or their certificate security credentials.
 
 	![Diagram of client-to-node communication][Client-to-Node]
 
-Clusters running on Azure or standalone clusters running on Windows can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). Certificate security is enabled at cluster creation time by specifying admin client certificate or a read-only client certificate.  Clients connecting to the cluster using the admin certificate have full access to management capabilities.  Clients connecting to the cluster using the read-only client certificate have only read access to management capabilities.  See [Secure a Service Fabric cluster on Azure using certificates](service-fabric-cluster-azure-secure-with-certs.md) for information on setting up certificate security in a cluster running on Azure.
+Clusters running on Azure or standalone clusters running on Windows can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). Client-to-node- certificate security is configured while creating the cluster (either through the Azure Portal or through ARM templates) by specifying a admin client certificate and/or a read-only client certificate.  The admin client and read-only client certificates you specify should be different than the primary and secondary certificates you specify for [Node-to-node security](#node-to-node security).  Clients connecting to the cluster using the admin certificate or the primary certificate have full access to management capabilities.  Clients connecting to the cluster using the read-only client certificate have only read access to management capabilities.  See [Secure a Service Fabric cluster on Azure using certificates](service-fabric-cluster-azure-secure-with-certs.md) or [Set up a cluster by using an ARM template](service-fabric-cluster-creation-via-arm.md) to learn how to configure certificate security in a cluster running on Azure.
 
 Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. A quick overview of what these certificates are and how you can acquire or create them is provided at the end of this article.
 
