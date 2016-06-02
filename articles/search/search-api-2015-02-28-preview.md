@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="05/27/2016"
+   ms.date="06/01/2016"
    ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
@@ -52,6 +52,10 @@ Azure Search service API supports two URL syntaxes for API operations: simple an
 [Get Index Statistics](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2015-02-28-Preview
+
+[Test Analyzers](#TestAnalyzers)
+
+    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [Delete an Index](#DeleteIndex)
 
@@ -1010,13 +1014,13 @@ The response body is in the following format:
 	  "storageSize": number (size of the index in bytes)
     }
 
-<a name="AnalyzeAPI"></a>
-## Analyze API
+<a name="TestAnalyzers"></a>
+## Test Analyzers
 
-The **Analyze API** allows to see how an analyzer configuration breaks given text into tokens.
+The **Analyze API** shows to see how an analyzer configuration breaks given text into tokens.
 
-	POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
-	Content-Type: application/json
+    POST https://[service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
+    Content-Type: application/json
     api-key: [admin key]
 
 **Request**
@@ -1038,19 +1042,19 @@ You will also need the index name and the service name to construct the request 
 
     {
       "text": "Text to analyze",
-	  "analyzer": "analyzer_name"
+      "analyzer": "analyzer_name"
     }
 
-or 
+or
 
-	{ 
-	   "text": "Text to analyze",
-	   "tokenizer": "tokenizer_name",
-	   "tokenFilters”: (optional) [ "token_filter_name" ],
-	   "charFilters”: (optional) [ "char_filter_name” ]
-	}
+    {
+      "text": "Text to analyze",
+      "tokenizer": "tokenizer_name",
+      "tokenFilters": (optional) [ "token_filter_name" ],
+      "charFilters": (optional) [ "char_filter_name" ]
+    }
 
-The `analyzer_name`, `tokenizer_name`, `token_filter_name`, `char_filter_name` need to be valid names of predefined or custom analyzers, tokenizers, token filters and char filters for the index. To learn more about the process of lexical analysis see [Analysis in Azure Search](https://aka.ms/azsanalysis).
+The `analyzer_name`, `tokenizer_name`, `token_filter_name` and `char_filter_name` need to be valid names of predefined or custom analyzers, tokenizers, token filters and char filters for the index. To learn more about the process of lexical analysis see [Analysis in Azure Search](https://aka.ms/azsanalysis).
 
 **Response**
 
@@ -1058,17 +1062,17 @@ Status Code: 200 OK is returned for a successful response.
 
 The response body is in the following format:
 
-	{
-	  "tokens": [
-	    {
-	      "token": string (token),
-	      "startOffset": number (index of the first character of the token),
-	      "endOffset": number (index of the last character of the token),	      
-	      "position": number (position of the token in the input text)
-	    },
-		...
-	  ]
-	}
+    {
+      "tokens": [
+        {
+          "token": string (token),
+          "startOffset": number (index of the first character of the token),
+          "endOffset": number (index of the last character of the token),
+          "position": number (position of the token in the input text)
+        },
+        ...
+      ]
+    }
 
 **Analyze API example**
 
@@ -1076,33 +1080,33 @@ The response body is in the following format:
 
     {
       "text": "Text to analyze",
-	  "analyzer": "standard"
+      "analyzer": "standard"
     }
 
 **Response**
 
-	{
-	  "tokens": [
-	    {
-	      "token": "text",
-	      "startOffset": 0,
-	      "endOffset": 4,
-	      "position": 0
-	    },
-	    {
-	      "token": "to",
-	      "startOffset": 5,
-	      "endOffset": 7,
-	      "position": 1
-	    },
-	    {
-	      "token": "analyze",
-	      "startOffset": 8,
-	      "endOffset": 15,
-	      "position": 2
-	    }
-	  ]
-	}
+    {
+      "tokens": [
+        {
+          "token": "text",
+          "startOffset": 0,
+          "endOffset": 4,
+          "position": 0
+        },
+        {
+          "token": "to",
+          "startOffset": 5,
+          "endOffset": 7,
+          "position": 1
+        },
+        {
+          "token": "analyze",
+          "startOffset": 8,
+          "endOffset": 15,
+          "position": 2
+        }
+      ]
+    }
 
 ________________________________________
 <a name="DocOps"></a>
