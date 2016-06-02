@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reducing troubleshooting time with Azure Resource health"
-   description="Overview of Axure Resource health"
+   pageTitle="Azure Resource health overview"
+   description="Overview of Azure Resource health"
    services="Resource health"
    documentationCenter="dev-center-name"
    authors="BernardoAMunoz"
@@ -49,11 +49,13 @@ Open the Resource blade for a given resource. On the Settings blade that opens n
 Open the Help and Support blade by clicking on the question mark in the upper right corner then selecting Help + Support. 
 
 **From the top navigation bar**
+
 ![Help + support](./media/resource-health-overview/HelpAndSupport.png)
 
 Clicking the tile opens the Resource health subscription blade which will list all of the resources in your subscription. Beside each resource, there is an icon indicating its health. Clicking on each resource will open the Resource health blade.
 
 **Resource health tile**
+
 ![Resource health tile](./media/resource-health-overview/resourceHealthTile.png)
 
 ### Resource health API
