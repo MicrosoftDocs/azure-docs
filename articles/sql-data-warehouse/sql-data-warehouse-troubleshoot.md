@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshooting | Microsoft Azure"
-   description="Troubleshooting SQL Data Warehouse."
+   pageTitle="Troubleshooting Azure SQL Data Warehouse | Microsoft Azure"
+   description="Troubleshooting Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,8 +16,8 @@
    ms.date="05/15/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
-# Troubleshooting
-The following topic lists some of the more common issues customers run into with Azure SQL Data Warehouse.
+# Troubleshooting Azure SQL Data Warehouse
+This topic lists some of the more common issues you might run into with Azure SQL Data Warehouse.
 
 ## Connectivity
 More common connectivity issues include:
@@ -33,13 +33,13 @@ SQL Data Warehouse recommends using [Visual Studio 2013 or 2015][] to query your
 
 ## Query Performance
 
-There are several simple things you can do in your database design to ensure that you get optimal query performance from your SQL Data Warehouse.  A good place to start to understand how your queries are performaning is the article on [learning how to monitor your queries][].  Sometimes the solution to getting a query to execute faster is to simply add more compute power to your queries by [scaling your SQL Datawarehouse][]. To find many of these optimizations in one place, take a look at out article [SQL Data Warehouse Best Practices][].  
+There are several simple things you can do in your database design to ensure that you get optimal query performance from your SQL Data Warehouse.  A good place to start to understand how your queries are performing is the article on [learning how to monitor your queries][].  Sometimes the solution to getting a query to execute faster is to simply add more compute power to your queries by [scaling your SQL Data Warehouse][]. To find many of these optimizations in one place, take a look at the article [SQL Data Warehouse Best Practices][].  
 
 Below are some of the most common causes of query performance issues we see.
 
 ### Statistics
 
-[Statistics][] on your tables contain information about the range and frequency of values in a database column or combination of columns. The query engine uses these statistics to optimize query execution and improve query performance. Unlike SQL Server or SQL DB, SQL Data Warehouse does not automatically create or update statistics.  Statistics must be manually mantained on all tables.  To learn how to manage your statistics and identify tables which need statistics, take a look at the article [Manage statistics in SQL Data Warehouse][].
+[Statistics][] on your tables contain information about the range and frequency of values in a database column or combination of columns. The query engine uses these statistics to optimize query execution and improve query performance. Unlike SQL Server or SQL Database, SQL Data Warehouse does not automatically create or update statistics.  Statistics must be manually maintained on all tables.  To learn how to manage your statistics and identify tables which need statistics, take a look at the article [Manage statistics in SQL Data Warehouse][].
 
 ### Table Design
 
@@ -109,7 +109,7 @@ Please refer to the [SQL Data Warehouse Best Practices][] article for more infor
 <!--Image references-->
 
 <!--Article references-->
-[scaling your SQL Datawarehouse]: ./sql-data-warehouse-overview-scalability.md
+[scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [table design]: ./sql-data-warehouse-develop-table-design.md
 [choosing the right a hash distribution key for your table]: ./sql-data-warehouse-develop-hash-distribution-key
 [development overview]: ./sql-data-warehouse-overview-develop.md
