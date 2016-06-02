@@ -89,7 +89,7 @@ The previous failures have primarily been failures that can be managed within th
 
 In disaster planning, you must consider the entire range of possible disasters. One of the most severe service disruptions would involve all Azure regions simultaneously. As with other service disruptions, you might decide that you'll take the risk of temporary downtime in that event. Widespread service disruptions that span regions should be much rarer than isolated service disruptions that involve dependent services or single regions.
 
-However, for some mission-critical applications, you might decide that there must be a backup plan for this scenario as well. The plan for this event might include failing over to services in an [alternative cloud](#alternative-clouds) or a [hybrid on-premises and cloud solution](#hybrid-on-premises-and-cloud-solutions).
+However, for some mission-critical applications, you might decide that there must be a backup plan for this scenario as well. The plan for this event might include failing over to services in an [alternative cloud](#alternative-cloud) or a [hybrid on-premises and cloud solution](#hybrid-on-premises-and-cloud-solution).
 
 ###Degraded application functionality
 
