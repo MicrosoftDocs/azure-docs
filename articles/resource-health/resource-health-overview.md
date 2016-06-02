@@ -4,14 +4,14 @@
    services="Resource health"
    documentationCenter="dev-center-name"
    authors="BernardoAMunoz"
-   manager="manager-alias"
+   manager="scotthit"
    editor=""/>
 
 <tags
-   ms.service="Resource Health"
-   ms.devlang="may be required"
+   ms.service="resource-health"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="may be required"
+   ms.tgt_pltfrm="na"
    ms.workload="Supportability"
    ms.date="06/01/2016"
    ms.author="bernardm@microsoft.com"/>
