@@ -23,20 +23,24 @@
 - [Manage Azure VM backups](backup-azure-manage-vms.md)
 - [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
 
-This article provides guidance on how to manage the backups for your virtual machines (VM), as well as explain the backup information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of VMs. For a primer on protecting Azure Resource Manager (ARM)-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up ARM VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).   
+This article provides guidance on how to manage the backups for your virtual machines (VM), as well as explain the backup information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of virtual machines, nor does it explain how to protect virtual machines. For a primer on protecting Azure Resource Manager (ARM)-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up ARM VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
 
 ## Manage protected virtual machines
 
-In the Azure portal, the Recovery Services vault dashboard provides access to all information about the vault including:
+In the Azure portal, the Recovery Services vault dashboard provides access to information about the vault including:
 
 - the most recent backup snapshot, which is also the latest restore point <br\>
 - the backup policy <br\>
 - total size of all backup snapshots <br\>
 - number of virtual machines that are protected with the vault <br\>
 
-Many management tasks with a virtual machine backup begins with opening the vault in the dashboard. However, you will need to open the individual vault in the vault item dashboard, to execute the tasks. The following procedure shows you how to open the vault item dashboard.
+Many management tasks with a virtual machine backup begins with opening the vault in the dashboard. However, because vaults can be used to protect multiple items (or multiple virtual machines), to view the details about a particular virtual machine, you need to open the vault item dashboard. The following procedure shows you how to open the *vault dashboard* and then continue to the *vault item dashboard*. There are "tips" in both procedures that point out how to add the vault and vault item to the Azure dashboard by using the Pin to dashboard command. Pin to dashboard is a way of creating a shortcut to the vault or item. You can also execute common commands from the shortcut.
 
-To open a Recovery Services vault in the dashboard:
+>[AZURE.TIP] If you have multiple dashboards and blades open, you can use the dark-blue slider at the bottom of the window to slide the view in the Azure dashboard back and forth.
+
+![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
+
+### Open a Recovery Services vault in the dashboard:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -48,27 +52,31 @@ To open a Recovery Services vault in the dashboard:
 
     ![List of Recovery Services vaults ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
 
-3. From the list of vaults, select the vault to open its dashboard. When you select the vault, the vault dashboard and the **Settings** blade open.
+    >[AZURE.TIP] If you pin a vault to the Azure Dashboard, that vault is immediately accessible when you open the Azure portal. To pin a vault to the dashboard, in the vault list, right-click the vault, and select **Pin to dashboard**.
+
+3. From the list of vaults, select the vault to open its dashboard. When you select the vault, the vault dashboard and the **Settings** blade open. In the following image, the **Contoso-vault** dashboard is highlighted.
 
     ![Open vault dashboard and Settings blade](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-4. In the **Settings** blade, click **Backup Items** to open that blade.
+### Open a vault item dashboard
 
-    ![Open backup items tile](./media/backup-azure-manage-vms/settings-blade-backup-items.png)
+In the previous procedure you opened the vault dashboard. To open the vault item dashboard:
 
-    Use the drop-down menu to choose the type of items that are displayed. You can choose between a list of Files and folders, or Azure Virtual Machines. The **Backup Items** blade lists the last backup job for each item. In this example, there is one virtual machine, demovm-markgal, protected by this vault.  
+1. In the vault dashboard, on the **Backup Items** tile, click **Azure Virtual Machines**.
+
+    ![Open backup items tile](./media/backup-azure-manage-vms/contoso-vault.png)
+
+    The **Backup Items** blade lists the last backup job for each item. In this example, there is one virtual machine, demovm-markgal, protected by this vault.  
 
     ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade.png)
 
-    >[AZURE.TIP] If you have multiple blades open, you can use the dark-blue slider at the bottom of the window to slide back to the dashboard or the vault list.
+    >[AZURE.TIP] For ease of access, you can pin a vault item to the Azure Dashboard. To pin a vault item, in the vault item list, right-click the item and select **Pin to dashboard**.
 
-    ![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
-
-5. In the **Backup Items** blade, click the item to open the vault item dashboard.
+2. In the **Backup Items** blade, click the item to open the vault item dashboard.
 
     ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-    The dashboard and its **Settings** blade opens.
+    The vault item dashboard and its **Settings** blade opens.
 
     ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
@@ -82,11 +90,11 @@ To open a Recovery Services vault in the dashboard:
 	- delete a backup data (or recovery point) <br\>
 	- [restore a backup (or recovery point)](./backup-azure-arm-restore-vms.md#restore-a-recovery-point)  <br\>
 
-The details for accomplishing each of these tasks, follows. For each task, you will need to start the procedure from the vault item dashboard (as noted in the procedure).
+For the following procedures, the starting point is the vault item dashboard.
 
-### Change policies or Create a new backup policy
+## Change policies or Create a new backup policy
 
-1. On the vault item dashboard, click **All Settings** to open the **Settings** blade.
+1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **All Settings** to open the **Settings** blade.
 
     ![Backup policy blade](./media/backup-azure-manage-vms/all-settings-button.png)
 
@@ -112,7 +120,7 @@ You can take an on-demand backup of a virtual machine once it is configured for 
 
 To trigger an on-demand backup of a virtual machine:
 
-1. On the vault item dashboard, click **Backup now**.
+1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Backup now**.
 
     ![Backup now button](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -128,7 +136,7 @@ If you choose to stop protecting a virtual machine, you are asked if you want to
 
 To stop protection for a virtual machine:
 
-1. On the vault item dashboard, click **Stop backup**.
+1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Stop backup**.
 
     ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button.png)
 
@@ -161,7 +169,7 @@ If the **Retain Backup Data** option was chosen when protection for the virtual 
 
 To resume protection for the virtual machine
 
-1. On the vault item dashboard, click **Resume backup**.
+1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Resume backup**.
 
     ![Resume protection](./media/backup-azure-manage-vms/resume-backup-button.png)
 
@@ -184,7 +192,7 @@ The following procedure assumes the Backup job for the virtual machine has been 
 
 To delete backup data on a virtual machine with the *Backup disabled*:
 
-1. On the vault item dashboard, click **Delete backup**.
+1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Delete backup**.
 
     ![VM Type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
@@ -206,9 +214,9 @@ To delete backup data on a virtual machine with the *Backup disabled*:
     A notification message lets you know the backup data has been deleted.
 
 ## Auditing Operations
-You can review the "operation logs" to see what management operations were performed on the Recovery Services vault. Operations logs enable great post-mortem and audit support for the backup operations.
+You can review the "operation logs" to see what management operations were performed on the Recovery Services vault. Operations logs enable great post-mortem and audit support for the backup operations. You can use the Audit logs feature to view the logs for all operations *in the subscription*. For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../insights-debugging-with-events.md). Use the **Audit logs** setting to view the events and operations logs specific to a Recovery Services vault or to a vault item.
 
-The following operations are logged in Operation logs:
+The following operations are logged in Audit logs:
 
 - Register
 - Unregister
@@ -222,43 +230,40 @@ The following operations are logged in Operation logs:
 - Update policy
 - Cancel job
 
-To view operation logs corresponding to a Recovery Services vault:
+To view the event logs for a Recovery Services vault:
 
-1. In the Azure portal hub menu, browse to **Audit Logs**.
+1. In the [vault dashboard](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to **Audit Logs**.
 
     ![Audit Logs](./media/backup-azure-manage-vms/audit-logs.png)
 
-    The Audit logs blade opens to the operational events in the current subscription. The blade will show the Critical, Error, Warning, and Informational operations that have recently occurred.
+    The Events blade opens to the operational events filtered for the current vault. The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, click **Show chart** to toggle the chart off.
 
     ![Audit Logs Filter](./media/backup-azure-manage-vms/audit-logs-filter.png)
 
-2. In the Filter items dialog, type **RecoveryServices** to filter the current list of operations for RecoveryServices operations. If a subscription contains both Recovery Services vaults as well as Backup vaults, RecoveryServicesVault operations can be distinguished from BackupVault operations by the name of the operation.
+2. For additional information on a particular operation, click that operation to open its blade. The blade contains detailed information about the operation, and a list of the Events.
 
-    ![Filtered for Recovery Services](./media/backup-azure-manage-vms/filtered-logs.png)
+    ![Operation Details](./media/backup-azure-manage-vms/audit-logs-details-window.png)
 
-3. To use all available filters, on the Audit logs menu, click **Filter** to open that blade.
+3. To view detailed information about an individual event, click an Event to open its details blade.
 
-    ![open filter blade](./media/backup-azure-manage-vms/audit-logs-filter-button.png)
+    ![Event Details](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
 
-4. On the **Filter** blade, use the filters that provide the information you want.
+4. To view all available filters, on the **Events** menu, click **Filter** to open that blade.
+
+    ![open filter blade](./media/backup-azure-manage-vms/audi-logs-filter-button.png)
+
+5. On the **Filter** blade, adjust the **Level**, **Time span**, and **Caller** filters. The other filters are not available since they were set to provide the current information for the Recovery Services vault.
 
     ![Audit Logs-query details](./media/backup-azure-manage-vms/filter-blade.png)
 
-    On the **Filter** blade, there are four types of filters: **Subscription**, **Resource Group**, **Resource type**, and **Resource**. In addition, you can filter on the **Level** of event: Critical, Error, Warning, or Informational. You can choose any combination of event Levels, but you must have at least one Level selected. Toggle the Level on or off. The **Time span** filter allows you to specify the length of time for capturing events. If you use a Custom Time span, you can set the start and end times.
+    You can specify the **Level** of event: Critical, Error, Warning, or Informational. You can choose any combination of event Levels, but you must have at least one Level selected. Toggle the Level on or off. The **Time span** filter allows you to specify the length of time for capturing events. If you use a Custom Time span, you can set the start and end times.
 
 5. Once you are ready to query the operations logs using your filter, click **Update**. The results display in the **Audit Logs** blade.
 
     ![Operation Details](./media/backup-azure-manage-vms/list-of-operations.png)
 
-6. Click an Operation to open its blade. The details blade contains information about the operation.
 
-    ![Operation Details](./media/backup-azure-manage-vms/audit-logs-details-window.png)
 
-7. In the details blade, click an Event to open its details blade.
-
-    ![Event Details](./media/backup-azure-manage-vms/audit-logs-details-window-deep.png)
-
-For additional information on events, operations, and audit logs, see the article, [View events and audit logs](../insights-debugging-with-events.md) 
 
 ## Alert notifications
 You can get custom alert notifications for the jobs in the portal. To get these jobs, define PowerShell-based alert rules on the operational logs events. Use *PowerShell version 1.3.0 or later*.
