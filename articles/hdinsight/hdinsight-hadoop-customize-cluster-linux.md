@@ -145,7 +145,7 @@ This section provides examples on the different ways you can use script actions 
 
 In this section, we use Azure Resource Manager (ARM) templates to create an HDInsight cluster and also use a script action to install custom components (R, in this example) on the cluster. This section provides a sample ARM template to create a cluster using script action.
 
-> [AZURE.NOTE] The steps in this section demonstrate creating a cluster using a script action. For an example of creating a cluster from an ARM template using an HDInsight application, see [Install custom HDInsight applications](hdinsight-app-install-custom-applications.md).
+> [AZURE.NOTE] The steps in this section demonstrate creating a cluster using a script action. For an example of creating a cluster from an ARM template using an HDInsight application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 #### Before you begin
 
