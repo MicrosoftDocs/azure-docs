@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/20/2016"
+	ms.date="06/02/2016"
 	ms.author="marsma"/>
 
 # Basics of Azure Batch
@@ -70,6 +70,7 @@ Your applications and services can issue direct REST API calls, use one or more 
 | **Batch .NET**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
 | **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
+| **Batch Java** (preview) | [github.io][api_java] | [Maven snapshot repo][api_java_jar] | - |
 
 ### Batch resource management
 
@@ -130,6 +131,8 @@ Now that you've seen an example Batch scenario, it's time to dig deeper into the
 - Check out the [Batch Learning Path][learning_path] to get an idea of the resources available to you as you learn to work with Batch.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
+[api_java]: http://azure.github.io/azure-sdk-for-java/
+[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com\microsoft\azure\azure-batch
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
