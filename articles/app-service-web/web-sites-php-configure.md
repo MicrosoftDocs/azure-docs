@@ -169,21 +169,21 @@ processing during `git push` by enabling the Composer extension.
 
 1. In your PHP web app's blade in the [Azure portal](https://portal.azure.com), click **Tools** > **Extensions**.
 
-    ![Azure Portal settings blade to enable Composer automation in Azure](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+    ![Azure Portal settings blade to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-settings.png)
 
 2. Click **Add**, then click **Composer**.
 
-    ![Add Composer extension to enable Composer automation in Azure](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    ![Add Composer extension to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-add.png)
     
 3. Click **OK** to accept legal terms. Click **OK** again to add the extension.
 
     The **Installed extensions** blade will now show the Composer extension.  
-    ![Accept legal terms to enable Composer automation in Azure](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    ![Accept legal terms to enable Composer automation in Azure](./media/web-sites-php-configure/composer-extension-view.png)
     
 4. Now, perform `git add`, `git commit`, and `git push` like in the previous section. You'll now see that Composer
 is installing dependencies defined in composer.json.
 
-    ![Git deployment with Composer automation in Azure](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
+    ![Git deployment with Composer automation in Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
 ## Next steps
 
