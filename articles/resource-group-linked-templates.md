@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Linked templates with Azure Resource Manager | Microsoft Azure"
+   pageTitle="Linked templates with Resource Manager | Microsoft Azure"
    description="Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,22 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="06/02/2016"
    ms.author="tomfitz"/>
 
 # Using linked templates with Azure Resource Manager
 
-From within one Azure Resource Manager template, you can link to another template which enables you to decompose your deployment into a set of targeted, purpose-specific templates. Just as with decomposing an application 
-into a number of code classes, decomposition provides benefits in terms of testing, re-use, and readability.  
+From within one Azure Resource Manager template, you can link to another template which enables you to decompose your deployment into a set of targeted, purpose-specific templates. Just as with decomposing an application into a number of code classes, decomposition provides benefits in terms of testing, re-use, and readability.  
 
-You can pass parameters from a main template to a linked template, and those parameters can directly map to parameters or variables exposed by the calling template. The linked template can also pass an output variable back 
-to the source template, enabling a two-way data exchange between templates.
+You can pass parameters from a main template to a linked template, and those parameters can directly map to parameters or variables exposed by the calling template. The linked template can also pass an output variable back to the source template, enabling a two-way data exchange between templates.
 
 ## Linking to a template
 
-You create a link between two templates by adding a deployment resource within the main template that points to the linked template. You set the **templateLink** property to the URI of the linked template. You can 
-provide parameter values for the linked template either by specifying the values directly in your template or by 
-linking to a parameter file. The following example uses the **parameters** property to specify a paramter value directly.
+You create a link between two templates by adding a deployment resource within the main template that points to the linked template. You set the **templateLink** property to the URI of the linked template. You can provide parameter values for the linked template either by specifying the values directly in your template or by linking to a parameter file. The following example uses the **parameters** property to specify a paramter value directly.
 
     "resources": [ 
       { 
@@ -55,6 +51,29 @@ The Resource Manager service must be able to access the linked template, which m
         "contentVersion": "1.0.0.0",
     }
 
+Although the linked template must be externally available, it does not need to be generally available to the public. When you add a template to a storage account, you can restrict access to only the storage account owner. Then, create a shared access signature (SAS) token and add that SAS token to the URI for the linked template. For the steps to set up a template in a storage account and generate a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). 
+
+The following example shows a linked template that is accessed with a SAS token.
+
+    "parameters": {
+        "sasToken": { "type": "securestring" }
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "nestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+              "mode": "incremental",
+              "templateLink": {
+                "uri": "[concat('https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json', parameters('sasToken'))]",
+                "contentVersion": "1.0.0.0"
+              }
+            }
+        }
+    ],
+
+The URI of the linked template, including the SAS token, is logged in the deployment operations for that resource group. You will want to set an expiration for the token to prevent unintended users from using the token.
 
 ## Linking to a parameter file
 
