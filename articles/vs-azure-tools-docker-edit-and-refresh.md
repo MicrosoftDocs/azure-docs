@@ -62,21 +62,29 @@ Visual Studio 2015 Tools for Docker enables ASP .NET Core RC2 Web app developers
 ##Edit & Refresh
 To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
 
-1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally. See the output window, using build or
+1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally.
 
-1. Once the container image has been built and is running in a Docker container, Visual Studio will try to launch the Web app in your default browser. If you are using the Microsoft Edge browser or otherwise have errors, see [Troubleshooting](vs-azure-tools-docker-troubleshooting-docker-errors.md) section.
+    Once the container image has been built and is running in a Docker container, Visual Studio will launch the Web app in your default browser.
+    If you are using the Microsoft Edge browser or otherwise have errors, see [Troubleshooting](vs-azure-tools-docker-troubleshooting-docker-errors.md) section.
+
+1. Go to the About page, which is where we're going to make our changes.
 
 1. Return to Visual Studio and open `Views\Home\About.cshtml`.
 
-1. Append the following HTML content to the end of the file and save the changes.
+1. Add the following HTML content to the end of the file and save the changes.
 
 	```
 	<h1>Hello from a Docker Container!</h1>
 	```
 
-1.	Viewing the output window, when the .NET build is completed and you see `Application started. Press Ctrl+C to shut down`, switch back to your browser and refresh the page.
+1.	Viewing the output window, when the .NET build is completed and you see these lines, switch back to your browser and refresh the About page.
 
-1.	You should see changes have been applied!
+    ```
+    Now listening on: http://*:80
+    Application started. Press Ctrl+C to shut down
+    ```
+
+1.	Your changes have been applied!
 
 ##Breakpoint Debugging
 Often, changes will need further inspection, leveraging the debugging features of Visual Studio.
