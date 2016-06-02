@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="03/27/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configure a Docker Host with VirtualBox
