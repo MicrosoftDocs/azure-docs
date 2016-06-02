@@ -41,8 +41,11 @@ The recommendation build has two capabilities that make it attractive:
  this is what the first few lines of your catalog may look like (note the key=value format for the features):
 
 > 6CX-00001,Surface Pro2, Surface, Type=Hardware,  Storage=128GB,  Memory=4G, Manufacturer=Microsoft
+
 > 73H-00013,Wake Xbox 360,Gaming, Type=Software, Language=English, Rating=Mature
+
 > WAH-0F05,Minecraft Xbox 360,Gaming, * Type=Software, Language=Spanish, Rating=Youth
+
 > ...
 
  In addition, as part of the build parameters, you need to set the following build parameters:
