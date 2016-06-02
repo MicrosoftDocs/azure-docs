@@ -27,9 +27,9 @@ App Service includes the web and mobile capabilities that we previously delivere
 
 Here are some key features and capabilities of App Service: 
 
-- **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [PowerShell and other scripts or executables](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs.
+- **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [Windows PowerShell and other scripts or executables](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs.
 
-- **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md).
+- **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md). Manage your apps in App Service by using [Azure PowerShell](../powershell-install-configure.md) or the [cross-platform command-line interface (CLI)](http://xplat-cli-install.md).
  
 - **Global scale with high availability** - Scale [up](../app-service/app-service-scale.md) or [out](../azure-portal/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 
@@ -37,15 +37,13 @@ Here are some key features and capabilities of App Service:
 
 - **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
 
-- **Azure Marketplace** - Choose from an extensive [list of application templates](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla, and Drupal.
+- **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla, and Drupal.
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 
 ## App types in App Service
 
-App Service offers several *app types*, each of which is  intended to host a specific kind of workload. The word *app* here refers to the hosting resources dedicated to running a workload. So, for example, "web app" generally refers to a complete package of compute resources and application code that delivers functionality to a browser. But in App Service *web app* refers more narrowly to the compute resources that Azure provides for hosting your application code.
-
-App Service offers the following app types.
+App Service offers several *app types*, each of which is  intended to host a specific kind of workload:
 
 - [**Web Apps**](../app-service-web/app-service-web-overview.md) - For hosting websites and web applications.
 
@@ -55,9 +53,15 @@ App Service offers the following app types.
  
 - [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating the access and use of data across clouds without writing code.
 
+The word *app* here refers to the hosting resources dedicated to running a workload. "Web app" in general refers to both compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front-end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
+
 ## App Service Plans
 
-[App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) specify the kind of compute resources that your apps run on. If you expect light traffic loads, you can use shared virtual machines (VMs). For higher loads, you can choose from several sizes of dedicated VMs. If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md). 
+[App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) specify the kind of compute resources that your apps run on. If you expect light traffic loads, you can use shared virtual machines (VMs). For higher loads, you can choose from several sizes of dedicated VMs. Multiple App Service apps can share the same plan, and they scale up and down together with the plan.
+
+If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md). 
+
+## Pricing
 
 For information about how much App Service costs, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/). 
 
