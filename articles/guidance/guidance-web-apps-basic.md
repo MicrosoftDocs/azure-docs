@@ -125,7 +125,7 @@ For more information, see [Azure Resource Manager overview][resource-group].
 
 Deployment involves two steps:
 
-- Provisioning the Azure resources. We recommend that you use [Azure Resoure Manager (ARM) templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI. 
+- Provisioning the Azure resources. We recommend that you use [Azure Resoure Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI. 
 
 - Deploying the application (code, binaries, and content files). Here you have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].  
  
@@ -145,7 +145,7 @@ Don't use slots on your production deployment for testing, because all apps with
 
 ### Configuration
 
-Store configuration settings as [app settings][app-settings]. Define the app settings in your ARM templates, or by using PowerShell. At runtime, app settings are available to the application as environment variables. 
+Store configuration settings as [app settings][app-settings]. Define the app settings in your Resource Manager templates, or by using PowerShell. At runtime, app settings are available to the application as environment variables. 
 
 Never check passwords, access keys, or connection strings into source control. Instead, pass these as parameters to a deployment script that stores these values as app settings. 
 
@@ -216,7 +216,7 @@ Some limitations of App Service Authentication:
 
 ## Deploying the sample solution
 
-An example ARM template for this architecture is available on GitHub. Download it [here][paas-basic-arm-template].
+An example Resoure Manager template for this architecture is available on GitHub. Download it [here][paas-basic-arm-template].
 
 To deploy the template using PowerShell, run the following commands:
 
