@@ -24,8 +24,6 @@
 
 This end-to-end tutorial shows you how to use the Azure Portal to provision a virtual machine running SQL Server.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
 The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. With a few clicks, you can select one of the SQL VM images from the gallery and provision it in your Azure environment.
 
 In this tutorial, you will:
