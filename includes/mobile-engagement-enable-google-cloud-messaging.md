@@ -20,12 +20,12 @@
    	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
 -->
 6. In the left column, make sure **Overview** is selected, and under Mobile APIs click **Google Cloud Messaging**. Then on the next page click **Enable**.
-<!--
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
 
+	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
+<!--
 	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
 -->
-7. On the next page, click **Go to Credentials**, andon the following page, select **Google Cloud Messaging** from the first dropdown box and **Web server** from the second one, and then click **What credentials do I need?**
+7. On the next page, click **Go to Credentials**, and on the following page, select **Google Cloud Messaging** from the first dropdown box and **Web server** from the second one, and then click **What credentials do I need?**
 <!--
    	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 -->
