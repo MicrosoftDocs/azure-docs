@@ -25,11 +25,7 @@
 
 <br>
 
-
 This article provides sample configuration for configuring Azure VM extensions for Linux VMs.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
 
 To learn more about these extensions click here : [Azure VM Extensions Overview.](virtual-machines-windows-extensions-features.md)
 
