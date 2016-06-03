@@ -25,13 +25,7 @@
 
 <br>
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
-
-
 This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
-
 
 To learn more about these extensions, see [Azure VM Extensions Overview.](virtual-machines-windows-extensions-features.md)
 
