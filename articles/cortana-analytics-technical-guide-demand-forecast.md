@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="05/16/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
 # Technical Guide to the Cortana Intelligence Solution Template for Demand Forecast in Energy
+
+## **Acknowledgements**
+This article is authored by data scientists Yijing Chen and software engineer Qiu Min at Microsoft.
 
 ## **Overview**
 
@@ -283,12 +286,12 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 1.  Add Power BI output in Azure Stream Analytics (ASA).
 
     -  You will need to follow the instructions in
-    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics\stream-analytics-power-bi-dashboard.md)
+    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
 
 	- Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
 
-	- Setup the output of the ASA query which is **PBIoutput**. Make sure the **Output Alias** is the same as in your query. You can name your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
+	- Add a PowerBI output for the ASA job. Set the **Output Alias** as **‘PBIoutput’**. Set your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
     you have added the output, click **"Start"** at the bottom of the page to start the Stream
     Analytics job. You should get a confirmation message (*e.g.*,
     "Starting stream analytics job myteststreamingjob12345asablob succeeded").
@@ -316,7 +319,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 	-	Hover the mouse over this tile on the dashboard, click "edit" icon on top right corner to change its title as "Demand by Timestamp"
 
 4.	Create other dashboard tiles based on appropriate datasets. The final dashboard view is shown below.
-		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+		![](media\cortana-analytics-technical-guide-demand-forecast\PBIFullScreen.png)
 
 
 ### Setup Cold Path Dashboard
@@ -396,6 +399,9 @@ data up-to-date".
 	-   Schedule the refresh based on your needs. To find more information, see
 [Data refresh in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
+
+## **How to delete your solution**
+Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution will delete all the components provisioned in your subscription when you deployed the solution. To delete the solution click on your solution name in the left panel of the solution template and click on delete.
 
 ## **Cost Estimation Tools**
 
