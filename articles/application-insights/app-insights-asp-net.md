@@ -123,26 +123,11 @@ If you want, you can [do these steps manually](app-insights-asp-net-manual.md).
 
 ## What's next?
 
+---|---
+**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Debugging with telemetry, diagnostic search, drill through to code.|![Visual studio](./media/app-insights-asp-net/61.png)
+**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-asp-net/62.png)
+**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
-**[Debugging with telemetry](app-insights-visual-studio.md)**<br/>Working with Application Insights in Visual Studio.
-
-**[Monitor your app in production](app-insights-dashboards.md)**<br/>Working with the Application Insights portal.
-
-**Monitor a release with Live Insights**<br/>Watch performance with a latency of seconds.
-
-**[Analyze users, sessions and page views](app-insights-javascript.md)**<br/>Instrument web pages.
-
-**[Monitor dependencies](app-insights-asp-net-dependencies.md)**<br/>REST, SQL and AJAX calls from your app.
-
-**[Availability](app-insights-monitor-web-app-availability.md#selector1)**<br/>Ping your essential pages from around the world.
-
-**[Alerts](app-insights-alerts.md)**<br/>Know what's happening before your users do.
-
-**[Analytics: fast answers to deep questions](app-insights-analytics.md)**<br/>A powerful query language for your telemetry.
-
-**[Custom telemetry](app-insights-api-custom-events-metrics.md)**<br/>Instrument your app for business intelligence.
-
-**[Automation](app-insights-powershell.md)**<br/>Set up multiple components and stamps.
 
 
 
