@@ -88,7 +88,11 @@ Open your Application Insights resource in the [Azure portal](https://portal.azu
 The portal opens on a view of the telemetry from your app:
 ![](./media/app-insights-asp-net/18.png)
 
+1. On your application's Overview blade, you see a summary of key performance metrics. Click any chart to open more data.
+2. From the Settings blade you can open a variety of views on your telemetry, as well as configuring the portal.
+3. The Application Map is particularly useful when your application has several components.  
 
+[Learn more about using Application Insights in the Azure portal](app-insights-dashboard.md).
 
 ##<a name="land"></a> What did 'Add Application Insights' do?
 
@@ -123,10 +127,11 @@ If you want, you can [do these steps manually](app-insights-asp-net-manual.md).
 
 ## What's next?
 
----|---
-**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Debugging with telemetry, diagnostic search, drill through to code.|![Visual studio](./media/app-insights-asp-net/61.png)
-**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-asp-net/62.png)
-**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-asp-net/64.png)
+| | 
+|---|---
+|**[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Debugging with telemetry, diagnostic search, drill through to code.|![Visual studio](./media/app-insights-asp-net/61.png)
+|**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-asp-net/62.png)
+|**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-asp-net/64.png)
 
 
 
