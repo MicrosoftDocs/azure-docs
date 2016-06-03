@@ -86,11 +86,10 @@ Open your Application Insights resource in the [Azure portal](https://portal.azu
 ![Right-click your project and open the Azure portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 The portal opens on a view of the telemetry from your app:
-![](./media/app-insights-asp-net/18.png)
+![](./media/app-insights-asp-net/66.png)
 
-1. On your application's Overview blade, you see a summary of key performance metrics. Click any chart to open more data.
-2. From the Settings blade you can open a variety of views on your telemetry, as well as configuring the portal.
-3. The Application Map is particularly useful when your application has several components.  
+* Individual events appear in **Search** (1). Data appears here first (and in Live Stream). Click any event to see its properties. 
+* Aggregated metrics appear in the charts (2). It might take a minute or two for data to appear here. Click any chart to open a blade with more detail.
 
 [Learn more about using Application Insights in the Azure portal](app-insights-dashboard.md).
 
@@ -107,22 +106,6 @@ So the command did three things:
 3. Inserts the instrumentation key in `ApplicationInsights.config`, so that the SDK can send telemetry to the portal.
 
 If you want, you can [do these steps manually](app-insights-asp-net-manual.md).
-
-
-## Setup options
-
-* SDK only: Installs the SDK in your project without creating a resource in the Application Insights portal. While you're debugging on your development machine, you'll  be able to see telemetry in Visual Studio. 
-    
-    ![SDK-only ](./media/app-insights-asp-net/16.png)
-
-    You can configure a portal resource later. You'll need this in order to continue monitoring the app after you deploy it to test or production servers. 
-
-* Resource name and group: Azure resources belong to resource groups, which help you manage access. If this app is part of a bigger application, use **Configure settings** to put it in the same resource group as the other components. 
-
-    You can also change the name of the resource to be different from the project name, which is useful if you want to separate the telemetry from different stamps of your app.
-
-    ![Choose resource and group names](./media/app-insights-asp-net/15.png)
-
 
 
 ## What's next?

@@ -32,13 +32,16 @@ Here's a summary of features that you might not have tried in [Visual Studio App
 [**TelemetryProcessors**](app-insights-api-filtering-sampling.md)<br/>Filter, modify or augment the telemetry sent from the SDK in your app. |
 
 
-## Powerful analysis
+## Powerful analysis and presentation
 
----|---
-[**Debugging with Application Insights in Visual Studio**](app-insights-visual-studio.md)<br/>Debug a new feature or diagnose a live issue. Diagnostic search, drill through to code, trends map.|![Visual studio](./media/app-insights-asp-net/61.png)
-[**Monitoring with Application Insights in Azure**](app-insights-dashboards.md)<br/>Dashboards, powerful diagnostic and analytic tools, a live dependency map of your application. |![Dashboards sample](./media/app-insights-asp-net/62.png)
-[**Analytics**](app-insights-analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language.|![Analytics sample](./media/app-insights-asp-net-more/010.png)
-[**Automatic and manual alerts**](app-insights-alerts.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.|![Alert sample](./media/app-insights-asp-net-more/020.png)
+||
+|---|---
+|[**Diagnostic search for instance data**](app-insights-visual-studio.md)<br/>Search and filter events such as requests, exceptions, dependency calls, log traces and page views. In Visual Studio, go to code from stack traces.|![Visual studio](./media/app-insights-asp-net/61.png)
+|[**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.|![Visual studio](./media/app-insights-asp-net-more/060.png)
+|[**Dashboards**](app-insights-dashboards.md#dashboards)<br/>Mashup data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.  |![Dashboards sample](./media/app-insights-asp-net/62.png)
+|[**Live Stream**](app-insights-metrics-explorer.md#live-stream)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.|![Analytics sample](./media/app-insights-asp-net-more/050.png)
+|[**Analytics**](app-insights-analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language.|![Analytics sample](./media/app-insights-asp-net-more/010.png)
+|[**Automatic and manual alerts**](app-insights-alerts.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.|![Alert sample](./media/app-insights-asp-net-more/020.png)
 
 ## Data management
 
