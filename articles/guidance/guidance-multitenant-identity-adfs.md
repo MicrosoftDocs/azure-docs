@@ -128,8 +128,6 @@ Here are the steps in more detail.
 5.	Under "Incoming claim type", select **UPN**.
 6.	Select "Pass through all claim values".
   ![Add Transform Claim Rule Wizard](media/guidance-multitenant-identity/edit-claims-rule2.png)
-
-	> [AZURE.NOTE] Note that passing through all claim values does not filter or block any claims and can lead to security vulnerabilities under some circumstances. Use this option with caution.
 7.	Click **Finish**.
 8.	Repeat steps 2 - 7, and specify **Anchor Claim Type** for the incoming claim type.
 9.	Click **OK** to complete the wizard.
