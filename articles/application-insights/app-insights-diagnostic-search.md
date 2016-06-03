@@ -159,7 +159,7 @@ Sample query | Effect
 ---|---
 slow|Find all events in the date range whose fields include the term "slow"
 database??|Matches database01, databaseAB, ...<br/>? is not allowed at the start of a search term.
-database*|Matches database, database01, databaseNNNN<br/>* is not allowed at the start of a search term
+database* |Matches database, database01, databaseNNNN<br/> * is not allowed at the start of a search term
 apple AND banana|Find events that contain both terms. Use capital "AND", not "and".
 apple OR banana<br/>apple banana|Find events that contain either term. Use "OR", not "or".</br/>Short form.
 apple NOT banana<br/>apple -banana|Find events that contain one term but not the other.<br/>Short form.
@@ -217,6 +217,6 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-spi-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
