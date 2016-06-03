@@ -60,6 +60,7 @@ For other important management tasks, see [Management overview][];
 [Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Backup and restore tasks]: sql-data-warehouse-database-restore-portal.md
 [Management overview]: sql-data-warehouse-overview-management.md
+[Database restore tasks]: sql-data-warehouse-manage-database-restore-portal.md
 
 <!--MSDN references-->
 
