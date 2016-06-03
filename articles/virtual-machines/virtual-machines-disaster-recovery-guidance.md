@@ -42,7 +42,7 @@ For customers who want immediate access to virtual machines, the following two o
 ##Option 2: Restore a VM from a backup
 For customers who have configured a VM backup, you can restore the VM from its backup and recovery point.
 
-To restore a new VM from Azure Backup, see [Restore virtual machines in Azure](..backup/backup-azure-restore-vms.md).
+To restore a new VM from Azure Backup, see [Restore virtual machines in Azure](../backup/backup-azure-restore-vms.md).
 
 To help you plan for your Azure virtual machines backup infrastructure, see [Plan your VM backup infrastructure in Azure](../backup/backup-azure-vms-introduction.md).
 
