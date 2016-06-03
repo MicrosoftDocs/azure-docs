@@ -101,7 +101,7 @@ There are a number of different DNS caching packages available, e.g. dnsmasq, he
 	- add “prepend domain-name-servers 127.0.0.1;” to “/etc/dhclient-eth0.conf”
 	- restart the network service (“service network restart”) to set the cache as the local DNS resolver
 
-> [AZURE.NOTE]: The 'dnsmasq' package is only one of the many DNS caches available for Linux.  Before using it, please check its suitability for your particular needs and that no other cache is installed.
+> [AZURE.NOTE] The 'dnsmasq' package is only one of the many DNS caches available for Linux.  Before using it, please check its suitability for your particular needs and that no other cache is installed.
 
 **Client-side Retries:**
 
