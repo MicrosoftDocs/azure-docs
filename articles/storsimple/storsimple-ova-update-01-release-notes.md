@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/24/2016"
+   ms.date="05/27/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array Update 0.1 release notes
@@ -29,17 +29,17 @@ The release notes are continuously updated, and as critical issues requiring a w
 
 Update 0.1 contains the following bug fixes and improvements. 
 
-- **Resiliency around cloud outages**: This release has several bug fixes around disaster recovery, backup, restore, and tiering in the event of a cloud connectivity disruption. 
+- **Improved resiliency for cloud outages**: This release has several bug fixes around disaster recovery, backup, restore, and tiering in the event of a cloud connectivity disruption. 
 
 - **Improved restore performance**: This release has bug fixes that have significantly cut down the completion time of the restore jobs.
 
 - **Automated space reclamation optimization**: When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
 
-- **New VHD, VHDX, and VMDK**: New VHD, VHDX, and VMDK are now available via the Azure classic portal. You can download these images to provision new Update 0.1 devices.
+- **New virtual disk images**: New VHD, VHDX, and VMDK are now available via the Azure classic portal. You can download these images to provision new Update 0.1 devices.
 
 - **Improving the accuracy of jobs status in the portal**: In the earlier version of software, job status reporting in the portal was not granular. This issue is resolved in this release.
 
-- **Bug fixes related to domain-joining and renaming** of the device.
+- **Domain join experience**: Bug fixes related to domain-joining and renaming of the device.
 
 
 ## Issues fixed in the Update 0.1

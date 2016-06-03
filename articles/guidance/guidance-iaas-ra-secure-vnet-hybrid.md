@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="05/31/2016"
    ms.author="telmos"/>
 
 # Implementing a secure hybrid network architecture in Azure
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for implementing a secure hybrid network that extends your on-premises network to Azure. In this reference architecture, you will learn how to use user defined routes (UDRs) to route incoming traffic on a virtual network through a set of highly available network virtual appliances. These appliances can run different types of security software, such as firewalls, packet inspection, among others. You will also learn how to enable forced tunneling, to route all outgoing traffic from the VNet to the Internet through your on-premises data center so that it can be audited. 
+This article describes best practices for implementing a secure hybrid network that extends your on-premises network to Azure. In this reference architecture, you will learn how to use user defined routes (UDRs) to route incoming traffic on a virtual network through a set of highly available network virtual appliances, creating a DMZ between your on-premises network, and an Azure virtual network. These appliances can run different types of security software, such as firewalls, packet inspection, among others. You will also learn how to enable forced tunneling, to route all outgoing traffic from the VNet to the Internet through your on-premises data center so that it can be audited. 
 
 This architecture requires a connection to your on-premises datacenter implemented using either a [VPN gateway][ra-vpn], or an [ExpressRoute][ra-expressroute] connection.
 
@@ -51,13 +51,9 @@ The following diagram highlights the important components in this architecture (
 
 - **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud. See [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details about this structure.
 
-- **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs.
+- **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs. However, response traffic cannot be forwarded through the NVAs at this point. Basically, incoming traffic fro the on-premises netowork to Azure will go through the NVAs, but response traffic, and traffic originating from Azure to the on-premises network will bypass the NVAs.
 
-	Additionally, each of the application subnets uses UDRs for redirecting Internet requests made by VMs running in that subnet. In this example, the UDRs for the web, business, and data access tiers redirect requests back through the on-premises network for auditing. If the request is permitted, it can be forwarded to the Internet. Note that any return traffic will go directly to the originator in the web, business, or data access tiers and won't pass through on-premises network, gateway, or NVAs.
-
-	> [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network. However, such configurations do not support IPSec and are not encrypted, so you should not use this mechanism across the public Internet; BGP is more commonly used with [Azure ExpressRoute gateways][guidance-expressroute].
-	>
-	> This article focusses on using UDRs.
+	> [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network.
 
 - **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet. The optional monitoring VM captures log and performance data from the virtual hardware in the cloud. The jump box enables authorized DevOps staff to log in, configure, and manage the network. Note that the jump box and monitoring functions can be combined into a single VM, depending on the monitoring workload.
 
@@ -96,6 +92,8 @@ The figure below shows the progression of resources as different resource groups
 [![1]][1]
 
 > [AZURE.NOTE] For more information, see [Best practices for designing Azure Resource Manager templates][arm-template-best-practices].
+
+If you are familiar with resource groups, you can use [this diagram][6] to understand how different nested templates were used, and see the code behind each template.
 
 ### RBAC recommendations
 
@@ -182,7 +180,7 @@ azure network nsg rule create --protocol * --source-address-prefix 192.168.0.0/1
 azure network nsg rule create --protocol * --source-address-prefix * --source-port-range * --destination-port-range * --access Deny --priority 120 --direction Inbound <<resource-group>> nva-nsg deny-other-traffic
 ```
 
-Create NSGs for each application tier subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled. For example, the web tier subnet shown in the [Architecture diagram][architecture] diagram defines an NSG with rules that block all requests other than those for port 80 that have been received from the on-premises network (192.168.0.0/16) or the VNet:
+Create NSGs for each application tier subnet with rules to permit or deny access to network traffic, according to the security requirements of the application. NSGs can also provide a second level of protection against inbound traffic bypassing the NVA if the NVA is misconfigured or disabled. For example, the web tier subnet shown in the [Architecture diagram][architecture] defines an NSG with rules that block all requests other than those for port 80 that have been received from the on-premises network (192.168.0.0/16) or the VNet:
 
 ```cli
 azure network nsg create <<resource-group>> myapp-web-nsg <<location>>
@@ -205,7 +203,7 @@ azure network nsg rule create --protocol * --source-address-prefix * --source-po
 
 Control outbound traffic from the web, business, and data access tiers to prevent accidental disclosure of confidential information. In the example architecture, the web, business, and data access tiers are permitted access to the Internet, but all such traffic is force-tunneled through the on-premises network (as described in the [Recommendations][recommendations] section) so that it can be audited and controlled.
 
-> [AZURE.NOTE] Don't completely block Internet traffic from the web, business and application tiers as this will prevent these tiers from recording Azure diagnostic information. Azure diagnostics requires that components can read and write to an Azure storage account, which in turn requires access to the Internet.
+> [AZURE.NOTE] Don't completely block Internet traffic from the web, business and application tiers as this will prevent these tiers from using Azure PaaS services that rely on public IP addresses, such as VM diagnostics logging, download of VM extensions, and use of Windows KMS, among others. Azure diagnostics requires that components can read and write to an Azure storage account, which in turn requires access to the Internet.
 
 The following snippet illustrates how you can create a UDR that provides forced tunneling for the business tier:
 
@@ -234,7 +232,7 @@ The sample deployment script below does not enable forced tunneling. To enable f
 
 Verify that the traffic is tunneled correctly. If you're using a VPN connection with the Routing and Remote Access Service on an on-premises server, use a tool such as [WireShark][wireshark] on this server to verify that Internet traffic from the VNet is being forwarded through this server.
 
-Configure the on-premises network security appliance to direct force-tunneled traffic to the Internet. This process will vary according to the device used to implement the appliance. But basically, it requires you to setup NAT (Natural Address Translation) on your on-premises network.
+Configure the on-premises network security appliance to direct force-tunneled traffic to the Internet. This process will vary according to the device used to implement the appliance. But basically, it requires you to setup NAT (Network Address Translation) on your on-premises network.
 
 > [AZURE.NOTE] For detailed information and examples on implementing forced tunneling, see [Configure forced tunneling using PowerShell and Azure Resource Manager][azure-forced-tunneling].
 
@@ -326,8 +324,8 @@ The [ibb-nvas-mgmt.json][ibb-nvas-mgmt] template performs two tasks to implement
 
 	```bash
     #!/bin/bash
-    sudo bash -c "echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf"
-    sudo sysctl -p /etc/sysctl.conf
+    bash -c "echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf"
+    sysctl -p /etc/sysctl.conf
 	```
 
 It is important that both of these tasks complete successfully, otherwise traffic could be blocked by the NVA.
@@ -853,3 +851,4 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 [3]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure4.png "Subnets in the VNet"
 [4]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure5.png "The myapp-web-tier-rg resource group"
 [5]: ./media/guidance-iaas-ra-secure-vnet-hybrid/figure6.png "The myapp-mgmt-subnet-rg resource group"
+[6]: http://mspnp.github.io/Blueprint%20Forced%20Tunnelling.svg
