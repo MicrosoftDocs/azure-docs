@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="03/24/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
 # Technical Guide to the Cortana Intelligence Solution Template for Demand Forecast in Energy
