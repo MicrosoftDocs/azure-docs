@@ -19,11 +19,11 @@
 
 # Scale resource levels for query and indexing workloads in Azure Search
 
-In Azure Search, you can incrementally adjust capacity of specific computational resources by increasing partitions if you need more storage and IO, or replicas for improved query and indexing performance.
+In Azure Search, you can incrementally adjust computational resources by increasing partitions if you need more storage and IO, or replicas for higher query loads or better performance.
 
 Scalability becomes available when you provision a service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md).  
 
-For all billable tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. Staying below the maximum limits uses fewer SUs, with a proportionally lower bill. Billing is in effect as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreate it later when you need it.
+For all billable tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU apiece. Staying below the maximum limits uses fewer SUs, with a proportionally lower bill. Billing is in effect for as long as the service is provisioned. If you are temporarily not using a service, the only way to avoid billing is by deleting the service, and then recreating it later when you need it.
 
 - Basic provides up to 3 replicas per service.
 - Standard (S1 through S3) provides up to 36 SU per service that can be leveraged in multiple combinations of replicas and partitions.
@@ -31,7 +31,7 @@ For all billable tiers, capacity is purchased in increments of *search units* (S
 
 Be sure to choose a combination of partitions and replicas that stays below the tier limit. If you use the portal to scale up, the portal will enforce limits on allowable combinations.
 
-A single service must handle all workloads (indexing and queries). You can't provision multiple services for specific workloads. An index that's created on a service can only be queried on that service.
+A single service must handle all workloads (indexing and queries). You can't provision multiple services for dedicated workloads. An index that's created on a service can only be queried via that service.
 
 As a general rule, search applications need more replicas than partitions. The next section, [high availability](#HA), explains why.
 
@@ -40,12 +40,14 @@ As a general rule, search applications need more replicas than partitions. The n
 
 Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. For many deployments,  one partition provides sufficient storage and IO (at 15 million documents per partition).
 
-Query workloadsexecute primarily on replicas. You could require additional replicas if you need more throughput or high availability.
+Query workloads execute primarily on replicas. You could require additional replicas if you need more throughput or high availability.
 
 General recommendations for high availability are:
 
 - 2 replicas for high availability of read-only workloads (queries)
 - 3 or more replicas for high availability of read-write workloads (queries and indexing)
+
+> [AZURE.NOTE] 
 
 ## Disaster recovery
 
