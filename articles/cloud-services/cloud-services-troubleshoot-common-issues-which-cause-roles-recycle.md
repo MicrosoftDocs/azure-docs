@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/02/2016"
+   ms.date="06/03/2016"
    ms.author="v-six" />
 
 # Common issues that cause roles to recycle
@@ -67,7 +67,7 @@ To run a web role under SSL, you must ensure that your exported management certi
 
 ## Next steps
 
-View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
+View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
 
 View more role recycling scenarios at [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
