@@ -150,7 +150,7 @@ If forwarding queries to Azure doesn't suit your needs, you will need to provide
 -  Be accessible (TCP and UDP on port 53) from the clients it serves and be able to access the internet.
 -  Be secured against access from the internet, to mitigate threats posed by external agents.
 
-> [AZURE.NOTE] For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](virtual-networks-instance-level-public-ip.mp) should be assigned to each DNS server VM.  If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
+> [AZURE.NOTE] For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](virtual-networks-instance-level-public-ip.md) should be assigned to each DNS server VM.  If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
 
 
 ### Specifying DNS servers
