@@ -105,8 +105,9 @@ The resource is unavailable due to a customer request such as stopping a resourc
 The service has not received information about this resource for more than 5 minutes. This is indicated by a grey question mark icon. 
 
 It is important to note that this is not a definitive indication that there is something wrong with a resource, so customers should follow these recommendations:
--If the resource is running as expected but its health is set to Unknown in Resource health, there are no problems and you can expect the status of the resource to update to healthy after a few minutes.
--If there are problems accessing the resource and its health is set to Unknown in Resource health, this could be an early indication there could be an issue and additional investigations should be done until the health is updated to either healthy or unhealthy
+
+- If the resource is running as expected but its health is set to Unknown in Resource health, there are no problems and you can expect the status of the resource to update to healthy after a few minutes.
+- If there are problems accessing the resource and its health is set to Unknown in Resource health, this could be an early indication there could be an issue and additional investigations should be done until the health is updated to either healthy or unhealthy
 
 ![Resource health is unknown](./media/resource-health-overview/unknown.png)
 
