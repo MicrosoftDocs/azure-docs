@@ -133,7 +133,7 @@ All Traffic Manager profiles use “global” as their location.  Since this is 
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, and the overall profile, is displayed in the Azure management portal.  This information is also available via the Traffic Manager [REST API](https://msdn.microsoft.com/en-us/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/mt125941.aspx), and [cross-platform Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/).
+The current monitoring status of each endpoint, and the overall profile, is displayed in the Azure management portal.  This information is also available via the Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../xplat-cli-install.md).
 
 At present, it is not possible to view historical information about past endpoint health, nor is it possible to configure alerts on changes to endpoint health.
 
@@ -148,7 +148,7 @@ Note that:
 
 ### What ‘Host’ header is used for endpoint health checks?
 
-The ‘host’ header used in HTTP/S health checks is the DNS name associated with each endpoint. This is exposed as the endpoint ‘target’ in the Azure Portal, [PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/mt125941.aspx), [cross-platform Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/), and [REST API](https://msdn.microsoft.com/en-us/library/azure/mt163667.aspx).
+The ‘host’ header used in HTTP/S health checks is the DNS name associated with each endpoint. This is exposed as the endpoint ‘target’ in the Azure Portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), [cross-platform Azure CLI](../xplat-cli-install.md), and [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx).
 
 This value is part of the endpoint configuration.  The value used in the Host header cannot be specified separately from the ‘target’ property.
 
