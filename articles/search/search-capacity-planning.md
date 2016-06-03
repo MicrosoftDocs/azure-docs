@@ -47,8 +47,6 @@ General recommendations for high availability are:
 - 2 replicas for high availability of read-only workloads (queries)
 - 3 or more replicas for high availability of read-write workloads (queries and indexing)
 
-> [AZURE.NOTE] 
-
 ## Disaster recovery
 
 Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. The most common approach is to add redundancy at the service level by provisioning a second search service in another region.

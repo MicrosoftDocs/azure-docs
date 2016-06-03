@@ -37,16 +37,16 @@ All tiers can be [provisioned in the portal](search-create-service-portal.md).
 
 ## Data limits ##
 
-Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview)
----|---|---|---|----
-Index: maximum fields per index|1000|100 <sup>1</sup>|1000|1000|1000|1000
-Index: maximum scoring profiles per index|16|16|16|16|16|16
-Index: maximum functions per profile|8|8|8|8|8|8
-Individual document size per Index API<sup>2</sup> in MB|<16|<16|<16|<16|<16|<16
-Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|N/A <sup>3</sup>
-Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours|24 hours|N/A
-Blob indexer: maximum blob size, MB|16|16|128|256|256|N/A
-Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|4 million|4 million|4 million|N/A <sup>3</sup>
+Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
+---|---|---|---|---- |---|----
+Index: maximum fields per index|1000|100 <sup>1</sup>|1000|1000|1000|1000 
+Index: maximum scoring profiles per index|16|16|16|16|16|16 
+Index: maximum functions per profile|8|8|8|8|8|8 
+Individual document size per Index API<sup>2</sup> in MB|<16|<16|<16|<16|<16|<16 
+Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|N/A <sup>3</sup> 
+Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours|24 hours|N/A 
+Blob indexer: maximum blob size, MB|16|16|128|256|256|N/A 
+Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|4 million|4 million|4 million|N/A <sup>3</sup> 
 
 <sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
 
@@ -59,7 +59,7 @@ To keep document size down, remember to exclude non-queryable data from the requ
 ## Workload limits (Queries per second) ##
 
 Resource|Free|Basic|S1|S2|S3 (Preview)|S3 HD (Preview)
----|---|---|---|----
+---|---|---|---|----|---|----
 QPS|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
 
 Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
