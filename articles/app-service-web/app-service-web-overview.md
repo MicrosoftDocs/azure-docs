@@ -20,7 +20,7 @@
 
 *App Service Web Apps* is a fully managed compute platform that is optimized for hosting websites and web applications. This [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure lets you focus on your business logic while Azure takes care of the infrastructure to run and scale your apps.
 
-For a 5-minute video overview, see [Azure App Service Web Apps with Yochay Kiriaty](https://azure.microsoft.com/documentation/videos/azure-app-service-web-apps-with-yochay-kiriaty/).
+[AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
 
 ## What is a web app in App Service?
 
