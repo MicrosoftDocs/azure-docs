@@ -77,7 +77,7 @@ The recovery time objective (RTO) is the maximum amount of time allocated for re
 The recovery point objective (RPO) is the acceptable time window of lost data due to the recovery process. For example, if the RPO is one hour, you must completely back up or replicate the data at least every hour. Once you bring up the application in an alternate region, the backup data may be missing up to an hour of data. Like RTO, critical applications target a much smaller RPO.
 
 ##Checklist
-Let’s summarize the key points that have been covered in this article (and it's realted articles on [high availability](./resiliency-high-availability-azure-applications.md) and [disaster recovery](./resiliency-disaster-recovery-azure-applications.md) for azure applications. This summary will act as a checklist of items you should consider for your own availability and disaster recovery planning. These are best practices that have been useful for customers seeking to get serious about implementing a successful solution. This type of solution truly works, recovering in a timely and successful manner when system failure hits.
+Let’s summarize the key points that have been covered in this article (and its related articles on [high availability](resiliency-high-availability-azure-applications.md) and [disaster recovery](resiliency-disaster-recovery-azure-applications.md) for azure applications. This summary will act as a checklist of items you should consider for your own availability and disaster recovery planning. These are best practices that have been useful for customers seeking to get serious about implementing a successful solution. This type of solution truly works, recovering in a timely and successful manner when system failure hits.
 
 1. Conduct a risk assessment for each application because each can have different requirements. Some applications are more critical than others and would justify the extra cost to architect them for disaster recovery.
 1. Use this information to define the RTO and RPO for each application.
@@ -100,11 +100,11 @@ Azure detects and handles many failures, but there are many types of failures th
 When creating your application’s availability and disaster recovery plan, consider the business consequences of the application’s failure. Defining the processes, policies, and procedures to restore critical systems after a catastrophic event takes time, planning, and commitment. And once you establish the plans, you cannot stop there. You must regularly analyze, test, and continually improve the plans based on your application portfolio, business needs, and the technologies available to you. Azure provides both new capabilities and new challenges to creating robust applications that withstand failures.
 
 ##Additional resources
-[High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md)
+[High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md)
 
-[Disaster recovery for applications built on Microsoft Azure](./resiliency-disaster-recovery-azure-applications.md)
+[Disaster recovery for applications built on Microsoft Azure](resiliency-disaster-recovery-azure-applications.md)
 
-[Azure resiliency technical guidance](./resiliency-technical-guidance.md)
+[Azure resiliency technical guidance](resiliency-technical-guidance.md)
 
 [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md)
 
@@ -115,4 +115,4 @@ When creating your application’s availability and disaster recovery plan, cons
 [Best Practices for the design of large-scale services on Azure Cloud Services](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)
 
 ##Next steps
-This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Microsoft Azure](./resiliency-high-availability-azure-applications.md).
+This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Microsoft Azure](resiliency-high-availability-azure-applications.md).
