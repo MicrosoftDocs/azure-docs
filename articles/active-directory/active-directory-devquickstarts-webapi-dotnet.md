@@ -125,9 +125,8 @@ Before you can see the Todo List Service in action, you need to configure the To
 - Create a new application in your Azure AD tenant, and select **Native Client Application** in the resulting prompt.
     -	The **Name** of the application will describe your application to end-users
     -	Enter `http://TodoListClient/` for the **Redirect Uri** value.
-- Once you’ve completed registration, AAD will assign your app a unique **App Id**. You’ll need this value in the next steps, so copy it from the Configure tab.
--	Once you’ve completed registration, navigate to **Configure** tab and locate the **App ID URI** field.  Enter a tenant-specific identifier for this value, e.g. `https://contoso.onmicrosoft.com/TodoListService`
-- Also in **Configure** tab, locate the "Permissions to Other Applications" section. Click "Add Application." Select "Other" in the "Show" dropdown, and click the upper check mark. Locate & click on your To Do List Service, and click the bottom check mark to add the application. Select "Access To Do List Service" from the "Delegated Permissions" dropdown, and save the configuration.
+- Once you’ve completed registration, AAD will assign your app a unique **Client Id**. You’ll need this value in the next steps, so copy it from the Configure tab.
+- Also in **Configure** tab, locate the "Permissions to Other Applications" section. Click "Add Application." Select "All Apps" in the "Show" dropdown, and click the upper check mark. Locate & click on your To Do List Service, and click the bottom check mark to add the application. Select "Access To Do List Service" from the "Delegated Permissions" dropdown, and save the configuration.
 
 
 - In Visual Studio, open `App.config` in the TodoListClient project and enter your configuration values in the `<appSettings>` section.

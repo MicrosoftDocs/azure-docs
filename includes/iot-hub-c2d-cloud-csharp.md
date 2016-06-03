@@ -6,11 +6,11 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
 
    	![New project in Visual Studio][20]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**.
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**. 
 
 	This opens the **Manage NuGet Packages** window.
 
-3. Search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use.
+3. Search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use. 
 
 	This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package].
 
@@ -55,7 +55,7 @@ It is possible to request delivery (or expiration) acknowledgements from IoT Hub
 In this section, you will modify the **SendCloudToDevice** app to request feedback, and receive it from IoT Hub.
 
 1. In Visual Studio, in the **SendCloudToDevice** project, add the following method to the **Program** class.
-
+   
         private async static void ReceiveFeedbackAsync()
         {
             var feedbackReceiver = serviceClient.GetFeedbackReceiver();
