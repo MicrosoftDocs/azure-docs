@@ -16,7 +16,7 @@
    ms.date="05/23/2016"
    ms.author="jehollan"/>
 
-# Logic app scenario: Creating a Microsoft Azure Service Bus trigger by using Azure Functions
+# Logic app scenario: Creating an Azure Service Bus trigger by using Azure Functions
 
 You can use Azure Functions to create a trigger for a logic app when you need to deploy a long-running listener or task. For example, you can create a function that will listen in on a queue and then immediately fire a logic app as a push trigger.
 
@@ -25,8 +25,8 @@ You can use Azure Functions to create a trigger for a logic app when you need to
 In this example, you have a function running for each logic app that needs to be triggered. First, create a logic app that has an HTTP request trigger. The function calls that endpoint whenever a queue message is received.  
 
 1. Create a new logic app; select the **Manual - When an HTTP Request is Received** trigger.  
-    * Optionally, you can specify a JSON schema to use with the queue message by using a tool like [jsonschema.net](http://jsonschema.net); paste the schema in the trigger. This helps the designer understand the shape of the data, and more easily flow properties through the workflow.
-1. Add any additional steps that you want to occur after a queue message is received. For example, you could send an email via Office 365.  
+   Optionally, you can specify a JSON schema to use with the queue message by using a tool like [jsonschema.net](http://jsonschema.net). Paste the schema in the trigger. This helps the designer understand the shape of the data and more easily flow properties through the workflow.
+1. Add any additional steps that you want to occur after a queue message is received. For example, send an email via Office 365.  
 1. Save the logic app to generate the callback URL for the trigger to this logic app. The URL appears on the trigger card.
 
 ![The callback URL appears on the trigger card][1]
@@ -40,7 +40,7 @@ Next, you need to create a function that will act as the trigger and listen to t
     ![Azure Functions portal][2]
 
 2. Configure the connection to the Service Bus queue (which will use the Azure Service Bus SDK `OnMessageReceive()` listener).
-3. Write a simple function to call the logic app endpoint (created earlier) by using the queue message as a trigger. Here's a full example of a function. (The example uses an `application/json` message content type, but you could change this if needed.)
+3. Write a simple function to call the logic app endpoint (created earlier) by using the queue message as a trigger. Here's a full example of a function. The example uses an `application/json` message content type, but you can change this if needed.
 
    ```
    using System;
