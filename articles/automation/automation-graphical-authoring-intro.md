@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="06/02/2016"
+    ms.date="06/03/2016"
     ms.author="magoedte;bwren" />
 
 # Graphical authoring in Azure Automation
@@ -283,13 +283,13 @@ Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, it is no
 
 ## Authenticating to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources will require authentication to Azure.  The new [Run As account](automation-sec-configure-azure-runas-account.md) feature (also referred to as a service principal) is the default method to access Azure Resource Manager (ARM) resources in your subscription with Automation runbooks.  You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet to the canvas. This is illustrated in the following example.<br>![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Runbooks in Azure Automation that manage Azure resources will require authentication to Azure.  The new [Run As account](automation-sec-configure-azure-runas-account.md) feature (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks.  You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet to the canvas. This is illustrated in the following example.<br>![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 The Get Run As Connection activity (i.e. Get-AutomationConnection), is configured with a constant value data source named AzureRunAsConnection.<br>![Run As Connection Configuration](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 The next activity, Add-AzureRmAccount, adds the authenticated Run As account for use in the runbook.<br>
 ![Add-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 For the parameters **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID** you will need to specify the name of the property for the Field path because the activity outputs an object with multiple properties.  Otherwise when you execute the runbook, it will fail attempting to authenticate.  This is what you need at a minimum to authenticate your runbook with the Run As account.
 
-To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](automation-sec-configure-aduser-account.md) to manage Azure Service Management (ASM) or ARM resources, the method to authenticate is the Add-AzureAccount cmdlet with a [credential asset](http://msdn.microsoft.com/library/dn940015.aspx) that represents an Active Directory user with access to the Azure account.
+To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](automation-sec-configure-aduser-account.md) to manage Azure Service Management (ASM) or Azure Resource Manager resources, the method to authenticate is the Add-AzureAccount cmdlet with a [credential asset](http://msdn.microsoft.com/library/dn940015.aspx) that represents an Active Directory user with access to the Azure account.
 
 You can add this functionality to a graphical runbook by adding a credential asset to the canvas followed by an Add-AzureAccount activity.  Add-AzureAccount uses the credential activity for its input.  This is illustrated in the following example.
 
