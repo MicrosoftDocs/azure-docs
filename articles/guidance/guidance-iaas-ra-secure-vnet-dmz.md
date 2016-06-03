@@ -3,8 +3,8 @@
    description="How to implement a secure hybrid network architecture with Internet access in Azure."
    services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
-   manager="masashin"
+   authors="JohnPWSharp"
+   manager="telmosampaio"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/23/2016"
-   ms.author="telmos"/>
+   ms.date="06/03/2016"
+   ms.author="v-josha"/>
 
 # Implementing a secure hybrid network architecture with Internet access in Azure
 
@@ -167,9 +167,9 @@ The next snippet shows how the template creates the public IP address for the lo
 
 ### Configuring routing in the NVAs for the public DMZ ###
 
-The NVAs in the public DMZ are Linux (Ubuntu) VMs. The template runs the following shell script when it has created each VM:
+The NVAs in the public DMZ are Linux (Ubuntu) VMs. The template runs the following bash script when it has created each VM:
 
-```
+``` bash
 #!/bin/bash
 sudo bash -c "echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf"
 sudo sysctl -p /etc/sysctl.conf
@@ -205,6 +205,82 @@ The solution assumes the following prerequisites:
 - If you're deploying the solution from Windows, you must install a tool that provides a bash shell, such as [git for Windows][git-for-windows].
 
 To run the script that deploys the solution:
+
+1. Download the [azuredeploy.sh][azuredeploy-script] script to your local computer.
+
+2. Open the azuredeploy.sh script using an editor of your choice, and locate the *## Command Arguments* section:
+
+	``` bash
+	############################################################################ 
+	## Command Arguments 
+	############################################################################ 
+	
+	
+	URI_BASE=https://raw.githubusercontent.com/mspnp/blueprints/master/ARMBuildingBlocks 
+	
+	
+	# Default parameter values 
+	BASE_NAME= 
+	SUBSCRIPTION= 
+	LOCATION=westus 
+	OS_TYPE=Windows 
+	ADMIN_USER_NAME=adminUser 
+	ADMIN_PASSWORD=adminP@ssw0rd 
+	...
+	``` 
+
+3. 	Set the BASE_NAME variable to the name of the 3-tier application infrastructure to be created. The script creates separate subnets for the Web tier, business tier, and data tier. Each tier consists of two VMs accessed through a load balancer.
+
+4.	Set the SUBSCRIPTION variable to the subscription ID of the Azure account to use. By default, the script creates nine VMs that consume 36 CPU cores although you can customize the installation to use smaller VMs. Make sure that you have sufficient quota available before continuing.
+
+5.	Save the script and close the editor.
+
+6. Open a bash shell and move to the folder containing the azuredeploy.sh script.
+
+7. Log in to your Azure account. In the bash shell enter the following command:
+
+	```cli
+    azure login
+	```
+
+	Follow the instructions to connect to Azure.
+
+8. Run the following command to set your current subscription to the value specified in step 4 above. Replace *nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn* with the subscription ID:
+
+	```cli
+	azure account set nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn
+	```
+
+9. Run the command `./azuredeploy.sh`. You must supply the following information as command line parameters:
+
+10. Verify that the script completes successfully. You can simply re-run the script if an error occurs.
+
+
+***START HERE - NEED TO RUN SCRIPT BEFORE CONTINUING***
+
+11. Browse to the Azure portal and verify that the following resource groups have been created:
+
+	- ***myapp*-netwk-rg.** This resource group contains the network elements of the solution: the VNet that holds the subnets for the NVA, the application tiers, and the management subnet; the NSG definitions; the UDRs for forced tunneling for each application tier; the local gateway; the VPN gateway; the gateway public IP address; and the gateway connection, as shown below (*click to zoom in*):
+
+		[![2]][2]
+
+		The following image shows the subnets created in the VNet (*click to zoom in*):
+
+		[![3]][3]
+
+	- ***myapp*-web-tier-rg.** This resource group contains the VMs for the Web tier grouped into an availability set (the script creates two VMs for each tier by default), storage for each VM, the network interfaces, and the load balancer for this tier (*click to zoom in*):
+
+		[![4]][4]
+
+	- ***myapp*-biz-tier-rg.**. This resource group holds the VMs and resources for the business tier. The structure is the same as that of the web tier.
+
+	- ***myapp*-db-tier-rg.** This resource group holds the VMs and resources for the data access tier. The structure is the same as that of the web and business tiers.
+
+	- ***myapp*-mgmt-subnet-rg.** This resource group contains the resources used by the NVA and the management subnets. The script creates two VMs (with storage) and a load balancer for the NVA, and a separate VM (with storage) for the jump box. Each NVA VM has three network interfaces (NICs). The NICs for each NVA VM are configured to permit IP forwarding. No additional software is installed on any of these VMs. This resource group also contains the UDR for the gateway subnet (*click to zoom in*):
+
+	[![5]][5]
+
+8. Configure the VPN appliance on the on-premises network to connect to the Azure VPN gateway. For more information, seer the article [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway].
 
 **TBD**
 
