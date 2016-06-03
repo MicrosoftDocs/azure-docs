@@ -31,7 +31,7 @@ Before you begin, first evaluate what you gain by using SQL Server on Azure VMs.
 
 If you're moving other workloads to Azure, such as a enterprise application, it makes sense to also move any dependent SQL Server databases to Azure for improved performance. But hosting SQL Server in Azure VMs provides other benefits. For example, you automatically have access to multiple data centers for a global presence and disaster recovery. For a complete list of scenarios and benefits, see the [SQL Server on Azure VMs product page](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
-> [AZURE.NOTE] When you're evaluating SQL Server on Azure VMs, also review the other storage and SQL options on Azure, such as [SQL Database](../sql-database/sql-database-technical-overview.md), [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md), and [SQL Server Stretch Databsae](../sql-server-stretch-database/sql-server-stretch-database-overview.md). For one detailed comparison, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+> [AZURE.NOTE] When you're evaluating SQL Server on Azure VMs, also review the other storage and SQL options on Azure, such as [SQL Database](../sql-database/sql-database-technical-overview.md), [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md), and [SQL Server Stretch Databsae](../sql 	-server-stretch-database/sql-server-stretch-database-overview.md). For one detailed comparison, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
 After you decide to run SQL Server on Azure VMs, one of your first decisions is whether to use a VM image that includes the SQL Server licensing costs. Your other option is to bring your own license (BYOL) and only pay for the VM itself. The next two section describe these options.
 
@@ -64,7 +64,7 @@ The guidance in the [provisioning tutorial](virtual-machines-windows-portal-sql-
 |**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1StandardWindowsServer2012R2)|
 |**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2)|
 
-## Manage your SQL Server VM
+## Manage your SQL VM
 After provisioning your SQL Server VM, there are several optional management tasks. In some aspects, you configure and manage SQL Server exactly like you would on-premises. But some tasks are specific to Azure. The following sections highlight some of these areas with links to more information.
 
 ### Migrate your data
