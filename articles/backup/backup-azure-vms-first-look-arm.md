@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Protect ARM VMs with Azure Backup | Microsoft Azure"
-	description="Protect ARM VMs with Azure Backup service. Use backups of ARM VMs and Premium Storage VMs to protect your data. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
+	pageTitle="Protect Resource Manager-deployed VMs with Azure Backup | Microsoft Azure"
+	description="Protect Resource Manager-deployed VMs with Azure Backup service. Use backups of Resource Manager-deployed VMs and Premium Storage VMs to protect your data. Create and register a Recovery Services vault. Register VMs, create policy, and protect VMs in Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keyword="backups; vm backup"/>
 
@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/31/2016"
+	ms.date="06/03/2016"
 	ms.author="markgal; jimpark"/>
 
 
-# First look: Back up ARM VMs to a Recovery Services vault
+# First look: Back up Resource Manager-deployed VMs to a Recovery Services vault
 
 > [AZURE.SELECTOR]
-- [Back up ARM VMs](backup-azure-vms-first-look-arm.md)
+- [Back up Resource Manager-deployed VMs](backup-azure-vms-first-look-arm.md)
 - [Back up Classic mode VMs](backup-azure-vms-first-look.md)
 
 This tutorial takes you through the steps for creating a Recovery Services vault and backing up an Azure virtual machine (VM). Recovery Services vaults protect:
 
-- Azure Resource Manager (ARM) VMs
+- Azure Resource Manager-deployed VMs
 - Classic VMs
 - Standard storage VMs
 - Premium storage VMs
 
 For additional information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
->[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM. Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and ARM-based VMs.
+>[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM. Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). This article is for use with Resource Manager and Resource Manager-deployed VMs.
 
 At a high level, here are the steps that you will complete.  
 

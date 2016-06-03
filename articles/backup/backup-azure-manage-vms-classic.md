@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="06/03/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Manage and monitor Azure virtual machine backups
@@ -22,6 +22,10 @@
 > [AZURE.SELECTOR]
 - [Manage Azure VM backups](backup-azure-manage-vms.md)
 - [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
+
+This article provides jnformation about common management and monitoring tasks for Classic-model virtual machines protected in Azure.  
+
+>[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 
 ## Manage protected virtual machines
 
