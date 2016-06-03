@@ -35,8 +35,8 @@ For the services available through Resource health, there are 2 ways to access R
 ### Azure Portal
 The Resource health blade in the Azure Portal, provides detailed information about the health of the resource as well as recommended actions that vary depending on the current health of the resource. This blade provides the best experience when querying Resource health, as it facilitates access to other resources inside the portal. 
 As mentioned before, the set of recommended actions in the Resource health blade will vary based on the current health:
-*Healthy resources: Since no issue that could impact the health of the resource has been detected, the actions are focused on helping the troubleshooting process. For example, it provides direct access to the Troubleshooting blade, which offers guidance on how to solve the most common problems customers face._
-*Unhealthy resource: For problems caused by Azure, the blade will display actions Microsoft is taking (or has taken) to recover the resource. For problems caused by user initiated actions, the blade will a list of actions customers can take so address the problem and recover the resource._  
+-Healthy resources: Since no issue that could impact the health of the resource has been detected, the actions are focused on helping the troubleshooting process. For example, it provides direct access to the Troubleshooting blade, which offers guidance on how to solve the most common problems customers face._
+-Unhealthy resource: For problems caused by Azure, the blade will display actions Microsoft is taking (or has taken) to recover the resource. For problems caused by user initiated actions, the blade will a list of actions customers can take so address the problem and recover the resource._  
 
 Once you have logged into the Azure Portal, there are two ways to access the Resource health blade: 
 
@@ -105,8 +105,8 @@ The resource is unavailable due to a customer request such as stopping a resourc
 The service has not received information about this resource for more than 5 minutes. This is indicated by a grey question mark icon. 
 
 It is important to note that this is not a definitive indication that there is something wrong with a resource, so customers should follow these recommendations:
-  • If the resource is running as expected but its health is set to Unknown in Resource health, there are no problems and you can expect the status of the resource to update to healthy after a few minutes.
-  • If there are problems accessing the resource and its health is set to Unknown in Resource health, this could be an early indication there could be an issue and additional investigations should be done until the health is updated to either healthy or unhealthy
+-If the resource is running as expected but its health is set to Unknown in Resource health, there are no problems and you can expect the status of the resource to update to healthy after a few minutes.
+-If there are problems accessing the resource and its health is set to Unknown in Resource health, this could be an early indication there could be an issue and additional investigations should be done until the health is updated to either healthy or unhealthy
 
 ![Resource health is unknown](./media/resource-health-overview/unknown.png)
 
