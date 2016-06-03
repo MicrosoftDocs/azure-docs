@@ -19,8 +19,10 @@
 # Connect and query with SQLCMD
 
 > [AZURE.SELECTOR]
-- [Visual Studio][]
-- [SQLCMD][]
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+
 
 This walkthrough shows you how to connect and query an Azure SQL Data Warehouse database in just a few minutes by using the sqlcmd.exe utility. In this walkthrough, you will:
 
@@ -80,7 +82,7 @@ Now that you can connect and query, try [connecting with PowerBI][].
 To configure your environment for Windows authentication, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication][].
 
 <!--Articles-->
-[Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication]: ../sql-database/sql-database-aad-authentication.md
+[Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
 [connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
 [Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md

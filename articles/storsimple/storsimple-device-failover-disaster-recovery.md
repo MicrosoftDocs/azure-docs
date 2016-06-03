@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="05/31/2016"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -21,7 +21,7 @@
 
 This tutorial describes the steps required to fail over a StorSimple device in the event of a disaster. A failover will allow you to migrate your data from a source device in the datacenter to another physical or even a virtual device located in the same or a different geographical location. 
 
-Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the Devices page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
+Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
 
 ![Devices page](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
@@ -89,6 +89,7 @@ Perform the following steps to restore your device to a target physical device.
 1. In the wizard that opens up, under **Choose volume container to failover**:
 
 	1. In the list of volume containers, select the volume containers you would like to fail over.
+	
 
 		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
