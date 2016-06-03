@@ -16,7 +16,7 @@
 	ms.date="05/15/2016"
 	ms.author="glenga"/>
 
-# Add push notifications to your Windows Runtime 8.1 universal app
+# Add push notifications to your Windows app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
