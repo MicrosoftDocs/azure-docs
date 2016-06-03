@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/02/2016" 
+	ms.date="06/03/2016" 
 	ms.author="cephalin"/>
 
 # Create, configure, and deploy a PHP web app to Azure
@@ -81,7 +81,7 @@ properly on your machine.
     
     ![Test your PHP (Laravel) app locally before deploying it to Azure](./media/app-service-web-php-get-started/laravel-splash-screen.png)
     
-So far, just the regular Laravel workflow, and you're not here to [learn Laravel](https://laravel.com/docs/5.2). So let's move on.
+So far, just the regular Laravel workflow, and you're not here to <a href="https://laravel.com/docs/5.2" rel="nofollow">learn Laravel</a>. So let's move on.
 
 ## Create an Azure web app and set up Git deployment
 
@@ -174,7 +174,7 @@ the [portal](https://portal.azure.com) with your Azure account.
     ![Enable Composer for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/configure-composer-tools.png)
     
     >[AZURE.TIP] If you click **Settings** instead of **Tools**, you'll be able to access the **Application Settings** 
-    blade, which lets you set PHP versions, default documents, and app settings like you just did. 
+    blade, which lets you set PHP versions, app settings, and virtual directories like you just did. 
     
 4. Click **Extensions** > **Add** to add an extension.
 
@@ -257,8 +257,8 @@ Management) mode by running `azure config mode asm`.
 You have deployed your web app to Azure successfully, but when you browse to your Azure web app, you get an `HTTP 403` or 
 `You do not have permission to view this directory or page.`
 
-This is most likely because the web app can't find the entry point to the Laravel app. Make sure that you have run 
-`azure site defaultdocument add public/index.php` successfully from the command line terminal (see 
+This is most likely because the web app can't find the entry point to the Laravel app. Make sure that you have changed the
+root virtual directory to point to `site\wwwroot\public`, where Laravel's `index.php` is (see 
 [Configure the Azure web app](#configure)).
 
 <a name="whoops"></a>

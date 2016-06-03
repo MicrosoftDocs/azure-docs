@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="06/03/2016"
 	ms.author="robmcm"/>
 
 #Configure PHP in Azure App Service Web Apps
@@ -166,6 +166,8 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 By default, App Service doesn't do anything with composer.json, if you have one in your PHP
 project. If you use [Git deployment](app-service-web-php-get-started.md), you can enable composer.json 
 processing during `git push` by enabling the Composer extension.
+
+>[AZURE.NOTE] You can [vote for first-class Composer support in App Service here](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)!
 
 1. In your PHP web app's blade in the [Azure portal](https://portal.azure.com), click **Tools** > **Extensions**.
 

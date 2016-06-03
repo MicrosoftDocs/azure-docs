@@ -2,7 +2,7 @@
 	pageTitle="Create and connect to a MySQL database in Azure"
 	description="Learn how to use the Azure portal to create a MySQL database and then connect to it from a PHP web app in Azure."
 	documentationCenter="php"
-	services=""
+	services="app-service\web"
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="06/03/2016"
 	ms.author="robmcm;cephalin"/>
 
 # Create and connect to a MySQL database in Azure
 
-This guide will show you how to create a MySQL database in the [Azure portal](https://portal.azure.com) (provider is [ClearDB]) and how to connect to it from a PHP web app running in 
-[Azure App Service](./app-service/app-service-value-prop-what-is.md). [ClearDB].  
+This guide will show you how to create a MySQL database in the [Azure portal](https://portal.azure.com) (provider is [ClearDB](http://www.cleardb.com/)) and how to connect to it from a PHP web app running in 
+[Azure App Service](./app-service/app-service-value-prop-what-is.md). 
 
 > [AZURE.NOTE] You can also create a MySQL database as part of a [Marketplace app template](./app-service-web/app-service-web-create-web-app-from-marketplace.md).
 
@@ -129,8 +129,6 @@ In the command-line terminal, run the following commands from your Laravel app's
 
 	Find out how this works in [Configure the Azure web app](./app-service-web/app-service-web-php-get-started.md#configure).
 
-	>[AZURE.NOTE] You may need to run `azure login` again to log in to your Azure account.
-
 6. Next, commit and push to Azure the local changes made earlier while running `php artisan make:auth`.
 
 		git add .
@@ -149,15 +147,7 @@ In the command-line terminal, run the following commands from your Laravel app's
 	
 	![Connect to MySQL database in Azure - logged in](./media/store-php-create-mysql-database/connect-db-5-logged-in.png)
 
-	Congratulations, your PHP web app in Azure is now connected to the MySQL database. 
-
-[ClearDB]: http://www.cleardb.com/
-[waws]: /documentation/services/web-sites/
-[Azure Store]: ../articles/store.md
-[portal]: http://manage.windowsazure.com
-[configure]: ../articles/app-service-web/web-sites-configure.md
-
-
+	Congratulations, your PHP web app in Azure is now accessing data from your MySQL database. 
 
 ## Next steps
 
