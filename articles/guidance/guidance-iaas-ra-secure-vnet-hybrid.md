@@ -51,7 +51,7 @@ The following diagram highlights the important components in this architecture (
 
 - **Web tier, business tier, and data tier subnets.** These are subnets hosting the VMs and services that implement an example 3-tier application running in the cloud. See [Implementing a multi-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for more details about this structure.
 
-- **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs. However, response traffic cannot be forwarded through the NVAs at this point. Basically, incoming traffic fro the on-premises netowork to Azure will go through the NVAs, but response traffic, and traffic originating from Azure to the on-premises network will bypass the NVAs.
+- **User-defined routes (UDR).** You can use UDRs to define how traffic flows within Azure. The gateway subnet contains routes to ensure that all application traffic from the on-premises network is routed through the NVAs. Traffic intended for the management subnet is allowed to bypass the NVAs. However, response traffic cannot be forwarded through the NVAs at this point. Basically, incoming traffic from the on-premises network to Azure will go through the NVAs, but response traffic, and traffic originating from Azure to the on-premises network will bypass the NVAs.
 
 	> [AZURE.NOTE] Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network.
 
@@ -99,7 +99,7 @@ If you are familiar with resource groups, you can use [this diagram][6] to under
 
 Within a resource group, create separate RBAC roles for DevOps staff who can create and administer VMs, and centralized IT administrators who can manage the network (assign a public IP address to a network interface, change NSG rules on the network, create VPN connections, and so on). Segregating staff across roles in this way allows an IT administrator to change NSG rules and assign public IP addresses to VMs. DevOps staff will be unable to perform these tasks, but can manage VMs. To implement this scheme:
 
-- The DevOps staff role should include the Virtual Machine Contributor role and Storage Account Contributor role (to enable system administrators to create and attach disks to VMs), as well as the Reader role on the resource group as shown by the following example (replace *nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn* with your subscription ID):
+- The DevOps staff role should include the Virtual Machine Contributor role and Storage Account Contributor role (to enable system administrators to create and attach disks to VMs), as well as the Reader role on the resource group as shown by the following example (replace *nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn* with your subscription ID and *devops@contoso.com* with the Microsoft Account or Organizational Account used to manage your resources in Azure):
 
     ```cli
     azure role assignment create -o "Virtual Machine Contributor" -c /subscriptions/nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn/resourceGroups/my-rg --signInName devops@contoso.com
@@ -138,7 +138,7 @@ NVAs can provide different services for managing and monitoring network traffic.
 
 - [Check Point vSEC][checkpoint]
 
-You can also create an NVA by using your own custom VMs; this is the approach taken by the sample script and templates used to implement this reference architecture. As a further variation, you could connect multiple NVAs in series. Using this approach, you can create a service chain comprising specialised NVAs, each configured to perform a specific security task. For example, you could construct a sequence consisting of an NVA implementing a firewall with another running identity services.
+You can also create an NVA by using your own custom VMs; this is the approach taken by the sample script and templates used to implement this reference architecture. As a further variation, you could connect multiple NVAs in series. Using this approach, you can create a service chain comprising specialised NVAs, each configured to perform a specific security task. For example, you could construct a sequence consisting of an NVA implementing a firewall with another running identity services. In this case, assure you have the proper sizing for each NVA in chain, and be aware that you will be adding extra hops in the network that eventually could have some impact in the performance for your architecture. 
 
 > [AZURE.NOTE] For some NVAs that expose a public interface, it may be feasible to create a direct tunnel to the NVA from an on-premises appliance.
 
@@ -215,7 +215,7 @@ azure network route-table route create -a 0.0.0.0/0 -y VirtualNetworkGateway <<r
 <# Associate the route table with the business tier subnet: #>
 azure network vnet subnet set -r <<route-table-name>> <<resource-group>> <<vnet-name>> <<business-tier-subnet-name>>
 ```
-The sample deployment script below does not enable forced tunneling. To enable forced tunnaling, uncomment the last lines in the scripts as shown below by removing the # character at the begining of each line.
+The sample deployment script below does not enable forced tunneling. To enable forced tunneling, uncomment the last lines in the scripts as shown below by removing the # character at the begining of each line.
 
 ```bash
 ############################################################################
@@ -230,7 +230,7 @@ The sample deployment script below does not enable forced tunneling. To enable f
 ############################################################################
 ```
 
-Verify that the traffic is tunneled correctly. If you're using a VPN connection with the Routing and Remote Access Service on an on-premises server, use a tool such as [WireShark][wireshark] on this server to verify that Internet traffic from the VNet is being forwarded through this server.
+Verify that the traffic is tunneled correctly. If you're using a VPN connection with the Routing and Remote Access Service on an on-premises server, use a tool such as [WireShark][wireshark] or [Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) on this server to verify that Internet traffic from the VNet is being forwarded through this server.
 
 Configure the on-premises network security appliance to direct force-tunneled traffic to the Internet. This process will vary according to the device used to implement the appliance. But basically, it requires you to setup NAT (Network Address Translation) on your on-premises network.
 
