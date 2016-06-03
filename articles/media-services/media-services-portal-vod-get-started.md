@@ -113,7 +113,7 @@ To create and change the number of streaming reserved units, do the following:
 
 ## Upload files
 
-In order to stream videos using Azure Media Services, you will need to upload the source videos, encode them into multiple bitrates, and publish the result. The first step is covered in this section.
+In order to stream videos using Azure Media Services, you will need to upload the source videos, encode them into multiple bitrates, and publish the result. The first step is covered in this section. 
 
 1. In the **Setting** window, click **Assets**.
 
@@ -123,6 +123,8 @@ In order to stream videos using Azure Media Services, you will need to upload th
 
 	The **Upload a video asset** window appears.
 
+	>[AZURE.NOTE] There is no file size limitation.
+	
 4. Browse to the desired video on your computer, select it, and hit OK.  
 
 	The upload starts and you can see the progress under the file name.  
