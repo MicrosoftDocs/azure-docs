@@ -22,7 +22,7 @@
 ## Quick commands
 To create a Network Security Group and ACL rules you will need [the latest version of Azure PowerShell installed](../powershell-install-configure.md). You can also [perform these steps using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md).
 
-First, you need to create a rule to allow HTTP traffic on TCP port 80 as follows, entering your own name and description:
+First, you need to create a rule to allow HTTP traffic on TCP port 80 entering your own name and description:
 
 ```
 $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "Allow HTTP" `
@@ -38,13 +38,13 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westu
     -Name "TestNSG" -SecurityRules $httprule
 ```
 
-Now lets assign your Network Security Group to a subnet. First, select the virtual network as follows:
+Now let's assign your Network Security Group to a subnet. First, select the virtual network:
 
 ```
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 ```
 
-Associate your Network Security Group with your subnet as follows:
+Associate your Network Security Group with your subnet:
 
 ```
 Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name TestSubnet `
