@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/04/2016"
+   ms.date="06/02/2016"
    ms.author="barbkess;sonyama;"/>
 
 # Manage databases in Azure SQL Data Warehouse
@@ -89,25 +89,15 @@ To learn about managing security, head over to the [Security overview][].
 
 ## Backup and restore
 
-There's two ways to recover a database. If you have corrupted some data in your database or made an error, you can restore a database snapshot.  If there is a regional outage or disaster that renders one of the regions unavailable, you can re-create your database in another region.
+If you have corrupted some data in your data warehouse or made an error, you can restore a data warehouse from one of the automated snapshots. You can also restore an accidentally deleted data warehouse from the latest automated snapshot.
 
 SQL Data Warehouse automatically backs up your database at regular intervals.For the data backup schedule and retention policy, see [High reliability][]. 
 
-### Geo-redundant storage
-
-Since SQL Data Warehouse separates compute and storage, all your data is directly written to geo-redundant Azure Storage (RA-GRS). Geo-redundant storage replicates your data to a secondary region that is hundreds of miles away from the primary region. In both primary and secondary regions, your data is replicated three times each, across separate fault domains and upgrade domains. This ensures that your data is durable even in the case of a complete regional outage or disaster that renders one of the regions unavailable. To learn more about Read-Access Geo-Redundant Storage, read [Azure storage redundancy options][].
-
 ### Database Restore
 
-Database restore is designed to restore your database to an earlier point in time. SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. These backups are stored on RA-GRS Azure Storage and are therefore geo-redundant by default. The automatic backup and restore features come with no additional charges and provide a zero-cost and zero-admin way to protect databases from accidental corruption or deletion. 
+Database restore is designed to restore your database to an earlier point in time. SQL Data Warehouse service protects all databases with automatic storage snapshots at least every 8 hours and retains them for 7 days to provide you with a discrete set of restore points. The automatic backup and restore features provide a zero-admin way to protect databases from accidental corruption or deletion. 
 
 To learn more about database restore, head over to [Restore from snapshot][].
-
-### Geo-Restore
-
-Geo-Restore is designed to recover your database in case it becomes unavailable due to a disruptive event. You can contact support to restore a database from a geo-redundant backup to create a new database in any Azure region. Because the backup is geo-redundant it can be used to recover a database even if the database is inaccessible due to an outage. Geo-Restore feature comes with no additional charges.
-
-To use geo-restore, head over to [Geo-restore from snapshot][].
 
 ## Next steps
 Using good database design principles will make it easier to manage your databases in SQL Data Warehouse. To learn more, head over to the [Development overview][].
@@ -115,14 +105,12 @@ Using good database design principles will make it easier to manage your databas
 <!--Image references-->
 
 <!--Article references-->
-[Azure storage redundancy options]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md
 [Create a database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
 [Connect to Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-development.md
-[Geo-restore from snapshot]: sql-data-warehouse-backup-and-geo-restore-from-snapshot.md
 [High reliability]: sql-data-warehouse-overview-expectations.md#high-reliability
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
 [Pause compute]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
