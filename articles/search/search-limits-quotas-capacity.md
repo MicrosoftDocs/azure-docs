@@ -35,7 +35,7 @@ All tiers can be [provisioned in the portal](search-create-service-portal.md).
 
 [AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-storage.md)]
 
-## Data limits ##
+## Content limits ##
 
 Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
 ---|---|---|---|---- |---|----
