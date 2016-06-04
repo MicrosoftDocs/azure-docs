@@ -24,7 +24,7 @@ You can pass parameters from a main template to a linked template, and those par
 
 ## Linking to a template
 
-You create a link between two templates by adding a deployment resource within the main template that points to the linked template. You set the **templateLink** property to the URI of the linked template. You can provide parameter values for the linked template either by specifying the values directly in your template or by linking to a parameter file. The following example uses the **parameters** property to specify a paramter value directly.
+You create a link between two templates by adding a deployment resource within the main template that points to the linked template. You set the **templateLink** property to the URI of the linked template. You can provide parameter values for the linked template either by specifying the values directly in your template or by linking to a parameter file. The following example uses the **parameters** property to specify a parameter value directly.
 
     "resources": [ 
       { 
@@ -51,9 +51,9 @@ The Resource Manager service must be able to access the linked template, which m
         "contentVersion": "1.0.0.0",
     }
 
-Although the linked template must be externally available, it does not need to be generally available to the public. When you add a template to a storage account, you can restrict access to only the storage account owner. Then, create a shared access signature (SAS) token and add that SAS token to the URI for the linked template. For the steps to set up a template in a storage account and generate a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). 
+Although the linked template must be externally available, it does not need to be generally available to the public. When you add a template to a storage account, you can restrict access to only the storage account owner. To enable access, you create a shared access signature (SAS) token and add that SAS token to the URI for the linked template. For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). 
 
-The following example shows a linked template that is accessed with a SAS token.
+The following example shows a parent template that links to another template. The nested template is accessed with a SAS token that is passed in as a parameter.
 
     "parameters": {
         "sasToken": { "type": "securestring" }
@@ -98,13 +98,11 @@ The next example uses the **parametersLink** property to link to a parameter fil
       } 
     ] 
 
-The the URI value for the linked parameter file cannot be a local file, and must include either **http** or **https**.
+The URI value for the linked parameter file cannot be a local file, and must include either **http** or **https**. Of course, the parameter file can also be limited to access through a SAS token.
 
 ## Using variables to link templates
 
-The previous examples showed hard-coded URL values for the template links. This approach might work for a simple template but it does not work well when working with a large set of modular templates. Instead, you can create a static variable that stores a base URL 
-for the main template and then dynamically create URLs for the linked templates from that base URL. The benefit of this approach is you can 
-easily move or fork the template because you only need to change the static variable in the main template. The main template passes the correct URIs throughout the decomposed template.
+The previous examples showed hard-coded URL values for the template links. This approach might work for a simple template but it does not work well when working with a large set of modular templates. Instead, you can create a static variable that stores a base URL for the main template and then dynamically create URLs for the linked templates from that base URL. The benefit of this approach is you can easily move or fork the template because you only need to change the static variable in the main template. The main template passes the correct URIs throughout the decomposed template.
 
 The following example shows how to use a base URL to create two URLs for linked templates (**sharedTemplateUrl** and **vmTemplate**). 
 
@@ -133,10 +131,66 @@ You can also use [deployment()](resource-group-template-functions.md#deployment)
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
     }
 
-## Passing values back from a linked template
+## Complete example
 
-If you need to pass a value from linked template to the main template, you can create a value in **outputs** section of the linked template. For an example, see 
-[Sharing State in Azure Resource Manager Templates](best-practices-resource-manager-state.md).
+The following examples show a simplified arrangement of linked templates. It assumes the templates have been added to the same container in a storage account with public access turned off. The linked template passes a value back to the main template in the **outputs** section.
+
+The **parent.json** file consists of:
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "containerSasToken": { "type": "string" }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-01-01",
+          "name": "nestedTemplate",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "incremental",
+            "templateLink": {
+              "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+              "contentVersion": "1.0.0.0"
+            }
+          }
+        }
+      ],
+      "outputs": {
+        "result": {
+          "type": "object",
+          "value": "[reference('nestedTemplate').outputs.result]"
+        }
+      }
+    }
+
+The **helloworld.json** file consists of:
+
+    {
+	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	  "contentVersion": "1.0.0.0",
+	  "parameters": {},
+	  "variables": {},
+	  "resources": [],
+	  "outputs": {
+		"result": {
+			"value": "Hello World",
+			"type" : "string"
+		}
+	  }
+    }
+    
+In PowerShell, you get a token for the container and deploy the templates with:
+
+    $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+    New-AzureRmResourceGroupDeployment -ResourceGroupName sasgroup -TemplateUri ("https://storagecontosotemplates.blob.core.windows.net/templates/parent.json" + $token) -containerSasToken $token
+
+In Azure CLI, you get a token for the container and deploy the templates with:
+
+    expiretime=$(date -I'minutes' --date "+30 minutes")
+    token=$(azure storage container sas create --container templates --permissions r --expiry $expiretime --json | jq ".sas" -r)
+    
 
 ## Next steps
 - To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md)

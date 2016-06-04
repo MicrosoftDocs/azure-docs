@@ -141,8 +141,8 @@ To deploy a private template in a storage account, retrieve a SAS token and incl
 
 1. Create a SAS token with read permissions and an expiry time to limit access. Retrieve the full URI of the template including the SAS token.
 
-        export endtime=$(date --date "+2 hours")
-        azure storage blob sas create --container templates --blob azuredeploy.json --permissions r --expiry $endtime --json  | jq ".url"
+        expiretime=$(date -I'minutes' --date "+30 minutes")
+        azure storage blob sas create --container templates --blob azuredeploy.json --permissions r --expiry $expiretimetime --json  | jq ".url"
 
 2. Deploy the template by providing the URI that includes the SAS token.
 
