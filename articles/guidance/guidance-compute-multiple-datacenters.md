@@ -27,7 +27,7 @@ In this article, we recommend a set of practices to run Windows virtual machines
 
 ## Architecture diagram
 
-The following diagram builds on the architecture shown in [Azure reference architecture: Virtual datacenter](guidance-compute-n-tier-vm.md).
+The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm.md).
 
 ![IaaS: multiple datacenters](media/blueprints/compute-multi-dc.png)
 

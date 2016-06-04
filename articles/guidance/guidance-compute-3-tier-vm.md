@@ -145,7 +145,7 @@ An example deployment script for this architecture is available on GitHub.
 
 ## Next steps
 
-- This article shows a basic N-tier architecture. For some additional considerations about reliability, see [Azure reference architecture: Virtual datacenter][n-tier].
+- This article shows a basic N-tier architecture. For some additional considerations about reliability, see [Adding reliability to an N-tier architecture on Azure][n-tier].
 
 <!-- links -->
 

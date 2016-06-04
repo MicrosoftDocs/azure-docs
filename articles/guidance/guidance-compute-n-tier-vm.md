@@ -606,7 +606,7 @@ GOTO :eof
 
 ## Next steps
 
-- If you need higher availability than the SLAs provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Azure reference architecture: Running Windows VMs in multiple datacenters on Azure][multi-dc].    
+- If you need higher availability than the SLAs provide, replicate the application across two datacenters and use Azure Traffic Manager for failover. For more information, see [Running VMs in multiple datacenters on Azure for high availability][multi-dc].    
 
 - To learn more about setting up a DMZ with a virtual appliance, see [Virtual appliance scenario][virtual-appliance-scenario].
 
