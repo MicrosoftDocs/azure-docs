@@ -49,7 +49,7 @@ This article is a list of features, services, and designs to be used to help you
 This article is an index of Azure services and links to their disaster recovery guidance as well as design guidance.
 
 ###[Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md)
-This article focuses exclusively on Azure Azure SQL Database techniques for availability, which primarily centers on backup and restore strategies. If you use Azure SQL Database in your cloud service, you should review this paper and its related resources.
+This article focuses exclusively on Azure SQL Database techniques for availability, which primarily centers on backup and restore strategies. If you use Azure SQL Database in your cloud service, you should review this paper and its related resources.
 
 ###[High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md)
 This article discusses the availability options open to you when you use Infrastructure-as-a-Service (IaaS) to host your database services. It discusses AlwaysOn Availability Groups, Database Mirroring, Log Shipping, and Backup/Restore. Note that there are also several tutorials in the same section that show how to use these techniques.
