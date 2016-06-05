@@ -23,11 +23,11 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-### Prerequisites
+## Prerequisites
 Before starting, be sure you have the following prerequisites.
 
 - **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
-- **V12 Azure SQL Server:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
+- **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][].
 - **Resource group name**: Either use the same Resource Group as your V12 Azure SQL Server or see [resource groups][] to create a new resource group.
 - **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
