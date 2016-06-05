@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
+   ms.date="06/04/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create SQL Data Warehouse using Powershell
@@ -29,7 +29,8 @@ Before starting, be sure you have the following prerequisites.
 - A V12 Azure SQL Server to host the database
 - Know the resource group name for the SQL Server
 
-For more details on the above prerequisites, see **Configure and create a server** in the article [how to create a SQL Data Warehouse from the Azure Portal][].
+Both SQL Database and SQL Data Warhouse use the same SQL Server to host databases.  For more details on the above prerequisites, see the SQL Database articles, [Create an Azure SQL Database logical server with the Azure Portal][] or 
+[Create an Azure SQL Database logical server with PowerShell][].
 
 > [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
@@ -72,14 +73,16 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 <!--Image references-->
 
 <!--Article references-->
-[migrate]: sql-data-warehouse-overview-migrate.md
-[develop]: sql-data-warehouse-overview-develop.md
-[load]: sql-data-warehouse-load-with-bcp.md
-[loading sample data]: sql-data-warehouse-get-started-manually-load-samples.md
-[PowerShell cmdlets and REST APIs]: sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: sql-database-configure-firewall-settings.md
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-load-with-bcp.md
+[loading sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[firewall rules]: ./sql-database-configure-firewall-settings.md
 [How to install and configure Azure PowerShell]: ../powershell/powershell-install-configure.md
-[how to create a SQL Data Warehouse from the Azure Portal]: sql-data-warehouse-get-started-provision.md
+[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
+[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 
 <!--MSDN references--> 
 [MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
