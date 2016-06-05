@@ -16,7 +16,9 @@
    ms.date="05/31/2016"
    ms.author="kipandya"/>
    
-## Developing with multiple regions
+# Developing with multiple regions
+
+Global databases are accessible through all existing SDKs without application changes.
 
 DocumentDB client SDKs provide an optional parameter "PreferredLocations" that is an ordered list of Azure regions. The SDK will automatically send all reads to the first available region in this list. If the first region returns an error or is not reachable, the client will retry 2 more times with that region, and then fail down the list to the next region, and so on. The SDK will check for region availability every 30s (?) and switch back to a more preferred region if it becomes available again. 
 
@@ -25,12 +27,7 @@ The client SDKs will only attempt to read to the regions specified in PreferredL
 If the PreferredLocations property is not set, all reads will be served from the current write region. 
 
 
-## SDKs
-
-Global databases are accessible through all existing SDKs without application changes.
-
-
-### .NET SDK
+## .NET SDK
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
 
 The ConnectionPolicy parameter for the DocumentClient constructor has a new property, Microsoft.Azure.Documents.ConnectionPolicy.PreferredRegions. This property is of type Collection `<string>` and should contain a list of region names. The names are formatted per the Region Name column on the [Azure Regions] [regions] page. You can also use the predefined constants in the convenience class Microsoft.Azure.Documents.Regions.
@@ -71,7 +68,7 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
     await docClient.OpenAsync().ConfigureAwait(false);
 
 
-### NodeJS, JavaScript and Python SDKs
+## NodeJS, JavaScript and Python SDKs
 The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
 
 The ConnectionPolicy parameter for the DocumentClient constructor has a new property, DocumentClient.ConnectionPolicy.PreferredRegions. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions] [regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
@@ -95,7 +92,7 @@ Below is a code example for NodeJS/Javascript. Python will follow the same patte
     var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 
 
-### REST 
+## REST 
 Once geo-replication is enabled on a Database Account, clients can query its availability by performing a GET request on the following URI.
 
     https://management.azure.com/subscriptions/{subid}/resourcegroups/{resourcegroupname}/providers/Microsoft.DocumentDB/databaseAccounts/{accountname}
