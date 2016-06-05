@@ -32,7 +32,7 @@ The Linux Diagnostic Extension helps a user monitor the Linux VMs that are runni
 In version 2.0, the data includes:
 
 - All Linux Rsyslog logs, including system, security, and application logs.
-- All system data that's specified on [the System Center Cross Platform Solutions site]("https://scx.codeplex.com/wikipage?title=xplatproviders").
+- All system data that's specified on [the System Center Cross Platform Solutions site](https://scx.codeplex.com/wikipage?title=xplatproviders).
 - User-specified log files.
 
 This extension works with both the classic and Resource Manager deployment models.
@@ -53,8 +53,8 @@ Note that the configuration methods that are described here won't work for the A
 - **Azure Linux Agent version 2.0.6 or later**.
 Note that most Azure VM Linux gallery images include version 2.0.6 or later. You can run **WAAgent -version** to confirm which version is installed on the VM. If the VM is running a version that's earlier than 2.0.6, you can follow [these instructions on GitHub](https://github.com/Azure/WALinuxAgent "instructions") to update it.
 
-- **[Azure CLI](../xplat-cli-install.md)**. Follow [this guidance](../xplat-cli-install.md) to set up the Azure CLI environment on your machine. After Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, or command prompt) to access the Azure CLI commands. For example:
-	- Run **azure vm extension set --help** for detailed usage.
+- **[Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/)**. Follow [this guidance](..xplat-cli-install.md) to set up the Azure CLI environment on your machine. After Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, or command prompt) to access the Azure CLI commands. For example:
+	- Run **azure vm extension set --help** for detailed help information.
 	- Run **azure login** to sign in to Azure.
 	- Run **azure vm list** to list all the virtual machines that you have on Azure.
 - A storage account to store the data. You will need a storage account name that was created previously and an access key to upload the data to your storage.
@@ -82,7 +82,7 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 ###   Scenario 2. Customize the performance monitor metrics  
 This section describes how to customize the performance and diagnostic data table.
 
-Step 1. Create a file named PrivateConfig.json with the content that was described in Scenario 1. Also create a file named PublicConfig.json (which will appear in the next example). Specify the particular data you want to collect.
+Step 1. Create a file named PrivateConfig.json with the content that was described in Scenario 1. Also create a file named PublicConfig.json. Specify the particular data you want to collect.
 
 For all supported providers and variables, reference the [System Center Cross Platform Solutions site](https://scx.codeplex.com/wikipage?title=xplatproviders). You can have multiple queries and store them in multiple tables by appending more queries to the script.
 
@@ -149,7 +149,7 @@ In addition, you can use following UI tools to access the data:
 
 ![image](./media/virtual-machines-linux-classic-diagnostic-extension/no1.png)
 
-If you've enabled fileCfg or perfCfg (as described in Scenarios 2 and 3), you can use the previous tools to view non-default data.
+If you've enabled fileCfg or perfCfg (as described in Scenarios 2 and 3), you can use Visual Studio Server Explorer and Azure Storage Explorer to view non-default data.
 
 ## Known issues
 - In version 2.0 of the Linux Diagnostic Extension, the Rsyslog information and customer-specified log file can only be accessed via scripting.
