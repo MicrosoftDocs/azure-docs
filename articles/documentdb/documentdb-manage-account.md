@@ -21,6 +21,46 @@
 
 Learn how to work with keys and consistency levels. Also, learn how to delete an account in the Azure Portal.
 
+## <a id="addregion"></a>Adding regions
+
+DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs) by selecting Add /remove regions. 
+
+![Alt text; Add regions under DocumentDB Account > Settings > Add/Remove Regions][1]
+
+### Selecting regions
+
+When deploying to two or more regions, it is recommended that regions are selected based on the region pairs described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr].
+
+Specifically, when deploying multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. 
+
+## <a id="selectwriteregion"></a>Write region selection
+
+With its [current standard offers] [offers], while all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. For denoting the active write region, click and drag regions to order the list of regions - the first region in the list of regions is the active write region. 
+
+![Alt text; Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][2]
+
+
+## <a id="consistency"></a>Manage DocumentDB consistency settings
+
+Selecting the right consistency level depends on the semantics of your application. We recommend that you familiarize yourself with the available consistency levels in DocumentDB here: [Using consistency levels to maximize availability and performance in DocumentDB] [consistency]. DocumentDB provides consistency, availability and performance guarantees, regardless of the consistency level of your database account. Configuring your database account with consistency level of strong requires that your data is confined to a single Azure region. On the other hand, the relaxed consistency levels - bounded staleness, session or eventual allow you to associate any number of Azure regions with your database account. Following simple steps allow you to select the default consistency level for your database account. 
+
+### To specify the default consistency for a DocumentDB account
+
+1.      In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account. 
+
+2.      In the account blade, if the **Settings** blade is not already opened, click the **Settings** icon on the top command bar.
+
+3.      In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
+
+![Default consistency session](./media/documentdb-manage-account/chooseandsaveconsistency.png)
+
+4.      In the **Default Consistency** blade, select the new consistency level and click **Save**.
+
+5.      The progress of the operation may be monitored via the Azure Portal Notifications hub.
+
+*Note that it can take several minutes before a change to the default
+consistency setting takes effect across your DocumentDB account.*
+
 ## <a id="keys"></a>View, copy, and regenerate access keys
 When you create a DocumentDB account, the service generates two master access keys that
 can be used for authentication when the DocumentDB
@@ -90,48 +130,6 @@ your application code to reference the new primary access key.
 *Note that it can take several minutes before a newly generated key can
 be used to access your DocumentDB account.*
 
-## <a id="consistency"></a>Manage DocumentDB consistency settings
-DocumentDB supports four well-defined user-configurable data consistency
-levels to allow developers to make predictable
-consistency-availability-latency trade-offs.
-
-- **Strong** consistency guarantees that read operations always
-return the value that was last written.
-
-- **Bounded Staleness** consistency guarantees that reads are
-not too out-of-date. It specifically guarantees that the reads are no
-more than *K* versions older than the last written version.
-
-- **Session** consistency guarantees monotonic reads (you never
-read old data, then new, then old again), monotonic writes (writes are
-ordered), and that you read the most recent writes within any single
-client’s viewpoint.
-
-- **Eventual** consistency guarantees that read operations
-always read a valid subset of writes and will eventually converge.
-
-*Note that by default, DocumentDB accounts are provisioned with Session
-level consistency.  For additional information on DocumentDB consistency
-settings, see the [Consistency
-Level](http://go.microsoft.com/fwlink/p/?LinkId=402365) section.*
-
-### To specify the default consistency for a DocumentDB account
-
-1.      In the [Azure Portal](https://portal.azure.com/), access your DocumentDB account. 
-
-2.      In the account blade, if the **Settings** blade is not already opened, click the **Settings** icon on the top command bar.
-
-3.      In the **All Settings** blade, click on the **Default Consistency** entry under **Feature**.
-
-![Default consistency session](./media/documentdb-manage-account/chooseandsaveconsistency.png)
-
-4.      In the **Default Consistency** blade, select the new consistency level and click **Save**.
-
-5.      The progress of the operation may be monitored via the Azure Portal Notifications hub.
-
-*Note that it can take several minutes before a change to the default
-consistency setting takes effect across your DocumentDB account.*
-
 ## <a id="delete"></a> How to: Delete a DocumentDB account in the Azure Portal
 To remove a DocumentDB account from the Azure Portal that you are no longer using, use the
 **Delete** command on the **DocumentDB Account** blade.
@@ -156,3 +154,14 @@ Learn how to [get started with your DocumentDB
 To learn more about DocumentDB, see the Azure DocumentDB
     documentation on
     [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
+
+
+<!--Image references-->
+[1]: ./media/documentdb-global-database/documentdb_add_region.png
+[2]: ./media/documentdb-global-database/documentdb_change_write_region.png
+
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
+[bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
+[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
+[azureregions]: https://azure.microsoft.com/en-us/regions/#services
+[offers]: https://azure.microsoft.com/en-us/pricing/details/documentdb/
