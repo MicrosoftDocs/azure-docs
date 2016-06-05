@@ -1,4 +1,4 @@
-Storage is constrained by disk space or by a hard limit on the number of objects (indexes, documents, indexers, or datasources), whichever comes first.
+Storage is constrained by disk space or by a hard limit on the *number* of objects (indexes, documents, indexers, or datasources), whichever comes first.
 
 Resource|Free|Basic|S1|S2|S3 (Preview)|S3 HD (Preview)
 ---|---|---|---|----|---|----
