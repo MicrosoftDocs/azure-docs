@@ -43,8 +43,10 @@ Resource|Free|Basic|S1|S2|S3 <sup>1</sup> (Preview) |S3 HD <sup>1</sup> (Preview
 Service Level Agreement (SLA)|No |Yes |Yes  |Yes |No|No
 Indexes per SKU|3|5|50|200|200|1000
 Documents per index|10,000 total|1 million per service|15 million per partition |60 million per partition|120 million per partition |1 million per index
-Maximum replicas per SKU|NA |3 |12 |12 |21|12
+Maximum replicas per SKU|NA |3 |12 |12 |12|12
+Queries per second|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
 Maximum partitions per SKU|NA |1 |12  |12 |12|1
+Partition size|50 MB total|2 GB per service|25 GB per partition |100 GB per partition (up to a maximum of 1.2 TB per service)|200 GB per partition (up to a maximum of 2.4 TB per service)|200 GB (for the 1 partition)
 
 Replica and partition maximums are subject a combined maximum billing configuration of 36 units. To get a maximum of 12 replicas, you could have a most 3 partitions (12 * 3 =36). To use maximum partitions, reduce replicas to 3. See [Scale resource levels for query and indexing workloads in Azure Search](search-capacity-planning.md) for a chart on allowable combinations.
 
