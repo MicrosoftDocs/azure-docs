@@ -26,13 +26,11 @@
 ### Prerequisites
 Before starting, be sure you have the following prerequisites.
 
-- A V12 Azure SQL Server to host the database
-- Know the resource group name for the SQL Server
-
-Both SQL Database and SQL Data Warhouse use the same SQL Server to host databases.  For more details on the above prerequisites, see the SQL Database articles, [Create an Azure SQL Database logical server with the Azure Portal][] or 
+- **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
+- **V12 Azure SQL Server:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][].
-
-> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
+- **Resource group name**: Either use the same Resource Group as your V12 Azure SQL Server or see [resource groups][] to create a new resource group.
+- **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
 ## Creating a SQL Data Warehouse database
 1. Open Windows PowerShell.
@@ -83,6 +81,7 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../azure-portal/resource-group-portal.md
 
 <!--MSDN references--> 
 [MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
@@ -92,4 +91,5 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
- 
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
