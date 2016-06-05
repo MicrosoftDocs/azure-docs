@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/10/2016"
+	ms.date="06/05/2016"
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
@@ -24,6 +24,8 @@ Azure Search is cloud hosted search service on Microsoft Azure. It is generally 
 
 Feature|Released|Status|Details
 -------|--------|------|-------
+[SKU updates](search-limits-quotas-capacity.md) part 2|June 2016|Preview and GA|Basic and S2 SKUs transition from Preview to General Availability. New S3 and S3 HD are now in Preview. See [Choose a SKU or tier for Azure Search ](search-sku-tier.md) for a comparison.
+[SKU updates](search-limits-quotas-capacity.md) part 1|March 2016|Preview|New SKUs, Basic and Standard 2 (S2), are available at Preview pricing.
 [.NET SDK 1.1](https://msdn.microsoft.com/library/azure/dn951165.aspx)|February 2016|GA|This is the first generally available release of the .NET client library, `Microsoft.Azure.Search.dll`. This version introduces breaking changes. See [Upgrading to the Azure Search .NET SDK version 1.1](search-dotnet-sdk-migration.md) for migration guidance.
 [Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx)|February 2016|[GA](search-api-2015-02-28-preview.md)|The Lucene query syntax is now generally available in both the REST API and .NET SDK. Set the `queryType` parameter to `full` in the REST API and the `SearchParameters.QueryType` property to `QueryType.Full` in the .NET SDK to enable the Lucene syntax.
 [Custom Analyzers](https://azure.microsoft.com/blog/custom-analyzers-in-azure-search/)|January 2016|[Preview](search-api-2015-02-28-preview.md)|User-defined configurations of tokenizers and token filters. See [Analysis in Azure Search](https://msdn.microsoft.com/library/azure/mt605304.aspx) on MSDN.
