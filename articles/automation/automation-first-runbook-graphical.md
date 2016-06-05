@@ -118,7 +118,7 @@ Now that we have a variable to hold our subscription ID, we can configure our ru
 13.  Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbrprint**, and then click **OK**. 
 14.  Click **SERVICEPRINCIPAL**, and in the Parameter Value blade, select **ConstantValue** for the **Data source**, click the option **True**, and then click **OK**.
 15.  Click **TENANTID**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **TenantId**, and then click **OK** twice.  
-16.  In the Library control, type **Get-AzureRmContext** in the search textbox.
+16.  In the Library control, type **Set-AzureRmContext** in the search textbox.
 17.	 Add **Set-AzureRmContext** to the canvas.
 18.	 On the canvas, select **Set-AzureRmContext** and in the Configuration control pane type **Specify Subscription Id** in the **Label** textbox.
 19.	 Click **Parameters** and the Activity Parameter Configuration blade appears. 
