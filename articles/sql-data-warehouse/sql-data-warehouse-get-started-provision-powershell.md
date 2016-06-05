@@ -32,6 +32,8 @@ Before starting, be sure you have the following prerequisites.
 - **Resource group name**: Either use the same Resource Group as your V12 Azure SQL Server or see [resource groups][] to create a new resource group.
 - **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
+> [AZURE.NOTE] Creating a new SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
+
 ## Creating a SQL Data Warehouse database
 1. Open Windows PowerShell.
 2. Run this cmdlet to login to Azure Resource Manager.
@@ -46,7 +48,7 @@ Before starting, be sure you have the following prerequisites.
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-4.  Create database. This example creates a new database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1" which is in the resource group named "mywesteuroperesgp1".  **NOTE: Creating a new SQL Data Warehouse database may result in a new billable charges.  See [SQL Data Warehouse pricing][] for more details on pricing.**
+4.  Create database. This example creates a new database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1" which is in the resource group named "mywesteuroperesgp1".
 
 	```Powershell
 	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
