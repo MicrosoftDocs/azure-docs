@@ -24,7 +24,7 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-This article will show you how to create a SQL Data Warehouse database with Transact-SQL (TSQL).
+This article will show you how to create a SQL Data Warehouse database with Transact-SQL (T-SQL).
 
 ## Prerequisites
 Before starting, be sure you have the following prerequisites.
