@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configuring and Using the Storage Emulator with Visual Studio
