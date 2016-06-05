@@ -26,11 +26,11 @@
 
 This article will show you how to create a SQL Data Warehouse database with Transact-SQL (TSQL).
 
-### Prerequisites
+## Prerequisites
 Before starting, be sure you have the following prerequisites.
 
 - **Azure Account**: See [Azure Free Trial][] or [MSDN Azure Credits][] to create an account.
-- **V12 Azure SQL Server:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
+- **V12 Azure SQL Server**:  See [Create an Azure SQL Database logical server with the Azure Portal][] or 
 [Create an Azure SQL Database logical server with PowerShell][].
 - **Resource group name**: Either use the same Resource Group as your V12 Azure SQL Server or see [resource groups][] to create a new resource group.
 - **Visual Studio with SQL Server Data Tools**: For installation instructions, see [Installing Visual Studio and SSDT][].
