@@ -19,6 +19,8 @@
 
 # Azure reference architecture: Basic web application
 
+[AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
+
 This article shows a recommended architecture for a basic web application in Microsoft Azure.  
 
 The architecture described here has a web front end, with a SQL database on the back end. The architecture uses Azure platform services such as [App Service][app-service] and [Azure SQL Database][sql-db], with a focus on scalability, availability, manageability, and security. Later articles will build on this basic architecture, adding components such as cache and CDN. 
