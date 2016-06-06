@@ -3,8 +3,8 @@
    description="Describes use of Docker Machine to create docker hosts in Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="SteveLas"
-   manager="Balans"
+   authors="allclark"
+   manager="douge"
    editor="" />
 <tags
    ms.service="multiple"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/16/2016"
-   ms.author="stevelas" />
+   ms.date="06/06/2016"
+   ms.author="allclark;stevelas" />
 
 # Create Docker Hosts in Azure with Docker-Machine
 
