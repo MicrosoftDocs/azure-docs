@@ -20,12 +20,7 @@
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
 
-The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine can fail for various reasons. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article will help you discover and correct the reasons for the failure.  
-
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
-This article applies to Azure virtual machines that are running Windows. For Azure virtual machines that are running Linux, see [Troubleshoot Secure Shell connections to a Linux-based Azure virtual machine](virtual-machines-linux-troubleshoot-ssh-connection.md).
+The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article will help you discover and correct the reasons for the failure.  
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
@@ -35,51 +30,56 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 This section lists quick fixes for common Remote Desktop connection issues.
 
-### Troubleshoot virtual machines created by using the classic deployment model
+### Troubleshoot VMs created by using the classic deployment model
 
-These steps can help resolve most Remote Desktop connection failures in Azure virtual machines that were created by using the classic deployment model. After each step, try reconnecting to the VM.
+After each step, try reconnecting to the VM.
 
-- Reset the Remote Desktop service from the [Azure portal](https://portal.azure.com) to fix startup issues with the RDP server. Select **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote...**.
+- Reset the Remote Desktop service from the [Azure portal](https://portal.azure.com). Select **Browse** > **Virtual machines (classic)** > *your VM* > **Reset Remote...**.
 
-- Restart the virtual machine to address other startup issues. Select **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Restart**.
+- Restart your VM to address other startup issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Restart**.
 
-- Redeploy the virtual machine to a new Azure node. See [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
+- Redeploy your VM to a new Azure node. See [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
 	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 
-- Review your VM’s console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your Windows virtual machine* > **Settings** > **Boot diagnostics**.
+- Review your VM’s console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines (classic**) > *your VM* > **Settings** > **Boot diagnostics**.
+
+- Check your VM's Resource Health for any platform issues. Select **Browse** > **Virtual machines (classic)** > *your VM* > **Settings** > **Check Health**.
 
 
-- Check the VM's Resource Health for any platform issues. Select **Browse** > **Virtual machines (classic)** > *your Windows virtual machine* > **Settings** > **Check Health**.
+### Troubleshoot VMs created by using the Resource Manager deployment model
 
-
-### Troubleshoot virtual machines created by using the Resource Manager deployment model
-
-These steps can help resolve most Remote Desktop connection failures in Azure virtual machines that were created by using the Resource Manager deployment model. After each step, try reconnecting to the VM.
+After each step, try reconnecting to the VM.
 
 > [AZURE.TIP] If the 'Connect' button in the portal is greyed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 - Reset remote access by using PowerShell.
-	- If you haven't already, [install PowerShell and connect to your Azure subscription](../powershell-install-configure.md) by using the Azure Active Directory method. Note that you don't need to switch to Resource Manager mode in PowerShell versions 1.0.x.
+	- If you haven't already, [install and configure the latest Azure PowerShell](../powershell-install-configure.md).
 
 	- Reset your RDP connection by using either of the following PowerShell commands. Replace the `myRG`, `myVM`, `myVMAccessExtension`, and location with values that are relevant to your setup.
 
 	```
-	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
+	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" `
+		-Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" `
+		-Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" `
+		-Location Westus
 	```
 	OR
 
   	```
-	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
+	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" `
+		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] If this is your first time resetting the RDP connection, the VMAccessAgent probably doesn't exist yet. In the preceding examples, `myVMAccessExtension` or `MyVMAccess` is a name that you specify for the new extension that will be installed as part of the process. Often this is simply set to the name of the VM. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using`Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` to check  the properties of the VM. Then look under the 'Extensions' section of the output. Since only one VMAccessAgent can exist on a VM, you also need to add the `-ForceReRun` parameter when using `Set-AzureRmVMExtension.` This forces the agent to be re-registered.
+	> [AZURE.NOTE] In the preceding examples, `myVMAccessExtension` or `MyVMAccess` is a name that you specify for the new extension that will be installed as part of the process. Often this is simply set to the name of the VM. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` to check the properties of the VM. Then look under the 'Extensions' section of the output. Since only one VMAccessAgent can exist on a VM, you also need to add the `-ForceReRun` parameter when using `Set-AzureRmVMExtension.` to force the agent to be re-registered.
 
-- Restart the virtual machine to address other startup issues. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Restart**.
+- Restart your VM to address other startup issues. Select **Browse** > **Virtual machines** > *your VM* > **Restart**.
 
-- Resize the VM to fix any host issues. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Settings** > **Size**.
+- Redeploy your VM to a new Azure node. See [Redeploy Virtual Machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
-- Review the VM's console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Settings** > **Boot diagnostics**.
+	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
+
+- Review your VM's console log or screenshot to correct boot problems. Select **Browse** > **Virtual machines** > *your Windows virtual machine* > **Support + Troubleshooting** > **Boot diagnostics**.
 
 
 Proceed to the next section if the previous steps didn't resolve your Remote Desktop connection failures.
@@ -88,18 +88,18 @@ Proceed to the next section if the previous steps didn't resolve your Remote Des
 
 The following are the most common errors you'll see when trying to use Remote Desktop to connect to your Azure virtual machine:
 
-- [Remote Desktop connection error: The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license](#rdplicense).
+- [The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license](#rdplicense).
 
-- [Remote Desktop connection error: Remote Desktop can't find the computer "name"](#rdpname).
+- [Remote Desktop can't find the computer "name"](#rdpname).
 
-- [Remote Desktop connection error: An authentication error has occurred. The Local Security Authority cannot be contacted](#rdpauth).
+- [An authentication error has occurred. The Local Security Authority cannot be contacted](#rdpauth).
 
 - [Windows Security error: Your credentials did not work](#wincred).
 
-- [Remote Desktop connection error: This computer can't connect to the remote computer](#rdpconnect).
+- [This computer can't connect to the remote computer](#rdpconnect).
 
 <a id="rdplicense"></a>
-### Remote Desktop connection error: The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.
+### The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.
 
 Cause: The 120-day licensing grace period for the Remote Desktop Server role has expired and you need to install licenses.
 
@@ -112,7 +112,7 @@ If you don't actually need more than two simultaneous Remote Desktop connections
 For more information, see the blog post [Azure VM fails with "No Remote Desktop License Servers available"](http://blogs.msdn.com/b/wats/archive/2014/01/21/rdp-to-azure-vm-fails-with-quot-no-remote-desktop-license-servers-available-quot.aspx).
 
 <a id="rdpname"></a>
-### Remote Desktop connection error: Remote Desktop can't find the computer "name".
+### Remote Desktop can't find the computer "name".
 
 Cause: The Remote Desktop client on your computer can't resolve the name of the computer in the settings of the RDP file.
 
@@ -131,7 +131,7 @@ The address portion of this RDP file has:
 - The external TCP port of the endpoint for Remote Desktop traffic (55919).
 
 <a id="rdpauth"></a>
-### Remote Desktop connection error: An authentication error has occurred. The Local Security Authority cannot be contacted.
+### An authentication error has occurred. The Local Security Authority cannot be contacted.
 
 Cause: The target VM can't locate the security authority in the user name portion of your credentials.
 
@@ -164,7 +164,7 @@ Make sure that the account name is a name that the virtual machine can verify as
 If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-rdp.md).
 
 <a id="rdpconnect"></a>
-### Remote Desktop connection error: This computer can't connect to the remote computer.
+### This computer can't connect to the remote computer.
 
 Cause: The account that's used to connect does not have Remote Desktop sign-in rights.
 
