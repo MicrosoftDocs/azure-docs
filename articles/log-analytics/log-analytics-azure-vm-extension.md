@@ -18,15 +18,15 @@
 
 # Connect Azure virtual machines to Log Analytics
 
-For Windows and Linux computers, the recommended way to collect logs and metrics is by installing the Log Analytics agent.
+For Windows and Linux computers, the recommended method for collecting logs and metrics is by installing the Log Analytics agent.
 
-You can easily install the Log Analytics agent for Azure virtual machines by enabling the Microsoft Monitoring Agent virtual machine extension. When you use a virtual machine extension, it simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be upgraded automatically, ensuring that you have the latest features and fixes.
+By enabling the Microsoft Monitoring Agent (MMA) virtual machine extension, you can easily install the Log Analytics agent for Azure virtual machines. When you use a virtual machine extension, it simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be upgraded automatically, ensuring that you have the latest features and fixes.
 
 The Microsoft Monitoring Agent is available as an [Azure virtual machine extension](../virtual-machines/virtual-machines-windows-extensions-features.md) for both Windows and Linux computers.
 
 >[AZURE.NOTE] The [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md) must be installed before you can install the agent for Log Analytics.
 
-When you agent-based collection for log data, you must configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics that you want to collect.
+When you use agent-based collection for log data, you must configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics that you want to collect.
 
 >[AZURE.IMPORTANT] If you’ve configured Log Analytics to index log data by using [Azure diagnostics](log-analytics-azure-storage.md), and you configure the agent to collect the same logs, then the logs will be collected twice. You will be charged normal data rates for both data sources. If you have the agent installed, then you should collect log data by using the agent alone. Don't collect log data by using Azure diagnostics.
 
@@ -43,7 +43,7 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
 ### To install the Log Analytics agent and connect the virtual machine to a Log Analytics workspace
 
 1.	Sign into the [Azure portal](http://portal.azure.com).
-2.	Go to **Log Analytics (OMS)** and then select it.
+2.	Go to **Log Analytics (OMS)**, and then select it.
 3.	In your list of Log Analytics workspaces, select the one to which you want to connect the Azure VM.  
     ![OMS workspaces](./media/log-analytics-azure-storage/oms-connect-azure-01.png)
 4.	Under **Log analytics management**, select **Virtual machines**.  
@@ -52,15 +52,15 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
     ![VM not connected](./media/log-analytics-azure-storage/oms-connect-azure-03.png)
 6.	In the details for your virtual machine, select **Connect**. The agent is automatically installed and configured for your Log Analytics workspace, but it might take a few minutes for the process to finish.  
     ![Connect VM](./media/log-analytics-azure-storage/oms-connect-azure-04.png)
-7.	After the agent has been installed and connected, the **OMS connection** status will be updated to show **This workspace**.  
-    ![connected](./media/log-analytics-azure-storage/oms-connect-azure-05.png)
+7.	After you install and connect the agent, the **OMS connection** status will be updated to show **This workspace**.  
+    ![Connected](./media/log-analytics-azure-storage/oms-connect-azure-05.png)
 
 
 ## Use Azure PowerShell to enable the Log Analytics VM extension
 
-You will need to use slightly different commands depending on whether your virtual machine is a classic virtual machine or a Resource Manager virtual machine. Following are examples for both classic and Resource Manager virtual machines.
+You need to use slightly different commands for an Azure classic virtual machine and a Resource Manager virtual machines. Following are examples for both classic and Resource Manager virtual machines.
 
-For classic Azure virtual machines, use the following PowerShell example:
+For classic virtual machines, use the following PowerShell example:
 
 ```
 Add-AzureAccount
@@ -74,7 +74,7 @@ Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -
 ```
 
 
-For Azure Resource Manager virtual machines, use the following PowerShell example:
+For Resource Manager virtual machines, use the following PowerShell example:
 
 ```
 Login-AzureRMAccount
@@ -101,7 +101,7 @@ Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcena
 
 
 ```
-When you configure your virtual machine by using PowerShell, you need to provide the Workspace ID and Primary Key. You can find your Workspace ID and Primary Key on the **Settings** page of the OMS portal, or by using PowerShell as shown in the preceding example.
+When you configure your virtual machine by using PowerShell, you need to provide the **Workspace ID** and **Primary Key**. You can find these on the **Settings** page of the OMS portal, or by using PowerShell as shown in the preceding example.
 
 ![Workspace ID and primary key](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
@@ -355,7 +355,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 
 + Configure [data sources in Log Analytics](log-analytics-data-sources.md) to specify the logs and metrics to collect.
 + [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to gather data from virtual machines.
-+ [Collect data by using Azure diagnostics](log-analytics-azure-storage.md) for other resources that are running in Azure.
++ [Collect data by using Azure Diagnostics](log-analytics-azure-storage.md) for other resources that are running in Azure.
 
 For computers that are not in Azure, you can install the Log Analytics agent by using the methods that are described in the following articles:
 
