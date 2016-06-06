@@ -54,7 +54,7 @@ If using Docker Toolbox, you'll need to [configure the Docker client](./vs-azure
 
 ## 2. Add Docker support
 
-[AZURE.INCLUDE [Add docker support](../include/vs-azure-tools-docker-add-docker-support.md)]
+[AZURE.INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 
 ## 3. Edit your code and refresh
