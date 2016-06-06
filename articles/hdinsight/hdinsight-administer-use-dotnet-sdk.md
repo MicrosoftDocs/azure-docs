@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="06/06/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using .NET SDK
@@ -35,70 +35,73 @@ Before you begin this article, you must have the following:
 
 You will need the following Nuget packages:
 
-	Install-Package Microsoft.Azure.Common.Authentication -Pre
-	Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+	Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
 	Install-Package Microsoft.Azure.Management.HDInsight
 
 The following code sample shows you how to connect to Azure before you can administer HDInsight clusters under your Azure subscription.
 
 	using System;
-	using System.Security;
-	using Microsoft.Azure;
-	using Microsoft.Azure.Common.Authentication;
-	using Microsoft.Azure.Common.Authentication.Factories;
-	using Microsoft.Azure.Common.Authentication.Models;
-	using Microsoft.Azure.Management.HDInsight;
-	using Microsoft.Azure.Management.HDInsight.Models;
-	using Microsoft.Azure.Management.ResourceManager;
+	using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure;
+    using Microsoft.Azure.Management.HDInsight;
+    using Microsoft.Azure.Management.HDInsight.Models;
+    using System.Net.Http;
 
 	namespace HDInsightManagement
 	{
 		class Program
 		{
 			private static HDInsightManagementClient _hdiManagementClient;
-			private static Guid SubscriptionId = new Guid("<Your Azure Subscription ID>");
+			private static string SubscriptionId = "<Your Azure Subscription ID>";
+            
+            // Redirect URI for authentication
+            private const string ClientRedirectUri = "urn:ietf:wg:oauth:2.0:oob";
+            // This is the GUID for the PowerShell client. Used for interactive logins in this example.
+            private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
 
 			static void Main(string[] args)
-			{
-				var tokenCreds = GetTokenCloudCredentials();
-				var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-				
-				var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
-				var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
-				var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+            {
+                // Create a sync context, which is required for LoginWithPromptAsync
+                SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
 
-				_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+                // Client settings for authentication using AD
+                var settings = new ActiveDirectoryClientSettings(ClientId, new Uri(ClientRedirectUri));
+                // Get the login credentials token
+                var creds = UserTokenProvider.LoginWithPromptAsync(settings).GetAwaiter().GetResult();
+                // Create the HDInsight management class
+                _hdiManagementClient = new HDInsightManagementClient(new SubscriptionCredentialsAdapter(creds, SubscriptionId));
 
-				// insert code here
+                // insert code here
 
-				System.Console.WriteLine("Press ENTER to continue");
-				System.Console.ReadLine();
-			}
+                System.Console.WriteLine("Press ENTER to continue");
+                System.Console.ReadLine();
+            }
+        }
+        // Create a SubscriptionCloudCredential for use with HDInsight management client
+        public class SubscriptionCredentialsAdapter : SubscriptionCloudCredentials
+        {
+            ServiceClientCredentials _credentials;
+            string _subscriptionId;
 
-			public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
-			{
-				var authFactory = new AuthenticationFactory();
+            public SubscriptionCredentialsAdapter(ServiceClientCredentials wrapped, string subscriptionId)
+            {
+                _credentials = wrapped;
+                _subscriptionId = subscriptionId;
+            }
+            public override string SubscriptionId
+            {
+                get { return _subscriptionId; }
+            }
 
-				var account = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-				if (username != null && password != null)
-					account.Id = username;
-
-				var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-
-				var accessToken =
-					authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-						.AccessToken;
-
-				return new TokenCloudCredentials(accessToken);
-			}
-
-			public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
-			{
-				return new TokenCloudCredentials(subId.ToString(), creds.Token);
-			}
-		}
-	}
+            public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+            {
+                return _credentials.ProcessHttpRequestAsync(request, cancellationToken);
+            }
+        }
+    }
 
 You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
