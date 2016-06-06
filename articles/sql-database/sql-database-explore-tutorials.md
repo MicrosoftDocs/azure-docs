@@ -178,4 +178,4 @@ In this tutorial, you will learn about [Data Sync](http://download.microsoft.com
 
 ## Next Steps
 
-[Explore Azure SQL Database Tutorials](sql-database-explore-tutorials.md)
+[Explore Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)
