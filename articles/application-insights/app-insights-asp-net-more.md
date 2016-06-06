@@ -46,8 +46,8 @@ Here's a summary of features that you might not have tried in [Visual Studio App
 
 ## Data management
 
-
-|---|---
+|||
+|---|---|
 |[**Continuous Export**](app-insights-export-telemetry.md)<br/>Copy all your telemetry into storage so that you can analyze it your own way.|
 |**Data access API**<br/>Coming soon.|
 |[**Sampling**](app-insights-sampling.md)<br/>Reduces the data rate and helps you stay within the limit of your pricing tier.|![Sampling tile](./media/app-insights-asp-net-more/030.png)
