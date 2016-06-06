@@ -19,9 +19,9 @@
 
 # Choose a SKU or tier for Azure Search
 
-When creating a search service in Azure Search, one of the requirements is to choose the tier or SKU: Free, Basic, or Standard, where Standard is available in multiple resource configurations and capacities. 
+Before you can [create a search service](search-create-service-portal.md) in Azure Search, you will need to decide which tier or SKU to provision the service at. SKUs include: Free, Basic, or Standard, where Standard is available in multiple resource configurations and capacities. 
 
-Capacity and costs of running the service go hand-in-hand. Charts in this article can help you decide which SKU delivers the right balance.
+Capacity and costs of running the service go hand-in-hand. Information in this article can help you decide which SKU delivers the right balance.
 
 - Step 1: Review the SKU descriptions below to become familiar with each one.
 - Step 2: Answer a series of questions to narrow down your choice.
@@ -69,4 +69,10 @@ Most customers can rule specific SKUs in or out based on their answers to these 
 As a last step, revisit the [pricing page](https://azure.microsoft.com/pricing/details/search/) and the [per-service and per-index](search-limits-quotas-capacity.md) limits across the service itself, which will vary depending on whether you provisioned that service at Basic or a Standard SKU. 
 
 If either the price or storage requirements are out of bounds, you might want to refactor the workloads among multiple smaller services (for example). At more granular level, you could redesign indexes to be smaller, or use filters to make queries more efficient.
+
+## Next step
+
+After choosing a SKU, follow up with these steps:
+- [Create a search service](search-create-service-portal.md)
+- [Optionally configure resources through partition and replica allocations](search-capacity-planning.md)
 

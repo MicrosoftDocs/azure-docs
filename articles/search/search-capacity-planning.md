@@ -19,6 +19,8 @@
 
 # Scale resource levels for query and indexing workloads in Azure Search
 
+After you [choose a SKU](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally configure service resources.
+
 In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and IO, or replicas for higher query loads or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). 
 
 Scale settings are available when you provision a billable service at either the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md).  
