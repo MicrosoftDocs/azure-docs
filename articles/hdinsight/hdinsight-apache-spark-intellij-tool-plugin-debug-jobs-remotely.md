@@ -50,9 +50,9 @@ This article provides step-by-step guidance on how to use the HDInsight tools pl
 
 Follow the instructions from the below links to create an Azure Virtual Network and then verify the connectivity between the desktop and Azure Virtual Network.
 
-* [Create a VNet with a site-to-site VPN connection using Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Create a VNet with a site-to-site VPN connection using PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-* [Configure a point-to-site connection to a virtual network using PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Create a VNet with a site-to-site VPN connection using Azure Portal](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Create a VNet with a site-to-site VPN connection using PowerShell](..\vpn-gateway\vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Configure a point-to-site connection to a virtual network using PowerShell](..\vpn-gateway\vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## Step 2: Create an HDInsight Spark cluster
 
