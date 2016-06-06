@@ -17,7 +17,9 @@
 
 # Create Docker Hosts in Azure with Docker-Machine
 
-Running [Docker](https://www.docker.com/) containers requires a host VM running the docker daemon. This topic describes how to use the [docker-machine](https://docs.docker.com/machine/) command to create new Linux VMs, configured with the Docker daemon, running in Azure. 
+Running [Docker](https://www.docker.com/) containers requires a host VM running the docker daemon.
+This topic describes how to use the [docker-machine](https://docs.docker.com/machine/) command
+to create new Linux VMs, configured with the Docker daemon, running in Azure. 
 
 **Note:** 
 - *This article depends on docker-machine version 0.7.0 or greater*
@@ -27,7 +29,8 @@ Running [Docker](https://www.docker.com/) containers requires a host VM running 
 
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver. 
 
-The Azure driver will need your subscription id. You can use the [Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/) or the [Azure Poral](https:/portal.azure.com) to retrieve your Azure Subscription. 
+The Azure driver will need your subscription id. You can use the [Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+or the [Azure Portal](https:/portal.azure.com) to retrieve your Azure Subscription. 
 
 **Using the Azure Portal**
 - Select Subscriptions from the left navigation page, and copy to subscription id.
@@ -36,7 +39,8 @@ The Azure driver will need your subscription id. You can use the [Azure CLI](htt
 - Type ```azure account list``` and copy the subscription id.
 
 
-Type `docker-machine create --driver azure` to see the options and their default values. You can also see the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/) for more info. 
+Type `docker-machine create --driver azure` to see the options and their default values.
+You can also see the [Docker Azure Driver documentation](https://docs.docker.com/machine/drivers/azure/) for more info. 
 
 The following example relies upon the default values, but it does optionally open port 80 on the VM for internet access. 
 
@@ -65,7 +69,8 @@ docker info
 
 ## Run a container
 
-With a host configured, you can now you can run a simple web server to test whether your host was configured  correctly. Here we use a standard nginx image, specify that it should listen on port 80, and that if the host VM restarts, the container will restart as well (`--restart=always`). 
+With a host configured, you can now you can run a simple web server to test whether your host was configured correctly.
+Here we use a standard nginx image, specify that it should listen on port 80, and that if the host VM restarts, the container will restart as well (`--restart=always`). 
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
@@ -103,6 +108,7 @@ PS C:\> docker-machine ip MyDockerHost
 ![Running ngnix container](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
 ##Summary
-With docker-machine you can easily provision docker hosts in Azure for your individual docker host validations. For production hosting of containers, see the [Azure Container Service](http://aka.ms/AzureContainerService)
+With docker-machine you can easily provision docker hosts in Azure for your individual docker host validations.
+For production hosting of containers, see the [Azure Container Service](http://aka.ms/AzureContainerService)
 
 To develop .NET Core Applications with Visual Studio, see [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS)

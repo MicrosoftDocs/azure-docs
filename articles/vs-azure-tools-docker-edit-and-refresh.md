@@ -18,7 +18,10 @@
 # Debugging apps in a local Docker container
 
 ## Overview
-The Visual Studio Tools for Docker provides a consistent way to develop in a and validate your application locally in a Linux Docker container. You don't have to restart the container each time you make a code change. This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container, make any necessary changes, and then refresh the browser to see those changes. It will also show you how to set breakpoints for debugging.
+The Visual Studio Tools for Docker provides a consistent way to develop in a and validate your application locally in a Linux Docker container.
+You don't have to restart the container each time you make a code change.
+This article will illustrate how to use the "Edit and Refresh" feature to start an ASP.NET Core Web app in a local Docker container,
+make any necessary changes, and then refresh the browser to see those changes. It will also show you how to set breakpoints for debugging.
 
 > [AZURE.NOTE] Windows Container support will be coming in a future release
 
@@ -29,12 +32,16 @@ The following tools need to be installed.
 - [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
 - [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
 
-To run Docker containers locally, you'll need a local docker client. You can use the released [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) which requires Hyper-V to be disabled, or you can alternatively use [Docker for Windows Beta](https://beta.docker.com) which uses Hyper-V, and requires Windows 10.
+To run Docker containers locally, you'll need a local docker client.
+You can use the released [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) which requires Hyper-V to be disabled,
+or you can alternatively use [Docker for Windows Beta](https://beta.docker.com) which uses Hyper-V, and requires Windows 10.
 
 If using Docker Toolbox, you'll need to [Configure the Docker client](./vs-azure-tools-docker-setup.md)
 
 ## Editing an app running in a local Docker container
-Visual Studio 2015 Tools for Docker enables ASP .NET Core RC2 Web app developers to test and run their application in a Docker container, make changes to the application in Visual Studio and refresh the browser to see changes applied to the app running inside of the container. With .NET Core and Visual Studio Tools for Docker version 0.20, you can also set breakpoints for the code running with the Docker Container.
+Visual Studio 2015 Tools for Docker enables ASP .NET Core RC2 Web app developers to test and run their application in a Docker container,
+make changes to the application in Visual Studio and refresh the browser to see changes applied to the app running inside of the container.
+With .NET Core and Visual Studio Tools for Docker version 0.20, you can also set breakpoints for the code running with the Docker Container.
 
 1. From the Visual Studio menu, select **File > New > Project**.
 
@@ -56,8 +63,9 @@ Visual Studio 2015 Tools for Docker enables ASP .NET Core RC2 Web app developers
 
 	![][1]
 
-> [AZURE.NOTE] If using the [Docker for Windows Beta](https://beta.docker.com), open Properties\Docker.props and remove the default value and restart Visaul Studio for the value to take affect.
-![][2]
+> [AZURE.NOTE] If using the [Docker for Windows Beta](https://beta.docker.com), open Properties\Docker.props, remove the default value
+> and restart Visaul Studio for the value to take affect.
+> ![][2]
 
 ##Edit & Refresh
 To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
