@@ -275,7 +275,7 @@ PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/RecoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/RecoveryServicesVault/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId** : You can get this informatation from the Audit logs. The ResourceId is provided in the Resource column of the Operation logs.
+**ResourceId** : You can get this information from the Audit logs. The ResourceId is provided in the Resource column of the Operation logs.
 
 **OperationName** : This will be of the format "Microsoft.RecoveryServices/recoveryServicesVault/<EventName>" where EventName is one of Register, Unregister, ConfigureProtection, Backup, Restore, StopProtection, DeleteBackupData, CreateProtectionPolicy, DeleteProtectionPolicy, UpdateProtectionPolicy
 
@@ -293,7 +293,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Event-based alerts are subjected to the following limitations:
 
 1. Alerts are triggered on all virtual machines in the Recovery Services vault. You cannot customize the alert for specific set of virtual machines in a Recovery Services vault.
-2. This feature in in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
+2. This feature is in Preview. [Learn more](../azure-portal/insights-powershell-samples.md#create-alert-rules)
 3. Alerts are sent from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
 [AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
