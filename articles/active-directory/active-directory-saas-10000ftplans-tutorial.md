@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="06/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -118,9 +118,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10000ftplans_04.png) 
 
 
-    a. In the **Sign On URL** textbox, type **“https://app.10000ft.com”**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign on to your 10,000ft Plans application using the following pattern: `https://<application name>.10000ft.com`
 
-	b. In the **Identifier** textbox, type **"https://app.10000ft.com/saml/metadata"**.
+	b. In the **Identifier** textbox, type the URL using the following pattern: `https://<application name>.10000ft.com/saml/metadata`
 
 	c. Click **Next**
 
