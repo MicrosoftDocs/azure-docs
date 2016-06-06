@@ -22,34 +22,7 @@
 
 This blog describes best practices and troubleshooting steps for [node applications](app-service-web-nodejs-get-started.md) running on Azure Webapps (with [iisnode](https://github.com/azure/iisnode)).
 
-## Sections
-
-
-1.  IISNODE configuration (details and recommendations)
-
-2.  Scenarios and recommendations/troubleshooting.
-
-    1.  Too many outbound calls
-
-    2.  Too much CPU
-
-        1.  Profiling node applications
-
-    3.  Too much memory
-
-        1.  Leak detection and heap diffs
-
-    4.  Node.exe gets killed randomly
-
-    5.  Node.exe does not start
-
-    6.  Node application crashed.
-
-    7.  Node application startup is slow (cold start)
-
-3.  What do IISNODE http status and substatus mean?
-
-*NOTE:* Use Caution when using troubleshooting steps on your PRODUCTION site. Recommendation is to troubleshoot your app on a non-production setup for example your staging slot and when the issue is fixed, swap your staging slot with your production slot.
+>[AZURE.NOTE] Use Caution when using troubleshooting steps on your PRODUCTION site. Recommendation is to troubleshoot your app on a non-production setup for example your staging slot and when the issue is fixed, swap your staging slot with your production slot.
 
 ## IISNODE Configuration
 
@@ -139,8 +112,8 @@ This blog describes best practices and troubleshooting steps for [node applicati
 
     Default value is 0 which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ milliseconds. To understand what page out means, please refer to <https://msdn.microsoft.com/en-us/library/windows/desktop/ms682606(v=vs.85).aspx>. This setting will be useful for applications that consume a lot of memory and want to pageout memory to disk occasionally to free up some RAM.
 
-## Scenarios
 
+## Scenarios and recommendations/troubleshooting
 
 ### My node application is making too many outbound calls.
 
