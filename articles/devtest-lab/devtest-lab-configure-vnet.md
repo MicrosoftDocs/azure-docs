@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Configure a virtual network for a lab
@@ -31,24 +31,24 @@ The following steps walk you through adding an existing virtual network (and sub
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+1. Select **Browse**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab. 
+1. From the list of labs, select the desired lab. 
 
 1. The selected lab's **Settings** blade will be displayed. 
 
-1. Tap **Virtual networks**.
+1. Select **Virtual networks**.
 
 	![Virtual networks can be configured from the lab's Settings blade](./media/devtest-lab-configure-vnet/lab-settings-vnet.png)
 	
 1. On the **Virtual networks** blade, you'll see a list of virtual networks you've configured for the current lab as well
 as the default virtual network that is created for your lab. 
 
-1. Tap **+ Add**.
+1. Select **+ Add**.
 
 	![Add an existing virtual network to your lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 	
-1. On the **Virtual network** blade, tap **[Select virtual network]**.
+1. On the **Virtual network** blade, select **[Select virtual network]**.
 
 	![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 	
@@ -68,7 +68,7 @@ enabled.
 
 1. In the **MAX VMS PER USER** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
 
-1. Tap **Save**.
+1. Select **Save**.
 
 1. Now that the virtual network is configured, it can be selected when creating a new VM. 
 This is explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md). 
