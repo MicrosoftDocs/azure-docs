@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Configure the Roles for an Azure Cloud Service with Visual Studio
@@ -235,7 +235,7 @@ Local storage settings apply to all service configurations. You can only add, re
 
 1. (Optional) To view this file that you created when you run your cloud service locally, use the following steps:
 
-  1. Run the web role and click on **Button1** to make sure that the code inside `Button1_Click` gets called.
+  1. Run the web role and select **Button1** to make sure that the code inside `Button1_Click` gets called.
 
   1. In the notification area, open the shortcut menu for the Azure icon and choose **Show Compute Emulator UI**. The **Azure Compute Emulator** dialog box appears.
 
