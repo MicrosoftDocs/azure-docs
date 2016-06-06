@@ -103,7 +103,7 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [OAuth 2.0 protocol: Using the authorization code grant](active-directory-protocols-oauth-code.md): You can use the OAuth 2.0 protocol's authorization code grant, to authorize access to Web applications and Web APIs in your Azure Active Directory tenant.
 
-- [OAuth 2.0 protocol: Understanding the OAuth2 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) : Learn more about the implicit authorization grant, and whether it's right for your application.
+- [OAuth 2.0 protocol: Understanding the implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) : Learn more about the implicit authorization grant, and whether it's right for your application.
 
 - [OpenID Connect 1.0 protocol: Sign-in and authentication](active-directory-protocols-openid-connect-code.md): The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol. A client application can receive an id_token to manage the sign-in process, or augment the authorization code flow to receive both an id_token and authorization code.
 
