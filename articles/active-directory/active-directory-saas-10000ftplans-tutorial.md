@@ -91,7 +91,7 @@ This link relationship is established by assigning the value of the **user name*
 
 To configure and test Azure AD single sign-on with 10,000ft Plans, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 3. **[Creating a 10,000ft Plans test user](#creating-a-10,000ft-plans-test-user)** - to have a counterpart of Britta Simon in Certify that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
