@@ -32,7 +32,7 @@ When you use agent-based collection for log data, you must configure [data sourc
 
 There are three easy ways to enable the Log Analytics virtual machine extension:
 
-+ By using the Microsoft Azure management portal
++ By using the Azure portal
 + By using Azure PowerShell
 + By using an Azure Resource Manager template
 
@@ -58,7 +58,7 @@ You can install the agent for Log Analytics and connect the Azure virtual machin
 
 ## Use Azure PowerShell to enable the Log Analytics VM extension
 
-You need to use slightly different commands for an Azure classic virtual machine and a Resource Manager virtual machines. Following are examples for both classic and Resource Manager virtual machines.
+You need to use slightly different commands for Azure classic virtual machines and Resource Manager virtual machines. Following are examples for both classic and Resource Manager virtual machines.
 
 For classic virtual machines, use the following PowerShell example:
 
