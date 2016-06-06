@@ -117,17 +117,32 @@ For example, here's a table that shows how many request units to provision at th
 Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.  
 
 
+## Provisioned document storage and index overhead
+DocumentDB supports the creation of both single-partition and partitioned collections. Each partition in DocumentDB supports up to 10 GB of SSD backed storage. The 10GB of document storage includes the documents plus storage for the index. By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema. Based on applications using DocumentDB, the typical index overhead is between 2-20%. The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings. 
+
+By default all documents are indexed by DocumentDB automatically. However, if you want to fine tune the index overhead, you can chose to remove certain documents from being indexed at the time of inserting or replacing a document, as described in [DocumentDB indexing policies](documentdb-indexing-policies.md). You can configure a DocumentDB collection to exclude all documents within the collection from being indexed. You can also configure a DocumentDB collection to selectively index only a certain properties or paths with wildcards of your JSON documents, as described in [Configuring the indexing policy of a collection](documentdb-indexing-policies.md#configuring-the-indexing-policy-of-a-collection). Excluding properties or documents also improves the write throughput – which means you will consume fewer request units. 
+
+
 ## Choice of consistency level and throughput
 The choice of default consistency level has an impact on the throughput and latency. You can set the default consistency level both programmatically and through the Azure Portal. You can also override the consistency level on a per request basis. By default, the consistency level is that of session which provides monotonic read/writes and read your write guarantees. Session consistency is great for user-centric applications and provides an ideal balance of consistency and performance trade-offs.    
 
 For instructions on changing your consistency level on the Azure Portal, see [How to Manage a DocumentDB Account](documentdb-manage-account.md#consistency). Or, for more information on consistency levels, see [Using consistency levels](documentdb-consistency-levels.md).
 
-## Provisioned document storage and index overhead
-DocumentDB supports the creation of both single-partition and partitioned collections. Each partition in DocumentDB supports up to 10 GB of SSD backed storage. The 10GB of document storage includes the documents plus storage for the index. By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema. Based on applications using DocumentDB, the typical index overhead is between 2-20%. The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings. 
 
-By default all documents are indexed by DocumentDB automatically. However, if you want to fine tune the index overhead, you can chose to remove certain documents from being indexed at the time of inserting or replacing a document, as described in [DocumentDB indexing policies](documentdb-indexing-policies.md). You can configure a DocumentDB collection to exclude all documents within the collection from being indexed. You can also configure a DocumentDB collection to selectively index only a certain properties or paths with wildcards of your JSON documents, as described in [Configuring the indexing policy of a collection](documentdb-indexing-policies.md#configuring-the-indexing-policy-of-a-collection). Excluding properties or documents also improves the write throughput – which means you will consume fewer request units.   
+## Global thoroughput
+
+DocumentDB Accounts can be configured to span many Azure regions and [regions can be added or removed] [[manageaccount-addregion] throughout the lifespan of a database account.
+
+When a DocumentDB Account spans multiple regions, the throughput reservation for each collection in that account is set at a regional level i.e. the RUs set on a Collection is the number of RUs avaialbe for that collection in each region. For example, if you have a collection with 10,000 [RU/s](documentdb-request-units.md) provisioned, this collection is able to serve up to 10,000 RU/s in each of the configured regions for a global database. 
+
+When a read or write operation is performed on a collection in a region, it will consume RUs from that collection's budget in that specific region only. Unlike other distributed database systems, the RU charge for write operations does not increase as the number of regions is increased. Also, there is no additional RU charge for receiving and persisting the replicated writes at the receiving regions. 
+
+The above behavior enures that that application code running in each region has reserved and predictable database throughput regardless of region additions or removals. This enables you to massively scale up your application without having to worry about capacity planning or impact to performance.
+
 ## Next steps
 For instructions on monitoring performance levels on the Azure Portal, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md).
 
 For more information on choosing performance levels for collections, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
  
+
+[manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion

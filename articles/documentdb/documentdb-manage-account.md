@@ -21,25 +21,6 @@
 
 Learn how to work with keys and consistency levels. Also, learn how to delete an account in the Azure Portal.
 
-## <a id="addregion"></a>Adding regions
-
-DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs) by selecting Add /remove regions. 
-
-![Alt text; Add regions under DocumentDB Account > Settings > Add/Remove Regions][1]
-
-### Selecting regions
-
-When deploying to two or more regions, it is recommended that regions are selected based on the region pairs described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr].
-
-Specifically, when deploying multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. 
-
-## <a id="selectwriteregion"></a>Write region selection
-
-With its [current standard offers] [offers], while all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. For denoting the active write region, click and drag regions to order the list of regions - the first region in the list of regions is the active write region. 
-
-![Alt text; Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][2]
-
-
 ## <a id="consistency"></a>Manage DocumentDB consistency settings
 
 Selecting the right consistency level depends on the semantics of your application. We recommend that you familiarize yourself with the available consistency levels in DocumentDB here: [Using consistency levels to maximize availability and performance in DocumentDB] [consistency]. DocumentDB provides consistency, availability and performance guarantees, regardless of the consistency level of your database account. Configuring your database account with consistency level of strong requires that your data is confined to a single Azure region. On the other hand, the relaxed consistency levels - bounded staleness, session or eventual allow you to associate any number of Azure regions with your database account. Following simple steps allow you to select the default consistency level for your database account. 
@@ -60,6 +41,25 @@ Selecting the right consistency level depends on the semantics of your applicati
 
 *Note that it can take several minutes before a change to the default
 consistency setting takes effect across your DocumentDB account.*
+
+## <a id="addregion"></a>Adding regions
+
+DocumentDB is available in most [Azure regions] [azureregions]. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs) by selecting Add /remove regions. 
+
+![Alt text; Add regions under DocumentDB Account > Settings > Add/Remove Regions][1]
+
+### Selecting regions
+
+When deploying to two or more regions, it is recommended that regions are selected based on the region pairs described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions] [bcdr].
+
+Specifically, when deploying multiple regions, make sure to select the same number of regions (+/-1 for odd/even) from each of the paired region columns. 
+
+## <a id="selectwriteregion"></a>Write region selection
+
+With its [current standard offers] [offers], while all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. For denoting the active write region, click and drag regions to order the list of regions - the first region in the list of regions is the active write region. 
+
+![Alt text; Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][2]
+
 
 ## <a id="keys"></a>View, copy, and regenerate access keys
 When you create a DocumentDB account, the service generates two master access keys that
