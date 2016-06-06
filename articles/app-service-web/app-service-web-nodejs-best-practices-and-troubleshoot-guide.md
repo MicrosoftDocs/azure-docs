@@ -1,7 +1,9 @@
 Best practices and troubleshooting guide for node applications on Azure Web Apps
 ================================================================================
 
-This blog describes best practices and troubleshooting steps for node applications running on Azure Webapps (with [iisnode](https://github.com/azure/iisnode)).
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
+
+This blog describes best practices and troubleshooting steps for [node applications](app-service-web-nodejs-get-started.md) running on Azure Webapps (with [iisnode](https://github.com/azure/iisnode)).
 
 Sections
 --------
