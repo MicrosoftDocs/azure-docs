@@ -26,7 +26,7 @@ ARM templates deploy and provision all of the resources for your application in 
 
 ## Authenticate PowerShell with Microsoft Azure Stack (required)
 
-1. [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md/#turn-off-ie-enhanced-security-and-enable-cookies).
+1. [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#turn-off-ie-enhanced-security-and-enable-cookies).
 
 2.  Run the following PowerShell cmdlet to configure the environment, and authenticate a user.
 
