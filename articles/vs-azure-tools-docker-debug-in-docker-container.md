@@ -63,8 +63,9 @@ With .NET Core and Visual Studio Tools for Docker version 0.20, you can also set
 
 	![][1]
 
-> [AZURE.NOTE] If using the [Docker for Windows Beta](https://beta.docker.com), open Properties\Docker.props and remove the default value and restart Visaul Studio for the value to take affect.
-	![][2]
+> [AZURE.NOTE] If using the [Docker for Windows Beta](https://beta.docker.com), open Properties\Docker.props, remove the default value
+> and restart Visaul Studio for the value to take affect.
+> ![][2]
 
 ##Edit & Refresh
 To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
@@ -113,6 +114,7 @@ with the production realism of developing within a Docker container.
 
 ##TODO:
 
-*links to details on the files added to the project*
-*link to the troubleshooting doc - resolve the duplicate docs
+[0]: ./media/vs-docker-add-docker-support/add-docker-support.png
+[1]: ./media/vs-docker-add-docker-support/docker-files-added.png
+[2]: ./media/vs-docker-add-docker-support/docker-props.png
 [3]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
