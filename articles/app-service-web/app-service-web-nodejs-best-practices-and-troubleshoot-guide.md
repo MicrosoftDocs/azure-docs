@@ -217,7 +217,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 </code>
 
-Go to your scm site – <https://&lt;yoursite&gt;.scm.azurewebsites.net/DebugConsole>
+Go to your scm site – <https://yoursite.scm.azurewebsites.net/DebugConsole>
 
 You will see a command prompt as shown below. Go into your site/wwwroot directory
 
