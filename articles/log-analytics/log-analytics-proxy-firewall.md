@@ -96,7 +96,6 @@ Here's a list of agent resources and ports:
 |--------------|-----|
 |*.ods.opinsights.azure.com|Port 443|
 |*.oms.opinsights.azure.com|Port 443|
-|ods.systemcenteradvisor.com|Port 443|
 |*.blob.core.windows.net/|Port 443|
 
 Here's a list of management server resources and ports:
@@ -109,7 +108,6 @@ Here's a list of management server resources and ports:
 |scadvisorservice.accesscontrol.windows.net|Port 443|
 |*.blob.core.windows.net|Port 443|
 |data.systemcenteradvisor.com|Port 443|
-|ods.systemcenteradvisor.com|Port 443|
 |*.systemcenteradvisor.com|Port 443|
 
 Here's a list of OMS and Operations Manager console resources and ports.
@@ -168,8 +166,9 @@ Use the following procedures to register your Operations Manager management grou
     ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
 - Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
 
-        Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
-
+    ```
+    Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
+    ```
 
 ### To validate that Operations Manager is sending data to the OMS service
 
