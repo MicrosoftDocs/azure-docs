@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio
