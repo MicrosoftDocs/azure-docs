@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Explore SQL Database Tutorials"
+   pageTitle="Explore Azure SQL Database Tutorials | Microsoft Azure"
    description="Learn about SQL Database features and capabilities"
    keywords=""
    services="sql-database"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="06/01/2016"
    ms.author="carlrab"/>
    
-# Explore SQL Database Tutorials
+# Explore Azure SQL Database Tutorials
 
-The links below take you to an overview of each listed feature area and a quick start tutorial for each area.
+The links below take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
 
 ## Using SQL Server Management Studio
 
@@ -175,3 +175,7 @@ In this tutorial, you will learn about [Data Sync](http://download.microsoft.com
 |---|---|---| 
 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
 ||||
+
+## Next Steps
+
+[Explore Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)
