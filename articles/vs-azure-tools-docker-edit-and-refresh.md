@@ -65,7 +65,10 @@ With .NET Core and Visual Studio Tools for Docker version 0.20, you can also set
 
 > [AZURE.NOTE] If using the [Docker for Windows Beta](https://beta.docker.com), open Properties\Docker.props, remove the default value
 > and restart Visaul Studio for the value to take affect.
-> ![][2]
+> 
+> ```
+> <DockerMachineName Condition="'$(DockerMachineName)'=="></DockerMachineName>
+> ```
 
 ##Edit & Refresh
 To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
@@ -114,7 +117,7 @@ Often, changes will need further inspection, leveraging the debugging features o
 
 1.  Switch to Visual Studio to view the breakpoint, and inspect the value of message.
 
-	![][3]
+	![][2]
 
 ##Sumamry
 With [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS), you can get the productivity of working locally,
@@ -147,5 +150,4 @@ with the production realism of developing within a Docker container.
 
 [0]: ./media/vs-azure-tools-docker-edit-and-refresh/add-docker-support.png
 [1]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-files-added.png
-[2]: ./media/vs-azure-tools-docker-edit-and-refresh/docker-props.png
-[3]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
+[2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
