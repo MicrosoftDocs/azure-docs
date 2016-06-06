@@ -17,7 +17,7 @@
 
 # More telemetry from Application Insights
 
-Here's a summary of features that you might not have tried in [Visual Studio Application Insights](app-insights-overview.md). We'll assume you already got started. Application Insights lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+Here's a summary of features that you might not have tried in [Visual Studio Application Insights](app-insights-overview.md). We'll assume you already [got started](app-insights-asp-net.md). Application Insights lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ## More telemetry
 
